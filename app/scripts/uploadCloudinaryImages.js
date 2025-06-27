@@ -7,7 +7,7 @@ const chalk = require('chalk'); // For colored console output
 const ora = require('ora');     // For spinner during upload
 
 async function main() {
-  console.log(chalk.bold.blue('--- Starting Cloudinary Image Upload ---'));
+  console.log(chalk.default.bold.blue('--- Starting Cloudinary Image Upload ---')); // MODIFIED
 
   // 1. Configure Cloudinary
   const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
@@ -15,8 +15,8 @@ async function main() {
   const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
 
   if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
-    console.error(chalk.red('Error: Cloudinary API credentials are not set as environment variables.'));
-    console.error(chalk.red('Please ensure CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET are configured.'));
+    console.error(chalk.default.red('Error: Cloudinary API credentials are not set as environment variables.')); // MODIFIED
+    console.error(chalk.default.red('Please ensure CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET are configured.')); // MODIFIED
     process.exit(1);
   }
 
@@ -29,11 +29,11 @@ async function main() {
 
   // 2. Define image directory
   const imagesDir = path.join(process.cwd(), 'public', 'images'); // Assumes public/images in root
-  console.log(chalk.cyan(`Scanning for images in: ${imagesDir}`));
+  console.log(chalk.default.cyan(`Scanning for images in: ${imagesDir}`)); // MODIFIED
 
   if (!fs.existsSync(imagesDir)) {
-    console.warn(chalk.yellow(`Warning: Directory '${imagesDir}' does not exist. No images to upload.`));
-    console.log(chalk.bold.blue('--- Cloudinary Image Upload Finished (No images found) ---'));
+    console.warn(chalk.default.yellow(`Warning: Directory '${imagesDir}' does not exist. No images to upload.`)); // MODIFIED
+    console.log(chalk.default.bold.blue('--- Cloudinary Image Upload Finished (No images found) ---')); // MODIFIED
     return;
   }
 
@@ -44,19 +44,19 @@ async function main() {
   });
 
   if (imageFiles.length === 0) {
-    console.warn(chalk.yellow('No image files found in the directory.'));
-    console.log(chalk.bold.blue('--- Cloudinary Image Upload Finished (No images to upload) ---'));
+    console.warn(chalk.default.yellow('No image files found in the directory.')); // MODIFIED
+    console.log(chalk.default.bold.blue('--- Cloudinary Image Upload Finished (No images to upload) ---')); // MODIFIED
     return;
   }
 
-  console.log(chalk.green(`Found ${imageFiles.length} image(s) to process.`));
+  console.log(chalk.default.green(`Found ${imageFiles.length} image(s) to process.`)); // MODIFIED
 
   // 3. Upload each image
   for (const file of imageFiles) {
     const filePath = path.join(imagesDir, file);
     const publicId = path.basename(file, path.extname(file)); // e.g., 'beryllium-laser-cleaning-hero'
 
-    const spinner = ora(chalk.magenta(`Uploading ${file}...`)).start();
+    const spinner = ora(chalk.default.magenta(`Uploading ${file}...`)).start(); // MODIFIED
 
     try {
       // Check if resource exists on Cloudinary and its current version (optional optimization)
@@ -73,24 +73,24 @@ async function main() {
         resource_type: 'image', // Explicitly specify resource type
       });
 
-      spinner.succeed(chalk.green(`Uploaded ${file} (Public ID: ${publicId}): ${uploadResult.secure_url}`));
+      spinner.succeed(chalk.default.green(`Uploaded ${file} (Public ID: ${publicId}): ${uploadResult.secure_url}`)); // MODIFIED
     } catch (error) {
-      spinner.fail(chalk.red(`Failed to upload ${file}: ${error.message}`));
-      console.error(chalk.red('Detailed error:', error));
+      spinner.fail(chalk.default.red(`Failed to upload ${file}: ${error.message}`)); // MODIFIED
+      console.error(chalk.default.red('Detailed error:', error)); // MODIFIED
       // Decide if you want to exit on error or continue
       // process.exit(1);
     }
   }
 
-  console.log(chalk.bold.blue('--- Cloudinary Image Upload Complete ---'));
+  console.log(chalk.default.bold.blue('--- Cloudinary Image Upload Complete ---')); // MODIFIED
 }
 
 main().catch(error => {
   // Try to use chalk, but fall back to plain console.error if chalk fails
   try {
-    // Check if chalk.red and chalk.red.bold exist before using them
-    if (chalk && chalk.red && typeof chalk.red.bold === 'function') {
-      console.error(chalk.red.bold('An unhandled error occurred during upload:'), error);
+    // Check if chalk.default.red and chalk.default.red.bold exist before using them (MODIFIED)
+    if (chalk && chalk.default && chalk.default.red && typeof chalk.default.red.bold === 'function') {
+      console.error(chalk.default.red.bold('An unhandled error occurred during upload:'), error); // MODIFIED
     } else {
       console.error('An unhandled error occurred during upload (Chalk failed to format):', error);
     }
