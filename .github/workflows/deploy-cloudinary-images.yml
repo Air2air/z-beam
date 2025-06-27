@@ -1,59 +1,55 @@
 # .github/workflows/deploy-cloudinary-images.yml
 
-# Name of the workflow as it appears in the GitHub Actions tab
 name: Deploy Images to Cloudinary
 
-# Defines when this workflow should run
 on:
-  # Trigger the workflow on pushes to the 'main' branch
   push:
     branches:
-      - main # Ensure this matches your primary branch (e.g., 'master', 'production')
-    # Limit runs to only when specific files or directories change
+      - main
     paths:
-      - 'public/images/**' # Run if any file in public/images/ (or its subdirectories) changes
-      - 'app/scripts/uploadCloudinaryImages.js' # Run if the upload script itself changes
-      - '.github/workflows/deploy-cloudinary-images.yml' # Run if this workflow file itself changes
+      - 'public/images/**'
+      - 'app/scripts/uploadCloudinaryImages.js'
+      - '.github/workflows/deploy-cloudinary-images.yml'
+  workflow_dispatch: # Keep this for manual triggers
 
-  # Allows you to manually trigger the workflow from the GitHub UI
-  workflow_dispatch:
-
-# Defines the jobs that run in this workflow
 jobs:
   upload-images:
-    # Specifies the type of runner to use for the job
-    runs-on: ubuntu-latest # A hosted GitHub Actions runner running Ubuntu
+    runs-on: ubuntu-latest
 
-    # Steps define a sequence of tasks that will be executed on the runner
     steps:
       - name: Checkout repository
-        # Uses the 'actions/checkout' action to clone your repository onto the runner
         uses: actions/checkout@v4
 
       - name: Set up Node.js
-        # Uses the 'actions/setup-node' action to set up a Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Specify the Node.js version to use (e.g., '18', '20', '22')
+          node-version: '20'
 
-      - name: Install dependencies
-        # Runs the npm install command to install packages listed in package.json
-        run: npm install
+      - name: Install dependencies (using npm ci for CI/CD)
+        run: npm ci # <--- CHANGED FROM npm install
 
-      - name: Debug - Check Chalk installation
+      - name: Debug - Verify Node Modules and Requires
         run: |
+          echo "Listing node_modules contents:"
           ls -la node_modules/chalk
-          node -e "try { console.log('Chalk loaded:', require('chalk').red.bold('test')); } catch(e) { console.error('Chalk check failed:', e.message); }"
-        # This step will:
-        # 1. List the contents of the chalk module directory
-        # 2. Attempt to load chalk and use a method, printing success or failure
-
+          ls -la node_modules/ora
+          echo ""
+          echo "Attempting to require chalk and ora in Node.js:"
+          node -e "
+            try {
+              const chalk = require('chalk');
+              const ora = require('ora');
+              console.log('Successfully required chalk and ora.');
+              console.log('Chalk loaded:', chalk.red.bold('test chalk text'));
+              console.log('Ora loaded (mock):', ora('test ora text').spinner);
+            } catch (e) {
+              console.error('Failed to require chalk or ora:', e.message);
+              process.exit(1); # Exit if this fails, as script won't run
+            }
+          "
 
       - name: Run Cloudinary Upload Script
-        # Executes your Node.js script to upload images to Cloudinary
-        # The path 'app/scripts/uploadCloudinaryImages.js' is relative to the repository root
         run: node app/scripts/uploadCloudinaryImages.js
-        # Pass GitHub Secrets as environment variables to your Node.js script
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
