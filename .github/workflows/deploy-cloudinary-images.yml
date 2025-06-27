@@ -40,6 +40,15 @@ jobs:
         # Runs the npm install command to install packages listed in package.json
         run: npm install
 
+      - name: Debug - Check Chalk installation
+        run: |
+          ls -la node_modules/chalk
+          node -e "try { console.log('Chalk loaded:', require('chalk').red.bold('test')); } catch(e) { console.error('Chalk check failed:', e.message); }"
+        # This step will:
+        # 1. List the contents of the chalk module directory
+        # 2. Attempt to load chalk and use a method, printing success or failure
+
+
       - name: Run Cloudinary Upload Script
         # Executes your Node.js script to upload images to Cloudinary
         # The path 'app/scripts/uploadCloudinaryImages.js' is relative to the repository root

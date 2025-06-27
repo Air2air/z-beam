@@ -86,7 +86,19 @@ async function main() {
 }
 
 main().catch(error => {
-  console.error(chalk.red.bold('An unhandled error occurred during upload:'), error);
+  // Try to use chalk, but fall back to plain console.error if chalk fails
+  try {
+    // Check if chalk.red and chalk.red.bold exist before using them
+    if (chalk && chalk.red && typeof chalk.red.bold === 'function') {
+      console.error(chalk.red.bold('An unhandled error occurred during upload:'), error);
+    } else {
+      console.error('An unhandled error occurred during upload (Chalk failed to format):', error);
+    }
+  } catch (logError) {
+    // Fallback if even the chalk check fails for some reason
+    console.error('An unhandled error occurred during upload (Chalk logging error):', error);
+    console.error('Error during logging attempt:', logError);
+  }
   process.exit(1);
 });
 
