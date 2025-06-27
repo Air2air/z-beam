@@ -44,7 +44,7 @@ jobs:
               console.log('Ora loaded (mock):', ora('test ora text').spinner);
             } catch (e) {
               console.error('Failed to require chalk or ora:', e.message);
-              process.exit(1); # Exit if this fails, as script won't run
+              process.exit(1); 
             }
           "
 
@@ -55,7 +55,6 @@ jobs:
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
           
-
 
 
           
