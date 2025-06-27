@@ -1,8 +1,18 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
-import React from 'react'
+// app/components/mdx.tsx
+import Link from 'next/link';
+import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { highlight } from 'sugar-high';
+import React from 'react';
+import dynamic from 'next/dynamic'; // Import next/dynamic
+
+// Dynamically import ChartComponent as a Client Component
+// This tells Next.js to only load and render this component on the client side.
+const ChartComponent = dynamic(() => import('./ChartComponent'), {
+  ssr: false, // This is crucial: prevent server-side rendering of this component
+  loading: () => <p>Loading chart...</p>, // Optional: A loading state while the component loads
+});
+
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -86,6 +96,7 @@ function createHeading(level) {
   return Heading
 }
 
+// Ensure ChartComponent is included here
 let components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -97,7 +108,8 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
-}
+  ChartComponent: ChartComponent, // Add your dynamically imported ChartComponent here
+};
 
 export function CustomMDX(props) {
   return (
