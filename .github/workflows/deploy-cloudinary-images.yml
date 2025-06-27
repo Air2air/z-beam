@@ -1,0 +1,35 @@
+# .github/workflows/deploy-cloudinary-images.yml
+
+name: Deploy Images to Cloudinary
+
+on:
+  push:
+    branches:
+      - main # Or 'master', 'production', etc. - the branch you deploy from
+    paths:
+      - 'public/images/**' # Trigger this workflow ONLY when files in public/images change
+      - 'scripts/uploadCloudinaryImages.js' # Also trigger if the upload script itself changes
+
+jobs:
+  upload-images:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Action to check out your code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4 # Action to set up Node.js environment
+        with:
+          node-version: '20' # Use a recent Node.js version compatible with your project
+
+      - name: Install dependencies
+        run: npm install # Installs all dependencies including 'cloudinary', 'chalk', 'ora'
+
+      - name: Run Cloudinary Upload Script
+        run: node scripts/uploadCloudinaryImages.js
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        # Pass GitHub Secrets as environment variables to your Node.js script
