@@ -85,7 +85,8 @@ async function main() {
 
     const publicId = path.basename(filePath, path.extname(filePath)); // e.g., 'material-beryllium'
 
-    const spinner = ora(chalk.default.magenta(`Uploading ${relativePath}...`)).start();
+    // MODIFIED: ora.default instead of ora
+    const spinner = ora.default(chalk.default.magenta(`Uploading ${relativePath}...`)).start();
 
     try {
       const uploadResult = await cloudinary.uploader.upload(filePath, {
