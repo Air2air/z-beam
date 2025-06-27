@@ -74,31 +74,28 @@ async function main() {
 
   // 3. Upload each image
   for (const filePath of imageFiles) { // filePath is now the full absolute path to the image
-    // Determine the Cloudinary folder based on the image's local path relative to imagesBaseDir
-    const relativePath = path.relative(imagesBaseDir, filePath); // e.g., 'Material/material-beryllium.jpg' or 'logo.png'
-    let cloudinaryFolder = path.dirname(relativePath); // e.g., 'Material' or '.' for root files
+    // Determine the path relative to imagesBaseDir, INCLUDING subfolders and extension
+    const relativePathInImagesDir = path.relative(imagesBaseDir, filePath); // e.g., 'Material/material-beryllium.jpg' or 'logo.png'
 
-    // If path.dirname returns '.' for files directly in imagesBaseDir, set folder to empty string
-    if (cloudinaryFolder === '.' || cloudinaryFolder === '') {
-      cloudinaryFolder = '';
-    }
+    // The publicId will now be the relative path including subfolders and extension
+    const publicId = relativePathInImagesDir.replace(/\\/g, '/'); // Ensure forward slashes for Cloudinary public_id
 
-    const publicId = path.basename(filePath, path.extname(filePath)); // e.g., 'material-beryllium'
+    // Since the publicId now contains the folder structure, the 'folder' parameter should be empty
+    const cloudinaryFolder = ''; // This will ensure the public_id path is fully utilized by Cloudinary
 
-    // MODIFIED: ora.default instead of ora
-    const spinner = ora.default(chalk.default.magenta(`Uploading ${relativePath}...`)).start();
+    const spinner = ora.default(chalk.default.magenta(`Uploading ${publicId}...`)).start(); // Use publicId for spinner
 
     try {
       const uploadResult = await cloudinary.uploader.upload(filePath, {
-        public_id: publicId,
+        public_id: publicId, // Use the full relative path including extension as the public_id
         overwrite: true,
-        folder: cloudinaryFolder, // Dynamically determined folder!
+        folder: cloudinaryFolder, // This will now be empty
         resource_type: 'image',
       });
 
-      spinner.succeed(chalk.default.green(`Uploaded ${relativePath} (Public ID: ${publicId}): ${uploadResult.secure_url}`));
+      spinner.succeed(chalk.default.green(`Uploaded ${publicId} (Public ID: ${publicId}): ${uploadResult.secure_url}`));
     } catch (error) {
-      spinner.fail(chalk.default.red(`Failed to upload ${relativePath}: ${error.message}`));
+      spinner.fail(chalk.default.red(`Failed to upload ${publicId}: ${error.message}`));
       console.error(chalk.default.red('Detailed error:', error));
       // process.exit(1);
     }
