@@ -27,7 +27,7 @@ jobs:
         run: npm install # Installs all dependencies including 'cloudinary', 'chalk', 'ora'
 
       - name: Run Cloudinary Upload Script
-        run: node scripts/uploadCloudinaryImages.js
+        run: node app/scripts/uploadCloudinaryImages.js
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
