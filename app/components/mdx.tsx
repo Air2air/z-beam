@@ -1,5 +1,31 @@
 // app/components/mdx.tsx
 
+/**
+ * This file configures how MDX (Markdown with JSX) content is rendered in your Next.js application.
+ *
+ * In the Next.js App Router, components are Server Components by default.
+ * This `CustomMDX` component acts as a wrapper around `next-mdx-remote/rsc` (RSC stands for React Server Components),
+ * allowing your MDX content to be processed and initially rendered on the server for better performance and SEO.
+ *
+ * It defines custom components (like `h1` through `h6`, `Image`, `a`, `code`, `Table`, `ChartComponent`)
+ * that will be used when parsing and displaying your .mdx files. This ensures a consistent
+ * and rich rendering experience for your markdown content.
+ *
+ * Key features:
+ * - **Server-Side Rendering (SSR) for MDX:** Leveraging `MDXRemote` for efficient content delivery.
+ * - **Custom Component Mapping:** Provides specific React components for various MDX elements.
+ * - **Client Component Integration:** Uses `next/dynamic` with `ssr: false` to seamlessly
+ * include interactive client-side components (like `ChartComponent`) within server-rendered MDX.
+ * This means `ChartComponent` will only load and execute on the client browser.
+ * - **Slugification for Headings:** Automatically generates unique IDs for headings, enabling
+ * anchor links (table of contents, direct section linking).
+ *
+ * This file itself does NOT need a `"use client"` directive because `MDXRemote` is designed
+ * to be used within Server Components. Only the components it imports and renders
+ * that *directly* use client-side features (like `useState`, `useEffect`, or `browser APIs`)
+ * need to be marked with `"use client"` or dynamically imported with `ssr: false`.
+ */
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';

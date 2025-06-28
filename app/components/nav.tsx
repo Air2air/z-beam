@@ -1,20 +1,20 @@
 // app/components/nav.tsx
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Define your navigation items
 const navItems = {
-  '/': {
-    name: 'Home',
+  "/": {
+    name: "Home",
   },
-  '/articles': {
-    name: 'Articles',
+  "/articles": {
+    name: "Articles",
   },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'Deploy',
+  "https://vercel.com/templates/next.js/portfolio-starter-kit": {
+    name: "Deploy",
   },
 };
 
@@ -32,10 +32,11 @@ export function Navbar() {
       <div className="container mx-auto px-4 py-3 flex justify-between items-center md:px-6 lg:px-8">
         {/* Logo on the left */}
         <div className="flex-shrink-0">
-          <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            {/* Removed the <a> tag here as well, applied classes directly to Link */}
+          <Link
+            href="/"
+            className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          >
             MyLogo
-            {/* <img src="/your-logo.png" alt="Your Company Logo" className="h-8" /> */}
           </Link>
         </div>
 
@@ -73,9 +74,10 @@ export function Navbar() {
         {/* Navigation Links - Desktop and Mobile */}
         <nav
           className={`
-            flex flex-col md:flex-row md:space-x-8 // Desktop horizontal, Mobile vertical
+            flex-col md:flex-row md:space-x-8 // Desktop horizontal, Mobile vertical
             md:static md:w-auto md:h-auto md:opacity-100 md:shadow-none md:p-0
-            ${isOpen ? 'flex' : 'hidden'} // Toggle visibility for mobile
+            hidden md:flex // <-- CRUCIAL CHANGE: Hidden by default, but ALWAYS flex on md and up
+            ${isOpen ? "flex" : ""} // Show 'flex' when isOpen (only applies below md breakpoint)
             absolute top-full left-0 w-full // Mobile menu full width, drops down
             bg-white dark:bg-gray-800 shadow-lg // Mobile menu background and shadow
             py-4 px-4 md:py-0 md:px-0 // Padding for mobile menu
@@ -86,21 +88,22 @@ export function Navbar() {
           <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
             {Object.entries(navItems).map(([path, { name }]) => {
               const isActive = pathname === path;
-              const isExternal = path.startsWith('http');
+              const isExternal = path.startsWith("http");
 
               return (
                 <li key={path}>
                   <Link
                     href={path}
-                    target={isExternal ? '_blank' : '_self'}
-                    rel={isExternal ? 'noopener noreferrer' : undefined}
+                    target={isExternal ? "_blank" : "_self"}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
                     onClick={() => setIsOpen(false)} // Close menu on link click
                     className={`
                       block py-2 px-3 rounded-md text-lg md:text-base // Styling for links
                       transition-all duration-200 ease-in-out
-                      ${isActive
-                        ? 'font-bold text-blue-600 dark:text-blue-400' // Active link style
-                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400' // Inactive link style
+                      ${
+                        isActive
+                          ? "font-bold text-blue-600 dark:text-blue-400" // Active link style
+                          : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400" // Inactive link style
                       }
                     `}
                   >
