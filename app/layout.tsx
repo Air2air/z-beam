@@ -90,7 +90,7 @@ export default function RootLayout({
                   especially important on smaller viewports.
           - my-8: Adds vertical margin, providing spacing from the Navbar and Footer.
         */}
-        <main className="flex-auto max-w-xl w-full mx-auto px-4 my-8">
+        <main className="flex-auto max-w-6xl w-full mx-auto px-4 my-8">
           {children} {/* This is where the content from app/page.tsx or nested layouts/pages will be inserted */}
         </main>
 
