@@ -3,6 +3,7 @@
 const cloudinaryLoader = ({ src, width, quality }) => {
   // We expect src to be like "/images/Material/material_beryllium"
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+  
 
   if (!cloudName) {
     console.error('Cloudinary cloud name is not set. Please set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME in your environment variables.');
