@@ -1,15 +1,17 @@
-import { ArticlePosts } from 'app/components/articleList'
+// app/articles/page.tsx
 
+import { ArticlePosts } from 'app/components/articleList'; // Assuming this component exists
+
+// Metadata can still be defined here, and it will be merged with the layout's metadata.
+// Specific page metadata will override general layout metadata.
 export const metadata = {
-  title: 'Article',
-  description: 'Read my article.',
-}
+  title: 'All Articles', // More specific title for the list page
+  description: 'Browse a collection of all my articles.',
+};
 
-export default function Page() {
+export default function ArticlesListPage() {
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">Articles</h1>
-      <ArticlePosts />
-    </section>
-  )
+    // Only the content specific to the articles list page
+    <ArticlePosts />
+  );
 }

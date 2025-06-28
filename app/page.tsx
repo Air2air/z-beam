@@ -1,4 +1,4 @@
-import { ArticlePosts } from 'app/components/postList'
+import { ArticlePosts } from 'app/components/articleList'
 
 export default function Page() {
   return (
