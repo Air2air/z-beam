@@ -87,8 +87,7 @@ export function Navbar() {
           className={`
             flex-col md:flex-row md:space-x-8 // Desktop horizontal, Mobile vertical
             md:static md:w-auto md:h-auto md:opacity-100 md:shadow-none md:p-0
-            hidden md:flex // Hidden by default, but ALWAYS flex on md and up
-            ${isOpen ? "flex" : ""} // Show 'flex' when isOpen (only applies below md breakpoint)
++            ${isOpen ? "flex" : "hidden"} md:flex
             absolute top-full left-0 w-full // Mobile menu full width, drops down
             bg-white dark:bg-gray-800 shadow-lg // Mobile menu background and shadow
             py-4 px-4 md:py-0 md:px-0 // Padding for mobile menu

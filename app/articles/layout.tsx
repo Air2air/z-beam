@@ -1,3 +1,6 @@
+
+///app/articles/layout.tsx
+
 export const metadata = {
   title: 'Articles',
   description: 'Explore my articles and insights.',
