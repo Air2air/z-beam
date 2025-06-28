@@ -1,10 +1,14 @@
-// scripts/uploadCloudinaryImages.js
+// app/scripts/uploadCloudinaryImages.js
+
+// Add this line at the very top to load .env file variables
+// Specify the path to your .env.local file. process.cwd() ensures it looks from the project root.
+require('dotenv').config({ path: require('path').resolve(process.cwd(), '.env.local') });
 
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
-const chalk = require('chalk'); // For colored console output
-const ora = require('ora');     // For spinner during upload
+const chalk = require('chalk');
+const ora = require('ora');
 
 /**
  * Recursively finds all image files within a directory.
@@ -20,7 +24,7 @@ function getAllImageFiles(dir, fileList = []) {
     const stat = fs.statSync(filePath);
 
     if (stat.isDirectory()) {
-      getAllImageFiles(filePath, fileList); // Recurse into subdirectories
+      getAllImageFiles(filePath, fileList);
     } else {
       const ext = path.extname(file).toLowerCase();
       if (['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif'].includes(ext)) {
@@ -35,6 +39,7 @@ async function main() {
   console.log(chalk.default.bold.blue('--- Starting Cloudinary Image Upload ---'));
 
   // 1. Configure Cloudinary
+  // These variables are now loaded from .env.local by dotenv
   const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
   const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
   const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
@@ -49,11 +54,11 @@ async function main() {
     cloud_name: CLOUDINARY_CLOUD_NAME,
     api_key: CLOUDINARY_API_KEY,
     api_secret: CLOUDINARY_API_SECRET,
-    secure: true, // Use HTTPS
+    secure: true,
   });
 
   // 2. Define image directory and find all images recursively
-  const imagesBaseDir = path.join(process.cwd(), 'public', 'images'); // The base directory to scan from
+  const imagesBaseDir = path.join(process.cwd(), 'public', 'images');
   console.log(chalk.default.cyan(`Scanning for images in: ${imagesBaseDir} and its subfolders`));
 
   if (!fs.existsSync(imagesBaseDir)) {
@@ -62,7 +67,7 @@ async function main() {
     return;
   }
 
-  const imageFiles = getAllImageFiles(imagesBaseDir); // Get all image file full paths
+  const imageFiles = getAllImageFiles(imagesBaseDir);
 
   if (imageFiles.length === 0) {
     console.warn(chalk.default.yellow('No image files found in the directory or its subdirectories.'));
@@ -73,29 +78,36 @@ async function main() {
   console.log(chalk.default.green(`Found ${imageFiles.length} image(s) to process.`));
 
   // 3. Upload each image
-  for (const filePath of imageFiles) { // filePath is now the full absolute path to the image
-    // Determine the path relative to imagesBaseDir, INCLUDING subfolders and extension
-    const relativePathInImagesDir = path.relative(imagesBaseDir, filePath); // e.g., 'Material/material-beryllium.jpg' or 'logo.png'
+  for (const filePath of imageFiles) {
+    const relativePathInImagesDir = path.relative(imagesBaseDir, filePath); // e.g., "Material/material_beryllium.jpg"
+    const parsedPath = path.parse(relativePathInImagesDir);
 
-    // The publicId will now be the relative path including subfolders and extension
-    const publicId = relativePathInImagesDir.replace(/\\/g, '/'); // Ensure forward slashes for Cloudinary public_id
+    // publicId should now be just the filename without the path or extension
+    // Example: "material_beryllium"
+    let publicId = parsedPath.name;
 
-    // Since the publicId now contains the folder structure, the 'folder' parameter should be empty
-    const cloudinaryFolder = ''; // This will ensure the public_id path is fully utilized by Cloudinary
+    // cloudinaryFolder will be the directory path relative to imagesBaseDir
+    // Example: "Material" or "" for root files
+    let cloudinaryFolder = parsedPath.dir.replace(/\\/g, '/'); // Ensure forward slashes
 
-    const spinner = ora.default(chalk.default.magenta(`Uploading ${publicId}...`)).start(); // Use publicId for spinner
+    // If the image is directly in 'public/images', parsedPath.dir might be empty or '.'
+    if (cloudinaryFolder === '.' || cloudinaryFolder === '') {
+      cloudinaryFolder = ''; // Set to empty string for root folder in Cloudinary
+    }
+
+    const spinner = ora.default(chalk.default.magenta(`Uploading ${publicId} to folder ${cloudinaryFolder || 'root'}...`)).start();
 
     try {
       const uploadResult = await cloudinary.uploader.upload(filePath, {
-        public_id: publicId, // Use the full relative path including extension as the public_id
+        public_id: publicId, // Public ID is now just the filename
         overwrite: true,
-        folder: cloudinaryFolder, // This will now be empty
-        resource_type: 'image',
+        folder: cloudinaryFolder, // Explicitly set the folder
+        resource_type: 'image', // Critical for Cloudinary to correctly identify and handle the image type
       });
 
-      spinner.succeed(chalk.default.green(`Uploaded ${publicId} (Public ID: ${publicId}): ${uploadResult.secure_url}`));
+      spinner.succeed(chalk.default.green(`Uploaded ${publicId} (Public ID: ${uploadResult.public_id}) to folder '${cloudinaryFolder || 'root'}': ${uploadResult.secure_url}`));
     } catch (error) {
-      spinner.fail(chalk.default.red(`Failed to upload ${publicId}: ${error.message}`));
+      spinner.fail(chalk.default.red(`Failed to upload ${publicId} to folder '${cloudinaryFolder || 'root'}': ${error.message}`));
       console.error(chalk.default.red('Detailed error:', error));
       // process.exit(1);
     }
