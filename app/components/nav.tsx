@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image"; // Import the Image component
 import { usePathname } from "next/navigation";
 
 // Define your navigation items
@@ -34,9 +35,19 @@ export function Navbar() {
         <div className="flex-shrink-0">
           <Link
             href="/"
-            className="text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            // Remove the text-2xl font-bold classes as they are for text, not image
+            // You might add specific padding or margin to the Link if needed for alignment with image
           >
-            MyLogo
+            {/* Replace "MyLogo" with the Image component */}
+            <Image
+              src="/images/Site/Logo/logo_.png" // Make sure to use the full relative path to your image
+              alt="Z-Beam Logo" // Always include descriptive alt text for accessibility
+              width={120} // Set the intrinsic width of your logo image in pixels
+              height={40} // Set the intrinsic height of your logo image in pixels
+              // You can add Tailwind classes directly to the Image component
+              className="h-auto max-h-10 w-auto" // Adjust max-h based on your desired height
+              priority // Use priority for logos as they are above the fold
+            />
           </Link>
         </div>
 
@@ -76,7 +87,7 @@ export function Navbar() {
           className={`
             flex-col md:flex-row md:space-x-8 // Desktop horizontal, Mobile vertical
             md:static md:w-auto md:h-auto md:opacity-100 md:shadow-none md:p-0
-            hidden md:flex // <-- CRUCIAL CHANGE: Hidden by default, but ALWAYS flex on md and up
+            hidden md:flex // Hidden by default, but ALWAYS flex on md and up
             ${isOpen ? "flex" : ""} // Show 'flex' when isOpen (only applies below md breakpoint)
             absolute top-full left-0 w-full // Mobile menu full width, drops down
             bg-white dark:bg-gray-800 shadow-lg // Mobile menu background and shadow
