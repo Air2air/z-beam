@@ -4,6 +4,8 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 
+
+
 // Define common Chart.js options/callbacks that are functions here.
 // This keeps them out of the server-side payload.
 const getCommonChartOptions = (chartType, textColor) => ({
