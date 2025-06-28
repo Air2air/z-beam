@@ -5,7 +5,7 @@ export const baseUrl = 'https://portfolio-article-starter.vercel.app'
 
 export default async function sitemap() {
   const articles = getArticlePosts().map((post) => ({
-    url: `${baseUrl}/article/${post.slug}`,
+    url: `${baseUrl}/articles/${post.slug}`,
     lastModified: new Date(post.metadata.publishedAt).toISOString(), // Full ISO string
     changeFrequency: 'weekly', // Example: Adjust based on your update frequency
     priority: 0.8, // Example: Prioritize article posts

@@ -28,7 +28,7 @@ export const schemas = {
     ...data
   }),
 
-  blogPosting: (data: {
+  ArticlePosting: (data: {
     headline: string
     description: string
     author: string
