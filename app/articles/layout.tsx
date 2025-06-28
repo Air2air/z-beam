@@ -13,7 +13,7 @@ export default function ArticlesRootLayout({
 }) {
   return (
     <>
-      <Breadcrumbs /> {/* Add the breadcrumbs here */}
+      <Breadcrumbs />
       {children}
     </>
   );

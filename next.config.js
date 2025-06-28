@@ -7,7 +7,6 @@ const nextConfig = {
     domains: ['res.cloudinary.com'],
     loaderFile: './app/utils/cloudinary-loader.js',
   },
-  // Keep your other Next.js configurations here
 };
 
 module.exports = nextConfig;
