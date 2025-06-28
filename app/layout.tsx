@@ -1,13 +1,13 @@
-import './global.css'
+// app/layout.tsx
+import './css/global.css' // Ensure this imports your Tailwind CSS (via globals.css)
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
+import { Navbar } from './components/nav' // Your full-width responsive Navbar
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
-
+import Footer from './components/footer' // Your Footer component
+import { baseUrl } from './sitemap' // Assuming sitemap.ts provides baseUrl
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -37,7 +37,8 @@ export const metadata: Metadata = {
   },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+// Utility function for combining classes (already present)
+const cx = (...classes: (string | boolean | undefined | null)[]) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
@@ -53,14 +54,22 @@ export default function RootLayout({
         GeistMono.variable
       )}
     >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
+      <body className="antialiased flex flex-col min-h-screen"> {/* Make body a flex column to push footer down */}
+        <Navbar /> {/* Navbar stays outside the max-width content area */}
+        <main className="flex-auto max-w-xl w-full mx-auto px-4 mt-8">
+          {/*
+            - flex-auto: allows main to grow and take available space
+            - max-w-xl: content will not exceed 'xl' breakpoint (1280px by default)
+            - w-full: takes full width up to max-w-xl
+            - mx-auto: centers the content horizontally
+            - px-4: adds horizontal padding on small screens (4 units from Tailwind default)
+            - mt-8: top margin for content below navbar
+          */}
           {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
         </main>
+        <Footer /> {/* Footer stays outside the max-width content area */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
