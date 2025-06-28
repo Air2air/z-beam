@@ -4,7 +4,7 @@
 const nextConfig = {
   images: {
     loader: 'custom',
-    // THIS PATH IS NOW CORRECT FOR 'app/utils/cloudinary-loader.js'
+    domains: ['res.cloudinary.com'],
     loaderFile: './app/utils/cloudinary-loader.js',
   },
   // Keep your other Next.js configurations here
