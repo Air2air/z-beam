@@ -1,0 +1,50 @@
+
+**Variables**:
+- {MATERIAL}: limestone // e.g., metal (iron, copper, stainless steel), wood (oak, maple), stone (brick, limestone), fabric, glass
+- {SHAPE}: panel // Used if {objects} = 2; e.g., panel, disc, finial; defaults to rectangle if unspecified
+
+
+- {BACKGROUND}: shop table // Used if {objects} = 2; e.g., shop table, stone floor, metal workbench; defaults to plain wooden table
+- {ASPECT_RATIO}: 16:9
+- {CONTAMINATION_LEVEL}: 4 // Scale 1-5, where 1 is minimal and 5 is severe.
+- {CLEANLINESS_LEVEL}: 3 // Scale 1-5, where 1 is still noticeably dirty and 5 is perfectly pristine.
+- {CAMERA_DISTANCE}: 8 inches // Controls scale and detail; e.g., close (4-8 inches), medium (8-12 inches), far (12+ inches)
+
+**Instructions**: Create a brightly lit, 2D top-down image with an aspect ratio of {ASPECT_RATIO}, depicting degraded and clean states of {MATERIAL} in orthographic projection for two identical objects. The scene is well-illuminated with soft, diffused light.
+
+The goal is to show the before and after states of surface cleaning on the same object, with no shadows, highlights, or depth effects, maintaining a flat appearance. Adjust scale and detail per {CAMERA_DISTANCE}. Physical imperfections (e.g., chipping, pitting) must be identical in both states, with no physical damage in the degraded state—only surface contamination.
+
+1.  **Research**:
+    * **Material Identification**: Confirm {MATERIAL}’s type and subtype (e.g., metal: iron). Study physical properties (e.g., grain for wood, reflectivity for metal) using material science, images, or standards. Document clean state’s natural appearance (color, texture).
+    * **Shape Identification**: If {SHAPE} is specified (e.g., finial), research its 2D outline from real-world examples (e.g., architectural catalogs, furniture designs). Use standard dimensions (e.g., 2-3 inches for small objects, 6-12 inches for panels) and confirm the outline (e.g., rectangle, ornate profile). Default to a 3x2 inch rectangle if unspecified. Ensure the shape’s compatibility with {MATERIAL}.
+    * **Degraded State**: Deeply research {MATERIAL}’s typical degradation and specific visual/textural characteristics of general surface contamination (e.g., dust, grime, discoloration, light oxidation, or severe buildup) based on prolonged environmental exposure.
+        * **For {CONTAMINATION_LEVEL} (1-5 scale):** **Rigorously research and define the visual and textural attributes for each level.**
+            * **Level 1 (Minimal):** Very light dust, slight dulling of original sheen. Barely perceptible.
+            * **Level 2 (Light):** Thin, uniform layer of dust/grime, minor discoloration. Original texture mostly visible.
+            * **Level 3 (Moderate):** Noticeable layer of dirt/discoloration, some obscuring of original texture, potentially light localized staining/grime.
+            * **Level 4 (Heavy):** Widespread, thick layer of grime/discoloration, significant obscuring of original texture, visible particulates, minor textural changes due to buildup.
+            * **Level 5 (Severe):** Extremely thick, widespread, uneven contamination (e.g., heavy char, deep staining, dense particulate accumulation), almost completely obscuring original surface, possibly altering apparent morphology due to build-up.
+        * Apply the severity and coverage of this contamination according to the researched definition for {CONTAMINATION_LEVEL}. Focus on surface contamination without physical damage.
+    * **Clean State**: Research the pristine, unaged appearance of {MATERIAL}.
+        * **For {CLEANLINESS_LEVEL} (1-5 scale):** **Rigorously research and define the visual and textural attributes for each level of residual cleanliness.**
+            * **Level 1 (Noticeably Dirty):** Significant, clearly visible remnants of original contamination. Surface still largely dull/discolored.
+            * **Level 2 (Moderately Clean):** Clearly improved, but obvious patches/streaks of residual contamination, or a pervasive, subtle film.
+            * **Level 3 (Very Clean):** Largely clean surface, but with subtle, very faint, localized remnants or a slight haze discernible upon close inspection.
+            * **Level 4 (Nearly Pristine):** Almost perfectly clean, only microscopic or extremely faint, unnoticeable imperfections. Original sheen almost fully restored.
+            * **Level 5 (Perfectly Pristine):** Absolutely no visible contamination. Full restoration of original color, texture, and sheen.
+        * Depict the object post-cleaning, adjusting the residual cleanliness according to the researched definition for {CLEANLINESS_LEVEL}.
+    * **Physical Imperfections**: Research typical wear-induced imperfections for {MATERIAL} (e.g., cracks, pits, scratches). Apply these imperfections identically to both degraded and clean states, ensuring cleaning affects only surface contamination, not underlying structure.
+
+2.  **Image Composition**:
+    * Depict two identical {SHAPE}s of {MATERIAL}, centered side by side on {BACKGROUND}, with equal size (2-3 inches or 6-12 inches) and a 1-inch gap.
+    * Left shape: Degraded state, with the **level of contamination** dictated by {CONTAMINATION_LEVEL}.
+    * Right shape: Clean state, with the **level of cleanliness** dictated by {CLEANLINESS_LEVEL}.
+    * Render only the 2D cross-sectional outline of the {SHAPE}, ensuring it appears flush against {BACKGROUND} with no elevation. Adjust detail per {CAMERA_DISTANCE}.
+
+3.  **Validation**:
+    * **Color/Texture Accuracy**: Verify the degraded state's contamination level and the clean state's cleanliness level accurately reflect the **researched definitions** for {CONTAMINATION_LEVEL} and {CLEANLINESS_LEVEL} for {MATERIAL}. Cross-reference with material science data and high-resolution images.
+    * **Shape Accuracy**: Confirm the {SHAPE}’s 2D outline matches researched designs or defaults to rectangle, suiting {MATERIAL}.
+    * **Imperfections Consistency**: Validate physical imperfections (e.g., chips) are identical across both states, with only surface condition changing.
+    * **Layout and Realism**: Check two {SHAPE}s are centered side by side on {BACKGROUND}, degraded left, clean right, with realistic textures and {CAMERA_DISTANCE} accuracy. Ensure all visual elements align with researched real-world examples.
+
+---
