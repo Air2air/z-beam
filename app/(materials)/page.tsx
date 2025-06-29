@@ -1,6 +1,6 @@
 // app/(materials)/page.tsx
 
-import { MaterialLists } from '../components/MaterialList'; 
+import { MaterialList } from '../components/MaterialList'; 
 
 export default function MaterialsIndexPage() {
   return (
@@ -8,7 +8,7 @@ export default function MaterialsIndexPage() {
       <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
         All Materials
       </h1>
-      <MaterialLists />
+      <MaterialList />
     </main>
   );
 }

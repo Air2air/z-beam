@@ -44,7 +44,7 @@ export function FeatureCard({
                  transition-all duration-300 overflow-hidden
                  bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700"
     >
-      <material className="flex flex-col h-full"> {/* Use material for semantic content */}
+      <article className="flex flex-col h-full"> {/* Use material for semantic content */}
         {/* Image Section */}
         <div className="relative w-full aspect-video overflow-hidden">
           <Image
@@ -112,7 +112,7 @@ export function FeatureCard({
             </div>
           )}
         </div>
-      </material>
+      </article>
     </Link>
   );
 }
