@@ -1,28 +1,19 @@
-// app/scripts/uploadCloudinaryImages.js
-
-// Add this line at the very top to load .env file variables
-// Specify the path to your .env.local file. process.cwd() ensures it looks from the project root.
 require('dotenv').config({ path: require('path').resolve(process.cwd(), '.env.local') });
-
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
 const chalk = require('chalk');
 const ora = require('ora');
 
-/**
- * Recursively finds all image files within a directory.
- * @param {string} dir Path to the directory to scan.
- * @param {string[]} fileList Accumulator for file paths.
- * @returns {string[]} List of absolute paths to image files.
- */
 function getAllImageFiles(dir, fileList = []) {
+  if (!fs.existsSync(dir)) {
+    console.warn(chalk.default.yellow(`Directory '${dir}' does not exist.`));
+    return fileList;
+  }
   const files = fs.readdirSync(dir);
-
   files.forEach(file => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
-
     if (stat.isDirectory()) {
       getAllImageFiles(filePath, fileList);
     } else {
@@ -38,15 +29,11 @@ function getAllImageFiles(dir, fileList = []) {
 async function main() {
   console.log(chalk.default.bold.blue('--- Starting Cloudinary Image Upload ---'));
 
-  // 1. Configure Cloudinary
-  // These variables are now loaded from .env.local by dotenv
-  const CLOUDINARY_CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME;
-  const CLOUDINARY_API_KEY = process.env.CLOUDINARY_API_KEY;
-  const CLOUDINARY_API_SECRET = process.env.CLOUDINARY_API_SECRET;
-
+  // Verify environment variables
+  const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = process.env;
   if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
-    console.error(chalk.default.red('Error: Cloudinary API credentials are not set as environment variables.'));
-    console.error(chalk.default.red('Please ensure CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET are configured.'));
+    console.error(chalk.default.red('Error: Missing Cloudinary API credentials.'));
+    console.error(chalk.default.red('Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in .env.local or CI/CD settings.'));
     process.exit(1);
   }
 
@@ -57,59 +44,54 @@ async function main() {
     secure: true,
   });
 
-  // 2. Define image directory and find all images recursively
+  // Scan for images
   const imagesBaseDir = path.join(process.cwd(), 'public', 'images');
-  console.log(chalk.default.cyan(`Scanning for images in: ${imagesBaseDir} and its subfolders`));
-
-  if (!fs.existsSync(imagesBaseDir)) {
-    console.warn(chalk.default.yellow(`Warning: Directory '${imagesBaseDir}' does not exist. No images to upload.`));
-    console.log(chalk.default.bold.blue('--- Cloudinary Image Upload Finished (No images found) ---'));
-    return;
-  }
-
+  console.log(chalk.default.cyan(`Scanning for images in: ${imagesBaseDir}`));
   const imageFiles = getAllImageFiles(imagesBaseDir);
 
   if (imageFiles.length === 0) {
-    console.warn(chalk.default.yellow('No image files found in the directory or its subdirectories.'));
-    console.log(chalk.default.bold.blue('--- Cloudinary Image Upload Finished (No images to upload) ---'));
+    console.warn(chalk.default.yellow('No image files found.'));
+    console.log(chalk.default.bold.blue('--- Cloudinary Image Upload Finished ---'));
     return;
   }
 
-  console.log(chalk.default.green(`Found ${imageFiles.length} image(s) to process.`));
+  console.log(chalk.default.green(`Found ${imageFiles.length} image(s).`));
 
-  // 3. Upload each image
+  // Upload images
   for (const filePath of imageFiles) {
-    const relativePathInImagesDir = path.relative(imagesBaseDir, filePath); // e.g., "Material/material_beryllium.jpg"
+    const relativePathInImagesDir = path.relative(imagesBaseDir, filePath);
     const parsedPath = path.parse(relativePathInImagesDir);
-
-    // publicId should now be just the filename without the path or extension
-    // Example: "material_beryllium"
-    let publicId = parsedPath.name;
-
-    // cloudinaryFolder will be the directory path relative to imagesBaseDir
-    // Example: "Material" or "" for root files
-    let cloudinaryFolder = parsedPath.dir.replace(/\\/g, '/'); // Ensure forward slashes
-
-    // If the image is directly in 'public/images', parsedPath.dir might be empty or '.'
+    let publicId = parsedPath.name.replace(/[^a-zA-Z0-9_-]/g, '_'); // Sanitize publicId
+    let cloudinaryFolder = parsedPath.dir.replace(/\\/g, '/');
     if (cloudinaryFolder === '.' || cloudinaryFolder === '') {
-      cloudinaryFolder = ''; // Set to empty string for root folder in Cloudinary
+      cloudinaryFolder = '';
     }
+
+    console.log(chalk.default.cyan(`Processing: ${relativePathInImagesDir} (Public ID: ${publicId}, Folder: ${cloudinaryFolder || 'root'})`));
 
     const spinner = ora.default(chalk.default.magenta(`Uploading ${publicId} to folder ${cloudinaryFolder || 'root'}...`)).start();
 
     try {
       const uploadResult = await cloudinary.uploader.upload(filePath, {
-        public_id: publicId, // Public ID is now just the filename
+        public_id: publicId,
         overwrite: true,
-        folder: cloudinaryFolder, // Explicitly set the folder
-        resource_type: 'image', // Critical for Cloudinary to correctly identify and handle the image type
+        folder: cloudinaryFolder,
+        resource_type: 'image',
+        invalidate: true, // Invalidate CDN cache
       });
 
-      spinner.succeed(chalk.default.green(`Uploaded ${publicId} (Public ID: ${uploadResult.public_id}) to folder '${cloudinaryFolder || 'root'}': ${uploadResult.secure_url}`));
+      console.log(chalk.default.cyan('Upload response:', JSON.stringify({
+        public_id: uploadResult.public_id,
+        secure_url: uploadResult.secure_url,
+        created_at: uploadResult.created_at,
+        bytes: uploadResult.bytes,
+        invalidation_status: uploadResult.invalidation_status || 'Not specified',
+      }, null, 2)));
+
+      spinner.succeed(chalk.default.green(`Uploaded ${publicId} to folder '${cloudinaryFolder || 'root'}' (Public ID: ${uploadResult.public_id}): ${uploadResult.secure_url}`));
     } catch (error) {
       spinner.fail(chalk.default.red(`Failed to upload ${publicId} to folder '${cloudinaryFolder || 'root'}': ${error.message}`));
       console.error(chalk.default.red('Detailed error:', error));
-      // process.exit(1);
     }
   }
 
@@ -117,15 +99,6 @@ async function main() {
 }
 
 main().catch(error => {
-  try {
-    if (chalk && chalk.default && chalk.default.red && typeof chalk.default.red.bold === 'function') {
-      console.error(chalk.default.red.bold('An unhandled error occurred during upload:'), error);
-    } else {
-      console.error('An unhandled error occurred during upload (Chalk failed to format):', error);
-    }
-  } catch (logError) {
-    console.error('An unhandled error occurred during upload (Chalk logging error):', error);
-    console.error('Error during logging attempt:', logError);
-  }
+  console.error(chalk.default.red.bold('Unhandled error:', error));
   process.exit(1);
 });
