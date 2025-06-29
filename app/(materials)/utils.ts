@@ -3,13 +3,16 @@
 import fs from 'fs';
 import path from 'path';
 
+
 type Metadata = {
   title: string;
   nameShort?: string;
   publishedAt: string;
   summary: string;
+  description?: string; // Add for article frontmatter and generateMetadata
   image?: string;
   thumbnail?: string;
+  imageCaption?: string; // Add for HeroImage
   atomicNumber?: number | null;
   chemicalSymbol?: string | null;
   materialType?: string;
