@@ -34,8 +34,13 @@ export function MaterialList() {
               title={post.metadata.title}
               description={post.metadata.summary}
               date={formatDate(post.metadata.publishedAt, false)}
-              nameShort={post.metadata.nameShort} // ADDED: Pass the nameShort prop
-              // tags={post.metadata.tags}
+              nameShort={post.metadata.nameShort}
+              atomicNumber={post.metadata.atomicNumber}
+              chemicalSymbol={post.metadata.chemicalSymbol}
+              materialType={post.metadata.materialType}
+              metalClass={post.metadata.metalClass}
+              crystalStructure={post.metadata.crystalStructure}
+              primaryApplication={post.metadata.primaryApplication}
             />
           </FadeInOnScroll>
         ))}

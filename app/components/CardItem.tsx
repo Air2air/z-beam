@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { BadgeSymbol } from "./BadgeSymbol";
 
 interface CardItemProps {
   /** The URL for the card's link */
@@ -12,7 +13,7 @@ interface CardItemProps {
   /** Alt text for the image */
   imageAlt: string;
   /** The main title of the card */
-  title: string;
+  title: string; // Still useful for metadata and SEO, even if not displayed
   /** A short description or summary */
   description: string;
   /** Optional date string (e.g., "June 28, 2025") */
@@ -21,18 +22,34 @@ interface CardItemProps {
   tags?: string[];
   /** Optional short name for the card */
   nameShort?: string;
+  // --- ADD THESE NEW PROPS ---
+  atomicNumber?: number | null;
+  chemicalSymbol?: string | null;
+  materialType?: string;
+  metalClass?: string;
+  crystalStructure?: string;
+  primaryApplication?: string;
+  // --- END ADDITION ---
 }
 
 export function CardItem({
   href,
   imageUrl,
   imageAlt,
-  title,
+  title, // Keep title destructured, it's used elsewhere
   description,
   date,
   tags,
   nameShort,
-}: CardItemProps) {
+  // --- DESTRUCTURE NEW PROPS ---
+  atomicNumber,
+  chemicalSymbol,
+  materialType,
+  metalClass,
+  crystalStructure,
+  primaryApplication,
+}: // --- END DESTRUCTURING ---
+CardItemProps) {
   return (
     <Link
       href={href}
@@ -57,26 +74,16 @@ export function CardItem({
 
         {/* Content Section */}
         <div className="p-2 sm:p-3 flex flex-col flex-grow">
-          {/* {date && (
-            <p className="uppercase text-xs text-gray-500 dark:text-gray-400 mb-1 tabular-nums">
-              {date}
-            </p>
-          )} */}
-
-          {nameShort && (
-            <h3 className="text-lg text-gray-600 dark:text-gray-300 font-medium mb-0.5">
-              {nameShort}
-            </h3>
+          {(nameShort || chemicalSymbol) && ( // Only show this div if either exists
+            <div className="flex justify-between items-center mb-0.5">
+              {nameShort && (
+                <h3 className="text-lg text-gray-600 dark:text-gray-300 font-medium leading-tight">
+                  {nameShort}
+                </h3>
+              )}
+              {chemicalSymbol && <BadgeSymbol text={`${chemicalSymbol}`} />}
+            </div>
           )}
-
-          {/* <h4
-            className="font-semibold text-gray-900 dark:text-white
-                       tracking-tight mb-1
-                       group-hover:text-blue-600 dark:group-hover:text-blue-400
-                       transition-colors"
-          >
-            {title}
-          </h4> */}
 
           <p
             className="text-gray-700 dark:text-gray-300 text-base flex-grow
@@ -85,7 +92,24 @@ export function CardItem({
             {description}
           </p>
 
-          {tags && tags.length > 0 && (
+          {/* {(chemicalSymbol || atomicNumber) && (
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              {chemicalSymbol && `Symbol: ${chemicalSymbol}`}
+              {chemicalSymbol && atomicNumber && ` • `}
+              {atomicNumber && `Atomic No.: ${atomicNumber}`}
+            </p>
+          )} */}
+
+          {/* Example: Displaying material type and metal class */}
+          {/* {(materialType || metalClass) && (
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              {materialType && `Type: ${materialType}`}
+              {materialType && metalClass && ` • `}
+              {metalClass && `Class: ${metalClass}`}
+            </p>
+          )} */}
+
+          {/* {tags && tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-2 text-xs">
               {tags.map((tag) => (
                 <span
@@ -97,7 +121,7 @@ export function CardItem({
                 </span>
               ))}
             </div>
-          )}
+          )} */}
         </div>
       </article>
     </Link>

@@ -5,11 +5,17 @@ import path from 'path';
 
 type Metadata = {
   title: string;
-  nameShort?: string; // This is correct
+  nameShort?: string;
   publishedAt: string;
   summary: string;
-  image?: string; // This could be a local path or a full URL
-  thumbnail?: string; // This will now hold the RAW LOCAL IMAGE PATH
+  image?: string;
+  thumbnail?: string;
+  atomicNumber?: number | null;
+  chemicalSymbol?: string | null;
+  materialType?: string;
+  metalClass?: string;
+  crystalStructure?: string;
+  primaryApplication?: string;
 };
 
 function parseFrontmatter(fileContent: string) {
@@ -24,20 +30,39 @@ function parseFrontmatter(fileContent: string) {
   let metadata: Partial<Metadata> = {};
 
   frontMatterLines.forEach((line) => {
-    // --- START OF CRUCIAL CHANGE ---
-    // Split by the first colon only, then trim key and value parts separately.
     const parts = line.split(':');
     if (parts.length < 2) {
-      // If a line doesn't contain a colon, it's not a valid key-value pair for frontmatter; skip it.
       return;
     }
     const key = parts[0].trim();
-    // Join back the rest of the parts in case the value itself contains colons (e.g., a URL)
-    const value = parts.slice(1).join(':').trim();
+    const rawValueWithComment = parts.slice(1).join(':').trim();
 
-    // Remove quotes from the value if they exist
-    metadata[key as keyof Metadata] = value.replace(/^['"](.*)['"]$/, '$1');
-    // --- END OF CRUCIAL CHANGE ---
+    // --- START OF FIX: Strip comments from the raw value ---
+    const commentIndex = rawValueWithComment.indexOf('#');
+    let rawValue = rawValueWithComment;
+    if (commentIndex !== -1) {
+      rawValue = rawValueWithComment.substring(0, commentIndex).trim();
+    }
+    // --- END OF FIX ---
+
+    let parsedValue: string | number | null;
+
+    if (key === 'atomicNumber') {
+      if (rawValue === 'null') {
+        parsedValue = null;
+      } else {
+        parsedValue = parseInt(rawValue, 10);
+        if (isNaN(parsedValue)) {
+          parsedValue = null; // Treat invalid numbers as null
+        }
+      }
+    } else if (rawValue === 'null') { // This will now correctly match "null"
+      parsedValue = null;
+    } else {
+      parsedValue = rawValue.replace(/^['"](.*)['"]$/, '$1'); // Remove quotes
+    }
+
+    (metadata as any)[key] = parsedValue;
   });
 
   return { metadata: metadata as Metadata, content };
@@ -58,11 +83,9 @@ function readMDXFile(filePath: string) {
 }
 
 function extractFirstImage(markdown: string): string | null {
-  // Try Markdown image syntax first
   let match = markdown.match(/!\[.*?\]\((.*?)\)/);
   if (match && match[1]) return match[1];
 
-  // Try JSX <Image ... src="..." ... /> syntax
   match = markdown.match(/<Image[^>]+src=["']([^"']+)["']/);
   if (match && match[1]) return match[1];
 
