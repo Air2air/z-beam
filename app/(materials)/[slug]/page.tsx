@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { HeroImage } from "app/components/HeroImage";
 // --- ADD THIS IMPORT ---
 import { Breadcrumbs } from "app/components/breadcrumbs"; // Correct import path for your breadcrumbs component
+import { FadeInOnScroll } from "app/components/FadeInOnScroll";
 // --- END ADDITION ---
 
 // ... (generateStaticParams, generateMetadata functions remain the same) ...
@@ -77,9 +78,11 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
       </p>
 
       {/* --- Article Content (MDX) --- */}
-      <article className="prose dark:prose-invert">
-        <CustomMDX source={post.content} />
-      </article>
+      <FadeInOnScroll delay={0.2} yOffset={30} amount={0.06}>
+        <article className="prose dark:prose-invert">
+          <CustomMDX source={post.content} />
+        </article>
+      </FadeInOnScroll>
     </section>
   );
 }
