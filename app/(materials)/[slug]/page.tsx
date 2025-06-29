@@ -5,6 +5,9 @@ import { CustomMDX } from "app/components/mdx";
 import { formatDate, getMaterialList } from "app/(materials)/utils";
 import { baseUrl } from "app/sitemap";
 import type { Metadata } from "next";
+// --- NEW: Import HeroImage component ---
+import { HeroImage } from "app/components/HeroImage";
+
 
 // --- Data Fetching and Static Params ---
 export async function generateStaticParams() {
@@ -46,9 +49,9 @@ export function generateMetadata({
     openGraph: {
       title,
       description,
-      type: "article", // Corrected OpenGraph type
+      type: "article",
       publishedTime,
-      url: `${baseUrl}/${post.slug}`, // CORRECTED: Reflects root-level URL
+      url: `${baseUrl}/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -77,7 +80,6 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
     : `${baseUrl}/og?title=${encodeURIComponent(post.metadata.title)}`;
 
   return (
-    // <section> is okay here as a semantic wrapper for the article content
     <section>
       {/* --- Schema.org JSON-LD for SEO --- */}
       <script
@@ -86,7 +88,7 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article", // Changed from MaterialListing to more common Article for Schema.org
+            "@type": "Article",
             headline: post.metadata.title,
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
@@ -97,7 +99,7 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
                 url: schemaOgImage,
               },
             ],
-            url: `${baseUrl}/${post.slug}`, // CORRECTED: Reflects root-level URL
+            url: `${baseUrl}/${post.slug}`,
             author: {
               "@type": "Person",
               name: "Z-Beam",
@@ -106,9 +108,16 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
         }}
       />
 
+      {/* --- Render HeroImage if available --- */}
+      {post.metadata.image && (
+        <HeroImage
+          src={post.metadata.image}
+          alt={post.metadata.title}
+          priority={true} // This is likely your LCP image, so set priority
+        />
+      )}
+
       {/* --- Page Title (Conformed Heading) --- */}
-      {/* This H1 is for the title of the individual material page, often part of the content itself. */}
-      {/* Keeping text-2xl as it fits a content heading better than a top-level page heading. */}
       <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6">
         {post.metadata.title}
       </h1>
@@ -118,10 +127,7 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
       </p>
 
       {/* --- Article Content (MDX) --- */}
-      {/* This is where the prose class correctly applies typography to the MDX content. */}
       <article className="prose dark:prose-invert">
-        {" "}
-        {/* Added dark mode for prose */}
         <CustomMDX source={post.content} />
       </article>
     </section>
