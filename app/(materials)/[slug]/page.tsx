@@ -112,14 +112,16 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
       <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6">
         {post.metadata.title}
       </h1>
-      {/* --- Published Date --- */}
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm text-neutral-600 dark:text-neutral-400">
-        <p>{formatDate(post.metadata.publishedAt)}</p>
-      </div>
+
+      <p className="uppercase text-xs text-gray-500 dark:text-gray-400 mb-2 tabular-nums">
+        {formatDate(post.metadata.publishedAt)}
+      </p>
 
       {/* --- Article Content (MDX) --- */}
       {/* This is where the prose class correctly applies typography to the MDX content. */}
-      <article className="prose dark:prose-invert"> {/* Added dark mode for prose */}
+      <article className="prose dark:prose-invert">
+        {" "}
+        {/* Added dark mode for prose */}
         <CustomMDX source={post.content} />
       </article>
     </section>

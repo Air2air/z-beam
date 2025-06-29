@@ -41,7 +41,6 @@ theme: {
   },
   plugins: [
     require('@tailwindcss/typography'), // If you use prose
-    require('@tailwindcss/line-clamp'), // <-- Add this line
   ],
   darkMode: 'class', // Or 'media' depending on your setup
 }

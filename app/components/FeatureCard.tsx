@@ -64,9 +64,9 @@ export function FeatureCard({
         </div>
 
         {/* Content Section */}
-        <div className="p-4 sm:p-6 flex flex-col flex-grow"> {/* Increased padding on small screens */}
+        <div className="p-3 sm:p-4 flex flex-col flex-grow"> {/* Increased padding on small screens */}
           {date && (
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 tabular-nums">
+            <p className="uppercase text-xs text-gray-500 dark:text-gray-400 mb-2 tabular-nums">
               {date}
             </p>
           )}
@@ -79,7 +79,7 @@ export function FeatureCard({
             // mb-2: Margin below the title.
             // group-hover:text-blue-600 dark:group-hover:text-blue-400: Color change on hover.
             // transition-colors: Smooth color transition.
-            className="text-xl font-semibold text-gray-900 dark:text-white
+            className="text-l font-semibold text-gray-900 dark:text-white
                        tracking-tight mb-2
                        group-hover:text-blue-600 dark:group-hover:text-blue-400
                        transition-colors"

@@ -13,7 +13,7 @@ export function MaterialList() {
   return (
     // <section className="py-8">
     <div
-      className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
       // This creates a responsive grid:
       // - 1 column on extra small screens
       // - 2 columns on small screens and up (sm:)
