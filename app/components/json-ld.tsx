@@ -28,7 +28,7 @@ export const schemas = {
     ...data
   }),
 
-  ArticlePosting: (data: {
+  MaterialListing: (data: {
     headline: string
     description: string
     author: string

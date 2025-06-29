@@ -7,7 +7,7 @@ import Link from "next/link";
 // Navigation items for the footer
 const footerNav = [
   { name: "Home", href: "/" },
-  { name: "Articles", href: "/articles" },
+  { name: "Materials", href: "/(materials)" },
   { name: "Deploy", href: "https://vercel.com/templates/next.js/portfolio-starter-kit", external: true },
 ];
 

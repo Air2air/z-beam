@@ -1,5 +1,5 @@
 // app/components/breadcrumbs.tsx
-"use client"; // This component uses client-side hooks
+"use client";
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -9,23 +9,55 @@ export function Breadcrumbs() {
   // Split the pathname into segments and filter out empty strings (e.g., from leading slash)
   const segments = pathname.split("/").filter((segment) => segment !== "");
 
-  // Build the breadcrumbs array
-  const breadcrumbs = segments.map((segment, index) => {
-    // Construct the href for each segment
-    const href = "/" + segments.slice(0, index + 1).join("/");
-    // Make the label more readable (e.g., "my-article" -> "My Article")
+  // Define a set of known "material" slugs (or a more robust way to identify material pages)
+  // For a dynamic site, you might pass a prop or use context/global state
+  // to tell the breadcrumb component if the current page is an "material".
+  // For now, we'll assume any top-level path that ISN'T a known static route (like /about, /contact)
+  // is an material. Or, if you have a list of all material slugs available client-side,
+  // you could check if `segments[0]` exists in that list.
+  //
+  // A more robust approach might involve:
+  // 1. Passing a `isMaterialPage: boolean` prop from the material page.
+  // 2. Having a `getMaterialSlugsClientSide` utility (less efficient).
+  // 3. Using a `context` provider at the layout level that marks if it's an material route.
+  //
+  // For simplicity and assuming most top-level dynamic routes are materials:
+  const knownStaticTopLevelRoutes = new Set([
+    "about",
+    "contact",
+    // Add any other static top-level routes here that should NOT be considered materials
+  ]);
+
+  let allBreadcrumbs = [{ href: "/", label: "Home" }];
+
+  let currentPathAccumulator = ""; // To build hrefs correctly
+
+  segments.forEach((segment, index) => {
+    currentPathAccumulator += `/${segment}`;
+
+    // Determine if "Materials" needs to be inserted
+    // This logic assumes:
+    // 1. The current segment is the first one after home.
+    // 2. The segment is NOT a known static top-level route.
+    // 3. We haven't already inserted "Materials".
+    const isFirstSegment = index === 0;
+    const isNotStaticRoute = !knownStaticTopLevelRoutes.has(segment);
+    const materialsAlreadyInserted = allBreadcrumbs.some(crumb => crumb.label === "Materials");
+
+    if (isFirstSegment && isNotStaticRoute && !materialsAlreadyInserted) {
+      // Insert "Materials" before the actual slug
+      allBreadcrumbs.push({ href: "/materials", label: "Materials" });
+    }
+
+    // Generate the label (e.g., "my-material" -> "My Material")
     const label = segment
       .replace(/-/g, " ")
       .split(" ")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
 
-    return { href, label };
+    allBreadcrumbs.push({ href: currentPathAccumulator, label });
   });
-
-  // Add a "Home" breadcrumb at the beginning
-  const homeCrumb = { href: "/", label: "Home" };
-  const allBreadcrumbs = [homeCrumb, ...breadcrumbs];
 
   return (
     <nav className="flex py-4" aria-label="Breadcrumb">

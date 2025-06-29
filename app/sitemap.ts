@@ -1,14 +1,14 @@
 // app/sitemap.js
-import { getArticlePosts } from 'app/articles/utils' // Your existing utility
+import { getMaterialList } from 'app/(materials)/utils' // Your existing utility
 
-export const baseUrl = 'https://portfolio-article-starter.vercel.app'
+export const baseUrl = 'https://portfolio-material-starter.vercel.app'
 
 export default async function sitemap() {
-  const articles = getArticlePosts().map((post) => ({
-    url: `${baseUrl}/articles/${post.slug}`,
+  const materials = getMaterialList().map((post) => ({
+    url: `${baseUrl}/(materials)/${post.slug}`,
     lastModified: new Date(post.metadata.publishedAt).toISOString(), // Full ISO string
     changeFrequency: 'weekly', // Example: Adjust based on your update frequency
-    priority: 0.8, // Example: Prioritize article posts
+    priority: 0.8, // Example: Prioritize material posts
   }))
 
   const routes = [
@@ -19,7 +19,7 @@ export default async function sitemap() {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/article`,
+      url: `${baseUrl}/material`,
       lastModified: new Date('2023-01-01').toISOString(), // Use actual last modified
       changeFrequency: 'daily',
       priority: 0.9,
@@ -33,7 +33,7 @@ export default async function sitemap() {
     // },
   ]
 
-  return [...routes, ...articles]
+  return [...routes, ...materials]
 }
 
 // Consider if you need a revalidate option for more frequent updates
