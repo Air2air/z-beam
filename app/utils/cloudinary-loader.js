@@ -1,22 +1,24 @@
-// app/utils/cloudinary-loader.js
+// /
+
 
 const cloudinaryLoader = ({ src, width, quality }) => {
-  // We expect src to be like "/images/Material/material_beryllium"
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-  
 
   if (!cloudName) {
-    console.error('Cloudinary cloud name is not set. Please set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME in your environment variables.');
-    return '';
+    console.error(
+      'Cloudinary cloud name is not set. Please set NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME in your environment variables (.env.local or CI/CD settings).'
+    );
+    return src; // Fallback to original src to prevent broken images
   }
 
   const baseUrl = `https://res.cloudinary.com/${cloudName}/image/upload/`;
 
+  const maxWidth = Math.min(width, 1200); // Cap at 1200px for performance
   const transformations = [
-    'f_auto',
-    'q_auto',
-    `w_${width}`,
-    quality ? `q_${quality}` : null
+    'f_auto', // Auto-format (e.g., WebP for supported browsers)
+    'q_auto', // Auto-quality, overridden by quality if provided
+    `w_${maxWidth}`,
+    quality ? `q_${quality}` : 'q_80', // Default quality to balance size and clarity
   ].filter(Boolean).join(',');
 
   let publicId = src;
@@ -26,9 +28,9 @@ const cloudinaryLoader = ({ src, width, quality }) => {
     publicId = publicId.substring('/images/'.length);
   }
 
-  // Append .jpg extension if it's missing (assuming your uploaded images are JPG)
-  if (!publicId.includes('.')) {
-      publicId += '.jpg';
+  // Append .jpg extension if missing (assumes most images are JPG)
+  if (!publicId.match(/\.(jpg|jpeg|png|webp|avif)$/i)) {
+    publicId += '.jpg';
   }
 
   return `${baseUrl}${transformations}/${publicId}`;

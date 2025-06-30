@@ -1,5 +1,4 @@
 // /app/components/HeroImage.tsx
-
 "use client";
 
 import NextImage from 'next/image';
@@ -14,9 +13,11 @@ interface HeroImageProps {
   alt: string;
   imageCaption?: string;
   priority?: boolean;
+  materialName?: string; // Added for dynamic alt text
+  primaryApplication?: string; // Added for dynamic alt text
 }
 
-export function HeroImage({ src, alt, imageCaption, priority = false }: HeroImageProps) {
+export function HeroImage({ src, alt, imageCaption, priority = false, materialName, primaryApplication }: HeroImageProps) {
   const [hasImageLoaded, setHasImageLoaded] = useState(false);
   const [shouldShowImage, setShouldShowImage] = useState(false);
 
@@ -32,6 +33,11 @@ export function HeroImage({ src, alt, imageCaption, priority = false }: HeroImag
 
     return () => clearTimeout(timer);
   }, [hasImageLoaded]);
+
+  // Dynamic alt text for SEO
+  const optimizedAlt = materialName && primaryApplication
+    ? `Laser cleaning ${materialName} process in ${primaryApplication}`
+    : alt;
 
   // Split caption at "Equipment:" with regex to handle whitespace
   const captionParts = imageCaption ? imageCaption.split(/\s*Equipment:\s*/) : [];
@@ -66,7 +72,7 @@ export function HeroImage({ src, alt, imageCaption, priority = false }: HeroImag
         >
           <NextImage
             src={src}
-            alt={alt}
+            alt={optimizedAlt}
             fill={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
             className="object-cover object-center rounded-lg"
