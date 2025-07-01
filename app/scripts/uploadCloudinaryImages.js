@@ -145,6 +145,10 @@ async function main() {
   }
 
   // Identify images to delete
+  // Moved the declaration of 'toDelete' here
+  const toDelete = cloudinaryPublicIds.filter(
+    (id) => !localPublicIds.includes(id)
+  );
   log("info", `Found ${toDelete.length} images to delete from Cloudinary.`); // Replaced chalk.cyan(...)
 
   // Delete unmatched images
