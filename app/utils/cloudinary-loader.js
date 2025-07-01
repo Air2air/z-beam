@@ -1,4 +1,4 @@
-// /
+// /app/utils/cloudinary-loader.js
 
 
 const cloudinaryLoader = ({ src, width, quality }) => {
