@@ -4,12 +4,8 @@ require("dotenv").config({
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const path = require("path");
-// const chalk = require("chalk"); // REMOVED
-const ora = require("ora");
+const ora = require("ora").default; 
 
-// REMOVED: No longer checking chalk version as chalk is removed
-
-// Helper function for console output without chalk
 // Helper function for console output without chalk
 function log(level, message, detail = null) {
   const timestamp = new Date().toISOString();
