@@ -1,27 +1,46 @@
-// /app/scripts/uploadCloudinaryImages.js
-
 require("dotenv").config({
   path: require("path").resolve(process.cwd(), ".env.local"),
 });
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const path = require("path");
-const chalk = require("chalk");
+// const chalk = require("chalk"); // REMOVED
 const ora = require("ora");
 
-// Check chalk version for compatibility
-const chalkVersion = require("chalk/package.json").version;
-if (chalkVersion.startsWith("5")) {
-  console.warn(
-    chalk.yellow(
-      "Detected chalk@5.0.0+. Using updated syntax for compatibility."
-    )
-  );
+// REMOVED: No longer checking chalk version as chalk is removed
+
+// Helper function for console output without chalk
+function log(level, message, detail = null) {
+  const timestamp = new Date().toISOString();
+  let prefix = "";
+  switch (level) {
+    case "info":
+      prefix = "[INFO]";
+      break;
+    case "warn":
+      prefix = "[WARN]";
+      break;
+    case "error":
+      prefix = "[ERROR]";
+      break;
+    case "success":
+      prefix = "[SUCCESS]";
+      break;
+    case "debug":
+      prefix = "[DEBUG]";
+      break;
+    default:
+      prefix = "[LOG]";
+  }
+  console.log(`${timestamp} ${prefix} ${message}`);
+  if (detail) {
+    console.log(JSON.stringify(detail, null, 2));
+  }
 }
 
 function getAllImageFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) {
-    console.warn(chalk.yellow(`Directory '${dir}' does not exist. Skipping.`));
+    log("warn", `Directory '${dir}' does not exist. Skipping.`);
     return fileList;
   }
   const files = fs.readdirSync(dir);
@@ -43,9 +62,7 @@ function getAllImageFiles(dir, fileList = []) {
       if (supportedExtensions.includes(ext)) {
         fileList.push(filePath);
       } else {
-        console.warn(
-          chalk.yellow(`Skipping unsupported file type: ${filePath}`)
-        );
+        log("warn", `Skipping unsupported file type: ${filePath}`);
       }
     }
   });
@@ -53,17 +70,16 @@ function getAllImageFiles(dir, fileList = []) {
 }
 
 async function main() {
-  console.log(chalk.blue(chalk.bold("--- Starting Cloudinary Image Sync ---")));
+  log("info", "--- Starting Cloudinary Image Sync ---"); // Replaced chalk.blue(chalk.bold(...))
 
   // Verify environment variables
   const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } =
     process.env;
   if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
-    console.error(chalk.red("Error: Missing Cloudinary API credentials."));
-    console.error(
-      chalk.red(
-        "Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in .env.local or CI/CD settings."
-      )
+    log("error", "Missing Cloudinary API credentials."); // Replaced chalk.red(...)
+    log(
+      "error",
+      "Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in .env.local or CI/CD settings."
     );
     process.exit(1);
   }
@@ -77,13 +93,13 @@ async function main() {
 
   // Scan for local images
   const imagesBaseDir = path.join(process.cwd(), "public", "images");
-  console.log(chalk.cyan(`Scanning for images in: ${imagesBaseDir}`));
+  log("info", `Scanning for images in: ${imagesBaseDir}`); // Replaced chalk.cyan(...)
   const imageFiles = getAllImageFiles(imagesBaseDir);
 
   if (imageFiles.length === 0) {
-    console.warn(chalk.yellow("No supported image files found for upload."));
+    log("warn", "No supported image files found for upload."); // Replaced chalk.yellow(...)
   } else {
-    console.log(chalk.green(`Found ${imageFiles.length} image(s) for upload.`));
+    log("success", `Found ${imageFiles.length} image(s) for upload.`); // Replaced chalk.green(...)
   }
 
   // Generate local public IDs
@@ -96,9 +112,8 @@ async function main() {
   });
 
   // Fetch Cloudinary images
-  const spinnerFetch = ora(
-    chalk.magenta("Fetching Cloudinary images...")
-  ).start();
+  // Removed chalk from ora messages, ora will still display plain spinner
+  const spinnerFetch = ora("Fetching Cloudinary images...").start();
   let cloudinaryPublicIds = [];
   try {
     const result = await cloudinary.api.resources({
@@ -107,52 +122,31 @@ async function main() {
       max_results: 500, // Adjust based on your image count
     });
     cloudinaryPublicIds = result.resources.map((res) => res.public_id);
-    spinnerFetch.succeed(
-      chalk.green(
-        `Fetched ${cloudinaryPublicIds.length} images from Cloudinary.`
-      )
-    );
+    spinnerFetch.succeed(`Fetched ${cloudinaryPublicIds.length} images from Cloudinary.`);
   } catch (error) {
-    spinnerFetch.fail(
-      chalk.red(`Failed to fetch Cloudinary images: ${error.message}`)
-    );
-    console.error(chalk.red("Detailed error:", JSON.stringify(error, null, 2)));
+    spinnerFetch.fail(`Failed to fetch Cloudinary images: ${error.message}`);
+    log("error", "Detailed error:", error); // Replaced chalk.red(...)
     process.exit(1);
   }
 
   // Identify images to delete
-  const toDelete = cloudinaryPublicIds.filter(
-    (id) => !localPublicIds.includes(id)
-  );
-  console.log(
-    chalk.cyan(`Found ${toDelete.length} images to delete from Cloudinary.`)
-  );
+  log("info", `Found ${toDelete.length} images to delete from Cloudinary.`); // Replaced chalk.cyan(...)
 
   // Delete unmatched images
   for (const publicId of toDelete) {
-    const spinnerDelete = ora(
-      chalk.magenta(`Deleting ${publicId} from Cloudinary...`)
-    ).start();
+    const spinnerDelete = ora(`Deleting ${publicId} from Cloudinary...`).start();
     try {
       const result = await cloudinary.uploader.destroy(publicId, {
         resource_type: "image",
       });
       if (result.result === "ok") {
-        spinnerDelete.succeed(
-          chalk.green(`Deleted ${publicId} from Cloudinary.`)
-        );
+        spinnerDelete.succeed(`Deleted ${publicId} from Cloudinary.`);
       } else {
-        spinnerDelete.fail(
-          chalk.red(`Failed to delete ${publicId}: ${result.result}`)
-        );
+        spinnerDelete.fail(`Failed to delete ${publicId}: ${result.result}`);
       }
     } catch (error) {
-      spinnerDelete.fail(
-        chalk.red(`Failed to delete ${publicId}: ${error.message}`)
-      );
-      console.error(
-        chalk.red("Detailed error:", JSON.stringify(error, null, 2))
-      );
+      spinnerDelete.fail(`Failed to delete ${publicId}: ${error.message}`);
+      log("error", "Detailed error:", error); // Replaced chalk.red(...)
     }
   }
 
@@ -166,18 +160,10 @@ async function main() {
       cloudinaryFolder = "";
     }
 
-    console.log(
-      chalk.cyan(
-        `Processing: ${relativePathInImagesDir} (Public ID: ${publicId}, Folder: ${
-          cloudinaryFolder || "root"
-        })`
-      )
-    );
+    log("info", `Processing: ${relativePathInImagesDir} (Public ID: ${publicId}, Folder: ${cloudinaryFolder || "root"})`); // Replaced chalk.cyan(...)
 
     const spinnerUpload = ora(
-      chalk.magenta(
-        `Uploading ${publicId} to folder ${cloudinaryFolder || "root"}...`
-      )
+      `Uploading ${publicId} to folder ${cloudinaryFolder || "root"}...`
     ).start();
 
     try {
@@ -192,58 +178,36 @@ async function main() {
         ],
       });
 
-      console.log(
-        chalk.cyan(
-          "Upload response:",
-          JSON.stringify(
-            {
-              public_id: uploadResult.public_id,
-              secure_url: uploadResult.secure_url,
-              created_at: uploadResult.created_at,
-              bytes: uploadResult.bytes,
-              width: uploadResult.width,
-              height: uploadResult.height,
-              invalidation_status:
-                uploadResult.invalidation_status || "Not specified",
-            },
-            null,
-            2
-          )
-        )
+      log(
+        "debug",
+        "Upload response:",
+        {
+          public_id: uploadResult.public_id,
+          secure_url: uploadResult.secure_url,
+          created_at: uploadResult.created_at,
+          bytes: uploadResult.bytes,
+          width: uploadResult.width,
+          height: uploadResult.height,
+          invalidation_status: uploadResult.invalidation_status || "Not specified",
+        }
       );
 
       spinnerUpload.succeed(
-        chalk.green(
-          `Uploaded ${publicId} to folder '${
-            cloudinaryFolder || "root"
-          }' (Public ID: ${uploadResult.public_id}): ${uploadResult.secure_url}`
-        )
+        `Uploaded ${publicId} to folder '${cloudinaryFolder || "root"}' (Public ID: ${uploadResult.public_id}): ${uploadResult.secure_url}`
       );
     } catch (error) {
       spinnerUpload.fail(
-        chalk.red(
-          `Failed to upload ${publicId} to folder '${
-            cloudinaryFolder || "root"
-          }': ${error.message}`
-        )
+        `Failed to upload ${publicId} to folder '${cloudinaryFolder || "root"}': ${error.message}`
       );
-      console.error(
-        chalk.red("Detailed error:", JSON.stringify(error, null, 2))
-      );
+      log("error", "Detailed error:", error); // Replaced chalk.red(...)
     }
   }
 
-  console.log(chalk.blue(chalk.bold("--- Cloudinary Image Sync Complete ---")));
+  log("info", "--- Cloudinary Image Sync Complete ---"); // Replaced chalk.blue(chalk.bold(...))
 }
 
 main().catch((error) => {
-  // Fallback to plain console.error if chalk fails
-  try {
-    console.error(
-      chalk.red(chalk.bold("Unhandled error:", JSON.stringify(error, null, 2)))
-    );
-  } catch (chalkError) {
-    console.error("Unhandled error:", JSON.stringify(error, null, 2));
-  }
+  // Original fallback for chalk removed, now using the new log function
+  log("error", "Unhandled error:", error);
   process.exit(1);
 });
