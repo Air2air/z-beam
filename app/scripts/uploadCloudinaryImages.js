@@ -4,7 +4,8 @@ require("dotenv").config({
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
 const path = require("path");
-const ora = require("ora").default; 
+const ora = require("ora").default;
+const crypto = require("crypto"); // Import Node.js crypto module for hashing
 
 // Helper function for console output without chalk
 function log(level, message, detail = null) {
@@ -31,27 +32,32 @@ function log(level, message, detail = null) {
   }
   console.log(`${timestamp} ${prefix} ${message}`);
 
-  // MODIFIED SECTION HERE
   if (detail) {
-    // If it's an Error object, print its stack trace
     if (detail instanceof Error) {
       console.error(`Error Type: ${detail.name}`);
       console.error(`Error Message: ${detail.message}`);
       if (detail.stack) {
         console.error("Stack Trace:\n", detail.stack);
       }
-      // If the error has a response property (like HTTP errors from libraries like Axios/Requests)
       if (detail.response && detail.response.data) {
         console.error("Error Response Data:\n", JSON.stringify(detail.response.data, null, 2));
       }
     } else {
-      // For plain objects or other types, stringify them
       console.log("Details:\n", JSON.stringify(detail, null, 2));
     }
   }
-  // END MODIFIED SECTION
 }
 
+// Function to calculate MD5 hash of a file
+function calculateFileHash(filePath) {
+  return new Promise((resolve, reject) => {
+    const hash = crypto.createHash('md5');
+    const stream = fs.createReadStream(filePath);
+    stream.on('data', chunk => hash.update(chunk));
+    stream.on('end', () => resolve(hash.digest('hex')));
+    stream.on('error', err => reject(err));
+  });
+}
 
 function getAllImageFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) {
@@ -85,13 +91,13 @@ function getAllImageFiles(dir, fileList = []) {
 }
 
 async function main() {
-  log("info", "--- Starting Cloudinary Image Sync ---"); // Replaced chalk.blue(chalk.bold(...))
+  log("info", "--- Starting Cloudinary Image Sync ---");
 
   // Verify environment variables
   const { CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } =
     process.env;
   if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_API_KEY || !CLOUDINARY_API_SECRET) {
-    log("error", "Missing Cloudinary API credentials."); // Replaced chalk.red(...)
+    log("error", "Missing Cloudinary API credentials.");
     log(
       "error",
       "Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET in .env.local or CI/CD settings."
@@ -108,52 +114,74 @@ async function main() {
 
   // Scan for local images
   const imagesBaseDir = path.join(process.cwd(), "public", "images");
-  log("info", `Scanning for images in: ${imagesBaseDir}`); // Replaced chalk.cyan(...)
+  log("info", `Scanning for images in: ${imagesBaseDir}`);
   const imageFiles = getAllImageFiles(imagesBaseDir);
 
   if (imageFiles.length === 0) {
-    log("warn", "No supported image files found for upload."); // Replaced chalk.yellow(...)
+    log("warn", "No supported image files found for upload.");
   } else {
-    log("success", `Found ${imageFiles.length} image(s) for upload.`); // Replaced chalk.green(...)
+    log("success", `Found ${imageFiles.length} image(s) for upload.`);
   }
 
-  // Generate local public IDs
-  const localPublicIds = imageFiles.map((file) => {
+  // Generate local public IDs and calculate local hashes
+  const localImages = {}; // Map public_id to { filePath, hash }
+  for (const file of imageFiles) {
     const relativePath = path.relative(imagesBaseDir, file);
     const parsedPath = path.parse(relativePath);
-    return `${
+    const publicId = `${
       parsedPath.dir ? parsedPath.dir.replace(/\\/g, "/") + "/" : ""
     }${parsedPath.name.replace(/[^a-zA-Z0-9_-]/g, "_")}`;
-  });
+    const fileHash = await calculateFileHash(file);
+    localImages[publicId] = { filePath: file, hash: fileHash };
+  }
+  const localPublicIds = Object.keys(localImages);
 
-  // Fetch Cloudinary images
-  // Removed chalk from ora messages, ora will still display plain spinner
+
+  // Fetch Cloudinary images and their etags
   const spinnerFetch = ora("Fetching Cloudinary images...").start();
-  let cloudinaryPublicIds = [];
+  let cloudinaryResources = {}; // Map public_id to { etag }
   try {
-    const result = await cloudinary.api.resources({
-      resource_type: "image",
-      prefix: "", // Fetch all images; adjust to 'Material' or 'Site/Logo' if needed
-      max_results: 500, // Adjust based on your image count
-    });
-    cloudinaryPublicIds = result.resources.map((res) => res.public_id);
-    spinnerFetch.succeed(`Fetched ${cloudinaryPublicIds.length} images from Cloudinary.`);
+    // Cloudinary API resources can fetch up to 500 at a time. Loop if more.
+    let nextCursor = null;
+    do {
+      const result = await cloudinary.api.resources({
+        resource_type: "image",
+        prefix: "",
+        max_results: 500,
+        next_cursor: nextCursor,
+      });
+
+      result.resources.forEach((res) => {
+        // Cloudinary's etag is an MD5 hash of the original file
+        cloudinaryResources[res.public_id] = { etag: res.etag };
+      });
+      nextCursor = result.next_cursor;
+    } while (nextCursor);
+
+    spinnerFetch.succeed(
+      `Fetched ${Object.keys(cloudinaryResources).length} images from Cloudinary.`
+    );
   } catch (error) {
-    spinnerFetch.fail(`Failed to fetch Cloudinary images: ${error.message}`);
-    log("error", "Detailed error:", error); // Replaced chalk.red(...)
+    spinnerFetch.fail(
+      `Failed to fetch Cloudinary images: ${error.message}`
+    );
+    log("error", "Detailed error:", error);
     process.exit(1);
   }
+  const cloudinaryPublicIds = Object.keys(cloudinaryResources);
 
-  // Identify images to delete
-  // Moved the declaration of 'toDelete' here
+
+  // Identify images to delete (on Cloudinary but not local)
   const toDelete = cloudinaryPublicIds.filter(
     (id) => !localPublicIds.includes(id)
   );
-  log("info", `Found ${toDelete.length} images to delete from Cloudinary.`); // Replaced chalk.cyan(...)
+  log("info", `Found ${toDelete.length} images to delete from Cloudinary.`);
 
   // Delete unmatched images
   for (const publicId of toDelete) {
-    const spinnerDelete = ora(`Deleting ${publicId} from Cloudinary...`).start();
+    const spinnerDelete = ora(
+      `Deleting ${publicId} from Cloudinary...`
+    ).start();
     try {
       const result = await cloudinary.uploader.destroy(publicId, {
         resource_type: "image",
@@ -165,21 +193,44 @@ async function main() {
       }
     } catch (error) {
       spinnerDelete.fail(`Failed to delete ${publicId}: ${error.message}`);
-      log("error", "Detailed error:", error); // Replaced chalk.red(...)
+      log("error", "Detailed error:", error);
     }
   }
 
-  // Upload images
-  for (const filePath of imageFiles) {
+  // Upload or update images (local images not on Cloudinary OR local hash differs from Cloudinary etag)
+  const toUploadOrUpdate = localPublicIds.filter((publicId) => {
+    const localImage = localImages[publicId];
+    const cloudinaryImage = cloudinaryResources[publicId];
+
+    // If image doesn't exist on Cloudinary, it needs to be uploaded
+    if (!cloudinaryImage) {
+      return true;
+    }
+    // If image exists but hashes differ, it needs to be updated
+    if (cloudinaryImage.etag !== localImage.hash) {
+      return true;
+    }
+    // Otherwise, it's already in sync, no action needed
+    return false;
+  });
+
+  log("info", `Found ${toUploadOrUpdate.length} images to upload or update.`);
+
+  for (const publicId of toUploadOrUpdate) {
+    const { filePath } = localImages[publicId];
     const relativePathInImagesDir = path.relative(imagesBaseDir, filePath);
     const parsedPath = path.parse(relativePathInImagesDir);
-    let publicId = parsedPath.name.replace(/[^a-zA-Z0-9_-]/g, "_");
     let cloudinaryFolder = parsedPath.dir.replace(/\\/g, "/");
     if (cloudinaryFolder === "." || cloudinaryFolder === "") {
       cloudinaryFolder = "";
     }
 
-    log("info", `Processing: ${relativePathInImagesDir} (Public ID: ${publicId}, Folder: ${cloudinaryFolder || "root"})`); // Replaced chalk.cyan(...)
+    log(
+      "info",
+      `Processing: ${relativePathInImagesDir} (Public ID: ${publicId}, Folder: ${
+        cloudinaryFolder || "root"
+      })`
+    );
 
     const spinnerUpload = ora(
       `Uploading ${publicId} to folder ${cloudinaryFolder || "root"}...`
@@ -207,26 +258,43 @@ async function main() {
           bytes: uploadResult.bytes,
           width: uploadResult.width,
           height: uploadResult.height,
-          invalidation_status: uploadResult.invalidation_status || "Not specified",
+          invalidation_status:
+            uploadResult.invalidation_status || "Not specified",
         }
       );
 
       spinnerUpload.succeed(
-        `Uploaded ${publicId} to folder '${cloudinaryFolder || "root"}' (Public ID: ${uploadResult.public_id}): ${uploadResult.secure_url}`
+        `Uploaded ${publicId} to folder '${
+          cloudinaryFolder || "root"
+        }' (Public ID: ${uploadResult.public_id}): ${uploadResult.secure_url}`
       );
     } catch (error) {
       spinnerUpload.fail(
-        `Failed to upload ${publicId} to folder '${cloudinaryFolder || "root"}': ${error.message}`
+        `Failed to upload ${publicId} to folder '${
+          cloudinaryFolder || "root"
+        }': ${error.message}`
       );
-      log("error", "Detailed error:", error); // Replaced chalk.red(...)
+      log("error", "Detailed error:", error);
     }
   }
 
-  log("info", "--- Cloudinary Image Sync Complete ---"); // Replaced chalk.blue(chalk.bold(...))
+  // Log which images were skipped (already in sync)
+  const skippedImages = localPublicIds.filter((publicId) => {
+    const localImage = localImages[publicId];
+    const cloudinaryImage = cloudinaryResources[publicId];
+    return cloudinaryImage && cloudinaryImage.etag === localImage.hash;
+  });
+
+  if (skippedImages.length > 0) {
+      log("info", `Skipped ${skippedImages.length} image(s) that are already in sync.`);
+      // Optional: log the skipped image public IDs for verbose debugging
+      // log("debug", "Skipped images:", skippedImages);
+  }
+
+  log("info", "--- Cloudinary Image Sync Complete ---");
 }
 
 main().catch((error) => {
-  // Original fallback for chalk removed, now using the new log function
   log("error", "Unhandled error:", error);
   process.exit(1);
 });
