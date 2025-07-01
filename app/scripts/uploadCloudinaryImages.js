@@ -10,6 +10,7 @@ const ora = require("ora");
 // REMOVED: No longer checking chalk version as chalk is removed
 
 // Helper function for console output without chalk
+// Helper function for console output without chalk
 function log(level, message, detail = null) {
   const timestamp = new Date().toISOString();
   let prefix = "";
@@ -33,10 +34,28 @@ function log(level, message, detail = null) {
       prefix = "[LOG]";
   }
   console.log(`${timestamp} ${prefix} ${message}`);
+
+  // MODIFIED SECTION HERE
   if (detail) {
-    console.log(JSON.stringify(detail, null, 2));
+    // If it's an Error object, print its stack trace
+    if (detail instanceof Error) {
+      console.error(`Error Type: ${detail.name}`);
+      console.error(`Error Message: ${detail.message}`);
+      if (detail.stack) {
+        console.error("Stack Trace:\n", detail.stack);
+      }
+      // If the error has a response property (like HTTP errors from libraries like Axios/Requests)
+      if (detail.response && detail.response.data) {
+        console.error("Error Response Data:\n", JSON.stringify(detail.response.data, null, 2));
+      }
+    } else {
+      // For plain objects or other types, stringify them
+      console.log("Details:\n", JSON.stringify(detail, null, 2));
+    }
   }
+  // END MODIFIED SECTION
 }
+
 
 function getAllImageFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) {
