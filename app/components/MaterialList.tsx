@@ -12,13 +12,17 @@ export function MaterialList() {
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
       {allMaterials
         .sort((a, b) => {
-          // Sort by publishedAt, newest first
-          if (
-            new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
-          ) {
-            return -1;
+          // Safely get nameShort, defaulting to an empty string if undefined
+          const nameA = (a.metadata.nameShort || "").toLowerCase();
+          const nameB = (b.metadata.nameShort || "").toLowerCase();
+
+          if (nameA < nameB) {
+            return -1; // nameA comes before nameB
           }
-          return 1;
+          if (nameA > nameB) {
+            return 1; // nameA comes after nameB
+          }
+          return 0; // names are equal
         })
         .map((post, index) => (
           <FadeInOnScroll
