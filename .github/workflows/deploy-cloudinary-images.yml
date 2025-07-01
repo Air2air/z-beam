@@ -24,23 +24,29 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies (using npm ci for CI/CD)
-        run: npm install --no-save ora # We only need ora now, and --no-save prevents adding to package.json
+        run: npm install --no-save ora
+
+      - name: Debug - Verify Script Content
+        # ADD THIS STEP
+        run: |
+          echo "Contents of app/scripts/uploadCloudinaryImages.js on the runner:"
+          cat app/scripts/uploadCloudinaryImages.js
+          echo "--- End of script content ---"
 
       - name: Debug - Verify Node Modules and Requires
         run: |
           echo "Listing node_modules contents:"
-          # ls -la node_modules/chalk # No longer needed
           ls -la node_modules/ora
           echo ""
           echo "Attempting to require ora in Node.js:"
           node -e "
             try {
-              const ora = require('ora');
+              const ora = require('ora').default;
               console.log('Successfully required ora.');
               console.log('Ora loaded (object type):', typeof ora);
             } catch (e) {
               console.error('Failed to require ora:', e.message);
-              process.exit(1); 
+              process.exit(1);
             }
           "
 
@@ -50,5 +56,3 @@ jobs:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-          
-          # Final trigger attempt
