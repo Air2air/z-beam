@@ -1,8 +1,14 @@
+"""
+Configuration for Z-Beam Page Generator.
+Defines material, output, article, section, and model settings.
+"""
+
 import os
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-MATERIAL = "Tungsten Carbide"
-FILE_NAME = "laser_cleaning_Tungsten.mdx"
+MODEL = "grok-3-latest"
+MATERIAL = "Beryllium"
+FILE_NAME = "laser_cleaning_beryllium.mdx"
 ARTICLE_CATEGORY = "Material"
 OUTPUT_DIR = "app/(materials)/posts"
 ARTICLE_CONFIG = {
