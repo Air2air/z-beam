@@ -1,14 +1,37 @@
 """
 Configuration for Z-Beam Page Generator.
-Defines material, output, article, section, and model settings.
+Defines material, output, article, section, model, and AI detection settings.
 """
 
 import os
 
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-MODEL = "grok-3-latest"
-MATERIAL = "Beryllium"
-FILE_NAME = "laser_cleaning_beryllium.mdx"
+
+# --- AI Provider Configuration ---
+PROVIDER = "GEMINI"
+GROK_MODEL_LATEST = "grok-3-latest"
+GROK_MODEL_MINI = "grok-3-mini"
+MODEL = GROK_MODEL_LATEST
+GEMINI_MODEL_PRO = "gemini-1.5-pro"
+GEMINI_MODEL_FLASH = "gemini-1.5-flash"
+GEMINI_DEFAULT_MODEL = GEMINI_MODEL_FLASH
+
+# --- API Endpoints ---
+GROK_API_URL = "https://api.x.ai/v1/chat/completions"
+GEMINI_API_URL = (
+    "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+)
+
+# --- AI Detection Configuration ---
+AI_DETECTION_FALLBACK_PROMPTS = [
+    "Evaluate text for AI traits. Return percentage (0-100) and summary (1-2 sentences): {content}",
+    "Analyze text for AI-generated style. Return percentage (0-100) and summary (string): {content}",
+]
+AI_DETECTION_THRESHOLD = 60
+
+# --- Existing Project Configuration ---
+MATERIAL = "Nickel"
+FILE_NAME = "laser_cleaning_nickel.mdx"
 ARTICLE_CATEGORY = "Material"
 OUTPUT_DIR = "app/(materials)/posts"
 ARTICLE_CONFIG = {
