@@ -1,3 +1,6 @@
+# generator/modules/detection_criteria.py
+
+
 """
 Defines AI detection criteria for stylistic analysis.
 """

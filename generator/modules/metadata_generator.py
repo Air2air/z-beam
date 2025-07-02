@@ -1,139 +1,154 @@
+# generator/modules/metadata_generator.py
+
 """
-Generates Markdown metadata and assembles MDX page content.
+Module for generating article metadata (YAML frontmatter).
 """
 
-from datetime import datetime
+import datetime
+import json
+import re
+from typing import List, Dict, Any
+
 from generator.modules.logger import get_logger
 
-# Define a logger for this module
 logger = get_logger("metadata_generator")
 
 
 def generate_metadata(
-    material,
-    material_config,
-    article_config,
-    author_metadata,
-    ai_scores,
-    article_category,
-):
-    """Generate Markdown metadata.
+    material: str,
+    material_config: Dict[str, Any],
+    article_config: Dict[str, Any],
+    author_metadata: Dict[str, Any],
+    ai_scores: Dict[str, float],
+    article_category: str,
+) -> str:
+    """
+    Generates the YAML frontmatter string for the article.
 
     Args:
-        material (str): Material name.
-        material_config (dict): Material properties.
-        article_config (dict): Article configuration.
-        author_metadata (dict): Author metadata.
-        ai_scores (dict): AI detection scores for non-table/chart sections.
-        article_category (str): Category (e.g., Material).
+        material (str): The primary material of the article.
+        material_config (Dict[str, Any]): Researched data about the material.
+        article_config (Dict[str, Any]): General article configuration (authors, voice, etc.).
+        author_metadata (Dict[str, Any]): Full metadata for all authors.
+        ai_scores (Dict[str, float]): Dictionary of AI detection scores for each section.
+        article_category (str): The category of the article.
 
     Returns:
-        str: Formatted Markdown metadata.
+        str: The YAML frontmatter string.
     """
-    material_slug = material.lower().replace(" ", "-")
+    title = f"Laser Cleaning {material}"
 
-    # Safely get author bios
-    author_bios_list = []
-    for author_name in article_config.get("authors", []):
-        if author_name in author_metadata:
-            author_bios_list.append(author_metadata[author_name]["bio"])
-        else:
-            logger.warning(
-                f"No metadata found for author '{author_name}', skipping bio."
-            )
-    author_bios_str = ", ".join(author_bios_list)
+    authors_list = article_config.get("authors", [])
+    author_full_names = [
+        author_metadata.get(author_alias, {}).get("name", author_alias)
+        for author_alias in authors_list
+    ]
 
-    industries = material_config.get("industries", ["General Industry"])
-    is_material = article_category == "Material"
+    date_generated = datetime.datetime.now().strftime("%Y-%m-%d")
 
-    # Dynamic Title and Description based on category
-    title = (
-        f"Laser Cleaning {material}: Optimizing Performance and Safety"
-        if is_material
-        else f"Laser Cleaning {material}: Techniques and Benefits"
+    # Construct a description snippet from the material_description, or a fallback
+    description_snippet = material_config.get("material_details", {}).get(
+        "material_description", ""
     )
-    description = (
-        f"Explore how laser cleaning removes contaminants from {material.lower()}, enhancing performance and safety in {', '.join(industries)} industries."
-        if is_material
-        else f"Discover how laser cleaning enhances {material.lower()} applications in {', '.join(industries)} industries, focusing on techniques, benefits, and use cases."
-    )
+    if description_snippet:
+        # Clean up markdown/html tags and truncate for description
+        description_snippet = re.sub(
+            r"<[^>]*>", "", description_snippet
+        )  # Remove HTML tags
+        description_snippet = re.sub(
+            r"#+\s*", "", description_snippet
+        )  # Remove markdown headings
+        description_snippet = description_snippet.strip().split("\n")[
+            0
+        ]  # Take only the first effective line
+        description_snippet = (
+            description_snippet[:160] + "..."
+            if len(description_snippet) > 160
+            else description_snippet.strip()
+        )
+    else:
+        description_snippet = f"A comprehensive guide to laser cleaning {material}."
 
-    # Dynamic Image Path
-    image_category_folder = "Material" if is_material else "Application"
-    image_prefix = "material" if is_material else ""
-    image_suffix = "" if is_material else "_application"
-    image_path = f"/images/{image_category_folder}/{image_prefix}_{material_slug}{image_suffix}.jpg"
+    # Combine categories and material for tags, ensure uniqueness and sort
+    tags = [article_category.lower().replace(" ", "-")]
+    if material:
+        tags.append(material.lower().replace(" ", "-"))
+    if (
+        "material_details" in material_config
+        and "applications" in material_config["material_details"]
+    ):
+        tags.extend(
+            [
+                app.lower().replace(" ", "-")
+                for app in material_config["material_details"]["applications"]
+            ]
+        )
+    tags = sorted(list(set(tags)))  # Unique and sorted
 
-    # --- Start of YAML Frontmatter Construction ---
-    # Using a dictionary to build metadata for clarity, then converting to YAML lines
+    # Assemble metadata dictionary
     metadata_dict = {
         "title": title,
-        "nameShort": material,  # Assuming 'nameShort' for the material name in your frontend
-        "description": description,
-        "publishedAt": datetime.now().strftime("%Y-%m-%d"),  # Consistent YYYY-MM-DD
-        "authors": article_config.get(
-            "authors", []
-        ),  # Directly use the list of authors
-        "authorBios": author_bios_str,  # Join bios into a single string if that's your type
-        "tags": [material, "Laser Cleaning"]
-        + industries
-        + ["Surface Preparation"],  # Combined list
-        "keywords": f"{material.lower()} cleaning, laser ablation, surface preparation, {', '.join(f'{i.lower()} {article_category.lower()}s' for i in industries)}, contamination removal",
-        "image": image_path,
-        "atomicNumber": material_config.get("atomicNumber", "None"),
-        "chemicalSymbol": material_config.get("chemicalSymbol", "None"),
-        "materialType": material_config.get("material_type", "Unknown"),
-        "metalClass": material_config.get("metal_class", "Unknown"),
-        "crystalStructure": material_config.get(
-            "crystalStructure", "Complex/Mixed"
-        ),  # Added default from previous analysis
-        "primaryApplication": material_config.get("primary_application", "Unknown"),
+        "authors": author_full_names,
+        "date": date_generated,
+        "description": description_snippet,
+        "tags": tags,
+        "material": material,
+        "articleCategory": article_category,
+        "voice": article_config.get("voice"),
+        "authority": article_config.get("authority"),
+        "contentLengthConfig": article_config.get("content_length"),
+        "variety": article_config.get("variety"),
+        "modelUsed": article_config.get("model"),
+        "aiScores": ai_scores,
+        "materialDetails": material_config.get("material_details", {}),
+        "materialType": material_config.get("materialType", "N/A"),
+        "metalClass": material_config.get("metalClass", "N/A"),
+        "primaryApplication": material_config.get("primaryApplication", "N/A"),
+        "atomicNumber": material_config.get("atomicNumber", "N/A"),
+        "chemicalSymbol": material_config.get("chemicalSymbol", "N/A"),
+        "industries": material_config.get("industries", []),
+        # Add any other relevant fields from article_config or material_config here
     }
 
-    # Add AI scores, transforming keys if necessary
-    for name, score in ai_scores.items():
-        if score is not None and "percentage" in score:
-            # Map Python snake_case section names to camelCase for JS/TS Metadata
-            # and append "AIScore" suffix
-            if name == "paragraph":
-                metadata_dict["paragraphAIScore"] = score["percentage"]
-            elif name == "list":
-                metadata_dict["listAIScore"] = score["percentage"]
-            # Add more specific mappings here if other sections have AI scores
-            else:
-                metadata_dict[name + "AIScore"] = score[
-                    "percentage"
-                ]  # Generic fallback
-
-    # Convert the dictionary to YAML string
-    yaml_lines = []
+    # Format into YAML string
+    yaml_lines = ["---"]
     for key, value in metadata_dict.items():
         if isinstance(value, list):
-            # For lists (authors, tags), format each item on a new line with indentation
             yaml_lines.append(f"{key}:")
             for item in value:
-                yaml_lines.append(f'  - "{item}"')  # Quote list items for safety
-        elif isinstance(value, str):
-            # Quote strings that might contain colons or special chars
-            yaml_lines.append(
-                f'{key}: "{value.replace('"', '\\"')}"'
-            )  # Escape internal quotes
+                if isinstance(item, dict):
+                    yaml_lines.append(f"  - {json.dumps(item)}")
+                else:
+                    yaml_lines.append(f"  - {json.dumps(item)}")
+        elif isinstance(value, dict):
+            yaml_lines.append(f"{key}:")
+            for sub_key, sub_value in value.items():
+                if isinstance(sub_value, list):
+                    yaml_lines.append(f"  {sub_key}:")
+                    for item in sub_value:
+                        yaml_lines.append(f"    - {json.dumps(item)}")
+                elif isinstance(sub_value, dict):
+                    yaml_lines.append(f"  {sub_key}: {json.dumps(sub_value)}")
+                else:
+                    yaml_lines.append(f"  {sub_key}: {json.dumps(sub_value)}")
         else:
-            # For numbers or booleans, no quotes
-            yaml_lines.append(f"{key}: {value}")
+            yaml_lines.append(f"{key}: {json.dumps(value)}")
+    yaml_lines.append("---")
+    yaml_frontmatter = "\n".join(yaml_lines)
 
-    return "---\n" + "\n".join(yaml_lines) + "\n---"
+    logger.debug(f"Generated YAML Frontmatter:\n{yaml_frontmatter}")
+    return yaml_frontmatter
 
 
-def assemble_page(metadata, sections):
-    """Combine metadata and sections into MDX content.
+def assemble_page(yaml_frontmatter: str, mdx_content_sections: List[str]) -> str:
+    """
+    Assembles the complete MDX page with frontmatter and content.
 
     Args:
-        metadata (str): Markdown metadata.
-        sections (list): List of section contents.
+        yaml_frontmatter (str): The generated YAML frontmatter string.
+        mdx_content_sections (List[str]): A list of MDX content strings for each section.
 
     Returns:
-        str: Complete MDX content.
+        str: The complete MDX page content.
     """
-    # Ensure there's always a blank line between frontmatter and content
-    return f"{metadata}\n\n" + "\n\n".join(sections)
+    return f"{yaml_frontmatter}\n\n" + "\n\n".join(mdx_content_sections)

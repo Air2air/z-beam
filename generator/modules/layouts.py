@@ -1,3 +1,5 @@
+# generator/modules/layouts.py
+
 """
 Defines the content section order for different article types.
 """
@@ -13,14 +15,11 @@ LAYOUTS = {
         "list",
         "table",
         "chart",
-        "comparison_chart",
-        # Add more sections as needed for Material articles
     ],
     "Application": [
         "paragraph",
         "list",
-        "comparison_chart",
-        # Add more sections as needed for Application articles
+        "chart",
     ],
     # Add other article types here
     # "Region": [

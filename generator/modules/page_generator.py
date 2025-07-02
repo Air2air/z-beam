@@ -1,162 +1,23 @@
 # generator/modules/page_generator.py
 
-"""
-Main module for the Z-Beam Page Generator.
-Orchestrates the article generation process.
-"""
-
 import os
-from dotenv import load_dotenv
 import json
-import requests
-import datetime  # ADDED THIS LINE
-import re  # ADDED THIS LINE
+from typing import Dict, Any, List
 
-# Internal module imports
 from generator.modules.logger import get_logger
-
-# Importing all necessary file handling functions
-from generator.modules.file_handler import (
-    save_file,
-    read_cache,
-    write_cache,
-    parse_json_response,
-)
+from generator.modules.prompt_loader import load_prompt_templates
+from generator.modules import content_generator
 from generator.modules.author_loader import load_author_metadata
-from generator.modules.content_generator import generate_content
-
-# Constants
+from generator.modules.file_handler import save_file, read_cache, write_cache
 from generator.constants import (
-    AUTHOR_DIR,
     OUTPUT_DIR,
     BASE_ARTICLE_CONFIG,
     BASE_SECTIONS_CONFIG,
-    GROK_API_URL,
-    GEMINI_API_URL,
-    GROK_MODEL_LATEST,
-    GEMINI_MODEL_FLASH,
+    AUTHOR_DIR,
+    SECTIONS_DIR,
 )
 
 logger = get_logger("page_generator")
-
-
-# --- Helper function for API URL and Key (moved from research_manager.py) ---
-def _get_api_url_and_key(
-    provider: str, model: str, gemini_api_key: str | None, grok_api_key: str | None
-) -> tuple[str, str]:
-    """Helper to determine API URL and key based on provider."""
-    if provider == "GEMINI":
-        if not gemini_api_key:
-            raise ValueError("GEMINI_API_KEY is required for GEMINI provider.")
-        return GEMINI_API_URL, gemini_api_key
-    elif provider == "GROK":
-        if not grok_api_key:
-            raise ValueError("GROK_API_KEY is required for GROK provider.")
-        return GROK_API_URL, grok_api_key
-    else:
-        raise ValueError(f"Unknown provider: {provider}")
-
-
-# --- research_material_config function (moved from research_manager.py) ---
-def research_material_config(
-    material: str,
-    article_category: str,
-    provider: str,
-    model: str,
-    gemini_api_key: str = None,
-    grok_api_key: str = None,
-    cache_dir: str = None,
-    force_regenerate: bool = False,
-) -> dict:
-    """
-    Researches and provides configuration for a given material.
-    This function would typically interact with external APIs or databases
-    to fetch data relevant to the material.
-
-    Args:
-        material (str): The material to research (e.g., "Bronze").
-        article_category (str): The category of the article.
-        provider (str): The AI provider to use.
-        model (str): The specific AI model.
-        gemini_api_key (str, optional): Gemini API key.
-        grok_api_key (str, optional): Grok API key.
-        cache_dir (str, optional): Directory for caching research results.
-        force_regenerate (bool, optional): If True, ignores cache.
-
-    Returns:
-        dict: A dictionary containing researched material configuration.
-    """
-    logger.info(
-        f"Researching material config for: {material} (provider: {provider}, model: {model})"
-    )
-
-    cache_file = None
-    if cache_dir:
-        os.makedirs(cache_dir, exist_ok=True)
-        # Create a unique cache file name based on material, category, provider, model
-        cache_file_name = f"research_config_{material.lower().replace(' ', '_')}_{article_category.lower().replace(' ', '_')}_{provider.lower()}_{model.lower().replace('.', '_')}.json"
-        cache_file = os.path.join(cache_dir, cache_file_name)
-
-        if not force_regenerate:
-            cached_data = read_cache(cache_file)
-            if cached_data:
-                logger.info(f"Loaded material config from cache: {cache_file}")
-                return cached_data
-
-    try:
-        api_url, api_key = _get_api_url_and_key(
-            provider, model, gemini_api_key, grok_api_key
-        )
-
-        # --- Placeholder for actual LLM API call ---
-        # In a real scenario, you would send a prompt to the LLM here
-        # to get specific details about the material and its laser cleaning.
-        # For now, we return a static dictionary.
-
-        material_details = {
-            "material_description": f"Bronze is an alloy primarily composed of copper, usually with tin as the main additive, but sometimes with other elements such as phosphorus, manganese, aluminum, or silicon. It is known for its durability, corrosion resistance, and attractive appearance. In laser cleaning, bronze requires careful parameter tuning to avoid overheating and oxidation, preserving its surface integrity.",
-            "common_contaminants": [
-                "patina",
-                "oxides",
-                "corrosion",
-                "varnishes",
-                "dirt",
-                "grease",
-            ],
-            "laser_interaction_notes": "Laser cleaning of bronze should use short pulse durations (nanosecond or picosecond) and appropriate wavelengths (e.g., 1064nm, 532nm) to achieve ablation without damaging the substrate. Low fluence is critical to avoid melting, discoloration, or heat-affected zones. Proper ventilation is essential due to potential fume generation. Optimal parameters depend on the specific bronze alloy and the contaminant.",
-            "safety_considerations": "Fume extraction, eye protection (OD 7+ at relevant wavelengths), skin protection, and proper laser safety interlocks.",
-            "post_cleaning_steps": "Gentle wipe-down, passivation (if required for specific applications), or immediate subsequent processing.",
-            "applications": [
-                "Art restoration",
-                "Archaeological artifact cleaning",
-                "Industrial mold cleaning",
-                "Surface preparation for coating",
-                "Removal of undesired layers from architectural elements.",
-            ],
-        }
-
-        researched_config = {
-            "material": material,
-            "articleCategory": article_category,
-            "material_details": material_details,  # Nested researched details
-            # Add other research-derived fields here
-        }
-
-        if cache_file:
-            write_cache(cache_file, researched_config)
-            logger.info(f"Cached material config to: {cache_file}")
-
-        return researched_config
-
-    except requests.exceptions.RequestException as e:
-        logger.error(f"API request failed for material research ({provider}): {e}")
-        raise Exception(f"API call failed for material research: {e}")
-    except Exception as e:
-        logger.error(f"An unexpected error occurred during material research: {e}")
-        raise
-
-
-# --- END research_material_config function ---
 
 
 def main(
@@ -164,201 +25,191 @@ def main(
     article_category: str,
     file_name: str,
     provider: str,
-    authors: list[str],
+    authors: List[str],
     voice: str,
     authority: str,
-    content_length: dict,
+    content_length: Dict[str, str],
     variety: str,
     force_regenerate: bool,
     model: str,
+    api_keys: Dict[str, str],
 ):
-    """
-    Orchestrates the generation of a laser cleaning article.
-    """
     logger.info(
         f"Generating article for material: '{material}', category: '{article_category}', provider: '{provider}', model: '{model}'"
     )
 
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    load_dotenv()
-    gemini_api_key = os.getenv("GEMINI_API_KEY")
-    grok_api_key = os.getenv("GROK_API_KEY")
-
-    if provider == "GEMINI" and not gemini_api_key:
-        logger.critical("GEMINI_API_KEY not found in .env file. Exiting.")
-        return
-    if provider == "GROK" and not grok_api_key:
-        logger.critical("GROK_API_KEY not found in .env file. Exiting.")
-        return
-
-    CACHE_DIR = os.path.join(os.path.dirname(script_dir), "cache")
-    os.makedirs(CACHE_DIR, exist_ok=True)
-    logger.debug(f"Cache directory set to: {CACHE_DIR}")
-
     try:
-        author_metadata = load_author_metadata(AUTHOR_DIR)
-    except ValueError as e:
-        logger.critical(f"Failed to load author metadata: {e}. Exiting.")
-        return
+        prompt_templates_dict = load_prompt_templates(SECTIONS_DIR)
+        if not prompt_templates_dict:
+            logger.critical(f"No prompt templates loaded from {SECTIONS_DIR}. Exiting.")
+            return
     except Exception as e:
         logger.critical(
-            f"An unexpected error occurred during author loading: {e}. Exiting."
+            f"Error loading prompt templates from {SECTIONS_DIR}: {e}. Exiting."
         )
         return
 
-    try:
-        material_config = research_material_config(
-            material=material,
-            article_category=article_category,
-            provider=provider,
-            model=model,
-            gemini_api_key=gemini_api_key,
-            grok_api_key=grok_api_key,
-            cache_dir=CACHE_DIR,
-            force_regenerate=force_regenerate,
+    # Load author metadata
+    all_authors_metadata = load_author_metadata(AUTHOR_DIR)
+    article_authors_data = [
+        all_authors_metadata.get(author.lower().replace(" ", "_"))
+        for author in authors
+        if all_authors_metadata.get(author.lower().replace(" ", "_"))
+    ]
+    if not article_authors_data:
+        logger.warning(
+            f"No metadata found for authors: {authors}. Article will proceed without specific author data."
         )
+
+    # Construct the article config, merging base with overrides
+    article_config = BASE_ARTICLE_CONFIG.copy()
+    article_config.update(
+        {
+            "material": material,
+            "article_category": article_category,
+            "provider": provider,
+            "voice": voice,
+            "authority": authority,
+            "content_length": content_length,
+            "variety": variety,
+            "model": model,
+            "authors": authors,
+            "authors_data": article_authors_data,
+        }
+    )
+
+    # Material research config (e.g., common contaminants, laser interaction)
+    try:
+        material_config = content_generator.research_material_config(
+            material,
+            provider,
+            model,
+            api_keys,
+            prompt_templates_dict,
+        )
+        if material_config:
+            article_config["material_details"] = material_config
+            logger.info(f"Successfully researched material config for '{material}'.")
+        else:
+            logger.warning(
+                f"Failed to research material config for '{material}'. Proceeding without material details."
+            )
     except Exception as e:
         logger.critical(
             f"Failed to research material config for '{material}': {e}. Exiting."
         )
         return
 
-    # Construct the final article configuration dictionary
-    article_config = {
-        **BASE_ARTICLE_CONFIG,
-        **material_config,  # Merges researched data (e.g., material_description)
-        "material": material,
-        "articleCategory": article_category,
-        "file_name": file_name,
-        "provider": provider,
-        "authors": authors,
-        "voice": voice,
-        "authority": authority,
-        "content_length": content_length,
-        "variety": variety,
-        "model": model,
-        "gemini_api_key": gemini_api_key,
-        "grok_api_key": grok_api_key,
-        "force_regenerate": force_regenerate,
-        "cache_dir": CACHE_DIR,
+    output_file_path = os.path.join(OUTPUT_DIR, file_name)
+    cache_file_path = output_file_path.replace(".mdx", ".cache.json")
+
+    # Load cache if available
+    cache_data = read_cache(cache_file_path) if not force_regenerate else {}
+    if force_regenerate:
+        logger.info("Force regeneration is active. Ignoring cache.")
+    elif cache_data:
+        logger.info(f"Loaded existing cache from {cache_file_path}")
+    else:
+        logger.info("No cache found or using fresh generation.")
+
+    # Initialize current article data structure
+    current_article_data = {
+        "metadata": {
+            "title": article_config.get("title", f"Laser Cleaning {material}"),
+            "description": article_config.get(
+                "description", f"An article about laser cleaning {material}."
+            ),
+            "keywords": article_config.get("keywords", []),
+            "authors": [author_data.get("name") for author_data in article_authors_data]
+            if article_authors_data
+            else authors,
+            "voice": voice,
+            "authority": authority,
+            "material": material,
+            "lastModified": None,
+        },
+        "sections": {},
     }
+    if material_config:
+        current_article_data["material_details"] = material_config
 
-    # Merge base sections configuration (this sets article_config["sections"])
-    article_config["sections"] = BASE_SECTIONS_CONFIG["sections"]
+    # Generate content for each section
+    generated_mdx_content = ""
+    sections_config = BASE_SECTIONS_CONFIG.get("sections", {})
+    sorted_sections = sorted(
+        sections_config.items(), key=lambda item: item[1].get("order", 999)
+    )
 
-    # Prepare API keys dictionary for passing to other modules
-    api_keys_dict = {"grok": grok_api_key, "gemini": gemini_api_key}
+    for section_name, section_config in sorted_sections:
+        if section_config.get("generate"):
+            prompt_file = section_config.get("prompt_file")
+            if prompt_file not in prompt_templates_dict:
+                logger.warning(
+                    f"Prompt file '{prompt_file}' not found for section '{section_name}'. Skipping section."
+                )
+                continue
 
-    # Generate content
-    logger.info("Starting content generation...")
-    try:
-        generated_mdx_content, _ai_scores = generate_content(
-            material=material,
-            material_config=material_config,
-            article_config=article_config,
-            sections_config=BASE_SECTIONS_CONFIG,
-            author_metadata=author_metadata,
-            cache_dir=CACHE_DIR,
-            api_keys=api_keys_dict,
-            force_regenerate=force_regenerate,
-            provider=provider,
-        )
-    except Exception as e:
-        logger.critical(f"Failed to generate content: {e}. Exiting.")
+            prompt_template = prompt_templates_dict[prompt_file]
+
+            section_variables = {
+                **article_config,
+                **current_article_data.get("material_details", {}),
+                "content_type": section_name,
+                "audience_level": authority,
+            }
+
+            logger.info(f"Generating content for section: {section_name}")
+            try:
+                generated_content = content_generator.generate_content(
+                    section_name,
+                    prompt_template,
+                    section_variables,
+                    current_article_data,
+                    cache_data,
+                    provider,
+                    model,
+                    force_regenerate,
+                    api_keys,
+                    prompt_templates_dict,
+                    prompt_file,  # <--- NEW: Pass the prompt_file name to content_generator
+                )
+                if generated_content:
+                    current_article_data["sections"][section_name] = generated_content
+                    generated_mdx_content += f"\n\n## {section_name.replace('_', ' ').title()}\n{generated_content}"
+                    logger.info(
+                        f"Successfully generated content for section: {section_name}"
+                    )
+                else:
+                    logger.warning(f"No content generated for section: {section_name}.")
+            except Exception as e:
+                logger.error(
+                    f"Error generating content for section '{section_name}': {e}"
+                )
+                continue
+
+    if not current_article_data["sections"]:
+        logger.error("No sections were successfully generated. Aborting article save.")
         return
 
-    # Define output path
-    output_path = os.path.join(OUTPUT_DIR, file_name)
+    final_mdx_output = ""
+    final_mdx_output += "---\n"
+    for key, value in current_article_data["metadata"].items():
+        if isinstance(value, list):
+            final_mdx_output += f"{key}: {json.dumps(value)}\n"
+        elif isinstance(value, dict):
+            final_mdx_output += f"{key}: {json.dumps(value)}\n"
+        else:
+            final_mdx_output += f"{key}: {value}\n"
+    final_mdx_output += "---\n\n"
 
-    # Construct YAML Frontmatter
-    title = f"Laser Cleaning {material}"
-    authors_list = article_config.get("authors", [])
-    # Retrieve full author names from loaded author_metadata
-    author_full_names = [
-        author_metadata.get(author_alias, {}).get("name", author_alias)
-        for author_alias in authors_list
-    ]
-    date_generated = datetime.datetime.now().strftime("%Y-%m-%d")
+    for section_name, content in current_article_data["sections"].items():
+        title = section_name.replace("_", " ").title()
+        final_mdx_output += f"## {title}\n{content}\n\n"
 
-    # Take a snippet from the first generated paragraph for description
-    description_snippet = ""
-    if generated_mdx_content and generated_mdx_content[0]:
-        temp_desc = generated_mdx_content[0]
-        # Clean up markdown/html tags and truncate for description
-        temp_desc = re.sub(r"<[^>]*>", "", temp_desc)  # Remove HTML tags
-        temp_desc = re.sub(
-            r"#+\s*", "", temp_desc
-        )  # Remove markdown headings (e.g., from lists if they started with ##)
-        temp_desc = temp_desc.strip().split("\n")[
-            0
-        ]  # Take only the first effective line
-        description_snippet = (
-            temp_desc[:160] + "..." if len(temp_desc) > 160 else temp_desc.strip()
-        )
-
-    # Combine categories and material for tags, ensure uniqueness and sort
-    tags = [article_category.lower().replace(" ", "-")]  # Start with category tag
-    if material:
-        tags.append(material.lower().replace(" ", "-"))  # Add material tag
-    # Add any other relevant tags from material_config if available (e.g., from 'applications')
-    if (
-        "material_details" in material_config
-        and "applications" in material_config["material_details"]
-    ):
-        tags.extend(
-            [
-                app.lower().replace(" ", "-")
-                for app in material_config["material_details"]["applications"]
-            ]
-        )
-
-    tags_str = ", ".join(
-        [f'"{tag}"' for tag in sorted(list(set(tags)))]
-    )  # Unique and sorted tags
-
-    yaml_frontmatter = f"""---
-title: "{title}"
-authors: {json.dumps(author_full_names)}
-date: "{date_generated}"
-description: "{description_snippet}"
-tags: [{tags_str}]
----
-
-"""
-
-    # Save the generated content
     try:
-        # Prepend YAML frontmatter to the joined content
-        final_content_to_save = yaml_frontmatter + "\n\n".join(generated_mdx_content)
-        save_file(output_path, final_content_to_save)
-        logger.info(f"Article successfully saved to: {output_path}")
+        save_file(output_file_path, final_mdx_output)
+        logger.info(f"Article saved to: {output_file_path}")
+        write_cache(cache_file_path, current_article_data)
+        logger.info(f"Cache saved to: {cache_file_path}")
     except Exception as e:
-        logger.critical(f"Failed to save article to '{output_path}': {e}. Exiting.")
-        return
-
-    logger.info("Article generation process completed.")
-
-
-if __name__ == "__main__":
-    logger.info("Running page_generator.py directly (usually run via run.py).")
-    # Example call (for direct testing, if needed):
-    # main(
-    #     material="Aluminum",
-    #     article_category="Material",
-    #     file_name="laser_cleaning_aluminum.mdx",
-    #     provider="GEMINI",
-    #     authors=["Todd Dunning", "Dr. Evelyn Reed"],
-    #     voice="technical",
-    #     authority="high",
-    #     content_length={
-    #         "paragraph": "150-200",
-    #         "list": "70-100",
-    #         "table": "60-90",
-    #         "chart": "60-90",
-    #         "comparison_chart": "60-90",
-    #     },
-    #     variety="Detailed analysis with empirical data and industrial examples.",
-    #     force_regenerate=False,
-    #     model=GEMINI_MODEL_FLASH
-    # )
+        logger.error(f"Error saving article or cache: {e}")

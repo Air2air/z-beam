@@ -1,0 +1,37 @@
+2025-07-02 15:30:02,769 - INFO - page_generator - main - Line:37 - Generating article for material: 'Bronze', category: 'Material', provider: 'GEMINI', model: 'gemini-1.5-flash'
+2025-07-02 15:30:02,769 - INFO - prompt_loader - load_prompt_templates - Line:16 - Loading prompt templates from: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections
+2025-07-02 15:30:02,770 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: ai_detection_prompt.txt
+2025-07-02 15:30:02,770 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: comparison.txt
+2025-07-02 15:30:02,770 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: chart.txt
+2025-07-02 15:30:02,770 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: contaminants.txt
+2025-07-02 15:30:02,770 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: substrates.txt
+2025-07-02 15:30:02,771 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: table.txt
+2025-07-02 15:30:02,771 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: material_research.txt
+2025-07-02 15:30:02,771 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: introduction.txt
+2025-07-02 15:30:02,771 - INFO - prompt_loader - load_prompt_templates - Line:43 - Successfully loaded 8 prompt templates.
+2025-07-02 15:30:02,771 - INFO - author_loader - load_author_metadata - Line:21 - Loading author metadata from: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors
+2025-07-02 15:30:02,771 - WARNING - author_loader - load_author_metadata - Line:63 - No author metadata loaded from /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors. Ensure files exist and are valid YAML.
+2025-07-02 15:30:02,772 - WARNING - page_generator - main - Line:60 - No metadata found for authors: ['Todd Dunning']. Article will proceed without specific author data.
+2025-07-02 15:30:02,772 - INFO - content_generator - research_material_config - Line:24 - Researching material config for: Bronze (provider: GEMINI, model: gemini-1.5-flash)
+2025-07-02 15:30:02,772 - DEBUG - prompt_formatter - format_prompt - Line:36 - Raw prompt for material_config_research: #generator/sections/material_research.txt
+
+Provide material properties for {material} used in laser cleaning. 
+
+Include industries (comma-separated), material_type, metal_class, primary_application, atomic_number, chemical_symbol as plain text fields (e.g., industries: Aerospace, Automotive\nmaterial_type: Nickel)....
+2025-07-02 15:30:02,772 - DEBUG - prompt_formatter - format_prompt - Line:38 - Formatted prompt for material_config_research: #generator/sections/material_research.txt
+
+Provide material properties for Bronze used in laser cleaning. 
+
+Include industries (comma-separated), material_type, metal_class, primary_application, atomic_number, chemical_symbol as plain text fields (e.g., industries: Aerospace, Automotive\nmaterial_type: Nickel)....
+2025-07-02 15:30:02,772 - DEBUG - api_client - _get_api_url_and_key - Line:57 - Using API: GEMINI (gemini-1.5-flash) - URL: https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContentgemini-1.5-flash:generateContent
+2025-07-02 15:30:02,772 - DEBUG - api_client - call_ai_api - Line:108 - Sending request to https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContentgemini-1.5-flash:generateContent with payload (first 200 chars): {"contents": [{"parts": [{"text": "#generator/sections/material_research.txt\n\nProvide material properties for Bronze used in laser cleaning. \n\nInclude industries (comma-separated), material_type, ...
+2025-07-02 15:30:03,006 - ERROR - api_client - call_ai_api - Line:157 - API request failed for GEMINI gemini-1.5-flash: 403 Client Error: Forbidden for url: https://generativelanguage.googleapis.com/v1beta/models/%7Bmodel%7D:generateContentgemini-1.5-flash:generateContent - Response: {
+  "error": {
+    "code": 403,
+    "message": "Method doesn't allow unregistered callers (callers without established identity). Please use API Key or other form of API consumer identity to call this API.",
+    "status": "PERMISSION_DENIED"
+  }
+}
+
+2025-07-02 15:30:03,006 - ERROR - content_generator - research_material_config - Line:72 - API request failed for material research (GEMINI): API request failed: 403 Client Error: Forbidden for url: https://generativelanguage.googleapis.com/v1beta/models/%7Bmodel%7D:generateContentgemini-1.5-flash:generateContent
+2025-07-02 15:30:03,007 - CRITICAL - page_generator - main - Line:98 - Failed to research material config for 'Bronze': API request failed: 403 Client Error: Forbidden for url: https://generativelanguage.googleapis.com/v1beta/models/%7Bmodel%7D:generateContentgemini-1.5-flash:generateContent. Exiting.

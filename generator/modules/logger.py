@@ -1,3 +1,5 @@
+# generator/modules/logger.py
+
 """
 Configures and provides a consistent logging interface.
 """
@@ -38,7 +40,9 @@ def get_logger(name):
 
         # Console Handler
         console_handler = logging.StreamHandler()
-        console_handler.setLevel(logging.INFO)  # Console shows INFO and above
+        console_handler.setLevel(
+            logging.DEBUG
+        )  # <--- TEMPORARILY CHANGED FOR DEBUGGING
         console_formatter = logging.Formatter(
             "%(asctime)s - %(levelname)s - %(name)s - %(message)s"
         )

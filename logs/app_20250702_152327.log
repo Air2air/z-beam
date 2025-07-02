@@ -1,0 +1,32 @@
+2025-07-02 15:23:27,954 - INFO - page_generator - main - Line:37 - Generating article for material: 'Bronze', category: 'Material', provider: 'XAI', model: 'grok-3-mini'
+2025-07-02 15:23:27,954 - INFO - prompt_loader - load_prompt_templates - Line:16 - Loading prompt templates from: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections
+2025-07-02 15:23:27,955 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: ai_detection_prompt.txt
+2025-07-02 15:23:27,955 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: comparison.txt
+2025-07-02 15:23:27,955 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: chart.txt
+2025-07-02 15:23:27,955 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: contaminants.txt
+2025-07-02 15:23:27,955 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: substrates.txt
+2025-07-02 15:23:27,955 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: table.txt
+2025-07-02 15:23:27,956 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: material_research.txt
+2025-07-02 15:23:27,956 - DEBUG - prompt_loader - load_prompt_templates - Line:36 - Loaded prompt: introduction.txt
+2025-07-02 15:23:27,956 - INFO - prompt_loader - load_prompt_templates - Line:43 - Successfully loaded 8 prompt templates.
+2025-07-02 15:23:27,956 - INFO - author_loader - load_author_metadata - Line:21 - Loading author metadata from: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors
+2025-07-02 15:23:27,956 - WARNING - author_loader - load_author_metadata - Line:63 - No author metadata loaded from /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors. Ensure files exist and are valid YAML.
+2025-07-02 15:23:27,956 - WARNING - page_generator - main - Line:60 - No metadata found for authors: ['Todd Dunning']. Article will proceed without specific author data.
+2025-07-02 15:23:27,956 - INFO - content_generator - research_material_config - Line:24 - Researching material config for: Bronze (provider: XAI, model: grok-3-mini)
+2025-07-02 15:23:27,956 - DEBUG - prompt_formatter - format_prompt - Line:36 - Raw prompt for material_config_research: #generator/sections/material_research.txt
+
+Provide material properties for {material} used in laser cleaning. 
+
+Include industries (comma-separated), material_type, metal_class, primary_application, atomic_number, chemical_symbol as plain text fields (e.g., industries: Aerospace, Automotive\nmaterial_type: Nickel)....
+2025-07-02 15:23:27,956 - DEBUG - prompt_formatter - format_prompt - Line:38 - Formatted prompt for material_config_research: #generator/sections/material_research.txt
+
+Provide material properties for Bronze used in laser cleaning. 
+
+Include industries (comma-separated), material_type, metal_class, primary_application, atomic_number, chemical_symbol as plain text fields (e.g., industries: Aerospace, Automotive\nmaterial_type: Nickel)....
+2025-07-02 15:23:27,957 - DEBUG - api_client - _get_api_url_and_key - Line:57 - Using API: XAI (grok-3-mini) - URL: https://api.x.ai/v1/chat/completions
+2025-07-02 15:23:27,957 - DEBUG - api_client - call_ai_api - Line:108 - Sending request to https://api.x.ai/v1/chat/completions with payload (first 200 chars): {"model": "grok-3-mini", "messages": [{"role": "user", "content": "#generator/sections/material_research.txt\n\nProvide material properties for Bronze used in laser cleaning. \n\nInclude industries (c...
+2025-07-02 15:23:31,093 - DEBUG - api_client - call_ai_api - Line:115 - Received raw AI response (first 200 chars): {"id": "9b3a0cd3-7b4a-48b2-9aa2-915f0f8808d0", "object": "chat.completion", "created": 1751495008, "model": "grok-3-mini", "choices": [{"index": 0, "message": {"role": "assistant", "content": "", "rea...
+2025-07-02 15:23:31,093 - WARNING - content_generator - research_material_config - Line:67 - No response text received for material research on 'Bronze'.
+2025-07-02 15:23:31,094 - WARNING - page_generator - main - Line:94 - Failed to research material config for 'Bronze'. Proceeding without material details.
+2025-07-02 15:23:31,094 - INFO - page_generator - main - Line:109 - Force regeneration is active. Ignoring cache.
+2025-07-02 15:23:31,094 - ERROR - page_generator - main - Line:191 - No sections were successfully generated. Aborting article save.
