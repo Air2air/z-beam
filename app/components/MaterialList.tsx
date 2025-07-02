@@ -1,11 +1,15 @@
-// app/(materials)/MaterialList.tsx
+// app/components/MaterialList.tsx
 
 import Link from "next/link";
-import { formatDate, getMaterialList } from "app/(materials)/utils";
+// Make sure this path is correct: app/utils/utils if it's in app/utils/utils.ts
+// Or app/lib/utils if you moved it to app/lib/utils.ts
+import { formatDate, getMaterialList } from "app/utils/utils"; // <-- Confirm this path is absolute and correct
 import { CardItem } from "app/components/CardItem";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
 
-export function MaterialList() {
+// Make the component an async function
+export async function MaterialList() {
+  // getMaterialList is now called in a guaranteed server environment
   let allMaterials = getMaterialList();
 
   return (

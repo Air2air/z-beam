@@ -1,0 +1,85 @@
+2025-07-02 13:08:43,991 - INFO - page_generator - main - Line:176 - Generating article for material: 'Bronze', category: 'Material', provider: 'GEMINI', model: 'gemini-1.5-flash'
+2025-07-02 13:08:43,992 - DEBUG - page_generator - main - Line:195 - Cache directory set to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:43,992 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors/dr_evelyn_reed.mdx
+2025-07-02 13:08:43,993 - DEBUG - author_loader - load_author_metadata - Line:100 - Successfully loaded metadata for author: Dr. Evelyn Reed
+2025-07-02 13:08:43,993 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors/todd_dunning.mdx
+2025-07-02 13:08:43,994 - DEBUG - author_loader - load_author_metadata - Line:100 - Successfully loaded metadata for author: Todd Dunning
+2025-07-02 13:08:43,994 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/authors/mark_johnson.mdx
+2025-07-02 13:08:43,995 - DEBUG - author_loader - load_author_metadata - Line:100 - Successfully loaded metadata for author: Mark Johnson
+2025-07-02 13:08:43,995 - INFO - author_loader - load_author_metadata - Line:116 - Loaded metadata for 3 authors.
+2025-07-02 13:08:43,995 - INFO - page_generator - research_material_config - Line:87 - Researching material config for: Bronze (provider: GEMINI, model: gemini-1.5-flash)
+2025-07-02 13:08:43,995 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:43,995 - DEBUG - file_handler - write_cache - Line:118 - Successfully wrote cache to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/research_config_bronze_material_gemini_gemini-1_5-flash.json
+2025-07-02 13:08:43,996 - INFO - page_generator - research_material_config - Line:145 - Cached material config to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/research_config_bronze_material_gemini_gemini-1_5-flash.json
+2025-07-02 13:08:43,996 - INFO - page_generator - main - Line:252 - Starting content generation...
+2025-07-02 13:08:43,996 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections/introduction.txt
+2025-07-02 13:08:43,996 - INFO - content_generator - _process_ai_content_with_retries - Line:114 - Generating section 'paragraph' (Attempt 1)...
+2025-07-02 13:08:43,996 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:43,996 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/3 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:46,240 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:46,240 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:46,241 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/2 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:47,481 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:47,482 - DEBUG - ai_detector - evaluate - Line:81 - Raw AI detection response: ```json
+{
+  "percentage": 20,
+  "summary": "The text demonstrates a high level of technical accuracy and coherent flow typical of human-written material for technical professionals.  While the vocabul...
+2025-07-02 13:08:47,482 - DEBUG - file_handler - parse_json_response - Line:151 - Successfully parsed JSON for AI detection for material article section.
+2025-07-02 13:08:47,482 - INFO - content_generator - _process_ai_content_with_retries - Line:150 - AI Detection for 'paragraph' (Attempt 1): 20% - The text demonstrates a high level of technical accuracy and coherent flow typical of human-written material for technical professionals.  While the vocabulary and sentence structure are sophisticated, there is no evidence of the repetitive or unnatural phrasing often found in AI-generated text.
+2025-07-02 13:08:47,482 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:47,483 - DEBUG - file_handler - write_cache - Line:118 - Successfully wrote cache to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/bronze_paragraph.json
+2025-07-02 13:08:47,483 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections/contaminants.txt
+2025-07-02 13:08:47,483 - INFO - content_generator - _process_ai_content_with_retries - Line:114 - Generating section 'list' (Attempt 1)...
+2025-07-02 13:08:47,483 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:47,484 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/3 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:49,736 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:49,736 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:49,737 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/2 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:50,860 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:50,860 - DEBUG - ai_detector - evaluate - Line:81 - Raw AI detection response: ```json
+{
+  "percentage": 85,
+  "summary": "The text displays a high likelihood of AI generation due to its consistent, slightly formal tone and repetitive sentence structure (e.g.,  'Their removal re...
+2025-07-02 13:08:50,861 - DEBUG - file_handler - parse_json_response - Line:151 - Successfully parsed JSON for AI detection for material article section.
+2025-07-02 13:08:50,861 - INFO - content_generator - _process_ai_content_with_retries - Line:150 - AI Detection for 'list' (Attempt 1): 85% - The text displays a high likelihood of AI generation due to its consistent, slightly formal tone and repetitive sentence structure (e.g.,  'Their removal requires...', 'Their presence necessitates...'). While technically accurate, it lacks the nuanced detail and stylistic variation expected in a human-authored technical article.
+2025-07-02 13:08:50,861 - INFO - content_generator - _process_ai_content_with_retries - Line:160 - Regenerating 'list' due to high AI likelihood.
+2025-07-02 13:08:50,861 - INFO - content_generator - _process_ai_content_with_retries - Line:114 - Generating section 'list' (Attempt 2)...
+2025-07-02 13:08:50,861 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:50,861 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/3 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:52,958 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:52,958 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:52,958 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/2 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:54,036 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:54,036 - DEBUG - ai_detector - evaluate - Line:81 - Raw AI detection response: ```json
+{
+  "percentage": 85,
+  "summary": "The text displays a high likelihood of AI generation due to its concise, factual style and consistent use of technical terminology, lacking the nuanced expl...
+2025-07-02 13:08:54,036 - DEBUG - file_handler - parse_json_response - Line:151 - Successfully parsed JSON for AI detection for material article section.
+2025-07-02 13:08:54,036 - INFO - content_generator - _process_ai_content_with_retries - Line:150 - AI Detection for 'list' (Attempt 2): 85% - The text displays a high likelihood of AI generation due to its concise, factual style and consistent use of technical terminology, lacking the nuanced explanations and stylistic variations expected in human-written material for technical professionals.  The abrupt ending also suggests AI limitations.
+2025-07-02 13:08:54,036 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:54,039 - DEBUG - file_handler - write_cache - Line:118 - Successfully wrote cache to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/bronze_list.json
+2025-07-02 13:08:54,039 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections/table.txt
+2025-07-02 13:08:54,039 - INFO - content_generator - _process_ai_content_with_retries - Line:114 - Generating section 'table' (Attempt 1)...
+2025-07-02 13:08:54,040 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:54,040 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/3 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:55,913 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:55,928 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:55,949 - DEBUG - file_handler - write_cache - Line:118 - Successfully wrote cache to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/bronze_table.json
+2025-07-02 13:08:55,949 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections/chart.txt
+2025-07-02 13:08:55,950 - INFO - content_generator - _process_ai_content_with_retries - Line:114 - Generating section 'chart' (Attempt 1)...
+2025-07-02 13:08:55,950 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:55,950 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/3 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:57,823 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:57,824 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:57,825 - DEBUG - file_handler - write_cache - Line:118 - Successfully wrote cache to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/bronze_chart.json
+2025-07-02 13:08:57,825 - DEBUG - file_handler - load_file - Line:26 - Successfully loaded file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/sections/comparison.txt
+2025-07-02 13:08:57,825 - INFO - content_generator - _process_ai_content_with_retries - Line:114 - Generating section 'comparison_chart' (Attempt 1)...
+2025-07-02 13:08:57,825 - WARNING - api_client - call_ai_api - Line:98 - No model specified for GEMINI in call_ai_api, falling back to 'gemini-1.5-flash'.
+2025-07-02 13:08:57,825 - DEBUG - api_client - call_ai_api - Line:120 - Attempt 1/3 for GEMINI API call to https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent.
+2025-07-02 13:08:59,800 - INFO - api_client - call_ai_api - Line:143 - Successfully received response from GEMINI API.
+2025-07-02 13:08:59,800 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache
+2025-07-02 13:08:59,801 - DEBUG - file_handler - write_cache - Line:118 - Successfully wrote cache to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/generator/cache/bronze_comparison_chart.json
+2025-07-02 13:08:59,801 - DEBUG - file_handler - ensure_directory_exists - Line:80 - Ensured directory exists: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/(materials)/posts
+2025-07-02 13:08:59,802 - INFO - file_handler - save_file - Line:58 - Successfully saved file: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/(materials)/posts/laser_cleaning_bronze.mdx
+2025-07-02 13:08:59,802 - INFO - page_generator - main - Line:280 - Article successfully saved to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/(materials)/posts/laser_cleaning_bronze.mdx
+2025-07-02 13:08:59,802 - INFO - page_generator - main - Line:285 - Article generation process completed.

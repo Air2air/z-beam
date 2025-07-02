@@ -1,7 +1,7 @@
 // app/(materials)/posts/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getMaterialList } from "app/(materials)/utils";
+import { formatDate, getMaterialList } from "app/utils/utils";
 import { baseUrl } from "app/sitemap";
 import type { Metadata } from "next";
 import { HeroImage } from "app/components/HeroImage";
