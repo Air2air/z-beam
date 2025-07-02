@@ -3,7 +3,7 @@
 import os
 import requests
 import json
-import time  # ADD THIS IMPORT
+import time
 
 from typing import Dict, Any, Optional
 from generator.modules.logger import get_logger
@@ -18,11 +18,11 @@ def call_ai_api(
     api_keys: Dict[str, str],
     temperature: float = 0.7,
     max_tokens: int = 1000,
-    retries: int = 3,  # Add retries parameter
-    backoff_factor: float = 0.5,  # Add backoff_factor parameter
+    retries: int = 3,
+    backoff_factor: float = 0.5,
 ) -> Optional[str]:
     """
-    Calls the specified AI API (Gemini or OpenAI/xAI) to generate content.
+    Calls the specified AI API (Gemini, OpenAI, xAI, or DeepSeek) to generate content.
     Includes retry logic for transient errors like 429 (Too Many Requests).
     """
     api_key_env_var = f"{provider.upper()}_API_KEY"
@@ -62,6 +62,15 @@ def call_ai_api(
         url = f"https://api.xai.com/v1/models/{model}/chat/completions"
         headers["Authorization"] = f"Bearer {api_key}"
         data = {
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": temperature,
+            "max_tokens": max_tokens,
+        }
+    elif provider.upper() == "DEEPSEEK":  # <--- ADDED DEEPSEEK
+        url = "https://api.deepseek.com/chat/completions"  # Or "https://api.deepseek.com/v1/chat/completions" for OpenAI compatibility
+        headers["Authorization"] = f"Bearer {api_key}"
+        data = {
+            "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": temperature,
             "max_tokens": max_tokens,
@@ -108,7 +117,8 @@ def call_ai_api(
             elif provider.upper() in [
                 "OPENAI",
                 "XAI",
-            ]:  # Handles both OpenAI and xAI (Grok)
+                "DEEPSEEK",  # <--- ADDED DEEPSEEK here too
+            ]:  # Handles OpenAI, xAI (Grok), and DeepSeek
                 if (
                     response_json.get("choices")
                     and response_json["choices"][0].get("message")
@@ -155,4 +165,4 @@ def call_ai_api(
     logger.error(
         f"Failed to get a successful response from {provider} {model} after {retries} attempts due to rate limiting or other persistent issues."
     )
-    return None  # Return None if all retries fail
+    return None
