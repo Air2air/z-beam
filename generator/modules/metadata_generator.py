@@ -6,7 +6,6 @@ Module for generating article metadata (YAML frontmatter).
 
 import datetime
 import json
-import re
 from typing import List, Dict, Any
 
 from generator.modules.logger import get_logger
@@ -38,35 +37,7 @@ def generate_metadata(
     """
     title = f"Laser Cleaning {material}"
 
-    # Use single author from config
-    author_file = article_config.get("author")
-    author_info = author_metadata.get(author_file, {})
-    author_full_name = author_info.get("name", author_file)
-
     date_generated = datetime.datetime.now().strftime("%Y-%m-%d")
-
-    # Construct a description snippet from the material_description, or a fallback
-    description_snippet = material_config.get("material_details", {}).get(
-        "material_description", ""
-    )
-    if description_snippet:
-        # Clean up markdown/html tags and truncate for description
-        description_snippet = re.sub(
-            r"<[^>]*>", "", description_snippet
-        )  # Remove HTML tags
-        description_snippet = re.sub(
-            r"#+\s*", "", description_snippet
-        )  # Remove markdown headings
-        description_snippet = description_snippet.strip().split("\n")[
-            0
-        ]  # Take only the first effective line
-        description_snippet = (
-            description_snippet[:160] + "..."
-            if len(description_snippet) > 160
-            else description_snippet.strip()
-        )
-    else:
-        description_snippet = f"A comprehensive guide to laser cleaning {material}."
 
     # Combine categories and material for tags, ensure uniqueness and sort
     tags = [article_category.lower().replace(" ", "-")]
@@ -93,17 +64,22 @@ def generate_metadata(
             )
         return value
 
+    # Compose image path if not present
+    image_value = safe_get(material_config, "image", "", False, "material_config")
+    if not image_value:
+        # Use articleCategory and material for image path
+        image_value = f"/images/Material/material_{material.lower()}.jpg"
+
     metadata_dict = {
         "title": title,
         "nameShort": material,
-        "description": description_snippet,
         "publishedAt": date_generated,
-        "authorName": safe_get(author_info, "name", author_file, True, "author_info"),
-        "authorTitle": safe_get(author_info, "title", "", True, "author_info"),
-        "authorBio": safe_get(author_info, "bio", "", True, "author_info"),
+        "authorName": safe_get(author_metadata, "name", "", True, "author_metadata"),
+        "authorTitle": safe_get(author_metadata, "title", "", True, "author_metadata"),
+        "authorBio": safe_get(author_metadata, "bio", "", True, "author_metadata"),
         "tags": tags,
         "keywords": safe_get(material_config, "keywords", [], True, "material_config"),
-        "image": safe_get(material_config, "image", "", True, "material_config"),
+        "image": image_value,
         "atomicNumber": safe_get(
             material_config, "atomicNumber", None, True, "material_config"
         ),
@@ -122,14 +98,9 @@ def generate_metadata(
         "primaryApplication": safe_get(
             material_config, "primaryApplication", "N/A", True, "material_config"
         ),
-        # Existing fields for compatibility
+        "articleCategory": article_category or "Material",
         "temperature": safe_get(
             article_config, "temperature", None, True, "article_config"
-        ),
-        "modelUsed": safe_get(article_config, "model", None, True, "article_config"),
-        "aiScores": ai_scores,
-        "materialDetails": safe_get(
-            material_config, "material_details", {}, True, "material_config"
         ),
         "industries": safe_get(
             material_config, "industries", [], True, "material_config"

@@ -72,7 +72,7 @@ class ArticleGenerator:
 
     def __init__(self, app_config: AppConfig):
         self.config = app_config
-        self.logger = get_logger("article_generator")
+        self.logger = get_logger("page_generator")
 
         # Initialize components
         self.prompt_loader = PromptLoader(app_config.directories.sections_dir)
@@ -110,13 +110,21 @@ class ArticleGenerator:
 
             # Generate content for each section
             self._generate_sections(
-                article_data, sections_config, gen_config, prompt_templates, cache_data
+                article_data,
+                sections_config,
+                gen_config,
+                prompt_templates,
+                cache_data,
+                gen_config.ai_detection_threshold,  # Strict: always use the value from run.py, no fallback
             )
 
             # Save the final article
             self._save_article(article_data, gen_config, cache_data)
 
             self.logger.info("Article generation completed successfully")
+            print(
+                f"[PROGRESS] Article generation completed successfully for: {gen_config.file_name}"
+            )
 
         except Exception as e:
             self.logger.error(f"Article generation failed: {e}", exc_info=True)
@@ -219,6 +227,7 @@ class ArticleGenerator:
         gen_config: GenerationConfig,
         prompt_templates: Dict[str, str],
         cache_data: Dict[str, Any],
+        ai_detection_threshold: int,  # Pass threshold through pipeline
     ) -> None:
         """Generate content for all sections."""
         sorted_sections = sorted(
@@ -237,6 +246,7 @@ class ArticleGenerator:
                 gen_config,
                 prompt_templates,
                 cache_data,
+                ai_detection_threshold,  # Pass threshold
             )
 
         if not article_data.sections:
@@ -250,6 +260,7 @@ class ArticleGenerator:
         gen_config: GenerationConfig,
         prompt_templates: Dict[str, str],
         cache_data: Dict[str, Any],
+        ai_detection_threshold: int,  # Accept threshold
     ) -> None:
         """Generate content for a single section."""
         prompt_file = section_config.get("prompt_file")
@@ -267,12 +278,14 @@ class ArticleGenerator:
             **(article_data.material_details or {}),
             "content_type": section_name,
             "temperature": gen_config.temperature,
+            "iterations_per_section": getattr(gen_config, "iterations_per_section", 3),
         }
+        ai_detect = section_config.get("ai_detect", True)
 
         self.logger.info(f"Generating content for section: {section_name}")
 
         try:
-            content = content_generator.generate_content(
+            content, ai_likelihood, threshold_met = content_generator.generate_content(
                 section_name=section_name,
                 prompt_template=prompt_template,
                 section_variables=section_variables,
@@ -284,15 +297,19 @@ class ArticleGenerator:
                 api_keys=gen_config.api_keys,
                 prompt_templates_dict=prompt_templates,
                 prompt_file_name=prompt_file,
+                ai_detection_threshold=ai_detection_threshold,  # Pass threshold
+                ai_detect=ai_detect,
             )
 
-            if content:
+            if threshold_met:
                 article_data.sections[section_name] = content
                 self.logger.info(
-                    f"Successfully generated content for section: {section_name}"
+                    f"Successfully generated content for section: {section_name} (AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%)"
                 )
             else:
-                self.logger.warning(f"No content generated for section: {section_name}")
+                self.logger.error(
+                    f"Failed to generate content for section: {section_name} below threshold. Final AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%"
+                )
 
         except Exception as e:
             self.logger.error(
@@ -307,6 +324,7 @@ class ArticleGenerator:
     ) -> None:
         """Save the generated article and cache."""
         try:
+            print(f"[PROGRESS] Saving article to file: {gen_config.file_name}")
             # Save the article
             output_dir = os.path.join("app", "(materials)", "posts")
             os.makedirs(output_dir, exist_ok=True)
@@ -326,6 +344,9 @@ class ArticleGenerator:
             )
             write_cache(cache_path, cache_data)
             self.logger.info(f"Cache saved to: {cache_path}")
+            print(
+                f"[PROGRESS] Finished saving article and cache for: {gen_config.file_name}"
+            )
 
         except Exception as e:
             raise FileOperationError(f"Failed to save article or cache: {e}") from e
@@ -361,9 +382,9 @@ def main(*args, **kwargs):
         authors=kwargs.get(
             "authors", []
         ),  # Kept for legacy, but not used in new pipeline
-        force_regenerate=kwargs.get("force_regenerate", False),
+        force_regenerate=kwargs["force_regenerate"],
         api_keys=kwargs.get("api_keys", {}),
-        temperature=kwargs.get("temperature", 0.7),
+        temperature=kwargs["temperature"],
     )
 
     app_config = AppConfig()

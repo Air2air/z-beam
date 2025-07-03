@@ -6,7 +6,7 @@ Defines the content section order for different article types.
 
 from generator.modules.logger import get_logger
 
-logger = get_logger("layouts")
+logger = get_logger("generator.layouts")
 
 # Define section order for different article types
 LAYOUTS = {

@@ -4,13 +4,14 @@ import json
 import re
 from typing import Dict, Any, Tuple
 from datetime import datetime
+import logging
 
 from generator.modules.logger import get_logger
 from generator.modules import api_client
 from generator.modules.prompt_formatter import format_prompt
 from generator.config.settings import AppConfig
 
-logger = get_logger("content_generator")
+logger = get_logger("ai_detector")
 config = AppConfig()
 
 
@@ -135,7 +136,6 @@ def generate_content(
             return ""
 
         content_type = section_name.replace("_", " ")
-        # Remove legacy audience_level/authority usage
         ai_likelihood = _evaluate_human_likeness(
             response_text,
             provider,
@@ -185,6 +185,9 @@ def generate_content(
                     f"Regeneration attempt for '{section_name}' failed to get a response. Using first attempt."
                 )
 
+        logger.info(
+            f"[AI DETECTOR] Starting incremental human-likeness improvement for section: {section_name}"
+        )
         improved_content, final_score = evaluate_human_likeness_incremental(
             response_text,
             provider,
@@ -195,6 +198,9 @@ def generate_content(
             prompt_templates_dict,
             max_attempts=5,
             threshold=config.content.ai_detection_threshold,
+        )
+        logger.info(
+            f"[AI DETECTOR] Section '{section_name}' final AI-likeness score: {final_score}%\n---\n{improved_content[:300]}\n---"
         )
 
         if final_score <= config.content.ai_detection_threshold:
@@ -291,49 +297,33 @@ def evaluate_human_likeness_incremental(
     model: str,
     content_type: str,
     audience_level: str,
-    api_keys: Dict[str, str],
-    prompt_templates_dict: Dict[str, str],
+    api_keys: dict,
+    prompt_templates_dict: dict,
     max_attempts: int = 5,
     threshold: int = 50,
-) -> Tuple[str, int]:
+    section_name: str = None,
+) -> tuple[str, int]:
     """
     Iteratively improve content to lower AI-likeness using feedback and prompt variation.
     Returns (final_content, ai_likeness_score)
     """
-    prompt_file_name = "ai_detection_prompt.txt"  # Use the correct prompt file
-    # Try both new and legacy locations for backward compatibility
+    logger = get_logger("ai_detector", context=section_name)
+    prompt_file_name = "ai_detection_prompt.txt"
     prompt_template = prompt_templates_dict.get(
         f"detection/{prompt_file_name}"
     ) or prompt_templates_dict.get(prompt_file_name)
-    logger.info(
-        f"[AI DETECTOR] Using prompt template: {prompt_file_name} (found: {'Yes' if prompt_template else 'No'})"
+    logger.log_with_context(
+        logging.INFO, f"Starting AI-likeness detection for section '{section_name}'"
     )
     if not prompt_template:
-        logger.error(
-            f"AI detector prompt template '{prompt_file_name}' not found in loaded templates."
+        logger.log_with_context(
+            logging.ERROR,
+            f"AI detector prompt template '{prompt_file_name}' not found in loaded templates.",
         )
         return content, 100
-
-    filled_prompt = format_prompt(
-        prompt_template,
-        {
-            "content": content,
-            "content_type": content_type,
-            "audience_level": audience_level,
-        },
-        prompt_file_name,
-        "ai_likeness_evaluation",
-    )
-
-    api_config = {
-        "temperature": 0.0,
-        "max_output_tokens": 50,
-    }
-
     last_content = content
     last_score = 100
     for attempt in range(max_attempts):
-        # Add feedback for each attempt, but do NOT add extra instructions—let the prompt template handle all guidance
         feedback = ""
         if attempt > 0:
             feedback = (
@@ -357,58 +347,59 @@ def evaluate_human_likeness_incremental(
                 provider=provider,
                 model=model,
                 api_keys=api_keys,
-                temperature=api_config["temperature"],
-                max_tokens=api_config["max_output_tokens"],
-            )
-            logger.debug(
-                f"AI Detection Response (Attempt {attempt}): {response[:100] if response else 'EMPTY'}..."
+                temperature=0.0,
+                max_tokens=50,
             )
             if response:
                 match = re.search(r"Percentage:\s*(\d+)%", response)
                 if match:
                     score = int(match.group(1))
-                    logger.info(f"AI Likelihood Score (Attempt {attempt}): {score}%")
+                    logger.log_with_context(
+                        logging.INFO,
+                        f"Iteration {attempt + 1}: AI-likeness score = {score}%",
+                    )
+                    logger.log_with_context(
+                        logging.DEBUG, f"---OUTPUT---\n{response[:300]}\n---END---"
+                    )
                     if score <= threshold:
-                        logger.info(f"Content accepted as human-like (score: {score}%)")
-                        return content, score
-                    else:
-                        logger.warning(
-                            f"Content still too AI-like (score: {score}%). Regenerating..."
+                        logger.log_with_context(
+                            logging.INFO,
+                            f"Section '{section_name}' passed with score: {score}% after {attempt + 1} iterations.",
                         )
+                        return response, score
+                    last_score = score
+                    last_content = response
                 else:
-                    logger.warning(
-                        f"Could not parse AI likelihood percentage from response: '{response[:100]}...'"
+                    logger.log_with_context(
+                        logging.WARNING,
+                        f"Could not parse AI likelihood percentage from response: '{response[:100]}...'",
                     )
             else:
-                logger.warning("AI detection model returned empty response.")
-
+                logger.log_with_context(
+                    logging.WARNING, "AI detection model returned empty response."
+                )
         except Exception as e:
-            logger.error(
-                f"Error calling AI for human-likeness evaluation (Attempt {attempt}): {e}"
+            logger.log_with_context(
+                logging.ERROR,
+                f"Error calling AI for human-likeness evaluation (Attempt {attempt + 1}): {e}",
             )
-
-        # If we reach here, it means we need to regenerate the content
-        content = api_client.regenerate_content(
-            content,
+        regenerated = api_client.regenerate_content(
+            last_content,
             provider,
             model,
             api_keys,
             prompt_templates_dict,
             section_name="ai_likeness_evaluation",
         )
-
-        filled_prompt = format_prompt(
-            prompt_template,
-            {
-                "content": content,
-                "content_type": content_type,
-                "audience_level": audience_level,
-            },
-            prompt_file_name,
-            "ai_likeness_evaluation",
-        )
-
-    logger.error(
-        "Max attempts reached. Content could not be improved to acceptable level."
+        if regenerated == last_content:
+            logger.log_with_context(
+                logging.WARNING,
+                f"No change in regenerated content at attempt {attempt + 1}. Breaking loop.",
+            )
+            break
+        last_content = regenerated
+    logger.log_with_context(
+        logging.ERROR,
+        f"Max attempts reached. Section '{section_name}' did not pass. Final score: {last_score}%",
     )
-    return content, 100
+    return last_content, last_score

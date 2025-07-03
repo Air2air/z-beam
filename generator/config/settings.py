@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import dataclass, field
+import yaml
 
 from generator.exceptions import ConfigurationError
 
@@ -31,7 +32,7 @@ class APIProviderConfig:
 
     model: str
     url_template: str
-    default_temperature: float = 0.7
+    default_temperature: float  # Remove default
     default_max_tokens: int = 1000
 
 
@@ -40,7 +41,6 @@ class APIProviderConfig:
 class ContentConfig:
     """Configuration for content generation."""
 
-    ai_detection_threshold: int = 60
     ai_detection_fallback_prompts: list[str] = field(
         default_factory=lambda: [
             "Evaluate text for AI traits. Return percentage (0-100) and summary (1-2 sentences): {content}",
@@ -92,18 +92,22 @@ class AppConfig:
             "XAI": APIProviderConfig(
                 model="grok-3-mini",
                 url_template="https://api.xai.com/v1/models/{model}/chat/completions",
+                default_temperature=0.7,
             ),
             "GEMINI": APIProviderConfig(
                 model="gemini-1.5-flash",
                 url_template="https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                default_temperature=0.7,
             ),
             "DEEPSEEK": APIProviderConfig(
                 model="deepseek-chat",
                 url_template="https://api.deepseek.com/chat/completions",
+                default_temperature=0.7,
             ),
             "OPENAI": APIProviderConfig(
                 model="gpt-3.5-turbo",
                 url_template="https://api.openai.com/v1/chat/completions",
+                default_temperature=0.7,
             ),
         }
 
@@ -125,11 +129,26 @@ class AppConfig:
             return sections_config
         for file_path in self.directories.sections_dir.glob("*.txt"):
             section_key = file_path.stem
+            ai_detect = True  # Default
+            # Try to read YAML frontmatter
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                if content.startswith("---"):
+                    end = content.find("---", 3)
+                    if end != -1:
+                        yaml_block = content[3:end]
+                        meta = yaml.safe_load(yaml_block)
+                        if isinstance(meta, dict) and "ai_detect" in meta:
+                            ai_detect = bool(meta["ai_detect"])
+            except Exception:
+                pass
             sections_config[section_key] = {
                 "prompt_file": file_path.name,
                 "type": self.content.section_type_mapping.get(section_key, "text"),
                 "generate": True,
                 "order": len(sections_config),
+                "ai_detect": ai_detect,
             }
         return sections_config
 
@@ -143,18 +162,36 @@ class GenerationConfig:
     provider: str
     model: str
     author: str
-    temperature: float = 0.7
-    force_regenerate: bool = True
+    temperature: float
+    force_regenerate: bool
+    ai_detection_threshold: int  # <-- moved up, before any default fields
+    iterations_per_section: int = 3
     api_keys: dict = None
     title: Optional[str] = None
-    description: Optional[str] = None
     keywords: list[str] = field(default_factory=list)
 
     def __post_init__(self):
+        # Strict required fields check
+        required_fields = [
+            "material",
+            "article_category",
+            "file_name",
+            "provider",
+            "model",
+            "author",
+            "temperature",
+            "force_regenerate",
+            "api_keys",
+            "ai_detection_threshold",
+            "iterations_per_section",
+        ]
+        missing = [f for f in required_fields if getattr(self, f, None) is None]
+        if missing:
+            raise ConfigurationError(
+                f"Missing required GenerationConfig fields: {', '.join(missing)}"
+            )
         if not self.title:
             self.title = f"Laser Cleaning {self.material}"
-        if not self.description:
-            self.description = f"An article about laser cleaning {self.material}."
 
 
 # --- Legacy constants for backward compatibility ---
@@ -168,7 +205,7 @@ def get_legacy_constants():
         "OUTPUT_DIR": config.directories.output_dir,
         "DEFAULT_MODELS": {k: v.model for k, v in config.providers.items()},
         "API_URLS": {k: v.url_template for k, v in config.providers.items()},
-        "AI_DETECTION_THRESHOLD": config.content.ai_detection_threshold,
+        "AI_DETECTION_THRESHOLD": None,  # Removed from config, now set in run.py only
         "SECTION_TYPE_MAPPING": config.content.section_type_mapping,
         "BASE_SECTIONS_CONFIG": {"sections": config.load_sections_config()},
         "BASE_ARTICLE_CONFIG": {

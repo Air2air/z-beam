@@ -7,7 +7,7 @@ from typing import Any
 
 from generator.modules.logger import get_logger
 
-logger = get_logger("file_handler")
+logger = get_logger("generator.file_handler")
 
 
 def save_file(file_path: str, content: str):
