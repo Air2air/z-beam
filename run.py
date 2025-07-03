@@ -1,128 +1,143 @@
-# run.py
+#!/usr/bin/env python3
+"""
+Main entry point for the article generation system.
+Handles configuration loading and orchestrates the generation process.
+"""
 
 import os
 import sys
-import json
-import logging
+from pathlib import Path
+from typing import Dict, Optional
+from dataclasses import dataclass, field
+
 from dotenv import load_dotenv
 
-# Reordered imports for RuffE402 compliance
-# Import main from page_generator as it is needed at module level
-from generator.modules.page_generator import main
-from generator.constants import (
-    DEFAULT_GEMINI_MODEL,
-    DEFAULT_XAI_MODEL,
-    DEFAULT_DEEPSEEK_MODEL,
+from generator.config.settings import AppConfig, GenerationConfig
+from generator.modules.logger import get_logger
+from generator.modules.page_generator import ArticleGenerator
+from generator.exceptions import ConfigurationError, GenerationError
+
+
+# ---- CONFIGURATION (edit here) ----
+CONFIG = dict(
+    material="Silver",
+    category="Material",
+    file_name="laser_cleaning_silver.mdx",
+    provider="DEEPSEEK",
+    author="todd_dunning.mdx",
+    temperature=0.7,
+    force_regenerate=True,
 )
-
-# Import get_logger and LOG_FILE from your logger module
-from generator.modules.logger import get_logger, LOG_FILE  # <--- ADDED
+# ---- END CONFIGURATION ----
 
 
-# Add the project root to the sys.path
-script_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = script_dir
-sys.path.insert(0, project_root)
+@dataclass
+class RunConfiguration:
+    """Configuration for a single run of the article generator."""
 
-# Load environment variables from .env file
-load_dotenv()
+    material: str
+    category: str
+    file_name: str  # Renamed from filename
+    provider: str
+    author: str  # Just a string filename
+    temperature: float = 0.7
+    force_regenerate: bool = True
 
-# Get a logger for the run script itself
-logger = get_logger("run_script")  # <--- ADDED
+    def validate(self) -> None:
+        """Validate the run configuration."""
+        if not self.material:
+            raise ConfigurationError("Material cannot be empty")
+        if not self.file_name:
+            raise ConfigurationError("file_name cannot be empty")
+        if self.provider.upper() not in ["GEMINI", "XAI", "DEEPSEEK"]:
+            raise ConfigurationError(f"Unsupported provider: {self.provider}")
+
+
+class ApplicationRunner:
+    """Handles the application lifecycle and orchestrates article generation."""
+
+    def __init__(self):
+        self.logger = get_logger("app_runner")
+        self.app_config = AppConfig()
+
+    def setup_environment(self) -> None:
+        """Setup the application environment."""
+        # Add project root to path
+        project_root = Path(__file__).parent
+        sys.path.insert(0, str(project_root))
+
+        # Load environment variables
+        load_dotenv()
+
+    def create_generation_config(
+        self, run_config: RunConfiguration
+    ) -> GenerationConfig:
+        """Create a generation configuration from run configuration."""
+        api_keys = {
+            "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY"),
+            "XAI_API_KEY": os.getenv("XAI_API_KEY"),
+            "DEEPSEEK_API_KEY": os.getenv("DEEPSEEK_API_KEY"),
+        }
+
+        # Validate API key availability
+        required_key = f"{run_config.provider.upper()}_API_KEY"
+        if not api_keys.get(required_key):
+            self.logger.warning(
+                f"No API key found for provider '{run_config.provider}'. "
+                f"Please ensure {required_key} is set in your .env file."
+            )
+
+        return GenerationConfig(
+            material=run_config.material,
+            article_category=run_config.category,
+            file_name=run_config.file_name,
+            provider=run_config.provider,
+            model=self.app_config.get_model_for_provider(run_config.provider),
+            author=run_config.author,
+            temperature=run_config.temperature,
+            force_regenerate=run_config.force_regenerate,
+            api_keys=api_keys,
+        )
+
+    def run(self, run_config: RunConfiguration) -> bool:
+        """
+        Execute the article generation process.
+
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        try:
+            # Validate configuration
+            run_config.validate()
+
+            # Setup environment
+            self.setup_environment()
+
+            # Create generation configuration
+            gen_config = self.create_generation_config(run_config)
+
+            # Initialize and run generator
+            generator = ArticleGenerator(self.app_config)
+            generator.generate_article(gen_config)
+
+            self.logger.info("Article generation completed successfully")
+            return True
+
+        except (ConfigurationError, GenerationError) as e:
+            self.logger.error(f"Generation failed: {e}")
+            return False
+        except Exception as e:
+            self.logger.error(f"Unexpected error during generation: {e}", exc_info=True)
+            return False
+
+
+def main() -> None:
+    """Main entry point."""
+    run_config = RunConfiguration(**CONFIG)
+    runner = ApplicationRunner()
+    success = runner.run(run_config)
+    sys.exit(0 if success else 1)
 
 
 if __name__ == "__main__":
-    # --- Hardcoded Values Instead of Command-Line Arguments ---
-    material = "Silver"
-    category = "Material"
-    filename = "laser_cleaning_silver.mdx"
-    provider = (
-        "DEEPSEEK"  # Set your desired provider here (e.g., "GEMINI", "XAI", "DEEPSEEK")
-    )
-
-    # Set model based on provider, using defaults from constants.py
-    if provider.upper() == "GEMINI":
-        model = DEFAULT_GEMINI_MODEL
-    elif provider.upper() == "XAI":
-        model = DEFAULT_XAI_MODEL
-    elif provider.upper() == "DEEPSEEK":
-        model = DEFAULT_DEEPSEEK_MODEL
-    else:
-        # Use logger.error instead of print
-        logger.error(  # <--- CHANGED from print
-            f"Unsupported provider '{provider}'. Please choose from GEMINI, XAI, DEEPSEEK."
-        )
-        sys.exit(1)
-
-    authors = ["Todd Dunning"]
-    voice = "informative"
-    authority = "medium"
-
-    content_length_dict = {
-        "paragraph": "150-200",
-        "list": "70-100",
-        "table": "60-90",
-        "chart": "60-90",
-    }
-
-    variety = "standard overview"
-    force_regenerate = True
-    # --- End Hardcoded Values ---
-
-    # Get API keys from environment variables
-    api_keys = {
-        "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY"),
-        "XAI_API_KEY": os.getenv("XAI_API_KEY"),
-        "DEEPSEEK_API_KEY": os.getenv("DEEPSEEK_API_KEY"),
-    }
-
-    # Optional: Basic check to warn if API key is missing for the selected provider
-    if api_keys.get(f"{provider.upper()}_API_KEY") is None:
-        # Use logger.warning instead of print
-        logger.warning(  # <--- CHANGED from print
-            f"No API key found for provider '{provider}'. "
-            f"Please ensure {provider.upper()}_API_KEY is set in your .env file located at the project root ({project_root})."
-        )
-        # You might want to uncomment the line below to stop execution if API key is missing
-        # sys.exit(1)
-
-    try:  # <--- ADDED try block
-        main(
-            material=material,
-            article_category=category,
-            file_name=filename,
-            provider=provider,
-            authors=authors,
-            voice=voice,
-            authority=authority,
-            content_length=content_length_dict,
-            variety=variety,
-            force_regenerate=force_regenerate,
-            model=model,
-            api_keys=api_keys,
-        )
-        logger.info(f"Article generation completed successfully.")  # <--- ADDED
-
-        # --- Log File Deletion Logic --- <--- ADDED
-        # Ensure handlers are flushed and closed before deletion
-        for handler in logger.handlers:
-            if isinstance(handler, logging.FileHandler):
-                handler.flush()
-                handler.close()
-        # Remove file handlers from the logger so it doesn't try to write to a deleted file
-        logger.handlers = [
-            h for h in logger.handlers if not isinstance(h, logging.FileHandler)
-        ]
-
-        if os.path.exists(LOG_FILE):
-            os.remove(LOG_FILE)
-            logger.info(f"Log file '{LOG_FILE}' deleted.")
-        else:
-            logger.warning(f"Log file '{LOG_FILE}' not found, skipping deletion.")
-        # --- End Log File Deletion Logic ---
-
-    except Exception as e:  # <--- ADDED except block
-        # If an error occurs, the log file will *not* be deleted,
-        # allowing you to inspect it for debugging.
-        logger.error(f"An error occurred during article generation: {e}", exc_info=True)
-        sys.exit(1)  # Exit with an error code if main fails
+    main()

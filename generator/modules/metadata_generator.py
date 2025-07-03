@@ -28,8 +28,8 @@ def generate_metadata(
     Args:
         material (str): The primary material of the article.
         material_config (Dict[str, Any]): Researched data about the material.
-        article_config (Dict[str, Any]): General article configuration (authors, voice, etc.).
-        author_metadata (Dict[str, Any]): Full metadata for all authors.
+        article_config (Dict[str, Any]): General article configuration (author, temperature, etc.).
+        author_metadata (Dict[str, Any]): Full metadata for the author.
         ai_scores (Dict[str, float]): Dictionary of AI detection scores for each section.
         article_category (str): The category of the article.
 
@@ -38,11 +38,10 @@ def generate_metadata(
     """
     title = f"Laser Cleaning {material}"
 
-    authors_list = article_config.get("authors", [])
-    author_full_names = [
-        author_metadata.get(author_alias, {}).get("name", author_alias)
-        for author_alias in authors_list
-    ]
+    # Use single author from config
+    author_file = article_config.get("author")
+    author_info = author_metadata.get(author_file, {})
+    author_full_name = author_info.get("name", author_file)
 
     date_generated = datetime.datetime.now().strftime("%Y-%m-%d")
 
@@ -85,29 +84,56 @@ def generate_metadata(
         )
     tags = sorted(list(set(tags)))  # Unique and sorted
 
-    # Assemble metadata dictionary
+    # Assemble metadata dictionary with robust error handling
+    def safe_get(d, key, default=None, warn_if_missing=False, context=""):
+        value = d.get(key, default)
+        if value == default and warn_if_missing:
+            logger.warning(
+                f"Missing key '{key}' in {context or 'dict'}, using default: {default}"
+            )
+        return value
+
     metadata_dict = {
         "title": title,
-        "authors": author_full_names,
-        "date": date_generated,
+        "nameShort": material,
         "description": description_snippet,
+        "publishedAt": date_generated,
+        "authorName": safe_get(author_info, "name", author_file, True, "author_info"),
+        "authorTitle": safe_get(author_info, "title", "", True, "author_info"),
+        "authorBio": safe_get(author_info, "bio", "", True, "author_info"),
         "tags": tags,
-        "material": material,
-        "articleCategory": article_category,
-        "voice": article_config.get("voice"),
-        "authority": article_config.get("authority"),
-        "contentLengthConfig": article_config.get("content_length"),
-        "variety": article_config.get("variety"),
-        "modelUsed": article_config.get("model"),
+        "keywords": safe_get(material_config, "keywords", [], True, "material_config"),
+        "image": safe_get(material_config, "image", "", True, "material_config"),
+        "atomicNumber": safe_get(
+            material_config, "atomicNumber", None, True, "material_config"
+        ),
+        "chemicalSymbol": safe_get(
+            material_config, "chemicalSymbol", None, True, "material_config"
+        ),
+        "materialType": safe_get(
+            material_config, "materialType", "N/A", True, "material_config"
+        ),
+        "metalClass": safe_get(
+            material_config, "metalClass", "N/A", True, "material_config"
+        ),
+        "crystalStructure": safe_get(
+            material_config, "crystalStructure", "", True, "material_config"
+        ),
+        "primaryApplication": safe_get(
+            material_config, "primaryApplication", "N/A", True, "material_config"
+        ),
+        # Existing fields for compatibility
+        "temperature": safe_get(
+            article_config, "temperature", None, True, "article_config"
+        ),
+        "modelUsed": safe_get(article_config, "model", None, True, "article_config"),
         "aiScores": ai_scores,
-        "materialDetails": material_config.get("material_details", {}),
-        "materialType": material_config.get("materialType", "N/A"),
-        "metalClass": material_config.get("metalClass", "N/A"),
-        "primaryApplication": material_config.get("primaryApplication", "N/A"),
-        "atomicNumber": material_config.get("atomicNumber", "N/A"),
-        "chemicalSymbol": material_config.get("chemicalSymbol", "N/A"),
-        "industries": material_config.get("industries", []),
-        # Add any other relevant fields from article_config or material_config here
+        "materialDetails": safe_get(
+            material_config, "material_details", {}, True, "material_config"
+        ),
+        "industries": safe_get(
+            material_config, "industries", [], True, "material_config"
+        ),
     }
 
     # Format into YAML string

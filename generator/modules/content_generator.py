@@ -2,15 +2,16 @@
 
 import json
 import re
-from typing import Dict, Any, Tuple
+from typing import Dict, Any
 from datetime import datetime
 
 from generator.modules.logger import get_logger
 from generator.modules import api_client
 from generator.modules.prompt_formatter import format_prompt
-from generator.constants import BASE_ARTICLE_CONFIG
+from generator.config.settings import AppConfig
 
 logger = get_logger("content_generator")
+config = AppConfig()
 
 
 def research_material_config(
@@ -20,16 +21,11 @@ def research_material_config(
     api_keys: Dict[str, str],
     prompt_templates_dict: Dict[str, str],
 ) -> Dict[str, Any] | None:
-    """
-    Researches and generates a material configuration using the AI.
-    """
     logger.info(
         f"Researching material config for: {material} (provider: {provider}, model: {model})"
     )
-
     prompt_file_name = "material_research.txt"
     prompt_template = prompt_templates_dict.get(prompt_file_name)
-
     if not prompt_template:
         logger.error(
             f"Material research prompt template '{prompt_file_name}' not found in loaded templates."
@@ -43,7 +39,7 @@ def research_material_config(
         "material_config_research",
     )
 
-    api_config = {  # This dictionary is now used to extract arguments
+    api_config = {
         "temperature": 0.2,
         "max_output_tokens": 500,
     }
@@ -63,7 +59,28 @@ def research_material_config(
             for line in lines:
                 if ":" in line:
                     key, value = line.split(":", 1)
-                    material_data[key.strip()] = value.strip()
+                    key = key.strip()
+                    value = value.strip()
+                    # Parse comma-separated fields as lists
+                    if key in ["keywords", "industries", "applications"]:
+                        material_data[key] = [v.strip() for v in value.split(",") if v.strip()]
+                    else:
+                        material_data[key] = value
+            # Map legacy/alternate keys to expected ones for metadata
+            if "material_type" in material_data:
+                material_data["materialType"] = material_data.pop("material_type")
+            if "metal_class" in material_data:
+                material_data["metalClass"] = material_data.pop("metal_class")
+            if "primary_application" in material_data:
+                material_data["primaryApplication"] = material_data.pop("primary_application")
+            if "material_description" in material_data:
+                if "material_details" not in material_data:
+                    material_data["material_details"] = {}
+                material_data["material_details"]["material_description"] = material_data.pop("material_description")
+            if "applications" in material_data:
+                if "material_details" not in material_data:
+                    material_data["material_details"] = {}
+                material_data["material_details"]["applications"] = material_data["applications"]
             return material_data
         else:
             logger.warning(
@@ -88,10 +105,6 @@ def generate_content(
     prompt_templates_dict: Dict[str, str],
     prompt_file_name: str,
 ) -> str:
-    """
-    Generates content for a given section using the AI.
-    Handles caching and human-likeness evaluation.
-    """
     cache_key = f"{section_name}_{json.dumps(section_variables, sort_keys=True)}"
 
     if not force_regenerate and cache_key in cache_data.get("sections", {}):
@@ -108,13 +121,13 @@ def generate_content(
         prompt_template, section_variables, prompt_file_name, section_name
     )
 
-    api_config = {  # This dictionary is now used to extract arguments
+    api_config = {
         "temperature": 0.7,
         "max_output_tokens": 1000,
     }
 
     content_length_hint = section_variables.get(
-        "content_length", BASE_ARTICLE_CONFIG["content_length"]
+        "content_length", config.content.default_content_lengths
     )
     section_length_str = content_length_hint.get(
         section_name
@@ -134,31 +147,36 @@ def generate_content(
             temperature=api_config["temperature"],
             max_tokens=api_config["max_output_tokens"],
         )
-        # --- START OF ADDED DEBUG LINE ---
         logger.debug(
             f"AI Response for section '{section_name}': {response_text[:500] if response_text else 'EMPTY'}..."
         )
-        # --- END OF ADDED DEBUG LINE ---
 
         if not response_text:
             logger.warning(f"AI returned empty response for section: {section_name}")
             return ""
 
         content_type = section_name.replace("_", " ")
-        audience_level = section_variables.get("authority", "medium")
+        audience_level = section_variables.get("audience_level", "medium")
 
-        ai_likelihood = _evaluate_human_likeness(
-            response_text,
-            provider,
-            model,
-            content_type,
-            audience_level,
-            api_keys,
-            prompt_templates_dict,
-        )
-        logger.info(f"AI Likelihood for '{section_name}': {ai_likelihood}%")
+        if section_name in ["chart", "table"]:
+            logger.info(f"Skipping AI-likeness detection for section: {section_name}")
+            ai_likelihood = 0
+        else:
+            ai_likelihood = _evaluate_human_likeness(
+                response_text,
+                provider,
+                model,
+                content_type,
+                audience_level,
+                api_keys,
+                prompt_templates_dict,
+            )
+            logger.info(f"AI Likelihood for '{section_name}': {ai_likelihood}%")
 
-        if ai_likelihood > 60:
+        if (
+            ai_likelihood > config.content.ai_detection_threshold
+            and section_name not in ["chart", "table"]
+        ):
             logger.warning(
                 f"Content for '{section_name}' is too AI-like ({ai_likelihood}%). Attempting to regenerate..."
             )
@@ -183,7 +201,7 @@ def generate_content(
                 logger.info(
                     f"Retry AI Likelihood for '{section_name}': {ai_likelihood_retry}%"
                 )
-                if ai_likelihood_retry <= 60:
+                if ai_likelihood_retry <= config.content.ai_detection_threshold:
                     response_text = response_text_retry
                     ai_likelihood = ai_likelihood_retry
                     logger.info(f"Regeneration successful for '{section_name}'.")
@@ -220,10 +238,6 @@ def _evaluate_human_likeness(
     api_keys: Dict[str, str],
     prompt_templates_dict: Dict[str, str],
 ) -> int:
-    """
-    Evaluates the human-likeness of the generated content using an AI model.
-    Returns a percentage (0-100).
-    """
     prompt_file_name = "ai_detection_prompt.txt"
     prompt_template = prompt_templates_dict.get(prompt_file_name)
 
@@ -244,7 +258,7 @@ def _evaluate_human_likeness(
         "ai_likeness_evaluation",
     )
 
-    api_config = {  # This dictionary is now used to extract arguments
+    api_config = {
         "temperature": 0.0,
         "max_output_tokens": 50,
     }
@@ -258,11 +272,9 @@ def _evaluate_human_likeness(
             temperature=api_config["temperature"],
             max_tokens=api_config["max_output_tokens"],
         )
-        # --- START OF ADDED DEBUG LINE ---
         logger.debug(
             f"AI Detection Response: {response[:100] if response else 'EMPTY'}..."
         )
-        # --- END OF ADDED DEBUG LINE ---
         if response:
             match = re.search(r"Percentage:\s*(\d+)%", response)
             if match:

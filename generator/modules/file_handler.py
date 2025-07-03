@@ -13,7 +13,9 @@ logger = get_logger("file_handler")
 def save_file(file_path: str, content: str):
     """Saves content to a specified file path, creating directories if needed."""
     try:
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        dir_name = os.path.dirname(file_path)
+        if dir_name:
+            os.makedirs(dir_name, exist_ok=True)
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
         logger.debug(f"File saved: {file_path}")
@@ -46,7 +48,9 @@ def read_cache(cache_file_path: str) -> dict | None:
 def write_cache(cache_file_path: str, data: dict):
     """Writes data to a cache file in JSON format."""
     try:
-        os.makedirs(os.path.dirname(cache_file_path), exist_ok=True)
+        dir_name = os.path.dirname(cache_file_path)
+        if dir_name:
+            os.makedirs(dir_name, exist_ok=True)
         with open(cache_file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2)
         logger.debug(f"Cache written to {cache_file_path}")
@@ -80,7 +84,6 @@ def parse_json_response(response_text: str, section_name: str, logger) -> Any | 
         return None
 
 
-# --- THIS IS THE FUNCTION THAT WAS MISSING OR NOT UPDATED ---
 def read_file_content(file_path: str) -> str | None:
     """Reads and returns the entire content of a text file."""
     try:

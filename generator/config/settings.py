@@ -1,0 +1,184 @@
+# generator/config/settings.py
+"""
+Centralized configuration management for the article generation system.
+"""
+
+import os
+from pathlib import Path
+from typing import Dict, Any, Optional
+from dataclasses import dataclass, field
+
+from generator.exceptions import ConfigurationError
+
+
+# --- Directory and Path Configuration ---
+@dataclass
+class DirectoryConfig:
+    """Configuration for directory paths."""
+
+    def __post_init__(self):
+        self.generator_dir = Path(__file__).parent.parent
+        self.project_root = self.generator_dir.parent
+        self.author_dir = self.generator_dir / "authors"
+        self.sections_dir = self.generator_dir / "sections"
+        self.output_dir = self.project_root / "app" / "(materials)" / "posts"
+
+
+# --- API Provider Configuration ---
+@dataclass
+class APIProviderConfig:
+    """Configuration for a specific API provider."""
+
+    model: str
+    url_template: str
+    default_temperature: float = 0.7
+    default_max_tokens: int = 1000
+
+
+# --- Content and Section Configuration ---
+@dataclass
+class ContentConfig:
+    """Configuration for content generation."""
+
+    ai_detection_threshold: int = 60
+    ai_detection_fallback_prompts: list[str] = field(
+        default_factory=lambda: [
+            "Evaluate text for AI traits. Return percentage (0-100) and summary (1-2 sentences): {content}",
+            "Analyze text for AI-generated style. Return percentage (0-100) and summary (string): {content}",
+        ]
+    )
+    default_content_lengths: Dict[str, str] = field(
+        default_factory=lambda: {
+            "introduction": "150-200",
+            "contaminants": "70-100",
+            "table": "60-90",
+            "chart": "60-90",
+            "comparison": "60-90",
+            "substrates": "100-150",
+        }
+    )
+    section_type_mapping: Dict[str, str] = field(
+        default_factory=lambda: {
+            "introduction": "paragraph",
+            "contaminants": "list",
+            "table": "table",
+            "chart": "chart",
+            "comparison": "comparison_chart",
+        }
+    )
+    section_order: list[str] = field(
+        default_factory=lambda: [
+            "introduction",
+            "contaminants",
+            "table",
+            "chart",
+            "comparison",
+            "substrates",
+        ]
+    )
+
+
+class AppConfig:
+    """Main application configuration manager."""
+
+    def __init__(self):
+        self.directories = DirectoryConfig()
+        self.content = ContentConfig()
+        self._setup_providers()
+
+    def _setup_providers(self):
+        """Setup API provider configurations."""
+        self.providers = {
+            "XAI": APIProviderConfig(
+                model="grok-3-mini",
+                url_template="https://api.xai.com/v1/models/{model}/chat/completions",
+            ),
+            "GEMINI": APIProviderConfig(
+                model="gemini-1.5-flash",
+                url_template="https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+            ),
+            "DEEPSEEK": APIProviderConfig(
+                model="deepseek-chat",
+                url_template="https://api.deepseek.com/chat/completions",
+            ),
+            "OPENAI": APIProviderConfig(
+                model="gpt-3.5-turbo",
+                url_template="https://api.openai.com/v1/chat/completions",
+            ),
+        }
+
+    def get_provider_config(self, provider: str) -> APIProviderConfig:
+        provider_key = provider.upper()
+        if provider_key not in self.providers:
+            raise ConfigurationError(f"Unknown provider: {provider}")
+        return self.providers[provider_key]
+
+    def get_model_for_provider(self, provider: str) -> str:
+        return self.get_provider_config(provider).model
+
+    def get_api_url(self, provider: str) -> str:
+        return self.get_provider_config(provider).url_template
+
+    def load_sections_config(self) -> Dict[str, Dict[str, Any]]:
+        sections_config = {}
+        if not self.directories.sections_dir.exists():
+            return sections_config
+        for file_path in self.directories.sections_dir.glob("*.txt"):
+            section_key = file_path.stem
+            sections_config[section_key] = {
+                "prompt_file": file_path.name,
+                "type": self.content.section_type_mapping.get(section_key, "text"),
+                "generate": True,
+                "order": len(sections_config),
+            }
+        return sections_config
+
+
+# --- Generation Request Configuration ---
+@dataclass
+class GenerationConfig:
+    material: str
+    article_category: str
+    file_name: str
+    provider: str
+    model: str
+    author: str
+    temperature: float = 0.7
+    force_regenerate: bool = True
+    api_keys: dict = None
+    title: Optional[str] = None
+    description: Optional[str] = None
+    keywords: list[str] = field(default_factory=list)
+
+    def __post_init__(self):
+        if not self.title:
+            self.title = f"Laser Cleaning {self.material}"
+        if not self.description:
+            self.description = f"An article about laser cleaning {self.material}."
+
+
+# --- Legacy constants for backward compatibility ---
+def get_legacy_constants():
+    config = AppConfig()
+    return {
+        "GENERATOR_DIR": config.directories.generator_dir,
+        "PROJECT_ROOT": config.directories.project_root,
+        "AUTHOR_DIR": config.directories.author_dir,
+        "SECTIONS_DIR": config.directories.sections_dir,
+        "OUTPUT_DIR": config.directories.output_dir,
+        "DEFAULT_MODELS": {k: v.model for k, v in config.providers.items()},
+        "API_URLS": {k: v.url_template for k, v in config.providers.items()},
+        "AI_DETECTION_THRESHOLD": config.content.ai_detection_threshold,
+        "SECTION_TYPE_MAPPING": config.content.section_type_mapping,
+        "BASE_SECTIONS_CONFIG": {"sections": config.load_sections_config()},
+        "BASE_ARTICLE_CONFIG": {
+            "authors": [],
+            "voice": "professional",
+            "authority": "expert",
+            "content_length": config.content.default_content_lengths,
+            "variety": "Technical details and industry applications with subtle imperfections, specific examples, and technical terminology to ensure human-like style.",
+            "articleType": "Material",
+            "articleCategory": "Material",
+            "section_order": config.content.section_order,
+        },
+    }

@@ -1,5 +1,27 @@
-#generator/sections/material_research.txt
+# generator/sections/material_research.txt
 
-Provide material properties for {material} used in laser cleaning. 
+Provide the following properties for {material} used in laser cleaning:
+- keywords (comma-separated)
+- image (URL or path)
+- atomicNumber
+- chemicalSymbol
+- materialType
+- metalClass
+- crystalStructure
+- primaryApplication
+- industries (comma-separated)
+- material_description
+- applications (comma-separated)
 
-Include industries (comma-separated), material_type, metal_class, primary_application, atomic_number, chemical_symbol as plain text fields (e.g., industries: Aerospace, Automotive\nmaterial_type: Nickel).
+Format as key: value, one per line. Example:
+keywords: silver, laser cleaning, tarnish removal
+image: /images/Material/material_silver.jpg
+atomicNumber: 47
+chemicalSymbol: Ag
+materialType: Precious Metal
+metalClass: Transition Metal
+crystalStructure: Face-Centered Cubic (FCC)
+primaryApplication: Conductive coatings
+industries: Electronics, Jewelry, Medical, Aerospace
+material_description: Silver is a precious metal used in electronics, jewelry, and medical devices.
+applications: Electronics, Jewelry, Medical, Aerospace
