@@ -12,17 +12,13 @@ import yaml
 
 from generator.config.settings import AppConfig, GenerationConfig
 from generator.modules.logger import get_logger
-from generator.modules.prompt_loader import PromptLoader
-from generator.modules.prompt_manager import PromptManager
-
-from generator.modules.file_handler import (
-    save_file,
-    read_cache,
-    write_cache,
-)
 from generator.exceptions import GenerationError, FileOperationError
 from generator.modules import content_generator
 from generator.modules.metadata_generator import generate_metadata
+from generator.modules.prompt_loader import PromptLoader
+from generator.modules.prompt_manager import PromptManager
+from generator.modules.file_handler import save_file, read_cache, write_cache
+from generator.modules.mdx_validator import validate_mdx_output
 
 
 @dataclass
@@ -381,7 +377,17 @@ class ArticleGenerator:
             os.makedirs(output_dir, exist_ok=True)
             output_path = os.path.join(output_dir, gen_config.file_name)
             mdx_content = article_data.to_mdx()
-            save_file(output_path, mdx_content)
+
+            # Validate and fix MDX content for Next.js compatibility
+            validated_content, validation_issues = validate_mdx_output(mdx_content)
+            if validation_issues:
+                self.logger.info(
+                    f"MDX validation fixed {len(validation_issues)} issues:"
+                )
+                for issue in validation_issues:
+                    self.logger.info(f"  - {issue}")
+
+            save_file(output_path, validated_content)
             self.logger.info(f"Article saved to: {output_path}")
 
             # Save the cache

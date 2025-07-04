@@ -1,13 +1,12 @@
 from generator.config.settings import AppConfig, GenerationConfig
-from generator.modules.logger import get_logger
 from generator.modules.page_generator import ArticleGenerator
-from generator.modules.prompt_manager import PromptManager
 from generator.exceptions import ConfigurationError, GenerationError
 from dataclasses import dataclass
 import os
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
+from generator.modules.logger import get_logger
 
 
 @dataclass
@@ -25,6 +24,7 @@ class RunConfiguration:
     ai_detection_threshold: int
     human_detection_threshold: int  # Add human threshold
     generator_model_settings: dict  # <-- Add this line
+    iterations_per_section: int = 3  # Add this field with default
     detection_provider: str = None
     detection_model_settings: dict = None
 
@@ -35,6 +35,7 @@ class RunConfiguration:
             "category",
             "file_name",
             "generator_provider",
+            "model",
             "author",
             "temperature",
             "force_regenerate",
@@ -101,6 +102,7 @@ class ApplicationRunner:
             ai_detection_threshold=run_config.ai_detection_threshold,
             human_detection_threshold=run_config.human_detection_threshold,
             generator_model_settings=run_config.generator_model_settings,  # <-- Pass through
+            iterations_per_section=run_config.iterations_per_section,
             detection_provider=getattr(run_config, "detection_provider", None),
             detection_model_settings=getattr(
                 run_config, "detection_model_settings", None

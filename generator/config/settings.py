@@ -3,7 +3,6 @@
 Centralized configuration management for the article generation system.
 """
 
-import os
 from pathlib import Path
 from typing import Dict, Any, Optional
 from dataclasses import dataclass, field
@@ -196,6 +195,28 @@ class GenerationConfig:
             )
         if not self.title:
             self.title = f"Laser Cleaning {self.material}"
+
+    def validate(self):
+        # Reuse the strict required fields check from __post_init__
+        required_fields = [
+            "material",
+            "article_category",
+            "file_name",
+            "generator_provider",
+            "model",
+            "author",
+            "temperature",
+            "force_regenerate",
+            "api_keys",
+            "ai_detection_threshold",
+            "human_detection_threshold",
+            "iterations_per_section",
+        ]
+        missing = [f for f in required_fields if getattr(self, f, None) is None]
+        if missing:
+            raise ConfigurationError(
+                f"Missing required GenerationConfig fields: {', '.join(missing)}"
+            )
 
 
 # --- Legacy constants for backward compatibility ---

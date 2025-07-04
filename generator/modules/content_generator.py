@@ -1,14 +1,13 @@
 # generator/modules/content_generator.py
 
-import json
-import os
 from typing import Dict, Any
-
 from generator.modules.logger import get_logger
 from generator.modules import api_client
 from generator.modules.prompt_formatter import format_prompt
-from generator.config.settings import AppConfig
 from generator.modules.prompt_manager import PromptManager
+from generator.config.settings import AppConfig
+import os
+import json
 
 logger = get_logger("content_generator")
 config = AppConfig()
@@ -184,20 +183,32 @@ def generate_with_feedback_loop(
     )
     base_temperature = section_variables.get("temperature", 0.7)
     for i in range(iterations_per_section):
-        # Dynamically vary temperature for diversity
         temperature = base_temperature + (0.1 * i if i > 0 else 0)
         # Always revise previous output after the first iteration
         if i > 0 and previous_output:
             section_variables_with_feedback = dict(section_variables)
-            # Use feedback if available, otherwise use a generic revision instruction
-            section_variables_with_feedback["revision_feedback"] = (
-                revision_feedback
-                or "Try to make the writing more human-like and less AI-detectable."
-            )
-            revision_instruction = (
-                "Revise the following section based on this feedback to make it more human-like and less AI-detectable.\n"
-                "Feedback: {revision_feedback}\n\n"
-            )
+            # Use feedback if available, otherwise use the full ai/human detection prompt as fallback
+            if revision_feedback:
+                section_variables_with_feedback["revision_feedback"] = revision_feedback
+                revision_instruction = (
+                    "Revise the following section based on this feedback to make it more human-like and less AI-detectable.\n"
+                    "Feedback: {revision_feedback}\n\n"
+                )
+            else:
+                # Use the full ai_detection_prompt.txt or human_detection_prompt.txt as fallback
+                if section_variables.get("ai_detect", True):
+                    fallback_feedback = prompt_manager.load_prompt(
+                        "ai_detection_prompt.txt", "detection"
+                    )
+                else:
+                    fallback_feedback = prompt_manager.load_prompt(
+                        "human_detection_prompt.txt", "detection"
+                    )
+                section_variables_with_feedback["revision_feedback"] = fallback_feedback
+                revision_instruction = (
+                    "Revise the following section based on this feedback to make it more human-like and less AI-detectable.\n"
+                    "Feedback: {revision_feedback}\n\n"
+                )
             revision_instruction += (
                 "Previous Output:\n" + previous_output.strip() + "\n\n"
             )
