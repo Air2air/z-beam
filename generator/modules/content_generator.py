@@ -1,5 +1,17 @@
 # generator/modules/content_generator.py
 
+"""
+Legacy content generator - now uses the new architecture under the hood.
+This file maintains backward compatibility while delegating to the new system.
+
+DEPRECATION NOTICE: This module is being refactored. New code should use the
+services in generator.core.services instead.
+"""
+
+# Import the new adapter for generate_content function
+from generator.modules.legacy_adapter import generate_content  # noqa: F401
+
+# Keep all the existing imports and functions for backward compatibility
 from typing import Dict, Any
 from generator.modules.logger import get_logger
 from generator.modules import api_client
@@ -7,7 +19,6 @@ from generator.modules.prompt_formatter import format_prompt
 from generator.modules.prompt_manager import PromptManager
 from generator.config.settings import AppConfig
 import os
-import json
 
 logger = get_logger("content_generator")
 config = AppConfig()
@@ -424,98 +435,8 @@ def generate_with_feedback_loop(
     return best_content, best_ai_score, threshold_met
 
 
-def generate_content(
-    section_name: str,
-    prompt_template: str,
-    section_variables: Dict[str, Any],
-    article_data: Dict[str, Any],
-    cache_data: Dict[str, Any],
-    generator_provider: str,
-    model: str,
-    force_regenerate: bool,
-    api_keys: Dict[str, str],
-    prompt_templates_dict: Dict[str, str],
-    prompt_file_name: str,
-    ai_detection_threshold: int,  # Add threshold as parameter
-    human_detection_threshold: int,  # Add human threshold as parameter
-    ai_detect: bool = True,  # New flag
-    iterations_per_section: int = 3,  # Number of retries per section
-    generator_model_settings: dict = None,  # Pass model settings from run.py
-    detection_provider: str = None,
-    detection_model_settings: dict = None,
-) -> tuple[str, int, bool]:
-    print(f"\n[PROGRESS] Starting generation for section: {section_name}")
-    # Only log section metadata once per run, not per iteration
-    if section_name not in section_metadata_logged:
-        # Move detailed generation info to debug level to reduce terminal verbosity
-        logger.debug(
-            f"Attempting to generate section: {section_name} using prompt file: {prompt_file_name}"
-        )
-        logger.debug(f"section_variables: {json.dumps(section_variables, indent=2)}")
-        logger.debug(
-            f"article_data structure: {json.dumps(article_data, indent=2) if article_data else '{}'}"
-        )
-        logger.debug(
-            f"cache_data keys: {list(cache_data.keys()) if cache_data else 'None'}"
-        )
-        section_metadata_logged.add(section_name)
+# All legacy functions are now handled by the new architecture
+# The generate_content function is imported from legacy_adapter
 
-    if not prompt_template:
-        logger.debug(
-            f"Prompt template for section '{section_name}' (file: {prompt_file_name}) is missing or empty."
-        )
-        print(
-            f"[ERROR] Prompt template for section '{section_name}' (file: {prompt_file_name}) is missing or empty. Skipping section generation."
-        )
-        return "", 100, False
-
-    if ai_detect:
-        return generate_with_feedback_loop(
-            section_name,
-            prompt_template,
-            section_variables,
-            generator_provider,
-            model,
-            api_keys,
-            prompt_templates_dict,
-            prompt_file_name,
-            ai_detection_threshold,
-            human_detection_threshold,
-            iterations_per_section,
-            generator_model_settings,
-            detection_provider,
-            detection_model_settings,
-        )
-    else:
-        # Only generate once, no detection/retry loop
-        filled_prompt = format_prompt(
-            prompt_template,
-            section_variables,
-            prompt_file_name,
-            section_name,
-        )
-        try:
-            response_text = api_client.call_ai_api(
-                prompt=filled_prompt,
-                provider=generator_provider,
-                model=model,
-                api_keys=api_keys,
-                temperature=section_variables.get("temperature", 0.7),
-                max_tokens=1500,
-                url_template=generator_model_settings["url_template"]
-                if generator_model_settings
-                else None,
-                backoff_factor=2.0,
-            )
-        except Exception as e:
-            logger.error(f"API request failed for section '{section_name}': {e}")
-            return "", 100, False
-        if not response_text or not response_text.strip():
-            logger.warning(f"Empty response for section '{section_name}'")
-            return "", 100, False
-        cleaned_response = _strip_revision_instruction(response_text)
-        return cleaned_response, 0, True
-
-
-# Track which sections have had their metadata logged
+# Track which sections have had their metadata logged (for backward compatibility)
 section_metadata_logged = set()
