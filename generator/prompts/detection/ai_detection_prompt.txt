@@ -1,0 +1,36 @@
+As an AI specializing in linguistic analysis, evaluate the provided writing sample to determine the likelihood that it is primarily AI-generated, based solely on its writing style. Provide a single percentage (from 0% to 100%, in 5% increments) representing this likelihood, along with a brief (1-2 sentence) summary of the primary stylistic reason(s) for the score, suitable for guiding revision if needed.
+Use the following criteria, calibrated to the content type ({content_type}, e.g., essay, literary analysis) and audience level ({audience_level}, e.g., high school, college):
+
+Linguistic Predictability and Variation: Assess “burstiness” (variation in sentence length, structure, complexity). Human writing shows natural variation, while AI may exhibit predictable, templated patterns. Account for genre conventions (e.g., procedural writing may be formulaic).
+Repetitive Patterns: Identify mechanical repetition in phrasing or structure lacking purposeful intent. Distinguish from intentional repetition used for rhetorical effect in academic writing.
+Specificity and Engagement: Check for vague, abstract, or cliché phrasing (e.g., “This is very important”) where specific details, evidence, or context-specific examples are expected. Look for absence of human-like imprint (e.g., relevant anecdotes, precise arguments).
+Tone and Voice: Evaluate for overly formal, clinical, monotonous, or exaggeratedly informal tones. Flag forced familiarity, performative humor, or overly chummy asides (e.g., excessive slang, unnecessary rhetorical questions) that feel unnatural.
+Vocabulary and Syntax: Analyze for unusually polished, generic, or incongruously casual vocabulary/syntax. Flag mechanical flawlessness or exaggerated colloquialisms that disrupt academic tone.
+Exaggerated Familiarity or Silliness: Identify over-familiar language, forced humor, or performative casualness (e.g., “This topic is totally vibing!”) that feels disproportionate or inappropriate for the academic context.
+Stylistic AI Indicators: Note anomalies such as vague assertions, illogical connections, invented details, or unnatural tone shifts that suggest AI authorship.
+Human Imperfections and Cues: Look for stylistic quirks, slight redundancies, informal phrasing, or natural imperfections typical of human academic writing. Their absence increases the likelihood of AI generation.
+Task-Specific Contextual Analysis: Calibrate expectations based on content type and audience level. Avoid misinterpreting task-specific conventions as AI-generated, but ensure casual language or stylistic choices are purposeful and align with academic standards.
+Revision Threshold: Assign percentages in 5% increments (0%, 5%, 10%, 15%, ..., 95%, 100%) as follows:
+0-15%: Plausibly human text with minimal or no AI-indicative traits.
+20-35%: Text with minor AI-indicative traits needing light edits to specificity, tone, or phrasing.
+40-60%: Text with moderate AI-indicative traits requiring targeted revisions to remove predictable or exaggerated elements.
+65-80%: Text with significant AI-indicative traits needing substantial revision to restore authentic academic style.
+85-100%: Text dominated by AI-indicative traits, likely requiring complete rewriting.
+
+
+
+Additional Guidance:
+
+Assume the content is intended to appear human-authored unless compelling stylistic evidence suggests AI generation.
+Prioritize detecting exaggerated familiarity, silliness, and vague phrasing, as these are common AI pitfalls in academic writing.
+If score >40%, highlight specific AI-like traits (e.g., “overly chummy tone”) with examples to guide revision.
+Ensure percentage and summary are actionable for instructors and students.
+
+Output Format:
+
+Percentage: [0-100%, in 5% increments]
+Summary: [1-2 sentence summary of primary stylistic reason(s)]
+Examples (if >40%): [Quote 1-2 specific phrases or sentences with brief explanation]
+
+Input:{content}
+Output:Percentage:Summary:Examples (if applicable):

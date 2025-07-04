@@ -13,6 +13,8 @@ import yaml
 from generator.config.settings import AppConfig, GenerationConfig
 from generator.modules.logger import get_logger
 from generator.modules.prompt_loader import PromptLoader
+from generator.modules.prompt_manager import PromptManager
+
 from generator.modules.file_handler import (
     save_file,
     read_cache,
@@ -75,7 +77,12 @@ class ArticleGenerator:
         self.logger = get_logger("page_generator")
 
         # Initialize components
-        self.prompt_loader = PromptLoader(app_config.directories.sections_dir)
+        self.prompt_loader = PromptLoader(
+            os.path.join(os.path.dirname(__file__), "../prompts/sections")
+        )
+        self.prompt_manager = PromptManager(
+            os.path.join(os.path.dirname(__file__), "../prompts")
+        )
 
     def generate_article(self, gen_config: GenerationConfig) -> None:
         """
@@ -116,6 +123,7 @@ class ArticleGenerator:
                 prompt_templates,
                 cache_data,
                 gen_config.ai_detection_threshold,  # Strict: always use the value from run.py, no fallback
+                gen_config.human_detection_threshold,  # Pass human threshold
             )
 
             # Save the final article
@@ -178,7 +186,20 @@ class ArticleGenerator:
         material_config: Optional[Dict[str, Any]],
     ) -> ArticleData:
         """Initialize the article data structure with author metadata."""
-        author_metadata = self._load_author_metadata(gen_config.author)
+        # Only log metadata once per run
+        if not hasattr(self, "_metadata_logged"):
+            self._metadata_logged = True
+            self.logger.info(
+                f"[METADATA] Article metadata: material={gen_config.material}, file={gen_config.file_name}, provider={gen_config.provider}, author={gen_config.author}, temperature={gen_config.temperature}"
+            )
+        # Normalize author key (strip .mdx, lowercase, underscores)
+        author_key = (
+            os.path.splitext(gen_config.author)[0]
+            .lower()
+            .replace(" ", "_")
+            .replace("-", "_")
+        )
+        author_metadata = self._load_author_metadata(author_key)
         # Compose article_config dict for metadata
         article_config = {
             "author": gen_config.author,
@@ -191,7 +212,7 @@ class ArticleGenerator:
             gen_config.material,
             material_config or {},
             article_config,
-            {gen_config.author: author_metadata},
+            author_metadata,
             ai_scores,
             article_category,
         )
@@ -228,13 +249,20 @@ class ArticleGenerator:
         prompt_templates: Dict[str, str],
         cache_data: Dict[str, Any],
         ai_detection_threshold: int,  # Pass threshold through pipeline
+        human_detection_threshold: int,  # Pass human threshold through pipeline
     ) -> None:
         """Generate content for all sections."""
         sorted_sections = sorted(
             sections_config.items(), key=lambda item: item[1].get("order", 999)
         )
 
+        self.logger.info(
+            f"[DEBUG] Sections config to generate: {[name for name, _ in sorted_sections]}"
+        )
         for section_name, section_config in sorted_sections:
+            self.logger.info(
+                f"[DEBUG] Attempting to generate section: {section_name} | config: {json.dumps(section_config, indent=2)}"
+            )
             if section_name == "ai_detection_prompt":
                 continue  # Skip ai_detection_prompt as a section
             if not section_config.get("generate", True):
@@ -247,6 +275,7 @@ class ArticleGenerator:
                 prompt_templates,
                 cache_data,
                 ai_detection_threshold,  # Pass threshold
+                human_detection_threshold,  # Pass human threshold
             )
 
         if not article_data.sections:
@@ -261,6 +290,7 @@ class ArticleGenerator:
         prompt_templates: Dict[str, str],
         cache_data: Dict[str, Any],
         ai_detection_threshold: int,  # Accept threshold
+        human_detection_threshold: int,  # Accept human threshold
     ) -> None:
         """Generate content for a single section."""
         prompt_file = section_config.get("prompt_file")
@@ -270,7 +300,7 @@ class ArticleGenerator:
             )
             return
 
-        prompt_template = prompt_templates[prompt_file]
+        prompt_template = self.prompt_manager.load_prompt(prompt_file, "sections")
 
         # Prepare section variables
         section_variables = {
@@ -283,6 +313,15 @@ class ArticleGenerator:
         ai_detect = section_config.get("ai_detect", True)
 
         self.logger.info(f"Generating content for section: {section_name}")
+
+        # Use cached section content if available and not forcing regeneration
+        if not gen_config.force_regenerate and section_name in cache_data.get(
+            "sections", {}
+        ):
+            cached_content = cache_data["sections"][section_name]
+            article_data.sections[section_name] = cached_content
+            self.logger.info(f"Loaded cached content for section: {section_name}")
+            return
 
         try:
             content, ai_likelihood, threshold_met = content_generator.generate_content(
@@ -298,6 +337,7 @@ class ArticleGenerator:
                 prompt_templates_dict=prompt_templates,
                 prompt_file_name=prompt_file,
                 ai_detection_threshold=ai_detection_threshold,  # Pass threshold
+                human_detection_threshold=human_detection_threshold,  # Pass human threshold
                 ai_detect=ai_detect,
             )
 

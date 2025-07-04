@@ -4,6 +4,7 @@ import os
 import requests
 import json
 import time
+import random
 from typing import Dict, Any, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
@@ -106,9 +107,21 @@ def _make_api_request(
             )
 
             if response.status_code == 429:
-                wait_time = backoff_factor * (2**attempt)
+                # Respect Retry-After header if present
+                retry_after = response.headers.get("Retry-After")
+                if retry_after:
+                    try:
+                        wait_time = float(retry_after)
+                    except ValueError:
+                        wait_time = backoff_factor * (2**attempt)
+                else:
+                    # Exponential backoff with jitter
+                    base = backoff_factor * (2**attempt)
+                    wait_time = base + (
+                        base * 0.5 * (2 * random.random() - 1)
+                    )  # ±50% jitter
                 logger.warning(f"Rate limited. Waiting {wait_time:.2f}s...")
-                time.sleep(wait_time)
+                time.sleep(max(wait_time, 0))
                 continue
             elif response.status_code >= 500:
                 logger.warning(f"Server error {response.status_code}. Retrying...")

@@ -1,0 +1,55 @@
+# Chart Section Prompt
+# ai_detect: false
+
+Write a chart for {material} comparing at least 4 common cleaning methods, including laser cleaning. The chart should compare efficiency (e.g., m²/hour or another relevant metric). If specific data is unavailable, use plausible, research-based estimates and clearly label each method. Do NOT return placeholders, requests for more information, or incomplete outputs—always generate a complete, context-rich chart suitable for publication.
+
+Your output must be a ready-to-use <script> code block for a bar chart, following this format:
+
+<script>
+const efficiencyColors = [
+  'rgba(255,255,255,0.6)', 'rgba(200,200,200,0.5)', 'rgba(150,150,150,0.4)', 'rgba(100,100,100,0.3)', 'rgba(80,80,80,0.3)'
+];
+
+const efficiencyConfig = {
+  type: 'bar',
+  data: {
+    labels: ['Laser', 'Abrasive Blasting', 'Chemical Cleaning', 'Manual Scraping'],
+    datasets: [{
+      label: 'Efficiency (m²/hour)',
+      data: [9, 5, 3, 1],
+      backgroundColor: efficiencyColors,
+      borderColor: efficiencyColors,
+      borderWidth: 0
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: { display: true, text: 'Efficiency (m²/hour)', font: { size: 15, unit: 'px' }, color: 'rgba(255,255,255,0.5)' },
+        ticks: { font: { size: 15, unit: 'px' }, color: 'rgba(255,255,255,0.5)' },
+        grid: { display: false }
+      },
+      x: {
+        ticks: { font: { size: 15, unit: 'px' }, color: 'rgba(255,255,255,0.5)' },
+        grid: { display: false }
+      }
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        titleFont: { size: 15, unit: 'px' },
+        bodyFont: { size: 15, unit: 'px' },
+        titleColor: 'rgba(255,255,255,0.3)',
+        bodyColor: 'rgba(255,255,255,0.5)',
+        callbacks: { label: function(context) { return context.dataset.label + ': ' + context.raw; } }
+      }
+    }
+  }
+};
+
+new Chart(document.getElementById('chartCleaningEfficiency').getContext('2d'), efficiencyConfig);
+</script>
+
+Always generate a plausible, context-rich chart for {material} and never output a placeholder or request for more information.

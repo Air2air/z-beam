@@ -13,12 +13,13 @@ CONFIG = dict(
     material="Silver",
     category="Material",
     file_name="laser_cleaning_silver.mdx",
-    provider="DEEPSEEK",
+    provider="GEMINI",  # Options: GEMINI, XAI, DEEPSEEK
     author="todd_dunning.mdx",
     temperature=1,
     force_regenerate=True,
-    ai_detection_threshold=25,  # Moved from settings.py, now set only here
-    iterations_per_section=3,  # Add configurable number of rewrite iterations
+    ai_detection_threshold=50,
+    human_detection_threshold=50,
+    iterations_per_section=5,
 )
 # ---- END CONFIGURATION ----
 

@@ -1,6 +1,7 @@
 from generator.config.settings import AppConfig, GenerationConfig
 from generator.modules.logger import get_logger
 from generator.modules.page_generator import ArticleGenerator
+from generator.modules.prompt_manager import PromptManager
 from generator.exceptions import ConfigurationError, GenerationError
 from dataclasses import dataclass
 import os
@@ -21,6 +22,7 @@ class RunConfiguration:
     temperature: float
     force_regenerate: bool
     ai_detection_threshold: int
+    human_detection_threshold: int  # Add human threshold
 
     def __post_init__(self):
         missing = []
@@ -33,6 +35,7 @@ class RunConfiguration:
             "temperature",
             "force_regenerate",
             "ai_detection_threshold",
+            "human_detection_threshold",
         ]:
             if getattr(self, field_name, None) is None:
                 missing.append(field_name)
@@ -89,6 +92,7 @@ class ApplicationRunner:
             force_regenerate=run_config.force_regenerate,
             api_keys=api_keys,
             ai_detection_threshold=run_config.ai_detection_threshold,
+            human_detection_threshold=run_config.human_detection_threshold,
         )
 
     def run(self, run_config: RunConfiguration) -> bool:

@@ -125,9 +125,11 @@ class AppConfig:
 
     def load_sections_config(self) -> Dict[str, Dict[str, Any]]:
         sections_config = {}
-        if not self.directories.sections_dir.exists():
+        # Use the new prompts/sections directory instead of generator/sections
+        sections_dir = self.directories.generator_dir / "prompts" / "sections"
+        if not sections_dir.exists():
             return sections_config
-        for file_path in self.directories.sections_dir.glob("*.txt"):
+        for file_path in sections_dir.glob("*.txt"):
             section_key = file_path.stem
             ai_detect = True  # Default
             # Try to read YAML frontmatter
@@ -165,6 +167,7 @@ class GenerationConfig:
     temperature: float
     force_regenerate: bool
     ai_detection_threshold: int  # <-- moved up, before any default fields
+    human_detection_threshold: int  # Add human threshold
     iterations_per_section: int = 3
     api_keys: dict = None
     title: Optional[str] = None
@@ -183,6 +186,7 @@ class GenerationConfig:
             "force_regenerate",
             "api_keys",
             "ai_detection_threshold",
+            "human_detection_threshold",
             "iterations_per_section",
         ]
         missing = [f for f in required_fields if getattr(self, f, None) is None]
