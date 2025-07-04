@@ -20,6 +20,18 @@ from generator.modules.prompt_manager import PromptManager
 from generator.modules.file_handler import save_file, read_cache, write_cache
 from generator.modules.mdx_validator import validate_mdx_output
 
+# NEW: Import DI container and modern services
+from generator.core.container import get_container
+from generator.core.application import configure_services
+from generator.core.interfaces.services import IContentGenerator
+from generator.core.domain.models import (
+    GenerationRequest,
+    SectionConfig,
+    GenerationContext,
+    ProviderType,
+    SectionType,
+)
+
 
 @dataclass
 class ArticleData:
@@ -80,6 +92,62 @@ class ArticleGenerator:
             os.path.join(os.path.dirname(__file__), "../prompts")
         )
 
+        # NEW: Initialize DI container and modern services
+        self.container = get_container()
+        configure_services(self.container)
+        self.content_generator = (
+            None  # Will be initialized with max_article_words in generate_article
+        )
+
+    def _initialize_efficient_content_service(
+        self, gen_config: GenerationConfig
+    ) -> None:
+        """Initialize the EfficientContentGenerationService with word budget."""
+        from generator.core.services.efficient_content_service import (
+            EfficientContentGenerationService,
+        )
+        from generator.core.interfaces.services import (
+            IAPIClient,
+            IPromptRepository,
+        )
+        from generator.core.services.detection_service import DetectionService
+        from generator.infrastructure.api.client import APIClient
+
+        # Create provider-specific API client based on user config
+        provider = gen_config.generator_provider.upper()
+        api_key_name = f"{provider}_API_KEY"
+        api_key = gen_config.api_keys.get(api_key_name)
+
+        if not api_key:
+            self.logger.warning(
+                f"No API key found for {provider}. Using container default."
+            )
+            api_client = self.container.get(IAPIClient)
+        else:
+            # Create provider-specific API client
+            api_client = APIClient(provider, api_key)
+            self.logger.info(f"Created {provider} API client for content generation")
+
+        # Get other services from container
+        prompt_repository = self.container.get(IPromptRepository)
+
+        # Create detection service with the same provider as generation
+        detection_api_client = api_client  # Use the same API client for consistency
+        detection_service = DetectionService(detection_api_client, prompt_repository)
+
+        # Initialize efficient content service with word budget
+        max_article_words = getattr(gen_config, "max_article_words", 1200)
+        self.content_generator = EfficientContentGenerationService(
+            api_client=api_client,
+            detection_service=detection_service,
+            prompt_repository=prompt_repository,
+            max_article_words=max_article_words,
+        )
+
+        self.logger.info(
+            f"Initialized EfficientContentGenerationService with {max_article_words} word budget using {provider}"
+        )
+
     def generate_article(self, gen_config: GenerationConfig) -> None:
         """
         Generate a complete article based on the given configuration.
@@ -96,6 +164,9 @@ class ArticleGenerator:
         )
 
         try:
+            # NEW: Initialize efficient content service with word budget
+            self._initialize_efficient_content_service(gen_config)
+
             # Load required data
             prompt_templates = self._load_prompt_templates()
             sections_config = self._load_sections_config()
@@ -125,6 +196,9 @@ class ArticleGenerator:
             # Save the final article
             self._save_article(article_data, gen_config, cache_data)
 
+            # NEW: Display efficiency summary
+            self._display_generation_summary(gen_config)
+
             self.logger.info("Article generation completed successfully")
             print(
                 f"[PROGRESS] Article generation completed successfully for: {gen_config.file_name}"
@@ -133,6 +207,33 @@ class ArticleGenerator:
         except Exception as e:
             self.logger.error(f"Article generation failed: {e}", exc_info=True)
             raise GenerationError(f"Failed to generate article: {e}") from e
+
+    def _display_generation_summary(self, gen_config: GenerationConfig) -> None:
+        """Display a summary of the generation process including efficiency metrics."""
+        max_words = getattr(gen_config, "max_article_words", 1200)
+        budget_manager = self.content_generator.word_budget_manager
+
+        print(f"\n{'=' * 60}")
+        print("📊 GENERATION SUMMARY")
+        print(f"{'=' * 60}")
+        print(f"🎯 Target Word Budget: {max_words} words")
+        print(f"📝 Material: {gen_config.material}")
+        print(f"🤖 Provider: {gen_config.generator_provider}")
+        print(f"⚙️  Max Iterations per Section: {gen_config.iterations_per_section}")
+        print(f"🧠 AI Threshold: ≤{gen_config.ai_detection_threshold}%")
+        print(f"👤 Human Threshold: ≤{gen_config.human_detection_threshold}%")
+
+        # Show word budget allocation
+        print("\n📏 WORD BUDGET ALLOCATION:")
+        for section_name, budget in budget_manager.section_budgets.items():
+            print(
+                f"   {section_name}: {budget.target_words} words ({budget.allocation_percentage:.1f}%)"
+            )
+
+        print(f"{'=' * 60}")
+        self.logger.info(
+            "✅ Article generation completed with efficient word budget management"
+        )
 
     def _load_prompt_templates(self) -> Dict[str, str]:
         """Load prompt templates."""
@@ -298,9 +399,9 @@ class ArticleGenerator:
             )
             return
 
-        prompt_template = self.prompt_manager.load_prompt(prompt_file, "sections")
+        # prompt_template = self.prompt_manager.load_prompt(prompt_file, "sections")  # Loaded but used by EfficientContentGenerationService
 
-        # Prepare section variables
+        # Prepare section variables (word budget will be managed by EfficientContentGenerationService)
         section_variables = {
             **gen_config.__dict__,
             **(article_data.material_details or {}),
@@ -322,47 +423,69 @@ class ArticleGenerator:
             return
 
         try:
-            content, ai_likelihood, threshold_met = content_generator.generate_content(
-                section_name=section_name,
-                prompt_template=prompt_template,
-                section_variables=section_variables,
-                article_data=article_data.__dict__,
-                cache_data=cache_data,
-                generator_provider=gen_config.generator_provider,
+            # NEW: Use EfficientContentGenerationService instead of legacy function
+            # Create GenerationRequest
+            request = GenerationRequest(
+                material=gen_config.material,
+                sections=[section_name],
+                provider=ProviderType(gen_config.generator_provider.upper()),
                 model=gen_config.model,
-                force_regenerate=gen_config.force_regenerate,
-                api_keys=gen_config.api_keys,
-                prompt_templates_dict=prompt_templates,
-                prompt_file_name=prompt_file,
-                ai_detection_threshold=ai_detection_threshold,  # Pass threshold
-                human_detection_threshold=human_detection_threshold,  # Pass human threshold
-                ai_detect=ai_detect,
+                ai_detection_threshold=ai_detection_threshold,
+                human_detection_threshold=human_detection_threshold,
                 iterations_per_section=getattr(gen_config, "iterations_per_section", 3),
-                generator_model_settings=getattr(
-                    gen_config, "generator_model_settings", None
-                ),
-                detection_provider=getattr(gen_config, "detection_provider", None),
-                detection_model_settings=getattr(
-                    gen_config, "detection_model_settings", None
-                ),
+                temperature=gen_config.temperature,
+                max_tokens=8192,  # Will be managed by word budget
+                force_regenerate=gen_config.force_regenerate,
             )
+
+            # Create SectionConfig
+            section_config_obj = SectionConfig(
+                name=section_name,
+                ai_detect=ai_detect,
+                prompt_file=prompt_file,
+                section_type=SectionType.TEXT,
+                generate=True,
+                order=1,
+            )
+
+            # Create GenerationContext
+            context = GenerationContext(
+                material=gen_config.material,
+                content_type=section_name,
+                variables=section_variables,
+            )
+
+            # Use efficient content generation service
+            result = self.content_generator.generate_section(
+                request=request, section_config=section_config_obj, context=context
+            )
+
+            # Extract results
+            content = result.content
+            ai_likelihood = result.ai_score.score if result.ai_score else None
+            threshold_met = result.threshold_met
 
             if content:
                 article_data.sections[section_name] = content
                 if threshold_met:
                     self.logger.info(
-                        f"Successfully generated content for section: {section_name} (AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%)"
+                        f"✅ Successfully generated content for section: {section_name} "
+                        f"(AI: {ai_likelihood}%, target: ≤{ai_detection_threshold}%)"
                     )
                 else:
                     self.logger.warning(
-                        f"Section '{section_name}' generated but did NOT meet AI-likeness threshold. Outputting anyway. Final AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%"
+                        f"⚠️ Section '{section_name}' generated but did NOT meet thresholds. "
+                        f"AI: {ai_likelihood}%, target: ≤{ai_detection_threshold}%"
                     )
             else:
-                self.logger.error(f"No content generated for section: {section_name}.")
+                self.logger.error(
+                    f"❌ No content generated for section: {section_name}"
+                )
 
         except Exception as e:
             self.logger.error(
-                f"Error generating content for section '{section_name}': {e}"
+                f"❌ Error generating content for section '{section_name}': {e}",
+                exc_info=True,
             )
 
     def _save_article(

@@ -124,8 +124,8 @@ class LegacyContentGeneratorAdapter:
         try:
             provider_enum = ProviderType(provider.upper())
         except ValueError:
-            logger.warning(f"Unknown provider {provider}, defaulting to GEMINI")
-            provider_enum = ProviderType.GEMINI
+            logger.warning(f"Unknown provider {provider}, defaulting to DEEPSEEK")
+            provider_enum = ProviderType.DEEPSEEK
 
         return GenerationRequest(
             material=material,

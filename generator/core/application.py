@@ -11,8 +11,28 @@ from generator.core.interfaces.services import (
     IPromptRepository,
     ICacheRepository,
 )
+
+# Add prompt optimization interfaces
+from generator.core.interfaces.prompt_optimization import (
+    IPromptPerformanceRepository,
+    IPromptSelectionStrategy,
+    IPromptOptimizationService,
+)
 from generator.core.services.content_service import ContentGenerationService
 from generator.core.services.detection_service import DetectionService
+
+# Add prompt optimization services
+from generator.core.services.prompt_optimization_service import (
+    PromptOptimizationService,
+)
+from generator.core.services.prompt_selection_strategies import (
+    PerformanceBasedSelectionStrategy,
+    RoundRobinSelectionStrategy,
+    RandomSelectionStrategy,
+)
+from generator.infrastructure.storage.prompt_performance_repository import (
+    FilePromptPerformanceRepository,
+)
 from generator.infrastructure.api.client import APIClient
 from generator.infrastructure.storage.repositories import (
     FilePromptRepository,
@@ -37,6 +57,30 @@ def configure_services(container: ServiceContainer) -> None:
 
     container.register_factory(
         ICacheRepository, lambda: FileCacheRepository(settings.paths.cache_dir)
+    )
+
+    # Register prompt performance repository
+    container.register_factory(
+        IPromptPerformanceRepository,
+        lambda: FilePromptPerformanceRepository(
+            str(settings.paths.cache_dir / "prompt_performance.json")
+        ),
+    )
+
+    # Register prompt selection strategies
+    container.register_factory(
+        IPromptSelectionStrategy,
+        lambda: PerformanceBasedSelectionStrategy(),  # Default strategy
+    )
+
+    # Register prompt optimization service
+    def prompt_optimization_service_factory():
+        performance_repo = container.get(IPromptPerformanceRepository)
+        selection_strategy = container.get(IPromptSelectionStrategy)
+        return PromptOptimizationService(performance_repo, selection_strategy)
+
+    container.register_factory(
+        IPromptOptimizationService, prompt_optimization_service_factory
     )
 
     # Register API client factory (will be created per request based on provider)
@@ -141,6 +185,10 @@ class Application:
 
         # Create content service with provider-specific API client
         return ContentGenerationService(api_client, detection_service, prompt_repo)
+
+    def get_prompt_optimization_service(self) -> IPromptOptimizationService:
+        """Get the prompt optimization service."""
+        return self.container.get(IPromptOptimizationService)
 
     def shutdown(self) -> None:
         """Shutdown the application cleanly."""

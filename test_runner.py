@@ -85,8 +85,8 @@ def run_content_test(
         request = GenerationRequest(
             material=material,
             sections=[section],
-            provider=ProviderType.GEMINI,
-            model="gemini-2.5-flash",
+            provider=ProviderType.DEEPSEEK,  # Use DEEPSEEK to avoid quota issues
+            model="deepseek-chat",
             ai_detection_threshold=ai_threshold,
             human_detection_threshold=human_threshold,
             iterations_per_section=max_iterations,
@@ -157,36 +157,128 @@ def run_content_test(
         }
 
 
-def run_quick_test() -> bool:
-    """Run a quick content generation test with default parameters."""
-    result = run_content_test(
-        material="aluminum",
-        section="introduction",
-        word_limit=200,
-        ai_threshold=30,
-        human_threshold=30,
-        max_iterations=4,  # Increased from 2 to test more prompt variations
-        max_tokens=4000,
-    )
-    return result.get("success", False) and result.get("overall_passed", False)
+def run_detector_validation_test() -> bool:
+    """
+    Run a detector validation test to verify prompt optimization improvements.
+    This tests the enhanced detection system to ensure content reads as human-written
+    without try-hard traits.
+    """
+    print("🔍 Detector Validation Test")
+    print("=" * 50)
+    print("   Focus: Human-like content without try-hard traits")
+    print("   Testing prompt optimization improvements")
+    print()
 
+    # Dynamically discover available section templates
+    from pathlib import Path
 
-def run_comprehensive_test() -> bool:
-    """Run a comprehensive test with stricter thresholds."""
-    result = run_content_test(
-        material="silver",
-        section="introduction",
-        word_limit=300,
-        ai_threshold=25,
-        human_threshold=25,
-        max_iterations=5,  # Increased from 3 to test more prompt variations
-        max_tokens=6000,
+    # Get project root and find section templates
+    project_root = Path(__file__).parent
+    sections_dir = project_root / "generator" / "prompts" / "sections"
+
+    available_sections = []
+    if sections_dir.exists():
+        for file in sections_dir.glob("*.txt"):
+            section_name = file.stem
+            # Skip special files
+            if section_name not in ["ai_detection_prompt", "README"]:
+                available_sections.append(section_name)
+
+    # If no sections found, fall back to basic test
+    if not available_sections:
+        print("⚠️ No section templates found, using basic test")
+        available_sections = ["introduction"]  # fallback
+
+    # Use first 3 available sections (or all if less than 3)
+    test_sections = available_sections[:3]
+
+    print(
+        f"📂 Found {len(available_sections)} section templates: {', '.join(available_sections)}"
     )
-    return result.get("success", False) and result.get("overall_passed", False)
+    print(f"🎯 Testing sections: {', '.join(test_sections)}")
+    print()
+
+    # Test with different materials using available sections
+    test_cases = []
+    materials = ["aluminum", "silver", "copper"]
+
+    for i, section in enumerate(test_sections):
+        material = materials[i] if i < len(materials) else materials[0]
+        test_cases.append(
+            {
+                "material": material,
+                "section": section,
+                "description": f"{material.title()} - {section.replace('_', ' ').title()}",
+            }
+        )
+
+    all_passed = True
+    results = []
+
+    for i, test_case in enumerate(test_cases, 1):
+        print(f"📋 Test Case {i}/3: {test_case['description']}")
+        print("-" * 40)
+
+        # Run with stricter thresholds to ensure human-like output
+        result = run_content_test(
+            material=test_case["material"],
+            section=test_case["section"],
+            word_limit=250,
+            ai_threshold=20,  # Very strict AI detection threshold
+            human_threshold=20,  # Very strict human detection threshold
+            max_iterations=6,  # More iterations to test prompt optimization
+            max_tokens=5000,
+        )
+
+        success = result.get("success", False) and result.get("overall_passed", False)
+        results.append({"test_case": test_case, "success": success, "result": result})
+
+        if not success:
+            all_passed = False
+            print(f"❌ Test case {i} failed")
+            # Show specific error if available
+            if "error" in result:
+                print(f"   Error: {result['error']}")
+        else:
+            print(f"✅ Test case {i} passed")
+        print()
+
+    # Show summary
+    print("📊 Detector Validation Summary")
+    print("=" * 50)
+
+    passed_count = sum(1 for r in results if r["success"])
+    print(f"Passed: {passed_count}/{len(test_cases)} test cases")
+
+    if all_passed:
+        print("🎉 All detector validation tests passed!")
+        print("✅ Content successfully reads as human-written")
+        print("✅ No excessive try-hard traits detected")
+    else:
+        print("⚠️ Some detector validation tests failed")
+        print("💡 Consider adjusting detection thresholds or prompt templates")
+
+    # Show prompt optimization stats if available
+    try:
+        from generator.core.services.prompt_optimizer_compatible import (
+            PromptOptimizerCompatible,
+        )
+
+        optimizer = PromptOptimizerCompatible()
+
+        print("\n📈 Prompt Optimization Performance:")
+        print("-" * 35)
+        report = optimizer.generate_report()
+        print(report[:500] + "..." if len(report) > 500 else report)
+
+    except Exception as e:
+        print(f"\n⚠️ Could not retrieve optimization stats: {e}")
+
+    return all_passed
 
 
 if __name__ == "__main__":
-    # If run directly, do a quick test
-    print("Running quick content generation test...")
-    success = run_quick_test()
+    # If run directly, run detector validation test
+    print("Running detector validation test...")
+    success = run_detector_validation_test()
     sys.exit(0 if success else 1)

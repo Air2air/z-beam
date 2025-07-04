@@ -27,6 +27,7 @@ class RunConfiguration:
     iterations_per_section: int = 3  # Add this field with default
     detection_provider: str = None
     detection_model_settings: dict = None
+    max_article_words: int = 1200  # Total word budget for article
 
     def __post_init__(self):
         missing = []
@@ -107,6 +108,7 @@ class ApplicationRunner:
             detection_model_settings=getattr(
                 run_config, "detection_model_settings", None
             ),
+            max_article_words=getattr(run_config, "max_article_words", 1200),
         )
 
     def run(self, run_config: RunConfiguration) -> bool:

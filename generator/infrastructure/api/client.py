@@ -228,7 +228,7 @@ class APIClient(IAPIClient):
         self, prompt: str, model: str, temperature: float, max_tokens: int, **kwargs
     ) -> str:
         """Call DeepSeek API."""
-        url = "https://api.deepseek.com/chat/completions"
+        url = "https://api.deepseek.com/v1/chat/completions"  # Fixed to match providers.py
 
         headers = {
             "Content-Type": "application/json",

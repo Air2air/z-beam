@@ -9,7 +9,9 @@ from generator.core.interfaces.services import (
     IPromptRepository,
 )
 from generator.core.exceptions import DetectionError
-from generator.core.services.prompt_optimizer import PromptOptimizer
+from generator.core.services.prompt_optimizer_compatible import (
+    PromptOptimizerCompatible,
+)
 from generator.modules.logger import get_logger
 from typing import List
 
@@ -22,8 +24,15 @@ class DetectionService(IDetectionService):
     def __init__(self, api_client: IAPIClient, prompt_repository: IPromptRepository):
         self._api_client = api_client
         self._prompt_repository = prompt_repository
+
+        # Get the model from provider configuration instead of hardcoding
+        from generator.config.providers import MODELS
+
+        provider = getattr(api_client, "_provider", "DEEPSEEK")  # Default fallback
+        self._model = MODELS.get(provider, {}).get("model", "deepseek-chat")
+
         # Initialize prompt optimizer for performance tracking and optimization
-        self._optimizer = PromptOptimizer()
+        self._optimizer = PromptOptimizerCompatible()
         # Available prompt variations for optimization
         self._ai_prompt_variations = [
             "ai_detection_prompt_minimal",  # Current default
@@ -113,7 +122,7 @@ class DetectionService(IDetectionService):
             # Call the API for detection
             response = self._api_client.call_api(
                 prompt=formatted_prompt,
-                model="gemini-2.5-flash",  # Use consistent model for detection
+                model=self._model,  # Use provider-specific model instead of hardcoded
                 temperature=0.3,  # Lower temperature for more consistent detection
                 max_tokens=4000,  # Increased to 4000 to handle longer responses
             )

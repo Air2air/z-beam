@@ -168,6 +168,7 @@ class GenerationConfig:
     detection_provider: str = None
     detection_model_settings: dict = None
     iterations_per_section: int = 3
+    max_article_words: int = 1200  # Total word budget for article
     api_keys: dict = None
     title: Optional[str] = None
     keywords: list[str] = field(default_factory=list)
