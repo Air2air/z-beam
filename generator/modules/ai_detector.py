@@ -275,14 +275,28 @@ def _evaluate_human_likeness(
             f"AI Detection Response: {response[:100] if response else 'EMPTY'}..."
         )
         if response:
-            match = re.search(r"Percentage:\s*(\d+)%", response)
+            # Try strict match first
+            match = re.search(r"Percentage:\s*(\d+)%", response, re.IGNORECASE)
             if match:
                 return int(match.group(1))
-            else:
-                logger.warning(
-                    f"Could not parse AI likelihood percentage from response: '{response[:100]}...'"
-                )
-                return 100
+            # Try to find a number 0-100 in the first 3 lines
+            lines = response.splitlines()
+            for line in lines[:3]:
+                num_match = re.search(r"(\d{1,3})\s*%?", line)
+                if num_match:
+                    val = int(num_match.group(1))
+                    if 0 <= val <= 100:
+                        return val
+            # Try to find any number 0-100 in the whole response
+            num_match = re.search(r"(\d{1,3})\s*%", response)
+            if num_match:
+                val = int(num_match.group(1))
+                if 0 <= val <= 100:
+                    return val
+            logger.warning(
+                f"Could not robustly parse AI likelihood percentage from response: '{response[:100]}...'"
+            )
+            return 100
         else:
             logger.warning("AI detection model returned empty response.")
             return 100
@@ -403,3 +417,46 @@ def evaluate_human_likeness_incremental(
         f"Max attempts reached. Section '{section_name}' did not pass. Final score: {last_score}%",
     )
     return last_content, last_score
+
+
+def parse_ai_detection_feedback(
+    content: str,
+    provider: str,
+    model: str,
+    section_name: str,
+    audience_level: str,
+    api_keys: dict,
+    prompt_templates_dict: dict,
+) -> tuple[int, str]:
+    """
+    Parse the AI detection output to extract both the percentage score and revision feedback (summary/examples).
+    Returns (score, feedback_text).
+    """
+    # Try to extract percentage as before
+    match = re.search(r"Percentage:\s*(\d+)%", content, re.IGNORECASE)
+    if match:
+        score = int(match.group(1))
+    else:
+        # Fallback: look for any number 0-100 in first 3 lines
+        lines = content.splitlines()
+        score = 100
+        for line in lines[:3]:
+            num_match = re.search(r"(\d{1,3})\s*%?", line)
+            if num_match:
+                val = int(num_match.group(1))
+                if 0 <= val <= 100:
+                    score = val
+                    break
+    # Extract feedback: summary and examples if present
+    summary = ""
+    examples = ""
+    summary_match = re.search(r"Summary:\s*(.*)", content, re.IGNORECASE)
+    if summary_match:
+        summary = summary_match.group(1).strip()
+    examples_match = re.search(r"Examples.*?:\s*(.*)", content, re.IGNORECASE)
+    if examples_match:
+        examples = examples_match.group(1).strip()
+    feedback = summary
+    if examples:
+        feedback += " Examples: " + examples
+    return score, feedback

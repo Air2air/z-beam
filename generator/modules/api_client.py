@@ -50,6 +50,7 @@ def call_ai_api(
     retries: int = 3,
     backoff_factor: float = 0.5,
     timeout: int = 30,
+    url_template: str = None,
 ) -> Optional[str]:
     try:
         provider_enum = APIProvider(provider.upper())
@@ -66,6 +67,7 @@ def call_ai_api(
         retries=retries,
         backoff_factor=backoff_factor,
         timeout=timeout,
+        url_template=url_template,
     )
 
     if response.success:
@@ -85,6 +87,7 @@ def _make_api_request(
     retries: int,
     backoff_factor: float,
     timeout: int,
+    url_template: str = None,
 ) -> APIResponse:
     api_key = _get_api_key(provider, api_keys)
     if not api_key:
@@ -95,7 +98,11 @@ def _make_api_request(
         )
 
     url, headers, params, data = _build_request_config(
-        provider, model, api_key, prompt, temperature, max_tokens
+        provider, model, api_key, prompt, temperature, max_tokens, url_template
+    )
+
+    logger.info(
+        f"[API REQUEST] Provider: {provider.value}\nURL: {url}\nHeaders: {headers}\nParams: {params}\nData: {json.dumps(data)[:1000]}"
     )
 
     for attempt in range(retries):
@@ -175,12 +182,14 @@ def _build_request_config(
     prompt: str,
     temperature: float,
     max_tokens: int,
+    url_template: str = None,
 ) -> Tuple[str, Dict[str, str], Optional[Dict[str, str]], Dict[str, Any]]:
     headers = {"Content-Type": "application/json"}
     params = None
 
+    # Use url_template if provided, else fallback to config
     if provider == APIProvider.GEMINI:
-        url = config.get_api_url("GEMINI").format(model=model)
+        url = url_template.format(model=model) if url_template else None
         params = {"key": api_key}
         data = {
             "contents": [{"parts": [{"text": prompt}]}],
@@ -190,7 +199,7 @@ def _build_request_config(
             },
         }
     elif provider == APIProvider.OPENAI:
-        url = config.get_api_url("OPENAI")
+        url = url_template if url_template else None
         headers["Authorization"] = f"Bearer {api_key}"
         data = {
             "model": model,
@@ -199,15 +208,16 @@ def _build_request_config(
             "max_tokens": max_tokens,
         }
     elif provider == APIProvider.XAI:
-        url = config.get_api_url("XAI").format(model=model)
+        url = url_template  # Always use url_template from run.py
         headers["Authorization"] = f"Bearer {api_key}"
         data = {
+            "model": model,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": temperature,
             "max_tokens": max_tokens,
         }
     elif provider == APIProvider.DEEPSEEK:
-        url = config.get_api_url("DEEPSEEK")
+        url = url_template if url_template else None
         headers["Authorization"] = f"Bearer {api_key}"
         data = {
             "model": model,
@@ -221,6 +231,9 @@ def _build_request_config(
 
 def _parse_response(provider: APIProvider, response: requests.Response) -> APIResponse:
     try:
+        # Log the full raw response for XAI for debugging (now at DEBUG level to reduce terminal clutter)
+        if provider == APIProvider.XAI:
+            logger.debug(f"Raw XAI response: {response.text}")
         response_json = response.json()
 
         if provider == APIProvider.GEMINI:

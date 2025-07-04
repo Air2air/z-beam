@@ -28,7 +28,7 @@ class DirectoryConfig:
 # --- API Provider Configuration ---
 @dataclass
 class APIProviderConfig:
-    """Configuration for a specific API provider."""
+    """Configuration for a specific API generator_provider."""
 
     model: str
     url_template: str
@@ -88,28 +88,8 @@ class AppConfig:
 
     def _setup_providers(self):
         """Setup API provider configurations."""
-        self.providers = {
-            "XAI": APIProviderConfig(
-                model="grok-3-mini",
-                url_template="https://api.xai.com/v1/models/{model}/chat/completions",
-                default_temperature=0.7,
-            ),
-            "GEMINI": APIProviderConfig(
-                model="gemini-1.5-flash",
-                url_template="https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                default_temperature=0.7,
-            ),
-            "DEEPSEEK": APIProviderConfig(
-                model="deepseek-chat",
-                url_template="https://api.deepseek.com/chat/completions",
-                default_temperature=0.7,
-            ),
-            "OPENAI": APIProviderConfig(
-                model="gpt-3.5-turbo",
-                url_template="https://api.openai.com/v1/chat/completions",
-                default_temperature=0.7,
-            ),
-        }
+        # REMOVE all hardcoded provider configs from here. All API/model config must come from run.py only.
+        self.providers = {}
 
     def get_provider_config(self, provider: str) -> APIProviderConfig:
         provider_key = provider.upper()
@@ -132,17 +112,34 @@ class AppConfig:
         for file_path in sections_dir.glob("*.txt"):
             section_key = file_path.stem
             ai_detect = True  # Default
-            # Try to read YAML frontmatter
+            # Parse ai_detect from YAML frontmatter or # ai_detect: ... comment
             try:
                 with open(file_path, "r", encoding="utf-8") as f:
-                    content = f.read()
-                if content.startswith("---"):
-                    end = content.find("---", 3)
-                    if end != -1:
-                        yaml_block = content[3:end]
+                    lines = f.readlines()
+                # Check for YAML frontmatter
+                if lines and lines[0].strip() == "---":
+                    end = next(
+                        (
+                            i
+                            for i, line in enumerate(lines[1:], 1)
+                            if line.strip() == "---"
+                        ),
+                        None,
+                    )
+                    if end is not None:
+                        yaml_block = "".join(lines[1:end])
                         meta = yaml.safe_load(yaml_block)
                         if isinstance(meta, dict) and "ai_detect" in meta:
                             ai_detect = bool(meta["ai_detect"])
+                # Check for # ai_detect: ... in first 10 lines
+                for line in lines[:10]:
+                    if line.strip().lower().startswith("# ai_detect:"):
+                        val = line.split(":", 1)[1].strip().lower()
+                        if val in ("false", "no", "0"):
+                            ai_detect = False
+                        elif val in ("true", "yes", "1"):
+                            ai_detect = True
+                        break
             except Exception:
                 pass
             sections_config[section_key] = {
@@ -161,13 +158,16 @@ class GenerationConfig:
     material: str
     article_category: str
     file_name: str
-    provider: str
+    generator_provider: str
     model: str
     author: str
     temperature: float
     force_regenerate: bool
     ai_detection_threshold: int  # <-- moved up, before any default fields
     human_detection_threshold: int  # Add human threshold
+    generator_model_settings: dict = None  # <-- Add this line
+    detection_provider: str = None
+    detection_model_settings: dict = None
     iterations_per_section: int = 3
     api_keys: dict = None
     title: Optional[str] = None
@@ -179,7 +179,7 @@ class GenerationConfig:
             "material",
             "article_category",
             "file_name",
-            "provider",
+            "generator_provider",
             "model",
             "author",
             "temperature",

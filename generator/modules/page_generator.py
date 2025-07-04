@@ -96,7 +96,7 @@ class ArticleGenerator:
         """
         self.logger.info(
             f"Starting article generation for material: '{gen_config.material}', "
-            f"provider: '{gen_config.provider}', model: '{gen_config.model}'"
+            f"provider: '{gen_config.generator_provider}', model: '{gen_config.model}'"
         )
 
         try:
@@ -159,7 +159,7 @@ class ArticleGenerator:
         try:
             material_config = content_generator.research_material_config(
                 gen_config.material,
-                gen_config.provider,
+                gen_config.generator_provider,
                 gen_config.model,
                 gen_config.api_keys,
                 prompt_templates,
@@ -190,7 +190,7 @@ class ArticleGenerator:
         if not hasattr(self, "_metadata_logged"):
             self._metadata_logged = True
             self.logger.info(
-                f"[METADATA] Article metadata: material={gen_config.material}, file={gen_config.file_name}, provider={gen_config.provider}, author={gen_config.author}, temperature={gen_config.temperature}"
+                f"[METADATA] Article metadata: material={gen_config.material}, file={gen_config.file_name}, provider={gen_config.generator_provider}, author={gen_config.author}, temperature={gen_config.temperature}"
             )
         # Normalize author key (strip .mdx, lowercase, underscores)
         author_key = (
@@ -330,7 +330,7 @@ class ArticleGenerator:
                 section_variables=section_variables,
                 article_data=article_data.__dict__,
                 cache_data=cache_data,
-                provider=gen_config.provider,
+                generator_provider=gen_config.generator_provider,
                 model=gen_config.model,
                 force_regenerate=gen_config.force_regenerate,
                 api_keys=gen_config.api_keys,
@@ -339,17 +339,28 @@ class ArticleGenerator:
                 ai_detection_threshold=ai_detection_threshold,  # Pass threshold
                 human_detection_threshold=human_detection_threshold,  # Pass human threshold
                 ai_detect=ai_detect,
+                iterations_per_section=getattr(gen_config, "iterations_per_section", 3),
+                generator_model_settings=getattr(
+                    gen_config, "generator_model_settings", None
+                ),
+                detection_provider=getattr(gen_config, "detection_provider", None),
+                detection_model_settings=getattr(
+                    gen_config, "detection_model_settings", None
+                ),
             )
 
-            if threshold_met:
+            if content:
                 article_data.sections[section_name] = content
-                self.logger.info(
-                    f"Successfully generated content for section: {section_name} (AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%)"
-                )
+                if threshold_met:
+                    self.logger.info(
+                        f"Successfully generated content for section: {section_name} (AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%)"
+                    )
+                else:
+                    self.logger.warning(
+                        f"Section '{section_name}' generated but did NOT meet AI-likeness threshold. Outputting anyway. Final AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%"
+                    )
             else:
-                self.logger.error(
-                    f"Failed to generate content for section: {section_name} below threshold. Final AI Likelihood: {ai_likelihood}%, threshold: {ai_detection_threshold}%"
-                )
+                self.logger.error(f"No content generated for section: {section_name}.")
 
         except Exception as e:
             self.logger.error(

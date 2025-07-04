@@ -17,12 +17,16 @@ class RunConfiguration:
     material: str
     category: str
     file_name: str  # Renamed from filename
-    provider: str
+    generator_provider: str
+    model: str  # <-- Add this line
     author: str  # Just a string filename
     temperature: float
     force_regenerate: bool
     ai_detection_threshold: int
     human_detection_threshold: int  # Add human threshold
+    generator_model_settings: dict  # <-- Add this line
+    detection_provider: str = None
+    detection_model_settings: dict = None
 
     def __post_init__(self):
         missing = []
@@ -30,12 +34,13 @@ class RunConfiguration:
             "material",
             "category",
             "file_name",
-            "provider",
+            "generator_provider",
             "author",
             "temperature",
             "force_regenerate",
             "ai_detection_threshold",
             "human_detection_threshold",
+            "generator_model_settings",  # <-- Add this line
         ]:
             if getattr(self, field_name, None) is None:
                 missing.append(field_name)
@@ -50,8 +55,10 @@ class RunConfiguration:
             raise ConfigurationError("Material cannot be empty")
         if not self.file_name:
             raise ConfigurationError("file_name cannot be empty")
-        if self.provider.upper() not in ["GEMINI", "XAI", "DEEPSEEK"]:
-            raise ConfigurationError(f"Unsupported provider: {self.provider}")
+        if self.generator_provider.upper() not in ["GEMINI", "XAI", "DEEPSEEK"]:
+            raise ConfigurationError(
+                f"Unsupported generator_provider: {self.generator_provider}"
+            )
 
 
 class ApplicationRunner:
@@ -75,24 +82,29 @@ class ApplicationRunner:
             "XAI_API_KEY": os.getenv("XAI_API_KEY"),
             "DEEPSEEK_API_KEY": os.getenv("DEEPSEEK_API_KEY"),
         }
-        required_key = f"{run_config.provider.upper()}_API_KEY"
+        required_key = f"{run_config.generator_provider.upper()}_API_KEY"
         if not api_keys.get(required_key):
             self.logger.warning(
-                f"No API key found for provider '{run_config.provider}'. "
+                f"No API key found for generator_provider '{run_config.generator_provider}'. "
                 f"Please ensure {required_key} is set in your .env file."
             )
         return GenerationConfig(
             material=run_config.material,
             article_category=run_config.category,
             file_name=run_config.file_name,
-            provider=run_config.provider,
-            model=self.app_config.get_model_for_provider(run_config.provider),
+            generator_provider=run_config.generator_provider,
+            model=run_config.model,  # Use model from run_config, not from AppConfig
             author=run_config.author,
             temperature=run_config.temperature,
             force_regenerate=run_config.force_regenerate,
             api_keys=api_keys,
             ai_detection_threshold=run_config.ai_detection_threshold,
             human_detection_threshold=run_config.human_detection_threshold,
+            generator_model_settings=run_config.generator_model_settings,  # <-- Pass through
+            detection_provider=getattr(run_config, "detection_provider", None),
+            detection_model_settings=getattr(
+                run_config, "detection_model_settings", None
+            ),
         )
 
     def run(self, run_config: RunConfiguration) -> bool:
