@@ -1,6 +1,5 @@
 # generator/modules/api_client.py
 
-import os
 import requests
 import json
 import time
@@ -71,9 +70,12 @@ def call_ai_api(
     )
 
     if response.success:
+        logger.log_api_response(provider_enum.value, success=True)
         return response.content
     else:
-        logger.error(f"API call failed: {response.error_message}")
+        logger.log_api_response(
+            provider_enum.value, success=False, error=response.error_message
+        )
         return None
 
 
@@ -101,69 +103,79 @@ def _make_api_request(
         provider, model, api_key, prompt, temperature, max_tokens, url_template
     )
 
-    logger.info(
-        f"[API REQUEST] Provider: {provider.value}\nURL: {url}\nHeaders: {headers}\nParams: {params}\nData: {json.dumps(data)[:1000]}"
+    # Use centralized API logging
+    logger.log_api_request(
+        provider=provider.value,
+        model=model,
+        prompt_length=len(prompt),
+        temperature=temperature,
+        max_tokens=max_tokens,
     )
 
-    for attempt in range(retries):
-        try:
-            logger.debug(f"API attempt {attempt + 1}/{retries} for {provider.value}")
-
-            response = requests.post(
-                url=url, headers=headers, params=params, json=data, timeout=timeout
-            )
-
-            if response.status_code == 429:
-                # Respect Retry-After header if present
-                retry_after = response.headers.get("Retry-After")
-                if retry_after:
-                    try:
-                        wait_time = float(retry_after)
-                    except ValueError:
-                        wait_time = backoff_factor * (2**attempt)
-                else:
-                    # Exponential backoff with jitter
-                    base = backoff_factor * (2**attempt)
-                    wait_time = base + (
-                        base * 0.5 * (2 * random.random() - 1)
-                    )  # ±50% jitter
-                logger.warning(f"Rate limited. Waiting {wait_time:.2f}s...")
-                time.sleep(max(wait_time, 0))
-                continue
-            elif response.status_code >= 500:
-                logger.warning(f"Server error {response.status_code}. Retrying...")
-                time.sleep(backoff_factor)
-                continue
-            elif response.status_code >= 400:
-                return APIResponse(
-                    content=None,
-                    success=False,
-                    error_message=f"Client error {response.status_code}: {response.text}",
-                    status_code=response.status_code,
+    with logger.time_operation(f"API call to {provider.value}"):
+        for attempt in range(retries):
+            try:
+                logger.debug(
+                    f"API attempt {attempt + 1}/{retries} for {provider.value}"
                 )
 
-            response.raise_for_status()
-            return _parse_response(provider, response)
+                response = requests.post(
+                    url=url, headers=headers, params=params, json=data, timeout=timeout
+                )
 
-        except requests.exceptions.Timeout:
-            logger.warning(f"Request timeout on attempt {attempt + 1}")
-            if attempt == retries - 1:
+                if response.status_code == 429:
+                    # Respect Retry-After header if present
+                    retry_after = response.headers.get("Retry-After")
+                    if retry_after:
+                        try:
+                            wait_time = float(retry_after)
+                        except ValueError:
+                            wait_time = backoff_factor * (2**attempt)
+                    else:
+                        # Exponential backoff with jitter
+                        base = backoff_factor * (2**attempt)
+                        wait_time = base + (
+                            base * 0.5 * (2 * random.random() - 1)
+                        )  # ±50% jitter
+                    logger.warning(f"Rate limited. Waiting {wait_time:.2f}s...")
+                    time.sleep(max(wait_time, 0))
+                    continue
+                elif response.status_code >= 500:
+                    logger.warning(f"Server error {response.status_code}. Retrying...")
+                    time.sleep(backoff_factor)
+                    continue
+                elif response.status_code >= 400:
+                    return APIResponse(
+                        content=None,
+                        success=False,
+                        error_message=f"Client error {response.status_code}: {response.text}",
+                        status_code=response.status_code,
+                    )
+
+                response.raise_for_status()
+                return _parse_response(provider, response)
+
+            except requests.exceptions.Timeout:
+                logger.warning(f"Request timeout on attempt {attempt + 1}")
+                if attempt == retries - 1:
+                    return APIResponse(
+                        content=None,
+                        success=False,
+                        error_message="Request timed out after all retries",
+                    )
+            except requests.exceptions.ConnectionError as e:
+                logger.warning(f"Connection error on attempt {attempt + 1}: {e}")
+                if attempt == retries - 1:
+                    return APIResponse(
+                        content=None,
+                        success=False,
+                        error_message=f"Connection failed: {e}",
+                    )
+            except Exception as e:
+                logger.error(f"Unexpected error: {e}")
                 return APIResponse(
-                    content=None,
-                    success=False,
-                    error_message="Request timed out after all retries",
+                    content=None, success=False, error_message=f"Unexpected error: {e}"
                 )
-        except requests.exceptions.ConnectionError as e:
-            logger.warning(f"Connection error on attempt {attempt + 1}: {e}")
-            if attempt == retries - 1:
-                return APIResponse(
-                    content=None, success=False, error_message=f"Connection failed: {e}"
-                )
-        except Exception as e:
-            logger.error(f"Unexpected error: {e}")
-            return APIResponse(
-                content=None, success=False, error_message=f"Unexpected error: {e}"
-            )
 
     return APIResponse(
         content=None, success=False, error_message="All retry attempts failed"

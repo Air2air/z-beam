@@ -159,6 +159,7 @@ class ArticleGenerator:
                 gen_config.model,
                 gen_config.api_keys,
                 prompt_templates,
+                gen_config.generator_model_settings,  # Pass the model settings
             )
 
             if material_config:
@@ -252,12 +253,13 @@ class ArticleGenerator:
             sections_config.items(), key=lambda item: item[1].get("order", 999)
         )
 
-        self.logger.info(
-            f"[DEBUG] Sections config to generate: {[name for name, _ in sorted_sections]}"
+        # Move debug info to debug level to reduce terminal verbosity
+        self.logger.debug(
+            f"Sections config to generate: {[name for name, _ in sorted_sections]}"
         )
         for section_name, section_config in sorted_sections:
-            self.logger.info(
-                f"[DEBUG] Attempting to generate section: {section_name} | config: {json.dumps(section_config, indent=2)}"
+            self.logger.debug(
+                f"Attempting to generate section: {section_name} | config: {json.dumps(section_config, indent=2)}"
             )
             if section_name == "ai_detection_prompt":
                 continue  # Skip ai_detection_prompt as a section

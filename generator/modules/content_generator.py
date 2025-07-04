@@ -187,7 +187,7 @@ def generate_with_feedback_loop(
         # Always revise previous output after the first iteration
         if i > 0 and previous_output:
             section_variables_with_feedback = dict(section_variables)
-            # Use feedback if available, otherwise use the full ai/human detection prompt as fallback
+            # Use feedback if available, otherwise use initial_prompt.txt for first iteration
             if revision_feedback:
                 section_variables_with_feedback["revision_feedback"] = revision_feedback
                 revision_instruction = (
@@ -195,19 +195,14 @@ def generate_with_feedback_loop(
                     "Feedback: {revision_feedback}\n\n"
                 )
             else:
-                # Use the full ai_detection_prompt.txt or human_detection_prompt.txt as fallback
-                if section_variables.get("ai_detect", True):
-                    fallback_feedback = prompt_manager.load_prompt(
-                        "ai_detection_prompt.txt", "detection"
-                    )
-                else:
-                    fallback_feedback = prompt_manager.load_prompt(
-                        "human_detection_prompt.txt", "detection"
-                    )
-                section_variables_with_feedback["revision_feedback"] = fallback_feedback
+                # For first iteration or when no feedback available, use initial_prompt.txt
+                initial_prompt = prompt_manager.load_prompt(
+                    "initial_prompt.txt", "detection"
+                )
+                section_variables_with_feedback["revision_feedback"] = initial_prompt
                 revision_instruction = (
-                    "Revise the following section based on this feedback to make it more human-like and less AI-detectable.\n"
-                    "Feedback: {revision_feedback}\n\n"
+                    "Revise the following section to make it more human-like and less AI-detectable.\n"
+                    "Guidelines: {revision_feedback}\n\n"
                 )
             revision_instruction += (
                 "Previous Output:\n" + previous_output.strip() + "\n\n"
@@ -259,15 +254,17 @@ def generate_with_feedback_loop(
             "content_type": section_name.replace("_", " "),
             "audience_level": section_variables.get("audience_level", "general"),
         }
-        detection_prompt = format_prompt(
+
+        # AI Detection
+        ai_detection_prompt = format_prompt(
             detection_prompt_template,
             detection_vars,
             "ai_detection_prompt.txt",
             section_name,
         )
         try:
-            detection_response = api_client.call_ai_api(
-                prompt=detection_prompt,
+            ai_detection_response = api_client.call_ai_api(
+                prompt=ai_detection_prompt,
                 provider=detection_provider or generator_provider,
                 model=detection_model_settings["model"]
                 if detection_model_settings
@@ -290,10 +287,10 @@ def generate_with_feedback_loop(
             )
             continue
         logger.info(
-            f"[RAW DETECTION OUTPUT] Iteration {i + 1} for '{section_name}': {detection_response}"
+            f"[RAW AI DETECTION OUTPUT] Iteration {i + 1} for '{section_name}': {ai_detection_response}"
         )
-        ai_score, feedback = parse_ai_detection_feedback(
-            detection_response or "",
+        ai_score, ai_feedback = parse_ai_detection_feedback(
+            ai_detection_response or "",
             detection_provider or generator_provider,
             detection_model_settings["model"] if detection_model_settings else model,
             section_name,
@@ -301,41 +298,121 @@ def generate_with_feedback_loop(
             api_keys,
             prompt_templates_dict,
         )
-        logger.info(f"[FEEDBACK] Iteration {i + 1} for '{section_name}': {feedback}")
-        human_score = 100 - ai_score
+        logger.info(
+            f"[AI FEEDBACK] Iteration {i + 1} for '{section_name}': {ai_feedback}"
+        )
+
+        # --- HUMAN DETECTION CALL ---
+        # Load human detection prompt template
+        human_detection_template = prompt_manager.load_prompt(
+            "human_detection_prompt.txt", "detection"
+        )
+        human_detection_prompt = format_prompt(
+            human_detection_template,
+            detection_vars,
+            "human_detection_prompt.txt",
+            section_name,
+        )
+        try:
+            human_detection_response = api_client.call_ai_api(
+                prompt=human_detection_prompt,
+                provider=detection_provider or generator_provider,
+                model=detection_model_settings["model"]
+                if detection_model_settings
+                else model,
+                api_keys=api_keys,
+                temperature=0.2,
+                max_tokens=500,
+                url_template=detection_model_settings["url_template"]
+                if detection_model_settings
+                else (
+                    generator_model_settings["url_template"]
+                    if generator_model_settings
+                    else None
+                ),
+                backoff_factor=2.0,
+            )
+        except Exception as e:
+            logger.error(
+                f"Human detection request failed for section '{section_name}' (iteration {i + 1}): {e}"
+            )
+            continue
+        logger.info(
+            f"[RAW HUMAN DETECTION OUTPUT] Iteration {i + 1} for '{section_name}': {human_detection_response}"
+        )
+        human_score, human_feedback = parse_ai_detection_feedback(
+            human_detection_response or "",
+            detection_provider or generator_provider,
+            detection_model_settings["model"] if detection_model_settings else model,
+            section_name,
+            section_variables.get("audience_level", "general"),
+            api_keys,
+            prompt_templates_dict,
+        )
+        logger.info(
+            f"[HUMAN FEEDBACK] Iteration {i + 1} for '{section_name}': {human_feedback}"
+        )
+        # Combine feedback from both detectors
+        combined_feedback = (
+            f"AI Detection: {ai_feedback}\nHuman Detection: {human_feedback}"
+        )
+
         attempts.append(
             {
                 "iteration": i + 1,
                 "content": cleaned_response,
                 "ai_score": ai_score,
                 "human_score": human_score,
-                "feedback": feedback,
+                "ai_feedback": ai_feedback,
+                "human_feedback": human_feedback,
+                "combined_feedback": combined_feedback,
             }
         )
-        # Track best
-        if ai_score < best_ai_score or (
-            ai_score == best_ai_score and human_score > best_human_score
+
+        # Log both scores for this iteration
+        logger.info(
+            f"[SCORES] Iteration {i + 1} for '{section_name}': "
+            f"AI Score: {ai_score}%, Human Score: {human_score}%"
+        )
+
+        # Track best (lowest combined score)
+        combined_score = (ai_score + human_score) / 2
+        best_combined_score = (best_ai_score + best_human_score) / 2
+        if combined_score < best_combined_score or (
+            combined_score == best_combined_score and ai_score < best_ai_score
         ):
             best_content = cleaned_response
             best_ai_score = ai_score
             best_human_score = human_score
+
+        # Check if both scores are below their thresholds (CORRECT LOGIC)
         if (
             ai_score <= ai_detection_threshold
-            and human_score >= human_detection_threshold
+            and human_score <= human_detection_threshold
         ):
             threshold_met = True
             logger.info(
-                f"Section '{section_name}' passed on iteration {i + 1} (AI: {ai_score}%, Human: {human_score}%)"
+                f"Section '{section_name}' passed on iteration {i + 1} "
+                f"(AI: {ai_score}% <= {ai_detection_threshold}%, "
+                f"Human: {human_score}% <= {human_detection_threshold}%)"
             )
             break
+
         # If feedback is unchanged for 2+ attempts, escalate by increasing temperature
-        if i > 0 and attempts[-1]["feedback"] == attempts[-2]["feedback"]:
+        if (
+            i > 0
+            and attempts[-1]["combined_feedback"] == attempts[-2]["combined_feedback"]
+        ):
             logger.info(
                 "Escalating: feedback unchanged, increasing temperature for next attempt."
             )
-        revision_feedback = feedback or ""
+
+        # Use combined feedback for next iteration
+        revision_feedback = combined_feedback or ""
         logger.info(
-            f"Section '{section_name}' failed iteration {i + 1} (AI: {ai_score}%, Human: {human_score}%)"
+            f"Section '{section_name}' failed iteration {i + 1} "
+            f"(AI: {ai_score}% > {ai_detection_threshold}% OR "
+            f"Human: {human_score}% > {human_detection_threshold}%)"
         )
     if not best_content:
         logger.error(
@@ -370,23 +447,22 @@ def generate_content(
     print(f"\n[PROGRESS] Starting generation for section: {section_name}")
     # Only log section metadata once per run, not per iteration
     if section_name not in section_metadata_logged:
-        logger.info(
-            f"[DEBUG] Attempting to generate section: {section_name} using prompt file: {prompt_file_name}"
+        # Move detailed generation info to debug level to reduce terminal verbosity
+        logger.debug(
+            f"Attempting to generate section: {section_name} using prompt file: {prompt_file_name}"
         )
-        logger.info(
-            f"[DEBUG] section_variables: {json.dumps(section_variables, indent=2)}"
+        logger.debug(f"section_variables: {json.dumps(section_variables, indent=2)}")
+        logger.debug(
+            f"article_data structure: {json.dumps(article_data, indent=2) if article_data else '{}'}"
         )
-        logger.info(
-            f"[DEBUG] article_data: {json.dumps(article_data, indent=2) if article_data else '{}'}"
-        )
-        logger.info(
-            f"[DEBUG] cache_data keys: {list(cache_data.keys()) if cache_data else 'None'}"
+        logger.debug(
+            f"cache_data keys: {list(cache_data.keys()) if cache_data else 'None'}"
         )
         section_metadata_logged.add(section_name)
 
     if not prompt_template:
-        logger.warning(
-            f"[DEBUG] Prompt template for section '{section_name}' (file: {prompt_file_name}) is missing or empty."
+        logger.debug(
+            f"Prompt template for section '{section_name}' (file: {prompt_file_name}) is missing or empty."
         )
         print(
             f"[ERROR] Prompt template for section '{section_name}' (file: {prompt_file_name}) is missing or empty. Skipping section generation."

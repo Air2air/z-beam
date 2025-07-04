@@ -4,12 +4,16 @@ Ensures generated content is compatible with Next.js MDX parser.
 """
 
 import re
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 from generator.modules.logger import get_logger
 
 
 class MDXValidator:
-    """Validates and sanitizes MDX content for Next.js compatibility."""
+    """Validates and sani        # If all else fails, try to use current date as fallback
+    try:
+        return datetime.now().strftime('%Y-%m-%d')
+    except Exception:
+        return None MDX content for Next.js compatibility."""
 
     def __init__(self):
         self.logger = get_logger("mdx_validator")
@@ -186,6 +190,90 @@ class MDXValidator:
                     )
 
         return fixed_frontmatter, issues
+
+    def _is_valid_date_format(self, date_value: str) -> bool:
+        """
+        Check if a date string is in a valid ISO format.
+
+        Args:
+            date_value: The date string to validate
+
+        Returns:
+            True if the date is valid, False otherwise
+        """
+        # Common valid date formats
+        valid_patterns = [
+            r"^\d{4}-\d{2}-\d{2}$",  # YYYY-MM-DD
+            r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z?$",  # ISO 8601
+            r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?[+-]\d{2}:\d{2}$",  # ISO with timezone
+        ]
+
+        for pattern in valid_patterns:
+            if re.match(pattern, date_value):
+                # Try to parse the date to ensure it's actually valid
+                try:
+                    from datetime import datetime
+
+                    if "T" in date_value:
+                        # Handle ISO format
+                        date_part = date_value.split("T")[0]
+                        datetime.strptime(date_part, "%Y-%m-%d")
+                    else:
+                        datetime.strptime(date_value, "%Y-%m-%d")
+                    return True
+                except ValueError:
+                    continue
+
+        return False
+
+    def _fix_date_format(self, date_value: str) -> Optional[str]:
+        """
+        Attempt to fix common date format issues.
+
+        Args:
+            date_value: The problematic date string
+
+        Returns:
+            Fixed date string or None if cannot be fixed
+        """
+        from datetime import datetime
+
+        # Common problematic patterns and their fixes
+        fix_patterns = [
+            # MM/DD/YYYY -> YYYY-MM-DD
+            (r"^(\d{1,2})/(\d{1,2})/(\d{4})$", r"\3-\1-\2"),
+            # DD/MM/YYYY -> YYYY-MM-DD (assume DD/MM format)
+            (r"^(\d{1,2})/(\d{1,2})/(\d{4})$", r"\3-\2-\1"),
+            # YYYY/MM/DD -> YYYY-MM-DD
+            (r"^(\d{4})/(\d{1,2})/(\d{1,2})$", r"\1-\2-\3"),
+            # Remove extra quotes or spaces
+            (r'^[\"\s]*([^"]*?)[\"\s]*$', r"\1"),
+        ]
+
+        cleaned_date = date_value.strip()
+
+        for pattern, replacement in fix_patterns:
+            match = re.match(pattern, cleaned_date)
+            if match:
+                try:
+                    # Try to create a properly formatted date
+                    fixed = re.sub(pattern, replacement, cleaned_date)
+                    # Ensure proper zero padding
+                    parts = fixed.split("-")
+                    if len(parts) == 3:
+                        year, month, day = parts
+                        formatted_date = f"{year}-{month.zfill(2)}-{day.zfill(2)}"
+                        # Validate the result
+                        datetime.strptime(formatted_date, "%Y-%m-%d")
+                        return formatted_date
+                except (ValueError, IndexError):
+                    continue
+
+        # If all else fails, try to use current date as fallback
+        try:
+            return datetime.now().strftime("%Y-%m-%d")
+        except Exception:
+            return None
 
     def validate_yaml_frontmatter(self, content: str) -> Tuple[str, List[str]]:
         """
