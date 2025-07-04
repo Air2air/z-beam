@@ -40,8 +40,8 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python run.py                     # Normal article generation
-  python run.py --test-detector     # Test detector improvements and optimization
+  python3 run.py                     # Normal article generation
+  python3 run.py --test-detector     # Test detector improvements and optimization
         """,
     )
 
