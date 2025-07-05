@@ -261,7 +261,8 @@ class APIClient(IAPIClient):
         **kwargs,
     ) -> str:
         """Call DeepSeek API."""
-        url = "https://api.deepseek.com/v1/chat/completions"  # Fixed to match providers.py
+        # Get URL from configuration instead of hardcoding
+        url = self._base_config.get("url", "https://api.deepseek.com/v1/chat/completions")
 
         headers = {
             "Content-Type": "application/json",
@@ -301,3 +302,14 @@ class APIClient(IAPIClient):
     def get_provider_name(self) -> str:
         """Get the name of the AI provider."""
         return self._provider
+
+    def call_ai_api(
+        self,
+        prompt: str,
+        model: str = None,
+        temperature: float = 0.7,
+        max_tokens: int = 3000,
+        timeout: int = 60,
+    ) -> str:
+        """Legacy method name for backward compatibility."""
+        return self.call_api(prompt, model, temperature, max_tokens, timeout)

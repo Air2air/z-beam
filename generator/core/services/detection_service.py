@@ -1,91 +1,101 @@
 """
-Detection service for AI and human-like content analysis.
+Enhanced Detection Service - Coordinator for AI and Natural Voice Detection
+Refactored to use discrete, non-overlapping detection services with clear scoring logic.
 """
 
 from generator.core.domain.models import AIScore, GenerationContext, TemperatureConfig
-from generator.core.interfaces.services import (
-    IDetectionService,
-    IAPIClient,
-    IPromptRepository,
-)
+from generator.core.interfaces.services import IAPIClient, IPromptRepository
 from generator.core.exceptions import DetectionError
-from generator.core.services.prompt_optimizer_compatible import (
-    PromptOptimizerCompatible,
-)
+from generator.core.services.ai_detection_service import AIDetectionService
+from generator.core.services.natural_voice_detection_service import NaturalVoiceDetectionService
+from generator.core.services.detection_scoring_system import DetectionScoringSystem
+from generator.core.services.adaptive_temperature_manager import AdaptiveTemperatureManager
 from generator.modules.logger import get_logger
-from typing import List, Optional
+from typing import Optional, Dict, List
+import time
 
 logger = get_logger("detection_service")
 
 
-class DetectionService(IDetectionService):
-    """Service for detecting AI and human-like characteristics in content."""
+class DetectionService:
+    """
+    Unified Detection Service Coordinator.
+    
+    Manages discrete AI and Natural Voice detection services to provide:
+    1. Separate, non-overlapping detection paths
+    2. Clear scoring interpretation (low AI = good, mid NV = excellent)
+    3. Dynamic temperature adaptation based on detection patterns
+    4. Unified improvement recommendations
+    """
 
     def __init__(self, api_client: IAPIClient, prompt_repository: IPromptRepository):
         self._api_client = api_client
         self._prompt_repository = prompt_repository
-
-        # Initialize logger
-        from generator.modules.logger import get_logger
-
         self.logger = get_logger("detection_service")
 
-        # Get the model from the api_client provider
-        provider = getattr(api_client, "_provider", "DEEPSEEK")  # Default fallback
+        # Initialize discrete detection services
+        self.ai_detection_service = AIDetectionService(api_client, prompt_repository)
+        self.natural_voice_service = NaturalVoiceDetectionService(api_client, prompt_repository)
+        
+        # Initialize scoring and temperature management
+        self.scoring_system = DetectionScoringSystem()
+        
+        # Initialize with base temperature config (will be updated dynamically)
+        base_temp_config = TemperatureConfig(
+            content_temp=0.6,
+            detection_temp=0.3,
+            improvement_temp=0.7
+        )
+        self.temp_manager = AdaptiveTemperatureManager(base_temp_config)
+        
+        # Track detection patterns for adaptive management
+        self.detection_history = []
 
-        # Try to get provider settings from run.py
+    def detect_ai_patterns(
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> AIScore:
+        """
+        Detect AI-generated patterns in content.
+        
+        SCORING: Low scores (0-25%) = GOOD (minimal AI patterns)
+        """
+        self.logger.info(f"🧠 AI Detection - Starting analysis (iteration {iteration})")
+        
+        # Get adaptive temperature if available
+        if temperature_config:
+            self.temp_manager.update_base_config(temperature_config)
+        
+        adaptive_temp = self.temp_manager.get_detection_temperature("ai", iteration)
+        
         try:
-            import sys
-            import os
-            import importlib.util
-
-            # Add the project root to sys.path to ensure proper import
-            project_root = os.path.dirname(
-                os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+            ai_score = self.ai_detection_service.detect_ai_patterns(
+                content, context, iteration, adaptive_temp, timeout, temperature_config
             )
-
-            # Use spec-based loading to avoid circular imports
-            run_path = os.path.join(project_root, "run.py")
-            spec = importlib.util.spec_from_file_location("run_module", run_path)
-            run_module = importlib.util.module_from_spec(spec)
-            sys.modules["run_module"] = run_module
-            spec.loader.exec_module(run_module)
-
-            # Get the model from PROVIDER_MODELS
-            provider_models = getattr(run_module, "PROVIDER_MODELS", {})
-            self._model = provider_models.get(provider, {}).get(
-                "model", "deepseek-chat"
+            
+            # Update temperature manager with results
+            self.temp_manager.record_ai_score(ai_score.score)
+            
+            # Get score interpretation
+            interpretation = self.scoring_system.interpret_ai_score(ai_score.score)
+            
+            self.logger.info(
+                f"🧠 AI Detection Result: {ai_score.score}% "
+                f"({interpretation.category.value.upper()}) - {interpretation.description}"
             )
+            
+            return ai_score
+            
         except Exception as e:
-            # Fallback to default if can't import
-            self._model = "deepseek-chat"
-            self.logger.warning(
-                f"Could not load model config from run.py: {e}. Using default model."
-            )
+            self.logger.error(f"AI detection failed: {e}")
+            raise DetectionError(f"AI detection failed: {e}") from e
 
-        # Initialize prompt optimizer for performance tracking and optimization
-        self._optimizer = PromptOptimizerCompatible()
-        # Available prompt variations for optimization
-        self._ai_prompt_variations = [
-            "ai_detection_enhanced",  # New enhanced prompt as default
-            "ai_detection_prompt_minimal",
-            "ai_detection_v1",
-            "ai_detection_v2",
-            "ai_detection_v3",
-            "ai_detection_v4",
-        ]
-        self._human_prompt_variations = [
-            "human_detection_enhanced",  # New enhanced prompt as default
-            "human_detection_prompt_minimal",
-            "human_detection_v1",
-            "human_detection_v2",
-            "human_detection_v3",
-            "human_detection_v4",
-        ]
-        # Track performance of different prompts (legacy - migrating to optimizer)
-        self._prompt_performance = {}
-
-    def detect_ai_likelihood(
+    def detect_natural_voice_authenticity(
         self,
         content: str,
         context: GenerationContext,
@@ -94,467 +104,255 @@ class DetectionService(IDetectionService):
         timeout: int = 60,
         temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
-        """Detect AI-like characteristics in content using optimal prompt variation."""
-        section_name = context.get_variable("section_name", "Unknown")
-        optimal_prompt = self._optimizer.get_optimal_prompt(
-            "ai", iteration, section_name, self._ai_prompt_variations
-        )
-        logger.info(
-            f"Using AI detection prompt variation: {optimal_prompt} (iteration {iteration})"
-        )
-
-        # Use detection_temp from temperature_config if available, otherwise fallback to legacy temperature
-        detection_temp = (
-            temperature_config.detection_temp if temperature_config else temperature
-        )
-
-        return self._run_detection(
-            content,
-            context,
-            iteration,
-            optimal_prompt,
-            "ai",
-            section_name,
-            detection_temp,
-            timeout,
-        )
-
-    def detect_human_likelihood(
-        self,
-        content: str,
-        context: GenerationContext,
-        iteration: int = 1,
-        temperature: float = 0.3,
-        timeout: int = 60,
-        temperature_config: Optional[TemperatureConfig] = None,
-    ) -> AIScore:
-        """Detect overly human-like characteristics in content using optimal prompt variation."""
-        section_name = context.get_variable("section_name", "Unknown")
-        optimal_prompt = self._optimizer.get_optimal_prompt(
-            "human", iteration, section_name, self._human_prompt_variations
-        )
-        logger.info(
-            f"Using human detection prompt variation: {optimal_prompt} (iteration {iteration})"
-        )
-
-        # Use detection_temp from temperature_config if available, otherwise fallback to legacy temperature
-        detection_temp = (
-            temperature_config.detection_temp if temperature_config else temperature
-        )
-
-        return self._run_detection(
-            content,
-            context,
-            iteration,
-            optimal_prompt,
-            "human",
-            section_name,
-            detection_temp,
-            timeout,
-        )
-
-    def _run_detection(
-        self,
-        content: str,
-        context: GenerationContext,
-        iteration: int,
-        prompt_name: str,
-        detection_type: str,
-        section_name: str,
-        temperature: float = 0.3,
-        timeout: int = 60,
-        temperature_config: Optional[TemperatureConfig] = None,
-    ) -> AIScore:
-        """Run detection analysis using the specified prompt."""
+        """
+        Detect Natural Voice authenticity in content.
+        
+        SCORING: Mid-range scores (15-25%) = EXCELLENT (authentic professional voice)
+        """
+        self.logger.info(f"👤 Natural Voice - Starting analysis (iteration {iteration})")
+        
+        # Get adaptive temperature if available
+        if temperature_config:
+            self.temp_manager.update_base_config(temperature_config)
+        
+        adaptive_temp = self.temp_manager.get_detection_temperature("natural_voice", iteration)
+        
         try:
-            # Get the detection prompt
-            prompt_template = self._prompt_repository.get_prompt(
-                prompt_name, "detection"
+            nv_score = self.natural_voice_service.detect_natural_voice_authenticity(
+                content, context, iteration, adaptive_temp, timeout, temperature_config
             )
-            if not prompt_template:
-                raise DetectionError(
-                    f"Detection prompt not found: {prompt_name}",
-                    detection_type=detection_type,
-                )
+            
+            # Update temperature manager with results
+            self.temp_manager.record_natural_voice_score(nv_score.score)
+            
+            # Get score interpretation
+            interpretation = self.scoring_system.interpret_natural_voice_score(nv_score.score)
+            
+            self.logger.info(
+                f"👤 Natural Voice Result: {nv_score.score}% "
+                f"({interpretation.category.value.upper()}) - {interpretation.description}"
+            )
+            
+            return nv_score
+            
+        except Exception as e:
+            self.logger.error(f"Natural Voice detection failed: {e}")
+            raise DetectionError(f"Natural Voice detection failed: {e}") from e
 
-            # Format the prompt with content and context
-            # Truncate content to prevent token limit issues
-            truncated_content = self._truncate_content_for_detection(content)
-
-            detection_variables = {
-                **context.variables,
-                "content": truncated_content,
-                "content_type": context.content_type,
-                "audience_level": context.get_variable(
-                    "audience_level", "professional"
-                ),
+    def run_comprehensive_detection(
+        self,
+        content: str,
+        context: GenerationContext,
+        ai_threshold: int,
+        natural_voice_threshold: int,
+        iteration: int = 1,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> Dict[str, any]:
+        """
+        Run both AI and Natural Voice detection with comprehensive analysis.
+        
+        Returns unified results with clear scoring interpretation and recommendations.
+        """
+        self.logger.info(f"🔍 Comprehensive Detection - Starting analysis (iteration {iteration})")
+        
+        results = {
+            "iteration": iteration,
+            "timestamp": time.time(),
+            "ai_detection": None,
+            "natural_voice_detection": None,
+            "overall_status": None,
+            "recommendations": [],
+            "temperature_adjustments": None,
+        }
+        
+        try:
+            # Run AI Detection
+            ai_score = self.detect_ai_patterns(
+                content, context, iteration, timeout=60, temperature_config=temperature_config
+            )
+            ai_interpretation = self.scoring_system.interpret_ai_score(ai_score.score)
+            ai_passes = ai_score.score <= ai_threshold
+            
+            results["ai_detection"] = {
+                "score": ai_score.score,
+                "threshold": ai_threshold,
+                "passes": ai_passes,
+                "interpretation": ai_interpretation,
+                "raw_result": ai_score,
             }
-
-            formatted_prompt = prompt_template.content.format(**detection_variables)
-
-            # Call the API for detection with timeout handling and progress tracking
-            try:
-                import time
-
-                # API call with minimal logging
-                start_time = time.time()
-                response = self._api_client.call_api(
-                    prompt=formatted_prompt,
-                    model=self._model,  # Use provider-specific model instead of hardcoded
-                    temperature=temperature,  # Use temperature from configuration
-                    max_tokens=4000,  # Increased to 4000 to handle longer responses
-                    timeout=timeout,  # Use timeout from configuration
-                )
-                duration = time.time() - start_time
-
-                # Warn about slow calls
-                if duration > 20:
-                    self.logger.warning(
-                        f"⚠️ Slow API response: {duration:.2f}s (>20s threshold)"
-                    )
-
-            except Exception as e:
-                duration = time.time() - start_time if "start_time" in locals() else 0
-                self.logger.error(
-                    f"❌ {detection_type} detection API call failed after {duration:.2f}s: {str(e)}"
-                )
-                # Return a default score to continue processing
-                return AIScore(
-                    score=50,  # Neutral score
-                    feedback=f"Detection failed due to API error: {str(e)}",
-                    iteration=iteration,
-                    detection_type=detection_type,
-                )
-
-            logger.debug(f"Raw {detection_type} detection response: {response}")
-
-            # Parse the detection response
-            score, feedback = self._parse_detection_response(response, detection_type)
-
-            # Track prompt performance using the optimizer
-            success = score <= 50  # Success is when score is within threshold
-            self._optimizer.track_performance(
-                prompt_name, detection_type, score, iteration, success, section_name
+            
+            # Run Natural Voice Detection  
+            nv_score = self.detect_natural_voice_authenticity(
+                content, context, iteration, timeout=60, temperature_config=temperature_config
             )
-
-            # Also track in legacy system for backward compatibility
-            self.track_prompt_performance(
-                prompt_name, detection_type, score, iteration, success
+            nv_interpretation = self.scoring_system.interpret_natural_voice_score(nv_score.score)
+            nv_passes = nv_score.score <= natural_voice_threshold
+            
+            results["natural_voice_detection"] = {
+                "score": nv_score.score,
+                "threshold": natural_voice_threshold,
+                "passes": nv_passes,
+                "interpretation": nv_interpretation,
+                "raw_result": nv_score,
+            }
+            
+            # Determine overall status
+            both_pass = ai_passes and nv_passes
+            results["overall_status"] = "PASS" if both_pass else "FAIL"
+            
+            # Generate improvement recommendations
+            recommendations = self._generate_improvement_recommendations(
+                ai_score.score, nv_score.score, ai_threshold, natural_voice_threshold
             )
-
-            # Display fancy terminal output for detection results
-            self._display_detection_results(
-                section_name="Detection Results",
-                score=score,
-                feedback=feedback,
-                iteration=iteration,
-                detection_type=detection_type,
-                prompt_variation=prompt_name,
+            results["recommendations"] = recommendations
+            
+            # Get adaptive temperature recommendations
+            temp_strategy = self.temp_manager.get_adaptive_strategy(
+                ai_score.score, nv_score.score, iteration
             )
-
-            return AIScore(
-                score=score,
-                feedback=feedback,
-                iteration=iteration,
-                detection_type=detection_type,
-            )
-
+            results["temperature_adjustments"] = {
+                "strategy": temp_strategy.reasoning,
+                "content_temp": temp_strategy.content_temp,
+                "detection_temp": temp_strategy.detection_temp,
+                "improvement_temp": temp_strategy.improvement_temp,
+            }
+            
+            # Log comprehensive results
+            self._log_comprehensive_results(results)
+            
+            # Track detection history for pattern analysis
+            self.detection_history.append({
+                "iteration": iteration,
+                "ai_score": ai_score.score,
+                "nv_score": nv_score.score,
+                "ai_passes": ai_passes,
+                "nv_passes": nv_passes,
+            })
+            
+            return results
+            
         except Exception as e:
-            error_msg = str(e)
-            logger.error(f"Detection failed for {detection_type}: {error_msg}")
+            self.logger.error(f"Comprehensive detection failed: {e}")
+            results["error"] = str(e)
+            results["overall_status"] = "ERROR"
+            return results
 
-            # Check if this is a token limit issue
-            if "MAX_TOKEN" in error_msg or "truncated" in error_msg.lower():
-                logger.warning(
-                    f"Detection failed due to token limits, using fallback score for {detection_type}"
-                )
-                # Provide a reasonable fallback score instead of failing
-                fallback_score = 50  # Neutral score when detection can't complete
-                fallback_feedback = f"Detection unavailable due to content length. Using fallback score of {fallback_score}%."
+    def _generate_improvement_recommendations(
+        self, ai_score: float, nv_score: float, ai_threshold: int, nv_threshold: int
+    ) -> List[str]:
+        """Generate specific improvement recommendations based on detection results."""
+        recommendations = []
+        
+        # AI-specific recommendations
+        if ai_score > ai_threshold:
+            if ai_score > 50:
+                recommendations.append("HIGH AI DETECTED: Add more natural variations, conversational elements")
+            elif ai_score > 30:
+                recommendations.append("MODERATE AI: Incorporate industry-specific terminology and examples")
+            else:
+                recommendations.append("MILD AI: Minor adjustments to sentence structure needed")
+        
+        # Natural Voice specific recommendations  
+        if nv_score > nv_threshold:
+            if nv_score > 50:
+                recommendations.append("OVER-HUMANIZED: Reduce excessive casual language, maintain professionalism")
+            elif nv_score > 30:
+                recommendations.append("VOICE IMBALANCE: Balance technical expertise with conversational tone")
+            else:
+                recommendations.append("MINOR VOICE ADJUSTMENT: Fine-tune professional authenticity")
+        
+        # Scoring-specific guidance
+        if ai_score <= 25 and 15 <= nv_score <= 25:
+            recommendations.append("EXCELLENT: Content achieves optimal AI/Natural Voice balance")
+        elif ai_score <= 25 and nv_score < 15:
+            recommendations.append("GOOD AI, LOW NV: Add more authentic professional voice elements")
+        elif ai_score > 25 and 15 <= nv_score <= 25:
+            recommendations.append("GOOD NV, HIGH AI: Reduce robotic patterns while preserving voice")
+        
+        return recommendations
 
-                # Still display fancy terminal output for fallback
-                self._display_detection_results(
-                    section_name=section_name,
-                    score=fallback_score,
-                    feedback=fallback_feedback,
-                    iteration=iteration,
-                    detection_type=detection_type,
-                    prompt_variation=f"{prompt_name} (fallback)",
-                )
-
-                return AIScore(
-                    score=fallback_score,
-                    feedback=fallback_feedback,
-                    iteration=iteration,
-                    detection_type=detection_type,
-                )
-
-            # For other errors, still raise the exception
-            raise DetectionError(
-                f"Failed to run {detection_type} detection: {error_msg}",
-                detection_type=detection_type,
-                content_length=len(content),
-            ) from e
-
-    def _parse_detection_response(
-        self, response: str, detection_type: str
-    ) -> tuple[int, str]:
-        """Parse the detection response to extract score and feedback."""
-        try:
-            lines = response.strip().split("\n")
-            score = None
-            feedback = ""
-
-            for line in lines:
-                line = line.strip()
-                if line.lower().startswith("percentage:"):
-                    # Extract percentage
-                    score_text = line.split(":", 1)[1].strip()
-                    # Remove % sign and convert to int
-                    score_text = score_text.replace("%", "").strip()
-                    score = int(score_text)
-                elif line.lower().startswith("summary:"):
-                    # Extract feedback
-                    feedback = line.split(":", 1)[1].strip()
-
-            if score is None:
-                # Fallback: try to find any number in the response
-                import re
-
-                numbers = re.findall(r"\b(\d{1,3})%?\b", response)
-                if numbers:
-                    score = int(numbers[0])
-                else:
-                    logger.warning(
-                        f"Could not parse score from {detection_type} response: {response}"
-                    )
-                    score = 50  # Default score
-
-            if not feedback:
-                feedback = (
-                    f"No specific feedback provided for {detection_type} detection."
-                )
-
-            # Ensure score is in valid range
-            score = max(0, min(100, score))
-
-            return score, feedback
-
-        except Exception as e:
-            logger.error(
-                f"Failed to parse {detection_type} detection response: {str(e)}"
-            )
-            return 50, f"Failed to parse {detection_type} detection response."
-
-    def _truncate_content_for_detection(
-        self, content: str, max_chars: int = 3000
-    ) -> str:
-        """Truncate content for detection to keep prompts within token limits."""
-        if len(content) <= max_chars:
-            return content
-
-        # Truncate content but try to keep complete sentences
-        truncated = content[:max_chars]
-
-        # Find the last complete sentence
-        last_period = truncated.rfind(".")
-        last_exclamation = truncated.rfind("!")
-        last_question = truncated.rfind("?")
-
-        last_sentence_end = max(last_period, last_exclamation, last_question)
-
-        if last_sentence_end > max_chars * 0.7:  # If we can keep most content
-            truncated = truncated[: last_sentence_end + 1]
-
-        # Removed verbose warning
-        return truncated + "..."
-
-    def _display_detection_results(
-        self,
-        section_name: str,
-        score: int,
-        feedback: str,
-        iteration: int,
-        detection_type: str,
-        prompt_variation: str = None,
-    ) -> None:
-        """Display fancy terminal output for detection results."""
-        # Color codes for terminal
-        GREEN = "\033[92m"
-        YELLOW = "\033[93m"
-        RED = "\033[91m"
-        RESET = "\033[0m"
-
-        # Determine color based on score
-        if score <= 25:
-            score_color = GREEN
-        elif score <= 50:
-            score_color = YELLOW
-        else:
-            score_color = RED
-
-        # Create shorter progress bar
-        progress_filled = "■" * (score // 10)
-        progress_empty = "□" * (10 - (score // 10))
-        progress_bar = f"{progress_filled}{progress_empty}"
-
-        # Print minimal output
-        print(
-            f"{detection_type.upper()}: {score_color}{score}% [{progress_bar}]{RESET}"
+    def _log_comprehensive_results(self, results: Dict[str, any]) -> None:
+        """Log comprehensive detection results with clear formatting."""
+        iteration = results["iteration"]
+        ai_result = results["ai_detection"]
+        nv_result = results["natural_voice_detection"]
+        status = results["overall_status"]
+        
+        self.logger.info(f"🔍 Comprehensive Detection Results (Iteration {iteration}):")
+        
+        # AI Detection Results
+        ai_emoji = ai_result["interpretation"].emoji
+        ai_status = "✅ PASS" if ai_result["passes"] else "❌ FAIL"
+        self.logger.info(
+            f"   🧠 AI Detection: {ai_result['score']}% {ai_emoji} ({ai_status}) "
+            f"[Threshold: ≤{ai_result['threshold']}%]"
         )
-
-    def get_optimal_prompt(self, detection_type: str, iteration: int = 1) -> str:
-        """
-        Select the optimal prompt variation based on iteration and past performance.
-
-        Strategy:
-        - Iteration 1: Start with a baseline prompt (minimal)
-        - Iteration 2: Use a different style (comprehensive if minimal failed)
-        - Iteration 3+: Rotate through remaining variations or use performance data
-
-        Args:
-            detection_type: 'ai' or 'human'
-            iteration: Current iteration number (1, 2, 3...)
-
-        Returns:
-            Prompt filename to use for detection
-        """
-        variations = (
-            self._ai_prompt_variations
-            if detection_type == "ai"
-            else self._human_prompt_variations
+        self.logger.info(f"      {ai_result['interpretation'].description}")
+        
+        # Natural Voice Results
+        nv_emoji = nv_result["interpretation"].emoji
+        nv_status = "✅ PASS" if nv_result["passes"] else "❌ FAIL"
+        self.logger.info(
+            f"   👤 Natural Voice: {nv_result['score']}% {nv_emoji} ({nv_status}) "
+            f"[Threshold: ≤{nv_result['threshold']}%]"
         )
+        self.logger.info(f"      {nv_result['interpretation'].description}")
+        
+        # Overall Status
+        status_emoji = "✅" if status == "PASS" else "❌" if status == "FAIL" else "⚠️"
+        self.logger.info(f"   🏁 Overall: {status_emoji} {status}")
+        
+        # Recommendations
+        if results["recommendations"]:
+            self.logger.info("   💡 Recommendations:")
+            for rec in results["recommendations"]:
+                self.logger.info(f"      • {rec}")
+        
+        # Temperature Strategy
+        temp_adj = results.get("temperature_adjustments")
+        if temp_adj:
+            self.logger.info(f"   🌡️ Temperature Strategy: {temp_adj['strategy']}")
 
-        if not variations:
-            return (
-                "ai_detection_prompt_minimal.txt"
-                if detection_type == "ai"
-                else "human_detection_prompt_minimal.txt"
-            )
-
-        # Strategic variation selection
-        if iteration == 1:
-            # Start with minimal/direct approach
-            preferred = f"{detection_type}_detection_prompt_minimal.txt"
-            return preferred if preferred in variations else variations[0]
-
-        elif iteration == 2:
-            # Switch to comprehensive approach if minimal didn't work
-            preferred = f"{detection_type}_detection_prompt.txt"
-            return (
-                preferred
-                if preferred in variations
-                else variations[1 % len(variations)]
-            )
-
-        elif iteration == 3:
-            # Try focused/short variation
-            preferred = f"{detection_type}_detection_prompt_short.txt"
-            return (
-                preferred
-                if preferred in variations
-                else variations[2 % len(variations)]
-            )
-
-        else:
-            # Later iterations: cycle through remaining variations
-            # Avoid repeating the same pattern
-            variation_index = (iteration - 1) % len(variations)
-            return variations[variation_index]
-
-    def get_prompt_variation_info(self) -> dict:
-        """Get information about available prompt variations."""
+    def get_detection_patterns(self) -> Dict[str, any]:
+        """Get analysis of detection patterns for debugging and optimization."""
+        if not self.detection_history:
+            return {"status": "no_data", "message": "No detection history available"}
+        
+        recent_history = self.detection_history[-5:]  # Last 5 iterations
+        
         return {
-            "ai_variations": len(self._ai_prompt_variations),
-            "human_variations": len(self._human_prompt_variations),
-            "ai_prompts": self._ai_prompt_variations,
-            "human_prompts": self._human_prompt_variations,
-            "performance_data": self._prompt_performance,
+            "total_iterations": len(self.detection_history),
+            "recent_ai_scores": [h["ai_score"] for h in recent_history],
+            "recent_nv_scores": [h["nv_score"] for h in recent_history],
+            "ai_trend": self._calculate_trend([h["ai_score"] for h in recent_history]),
+            "nv_trend": self._calculate_trend([h["nv_score"] for h in recent_history]),
+            "pass_rate": {
+                "ai": sum(1 for h in recent_history if h["ai_passes"]) / len(recent_history),
+                "nv": sum(1 for h in recent_history if h["nv_passes"]) / len(recent_history),
+            },
+            "temperature_manager_status": self.temp_manager.get_status_summary(),
         }
 
-    def track_prompt_performance(
-        self,
-        prompt_name: str,
-        detection_type: str,
-        score: int,
-        iteration: int,
-        success: bool,
-    ) -> None:
-        """
-        Track performance of prompt variations for future optimization.
+    def _calculate_trend(self, scores: List[float]) -> str:
+        """Calculate trend direction for scores."""
+        if len(scores) < 2:
+            return "insufficient_data"
+        
+        if scores[-1] > scores[0]:
+            return "increasing"
+        elif scores[-1] < scores[0]:
+            return "decreasing"
+        else:
+            return "stable"
 
-        Args:
-            prompt_name: Name of the prompt used
-            detection_type: 'ai' or 'human'
-            score: Detection score returned
-            iteration: Iteration number
-            success: Whether the score met the threshold
-        """
-        key = f"{prompt_name}_{detection_type}"
-        if key not in self._prompt_performance:
-            self._prompt_performance[key] = {
-                "uses": 0,
-                "total_score": 0,
-                "successes": 0,
-                "avg_score": 0,
-                "success_rate": 0,
-            }
-
-        perf = self._prompt_performance[key]
-        perf["uses"] += 1
-        perf["total_score"] += score
-        perf["successes"] += 1 if success else 0
-        perf["avg_score"] = perf["total_score"] / perf["uses"]
-        perf["success_rate"] = perf["successes"] / perf["uses"]
-
-        logger.debug(f"Prompt performance updated: {key} - {perf}")
-
-    def generate_optimized_prompt(self, detection_type: str) -> tuple[str, str]:
-        """
-        Generate an optimized prompt based on performance data.
-
-        Args:
-            detection_type: 'ai' or 'human'
-
-        Returns:
-            Tuple of (prompt_content, suggested_filename)
-        """
-        return self._optimizer.generate_optimized_prompt(detection_type)
-
-    def get_performance_report(self) -> str:
-        """Get a comprehensive performance report for all prompts."""
-        return self._optimizer.get_performance_report()
-
-    def get_optimization_analysis(self, detection_type: str = None) -> dict:
-        """Get detailed analysis of prompt performance patterns."""
-        return self._optimizer.analyze_prompt_patterns(detection_type)
-
-    def save_optimized_prompt(self, detection_type: str) -> str:
-        """
-        Generate and save an optimized prompt to the prompts directory.
-
-        Returns:
-            Path to the saved prompt file
-        """
-        content, filename = self.generate_optimized_prompt(detection_type)
-
-        # Save to prompts directory
-        prompt_path = f"generator/prompts/detection/{filename}"
-        try:
-            with open(prompt_path, "w") as f:
-                f.write(content)
-            logger.info(f"Saved optimized prompt: {prompt_path}")
-
-            # Add to available variations
-            prompt_name = filename.replace(".txt", "")
-            if detection_type == "ai":
-                if prompt_name not in self._ai_prompt_variations:
-                    self._ai_prompt_variations.append(prompt_name)
-            else:
-                if prompt_name not in self._human_prompt_variations:
-                    self._human_prompt_variations.append(prompt_name)
-
-            return prompt_path
-        except Exception as e:
-            logger.error(f"Failed to save optimized prompt: {e}")
-            raise DetectionError(f"Failed to save optimized prompt: {e}")
+    # Legacy compatibility methods (deprecated but maintained for backward compatibility)
+    
+    def detect_ai_content(self, *args, **kwargs) -> AIScore:
+        """Legacy method - redirects to detect_ai_patterns."""
+        self.logger.warning("Using deprecated detect_ai_content method. Use detect_ai_patterns instead.")
+        return self.detect_ai_patterns(*args, **kwargs)
+    
+    def detect_human_content(self, *args, **kwargs) -> AIScore:
+        """Legacy method - redirects to detect_natural_voice_authenticity.""" 
+        self.logger.warning("Using deprecated detect_human_content method. Use detect_natural_voice_authenticity instead.")
+        return self.detect_natural_voice_authenticity(*args, **kwargs)

@@ -124,8 +124,8 @@ class LegacyContentGeneratorAdapter:
         try:
             provider_enum = ProviderType(provider.upper())
         except ValueError:
-            logger.warning(f"Unknown provider {provider}, defaulting to DEEPSEEK")
-            provider_enum = ProviderType.DEEPSEEK
+            logger.error(f"Unknown provider {provider}, no fallback configured")
+            raise ValueError(f"Provider {provider} is not supported. Check your run.py configuration.")
 
         return GenerationRequest(
             material=material,

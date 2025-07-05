@@ -115,21 +115,21 @@ def run_content_test(
         try:
             run_module = import_module("run")
             provider_name = getattr(
-                run_module.USER_CONFIG, "detection_provider", "DEEPSEEK"
+                run_module.USER_CONFIG, "detection_provider", None
             )
             provider = getattr(
-                ProviderType, provider_name.upper(), ProviderType.DEEPSEEK
-            )
+                ProviderType, provider_name.upper(), None
+            ) if provider_name else None
             model = None
 
             # Get model from PROVIDER_MODELS in run.py
-            if hasattr(run_module, "PROVIDER_MODELS"):
+            if hasattr(run_module, "PROVIDER_MODELS") and provider_name:
                 model_settings = run_module.PROVIDER_MODELS.get(provider_name, {})
-                model = model_settings.get("model", "deepseek-chat")
+                model = model_settings.get("model")
         except (ImportError, AttributeError):
-            # Fallback to DEEPSEEK if can't access run.py config
-            provider = ProviderType.DEEPSEEK
-            model = "deepseek-chat"
+            # No fallback - must be properly configured
+            provider = None
+            model = None
 
         # Create generation request
         request = GenerationRequest(

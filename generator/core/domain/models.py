@@ -173,6 +173,7 @@ class GenerationRequest:
 
 
 @dataclass
+@dataclass
 class GenerationContext:
     """Context for content generation including variables and metadata."""
 

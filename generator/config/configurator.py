@@ -12,6 +12,15 @@ def build_run_config(user_config: dict) -> RunConfiguration:
     config = dict(user_config)
     # Keep 'category' field for RunConfiguration (don't map to 'article_category')
 
+    # Map natural_voice_threshold to human_detection_threshold for backward compatibility
+    if (
+        "natural_voice_threshold" in config
+        and "human_detection_threshold" not in config
+    ):
+        config["human_detection_threshold"] = config["natural_voice_threshold"]
+        # Remove the original key since RunConfiguration doesn't expect it
+        del config["natural_voice_threshold"]
+
     # Dynamically import PROVIDER_MODELS from run.py to avoid circular imports
     try:
         # Get the path to run.py (assumed to be in the project root)

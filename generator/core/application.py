@@ -85,7 +85,7 @@ def configure_services(container: ServiceContainer) -> None:
     # Register API client factory (will be created per request based on provider)
     def api_client_factory():
         # Use detection_provider from settings if available, otherwise fallback to generator_provider
-        provider = "DEEPSEEK"  # Default fallback
+        provider = None  # No hardcoded fallback - must be configured
 
         # Try to get provider from settings
         try:

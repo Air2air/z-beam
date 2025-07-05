@@ -5,35 +5,42 @@
       "description": "Standard improvement prompt for initial refinement attempts",
       "is_default": true,
       "strategy_type": "default",
-      "prompt": "Rewrite this content to reduce AI-detection likelihood while maintaining technical accuracy:\n\nREWRITING GUIDELINES:\n- Break overly consistent paragraph lengths\n- Vary sentence structures and lengths\n- Add natural contractions (don't, isn't, etc.)\n- Include casual transitions between ideas\n- Replace generic statements with specific examples\n- Add appropriate industry terminology\n- Introduce slight variations in tone\n- Ensure technical accuracy is maintained\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+      "prompt": "Refine this content to develop a more natural voice while maintaining technical accuracy:\n\nNATURAL VOICE REFINEMENT:\n- Subtly vary paragraph lengths to create natural rhythm\n- Mix sentence structures - occasional short punchy statements with longer explanatory ones\n- Use selective contractions only where they feel natural (don't overdo it)\n- Replace generic statements with specific, practical insights\n- Add focused industry terminology where it naturally fits\n- Create smooth, logical transitions between ideas\n- Maintain professional tone without being overly formal\n- Preserve all technical accuracy and details\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
     },
     {
       "name": "reduce_ai_patterns",
       "description": "Focused on significantly reducing AI patterns",
       "is_default": false,
       "strategy_type": "ai_reduction",
-      "prompt": "Rewrite this content to significantly reduce AI-detection patterns while maintaining technical accuracy:\n\nCRITICAL AI PATTERN REDUCTION:\n- Break repetitive paragraph structures and sentence patterns\n- Remove perfectly balanced \"on one hand, on the other hand\" comparisons\n- Replace academic/formal phrases with industry-specific language\n- Add natural contractions (don't, isn't, you'll, we're, etc.)\n- Mix very short sentences with medium ones for varied rhythm\n- Include 1-2 mild colloquial expressions that an expert would use\n- Add a practical insight that suggests personal experience\n- Keep all technical information accurate\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+      "prompt": "Refine this content to reduce AI-detection patterns while developing a natural voice:\n\nAI PATTERN REDUCTION:\n- Break any repetitive paragraph or sentence patterns\n- Avoid overly balanced \"on one hand, on the other hand\" structures\n- Replace academic phrasing with professional industry language\n- Use selective contractions where they naturally occur in speech\n- Create natural rhythm with varied sentence lengths\n- Include practical insights that demonstrate expertise\n- Add specific examples where they strengthen understanding\n- Maintain all technical accuracy\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
     },
     {
-      "name": "increase_human_qualities",
-      "description": "Focused on enhancing human-like writing patterns",
+      "name": "enhance_natural_voice",
+      "description": "Focused on developing authentic natural voice qualities",
       "is_default": false,
-      "strategy_type": "human_enhancement",
-      "prompt": "Rewrite this content to significantly increase human-like writing qualities while maintaining technical accuracy:\n\nHUMAN WRITING ENHANCEMENT:\n- Add a specific anecdote or practical example from industry experience\n- Include mild personal opinions where appropriate (\"I've found that...\" or \"In my experience...\")\n- Use natural language patterns with occasional sentence fragments\n- Vary technical depth - go deeper in 1-2 areas, lighter on others\n- Add industry jargon or specialized terminology where appropriate\n- Use natural transitions (\"Actually,\" \"By the way,\" \"The thing is,\")\n- Include an unexpected insight that shows specialized knowledge\n- Maintain all technical accuracy\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+      "strategy_type": "natural_voice_enhancement",
+      "prompt": "Refine this content to develop a more authentic natural voice while maintaining technical accuracy:\n\nNATURAL VOICE DEVELOPMENT:\n- Add one specific, practical example from industry experience where relevant\n- Include focused professional insights that show specialized knowledge\n- Use natural language flow with occasional brief, direct statements\n- Vary technical depth appropriately - detailed where it matters most\n- Incorporate appropriate industry terminology naturally\n- Create smooth transitions that feel conversational yet professional\n- Add subtle personal perspective where it strengthens the content\n- Maintain all technical accuracy and professional standards\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
     },
     {
       "name": "balanced_improvement",
-      "description": "Balanced approach improving both AI-detection and human-like qualities",
+      "description": "Balanced approach improving both AI-detection and natural voice qualities",
       "is_default": false,
       "strategy_type": "balanced",
-      "prompt": "Rewrite this content using a balanced approach to improve both AI-detection and human-like qualities:\n\nBALANCED IMPROVEMENT APPROACH:\n- Balance formal technical content with occasional informal language\n- Introduce 1-2 practical examples or insights from experience\n- Vary paragraph lengths and sentence structures naturally\n- Use selective industry terminology where appropriate\n- Add mild colloquialisms or natural phrasing\n- Include some focused opinions while maintaining overall balance\n- Create natural transitions between topics\n- Preserve all technical accuracy and details\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+      "prompt": "Refine this content using a balanced approach to improve both AI-detection and natural voice qualities:\n\nBALANCED NATURAL REFINEMENT:\n- Balance formal technical content with natural conversational flow\n- Introduce practical examples or insights where they add value\n- Vary paragraph lengths and sentence structures naturally\n- Use appropriate industry terminology where it fits organically\n- Add subtle natural phrasing without being colloquial\n- Include focused professional perspectives while maintaining objectivity\n- Create logical, smooth transitions between topics\n- Preserve all technical accuracy and details\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
     },
     {
       "name": "light_refinement",
       "description": "Light touch improvements for content that's already scoring well",
       "is_default": false,
       "strategy_type": "light",
-      "prompt": "Make light refinements to this already well-written content to further improve naturalness:\n\nSUBTLE REFINEMENT APPROACH:\n- Preserve most of the existing content and structure\n- Make minor adjustments to sentence flow\n- Add 1-2 natural transitions or connectors\n- Replace any overly formal phrasing with more natural equivalents\n- Add minimal personal voice where appropriate\n- Ensure varied paragraph and sentence structure is maintained\n- Keep all technical content and accuracy intact\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+      "prompt": "Make light refinements to this already well-written content to further improve naturalness:\n\nSUBTLE REFINEMENT APPROACH:\n- Preserve most of the existing content and structure\n- Make minor adjustments to sentence flow for better rhythm\n- Add subtle natural transitions or connectors where helpful\n- Replace any overly formal phrasing with more natural equivalents\n- Add minimal professional voice where it strengthens the content\n- Ensure varied paragraph and sentence structure is maintained\n- Keep all technical content and accuracy intact\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+    },
+    {
+      "name": "professional_authenticity",
+      "description": "Focus on developing authentic professional voice without exaggeration",
+      "is_default": false,
+      "strategy_type": "professional",
+      "prompt": "Refine this content to develop an authentic professional voice that feels natural and experienced:\n\nPROFESSIONAL AUTHENTICITY APPROACH:\n- Focus on natural expertise demonstration through practical insights\n- Use industry terminology that flows naturally within the context\n- Create subtle variations in sentence length and structure\n- Add one focused example that demonstrates real-world understanding\n- Maintain professional objectivity while showing specialized knowledge\n- Use direct, clear language that avoids unnecessary complexity\n- Ensure technical accuracy while making content accessible\n- Develop natural rhythm without forced conversational elements\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
     }
   ]
 }

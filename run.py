@@ -39,19 +39,19 @@ TEMP_CONFIG = TemperatureConfig(
 )
 
 USER_CONFIG = dict(
-    material="Steel",  # Simple material for testing
+    material="Bronze",  # Simple material for testing
     category="Material",  # Article category
-    file_name="test_steel_laser_cleaning.mdx",  # Output filename
+    file_name="bronze_laser_cleaning.mdx",  # Output filename
     generator_provider="DEEPSEEK",  # XAI GEMINI DEEPSEEK
     detection_provider="DEEPSEEK",  # XAI GEMINI DEEPSEEK
     author="todd_dunning.mdx",  # Author profile
     temperature=0.6,  # LEGACY: Maintained for backward compatibility
     force_regenerate=True,  # Always regenerate content
     ai_detection_threshold=25,  # STRICT: Much more stringent AI detection (25% max)
-    human_detection_threshold=25,  # STRICT: Much more stringent human detection (25% max)
+    natural_voice_threshold=25,  # STRICT: Natural voice authenticity target (15-25% range)
     iterations_per_section=5,  # INCREASED: More iterations to improve detection scores
     max_article_words=800,  # SAFE MODE: Smaller for faster testing
-    api_timeout=60,  # API request timeout in seconds
+    api_timeout=40,  # API request timeout in seconds
     detection_temperature=0.3,  # LEGACY: Maintained for backward compatibility
     temperature_config=TEMP_CONFIG,  # NEW: Centralized temperature configuration
     # Content length limits are now handled by word budget manager

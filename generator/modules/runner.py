@@ -68,10 +68,25 @@ class RunConfiguration:
             raise ConfigurationError("Material cannot be empty")
         if not self.file_name:
             raise ConfigurationError("file_name cannot be empty")
-        if self.generator_provider.upper() not in ["GEMINI", "XAI", "DEEPSEEK"]:
-            raise ConfigurationError(
-                f"Unsupported generator_provider: {self.generator_provider}"
-            )
+        
+        # Validate provider against run.py configuration instead of hardcoded list
+        try:
+            import sys, os, importlib.util
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+            run_path = os.path.join(project_root, "run.py")
+            spec = importlib.util.spec_from_file_location("run_module", run_path)
+            run_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(run_module)
+            supported_providers = list(getattr(run_module, "PROVIDER_MODELS", {}).keys())
+            
+            if self.generator_provider.upper() not in [p.upper() for p in supported_providers]:
+                raise ConfigurationError(
+                    f"Unsupported generator_provider: {self.generator_provider}. "
+                    f"Supported providers: {supported_providers}"
+                )
+        except Exception:
+            # If we can't load run.py, just skip provider validation
+            pass
 
 
 class ApplicationRunner:

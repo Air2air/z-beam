@@ -144,25 +144,19 @@ class ContentGenerationService(IContentGenerator):
                 f"Detection iteration {iteration}/{request.iterations_per_section} for {section_config.name}"
             )
 
-            # Run AI detection
-            ai_score = self._detection_service.detect_ai_likelihood(
+            # Run comprehensive detection using new unified system
+            detection_results = self._detection_service.run_comprehensive_detection(
                 current_content,
                 context,
+                request.ai_detection_threshold,
+                request.human_detection_threshold,
                 iteration,
-                request.detection_temperature,  # Legacy parameter kept for backward compatibility
-                request.api_timeout,
-                temperature_config=request.temperature_config,  # Pass the temperature_config
+                temperature_config=request.temperature_config,
             )
-
-            # Run human detection
-            human_score = self._detection_service.detect_human_likelihood(
-                current_content,
-                context,
-                iteration,
-                request.detection_temperature,  # Legacy parameter kept for backward compatibility
-                request.api_timeout,
-                temperature_config=request.temperature_config,  # Pass the temperature_config
-            )
+            
+            # Extract individual scores for compatibility with existing logic
+            ai_score = detection_results["ai_detection"]["raw_result"]
+            human_score = detection_results["natural_voice_detection"]["raw_result"]
 
             # Display iteration results
             self._display_iteration_results(
@@ -672,3 +666,66 @@ class ContentGenerationService(IContentGenerator):
 
         except Exception as e:
             logger.error(f"Failed to track improvement cycle: {str(e)}")
+
+    def generate_section_content(
+        self,
+        section_name: str,
+        material: str,
+        generation_context: dict,
+        api_client,
+        prompt_manager,
+        ai_detection_threshold: int,
+        human_detection_threshold: int,
+        iterations_per_section: int = 3,
+        temperature: float = 0.6,
+        timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> dict:
+        """Generate content for a specific section (interface compatibility method)."""
+        # This is a legacy interface method - redirect to the main generation flow
+        from generator.core.domain.models import GenerationRequest, GenerationContext
+
+        # Create proper request and context objects
+        request = GenerationRequest(
+            material=material,
+            section_configs={
+                section_name: SectionConfig(
+                    name=section_name, ai_detect=True, prompt_file=f"{section_name}.txt"
+                )
+            },
+            ai_detection_threshold=ai_detection_threshold,
+            human_detection_threshold=human_detection_threshold,
+            iterations_per_section=iterations_per_section,
+            temperature_config=temperature_config or TemperatureConfig(),
+        )
+
+        context = GenerationContext(
+            material=material, content_type=section_name, variables=generation_context
+        )
+
+        # Generate the content using the main method
+        result = self.generate_content(request, context)
+
+        # Return in the legacy format
+        if result.sections and section_name in result.sections:
+            section_result = result.sections[section_name]
+            return {
+                "content": section_result.content,
+                "ai_score": section_result.ai_score,
+                "human_score": section_result.human_score,
+                "iterations": section_result.iterations,
+                "word_count": len(section_result.content.split()),
+            }
+        else:
+            # Return empty result if generation failed
+            return {
+                "content": "",
+                "ai_score": AIScore(
+                    score=100, feedback="Generation failed", iteration=0
+                ),
+                "human_score": AIScore(
+                    score=100, feedback="Generation failed", iteration=0
+                ),
+                "iterations": 0,
+                "word_count": 0,
+            }

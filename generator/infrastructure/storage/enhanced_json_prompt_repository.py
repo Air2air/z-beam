@@ -357,3 +357,38 @@ class EnhancedJsonPromptRepository(IPromptRepository):
             raise FileOperationError(
                 f"Failed to save prompt: {e}", prompt.name, "save_prompt"
             )
+
+    def get_sections_config(self) -> Dict[str, Any]:
+        """Get all section configurations."""
+        from generator.core.domain.models import SectionConfig
+
+        if not self._loaded["sections"]:
+            self._load_sections_json()
+
+        configs = {}
+        for section_name, metadata in self._section_cache.items():
+            # Create SectionConfig from metadata
+            configs[section_name] = SectionConfig(
+                name=section_name,
+                ai_detect=metadata.get("ai_detect", True),
+                prompt_file=metadata.get("prompt_file", f"{section_name}.txt"),
+                **metadata.get("metadata", {}),
+            )
+        return configs
+
+    def get_section_config(self, section_name: str) -> Optional[Any]:
+        """Get configuration for a specific section."""
+        from generator.core.domain.models import SectionConfig
+
+        if not self._loaded["sections"]:
+            self._load_sections_json()
+
+        if section_name in self._section_cache:
+            metadata = self._section_cache[section_name]
+            return SectionConfig(
+                name=section_name,
+                ai_detect=metadata.get("ai_detect", True),
+                prompt_file=metadata.get("prompt_file", f"{section_name}.txt"),
+                **metadata.get("metadata", {}),
+            )
+        return None

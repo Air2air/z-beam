@@ -1,6 +1,6 @@
 """
-Service interfaces for the Z-Beam generator.
-These define the contracts that implementations must follow.
+Service interfaces for the article generation system.
+These interfaces define the contracts that implementations must follow.
 """
 
 from abc import ABC, abstractmethod
@@ -12,28 +12,23 @@ from generator.core.domain.models import (
     AIScore,
     SectionConfig,
     PromptTemplate,
-    CacheEntry,
-    ArticleMetadata,
     TemperatureConfig,
 )
 
 
-class IContentGenerator(ABC):
+class IContentService(ABC):
     """Interface for content generation services."""
 
     @abstractmethod
-    def generate_section(
-        self,
-        request: GenerationRequest,
-        section_config: SectionConfig,
-        context: GenerationContext,
+    def generate_content(
+        self, request: GenerationRequest, context: GenerationContext
     ) -> GenerationResult:
-        """Generate content for a single section."""
+        """Generate content based on the request and context."""
         pass
 
 
 class IDetectionService(ABC):
-    """Interface for AI/human detection services."""
+    """Interface for AI detection services."""
 
     @abstractmethod
     def detect_ai_likelihood(
@@ -58,7 +53,46 @@ class IDetectionService(ABC):
         timeout: int = 60,
         temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
-        """Detect overly human-like characteristics in content."""
+        """Detect Natural Voice characteristics in content."""
+        pass
+
+    @abstractmethod
+    def detect_ai_patterns(
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> AIScore:
+        """Detect AI-generated patterns in content (new method)."""
+        pass
+
+    @abstractmethod
+    def detect_natural_voice_authenticity(
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> AIScore:
+        """Detect Natural Voice authenticity in content (new method)."""
+        pass
+
+    @abstractmethod
+    def run_comprehensive_detection(
+        self,
+        content: str,
+        context: GenerationContext,
+        ai_threshold: int,
+        natural_voice_threshold: int,
+        iteration: int = 1,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> Dict[str, Any]:
+        """Run comprehensive detection with both AI and Natural Voice analysis."""
         pass
 
 
@@ -69,17 +103,24 @@ class IAPIClient(ABC):
     def call_api(
         self,
         prompt: str,
-        model: str,
-        temperature: float = 1.0,
-        max_tokens: int = 2048,
-        **kwargs,
+        model: str = None,
+        temperature: float = 0.7,
+        max_tokens: int = 3000,
+        timeout: int = 60,
     ) -> str:
-        """Make an API call to the AI provider."""
+        """Call the AI API with the given parameters."""
         pass
 
     @abstractmethod
-    def get_provider_name(self) -> str:
-        """Get the name of the AI provider."""
+    def call_ai_api(
+        self,
+        prompt: str,
+        model: str = None,
+        temperature: float = 0.7,
+        max_tokens: int = 3000,
+        timeout: int = 60,
+    ) -> str:
+        """Legacy method name for backward compatibility."""
         pass
 
 
@@ -87,68 +128,102 @@ class IPromptRepository(ABC):
     """Interface for prompt storage and retrieval."""
 
     @abstractmethod
-    def get_prompt(self, name: str, category: str) -> Optional[PromptTemplate]:
-        """Retrieve a prompt template by name and category."""
+    def get_prompt(self, name: str, category: str = None) -> Optional[PromptTemplate]:
+        """Get a prompt template by name and optional category."""
         pass
 
     @abstractmethod
-    def list_prompts(self, category: Optional[str] = None) -> List[PromptTemplate]:
-        """List available prompt templates."""
+    def list_prompts(self, category: str = None) -> List[str]:
+        """List available prompt names, optionally filtered by category."""
         pass
 
     @abstractmethod
-    def save_prompt(self, prompt: PromptTemplate) -> None:
-        """Save a prompt template."""
-        pass
-
-
-class ICacheRepository(ABC):
-    """Interface for content caching."""
-
-    @abstractmethod
-    def get(self, key: str) -> Optional[CacheEntry]:
-        """Retrieve a cache entry by key."""
+    def get_sections_config(self) -> Dict[str, SectionConfig]:
+        """Get all section configurations."""
         pass
 
     @abstractmethod
-    def set(
-        self, key: str, content: str, metadata: Optional[Dict[str, Any]] = None
-    ) -> None:
-        """Store a cache entry."""
-        pass
-
-    @abstractmethod
-    def delete(self, key: str) -> None:
-        """Delete a cache entry."""
-        pass
-
-    @abstractmethod
-    def clear_expired(self, max_age_seconds: float) -> int:
-        """Clear expired cache entries and return count of deleted entries."""
+    def get_section_config(self, section_name: str) -> Optional[SectionConfig]:
+        """Get configuration for a specific section."""
         pass
 
 
-class IFileHandler(ABC):
-    """Interface for file operations."""
+class IPromptManager(ABC):
+    """Interface for prompt management and loading."""
 
     @abstractmethod
-    def read_file(self, file_path: str) -> str:
-        """Read content from a file."""
+    def load_prompt(self, filename: str, category: str = None) -> str:
+        """Load a prompt from file."""
         pass
 
     @abstractmethod
-    def write_file(self, file_path: str, content: str) -> None:
-        """Write content to a file."""
+    def get_prompt_content(self, prompt_name: str, category: str = None) -> str:
+        """Get prompt content by name."""
+        pass
+
+
+class IContentGenerator(ABC):
+    """Interface for content generation."""
+
+    @abstractmethod
+    def generate_section_content(
+        self,
+        section_name: str,
+        material: str,
+        generation_context: Dict[str, Any],
+        api_client: IAPIClient,
+        prompt_manager: IPromptManager,
+        ai_detection_threshold: int,
+        human_detection_threshold: int,
+        iterations_per_section: int = 3,
+        temperature: float = 0.6,
+        timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> Dict[str, Any]:
+        """Generate content for a specific section."""
+        pass
+
+
+class IArticleGenerator(ABC):
+    """Interface for article generation."""
+
+    @abstractmethod
+    def generate_article(
+        self,
+        config: Any,
+        ai_detection_threshold: int,
+        human_detection_threshold: int,
+        iterations_per_section: int = 3,
+        force_regenerate: bool = False,
+        max_article_words: int = 1200,
+        api_timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
+    ) -> Any:
+        """Generate a complete article."""
+        pass
+
+
+class IWordBudgetManager(ABC):
+    """Interface for managing word budgets across sections."""
+
+    @abstractmethod
+    def allocate_budget(self, total_words: int, sections: List[str]) -> Dict[str, int]:
+        """Allocate word budget across sections."""
         pass
 
     @abstractmethod
-    def file_exists(self, file_path: str) -> bool:
-        """Check if a file exists."""
+    def get_section_budget(self, section_name: str) -> int:
+        """Get the word budget for a specific section."""
         pass
 
     @abstractmethod
-    def create_directory(self, dir_path: str) -> None:
-        """Create a directory if it doesn't exist."""
+    def update_usage(self, section_name: str, words_used: int) -> None:
+        """Update the word usage for a section."""
+        pass
+
+    @abstractmethod
+    def get_remaining_budget(self, section_name: str) -> int:
+        """Get the remaining word budget for a section."""
         pass
 
 
@@ -157,46 +232,74 @@ class IMetadataGenerator(ABC):
 
     @abstractmethod
     def generate_metadata(
-        self,
-        material: str,
-        material_config: Dict[str, Any],
-        article_config: Dict[str, Any],
-        author_metadata: Dict[str, Any],
-        ai_scores: Dict[str, int],
-        category: str = "material",
-    ) -> ArticleMetadata:
-        """Generate article metadata."""
+        self, content: str, config: Any, context: GenerationContext
+    ) -> Dict[str, Any]:
+        """Generate metadata for the article."""
         pass
 
 
-class IValidationService(ABC):
-    """Interface for content validation."""
+class IFileManager(ABC):
+    """Interface for file operations."""
 
     @abstractmethod
-    def validate_mdx(self, content: str) -> tuple[bool, List[str]]:
-        """Validate MDX content and return (is_valid, errors)."""
+    def write_file(self, filepath: str, content: str) -> bool:
+        """Write content to a file."""
         pass
 
     @abstractmethod
-    def sanitize_content(self, content: str) -> str:
-        """Sanitize content for safe output."""
-        pass
-
-
-class IConfigurationService(ABC):
-    """Interface for configuration management."""
-
-    @abstractmethod
-    def get_provider_config(self, provider: str) -> Dict[str, Any]:
-        """Get configuration for a specific provider."""
+    def read_file(self, filepath: str) -> str:
+        """Read content from a file."""
         pass
 
     @abstractmethod
-    def get_section_configs(self) -> Dict[str, SectionConfig]:
-        """Get all section configurations."""
+    def file_exists(self, filepath: str) -> bool:
+        """Check if a file exists."""
+        pass
+
+
+class ICacheManager(ABC):
+    """Interface for cache management."""
+
+    @abstractmethod
+    def get(self, key: str) -> Optional[Any]:
+        """Get a value from cache."""
         pass
 
     @abstractmethod
-    def get_api_keys(self) -> Dict[str, str]:
-        """Get API keys for all providers."""
+    def set(self, key: str, value: Any, ttl: int = None) -> None:
+        """Set a value in cache."""
+        pass
+
+    @abstractmethod
+    def invalidate(self, key: str) -> None:
+        """Invalidate a cache entry."""
+        pass
+
+    @abstractmethod
+    def clear(self) -> None:
+        """Clear all cache entries."""
+        pass
+
+
+class ICacheRepository(ABC):
+    """Interface for cache repository operations."""
+
+    @abstractmethod
+    def get(self, key: str) -> Optional[Any]:
+        """Get a value from cache."""
+        pass
+
+    @abstractmethod
+    def set(self, key: str, value: Any, ttl: int = None) -> None:
+        """Set a value in cache."""
+        pass
+
+    @abstractmethod
+    def invalidate(self, key: str) -> None:
+        """Invalidate a cache entry."""
+        pass
+
+    @abstractmethod
+    def clear(self) -> None:
+        """Clear all cache entries."""
         pass
