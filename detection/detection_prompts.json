@@ -1,0 +1,88 @@
+{
+  "detection_prompts": [
+    {
+      "name": "ai_detection_enhanced",
+      "type": "ai",
+      "description": "Enhanced AI detection prompt with detailed patterns",
+      "is_default": true,
+      "prompt": "Analyze this text for AI-generated patterns and provide a confidence score (0-100%):\n\nCOMMON AI DETECTION PATTERNS TO LOOK FOR:\n1. STRUCTURAL PATTERNS:\n   - Excessive use of bullet points or numbered lists\n   - Overly organized sections with perfect transitions\n   - Formulaic introductions/conclusions\n   - Repetitive paragraph structures\n\n2. LANGUAGE PATTERNS:\n   - Technical jargon without natural context\n   - Consistent sentence length and complexity\n   - Lack of colloquialisms or informal language\n   - Perfect grammar with no natural hesitations\n\n3. CONTENT PATTERNS:\n   - Generic statements without specific examples\n   - Lack of personal opinions or biases\n   - Balanced coverage of all points equally\n   - Absence of tangential thoughts or digressions\n\n4. SEMANTIC PATTERNS:\n   - Encyclopedic knowledge presentation\n   - Lack of unique insights or specialized expertise\n   - Perfect information recall without errors\n   - Too many \"on one hand / on the other hand\" structures\n\n5. CONTEXT PATTERNS:\n   - Lack of industry-specific terminology\n   - No references to current trends/developments\n   - Missing practical insights from experience\n   - Absence of specialized knowledge outside general domains\n\nAnalyze the following content and provide a confidence score (0-100%) with brief reasoning (max 100 words):\n\n{content}\n\nAI DETECTION CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "ai_detection_prompt_minimal",
+      "type": "ai",
+      "description": "Minimal AI detection prompt for faster processing",
+      "is_default": false,
+      "prompt": "Analyze this text for AI-generated patterns. Provide only a confidence score (0-100%) with very brief reasoning (1-2 sentences):\n\n{content}\n\nAI DETECTION CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "ai_detection_v1",
+      "type": "ai",
+      "description": "AI detection prompt version 1",
+      "is_default": false,
+      "prompt": "Evaluate whether this text was written by an AI. Look for patterns like perfect grammar, lack of colloquialisms, balanced viewpoints, and overly structured content. Provide confidence score (0-100%) with brief reasoning:\n\n{content}\n\nAI DETECTION CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "ai_detection_v2",
+      "type": "ai",
+      "description": "AI detection prompt version 2",
+      "is_default": false,
+      "prompt": "Does this text show signs of AI generation? Check for generic statements without specific examples, perfect sentence structures, lack of personal style, and overly comprehensive explanations. Score 0-100%:\n\n{content}\n\nAI DETECTION CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "ai_detection_v3",
+      "type": "ai",
+      "description": "AI detection prompt version 3",
+      "is_default": false,
+      "prompt": "How likely was this written by AI? Consider mechanical transitions, sterile language, encyclopedic knowledge presentation, and perfect balanced perspectives. Rate 0-100%:\n\n{content}\n\nAI DETECTION CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "ai_detection_v4",
+      "type": "ai",
+      "description": "AI detection prompt version 4",
+      "is_default": false,
+      "prompt": "Analyze this text for AI authorship markers. Look for consistent tone, lack of personal anecdotes, perfect information presentation, and predictable structure. Score 0-100%:\n\n{content}\n\nAI DETECTION CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "human_detection_enhanced",
+      "type": "human",
+      "description": "Enhanced human detection prompt",
+      "is_default": true,
+      "prompt": "Analyze this text for human-written patterns and provide a confidence score (0-100%):\n\nCOMMON HUMAN WRITING PATTERNS TO LOOK FOR:\n1. STRUCTURAL PATTERNS:\n   - Irregular paragraph lengths and organization\n   - Natural transitions with occasional jumps\n   - Personal style in introductions/conclusions\n   - Non-formulaic content organization\n\n2. LANGUAGE PATTERNS:\n   - Natural mix of formal and informal language\n   - Varied sentence length and complexity\n   - Use of idioms, colloquialisms, or slang\n   - Occasional grammar quirks or stylistic choices\n\n3. CONTENT PATTERNS:\n   - Specific examples from personal experience\n   - Clear opinions, preferences or biases\n   - Uneven coverage of points based on familiarity\n   - Occasional tangential thoughts or digressions\n\n4. SEMANTIC PATTERNS:\n   - Knowledge gaps in non-specialty areas\n   - Unique insights from specialized experience\n   - Occasional factual errors or approximations\n   - Emphasis on practical over theoretical knowledge\n\n5. CONTEXT PATTERNS:\n   - Deep knowledge in specific domains\n   - References to recent or current experiences\n   - Practical insights suggesting hands-on experience\n   - Industry-specific terminology used naturally\n\nAnalyze the following content and provide a confidence score (0-100%) with brief reasoning (max 100 words):\n\n{content}\n\nHUMAN WRITING CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "human_detection_prompt_minimal",
+      "type": "human",
+      "description": "Minimal human detection prompt",
+      "is_default": false,
+      "prompt": "Analyze this text for human writing patterns. Provide only a confidence score (0-100%) with very brief reasoning (1-2 sentences):\n\n{content}\n\nHUMAN WRITING CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "human_detection_v1",
+      "type": "human",
+      "description": "Human detection prompt version 1",
+      "is_default": false,
+      "prompt": "Evaluate whether this text was written by a human. Look for natural language, personal style, irregular structure, and specific insights. Provide confidence score (0-100%) with brief reasoning:\n\n{content}\n\nHUMAN WRITING CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "human_detection_v2",
+      "type": "human",
+      "description": "Human detection prompt version 2",
+      "is_default": false,
+      "prompt": "Does this text show signs of human authorship? Check for personal anecdotes, specialized knowledge, stylistic quirks, and natural content flow. Score 0-100%:\n\n{content}\n\nHUMAN WRITING CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "human_detection_v3",
+      "type": "human",
+      "description": "Human detection prompt version 3",
+      "is_default": false,
+      "prompt": "How likely was this written by a human? Consider personality in writing, inconsistent detail levels, domain expertise, and natural language patterns. Rate 0-100%:\n\n{content}\n\nHUMAN WRITING CONFIDENCE: [0-100%]"
+    },
+    {
+      "name": "human_detection_v4",
+      "type": "human",
+      "description": "Human detection prompt version 4",
+      "is_default": false,
+      "prompt": "Analyze this text for human authorship markers. Look for personal voice, uneven emphasis, specialized insights, and natural language variations. Score 0-100%:\n\n{content}\n\nHUMAN WRITING CONFIDENCE: [0-100%]"
+    }
+  ]
+}

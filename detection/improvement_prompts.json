@@ -1,0 +1,39 @@
+{
+  "improvement_prompts": [
+    {
+      "name": "initial_prompt",
+      "description": "Standard improvement prompt for initial refinement attempts",
+      "is_default": true,
+      "strategy_type": "default",
+      "prompt": "Rewrite this content to reduce AI-detection likelihood while maintaining technical accuracy:\n\nREWRITING GUIDELINES:\n- Break overly consistent paragraph lengths\n- Vary sentence structures and lengths\n- Add natural contractions (don't, isn't, etc.)\n- Include casual transitions between ideas\n- Replace generic statements with specific examples\n- Add appropriate industry terminology\n- Introduce slight variations in tone\n- Ensure technical accuracy is maintained\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+    },
+    {
+      "name": "reduce_ai_patterns",
+      "description": "Focused on significantly reducing AI patterns",
+      "is_default": false,
+      "strategy_type": "ai_reduction",
+      "prompt": "Rewrite this content to significantly reduce AI-detection patterns while maintaining technical accuracy:\n\nCRITICAL AI PATTERN REDUCTION:\n- Break repetitive paragraph structures and sentence patterns\n- Remove perfectly balanced \"on one hand, on the other hand\" comparisons\n- Replace academic/formal phrases with industry-specific language\n- Add natural contractions (don't, isn't, you'll, we're, etc.)\n- Mix very short sentences with medium ones for varied rhythm\n- Include 1-2 mild colloquial expressions that an expert would use\n- Add a practical insight that suggests personal experience\n- Keep all technical information accurate\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+    },
+    {
+      "name": "increase_human_qualities",
+      "description": "Focused on enhancing human-like writing patterns",
+      "is_default": false,
+      "strategy_type": "human_enhancement",
+      "prompt": "Rewrite this content to significantly increase human-like writing qualities while maintaining technical accuracy:\n\nHUMAN WRITING ENHANCEMENT:\n- Add a specific anecdote or practical example from industry experience\n- Include mild personal opinions where appropriate (\"I've found that...\" or \"In my experience...\")\n- Use natural language patterns with occasional sentence fragments\n- Vary technical depth - go deeper in 1-2 areas, lighter on others\n- Add industry jargon or specialized terminology where appropriate\n- Use natural transitions (\"Actually,\" \"By the way,\" \"The thing is,\")\n- Include an unexpected insight that shows specialized knowledge\n- Maintain all technical accuracy\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+    },
+    {
+      "name": "balanced_improvement",
+      "description": "Balanced approach improving both AI-detection and human-like qualities",
+      "is_default": false,
+      "strategy_type": "balanced",
+      "prompt": "Rewrite this content using a balanced approach to improve both AI-detection and human-like qualities:\n\nBALANCED IMPROVEMENT APPROACH:\n- Balance formal technical content with occasional informal language\n- Introduce 1-2 practical examples or insights from experience\n- Vary paragraph lengths and sentence structures naturally\n- Use selective industry terminology where appropriate\n- Add mild colloquialisms or natural phrasing\n- Include some focused opinions while maintaining overall balance\n- Create natural transitions between topics\n- Preserve all technical accuracy and details\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+    },
+    {
+      "name": "light_refinement",
+      "description": "Light touch improvements for content that's already scoring well",
+      "is_default": false,
+      "strategy_type": "light",
+      "prompt": "Make light refinements to this already well-written content to further improve naturalness:\n\nSUBTLE REFINEMENT APPROACH:\n- Preserve most of the existing content and structure\n- Make minor adjustments to sentence flow\n- Add 1-2 natural transitions or connectors\n- Replace any overly formal phrasing with more natural equivalents\n- Add minimal personal voice where appropriate\n- Ensure varied paragraph and sentence structure is maintained\n- Keep all technical content and accuracy intact\n\nOriginal text:\n{previous_version}\n\nExpert feedback:\n{feedback}\n\nStrategy guidance:\n{strategy}"
+    }
+  ]
+}

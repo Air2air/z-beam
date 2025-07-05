@@ -14,6 +14,7 @@ from generator.core.domain.models import (
     PromptTemplate,
     CacheEntry,
     ArticleMetadata,
+    TemperatureConfig,
 )
 
 
@@ -42,6 +43,7 @@ class IDetectionService(ABC):
         iteration: int = 1,
         temperature: float = 0.3,
         timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """Detect AI-like characteristics in content."""
         pass
@@ -54,6 +56,7 @@ class IDetectionService(ABC):
         iteration: int = 1,
         temperature: float = 0.3,
         timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """Detect overly human-like characteristics in content."""
         pass

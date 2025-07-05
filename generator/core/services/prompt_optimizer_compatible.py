@@ -7,7 +7,6 @@ from typing import List, Optional, Dict, Tuple
 from datetime import datetime
 import asyncio
 
-from generator.core.domain.models import GenerationContext
 from generator.core.domain.prompt_optimization import (
     PromptUsage,
     SelectionContext,
@@ -20,6 +19,28 @@ from generator.core.services.prompt_selection_strategies import (
 from generator.modules.logger import get_logger
 
 logger = get_logger("prompt_optimizer_compatible")
+
+
+class InMemoryPerformanceRepo:
+    """Simple in-memory implementation of IPromptPerformanceRepository."""
+
+    def __init__(self, performance_profiles: Dict[str, PromptPerformanceProfile]):
+        """Initialize with provided performance profiles."""
+        self._performance_profiles = performance_profiles
+
+    async def get_performance_profile(self, prompt_name: str, detection_type: str):
+        """Get the performance profile for a prompt and detection type."""
+        key = f"{prompt_name}_{detection_type}"
+        return self._performance_profiles.get(key)
+
+    async def save_performance_profile(self, profile):
+        """Save a performance profile."""
+        key = f"{profile.prompt_name}_{profile.detection_type}"
+        self._performance_profiles[key] = profile
+
+    async def list_performance_profiles(self):
+        """List all performance profiles."""
+        return list(self._performance_profiles.values())
 
 
 class PromptOptimizerCompatible:
@@ -229,14 +250,6 @@ class PromptOptimizerCompatible:
                 f"{detection_type}_detection_v4",
             ]
 
-        # Create selection context
-        context = SelectionContext(
-            detection_type=detection_type,
-            iteration=iteration,
-            section_name=section_name or "unknown",
-            content_type="article_section",
-        )
-
         # Use async selection in sync context
         try:
             # Create proper selection context
@@ -250,11 +263,14 @@ class PromptOptimizerCompatible:
             # Run async selection strategy (run in thread to avoid event loop conflict)
             import concurrent.futures
 
+            # Create an InMemoryPerformanceRepo instance
+            in_memory_repo = InMemoryPerformanceRepo(self._performance_profiles)
+
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 future = executor.submit(
                     asyncio.run,
                     self._selection_strategy.select_prompt(
-                        selection_ctx, available_prompts, None
+                        selection_ctx, available_prompts, in_memory_repo
                     ),
                 )
                 result = future.result(timeout=10)  # 10 second timeout

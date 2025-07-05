@@ -160,13 +160,14 @@ class GenerationConfig:
     generator_provider: str
     model: str
     author: str
-    temperature: float
+    temperature: float  # Legacy field, maintained for backward compatibility
     force_regenerate: bool
     ai_detection_threshold: int  # <-- moved up, before any default fields
     human_detection_threshold: int  # Add human threshold
     generator_model_settings: dict = None  # <-- Add this line
     detection_provider: str = None
     detection_model_settings: dict = None
+    temperature_config: Any = None  # Use Any to avoid circular imports
     iterations_per_section: int = 3
     max_article_words: int = 1200  # Total word budget for article
     api_keys: dict = None

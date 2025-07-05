@@ -2,7 +2,7 @@
 Detection service for AI and human-like content analysis.
 """
 
-from generator.core.domain.models import AIScore, GenerationContext
+from generator.core.domain.models import AIScore, GenerationContext, TemperatureConfig
 from generator.core.interfaces.services import (
     IDetectionService,
     IAPIClient,
@@ -13,7 +13,7 @@ from generator.core.services.prompt_optimizer_compatible import (
     PromptOptimizerCompatible,
 )
 from generator.modules.logger import get_logger
-from typing import List
+from typing import List, Optional
 
 logger = get_logger("detection_service")
 
@@ -30,11 +30,38 @@ class DetectionService(IDetectionService):
 
         self.logger = get_logger("detection_service")
 
-        # Get the model from provider configuration instead of hardcoding
-        from generator.config.providers import MODELS
-
+        # Get the model from the api_client provider
         provider = getattr(api_client, "_provider", "DEEPSEEK")  # Default fallback
-        self._model = MODELS.get(provider, {}).get("model", "deepseek-chat")
+
+        # Try to get provider settings from run.py
+        try:
+            import sys
+            import os
+            import importlib.util
+
+            # Add the project root to sys.path to ensure proper import
+            project_root = os.path.dirname(
+                os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+            )
+
+            # Use spec-based loading to avoid circular imports
+            run_path = os.path.join(project_root, "run.py")
+            spec = importlib.util.spec_from_file_location("run_module", run_path)
+            run_module = importlib.util.module_from_spec(spec)
+            sys.modules["run_module"] = run_module
+            spec.loader.exec_module(run_module)
+
+            # Get the model from PROVIDER_MODELS
+            provider_models = getattr(run_module, "PROVIDER_MODELS", {})
+            self._model = provider_models.get(provider, {}).get(
+                "model", "deepseek-chat"
+            )
+        except Exception as e:
+            # Fallback to default if can't import
+            self._model = "deepseek-chat"
+            self.logger.warning(
+                f"Could not load model config from run.py: {e}. Using default model."
+            )
 
         # Initialize prompt optimizer for performance tracking and optimization
         self._optimizer = PromptOptimizerCompatible()
@@ -65,6 +92,7 @@ class DetectionService(IDetectionService):
         iteration: int = 1,
         temperature: float = 0.3,
         timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """Detect AI-like characteristics in content using optimal prompt variation."""
         section_name = context.get_variable("section_name", "Unknown")
@@ -75,6 +103,11 @@ class DetectionService(IDetectionService):
             f"Using AI detection prompt variation: {optimal_prompt} (iteration {iteration})"
         )
 
+        # Use detection_temp from temperature_config if available, otherwise fallback to legacy temperature
+        detection_temp = (
+            temperature_config.detection_temp if temperature_config else temperature
+        )
+
         return self._run_detection(
             content,
             context,
@@ -82,7 +115,7 @@ class DetectionService(IDetectionService):
             optimal_prompt,
             "ai",
             section_name,
-            temperature,
+            detection_temp,
             timeout,
         )
 
@@ -93,6 +126,7 @@ class DetectionService(IDetectionService):
         iteration: int = 1,
         temperature: float = 0.3,
         timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """Detect overly human-like characteristics in content using optimal prompt variation."""
         section_name = context.get_variable("section_name", "Unknown")
@@ -103,6 +137,11 @@ class DetectionService(IDetectionService):
             f"Using human detection prompt variation: {optimal_prompt} (iteration {iteration})"
         )
 
+        # Use detection_temp from temperature_config if available, otherwise fallback to legacy temperature
+        detection_temp = (
+            temperature_config.detection_temp if temperature_config else temperature
+        )
+
         return self._run_detection(
             content,
             context,
@@ -110,7 +149,7 @@ class DetectionService(IDetectionService):
             optimal_prompt,
             "human",
             section_name,
-            temperature,
+            detection_temp,
             timeout,
         )
 
@@ -124,6 +163,7 @@ class DetectionService(IDetectionService):
         section_name: str,
         temperature: float = 0.3,
         timeout: int = 60,
+        temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """Run detection analysis using the specified prompt."""
         try:
@@ -156,9 +196,7 @@ class DetectionService(IDetectionService):
             try:
                 import time
 
-                self.logger.info(f"📡 Making {detection_type} detection API call...")
-                self.logger.info(f"🔍 Prompt length: {len(formatted_prompt)} chars")
-
+                # API call with minimal logging
                 start_time = time.time()
                 response = self._api_client.call_api(
                     prompt=formatted_prompt,
@@ -168,9 +206,6 @@ class DetectionService(IDetectionService):
                     timeout=timeout,  # Use timeout from configuration
                 )
                 duration = time.time() - start_time
-                self.logger.info(
-                    f"✅ {detection_type} detection API call completed in {duration:.2f}s"
-                )
 
                 # Warn about slow calls
                 if duration > 20:
@@ -331,9 +366,7 @@ class DetectionService(IDetectionService):
         if last_sentence_end > max_chars * 0.7:  # If we can keep most content
             truncated = truncated[: last_sentence_end + 1]
 
-        logger.warning(
-            f"Content truncated for detection: {len(content)} -> {len(truncated)} chars"
-        )
+        # Removed verbose warning
         return truncated + "..."
 
     def _display_detection_results(
@@ -350,42 +383,25 @@ class DetectionService(IDetectionService):
         GREEN = "\033[92m"
         YELLOW = "\033[93m"
         RED = "\033[91m"
-        BLUE = "\033[94m"
-        CYAN = "\033[96m"
-        BOLD = "\033[1m"
         RESET = "\033[0m"
 
         # Determine color based on score
         if score <= 25:
             score_color = GREEN
-            status = "✅ HUMAN-LIKE"
         elif score <= 50:
             score_color = YELLOW
-            status = "⚠️  MIXED"
         else:
             score_color = RED
-            status = "🤖 AI-LIKE"
 
-        # Create progress bar
-        progress_filled = "█" * (score // 5)
-        progress_empty = "░" * (20 - (score // 5))
+        # Create shorter progress bar
+        progress_filled = "■" * (score // 10)
+        progress_empty = "□" * (10 - (score // 10))
         progress_bar = f"{progress_filled}{progress_empty}"
 
-        print(f"\n{CYAN}╭─ {BOLD}AI Detection Results{RESET}{CYAN} ─╮{RESET}")
-        print(f"{CYAN}│{RESET} {BOLD}Section:{RESET} {section_name.upper()}")
+        # Print minimal output
         print(
-            f"{CYAN}│{RESET} {BOLD}Iteration:{RESET} {iteration} | {BOLD}Type:{RESET} {detection_type.upper()}"
+            f"{detection_type.upper()}: {score_color}{score}% [{progress_bar}]{RESET}"
         )
-        if prompt_variation:
-            print(f"{CYAN}│{RESET} {BOLD}Prompt:{RESET} {prompt_variation}")
-        print(f"{CYAN}│{RESET}")
-        print(
-            f"{CYAN}│{RESET} {BOLD}AI Likelihood:{RESET} {score_color}{score}%{RESET} {status}"
-        )
-        print(
-            f"{CYAN}│{RESET} {BLUE}[{score_color}{progress_bar}{BLUE}]{RESET} {score}/100"
-        )
-        print(f"{CYAN}╰─{'─' * 50}─╯{RESET}")
 
     def get_optimal_prompt(self, detection_type: str, iteration: int = 1) -> str:
         """

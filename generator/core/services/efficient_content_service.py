@@ -20,6 +20,7 @@ from generator.core.domain.models import (
     SectionConfig,
     GenerationResult,
     AIScore,
+    TemperatureConfig,
 )
 from generator.core.exceptions import ContentGenerationError
 from generator.modules.logger import get_logger
@@ -264,10 +265,16 @@ class EfficientContentGenerationService(ContentGenerationService):
             formatted_prompt = prompt_template.format(**context.variables)
 
             # Call the API with budget-aware max_tokens
+            # Use temperature_config.content_temp if available, otherwise fallback to legacy temperature
+            content_temp = (
+                request.temperature_config.content_temp
+                if request.temperature_config
+                else request.temperature
+            )
             content = self._api_client.call_api(
                 prompt=formatted_prompt,
                 model=request.model,
-                temperature=request.temperature,
+                temperature=content_temp,
                 max_tokens=request.max_tokens,  # Already budget-aware from _create_budget_aware_request
                 timeout=request.api_timeout,
             )
@@ -313,10 +320,16 @@ class EfficientContentGenerationService(ContentGenerationService):
         restrictive_max_tokens = int(budget.target_words * 1.0)  # No buffer
 
         try:
+            # Use temperature_config.content_temp if available, otherwise fallback to legacy temperature
+            content_temp = (
+                request.temperature_config.content_temp
+                if request.temperature_config
+                else request.temperature
+            )
             content = self._api_client.call_api(
                 prompt=formatted_prompt,
                 model=request.model,
-                temperature=request.temperature,  # Use configured temperature instead of hardcoded
+                temperature=content_temp,  # Use temperature_config instead of legacy field
                 max_tokens=restrictive_max_tokens,
                 timeout=request.api_timeout,
             )
@@ -426,8 +439,9 @@ class EfficientContentGenerationService(ContentGenerationService):
                     current_content,
                     context,
                     iteration,
-                    request.detection_temperature,
+                    request.detection_temperature,  # Legacy parameter kept for backward compatibility
                     request.api_timeout,
+                    temperature_config=request.temperature_config,  # Pass the temperature_config
                 )
 
                 # Run human detection
@@ -435,8 +449,9 @@ class EfficientContentGenerationService(ContentGenerationService):
                     current_content,
                     context,
                     iteration,
-                    request.detection_temperature,
+                    request.detection_temperature,  # Legacy parameter kept for backward compatibility
                     request.api_timeout,
+                    temperature_config=request.temperature_config,  # Pass the temperature_config
                 )
 
                 # Enhanced detection results logging with visual formatting
@@ -580,10 +595,18 @@ Make it sound more natural, reduce AI-like phrases, and ensure it's exactly {imp
             # Generate improved content with budget constraint
             max_tokens = self.word_budget_manager.calculate_max_tokens(section_name)
 
+            # Use temperature_config.improvement_temp if available, otherwise fallback to content_temp or legacy temperature
+            improvement_temp = request.temperature
+            if request.temperature_config:
+                improvement_temp = (
+                    request.temperature_config.improvement_temp
+                    or request.temperature_config.content_temp
+                )
+
             improved_content = self._api_client.call_api(
                 prompt=improvement_prompt,
                 model=request.model,
-                temperature=request.temperature,  # Use configured temperature instead of hardcoded
+                temperature=improvement_temp,  # Use temperature_config.improvement_temp if available
                 max_tokens=max_tokens,
                 timeout=request.api_timeout,
             )

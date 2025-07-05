@@ -24,12 +24,22 @@ class APIClient(IAPIClient):
 
     def _setup_provider_config(self) -> None:
         """Setup provider-specific configuration."""
-        from generator.config.providers import MODELS
+        # Import PROVIDER_MODELS from run.py instead of providers.py
+        import sys
+        import os
 
-        if self._provider not in MODELS:
+        # Add the project root to sys.path to ensure proper import
+        project_root = os.path.dirname(
+            os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+        )
+        sys.path.insert(0, project_root)
+
+        from run import PROVIDER_MODELS
+
+        if self._provider not in PROVIDER_MODELS:
             raise APIError(f"Unsupported provider: {self._provider}", self._provider)
 
-        self._provider_config = MODELS[self._provider]
+        self._provider_config = PROVIDER_MODELS[self._provider]
 
     def call_api(
         self,
@@ -44,19 +54,11 @@ class APIClient(IAPIClient):
         if not prompt or not prompt.strip():
             raise APIError("Prompt cannot be empty", self._provider)
 
-        logger.info(f"[API] {self._provider} | {model} | {len(prompt)} chars")
-
+        # Minimal API logging
         try:
-            import time
-
-            start_time = time.time()
-
             response = self._make_request(
                 prompt, model, temperature, max_tokens, timeout, **kwargs
             )
-
-            duration = time.time() - start_time
-            logger.info(f"[PERF] API call to {self._provider}: {duration:.3f}s")
 
             return response
 

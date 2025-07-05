@@ -27,16 +27,16 @@ from generator.core.services.prompt_optimization_service import (
 )
 from generator.core.services.prompt_selection_strategies import (
     PerformanceBasedSelectionStrategy,
-    RoundRobinSelectionStrategy,
-    RandomSelectionStrategy,
 )
 from generator.infrastructure.storage.prompt_performance_repository import (
     FilePromptPerformanceRepository,
 )
 from generator.infrastructure.api.client import APIClient
 from generator.infrastructure.storage.repositories import (
-    FilePromptRepository,
     FileCacheRepository,
+)
+from generator.infrastructure.storage.enhanced_json_prompt_repository import (
+    EnhancedJsonPromptRepository,
 )
 from generator.config.enhanced_settings import get_settings
 from generator.modules.logger import get_logger
@@ -48,11 +48,10 @@ def configure_services(container: ServiceContainer) -> None:
     """Configure all services in the dependency injection container."""
     settings = get_settings()
 
-    logger.info("Configuring services...")
-
     # Register repositories
     container.register_factory(
-        IPromptRepository, lambda: FilePromptRepository(settings.paths.prompts_dir)
+        IPromptRepository,
+        lambda: EnhancedJsonPromptRepository(settings.paths.prompts_dir),
     )
 
     container.register_factory(
@@ -85,12 +84,36 @@ def configure_services(container: ServiceContainer) -> None:
 
     # Register API client factory (will be created per request based on provider)
     def api_client_factory():
-        # This is a placeholder - actual provider will be determined at runtime
-        # We'll create a default one for now
-        api_key = settings.api.gemini_api_key
+        # Use detection_provider from settings if available, otherwise fallback to generator_provider
+        provider = "DEEPSEEK"  # Default fallback
+
+        # Try to get provider from settings
+        try:
+            if hasattr(settings, "detection_provider") and settings.detection_provider:
+                provider = settings.detection_provider
+            elif (
+                hasattr(settings, "generator_provider") and settings.generator_provider
+            ):
+                provider = settings.generator_provider
+        except AttributeError:
+            # Fallback to default provider if attributes don't exist
+            pass
+
+        provider = provider.upper()
+
+        # Get the appropriate API key based on provider
+        api_key = None
+        if provider == "GEMINI":
+            api_key = settings.api.gemini_api_key
+        elif provider == "DEEPSEEK":
+            api_key = settings.api.deepseek_api_key
+        elif provider == "XAI":
+            api_key = settings.api.anthropic_api_key
+
         if not api_key:
-            raise ValueError("No API key configured")
-        return APIClient("GEMINI", api_key)
+            raise ValueError(f"No API key configured for provider: {provider}")
+
+        return APIClient(provider, api_key)
 
     container.register_factory(IAPIClient, api_client_factory)
 
@@ -111,7 +134,7 @@ def configure_services(container: ServiceContainer) -> None:
 
     container.register_factory(IContentGenerator, content_service_factory)
 
-    logger.info("Service configuration completed")
+    # Services configured
 
 
 def create_api_client(provider: str, api_key: str) -> APIClient:

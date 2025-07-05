@@ -292,19 +292,25 @@ def test_provider_configuration():
     print("\n⚙️  Testing Provider Configurations")
     print("=" * 50)
 
-    from generator.config.providers import get_model_settings
+    import importlib
 
-    providers = ["DEEPSEEK", "XAI", "GEMINI"]
+    try:
+        run_module = importlib.import_module("run")
+        PROVIDER_MODELS = getattr(run_module, "PROVIDER_MODELS", {})
 
-    for provider in providers:
-        try:
-            settings = get_model_settings(provider)
-            print(f"   {provider}:")
-            print(f"      Model: {settings['model']}")
-            print(f"      URL: {settings['url_template']}")
-            print(f"      Max Tokens: {settings['default_max_tokens']}")
-        except Exception as e:
-            print(f"   {provider}: ❌ Error - {e}")
+        providers = ["DEEPSEEK", "XAI", "GEMINI"]
+
+        for provider in providers:
+            try:
+                settings = PROVIDER_MODELS.get(provider, {})
+                print(f"   {provider}:")
+                print(f"      Model: {settings.get('model', 'N/A')}")
+                print(f"      URL: {settings.get('url_template', 'N/A')}")
+                print(f"      Max Tokens: {settings.get('default_max_tokens', 'N/A')}")
+            except Exception as e:
+                print(f"   {provider}: ❌ Error - {e}")
+    except ImportError:
+        print("   ❌ Error: Could not import run.py module")
 
 
 def main():

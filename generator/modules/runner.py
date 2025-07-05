@@ -1,7 +1,9 @@
 from generator.config.settings import AppConfig, GenerationConfig
 from generator.modules.page_generator import ArticleGenerator
 from generator.exceptions import ConfigurationError, GenerationError
-from dataclasses import dataclass
+from generator.core.domain.models import TemperatureConfig
+from dataclasses import dataclass, field
+from typing import Optional
 import os
 import sys
 from pathlib import Path
@@ -19,7 +21,7 @@ class RunConfiguration:
     generator_provider: str
     model: str  # <-- Add this line
     author: str  # Just a string filename
-    temperature: float
+    temperature: float  # Maintained for backward compatibility
     force_regenerate: bool
     ai_detection_threshold: int
     human_detection_threshold: int  # Add human threshold
@@ -30,6 +32,7 @@ class RunConfiguration:
     max_article_words: int = 1200  # Total word budget for article
     api_timeout: int = 60  # API request timeout in seconds
     detection_temperature: float = 0.3  # Temperature for detection calls
+    temperature_config: Optional[TemperatureConfig] = None
 
     def __post_init__(self):
         missing = []
@@ -44,10 +47,16 @@ class RunConfiguration:
             "force_regenerate",
             "ai_detection_threshold",
             "human_detection_threshold",
-            "generator_model_settings",  # <-- Add this line
+            "generator_model_settings",
         ]:
             if getattr(self, field_name, None) is None:
                 missing.append(field_name)
+
+        # Create temperature_config if not provided (from legacy fields)
+        if self.temperature_config is None:
+            self.temperature_config = TemperatureConfig.from_legacy_config(
+                content_temp=self.temperature, detection_temp=self.detection_temperature
+            )
         if missing:
             raise ConfigurationError(
                 f"Missing required configuration fields: {', '.join(missing)}"
@@ -99,18 +108,19 @@ class ApplicationRunner:
             generator_provider=run_config.generator_provider,
             model=run_config.model,  # Use model from run_config, not from AppConfig
             author=run_config.author,
-            temperature=run_config.temperature,
+            temperature=run_config.temperature,  # Legacy field - kept for backward compatibility
             force_regenerate=run_config.force_regenerate,
             api_keys=api_keys,
             ai_detection_threshold=run_config.ai_detection_threshold,
             human_detection_threshold=run_config.human_detection_threshold,
-            generator_model_settings=run_config.generator_model_settings,  # <-- Pass through
+            generator_model_settings=run_config.generator_model_settings,
             iterations_per_section=run_config.iterations_per_section,
             detection_provider=getattr(run_config, "detection_provider", None),
             detection_model_settings=getattr(
                 run_config, "detection_model_settings", None
             ),
             max_article_words=run_config.max_article_words,
+            temperature_config=run_config.temperature_config,  # Pass the temperature_config
         )
 
     def run(self, run_config: RunConfiguration) -> bool:

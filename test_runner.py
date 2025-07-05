@@ -19,6 +19,7 @@ from generator.core.domain.models import (
     SectionConfig,
     SectionType,
     ProviderType,
+    TemperatureConfig,
 )
 from generator.modules.logger import get_logger
 
@@ -38,7 +39,13 @@ def run_content_test(
     Returns:
         Dict containing test results including scores, iterations, and content.
     """
+    from pathlib import Path
+
     logger = get_logger(__name__)
+
+    # Get project root and find section templates
+    project_root = Path(__file__).parent
+    sections_dir = project_root / "generator" / "prompts" / "sections"
 
     print("🧪 Content Generation Test")
     print("=" * 50)
@@ -72,27 +79,72 @@ def run_content_test(
             },
         )
 
+        # Check if the prompt file specifies ai_detect: false
+        is_ai_detect = True
+        prompt_file_path = sections_dir / f"{section}.txt"
+        if prompt_file_path.exists():
+            with open(prompt_file_path, "r") as f:
+                prompt_content = f.read(
+                    500
+                )  # Just read the first 500 chars for metadata
+                if "# ai_detect: false" in prompt_content.lower():
+                    is_ai_detect = False
+                    logger.info(
+                        f"Section {section} has ai_detect: false in prompt file"
+                    )
+
         section_config = SectionConfig(
             name=section,
-            ai_detect=True,
+            ai_detect=is_ai_detect,  # Respect the setting from the prompt file
             prompt_file=f"{section}.txt",
             section_type=SectionType.TEXT,
             generate=True,
             order=0,
         )
 
+        # Create temperature configuration
+        temp_config = TemperatureConfig(
+            content_temp=0.7,  # Balanced creativity for content generation
+            detection_temp=0.3,  # Lower temperature for consistent detection
+            improvement_temp=0.8,  # Higher temperature for creative improvements
+        )
+
+        # Get the provider from run.py config if available
+        from importlib import import_module
+
+        try:
+            run_module = import_module("run")
+            provider_name = getattr(
+                run_module.USER_CONFIG, "detection_provider", "DEEPSEEK"
+            )
+            provider = getattr(
+                ProviderType, provider_name.upper(), ProviderType.DEEPSEEK
+            )
+            model = None
+
+            # Get model from PROVIDER_MODELS in run.py
+            if hasattr(run_module, "PROVIDER_MODELS"):
+                model_settings = run_module.PROVIDER_MODELS.get(provider_name, {})
+                model = model_settings.get("model", "deepseek-chat")
+        except (ImportError, AttributeError):
+            # Fallback to DEEPSEEK if can't access run.py config
+            provider = ProviderType.DEEPSEEK
+            model = "deepseek-chat"
+
         # Create generation request
         request = GenerationRequest(
             material=material,
             sections=[section],
-            provider=ProviderType.DEEPSEEK,  # Use DEEPSEEK to avoid quota issues
-            model="deepseek-chat",
+            provider=provider,  # Use provider from config
+            model=model,  # Use model from config
             ai_detection_threshold=ai_threshold,
             human_detection_threshold=human_threshold,
             iterations_per_section=max_iterations,
-            temperature=1.0,
+            temperature=0.7,  # Legacy field kept for backward compatibility
+            detection_temperature=0.3,  # Legacy field kept for backward compatibility
             max_tokens=max_tokens,
             force_regenerate=True,
+            temperature_config=temp_config,  # Use new temperature configuration
         )
 
         print("🚀 Starting content generation...")
@@ -105,21 +157,33 @@ def run_content_test(
         print()
         print("📊 Test Results:")
         print(f"   ✨ Iterations Completed: {result.iterations_completed}")
-        print(
-            f"   🤖 Final AI Score: {result.ai_score.score}% (target: ≤{ai_threshold}%)"
-        )
-        print(
-            f"   👤 Final Human Score: {result.human_score.score}% (target: ≤{human_threshold}%)"
-        )
 
-        # Check if thresholds were met
-        ai_passed = result.ai_score.score <= ai_threshold
-        human_passed = result.human_score.score <= human_threshold
-        overall_passed = ai_passed and human_passed
+        # If ai_detect is False, we don't have scores to check
+        if not is_ai_detect:
+            ai_passed = True
+            human_passed = True
+            overall_passed = True
+            print(f"   🎯 AI Detection: SKIPPED (ai_detect=false)")
+            print(f"   🏁 Overall: ✅ SUCCESS (no detection required)")
+        else:
+            # Display AI/Human scores
+            print(
+                f"   🤖 Final AI Score: {result.ai_score.score}% (target: ≤{ai_threshold}%)"
+            )
+            print(
+                f"   👤 Final Human Score: {result.human_score.score}% (target: ≤{human_threshold}%)"
+            )
 
-        print(f"   🎯 AI Threshold: {'✅ PASS' if ai_passed else '❌ FAIL'}")
-        print(f"   🎯 Human Threshold: {'✅ PASS' if human_passed else '❌ FAIL'}")
-        print(f"   🏁 Overall: {'✅ SUCCESS' if overall_passed else '❌ NEEDS WORK'}")
+            # Check if thresholds were met
+            ai_passed = result.ai_score.score <= ai_threshold
+            human_passed = result.human_score.score <= human_threshold
+            overall_passed = ai_passed and human_passed
+
+            print(f"   🎯 AI Threshold: {'✅ PASS' if ai_passed else '❌ FAIL'}")
+            print(f"   🎯 Human Threshold: {'✅ PASS' if human_passed else '❌ FAIL'}")
+            print(
+                f"   🏁 Overall: {'✅ SUCCESS' if overall_passed else '❌ NEEDS WORK'}"
+            )
         print(f"   📏 Content Length: {len(result.content)} characters")
         print()
 
@@ -134,19 +198,36 @@ def run_content_test(
         print(content_preview)
         print("-" * 30)
 
-        return {
+        # Build result dictionary based on whether AI detection was enabled
+        result_dict = {
             "success": True,
             "overall_passed": overall_passed,
-            "ai_score": result.ai_score.score,
-            "human_score": result.human_score.score,
-            "ai_passed": ai_passed,
-            "human_passed": human_passed,
             "iterations": result.iterations_completed,
             "content_length": len(result.content),
             "content": result.content,
-            "ai_feedback": result.ai_score.feedback,
-            "human_feedback": result.human_score.feedback,
         }
+
+        if not is_ai_detect:
+            # For sections with AI detection disabled
+            result_dict.update(
+                {
+                    "ai_detect": False,
+                }
+            )
+        else:
+            # For sections with AI detection
+            result_dict.update(
+                {
+                    "ai_score": result.ai_score.score,
+                    "human_score": result.human_score.score,
+                    "ai_passed": ai_passed,
+                    "human_passed": human_passed,
+                    "ai_feedback": result.ai_score.feedback,
+                    "human_feedback": result.human_score.feedback,
+                }
+            )
+
+        return result_dict
 
     except Exception as e:
         logger.error(f"Content generation test failed: {str(e)}")

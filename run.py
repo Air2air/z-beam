@@ -8,9 +8,35 @@ import sys
 import argparse
 from generator.modules.runner import ApplicationRunner
 from generator.config.configurator import build_run_config
+from generator.core.domain.models import TemperatureConfig
 
 
 # ---- CONFIGURATION (edit here) ----
+
+# Provider/model configuration centralized here
+PROVIDER_MODELS = {
+    "GEMINI": {
+        "model": "gemini-2.5-flash",  # Latest stable model
+        "url_template": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent",
+    },
+    "XAI": {
+        "model": "grok-3-mini-beta",
+        "url_template": "https://api.x.ai/v1/chat/completions",
+    },
+    "DEEPSEEK": {
+        "model": "deepseek-chat",  # Points to DeepSeek-V3
+        "url_template": "https://api.deepseek.com/v1/chat/completions",
+    },
+}
+
+# Define centralized temperature configuration
+TEMP_CONFIG = TemperatureConfig(
+    content_temp=0.6,  # Main content generation temperature (reduced for human-like consistency)
+    detection_temp=0.3,  # Detection calls temperature (lower for consistency)
+    improvement_temp=0.7,  # Slightly higher temperature for improvement passes
+    summary_temp=0.4,  # Lower temperature for predictable summaries
+    metadata_temp=0.2,  # Very low temperature for structured metadata
+)
 
 USER_CONFIG = dict(
     material="Steel",  # Simple material for testing
@@ -19,14 +45,15 @@ USER_CONFIG = dict(
     generator_provider="DEEPSEEK",  # XAI GEMINI DEEPSEEK
     detection_provider="DEEPSEEK",  # XAI GEMINI DEEPSEEK
     author="todd_dunning.mdx",  # Author profile
-    temperature=0.6,  # REDUCED: Lower creativity for more human-like consistency
+    temperature=0.6,  # LEGACY: Maintained for backward compatibility
     force_regenerate=True,  # Always regenerate content
     ai_detection_threshold=25,  # STRICT: Much more stringent AI detection (25% max)
     human_detection_threshold=25,  # STRICT: Much more stringent human detection (25% max)
     iterations_per_section=5,  # INCREASED: More iterations to improve detection scores
     max_article_words=800,  # SAFE MODE: Smaller for faster testing
     api_timeout=60,  # API request timeout in seconds
-    detection_temperature=0.3,  # Temperature specifically for detection calls (lower for consistency)
+    detection_temperature=0.3,  # LEGACY: Maintained for backward compatibility
+    temperature_config=TEMP_CONFIG,  # NEW: Centralized temperature configuration
     # Content length limits are now handled by word budget manager
 )
 # ---- END CONFIGURATION ----
