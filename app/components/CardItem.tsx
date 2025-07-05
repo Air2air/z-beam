@@ -4,33 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BadgeSymbol } from "./BadgeSymbol";
-
-interface CardItemProps {
-  /** The URL for the card's link */
-  href: string;
-  /** The source URL for the image */
-  imageUrl: string;
-  /** Alt text for the image */
-  imageAlt: string;
-  /** The main title of the card */
-  title: string; // Still useful for metadata and SEO, even if not displayed
-  /** A short description or summary */
-  description: string;
-  /** Optional date string (e.g., "June 28, 2025") */
-  date?: string;
-  /** Optional array of tags */
-  tags?: string[];
-  /** Optional short name for the card */
-  nameShort?: string;
-  // --- ADD THESE NEW PROPS ---
-  atomicNumber?: number | null;
-  chemicalSymbol?: string | null;
-  materialType?: string;
-  metalClass?: string;
-  crystalStructure?: string;
-  primaryApplication?: string;
-  // --- END ADDITION ---
-}
+import type { MaterialCardProps } from 'app/types';
 
 export function CardItem({
   href,
@@ -49,7 +23,7 @@ export function CardItem({
   crystalStructure,
   primaryApplication,
 }: // --- END DESTRUCTURING ---
-CardItemProps) {
+MaterialCardProps) {
   return (
     <Link
       href={href}

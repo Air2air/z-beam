@@ -7,12 +7,13 @@ import type { Metadata } from "next";
 import { HeroImage } from "app/components/HeroImage";
 import { Breadcrumbs } from "app/components/breadcrumbs";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
+import type { PageProps } from "app/types";
 
 export async function generateStaticParams() {
   return getMaterialList().map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const post = getMaterialList().find((p) => p.slug === params.slug);
   if (!post) {
     return {};
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function MaterialPage({ params }: { params: { slug: string } }) {
+export default function MaterialPage({ params }: PageProps) {
   const post = getMaterialList().find((p) => p.slug === params.slug);
 
   if (!post) {
@@ -87,7 +88,7 @@ export default function MaterialPage({ params }: { params: { slug: string } }) {
         {post.metadata.title}
       </h1>
       <p className="uppercase text-xs text-gray-500 dark:text-gray-400 mb-2 tabular-nums">
-        {formatDate(post.metadata.publishedAt)}
+        {post.metadata.publishedAt ? formatDate(post.metadata.publishedAt) : 'Date not available'}
       </p>
       <FadeInOnScroll delay={0.2} yOffset={30} amount={0.06}>
         <article className="prose dark:prose-invert">

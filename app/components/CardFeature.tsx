@@ -3,23 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface CardFeatureProps {
-  /** The URL for the card's link */
-  href: string;
-  /** The source URL for the image */
-  imageUrl: string;
-  /** Alt text for the image */
-  imageAlt: string;
-  /** The main title of the card */
-  title: string;
-  /** A short description or summary */
-  description: string;
-  /** Optional date string (e.g., "June 28, 2025") */
-  date?: string;
-  /** Optional array of tags */
-  tags?: string[];
-}
+import type { BaseCardProps } from 'app/types';
 
 export function CardFeature({
   href,
@@ -29,7 +13,7 @@ export function CardFeature({
   description,
   date,
   tags,
-}: CardFeatureProps) {
+}: BaseCardProps) {
   return (
     <Link
       href={href}

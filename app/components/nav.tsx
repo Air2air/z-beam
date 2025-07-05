@@ -3,19 +3,41 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; // Import the Image component
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { BaseImageProps, BaseLinkProps } from "../types";
+
+// Navigation item interface
+interface NavItem {
+  name: string;
+  href: string;
+  external?: boolean;
+  target?: "_blank" | "_self";
+  rel?: string;
+}
+
+// Logo component props extending BaseImageProps
+interface LogoProps extends BaseImageProps {
+  width: number;
+  height: number;
+}
 
 // Define your navigation items
-const navItems = {
+const navItems: Record<string, NavItem> = {
   "/": {
     name: "Home",
+    href: "/",
   },
   "/materials": {
-    name: "Materials",
+    name: "Materials", 
+    href: "/materials",
   },
   "https://vercel.com/templates/next.js/portfolio-starter-kit": {
     name: "Deploy",
+    href: "https://vercel.com/templates/next.js/portfolio-starter-kit",
+    external: true,
+    target: "_blank",
+    rel: "noopener noreferrer",
   },
 };
 
@@ -87,7 +109,7 @@ export function Navbar() {
           className={`
             flex-col md:flex-row md:space-x-8 // Desktop horizontal, Mobile vertical
             md:static md:w-auto md:h-auto md:opacity-100 md:shadow-none md:p-0
-+            ${isOpen ? "flex" : "hidden"} md:flex
+            ${isOpen ? "flex" : "hidden"} md:flex
             absolute top-full left-0 w-full // Mobile menu full width, drops down
             bg-white dark:bg-gray-800 shadow-lg // Mobile menu background and shadow
             py-4 px-4 md:py-0 md:px-0 // Padding for mobile menu

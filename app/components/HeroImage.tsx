@@ -4,18 +4,11 @@
 import NextImage from 'next/image';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import type { HeroImageProps } from 'app/types';
+import { ANIMATION_CONFIG } from '../utils/constants';
 
-const IMAGE_FADE_IN_DURATION = 0.6;
+const IMAGE_FADE_IN_DURATION = ANIMATION_CONFIG.durations.normal;
 const MIN_LOADING_TIME_MS = 300;
-
-interface HeroImageProps {
-  src: string;
-  alt: string;
-  imageCaption?: string;
-  priority?: boolean;
-  materialName?: string; // Added for dynamic alt text
-  primaryApplication?: string; // Added for dynamic alt text
-}
 
 export function HeroImage({ src, alt, imageCaption, priority = false, materialName, primaryApplication }: HeroImageProps) {
   const [hasImageLoaded, setHasImageLoaded] = useState(false);

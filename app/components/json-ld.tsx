@@ -1,8 +1,5 @@
 import React from 'react'
-
-interface JsonLdProps {
-  data: Record<string, any>
-}
+import type { JsonLdProps, PersonSchema, MaterialListingSchema } from 'app/types'
 
 export function JsonLd({ data }: JsonLdProps) {
   return (
@@ -15,28 +12,13 @@ export function JsonLd({ data }: JsonLdProps) {
 
 // Predefined schema generators
 export const schemas = {
-  person: (data: {
-    name: string
-    description?: string
-    url?: string
-    sameAs?: string[]
-    jobTitle?: string
-    worksFor?: string
-  }) => ({
+  person: (data: PersonSchema) => ({
     '@context': 'https://schema.org',
     '@type': 'Person',
     ...data
   }),
-
-  MaterialListing: (data: {
-    headline: string
-    description: string
-    author: string
-    datePublished: string
-    dateModified?: string
-    url: string
-    image?: string
-  }) => ({
+  
+  MaterialListing: (data: MaterialListingSchema) => ({
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: data.headline,

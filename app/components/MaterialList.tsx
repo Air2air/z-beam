@@ -6,11 +6,12 @@ import Link from "next/link";
 import { formatDate, getMaterialList } from "app/utils/utils"; // <-- Confirm this path is absolute and correct
 import { CardItem } from "app/components/CardItem";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
+import type { MaterialPost } from 'app/types';
 
 // Make the component an async function
 export async function MaterialList() {
   // getMaterialList is now called in a guaranteed server environment
-  let allMaterials = getMaterialList();
+  let allMaterials: MaterialPost[] = getMaterialList();
 
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
@@ -41,7 +42,7 @@ export async function MaterialList() {
               imageAlt={post.metadata.title}
               title={post.metadata.title}
               description={post.metadata.summary}
-              date={formatDate(post.metadata.publishedAt, false)}
+              date={post.metadata.publishedAt ? formatDate(post.metadata.publishedAt) : 'Date not available'}
               nameShort={post.metadata.nameShort}
               atomicNumber={post.metadata.atomicNumber}
               chemicalSymbol={post.metadata.chemicalSymbol}

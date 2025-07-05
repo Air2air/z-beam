@@ -1,13 +1,12 @@
-// // app/components/mdx.tsx
-
-
-// "use client";
+// app/components/mdx.tsx
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import React from 'react';
 import dynamic from 'next/dynamic';
+import type { TableProps } from 'app/types';
+import { slugify } from '../utils/formatting';
 
 // Dynamically import ChartComponent for client-side rendering
 const ChartComponent = dynamic(() => import('./ChartComponent'), {
@@ -16,7 +15,7 @@ const ChartComponent = dynamic(() => import('./ChartComponent'), {
 });
 
 // Table component for rendering MDX tables (e.g., laser cleaning metrics)
-function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
+function Table({ data }: TableProps) {
   let headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ));
@@ -62,18 +61,6 @@ function CustomLink({ href, children, ...props }: { href: string; children: Reac
 // RoundedImage uses next/image for optimized images with Cloudinary
 function RoundedImage({ alt, ...props }: { alt: string; src: string; [key: string]: any }) {
   return <Image alt={alt} className="rounded-lg" {...props} />;
-}
-
-// Slugify headings for anchor links (e.g., #cleaning-benefits)
-function slugify(str: string) {
-  return str
-    .toString()
-    .toLowerCase()
-    .trim()
-    .replace(/\s+/g, '-')
-    .replace(/&/g, '-and-')
-    .replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-');
 }
 
 // Dynamic Heading component for h1–h6 with anchor links

@@ -1,7 +1,15 @@
 // app/components/thumbnail.tsx
-"use client"; // <-- This makes it a Client Component
+"use client";
 
 import Image from "next/image";
+import { BaseImageProps } from "../types";
+
+// Extend BaseImageProps with required dimension props
+interface ThumbnailProps extends BaseImageProps {
+  width: number;
+  height: number;
+  onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
+}
 
 export default function Thumbnail({
   src,
@@ -9,13 +17,16 @@ export default function Thumbnail({
   width,
   height,
   className,
-}: {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-  className?: string;
-}) {
+  priority = false,
+  onError,
+}: ThumbnailProps) {
+  const handleError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    console.error("Image failed to load:", e);
+    if (onError) {
+      onError(e);
+    }
+  };
+
   return (
     <Image
       src={src}
@@ -23,9 +34,8 @@ export default function Thumbnail({
       width={width}
       height={height}
       className={className}
-      onError={(e) => {
-        console.error("Image failed to load:", e);
-      }}
+      priority={priority}
+      onError={handleError}
     />
   );
 }

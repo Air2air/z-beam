@@ -3,8 +3,9 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { BreadcrumbItem, BreadcrumbsProps } from "../types";
 
-export function Breadcrumbs() {
+export function Breadcrumbs({ className }: { className?: string }) {
   const pathname = usePathname();
   // Split the pathname into segments and filter out empty strings (e.g., from leading slash)
   const segments = pathname.split("/").filter((segment) => segment !== "");
@@ -28,7 +29,7 @@ export function Breadcrumbs() {
     // Add any other static top-level routes here that should NOT be considered materials
   ]);
 
-  let allBreadcrumbs = [{ href: "/", label: "Home" }];
+  let allBreadcrumbs: BreadcrumbItem[] = [{ href: "/", label: "Home" }];
 
   let currentPathAccumulator = ""; // To build hrefs correctly
 
@@ -86,14 +87,19 @@ export function Breadcrumbs() {
               <span className="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">
                 {crumb.label}
               </span>
-            ) : (
-              // Other items are links
+            ) : crumb.href ? (
+              // Other items are links (only if href exists)
               <Link
                 href={crumb.href}
                 className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white"
               >
                 {crumb.label}
               </Link>
+            ) : (
+              // Item without href (fallback to span)
+              <span className="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+                {crumb.label}
+              </span>
             )}
           </li>
         ))}
