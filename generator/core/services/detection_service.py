@@ -1,4 +1,5 @@
 """
+from config.global_config import get_config
 Enhanced Detection Service - Coordinator for AI and Natural Voice Detection
 Refactored to use discrete, non-overlapping detection services with clear scoring logic.
 """
@@ -168,7 +169,7 @@ class DetectionService:
         try:
             # Run AI Detection
             ai_score = self.detect_ai_patterns(
-                content, context, iteration, timeout=60, temperature_config=temperature_config
+                content, context, iteration, timeout=get_config().get_api_timeout(), temperature_config=temperature_config
             )
             ai_interpretation = self.scoring_system.interpret_ai_score(ai_score.score)
             ai_passes = ai_score.score <= ai_threshold
@@ -183,7 +184,7 @@ class DetectionService:
             
             # Run Natural Voice Detection  
             nv_score = self.detect_natural_voice_authenticity(
-                content, context, iteration, timeout=60, temperature_config=temperature_config
+                content, context, iteration, timeout=get_config().get_api_timeout(), temperature_config=temperature_config
             )
             nv_interpretation = self.scoring_system.interpret_natural_voice_score(nv_score.score)
             nv_passes = nv_score.score <= natural_voice_threshold

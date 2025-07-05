@@ -1,8 +1,35 @@
 #!/usr/bin/env python3
 """
+from config.global_config import get_config
 Interactive Detection Training Mode
 
-This script allows you to:
+This scri    def run_i    def run_interactive_session(self):
+        """Run Natural Voice training session - generate introduction and get user feedback."""
+        # Get material from config
+        material = self.user_config.get("material", "aluminum").lower()
+        
+        print("🎓 Natural Voice Training Mode")
+        print("="*50)
+        print(f"📝 Training for: {material.upper()}")
+        print("🎯 Generate Introduction Text & Rate Naturalness")
+        print("💡 This will help improve detection for future generations")
+        print()
+        
+        # Always generate introduction section for the configured material
+        self.generate_introduction_content(material)e_session(self):
+        """Run Natural Voice training session - generate introduction and get user feedback."""
+        # Get material from config
+        material = self.user_config.get("material", "aluminum").lower()
+        
+        print("🎓 Natural Voice Training Mode")
+        print("="*50)
+        print(f"📝 Training for: {material.upper()}")
+        print("🎯 Generate Introduction Text & Rate Naturalness")
+        print("💡 This will help improve detection for future generations")
+        print()
+        
+        # Always generate introduction section for the configured material
+        self.generate_introduction_content(material) you to:
 1. See before/after text transformations
 2. Run single sections through the detection system
 3. Provide feedback to train and adjust prompts
@@ -14,14 +41,14 @@ import os
 import json
 from typing import Dict, Any, Optional
 
-# Add project root to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Setup paths for imports
+import setup_paths
 
-from generator.modules.runner import ApplicationRunner
-from generator.config.configurator import build_run_config
-from generator.modules.page_generator import ArticleGenerator
-from generator.core.domain.models import GenerationContext, TemperatureConfig
-from generator.modules.logger import get_logger
+from modules.runner import ApplicationRunner
+from config.configurator import build_run_config
+from modules.page_generator import ArticleGenerator
+from core.domain.models import GenerationContext, TemperatureConfig
+from modules.logger import get_logger
 
 logger = get_logger("interactive_training")
 
@@ -34,24 +61,14 @@ class InteractiveDetectionTrainer:
         self.app_runner = ApplicationRunner()
         self.app_runner.setup_environment()
         
-        # Load configuration from run.py (same as main app)
+        # Load configuration from root run.py
         try:
+            parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            sys.path.insert(0, parent_dir)
             from run import USER_CONFIG
             self.user_config = USER_CONFIG
         except ImportError:
-            raise RuntimeError("Could not load configuration from run.py")
-        
-    def __init__(self):
-        # Use the main application runner and configuration
-        self.app_runner = ApplicationRunner()
-        self.app_runner.setup_environment()
-        
-        # Load configuration from run.py (same as main app)
-        try:
-            from run import USER_CONFIG
-            self.user_config = USER_CONFIG
-        except ImportError:
-            raise RuntimeError("Could not load configuration from run.py")
+            raise RuntimeError("Could not load configuration from root run.py")
         
         # Build run configuration using the main app's configurator (only takes user_config)
         self.run_config = build_run_config(self.user_config)
@@ -60,15 +77,15 @@ class InteractiveDetectionTrainer:
         self.generation_config = self.app_runner.create_generation_config(self.run_config)
         
         # Initialize services directly from the DI container
-        from generator.core.container import get_container
-        from generator.core.application import configure_services
+        from core.container import get_container
+        from core.application import configure_services
         self.container = get_container()
         configure_services(self.container)
         
         # Get services from container
-        from generator.core.interfaces.services import IAPIClient, IPromptRepository
-        from generator.core.services.detection_service import DetectionService
-        from generator.core.services.content_service import ContentGenerationService
+        from core.interfaces.services import IAPIClient, IPromptRepository
+        from core.services.detection_service import DetectionService
+        from core.services.content_service import ContentGenerationService
         
         self.api_client = self.container.get(IAPIClient)
         self.prompt_repository = self.container.get(IPromptRepository)
@@ -180,7 +197,7 @@ class InteractiveDetectionTrainer:
                 section_name=section_name,
                 context=context,
                 temperature_config=self.temp_config,
-                timeout=60
+                timeout=get_config().get_api_timeout()
             )
             
             print("✅ Content generated!")
@@ -220,8 +237,8 @@ class InteractiveDetectionTrainer:
             detection_results = self.detection_service.run_comprehensive_detection(
                 content=content,
                 context=context,
-                ai_threshold=25,
-                natural_voice_threshold=25,
+                ai_threshold=get_config().get_ai_detection_threshold(),
+                natural_voice_threshold=get_config().get_natural_voice_threshold(),
                 iteration=1,
                 temperature_config=temp_config
             )

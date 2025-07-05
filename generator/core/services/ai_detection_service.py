@@ -7,6 +7,7 @@ from generator.core.interfaces.services import IAPIClient, IPromptRepository
 from generator.core.exceptions import DetectionError
 from generator.core.services.prompt_optimizer_compatible import PromptOptimizerCompatible
 from generator.modules.logger import get_logger
+from generator.config.global_config import get_config, requires_config
 from typing import Optional
 import time
 
@@ -51,13 +52,14 @@ class AIDetectionService:
             logger.warning(f"Could not load model from run.py: {e}")
             self._model = None
 
+    @requires_config
     def detect_ai_patterns(
         self,
         content: str,
         context: GenerationContext,
         iteration: int = 1,
-        temperature: float = 0.3,
-        timeout: int = 60,
+        temperature: float = None,  # Will use config default if None
+        timeout: int = None,        # Will use config default if None
         temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """
@@ -67,6 +69,14 @@ class AIDetectionService:
         - Low score (0-25%) = Good (minimal AI patterns detected)
         - High score (75-100%) = Poor (heavy AI patterns detected)
         """
+        config = get_config()
+        
+        # Use config values instead of hardcoded defaults
+        if temperature is None:
+            temperature = config.get_detection_temperature()
+        if timeout is None:
+            timeout = config.get_api_timeout()
+            
         section_name = context.get_variable("section_name", "Unknown")
         
         # Get optimal AI detection prompt for this iteration and section
@@ -76,9 +86,10 @@ class AIDetectionService:
         
         logger.info(f"🤖 AI Detection - Using prompt: {optimal_prompt} (iteration {iteration})")
 
-        # Use AI-specific temperature from config
+        # Use config-specific temperature from temperature_config, or fall back to parameter
         detection_temp = (
-            temperature_config.detection_temp if temperature_config else temperature
+            temperature_config.detection_temp if temperature_config 
+            else temperature
         )
 
         return self._run_ai_detection(
@@ -133,7 +144,9 @@ class AIDetectionService:
             score, feedback = self._parse_ai_detection_response(response)
 
             # Track AI detection performance
-            success = score <= 25  # Success for AI detection = low score (minimal AI patterns)
+            config = get_config()
+            success_threshold = config.get_ai_detection_threshold()
+            success = score <= success_threshold  # Success = score below threshold
             self._optimizer.track_performance(
                 prompt_name, "ai", score, iteration, success, section_name
             )

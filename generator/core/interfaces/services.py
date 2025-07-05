@@ -36,8 +36,8 @@ class IDetectionService(ABC):
         content: str,
         context: GenerationContext,
         iteration: int = 1,
-        temperature: float = 0.3,
-        timeout: int = 60,
+        temperature: Optional[float] = None,  # Use get_config().get_detection_temperature() if None
+        timeout: Optional[int] = None,  # Use get_config().get_api_timeout() if None
         temperature_config: Optional[TemperatureConfig] = None,
     ) -> AIScore:
         """Detect AI-like characteristics in content."""

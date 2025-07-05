@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """
+from config.global_config import get_config
 Content generation test functions for regular validation.
 """
 
@@ -7,13 +8,13 @@ import sys
 import os
 from typing import Dict, Any
 
-# Add generator to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "generator"))
+# Setup paths for imports
+import setup_paths
 
-from generator.core.container import get_container
-from generator.core.application import configure_services
-from generator.core.interfaces.services import IContentGenerator
-from generator.core.domain.models import (
+from core.container import get_container
+from core.application import configure_services
+from core.interfaces.services import IContentGenerator
+from core.domain.models import (
     GenerationContext,
     GenerationRequest,
     SectionConfig,
@@ -140,8 +141,8 @@ def run_content_test(
             ai_detection_threshold=ai_threshold,
             human_detection_threshold=human_threshold,
             iterations_per_section=max_iterations,
-            temperature=0.7,  # Legacy field kept for backward compatibility
-            detection_temperature=0.3,  # Legacy field kept for backward compatibility
+            temperature=get_config().get_improvement_temperature(),  # Legacy field kept for backward compatibility
+            detection_temperature=get_config().get_detection_temperature(),  # Legacy field kept for backward compatibility
             max_tokens=max_tokens,
             force_regenerate=True,
             temperature_config=temp_config,  # Use new temperature configuration
@@ -307,7 +308,7 @@ def run_detector_validation_test() -> bool:
             word_limit=250,
             ai_threshold=20,  # Very strict AI detection threshold
             human_threshold=20,  # Very strict human detection threshold
-            max_iterations=6,  # More iterations to test prompt optimization
+            max_iterations=get_config().get_iterations_per_section(),  # More iterations to test prompt optimization
             max_tokens=5000,
         )
 

@@ -1,6 +1,7 @@
 # generator/modules/content_generator.py
 
 """
+from config.global_config import get_config
 Legacy content generator - now uses the new architecture under the hood.
 This file maintains backward compatibility while delegating to the new system.
 
@@ -289,7 +290,7 @@ def generate_with_feedback_loop(
                 if detection_model_settings
                 else model,
                 api_keys=api_keys,
-                temperature=0.2,
+                temperature=get_config().get_metadata_temperature(),
                 max_tokens=500,
                 url_template=detection_model_settings.get("url_template")
                 if detection_model_settings
@@ -342,7 +343,7 @@ def generate_with_feedback_loop(
                 if detection_model_settings
                 else model,
                 api_keys=api_keys,
-                temperature=0.2,
+                temperature=get_config().get_metadata_temperature(),
                 max_tokens=500,
                 url_template=detection_model_settings.get("url_template")
                 if detection_model_settings
