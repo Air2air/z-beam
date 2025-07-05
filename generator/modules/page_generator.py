@@ -18,12 +18,13 @@ from generator.modules.metadata_generator import generate_metadata
 from generator.modules.prompt_loader import PromptLoader
 from generator.modules.prompt_manager import PromptManager
 from generator.modules.file_handler import save_file, read_cache, write_cache
+from generator.modules.prompt_repository_adapter import PromptRepositoryAdapter
 from generator.modules.mdx_validator import validate_mdx_output
 
 # NEW: Import DI container and modern services
 from generator.core.container import get_container
 from generator.core.application import configure_services
-from generator.core.interfaces.services import IContentGenerator
+from generator.core.interfaces.services import IContentGenerator, IPromptRepository
 from generator.core.domain.models import (
     GenerationRequest,
     SectionConfig,
@@ -98,6 +99,15 @@ class ArticleGenerator:
         self.content_generator = (
             None  # Will be initialized with max_article_words in generate_article
         )
+
+        # Initialize prompt repository for fallback section generation
+        from generator.infrastructure.storage.enhanced_json_prompt_repository import (
+            EnhancedJsonPromptRepository,
+        )
+        from pathlib import Path
+
+        prompts_dir = Path(__file__).parent.parent / "prompts"
+        self.prompt_repository = EnhancedJsonPromptRepository(prompts_dir)
 
     def _initialize_efficient_content_service(
         self, gen_config: GenerationConfig
@@ -236,12 +246,32 @@ class ArticleGenerator:
         )
 
     def _load_prompt_templates(self) -> Dict[str, str]:
-        """Load prompt templates."""
+        """Load prompt templates from JSON repository with fallback to text files."""
         try:
+            # First try using the JSON repository adapter
+            try:
+                # Get repository from container
+                repository = self.container.get(IPromptRepository)
+                adapter = PromptRepositoryAdapter(repository)
+                templates = adapter.get_section_templates()
+
+                if templates:
+                    self.logger.info(
+                        f"Loaded {len(templates)} prompt templates from JSON repository"
+                    )
+                    return templates
+
+            except Exception as json_error:
+                self.logger.warning(
+                    f"Failed to load from JSON repository: {json_error}, falling back to text files"
+                )
+
+            # Fallback to legacy text file loading
             templates = self.prompt_loader.load_all_templates()
             if not templates:
-                raise GenerationError("No prompt templates loaded")
+                raise GenerationError("No prompt templates loaded from any source")
             return templates
+
         except Exception as e:
             raise GenerationError(f"Failed to load prompt templates: {e}") from e
 
@@ -361,12 +391,7 @@ class ArticleGenerator:
                 continue  # Skip ai_detection_prompt as a section
             if not section_config.get("generate", True):
                 continue
-            # Skip sections that don't need AI detection - they shouldn't be generated at all
-            if not section_config.get("ai_detect", True):
-                self.logger.info(
-                    f"Skipping section '{section_name}' (ai_detect: false)"
-                )
-                continue
+            # Add all sections - ai_detect flag controls detection, not generation
             sections_to_generate.append((section_name, section_config))
 
         if not sections_to_generate:
@@ -437,12 +462,11 @@ class ArticleGenerator:
         section_configs = []
         for section_name, section_config in sections_to_generate:
             ai_detect = section_config.get("ai_detect", True)
-            prompt_file = section_config.get("prompt", f"{section_name}.txt")
 
             section_config_obj = SectionConfig(
                 name=section_name,
                 ai_detect=ai_detect,
-                prompt_file=prompt_file,
+                prompt_file=section_name,  # Use section name directly for JSON lookup
                 section_type=SectionType.TEXT,
                 generate=True,
                 order=section_config.get("order", 1),
@@ -508,14 +532,21 @@ class ArticleGenerator:
         human_detection_threshold: int,  # Accept human threshold
     ) -> None:
         """Generate content for a single section."""
-        prompt_file = section_config.get("prompt_file")
-        if not prompt_file or prompt_file not in prompt_templates:
-            self.logger.warning(
-                f"Prompt file '{prompt_file}' not found for section '{section_name}'. Skipping."
+        # NEW: Use JSON repository to get prompt instead of legacy prompt files
+        try:
+            prompt_template = self.prompt_repository.get_prompt(
+                section_name, "sections"
+            )
+            if not prompt_template:
+                self.logger.warning(
+                    f"No prompt found for section '{section_name}' in JSON repository. Skipping."
+                )
+                return
+        except Exception as e:
+            self.logger.error(
+                f"Failed to load prompt for section '{section_name}': {e}"
             )
             return
-
-        # prompt_template = self.prompt_manager.load_prompt(prompt_file, "sections")  # Loaded but used by EfficientContentGenerationService
 
         # Prepare section variables (word budget will be managed by EfficientContentGenerationService)
         section_variables = {
@@ -558,7 +589,7 @@ class ArticleGenerator:
             section_config_obj = SectionConfig(
                 name=section_name,
                 ai_detect=ai_detect,
-                prompt_file=prompt_file,
+                prompt_file=section_name,  # Use section name as identifier
                 section_type=SectionType.TEXT,
                 generate=True,
                 order=1,

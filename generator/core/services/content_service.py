@@ -336,6 +336,17 @@ class ContentGenerationService(IContentGenerator):
             # Remove any leading/trailing whitespace
             cleaned_content = content.strip()
 
+            # Skip JSON validation for chart sections that contain JavaScript/HTML
+            if (
+                section_name == "chart"
+                or "<script>" in cleaned_content
+                or "</script>" in cleaned_content
+            ):
+                logger.debug(
+                    f"Skipping JSON validation for chart/script content in {section_name}"
+                )
+                return cleaned_content
+
             # If the content looks like JSON but might be truncated, try to fix it
             if cleaned_content.startswith("{") and not cleaned_content.endswith("}"):
                 logger.warning(

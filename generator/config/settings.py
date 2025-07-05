@@ -103,8 +103,40 @@ class AppConfig:
         return self.get_provider_config(provider).url_template
 
     def load_sections_config(self) -> Dict[str, Dict[str, Any]]:
+        """Load sections configuration from JSON repository or fallback to text files."""
         sections_config = {}
-        # Use the new prompts/sections directory instead of generator/sections
+
+        # Try to load from JSON repository first
+        try:
+            from generator.infrastructure.storage.enhanced_json_prompt_repository import (
+                EnhancedJsonPromptRepository,
+            )
+
+            # Initialize repository
+            prompts_dir = self.directories.generator_dir / "prompts"
+            repository = EnhancedJsonPromptRepository(prompts_dir)
+
+            # Get all section metadata
+            section_metadata = repository.get_all_prompt_metadata("sections")
+
+            # Convert to the format expected by the application
+            for name, data in section_metadata.items():
+                sections_config[name] = {
+                    "ai_detect": data.get("ai_detect", True),
+                    "order": data.get("order", 999),
+                    "section_type": data.get("section_type", "TEXT"),
+                    "title": data.get("title", name.title()),
+                    "generate": True,  # All sections from JSON should be generated
+                }
+
+            if sections_config:
+                return sections_config
+
+        except Exception as e:
+            print(f"Warning: Failed to load sections from JSON repository: {e}")
+            print("Falling back to text file loading...")
+
+        # Fallback to legacy text file loading
         sections_dir = self.directories.generator_dir / "prompts" / "sections"
         if not sections_dir.exists():
             return sections_config

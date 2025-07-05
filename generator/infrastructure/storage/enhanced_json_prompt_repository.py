@@ -119,7 +119,26 @@ class EnhancedJsonPromptRepository(IPromptRepository):
             logger.error(f"Error loading improvement JSON: {e}")
             return False
 
-    def get_prompt(self, name: str, prompt_type: str = "") -> str:
+    def get_prompt(self, name: str, prompt_type: str = "") -> Optional[PromptTemplate]:
+        """
+        Get prompt by name and type, returning a PromptTemplate object.
+
+        Args:
+            name: Name of the prompt
+            prompt_type: Type of prompt ('', 'sections', 'detection', 'improvement')
+                         If empty, will search in all types
+
+        Returns:
+            PromptTemplate object or None if not found
+        """
+        prompt_content = self._get_prompt_content(name, prompt_type)
+        if prompt_content:
+            return PromptTemplate(
+                name=name, category=prompt_type or "sections", content=prompt_content
+            )
+        return None
+
+    def _get_prompt_content(self, name: str, prompt_type: str = "") -> str:
         """
         Get prompt content by name and type.
 
@@ -135,7 +154,25 @@ class EnhancedJsonPromptRepository(IPromptRepository):
         if prompt_type == "sections" or not prompt_type:
             # Try to find in sections cache
             if name in self._section_cache:
-                return self._section_cache[name]["prompt"]
+                section_data = self._section_cache[name]
+                prompt_content = section_data["prompt"]
+
+                # Check if this section has a template file reference
+                template_file = section_data.get("template_file")
+                if template_file:
+                    # Load and append the template content
+                    template_path = self._root_dir / "sections" / template_file
+                    if template_path.exists():
+                        try:
+                            with open(template_path, "r", encoding="utf-8") as f:
+                                template_content = f.read()
+                            prompt_content += f"\n\nTemplate:\n{template_content}"
+                        except Exception as e:
+                            logger.error(
+                                f"Error reading template file {template_path}: {e}"
+                            )
+
+                return prompt_content
 
         if prompt_type == "detection" or not prompt_type:
             # Try to find in detection cache
@@ -282,3 +319,41 @@ class EnhancedJsonPromptRepository(IPromptRepository):
             result.update(self._detection_cache)
             result.update(self._improvement_cache)
             return result
+
+    def save_prompt(self, prompt: PromptTemplate) -> None:
+        """
+        Save a prompt template.
+
+        Args:
+            prompt: The prompt template to save
+
+        Note:
+            This implementation is read-only for JSON files to maintain integrity.
+            For write operations, use dedicated utility scripts.
+        """
+        logger.warning(
+            f"EnhancedJsonPromptRepository is read-only. Use utility scripts to modify JSON files. "
+            f"Attempted to save prompt: {prompt.name}"
+        )
+        # File-based fallback for backward compatibility
+        try:
+            prompt_type = "sections"  # Default type
+            # Try to determine prompt type from name
+            if prompt.name.startswith("ai_") or prompt.name.startswith("human_"):
+                prompt_type = "detection"
+
+            file_path = self._prompts_dir / prompt_type / f"{prompt.name}.txt"
+            file_path.parent.mkdir(parents=True, exist_ok=True)
+
+            with open(file_path, "w", encoding="utf-8") as f:
+                f.write(prompt.content)
+
+            logger.info(
+                f"Saved prompt to legacy file location: {file_path} "
+                f"(Note: This does not update the JSON repository)"
+            )
+        except Exception as e:
+            logger.error(f"Error saving prompt to legacy file location: {e}")
+            raise FileOperationError(
+                f"Failed to save prompt: {e}", prompt.name, "save_prompt"
+            )

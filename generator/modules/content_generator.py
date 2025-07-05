@@ -70,16 +70,24 @@ def research_material_config(
         "material_config_research",
     )
 
+    # Default values if settings are missing
+    default_temp = 0.2
+    default_max_tokens = 500
+    default_url = None
+
+    # Safe extraction of settings with defaults
     api_config = {
-        "temperature": generator_model_settings["default_temperature"]
+        "temperature": generator_model_settings.get("default_temperature", default_temp)
         if generator_model_settings
-        else 0.2,
-        "max_output_tokens": generator_model_settings["default_max_tokens"]
+        else default_temp,
+        "max_output_tokens": generator_model_settings.get(
+            "default_max_tokens", default_max_tokens
+        )
         if generator_model_settings
-        else 500,
-        "url_template": generator_model_settings["url_template"]
+        else default_max_tokens,
+        "url_template": generator_model_settings.get("url_template", default_url)
         if generator_model_settings
-        else None,
+        else default_url,
     }
 
     try:
@@ -242,7 +250,7 @@ def generate_with_feedback_loop(
                 api_keys=api_keys,
                 temperature=temperature,
                 max_tokens=1500,
-                url_template=generator_model_settings["url_template"]
+                url_template=generator_model_settings.get("url_template")
                 if generator_model_settings
                 else None,
                 backoff_factor=2.0,
@@ -277,16 +285,16 @@ def generate_with_feedback_loop(
             ai_detection_response = api_client.call_ai_api(
                 prompt=ai_detection_prompt,
                 provider=detection_provider or generator_provider,
-                model=detection_model_settings["model"]
+                model=detection_model_settings.get("model")
                 if detection_model_settings
                 else model,
                 api_keys=api_keys,
                 temperature=0.2,
                 max_tokens=500,
-                url_template=detection_model_settings["url_template"]
+                url_template=detection_model_settings.get("url_template")
                 if detection_model_settings
                 else (
-                    generator_model_settings["url_template"]
+                    generator_model_settings.get("url_template")
                     if generator_model_settings
                     else None
                 ),
@@ -303,7 +311,9 @@ def generate_with_feedback_loop(
         ai_score, ai_feedback = parse_ai_detection_feedback(
             ai_detection_response or "",
             detection_provider or generator_provider,
-            detection_model_settings["model"] if detection_model_settings else model,
+            detection_model_settings.get("model")
+            if detection_model_settings
+            else model,
             section_name,
             section_variables.get("audience_level", "general"),
             api_keys,
@@ -328,16 +338,16 @@ def generate_with_feedback_loop(
             human_detection_response = api_client.call_ai_api(
                 prompt=human_detection_prompt,
                 provider=detection_provider or generator_provider,
-                model=detection_model_settings["model"]
+                model=detection_model_settings.get("model")
                 if detection_model_settings
                 else model,
                 api_keys=api_keys,
                 temperature=0.2,
                 max_tokens=500,
-                url_template=detection_model_settings["url_template"]
+                url_template=detection_model_settings.get("url_template")
                 if detection_model_settings
                 else (
-                    generator_model_settings["url_template"]
+                    generator_model_settings.get("url_template")
                     if generator_model_settings
                     else None
                 ),
@@ -354,7 +364,9 @@ def generate_with_feedback_loop(
         human_score, human_feedback = parse_ai_detection_feedback(
             human_detection_response or "",
             detection_provider or generator_provider,
-            detection_model_settings["model"] if detection_model_settings else model,
+            detection_model_settings.get("model")
+            if detection_model_settings
+            else model,
             section_name,
             section_variables.get("audience_level", "general"),
             api_keys,
