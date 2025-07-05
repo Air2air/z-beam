@@ -37,6 +37,7 @@ class APIClient(IAPIClient):
         model: str,
         temperature: float = 1.0,
         max_tokens: int = 2048,
+        timeout: int = 60,
         **kwargs,
     ) -> str:
         """Make an API call to the AI provider."""
@@ -51,7 +52,7 @@ class APIClient(IAPIClient):
             start_time = time.time()
 
             response = self._make_request(
-                prompt, model, temperature, max_tokens, **kwargs
+                prompt, model, temperature, max_tokens, timeout, **kwargs
             )
 
             duration = time.time() - start_time
@@ -73,20 +74,38 @@ class APIClient(IAPIClient):
             ) from e
 
     def _make_request(
-        self, prompt: str, model: str, temperature: float, max_tokens: int, **kwargs
+        self,
+        prompt: str,
+        model: str,
+        temperature: float,
+        max_tokens: int,
+        timeout: int,
+        **kwargs,
     ) -> str:
         """Make the actual HTTP request based on provider."""
         if self._provider == "GEMINI":
-            return self._call_gemini(prompt, model, temperature, max_tokens, **kwargs)
+            return self._call_gemini(
+                prompt, model, temperature, max_tokens, timeout, **kwargs
+            )
         elif self._provider == "XAI":
-            return self._call_xai(prompt, model, temperature, max_tokens, **kwargs)
+            return self._call_xai(
+                prompt, model, temperature, max_tokens, timeout, **kwargs
+            )
         elif self._provider == "DEEPSEEK":
-            return self._call_deepseek(prompt, model, temperature, max_tokens, **kwargs)
+            return self._call_deepseek(
+                prompt, model, temperature, max_tokens, timeout, **kwargs
+            )
         else:
             raise APIError(f"Provider {self._provider} not implemented", self._provider)
 
     def _call_gemini(
-        self, prompt: str, model: str, temperature: float, max_tokens: int, **kwargs
+        self,
+        prompt: str,
+        model: str,
+        temperature: float,
+        max_tokens: int,
+        timeout: int,
+        **kwargs,
     ) -> str:
         """Call Google Gemini API."""
         url = self._provider_config["url_template"]
@@ -107,7 +126,7 @@ class APIClient(IAPIClient):
         params = {"key": self._api_key}
 
         response = requests.post(
-            url, headers=headers, json=payload, params=params, timeout=60
+            url, headers=headers, json=payload, params=params, timeout=timeout
         )
 
         if response.status_code != 200:
@@ -186,7 +205,13 @@ class APIClient(IAPIClient):
             ) from e
 
     def _call_xai(
-        self, prompt: str, model: str, temperature: float, max_tokens: int, **kwargs
+        self,
+        prompt: str,
+        model: str,
+        temperature: float,
+        max_tokens: int,
+        timeout: int,
+        **kwargs,
     ) -> str:
         """Call xAI Grok API."""
         url = "https://api.x.ai/v1/chat/completions"
@@ -203,7 +228,7 @@ class APIClient(IAPIClient):
             "max_tokens": max_tokens,
         }
 
-        response = requests.post(url, headers=headers, json=payload, timeout=60)
+        response = requests.post(url, headers=headers, json=payload, timeout=timeout)
 
         if response.status_code != 200:
             raise APIError(
@@ -225,7 +250,13 @@ class APIClient(IAPIClient):
             ) from e
 
     def _call_deepseek(
-        self, prompt: str, model: str, temperature: float, max_tokens: int, **kwargs
+        self,
+        prompt: str,
+        model: str,
+        temperature: float,
+        max_tokens: int,
+        timeout: int,
+        **kwargs,
     ) -> str:
         """Call DeepSeek API."""
         url = "https://api.deepseek.com/v1/chat/completions"  # Fixed to match providers.py
@@ -242,7 +273,9 @@ class APIClient(IAPIClient):
             "max_tokens": max_tokens,
         }
 
-        response = requests.post(url, headers=headers, json=payload, timeout=60)
+        response = requests.post(
+            url, headers=headers, json=payload, timeout=timeout
+        )  # Reduced timeout
 
         if response.status_code != 200:
             raise APIError(

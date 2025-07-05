@@ -82,6 +82,8 @@ class GenerationRequest:
     temperature: float = 1.0
     max_tokens: int = 6144
     force_regenerate: bool = False
+    api_timeout: int = 60
+    detection_temperature: float = 0.3
 
     def __post_init__(self):
         if not self.material.strip():

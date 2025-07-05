@@ -25,6 +25,11 @@ class DetectionService(IDetectionService):
         self._api_client = api_client
         self._prompt_repository = prompt_repository
 
+        # Initialize logger
+        from generator.modules.logger import get_logger
+
+        self.logger = get_logger("detection_service")
+
         # Get the model from provider configuration instead of hardcoding
         from generator.config.providers import MODELS
 
@@ -35,14 +40,16 @@ class DetectionService(IDetectionService):
         self._optimizer = PromptOptimizerCompatible()
         # Available prompt variations for optimization
         self._ai_prompt_variations = [
-            "ai_detection_prompt_minimal",  # Current default
+            "ai_detection_enhanced",  # New enhanced prompt as default
+            "ai_detection_prompt_minimal",
             "ai_detection_v1",
             "ai_detection_v2",
             "ai_detection_v3",
             "ai_detection_v4",
         ]
         self._human_prompt_variations = [
-            "human_detection_prompt_minimal",  # Current default
+            "human_detection_enhanced",  # New enhanced prompt as default
+            "human_detection_prompt_minimal",
             "human_detection_v1",
             "human_detection_v2",
             "human_detection_v3",
@@ -52,7 +59,12 @@ class DetectionService(IDetectionService):
         self._prompt_performance = {}
 
     def detect_ai_likelihood(
-        self, content: str, context: GenerationContext, iteration: int = 1
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
     ) -> AIScore:
         """Detect AI-like characteristics in content using optimal prompt variation."""
         section_name = context.get_variable("section_name", "Unknown")
@@ -64,11 +76,23 @@ class DetectionService(IDetectionService):
         )
 
         return self._run_detection(
-            content, context, iteration, optimal_prompt, "ai", section_name
+            content,
+            context,
+            iteration,
+            optimal_prompt,
+            "ai",
+            section_name,
+            temperature,
+            timeout,
         )
 
     def detect_human_likelihood(
-        self, content: str, context: GenerationContext, iteration: int = 1
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
     ) -> AIScore:
         """Detect overly human-like characteristics in content using optimal prompt variation."""
         section_name = context.get_variable("section_name", "Unknown")
@@ -80,7 +104,14 @@ class DetectionService(IDetectionService):
         )
 
         return self._run_detection(
-            content, context, iteration, optimal_prompt, "human", section_name
+            content,
+            context,
+            iteration,
+            optimal_prompt,
+            "human",
+            section_name,
+            temperature,
+            timeout,
         )
 
     def _run_detection(
@@ -91,6 +122,8 @@ class DetectionService(IDetectionService):
         prompt_name: str,
         detection_type: str,
         section_name: str,
+        temperature: float = 0.3,
+        timeout: int = 60,
     ) -> AIScore:
         """Run detection analysis using the specified prompt."""
         try:
@@ -119,13 +152,44 @@ class DetectionService(IDetectionService):
 
             formatted_prompt = prompt_template.content.format(**detection_variables)
 
-            # Call the API for detection
-            response = self._api_client.call_api(
-                prompt=formatted_prompt,
-                model=self._model,  # Use provider-specific model instead of hardcoded
-                temperature=0.3,  # Lower temperature for more consistent detection
-                max_tokens=4000,  # Increased to 4000 to handle longer responses
-            )
+            # Call the API for detection with timeout handling and progress tracking
+            try:
+                import time
+
+                self.logger.info(f"📡 Making {detection_type} detection API call...")
+                self.logger.info(f"🔍 Prompt length: {len(formatted_prompt)} chars")
+
+                start_time = time.time()
+                response = self._api_client.call_api(
+                    prompt=formatted_prompt,
+                    model=self._model,  # Use provider-specific model instead of hardcoded
+                    temperature=temperature,  # Use temperature from configuration
+                    max_tokens=4000,  # Increased to 4000 to handle longer responses
+                    timeout=timeout,  # Use timeout from configuration
+                )
+                duration = time.time() - start_time
+                self.logger.info(
+                    f"✅ {detection_type} detection API call completed in {duration:.2f}s"
+                )
+
+                # Warn about slow calls
+                if duration > 20:
+                    self.logger.warning(
+                        f"⚠️ Slow API response: {duration:.2f}s (>20s threshold)"
+                    )
+
+            except Exception as e:
+                duration = time.time() - start_time if "start_time" in locals() else 0
+                self.logger.error(
+                    f"❌ {detection_type} detection API call failed after {duration:.2f}s: {str(e)}"
+                )
+                # Return a default score to continue processing
+                return AIScore(
+                    score=50,  # Neutral score
+                    feedback=f"Detection failed due to API error: {str(e)}",
+                    iteration=iteration,
+                    detection_type=detection_type,
+                )
 
             logger.debug(f"Raw {detection_type} detection response: {response}")
 

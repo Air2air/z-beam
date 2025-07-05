@@ -11,10 +11,7 @@ from generator.config.configurator import build_run_config
 
 
 # ---- CONFIGURATION (edit here) ----
-# Configure your material and category for article generation
-# Higher iterations_per_section (5-10) allows testing more prompt variations
-# and gives the system more chances to reach your target thresholds.
-# Each iteration uses a different detection prompt variation for robustness.
+
 USER_CONFIG = dict(
     material="Steel",  # Simple material for testing
     category="Material",  # Article category
@@ -22,12 +19,14 @@ USER_CONFIG = dict(
     generator_provider="DEEPSEEK",  # XAI GEMINI DEEPSEEK
     detection_provider="DEEPSEEK",  # XAI GEMINI DEEPSEEK
     author="todd_dunning.mdx",  # Author profile
-    temperature=0.7,  # Generation creativity (0-2) - reduced for testing
+    temperature=0.6,  # REDUCED: Lower creativity for more human-like consistency
     force_regenerate=True,  # Always regenerate content
-    ai_detection_threshold=60,  # Target AI-likelihood score (more lenient for testing)
-    human_detection_threshold=60,  # Target over-human score (more lenient for testing)
-    iterations_per_section=1,  # REDUCED: Max iterations for quick test
-    max_article_words=800,  # REDUCED: Total word budget for quick test
+    ai_detection_threshold=25,  # STRICT: Much more stringent AI detection (25% max)
+    human_detection_threshold=25,  # STRICT: Much more stringent human detection (25% max)
+    iterations_per_section=5,  # INCREASED: More iterations to improve detection scores
+    max_article_words=800,  # SAFE MODE: Smaller for faster testing
+    api_timeout=60,  # API request timeout in seconds
+    detection_temperature=0.3,  # Temperature specifically for detection calls (lower for consistency)
     # Content length limits are now handled by word budget manager
 )
 # ---- END CONFIGURATION ----

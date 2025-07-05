@@ -16,8 +16,7 @@ class SectionBudget:
 
     name: str
     target_words: int
-    max_words: int
-    min_words: int
+    percentage: float  # Percentage of total article words
     priority: float = 1.0  # Higher priority gets more words if available
 
 
@@ -40,19 +39,20 @@ class WordBudgetManager:
         self.allocated_words = 0
         self.logger = logger
 
-        # Default section priorities and allocations
+        # Default section priorities and allocations (as percentages)
         self.default_allocations = {
-            "introduction": 0.15,  # 15% - 180 words
-            "material_research": 0.20,  # 20% - 240 words
-            "contaminants": 0.15,  # 15% - 180 words
-            "substrates": 0.15,  # 15% - 180 words
-            "comparison": 0.20,  # 20% - 240 words
-            "conclusion": 0.10,  # 10% - 120 words
-            "table": 0.05,  # 5%  - 60 words (data tables)
+            "introduction": 0.15,  # 15% of total article
+            "material_research": 0.20,  # 20% of total article
+            "contaminants": 0.15,  # 15% of total article
+            "substrates": 0.15,  # 15% of total article
+            "comparison": 0.20,  # 20% of total article
+            "conclusion": 0.10,  # 10% of total article
+            "table": 0.05,  # 5% of total article (data tables)
+            "chart": 0.05,  # 5% of total article (charts)
         }
 
     def allocate_budgets(self, sections: List[str]) -> Dict[str, SectionBudget]:
-        """Allocate word budgets to sections based on priorities."""
+        """Allocate word budgets to sections based on percentages of total article words."""
         self.logger.info(
             f"Allocating {self.total_article_words} words across {len(sections)} sections"
         )
@@ -82,15 +82,10 @@ class WordBudgetManager:
 
             target_words = int(self.total_article_words * section_percentage)
 
-            # Add some buffer (±20%) for flexibility
-            min_words = max(50, int(target_words * 0.8))
-            max_words = int(target_words * 1.2)
-
             budget = SectionBudget(
                 name=section,
                 target_words=target_words,
-                max_words=max_words,
-                min_words=min_words,
+                percentage=section_percentage,
                 priority=self.default_allocations.get(section, 0.1),
             )
 
@@ -98,7 +93,7 @@ class WordBudgetManager:
             self.allocated_words += target_words
 
             self.logger.info(
-                f"Section '{section}': {target_words} words (range: {min_words}-{max_words})"
+                f"Section '{section}': {target_words} words ({section_percentage:.1%} of total)"
             )
 
         return self.section_budgets
@@ -117,14 +112,15 @@ class WordBudgetManager:
             )
             return 2000
 
-        # Rough estimate: 1 word ≈ 1.3 tokens, add 20% buffer for API overhead
-        estimated_tokens = int(budget.max_words * 1.3 * 1.2)
+        # Rough estimate: 1 word ≈ 1.3 tokens, add 30% buffer for API overhead
+        # Use target_words as the limit (no separate max_words)
+        estimated_tokens = int(budget.target_words * 1.3 * 1.3)
 
         # Ensure reasonable bounds
         max_tokens = max(500, min(estimated_tokens, 8000))
 
         self.logger.debug(
-            f"Section '{section_name}': {budget.max_words} max words → {max_tokens} max tokens"
+            f"Section '{section_name}': {budget.target_words} target words → {max_tokens} max tokens"
         )
         return max_tokens
 
@@ -143,7 +139,13 @@ class WordBudgetManager:
                 utilization=0.0,
             )
 
-        within_budget = budget.min_words <= word_count <= budget.max_words
+        # Consider content "within budget" if it's within 30% of target
+        # (no strict min/max ranges, just target-based evaluation)
+        target_tolerance = 0.3  # 30% tolerance
+        lower_bound = budget.target_words * (1 - target_tolerance)
+        upper_bound = budget.target_words * (1 + target_tolerance)
+        within_budget = lower_bound <= word_count <= upper_bound
+
         utilization = (
             word_count / budget.target_words if budget.target_words > 0 else 0.0
         )
@@ -157,7 +159,7 @@ class WordBudgetManager:
 
         self.logger.info(
             f"Section '{section_name}': {word_count} words "
-            f"(target: {budget.target_words}, range: {budget.min_words}-{budget.max_words}) "
+            f"(target: {budget.target_words}, {budget.percentage:.1%} of total) "
             f"- {'✅' if within_budget else '⚠️'} {utilization:.1%} utilization"
         )
 
@@ -169,24 +171,19 @@ class WordBudgetManager:
         """Determine if detection should be skipped to save API calls."""
         metrics = self.analyze_content(content, section_name)
 
-        # Skip detection if:
-        # 1. Content is grossly over budget (needs length reduction, not detection)
-        # 2. It's a later iteration and content is reasonable
-        # 3. Section is very short (tables, etc.)
+        # For optimization mode, be less aggressive about skipping detection
+        # Only skip if content is way over budget (needs length reduction first)
 
-        if metrics.utilization > 1.5:  # 50% over budget
+        if metrics.utilization > 2.0:  # 100% over budget (was 1.5/50%)
             self.logger.info(
                 f"Skipping detection for '{section_name}' - content too long ({metrics.utilization:.1%} of target)"
             )
             return True
 
-        if iteration > 2 and metrics.within_budget:
-            self.logger.info(
-                f"Skipping detection for '{section_name}' iteration {iteration} - content within budget"
-            )
-            return True
+        # Remove the "iteration > 2 and within_budget" skip for better optimization
+        # This was preventing detection optimization from running
 
-        if metrics.word_count < 100:  # Very short content
+        if metrics.word_count < 50:  # Very short content (reduced from 100)
             self.logger.info(
                 f"Skipping detection for '{section_name}' - content too short for meaningful detection"
             )
@@ -202,7 +199,6 @@ class WordBudgetManager:
             "sections": {
                 name: {
                     "target_words": budget.target_words,
-                    "range": f"{budget.min_words}-{budget.max_words}",
                     "priority": budget.priority,
                     "percentage": f"{(budget.target_words / self.total_article_words) * 100:.1f}%",
                 }
@@ -216,7 +212,77 @@ class WordBudgetManager:
         if not budget:
             return prompt
 
-        # Add word count constraint to the prompt
-        word_constraint = f"\n\nIMPORTANT: Keep your response to approximately {budget.target_words} words (between {budget.min_words}-{budget.max_words} words). This section should be {budget.target_words} words as part of a {self.total_article_words}-word article."
+        # Add word count constraint to the prompt (target words as maximum guidance)
+        word_constraint = f"\n\nIMPORTANT: Keep your response to approximately {budget.target_words} words maximum. This section should aim for {budget.target_words} words or fewer as part of a {self.total_article_words}-word article."
 
         return prompt + word_constraint
+
+    def log_iteration_stats(
+        self,
+        section_name: str,
+        iteration: int,
+        content: str,
+        ai_score=None,
+        human_score=None,
+        previous_content: str = None,
+    ) -> None:
+        """Log detailed iteration statistics including improvements and metrics."""
+        metrics = self.analyze_content(content, section_name)
+        budget = self.get_section_budget(section_name)
+
+        # Calculate content changes if previous content provided
+        content_change_info = ""
+        if previous_content:
+            prev_word_count = len(previous_content.split())
+            word_change = metrics.word_count - prev_word_count
+            if word_change != 0:
+                change_indicator = "↑" if word_change > 0 else "↓"
+                content_change_info = (
+                    f" (changed: {change_indicator}{abs(word_change)} words)"
+                )
+
+        # Format the iteration header
+        self.logger.info(f"📊 ITERATION {iteration} STATS - {section_name.upper()}")
+        self.logger.info(
+            f"   📏 Words: {metrics.word_count}"
+            + (f"/{budget.target_words}" if budget else "")
+            + content_change_info
+        )
+
+        if budget:
+            self.logger.info(
+                f"   🎯 Budget: {metrics.utilization:.1%} utilization "
+                + ("✅ within target" if metrics.within_budget else "⚠️ outside target")
+            )
+
+        if ai_score and human_score:
+            self.logger.info(
+                f"   🤖 AI Score: {ai_score.score}% | 👤 Human Score: {human_score.score}%"
+            )
+
+        self.logger.info(f"   📈 Characters: {metrics.character_count}")
+
+    def log_section_summary(
+        self,
+        section_name: str,
+        final_content: str,
+        iterations_completed: int,
+        threshold_met: bool = False,
+    ) -> None:
+        """Log final section generation summary."""
+        metrics = self.analyze_content(final_content, section_name)
+        budget = self.get_section_budget(section_name)
+
+        status = "✅ SUCCESS" if threshold_met else "⚠️ COMPLETED"
+        self.logger.info(f"🎉 {status} - {section_name.upper()} FINAL SUMMARY")
+        self.logger.info(
+            f"   📊 Final word count: {metrics.word_count}"
+            + (f"/{budget.target_words}" if budget else "")
+        )
+        if budget:
+            self.logger.info(
+                f"   🎯 Budget utilization: {metrics.utilization:.1%} "
+                + ("(within target)" if metrics.within_budget else "(outside target)")
+            )
+        self.logger.info(f"   🔄 Iterations used: {iterations_completed}")
+        self.logger.info(f"   📈 Final length: {metrics.character_count} characters")

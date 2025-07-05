@@ -21,7 +21,34 @@ from generator.core.domain.models import (
     AIScore,
 )
 from generator.core.services.word_budget_manager import WordBudgetManager
-from generator.modules.logger import get_logger
+
+
+# Mock Detection Service that doesn't require scipy
+class MockDetectionService:
+    def __init__(self):
+        self.call_count = 0
+
+    def detect_ai_likelihood(self, content: str, request, iteration: int = 1):
+        """Mock AI detection that returns acceptable scores."""
+        self.call_count += 1
+        # Return a score that meets the threshold (≤ 50)
+        return AIScore(
+            score=45,
+            feedback="Mock AI detection - content appears human-written",
+            iteration=iteration,
+            detection_type="ai",
+        )
+
+    def detect_human_likelihood(self, content: str, request, iteration: int = 1):
+        """Mock human detection that returns acceptable scores."""
+        self.call_count += 1
+        # Return a score that meets the threshold (≤ 50)
+        return AIScore(
+            score=40,
+            feedback="Mock human detection - content appears authentic",
+            iteration=iteration,
+            detection_type="human",
+        )
 
 
 # Mock API Client that doesn't make real API calls
@@ -37,8 +64,33 @@ class MockAPIClient:
         """Mock API call that returns simulated content based on word budget."""
         self.call_count += 1
 
-        # Calculate words from max_tokens (rough estimate)
-        target_words = int(max_tokens / 1.5)
+        # Debug: Print the first 500 chars of the prompt to see what we're getting
+        print(f"Mock API received prompt preview: {repr(prompt[:500])}")
+        print(f"Mock API: Prompt length = {len(prompt)} chars")
+
+        # Extract word target from prompt if available (more realistic)
+        target_words = 200  # Default fallback
+
+        # Look for word constraints in the prompt
+        import re
+
+        # Try multiple patterns for word constraints
+        word_match = (
+            re.search(r"approximately (\d+) words", prompt)
+            or re.search(r"(\d+) words maximum", prompt)
+            or re.search(r"aim for (\d+) words", prompt)
+        )
+
+        if word_match:
+            target_words = int(word_match.group(1))
+            print(f"Mock API: Found word constraint for {target_words} words")
+        else:
+            # Fallback: calculate from max_tokens with a reasonable limit
+            calculated_words = int(max_tokens / 1.5)
+            target_words = min(calculated_words, 500)  # Cap at 500 words for mock
+            print(
+                f"Mock API: No word constraint found, using fallback {target_words} words (max_tokens: {max_tokens})"
+            )
 
         # Generate mock content of appropriate length
         section_name = "mock_section"
@@ -53,15 +105,15 @@ class MockAPIClient:
 
         # Create mock content that respects word budget
         base_text = f"This is a simulated {section_name} section about laser cleaning. "
-        word_count = 0
+        words_needed = target_words
         content = ""
 
-        while word_count < target_words:
+        # Build content to match target word count
+        while len(content.split()) < words_needed:
             content += base_text
-            word_count = len(content.split())
 
         # Trim to exact word count
-        words = content.split()[:target_words]
+        words = content.split()[:words_needed]
         return " ".join(words)
 
 
@@ -83,10 +135,15 @@ def test_word_budget_system():
 
         budget_manager = WordBudgetManager(config["max_words"])
 
+        # Get default sections for testing
+        default_sections = list(budget_manager.default_allocations.keys())
+        # Allocate budgets before trying to access them
+        budget_manager.allocate_budgets(default_sections)
+
         total_allocated = 0
         for section_name, budget in budget_manager.section_budgets.items():
             print(
-                f"   {section_name:<20}: {budget.target_words:>3} words ({budget.allocation_percentage:>4.1f}%)"
+                f"   {section_name:<20}: {budget.target_words:>3} words ({budget.percentage * 100:>4.1f}%)"
             )
             total_allocated += budget.target_words
 
@@ -97,7 +154,7 @@ def test_word_budget_system():
                 f"   ⚠️  Warning: Allocation mismatch! Expected {config['max_words']}, got {total_allocated}"
             )
         else:
-            print(f"   ✅ Perfect allocation!")
+            print("   ✅ Perfect allocation!")
 
 
 def test_efficient_content_generation():
@@ -105,40 +162,35 @@ def test_efficient_content_generation():
     print("\n🚀 Testing Efficient Content Generation")
     print("=" * 50)
 
-    logger = get_logger("test_efficient")
-
     # Initialize container and services
     container = get_container()
     configure_services(container)
 
-    # Create mock API client
+    # Create mock API client and detection service
     mock_api_client = MockAPIClient("DEEPSEEK", "mock_key")
+    mock_detection_service = MockDetectionService()
 
     # Import and create efficient content service
     from generator.core.services.efficient_content_service import (
         EfficientContentGenerationService,
     )
-    from generator.core.interfaces.services import IDetectionService, IPromptRepository
+    from generator.core.interfaces.services import IPromptRepository
 
-    detection_service = container.get(IDetectionService)
     prompt_repository = container.get(IPromptRepository)
 
-    # Override the API client with our mock
-    detection_service._api_client = mock_api_client
-
-    # Create efficient content service
+    # Create efficient content service with mock dependencies
     content_service = EfficientContentGenerationService(
         api_client=mock_api_client,
-        detection_service=detection_service,
+        detection_service=mock_detection_service,
         prompt_repository=prompt_repository,
         max_article_words=1200,
     )
 
-    # Test content generation for different sections
+    # Test content generation for sections with ai_detect=True only
+    # Only these sections go through iterative detection and are subject to word budget constraints
     test_sections = [
         {"name": "introduction", "ai_detect": True},
         {"name": "comparison", "ai_detect": True},
-        {"name": "chart", "ai_detect": False},
         {"name": "contaminants", "ai_detect": True},
     ]
 
@@ -148,76 +200,91 @@ def test_efficient_content_generation():
     print(f"\n📝 Generating content for {len(test_sections)} sections:")
     print("-" * 50)
 
-    for section_info in test_sections:
-        section_name = section_info["name"]
-        ai_detect = section_info["ai_detect"]
+    # Create test request
+    request = GenerationRequest(
+        material="manganese",
+        sections=[section["name"] for section in test_sections],
+        provider=ProviderType.DEEPSEEK,
+        model="deepseek-chat",
+        ai_detection_threshold=50,
+        human_detection_threshold=50,
+        iterations_per_section=3,
+        temperature=1.0,
+        max_tokens=8192,  # Will be managed by budget
+        force_regenerate=True,
+    )
 
-        # Create test request
-        request = GenerationRequest(
-            material="manganese",
-            sections=[section_name],
-            provider=ProviderType.DEEPSEEK,
-            model="deepseek-chat",
-            ai_detection_threshold=50,
-            human_detection_threshold=50,
-            iterations_per_section=3,
-            temperature=1.0,
-            max_tokens=8192,  # Will be managed by budget
-            force_regenerate=True,
-        )
+    # Create context
+    context = GenerationContext(
+        material="manganese",
+        content_type="article",
+        variables={
+            "material": "manganese",
+            "temperature": 1.0,
+        },
+    )
 
-        # Create section config
-        section_config = SectionConfig(
-            name=section_name,
-            ai_detect=ai_detect,
-            prompt_file=f"{section_name}.txt",
-            section_type=SectionType.TEXT,
-            generate=True,
-            order=1,
-        )
+    try:
+        # Generate content using the budget-aware method
+        initial_calls = mock_api_client.call_count
 
-        # Create context
-        context = GenerationContext(
-            material="manganese",
-            content_type=section_name,
-            variables={
-                "material": "manganese",
-                "section_name": section_name,
-                "temperature": 1.0,
-            },
-        )
-
-        try:
-            # Generate content
-            initial_calls = mock_api_client.call_count
-            result = content_service.generate_section(request, section_config, context)
-            api_calls_used = mock_api_client.call_count - initial_calls
-
-            # Count words in generated content
-            word_count = len(result.content.split()) if result.content else 0
-            total_api_calls += api_calls_used
-            total_words += word_count
-
-            # Get budget for this section
-            budget = content_service.word_budget_manager.get_section_budget(
-                section_name
+        # Create all section configs for coordinated budget allocation
+        section_configs = []
+        for section_info in test_sections:
+            section_config = SectionConfig(
+                name=section_info["name"],
+                ai_detect=section_info["ai_detect"],
+                prompt_file=f"{section_info['name']}.txt",
+                section_type=SectionType.TEXT,
+                generate=True,
+                order=1,
             )
-            target_words = budget.target_words if budget else "N/A"
+            section_configs.append(section_config)
 
-            print(
-                f"   {section_name:<15}: {word_count:>3} words (target: {target_words:>3}) | {api_calls_used} API calls | {'✅' if result.threshold_met else '⚠️'}"
-            )
+        # Use generate_article_sections instead of generate_section for proper budget allocation
+        results = content_service.generate_article_sections(
+            request, section_configs, context
+        )
+        api_calls_used = mock_api_client.call_count - initial_calls
 
-        except Exception as e:
-            print(f"   {section_name:<15}: ❌ Error - {str(e)[:50]}...")
+        # Process results for all sections
+        for section_info in test_sections:
+            section_name = section_info["name"]
+            result = results.get(section_name)
+
+            if result:
+                # Count words in generated content
+                word_count = len(result.content.split()) if result.content else 0
+                total_words += word_count
+
+                # Get budget for this section
+                budget = content_service.word_budget_manager.get_section_budget(
+                    section_name
+                )
+                target_words = budget.target_words if budget else "N/A"
+
+                print(
+                    f"   {section_name:<15}: {word_count:>3} words (target: {target_words:>3}) | {'✅' if result.threshold_met else '⚠️'}"
+                )
+            else:
+                print(f"   {section_name:<15}: ❌ No result generated")
+
+        total_api_calls += api_calls_used
+
+    except Exception as e:
+        print(f"   ❌ Error generating sections: {str(e)[:50]}...")
 
     print("-" * 50)
-    print(f"📊 Summary:")
-    print(f"   Total Words Generated: {total_words}")
-    print(f"   Target Word Budget: 1200")
+    print("📊 Summary:")
+    print("   Total Words Generated:", total_words)
+    print("   Target Word Budget: 1200")
     print(f"   Budget Utilization: {(total_words / 1200) * 100:.1f}%")
     print(f"   Total API Calls: {total_api_calls}")
-    print(f"   Efficiency: {total_words / total_api_calls:.1f} words per API call")
+    print(f"   Total Detection Calls: {mock_detection_service.call_count}")
+    if total_api_calls > 0:
+        print(f"   Efficiency: {total_words / total_api_calls:.1f} words per API call")
+    else:
+        print("   Efficiency: N/A (no successful generations)")
 
 
 def test_provider_configuration():

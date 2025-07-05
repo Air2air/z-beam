@@ -6,7 +6,7 @@ Refactored page generator with better separation of concerns and error handling.
 import json
 import os
 import re
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List, Tuple
 from dataclasses import dataclass
 import yaml
 
@@ -227,7 +227,7 @@ class ArticleGenerator:
         print("\n📏 WORD BUDGET ALLOCATION:")
         for section_name, budget in budget_manager.section_budgets.items():
             print(
-                f"   {section_name}: {budget.target_words} words ({budget.allocation_percentage:.1f}%)"
+                f"   {section_name}: {budget.target_words} words ({budget.percentage * 100:.1f}%)"
             )
 
         print(f"{'=' * 60}")
@@ -349,36 +349,152 @@ class ArticleGenerator:
         ai_detection_threshold: int,  # Pass threshold through pipeline
         human_detection_threshold: int,  # Pass human threshold through pipeline
     ) -> None:
-        """Generate content for all sections."""
+        """Generate content for all sections using coordinated budget allocation."""
         sorted_sections = sorted(
             sections_config.items(), key=lambda item: item[1].get("order", 999)
         )
 
-        # Move debug info to debug level to reduce terminal verbosity
-        self.logger.debug(
-            f"Sections config to generate: {[name for name, _ in sorted_sections]}"
-        )
+        # Filter out sections that should not be generated
+        sections_to_generate = []
         for section_name, section_config in sorted_sections:
-            self.logger.debug(
-                f"Attempting to generate section: {section_name} | config: {json.dumps(section_config, indent=2)}"
-            )
             if section_name == "ai_detection_prompt":
                 continue  # Skip ai_detection_prompt as a section
             if not section_config.get("generate", True):
                 continue
-            self._generate_single_section(
-                section_name,
-                section_config,
+            # Skip sections that don't need AI detection - they shouldn't be generated at all
+            if not section_config.get("ai_detect", True):
+                self.logger.info(
+                    f"Skipping section '{section_name}' (ai_detect: false)"
+                )
+                continue
+            sections_to_generate.append((section_name, section_config))
+
+        if not sections_to_generate:
+            self.logger.warning("No sections to generate")
+            return
+
+        # Use coordinated generation for efficient word budget allocation
+        try:
+            self._generate_sections_coordinated(
                 article_data,
+                sections_to_generate,
                 gen_config,
                 prompt_templates,
                 cache_data,
-                ai_detection_threshold,  # Pass threshold
-                human_detection_threshold,  # Pass human threshold
+                ai_detection_threshold,
+                human_detection_threshold,
             )
+        except Exception as e:
+            self.logger.error(f"Coordinated generation failed: {e}")
+            self.logger.info("Falling back to individual section generation")
+            # Fallback to individual generation
+            for section_name, section_config in sections_to_generate:
+                self._generate_single_section(
+                    section_name,
+                    section_config,
+                    article_data,
+                    gen_config,
+                    prompt_templates,
+                    cache_data,
+                    ai_detection_threshold,
+                    human_detection_threshold,
+                )
 
         if not article_data.sections:
             raise GenerationError("No sections were successfully generated")
+
+    def _generate_sections_coordinated(
+        self,
+        article_data: ArticleData,
+        sections_to_generate: List[Tuple[str, Dict[str, Any]]],
+        gen_config: GenerationConfig,
+        prompt_templates: Dict[str, str],
+        cache_data: Dict[str, Any],
+        ai_detection_threshold: int,
+        human_detection_threshold: int,
+    ) -> None:
+        """Generate all sections using coordinated word budget allocation."""
+        self.logger.info(
+            f"🎯 Generating {len(sections_to_generate)} sections with coordinated budget allocation"
+        )
+
+        # Create GenerationRequest for all sections
+        section_names = [name for name, _ in sections_to_generate]
+        request = GenerationRequest(
+            material=gen_config.material,
+            sections=section_names,
+            provider=ProviderType(gen_config.generator_provider),
+            model=gen_config.model,
+            ai_detection_threshold=ai_detection_threshold,
+            human_detection_threshold=human_detection_threshold,
+            iterations_per_section=gen_config.iterations_per_section,
+            temperature=gen_config.temperature,
+            max_tokens=8192,  # Will be managed by budget
+            force_regenerate=gen_config.force_regenerate,
+        )
+
+        # Create SectionConfig objects for all sections
+        section_configs = []
+        for section_name, section_config in sections_to_generate:
+            ai_detect = section_config.get("ai_detect", True)
+            prompt_file = section_config.get("prompt", f"{section_name}.txt")
+
+            section_config_obj = SectionConfig(
+                name=section_name,
+                ai_detect=ai_detect,
+                prompt_file=prompt_file,
+                section_type=SectionType.TEXT,
+                generate=True,
+                order=section_config.get("order", 1),
+            )
+            section_configs.append(section_config_obj)
+
+        # Create GenerationContext
+        section_variables = {
+            "material": gen_config.material,
+            "temperature": gen_config.temperature,
+        }
+        context = GenerationContext(
+            material=gen_config.material,
+            content_type="article",
+            variables=section_variables,
+        )
+
+        # Generate all sections with coordinated budget allocation
+        self.logger.info(
+            "📊 Using EfficientContentGenerationService.generate_article_sections for coordinated budget management"
+        )
+        results = self.content_generator.generate_article_sections(
+            request=request, section_configs=section_configs, context=context
+        )
+
+        # Process results and store in article_data
+        for section_name, _ in sections_to_generate:
+            result = results.get(section_name)
+            if result and result.content:
+                article_data.sections[section_name] = result.content
+
+                ai_likelihood = result.ai_score.score if result.ai_score else None
+                threshold_met = result.threshold_met
+
+                if threshold_met:
+                    self.logger.info(
+                        f"✅ Successfully generated content for section: {section_name} "
+                        f"(AI: {ai_likelihood}%, target: ≤{ai_detection_threshold}%)"
+                    )
+                else:
+                    self.logger.warning(
+                        f"⚠️ Section '{section_name}' generated but did NOT meet thresholds. "
+                        f"AI: {ai_likelihood}%, target: ≤{ai_detection_threshold}%"
+                    )
+            else:
+                self.logger.error(
+                    f"❌ Failed to generate content for section: {section_name}"
+                )
+
+        self.logger.info(
+            f"🎉 Coordinated generation completed for {len(results)} sections"
+        )
 
     def _generate_single_section(
         self,
@@ -407,7 +523,7 @@ class ArticleGenerator:
             **(article_data.material_details or {}),
             "content_type": section_name,
             "temperature": gen_config.temperature,
-            "iterations_per_section": getattr(gen_config, "iterations_per_section", 3),
+            "iterations_per_section": gen_config.iterations_per_section,
         }
         ai_detect = section_config.get("ai_detect", True)
 
@@ -432,7 +548,7 @@ class ArticleGenerator:
                 model=gen_config.model,
                 ai_detection_threshold=ai_detection_threshold,
                 human_detection_threshold=human_detection_threshold,
-                iterations_per_section=getattr(gen_config, "iterations_per_section", 3),
+                iterations_per_section=gen_config.iterations_per_section,
                 temperature=gen_config.temperature,
                 max_tokens=8192,  # Will be managed by word budget
                 force_regenerate=gen_config.force_regenerate,

@@ -95,6 +95,7 @@ class ContentGenerationService(IContentGenerator):
                 model=request.model,
                 temperature=request.temperature,
                 max_tokens=request.max_tokens,
+                timeout=request.api_timeout,
             )
 
             if not content or not content.strip():
@@ -138,12 +139,20 @@ class ContentGenerationService(IContentGenerator):
 
             # Run AI detection
             ai_score = self._detection_service.detect_ai_likelihood(
-                current_content, context, iteration
+                current_content,
+                context,
+                iteration,
+                request.detection_temperature,
+                request.api_timeout,
             )
 
             # Run human detection
             human_score = self._detection_service.detect_human_likelihood(
-                current_content, context, iteration
+                current_content,
+                context,
+                iteration,
+                request.detection_temperature,
+                request.api_timeout,
             )
 
             # Display iteration results
@@ -157,6 +166,7 @@ class ContentGenerationService(IContentGenerator):
                 request.ai_detection_threshold,
                 request.human_detection_threshold,
                 section_config.name,
+                current_content,  # Pass current content for word count analysis
             )
 
             # Check if thresholds are met
@@ -244,6 +254,7 @@ class ContentGenerationService(IContentGenerator):
                 model=request.model,
                 temperature=request.temperature,
                 max_tokens=8192,  # Increase max_tokens for improvement step
+                timeout=request.api_timeout,
             )
 
             return improved_content.strip() if improved_content else content
@@ -315,13 +326,14 @@ class ContentGenerationService(IContentGenerator):
         ai_threshold: int,
         human_threshold: int,
         section_name: str,
+        content: str = "",
+        word_budget_manager=None,
     ) -> None:
-        """Display detailed iteration results with score tracking."""
+        """Display detailed iteration results with score tracking and word count metrics."""
         GREEN = "\033[92m"
         YELLOW = "\033[93m"
         RED = "\033[91m"
         BLUE = "\033[94m"
-        CYAN = "\033[96m"
         BOLD = "\033[1m"
         RESET = "\033[0m"
 
@@ -346,6 +358,25 @@ class ContentGenerationService(IContentGenerator):
             else:
                 human_change = f" {YELLOW}(±0){RESET}"
 
+        # Calculate word count and budget metrics
+        word_count = len(content.split()) if content else 0
+        budget_info = f"Words: {word_count}"
+
+        if word_budget_manager:
+            try:
+                metrics = word_budget_manager.analyze_content(content, section_name)
+                budget = word_budget_manager.get_section_budget(section_name)
+                if budget:
+                    utilization_color = (
+                        GREEN
+                        if metrics.within_budget
+                        else (YELLOW if metrics.utilization < 1.5 else RED)
+                    )
+                    budget_info = f"Words: {word_count}/{budget.target_words} {utilization_color}({metrics.utilization:.1%}){RESET}"
+            except Exception:
+                # Fallback if budget manager fails
+                budget_info = f"Words: {word_count}"
+
         # Determine threshold status
         ai_status = (
             f"{GREEN}✅ PASS{RESET}"
@@ -359,7 +390,7 @@ class ContentGenerationService(IContentGenerator):
         )
 
         print(
-            f"\n{BLUE}┌─ {BOLD}Iteration {iteration}/{max_iterations} Results{RESET}{BLUE} ─┐{RESET}"
+            f"\n{BLUE}┌─ {BOLD}Iteration {iteration}/{max_iterations} Results - {section_name.upper()}{RESET}{BLUE} ─┐{RESET}"
         )
         print(
             f"{BLUE}│{RESET} {BOLD}AI Score:{RESET} {ai_score.score}%{ai_change} | Target: ≤{ai_threshold}% | {ai_status}"
@@ -367,6 +398,7 @@ class ContentGenerationService(IContentGenerator):
         print(
             f"{BLUE}│{RESET} {BOLD}Human Score:{RESET} {human_score.score}%{human_change} | Target: ≤{human_threshold}% | {human_status}"
         )
+        print(f"{BLUE}│{RESET} {BOLD}Content:{RESET} {budget_info}")
 
         # Show action for next iteration
         if iteration < max_iterations:
@@ -378,7 +410,7 @@ class ContentGenerationService(IContentGenerator):
                     f"{BLUE}│{RESET} {YELLOW}🔄 Generating improved content for iteration {iteration + 1}...{RESET}"
                 )
 
-        print(f"{BLUE}└─{'─' * 60}─┘{RESET}")
+        print(f"{BLUE}└─{'─' * 70}─┘{RESET}")
 
     def _display_success_banner(
         self, section_name: str, iteration: int, ai_score, human_score

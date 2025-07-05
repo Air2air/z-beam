@@ -36,14 +36,24 @@ class IDetectionService(ABC):
 
     @abstractmethod
     def detect_ai_likelihood(
-        self, content: str, context: GenerationContext, iteration: int = 1
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
     ) -> AIScore:
         """Detect AI-like characteristics in content."""
         pass
 
     @abstractmethod
     def detect_human_likelihood(
-        self, content: str, context: GenerationContext, iteration: int = 1
+        self,
+        content: str,
+        context: GenerationContext,
+        iteration: int = 1,
+        temperature: float = 0.3,
+        timeout: int = 60,
     ) -> AIScore:
         """Detect overly human-like characteristics in content."""
         pass
