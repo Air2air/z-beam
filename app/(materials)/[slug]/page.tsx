@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       title: post.metadata.title,
       description: post.metadata.description || post.metadata.summary, // Fallback to summary
       type: "article",
-      publishedTime: post.metadata.publishedAt,
+      publishedTime: post.metadata.publishedAt || undefined,
       url: `${baseUrl}/${post.slug}`,
       images: [{ url: ogImage }],
     },

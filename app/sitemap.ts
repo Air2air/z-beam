@@ -6,7 +6,7 @@ export const baseUrl = 'https://portfolio-material-starter.vercel.app'
 export default async function sitemap() {
   const materials = getMaterialList().map((post) => ({
     url: `${baseUrl}/(materials)/${post.slug}`,
-    lastModified: new Date(post.metadata.publishedAt).toISOString(), // Full ISO string
+    lastModified: new Date(post.metadata.publishedAt || new Date().toISOString()).toISOString(), // Full ISO string
     changeFrequency: 'weekly', // Example: Adjust based on your update frequency
     priority: 0.8, // Example: Prioritize material posts
   }))
