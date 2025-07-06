@@ -1,7 +1,8 @@
 // app/articles/page.tsx
 import { ContentList } from '../components/ContentList';
-import { TagDirectoryServer } from '../components/TagDirectoryServer';
+import { SmartTagList } from '../components/SmartTagList';
 import { Breadcrumbs } from '../components/breadcrumbs';
+import { getAllTags } from '../utils/tags';
 
 export const metadata = {
   title: 'Articles | Z-Beam Laser Cleaning',
@@ -9,6 +10,8 @@ export const metadata = {
 };
 
 export default function ArticlesPage() {
+  const allTags = getAllTags();
+
   return (
     <>
       <Breadcrumbs />
@@ -24,7 +27,18 @@ export default function ArticlesPage() {
 
       {/* Tag Directory Section */}
       <div className="mb-12">
-        <TagDirectoryServer />
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by Topic</h2>
+          <p className="text-gray-600">Discover laser cleaning content by subject area</p>
+        </div>
+        <SmartTagList 
+          tags={allTags}
+          title=""
+          className="mb-4"
+          linkable={true}
+          sortByPriority={true}
+          showByCategory={false}
+        />
       </div>
 
       {/* All Articles List */}

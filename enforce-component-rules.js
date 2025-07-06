@@ -34,7 +34,9 @@ const VIOLATION_PATTERNS = {
   
   // Critical: Duplicate tag components/functions
   TAG_DUPLICATION_VIOLATIONS: [
-    'components/TagList\\.tsx',  // TagList.tsx should not exist - only SmartTagList allowed
+    'components/TagList\\.tsx',         // TagList.tsx should not exist - only SmartTagList allowed
+    'components/TagDirectory\\.tsx',    // TagDirectory.tsx should not exist - only SmartTagList allowed
+    'components/TagDirectoryServer\\.tsx', // TagDirectoryServer.tsx should not exist - only SmartTagList allowed
     'bg-blue-100.*text-blue-800.*rounded-full' // Old tag color patterns
   ],
   
