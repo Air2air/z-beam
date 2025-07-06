@@ -6,6 +6,7 @@ A Next.js application for laser cleaning materials content with robust component
 
 **Claude MUST read and follow these documents at EVERY stage:**
 
+- **[CLAUDE_COMPLIANCE.md](./CLAUDE_COMPLIANCE.md)** 🔥 QUICK REFERENCE - Start here every time
 - **[REQUIREMENTS.md](./REQUIREMENTS.md)** ⭐ Core architectural principles, anti-bloat mandate, zero duplication policy
 - **[DEV_WORKFLOW.md](./DEV_WORKFLOW.md)** ⭐ Development workflow, enforcement procedures, compliance checklists
 
