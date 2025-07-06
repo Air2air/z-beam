@@ -85,8 +85,25 @@ npm run enforce-components
 # Build (includes enforcement)
 npm run build
 
-# Development server
+# Development server (with pre-checks and port management)
 npm run dev
+
+# Development utilities
+npm run ready          # Check dev readiness
+npm run kill-port      # Kill port 3000 manually
+npm run clear-cache    # Check/clear webpack cache
+npm run fix-webpack    # Force clear webpack cache
+```
+
+#### Webpack Cache Management:
+```bash
+# Common webpack cache errors:
+# - "Cannot read properties of undefined (reading 'hasStartTime')"
+# - "Restoring pack from webpack cache failed"
+# Solution: npm run fix-webpack
+
+# Automatic cache corruption detection in pre-build checks
+# Manual cache management available via scripts
 ```
 
 #### Enforcement Thresholds:

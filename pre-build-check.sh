@@ -176,7 +176,7 @@ for config in "${CONFIG_FILES[@]}"; do
     fi
 done
 
-# 7. Build Cache Status
+# 7. Build Cache Status & Corruption Check
 echo
 echo "🗂️  BUILD CACHE:"
 
@@ -184,8 +184,27 @@ if [ -d ".next" ]; then
     CACHE_SIZE=$(du -sh .next 2>/dev/null | cut -f1 || echo "unknown")
     echo "   ✅ .next cache exists ($CACHE_SIZE)"
     
+    # Check for webpack cache corruption indicators
+    WEBPACK_CACHE_DIR=".next/cache/webpack"
+    if [ -d "$WEBPACK_CACHE_DIR" ]; then
+        # Look for corrupted pack files or invalid cache structure
+        if find "$WEBPACK_CACHE_DIR" -name "*.pack.gz" -size 0 2>/dev/null | grep -q .; then
+            echo "   ❌ Corrupted webpack cache detected (empty pack files)"
+            echo "   🔧 Clearing corrupted cache..."
+            rm -rf .next
+            echo "   ✅ Cache cleared - fresh build will be created"
+        elif [ -f "$WEBPACK_CACHE_DIR/client-development.pack.gz" ] && ! file "$WEBPACK_CACHE_DIR/client-development.pack.gz" 2>/dev/null | grep -q "gzip"; then
+            echo "   ❌ Corrupted webpack pack file detected"
+            echo "   🔧 Clearing corrupted cache..."
+            rm -rf .next
+            echo "   ✅ Cache cleared - fresh build will be created"
+        else
+            echo "   ✅ Webpack cache appears healthy"
+        fi
+    fi
+    
     # Check if cache is very old (older than 7 days)
-    if find .next -mtime +7 -type f 2>/dev/null | head -1 | grep -q .; then
+    if [ -d ".next" ] && find .next -mtime +7 -type f 2>/dev/null | head -1 | grep -q .; then
         echo "   ⚠️  Build cache is quite old - consider: rm -rf .next"
     fi
 else
@@ -240,6 +259,12 @@ else
     echo "   3. Check CSS configuration (Tailwind/PostCSS)"
     echo "   4. Fix TypeScript errors: npx tsc --noEmit"
     echo "   5. Resolve component issues: npm run enforce-components"
+    echo "   6. Clear corrupted cache: rm -rf .next (if build issues)"
+    echo ""
+    echo "💡 COMMON WEBPACK CACHE ISSUES:"
+    echo "   - 'Cannot read properties of undefined (reading hasStartTime)'"
+    echo "   - 'Restoring pack from webpack cache failed'"
+    echo "   → Solution: rm -rf .next && npm run dev"
     echo ""
     echo "Then run this script again to verify!"
     echo ""
