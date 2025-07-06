@@ -28,9 +28,9 @@ const navItems: Record<string, NavItem> = {
     name: "Home",
     href: "/",
   },
-  "/materials": {
-    name: "Materials", 
-    href: "/materials",
+  "/articles": {
+    name: "Articles", 
+    href: "/articles",
   },
   "https://vercel.com/templates/next.js/portfolio-starter-kit": {
     name: "Deploy",

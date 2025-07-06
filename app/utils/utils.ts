@@ -1,4 +1,4 @@
-// app/utils/utils.ts - Main utilities entry point
+// app/utils/utils.ts - Client-safe utilities only
 // Re-export from organized modules
 
 export { 
@@ -14,8 +14,6 @@ export {
   formatFileSize
 } from './formatting';
 
-export { getMaterialList, getMDXFiles, readMDXFile, getMDXData } from './mdx';
-export { parseFrontmatter, extractFirstImage } from './metadata';
 export { SITE_CONFIG, ANIMATION_CONFIG, COMPONENT_DEFAULTS, BREAKPOINTS } from './constants';
 
 export { 

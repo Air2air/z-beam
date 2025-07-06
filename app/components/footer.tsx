@@ -25,7 +25,7 @@ interface FooterLogoProps extends BaseImageProps {
 // Navigation items for the footer
 const footerNav: FooterNavItem[] = [
   { name: "Home", href: "/" },
-  { name: "Materials", href: "/materials" },
+  { name: "Articles", href: "/articles" },
   { 
     name: "Deploy", 
     href: "https://vercel.com/templates/next.js/portfolio-starter-kit", 

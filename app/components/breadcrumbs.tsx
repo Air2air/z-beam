@@ -43,11 +43,11 @@ export function Breadcrumbs({ className }: { className?: string }) {
     // 3. We haven't already inserted "Materials".
     const isFirstSegment = index === 0;
     const isNotStaticRoute = !knownStaticTopLevelRoutes.has(segment);
-    const materialsAlreadyInserted = allBreadcrumbs.some(crumb => crumb.label === "Materials");
+    const articlesAlreadyInserted = allBreadcrumbs.some(crumb => crumb.label === "Articles");
 
-    if (isFirstSegment && isNotStaticRoute && !materialsAlreadyInserted) {
-      // Insert "Materials" before the actual slug
-      allBreadcrumbs.push({ href: "/materials", label: "Materials" });
+    if (isFirstSegment && isNotStaticRoute && !articlesAlreadyInserted) {
+      // Insert "Articles" before the actual slug
+      allBreadcrumbs.push({ href: "/articles", label: "Articles" });
     }
 
     // Generate the label (e.g., "my-material" -> "My Material")

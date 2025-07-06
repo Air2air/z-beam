@@ -3,7 +3,8 @@
 import Link from "next/link";
 // Make sure this path is correct: app/utils/utils if it's in app/utils/utils.ts
 // Or app/lib/utils if you moved it to app/lib/utils.ts
-import { formatDate, getMaterialList } from "app/utils/utils"; // <-- Confirm this path is absolute and correct
+import { formatDate } from "app/utils/utils";
+import { getMaterialList } from "app/utils/server";
 import { CardItem } from "app/components/CardItem";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
 import type { MaterialPost } from 'app/types';

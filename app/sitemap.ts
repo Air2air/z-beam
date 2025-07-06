@@ -1,5 +1,5 @@
 // app/sitemap.js
-import { getMaterialList } from 'app/utils/utils' // Your existing utility
+import { getMaterialList } from 'app/utils/server' // Your existing utility
 
 export const baseUrl = 'https://portfolio-material-starter.vercel.app'
 

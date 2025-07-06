@@ -1,28 +1,11 @@
 // app/types/index.ts
 // Shared TypeScript interfaces for the Z-Beam website
 
-export interface Metadata {
-  title: string;
-  nameShort?: string;
-  publishedAt: string | null;
-  summary: string;
-  description?: string;
-  image?: string;
-  thumbnail?: string | null; // Allow null as returned by utils
-  imageCaption?: string;
-  atomicNumber?: number | null;
-  chemicalSymbol?: string | null;
-  materialType?: string;
-  metalClass?: string;
-  crystalStructure?: string;
-  primaryApplication?: string;
-}
+// Re-export all content types
+export * from './content';
 
-export interface MaterialPost {
-  metadata: Metadata;
-  slug: string;
-  content: string;
-}
+// Legacy export for backwards compatibility
+export type { ArticleMetadata as Metadata, ArticlePost as MaterialPost } from './content';
 
 // Base props for all interactive elements
 export interface BaseInteractiveProps {

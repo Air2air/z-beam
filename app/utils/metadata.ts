@@ -38,6 +38,9 @@ export function parseFrontmatter(fileContent: string) {
     if (key === 'atomicNumber') {
       const num = parseInt(value, 10);
       (metadata as any)[key] = isNaN(num) ? null : num;
+    } else if (key === 'authorId') {
+      const num = parseInt(value, 10);
+      (metadata as any)[key] = isNaN(num) ? undefined : num;
     } else if (key === 'publishedAt') {
       (metadata as any)[key] = value || null;
     } else {

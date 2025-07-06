@@ -3,7 +3,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import type { MaterialPost } from 'app/types';
+import type { MaterialPost, AuthorPost } from 'app/types';
 import { parseFrontmatter, extractFirstImage } from './metadata';
 
 export function getMDXFiles(dir: string): string[] {
@@ -38,6 +38,30 @@ export function getMDXData(dir: string): MaterialPost[] {
       content,
     };
   });
+}
+
+export function getAuthorMDXData(dir: string): AuthorPost[] {
+  let mdxFiles = getMDXFiles(dir);
+  return mdxFiles.map((file) => {
+    let { metadata, content } = readMDXFile(path.join(dir, file));
+    let slug = path.basename(file, path.extname(file));
+
+    return {
+      metadata: metadata as any, // Type assertion for author metadata
+      slug,
+      content,
+    };
+  });
+}
+
+// Author-specific functions
+export function getAuthorList(): AuthorPost[] {
+  return getAuthorMDXData(path.join(process.cwd(), 'app', 'authors'));
+}
+
+export function getAuthorBySlug(slug: string): AuthorPost | undefined {
+  const authors = getAuthorList();
+  return authors.find(author => author.slug === slug);
 }
 
 // Main function to get material list

@@ -1,5 +1,5 @@
 import { baseUrl } from 'app/sitemap'
-import { getMaterialList } from 'app/utils/utils'
+import { getMaterialList } from 'app/utils/server'
 
 export async function GET() {
   let allBlogs = await getMaterialList()
