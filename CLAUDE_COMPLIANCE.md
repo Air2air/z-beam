@@ -30,6 +30,36 @@
 - [ ] Report file count and component count changes
 - [ ] Confirm no dead code remains
 
+### Step 6: Build Error Prevention (CRITICAL)
+- [ ] Check imports: Node.js modules → server only, DOM/hooks → client only
+- [ ] Verify component boundaries: 'use client' for hooks/DOM usage
+- [ ] Test build after any import changes
+- [ ] Clear cache if vendor chunk errors occur
+
+## 🚨 CRITICAL BUILD ERROR PREVENTION
+
+### Before Adding ANY Import:
+```bash
+# ❌ NEVER do this in client components:
+import fs from 'fs'           # Server-only
+import { readFile } from 'fs' # Server-only
+
+# ❌ NEVER do this in server components:
+import { useState } from 'react'  # Client-only
+'use client' missing              # Client-only hooks
+
+# ✅ ALWAYS do this:
+# Check component type first, then add appropriate imports
+```
+
+### If Build Breaks:
+```bash
+# Clear cache and reinstall:
+rm -rf .next node_modules package-lock.json
+npm install
+npm run build
+```
+
 ## ❌ FORBIDDEN PATTERNS
 
 ### Never Create These:

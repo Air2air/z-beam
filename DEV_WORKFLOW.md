@@ -105,10 +105,93 @@ node find-component-to-extend.js "pattern_name"
 - **Build process** integration
 - **CI/CD pipeline** setup
 
-### 5.2 Debugging & Troubleshooting:
-- **Common enforcement errors** and solutions
+### 5.2 Common Claude Build Errors & Solutions:
+
+#### 🚨 CRITICAL BUILD ERRORS CLAUDE FREQUENTLY CAUSES:
+
+**1. Client/Server Boundary Violations**
+```bash
+# Error: "useState/useEffect in Server Component"
+# Cause: Claude adds client hooks to server components
+# Solution: Add 'use client' directive or move to client component
+```
+
+**2. Module Import Errors**
+```bash
+# Error: "Cannot find module 'fs'" in client components
+# Cause: Claude imports Node.js modules in client-side code
+# Solution: Move server-only imports to server components
+```
+
+**3. Framer Motion Build Issues**
+```bash
+# Error: "Cannot find module './vendor-chunks/framer-motion.js'"
+# Cause: Build cache corruption with animation dependencies
+# Solution: Clear .next cache, reinstall dependencies
+rm -rf .next node_modules package-lock.json && npm install
+```
+
+**4. Type Import Conflicts**
+```bash
+# Error: "Cannot resolve type-only import"
+# Cause: Claude mixes type and value imports incorrectly
+# Solution: Use proper import syntax
+import type { TypeName } from 'module'  # Types only
+import { valueName } from 'module'      # Values only
+```
+
+**5. Circular Dependency Errors**
+```bash
+# Error: "Cannot access before initialization"
+# Cause: Claude creates circular imports between components
+# Solution: Extract shared types/utils to separate files
+```
+
+**6. Hydration Mismatches**
+```bash
+# Error: "Hydration failed because initial UI does not match"
+# Cause: Claude adds conditional rendering that differs server/client
+# Solution: Use useEffect for client-only content or suppressHydrationWarning
+```
+
+**7. Dynamic Import Failures**
+```bash
+# Error: "Cannot resolve dynamic import"
+# Cause: Claude uses dynamic imports incorrectly in SSR context
+# Solution: Use next/dynamic with proper SSR configuration
+```
+
+**8. CSS-in-JS Server Errors**
+```bash
+# Error: "document is not defined" with styled-components
+# Cause: Claude uses client-only styling libraries in server components
+# Solution: Configure SSR properly or move to client components
+```
+
+#### 🛠️ CLAUDE ERROR PREVENTION RULES:
+
+**Before Adding Any Import:**
+- [ ] Check if import is Node.js specific (fs, path, crypto) → Server component only
+- [ ] Check if import uses DOM APIs (document, window) → Client component only
+- [ ] Verify import exists and is properly typed
+- [ ] Test in both development and build modes
+
+**Before Adding Client Features:**
+- [ ] Ensure component has 'use client' directive
+- [ ] Check for server-only imports that need removal
+- [ ] Verify hooks are only used in client components
+- [ ] Test hydration by checking server/client render consistency
+
+**Before Modifying Components:**
+- [ ] Check for existing patterns in codebase
+- [ ] Verify type compatibility
+- [ ] Test build after each change
+- [ ] Run enforcement checks
+
+### 5.3 Debugging & Troubleshooting:
 - **Component extension** best practices
 - **Build failure** resolution steps
+- **Error pattern recognition** and prevention
 
 ### 5.3 Architectural Decision Records (Dev Perspective):
 - **Tool choices** and implementation details
@@ -182,7 +265,42 @@ utils/utils.ts           # Add new helper functions here
 app/components/          # Enhance existing components
 ```
 
-### 8.4 Bloat Prevention Metrics
+### 8.4 Claude Error Prevention Protocol
+
+**MANDATORY checks Claude MUST perform before ANY code changes:**
+
+#### Import Safety Checklist:
+- [ ] **Node.js imports** (fs, path, crypto) → Only in server components
+- [ ] **DOM imports** (document, window) → Only in client components with 'use client'
+- [ ] **React hooks** (useState, useEffect) → Only in client components
+- [ ] **Type imports** → Use `import type { }` syntax
+- [ ] **Circular dependencies** → Check existing imports before adding new ones
+
+#### Component Boundary Checklist:
+- [ ] **Server components** → No hooks, no DOM APIs, no client-only libraries
+- [ ] **Client components** → Must have 'use client', no server-only imports
+- [ ] **Shared components** → Check if used in both contexts, plan accordingly
+- [ ] **Hydration consistency** → Ensure server and client render the same content
+
+#### Build Safety Checklist:
+- [ ] **Test build** after every import addition: `npm run build`
+- [ ] **Clear cache** if animation/vendor chunk errors: `rm -rf .next`
+- [ ] **Verify types** with TypeScript: Check for type errors
+- [ ] **Run enforcement** after changes: `npm run enforce-components`
+
+#### Emergency Recovery Steps:
+```bash
+# If build breaks with vendor chunk errors:
+rm -rf .next node_modules package-lock.json
+npm install
+npm run build
+
+# If hydration errors occur:
+# Add suppressHydrationWarning={true} temporarily
+# Then fix root cause with proper client/server separation
+```
+
+### 8.5 Bloat Prevention Metrics
 **Claude must track and report these metrics:**
 
 - **File count changes:** Should decrease or grow slower than features
