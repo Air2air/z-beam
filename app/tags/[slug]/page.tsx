@@ -2,8 +2,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArticleList } from '../../components/ArticleList';
-import { getMaterialList } from '../../utils/mdx';
-import { getAllTagSlugs, getTagFromSlug, getMaterialsByTag } from '../../utils/tags';
+import { getAllTagSlugs, getTagFromSlug, getArticlesByTag, getArticleList } from '../../utils/server';
 import type { PageProps } from '../../types';
 
 export async function generateStaticParams() {
@@ -22,7 +21,7 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
-  const materials = getMaterialsByTag(tag);
+  const materials = getArticlesByTag(tag);
 
   return {
     title: `${tag} Articles | Z-Beam`,
@@ -53,7 +52,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
   }
 
   // Get all materials with this tag
-  const tagMaterials = getMaterialsByTag(tag);
+  const tagMaterials = getArticlesByTag(tag);
 
   // Sort materials by publication date (newest first)
   const sortedMaterials = tagMaterials.sort((a, b) => {
@@ -68,7 +67,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
   let backText = "Back to Materials";
   
   if (fromSlug) {
-    const allMaterials = await getMaterialList();
+    const allMaterials = await getArticleList();
     const fromArticle = allMaterials.find(material => material.slug === fromSlug);
     if (fromArticle) {
       backLink = `/${fromSlug}`;

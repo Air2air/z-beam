@@ -34,6 +34,21 @@ export function parseFrontmatter(fileContent: string) {
     // Remove quotes if present
     let value = rawValue.replace(/^["'](.*)["']$/, '$1');
 
+    // Handle arrays (for tags, keywords, etc.)
+    if (value.startsWith('[') && value.endsWith(']')) {
+      try {
+        // Parse as JSON array
+        const arrayValue = JSON.parse(value);
+        if (Array.isArray(arrayValue)) {
+          (metadata as any)[key] = arrayValue;
+          return;
+        }
+      } catch (e) {
+        // If JSON parsing fails, treat as string
+        console.warn(`Failed to parse array for key "${key}": ${value}`);
+      }
+    }
+
     // Type conversion for specific fields
     if (key === 'atomicNumber') {
       const num = parseInt(value, 10);

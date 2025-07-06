@@ -10,6 +10,7 @@ import { HeroImage } from "app/components/HeroImage";
 import { Breadcrumbs } from "app/components/breadcrumbs";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
 import { AuthorArticlesServer } from "app/components/AuthorArticlesServer";
+import { AuthorByline } from "app/components/AuthorByline";
 import type { PageProps } from "app/types";
 
 export async function generateStaticParams() {
@@ -100,31 +101,11 @@ export default function ArticlePage({ params }: PageProps) {
         {article.metadata.title}
       </h1>
       
-      <div className="flex items-center gap-4 mb-6">
-        <p className="uppercase text-xs text-gray-500 dark:text-gray-400 tabular-nums">
-          {article.metadata.publishedAt ? formatDate(article.metadata.publishedAt) : 'Date not available'}
-        </p>
-        {author && (
-          <>
-            <span className="text-gray-300">•</span>
-            <div className="flex items-center gap-2">
-              {author.image && (
-                <img
-                  src={author.image}
-                  alt={author.name}
-                  className="w-[10px] h-[10px] rounded-full object-cover"
-                />
-              )}
-              <Link
-                href={`/authors/${author.slug}?from=${article.slug}`}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 transition-colors"
-              >
-                By {author.name}
-              </Link>
-            </div>
-          </>
-        )}
-      </div>
+      <AuthorByline 
+        publishedAt={article.metadata.publishedAt}
+        author={author}
+        articleSlug={article.slug}
+      />
 
       {/* Tags Section */}
       {article.metadata.tags && Array.isArray(article.metadata.tags) && article.metadata.tags.length > 0 && (

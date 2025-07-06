@@ -2,12 +2,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { formatDate } from "app/utils/utils";
-import { getAuthorBySlug, getAllAuthorSlugs, getArticlesByAuthorId, getAllAuthors } from "app/utils/server";
+import { getAuthorBySlug, getAllAuthorSlugs, getArticlesByAuthorId, getAllAuthors, getAuthorTags } from "app/utils/server";
 import { baseUrl } from "app/sitemap";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "app/components/breadcrumbs";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
 import { CardItem } from "app/components/CardItem";
+import { AuthorProfile } from "app/components/AuthorProfile";
 import type { PageProps } from "app/types";
 
 export async function generateStaticParams() {
@@ -55,67 +56,16 @@ export default function AuthorPage({ params }: PageProps) {
 
   // Get articles by this author
   const authorArticles = getArticlesByAuthorId(author.id);
+  
+  // Get unique tags from this author's articles
+  const authorTags = getAuthorTags(author.id);
 
   return (
     <section>
       <Breadcrumbs />
       
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col md:flex-row gap-8 mb-8">
-          {/* Author Image */}
-          {author.image && (
-            <div className="flex-shrink-0">
-              <img
-                src={author.image}
-                alt={author.name}
-                className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg"
-              />
-            </div>
-          )}
-          
-          {/* Author Info */}
-          <div className="flex-1">
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-white mb-2">
-              {author.name}
-            </h1>
-            <h2 className="text-xl text-blue-600 dark:text-blue-400 mb-4">
-              {author.title}
-            </h2>
-            
-            {/* Specialties */}
-            {author.specialties && author.specialties.length > 0 && (
-              <div className="mb-4">
-                <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                  Specialties
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {author.specialties.map((specialty, index) => (
-                    <span
-                      key={index}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                    >
-                      {specialty}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            {/* LinkedIn */}
-            {author.linkedin && (
-              <div className="mb-4">
-                <Link
-                  href={author.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors"
-                >
-                  Connect on LinkedIn
-                </Link>
-              </div>
-            )}
-          </div>
-        </div>
+        <AuthorProfile author={author} authorTags={authorTags} />
         
         {/* Bio */}
         <FadeInOnScroll delay={0.2} yOffset={30} amount={0.06}>
