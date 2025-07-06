@@ -5,6 +5,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { CardItem } from 'app/components/CardItem';
 import { FadeInOnScroll } from 'app/components/FadeInOnScroll';
+import { SmartTagList } from 'app/components/SmartTagList';
 import { formatDate } from 'app/utils/utils';
 import type { AuthorMetadata, MaterialPost } from 'app/types';
 
@@ -130,16 +131,14 @@ export function AuthorSearchResults({ authors, materials }: AuthorSearchResultsP
                 <p className="text-blue-600 font-medium">{selectedAuthor.title}</p>
                 <p className="text-gray-600 mt-2">{selectedAuthor.bio}</p>
                 {selectedAuthor.specialties && selectedAuthor.specialties.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-1">
-                    {selectedAuthor.specialties.map((specialty) => (
-                      <span
-                        key={specialty}
-                        className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full"
-                      >
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
+                  <SmartTagList 
+                    tags={selectedAuthor.specialties}
+                    title="Specialties"
+                    linkable={false}
+                    className="mt-3"
+                    maxTags={5}
+                    showByCategory={false}
+                  />
                 )}
                 {selectedAuthor.linkedin && (
                   <div className="mt-3">

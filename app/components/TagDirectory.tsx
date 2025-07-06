@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { FadeInOnScroll } from "./FadeInOnScroll";
 import { getTagStats } from '../utils/tags';
+import { getTagInfo } from '../utils/tagConfig';
 
 interface TagDirectoryProps {
   className?: string;
@@ -43,17 +44,13 @@ function TagCard({
   slug: string; 
   count: number; 
 }) {
-  // Different colors for different tag types
-  const getTagColor = (tag: string) => {
-    if (tag.includes('Laser') || tag.includes('Cleaning')) return 'bg-blue-100 text-blue-800 hover:bg-blue-200';
-    if (tag.includes('Aerospace') || tag.includes('Defense')) return 'bg-purple-100 text-purple-800 hover:bg-purple-200';
-    if (tag.includes('Metal') || tag.includes('Material')) return 'bg-green-100 text-green-800 hover:bg-green-200';
-    if (tag.includes('Safety') || tag.includes('Nuclear')) return 'bg-red-100 text-red-800 hover:bg-red-200';
-    if (tag.includes('Surface') || tag.includes('Preparation')) return 'bg-orange-100 text-orange-800 hover:bg-orange-200';
-    return 'bg-gray-100 text-gray-800 hover:bg-gray-200';
-  };
-
-  const colorClass = getTagColor(tag);
+  const config = getTagInfo(tag);
+  const bgClass = config.color.bg;
+  const textClass = config.color.text;
+  
+  // Create hover variant by replacing -600 with -700 for darker hover effect
+  const hoverBgClass = bgClass.replace('-600', '-700');
+  const colorClass = `${bgClass} ${textClass} hover:${hoverBgClass}`;
 
   return (
     <Link

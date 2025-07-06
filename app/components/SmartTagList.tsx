@@ -73,9 +73,13 @@ export function SmartTagList({
 
   const renderTag = (tag: string, index: number) => {
     const config = getTagInfo(tag);
-    const displayName = config.displayName || tag;
+    const displayName = config.displayName;
     
-    const tagClasses = `inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${config.color?.bg || 'bg-blue-100'} ${config.color?.text || 'text-blue-800'} dark:bg-opacity-20`;
+    // Use colors directly from configuration (no dynamic conversion needed)
+    const bgColor = config.color.bg;
+    const textColor = config.color.text;
+    
+    const tagClasses = `inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${bgColor} ${textColor} dark:bg-opacity-90`;
     
     const tagContent = (
       <span className={tagClasses}>

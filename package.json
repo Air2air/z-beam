@@ -2,8 +2,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "npm run enforce-components && next build",
+    "build:skip-check": "next build",
+    "start": "next start",
+    "enforce-components": "node enforce-component-rules.js",
+    "audit:quick": "./quick-audit.sh",
+    "audit:full": "./audit-components.sh",
+    "lint:components": "npm run enforce-components",
+    "create:component": "node safe-component-creation.js",
+    "setup:enforcement": "./setup-enforcement.sh"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",

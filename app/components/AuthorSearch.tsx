@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react";
 import { ArticleList } from "./ArticleList";
 import { AuthorDirectory } from "./AuthorArticles";
+import { SmartTagList } from "./SmartTagList";
 import type { MaterialPost, AuthorMetadata } from 'app/types';
 
 interface AuthorSearchProps {
@@ -127,17 +128,14 @@ export function AuthorSearch({
                   <p className="text-sm text-gray-700">{selectedAuthor.bio}</p>
                   {selectedAuthor.specialties && selectedAuthor.specialties.length > 0 && (
                     <div className="mt-2">
-                      <p className="text-xs text-gray-500 mb-1">Specialties:</p>
-                      <div className="flex flex-wrap gap-1">
-                        {selectedAuthor.specialties.map((specialty, index) => (
-                          <span
-                            key={index}
-                            className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded-full"
-                          >
-                            {specialty}
-                          </span>
-                        ))}
-                      </div>
+                      <SmartTagList 
+                        tags={selectedAuthor.specialties}
+                        title="Specialties"
+                        className=""
+                        maxTags={5}
+                        showByCategory={false}
+                        linkable={false}
+                      />
                     </div>
                   )}
                 </div>

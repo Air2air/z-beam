@@ -28,7 +28,7 @@ export function AuthorProfile({ author, authorTags }: AuthorProfileProps) {
         </h1>
         <h2 className="text-xl mb-4">{author.title}</h2>
 
-        {/* Article Tags */}
+        {/* Article Tags - Using SmartTagList directly */}
         <SmartTagList 
           tags={authorTags || []} 
           title="Article Topics"
@@ -36,6 +36,7 @@ export function AuthorProfile({ author, authorTags }: AuthorProfileProps) {
           sortByPriority={true}
           showByCategory={true}
           maxTags={10}
+          linkable={true}
         />
       </div>
     </div>
