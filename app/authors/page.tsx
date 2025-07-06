@@ -38,7 +38,7 @@ export default async function AuthorsPage() {
                     <img
                       src={author.image}
                       alt={author.name}
-                      className="w-24 h-24 rounded-full object-cover border-2 border-blue-100"
+                      className="w-[18px] h-[18px] rounded-full object-cover border-2 border-blue-100"
                     />
                   </div>
                 )}

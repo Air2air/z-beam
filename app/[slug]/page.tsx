@@ -112,7 +112,7 @@ export default function ArticlePage({ params }: PageProps) {
                 <img
                   src={author.image}
                   alt={author.name}
-                  className="w-6 h-6 rounded-full object-cover"
+                  className="w-[10px] h-[10px] rounded-full object-cover"
                 />
               )}
               <Link
