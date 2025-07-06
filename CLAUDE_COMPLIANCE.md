@@ -1,6 +1,34 @@
 # Claude AI Quick Compliance Reference
 
-## 🚨 BEFORE ANY ACTION - MANDATORY CHECKLIST 🚨
+## 🚨 CORE MANDATE: SMALLEST CODEBASE POSSIBLE 🚨
+
+**Claude's PRIMARY GOAL: Maintain the SIMPLEST, SMALLEST, most MAINTAINABLE codebase.**
+
+### SIMPLICITY PRINCIPLES:
+- **FEWER FILES = BETTER** - Consolidate instead of creating
+- **FEWER LINES = BETTER** - Optimize existing code ruthlessly  
+- **FEWER COMPONENTS = BETTER** - Extend existing instead of duplicating
+- **FEWER DEPENDENCIES = BETTER** - Use what's already installed
+- **FEWER ABSTRACTIONS = BETTER** - Keep it simple and direct
+
+## 🔍 MANDATORY SELF-AUDIT FOR CONTRADICTIONS 🔍
+
+**Before ANY action, Claude MUST scan these docs for:**
+- [ ] **Contradictory instructions** between files
+- [ ] **Redundant information** that could be consolidated
+- [ ] **Confusing explanations** that could be simplified
+- [ ] **Outdated information** that should be removed
+- [ ] **Bloated explanations** that could be condensed
+
+**If found, STOP and report contradictions before proceeding.**
+
+### Step 0: SIMPLICITY CHECK (HIGHEST PRIORITY)
+- [ ] Can this be accomplished by MODIFYING existing code instead of adding new code?
+- [ ] Can this be done with FEWER lines of code than currently exists?
+- [ ] Can this ELIMINATE or CONSOLIDATE existing files/components?
+- [ ] Will this make the codebase SMALLER and SIMPLER overall?
+
+**IF ANY ANSWER IS YES, DO THAT INSTEAD OF CREATING NEW CODE.**
 
 ### Step 1: Documentation Review (REQUIRED)
 - [ ] Read REQUIREMENTS.md for architectural principles
@@ -28,28 +56,32 @@
 <Container padding="md" shadow="lg" sticky={true}>Content</Container>
 ```
 
-### Step 2: Anti-Bloat Audit (MINIMUM 5 MINUTES)
-- [ ] Search existing codebase for similar functionality
-- [ ] Identify 3+ existing components that could be extended
-- [ ] Look for unused imports, functions, or files to delete
-- [ ] Check for duplicate patterns that need consolidation
+### Step 2: RADICAL SIMPLIFICATION AUDIT (MINIMUM 5 MINUTES)
+- [ ] Search existing codebase for similar functionality TO ELIMINATE DUPLICATION
+- [ ] Identify 3+ existing components that could be CONSOLIDATED INTO ONE
+- [ ] Look for unused imports, functions, or files to DELETE PERMANENTLY
+- [ ] Check for duplicate patterns that can be MERGED AND SIMPLIFIED
+- [ ] Count total files - goal is to REDUCE this number, not increase it
 
-### Step 3: Justification Documentation
-- [ ] Document WHY existing solutions cannot be extended
-- [ ] List specific props/features that need to be added to existing components
-- [ ] Explain why new file creation is absolutely necessary
+### Step 3: MINIMALIST JUSTIFICATION DOCUMENTATION
+- [ ] Document WHY existing solutions cannot be SIMPLIFIED FURTHER
+- [ ] List specific props/features that MUST be added (not nice-to-have)
+- [ ] Explain why CONSOLIDATION with existing code is impossible
+- [ ] Prove that new file creation will result in NET REDUCTION of complexity
 
-### Step 4: Implementation Rules
-- [ ] EXTEND existing components with new props instead of creating new ones
-- [ ] ADD to existing utility files instead of creating new ones
-- [ ] REUSE existing patterns and shared components
-- [ ] DELETE any unused code discovered during work
+### Step 4: AGGRESSIVE SIMPLIFICATION RULES
+- [ ] MERGE existing components with new functionality instead of creating new ones
+- [ ] CONSOLIDATE into existing utility files instead of creating new ones
+- [ ] ELIMINATE redundant patterns and shared components through unification
+- [ ] DELETE any unused code discovered during work - be ruthless
+- [ ] REFACTOR complex code into simpler, more direct implementations
 
-### Step 5: Verification (MANDATORY)
+### Step 5: SIMPLICITY VERIFICATION (MANDATORY)
 - [ ] Run `npm run enforce-components` - MUST pass enforcement rules
-- [ ] Run `npm run build` - MUST pass successfully
-- [ ] Report file count and component count changes
-- [ ] Confirm no dead code remains
+- [ ] Run `npm run build` - MUST pass successfully  
+- [ ] Report REDUCTION in file count and component count (or explain why not)
+- [ ] Confirm ELIMINATION of dead code and unused imports
+- [ ] Verify overall codebase is SMALLER and SIMPLER than before
 
 ### Enforcement Thresholds (DEFINITIVE):
 - **Badge violations:** 0 allowed (use SmartTagList)
@@ -126,3 +158,30 @@ Use existing shared components
 ---
 
 **THIS IS NOT OPTIONAL. FOLLOW EVERY STEP. NO SHORTCUTS. NO EXCEPTIONS.**
+
+---
+
+## 🔍 MANDATORY CONTRADICTION DETECTION
+
+**Claude MUST actively look for and REPORT these issues in the documentation:**
+
+### Contradiction Types to Find:
+- **Conflicting instructions** - Different files saying opposite things
+- **Redundant explanations** - Same information repeated in multiple places  
+- **Outdated information** - Instructions that no longer apply
+- **Confusing hierarchies** - Unclear which document takes precedence
+- **Bloated explanations** - Long explanations that could be simplified
+
+### When Found:
+1. **STOP immediately** and report the contradiction
+2. **Suggest consolidation** or clarification  
+3. **Do NOT proceed** until contradiction is resolved
+4. **Update documentation** to eliminate confusion
+
+### Example Contradictions to Watch For:
+- **Enforcement thresholds** - Different files listing different allowances
+- **Document reading order** - Multiple files claiming to be "start here"
+- **Component lists** - Different files listing different shared components
+- **Anti-bloat checklists** - Duplicate procedures in multiple places
+
+**Claude is REQUIRED to be a documentation quality auditor, not just a code implementer.**

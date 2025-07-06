@@ -2,6 +2,8 @@
 
 A Next.js application for laser cleaning materials content with robust component architecture and automated enforcement.
 
+**CORE PHILOSOPHY: Maintain the SIMPLEST, SMALLEST, most MAINTAINABLE codebase possible.**
+
 ## 🚨 CRITICAL DOCUMENTATION FOR CLAUDE AI 🚨
 
 **Claude MUST read these documents in this specific order:**
@@ -35,10 +37,11 @@ npm run build
 
 ## Key Features
 
+- **Radical Simplicity** - Fewest files, components, and lines of code possible
 - **Zero Duplication Policy** - Automated enforcement prevents component duplication
-- **Optimization-First Architecture** - Extend existing components before creating new ones
+- **Optimization-First Architecture** - Simplify and merge before creating anything new
+- **Aggressive Consolidation** - Constantly reduce file count and complexity
 - **Strict Type Safety** - TypeScript with explicit configurations, no fallbacks
-- **Component Reusability** - Shared components for all UI patterns
 
 ## Architecture Highlights
 

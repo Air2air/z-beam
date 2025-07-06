@@ -10,19 +10,21 @@
 
 **RULE: Always analyze and optimize existing code before creating new files or components.**
 
-#### Why Optimization First?
-- Prevents codebase bloat and technical debt
-- Maintains consistency with existing patterns
-- Reduces maintenance burden and complexity
-- Leverages existing tested and proven code
-- Avoids duplicate functionality and redundant abstractions
+**CORE MANDATE: The simplest, smallest, most maintainable codebase wins.**
 
-#### The Optimization-First Process:
-1. **Search existing codebase** for similar functionality
-2. **Analyze extension possibilities** of existing components
-3. **Document why existing solutions are insufficient** (if they are)
-4. **Only then create new components** with clear justification
-5. **Plan consolidation** of new component with existing patterns
+#### Why Smallest Codebase Possible?
+- **Fewer files = easier maintenance** and faster comprehension
+- **Fewer components = less complexity** and fewer bugs
+- **Fewer lines = faster builds** and easier debugging  
+- **Less abstraction = more direct** and predictable behavior
+- **Reduced surface area = fewer failure points** and security vulnerabilities
+
+#### The Radical Simplification Process:
+1. **ELIMINATE first** - Can existing functionality be removed or consolidated?
+2. **MERGE second** - Can multiple components be combined into one?
+3. **OPTIMIZE third** - Can existing code be made simpler and shorter?
+4. **EXTEND fourth** - Can existing components handle new requirements with minor changes?
+5. **CREATE last** - Only when all above options are exhausted AND result in net reduction of complexity
 
 #### Real-World Example from Our Codebase:
 **Problem:** `AuthorArticles.tsx` had a local `AuthorCard` component duplicating the shared `AuthorCard`
@@ -61,43 +63,45 @@ const displayName = config.displayName || tag; // DON'T DO THIS
 const bgColor = config.color?.bg || 'bg-gray-500'; // DON'T DO THIS
 ```
 
-### 1.4 Anti-Bloat & Optimization Mandate 🎯
+### 1.4 Anti-Bloat & Simplification Mandate 🎯
 
-**RULE: Claude AI must AGGRESSIVELY optimize existing code and PREVENT codebase bloat at ALL COSTS.**
+**RULE: Claude AI must AGGRESSIVELY simplify existing code and ELIMINATE codebase bloat at ALL COSTS.**
 
-#### Critical Anti-Bloat Directives:
-- **NEVER create new files** without exhaustive analysis of existing solutions
-- **ALWAYS consolidate duplicate patterns** instead of creating variations
-- **CONSTANTLY reduce** lines of code, file count, and complexity
-- **ELIMINATE unused code** and imports immediately upon discovery
-- **REFACTOR over rewrite** - improve what exists rather than replacing it
+#### Critical Simplification Directives:
+- **NEVER create new files** without proving existing ones cannot be enhanced
+- **ALWAYS merge duplicate patterns** instead of maintaining variations
+- **CONSTANTLY reduce** total file count, line count, and cognitive complexity
+- **ELIMINATE unused code** immediately upon discovery - be ruthless
+- **SIMPLIFY over sophisticate** - choose the most direct solution always
 
-#### The Bloat Prevention Process:
-1. **MANDATORY AUDIT:** Before ANY code creation, audit existing codebase for 5+ minutes
-2. **JUSTIFY CREATION:** Document WHY existing code cannot be extended/optimized
-3. **CONSOLIDATION FIRST:** Merge similar components before adding new ones
-4. **DELETE AGGRESSIVELY:** Remove any unused code discovered during work
-5. **MEASURE IMPACT:** Track file count and component count reductions
+#### The Radical Simplification Process:
+1. **MANDATORY ELIMINATION AUDIT:** Before ANY code changes, spend 10+ minutes looking for code to DELETE
+2. **PROVE NECESSITY:** Document WHY existing code cannot be simplified further
+3. **MERGE FIRST:** Consolidate similar components before adding any new functionality
+4. **SIMPLIFY RUTHLESSLY:** Remove any code, imports, or abstractions not absolutely essential
+5. **MEASURE REDUCTION:** Track decreases in file count, component count, and line count
 
-#### Real-World Anti-Bloat Examples:
-**❌ BLOAT PATTERN (Never Do This):**
+#### Simplification Success Patterns:
+**✅ SIMPLIFICATION WINS (Always Do This):**
 ```typescript
-// Creating AuthorCardCompact.tsx when AuthorCard.tsx exists
-// Creating TagListSmall.tsx when SmartTagList.tsx has variants
-// Adding utils/newHelpers.ts when utils/utils.ts has space
+// Merged AuthorCardCompact functionality into AuthorCard with variant prop
+// Eliminated TagList component by using SmartTagList variants
+// Consolidated 3 utility files into 1 with clearer organization
+// Removed 200+ lines of duplicate code through component unification
 ```
 
-**✅ OPTIMIZATION PATTERN (Always Do This):**
+**❌ COMPLEXITY GROWTH (Never Do This):**
 ```typescript
-// Enhanced existing AuthorCard with variant="compact" prop
-// Used SmartTagList with variant="small" prop  
-// Extended utils/utils.ts with new helper functions
+// Created AuthorCardLarge.tsx when AuthorCard.tsx could handle it
+// Added utils/newDateHelpers.ts when utils/utils.ts has space
+// Duplicated validation logic across components instead of centralizing
 ```
 
-#### Bloat Metrics to Track:
-- **Component count:** Should decrease over time through consolidation
-- **File count:** Should grow slower than feature count
-- **Duplication violations:** Must remain at zero
+#### Simplification Metrics to Track:
+- **Total file count:** Must decrease over time through aggressive consolidation
+- **Total line count:** Should grow slower than feature count, ideally decrease
+- **Component count:** Must decrease through merging and elimination
+- **Import complexity:** Reduce number of dependencies and internal imports
 - **Dead code:** Must be eliminated on sight
 
 #### Claude Implementation Requirements:
