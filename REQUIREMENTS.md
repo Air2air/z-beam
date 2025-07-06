@@ -1,8 +1,8 @@
 # Z-Beam Project Requirements
 
-> **🚨 CRITICAL:** For development workflow, tooling, and enforcement procedures, see [DEV_WORKFLOW.md](./DEV_WORKFLOW.md)
+> **🚨 CRITICAL:** For development workflow, tooling, and enforcement procedures, see [DEVELOPMENT.md](./DEVELOPMENT.md)
 > 
-> **⚠️ CLAUDE DIRECTIVE:** You MUST read and follow BOTH this document AND DEV_WORKFLOW.md at EVERY stage. NO EXCEPTIONS.
+> **⚠️ CLAUDE DIRECTIVE:** You MUST read and follow BOTH this document AND DEVELOPMENT.md at EVERY stage. NO EXCEPTIONS.
 
 ## 1. Core Architecture Principles
 
@@ -100,13 +100,8 @@ const bgColor = config.color?.bg || 'bg-gray-500'; // DON'T DO THIS
 - **Duplication violations:** Must remain at zero
 - **Dead code:** Must be eliminated on sight
 
-#### Claude's Anti-Bloat Checklist:
-- [ ] Searched existing codebase for similar functionality (minimum 5 minutes)
-- [ ] Identified consolidation opportunities with existing components
-- [ ] Removed any unused imports, functions, or files discovered
-- [ ] Extended existing components rather than creating new ones
-- [ ] Documented why existing solutions were insufficient (if creating new code)
-- [ ] Planned future consolidation of new code with existing patterns
+#### Claude Implementation Requirements:
+All Claude AI interactions must follow the procedures detailed in [CLAUDE_COMPLIANCE.md](./CLAUDE_COMPLIANCE.md) and [DEVELOPMENT.md](./DEVELOPMENT.md).
 
 ### 1.3 Component Reusability & Zero Duplication 🔄
 
@@ -125,10 +120,8 @@ const bgColor = config.color?.bg || 'bg-gray-500'; // DON'T DO THIS
 
 ## 2. Enforcement Standards 🛡️
 
-### 2.1 Zero Tolerance Thresholds
-- **Badge violations:** 0 allowed (use SmartTagList)
-- **Button violations:** 1 allowed (use Button component)  
-- **Card violations:** 1 allowed (use Container/AuthorCard)
+### 2.1 Zero Tolerance Policy
+All component duplication violations MUST be eliminated. See [DEVELOPMENT.md](./DEVELOPMENT.md) for specific thresholds and enforcement procedures.
 
 ### 2.2 Build Integration
 - Build process must fail on component duplication violations
@@ -188,25 +181,10 @@ const bgColor = config.color?.bg || 'bg-gray-500'; // DON'T DO THIS
 ## 6. Component Usage Reference
 
 ### 6.1 Current Shared Components:
-- `SmartTagList` - All badge/tag implementations
-- `Button` - All button implementations  
-- `AuthorCard` - All author card layouts (default, compact variants)
-- `Container` - Simple card containers with consistent styling
+See [CLAUDE_COMPLIANCE.md](./CLAUDE_COMPLIANCE.md) for the current list of shared components and their usage examples.
 
-### 6.2 Usage Examples:
-```typescript
-// Tags/Badges
-<SmartTagList tags={tags} variant="compact" linkable={false} />
-
-// Buttons
-<Button variant="primary" onClick={handler}>Click me</Button>
-
-// Author Cards
-<AuthorCard author={author} variant="compact" showArticleCount={true} />
-
-// Simple Containers
-<Container padding="md" shadow="lg" sticky={true}>Content</Container>
-```
+### 6.2 Usage Guidelines:
+All UI patterns must use existing shared components. Extending existing components with new props is preferred over creating new components.
 
 ## 7. Recent Architectural Achievements
 - ✅ Eliminated AuthorCard duplication through optimization

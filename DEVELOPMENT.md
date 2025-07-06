@@ -26,9 +26,7 @@ npm run build              # Includes enforcement check
 - **Safety bypass:** Emergency override with detailed logging
 
 ### 1.3 Enforcement Thresholds
-- **Badge violations:** 0 allowed (use SmartTagList)
-- **Button violations:** 1 allowed (use Button component)
-- **Card violations:** 1 allowed (use Container/AuthorCard)
+See [CLAUDE_COMPLIANCE.md](./CLAUDE_COMPLIANCE.md) for current enforcement thresholds and violation allowances.
 
 ## 2. Development Workflow
 
@@ -204,7 +202,7 @@ import { valueName } from 'module'      # Values only
 ### 8.1 Mandatory Document Compliance
 **Claude MUST follow these procedures for EVERY interaction:**
 
-1. **READ BOTH DOCUMENTS:** Always review both REQUIREMENTS.md and DEV_WORKFLOW.md
+1. **READ BOTH DOCUMENTS:** Always review both REQUIREMENTS.md and DEVELOPMENT.md
 2. **EXECUTE CHECKLISTS:** Complete all relevant checklists before taking action
 3. **AUDIT FIRST:** Spend minimum 5 minutes auditing existing code before creating anything
 4. **JUSTIFY DECISIONS:** Document why existing solutions cannot be extended/optimized
@@ -388,7 +386,7 @@ BYPASS_ENFORCEMENT=true npm run build
 
 ### ✅ Documentation Compliance Checklist:
 - [ ] Read and followed REQUIREMENTS.md principles
-- [ ] Read and followed DEV_WORKFLOW.md procedures
+- [ ] Read and followed DEVELOPMENT.md procedures
 - [ ] Completed anti-bloat audit (minimum 5 minutes)
 - [ ] Justified any new code creation with documentation
 - [ ] Extended existing components instead of creating new ones

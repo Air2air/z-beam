@@ -4,8 +4,29 @@
 
 ### Step 1: Documentation Review (REQUIRED)
 - [ ] Read REQUIREMENTS.md for architectural principles
-- [ ] Read DEV_WORKFLOW.md for workflow procedures
-- [ ] Understand current shared components: SmartTagList, Button, AuthorCard, Container
+- [ ] Read DEVELOPMENT.md for workflow procedures
+- [ ] Understand current shared components (listed below)
+
+### Current Shared Components (SINGLE SOURCE OF TRUTH):
+- **`SmartTagList`** - All badge/tag implementations
+- **`Button`** - All button implementations  
+- **`AuthorCard`** - All author card layouts (default, compact variants)
+- **`Container`** - Simple card containers with consistent styling
+
+### Usage Examples:
+```typescript
+// Tags/Badges
+<SmartTagList tags={tags} variant="compact" linkable={false} />
+
+// Buttons  
+<Button variant="primary" onClick={handler}>Click me</Button>
+
+// Author Cards
+<AuthorCard author={author} variant="compact" showArticleCount={true} />
+
+// Simple Containers
+<Container padding="md" shadow="lg" sticky={true}>Content</Container>
+```
 
 ### Step 2: Anti-Bloat Audit (MINIMUM 5 MINUTES)
 - [ ] Search existing codebase for similar functionality
@@ -25,10 +46,16 @@
 - [ ] DELETE any unused code discovered during work
 
 ### Step 5: Verification (MANDATORY)
-- [ ] Run `npm run enforce-components` - MUST show zero violations
+- [ ] Run `npm run enforce-components` - MUST pass enforcement rules
 - [ ] Run `npm run build` - MUST pass successfully
 - [ ] Report file count and component count changes
 - [ ] Confirm no dead code remains
+
+### Enforcement Thresholds (DEFINITIVE):
+- **Badge violations:** 0 allowed (use SmartTagList)
+- **Button violations:** 1 allowed (use Button component)
+- **Card violations:** 1 allowed (use Container/AuthorCard)
+- **Goal:** Eliminate ALL violations over time through consolidation
 
 ### Step 6: Build Error Prevention (CRITICAL)
 - [ ] Check imports: Node.js modules → server only, DOM/hooks → client only
