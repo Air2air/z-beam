@@ -83,19 +83,6 @@ MaterialCardProps) {
             </p>
           )} */}
 
-          {/* {tags && tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-2 text-xs">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 rounded-full bg-blue-100 text-blue-800
-                             dark:bg-blue-900 dark:text-blue-200 font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )} */}
         </div>
       </article>
     </Link>

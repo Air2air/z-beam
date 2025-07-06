@@ -11,6 +11,7 @@ import { Breadcrumbs } from "app/components/breadcrumbs";
 import { FadeInOnScroll } from "app/components/FadeInOnScroll";
 import { AuthorArticlesServer } from "app/components/AuthorArticlesServer";
 import { AuthorByline } from "app/components/AuthorByline";
+import { SmartTagList } from "app/components/SmartTagList";
 import type { PageProps } from "app/types";
 
 export async function generateStaticParams() {
@@ -110,17 +111,11 @@ export default function ArticlePage({ params }: PageProps) {
       {/* Tags Section */}
       {article.metadata.tags && Array.isArray(article.metadata.tags) && article.metadata.tags.length > 0 && (
         <div className="mb-6">
-          <div className="flex flex-wrap gap-2">
-            {article.metadata.tags.map((tag, index) => (
-              <Link
-                key={index}
-                href={`/tags/${getTagSlug(tag)}?from=${article.slug}`}
-                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors duration-200"
-              >
-                #{tag}
-              </Link>
-            ))}
-          </div>
+          <SmartTagList 
+            tags={article.metadata.tags}
+            linkable={true}
+            className="flex flex-wrap gap-2"
+          />
         </div>
       )}
       

@@ -45,8 +45,7 @@ module.exports = {
   // EXCLUDED FILES - These files are allowed to have "violation" patterns
   excludedFiles: [
     // Shared components (these SHOULD have the patterns)
-    'app/components/SmartTagList.tsx',
-    'app/components/TagList.tsx', 
+    'app/components/SmartTagList.tsx', 
     'app/components/Button.tsx',
     'app/components/Card.tsx',
     'app/components/Input.tsx',
@@ -83,7 +82,6 @@ module.exports = {
   allowedPatterns: {
     sharedComponents: [
       'app/components/SmartTagList.tsx',
-      'app/components/TagList.tsx',
       'app/components/Badge.tsx',
       'app/components/Button.tsx',
       'app/components/ActionButton.tsx',
