@@ -3,6 +3,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { SmartTagList } from './SmartTagList';
 import type { BaseCardProps } from 'app/types';
 
 export function CardFeature({
@@ -60,17 +61,12 @@ export function CardFeature({
           </p>
 
           {tags && tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-2 text-xs">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 rounded-full bg-blue-100 text-blue-800
-                             dark:bg-blue-900 dark:text-blue-200 font-medium"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <SmartTagList 
+              tags={tags}
+              className="mt-2"
+              linkable={false}
+              maxTags={3}
+            />
           )}
         </div>
       </article>

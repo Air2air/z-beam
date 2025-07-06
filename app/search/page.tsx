@@ -2,6 +2,7 @@
 import { getAllAuthors, getMaterialList } from 'app/utils/server';
 import { AuthorSearchResults } from 'app/components/AuthorSearchResults';
 import { FadeInOnScroll } from 'app/components/FadeInOnScroll';
+import { Container } from 'app/components/Container';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default async function SearchPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Authors Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-lg p-6 sticky top-8">
+            <Container sticky={true}>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Our Authors</h2>
               <div className="space-y-4">
                 {authors.map((author) => (
@@ -54,7 +55,7 @@ export default async function SearchPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </Container>
           </div>
 
           {/* Search Results */}

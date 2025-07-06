@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { CardItem } from 'app/components/CardItem';
 import { FadeInOnScroll } from 'app/components/FadeInOnScroll';
 import { SmartTagList } from 'app/components/SmartTagList';
+import { Container } from 'app/components/Container';
 import { formatDate } from 'app/utils/utils';
 import type { AuthorMetadata, MaterialPost } from 'app/types';
 
@@ -63,7 +64,7 @@ export function AuthorSearchResults({ authors, materials }: AuthorSearchResultsP
   return (
     <div className="space-y-6">
       {/* Search Controls */}
-      <div className="bg-white rounded-lg shadow-lg p-6">
+      <Container>
         <div className="space-y-4">
           {/* Search Input */}
           <div>
@@ -112,7 +113,7 @@ export function AuthorSearchResults({ authors, materials }: AuthorSearchResultsP
             </div>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Selected Author Info */}
       {selectedAuthor && (

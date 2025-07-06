@@ -87,7 +87,6 @@ module.exports = {
       'app/components/Badge.tsx',
       'app/components/Button.tsx',
       'app/components/ActionButton.tsx',
-      'app/components/Card.tsx',
       'app/components/Container.tsx'
     ],
     
@@ -114,7 +113,7 @@ module.exports = {
     violations: {
       badge: 'Replace hardcoded badge implementations with SmartTagList or create shared Badge component',
       button: 'Replace hardcoded button implementations with shared Button component',
-      card: 'Replace hardcoded card implementations with shared Card component'
+      card: 'Replace hardcoded card implementations with shared Container component'
     }
   },
 

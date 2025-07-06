@@ -1,7 +1,11 @@
 // app/components/AuthorArticles.tsx
+'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ArticleList } from "./ArticleList";
 import { FadeInOnScroll } from "./FadeInOnScroll";
+import { AuthorCard } from "./AuthorCard";
+import { Button } from "./Button";
 import type { MaterialPost, AuthorMetadata } from 'app/types';
 
 interface AuthorArticlesProps {
@@ -21,6 +25,7 @@ export function AuthorArticles({
   authors,
   allMaterials
 }: AuthorArticlesProps) {
+  const router = useRouter();
   const author = authors.find(a => a.id === authorId);
   
   if (!author) {
@@ -75,13 +80,14 @@ export function AuthorArticles({
       {/* View All Articles Link */}
       {showViewAllLink && (
         <div className="mt-6 text-center">
-          <Link
-            href={`/authors/${author.slug}${excludeSlug ? `?from=${excludeSlug}` : ''}`}
-            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          <Button
+            onClick={() => router.push(`/authors/${author.slug}${excludeSlug ? `?from=${excludeSlug}` : ''}`)}
+            variant="primary"
+            size="lg"
           >
             View all articles by {author.name}
             <span className="ml-2">→</span>
-          </Link>
+          </Button>
         </div>
       )}
     </div>
@@ -124,62 +130,16 @@ export function AuthorDirectory({
             yOffset={20}
             amount={0.1}
           >
-            <AuthorCard author={author} />
+            <AuthorCard 
+              author={author} 
+              variant="compact" 
+              showArticleCount={true} 
+              showSpecialties={true} 
+              maxSpecialties={3} 
+            />
           </FadeInOnScroll>
         ))}
       </div>
     </div>
-  );
-}
-
-// Individual author card component
-function AuthorCard({ 
-  author
-}: { 
-  author: AuthorMetadata & { articleCount: number };
-}) {
-  return (
-    <Link
-      href={`/authors/${author.slug}`}
-      className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6"
-    >
-      <div className="flex items-start space-x-4">
-        {author.image && (
-          <img
-            src={author.image}
-            alt={author.name}
-            className="w-16 h-16 rounded-full object-cover"
-          />
-        )}
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors">
-            {author.name}
-          </h3>
-          <p className="text-sm text-gray-600 mb-2">{author.title}</p>
-          <p className="text-sm text-blue-600 font-medium">
-            {author.articleCount} article{author.articleCount !== 1 ? 's' : ''}
-          </p>
-          {author.specialties && author.specialties.length > 0 && (
-            <div className="mt-3">
-              <div className="flex flex-wrap gap-1">
-                {author.specialties.slice(0, 3).map((specialty, index) => (
-                  <span
-                    key={index}
-                    className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
-                  >
-                    {specialty}
-                  </span>
-                ))}
-                {author.specialties.length > 3 && (
-                  <span className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full">
-                    +{author.specialties.length - 3} more
-                  </span>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </Link>
   );
 }
