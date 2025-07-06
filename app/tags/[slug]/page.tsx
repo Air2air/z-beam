@@ -2,6 +2,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArticleList } from '../../components/ArticleList';
+import { SmartTagList } from '../../components/SmartTagList';
 import { getAllTagSlugs, getTagFromSlug, getArticlesByTag, getArticleList } from '../../utils/server';
 import type { PageProps } from '../../types';
 
@@ -92,9 +93,12 @@ export default async function TagPage({ params, searchParams }: PageProps) {
       <div className="mb-12">
         <div className="flex items-center gap-4 mb-6">
           <div className="flex-shrink-0">
-            <span className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 text-lg font-medium rounded-full">
-              #{tag}
-            </span>
+            <SmartTagList 
+              tags={[tag]} 
+              className="mb-0"
+              linkable={false}
+              sortByPriority={false}
+            />
           </div>
           <div className="flex-1">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">

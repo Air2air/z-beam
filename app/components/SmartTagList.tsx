@@ -75,11 +75,27 @@ export function SmartTagList({
     const config = getTagInfo(tag);
     const displayName = config.displayName;
     
-    // Use colors directly from configuration (no dynamic conversion needed)
-    const bgColor = config.color.bg;
-    const textColor = config.color.text;
+    // Map category to solid background color with white text
+    const getCategoryColors = (category: TagConfig['category']) => {
+      switch (category) {
+        case 'material':
+          return 'bg-purple-600 text-white';
+        case 'process':
+          return 'bg-blue-600 text-white';
+        case 'industry':
+          return 'bg-green-600 text-white';
+        case 'application':
+          return 'bg-orange-600 text-white';
+        case 'property':
+          return 'bg-indigo-600 text-white';
+        case 'general':
+        default:
+          return 'bg-gray-600 text-white';
+      }
+    };
     
-    const tagClasses = `inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${bgColor} ${textColor} dark:bg-opacity-90`;
+    const categoryColors = getCategoryColors(config.category);
+    const tagClasses = `inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${categoryColors} dark:bg-opacity-90`;
     
     const tagContent = (
       <span className={tagClasses}>

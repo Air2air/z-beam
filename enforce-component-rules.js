@@ -14,6 +14,7 @@ const fs = require('fs');
 const THRESHOLDS = {
   // Critical violations - these MUST be 0 or build fails
   BADGE_HARDCODED_MAX: 0,        // No hardcoded badge implementations allowed
+  TAG_DUPLICATION_MAX: 0,        // ZERO tag duplication allowed - only SmartTagList
   BUTTON_HARDCODED_MAX: 1,       // Maximum 1 hardcoded button (for emergency cases)
   CARD_HARDCODED_MAX: 1,         // Maximum 1 hardcoded card (for emergency cases)
   
@@ -31,6 +32,12 @@ const VIOLATION_PATTERNS = {
     'inline-block.*px-.*py-.*rounded-full.*bg-'
   ],
   
+  // Critical: Duplicate tag components/functions
+  TAG_DUPLICATION_VIOLATIONS: [
+    'components/TagList\\.tsx',  // TagList.tsx should not exist - only SmartTagList allowed
+    'bg-blue-100.*text-blue-800.*rounded-full' // Old tag color patterns
+  ],
+  
   // Button hardcoded implementations
   BUTTON_VIOLATIONS: [
     'px-.*py-.*bg-blue-600.*hover:',
@@ -46,8 +53,7 @@ const VIOLATION_PATTERNS = {
 
 // FILES TO EXCLUDE from checks (shared components are allowed to have these patterns)
 const EXCLUDED_FILES = [
-  'app/components/SmartTagList.tsx',
-  'app/components/TagList.tsx',
+  'app/components/SmartTagList.tsx',  // THE ONLY allowed tag component
   'app/components/Button.tsx',
   'app/components/Card.tsx',
   'app/components/Input.tsx',
@@ -279,6 +285,10 @@ function enforceRules() {
     checkPattern(pattern, `Badge hardcoded implementation #${index + 1}`, THRESHOLDS.BADGE_HARDCODED_MAX, true, 'BADGE_VIOLATIONS');
   });
   
+  VIOLATION_PATTERNS.TAG_DUPLICATION_VIOLATIONS.forEach((pattern, index) => {
+    checkPattern(pattern, `Tag component duplication #${index + 1}`, THRESHOLDS.TAG_DUPLICATION_MAX, true, 'TAG_DUPLICATION_VIOLATIONS');
+  });
+  
   VIOLATION_PATTERNS.BUTTON_VIOLATIONS.forEach((pattern, index) => {
     checkPattern(pattern, `Button hardcoded implementation #${index + 1}`, THRESHOLDS.BUTTON_HARDCODED_MAX, true, 'BUTTON_VIOLATIONS');
   });
@@ -315,7 +325,7 @@ function enforceRules() {
     console.log('2. Replace hardcoded button implementations with shared Button component');
     console.log('3. Replace hardcoded card implementations with shared Card component');
     console.log('4. Run ./quick-audit.sh to see specific violations');
-    console.log('5. Review REQUIREMENTS.md section 2 for guidance');
+    console.log('5. Review PROJECT_GUIDE.md for detailed guidance');
     console.log('');
     console.log('🛡️  SAFETY OPTIONS:');
     console.log('- If creating a NEW shared component, use: node safe-component-creation.js <Name>');

@@ -105,7 +105,7 @@ module.exports = {
       newComponent: 'If creating a NEW shared component, use: node safe-component-creation.js <Name>',
       temporaryBypass: 'To temporarily bypass (NOT RECOMMENDED): npm run build:skip-check',
       addExclusion: 'To add legitimate exclusion: Edit excludedFiles in component-enforcement.config.js',
-      documentation: 'Review REQUIREMENTS.md section 2 for detailed guidance'
+      documentation: 'Review PROJECT_GUIDE.md section 2 for detailed guidance'
     },
     
     violations: {

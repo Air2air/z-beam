@@ -55,9 +55,9 @@ else
     echo "🔧 To fix violations, run:"
     echo "   ./quick-audit.sh"
     echo ""
-    echo "Then follow the guidance in REQUIREMENTS.md section 2"
+    echo "Then follow the guidance in PROJECT_GUIDE.md section 2"
 fi
 
 echo ""
-echo "📖 For complete documentation, see REQUIREMENTS.md"
+echo "📖 For complete documentation, see PROJECT_GUIDE.md"
 echo "🛡️  Component reusability enforcement setup complete!"

@@ -1,6 +1,6 @@
 # Z-Beam Development Workflow & Tooling
 
-> **🚨 CRITICAL:** This document MUST be used together with [REQUIREMENTS.md](./REQUIREMENTS.md)
+> **🚨 CRITICAL:** This document has been replaced by [PROJECT_GUIDE.md](./PROJECT_GUIDE.md)
 > 
 > **⚠️ CLAUDE DIRECTIVE:** You are REQUIRED to follow BOTH documents at EVERY stage. Before ANY action:
 > 1. ✅ Check REQUIREMENTS.md for architectural principles
@@ -26,7 +26,9 @@ npm run build              # Includes enforcement check
 - **Safety bypass:** Emergency override with detailed logging
 
 ### 1.3 Enforcement Thresholds
-See [CLAUDE_COMPLIANCE.md](./CLAUDE_COMPLIANCE.md) for current enforcement thresholds and violation allowances.
+- **Badge violations:** 0 allowed (use SmartTagList)
+- **Button violations:** 1 allowed (use Button component)
+- **Card violations:** 1 allowed (use Container/AuthorCard)
 
 ## 2. Development Workflow
 
@@ -202,7 +204,7 @@ import { valueName } from 'module'      # Values only
 ### 8.1 Mandatory Document Compliance
 **Claude MUST follow these procedures for EVERY interaction:**
 
-1. **READ BOTH DOCUMENTS:** Always review both REQUIREMENTS.md and DEVELOPMENT.md
+1. **READ BOTH DOCUMENTS:** Always review both REQUIREMENTS.md and DEV_WORKFLOW.md
 2. **EXECUTE CHECKLISTS:** Complete all relevant checklists before taking action
 3. **AUDIT FIRST:** Spend minimum 5 minutes auditing existing code before creating anything
 4. **JUSTIFY DECISIONS:** Document why existing solutions cannot be extended/optimized
@@ -378,89 +380,6 @@ BYPASS_ENFORCEMENT=true npm run build
 - [ ] Update tooling as needed
 - [ ] Review and optimize existing tools
 
-## 11. Modify-First Component Development System
-
-### 11.1 Core Principle
-> **MODIFY BEFORE CREATE**: Always extend existing components instead of creating new ones.
-
-### 11.2 How the System Works
-
-#### Detection Phase
-The enforcement system automatically:
-- **Scans for hardcoded UI patterns** (badges, buttons, cards, etc.)
-- **Detects component duplication** across the codebase
-- **Fails builds** when violations are found
-- **Provides specific suggestions** for extending existing components
-
-#### Guidance Phase  
-When violations are detected, the system provides:
-- **Specific component extension suggestions** with examples
-- **Available component checks** (does the suggested component exist?)
-- **Guided extension instructions** with code templates
-- **Alternative component searches** if the suggested one doesn't exist
-
-#### Tool-Assisted Development
-```bash
-# Component finder tool
-node find-component-to-extend.js "pattern_name"
-
-# Safe component creation (when absolutely necessary)
-node safe-component-creation.js ComponentName
-
-# Component extension helper
-node safe-component-extension.js ExistingComponent
-```
-
-### 11.3 Safety Mechanisms
-
-#### Automatic Exclusions
-Shared components are automatically excluded from enforcement:
-- `app/components/Button.tsx` - shared component (SHOULD have button patterns)
-- `app/components/SmartTagList.tsx` - shared component (SHOULD have badge patterns)  
-- `app/components/AuthorCard.tsx` - shared component (SHOULD have card patterns)
-- `app/components/Container.tsx` - shared component (SHOULD have card patterns)
-
-#### Safe Component Creation Process
-```bash
-# Creates component with proper structure and adds to exclusions automatically
-npm run create:component MyComponent
-node safe-component-creation.js MyComponent
-```
-
-**What it does:**
-1. ✅ Checks for similar existing components (prevents duplication)
-2. ✅ Generates safe component template with variants
-3. ✅ Automatically adds to exclusion list
-4. ✅ Tests enforcement system to ensure no issues
-
-## 12. Utility Functions Organization
-
-### 12.1 File Structure
-Utilities are organized into domain-specific modules in `/app/utils/`:
-
-- **`utils.ts`** - Main entry point that re-exports all utilities
-- **`formatting.ts`** - Text and date formatting functions
-- **`validation.ts`** - Form and data validation helpers
-- **`helpers.ts`** - Common React and UI helper functions
-- **`metadata.ts`** - MDX frontmatter and metadata parsing
-- **`mdx.ts`** - MDX file reading and processing
-- **`constants.ts`** - Application constants and configuration
-
-### 12.2 Usage Guidelines
-- **Extend existing utility files** instead of creating new ones
-- **Add functions to appropriate domain modules** (formatting, validation, etc.)
-- **Re-export through main utils.ts** for consistent imports
-- **Document new functions** with JSDoc comments
-
-### 12.3 Common Utility Patterns
-```typescript
-// Use domain-specific imports for internal usage
-import { formatDate } from './formatting'
-
-// Use main entry point for component imports  
-import { formatDate, slugify } from 'app/utils/utils'
-```
-
 ---
 
 ## 🚨 CLAUDE AI FINAL CHECKPOINT 🚨
@@ -469,7 +388,7 @@ import { formatDate, slugify } from 'app/utils/utils'
 
 ### ✅ Documentation Compliance Checklist:
 - [ ] Read and followed REQUIREMENTS.md principles
-- [ ] Read and followed DEVELOPMENT.md procedures
+- [ ] Read and followed DEV_WORKFLOW.md procedures
 - [ ] Completed anti-bloat audit (minimum 5 minutes)
 - [ ] Justified any new code creation with documentation
 - [ ] Extended existing components instead of creating new ones

@@ -1,16 +1,23 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "./start-dev.sh",
+    "dev:direct": "next dev -p 3000",
+    "dev:check": "./dev-ready-check.sh && next dev -p 3000",
+    "ready": "./dev-ready-check.sh",
+    "kill-port": "./kill-port-3000.sh",
     "build": "npm run enforce-components && next build",
     "build:skip-check": "next build",
     "start": "next start",
     "enforce-components": "node enforce-component-rules.js",
     "audit:quick": "./quick-audit.sh",
     "audit:full": "./audit-components.sh",
+    "audit:docs": "./validate-project-guide.sh",
     "lint:components": "npm run enforce-components",
     "create:component": "node safe-component-creation.js",
-    "setup:enforcement": "./setup-enforcement.sh"
+    "setup:enforcement": "./setup-enforcement.sh",
+    "validate:guide": "./validate-project-guide.sh",
+    "check:claude-compliance": "./.githooks/claude-compliance"
   },
   "dependencies": {
     "@tailwindcss/postcss": "4.0.0-alpha.13",

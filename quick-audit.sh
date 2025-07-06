@@ -51,4 +51,4 @@ fi
 
 echo ""
 echo "🔍 To see full audit: ./audit-components.sh"
-echo "📋 Before coding: Review REQUIREMENTS.md section 2"
+echo "📋 Before coding: Review PROJECT_GUIDE.md for architecture principles"

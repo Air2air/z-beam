@@ -151,7 +151,7 @@ function enforceRules() {
     console.log('3. 🆕 CREATE new components ONLY if no suitable ones exist: node safe-component-creation.js <Name>');
     console.log('4. 🔍 Find similar components: node find-component-to-extend.js <pattern>');
     console.log('5. ✅ Replace hardcoded implementations with extended shared components');
-    console.log('6. 📖 Review REQUIREMENTS.md "MODIFY-FIRST POLICY" section for detailed guidance');
+    console.log('6. 📖 Review PROJECT_GUIDE.md "MODIFY-FIRST POLICY" section for detailed guidance');
     console.log('');
     console.log('🛡️  SAFETY OPTIONS:');
     console.log('- Edit configuration: component-enforcement.config.js');

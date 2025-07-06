@@ -269,5 +269,5 @@ console.log('   2. Design with maximum reusability in mind');
 console.log('   3. Consider future extension needs');
 console.log('');
 
-console.log('📖 For more guidance, see REQUIREMENTS.md section "MODIFY-FIRST POLICY"');
+console.log('📖 For more guidance, see PROJECT_GUIDE.md section "MODIFY-FIRST POLICY"');
 console.log('🔍 Component search completed!');

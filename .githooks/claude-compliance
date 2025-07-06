@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# Claude Compliance Pre-Commit Hook
+# Ensures all changes follow PROJECT_GUIDE.md principles
+
+echo "🤖 CLAUDE COMPLIANCE CHECK"
+echo "=========================="
+
+# 1. Validate PROJECT_GUIDE.md is still healthy
+if [ -f "validate-project-guide.sh" ]; then
+    echo "🔍 Running PROJECT_GUIDE.md self-audit..."
+    ./validate-project-guide.sh | grep -E "(❌|⚠️|EXCELLENT|GOOD|NEEDS WORK)"
+    
+    # Check if PROJECT_GUIDE.md is bloated
+    LINE_COUNT=$(wc -l < "PROJECT_GUIDE.md")
+    if [ "$LINE_COUNT" -gt 350 ]; then
+        echo "❌ COMMIT BLOCKED: PROJECT_GUIDE.md is bloated ($LINE_COUNT lines > 350)"
+        echo "   Fix bloat before committing any changes"
+        exit 1
+    fi
+fi
+
+# 2. Check for new component files (potential duplication)
+NEW_COMPONENTS=$(git diff --cached --name-only --diff-filter=A | grep "app/components/.*\.tsx$")
+if [ -n "$NEW_COMPONENTS" ]; then
+    echo
+    echo "🚨 NEW COMPONENT DETECTED:"
+    echo "$NEW_COMPONENTS"
+    echo
+    echo "MANDATORY CLAUDE VERIFICATION:"
+    echo "✅ Did you read PROJECT_GUIDE.md Section 1.2 (Zero Tolerance)?"
+    echo "✅ Did you verify existing components cannot be extended?"
+    echo "✅ Did you run the radical simplification audit?"
+    echo "✅ Did you update enforce-component-rules.js patterns?"
+    echo
+    echo "If ANY answer is NO, abort this commit and follow PROJECT_GUIDE.md"
+fi
+
+# 3. Check for documentation changes
+DOC_CHANGES=$(git diff --cached --name-only | grep -E "\.(md|txt)$")
+if [ -n "$DOC_CHANGES" ]; then
+    echo
+    echo "📝 DOCUMENTATION CHANGES DETECTED:"
+    echo "$DOC_CHANGES"
+    echo
+    if echo "$DOC_CHANGES" | grep -v "PROJECT_GUIDE.md" | grep -q "\.md$"; then
+        echo "❌ COMMIT BLOCKED: Documentation changes outside PROJECT_GUIDE.md"
+        echo "   All documentation must be in PROJECT_GUIDE.md (single source of truth)"
+        echo "   Move changes to PROJECT_GUIDE.md or archive the file"
+        exit 1
+    fi
+fi
+
+# 4. Enforce component rules before commit
+if [ -f "enforce-component-rules.js" ]; then
+    echo
+    echo "🛡️ Running component enforcement..."
+    if ! npm run enforce-components --silent; then
+        echo "❌ COMMIT BLOCKED: Component duplication violations detected"
+        echo "   Fix violations following PROJECT_GUIDE.md Section 2.3"
+        exit 1
+    fi
+fi
+
+# 5. Check for hardcoded component lists
+HARDCODED_LISTS=$(git diff --cached | grep -E "^\+" | grep -E "(SmartTagList|Button|AuthorCard|Container).*\.tsx")
+if [ -n "$HARDCODED_LISTS" ]; then
+    echo
+    echo "⚠️  WARNING: Potential hardcoded component references detected"
+    echo "   Ensure these are dynamic references per PROJECT_GUIDE.md Section 4.1"
+fi
+
+echo
+echo "✅ Claude compliance check complete!"
+echo "   Remember: PROJECT_GUIDE.md is the SINGLE SOURCE OF TRUTH"
+echo "=========================="

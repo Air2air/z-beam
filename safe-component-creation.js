@@ -197,5 +197,5 @@ console.log('3. ✅ Add any additional props required');
 console.log('4. ✅ Test the component in your application');
 console.log('5. ✅ Replace any existing hardcoded implementations with this component');
 console.log('');
-console.log('📖 For more guidance, see REQUIREMENTS.md section 2');
+console.log('📖 For more guidance, see PROJECT_GUIDE.md section 2');
 console.log('🛡️  Component creation completed safely!');

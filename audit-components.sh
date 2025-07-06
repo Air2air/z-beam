@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Global Component Duplication Audit Script
-# This script implements the audit commands defined in REQUIREMENTS.md and .eslintrc-fallback-detection.js
+# This script implements the audit commands defined in PROJECT_GUIDE.md and .eslintrc-fallback-detection.js
 
 echo "🔍 GLOBAL COMPONENT DUPLICATION AUDIT"
 echo "====================================="
@@ -133,4 +133,4 @@ echo "4. Create reusable Input component for form patterns"
 echo "5. Standardize typography with Text/Heading components"
 echo ""
 echo "✅ Run this audit before every development task!"
-echo "✅ Update REQUIREMENTS.md when new patterns are identified!"
+echo "✅ Update PROJECT_GUIDE.md when new patterns are identified!"

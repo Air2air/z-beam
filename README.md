@@ -1,55 +1,49 @@
-# Z-Beam Project
+# Z-Beam Laser Cleaning Project
 
-A Next.js application for laser cleaning materials content with robust component architecture and automated enforcement.
+## 📋 Documentation
 
-**CORE PHILOSOPHY: Maintain the SIMPLEST, SMALLEST, most MAINTAINABLE codebase possible.**
+**⚠️ IMPORTANT:** All project documentation has been consolidated into a single source of truth.
 
-## 🚨 CRITICAL DOCUMENTATION FOR CLAUDE AI 🚨
+**👉 READ THIS FIRST:** [PROJECT_GUIDE.md](./PROJECT_GUIDE.md)
 
-**Claude MUST read these documents in this specific order:**
+The PROJECT_GUIDE.md contains:
+- Core Architecture Principles
+- Development Workflow  
+- Claude AI Compliance
+- Quick Reference
 
-1. **[CLAUDE_COMPLIANCE.md](./CLAUDE_COMPLIANCE.md)** 🔥 **START HERE** - Quick reference checklist for every task
-2. **[REQUIREMENTS.md](./REQUIREMENTS.md)** ⭐ Core architectural principles, anti-bloat mandate, zero duplication policy
-3. **[DEVELOPMENT.md](./DEVELOPMENT.md)** ⭐ Development workflow, enforcement procedures, detailed tooling
+## Previous Documentation
 
-**All three documents contain mandatory procedures that MUST be followed. NO EXCEPTIONS.**
-
-## Additional Documentation
-
-- **[docs/](./docs/)** - Detailed technical documentation
-- **[content/README.md](./content/README.md)** - Content architecture documentation
+Archived documentation can be found in `docs/archived/` for reference only.
 
 ## Quick Start
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
+# Start development with automatic health checks
 npm run dev
 
-# Run enforcement checks
-npm run enforce-components
+# Just run health checks (without starting server)
+npm run ready
+
+# Start dev server without checks (if you need to bypass)
+npm run dev:direct
+```
+
+**When you run `npm run dev`, it will:**
+1. ✅ Check CSS & Tailwind configuration
+2. ✅ Validate component system health  
+3. ✅ Confirm dependencies are installed
+4. ✅ Verify TypeScript compilation
+5. ✅ Check port availability
+6. 🚀 Start the development server
+
+**If any issues are found, the script will:**
+- ❌ Stop before starting the server
+- 🔧 Show specific fix instructions
+- 💡 Guide you through resolving issues
 
 # Build for production
 npm run build
 ```
 
-## Key Features
-
-- **Radical Simplicity** - Fewest files, components, and lines of code possible
-- **Zero Duplication Policy** - Automated enforcement prevents component duplication
-- **Optimization-First Architecture** - Simplify and merge before creating anything new
-- **Aggressive Consolidation** - Constantly reduce file count and complexity
-- **Strict Type Safety** - TypeScript with explicit configurations, no fallbacks
-
-## Architecture Highlights
-
-- `SmartTagList` - Unified tag/badge component
-- `Button` - Shared button component with variants
-- `AuthorCard` - Flexible author display component
-- `Container` - Consistent card/container styling
-
-For detailed architectural principles and enforcement rules, see [REQUIREMENTS.md](./REQUIREMENTS.md).
-
-For development workflow and tooling details, see [DEVELOPMENT.md](./DEVELOPMENT.md).
+For detailed workflow and component usage, see [PROJECT_GUIDE.md](./PROJECT_GUIDE.md).

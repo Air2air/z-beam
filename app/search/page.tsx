@@ -3,6 +3,7 @@ import { getAllAuthors, getMaterialList } from 'app/utils/server';
 import { AuthorSearchResults } from 'app/components/AuthorSearchResults';
 import { FadeInOnScroll } from 'app/components/FadeInOnScroll';
 import { Container } from 'app/components/Container';
+import { SmartTagList } from 'app/components/SmartTagList';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -41,15 +42,13 @@ export default async function SearchPage() {
                     <p className="text-sm text-gray-600 mb-2">{author.title}</p>
                     <p className="text-xs text-gray-500 line-clamp-3">{author.bio}</p>
                     {author.specialties && author.specialties.length > 0 && (
-                      <div className="mt-2 flex flex-wrap gap-1">
-                        {author.specialties.slice(0, 2).map((specialty) => (
-                          <span
-                            key={specialty}
-                            className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
-                          >
-                            {specialty}
-                          </span>
-                        ))}
+                      <div className="mt-2">
+                        <SmartTagList 
+                          tags={author.specialties.slice(0, 2)} 
+                          className="mb-0"
+                          linkable={false}
+                          sortByPriority={false}
+                        />
                       </div>
                     )}
                   </div>
