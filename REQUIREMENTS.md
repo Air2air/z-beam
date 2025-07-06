@@ -1,5 +1,7 @@
 # Z-Beam Project Requirements
 
+> **Note:** For development workflow, tooling, and enforcement procedures, see [DEV_WORKFLOW.md](./DEV_WORKFLOW.md)
+
 ## 1. Core Architecture Principles
 
 ### 1.1 Optimization Over Creation 🔧
@@ -72,25 +74,17 @@ const bgColor = config.color?.bg || 'bg-gray-500'; // DON'T DO THIS
 - `AuthorCard` - All author card layouts (default, compact variants)
 - `Container` - Simple card containers with consistent styling
 
-## 2. Automated Enforcement System 🛡️
+## 2. Enforcement Standards 🛡️
 
-### 2.1 Build-Time Enforcement
-The build system automatically fails when component duplication violations are detected:
-
-```bash
-npm run enforce-components  # Runs before build
-npm run build              # Includes enforcement check
-```
-
-### 2.2 Git Hooks & CI/CD
-- **Pre-commit hook:** Prevents commits with violations
-- **GitHub Actions:** Blocks PRs with duplication issues
-- **Safety bypass:** Emergency override with detailed logging
-
-### 2.3 Enforcement Thresholds
+### 2.1 Zero Tolerance Thresholds
 - **Badge violations:** 0 allowed (use SmartTagList)
-- **Button violations:** 1 allowed (use Button component)
+- **Button violations:** 1 allowed (use Button component)  
 - **Card violations:** 1 allowed (use Container/AuthorCard)
+
+### 2.2 Build Integration
+- Build process must fail on component duplication violations
+- Pre-commit validation prevents problematic code from entering repository
+- Emergency bypass available with mandatory justification and logging
 
 ## 3. Component Standards
 
@@ -110,28 +104,23 @@ npm run build              # Includes enforcement check
 - **Graceful degradation** only for non-critical features
 - **User-friendly error messages** in development
 
-## 4. Development Workflow
+## 4. Component Standards
 
-### 4.1 Before Creating Components:
-1. **Search** existing components with similar functionality
-2. **Review** shared component capabilities
-3. **Extend** existing components if possible
-4. **Document** why new component is necessary
-5. **Plan** future consolidation opportunities
+### 4.1 Tag System
+- **All tags must be configured** in `tagConfig.ts`
+- **No fallback styling** - explicit configuration required
+- **Categories:** materials, applications, techniques, industries
+- **SmartTagList component** handles all tag rendering
 
-### 4.2 Component Creation Safety:
-```bash
-# Use safe creation tools
-node safe-component-creation.js ComponentName
-node safe-component-extension.js ExistingComponent
-```
+### 4.2 Type Safety
+- **Strict TypeScript configuration** enforced
+- **Explicit interfaces** for all component props
+- **No `any` types** allowed in component interfaces
 
-### 4.3 Regular Audits:
-```bash
-./quick-audit.sh           # Quick violation check
-./audit-components.sh      # Comprehensive audit
-npm run enforce-components # Full enforcement run
-```
+### 4.3 Error Handling
+- **Explicit error throwing** for missing configurations
+- **Graceful degradation** only for non-critical features
+- **User-friendly error messages** in development
 
 ## 5. Documentation Standards
 
@@ -147,30 +136,15 @@ npm run enforce-components # Full enforcement run
 - **How** implementations solve specific problems
 - **When** optimizations were applied over new creation
 
-## 6. Success Metrics
+## 6. Component Usage Reference
 
-### 6.1 Enforcement Metrics:
-- **Violation count reduction** over time
-- **Successful build rates** without bypasses
-- **Component consolidation** achievements
+### 6.1 Current Shared Components:
+- `SmartTagList` - All badge/tag implementations
+- `Button` - All button implementations  
+- `AuthorCard` - All author card layouts (default, compact variants)
+- `Container` - Simple card containers with consistent styling
 
-### 6.2 Code Quality Metrics:
-- **Reduced duplication patterns** (tracked by enforcement)
-- **Improved maintainability** through shared components
-- **Faster development** via component reuse
-
-### 6.3 Recent Achievements:
-- ✅ Eliminated AuthorCard duplication through optimization
-- ✅ Reduced card violations from 3 to 2 through Container component
-- ✅ Consolidated badge patterns into SmartTagList
-- ✅ Implemented optimization-first architectural principle
-- ✅ Enhanced AuthorCard with variants instead of creating new components
-
----
-
-## Quick Reference
-
-### Component Usage:
+### 6.2 Usage Examples:
 ```typescript
 // Tags/Badges
 <SmartTagList tags={tags} variant="compact" linkable={false} />
@@ -185,16 +159,9 @@ npm run enforce-components # Full enforcement run
 <Container padding="md" shadow="lg" sticky={true}>Content</Container>
 ```
 
-### Enforcement Commands:
-```bash
-npm run enforce-components  # Check violations
-./quick-audit.sh           # Quick check
-npm run build              # Includes enforcement
-```
-
-### Safety Tools:
-```bash
-node safe-component-creation.js ComponentName
-node safe-component-extension.js ExistingComponent
-node find-component-to-extend.js "pattern_name"
-```
+## 7. Recent Architectural Achievements
+- ✅ Eliminated AuthorCard duplication through optimization
+- ✅ Reduced card violations from 3 to 2 through Container component
+- ✅ Consolidated badge patterns into SmartTagList
+- ✅ Implemented optimization-first architectural principle
+- ✅ Enhanced AuthorCard with variants instead of creating new components
