@@ -2,10 +2,17 @@
 
 A Next.js application for laser cleaning materials content with robust component architecture and automated enforcement.
 
-## Documentation
+## 🚨 CRITICAL DOCUMENTATION FOR CLAUDE AI 🚨
 
-- **[REQUIREMENTS.md](./REQUIREMENTS.md)** - Core architectural principles and component standards
-- **[DEV_WORKFLOW.md](./DEV_WORKFLOW.md)** - Development workflow, tooling, and enforcement procedures
+**Claude MUST read and follow these documents at EVERY stage:**
+
+- **[REQUIREMENTS.md](./REQUIREMENTS.md)** ⭐ Core architectural principles, anti-bloat mandate, zero duplication policy
+- **[DEV_WORKFLOW.md](./DEV_WORKFLOW.md)** ⭐ Development workflow, enforcement procedures, compliance checklists
+
+**Both documents contain mandatory procedures that MUST be followed. NO EXCEPTIONS.**
+
+## Additional Documentation
+
 - **[docs/](./docs/)** - Detailed technical documentation
 - **[content/README.md](./content/README.md)** - Content architecture documentation
 

@@ -1,6 +1,8 @@
 # Z-Beam Project Requirements
 
-> **Note:** For development workflow, tooling, and enforcement procedures, see [DEV_WORKFLOW.md](./DEV_WORKFLOW.md)
+> **🚨 CRITICAL:** For development workflow, tooling, and enforcement procedures, see [DEV_WORKFLOW.md](./DEV_WORKFLOW.md)
+> 
+> **⚠️ CLAUDE DIRECTIVE:** You MUST read and follow BOTH this document AND DEV_WORKFLOW.md at EVERY stage. NO EXCEPTIONS.
 
 ## 1. Core Architecture Principles
 
@@ -58,6 +60,53 @@ export function getTagInfo(tag: string): TagConfig {
 const displayName = config.displayName || tag; // DON'T DO THIS
 const bgColor = config.color?.bg || 'bg-gray-500'; // DON'T DO THIS
 ```
+
+### 1.4 Anti-Bloat & Optimization Mandate 🎯
+
+**RULE: Claude AI must AGGRESSIVELY optimize existing code and PREVENT codebase bloat at ALL COSTS.**
+
+#### Critical Anti-Bloat Directives:
+- **NEVER create new files** without exhaustive analysis of existing solutions
+- **ALWAYS consolidate duplicate patterns** instead of creating variations
+- **CONSTANTLY reduce** lines of code, file count, and complexity
+- **ELIMINATE unused code** and imports immediately upon discovery
+- **REFACTOR over rewrite** - improve what exists rather than replacing it
+
+#### The Bloat Prevention Process:
+1. **MANDATORY AUDIT:** Before ANY code creation, audit existing codebase for 5+ minutes
+2. **JUSTIFY CREATION:** Document WHY existing code cannot be extended/optimized
+3. **CONSOLIDATION FIRST:** Merge similar components before adding new ones
+4. **DELETE AGGRESSIVELY:** Remove any unused code discovered during work
+5. **MEASURE IMPACT:** Track file count and component count reductions
+
+#### Real-World Anti-Bloat Examples:
+**❌ BLOAT PATTERN (Never Do This):**
+```typescript
+// Creating AuthorCardCompact.tsx when AuthorCard.tsx exists
+// Creating TagListSmall.tsx when SmartTagList.tsx has variants
+// Adding utils/newHelpers.ts when utils/utils.ts has space
+```
+
+**✅ OPTIMIZATION PATTERN (Always Do This):**
+```typescript
+// Enhanced existing AuthorCard with variant="compact" prop
+// Used SmartTagList with variant="small" prop  
+// Extended utils/utils.ts with new helper functions
+```
+
+#### Bloat Metrics to Track:
+- **Component count:** Should decrease over time through consolidation
+- **File count:** Should grow slower than feature count
+- **Duplication violations:** Must remain at zero
+- **Dead code:** Must be eliminated on sight
+
+#### Claude's Anti-Bloat Checklist:
+- [ ] Searched existing codebase for similar functionality (minimum 5 minutes)
+- [ ] Identified consolidation opportunities with existing components
+- [ ] Removed any unused imports, functions, or files discovered
+- [ ] Extended existing components rather than creating new ones
+- [ ] Documented why existing solutions were insufficient (if creating new code)
+- [ ] Planned future consolidation of new code with existing patterns
 
 ### 1.3 Component Reusability & Zero Duplication 🔄
 
