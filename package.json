@@ -1,15 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
-    "dev:fast": "next dev -p 3000",
+    "dev": "npm run kill-port || true && next dev -p 3000",
+    "dev:fast": "npm run kill-port || true && next dev -p 3000",
     "dev:direct": "next dev -p 3000",
     "ready": "next -v",
     "webpack:check": "next -v",
     "webpack:repair": "rm -rf .next",
     "webpack:force": "rm -rf .next node_modules/.cache",
     "kill-port": "lsof -ti:3000 | xargs kill -9",
-    "build": "next build",
+    "build": "npm run enforce-components && next build",
     "build:skip-check": "next build",
     "start": "next start",
     "enforce-components": "node enforce-component-rules.js",
