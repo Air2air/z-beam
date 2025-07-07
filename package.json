@@ -8,7 +8,7 @@
     "kill-port": "./kill-port-3000.sh",
     "clear-cache": "./clear-webpack-cache.sh",
     "fix-webpack": "./clear-webpack-cache.sh --force",
-    "build": "npm run enforce-components && next build",
+    "build": "npm run validate:guide && npm run enforce-components && next build",
     "build:skip-check": "next build",
     "start": "next start",
     "enforce-components": "node enforce-component-rules.js",

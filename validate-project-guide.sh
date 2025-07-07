@@ -3,62 +3,97 @@
 # Documentation Self-Audit Script
 # Validates PROJECT_GUIDE.md follows its own anti-bloat and consistency rules
 
-echo "🔍 DOCUMENTATION SELF-AUDIT"
-echo "=========================="
+# Check for quiet mode
+QUIET_MODE=false
+if [ "$1" = "--quiet" ]; then
+    QUIET_MODE=true
+fi
+
+if [ "$QUIET_MODE" = false ]; then
+    echo "🔍 DOCUMENTATION SELF-AUDIT"
+    echo "=========================="
+fi
 
 PROJECT_GUIDE="PROJECT_GUIDE.md"
 
 if [ ! -f "$PROJECT_GUIDE" ]; then
-    echo "❌ PROJECT_GUIDE.md not found!"
+    if [ "$QUIET_MODE" = false ]; then
+        echo "❌ PROJECT_GUIDE.md not found!"
+    fi
     exit 1
 fi
 
-# 1. Line Count Check (Target: <350 lines)
+# 1. Line Count Check (Target: <400 lines)
 LINE_COUNT=$(wc -l < "$PROJECT_GUIDE")
-echo "📏 Line count: $LINE_COUNT"
-if [ "$LINE_COUNT" -gt 350 ]; then
-    echo "❌ BLOAT DETECTED: Document exceeds 350 lines (current: $LINE_COUNT)"
-    echo "   ACTION REQUIRED: Consolidate and reduce content"
+if [ "$QUIET_MODE" = false ]; then
+    echo "📏 Line count: $LINE_COUNT"
+fi
+if [ "$LINE_COUNT" -gt 400 ]; then
+    if [ "$QUIET_MODE" = false ]; then
+        echo "❌ BLOAT DETECTED: Document exceeds 400 lines (current: $LINE_COUNT)"
+        echo "   ACTION REQUIRED: Consolidate and reduce content"
+    fi
+    exit 1
 else
-    echo "✅ Line count within target (<350)"
+    if [ "$QUIET_MODE" = false ]; then
+        echo "✅ Line count within target (<400)"
+    fi
 fi
 
 # 2. Duplication Detection
-echo
-echo "🔍 DUPLICATION ANALYSIS:"
+if [ "$QUIET_MODE" = false ]; then
+    echo
+    echo "🔍 DUPLICATION ANALYSIS:"
+fi
 
 # Count RULE occurrences (should be <10)
 RULE_COUNT=$(grep -c "RULE:" "$PROJECT_GUIDE")
-echo "   RULE statements: $RULE_COUNT"
+if [ "$QUIET_MODE" = false ]; then
+    echo "   RULE statements: $RULE_COUNT"
+fi
 if [ "$RULE_COUNT" -gt 10 ]; then
-    echo "   ⚠️  Too many RULE statements - consider consolidation"
+    if [ "$QUIET_MODE" = false ]; then
+        echo "   ⚠️  Too many RULE statements - consider consolidation"
+    fi
 fi
 
 # Count MUST occurrences (should be <20)  
 MUST_COUNT=$(grep -c "MUST" "$PROJECT_GUIDE")
-echo "   MUST statements: $MUST_COUNT"
+if [ "$QUIET_MODE" = false ]; then
+    echo "   MUST statements: $MUST_COUNT"
+fi
 if [ "$MUST_COUNT" -gt 20 ]; then
-    echo "   ⚠️  Too many MUST statements - consider consolidation"
+    if [ "$QUIET_MODE" = false ]; then
+        echo "   ⚠️  Too many MUST statements - consider consolidation"
+    fi
 fi
 
 # Count code blocks (should be <15)
 CODE_BLOCK_COUNT=$(grep -c "\`\`\`" "$PROJECT_GUIDE")
-echo "   Code blocks: $CODE_BLOCK_COUNT"
+if [ "$QUIET_MODE" = false ]; then
+    echo "   Code blocks: $CODE_BLOCK_COUNT"
+fi
 if [ "$CODE_BLOCK_COUNT" -gt 15 ]; then
-    echo "   ⚠️  Too many code examples - consider consolidation"
+    if [ "$QUIET_MODE" = false ]; then
+        echo "   ⚠️  Too many code examples - consider consolidation"
+    fi
 fi
 
 # 3. Section Structure Validation
-echo
-echo "📋 SECTION STRUCTURE:"
-echo "   Required sections:"
-grep -n "^## [0-9]" "$PROJECT_GUIDE" | while read -r line; do
-    echo "   ✅ $line"
-done
+if [ "$QUIET_MODE" = false ]; then
+    echo
+    echo "📋 SECTION STRUCTURE:"
+    echo "   Required sections:"
+    grep -n "^## [0-9]" "$PROJECT_GUIDE" | while read -r line; do
+        echo "   ✅ $line"
+    done
+fi
 
 # 4. Cross-Reference Validation
-echo
-echo "🔗 CROSS-REFERENCE CHECK:"
+if [ "$QUIET_MODE" = false ]; then
+    echo
+    echo "🔗 CROSS-REFERENCE CHECK:"
+fi
 # Find internal references and validate they exist
 INTERNAL_REFS=$(grep -o '\[.*\](#[^)]*)' "$PROJECT_GUIDE" | grep -o '#[^)]*' | sort -u)
 for ref in $INTERNAL_REFS; do

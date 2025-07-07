@@ -155,7 +155,7 @@ echo
 echo "🏗️  BUILD SYSTEM:"
 
 # Check config files
-CONFIG_FILES=("next.config.js" "tsconfig.json" "package.json")
+CONFIG_FILES=("next.config.js" "tsconfig.json" "package.json" "PROJECT_GUIDE.md")
 for config in "${CONFIG_FILES[@]}"; do
     if [ -f "$config" ]; then
         report_success "$config exists"
@@ -163,6 +163,15 @@ for config in "${CONFIG_FILES[@]}"; do
         report_issue "$config missing"
     fi
 done
+
+# Validate PROJECT_GUIDE.md health
+if [ -f "PROJECT_GUIDE.md" ] && [ -f "validate-project-guide.sh" ]; then
+    if ./validate-project-guide.sh --quiet > /dev/null 2>&1; then
+        report_success "PROJECT_GUIDE.md validation passes"
+    else
+        report_warning "PROJECT_GUIDE.md validation issues - run: npm run validate:guide"
+    fi
+fi
 
 # Check build cache status
 if [ -d ".next" ]; then

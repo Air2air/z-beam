@@ -166,7 +166,7 @@ fi
 echo
 echo "⚙️  CONFIGURATION:"
 
-CONFIG_FILES=("next.config.js" "tsconfig.json" "package.json")
+CONFIG_FILES=("next.config.js" "tsconfig.json" "package.json" "PROJECT_GUIDE.md")
 for config in "${CONFIG_FILES[@]}"; do
     if [ -f "$config" ]; then
         echo "   ✅ $config exists"
@@ -175,6 +175,17 @@ for config in "${CONFIG_FILES[@]}"; do
         ((ISSUES++))
     fi
 done
+
+# Validate PROJECT_GUIDE.md health
+if [ -f "PROJECT_GUIDE.md" ]; then
+    if ./validate-project-guide.sh --quiet > /dev/null 2>&1; then
+        echo "   ✅ PROJECT_GUIDE.md validation passes"
+    else
+        echo "   ❌ PROJECT_GUIDE.md validation issues detected"
+        echo "   🔧 Run: npm run validate:guide for details"
+        ((ISSUES++))
+    fi
+fi
 
 # 7. Build Cache Status & Corruption Check
 echo
