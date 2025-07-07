@@ -5,14 +5,17 @@
 ## 1. Core Principles
 
 ### Simplicity First
-- **Optimize before creating** - Extend existing code first
-- **Zero component duplication** - Each UI pattern exists once
-- **Smallest codebase wins** - Fewer files, less complexity, easier maintenance
+- **MODIFY BEFORE CREATE** - HIGHEST PRIORITY: Always extend existing components instead of creating new ones
+- **Zero component duplication** - Each UI pattern must exist exactly once in the codebase
+- **Smallest codebase wins** - Fewer files, less complexity, easier maintenance is the absolute top priority
+- **Component extension mandatory** - Creating new components is prohibited unless all extension options are exhausted
 
 ### Anti-Bloat Mandate
-- Reuse components through props and composition
-- No duplicate styling patterns across components
-- Centralize shared logic in utilities
+- **Extend existing components** through props and composition (ABSOLUTELY REQUIRED)
+- **STRICT PROHIBITION: No new components** unless all extension options have been exhausted with documented proof
+- **Centralize all logic** in existing utilities and components
+- **Reduce code size** with every change - smaller is always better
+- **Justify any file additions** - Any new file creation requires documented justification and approval
 
 ## 2. Shared Components
 
@@ -83,4 +86,36 @@ export default async function Page({ searchParams }: PageProps) {
 
 ---
 
+## Next Steps
+
 **For development workflow and implementation details, see [PROJECT_GUIDE.md](./PROJECT_GUIDE.md).**
+
+> ⚠️ NOTE: REQUIREMENTS.md (this document) defines WHAT to build (architectural principles).
+> PROJECT_GUIDE.md defines HOW to build it (development workflow).
+
+## For AI Assistants
+
+> **Important guidance for AI models processing this codebase:**
+
+1. **Core Architectural Principle**: The "MODIFY BEFORE CREATE" mandate is the foundation of this project. Always prioritize:
+   - Extending existing components through props
+   - Modifying existing components when necessary
+   - NEVER creating new components unless absolutely proven necessary
+
+2. **Document Navigation**:
+   - **REQUIREMENTS.md** (this document): Core architecture and component standards
+   - **PROJECT_GUIDE.md**: Implementation details and development workflow
+
+3. **Component Hierarchy**:
+   - **Primary Components**: SmartTagList, Button, AuthorCard, Container
+   - These components MUST be extended rather than duplicated
+   - New visual patterns must leverage these existing components
+
+4. **Decision Process**:
+   - When evaluating implementation options, always choose the approach that results in:
+     - Fewest new files
+     - Least code duplication
+     - Maximum reuse of existing components
+     - Smallest overall codebase
+
+The project has a strict zero-tolerance policy for component duplication.

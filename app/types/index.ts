@@ -93,15 +93,15 @@ export interface BreadcrumbsProps {
   className?: string;
 }
 
-// Page props interfaces (for Next.js pages)
+// Page props interfaces (for Next.js 15 with async params)
 export interface PageParams {
   slug?: string;
   [key: string]: string | undefined;
 }
 
 export interface PageProps {
-  params: PageParams;
-  searchParams?: Record<string, string | string[] | undefined>;
+  params: Promise<PageParams>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }
 
 // Utility type for component variants

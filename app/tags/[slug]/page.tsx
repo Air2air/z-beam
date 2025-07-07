@@ -14,7 +14,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const tag = getTagFromSlug(params.slug || '');
+  const resolvedParams = await params;
+  const tag = getTagFromSlug(resolvedParams.slug || '');
   
   if (!tag) {
     return {
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: PageProps) {
       title: `${tag} Articles | Z-Beam`,
       description: `Explore ${materials.length} laser cleaning articles tagged with "${tag}".`,
       type: 'website',
-      url: `/tags/${params.slug}`,
+      url: `/tags/${resolvedParams.slug}`,
     },
     twitter: {
       card: 'summary',
@@ -40,13 +41,15 @@ export async function generateMetadata({ params }: PageProps) {
       description: `Explore ${materials.length} laser cleaning articles tagged with "${tag}".`,
     },
     alternates: {
-      canonical: `/tags/${params.slug}`,
+      canonical: `/tags/${resolvedParams.slug}`,
     },
   };
 }
 
 export default async function TagPage({ params, searchParams }: PageProps) {
-  const tag = getTagFromSlug(params.slug || '');
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  const tag = getTagFromSlug(resolvedParams.slug || '');
   
   if (!tag) {
     notFound();
@@ -63,7 +66,7 @@ export default async function TagPage({ params, searchParams }: PageProps) {
   });
 
   // Handle contextual back navigation
-  const fromSlug = searchParams?.from as string;
+  const fromSlug = resolvedSearchParams?.from as string;
   let backLink = "/materials";
   let backText = "Back to Materials";
   

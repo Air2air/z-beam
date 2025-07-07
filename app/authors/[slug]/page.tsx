@@ -16,7 +16,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const author = getAuthorBySlug(params.slug || '');
+  const resolvedParams = await params;
+  const author = getAuthorBySlug(resolvedParams.slug || '');
   
   if (!author) {
     return {};
@@ -39,8 +40,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function AuthorPage({ params }: PageProps) {
-  const slug = params.slug || '';
+export default async function AuthorPage({ params }: PageProps) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug || '';
   console.log('Looking for author with slug:', slug);
   
   const author = getAuthorBySlug(slug);

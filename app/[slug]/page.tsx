@@ -1,7 +1,7 @@
 // app/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CustomMDX } from "app/components/mdx";
+import { CustomMDX } from "app/components/mdx-renderer";
 import { formatDate } from "app/utils/utils";
 import { getArticleBySlug, getAllArticleSlugs, getAuthorById, getTagSlug } from "app/utils/server";
 import { baseUrl } from "app/sitemap";
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const article = getArticleBySlug(params.slug || '');
+  const resolvedParams = await params;
+  const article = getArticleBySlug(resolvedParams.slug || '');
   
   if (!article) {
     return {};
@@ -43,12 +44,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default function ArticlePage({ params }: PageProps) {
-  const article = getArticleBySlug(params.slug || '');
+export default async function ArticlePage({ params }: PageProps) {
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug || '';
+  const article = getArticleBySlug(slug);
 
   if (!article) {
     notFound();
   }
+  
+  // We'll just use the article content directly instead of trying to use mdxModule
+  // This avoids the function serialization issue
+  // In a more complete implementation, we'd import the compiled MDX component directly
 
   const schemaOgImage = article.metadata.image
     ? `${baseUrl}${article.metadata.image}`

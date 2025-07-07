@@ -1,19 +1,26 @@
-// app/components/mdx.tsx
+// app/components/mdx-components.tsx
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import React from 'react';
-import dynamic from 'next/dynamic';
-import type { TableProps } from 'app/types';
+import Image from 'next/image';
+import Link from 'next/link';
 import { slugify } from '../utils/formatting';
+import dynamic from 'next/dynamic';
 
-// Use dynamic import with no SSR option in a separate client component
+// Import ChartComponent with client-side only rendering
 const ChartComponentWrapper = dynamic(() => import('./ChartComponentWrapper'), {
-  loading: () => <div className="bg-gray-100 p-4 rounded text-center">Loading chart...</div>
+  loading: () => <div className="bg-gray-100 p-4 rounded text-center">Loading chart...</div>,
+  ssr: false
 });
 
-// Table component for rendering MDX tables (e.g., laser cleaning metrics)
+interface TableProps {
+  data: {
+    headers: string[];
+    rows: string[][];
+  };
+}
+
+// Table component for rendering MDX tables
 function Table({ data }: TableProps) {
   let headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
@@ -36,7 +43,7 @@ function Table({ data }: TableProps) {
   );
 }
 
-// CustomLink supports internal links (e.g., /materials/copper-laser-cleaning) and external links
+// CustomLink supports internal links and external links
 function CustomLink({ href, children, ...props }: { href: string; children: React.ReactNode }) {
   if (href.startsWith('/')) {
     return (
@@ -57,7 +64,7 @@ function CustomLink({ href, children, ...props }: { href: string; children: Reac
   );
 }
 
-// RoundedImage uses next/image for optimized images with Cloudinary
+// RoundedImage uses next/image for optimized images
 function RoundedImage({ alt, ...props }: { alt: string; src: string; [key: string]: any }) {
   return <Image alt={alt} className="rounded-lg" {...props} />;
 }
@@ -74,6 +81,7 @@ function Heading({ level, children }: { level: number; children: React.ReactNode
   );
 }
 
+// Export the components object to be used by MDXProvider
 const components = {
   h1: (props: any) => <Heading level={1} {...props} />,
   h2: (props: any) => <Heading level={2} {...props} />,
@@ -87,11 +95,4 @@ const components = {
   ChartComponent: ChartComponentWrapper,
 };
 
-export function CustomMDX(props: any) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-    />
-  );
-}
+export default components;

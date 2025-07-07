@@ -1,7 +1,7 @@
 // components/ChartComponent.tsx
 "use client"; // ESSENTIAL: This marks it as a Client Component
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import Chart from 'chart.js/auto';
 
 
@@ -81,6 +81,40 @@ const ChartComponent = ({ chartId, chartType, data, options: passedOptions = {} 
   const canvasRef = useRef(null);
   const chartInstance = useRef(null);
 
+  // Memoize the options to prevent unnecessary re-renders
+  const chartOptions = useMemo(() => {
+    const isLightSection = chartId.includes('cost') || chartId.includes('CommonContaminants');
+    const textColor = isLightSection ? 'rgba(80,80,80,0.5)' : 'rgba(255,255,255,0.5)';
+    
+    const commonOptions = getCommonChartOptions(chartType, textColor);
+    
+    // Deep merge function to combine options
+    const deepMerge = (target, source) => {
+      for (const key in source) {
+        if (source.hasOwnProperty(key)) {
+          if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key]) && typeof target[key] === 'object' && target[key] !== null && !Array.isArray(target[key])) {
+            target[key] = deepMerge(target[key], source[key]);
+          } else {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+
+    const mergedOptions = deepMerge(JSON.parse(JSON.stringify(commonOptions)), passedOptions);
+
+    // Ensure specific overrides for pie chart scales
+    if (chartType === 'pie' || chartType === 'doughnut') {
+      mergedOptions.scales = {};
+      if (mergedOptions.plugins && mergedOptions.plugins.legend) {
+        mergedOptions.plugins.legend.position = passedOptions.plugins?.legend?.position || 'left';
+      }
+    }
+
+    return mergedOptions;
+  }, [chartId, chartType, passedOptions]);
+
   useEffect(() => {
     if (canvasRef.current) {
       const ctx = canvasRef.current.getContext('2d');
@@ -89,42 +123,10 @@ const ChartComponent = ({ chartId, chartType, data, options: passedOptions = {} 
         chartInstance.current.destroy();
       }
 
-      // Determine text color based on common sense (light/dark sections) or pass as prop
-      const isLightSection = chartId.includes('cost') || chartId.includes('CommonContaminants'); // Example heuristic
-      const textColor = isLightSection ? 'rgba(80,80,80,0.5)' : 'rgba(255,255,255,0.5)';
-
-      // Merge the common options (which include functions) with any passed options
-      // Passed options will override common options if there's a conflict
-      const commonOptions = getCommonChartOptions(chartType, textColor);
-
-      // Deep merge function to combine options
-      const deepMerge = (target, source) => {
-        for (const key in source) {
-          if (source.hasOwnProperty(key)) {
-            if (typeof source[key] === 'object' && source[key] !== null && !Array.isArray(source[key]) && typeof target[key] === 'object' && target[key] !== null && !Array.isArray(target[key])) {
-              target[key] = deepMerge(target[key], source[key]);
-            } else {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-
-      const mergedOptions = deepMerge(JSON.parse(JSON.stringify(commonOptions)), passedOptions); // Deep copy commonOptions to avoid mutation
-
-      // Ensure specific overrides for pie chart scales
-      if (chartType === 'pie' || chartType === 'doughnut') {
-        mergedOptions.scales = {}; // Pie charts don't usually have scales
-        if (mergedOptions.plugins && mergedOptions.plugins.legend) {
-          mergedOptions.plugins.legend.position = passedOptions.plugins?.legend?.position || 'left'; // Default to left for pie
-        }
-      }
-
       const chartConfig = {
         type: chartType,
         data: data,
-        options: mergedOptions
+        options: chartOptions
       };
 
       chartInstance.current = new Chart(ctx, chartConfig);
@@ -133,9 +135,10 @@ const ChartComponent = ({ chartId, chartType, data, options: passedOptions = {} 
     return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
+        chartInstance.current = null;
       }
     };
-  }, [chartId, chartType, data, JSON.stringify(passedOptions)]); // JSON.stringify for deep comparison of options
+  }, [chartId, chartType, data, chartOptions]);
 
   return <canvas id={chartId} ref={canvasRef} style={{ maxHeight: '200px' }} />;
 };
