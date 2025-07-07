@@ -23,20 +23,20 @@ if [ ! -f "$PROJECT_GUIDE" ]; then
     exit 1
 fi
 
-# 1. Line Count Check (Target: <400 lines)
+# 1. Line Count Check (Target: <300 lines)
 LINE_COUNT=$(wc -l < "$PROJECT_GUIDE")
 if [ "$QUIET_MODE" = false ]; then
     echo "📏 Line count: $LINE_COUNT"
 fi
-if [ "$LINE_COUNT" -gt 400 ]; then
+if [ "$LINE_COUNT" -gt 300 ]; then
     if [ "$QUIET_MODE" = false ]; then
-        echo "❌ BLOAT DETECTED: Document exceeds 400 lines (current: $LINE_COUNT)"
+        echo "❌ BLOAT DETECTED: Document exceeds 300 lines (current: $LINE_COUNT)"
         echo "   ACTION REQUIRED: Consolidate and reduce content"
     fi
     exit 1
 else
     if [ "$QUIET_MODE" = false ]; then
-        echo "✅ Line count within target (<400)"
+        echo "✅ Line count within target (<300)"
     fi
 fi
 
@@ -46,34 +46,34 @@ if [ "$QUIET_MODE" = false ]; then
     echo "🔍 DUPLICATION ANALYSIS:"
 fi
 
-# Count RULE occurrences (should be <10)
+# Count RULE occurrences (should be <5)
 RULE_COUNT=$(grep -c "RULE:" "$PROJECT_GUIDE")
 if [ "$QUIET_MODE" = false ]; then
     echo "   RULE statements: $RULE_COUNT"
 fi
-if [ "$RULE_COUNT" -gt 10 ]; then
+if [ "$RULE_COUNT" -gt 5 ]; then
     if [ "$QUIET_MODE" = false ]; then
         echo "   ⚠️  Too many RULE statements - consider consolidation"
     fi
 fi
 
-# Count MUST occurrences (should be <20)  
+# Count MUST occurrences (should be <10)  
 MUST_COUNT=$(grep -c "MUST" "$PROJECT_GUIDE")
 if [ "$QUIET_MODE" = false ]; then
     echo "   MUST statements: $MUST_COUNT"
 fi
-if [ "$MUST_COUNT" -gt 20 ]; then
+if [ "$MUST_COUNT" -gt 10 ]; then
     if [ "$QUIET_MODE" = false ]; then
         echo "   ⚠️  Too many MUST statements - consider consolidation"
     fi
 fi
 
-# Count code blocks (should be <15)
+# Count code blocks (should be <10)
 CODE_BLOCK_COUNT=$(grep -c "\`\`\`" "$PROJECT_GUIDE")
 if [ "$QUIET_MODE" = false ]; then
     echo "   Code blocks: $CODE_BLOCK_COUNT"
 fi
-if [ "$CODE_BLOCK_COUNT" -gt 15 ]; then
+if [ "$CODE_BLOCK_COUNT" -gt 10 ]; then
     if [ "$QUIET_MODE" = false ]; then
         echo "   ⚠️  Too many code examples - consider consolidation"
     fi

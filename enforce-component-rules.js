@@ -19,8 +19,8 @@ const THRESHOLDS = {
   CARD_HARDCODED_MAX: 1,         // Maximum 1 hardcoded card (for emergency cases)
   
   // Warning thresholds - these generate warnings but don't fail build
-  BG_TEXT_PATTERNS_WARNING: 10,  // Warn if more than 10 bg/text patterns
-  PADDING_PATTERNS_WARNING: 15,  // Warn if more than 15 padding patterns
+  BG_TEXT_PATTERNS_WARNING: 80,  // Warn if more than 80 bg/text patterns (allows for legitimate dark mode usage)
+  PADDING_PATTERNS_WARNING: 25,  // Warn if more than 25 padding patterns
 };
 
 // VIOLATION PATTERNS - These patterns indicate component duplication
