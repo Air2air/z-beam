@@ -60,31 +60,22 @@ Archived documentation can be found in `docs/archived/` for reference only.
 ## Quick Start
 
 ```bash
-# Start development with automatic health checks
+# Start development server
 npm run dev
-
-# Just run health checks (without starting server)
-npm run ready
-
-# Start dev server without checks (if you need to bypass)
-npm run dev:direct
-```
-
-**When you run `npm run dev`, it will:**
-1. ✅ Check CSS & Tailwind configuration
-2. ✅ Validate component system health  
-3. ✅ Confirm dependencies are installed
-4. ✅ Verify TypeScript compilation
-5. ✅ Check port availability
-6. 🚀 Start the development server
-
-**If any issues are found, the script will:**
-- ❌ Stop before starting the server
-- 🔧 Show specific fix instructions
-- 💡 Guide you through resolving issues
 
 # Build for production
 npm run build
+
+# Start production server
+npm run start
+```
+
+**Key NPM Commands:**
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run enforce-components` - Verify component compliance
+- `npm run create:component` - Create components safely
 ```
 
 For detailed workflow and component usage, see [PROJECT_GUIDE.md](./PROJECT_GUIDE.md).
