@@ -2,15 +2,17 @@
 
 ## 📋 Documentation
 
-**⚠️ IMPORTANT:** All project documentation has been consolidated into a single source of truth.
+**⚠️ IMPORTANT:** Project documentation is organized into two concise files:
 
-**👉 READ THIS FIRST:** [PROJECT_GUIDE.md](./PROJECT_GUIDE.md)
+**👉 READ THESE FIRST:**
+1. [REQUIREMENTS.md](./REQUIREMENTS.md) - Architecture principles and standards (what to build)
+2. [PROJECT_GUIDE.md](./PROJECT_GUIDE.md) - Development workflow and tools (how to build it)
 
-The PROJECT_GUIDE.md contains:
-- Core Architecture Principles
-- Development Workflow  
-- Claude AI Compliance
-- Quick Reference
+These documents follow our optimization principles:
+- **Zero duplication** - Each concept documented in exactly one place
+- **Concise content** - Brief, actionable guidance without verbosity
+- **Clear structure** - Logical organization by importance and use frequency
+- **Practical examples** - Concrete code samples for common patterns
 
 ## Previous Documentation
 
