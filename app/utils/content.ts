@@ -22,7 +22,10 @@ if (process.env.NODE_ENV === 'development') {
 
 export function getMDXFiles(dir: string): string[] {
   try {
-    return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+    return fs.readdirSync(dir).filter((file) => {
+      const ext = path.extname(file);
+      return ext === '.mdx' || ext === '.md';
+    });
   } catch (error) {
     console.error(`Error reading MDX files from directory ${dir}:`, error);
     return [];
