@@ -1,81 +1,199 @@
 # Z-Beam Laser Cleaning Project
 
-## 📋 Documentation
+## 🚀 Project Roadmap & Architecture
 
-**⚠️ IMPORTANT:** Project documentation is organized into two concise files that work together:
+This README is the single source of truth for building, maintaining, and extending the Z-Beam project. It integrates all critical principles, workflows, and enforcement mechanisms from previous documentation.
 
-**👉 READ THESE FIRST (IN ORDER):**
-1. [REQUIREMENTS.md](./REQUIREMENTS.md) - Architecture principles and standards (WHAT to build)
-2. [PROJECT_GUIDE.md](./PROJECT_GUIDE.md) - Development workflow and tools (HOW to build it)
+---
 
-**Document Relationship:**
-- The documentation is deliberately split to separate concerns
-- All documents enforce the exact same "MODIFY BEFORE CREATE" principle
-- There is no contradicting information between documents
+## 1. Core Mandate & Principles
 
-## For AI Assistants
+- **MODIFY BEFORE CREATE**: Always extend existing components; new components are strictly prohibited unless all extension options are exhausted and justified.
+- **Smallest codebase wins**: Fewer files, less complexity, and maximum reuse.
+- **Zero component duplication**: Each UI pattern must exist exactly once.
+- **Strict anti-bloat**: Every change must reduce code size or improve clarity.
 
-> **Important guidance for AI models working with this codebase:**
+---
 
-This project has a strict "MODIFY BEFORE CREATE" policy that requires extending existing components rather than creating new ones. When assisting with this codebase:
+## 2. Directory & File Structure
 
-1. **Always prioritize component extension** over creating new components
-2. **Reference the appropriate documentation**:
-   - For architectural principles: [REQUIREMENTS.md](./REQUIREMENTS.md)
-   - For implementation workflow: [PROJECT_GUIDE.md](./PROJECT_GUIDE.md)
-3. **Key shared components** that must be extended:
-   - SmartTagList (for all tags/badges)
-   - Button (for all button variations)
-   - AuthorCard (for all author displays)
-   - Container (for card containers)
-4. **Strictly avoid** suggesting new component creation
-
-When in doubt, default to extending existing components through props and conditional rendering.
-
-**PROJECT CORE MANDATE:**
-- **MODIFY BEFORE CREATE** - STRICT ENFORCEMENT: Always extend existing components instead of creating new ones
-- **Smallest codebase wins** - Prioritize code reuse and minimal file count at all costs
-- **Zero component duplication** - Each UI pattern must exist exactly once in the codebase
-- **Zero tolerance for new components** - New components are strictly prohibited unless absolutely necessary with justification
-
-These documents enforce our core optimization principles:
-- **Zero duplication** - Each concept documented in exactly one place
-- **Concise content** - Brief, actionable guidance without verbosity
-- **Clear structure** - Logical organization by importance and use frequency
-- **Practical examples** - Concrete code samples for common patterns
-
-## Codebase Extension Enforcement
-
-**This project uses automated enforcement to ensure compliance with the "MODIFY BEFORE CREATE" principle:**
-
-- **Pre-commit hooks** verify no new components are created without approval
-- **CI pipeline checks** enforce component reuse and prevent duplication
-- **Automated code reviews** flag any violations of the extension-first principle
-- **Regular codebase audits** identify opportunities to further consolidate components
-
-## Previous Documentation
-
-Archived documentation can be found in `docs/archived/` for reference only.
-
-## Quick Start
-
-```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm run start
+```
+/
+├── app/                    # Next.js application
+│   ├── components/         # Shared React components
+│   ├── materials/          # Material pages
+│   ├── css/                # Global styles
+│   ├── utils/              # Utility functions
+│   ├── layout.tsx          # Root layout
+│   └── page.tsx            # Home page
+├── public/                 # Static assets
+│   └── images/             # Image assets
+├── content/                # All MDX/MD files (read-only)
+│   ├── application/        # Application articles
+│   ├── author/             # Author profiles
+│   ├── material/           # Material articles
+│   ├── region/             # Region content
+│   └── thesaurus/          # Terminology
+├── docs/                   # Documentation (archived)
+├── package.json            # NPM scripts & dependencies
+├── next.config.js          # Next.js config
+├── tailwind.config.js      # Tailwind CSS config
+├── tsconfig.json           # TypeScript config
+├── REQUIREMENTS.md         # Architecture principles
+├── PROJECT_GUIDE.md        # Workflow & enforcement
+└── README.md               # This file
 ```
 
-**Key NPM Commands:**
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run enforce-components` - Verify component compliance
-- `npm run create:component` - Create components safely
+---
+
+## 3. Content Architecture & System
+
+### Content Organization
+- `/content/` - Root for all content, organized by category
+  - `/application/` - Application-focused articles
+  - `/author/` - Author profile pages
+  - `/material/` - Material-specific laser cleaning articles
+  - `/region/` - Region-specific content
+  - `/thesaurus/` - Terminology and definitions
+- `/app/[slug]/` - Unified dynamic route for all content types
+- `/app/authors/[slug]/` - Dedicated author profile pages
+- `/app/articles/` - Index page listing all articles
+- `/app/authors/` - Index page listing all authors
+- `/app/applications/` - Index page listing application articles
+- `/app/regions/` - Index page listing region articles
+- `/app/thesaurus/` - Index page listing thesaurus entries
+
+### Content Categories
+Each MDX/MD file in `/content/` must include a `contentCategory` field in its frontmatter:
+```yaml
+---
+title: "Article Title"
+contentCategory: "material"
+# Other frontmatter fields...
+---
+```
+Supported categories:
+- `material` - Material articles
+- `author` - Author profiles
+- `region` - Region-specific content
+- `application` - Application-specific content
+- `thesaurus` - Thesaurus/dictionary entries
+
+### Content System Features
+- **Unified Content API**: All content accessed via `utils/content.ts`
+- **Type-Safe Architecture**: Strong TypeScript typings, clear metadata/content separation
+- **Performance Optimized**: Content is cached, efficient filtering by author/tag
+
+### Usage Examples
+```typescript
+import { getArticleList, getArticleBySlug } from 'app/utils/utils';
+const allArticles = getArticleList();
+const article = getArticleBySlug('aluminum-laser-cleaning');
+
+import { getArticlesByAuthorId, getArticlesByTag } from 'app/utils/utils';
+const authorArticles = getArticlesByAuthorId(1);
+const taggedArticles = getArticlesByTag('Aluminum');
+
+import { getAllAuthors, getAuthorBySlug, getAllTags, getTagStats } from 'app/utils/utils';
+const authors = getAllAuthors();
+const tagStats = getTagStats();
+```
+
+### Components
+- `ArticleList` - Displays a list of articles
+- `AuthorArticles` - Shows articles by author
+- `TagDirectory` - Shows all tags with counts
+
+### Backwards Compatibility
+Legacy imports still work:
+```typescript
+import { getMaterialList } from 'app/utils/utils';
+const materials = getMaterialList();
+const articles = getArticleList();
+```
+
+---
+
+## 4. Development Workflow
+
+### Essential Commands
+
+```bash
+npm install                # Install dependencies
+npm run dev                # Start dev server with health checks
+npm run build              # Full build with all checks
+npm run start              # Start production server
+npm run enforce-components # Check component rules
+npm run create:component   # Safely create new component (last resort)
+```
+
+- **Health checks** run before dev server starts (port, CSS, dependencies, component system, TypeScript, environment).
+- **Pre-commit hooks** and **CI pipeline** enforce compliance with all mandates.
+- **Emergency bypass**: Use `npm run dev:direct` to start server regardless of issues.
+
+---
+
+## 5. Utility Functions & Content System
+
+Utilities are organized in `/app/utils/`:
+- `utils.ts` - Main entry point
+- `formatting.ts` - Text/date formatting
+- `validation.ts` - Data validation
+- `helpers.ts` - React/UI helpers
+- `metadata.ts` - MDX frontmatter parsing
+- `mdx.ts` - MDX file reading/processing
+- `constants.ts` - App constants
+
+**Content Loader:**
+- Loads all `.md` and `.mdx` files from `/content/`
+- Categorizes by directory and frontmatter
+- Supports region, author, material, application, thesaurus
+- Used by dynamic routes (e.g., `/app/region/[slug]/page.tsx`)
+
+---
+
+## 6. Safety Mechanisms & Self-Audit
+
+- **Automatic exclusions**: Shared components are excluded from enforcement
+- **Safe creation tools**: Guided process for new components (only if extension is impossible)
+- **Configurable thresholds**: Easily adjust enforcement strictness
+- **Self-audit scripts**: Validate documentation for brevity, clarity, and duplication
+- **Build-time validation**: All checks run before build completes
+
+---
+
+## 7. Troubleshooting & Emergency Bypass
+
+- **If port 3000 is busy:**
+  ```bash
+  npm run kill-port
+  ```
+- **If CSS doesn't load:**
+  - Check imports and config
+  - Run `npm run ready` for health check
+- **If build fails:**
+  - Review error messages for enforcement violations
+  - Reference `PROJECT_GUIDE.md` for compliance steps
+- **Emergency bypass:**
+  ```bash
+  npm run dev:direct
+  ```
+
+---
+
+## 8. Previous Documentation
+
+All legacy documentation is archived in `docs/archived/` for reference only. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the only authoritative sources.
+
+---
+
+## 9. Quick Start
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run start
 ```
 
 For detailed workflow and component usage, see [PROJECT_GUIDE.md](./PROJECT_GUIDE.md).
