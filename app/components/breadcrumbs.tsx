@@ -64,7 +64,7 @@ export function Breadcrumbs({ className }: { className?: string }) {
     <nav className="flex py-4" aria-label="Breadcrumb">
       <ol className="inline-flex items-center space-x-1 md:space-x-2">
         {allBreadcrumbs.map((crumb, index) => (
-          <li key={crumb.href} className="inline-flex items-center">
+          <li key={crumb.href + '-' + index} className="inline-flex items-center">
             {index > 0 && (
               <svg
                 className="w-3 h-3 text-gray-400 mx-1"

@@ -3,7 +3,7 @@
 
 export interface ArticleMetadata {
   title: string;
-  contentCategory: "material" | "author" | "region" | "application" | "thesaurus"; // New field for content categorization
+  articleType: "material" | "author" | "region" | "application" | "thesaurus"; // Renamed for global consistency
   nameShort?: string;
   publishedAt: string | null;
   summary: string;
@@ -25,7 +25,7 @@ export interface ArticleMetadata {
 // -------- SPECIFIC CATEGORY METADATA TYPES --------
 
 export interface MaterialMetadata extends ArticleMetadata {
-  contentCategory: "material";
+  articleType: "material";
   nameShort: string;
   atomicNumber: number | null;
   chemicalSymbol: string | null;
@@ -41,7 +41,7 @@ export interface MaterialMetadata extends ArticleMetadata {
 }
 
 export interface ApplicationMetadata extends ArticleMetadata {
-  contentCategory: "application";
+  articleType: "application";
   industry: string;
   applicationCategory: string;
   targetMaterials: string[];
@@ -57,7 +57,7 @@ export interface ApplicationMetadata extends ArticleMetadata {
 }
 
 export interface RegionMetadata extends ArticleMetadata {
-  contentCategory: "region";
+  articleType: "region";
   regionName: string;
   countryCode?: string;
   continent?: string;
@@ -69,7 +69,7 @@ export interface RegionMetadata extends ArticleMetadata {
 }
 
 export interface ThesaurusMetadata extends ArticleMetadata {
-  contentCategory: "thesaurus";
+  articleType: "thesaurus";
   term: string;
   definition: string;
   relatedTerms?: string[];
@@ -88,7 +88,7 @@ export interface AuthorMetadata {
   email?: string;
   image?: string;
   specialties?: string[];
-  contentCategory?: "author";
+  articleType?: "author";
   publishedArticles?: number; // Count of published articles
   expertise?: string[];
   education?: string[];

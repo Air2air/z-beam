@@ -77,13 +77,13 @@ export function getArticleList(): ArticlePost[] {
     const rawImagePath = metadata.image || extractFirstImage(content);
     const thumbnail = rawImagePath;
     
-    // Use the directory-based category as the contentCategory (override metadata if needed)
-    const contentCategory = category;
+    // Use the directory-based category as the articleType (override metadata if needed)
+    const articleType = category;
     
     return {
       metadata: {
         ...metadata,
-        contentCategory,
+        articleType,
         thumbnail,
       },
       slug,
@@ -220,7 +220,7 @@ export function getTagStats(): Array<{ tag: string; slug: string; count: number 
 export function getArticlesByCategory(category: string): ArticlePost[] {
   const articles = getArticleList();
   return articles.filter(article => 
-    article.metadata.contentCategory === category
+    article.metadata.articleType === category
   );
 }
 
@@ -229,8 +229,8 @@ export function getAllContentCategories(): string[] {
   const categorySet = new Set<string>();
   
   articles.forEach(article => {
-    if (article.metadata.contentCategory) {
-      categorySet.add(article.metadata.contentCategory);
+    if (article.metadata.articleType) {
+      categorySet.add(article.metadata.articleType);
     }
   });
   

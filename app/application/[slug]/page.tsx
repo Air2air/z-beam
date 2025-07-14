@@ -6,7 +6,7 @@ export default async function ApplicationPage({ params }: { params: { slug: stri
   const article = getArticleBySlug(params.slug);
 
   // Only show application articles
-  if (!article || article.metadata.contentCategory !== "application") {
+  if (!article || article.metadata.articleType !== "application") {
     notFound();
   }
 

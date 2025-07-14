@@ -20,7 +20,7 @@ export function getAllAuthors(): AuthorMetadata[] {
   try {
     // Get all content and filter for authors
     const allContent = getArticleList();
-    const authorContent = allContent.filter(content => content.metadata.contentCategory === 'author');
+    const authorContent = allContent.filter(content => content.metadata.articleType === 'author');
     
     // Convert author content to AuthorMetadata format
     const authors: AuthorMetadata[] = authorContent.map(content => {
@@ -36,7 +36,7 @@ export function getAllAuthors(): AuthorMetadata[] {
         email: metadata.email,
         image: metadata.image,
         specialties: metadata.specialties || [],
-        contentCategory: "author" as const,
+        articleType: "author" as const,
         publishedArticles: metadata.publishedArticles,
         expertise: metadata.expertise,
         education: metadata.education

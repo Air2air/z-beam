@@ -31,7 +31,7 @@ export async function ContentList({
   // Filter by category if provided
   if (category) {
     articles = articles.filter(article => 
-      article.metadata.contentCategory === category
+      article.metadata.articleType === category
     );
   }
 

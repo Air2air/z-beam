@@ -64,15 +64,15 @@ This README is the single source of truth for building, maintaining, and extendi
 - `/app/thesaurus/` - Index page listing thesaurus entries
 
 ### Content Categories
-Each MDX/MD file in `/content/` must include a `contentCategory` field in its frontmatter:
+Each MDX/MD file in `/content/` must include an `articleType` field in its frontmatter:
 ```yaml
 ---
 title: "Article Title"
-contentCategory: "material"
+articleType: "material"
 # Other frontmatter fields...
 ---
 ```
-Supported categories:
+Supported types:
 - `material` - Material articles
 - `author` - Author profiles
 - `region` - Region-specific content
@@ -146,7 +146,7 @@ Utilities are organized in `/app/utils/`:
 
 **Content Loader:**
 - Loads all `.md` and `.mdx` files from `/content/`
-- Categorizes by directory and frontmatter
+- Categorizes by directory and frontmatter (`articleType`)
 - Supports region, author, material, application, thesaurus
 - Used by dynamic routes (e.g., `/app/region/[slug]/page.tsx`)
 

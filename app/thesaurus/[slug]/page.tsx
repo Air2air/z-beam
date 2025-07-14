@@ -6,7 +6,7 @@ export default async function ThesaurusPage({ params }: { params: { slug: string
   const article = getArticleBySlug(params.slug);
 
   // Only show thesaurus articles
-  if (!article || article.metadata.contentCategory !== "thesaurus") {
+  if (!article || article.metadata.articleType !== "thesaurus") {
     notFound();
   }
 

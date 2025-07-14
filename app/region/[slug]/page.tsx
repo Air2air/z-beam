@@ -6,7 +6,7 @@ export default async function RegionPage({ params }: { params: { slug: string } 
   const article = getArticleBySlug(params.slug);
 
   // Only show region articles
-  if (!article || article.metadata.contentCategory !== "region") {
+  if (!article || article.metadata.articleType !== "region") {
     notFound();
   }
 
