@@ -57,6 +57,8 @@ const nextConfig = {
   // Clean build optimization
   productionBrowserSourceMaps: false,
   poweredByHeader: false,
+
+  reactStrictMode: true,
 }
 
 // Configure page extensions to include mdx files

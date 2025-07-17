@@ -33,7 +33,19 @@ const cloudinaryLoader = ({ src, width, quality }) => {
     publicId += '.jpg';
   }
 
-  return `${baseUrl}${transformations}/${publicId}`;
+  // Check if the URL is already a Cloudinary URL
+  if (src.includes('res.cloudinary.com')) {
+    return src; // Return as-is if already a Cloudinary URL
+  }
+
+  // For non-Cloudinary URLs, apply the transformation
+  const params = [`f_auto`, `q_auto`, `w_${width}`];
+  if (quality) {
+    params.push(`q_${quality}`);
+  }
+
+  // Only transform non-Cloudinary URLs
+  return `https://res.cloudinary.com/dbzw24uge/image/upload/${params.join(',')}/${src}`;
 };
 
 module.exports = cloudinaryLoader;
