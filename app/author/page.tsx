@@ -1,6 +1,6 @@
 // app/authors/page.tsx
 import { getAllAuthors } from '../utils/authors';
-import { AuthorCard } from '../components/AuthorCard';
+import { AuthorCard } from '../components/Author/AuthorCard';
 
 export const metadata = {
   title: 'Authors | Z-Beam',

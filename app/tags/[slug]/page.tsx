@@ -1,8 +1,8 @@
 // app/tags/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArticleList } from '../../components/ArticleList';
-import { SmartTagList } from '../../components/SmartTagList';
+import { ArticleList } from '../../components/List/ArticleList';
+import { SmartTagList } from '../../components/Tag/SmartTagList';
 import { getAllTagSlugs, getTagFromSlug, getArticlesByTag, getArticleList } from '../../utils/server';
 import type { PageProps } from '../../types';
 

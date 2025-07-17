@@ -2,7 +2,7 @@
 "use client";
 
 import { MDXProvider } from '@mdx-js/react';
-import mdxComponents from './components/mdx-components';
+import mdxComponents from './components/Layout/mdx-components';
 
 export function MDXLayout({ children }: { children: React.ReactNode }) {
   return (

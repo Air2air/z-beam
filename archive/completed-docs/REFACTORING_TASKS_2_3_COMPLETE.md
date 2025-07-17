@@ -7,7 +7,7 @@ All components have been updated to use the consolidated base interfaces from `/
 ### Updated Components:
 - **Navigation Components**: `nav.tsx`, `breadcrumbs.tsx`, `footer.tsx`
 - **Image Components**: `thumbnail.tsx`, `HeroImage.tsx` 
-- **UI Components**: `BadgeSymbol.tsx`, `CardItem.tsx`, `CardFeature.tsx`
+- **UI Components**: `BadgeSymbol.tsx`, `CardItem.tsx`, `CardLarge.tsx`
 - **Content Components**: `MaterialList.tsx`, `json-ld.tsx`, `mdx.tsx`
 
 ### Base Interfaces Implemented:
@@ -130,7 +130,7 @@ app/
 │   ├── BadgeSymbol.tsx      # ✅ Updated with base props
 │   ├── HeroImage.tsx        # ✅ Updated with base props
 │   ├── CardItem.tsx         # ✅ Updated with base props
-│   ├── CardFeature.tsx      # ✅ Updated with base props
+│   ├── CardLarge.tsx      # ✅ Updated with base props
 │   ├── MaterialList.tsx     # ✅ Updated with base props
 │   ├── json-ld.tsx          # ✅ Updated with base props
 │   ├── mdx.tsx              # ✅ Updated with base props

@@ -2,10 +2,10 @@
 import "./css/global.css";
 import type { Metadata } from "next";
 import { GeistSans, GeistMono } from "geist/font";
-import { Navbar } from "./components/nav";
+import { Navbar } from "./components/Layout/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
+import Footer from "./components/Layout/footer";
 import { baseUrl } from "./sitemap";
 
 export const metadata: Metadata = {

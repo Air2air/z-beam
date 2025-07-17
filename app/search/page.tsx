@@ -1,9 +1,9 @@
 // app/search/page.tsx
 import { getAllAuthors, getMaterialList } from 'app/utils/server';
-import { AuthorSearchResults } from 'app/components/AuthorSearchResults';
-import { FadeInOnScroll } from 'app/components/FadeInOnScroll';
-import { Container } from 'app/components/Container';
-import { SmartTagList } from 'app/components/SmartTagList';
+import { AuthorSearchResults } from '@/app/components/Author/AuthorSearchResults';
+import { FadeInOnScroll } from '@/app/components/Layout/FadeInOnScroll';
+import { Container } from '@/app/components/Layout/Container';
+import { SmartTagList } from '@/app/components/Tag/SmartTagList';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

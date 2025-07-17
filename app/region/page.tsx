@@ -1,4 +1,4 @@
-import { ContentList } from '@/app/components/ContentList';
+import { ContentList } from '@/app/components/List/ContentList';
 
 export default function RegionsPage() {
   return (

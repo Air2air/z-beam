@@ -5,10 +5,10 @@ import { formatDate } from "app/utils/utils";
 import { getAuthorBySlug, getAllAuthorSlugs, getArticlesByAuthorId, getAllAuthors, getAuthorTags } from "app/utils/server";
 import { baseUrl } from "app/sitemap";
 import type { Metadata } from "next";
-import { Breadcrumbs } from "app/components/breadcrumbs";
-import { FadeInOnScroll } from "app/components/FadeInOnScroll";
-import { CardItem } from "app/components/CardItem";
-import { AuthorProfile } from "app/components/AuthorProfile";
+import { Breadcrumbs } from "@/app/components/Layout/breadcrumbs";
+import { FadeInOnScroll } from "@/app/components/Layout/FadeInOnScroll";
+import { CardItem } from "@/app/components/Card/CardItem";
+import { AuthorProfile } from "@/app/components/Author/AuthorProfile";
 import type { PageProps } from "app/types";
 
 export async function generateStaticParams() {

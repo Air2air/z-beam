@@ -1,7 +1,7 @@
 // app/articles/page.tsx
-import { ContentList } from '../components/ContentList';
-import { SmartTagList } from '../components/SmartTagList';
-import { Breadcrumbs } from '../components/breadcrumbs';
+import { ContentList } from '../components/List/ContentList';
+import { SmartTagList } from '../components/Tag/SmartTagList';
+import { Breadcrumbs } from '../components/Layout/breadcrumbs';
 import { getAllTags } from '../utils/tags';
 
 export const metadata = {

@@ -1,17 +1,17 @@
 // app/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CustomMDX } from "app/components/mdx-renderer";
+import { CustomMDX } from "@/app/components/Layout/mdx-renderer";
 import { formatDate } from "app/utils/utils";
 import { getArticleBySlug, getAllArticleSlugs, getAuthorById, getTagSlug } from "app/utils/server";
 import { baseUrl } from "app/sitemap";
 import type { Metadata } from "next";
-import { HeroImage } from "app/components/HeroImage";
-import { Breadcrumbs } from "app/components/breadcrumbs";
-import { FadeInOnScroll } from "app/components/FadeInOnScroll";
-import { AuthorArticlesServer } from "app/components/AuthorArticlesServer";
-import { AuthorByline } from "app/components/AuthorByline";
-import { SmartTagList } from "app/components/SmartTagList";
+import { HeroImage } from "@/app/components/Image/HeroImage";
+import { Breadcrumbs } from "@/app/components/Layout/breadcrumbs";
+import { FadeInOnScroll } from "@/app/components/Layout/FadeInOnScroll";
+import { AuthorArticlesServer } from "@/app/components/Author/AuthorArticlesServer";
+import { AuthorByline } from "@/app/components/Author/AuthorByline";
+import { SmartTagList } from "@/app/components/Tag/SmartTagList";
 import type { PageProps } from "app/types";
 
 export async function generateStaticParams() {

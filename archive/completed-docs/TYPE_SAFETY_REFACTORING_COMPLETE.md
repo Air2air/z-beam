@@ -14,7 +14,7 @@
 - **HeroImage**: Uses `HeroImageProps` with animation constants
 - **FadeInOnScroll**: Uses `FadeInProps` instead of inline interface
 - **CardItem**: Uses `MaterialCardProps` for material-specific data
-- **CardFeature**: Uses `BaseCardProps` for general card functionality
+- **CardLarge**: Uses `BaseCardProps` for general card functionality
 - **JsonLd**: Uses typed schema interfaces (`PersonSchema`, `MaterialListingSchema`)
 - **MaterialList**: Properly typed with `MaterialPost[]`
 - **Table**: Uses `TableProps` interface

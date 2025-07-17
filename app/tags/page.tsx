@@ -1,7 +1,7 @@
 // app/tags/page.tsx
 import { getAllTags, getTagStats } from '../utils/server';
 import Link from 'next/link';
-import { SmartTagList } from '../components/SmartTagList';
+import { SmartTagList } from '../components/Tag/SmartTagList';
 
 export const metadata = {
   title: 'All Tags | Z-Beam',
