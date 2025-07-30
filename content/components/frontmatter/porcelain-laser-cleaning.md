@@ -91,4 +91,18 @@ facilities:
     description: "AS9100-certified center for turbine component refurbishment. Handles porcelain-coated parts up to 2m diameter with 6-axis laser positioning."
   - name: "Oakland Conservation"
     description: "Partnered with California Heritage Council for artifact treatments. Custom 20W system designed for delicate museum objects with sub-millimeter control."
+tableConfig:
+  maxRows: 10
+  showHeader: true
+  zebraStripes: false
+
+bulletConfig:
+  style: "bulleted"
+  maxItems: 10
+  showIcons: false
+
+captionConfig:
+  style: "default"
+  size: "default"
+  alignment: "left"
 ---

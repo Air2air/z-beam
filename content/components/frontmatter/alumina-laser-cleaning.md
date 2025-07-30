@@ -82,4 +82,18 @@ manufacturingLocations:
     county: "Orange County"
     region: "Southern California"
     neighbors: ["Newport Beach", "Costa Mesa"]
+tableConfig:
+  maxRows: 10
+  showHeader: true
+  zebraStripes: false
+
+bulletConfig:
+  style: "bulleted"
+  maxItems: 10
+  showIcons: false
+
+captionConfig:
+  style: "default"
+  size: "default"
+  alignment: "left"
 ---

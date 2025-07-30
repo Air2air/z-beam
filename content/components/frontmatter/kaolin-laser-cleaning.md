@@ -74,4 +74,18 @@ technicalSpecifications:
   safetyClass: "IV (requires enclosure)"
   spotSize: "0.1–5mm diameter"
   wavelength: "1064nm ±2nm"
+tableConfig:
+  maxRows: 10
+  showHeader: true
+  zebraStripes: false
+
+bulletConfig:
+  style: "bulleted"
+  maxItems: 10
+  showIcons: false
+
+captionConfig:
+  style: "default"
+  size: "default"
+  alignment: "left"
 ---

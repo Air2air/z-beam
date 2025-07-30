@@ -12,9 +12,10 @@ export async function generateArticleMetadata(slug: string): Promise<Metadata> {
     return getDefaultMetadata();
   }
 
-  const title = frontmatter.subject;
+  // Safe property access with fallbacks
+  const title = frontmatter.subject || 'Z-Beam Article';
   const description = frontmatter.description || 
-    `Advanced laser cleaning solutions for ${frontmatter.subject.toLowerCase()}. Professional surface preparation and industrial cleaning technology.`;
+    `Advanced laser cleaning solutions for ${(frontmatter.subject || 'materials').toLowerCase()}. Professional surface preparation and industrial cleaning technology.`;
 
   return {
     title,
@@ -25,8 +26,8 @@ export async function generateArticleMetadata(slug: string): Promise<Metadata> {
       'laser cleaning',
       'industrial cleaning',
       'surface preparation',
-      ...(frontmatter.keywords || [])
-    ].join(', '),
+      ...(Array.isArray(frontmatter.keywords) ? frontmatter.keywords : [])
+    ].filter(Boolean).join(', '), // Remove undefined values
     
     openGraph: {
       title: `${title} | Z-Beam Laser Cleaning`,
@@ -37,7 +38,7 @@ export async function generateArticleMetadata(slug: string): Promise<Metadata> {
       locale: 'en_US',
       images: [
         {
-          url: frontmatter.image || `${baseUrl}/images/og/${frontmatter.articleType}-default.jpg`,
+          url: frontmatter.image || `${baseUrl}/images/og/${frontmatter.articleType || 'default'}-default.jpg`,
           width: 1200,
           height: 630,
           alt: title,

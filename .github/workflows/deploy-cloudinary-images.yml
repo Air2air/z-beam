@@ -1,58 +1,57 @@
-name: Deploy Images to Cloudinary
+name: Deploy Cloudinary Images
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'public/images/**'
-      - 'app/**'
-      - '.github/workflows/deploy-cloudinary-images.yml'
-  workflow_dispatch: # Keep this for manual triggers
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Number of images to process in batch'
+        required: false
+        default: '10'
+        type: string
+      force_upload:
+        description: 'Force re-upload existing images'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
-  upload-images:
+  deploy-images:
     runs-on: ubuntu-latest
-
+    name: Upload Images to Cloudinary
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies (using npm ci for CI/CD)
-        run: npm install --no-save ora
-
-      - name: Debug - Verify Script Content
-        # ADD THIS STEP
-        run: |
-          echo "Contents of app/scripts/uploadCloudinaryImages.js on the runner:"
-          cat app/scripts/uploadCloudinaryImages.js
-          echo "--- End of script content ---"
-
-      - name: Debug - Verify Node Modules and Requires
-        run: |
-          echo "Listing node_modules contents:"
-          ls -la node_modules/ora
-          echo ""
-          echo "Attempting to require ora in Node.js:"
-          node -e "
-            try {
-              const ora = require('ora').default;
-              console.log('Successfully required ora.');
-              console.log('Ora loaded (object type):', typeof ora);
-            } catch (e) {
-              console.error('Failed to require ora:', e.message);
-              process.exit(1);
-            }
-          "
-
-      - name: Run Cloudinary Upload Script
-        run: node app/scripts/uploadCloudinaryImages.js
-        env:
-          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Upload images to Cloudinary
+      env:
+        CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+        CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+        CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        BATCH_SIZE: ${{ github.event.inputs.batch_size }}
+        FORCE_UPLOAD: ${{ github.event.inputs.force_upload }}
+      run: |
+        if [ -f "app/scripts/uploadCloudinaryImages.js" ]; then
+          node app/scripts/uploadCloudinaryImages.js
+        else
+          echo "❌ Upload script not found"
+          exit 1
+        fi
+      
+    - name: Create deployment summary
+      if: always()
+      run: |
+        echo "## 📸 Cloudinary Image Upload Results" >> $GITHUB_STEP_SUMMARY
+        echo "- **Batch Size**: ${{ github.event.inputs.batch_size }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Force Upload**: ${{ github.event.inputs.force_upload }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Triggered by**: @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY

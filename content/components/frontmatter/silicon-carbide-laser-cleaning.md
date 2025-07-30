@@ -74,4 +74,18 @@ manufacturingLocations:
     county: "Alameda County"
     region: "Bay Area"
     adjacentCities: "Newark, Union City"
+tableConfig:
+  maxRows: 10
+  showHeader: true
+  zebraStripes: false
+
+bulletConfig:
+  style: "bulleted"
+  maxItems: 10
+  showIcons: false
+
+captionConfig:
+  style: "default"
+  size: "default"
+  alignment: "left"
 ---
