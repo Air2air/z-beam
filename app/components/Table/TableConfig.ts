@@ -5,14 +5,12 @@ export interface TableConfig {
   zebraStripes?: boolean;
   tableType?: 'default' | 'comparison' | 'pricing';
   size?: 'default' | 'dense' | 'large';
-  showAllTables?: boolean;
 }
 
-export const DEFAULT_TABLE_CONFIG: Required<TableConfig> = {
-  maxRows: 10,
+export const DEFAULT_TABLE_CONFIG: TableConfig = {
+  maxRows: 50,
   showHeader: true,
   zebraStripes: false,
   tableType: 'default',
   size: 'default',
-  showAllTables: true,
 };

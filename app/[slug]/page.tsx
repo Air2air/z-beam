@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { generateArticleMetadata } from '@/app/utils/metadataGenerator';
 import { getEnhancedArticle } from '@/app/utils/contentIntegrator';
 import { getAllArticleSlugs } from '@/app/utils/server';
 import { Table } from '@/app/components/Table/Table';
@@ -11,10 +10,40 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Generate metadata from frontmatter
+// Generate metadata directly here - no separate generator needed
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  return generateArticleMetadata(slug);
+  const article = await getEnhancedArticle(slug);
+  
+  if (!article?.metadata) {
+    return {
+      title: `${slug} | Z-Beam Laser Cleaning`,
+      description: `Learn about ${slug} laser cleaning technology.`,
+    };
+  }
+
+  const { metadata } = article;
+  const title = metadata.subject || slug;
+  const description = metadata.description || `Advanced laser cleaning solutions for ${title.toLowerCase()}.`;
+
+  return {
+    title: `${title} | Z-Beam Laser Cleaning`,
+    description,
+    keywords: metadata.keywords?.join(', '),
+    authors: metadata.author ? [{ name: metadata.author }] : undefined,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: `https://z-beam.com/${slug}`,
+      siteName: 'Z-Beam Laser Cleaning',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -30,15 +59,36 @@ export default async function ArticlePage({ params }: PageProps) {
     notFound();
   }
 
-  const { metadata, frontmatter, components } = article;
+  const { metadata, components } = article; // Remove frontmatter destructuring
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-8">
       {/* Header */}
       <header className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          {frontmatter?.subject || metadata.title || 'Article Title'}
+          {metadata?.subject || `Article: ${slug}`} {/* Use metadata instead of frontmatter */}
         </h1>
+        
+        {/* Add metadata display */}
+        {metadata && (
+          <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+            {metadata.category && (
+              <span className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2">
+                {metadata.category}
+              </span>
+            )}
+            {metadata.articleType && (
+              <span className="inline-block bg-green-100 text-green-800 px-2 py-1 rounded mr-2">
+                {metadata.articleType}
+              </span>
+            )}
+            {metadata.author && (
+              <div className="mt-2">
+                <span className="font-medium">Author:</span> {metadata.author}
+              </div>
+            )}
+          </div>
+        )}
       </header>
 
       {/* Components - Each handles its own config and rendering */}

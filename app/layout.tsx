@@ -6,10 +6,36 @@ import { Navbar } from "./components/Layout/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Layout/footer";
-import { getDefaultMetadata } from "./utils/metadataGenerator";
 
-// Use the utility function for base metadata
-export const metadata: Metadata = getDefaultMetadata();
+// Define default metadata directly here
+export const metadata: Metadata = {
+  title: "Z-Beam Laser Cleaning Solutions",
+  description:
+    "Advanced laser cleaning technology for industrial applications. Precision surface preparation, coating removal, and material restoration.",
+  keywords:
+    "laser cleaning, industrial cleaning, surface preparation, coating removal, rust removal, paint stripping",
+
+  openGraph: {
+    title: "Z-Beam Laser Cleaning Solutions",
+    description: "Advanced laser cleaning technology for industrial applications.",
+    url: "https://z-beam.com",
+    siteName: "Z-Beam",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://z-beam.com/images/og/default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Z-Beam Laser Cleaning",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+  },
+};
 
 export default function RootLayout({
   children,

@@ -4,7 +4,6 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { CaptionConfig, DEFAULT_CAPTION_CONFIG } from './CaptionConfig';
-import { FrontmatterData } from '@/app/utils/frontmatterLoader';
 
 export interface CaptionData {
   content: string;
@@ -17,7 +16,7 @@ marked.setOptions({
   breaks: true, // Allow line breaks in captions
 });
 
-export async function loadCaptionData(slug: string, frontmatter: FrontmatterData | null): Promise<CaptionData | null> {
+export async function loadCaptionData(slug: string, frontmatter?: any): Promise<CaptionData | null> {
   try {
     // Load caption content
     const captionPath = path.join(
@@ -34,35 +33,19 @@ export async function loadCaptionData(slug: string, frontmatter: FrontmatterData
     }
 
     const fileContent = fs.readFileSync(captionPath, 'utf8');
-    const { content } = matter(fileContent);
+    const { content, data } = matter(fileContent);
     
     if (!content || content.trim().length === 0) {
       console.log(`Empty caption content for slug: ${slug}`);
       return null;
     }
 
-    // Convert markdown to HTML - await the Promise
-    const rawHtml = await marked(content.trim());
-    
-    // Clean up the HTML - captions should be single paragraphs
-    const htmlContent = rawHtml
-      .replace(/<!-- Category:.*?-->/g, '') // Remove comments
-      .replace(/^\s*\n/gm, '') // Remove empty lines
-      .replace(/<p>/g, '') // Remove wrapping paragraphs
-      .replace(/<\/p>/g, '')
-      .replace(/\n/g, ' ') // Convert line breaks to spaces
-      .trim();
+    const htmlContent = content.trim();
 
-    // Validate caption length
-    const textContent = htmlContent.replace(/<[^>]*>/g, ''); // Strip HTML for length check
-    if (textContent.length > 500) {
-      console.warn(`Caption for ${slug} is quite long (${textContent.length} characters)`);
-    }
-
-    // Extract config from frontmatter
+    // Get config from component file itself
     const config: CaptionConfig = {
       ...DEFAULT_CAPTION_CONFIG,
-      ...frontmatter?.captionConfig,
+      ...data?.captionConfig, // Config from the component file
     };
 
     return {

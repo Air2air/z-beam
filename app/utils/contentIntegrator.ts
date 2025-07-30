@@ -1,77 +1,101 @@
-// app/utils/contentIntegrator.ts - Fixed version
+// app/utils/contentIntegrator.ts - Fixed imports
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
-import { loadFrontmatterData, FrontmatterData } from './frontmatterLoader';
 
-// Import component loaders directly for now (simplified approach)
+// Remove frontmatter import since we're moving away from central frontmatter
+// import { loadFrontmatterData, FrontmatterData } from './frontmatterLoader';
+
+// Import component loaders
 import { loadTableData, TableData } from '@/app/components/Table/TableLoader';
 import { loadBulletsData, BulletsData } from '@/app/components/Bullets/BulletsLoader';
 import { loadCaptionData, CaptionData } from '@/app/components/Caption/CaptionLoader';
 
+// Create a simple MetaTagsData interface here for now
+export interface MetaTagsData {
+  subject?: string;
+  articleType?: string;
+  category?: string;
+  description?: string;
+  keywords?: string[];
+  author?: string;
+  technicalCompliance?: string;
+  wordCount?: string;
+  image?: string;
+  url?: string;
+}
+
 export interface EnhancedArticle {
   slug: string;
-  metadata: {
-    title: string;
-    description?: string;
-    articleType?: string;
-    category?: string;
-  };
-  frontmatter: FrontmatterData | null;
+  metadata: MetaTagsData; // This contains subject, author, etc.
   components: {
     table?: TableData;
     bullets?: BulletsData;
     caption?: CaptionData;
     content?: string;
     jsonld?: string;
-    tags?: string;
+    metatags?: MetaTagsData; // Optional: duplicate of metadata
   };
+  // No frontmatter property!
 }
 
 export async function getEnhancedArticle(slug: string): Promise<EnhancedArticle | null> {
   try {
-    const frontmatter = await loadFrontmatterData(slug);
-    
-    // Load component data using specific loaders
-    const [tableData, bulletsData, captionData] = await Promise.all([
-      loadTableData(slug, frontmatter),
-      loadBulletsData(slug, frontmatter),
-      loadCaptionData(slug, frontmatter),
-    ]);
-
-    // Keep legacy components for now
-    const [content, jsonld, tags] = await Promise.all([
+    // Load component data - remove frontmatter dependency
+    const [tableData, bulletsData, captionData, contentData, jsonldData, metatagsData] = await Promise.all([
+      loadTableData(slug), // Remove frontmatter parameter
+      loadBulletsData(slug), // Remove frontmatter parameter
+      loadCaptionData(slug), // Remove frontmatter parameter
       loadLegacyComponent('content', slug),
       loadLegacyComponent('jsonld', slug),
-      loadLegacyComponent('tags', slug),
+      loadMetaTagsData(slug),
     ]);
 
     // Check if we have any content to show
-    if (!frontmatter && !content && !tableData && !bulletsData && !captionData) {
+    if (!contentData && !tableData && !bulletsData && !captionData && !metatagsData) {
       return null;
     }
 
     return {
       slug,
-      metadata: {
-        title: frontmatter?.subject || slug,
-        description: frontmatter?.description,
-        articleType: frontmatter?.articleType,
-        category: frontmatter?.category,
-      },
-      frontmatter,
+      metadata: metatagsData || { subject: slug },
       components: {
         table: tableData || undefined,
         bullets: bulletsData || undefined,
         caption: captionData || undefined,
-        content: content || undefined,
-        jsonld: jsonld || undefined,
-        tags: tags || undefined,
+        content: contentData || undefined,
+        jsonld: jsonldData || undefined,
+        metatags: metatagsData || undefined,
       },
     };
   } catch (error) {
     console.error(`Error getting enhanced article for ${slug}:`, error);
+    return null;
+  }
+}
+
+// Simple metatags loader function
+async function loadMetaTagsData(slug: string): Promise<MetaTagsData | null> {
+  try {
+    const metatagsPath = path.join(
+      process.cwd(),
+      'content',
+      'components',
+      'metatags',
+      `${slug}.md`
+    );
+
+    if (!fs.existsSync(metatagsPath)) {
+      return null;
+    }
+
+    const fileContent = fs.readFileSync(metatagsPath, 'utf8');
+    const { data } = matter(fileContent);
+    
+    return data as MetaTagsData;
+  } catch (error) {
+    console.error(`Error loading meta tags data for ${slug}:`, error);
     return null;
   }
 }
@@ -96,13 +120,13 @@ async function loadLegacyComponent(componentType: string, slug: string): Promise
     
     // Convert markdown to HTML for table components (legacy support)
     if (componentType === 'table') {
-      // Configure marked for tables
       marked.setOptions({
-        gfm: true, // GitHub Flavored Markdown for tables
+        gfm: true,
         breaks: false,
       });
       
-      return await marked(content.trim()); // Add await here
+      const result = marked(content.trim());
+      return typeof result === 'string' ? result : await result;
     }
     
     return content.trim();
