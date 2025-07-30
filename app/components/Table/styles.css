@@ -1,0 +1,148 @@
+/* app/components/Table/styles.css */
+
+/* Base table wrapper styles */
+.table-wrapper {
+  @apply overflow-x-auto my-6;
+}
+
+/* Base table styles */
+.table-wrapper table {
+  @apply min-w-full border-collapse border border-gray-200 dark:border-gray-700;
+}
+
+.table-container table {
+  @apply min-w-full border-collapse border border-gray-200 dark:border-gray-700;
+}
+
+/* Table header styles */
+.table-wrapper thead {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.table-wrapper th {
+  @apply border border-gray-200 dark:border-gray-700 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider;
+}
+
+.table-container thead {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.table-container th {
+  @apply border border-gray-200 dark:border-gray-700 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide;
+}
+
+/* Table body styles */
+.table-wrapper tbody {
+  @apply bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.table-wrapper td {
+  @apply border border-gray-200 dark:border-gray-700 px-4 py-3 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap;
+}
+
+.table-container tbody {
+  @apply bg-white dark:bg-gray-900;
+}
+
+.table-container td {
+  @apply border border-gray-200 dark:border-gray-700 px-4 py-3 text-sm text-gray-700 dark:text-gray-300;
+}
+
+/* Handle multiple tables */
+.table-container h2 {
+  @apply text-xl font-bold text-gray-900 dark:text-white mt-8 mb-4 first:mt-0;
+}
+
+.table-container h3 {
+  @apply text-lg font-semibold text-gray-900 dark:text-white mt-6 mb-3;
+}
+
+/* Zebra stripes configuration */
+.zebra-stripes tbody tr:nth-child(even) {
+  @apply bg-gray-50 dark:bg-gray-800;
+}
+
+.zebra-stripes tbody tr:nth-child(odd) {
+  @apply bg-white dark:bg-gray-900;
+}
+
+/* Hide header configuration */
+.no-header thead {
+  @apply hidden;
+}
+
+/* Max rows configuration - handled by CSS custom properties */
+.table-wrapper tbody tr:nth-child(n + var(--max-rows, 999)) {
+  @apply hidden;
+}
+
+/* Hover effects */
+.table-wrapper tbody tr:hover {
+  @apply bg-gray-100 dark:bg-gray-700 transition-colors duration-150;
+}
+
+/* Responsive text wrapping for smaller screens */
+@media (max-width: 640px) {
+  .table-wrapper td {
+    @apply whitespace-normal;
+  }
+  
+  .table-wrapper th {
+    @apply text-xs;
+  }
+}
+
+/* Focus styles for accessibility */
+.table-wrapper table:focus-within {
+  @apply ring-2 ring-blue-500 ring-opacity-50;
+}
+
+/* Sortable table styles (if you add sorting later) */
+.table-wrapper th.sortable {
+  @apply cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150;
+}
+
+.table-wrapper th.sortable::after {
+  content: '';
+  @apply inline-block w-0 h-0 ml-2 opacity-50;
+}
+
+.table-wrapper th.sortable.asc::after {
+  content: '▲';
+}
+
+.table-wrapper th.sortable.desc::after {
+  content: '▼';
+}
+
+/* Special styling for different table types */
+.table-wrapper.comparison-table th:first-child {
+  @apply bg-blue-50 dark:bg-blue-900 text-blue-900 dark:text-blue-100;
+}
+
+.table-wrapper.pricing-table .highlight {
+  @apply bg-green-50 dark:bg-green-900 border-green-200 dark:border-green-700;
+}
+
+.table-wrapper.pricing-table .highlight th,
+.table-wrapper.pricing-table .highlight td {
+  @apply border-green-200 dark:border-green-700;
+}
+
+/* Dense table variant */
+.table-wrapper.dense th,
+.table-wrapper.dense td {
+  @apply px-2 py-1 text-xs;
+}
+
+/* Large table variant */
+.table-wrapper.large th,
+.table-wrapper.large td {
+  @apply px-6 py-4 text-base;
+}
+
+/* Table spacing */
+.table-container table + h2,
+.table-container table + h3 {
+  @apply mt-8;
+}
