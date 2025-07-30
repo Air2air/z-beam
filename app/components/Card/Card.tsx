@@ -1,79 +1,217 @@
-// app/components/Card.tsx
-// Safe component creation - follows enforcement rules
+// app/components/Card/Card.tsx - Master card component
 
-import React from 'react';
+import Link from "next/link";
+import { OptimizedImage } from "../UI/OptimizedImage";
+import { BadgeSymbol } from "./BadgeSymbol";
 
 export interface CardProps {
-  variant?: 'default' | 'elevated' | 'outlined' | 'flat';
-  size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
+  href: string;
+  title: string;
+  description?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  
+  // Variant controls
+  variant?: 'default' | 'large' | 'compact' | 'featured';
+  layout?: 'vertical' | 'horizontal';
+  
+  // Content options
+  showBadge?: boolean;
+  badge?: {
+    text: string;
+    color?: 'blue' | 'green' | 'purple' | 'orange';
+  };
+  
+  // Metadata
+  metadata?: {
+    date?: string;
+    category?: string;
+    articleType?: string;
+    atomicNumber?: number;
+    chemicalSymbol?: string;
+    nameShort?: string;
+  };
+  
+  // Styling
   className?: string;
-  interactive?: boolean;
-  onClick?: () => void;
-  as?: 'div' | 'article' | 'section';
-  href?: string; // Optional for links
-  imageUrl?: string; // Optional for images
-  imageAlt?: string; // Optional for image alt text
-  title?: string; // Optional for card title
-  description?: string; // Optional for card description
 }
 
-/**
- * Card Component
- * 
- * ENFORCEMENT SAFETY:
- * - Uses variants instead of hardcoded styles
- * - Follows consistent prop patterns
- * - Designed for reusability
- * - Single source of truth for card styling
- * 
- * Replaces hardcoded patterns like:
- * - bg-white rounded-lg shadow-lg p-6
- * - bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow
- */
 export function Card({
+  href,
+  title,
+  description,
+  imageUrl,
+  imageAlt,
   variant = 'default',
-  size = 'md',
-  children,
-  className = '',
-  interactive = false,
-  onClick,
-  as: Component = 'div'
+  layout = 'vertical',
+  showBadge = false,
+  badge,
+  metadata,
+  className = ''
 }: CardProps) {
-  
-  // Base styles - common across all variants
-  const baseStyles = 'bg-white rounded-lg transition-shadow duration-300';
-  
-  // Variant styles - specific to each variant
-  const variantStyles = {
-    default: 'shadow-md',
-    elevated: 'shadow-lg',
-    outlined: 'border border-gray-200 shadow-sm',
-    flat: 'shadow-none border border-gray-100'
+  // Size configurations
+  const variantConfig = {
+    default: {
+      imageHeight: 'h-40',
+      padding: 'p-4',
+      titleSize: 'text-lg',
+      descLines: 'line-clamp-2'
+    },
+    large: {
+      imageHeight: 'h-56',
+      padding: 'p-6',
+      titleSize: 'text-xl',
+      descLines: 'line-clamp-3'
+    },
+    compact: {
+      imageHeight: 'h-32',
+      padding: 'p-3',
+      titleSize: 'text-base',
+      descLines: 'line-clamp-1'
+    },
+    featured: {
+      imageHeight: 'h-64',
+      padding: 'p-8',
+      titleSize: 'text-2xl',
+      descLines: 'line-clamp-4'
+    }
   };
+
+  const config = variantConfig[variant];
   
-  // Size styles (padding)
-  const sizeStyles = {
-    sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8'
-  };
-  
-  // Interactive styles
-  const interactiveStyles = interactive ? 'hover:shadow-lg cursor-pointer' : '';
-  
-  // Combine all styles
-  const componentStyles = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${interactiveStyles} ${className}`;
-  
+  const cardClasses = `
+    group block bg-white rounded-lg shadow-md hover:shadow-xl 
+    transition-all duration-300 overflow-hidden border border-gray-100 
+    dark:bg-gray-800 dark:border-gray-700 ${className}
+  `;
+
+  if (layout === 'horizontal') {
+    return (
+      <Link href={href} className={cardClasses}>
+        <article className="flex h-full">
+          {imageUrl && (
+            <div className={`relative w-1/3 ${config.imageHeight} overflow-hidden`}>
+              <OptimizedImage
+                src={imageUrl}
+                alt={imageAlt || title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
+          
+          <div className={`flex-1 ${config.padding} flex flex-col justify-between`}>
+            <CardContent 
+              title={title}
+              description={description}
+              metadata={metadata}
+              badge={badge}
+              showBadge={showBadge}
+              config={config}
+            />
+          </div>
+        </article>
+      </Link>
+    );
+  }
+
   return (
-    <Component
-      className={componentStyles}
-      onClick={onClick}
-    >
-      {children}
-    </Component>
+    <Link href={href} className={cardClasses}>
+      <article className="flex flex-col h-full">
+        {imageUrl && (
+          <div className={`relative w-full ${config.imageHeight} overflow-hidden`}>
+            <OptimizedImage
+              src={imageUrl}
+              alt={imageAlt || title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            
+            {/* Chemical symbol overlay for materials */}
+            {metadata?.chemicalSymbol && (
+              <div className="absolute top-2 right-2">
+                {/* <BadgeSymbol 
+                  chemicalSymbol={metadata.chemicalSymbol}
+                  atomicNumber={metadata.atomicNumber}
+                /> */}
+              </div>
+            )}
+          </div>
+        )}
+        
+        <div className={`${config.padding} flex-grow`}>
+          <CardContent 
+            title={title}
+            description={description}
+            metadata={metadata}
+            badge={badge}
+            showBadge={showBadge}
+            config={config}
+          />
+        </div>
+      </article>
+    </Link>
   );
 }
 
-// Export default for easier imports
-export default Card;
+// Extracted content component for reuse
+function CardContent({ title, description, metadata, badge, showBadge, config }) {
+  return (
+    <>
+      {/* Badges and metadata */}
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2">
+          {showBadge && badge && (
+            <span className={`px-2 py-1 text-xs font-medium rounded-full
+              ${badge.color === 'blue' ? 'bg-blue-100 text-blue-800' : ''}
+              ${badge.color === 'green' ? 'bg-green-100 text-green-800' : ''}
+              ${badge.color === 'purple' ? 'bg-purple-100 text-purple-800' : ''}
+              ${badge.color === 'orange' ? 'bg-orange-100 text-orange-800' : ''}
+            `}>
+              {badge.text}
+            </span>
+          )}
+          
+          {metadata?.articleType && (
+            <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-600 rounded">
+              {metadata.articleType}
+            </span>
+          )}
+        </div>
+
+        {metadata?.nameShort && (
+          <span className="text-xs text-gray-500 font-mono">
+            {metadata.nameShort}
+          </span>
+        )}
+      </div>
+      
+      {/* Title */}
+      <h3 className={`font-semibold text-gray-900 dark:text-white mb-2 
+        group-hover:text-blue-600 transition-colors ${config.titleSize}`}>
+        {title}
+      </h3>
+      
+      {/* Description */}
+      {description && (
+        <p className={`text-gray-600 dark:text-gray-300 text-sm ${config.descLines} flex-grow`}>
+          {description}
+        </p>
+      )}
+      
+      {/* Additional metadata */}
+      {metadata && (
+        <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-600">
+          <div className="flex items-center justify-between text-xs text-gray-500">
+            {metadata.category && (
+              <span>Category: {metadata.category}</span>
+            )}
+            {metadata.date && (
+              <span>{metadata.date}</span>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

@@ -3,23 +3,19 @@
 
 export interface ArticleMetadata {
   title: string;
-  articleType: "material" | "author" | "region" | "application" | "thesaurus"; // Renamed for global consistency
-  nameShort?: string;
-  publishedAt: string | null;
-  summary: string;
   description?: string;
   image?: string;
-  thumbnail?: string | null;
-  imageCaption?: string;
-  tags?: string[]; // Content tags
-  atomicNumber?: number | null;
-  chemicalSymbol?: string | null;
-  materialType?: string;
-  metalClass?: string;
-  crystalStructure?: string;
-  primaryApplication?: string;
-  // Author reference
-  authorId?: number; // Reference to author by unique integer ID
+  thumbnail?: string;
+  articleType?: string;
+  category?: string;
+  date?: string;
+  [key: string]: any;
+}
+
+export interface ArticlePost {
+  metadata: ArticleMetadata;
+  slug: string;
+  content: string;
 }
 
 // -------- SPECIFIC CATEGORY METADATA TYPES --------
@@ -92,12 +88,6 @@ export interface AuthorMetadata {
   publishedArticles?: number; // Count of published articles
   expertise?: string[];
   education?: string[];
-}
-
-export interface ArticlePost {
-  metadata: ArticleMetadata;
-  slug: string;
-  content: string;
 }
 
 // -------- SPECIFIC CONTENT POST TYPES --------

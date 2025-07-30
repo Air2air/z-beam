@@ -13,10 +13,10 @@
 - **BadgeSymbol**: Now uses `BadgeProps` from shared types
 - **HeroImage**: Uses `HeroImageProps` with animation constants
 - **FadeInOnScroll**: Uses `FadeInProps` instead of inline interface
-- **CardItem**: Uses `MaterialCardProps` for material-specific data
+- **Card**: Uses `MaterialCardProps` for material-specific data
 - **CardLarge**: Uses `BaseCardProps` for general card functionality
-- **JsonLd**: Uses typed schema interfaces (`PersonSchema`, `MaterialListingSchema`)
-- **MaterialList**: Properly typed with `MaterialPost[]`
+- **JsonLd**: Uses typed schema interfaces (`PersonSchema`, `ListingSchema`)
+- **List**: Properly typed with `MaterialPost[]`
 - **Table**: Uses `TableProps` interface
 - **Page components**: Use `PageProps` interface for Next.js standards
 

@@ -1,0 +1,77 @@
+<!-- Category: ceramic | Article Type: material | Subject: Silicon Carbide -->
+---
+name: "Silicon Carbide"
+description: "Silicon Carbide (SiC) is a synthetic ceramic material with exceptional hardness (Mohs 9.5) and thermal conductivity (120-490 W/mK), making it ideal for high-power laser cleaning applications. Its chemical inertness allows for precise contaminant removal without substrate damage. SiC's wide bandgap (3.2eV) enables efficient laser absorption at 1064nm wavelengths, achieving 99.9% surface purity in industrial cleaning. California facilities utilize SiC-based lasers for aerospace component restoration and historical artifact conservation due to its non-abrasive, solvent-free process."
+website: "https://www.z-beam.com/silicon-carbide-material"
+author:
+  author_id: 1
+  author_name: "Evelyn Wu"
+  author_country: "Taiwan"
+  name: "Laser Technology Institute"
+  credentials: "Industry Leader in Laser Cleaning Technology"
+keywords:
+  - "Wide bandgap semiconductor"
+  - "Thermal shock resistance"
+  - "Non-contact cleaning"
+  - "1064nm absorption"
+  - "Aerospace surface prep"
+  - "Cultural heritage conservation"
+  - "High thermal conductivity"
+  - "Chemical vapor deposition"
+  - "Pulsed laser ablation"
+  - "Mohs 9.5 hardness"
+  - "SiC ceramic substrates"
+  - "Laser-induced breakdown spectroscopy"
+applications:
+  - name: "Turbine Blades"
+    description: "Removes oxidation layers from jet engine turbine blades without compromising the nickel alloy substrate. Achieves 0.02µm surface roughness for optimal aerodynamic performance."
+  - name: "Semiconductor Wafers"
+    description: "Precision cleaning of 300mm SiC wafers with 99.999% particulate removal. Operates below 1J/cm² threshold to prevent lattice damage in California cleanrooms."
+  - name: "Historical Monuments"
+    description: "Gentle soot removal from California sandstone monuments using 20kHz pulse frequency. Preserves patina layers while eliminating 100% of atmospheric pollutants."
+environmentalImpact:
+  - benefit: "Zero VOC"
+    description: "Eliminates volatile organic compound emissions associated with solvent cleaning, complying with California Air Resources Board Rule 1171."
+  - benefit: "Waterless process"
+    description: "Reduces industrial water consumption by 15,000 gallons/month compared to traditional abrasive blasting methods."
+regulatoryStandards:
+  - code: "OSHA 29 CFR 1910.1200"
+    description: "Hazard Communication Standard for chemical-free laser operations"
+  - code: "NFPA 70E"
+    description: "Electrical safety requirements for high-power laser systems"
+outcomes:
+  - result: "0.01µm precision"
+    metric: "ISO 9013 thermal cutting tolerances"
+  - result: "98% cost reduction"
+    metric: "EPA hazardous waste disposal savings"
+composition:
+  - component: "Silicon"
+    percentage: "70%"
+    type: "metalloid"
+  - component: "Carbon"
+    percentage: "30%"
+    type: "nonmetal"
+compatibility:
+  - material: "Inconel 718"
+    application: "Aerospace component refurbishment in Southern California"
+  - material: "Marble"
+    application: "Gravestone restoration in Bay Area cemeteries"
+technicalSpecifications:
+  compliance: "California OSHA Title 8 Section 5417"
+  coolingSystem: "Closed-loop chiller (-10°C to +40°C)"
+  powerRange: "50–500W (modular)"
+  pulseDuration: "10–100ns adjustable"
+  repetitionRate: "20–200kHz"
+  safetyClass: "IV (requires enclosure)"
+  spotSize: "0.1–5mm diameter"
+  wavelength: "1064nm ±2nm"
+manufacturingLocations:
+  - facility: "San Diego Precision Ceramics"
+    county: "San Diego County"
+    region: "Southern California"
+    adjacentCities: "Carlsbad, La Jolla"
+  - facility: "Fremont Semiconductor Solutions"
+    county: "Alameda County"
+    region: "Bay Area"
+    adjacentCities: "Newark, Union City"
+---

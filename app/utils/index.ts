@@ -2,7 +2,7 @@
 // Re-export from organized modules
 
 export { formatDate, slugify, truncateText, capitalizeFirst, kebabToTitle } from './formatting';
-export { getMaterialList, getMDXFiles, readMDXFile, getMDXData } from './mdx';
+export { getList, getMDXFiles, readMDXFile, getMDXData } from './mdx';
 export { parseFrontmatter, extractFirstImage } from './metadata';
 export { SITE_CONFIG, ANIMATION_CONFIG, COMPONENT_DEFAULTS, BREAKPOINTS } from './constants';
 

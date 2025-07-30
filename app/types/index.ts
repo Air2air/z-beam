@@ -122,7 +122,7 @@ export interface PersonSchema {
   description?: string;
 }
 
-export interface MaterialListingSchema {
+export interface ListingSchema {
   headline: string;
   name: string;
   description: string;

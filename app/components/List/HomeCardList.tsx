@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useMemo } from 'react';
-import homeCardsData from "../../data/HomeCards.json";
-import { CardLarge } from "../Card/CardLarge";
+import { homeCards } from "../../data/HomeCards";
+import { Card } from "../Card/Card";
 
 interface HomeCardData {
   id: number; 
@@ -19,8 +19,8 @@ interface HomeCardListProps {
 }
 
 export function HomeCardList({ cards, heading, className = "" }: HomeCardListProps) {
-  // Memoize the cards to prevent unnecessary re-renders
-  const cardsToRender = useMemo(() => cards || homeCardsData.homeCards, [cards]);
+  // Fix: Use the correct imported variable name
+  const cardsToRender = useMemo(() => cards || homeCards, [cards]);
 
   return (
     <section className={`my-8 ${className}`}>
@@ -32,7 +32,7 @@ export function HomeCardList({ cards, heading, className = "" }: HomeCardListPro
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {cardsToRender.map((card) => (
-          <CardLarge
+          <Card
             key={card.slug || card.id}
             href={`/${card.slug}`}
             imageUrl={card.imageUrl}

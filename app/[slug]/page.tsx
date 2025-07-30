@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CustomMDX } from "@/app/components/Layout/mdx-renderer";
 import { formatDate } from "app/utils/utils";
 import { getArticleBySlug, getAllArticleSlugs, getAuthorById, getTagSlug } from "app/utils/server";
-import { baseUrl } from "app/sitemap";
+import { baseUrl } from "@/app/utils/sitemap";
 import type { Metadata } from "next";
 import { HeroImage } from "@/app/components/Image/HeroImage";
 import { Breadcrumbs } from "@/app/components/Layout/breadcrumbs";

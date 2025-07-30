@@ -1,5 +1,5 @@
 import React from 'react'
-import type { JsonLdProps, PersonSchema, MaterialListingSchema } from 'app/types'
+import type { JsonLdProps, PersonSchema, ListingSchema } from 'app/types'
 
 export function JsonLd({ data }: JsonLdProps) {
   return (
@@ -18,7 +18,7 @@ export const schemas = {
     ...data
   }),
   
-  MaterialListing: (data: MaterialListingSchema) => ({
+  Listing: (data: ListingSchema) => ({
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: data.headline,

@@ -1,4 +1,4 @@
-import { ContentList } from '@/app/components/List/ContentList';
+import { List } from '@/app/components/List/List';
 
 export default function ApplicationsPage() {
   return (
@@ -10,7 +10,7 @@ export default function ApplicationsPage() {
         Browse our collection of application articles.
       </p>
       <div className="mt-12">
-        <ContentList category="application" />
+        <List category="application" />
       </div>
     </div>
   );

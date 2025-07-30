@@ -4,22 +4,16 @@
 import { getArticlesByCategory } from './content';
 
 export { 
-  getArticleList,
+  getList,
   getArticleBySlug,
   getAllArticleSlugs,
-  getArticlesByAuthorId,
   getArticlesByCategory,
-  getAllTags,
-  getTagSlug,
-  getTagFromSlug,
-  getAllTagSlugs,
-  getArticlesByTag,
-  getTagStats,
-  filterContent,
   clearContentCache,
   getMDXFiles,
   readMDXFile
 } from './content';
+
+export { parseFrontmatter, extractFirstImage } from './metadata';
 
 // Author utilities
 export { 
@@ -73,10 +67,3 @@ export function getAuthorTags(authorId: number): string[] {
   
   return uniqueTags;
 }
-
-// Legacy exports for backwards compatibility
-export function getMaterialList() {
-  return getArticlesByCategory('material');
-}
-
-export { parseFrontmatter, extractFirstImage } from './metadata';

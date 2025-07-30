@@ -86,8 +86,8 @@ Supported types:
 
 ### Usage Examples
 ```typescript
-import { getArticleList, getArticleBySlug } from 'app/utils/utils';
-const allArticles = getArticleList();
+import { getList, getArticleBySlug } from 'app/utils/utils';
+const allArticles = getList();
 const article = getArticleBySlug('aluminum-laser-cleaning');
 
 import { getArticlesByAuthorId, getArticlesByTag } from 'app/utils/utils';
@@ -100,16 +100,16 @@ const tagStats = getTagStats();
 ```
 
 ### Components
-- `ArticleList` - Displays a list of articles
+- `List` - Displays a list of articles
 - `AuthorArticles` - Shows articles by author
 - `TagDirectory` - Shows all tags with counts
 
 ### Backwards Compatibility
 Legacy imports still work:
 ```typescript
-import { getMaterialList } from 'app/utils/utils';
-const materials = getMaterialList();
-const articles = getArticleList();
+import { getList } from 'app/utils/utils';
+const materials = getList();
+const articles = getList();
 ```
 
 ---

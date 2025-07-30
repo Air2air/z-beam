@@ -7,8 +7,8 @@ All components have been updated to use the consolidated base interfaces from `/
 ### Updated Components:
 - **Navigation Components**: `nav.tsx`, `breadcrumbs.tsx`, `footer.tsx`
 - **Image Components**: `thumbnail.tsx`, `HeroImage.tsx` 
-- **UI Components**: `BadgeSymbol.tsx`, `CardItem.tsx`, `CardLarge.tsx`
-- **Content Components**: `MaterialList.tsx`, `json-ld.tsx`, `mdx.tsx`
+- **UI Components**: `BadgeSymbol.tsx`, `Card.tsx`, `CardLarge.tsx`
+- **Content Components**: `List.tsx`, `json-ld.tsx`, `mdx.tsx`
 
 ### Base Interfaces Implemented:
 - `BaseInteractiveProps` - For clickable/interactive elements
@@ -69,7 +69,7 @@ Reorganized utilities into domain-specific modules with comprehensive functional
 ## 🔧 Technical Improvements:
 
 ### Type Safety:
-- Added comprehensive interfaces for JSON-LD schemas (`JsonLdProps`, `PersonSchema`, `MaterialListingSchema`)
+- Added comprehensive interfaces for JSON-LD schemas (`JsonLdProps`, `PersonSchema`, `ListingSchema`)
 - Added MDX component interfaces (`TableProps`)
 - Fixed null/undefined handling in date formatting
 - Consolidated component variant types (`ComponentVariant`, `ComponentSize`)
@@ -129,9 +129,9 @@ app/
 │   ├── thumbnail.tsx        # ✅ Updated with base props
 │   ├── BadgeSymbol.tsx      # ✅ Updated with base props
 │   ├── HeroImage.tsx        # ✅ Updated with base props
-│   ├── CardItem.tsx         # ✅ Updated with base props
+│   ├── Card.tsx         # ✅ Updated with base props
 │   ├── CardLarge.tsx      # ✅ Updated with base props
-│   ├── MaterialList.tsx     # ✅ Updated with base props
+│   ├── List.tsx     # ✅ Updated with base props
 │   ├── json-ld.tsx          # ✅ Updated with base props
 │   ├── mdx.tsx              # ✅ Updated with base props
 │   └── FadeInOnScroll.tsx   # ✅ Updated with base props

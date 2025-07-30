@@ -1,8 +1,8 @@
 // app/page.tsx
-import { MaterialList } from "@/app/components/List/MaterialList";
+
 import type { Metadata } from "next";
-import { HomeCardList } from "./components/List/HomeCardList";
-import { VimeoPlayer } from "./components/Video/VimeoPlayer";
+// import { VimeoPlayer } from "./components/Video/VimeoPlayer";
+import {HomeCardList} from "./components/List/HomeCardList";
 
 export const metadata: Metadata = {
   title: "Home | Z-Beam",
@@ -16,7 +16,7 @@ export default function HomePage() {
       {/* Hero section with video background and content */}
       <section className="relative">
         {/* Video background */}
-        <VimeoPlayer
+        {/* <VimeoPlayer
           videoId="1058778534"
           autoPlay={true}
           controls={false}
@@ -24,7 +24,7 @@ export default function HomePage() {
           background={true}
           height="h-[50vh]" // Set explicit height
           className="mb-0" // Remove bottom margin
-        />
+        /> */}
 
         {/* Content overlay */}
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4">
