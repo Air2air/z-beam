@@ -1,61 +1,100 @@
-// app/page.tsx - Multiple filtered sections
-import { UnifiedList } from './components/List/UnifiedList';
+// app/components/List/List.tsx - With data fetching
+import React from 'react';
+import { Card } from '../Card/Card';
+import { getEnhancedArticle } from '@/app/utils/contentIntegrator';
 
-export default async function HomePage() {
-  // ... fetch articles as above ...
+export interface ListProps {
+  slugs: string[];
+  heading?: string;
+  description?: string;
+  columns?: 1 | 2 | 3 | 4;
+  filterBy?: string; // "material" | "application" | "all"
+  className?: string;
+}
+
+export async function List({ 
+  slugs,
+  heading, 
+  description, 
+  columns = 3,
+  filterBy = "all",
+  className = ''
+}: ListProps) {
+  // Move the articles fetching here
+  const articles = await Promise.all(
+    slugs.map(async (slug) => {
+      const article = await getEnhancedArticle(slug);
+      return {
+        slug,
+        title: article?.metadata?.subject || slug,
+        description: article?.metadata?.description || `Learn about ${slug} laser cleaning technology.`,
+        imageUrl: article?.metadata?.image,
+        category: article?.metadata?.category,
+        articleType: article?.metadata?.articleType,
+        metadata: {
+          category: article?.metadata?.category,
+          articleType: article?.metadata?.articleType,
+          author: article?.metadata?.author,
+          date: new Date().toLocaleDateString(),
+        },
+      };
+    })
+  );
+
+  // Filter based on prop
+  const filteredArticles = filterBy === "all" 
+    ? articles 
+    : articles.filter((a) => a.articleType === filterBy);
+
+  const gridClasses = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-1 md:grid-cols-2',
+    3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+    4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
+  };
+
+  if (filteredArticles.length === 0) {
+    return (
+      <div className={`text-center py-12 ${className}`}>
+        {heading && <h2 className="text-3xl font-bold text-white mb-4">{heading}</h2>}
+        <p className="text-gray-400">No items found.</p>
+      </div>
+    );
+  }
 
   return (
-    <>
-      {/* Hero and Cards sections */}
-      
-      {/* Featured Materials */}
-      <section className="container mx-auto px-4 py-8">
-        <UnifiedList
-          items={articles}
-          heading="Material-Specific Solutions"
-          description="Laser cleaning solutions tailored for specific materials"
-          layout="grid"
-          columns={3}
-          gap="md"
-          cardVariant="outline"
-          showBadges={true}
-          filterBy={{ articleType: "material" }}
-          sortBy="title"
-          limit={6}
-        />
-      </section>
+    <div className={className}>
+      {/* Header */}
+      {(heading || description) && (
+        <div className="text-center mb-8">
+          {heading && <h2 className="text-3xl font-bold text-white mb-4">{heading}</h2>}
+          {description && <p className="text-gray-400 max-w-2xl mx-auto">{description}</p>}
+        </div>
+      )}
 
-      {/* Applications */}
-      <section className="container mx-auto px-4 py-8">
-        <UnifiedList
-          items={articles}
-          heading="Applications & Techniques"
-          description="Discover various laser cleaning applications and methodologies"
-          layout="grid"
-          columns={2}
-          gap="lg"
-          cardVariant="default"
-          showBadges={true}
-          filterBy={{ articleType: "application" }}
-          sortBy="category"
-          limit={4}
-        />
-      </section>
-
-      {/* All Articles */}
-      <section className="container mx-auto px-4 py-12">
-        <UnifiedList
-          items={articles}
-          heading="All Solutions"
-          description="Browse our complete library of laser cleaning technologies"
-          layout="grid"
-          columns={4}
-          gap="md"
-          cardVariant="subtle"
-          showBadges={true}
-          sortBy="title"
-        />
-      </section>
-    </>
+      {/* Items Grid */}
+      <div className={`grid ${gridClasses[columns]} gap-6`}>
+        {filteredArticles.map((item) => (
+          <Card
+            key={item.slug}
+            href={`/${item.slug}`}
+            title={item.title}
+            description={item.description}
+            imageUrl={item.imageUrl}
+            imageAlt={item.title}
+            variant="default"
+            layout="vertical"
+            showBadge={!!item.category}
+            badge={item.category ? {
+              text: item.category,
+              color: 'blue'
+            } : undefined}
+            metadata={item.metadata}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
+
+export default List;
