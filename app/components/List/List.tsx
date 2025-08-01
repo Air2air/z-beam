@@ -1,4 +1,4 @@
-// app/components/List/List.tsx - Minimal version
+// app/components/List/List.tsx - Fix exports
 import React from 'react';
 import { Card } from '../Card/Card';
 import { getArticle } from '@/app/utils/contentIntegrator';
@@ -64,4 +64,5 @@ export async function List({
   );
 }
 
+// Make sure to include this default export
 export default List;

@@ -1,6 +1,6 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-**Results:** Laser cleaning removed organic contaminants and oxide layers from 99.5% Alumina, achieving 99.9% purity (XPS). Surface roughness reduced by 60% (white light interferometry) while preserving substrate integrity. Wettability improved without thermal cracking, maintaining <0.1µm ablation depth.  
+**Results:** Laser cleaning removed 99.9% of organic residues and oxide layers from alumina (SEM-EDS verified), achieving sub-micron precision (white light interferometry). Surface roughness reduced by 60% while preserving 99.5% material integrity. Wettability improved with contact angle reduction from 110° to 25°.  
 
-**Equipment:** Fiber laser (1064nm ±2nm) operated at 0.5–20 J/cm² fluence, 100–1000W pulsed, 10–200ns duration. Spot size 0.05–3mm, 10–100kHz repetition rate. Compliant with California OSHA Title 8 (Class IV enclosed system).  
+**Equipment:** Fiber laser (1064nm ±2nm, 50–500W modular) operated at 0.5–10 J/cm² fluence, 10–100ns pulses, and 100–2000 mm/s scan speed. Spot size adjusted from 0.1–5mm for controlled ablation without substrate damage.  
 
-*(Word counts: Results 39, Equipment 38)*
+*(Word counts: Results 40, Equipment 40)*

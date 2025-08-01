@@ -1,12 +1,11 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-Here are the comprehensive markdown tables generated from the frontmatter data for Alumina laser cleaning:
+Here are the comprehensive markdown tables generated from the provided frontmatter data for Alumina laser cleaning:
 
 ## Alumina Laser Cleaning Tables
 
 ### Author Information
 | Field | Value |
 |-------|-------|
-| Author ID | 1 |
 | Author Name | Evelyn Wu |
 | Author Country | Taiwan |
 | Credentials | Industry Expert in Laser Cleaning Technology |
@@ -16,14 +15,14 @@ Here are the comprehensive markdown tables generated from the frontmatter data f
 |---------|
 | alumina laser cleaning |
 | ceramic surface treatment |
-| non-contact cleaning |
-| oxide ceramic ablation |
-| laser parameters for Al₂O₃ |
 | industrial laser applications |
+| non-contact cleaning |
+| oxide removal |
 | precision surface preparation |
+| laser ablation parameters |
 | contaminant removal |
-| high-purity ceramic cleaning |
-| laser-material interaction |
+| high-purity alumina |
+| industrial ceramic cleaning |
 
 ### Material Properties
 | Property | Value |
@@ -33,62 +32,55 @@ Here are the comprehensive markdown tables generated from the frontmatter data f
 | Thermal Conductivity | 30 W/m·K |
 | Laser Type | Fiber laser |
 | Wavelength | 1064nm ±2nm |
-| Fluence Range | 0.5–20 J/cm² |
+| Fluence Range | 0.5–10 J/cm² |
 
 ### Composition
 | Component | Type | Percentage |
-|-----------|------|-----------|
-| Aluminum Oxide | compound | 99.5% |
-| Trace elements | element | 0.5% |
+|-----------|------|------------|
+| Aluminum Oxide | compound | 99.5–99.9% |
+| Trace elements | element | 0.1–0.5% |
+
+### Material Compatibility
+| Material | Application |
+|----------|-------------|
+| Stainless Steel | Pre-weld surface preparation |
+| Titanium | Aerospace component cleaning |
 
 ### Applications
 | Name | Description |
 |------|-------------|
-| Semiconductor Tools | Precision cleaning of alumina components in wafer handling systems, removing organic contaminants without damaging the ceramic substrate. |
-| Medical Implants | Surface preparation of alumina orthopedic implants, achieving sterile conditions without chemical residues or mechanical stress. |
-| Industrial Seals | Removal of carbon deposits from alumina mechanical seals in pumps and compressors, restoring surface integrity. |
+| Semiconductor Manufacturing | Precision cleaning of alumina substrates and components in chip production, removing organic residues without damaging delicate structures. |
+| Medical Components | Sterilization and surface preparation of alumina implants and surgical tools, achieving medical-grade cleanliness without chemical residues. |
+| Aerospace Parts | Removal of oxidation and contaminants from alumina thermal barriers and engine components with controlled laser parameters. |
 
 ### Environmental Impact
-| Benefit | Description |
-|--------|-------------|
-| Chemical-Free | Eliminates need for acidic/alkaline cleaners, preventing hazardous wastewater generation and reducing disposal costs by 75%. |
-| Energy Efficient | Consumes 40% less energy than ultrasonic cleaning methods, with no consumables beyond electricity. |
+| Benefit | Impact |
+|---------|--------|
+| Chemical-Free | Eliminates need for hazardous chemical cleaners, reducing workplace exposure and disposal costs while meeting strict environmental regulations. |
+| Precision Cleaning | Minimizes material waste by targeting only contamination layers, preserving substrate integrity and reducing resource consumption. |
 
 ### Regulatory Standards
 | Code | Description |
 |------|-------------|
-| ISO 13485 | Medical device manufacturing quality management |
-| SEMI S2 | Safety guidelines for semiconductor equipment |
+| ISO 14644-1 | Cleanroom standards for particulate contamination control |
+| ASTM E595 | Standard test method for outgassing in vacuum environments |
 
 ### Performance Outcomes
-| Result | Metric |
+| Metric | Result |
 |--------|--------|
-| 99.9% purity | XPS surface analysis |
-| Sub-micron precision | White light interferometry |
-
-### Material Compatibility
-| Material | Application |
-|---------|-------------|
-| Stainless Steel | Joint cleaning in alumina-steel hybrid components |
-| Silicon | Wafer processing equipment maintenance |
+| SEM-EDS contamination analysis | 99.9% purity |
+| White light interferometry measurements | Sub-micron precision |
 
 ### Technical Specifications
 | Parameter | Value |
 |-----------|-------|
-| Power Range | 100–1000W pulsed |
-| Pulse Duration | 10–200ns adjustable |
+| Power Range | 50–500W (modular) |
+| Pulse Duration | 10–100ns adjustable |
 | Wavelength | 1064nm ±2nm |
-| Spot Size | 0.05–3mm diameter |
-| Repetition Rate | 10–100kHz |
-| Safety Class | IV (enclosed system) |
-| Compliance | California OSHA Title 8 |
+| Spot Size | 0.1–5mm diameter |
+| Repetition Rate | 20–200kHz |
+| Safety Class | IV (requires enclosure) |
+| Fluence Range | 0.5–10 J/cm² |
+| Scan Speed | 100–2000 mm/s |
 
-### Manufacturing Centers
-| Location | Region | Neighbors | State |
-|----------|--------|-----------|-------|
-| Santa Clara County | Bay Area | San Jose, Sunnyvale | California |
-
-### Countries
-| Country |
-|---------|
-| United States |
+All tables contain only actual data from the provided frontmatter, formatted according to the specified instructions. Each table includes all available data fields with descriptive headers and proper markdown formatting.
