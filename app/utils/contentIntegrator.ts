@@ -3,71 +3,71 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { MetaTagsData } from './metadata';
 
-export interface MetaTagsData {
+interface ArticleMetadata {
   subject?: string;
-  articleType?: string;
-  category?: string;
   description?: string;
   keywords?: string[];
-  author?: string;
-  // Other metadata fields...
-  [key: string]: any;
+  ogImage?: string;
+  category?: string;
 }
 
-export interface Article {
-  slug: string;
-  metadata: MetaTagsData;
-  components: {
-    [key: string]: {
-      content: string;
-      config?: any;
-    } | undefined;
-  };
+interface ArticleData {
+  metadata: ArticleMetadata;
+  components: Record<string, any> | null;
 }
 
-// Main function to get article data
-export async function getArticle(slug: string): Promise<Article | null> {
+export async function getArticle(slug: string): Promise<ArticleData | null> {
   try {
-    // Load metadata
-    const metatagsData = await loadMetaTagsData(slug);
-    const metadata = metatagsData || { 
-      subject: slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-    };
-
-    // Define component types to load
-    const componentTypes = ['table', 'bullets', 'caption', 'content'];
+    // Load article metadata from frontmatter instead of articles
+    const metadataPath = path.join(process.cwd(), 'content', 'components', 'frontmatter', `${slug}.md`);
     
-    // Create components object
+    // Initialize with correct type
+    let metadata = {} as ArticleMetadata;
+    
+    // Get metadata from frontmatter if available
+    if (fs.existsSync(metadataPath)) {
+      const frontmatterContent = fs.readFileSync(metadataPath, 'utf8');
+      const { data } = matter(frontmatterContent);
+      // Cast the data to ArticleMetadata
+      metadata = data as ArticleMetadata || {} as ArticleMetadata;
+    }
+    
+    // Components object to store only available components
     const components: Record<string, any> = {};
     
-    // Load all components
+    // Check each component type
+    const componentTypes = ['content', 'bullets', 'table', 'caption', 'jsonld', 'metatags', 'tags'];
+    
+    let hasAnyComponent = false;
+    
     for (const type of componentTypes) {
-      const convertMarkdown = type === 'table' || type === 'content';
-      const componentData = await loadComponentData(type, slug, convertMarkdown);
+      const componentData = await loadComponentData(type, slug);
       if (componentData) {
         components[type] = componentData;
+        hasAnyComponent = true;
       }
     }
     
-    // Handle JSON-LD separately
-    let jsonldData = await loadJsonldData(slug);
-    
-    if (!jsonldData && Object.keys(metadata).length > 0) {
-      jsonldData = generateJsonLDFromMetadata(slug, metadata);
+    // If no components and no metadata found, return null
+    if (!hasAnyComponent && Object.keys(metadata).length === 0) {
+      return null;
     }
     
-    if (jsonldData) {
-      components.jsonld = jsonldData;
-    }
-
+    // Return with properly typed metadata
     return {
-      slug,
-      metadata,
-      components,
+      metadata: { 
+        subject: metadata.subject || '',
+        description: metadata.description || '',
+        keywords: metadata.keywords || [],
+        ogImage: metadata.ogImage || '',
+        category: metadata.category || '',
+      },
+      components: Object.keys(components).length > 0 ? components : null
     };
   } catch (error) {
-    console.error(`Error getting article for ${slug}:`, error);
+    console.error(`Error loading article ${slug}:`, error);
     return null;
   }
 }
@@ -75,8 +75,8 @@ export async function getArticle(slug: string): Promise<Article | null> {
 // For backward compatibility
 export const getEnhancedArticle = getArticle;
 
-// Generic component loader
-export async function loadComponentData(type: string, slug: string, convertMarkdown = false): Promise<{content: string; config?: any} | null> {
+// Generic component loader - always convert markdown to HTML
+export async function loadComponentData(type: string, slug: string): Promise<{content: string; config?: any} | null> {
   try {
     const componentPath = path.join(process.cwd(), 'content', 'components', type, `${slug}.md`);
     
@@ -91,21 +91,12 @@ export async function loadComponentData(type: string, slug: string, convertMarkd
       return null;
     }
 
-    let processedContent: string;
+    // Always convert markdown to HTML
+    const processedContent = marked(content.trim());
     
-    if (convertMarkdown) {
-      // Handle the case where marked() might return a Promise
-      const markedResult = marked(content.trim());
-      processedContent = markedResult instanceof Promise 
-        ? await markedResult 
-        : markedResult;
-    } else {
-      processedContent = content.trim();
-    }
-
     // Return generic structure
     return {
-      content: processedContent,
+      content: processedContent instanceof Promise ? await processedContent : processedContent,
       config: Object.keys(data).length > 0 ? data : getDefaultConfig(type),
     };
   } catch (error) {
@@ -265,8 +256,17 @@ function generateJsonLDFromMetadata(slug: string, metadata: MetaTagsData): any {
 // Get all article slugs
 export async function getAllArticleSlugs() {
   try {
-    const articlesDir = path.join(process.cwd(), 'content', 'articles');
-    const files = fs.readdirSync(articlesDir);
+    // Using content/components/content directory instead of content/articles
+    const contentDir = path.join(process.cwd(), 'content', 'components', 'content');
+    
+    // Create the directory if it doesn't exist to prevent errors
+    if (!fs.existsSync(contentDir)) {
+      console.warn(`Content directory ${contentDir} not found, creating it...`);
+      fs.mkdirSync(contentDir, { recursive: true });
+      return [];
+    }
+    
+    const files = fs.readdirSync(contentDir);
     
     // Extract slugs from filenames (removing .md extension)
     return files
@@ -274,6 +274,7 @@ export async function getAllArticleSlugs() {
       .map(file => file.replace(/\.md$/, ''));
   } catch (error) {
     console.error('Error getting article slugs:', error);
+    // Return an empty array instead of throwing an error
     return [];
   }
 }

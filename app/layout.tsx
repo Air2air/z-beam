@@ -1,11 +1,12 @@
 // app/layout.tsx
-import "./css/global.css"; // Use CSS instead of SCSS to avoid deprecation warnings
+import "./css/global.css";
 import type { Metadata, Viewport } from "next";
 import { GeistSans, GeistMono } from "geist/font";
 import { Navbar } from "./components/Layout/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Layout/footer";
+import { SITE_CONFIG } from "./utils/constants";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -13,8 +14,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://z-beam.com"),
-  // Only minimal shared metadata here
+  metadataBase: new URL(SITE_CONFIG.url),
+  title: {
+    template: `%s | ${SITE_CONFIG.name}`,
+    default: SITE_CONFIG.name,
+  },
+  description: SITE_CONFIG.description,
 };
 
 export default function RootLayout({
@@ -25,13 +30,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} dark text-white bg-gray-800`}
+      className={`${GeistSans.variable} ${GeistMono.variable} dark text-white bg-gray-800 scroll-smooth`}
     >
       <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-200">
         <Navbar />
-        <main className="flex-auto max-w-6xl w-full mx-auto px-4 py-8 sm:py-12">
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />

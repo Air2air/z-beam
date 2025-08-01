@@ -1,15 +1,38 @@
 // app/utils/metadata.ts
 import type { Metadata } from 'next';
 
+// Existing interface
 interface MetaTagsInput {
   title?: string;
   description?: string;
   keywords?: string[];
   canonical?: string;
   ogImage?: string;
-  ogType?: 'website' | 'article'; // Limit to valid types
+  ogType?: 'website' | 'article';
   noindex?: boolean;
   jsonLd?: any;
+}
+
+// Add the new MetaTagsData interface
+export interface MetaTagsData {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  ogImage?: string;
+  ogType?: string;
+  canonical?: string;
+  noindex?: boolean;
+  subject?: string;
+  schemaType?: string;
+  url?: string;
+  author?: string;
+  authorDescription?: string;
+  specifications?: Record<string, string>;
+  applicationCategory?: string;
+  industry?: string;
+  wordCount?: string;
+  image?: string;
+  jsonld?: Record<string, any>;
 }
 
 export function createMetadata({

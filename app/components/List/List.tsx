@@ -20,6 +20,20 @@ interface ListProps {
   className?: string;
 }
 
+// First, add these interfaces at the top of your file
+interface ArticleMetadata {
+  subject?: string;
+  description?: string;
+  category?: string;
+  articleType?: string;
+  image?: string;
+}
+
+interface Article {
+  metadata: ArticleMetadata;
+  components: Record<string, any> | null;
+}
+
 export async function List({ 
   slugs,
   items,
@@ -44,7 +58,7 @@ export async function List({
   // Fetch articles
   const articles = await Promise.all(
     processedItems.map(async (item) => {
-      const article = await getArticle(item.slug);
+      const article = await getArticle(item.slug) as Article | null;
       
       // Create badge object with proper structure
       const badgeText = item.badge || article?.metadata?.category;
@@ -59,8 +73,8 @@ export async function List({
         description: article?.metadata?.description || item.description || '',
         badge: badgeObject,
         imageUrl: item.image, // Use imageUrl to match Card component prop
-        category: article?.metadata?.category,
-        articleType: article?.metadata?.articleType,
+        category: article?.metadata?.category || '',
+        articleType: article?.metadata?.articleType || '',
       };
     })
   );
