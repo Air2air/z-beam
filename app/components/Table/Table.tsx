@@ -1,19 +1,33 @@
 // app/components/Table/Table.tsx
 import './styles.css';
-import { TableConfig, DEFAULT_TABLE_CONFIG } from './TableConfig';
 
 interface TableProps {
   content: string;
-  config?: TableConfig;
+  config?: {
+    maxRows?: number;
+    showHeader?: boolean;
+    zebraStripes?: boolean;
+    tableType?: 'default' | 'comparison' | 'pricing';
+    size?: 'default' | 'dense' | 'large';
+    bordered?: boolean;
+    caption?: string;
+    className?: string;
+  };
 }
 
-export function Table({ content, config = {} }: TableProps) {
-  // Merge configs
-  const finalConfig = { ...DEFAULT_TABLE_CONFIG, ...config };
+export function Table({ content, config }: TableProps) {
+  if (!content) return null;
   
-  if (!content) {
-    return null;
-  }
+  // Use default values directly in destructuring
+  const {
+    zebraStripes = true,
+    showHeader = true,
+    tableType = 'default',
+    size = 'default',
+    bordered = true,
+    className = '',
+    caption
+  } = config || {};
   
   return (
     <div className="table-section">
@@ -21,26 +35,22 @@ export function Table({ content, config = {} }: TableProps) {
         <div 
           className={`
             table-container
-            ${finalConfig.zebraStripes ? 'zebra-stripes' : ''}
-            ${!finalConfig.showHeader ? 'no-header' : ''}
-            ${finalConfig.tableType !== 'default' ? `table-${finalConfig.tableType}` : ''}
-            ${finalConfig.size !== 'default' ? `size-${finalConfig.size}` : ''}
-            ${finalConfig.bordered ? 'bordered' : ''}
-            ${finalConfig.className || ''}
+            ${zebraStripes ? 'zebra-stripes' : ''}
+            ${!showHeader ? 'no-header' : ''}
+            ${tableType !== 'default' ? `table-${tableType}` : ''}
+            ${size !== 'default' ? `size-${size}` : ''}
+            ${bordered ? 'bordered' : ''}
+            ${className}
           `}
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
       
-      {finalConfig.caption && (
+      {caption && (
         <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-          {finalConfig.caption}
+          {caption}
         </div>
       )}
     </div>
   );
 }
-
-// Export the loader for server-side use
-export { loadTableData } from './TableLoader';
-export type { TableConfig } from './TableConfig';

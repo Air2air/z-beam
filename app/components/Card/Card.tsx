@@ -1,5 +1,5 @@
 // app/components/Card/Card.tsx - Master card component
-
+import './styles.scss';
 import Link from "next/link";
 import { OptimizedImage } from "../UI/OptimizedImage";
 import { BadgeSymbol } from "./BadgeSymbol";
@@ -8,7 +8,8 @@ export interface CardProps {
   href: string;
   title: string;
   description?: string;
-  imageUrl?: string;
+  imageUrl?: string; // Keep for backward compatibility
+  image?: string;    // Add this for new code
   imageAlt?: string;
   
   // Variant controls
@@ -41,6 +42,7 @@ export function Card({
   title,
   description,
   imageUrl,
+  image, // Add this prop
   imageAlt,
   variant = 'default',
   layout = 'vertical',
@@ -85,18 +87,31 @@ export function Card({
     dark:bg-gray-800 dark:border-gray-700 ${className}
   `;
 
+  // Use either imageUrl or image
+  const displayImage = imageUrl || image;
+  
   if (layout === 'horizontal') {
     return (
       <Link href={href} className={cardClasses}>
         <article className="flex h-full">
-          {imageUrl && (
+          {displayImage && (
             <div className={`relative w-1/3 ${config.imageHeight} overflow-hidden`}>
               <OptimizedImage
-                src={imageUrl}
+                src={displayImage}
                 alt={imageAlt || title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
+              
+              {/* Add BadgeSymbol for horizontal layout */}
+              {metadata?.chemicalSymbol && (
+                <div className="absolute top-2 right-2">
+                  <BadgeSymbol 
+                    chemicalSymbol={metadata.chemicalSymbol}
+                    atomicNumber={metadata.atomicNumber}
+                  />
+                </div>
+              )}
             </div>
           )}
           
@@ -118,22 +133,22 @@ export function Card({
   return (
     <Link href={href} className={cardClasses}>
       <article className="flex flex-col h-full">
-        {imageUrl && (
+        {displayImage && (
           <div className={`relative w-full ${config.imageHeight} overflow-hidden`}>
             <OptimizedImage
-              src={imageUrl}
+              src={displayImage}
               alt={imageAlt || title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
             />
             
-            {/* Chemical symbol overlay for materials */}
+            {/* Uncomment and use BadgeSymbol for vertical layout */}
             {metadata?.chemicalSymbol && (
               <div className="absolute top-2 right-2">
-                {/* <BadgeSymbol 
+                <BadgeSymbol 
                   chemicalSymbol={metadata.chemicalSymbol}
                   atomicNumber={metadata.atomicNumber}
-                /> */}
+                />
               </div>
             )}
           </div>
@@ -154,8 +169,37 @@ export function Card({
   );
 }
 
-// Extracted content component for reuse
-function CardContent({ title, description, metadata, badge, showBadge, config }) {
+// Add proper typing to CardContent
+interface CardContentProps {
+  title: string;
+  description?: string;
+  metadata?: {
+    date?: string;
+    category?: string;
+    articleType?: string;
+    atomicNumber?: number;
+    chemicalSymbol?: string;
+    nameShort?: string;
+  };
+  badge?: {
+    text: string;
+    color?: 'blue' | 'green' | 'purple' | 'orange';
+  };
+  showBadge?: boolean;
+  config: {
+    titleSize: string;
+    descLines: string;
+  };
+}
+
+function CardContent({ 
+  title, 
+  description, 
+  metadata, 
+  badge, 
+  showBadge, 
+  config 
+}: CardContentProps) {
   return (
     <>
       {/* Badges and metadata */}
@@ -167,6 +211,7 @@ function CardContent({ title, description, metadata, badge, showBadge, config })
               ${badge.color === 'green' ? 'bg-green-100 text-green-800' : ''}
               ${badge.color === 'purple' ? 'bg-purple-100 text-purple-800' : ''}
               ${badge.color === 'orange' ? 'bg-orange-100 text-orange-800' : ''}
+              ${!badge.color ? 'bg-gray-100 text-gray-800' : ''}
             `}>
               {badge.text}
             </span>

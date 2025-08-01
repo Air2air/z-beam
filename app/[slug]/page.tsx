@@ -126,7 +126,7 @@ export default async function ArticlePage({ params }: PageProps) {
         )}
 
         {components.content && (
-          <article className="prose prose-lg dark:prose-invert max-w-none">
+          <article className="prose prose-md dark:prose-invert max-w-none">
             <div dangerouslySetInnerHTML={{ __html: components.content }} />
           </article>
         )}

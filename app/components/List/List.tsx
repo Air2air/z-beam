@@ -1,29 +1,64 @@
-// app/components/List/List.tsx - Fix exports
-import React from 'react';
+// app/components/List/List.tsx
+import './styles.scss';
 import { Card } from '../Card/Card';
 import { getArticle } from '@/app/utils/contentIntegrator';
 
-export interface ListProps {
-  slugs: string[];
-  heading?: string;
+interface ListProps {
+  // Add slugs as a prop alternative to items
+  slugs?: string[];
+  items?: Array<{
+    slug: string;
+    title?: string;
+    description?: string;
+    image?: string;
+    badge?: string;
+  }>;
+  title?: string;
+  heading?: string; // Add heading as an alias for title
   columns?: 1 | 2 | 3 | 4;
   filterBy?: string;
+  className?: string;
 }
 
 export async function List({ 
   slugs,
+  items,
+  title,
   heading,
   columns = 3,
-  filterBy = "all"
+  filterBy = "all",
+  className = ""
 }: ListProps) {
+  // Use heading as fallback for title
+  const displayTitle = title || heading;
+  
+  // Process items from either slugs or items prop
+  const processedItems = items || [];
+  
+  // If slugs are provided but not items, create items from slugs
+  if (slugs && !items) {
+    const slugItems = slugs.map(slug => ({ slug }));
+    processedItems.push(...slugItems);
+  }
+  
   // Fetch articles
   const articles = await Promise.all(
-    slugs.map(async (slug) => {
-      const article = await getArticle(slug);
+    processedItems.map(async (item) => {
+      const article = await getArticle(item.slug);
+      
+      // Create badge object with proper structure
+      const badgeText = item.badge || article?.metadata?.category;
+      const badgeObject = badgeText ? { 
+        text: badgeText,
+        color: getCategoryColor(article?.metadata?.category)
+      } : undefined;
+      
       return {
-        slug,
-        title: article?.metadata?.subject || slug,
-        description: article?.metadata?.description || '',
+        slug: item.slug,
+        title: article?.metadata?.subject || item.title || item.slug,
+        description: article?.metadata?.description || item.description || '',
+        badge: badgeObject,
+        imageUrl: item.image, // Use imageUrl to match Card component prop
         category: article?.metadata?.category,
         articleType: article?.metadata?.articleType,
       };
@@ -31,7 +66,7 @@ export async function List({
   );
 
   // Filter articles
-  const items = filterBy === "all" 
+  const filteredItems = filterBy === "all" 
     ? articles 
     : articles.filter((a) => a.articleType === filterBy);
 
@@ -42,21 +77,23 @@ export async function List({
     4: 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
   };
 
+  if (!filteredItems?.length) return null;
+  
   return (
-    <div>
-      {heading && <h2 className="text-3xl font-bold text-white mb-8 text-center">{heading}</h2>}
+    <div className={`list-section ${className}`}>
+      {displayTitle && <h2 className="list-title">{displayTitle}</h2>}
       
-      <div className={`grid ${gridCols[columns]} gap-6`}>
-        {items.map((item) => (
+      <div className={`grid gap-6 ${gridCols[columns]}`}>
+        {filteredItems.map((item) => (
           <Card
             key={item.slug}
-            href={`/${item.slug}`}
             title={item.title}
             description={item.description}
-            variant="default"
-            layout="vertical"
-            showBadge={!!item.category}
-            badge={item.category ? { text: item.category, color: 'blue' } : undefined}
+            href={`/${item.slug}`}
+            badge={item.badge}
+            showBadge={!!item.badge}
+            imageUrl={item.imageUrl}
+            imageAlt={item.title}
           />
         ))}
       </div>
@@ -64,5 +101,17 @@ export async function List({
   );
 }
 
-// Make sure to include this default export
-export default List;
+// Helper function to map categories to colors
+function getCategoryColor(category?: string): "blue" | "green" | "purple" | "orange" | undefined {
+  if (!category) return undefined;
+  
+  const categoryColors: Record<string, "blue" | "green" | "purple" | "orange"> = {
+    "material": "blue",
+    "application": "green",
+    "technique": "purple",
+    "industry": "orange",
+    // Add more mappings as needed
+  };
+  
+  return categoryColors[category.toLowerCase()] || "blue"; // Default to blue
+}

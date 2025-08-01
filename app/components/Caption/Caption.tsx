@@ -1,35 +1,28 @@
 // app/components/Caption/Caption.tsx
-import { CaptionConfig, DEFAULT_CAPTION_CONFIG } from './CaptionConfig';
+import './styles.scss';
 
 interface CaptionProps {
   content: string;
-  config?: CaptionConfig;
+  config?: {
+    style?: 'default' | 'large' | 'small';
+    alignment?: 'left' | 'center' | 'right';
+  };
 }
 
-export function Caption({ content, config = {} }: CaptionProps) {
-  const finalConfig = { ...DEFAULT_CAPTION_CONFIG, ...config };
+export function Caption({ content, config }: CaptionProps) {
+  if (!content) return null;
   
-  if (!content) {
-    return null;
-  }
+  const {
+    style = 'default',
+    alignment = 'left'
+  } = config || {};
+  
+  const styleClass = style !== 'default' ? `caption-${style}` : '';
+  const alignClass = alignment !== 'left' ? `text-${alignment}` : '';
   
   return (
-    <div className={`
-      caption-section
-      ${finalConfig.style}
-      ${finalConfig.size}
-      ${finalConfig.alignment}
-    `}>
-      <div 
-        className={`
-          caption-container
-          ${finalConfig.showBorder ? 'with-border' : ''}
-        `}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+    <div className={`caption-container ${styleClass} ${alignClass}`}>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 }
-
-export { loadCaptionData } from './CaptionLoader';
-export type { CaptionConfig } from './CaptionConfig';

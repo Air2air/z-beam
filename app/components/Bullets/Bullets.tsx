@@ -1,32 +1,27 @@
 // app/components/Bullets/Bullets.tsx
-import { BulletsConfig, DEFAULT_BULLETS_CONFIG } from './BulletsConfig';
+// import './bullets.css';
+
 
 interface BulletsProps {
   content: string;
-  config?: BulletsConfig;
+  config?: {
+    style?: 'bulleted' | 'numbered';
+  };
 }
 
 export function Bullets({ content, config }: BulletsProps) {
-  if (!content) {
-    return null;
-  }
-
-  // Merge with defaults
-  const finalConfig = {
-    style: config?.style || DEFAULT_BULLETS_CONFIG.style,
-    maxItems: config?.maxItems || DEFAULT_BULLETS_CONFIG.maxItems,
-    showIcons: config?.showIcons !== undefined ? config.showIcons : DEFAULT_BULLETS_CONFIG.showIcons,
-  };
+  if (!content) return null;
+  
+  const style = config?.style || 'bulleted';
+  const styleClass = style === 'numbered' ? 'numbered-style' : 'bulleted-style';
   
   return (
-    <div className="bullets-section">
+    <div className={`bullets-section ${styleClass}`}>
       <div 
-        className="bullets-container"
+        className="bullets-container prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>
   );
 }
 
-export { loadBulletsData } from './BulletsLoader';
-export type { BulletsConfig } from './BulletsConfig';
