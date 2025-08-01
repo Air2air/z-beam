@@ -1,0 +1,5 @@
+<!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -->
+- **Precision Laser Parameters**: Optimized for a **1064nm ±2nm** fiber laser with **100–1000W (pulsed)** power, **10–200ns** pulse duration, and **0.2–3mm** spot size, enabling controlled ablation at **0.5–20 J/cm²** fluence for contaminant removal without substrate damage.  
+- **Industrial Applications**: Effective for **semiconductor tools** (cleaning SiC components), **aerospace parts** (carbon deposit removal from turbine coatings), and **optics** (non-contact cleaning of high-power laser mirrors), achieving **99.9% purity** per SEM analysis.  
+- **Eco-Friendly Advantages**: Eliminates solvents, reducing VOC emissions by **100%**, and consumes **40% less energy** than mechanical methods, complying with **ISO 14001** environmental standards.  
+- **U.S.-Centered Manufacturing**: Production and R&D focused in **Santa Clara County, California**, leveraging high-power laser expertise for SiC processing in advanced industrial sectors.  

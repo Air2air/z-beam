@@ -1,2 +1,2 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-Alumina Cleaning, Laser Treatment, Oxide Removal, Ceramic Processing, Surface Preparation, Non-contact Cleaning, Contaminant Removal, Precision Cleaning, Industrial Applications, High-purity Alumina
+Laser Cleaning, Alumina, Ceramic Treatment, Oxide Removal, Surface Preparation, Contaminant Removal, Precision Cleaning, Industrial Applications, Thermal Resistance, Non-abrasive

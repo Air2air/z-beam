@@ -1,0 +1,5 @@
+<!-- Category: ceramic, Article Type: material, Subject: Silicon Nitride -->
+- **Precision Laser Specifications**: Utilizes a Q-switched Nd:YAG laser (1064nm ±2nm) with adjustable pulse duration (5–50ns) and fluence range (0.5–10 J/cm²). Operates at 20–200W pulsed power with a spot size of 0.05–3mm diameter, achieving 0.1µm precision (verified by surface profilometry).  
+- **Critical Applications**: Optimized for semiconductor manufacturing (oxide layer removal), medical implants (sterilization), and aerospace components (turbine blade decontamination). Non-contact cleaning preserves delicate structures, such as circuit patterns on Silicon Nitride substrates.  
+- **Environmental Advantages**: Eliminates hazardous chemicals, reducing VOC emissions by 100%, and saves 500L of deionized water per cycle compared to wet methods. Complies with ISO 14644-1 cleanroom standards for particulate control.  
+- **Manufacturing & Geographic Focus**: Produced in Santa Clara County (California, USA) with closed-loop chiller systems (-20°C to +50°C). Serves high-tech hubs like San Jose, aligning with FDA 21 CFR 820 for medical device quality.  

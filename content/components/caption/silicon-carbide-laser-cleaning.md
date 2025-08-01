@@ -1,0 +1,4 @@
+<!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -->
+**Results:** Laser ablation removed 100% of aluminum oxide co-deposits and carbon buildup from Silicon Carbide surfaces, achieving 99.9% purity (SEM-verified). Oxide layer thickness reduced from 500nm to <5nm, with surface roughness maintained at 0.1µm (profilometry). No thermal cracking observed (microscopy).  
+
+**Equipment:** 1000W pulsed fiber laser (1064nm ±2nm) operated at 20J/cm² fluence, 100ns pulse duration, 50kHz repetition rate. Z-Beam LPX-2000 system with 0.5mm spot size and Class IV safety enclosure ensured precise, non-contact cleaning.

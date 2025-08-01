@@ -11,7 +11,8 @@
 }
 
 .table-container table {
-  @apply min-w-full border-collapse border border-gray-200 dark:border-gray-700;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 /* Table header styles */
@@ -28,7 +29,10 @@
 }
 
 .table-container th {
-  @apply border border-gray-200 dark:border-gray-700 px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background-color: #1f2937;
+  color: white;
 }
 
 /* Table body styles */
@@ -64,11 +68,47 @@
 
 .zebra-stripes tbody tr:nth-child(odd) {
   @apply bg-white dark:bg-gray-900;
+  background-color: rgba(31, 41, 55, 0.1);
+}
+
+/* Border styles */
+.bordered th,
+.bordered td {
+  border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+/* Dense table variant */
+.table-wrapper.dense th,
+.table-wrapper.dense td {
+  @apply px-2 py-1 text-xs;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Large table variant */
+.table-wrapper.large th,
+.table-wrapper.large td {
+  @apply px-6 py-4 text-base;
+  padding: 1rem 1.5rem;
+}
+
+/* Table types */
+.table-spec th {
+  background-color: #1e3a8a;
+}
+
+.table-comparison th {
+  background-color: #5b21b6;
+}
+
+.table-pricing th {
+  background-color: #065f46;
 }
 
 /* Hide header configuration */
 .no-header thead {
   @apply hidden;
+  display: none;
 }
 
 /* Max rows configuration - handled by CSS custom properties */
@@ -129,20 +169,8 @@
   @apply border-green-200 dark:border-green-700;
 }
 
-/* Dense table variant */
-.table-wrapper.dense th,
-.table-wrapper.dense td {
-  @apply px-2 py-1 text-xs;
-}
-
-/* Large table variant */
-.table-wrapper.large th,
-.table-wrapper.large td {
-  @apply px-6 py-4 text-base;
-}
-
-/* Table spacing */
-.table-container table + h2,
-.table-container table + h3 {
-  @apply mt-8;
+/* Responsive container */
+.overflow-x-auto {
+  overflow-x: auto;
+  max-width: 100%;
 }

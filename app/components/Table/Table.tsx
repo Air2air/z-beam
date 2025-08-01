@@ -8,6 +8,7 @@ interface TableProps {
 }
 
 export function Table({ content, config = {} }: TableProps) {
+  // Merge configs
   const finalConfig = { ...DEFAULT_TABLE_CONFIG, ...config };
   
   if (!content) {
@@ -22,12 +23,20 @@ export function Table({ content, config = {} }: TableProps) {
             table-container
             ${finalConfig.zebraStripes ? 'zebra-stripes' : ''}
             ${!finalConfig.showHeader ? 'no-header' : ''}
-            ${finalConfig.tableType !== 'default' ? `${finalConfig.tableType}-table` : ''}
+            ${finalConfig.tableType !== 'default' ? `table-${finalConfig.tableType}` : ''}
             ${finalConfig.size !== 'default' ? `size-${finalConfig.size}` : ''}
+            ${finalConfig.bordered ? 'bordered' : ''}
+            ${finalConfig.className || ''}
           `}
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
+      
+      {finalConfig.caption && (
+        <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
+          {finalConfig.caption}
+        </div>
+      )}
     </div>
   );
 }

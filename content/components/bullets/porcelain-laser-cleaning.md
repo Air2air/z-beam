@@ -1,0 +1,5 @@
+<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
+- **Optimized Laser Parameters**: Utilizes a Q-switched Nd:YAG laser (1064nm ±2nm) with adjustable pulse duration (5–50ns) and fluence range (0.5–8 J/cm²). The system operates at 20–200W pulsed power, featuring a high-precision spot size (0.05–3mm diameter) and repetition rate (10–100kHz) for controlled ablation (M² < 1.3 beam quality).  
+- **Diverse Applications**: Precision-cleaning historical porcelain artifacts (0.02mm accuracy via laser profilometry), industrial decontamination of high-voltage insulators, and sterilization of dental implants (99.8% surface purity per SEM analysis). Compatible with glazed ceramics and porcelain-metal composites.  
+- **Eco-Friendly Advantages**: Eliminates chemical solvents, reducing hazardous waste (ASTM C242/ISO 13006 compliant). Minimizes material loss (<0.1% in heritage conservation) and thermal stress (1.5 W/m·K conductivity) versus mechanical methods.  
+- **U.S.-Centered Production**: Manufactured in California (Santa Clara County, Los Angeles, San Diego) with tailored systems for North American regulatory standards and industrial demand.  
