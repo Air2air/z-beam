@@ -3,13 +3,17 @@ import { Content } from "../Content/Content";
 import { Table } from "../Table/Table";
 import { Bullets } from "../Bullets/Bullets";
 import { Caption } from "../Caption/Caption";
+import { Tags } from "../Tags/Tags"; // Make sure to import the Tags component
+import { Author } from '../Author/Author';
+import { JsonLD, schemas } from '../JsonLD/JsonLD';
 
-// Define component order directly in Layout
+// Update component order to include tags
 const COMPONENT_ORDER = [
   'content',
   'caption',
   'bullets',
-  'table'
+  'table',
+  'tags'  // Add tags to the component order
 ] as const;
 
 interface LayoutProps {
@@ -51,13 +55,37 @@ export function Layout({
   // Determine the title to display
   const displayTitle = title || metadata?.subject || (slug ? `Article: ${slug}` : '');
   
+  // Generate JSON-LD if we have enough metadata
+  const jsonLdData = metadata?.title && metadata?.description ? 
+    schemas.technicalArticle({
+      headline: metadata.title,
+      description: metadata.description,
+      author: metadata.author || 'Z-Beam',
+      datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
+      dateModified: metadata.dateModified,
+      url: metadata.canonical || `https://z-beam.com/${slug}`,
+      image: metadata.ogImage,
+      keywords: metadata.keywords
+    }) : null;
+  
   return (
     <section className={className}>
+      {/* Only include JSON-LD here, not other meta tags */}
+      {jsonLdData && <JsonLD data={jsonLdData} />}
+      
       {!hideHeader && displayTitle && (
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-4xl font-bold mb-4">
             {displayTitle}
           </h1>
+          
+          {/* Add author component if metadata has author */}
+          {metadata?.author && (
+            <Author 
+              author={metadata.author} 
+              className="mt-2"
+            />
+          )}
         </header>
       )}
 
@@ -76,6 +104,8 @@ export function Layout({
             return <Bullets key={type} content={content} config={config} />;
           case 'table':
             return <Table key={type} content={content} config={config} />;
+          case 'tags':
+            return <Tags key={type} content={content} config={config} />;
           default:
             return null;
         }
