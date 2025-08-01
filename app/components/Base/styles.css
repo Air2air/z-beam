@@ -1,0 +1,88 @@
+/* app/components/Base/markdown-styles.css */
+/* Base markdown styles */
+.markdown-wrapper {
+  width: 100%;
+}
+
+/* Anchor links for headings */
+.with-anchors h1,
+.with-anchors h2,
+.with-anchors h3,
+.with-anchors h4,
+.with-anchors h5,
+.with-anchors h6 {
+  position: relative;
+}
+
+.with-anchors h1:hover::before,
+.with-anchors h2:hover::before,
+.with-anchors h3:hover::before,
+.with-anchors h4:hover::before,
+.with-anchors h5:hover::before,
+.with-anchors h6:hover::before {
+  content: "#";
+  position: absolute;
+  left: -1em;
+  color: #9ca3af;
+}
+
+/* Syntax highlighting adjustments */
+.with-syntax-highlighting pre {
+  padding: 1rem;
+  border-radius: 0.375rem;
+  overflow-x: auto;
+}
+
+.with-syntax-highlighting code {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.with-syntax-highlighting pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.875em;
+}
+
+/* Table styles */
+.with-table-styles table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.with-table-styles th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.with-table-styles th,
+.with-table-styles td {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.with-table-styles tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .with-syntax-highlighting code {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .with-table-styles th {
+    background-color: #374151;
+  }
+  
+  .with-table-styles th,
+  .with-table-styles td {
+    border-color: #4b5563;
+  }
+  
+  .with-table-styles tr:nth-child(even) {
+    background-color: #1f2937;
+  }
+}

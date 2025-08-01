@@ -1,5 +1,5 @@
 // app/components/Table/Table.tsx
-import './styles.scss';
+import './styles.css';
 
 interface TableProps {
   content: string;

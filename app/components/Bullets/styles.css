@@ -1,0 +1,68 @@
+/* app/components/Bullets/bullets.css */
+
+/* Base bullet section styling */
+.bullets-section {
+  margin: 1.5rem 0;
+}
+
+/* Override Tailwind prose styles for better bullets */
+.bullets-section .prose ul {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.bullets-section .prose li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+/* Bulleted list specific styles */
+.bulleted-style .prose ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.bulleted-style .prose ul ul {
+  list-style-type: circle;
+}
+
+.bulleted-style .prose ul ul ul {
+  list-style-type: square;
+}
+
+/* Numbered list specific styles */
+.numbered-style .prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+}
+
+.numbered-style .prose ol ol {
+  list-style-type: lower-alpha;
+}
+
+.numbered-style .prose ol ol ol {
+  list-style-type: lower-roman;
+}
+
+/* Spacing options */
+.spacing-tight .prose li {
+  margin-top: 0.125em;
+  margin-bottom: 0.125em;
+}
+
+.spacing-loose .prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .bullets-section .prose {
+    color: #e5e7eb;
+  }
+}
+
+/* Max width override - prevent content from being constrained */
+.bullets-section .prose.max-w-none {
+  max-width: none;
+}

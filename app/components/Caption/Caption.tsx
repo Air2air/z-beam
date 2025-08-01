@@ -1,28 +1,26 @@
 // app/components/Caption/Caption.tsx
-import './styles.scss';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import './styles.css'; // Change to .css from .scss
 
 interface CaptionProps {
   content: string;
   config?: {
-    style?: 'default' | 'large' | 'small';
-    alignment?: 'left' | 'center' | 'right';
+    className?: string; // Just keep a single className config
   };
 }
 
 export function Caption({ content, config }: CaptionProps) {
   if (!content) return null;
   
-  const {
-    style = 'default',
-    alignment = 'left'
-  } = config || {};
-  
-  const styleClass = style !== 'default' ? `caption-${style}` : '';
-  const alignClass = alignment !== 'left' ? `text-${alignment}` : '';
+  const { className = '' } = config || {};
   
   return (
-    <div className={`caption-container ${styleClass} ${alignClass}`}>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div className={`caption-container ${className}`}>
+      <MarkdownRenderer 
+        content={content}
+        prose={false}
+        className="caption-content"
+      />
     </div>
   );
 }

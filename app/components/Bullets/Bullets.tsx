@@ -1,25 +1,26 @@
 // app/components/Bullets/Bullets.tsx
-// import './bullets.css';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import './styles.css';
 
 
 interface BulletsProps {
   content: string;
   config?: {
-    style?: 'bulleted' | 'numbered';
+    className?: string; // Removed style variant
   };
 }
 
 export function Bullets({ content, config }: BulletsProps) {
   if (!content) return null;
   
-  const style = config?.style || 'bulleted';
-  const styleClass = style === 'numbered' ? 'numbered-style' : 'bulleted-style';
+  const { className = '' } = config || {};
   
   return (
-    <div className={`bullets-section ${styleClass}`}>
-      <div 
-        className="bullets-container prose dark:prose-invert"
-        dangerouslySetInnerHTML={{ __html: content }}
+    <div className={`bullets-section ${className}`}>
+      <MarkdownRenderer 
+        content={content}
+        className="bullets-container"
+        prose={true}
       />
     </div>
   );
