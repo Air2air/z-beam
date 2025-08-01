@@ -1,63 +1,28 @@
----
-# Basic Metadata
-subject: "Alumina Laser Cleaning"
-articleType: "material"
-category: "ceramic"
-description: "Laser cleaning of alumina (Al₂O₃) removes oxides, coatings, and contaminants with 80% lower surface roughness versus mechanical methods using 1064nm wavelength and 10-100ns pulses."
-
-# SEO & Keywords
-keywords: 
-  - "alumina laser cleaning"
-  - "Al2O3 surface preparation"
-  - "ceramic laser processing"
-  - "oxide removal"
-  - "thermal barrier coating removal"
-  - "non-contact cleaning"
-  - "1064nm laser"
-  - "surface roughness reduction"
-
-# Author & Technical Info
-author: "Evelyn Wu, Laser Technology Institute"
-technicalCompliance: "AWS D1.1, API 1104, ASME B46.1, California OSHA Title 8 Section 5417"
-wordCount: "300-500"
-
-# Technical Specifications
-specifications:
-  wavelength: "1064nm"
-  pulseDuration: "10-100ns"
-  powerRange: "50-500W"
-  spotSize: "0.1-5mm"
-  repetitionRate: "20-200kHz"
-  beamQuality: "M² < 1.3"
-  surfaceRoughness: "0.5µm Ra"
-  
-# Industry & Applications
-industry: "laser technology"
-applications:
-  - "electronics cleaning"
-  - "aerospace surface preparation"
-  - "ceramic restoration"
-  - "thermal barrier coating removal"
-  - "oxide removal"
-
-# Location & Company
-manufacturer: "Z-Beam systems"
-location: "Fremont, California"
-
-# Social Media & Images
-image: "/images/alumina-laser-cleaning.jpg"
-imageAlt: "Laser cleaning of alumina ceramic showing before and after surface preparation"
-
-# Open Graph specific
-ogTitle: "Alumina Laser Cleaning - Precision Ceramic Surface Preparation"
-ogDescription: "Advanced laser cleaning technology for alumina ceramics with 80% better surface roughness. Non-contact, precision cleaning for electronics and aerospace applications."
-
-# Twitter specific  
-twitterTitle: "Alumina Laser Cleaning Technology"
-twitterDescription: "Precision laser cleaning for Al₂O₃ ceramics. 80% better surface finish, non-contact process."
-
-# Schema.org structured data
-schemaType: "TechnicalArticle"
-industry: "Manufacturing"
-applicationCategory: "Surface Preparation"
----
+<!-- Category: ceramic, Article Type: material, Subject: Alumina -->
+<!-- Meta Tags for SEO and Social Sharing -->
+<meta name="description" content="Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.">
+<meta name="keywords" content="alumina laser cleaning, ceramic surface treatment, non-contact cleaning, oxide ceramic ablation, laser parameters for Al₂O₃, industrial laser applications, precision surface preparation, contaminant removal, high-purity ceramic cleaning, laser-material interaction">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Evelyn Wu, Industry Expert in Laser Cleaning Technology">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Technical Guide to Laser Cleaning Alumina Ceramics">
+<meta property="og:description" content="Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.">
+<meta property="og:image" content="https://www.z-beam.com/images/Alumina-laser-cleaning.jpg">
+<meta property="og:url" content="https://www.z-beam.com/Alumina-laser-cleaning">
+<meta property="og:site_name" content="Z-Beam Laser Technologies">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical Guide to Laser Cleaning Alumina Ceramics">
+<meta name="twitter:description" content="Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.">
+<meta name="twitter:image" content="https://www.z-beam.com/images/Alumina-laser-cleaning.jpg">
+<meta name="twitter:creator" content="@zbeamtech">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Technical Guide to Laser Cleaning Alumina Ceramics">
+<meta property="og:description" content="Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.">
+<meta property="og:image" content="https://www.z-beam.com/images/Alumina-laser-cleaning.jpg">
+<meta property="og:url" content="https://www.z-beam.com/Alumina-laser-cleaning">
+<meta property="og:site_name" content="Z-Beam Laser Technologies">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Technical Guide to Laser Cleaning Alumina Ceramics">
+<meta name="twitter:description" content="Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.">
+<meta name="twitter:image" content="https://www.z-beam.com/images/Alumina-laser-cleaning.jpg">
+<meta name="twitter:creator" content="@zbeamtech">

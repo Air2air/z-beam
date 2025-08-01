@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getEnhancedArticle } from '@/app/utils/contentIntegrator';
+import { getArticle } from '@/app/utils/contentIntegrator';
 import { getAllArticleSlugs } from '@/app/utils/server';
 import { Table } from '@/app/components/Table/Table';
 import { Bullets } from '@/app/components/Bullets/Bullets';
@@ -13,7 +13,7 @@ interface PageProps {
 // Generate metadata directly here - no separate generator needed
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = await getEnhancedArticle(slug);
+  const article = await getArticle(slug);
   
   if (!article?.metadata) {
     return {
@@ -53,7 +53,7 @@ export async function generateStaticParams() {
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params;
-  const article = await getEnhancedArticle(slug);
+  const article = await getArticle(slug);
 
   if (!article) {
     notFound();

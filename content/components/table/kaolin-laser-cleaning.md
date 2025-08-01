@@ -1,69 +1,99 @@
-<!-- Category: ceramic | Article Type: material | Subject: Kaolin -->
-## Kaolin Specifications
+<!-- Category: ceramic, Article Type: material, Subject: Kaolin -->
+Here are the comprehensive markdown tables generated from the frontmatter data:
 
-Here are comprehensive markdown tables for all available structured data from the Kaolin frontmatter:
+```markdown
+## Kaolin Laser Cleaning Tables
 
-## Keywords
+### Author Information
+| Field | Value |
+|-------|-------|
+| Author ID | 1 |
+| Author Name | Evelyn Wu |
+| Author Country | Taiwan |
+| Credentials | Industry Expert in Laser Cleaning Technology |
+
+### Keywords
 | Keyword |
 |---------|
-| Laser ablation |
-| Non-contact cleaning |
-| Kaolinite clay |
-| Surface preparation |
-| Contaminant removal |
-| 1064nm absorption |
-| Mineral reflectivity |
-| Aerospace cleaning |
-| Cultural heritage |
-| Electronics decontamination |
-| Thermal barrier |
-| Particle adhesion |
+| Kaolin laser cleaning |
+| ceramic surface treatment |
+| non-contact cleaning |
+| laser ablation parameters |
+| industrial clay cleaning |
+| precision surface preparation |
+| 1064nm wavelength cleaning |
+| pulsed laser applications |
+| mineral conservation |
+| eco-friendly surface treatment |
 
-## Applications
+### Material Properties
+| Property | Value |
+|----------|-------|
+| Density | 2.6 g/cm³ |
+| Melting Point | 1750°C |
+| Thermal Conductivity | 0.15 W/m·K |
+| Laser Type | Nd:YAG |
+| Wavelength | 1064nm ±2nm |
+| Fluence Range | 0.5–8 J/cm² |
+
+### Composition
+| Component | Type | Percentage |
+|-----------|------|------------|
+| Al₂SiO₅ | compound | 90-95% |
+| Quartz | mineral | 3-8% |
+| Organic matter | organic | 0.5-2% |
+
+### Material Compatibility
+| Material | Application |
+|----------|-------------|
+| Porcelain | Restoration cleaning |
+| Stoneware | Surface preparation |
+| Terracotta | Conservation treatment |
+
+### Applications
 | Name | Description |
 |------|-------------|
-| Aerospace Cleaning | Removes oxidation layers from aluminum aircraft components without altering heat-treated surfaces. Kaolin's low thermal conductivity prevents heat transfer to critical structural elements during 500W laser cleaning at 50kHz repetition rates. |
-| Electronics Decontamination | Eliminates flux residues from circuit boards using 0.5mm spot lasers. Kaolin absorbs organic contaminants while reflecting 1064nm wavelengths to protect copper traces, achieving 0.01µm precision. |
-| Monument Restoration | Cleans sandstone and marble artifacts with pulsed 100ns lasers. Kaolin forms a protective barrier that prevents laser etching of historical surfaces while removing biological growths. |
+| Ceramics Restoration | Precision removal of surface contaminants from antique ceramics without damaging the kaolin substrate, using 1064nm wavelength at 2-4 J/cm² fluence. |
+| Industrial Cleaning | Efficient removal of industrial residues from kaolin-based refractory materials with pulsed Nd:YAG lasers at 50-100ns pulse durations. |
+| Art Conservation | Non-invasive cleaning of kaolin-based sculptures and artifacts with controlled laser parameters to preserve original surface textures. |
 
-## Environmental Impact
+### Environmental Impact
 | Benefit | Description |
-|---------|-------------|
-| Zero Solvents | Eliminates VOC emissions by replacing chemical cleaners with kaolin-assisted laser systems, reducing hazardous air pollutants by 100% per California Air Resources Board metrics. |
-| Water Conservation | Requires no rinsing compared to traditional clay slurry methods, saving 500 gallons per cleaning cycle in drought-prone California regions. |
+|--------|-------------|
+| Chemical-Free | Eliminates need for acidic cleaning solutions, preventing groundwater contamination and reducing hazardous waste disposal by 95%. |
+| Precision Conservation | Minimizes material loss during cleaning operations, preserving cultural artifacts with 0.1mm accuracy and no secondary waste. |
 
-## Regulatory Standards
+### Regulatory Standards
 | Code | Description |
 |------|-------------|
-| OSHA 29 CFR 1910.147 | Energy Control Standard for laser equipment |
-| NFPA 70E | Electrical Safety in the Workplace |
+| ASTM C242 | Standard Terminology of Ceramic Whitewares |
+| OSHA 1910.1200 | Hazard Communication Standard |
 
-## Outcomes
+### Performance Outcomes
 | Result | Metric |
-|--------|--------|
-| 99.7% purity | SEM-EDS contamination analysis |
-| 0.2µm precision | Laser profilometry measurements |
+|-------|-------|
+| 99.7% purity | XRF analysis post-cleaning |
+| 0.02mm precision | Surface profilometry |
 
-## Composition
-| Component | Percentage | Type |
-|-----------|------------|------|
-| Kaolinite | 85-95% | Phyllosilicate |
-| Quartz | 3-8% | Mineral |
-
-## Compatibility
-| Material | Application |
-|----------|------------|
-| Aluminum alloys | Aircraft skin cleaning |
-| Marble | Historical building restoration |
-
-## Technical Specifications
+### Technical Specifications
 | Parameter | Value |
 |-----------|-------|
-| compliance | California OSHA Title 8 Section 5417 |
-| coolingSystem | Closed-loop chiller (-10°C to +40°C) |
-| powerRange | 50–500W (modular) |
-| pulseDuration | 10–100ns adjustable |
-| repetitionRate | 20–200kHz |
-| safetyClass | IV (requires enclosure) |
-| spotSize | 0.1–5mm diameter |
-| wavelength | 1064nm ±2nm |
+| Power Range | 20–200W (pulsed) |
+| Pulse Duration | 10–150ns adjustable |
+| Wavelength | 1064nm ±2nm |
+| Spot Size | 0.2–3mm diameter |
+| Repetition Rate | 10–100kHz |
+| Safety Class | IV (enclosure required) |
+| Compliance | California OSHA Title 8 |
+
+### Manufacturing Centers
+| Location | Region | Neighbors |
+|----------|--------|-----------|
+| Santa Clara County | Bay Area | San Jose, Sunnyvale |
+| Orange County | Southern California | Irvine, Anaheim |
+
+### Countries
+| Country |
+|---------|
+| United States |
+```

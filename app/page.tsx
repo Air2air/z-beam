@@ -40,7 +40,6 @@ export default async function HomePage() {
           slugs={slugs}
           filterBy="material"
           heading="Material-Specific Solutions"
-          description="Laser cleaning solutions tailored for specific materials"
           columns={3}
         />
       </section>
@@ -51,7 +50,6 @@ export default async function HomePage() {
           slugs={slugs}
           filterBy="application"
           heading="Applications & Techniques"
-          description="Discover various laser cleaning applications and methodologies"
           columns={2}
         />
       </section>
@@ -62,7 +60,6 @@ export default async function HomePage() {
           slugs={slugs}
           filterBy="all"
           heading="All Solutions"
-          description="Browse our complete library of laser cleaning technologies"
           columns={4}
         />
       </section>

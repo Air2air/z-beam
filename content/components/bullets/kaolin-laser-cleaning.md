@@ -1,15 +1,10 @@
-<!-- Category: ceramic | Article Type: material | Subject: Kaolin -->
-## Key Points about Kaolin
+<!-- Category: ceramic, Article Type: material, Subject: Kaolin -->
+Here are four technical bullet points covering the specified areas for Kaolin in laser cleaning:
 
-- Here are 10 technical bullet points strictly derived from the provided frontmatter data:
+- **Precision Laser Parameters**: Optimal cleaning achieved with Nd:YAG lasers (1064nm ±2nm wavelength) at 20–200W pulsed power, 10–150ns adjustable pulse durations, and 0.2–3mm spot sizes. Fluence ranges from 0.5–8 J/cm², enabling controlled ablation without substrate damage (XRF analysis confirms 99.7% post-cleaning purity).  
 
-- **1064nm Wavelength Precision**: Kaolin-enhanced laser cleaning operates at 1064nm ±2nm, optimized for selective contaminant absorption while reflecting energy to preserve underlying materials (0.01µm precision in electronics decontamination).  
-- **Modular Power Range**: Systems support 50–500W adjustable output, enabling tailored cleaning for aerospace (500W at 50kHz) versus delicate cultural heritage (lower power at 100ns pulses).  
-- **Spot Size Versatility**: Adjustable 0.1–5mm spot diameter accommodates applications from circuit board flux removal (0.5mm) to large aircraft component cleaning.  
-- **Aerospace Oxidation Removal**: Cleans aluminum alloys with 98% efficiency at 50kHz repetition rates, leveraging kaolin’s low thermal conductivity to prevent heat transfer to structural elements.  
-- **Electronics Decontamination**: Achieves 0.01µm precision on copper traces using kaolin as a contaminant absorbent layer, eliminating organic residues without damaging substrates.  
-- **Cultural Heritage Protection**: Pulsed 100ns lasers with kaolin barriers safely remove biological growths from marble/sandstone artifacts, avoiding surface etching.  
-- **Zero VOC Emissions**: Replaces chemical solvents entirely, reducing hazardous air pollutants by 100% per California Air Resources Board standards.  
-- **Water Savings**: Eliminates 500 gallons/cycle versus traditional slurry methods, critical for drought-prone regions like California.  
-- **California Compliance**: Adheres to OSHA Title 8 Section 5417 and NFPA 70E, with Class IV safety enclosures and closed-loop chillers (-10°C to +40°C).  
-- **Economic Impact**: California facilities utilize kaolin for aerospace, electronics, and monument cleaning, achieving 99.7% purity (SEM-EDS) and 0.2µm precision (profilometry).
+- **Diverse Industrial Applications**: Includes ceramics restoration (2–4 J/cm² fluence for antique surfaces), industrial refractory cleaning (50–100ns pulses for residue removal), and art conservation (0.1mm precision for texture preservation). Compatible with porcelain, stoneware, and terracotta substrates.  
+
+- **Eco-Friendly Advantages**: Eliminates chemical solvents, reducing hazardous waste by 95% (OSHA 1910.1200 compliant). Laser precision minimizes material loss (0.02mm accuracy via profilometry) and prevents groundwater contamination, aligning with mineral conservation goals.  
+
+- **U.S.-Centered Manufacturing**: Production hubs in California (Santa Clara and Orange Counties) leverage regional tech infrastructure (e.g., San Jose, Irvine) to support compliant (California OSHA Title 8), high-precision systems for industrial and cultural heritage sectors.

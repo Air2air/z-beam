@@ -23,7 +23,7 @@ export interface MetaTagsData {
   url?: string;
 }
 
-export interface EnhancedArticle {
+export interface Article {
   slug: string;
   metadata: MetaTagsData;
   components: {
@@ -35,7 +35,7 @@ export interface EnhancedArticle {
   };
 }
 
-export async function getEnhancedArticle(slug: string): Promise<EnhancedArticle | null> {
+export async function getArticle(slug: string): Promise<Article | null> {
   try {
     const [tableData, bulletsData, captionData, contentData, jsonldData, metatagsData] = await Promise.all([
       loadTableData(slug),

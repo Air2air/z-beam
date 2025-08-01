@@ -1,80 +1,20 @@
-<!-- Category: ceramic | Article Type: material | Subject: Alumina -->
+<!-- Category: ceramic, Article Type: material, Subject: Alumina -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Alumina",
-  "description": "Alumina (Al\u2082O\u2083) is a high-performance ceramic material widely used in laser cleaning due to its thermal stability, hardness, and chemical resistance. Its high melting point (2072\u00b0C) makes it ideal for high-power laser applications.",
-  "url": "https://www.z-beam.com/alumina-material",
-  "brand": {
-    "@type": "Organization",
-    "name": "Z-Beam"
-  },
-  "material": [
-    {
-      "@type": "ChemicalSubstance",
-      "name": "Alpha-Alumina",
-      "description": "99.7% crystalline phase"
-    },
-    {
-      "@type": "ChemicalSubstance",
-      "name": "Trace elements",
-      "description": "0.3% sintering aids"
-    }
+  "@type": "TechnicalArticle",
+  "headline": "Technical Guide to Laser Cleaning Alumina Ceramics",
+  "description": "Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.",
+  "url": "https://www.z-beam.com",
+  "keywords": [
+    "alumina laser cleaning",
+    "ceramic surface treatment",
+    "non-contact cleaning",
+    "oxide ceramic ablation",
+    "laser parameters for Al₂O₃"
   ],
-  "applicationCategory": [
-    "Electronics Cleaning",
-    "Aerospace Stripping",
-    "Art Restoration"
-  ],
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "Power Range",
-      "value": "50\u2013500W (modular)"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Wavelength",
-      "value": "1064nm \u00b12nm"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Beam Quality",
-      "value": "M\u00b2 < 1.3"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Compliance",
-      "value": "California OSHA Title 8 Section 5417"
-    }
-  ],
-  "manufacturer": {
-    "@type": "Organization",
-    "name": "Laser Technology Institute",
-    "location": [
-      {
-        "@type": "Place",
-        "name": "Fremont",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Fremont",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        }
-      },
-      {
-        "@type": "Place",
-        "name": "Irvine",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Irvine",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        }
-      }
-    ]
-  },
+  "datePublished": "2023-11-15",
+  "dateModified": "2023-11-15",
   "author": {
     "@type": "Person",
     "name": "Evelyn Wu",
@@ -82,27 +22,118 @@
       "@type": "Country",
       "name": "Taiwan"
     },
-    "description": "Industry Leader in Laser Cleaning Technology"
+    "description": "Industry Expert in Laser Cleaning Technology"
   },
-  "datePublished": "2023-11-15",
-  "dateModified": "2023-11-15",
   "publisher": {
     "@type": "Organization",
     "name": "Z-Beam",
     "url": "https://www.z-beam.com"
   },
-  "keywords": "Laser ablation, Oxide removal, Non-contact cleaning, Thermal stability, Ceramic substrates",
-  "hasMeasurement": [
+  "about": {
+    "@type": "Product",
+    "name": "Alumina (Al₂O₃)",
+    "description": "High-purity ceramic material for industrial applications",
+    "material": [
+      {
+        "@type": "ChemicalSubstance",
+        "name": "Aluminum Oxide",
+        "percentComposition": "99.5%"
+      }
+    ],
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "density",
+        "value": "3.95 g/cm³"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "meltingPoint",
+        "value": "2072°C"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "thermalConductivity",
+        "value": "30 W/m·K"
+      }
+    ]
+  },
+  "applicationCategory": [
+    "Semiconductor Tools",
+    "Medical Implants",
+    "Industrial Seals"
+  ],
+  "mentions": [
+    {
+      "@type": "Place",
+      "name": "Santa Clara County",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "California",
+        "addressLocality": "Bay Area"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "37.3541",
+        "longitude": "-121.9552"
+      }
+    }
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "laserType",
+      "value": "Fiber laser"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "wavelength",
+      "value": "1064nm ±2nm"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "fluenceRange",
+      "value": "0.5–20 J/cm²"
+    }
+  ],
+  "result": [
     {
       "@type": "QuantitativeValue",
-      "name": "Surface Roughness",
-      "value": "0.5\u00b5m Ra",
-      "valueReference": "ASME B46.1"
+      "name": "Surface purity",
+      "value": "99.9%",
+      "valueReference": "XPS surface analysis"
     },
     {
       "@type": "QuantitativeValue",
-      "name": "Melting Point",
-      "value": "2072\u00b0C"
+      "name": "Cleaning precision",
+      "value": "Sub-micron",
+      "valueReference": "White light interferometry"
+    }
+  ],
+  "citation": [
+    {
+      "@type": "CreativeWork",
+      "name": "ISO 13485",
+      "description": "Medical device manufacturing quality management"
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "SEMI S2",
+      "description": "Safety guidelines for semiconductor equipment"
+    }
+  ],
+  "characteristic": [
+    {
+      "@type": "PropertyValue",
+      "name": "Environmental Benefit",
+      "value": "Chemical-Free",
+      "description": "Eliminates need for acidic/alkaline cleaners, preventing hazardous wastewater generation"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Energy Efficiency",
+      "value": "40% less energy",
+      "description": "Compared to ultrasonic cleaning methods"
     }
   ]
 }
