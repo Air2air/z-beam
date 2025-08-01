@@ -1,51 +1,27 @@
 import { notFound } from "next/navigation";
-import {
-  getArticle,
-  loadComponentData,
-  getAllArticleSlugs,
-} from "@/app/utils/contentIntegrator";
+import { getArticle, getAllArticleSlugs } from "@/app/utils/contentIntegrator";
 import { Layout } from "@/app/components/Layout/Layout";
 import type { Metadata } from "next";
 import { createMetadata } from "@/app/utils/metadata";
 
+// Update interface to indicate params is a Promise
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-interface ArticleMetadata {
-  subject?: string;
-  description?: string;
-  keywords?: string[];
-  ogImage?: string;
-  category?: string;
-}
-
-interface ArticleData {
-  metadata: ArticleMetadata;
-  components: Record<string, any> | null;
-}
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  // Await params before using its properties
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  // Await params before destructuring
   const resolvedParams = await params;
   const { slug } = resolvedParams;
-
-  const metaTags = await loadComponentData("metatags", slug);
-  const article = await getArticle(slug) as ArticleData | null;
-
-  return createMetadata({
-    title: metaTags?.config?.title || article?.metadata?.subject || slug,
-    description:
-      metaTags?.config?.description || article?.metadata?.description,
-    keywords: metaTags?.config?.keywords || article?.metadata?.keywords,
-    ogImage: metaTags?.config?.ogImage || article?.metadata?.ogImage,
-    ogType: metaTags?.config?.ogType || "article",
-    canonical: metaTags?.config?.canonical || `https://z-beam.com/${slug}`,
-    noindex: metaTags?.config?.noindex,
-    jsonLd: article?.components?.jsonld,
-  });
+  
+  const article = await getArticle(slug);
+  
+  if (!article) {
+    return {}; // Return empty metadata for not found
+  }
+  
+  // Use the article metadata directly
+  return createMetadata(article.metadata);
 }
 
 export async function generateStaticParams() {
@@ -58,19 +34,17 @@ export async function generateStaticParams() {
   }
 }
 
-// Update page component
 export default async function ArticlePage({ params }: PageProps) {
-  // Await params before using its properties
+  // Await params before destructuring
   const resolvedParams = await params;
   const { slug } = resolvedParams;
-
-  const article = await getArticle(slug) as ArticleData | null;
-
+  
+  // Add async/await to properly handle the Promise
+  const article = await getArticle(slug);
+  
   if (!article) {
     notFound();
   }
-
-  const { metadata, components } = article;
-
-  return <Layout components={components} metadata={metadata} slug={slug} />;
+  
+  return <Layout components={article.components} metadata={article.metadata} slug={slug} />;
 }
