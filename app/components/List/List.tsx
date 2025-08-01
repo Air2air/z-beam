@@ -67,12 +67,15 @@ export async function List({
         color: getCategoryColor(article?.metadata?.category)
       } : undefined;
       
+      // Determine image with fallbacks
+      const imageUrl = getArticleImage(item, article);
+      
       return {
         slug: item.slug,
         title: article?.metadata?.subject || item.title || item.slug,
         description: article?.metadata?.description || item.description || '',
         badge: badgeObject,
-        imageUrl: item.image, // Use imageUrl to match Card component prop
+        imageUrl: imageUrl,
         category: article?.metadata?.category || '',
         articleType: article?.metadata?.articleType || '',
       };
@@ -108,11 +111,58 @@ export async function List({
             showBadge={!!item.badge}
             imageUrl={item.imageUrl}
             imageAlt={item.title}
+            metadata={{
+              category: item.category,
+              articleType: item.articleType
+            }}
           />
         ))}
       </div>
     </div>
   );
+}
+
+// Helper function to get article image with fallbacks
+function getArticleImage(
+  item: { slug: string; image?: string; },
+  article: Article | null
+): string {
+  // First, try to use the directly provided image
+  if (item.image) return item.image;
+  
+  // Then, try to get the image from the article metadata
+  const metadataImage = article?.metadata?.image;
+  if (metadataImage) return metadataImage;
+  
+  // Try to get OpenGraph image from metadata if available
+  const ogImage = article?.metadata?.['ogImage'] || article?.metadata?.['openGraph']?.['images']?.[0]?.['url'];
+  if (ogImage) return ogImage;
+  
+  // Use a category-specific fallback
+  const category = article?.metadata?.category?.toLowerCase();
+  if (category) {
+    const categoryFallbacks: Record<string, string> = {
+      'ceramic': '/images/fallbacks/ceramic-fallback.jpg',
+      'metal': '/images/fallbacks/metal-fallback.jpg',
+      'polymer': '/images/fallbacks/polymer-fallback.jpg',
+      'material': '/images/fallbacks/material-fallback.jpg',
+      'application': '/images/fallbacks/application-fallback.jpg',
+      'technique': '/images/fallbacks/technique-fallback.jpg',
+      'industry': '/images/fallbacks/industry-fallback.jpg'
+    };
+    
+    if (categoryFallbacks[category]) {
+      return categoryFallbacks[category];
+    }
+  }
+  
+  // Fallback based on slug pattern (for specific content types)
+  if (item.slug.includes('laser-')) {
+    return '/images/fallbacks/laser-fallback.jpg';
+  }
+  
+  // Final default fallback
+  return '/images/fallbacks/default-fallback.jpg';
 }
 
 // Helper function to map categories to colors
