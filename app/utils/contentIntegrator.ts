@@ -76,7 +76,7 @@ export async function getArticle(slug: string): Promise<Article | null> {
 export const getEnhancedArticle = getArticle;
 
 // Generic component loader
-async function loadComponentData(type: string, slug: string, convertMarkdown = false): Promise<{content: string; config?: any} | null> {
+export async function loadComponentData(type: string, slug: string, convertMarkdown = false): Promise<{content: string; config?: any} | null> {
   try {
     const componentPath = path.join(process.cwd(), 'content', 'components', type, `${slug}.md`);
     

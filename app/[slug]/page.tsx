@@ -1,62 +1,32 @@
 import { notFound } from "next/navigation";
-import { getArticle } from '@/app/utils/contentIntegrator';
+import { getArticle, loadComponentData } from '@/app/utils/contentIntegrator';
 import { getAllArticleSlugs } from '@/app/utils/server';
 import { Table } from '@/app/components/Table/Table';
 import { Bullets } from '@/app/components/Bullets/Bullets';
 import { Caption } from '@/app/components/Caption/Caption';
 import type { Metadata } from 'next';
-import Script from 'next/script';
+import { createMetadata } from '@/app/utils/metadata';
 
 interface PageProps {
-  params: Promise<{ slug: string }>;  // Add Promise here
+  params: Promise<{ slug: string }>;
 }
 
-// Update generateMetadata to await params
+// Add await here
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;  // Add await here
+  const { slug } = await params;
+  const metaTags = await loadComponentData('metatags', slug);
   const article = await getArticle(slug);
-  
-  if (!article?.metadata) {
-    return {
-      title: `${slug} | Z-Beam Laser Cleaning`,
-    };
-  }
 
-  // Create basic metadata
-  const metadata: Metadata = {
-    title: `${article.metadata.subject || slug} | Z-Beam Laser Cleaning`,
-    description: article.metadata.description,
-    keywords: article.metadata.keywords?.join(', '),
-    authors: article.metadata.author ? [{ name: article.metadata.author }] : undefined,
-    openGraph: {
-      title: article.metadata.subject || slug,
-      description: article.metadata.description,
-      type: 'article',
-      url: `https://z-beam.com/${slug}`,
-      siteName: 'Z-Beam Laser Cleaning',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: article.metadata.subject || slug,
-      description: article.metadata.description,
-    },
-  };
-  
-  // Add JSON-LD via the script field in the Metadata object
-  if (article.components.jsonld) {
-    // Type assertion to bypass the type checking for this property
-    (metadata as any).other = {
-      'script:ld+json': [
-        {
-          type: 'application/ld+json',
-          text: JSON.stringify(article.components.jsonld),
-          id: `jsonld-${slug}`,
-        },
-      ],
-    };
-  }
-  
-  return metadata;
+  return createMetadata({
+    title: metaTags?.config?.title || article?.metadata?.subject || slug,
+    description: metaTags?.config?.description || article?.metadata?.description,
+    keywords: metaTags?.config?.keywords || article?.metadata?.keywords,
+    ogImage: metaTags?.config?.ogImage || article?.metadata?.ogImage,
+    ogType: metaTags?.config?.ogType || "article",
+    canonical: metaTags?.config?.canonical || `https://z-beam.com/${slug}`,
+    noindex: metaTags?.config?.noindex,
+    jsonLd: article?.components?.jsonld,
+  });
 }
 
 export async function generateStaticParams() {
@@ -64,9 +34,9 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
-// Update ArticlePage to await params
+// Add await here
 export default async function ArticlePage({ params }: PageProps) {
-  const { slug } = await params;  // Add await here
+  const { slug } = await params;
   const article = await getArticle(slug);
 
   if (!article) {
@@ -77,16 +47,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <>
-      {/* Add JSON-LD script directly in the page */}
-      {components.jsonld && (
-        <Script 
-          id={`jsonld-${slug}`}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(components.jsonld)
-          }}
-        />
-      )}
+      {/* Remove any manual JSON-LD Script components */}
       
       <section className="max-w-4xl mx-auto px-4 py-8">
         {/* Header */}

@@ -1,40 +1,20 @@
 // app/layout.tsx
-import "./css/global.css";
-import type { Metadata } from "next";
+import "./css/global.css"; // Use CSS instead of SCSS to avoid deprecation warnings
+import type { Metadata, Viewport } from "next";
 import { GeistSans, GeistMono } from "geist/font";
 import { Navbar } from "./components/Layout/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Layout/footer";
 
-// Define default metadata directly here
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Z-Beam Laser Cleaning Solutions",
-  description:
-    "Advanced laser cleaning technology for industrial applications. Precision surface preparation, coating removal, and material restoration.",
-  keywords:
-    "laser cleaning, industrial cleaning, surface preparation, coating removal, rust removal, paint stripping",
-
-  openGraph: {
-    title: "Z-Beam Laser Cleaning Solutions",
-    description: "Advanced laser cleaning technology for industrial applications.",
-    url: "https://z-beam.com",
-    siteName: "Z-Beam",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "https://z-beam.com/images/og/default.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Z-Beam Laser Cleaning",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-  },
+  metadataBase: new URL("https://z-beam.com"),
+  // Only minimal shared metadata here
 };
 
 export default function RootLayout({

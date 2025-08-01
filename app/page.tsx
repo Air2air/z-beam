@@ -4,12 +4,35 @@ import type { Metadata } from "next";
 import { List } from "./components/List/List";
 import { HomeCardList } from "./components/List/HomeCardList";
 import { getAllArticleSlugs } from "./utils/server";
+import { getArticle, loadComponentData } from "./utils/contentIntegrator"; // Add loadComponentData here
+import { createMetadata } from "./utils/metadata";
 
-export const metadata: Metadata = {
-  title: "Home | Z-Beam",
-  description:
-    "Welcome to Z-Beam's portfolio showcasing laser cleaning solutions for industrial applications.",
-};
+// Remove this static declaration
+// export const metadata: Metadata = {
+//   title: "Home | Z-Beam",
+//   description:
+//     "Welcome to Z-Beam's portfolio showcasing laser cleaning solutions for industrial applications.",
+// };
+
+// Keep only the dynamic generateMetadata function
+export async function generateMetadata() {
+  // Try to get the home-specific metatags component
+  const homeMetaTags = await loadComponentData('metatags', 'home');
+  // Also get the home article for any additional metadata
+  const homeArticle = await getArticle("home");
+
+  return createMetadata({
+    title: homeMetaTags?.config?.title || "Z-Beam Laser Cleaning Solutions",
+    description: homeMetaTags?.config?.description || 
+      "Advanced laser cleaning technology for industrial applications",
+    keywords: homeMetaTags?.config?.keywords,
+    ogImage: homeMetaTags?.config?.ogImage || "/images/home-og.jpg",
+    ogType: homeMetaTags?.config?.ogType || "website",
+    canonical: homeMetaTags?.config?.canonical,
+    noindex: homeMetaTags?.config?.noindex,
+    jsonLd: homeArticle?.components?.jsonld,
+  });
+}
 
 export default async function HomePage() {
   // Only fetch slugs once
