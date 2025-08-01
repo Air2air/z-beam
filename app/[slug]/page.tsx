@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { getArticle, loadComponentData } from '@/app/utils/contentIntegrator';
-import { getAllArticleSlugs } from '@/app/utils/server';
+import { getArticle, loadComponentData, getAllArticleSlugs } from '@/app/utils/contentIntegrator';
+import { Content } from '@/app/components/Content/Content';
 import { Table } from '@/app/components/Table/Table';
 import { Bullets } from '@/app/components/Bullets/Bullets';
 import { Caption } from '@/app/components/Caption/Caption';
@@ -47,68 +47,43 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <>
-      {/* Remove any manual JSON-LD Script components */}
-      
       <section className="max-w-4xl mx-auto px-4 py-8">
-        {/* Header */}
         <header className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {metadata?.subject || `Article: ${slug}`}
           </h1>
-          
-          {/* Add metadata display */}
-          {metadata && (
-            <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              {metadata.category && (
-                <span className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2">
-                  {metadata.category}
-                </span>
-              )}
-              {metadata.articleType && (
-                <span className="inline-block bg-green-100 text-green-800 px-2 py-1 rounded mr-2">
-                  {metadata.articleType}
-                </span>
-              )}
-              {metadata.author && (
-                <div className="mt-2">
-                  <span className="font-medium">Author:</span> {metadata.author}
-                </div>
-              )}
-            </div>
-          )}
         </header>
-
-        {/* Components - Each handles its own config and rendering */}
-        {components.caption && (
-          <Caption 
-            content={components.caption.content}
-            config={components.caption.config}
+        
+        {/* Render all components based on article data */}
+        {components?.content && (
+          <Content 
+            content={components.content.content} 
+            config={components.content.config || {
+              wrapHeadings: true,
+              maxWidth: 'max-w-4xl'
+            }}
           />
         )}
-
-        {components.content && (
-          <article className="prose prose-md dark:prose-invert max-w-none">
-            <div dangerouslySetInnerHTML={{ __html: components.content }} />
-          </article>
-        )}
-
-        {components.bullets && (
+        
+        {components?.bullets && (
           <Bullets 
-            content={components.bullets.content}
+            content={components.bullets.content} 
             config={components.bullets.config}
           />
         )}
-
-        {components.table && (
-          <div className="mt-8">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              Technical Specifications
-            </h3>
-            <Table 
-              content={components.table.content}
-              config={components.table.config}
-            />
-          </div>
+        
+        {components?.table && (
+          <Table 
+            content={components.table.content} 
+            config={components.table.config}
+          />
+        )}
+        
+        {components?.caption && (
+          <Caption 
+            content={components.caption.content} 
+            config={components.caption.config}
+          />
         )}
       </section>
     </>

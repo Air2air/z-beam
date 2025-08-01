@@ -261,3 +261,19 @@ function generateJsonLDFromMetadata(slug: string, metadata: MetaTagsData): any {
   
   return jsonLdData;
 }
+
+// Get all article slugs
+export async function getAllArticleSlugs() {
+  try {
+    const articlesDir = path.join(process.cwd(), 'content', 'articles');
+    const files = fs.readdirSync(articlesDir);
+    
+    // Extract slugs from filenames (removing .md extension)
+    return files
+      .filter(file => file.endsWith('.md'))
+      .map(file => file.replace(/\.md$/, ''));
+  } catch (error) {
+    console.error('Error getting article slugs:', error);
+    return [];
+  }
+}

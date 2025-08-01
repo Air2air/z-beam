@@ -6,7 +6,7 @@ import './styles.css';
 interface BulletsProps {
   content: string;
   config?: {
-    className?: string; // Removed style variant
+    className?: string;
   };
 }
 
@@ -21,6 +21,7 @@ export function Bullets({ content, config }: BulletsProps) {
         content={content}
         className="bullets-container"
         prose={true}
+        convertMarkdown={true}
       />
     </div>
   );
