@@ -1,8 +1,5 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-- **Precision Laser Specifications**: Optimal cleaning uses a **1064nm ±2nm fiber laser** with adjustable **10–200ns pulse durations**, **0.5–10 J/cm² fluence range**, and **0.2–3mm spot size**. Modular **100–1000W power** systems enable tailored treatment for varying Alumina thicknesses (density: **3.95 g/cm³**).  
-- **Industrial Applications**:  
-  - **Semiconductor Prep**: Removes oxide layers at **0.8–1.2 J/cm²** (1064nm) for substrate preparation.  
-  - **Medical Devices**: **20–50ns pulses** clean implantable Alumina without microcracking (per **ASTM F2888**).  
-  - **Aerospace**: **5–8 J/cm²** fluence maintains porosity in turbine thermal barriers.  
-- **Eco-Efficiency**: Eliminates VOC emissions (100% CARB-compliant) and reduces energy use by **40%** vs. plasma cleaning. Generates **90% less waste** with non-abrasive, solvent-free processing.  
-- **US-Based Manufacturing**: Systems are produced in **Santa Clara County, California** (Bay Area), adhering to **California OSHA Title 8 Section 5417** for industrial laser safety (**Class IV**).  
+- **Precision Laser Parameters**: Optimal cleaning uses an Nd:YAG laser (1064nm ±2nm wavelength) with adjustable pulse durations (10–150ns), fluence range of 1.5–10 J/cm², and spot sizes from 0.05–3mm. Systems operate at 20–200W pulsed power and 10–100kHz repetition rates for controlled ablation of Al₂O₃ surfaces (density: 3.95 g/cm³).  
+- **Industrial Applications**: Key uses include semiconductor manufacturing (organic contaminant removal from alumina substrates), medical device sterilization (non-chemical cleaning of ceramic implants), and aerospace thermal barrier coating maintenance (oxidation layer removal without substrate damage).  
+- **Eco-Efficiency**: Eliminates hazardous acid waste (100% reduction) and consumes 40% less energy than mechanical methods, complying with ASTM F2459 standards for sustainable alumina surface preparation.  
+- **U.S.-Centric Production**: Manufacturing hubs in Santa Clara and Orange County, California, support high-purity (99.9% Al₂O₃) outcomes (0.1μm precision via profilometry) for domestic aerospace and semiconductor industries.

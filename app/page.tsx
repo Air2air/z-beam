@@ -1,11 +1,10 @@
 // app/page.tsx - Much simpler
 
-import type { Metadata } from "next";
 import { List } from "./components/List/List";
 import { HomeCardList } from "./components/List/HomeCardList";
-import { getAllArticleSlugs } from "./utils/server";
 import { getArticle, loadComponentData } from "./utils/contentIntegrator"; // Add loadComponentData here
 import { createMetadata } from "./utils/metadata";
+import { getAllArticleSlugs } from "./utils/contentUtils";
 
 // Remove this static declaration
 // export const metadata: Metadata = {

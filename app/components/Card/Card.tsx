@@ -29,6 +29,7 @@ const CARD_CONFIG = {
 export interface CardProps {
   href: string;
   title: string;
+  name?: string; // Add this property
   description?: string;
   image?: string;
   imageUrl?: string;
@@ -56,6 +57,7 @@ export interface CardProps {
 export function Card({
   href,
   title,
+  name, // Add this to props
   description,
   image,
   imageUrl,
@@ -116,7 +118,7 @@ export function Card({
         >
           <Thumbnail
             src={image || imageUrl}
-            alt={imageAlt || title}
+            alt={imageAlt || name || title} // Update this too
             fallbackSrc="/images/Site/Logo/logo_.png"
             objectFit="cover" // Change from "contain" to "cover"
             priority={false}
@@ -140,7 +142,7 @@ export function Card({
 
         {/* Card Content */}
         <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>
-          <h3 className={CARD_CONFIG.titleClass}>{title}</h3>
+          <h3 className={CARD_CONFIG.titleClass}>{name || title}</h3> {/* Use name with fallback to title */}
           {description && (
             <p className={CARD_CONFIG.descriptionClass}>{description}</p>
           )}
@@ -150,8 +152,4 @@ export function Card({
   );
 }
 
-// In Thumbnail.tsx, adjust the THUMBNAIL_CONFIG
-const THUMBNAIL_CONFIG = {
-  fallbackPadding: "p-4", // Reduced padding for smaller containers
-  fallbackBg: "bg-gray-100 dark:bg-gray-700",
-};
+

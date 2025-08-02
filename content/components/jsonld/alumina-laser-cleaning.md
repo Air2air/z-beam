@@ -3,20 +3,20 @@
 {
   "@context": "https://schema.org",
   "@type": "TechnicalArticle",
-  "headline": "Technical guide to laser cleaning Alumina surfaces in industrial applications",
-  "description": "Technical guide to Alumina for laser cleaning, covering optimal parameters, safety protocols, and environmental benefits of non-contact surface treatment.",
+  "headline": "Technical guide to laser cleaning Alumina (Al₂O₃) surfaces",
+  "description": "Technical guide to Alumina for laser cleaning applications, covering optimal parameters, safety protocols, and industrial use cases for this ceramic material.",
   "url": "https://www.z-beam.com",
   "keywords": [
-    "laser cleaning",
-    "Alumina",
-    "ceramic surface treatment",
-    "non-abrasive cleaning",
-    "industrial laser applications",
+    "alumina laser cleaning",
+    "Al₂O₃ surface treatment",
+    "ceramic laser ablation",
+    "non-contact cleaning",
     "oxide removal",
-    "pulsed laser cleaning",
-    "surface preparation",
+    "industrial laser applications",
+    "precision surface cleaning",
+    "laser parameters for ceramics",
     "contaminant removal",
-    "thermal shock resistance"
+    "high-purity surface preparation"
   ],
   "datePublished": "2023-11-15",
   "dateModified": "2023-11-15",
@@ -27,7 +27,7 @@
       "@type": "Country",
       "name": "Taiwan"
     },
-    "description": "Industry Expert in Laser Cleaning Technology"
+    "hasCredential": "Industry Expert in Laser Cleaning Technology"
   },
   "publisher": {
     "@type": "Organization",
@@ -36,20 +36,25 @@
   },
   "about": {
     "@type": "Product",
-    "name": "Alumina",
-    "description": "High-purity ceramic material for industrial applications",
-    "material": [
-      {
-        "@type": "ChemicalSubstance",
-        "name": "Aluminum Oxide",
-        "percentComposition": "99.5%"
-      },
-      {
-        "@type": "ChemicalSubstance",
-        "name": "Trace elements",
-        "percentComposition": "0.5%"
-      }
-    ],
+    "name": "Alumina (Al₂O₃)",
+    "description": "High-purity ceramic material used in precision industrial applications",
+    "chemicalComposition": {
+      "@type": "ChemicalSubstance",
+      "name": "Aluminum Oxide",
+      "molecularFormula": "Al₂O₃",
+      "hasMolecularComponent": [
+        {
+          "@type": "MolecularEntity",
+          "name": "Aluminum",
+          "symbol": "Al"
+        },
+        {
+          "@type": "MolecularEntity",
+          "name": "Oxygen",
+          "symbol": "O"
+        }
+      ]
+    },
     "additionalProperty": [
       {
         "@type": "PropertyValue",
@@ -66,17 +71,29 @@
         "name": "thermalConductivity",
         "value": "30 W/m·K"
       }
+    ],
+    "applicationCategory": [
+      "Semiconductor Manufacturing",
+      "Medical Devices",
+      "Aerospace Components"
+    ],
+    "material": [
+      {
+        "@type": "ChemicalSubstance",
+        "name": "Aluminum Oxide",
+        "percentComposition": "99.9%"
+      },
+      {
+        "@type": "ChemicalSubstance",
+        "name": "Trace elements",
+        "percentComposition": "0.1%"
+      }
     ]
   },
-  "applicationCategory": [
-    "Semiconductor Prep",
-    "Medical Device",
-    "Aerospace"
-  ],
   "mentions": [
     {
       "@type": "Product",
-      "name": "Fiber laser",
+      "name": "Nd:YAG Laser System",
       "additionalProperty": [
         {
           "@type": "PropertyValue",
@@ -86,55 +103,38 @@
         {
           "@type": "PropertyValue",
           "name": "fluenceRange",
-          "value": "0.5–10 J/cm²"
+          "value": "1.5–10 J/cm²"
         },
         {
           "@type": "PropertyValue",
           "name": "powerRange",
-          "value": "100–1000W (modular)"
+          "value": "20–200W pulsed"
         }
       ]
     }
   ],
-  "result": [
-    {
-      "@type": "QuantitativeValue",
-      "name": "Surface purity",
-      "value": "99.9%",
-      "valueReference": "SEM contamination analysis"
-    },
-    {
-      "@type": "QuantitativeValue",
-      "name": "Precision",
-      "value": "0.1µm",
-      "valueReference": "Surface roughness measurement"
-    }
-  ],
+  "industry": "Industrial Laser Applications",
+  "timeRequired": "PT5M",
+  "educationalLevel": "Advanced",
+  "result": {
+    "@type": "QuantitativeValue",
+    "name": "Cleaning Results",
+    "value": "99.9% purity",
+    "valueReference": "SEM surface analysis"
+  },
   "locationCreated": {
     "@type": "Place",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Santa Clara County",
-      "addressRegion": "California",
-      "addressCountry": "United States"
-    },
+    "name": "Santa Clara County, California",
     "geo": {
       "@type": "GeoCoordinates",
-      "addressCountry": "United States",
-      "addressRegion": "California"
-    }
-  },
-  "citation": [
-    {
-      "@type": "CreativeWork",
-      "name": "ISO 18562-1",
-      "description": "Biocompatibility testing of medical device materials"
+      "latitude": "37.3541",
+      "longitude": "-121.9552"
     },
-    {
-      "@type": "CreativeWork",
-      "name": "ASTM F2888",
-      "description": "Standard for ceramic components in medical implants"
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "California",
+      "addressCountry": "US"
     }
-  ]
+  }
 }
 </script>
