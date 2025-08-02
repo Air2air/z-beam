@@ -40,8 +40,39 @@ export async function getAllTags(): Promise<string[]> {
 }
 
 // Get all articles (this depends on your content structure)
+// For testing - replace the empty implementation with this
 export async function getAllArticles(): Promise<Article[]> {
-  // Your implementation to get all articles
-  // For now, return empty array with correct type
-  return [] as Article[];
+  // Mock data for testing
+  return [
+    {
+      slug: 'article-1',
+      title: 'Test Article 1',
+      description: 'This is a test article about aluminum',
+      tags: ['aluminum', 'metal', 'materials'],
+      metadata: {
+        keywords: ['aluminum oxide', 'manufacturing'],
+        category: 'Materials'
+      }
+    },
+    {
+      slug: 'article-2',
+      title: 'Working with Ceramics',
+      description: 'A guide to ceramic materials',
+      tags: ['ceramic', 'materials', 'manufacturing'],
+      metadata: {
+        keywords: ['alumina', 'silicon nitride'],
+        category: 'Materials'
+      }
+    },
+    {
+      slug: 'article-3',
+      title: 'Laser Cleaning Technologies',
+      description: 'Modern approaches to laser cleaning',
+      tags: ['laser', 'cleaning', 'surface treatment'],
+      metadata: {
+        keywords: ['laser ablation', 'surface preparation'],
+        category: 'Processes'
+      }
+    }
+  ];
 }
