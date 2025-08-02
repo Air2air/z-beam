@@ -20,13 +20,35 @@ interface ListProps {
   className?: string;
 }
 
-// First, add these interfaces at the top of your file
+// Update your existing ArticleMetadata interface at the top of the file
 interface ArticleMetadata {
   subject?: string;
   description?: string;
   category?: string;
   articleType?: string;
   image?: string;
+  chemicalSymbol?: string;
+  atomicNumber?: number;
+  chemicalFormula?: string;
+  // Add the properties field
+  properties?: {
+    chemicalFormula?: string;
+    density?: string;
+    meltingPoint?: string;
+    thermalConductivity?: string;
+    laserType?: string;
+    wavelength?: string;
+    fluenceRange?: string;
+  };
+  // Add composition field
+  composition?: Array<{
+    component: string;
+    percentage: string;
+    type: string;
+    formula?: string;
+  }>;
+  // Optional: Add this for flexibility with other fields
+  [key: string]: any;
 }
 
 interface Article {
@@ -55,7 +77,7 @@ export async function List({
     processedItems.push(...slugItems);
   }
   
-  // Fetch articles
+  // Fetch articles - Update the return object structure
   const articles = await Promise.all(
     processedItems.map(async (item) => {
       const article = await getArticle(item.slug) as Article | null;
@@ -70,6 +92,23 @@ export async function List({
       // Determine image with fallbacks
       const imageUrl = getArticleImage(item, article);
       
+      // Extract chemical data from article
+      let chemicalSymbol = article?.metadata?.chemicalSymbol;
+      let atomicNumber = article?.metadata?.atomicNumber;
+      let chemicalFormula = article?.metadata?.chemicalFormula;
+      
+      // If not directly in metadata, try to get from properties
+      if (!chemicalFormula && article?.metadata?.properties?.chemicalFormula) {
+        chemicalFormula = article.metadata.properties.chemicalFormula;
+      }
+      
+      // If we have a formula but no symbol, extract symbol from formula or name
+      if (chemicalFormula && !chemicalSymbol) {
+        // Extract first element from formula (e.g., "Al" from "Al₂O₃")
+        const match = chemicalFormula.match(/([A-Z][a-z]?)/);
+        chemicalSymbol = match ? match[0] : article?.metadata?.subject?.substring(0, 2) || '';
+      }
+      
       return {
         slug: item.slug,
         title: article?.metadata?.subject || item.title || item.slug,
@@ -78,6 +117,12 @@ export async function List({
         imageUrl: imageUrl,
         category: article?.metadata?.category || '',
         articleType: article?.metadata?.articleType || '',
+        // Add these properties directly to the item
+        chemicalSymbol,
+        atomicNumber,
+        chemicalFormula,
+        // Pass the full article for other needs
+        materialData: article
       };
     })
   );
@@ -113,8 +158,12 @@ export async function List({
             imageAlt={item.title}
             metadata={{
               category: item.category,
-              articleType: item.articleType
+              articleType: item.articleType,
+              chemicalSymbol: item.chemicalSymbol,
+              atomicNumber: item.atomicNumber,
+              chemicalFormula: item.chemicalFormula
             }}
+            materialData={item.materialData}
           />
         ))}
       </div>

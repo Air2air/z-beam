@@ -1,22 +1,38 @@
 // app/components/Card/Card.tsx
 "use client";
 
-import './styles.scss';
-import { useState } from 'react';
+import "./styles.scss";
+import { useState, useMemo } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { OptimizedImage } from "../UI/OptimizedImage";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
-import { Tags } from "../Tags/Tags";
+import { getBadgeData } from "../../utils/materialBadgeUtils";
+import { MaterialBadgeData } from "../../types/materials";
+import { Thumbnail } from "../Thumbnail/Thumbnail";
+
+// Global card configuration with a single variant
+const CARD_CONFIG = {
+  // Layout
+  padding: "p-4",
+  imageHeight: "aspect-[16/9] h-28", // Combine aspect ratio with min-height
+
+  // Typography
+  titleClass:
+    "text-lg font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-200",
+  descriptionClass:
+    "text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2",
+
+  // Appearance
+  cardClass:
+    "bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
+};
 
 export interface CardProps {
   href: string;
   title: string;
   description?: string;
   image?: string;
-  imageUrl?: string; // Support both image and imageUrl
+  imageUrl?: string;
   imageAlt?: string;
-  variant?: 'default' | 'featured' | 'compact'; // Reduced variants
   tags?: string[];
   badge?: {
     text: string;
@@ -29,9 +45,12 @@ export interface CardProps {
     date?: string;
     chemicalSymbol?: string;
     atomicNumber?: number;
+    chemicalFormula?: string;
     tags?: string[];
   };
+  materialData?: any;
   className?: string;
+  height?: string;
 }
 
 export function Card({
@@ -39,17 +58,20 @@ export function Card({
   title,
   description,
   image,
-  imageUrl, // Support both image and imageUrl
+  imageUrl,
   imageAlt,
-  variant = 'default',
   tags = [],
   badge,
   showBadge = false,
   metadata,
-  className = ''
+  materialData,
+  className = "",
+  height,
 }: CardProps) {
-  // Use either image or imageUrl
-  const [imgSrc, setImgSrc] = useState<string | undefined>(image || imageUrl);
+  // Use either image or imageUrl with fallback
+  const [imgSrc, setImgSrc] = useState<string>(
+    image || imageUrl || "/images/Site/Logo/logo_.png"
+  );
   const [imgError, setImgError] = useState(false);
 
   // Handle image error
@@ -59,126 +81,77 @@ export function Card({
     setImgError(true);
   };
 
-  // Simplified variant configuration
-  const config = {
-    default: {
-      imageHeight: 'h-48',
-      padding: 'p-4',
-      titleClass: 'text-lg font-semibold',
-      descClass: 'line-clamp-2'
-    },
-    featured: {
-      imageHeight: 'h-64',
-      padding: 'p-6',
-      titleClass: 'text-xl font-bold',
-      descClass: 'line-clamp-3'
-    },
-    compact: {
-      imageHeight: 'h-32',
-      padding: 'p-3',
-      titleClass: 'text-base font-medium',
-      descClass: 'line-clamp-1'
+  // Extract badge data using the centralized utility
+  const badgeData: MaterialBadgeData | null = useMemo(() => {
+    // Try to extract from metadata first
+    if (metadata?.chemicalSymbol) {
+      return {
+        symbol: metadata.chemicalSymbol,
+        formula: metadata.chemicalFormula,
+        atomicNumber: metadata.atomicNumber,
+        materialType: metadata.chemicalFormula ? "compound" : "element",
+      };
     }
-  }[variant];
 
-  // Combine all tags including badge if showBadge is true
-  const allTags = [
-    ...(tags || []),
-    ...(metadata?.tags || []),
-    ...(showBadge && badge?.text ? [badge.text] : [])
-  ];
-  
-  // Format tags for the Tags component
-  const tagsContent = allTags.length > 0 
-    ? `<ul>${allTags.map(tag => `<li>${tag}</li>`).join('')}</ul>` 
-    : '';
-  
+    // If we have raw material data, use the utility
+    if (materialData) {
+      return getBadgeData(materialData);
+    }
+
+    return null;
+  }, [metadata, materialData]);
+
   return (
-    <Link 
-      href={href} 
-      className={`group block bg-white rounded-lg shadow-md hover:shadow-xl 
-        transition-all duration-300 overflow-hidden border border-gray-100 
-        dark:bg-gray-800 dark:border-gray-700 ${className}`}
+    <Link
+      href={href}
+      className={`
+        group block ${CARD_CONFIG.cardClass} h-full ${className}
+      `}
+      style={height ? { height } : {}}
     >
       <article className="flex flex-col h-full">
-        <div className={`relative w-full ${config.imageHeight} overflow-hidden`}>
-          {/* Handle image rendering directly instead of using Thumbnail */}
-          {imgSrc ? (
-            <Image
-              src={imgSrc}
-              alt={imageAlt || title}
-              width={800}
-              height={450}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              onError={handleImageError}
-              unoptimized={imgError}
-            />
-          ) : (
-            <Image
-              src="/images/Site/Logo/logo_.png"
-              alt={imageAlt || title}
-              width={800}
-              height={450}
-              className="w-full h-full object-cover"
-              unoptimized={true}
-            />
-          )}
-          
+        {/* Image Container with fixed height */}
+        <div
+          className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`}
+        >
+          <Thumbnail
+            src={image || imageUrl}
+            alt={imageAlt || title}
+            fallbackSrc="/images/Site/Logo/logo_.png"
+            objectFit="cover" // Change from "contain" to "cover"
+            priority={false}
+            onError={() => {
+              // Error handling
+            }}
+          />
+
           {/* Chemical Symbol Badge (if applicable) */}
-          {metadata?.chemicalSymbol && (
-            <BadgeSymbol 
-              chemicalSymbol={metadata.chemicalSymbol}
-              atomicNumber={metadata.atomicNumber}
+          {badgeData && (
+            <BadgeSymbol
+              chemicalSymbol={badgeData.symbol}
+              atomicNumber={badgeData.atomicNumber}
+              chemicalFormula={badgeData.formula}
+              materialType={badgeData.materialType}
               variant="card"
+              color={badgeData.color}
             />
           )}
         </div>
-        
-        <div className={`${config.padding} flex-grow flex flex-col`}>
-          {/* Tags at top */}
-          {tagsContent && (
-            <div className="mb-2">
-              <Tags 
-                content={tagsContent}
-                config={{ 
-                  className: "my-0"
-                }}
-              />
-            </div>
-          )}
-          
-          {/* Category & article type */}
-          {(metadata?.category || metadata?.articleType) && (
-            <div className="flex items-center text-xs text-gray-500 mb-2">
-              {metadata.category && <span className="mr-2">{metadata.category}</span>}
-              {metadata.articleType && (
-                <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded">
-                  {metadata.articleType}
-                </span>
-              )}
-            </div>
-          )}
-          
-          {/* Title */}
-          <h3 className={`${config.titleClass} text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors`}>
-            {title}
-          </h3>
-          
-          {/* Description */}
+
+        {/* Card Content */}
+        <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>
+          <h3 className={CARD_CONFIG.titleClass}>{title}</h3>
           {description && (
-            <p className={`${config.descClass} text-gray-600 dark:text-gray-300 text-sm flex-grow`}>
-              {description}
-            </p>
-          )}
-          
-          {/* Date at bottom */}
-          {metadata?.date && (
-            <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-600">
-              <span className="text-xs text-gray-500">{metadata.date}</span>
-            </div>
+            <p className={CARD_CONFIG.descriptionClass}>{description}</p>
           )}
         </div>
       </article>
     </Link>
   );
 }
+
+// In Thumbnail.tsx, adjust the THUMBNAIL_CONFIG
+const THUMBNAIL_CONFIG = {
+  fallbackPadding: "p-4", // Reduced padding for smaller containers
+  fallbackBg: "bg-gray-100 dark:bg-gray-700",
+};
