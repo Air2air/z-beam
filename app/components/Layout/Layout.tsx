@@ -3,7 +3,7 @@ import { Content } from "../Content/Content";
 import { Table } from "../Table/Table";
 import { Bullets } from "../Bullets/Bullets";
 import { Caption } from "../Caption/Caption";
-import { Tags } from "../Tags/Tags"; // Make sure to import the Tags component
+import { Tags } from "../Tags/Tags";
 import { Author } from '../Author/Author';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 

@@ -3,6 +3,8 @@ import { getArticle } from "@/app/utils/contentIntegrator";
 import { Layout } from "@/app/components/Layout/Layout";
 import type { Metadata } from "next";
 import { createMetadata } from "@/app/utils/metadata";
+import fs from 'fs/promises';
+import path from 'path';
 
 // Fix: Define params as a Promise
 interface PageProps {
@@ -38,6 +40,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
+// Function to load tag content
+async function getTagsContent(slug: string) {
+  try {
+    const tagsPath = path.join(process.cwd(), 'content', 'components', 'tags', `${slug}.md`);
+    const tagsContent = await fs.readFile(tagsPath, 'utf8');
+    return tagsContent;
+  } catch (error) {
+    console.error(`No tags found for ${slug}`);
+    return null;
+  }
+}
+
 export default async function ArticlePage({ params }: PageProps) {
   // Await params before destructuring
   const resolvedParams = await params;
@@ -50,7 +64,13 @@ export default async function ArticlePage({ params }: PageProps) {
       notFound();
     }
     
-    return <Layout components={article.components} metadata={article.metadata} slug={slug} />;
+    // Load tags content for this article
+    const tagsContent = await getTagsContent(slug);
+    
+    // Make sure article.metadata contains tags if they exist in your content
+    return (
+      <Layout components={article.components} metadata={article.metadata} slug={slug} />
+    );
   } catch (error) {
     console.error(`Error rendering page for ${slug}:`, error);
     notFound();

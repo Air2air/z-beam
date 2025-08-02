@@ -4,13 +4,16 @@
 import { useState } from "react";
 import Image from "next/image";
 
+// Instead of importing ObjectFit
+type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
+
 // Component configuration
 const THUMBNAIL_CONFIG = {
   fallbackPadding: "p-8", // Generous padding for fallback images/logos
   regularPadding: "p-0", // No padding for regular images
   fallbackBg: "bg-gray-100 dark:bg-gray-600",
-  fallbackObjectFit: "contain", // Ensure logos are fully visible
-  regularObjectFit: "cover", // Regular images should fill the space
+  fallbackObjectFit: "contain" as ObjectFit, // Ensure logos are fully visible
+  regularObjectFit: "cover" as ObjectFit, // Regular images should fill the space
 };
 
 // This component should NOT import Card or anything that imports Card
@@ -21,12 +24,12 @@ interface ThumbnailProps {
   fallbackSrc?: string;
   className?: string;
   priority?: boolean;
-  objectFit?: "cover" | "contain" | "fill"; // This becomes the default, can be overridden
+  objectFit?: ObjectFit; // Default for regular images
+  fallbackObjectFit?: ObjectFit; // Specific for fallback
   onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
   width?: number; // For image resource sizing
   height?: number; // For image resource sizing
   fallbackPadding?: string; // Optional override for fallback padding
-  fallbackObjectFit?: "cover" | "contain" | "fill"; // Specific for fallback
 }
 
 export function Thumbnail({

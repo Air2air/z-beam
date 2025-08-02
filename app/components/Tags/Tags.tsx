@@ -1,11 +1,20 @@
 // app/components/Tags/Tags.tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
+
 interface TagsProps {
-  content: string;
+  content: string; // The raw content from the tags markdown file
   config?: {
     className?: string;
     title?: string;
     pillColor?: string;
     textColor?: string;
+    hoverColor?: string;
+    linkPrefix?: string; // Path prefix for tag links e.g., "/tag/"
+    onClick?: (tag: string) => void; // Alternative to links - for in-page filtering
     [key: string]: any;
   };
 }
@@ -13,32 +22,43 @@ interface TagsProps {
 export function Tags({ content, config }: TagsProps) {
   if (!content) return null;
   
+  const router = useRouter();
+  const pathname = usePathname();
+  
   const { 
     className = "my-6", 
     title = "Tags",
     pillColor = "bg-blue-100 dark:bg-blue-900",
-    textColor = "text-blue-800 dark:text-blue-200"
+    textColor = "text-blue-800 dark:text-blue-200",
+    hoverColor = "hover:bg-blue-200 dark:hover:bg-blue-800",
+    linkPrefix = "/tag/",
+    onClick,
   } = config || {};
   
-  // Parse tags from HTML content
-  // This assumes content contains tags in a format like:
-  // <ul><li>Tag1</li><li>Tag2</li>...</ul> or comma-separated list
-  const parseTagsFromContent = (htmlContent: string): string[] => {
-    // Try to extract from list items first
-    const liRegex = /<li>(.*?)<\/li>/g;
-    const liMatches = [...htmlContent.matchAll(liRegex)].map(match => match[1]);
+  // Parse tags from the content string
+  // For the format shown in alumina-laser-cleaning.md
+  const parseTags = (content: string): string[] => {
+    // Skip any comment lines
+    const contentWithoutComments = content.replace(/<!--.*?-->/gs, '').trim();
     
-    if (liMatches.length > 0) {
-      return liMatches.map(tag => tag.trim());
-    }
-    
-    // Fallback: treat as comma-separated text
-    // Remove HTML tags and split by comma
-    const plainText = htmlContent.replace(/<[^>]*>/g, '');
-    return plainText.split(',').map(tag => tag.trim()).filter(tag => tag);
+    // Split by commas and trim each tag
+    return contentWithoutComments
+      .split(',')
+      .map(tag => tag.trim())
+      .filter(tag => tag.length > 0);
   };
   
-  const tags = parseTagsFromContent(content);
+  const tags = parseTags(content);
+  
+  const handleTagClick = (tag: string) => {
+    if (onClick) {
+      // Use the provided click handler for in-page filtering
+      onClick(tag);
+    } else {
+      // Default behavior: navigate to tag page
+      router.push(`${linkPrefix}${encodeURIComponent(tag)}`);
+    }
+  };
   
   return (
     <div className={`tags-container ${className}`}>
@@ -46,12 +66,25 @@ export function Tags({ content, config }: TagsProps) {
       
       <div className="flex flex-wrap gap-2">
         {tags.map((tag, index) => (
-          <span 
-            key={index}
-            className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} transition-colors duration-200 hover:opacity-90`}
-          >
-            {tag}
-          </span>
+          onClick ? (
+            // Interactive button for in-page filtering
+            <button
+              key={index}
+              onClick={() => handleTagClick(tag)}
+              className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200`}
+            >
+              {tag}
+            </button>
+          ) : (
+            // Link for navigation to tag page
+            <Link
+              key={index}
+              href={`${linkPrefix}${encodeURIComponent(tag)}`}
+              className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200`}
+            >
+              {tag}
+            </Link>
+          )
         ))}
       </div>
     </div>

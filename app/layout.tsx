@@ -30,11 +30,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} dark text-white bg-gray-800 scroll-smooth`}
+      className={`${GeistSans.variable} ${GeistMono.variable} dark scroll-smooth`}
     >
-      <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-200">
+      <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100">
         <Navbar />
-        <main>{children}</main>
+        <main className="flex-grow w-full py-8">{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />
