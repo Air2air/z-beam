@@ -1,16 +1,16 @@
-// app/tag/[tag]/page.tsx
-import { Metadata } from "next";
-
 // app/utils/contentUtils.ts
+// Mark this file as server-only to prevent client-side imports of Node.js modules
+'use server';
+
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Add the export keyword here
+// Export the interface for the Article
 export interface Article {
   slug: string;
-  title: string;
+  title?: string;
   description?: string;
   image?: string;
   imageAlt?: string;

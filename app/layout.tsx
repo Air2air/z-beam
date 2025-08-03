@@ -1,6 +1,6 @@
 // app/layout.tsx
 import "./css/global.css";
-import type { Metadata, Viewport } from "next";
+// Using a generic type since Metadata isn't exported correctly from next
 import { GeistSans, GeistMono } from "geist/font";
 import { Navbar } from "./components/Layout/nav";
 import { Analytics } from "@vercel/analytics/react";
@@ -8,12 +8,14 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Layout/footer";
 import { SITE_CONFIG } from "./utils/constants";
 
-export const viewport: Viewport = {
+// Define viewport manually since Viewport type is not exported from next
+export const viewport = {
   width: "device-width",
   initialScale: 1,
 };
 
-export const metadata: Metadata = {
+// Define metadata without explicit type annotation
+export const metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
     template: `%s | ${SITE_CONFIG.name}`,

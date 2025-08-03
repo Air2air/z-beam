@@ -1,4 +1,7 @@
 // app/utils/articleTagsUtils.ts
+// Mark this file as server-only to prevent client-side imports of Node.js modules
+'use server';
+
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
@@ -7,6 +10,7 @@ import { parseTagsFromContent } from './tagUtils';
 
 /**
  * Get tags for a specific article slug from the tags directory
+ * Filters out test tags
  */
 export async function getArticleTagsFromTagsDir(slug: string): Promise<string[]> {
   try {
@@ -18,11 +22,33 @@ export async function getArticleTagsFromTagsDir(slug: string): Promise<string[]>
     }
     
     const content = await fs.readFile(tagsPath, 'utf8');
-    return parseTagsFromContent(content);
+    const allTags = await parseTagsFromContent(content);
+    return await filterOutTestTags(allTags);
   } catch (error) {
     console.error(`Error loading tags for ${slug}:`, error);
     return [];
   }
+}
+
+/**
+ * Filter out test tags from an array of tags
+ */
+async function filterOutTestTags(tags: string[]): Promise<string[]> {
+  // Define test tag patterns to filter out
+  const testTagPatterns = [
+    /test/i,           // matches "test", "Test", "TEST", etc.
+    /sample/i,         // matches "sample", "Sample", etc.
+    /example/i,        // matches "example", "Example", etc.
+    /demo/i,           // matches "demo", "Demo", etc.
+    /temporary/i,      // matches "temporary", "Temporary", etc.
+    /development/i,    // matches "development", "Development", etc.
+    /placeholder/i     // matches "placeholder", "Placeholder", etc.
+  ];
+  
+  // Filter out tags that match any of the test patterns
+  return tags.filter(tag => {
+    return !testTagPatterns.some(pattern => pattern.test(tag));
+  });
 }
 
 /**
@@ -60,6 +86,9 @@ export async function getArticlesWithTags(): Promise<Article[]> {
       if (tags.length > 0) {
         article.tags = tags;
       }
+    } else {
+      // Filter out test tags if the article already has tags
+      article.tags = await filterOutTestTags(article.tags);
     }
   }
   
@@ -81,7 +110,8 @@ export async function getAllUniqueTags(): Promise<string[]> {
     }
   });
   
-  return Array.from(tagSet).sort();
+  const allTags = Array.from(tagSet).sort();
+  return await filterOutTestTags(allTags);
 }
 
 /**
@@ -101,4 +131,21 @@ export async function getTagCounts(): Promise<Record<string, number>> {
   });
   
   return counts;
+}
+
+/**
+ * Check if a tag appears to be a test tag
+ */
+export async function isTestTag(tag: string): Promise<boolean> {
+  const testTagPatterns = [
+    /test/i,
+    /sample/i,
+    /example/i,
+    /demo/i,
+    /temporary/i,
+    /development/i,
+    /placeholder/i
+  ];
+  
+  return testTagPatterns.some(pattern => pattern.test(tag));
 }

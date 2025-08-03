@@ -1,5 +1,6 @@
 // app/utils/metadata.ts
-import type { Metadata as NextMetadata } from 'next';
+// Use any type since Metadata isn't being exported correctly from next
+type NextMetadata = any;
 
 // Define author interface
 export interface AuthorInfo {

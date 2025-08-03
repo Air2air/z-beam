@@ -1,3 +1,6 @@
+// Mark this file as server-only to prevent client-side imports of Node.js modules
+'use server';
+
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
@@ -8,7 +11,7 @@ import { Article } from '../types/Article';
  * Parse tags from the content string (from a tags markdown file)
  * For the format shown in alumina-laser-cleaning.md
  */
-export function parseTagsFromContent(content: string): string[] {
+export async function parseTagsFromContent(content: string): Promise<string[]> {
   if (!content) return [];
   
   // Skip any comment lines
@@ -24,7 +27,7 @@ export function parseTagsFromContent(content: string): string[] {
 /**
  * Check if an article matches a tag (case-insensitive)
  */
-export function articleMatchesTag(article: Article, tag: string): boolean {
+export async function articleMatchesTag(article: Article, tag: string): Promise<boolean> {
   if (!tag) return true;
   if (!article.tags || !Array.isArray(article.tags)) return false;
   
@@ -39,14 +42,15 @@ export function articleMatchesTag(article: Article, tag: string): boolean {
     console.log(`[tagUtils] Article tags:`, article.tags);
   }
   
-  const hasMatch = article.tags.some(t => {
-    if (!t) return false;
-    
-    // Direct match (case-insensitive)
-    if (t.toLowerCase() === tagLower) {
-      if (isDebugTag) console.log(`[tagUtils] Direct match found: ${t} = ${tag}`);
-      return true;
-    }
+  // Filter out null or undefined tags before processing
+  const hasMatch = article.tags
+    .filter(Boolean)
+    .some(t => {
+      // Direct match (case-insensitive)
+      if (t.toLowerCase() === tagLower) {
+        if (isDebugTag) console.log(`[tagUtils] Direct match found: ${t} = ${tag}`);
+        return true;
+      }
     
     // Check if this is a compound tag (e.g., "Precision Cleaning" should match with "Cleaning")
     if (tagLower.includes(' ')) {
@@ -83,7 +87,7 @@ export async function getTagsContentWithMatchCounts(slug: string) {
     const content = await fs.readFile(tagsPath, 'utf8');
     
     // Parse tags from the content
-    const tags = parseTagsFromContent(content);
+    const tags = await parseTagsFromContent(content);
     
     // Import the getArticlesWithTags function from articleTagsUtils
     // to ensure we have tags loaded from the tags directory
@@ -103,19 +107,24 @@ export async function getTagsContentWithMatchCounts(slug: string) {
     
     // Calculate match counts for each tag
     const counts: Record<string, number> = {};
-    tags.forEach(tag => {
-      const matchingArticles = articles.filter(article => articleMatchesTag(article, tag));
-      counts[tag] = matchingArticles.length;
+    for (const tag of tags) {
+      const matchingArticles = await Promise.all(
+        articles.map(async (article) => await articleMatchesTag(article, tag))
+      );
+      counts[tag] = matchingArticles.filter(Boolean).length;
       
       // Debug log
       if (process.env.NODE_ENV === 'development') {
-        console.log(`[tagUtils] Tag "${tag}" matches ${matchingArticles.length} articles`);
-        if (matchingArticles.length > 0) {
+        console.log(`[tagUtils] Tag "${tag}" matches ${counts[tag]} articles`);
+        if (counts[tag] > 0) {
+          const matchedArticles = articles.filter(
+            (_, index) => matchingArticles[index]
+          );
           console.log(`[tagUtils] First few matching articles for "${tag}":`, 
-            matchingArticles.slice(0, 2).map(a => a.slug));
+            matchedArticles.slice(0, 2).map(a => a.slug));
         }
       }
-    });
+    }
     
     return {
       content,
@@ -147,12 +156,24 @@ export async function getAllTagsWithCounts() {
     
     // Calculate match counts for each tag
     const counts: Record<string, number> = {};
-    Array.from(allTags).forEach(tag => {
-      counts[tag] = articles.filter(article => articleMatchesTag(article, tag)).length;
+    const tagArray = Array.from(allTags);
+    
+    // Process tags in parallel for better performance
+    const matchCounts = await Promise.all(
+      tagArray.map(async (tag) => {
+        const matchPromises = articles.map(article => articleMatchesTag(article, tag));
+        const matches = await Promise.all(matchPromises);
+        return matches.filter(Boolean).length;
+      })
+    );
+    
+    // Map results to counts object
+    tagArray.forEach((tag, index) => {
+      counts[tag] = matchCounts[index];
     });
     
     return {
-      tags: Array.from(allTags).sort(),
+      tags: tagArray.sort(),
       counts
     };
   } catch (error) {
