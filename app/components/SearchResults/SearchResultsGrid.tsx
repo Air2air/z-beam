@@ -1,0 +1,117 @@
+// app/components/SearchResults/SearchResultsGrid.tsx
+import { Card } from "../Card/Card";
+import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
+
+interface SearchResultsGridProps {
+  items: any[];
+  columns: 1 | 2 | 3 | 4;
+}
+
+export function SearchResultsGrid({
+  items,
+  columns
+}: SearchResultsGridProps) {
+  // Grid column classes based on number of columns
+  const gridCols = {
+    1: "grid-cols-1",
+    2: "grid-cols-1 md:grid-cols-2",
+    3: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+    4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+  };
+  
+  return (
+    <div className={`grid gap-6 ${gridCols[columns]}`}>
+      {items.map((item, index) => {
+        // Get badge data once to avoid calling the function twice
+        const badgeData = getBadgeFromItem(item);
+        
+        // Debug logging in dev mode
+        if (process.env.NODE_ENV === 'development') {
+          console.log(`Rendering card ${index}:`, {
+            slug: item.slug,
+            name: item.name,
+            frontmatterName: item.frontmatter?.name,
+            title: item.title,
+            frontmatterTitle: item.frontmatter?.title,
+            href: item.href
+          });
+        }
+        
+        // Generate a better display name from slug if no name or title exists
+        let cardName = item.frontmatter?.name || item.name || "";
+        
+        if (!cardName && item.slug) {
+          // Handle multi-word material names in slugs like "silicon-carbide-laser-cleaning"
+          // or "silicon-nitride-laser-cleaning"
+          const slugParts = item.slug.split('-');
+          
+          // Common multi-word material patterns
+          const multiWordMaterials = [
+            {pattern: ["silicon", "carbide"], name: "Silicon Carbide"},
+            {pattern: ["silicon", "nitride"], name: "Silicon Nitride"},
+            {pattern: ["aluminum", "oxide"], name: "Aluminum Oxide"},
+            {pattern: ["zirconium", "oxide"], name: "Zirconium Oxide"},
+            {pattern: ["carbon", "fiber"], name: "Carbon Fiber"},
+            {pattern: ["stainless", "steel"], name: "Stainless Steel"},
+          ];
+          
+          // Check for known multi-word materials
+          let foundMultiWord = false;
+          for (const material of multiWordMaterials) {
+            if (
+              slugParts.length >= material.pattern.length &&
+              material.pattern.every((part, i) => slugParts[i] === part)
+            ) {
+              cardName = material.name;
+              foundMultiWord = true;
+              break;
+            }
+          }
+          
+          // If no known multi-word pattern, use smart extraction
+          if (!foundMultiWord) {
+            // If the slug has "laser" or "cleaning", extract everything before that
+            const laserIndex = slugParts.indexOf("laser");
+            const cleaningIndex = slugParts.indexOf("cleaning");
+            
+            let endIndex = -1;
+            if (laserIndex > 0) endIndex = laserIndex;
+            else if (cleaningIndex > 0) endIndex = cleaningIndex;
+            
+            if (endIndex > 0) {
+              // Take all parts before "laser" or "cleaning" and capitalize them
+              cardName = slugParts
+                .slice(0, endIndex)
+                .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+                .join(" ");
+            } else {
+              // Fallback to just the first part capitalized
+              cardName = slugParts[0].charAt(0).toUpperCase() + slugParts[0].slice(1);
+            }
+          }
+        }
+        
+        return (
+          <Card
+            key={item.id || item.slug || `item-${index}`}
+            href={item.href}
+            title={item.title || item.frontmatter?.title || ""}
+            name={cardName}
+            description={item.description || item.frontmatter?.description}
+            image={item.image}
+            imageAlt={item.imageAlt || item.title || ""}
+            tags={item.tags || []}
+            badge={badgeData || undefined} // Convert null to undefined
+            showBadge={!!badgeData}
+            metadata={item.metadata || {
+              category: item.frontmatter?.category || item.category,
+              articleType: item.frontmatter?.articleType || item.frontmatter?.article_type,
+              chemicalProperties: getChemicalProperties(item)
+            }}
+            className="h-full"
+          />
+        );
+      })}
+    </div>
+  );
+}

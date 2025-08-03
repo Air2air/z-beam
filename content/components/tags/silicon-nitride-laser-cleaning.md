@@ -1,2 +1,2 @@
 <!-- Category: ceramic, Article Type: material, Subject: Silicon Nitride -->
-Silicon Nitride, Laser Cleaning, Ceramic Treatment, Contaminant Removal, Semiconductor Cleaning, Precision Ablation, Non-contact Cleaning, Thermal Resistance, High-temperature Ceramics, Surface Treatment
+Laser Cleaning, Ceramic, Surface Treatment, Contaminant Removal, Precision Cleaning, Evelyn Wu, Non-oxide Ceramics, Pulsed Laser, Electronics Manufacturing, Aerospace Components

@@ -152,18 +152,19 @@ export async function List({
             title={item.title}
             description={item.description}
             href={`/${item.slug}`}
-            badge={item.badge}
-            showBadge={!!item.badge}
+            badge={item.badge || {
+              symbol: item.chemicalSymbol,
+              formula: item.chemicalFormula, 
+              atomicNumber: item.atomicNumber,
+              materialType: item.category
+            }}
+            showBadge={!!item.badge || !!item.chemicalSymbol || !!item.chemicalFormula}
             imageUrl={item.imageUrl}
             imageAlt={item.title}
             metadata={{
               category: item.category,
-              articleType: item.articleType,
-              chemicalSymbol: item.chemicalSymbol,
-              atomicNumber: item.atomicNumber,
-              chemicalFormula: item.chemicalFormula
+              articleType: item.articleType
             }}
-            materialData={item.materialData}
           />
         ))}
       </div>
@@ -191,7 +192,7 @@ function getArticleImage(
   const category = article?.metadata?.category?.toLowerCase();
   if (category) {
     const categoryFallbacks: Record<string, string> = {
-      'ceramic': '/images/fallbacks/ceramic-fallback.jpg',
+      'ceramic': '/images/Site/Logo/logo_.png',
       'metal': '/images/fallbacks/metal-fallback.jpg',
       'polymer': '/images/fallbacks/polymer-fallback.jpg',
       'material': '/images/fallbacks/material-fallback.jpg',
@@ -207,7 +208,7 @@ function getArticleImage(
   
   // Fallback based on slug pattern (for specific content types)
   if (item.slug.includes('laser-')) {
-    return '/images/fallbacks/laser-fallback.jpg';
+    return '/images/Site/Logo/logo_.png"';
   }
   
   // Final default fallback

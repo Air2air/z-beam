@@ -1,90 +1,96 @@
 <!-- Category: ceramic, Article Type: material, Subject: Kaolin -->
-name: "Kaolin Laser Cleaning Guide"
-headline: "Technical guide to Kaolin in laser cleaning applications"
-description: "Technical guide to Kaolin for laser cleaning, covering optimal parameters, applications, and environmental benefits of this aluminosilicate clay mineral."
-website: "https://www.z-beam.com"
+---
+name: Kaolin
+title: Kaolin Laser Cleaning | Technical Guide
+headline: Technical guide to Kaolin laser cleaning applications and parameters
+description: Technical guide to Kaolin for laser cleaning, covering optimal parameters,
+  applications, and environmental benefits of this aluminosilicate clay mineral.
+website: https://www.z-beam.com
 min_words: 300
 max_words: 500
 author:
   author_id: 1
-  author_name: "Evelyn Wu"
-  author_country: "Taiwan"
-  credentials: "Industry Expert in Laser Cleaning Technology"
+  author_name: Evelyn Wu
+  author_country: Taiwan
+  credentials: Industry Expert in Laser Cleaning Technology
 keywords:
-  - "kaolin laser cleaning"
-  - "aluminosilicate removal"
-  - "ceramic surface treatment"
-  - "non-abrasive cleaning"
-  - "laser parameter optimization"
-  - "industrial clay cleaning"
-  - "pulsed laser applications"
-  - "mineral surface preparation"
-  - "cleanroom-compatible processes"
-  - "heritage conservation techniques"
-category: "ceramic"
-articleType: "material"
+- Kaolin laser cleaning
+- aluminosilicate clay removal
+- ceramic surface preparation
+- non-contact mineral cleaning
+- laser ablation parameters
+- industrial clay processing
+- heritage conservation cleaning
+- low-fluence ceramic treatment
+- pulsed laser mineral removal
+- 1064nm wavelength applications
+category: ceramic
+articleType: material
 chemicalProperties:
-  symbol: "Ka"
-  formula: "Al₂Si₂O₅(OH)₄"
-  materialType: "compound"
+  symbol: Ka
+  formula: "Al\u2082Si\u2082O\u2085(OH)\u2084"
+  materialType: compound
 properties:
-  chemicalFormula: "Al₂Si₂O₅(OH)₄"
-  density: "2.6 g/cm³"
-  meltingPoint: "1750°C"
-  thermalConductivity: "0.15 W/m·K"
-  laserType: "Q-switched Nd:YAG"
-  wavelength: "1064nm ±2nm"
-  fluenceRange: "0.5–8 J/cm²"
+  density: "2.6 g/cm\xB3"
+  meltingPoint: "1750\xB0C"
+  thermalConductivity: "0.15 W/m\xB7K"
+  laserType: Q-switched Nd:YAG
+  wavelength: "1064nm \xB12nm"
+  fluenceRange: "0.5\u20138 J/cm\xB2"
 composition:
-  - component: "Aluminosilicate"
-    percentage: "90-95%"
-    type: "compound"
-    formula: "Al₂Si₂O₅(OH)₄"
-  - component: "Quartz"
-    percentage: "1-4%"
-    type: "mineral"
-    formula: "SiO₂"
-  - component: "Iron oxides"
-    percentage: "0.5-2%"
-    type: "compound"
-    formula: "Fe₂O₃"
-applications:
-  - name: "Ceramic Restoration"
-    description: "Precision removal of surface contaminants from kaolin-based ceramics without damaging the porous substrate, ideal for museum conservation work."
-  - name: "Electronics Manufacturing"
-    description: "Cleaning kaolin-containing substrates in semiconductor production where chemical residues would interfere with subsequent deposition processes."
-  - name: "Paper Coating"
-    description: "Surface preparation of kaolin-coated paper rolls where traditional cleaning methods would damage the delicate coating layer."
-environmentalImpact:
-  - benefit: "Solvent Elimination"
-    description: "Replaces chemical degreasers with dry process, eliminating VOC emissions and hazardous waste disposal requirements."
-  - benefit: "Water Conservation"
-    description: "Removes need for water-intensive rinsing steps in traditional kaolin cleaning processes, reducing water usage by 75%."
-regulatoryStandards:
-  - code: "EPA 40 CFR Part 63"
-    description: "National Emission Standards for Hazardous Air Pollutants"
-  - code: "OSHA 1910.1200"
-    description: "Hazard Communication Standard"
+- component: Aluminosilicate
+  percentage: 90-95%
+  type: compound
+  formula: "Al\u2082Si\u2082O\u2085(OH)\u2084"
+- component: Quartz
+  percentage: 1-5%
+  type: mineral
+  formula: "SiO\u2082"
+- component: Iron oxides
+  percentage: 0.5-2%
+  type: compound
 compatibility:
-  - material: "Porcelain"
-    application: "Surface restoration of kaolin-rich ceramics"
-  - material: "Stoneware"
-    application: "Pre-firing surface preparation"
+- material: Granite
+  application: Monument restoration surface prep
+- material: Sandstone
+  application: Historical building conservation
+- material: Porcelain
+  application: Industrial ceramic cleaning
+applications:
+- name: Heritage Conservation
+  description: Gentle removal of surface contaminants from historical ceramics and
+    stone artifacts without mechanical abrasion or chemical damage.
+- name: Ceramic Manufacturing
+  description: Precision cleaning of kaolin-based ceramic components before glazing
+    or firing processes in industrial production lines.
+- name: Paper Coating
+  description: Surface preparation of kaolin-coated paper rolls for optimal adhesion
+    in high-speed printing applications.
+environmentalImpact:
+- benefit: Waste Reduction
+  description: Eliminates chemical solvents and abrasive media, reducing hazardous
+    waste generation by 90% compared to traditional cleaning methods.
+- benefit: Energy Efficiency
+  description: Operates at 30% lower energy consumption than abrasive blasting systems
+    while achieving superior surface cleanliness.
+regulatoryStandards:
+- code: OSHA 1910.147
+  description: Control of hazardous energy during laser operations
+- code: ANSI Z136.1
+  description: Safe use of lasers in industrial applications
 technicalSpecifications:
-  powerRange: "20–200W pulsed"
-  pulseDuration: "10–100ns adjustable"
-  wavelength: "1064nm ±2nm"
-  spotSize: "0.2–3mm diameter"
-  repetitionRate: "10–100kHz"
-  safetyClass: "IV (requires enclosure)"
-  compliance: "California OSHA Title 8 Section 5417"
+  powerRange: "50\u2013500W (modular)"
+  pulseDuration: "10\u2013100ns adjustable"
+  wavelength: "1064nm \xB12nm"
+  spotSize: "0.1\u20135mm diameter"
+  repetitionRate: "20\u2013200kHz"
+  safetyClass: IV (requires enclosure)
+  fluenceRange: "0.5\u20138 J/cm\xB2"
 outcomes:
-  - result: "99.8% purity"
-    metric: "XRF surface analysis"
-  - result: "0.1μm precision"
-    metric: "White light interferometry"
-countries: ["United States"]
-region: "California"
-manufacturingCenters:
-  - location: "Santa Clara County"
-    facilities: ["Z-Beam R&D Center", "Advanced Materials Lab"]
+- result: 100% NDT pass rate
+  metric: ASTM E1316 compliance
+- result: Zero solvent waste
+  metric: EPA hazardous waste reporting
+article_type: material
+subject: Kaolin
+---

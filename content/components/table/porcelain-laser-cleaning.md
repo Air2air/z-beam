@@ -1,50 +1,67 @@
 <!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
 
+### Technical Parameters
+
+| Parameter | Value |
+| --- | --- |
+| Author Name | Evelyn Wu |
+| Author Country | Taiwan |
+| Credentials | Industry Expert in Laser Cleaning Technology |
+
+
 ### Technical Properties
 
 | Property | Value |
 | --- | --- |
-| Density | 2.3–2.5 g/cm³ |
-| Melting Point | 1650–1750°C |
+| Symbol | Po |
+| Formula | Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈ |
+| Material Type | compound |
+
+
+### Technical Properties
+
+| Property | Value |
+| --- | --- |
+| Density | 2.6 g/cm³ |
+| Melting Point | 1750°C |
 | Thermal Conductivity | 1.5 W/m·K |
-| Laser Type | Nd:YAG |
+| Laser Type | Q-switched Nd:YAG |
 | Wavelength | 1064nm ±2nm |
-| Fluence Range | 0.5–8 J/cm² |
+| Fluence Range | 0.5–12 J/cm² |
 
 
 ### Material Composition
 
-| Component | Type | Percentage |
-| --- | --- | --- |
-| Kaolinite | clay mineral | 50-60% |
-| Feldspar | mineral | 25-35% |
-| Quartz | mineral | 15-25% |
-
-
-### Compliance Standards
-
-| Code | Description |
-| --- | --- |
-| Astm C242 | Standard Terminology of Ceramic Whitewares |
-| Iso 10545 | Ceramic tiles testing standards |
+| Component | Type | Percentage | Formula |
+| --- | --- | --- | --- |
+| Kaolinite | compound | 50-60% | Al₂Si₂O₅(OH)₄ |
+| Quartz | mineral | 20-30% | SiO₂ |
+| Feldspar | mineral | 10-20% | KAlSi₃O₈ |
 
 
 ### Technical Parameters
 
 | Parameter | Value |
 | --- | --- |
-| Power Range | 20–300W (pulsed) |
-| Pulse Duration | 5–50ns adjustable |
+| Power Range | 50–500W (modular) |
+| Pulse Duration | 10–100ns adjustable |
 | Wavelength | 1064nm ±2nm |
-| Spot Size | 0.2–3mm diameter |
-| Repetition Rate | 10–100kHz |
+| Spot Size | 0.1–5mm diameter |
+| Repetition Rate | 20–200kHz |
 | Safety Class | IV (requires enclosure) |
-| Cooling System | Closed-loop chiller |
+
+
+### Compliance Standards
+
+| Code | Description |
+| --- | --- |
+| Astm C242 | Standard Terminology of Ceramic Whitewares and Related Products |
+| Iso 13006 | Ceramic tiles - Definitions, classification, characteristics and marking |
 
 
 ### Quality Metrics
 
-| Metric | Result |
+| Result | Metric |
 | --- | --- |
-| Surface Preservation Accuracy | 0.01mm precision |
-| Contaminant Removal Efficiency | 99.9% purity |
+| 99.9% Contaminant Removal | SEM surface analysis |
+| 0% Surface Damage | Microscopic inspection |

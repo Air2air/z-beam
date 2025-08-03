@@ -6,50 +6,85 @@ import Link from "next/link";
 interface TagFilterProps {
   tags: string[];
   selectedTag: string;
-  onSelectTag?: (tag: string) => void; // Optional now
-  linkPrefix?: string; // Add this
+  onSelectTag?: (tag: string) => void; // Optional callback
+  linkPrefix?: string;
   className?: string;
+  tagItemCounts?: Record<string, number>; // Add counts for each tag
 }
 
 export function TagFilter({
   tags,
   selectedTag,
   onSelectTag,
-  linkPrefix = "/tag/",
+  linkPrefix,
   className = "",
+  tagItemCounts,
 }: TagFilterProps) {
-  // Determine if we're using links or click handlers
-  const useLinks = !onSelectTag;
-  
-  const renderButton = (tag: string, isSelected: boolean, label: string) => {
-    const buttonClass = `px-3 py-1 rounded-full text-sm ${
-      isSelected
-        ? "bg-blue-500 text-white"
-        : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
-    } transition-colors`;
-    
-    return useLinks ? (
-      <Link
-        href={tag ? `${linkPrefix}${encodeURIComponent(tag)}` : "/"}
-        className={buttonClass}
-      >
-        {label}
-      </Link>
-    ) : (
-      <button
-        onClick={() => onSelectTag?.(tag)}
-        className={buttonClass}
-      >
-        {label}
-      </button>
+  // If there are no tags, don't render anything
+  if (!tags || tags.length === 0) {
+    return (
+      <div className={`${className} text-center text-gray-500 italic text-sm py-2`}>
+        No tags available
+      </div>
     );
-  };
+  }
   
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`}>
-      {renderButton("", selectedTag === "", "All")}
-      
-      {tags.map((tag) => renderButton(tag, selectedTag === tag, tag))}
+    <div className={className}>
+      {tags.map((tag) => {
+        // Case-insensitive comparison for the selected state
+        const isSelected = selectedTag && 
+          tag.toLowerCase() === selectedTag.toLowerCase();
+
+        const tagClass = isSelected
+          ? "bg-blue-500 text-white hover:bg-blue-600"
+          : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700";
+
+        // For link-based navigation
+        if (linkPrefix) {
+          return (
+            <Link
+              key={tag}
+              href={`${linkPrefix}${encodeURIComponent(tag)}`}
+              className={`${tagClass} px-3 py-1 rounded-full text-sm transition-colors flex items-center`}
+            >
+              {tag}
+              {tagItemCounts && process.env.NODE_ENV === 'development' && (
+                <span className="ml-1 text-xs opacity-70">({tagItemCounts[tag] || 0})</span>
+              )}
+            </Link>
+          );
+        }
+
+        // For state-based filtering - only render button if onSelectTag is provided
+        if (onSelectTag) {
+          return (
+            <button
+              key={tag}
+              onClick={() => onSelectTag(isSelected ? "" : tag)}
+              className={`${tagClass} px-3 py-1 rounded-full text-sm transition-colors flex items-center`}
+            >
+              {tag}
+              {tagItemCounts && process.env.NODE_ENV === 'development' && (
+                <span className="ml-1 text-xs opacity-70">({tagItemCounts[tag] || 0})</span>
+              )}
+            </button>
+          );
+        }
+
+        // Fallback if neither linkPrefix nor onSelectTag is provided
+        return (
+          <span
+            key={tag}
+            className={`${tagClass} px-3 py-1 rounded-full text-sm flex items-center`}
+          >
+            {tag}
+            {tagItemCounts && process.env.NODE_ENV === 'development' && (
+              <span className="ml-1 text-xs opacity-70">({tagItemCounts[tag] || 0})</span>
+            )}
+          </span>
+        );
+      })}
     </div>
   );
 }

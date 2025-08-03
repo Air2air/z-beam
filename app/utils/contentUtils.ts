@@ -160,7 +160,30 @@ export async function getAllArticles(): Promise<Article[]> {
     }
   }
   
-  return articles;
+  // Make sure each article has proper tags
+  return articles.map(article => {
+    // Ensure article has tags array
+    if (!article.tags) {
+      article.tags = [];
+    }
+    
+    // Add category as a tag if it exists
+    if (article.metadata?.category && !article.tags.includes(article.metadata.category)) {
+      article.tags.push(article.metadata.category);
+    }
+    
+    // Add subject as a tag if it exists
+    if (article.metadata?.subject && !article.tags.includes(article.metadata.subject)) {
+      article.tags.push(article.metadata.subject);
+    }
+    
+    // Add article type as a tag if it exists
+    if (article.metadata?.articleType && !article.tags.includes(article.metadata.articleType)) {
+      article.tags.push(article.metadata.articleType);
+    }
+    
+    return article;
+  });
 }
 
 export async function getAllTags(): Promise<string[]> {

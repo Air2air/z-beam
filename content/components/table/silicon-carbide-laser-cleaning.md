@@ -1,13 +1,12 @@
 <!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -->
 
-### Technical Parameters
+### Technical Properties
 
-| Parameter | Value |
+| Property | Value |
 | --- | --- |
-| Author Id | 1 |
-| Author Name | Evelyn Wu |
-| Author Country | Taiwan |
-| Credentials | Industry Expert in Laser Cleaning Technology |
+| Symbol | SiC |
+| Formula | SiC |
+| Material Type | compound |
 
 
 ### Technical Properties
@@ -17,7 +16,7 @@
 | Density | 3.21 g/cm³ |
 | Melting Point | 2730°C |
 | Thermal Conductivity | 120 W/m·K |
-| Laser Type | Q-switched Nd:YAG |
+| Laser Type | Fiber laser |
 | Wavelength | 1064nm ±2nm |
 | Fluence Range | 0.5–20 J/cm² |
 
@@ -26,16 +25,16 @@
 
 | Component | Type | Percentage |
 | --- | --- | --- |
-| Silicon | element | 70% |
-| Carbon | element | 30% |
+| Silicon | element | 50% |
+| Carbon | element | 50% |
 
 
 ### Technical Parameters
 
 | Parameter | Value |
 | --- | --- |
-| Power Range | 50–500W (modular) |
-| Pulse Duration | 10–100ns adjustable |
+| Power Range | 50–1000W pulsed |
+| Pulse Duration | 10–200ns |
 | Wavelength | 1064nm ±2nm |
 | Spot Size | 0.1–5mm diameter |
 | Repetition Rate | 20–200kHz |
@@ -46,13 +45,13 @@
 
 | Code | Description |
 | --- | --- |
-| Iso 14001 | Environmental management standards for laser cleaning processes |
-| Osha 1910.133 | Eye protection requirements for laser operations |
+| Iso 14644 1 | Cleanroom standards for particulate contamination control |
+| Mil Std 810 | Environmental engineering considerations for military equipment |
 
 
 ### Quality Metrics
 
-| Result | Metric |
+| Metric | Result |
 | --- | --- |
-| 99.9% Purity | SEM contamination analysis |
-| 0.2µm Precision | Surface profilometry measurements |
+| Sem Surface Analysis | 99.9% contaminant removal |
+| Epa Compliance Reporting | Zero chemical waste |

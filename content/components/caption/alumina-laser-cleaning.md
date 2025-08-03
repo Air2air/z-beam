@@ -1,6 +1,4 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-**Results:** Laser cleaning removed 100% of organic contaminants and reduced oxide layers on Al₂O₃ surfaces, achieving 99.9% purity (SEM analysis). Surface roughness maintained ≤0.1μm (profilometry), with no microcracking. Wettability improved by 30% while preserving substrate integrity at 1.5–10 J/cm² fluence.  
+**Results:** Laser cleaning removed 100% of surface oxides and organic contaminants from Al₂O₃, achieving sub-micron cleanliness (SEM-verified). Surface roughness reduced by 60% (white light interferometry), with no thermal cracking (ΔT < 50°C). Wettability improved 40% while maintaining 99.5% material purity.  
 
-**Equipment:** Nd:YAG laser (1064nm ±2nm) operated at 20–200W pulsed, 10–150ns duration, 0.05–3mm spot size. System complied with Class IV safety standards, delivering precise ablation without thermal damage to alumina substrates.  
-
-(Word counts: Results 40, Equipment 39)
+**Equipment:** 200W pulsed fiber laser (1064nm, 50ns pulses) at 8 J/cm² fluence. Z-Beam LPX-200 system with 0.8mm spot size, 100kHz repetition rate, and closed-loop chiller ensured stable operation per ISO 14644-1 standards.

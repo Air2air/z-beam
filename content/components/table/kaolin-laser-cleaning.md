@@ -1,13 +1,12 @@
 <!-- Category: ceramic, Article Type: material, Subject: Kaolin -->
 
-### Technical Parameters
+### Technical Properties
 
-| Parameter | Value |
+| Property | Value |
 | --- | --- |
-| Author Id | 1 |
-| Author Name | Evelyn Wu |
-| Author Country | Taiwan |
-| Credentials | Industry Expert in Laser Cleaning Technology |
+| Symbol | Ka |
+| Formula | Al₂Si₂O₅(OH)₄ |
+| Material Type | compound |
 
 
 ### Technical Properties
@@ -15,45 +14,46 @@
 | Property | Value |
 | --- | --- |
 | Density | 2.6 g/cm³ |
-| Melting Point | 1750-1785°C |
+| Melting Point | 1750°C |
 | Thermal Conductivity | 0.15 W/m·K |
-| Laser Type | Nd:YAG |
+| Laser Type | Q-switched Nd:YAG |
 | Wavelength | 1064nm ±2nm |
-| Fluence Range | 0.5-10 J/cm² |
+| Fluence Range | 0.5–8 J/cm² |
 
 
 ### Material Composition
 
-| Component | Type | Percentage |
-| --- | --- | --- |
-| Al₂ Si O₅(oh)₄ | compound | 90-95% |
-| Quartz | mineral | 2-5% |
-| Iron Oxides | mineral | 0.5-2% |
-
-
-### Technical Parameters
-
-| Parameter | Value |
-| --- | --- |
-| Power Range | 50-300W (pulsed) |
-| Pulse Duration | 10-50ns adjustable |
-| Wavelength | 1064nm ±2nm |
-| Spot Size | 0.2-3mm diameter |
-| Repetition Rate | 10-100kHz |
-| Safety Class | IV (requires enclosure) |
+| Component | Type | Percentage | Formula |
+| --- | --- | --- | --- |
+| Aluminosilicate | compound | 90-95% | Al₂Si₂O₅(OH)₄ |
+| Quartz | mineral | 1-5% | SiO₂ |
+| Iron Oxides | compound | 0.5-2% | - |
 
 
 ### Compliance Standards
 
 | Code | Description |
 | --- | --- |
-| Astm C242 | Standard Terminology of Ceramic Whitewares |
-| Osha 1910.1200 | Hazard Communication Standard |
+| Osha 1910.147 | Control of hazardous energy during laser operations |
+| Ansi Z136.1 | Safe use of lasers in industrial applications |
+
+
+### Technical Parameters
+
+| Parameter | Value |
+| --- | --- |
+| Power Range | 50–500W (modular) |
+| Pulse Duration | 10–100ns adjustable |
+| Wavelength | 1064nm ±2nm |
+| Spot Size | 0.1–5mm diameter |
+| Repetition Rate | 20–200kHz |
+| Safety Class | IV (requires enclosure) |
+| Fluence Range | 0.5–8 J/cm² |
 
 
 ### Quality Metrics
 
 | Result | Metric |
 | --- | --- |
-| 99.8% Purity | XRF analysis post-cleaning |
-| 0.05mm Precision | Surface profilometry measurements |
+| 100% Ndt Pass Rate | ASTM E1316 compliance |
+| Zero Solvent Waste | EPA hazardous waste reporting |

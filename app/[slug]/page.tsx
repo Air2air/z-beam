@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "@/app/utils/metadata";
 import fs from 'fs/promises';
 import path from 'path';
+import { getTagsContentWithMatchCounts } from "@/app/utils/tagUtils";
+import { getArticleTagsFromTagsDir } from "@/app/utils/articleTagsUtils";
 
 // Fix: Define params as a Promise
 interface PageProps {
@@ -64,12 +66,35 @@ export default async function ArticlePage({ params }: PageProps) {
       notFound();
     }
     
-    // Load tags content for this article
-    const tagsContent = await getTagsContent(slug);
+    // Load tags content with match counts for this article
+    const { content: tagsContent, counts: tagCounts } = await getTagsContentWithMatchCounts(slug);
+    
+    // Prepare the components object with tags content and counts
+    const components = article.components || {};
+    
+    // Debug log
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[ArticlePage] Processing article: ${slug}`);
+      console.log(`[ArticlePage] Tag counts:`, tagCounts);
+      console.log(`[ArticlePage] Has tag content:`, !!tagsContent);
+      console.log(`[ArticlePage] Has tags component:`, !!components.tags);
+    }
+    
+    // Only add tags component if we have tags content
+    if (tagsContent && components.tags) {
+      components.tags = {
+        ...components.tags,
+        config: {
+          ...(components.tags.config || {}),
+          hideEmptyTags: true,
+          articleMatchCount: tagCounts
+        }
+      };
+    }
     
     // Make sure article.metadata contains tags if they exist in your content
     return (
-      <Layout components={article.components} metadata={article.metadata} slug={slug} />
+      <Layout components={components} metadata={article.metadata} slug={slug} />
     );
   } catch (error) {
     console.error(`Error rendering page for ${slug}:`, error);

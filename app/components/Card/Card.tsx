@@ -2,11 +2,9 @@
 "use client";
 
 import "./styles.scss";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
-import { getBadgeData } from "../../utils/materialBadgeUtils";
-import { MaterialBadgeData } from "../../types/materials";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 
 // Global card configuration with a single variant
@@ -26,30 +24,40 @@ const CARD_CONFIG = {
     "bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
 };
 
+// New standardized interface for badge data
+interface BadgeData {
+  symbol?: string;
+  atomicNumber?: number | string;
+  formula?: string;
+  materialType?: string;
+  color?: string;
+}
+
 export interface CardProps {
   href: string;
   title: string;
-  name?: string; // Add this property
+  name?: string;
   description?: string;
   image?: string;
   imageUrl?: string;
   imageAlt?: string;
   tags?: string[];
-  badge?: {
-    text: string;
-    color?: string;
-  };
+  badge?: BadgeData | null; // Allow null
   showBadge?: boolean;
   metadata?: {
     category?: string;
     articleType?: string;
     date?: string;
-    chemicalSymbol?: string;
-    atomicNumber?: number;
-    chemicalFormula?: string;
     tags?: string[];
+    // Simplified chemical properties object
+    chemicalProperties?: {
+      symbol?: string;
+      formula?: string;
+      materialType?: string;
+      atomicNumber?: number | string;
+    };
+    [key: string]: any; // Allow other properties
   };
-  materialData?: any;
   className?: string;
   height?: string;
 }
@@ -57,7 +65,7 @@ export interface CardProps {
 export function Card({
   href,
   title,
-  name, // Add this to props
+  name,
   description,
   image,
   imageUrl,
@@ -66,42 +74,53 @@ export function Card({
   badge,
   showBadge = false,
   metadata,
-  materialData,
   className = "",
   height,
 }: CardProps) {
-  // Use either image or imageUrl with fallback
-  const [imgSrc, setImgSrc] = useState<string>(
-    image || imageUrl || "/images/Site/Logo/logo_.png"
-  );
-  const [imgError, setImgError] = useState(false);
-
-  // Handle image error
-  const handleImageError = () => {
-    console.log("Image failed to load, using fallback");
-    setImgSrc("/images/Site/Logo/logo_.png");
-    setImgError(true);
+  // Extract chemical properties and prepare badge data
+  const getBadgeData = (): BadgeData | null => {
+    // If showBadge is false, don't show a badge
+    if (!showBadge) return null;
+    
+    // If explicit badge data is provided, use it
+    if (badge) return badge;
+    
+    // Extract from metadata if available
+    if (metadata?.chemicalProperties) {
+      const props = metadata.chemicalProperties;
+      
+      // Only return badge data if we have at least a symbol or formula
+      if (props.symbol || props.formula) {
+        return {
+          symbol: props.symbol,
+          formula: props.formula,
+          atomicNumber: props.atomicNumber,
+          materialType: props.materialType || metadata.category,
+          color: getMaterialColor(props.materialType || metadata.category)
+        };
+      }
+    }
+    
+    return null;
   };
 
-  // Extract badge data using the centralized utility
-  const badgeData: MaterialBadgeData | null = useMemo(() => {
-    // Try to extract from metadata first
-    if (metadata?.chemicalSymbol) {
-      return {
-        symbol: metadata.chemicalSymbol,
-        formula: metadata.chemicalFormula,
-        atomicNumber: metadata.atomicNumber,
-        materialType: metadata.chemicalFormula ? "compound" : "element",
-      };
-    }
+  const badgeData = getBadgeData();
 
-    // If we have raw material data, use the utility
-    if (materialData) {
-      return getBadgeData(materialData);
-    }
+  // Helper function to map material types to colors
+  function getMaterialColor(materialType?: string): string {
+    if (!materialType) return "blue";
 
-    return null;
-  }, [metadata, materialData]);
+    const typeMap: Record<string, string> = {
+      metal: "blue",
+      ceramic: "green",
+      polymer: "purple",
+      composite: "yellow",
+      semiconductor: "red",
+      compound: "gray",
+    };
+
+    return typeMap[materialType.toLowerCase()] || "blue";
+  }
 
   return (
     <Link
@@ -118,12 +137,12 @@ export function Card({
         >
           <Thumbnail
             src={image || imageUrl}
-            alt={imageAlt || name || title} // Update this too
+            alt={imageAlt || name || title}
             fallbackSrc="/images/Site/Logo/logo_.png"
-            objectFit="cover" // Change from "contain" to "cover"
+            objectFit="cover"
             priority={false}
             onError={() => {
-              // Error handling
+              // Error handling logic if needed
             }}
           />
 
@@ -142,9 +161,39 @@ export function Card({
 
         {/* Card Content */}
         <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>
-          <h3 className={CARD_CONFIG.titleClass}>{name || title}</h3> {/* Use name with fallback to title */}
+          {/* Debug indicator for name/title fields in dev mode */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="text-xs mb-1">
+              {name ? (
+                <span className={`${name.includes(' ') ? 'text-purple-600' : 'text-green-600'}`}>
+                  Using {name.includes(' ') ? 'multi-word ' : ''}name: {name}
+                </span>
+              ) : (
+                <span className="text-amber-600">Using title: {title}</span>
+              )}
+            </div>
+          )}
+          
+          <h3 className={CARD_CONFIG.titleClass}>
+            {/* Prioritize name over title */}
+            {name || title}
+          </h3>
           {description && (
             <p className={CARD_CONFIG.descriptionClass}>{description}</p>
+          )}
+          
+          {/* Tags */}
+          {tags && tags.length > 0 && (
+            <div className="mt-auto pt-4 flex flex-wrap gap-1">
+              {tags.slice(0, 3).map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
         </div>
       </article>

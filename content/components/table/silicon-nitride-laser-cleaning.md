@@ -4,7 +4,6 @@
 
 | Parameter | Value |
 | --- | --- |
-| Author Id | 1 |
 | Author Name | Evelyn Wu |
 | Author Country | Taiwan |
 | Credentials | Industry Expert in Laser Cleaning Technology |
@@ -14,12 +13,21 @@
 
 | Property | Value |
 | --- | --- |
-| Density | 3.2-3.4 g/cm³ |
-| Melting Point | 1900°C (under pressure) |
+| Symbol | SiN |
+| Formula | Si₃N₄ |
+| Material Type | compound |
+
+
+### Technical Properties
+
+| Property | Value |
+| --- | --- |
+| Density | 3.17-3.35 g/cm³ |
+| Melting Point | 1900°C (decomposes) |
 | Thermal Conductivity | 20-30 W/m·K |
-| Laser Type | Nd:YAG or fiber laser |
-| Wavelength | 355nm/1064nm dual-mode |
-| Fluence Range | 0.5–12 J/cm² |
+| Laser Type | Q-switched Nd:YAG |
+| Wavelength | 1064nm ±2nm |
+| Fluence Range | 0.5-10 J/cm² |
 
 
 ### Material Composition
@@ -30,30 +38,31 @@
 | Nitrogen | element | 40% |
 
 
-### Technical Parameters
-
-| Parameter | Value |
-| --- | --- |
-| Power Range | 20–400W pulsed |
-| Pulse Duration | 5–150ns adjustable |
-| Wavelength | 355nm (3rd harmonic Nd:YAG) |
-| Spot Size | 0.05–3mm diameter |
-| Repetition Rate | 10–100kHz |
-| Safety Class | IV (requires enclosure) |
-| Cooling System | Active water cooling |
-
-
 ### Compliance Standards
 
 | Code | Description |
 | --- | --- |
-| Iso 14644 1 | Cleanroom particulate standards for semiconductor applications |
-| Astm F2459 | Standard for laser cleaning of medical devices |
+| Iso 14705 | Fine ceramics (advanced ceramics, advanced technical ceramics) - Test method for hardness of monolithic ceramics at room temperature |
+| Astm C1327 | Standard Test Method for Vickers Indentation Hardness of Advanced Ceramics |
+
+
+### Technical Parameters
+
+| Parameter | Value |
+| --- | --- |
+| Power Range | 20-200W pulsed |
+| Pulse Duration | 5-100ns adjustable |
+| Wavelength | 1064nm ±2nm |
+| Spot Size | 0.05-3mm diameter |
+| Repetition Rate | 10-100kHz |
+| Safety Class | IV (requires enclosure) |
+| Cooling System | Closed-loop chiller (-10°C to +40°C) |
+| Compliance | California OSHA Title 8 Section 5417 |
 
 
 ### Quality Metrics
 
 | Result | Metric |
 | --- | --- |
-| 99.9% Purity | SEM-EDS contamination analysis |
-| <0.1µm Ra | Surface roughness measurement |
+| 99.9% Purity | SEM surface analysis |
+| Sub Micron Precision | White light interferometry |
