@@ -28,17 +28,19 @@ const navItems: Record<string, NavItem> = {
     name: "Home",
     href: "/",
   },
-  "/articles": {
-    name: "Articles", 
-    href: "/articles",
+  "/services": {
+    name: "Services", 
+    href: "/services",
   },
-  "https://vercel.com/templates/next.js/portfolio-starter-kit": {
-    name: "Deploy",
-    href: "https://vercel.com/templates/next.js/portfolio-starter-kit",
-    external: true,
-    target: "_blank",
-    rel: "noopener noreferrer",
+  "/about": {
+    name: "About", 
+    href: "/about",
   },
+  "/contact": {
+    name: "Contact", 
+    href: "/contact",
+  },
+
 };
 
 export function Navbar() {
@@ -62,7 +64,7 @@ export function Navbar() {
           >
             {/* Replace "MyLogo" with the Image component */}
             <Image
-              src="/images/Site/Logo/logo_.png" // Make sure to use the full relative path to your image
+              src="/images/Site/Logo/logo_.png" // Using the correct file name without quotes
               alt="Z-Beam Logo" // Always include descriptive alt text for accessibility
               width={120} // Set the intrinsic width of your logo image in pixels
               height={40} // Set the intrinsic height of your logo image in pixels
