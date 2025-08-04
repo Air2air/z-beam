@@ -22,11 +22,6 @@ export function BadgeSymbol({
   variant = 'card',
   color = 'blue'
 }: BadgeSymbolProps) {
-  // Add debugging to check incoming props
-  console.log("BadgeSymbol props:", { 
-    chemicalSymbol, atomicNumber, chemicalFormula, materialType, variant, color 
-  });
-  
   // If no symbol or formula is provided, don't render
   if (!chemicalSymbol && !chemicalFormula) return null;
   

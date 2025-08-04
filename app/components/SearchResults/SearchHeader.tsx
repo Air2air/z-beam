@@ -37,7 +37,6 @@ export function SearchHeader({
           tags={tags}
           selectedTag={selectedTag}
           onSelectTag={(tag) => {
-            console.log("Tag selected from UI:", tag);
             onTagSelect(tag);
           }}
           className="flex flex-wrap gap-2 justify-center"

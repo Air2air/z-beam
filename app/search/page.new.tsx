@@ -2,7 +2,7 @@
 import { Suspense } from "react";
 import SearchClient from "./search-client";
 import { getAllArticles } from "../utils/contentUtils";
-import { getAllUniqueTags } from "../utils/articleTagsUtils";
+import { getAllUniqueTags } from "../utils/tags";
 
 export const dynamic = 'force-dynamic';
 

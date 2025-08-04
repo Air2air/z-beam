@@ -4,7 +4,7 @@ import { Layout } from "@/app/components/Layout/Layout";
 import { createMetadata } from "@/app/utils/metadata";
 import fs from 'fs/promises';
 import path from 'path';
-import { getTagsContentWithMatchCounts } from "@/app/utils/tagUtils";
+import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 
 // Define params as a Promise
 interface PageProps {
@@ -56,6 +56,12 @@ export default async function ArticlePage({ params }: PageProps) {
   // Await params before destructuring
   const resolvedParams = await params;
   const { slug } = resolvedParams;
+  
+  // Validate slug - prevent meaningless values from even trying
+  if (!slug || slug === '#' || slug === 'undefined' || slug === 'null') {
+    console.error(`Invalid slug detected: "${slug}"`);
+    notFound();
+  }
   
   try {
     const article = await getArticle(slug);

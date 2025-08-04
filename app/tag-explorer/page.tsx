@@ -1,5 +1,5 @@
 // app/tag-explorer/page.tsx
-import { getAllUniqueTags, getTagCounts } from "@/app/utils/articleTagsUtils";
+import { getAllUniqueTags, getTagCounts } from "@/app/utils/tags";
 import Link from "next/link";
 
 export default async function TagExplorerPage() {

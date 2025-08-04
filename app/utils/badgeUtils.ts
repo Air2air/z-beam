@@ -46,9 +46,6 @@ export function getBadgeData(item: any, options: { showBadge?: boolean, forceBad
   if (metadata.chemicalProperties) {
     const props = metadata.chemicalProperties;
     
-    if (process.env.NODE_ENV === 'development') {
-    }
-    
     // Only return badge data if we have at least a symbol or formula
     if (props.symbol || props.formula) {
       const badgeData: BadgeData = {
@@ -71,13 +68,6 @@ export function getBadgeData(item: any, options: { showBadge?: boolean, forceBad
   
   // Try to extract from metadata directly if chemicalProperties object isn't available
   if (metadata.symbol || metadata.formula) {
-    if (process.env.NODE_ENV === 'development') {
-        symbol: metadata.symbol,
-        formula: metadata.formula,
-        materialType: metadata.materialType || metadata.category
-      });
-    }
-    
     const badgeData: BadgeData = {
       symbol: metadata.symbol,
       formula: metadata.formula,
@@ -164,9 +154,6 @@ const badgeCache: Record<string, BadgeData> = {};
 export function cacheBadgeData(slug: string, badgeData: BadgeData): void {
   if (!slug) return;
   badgeCache[slug] = badgeData;
-  
-  if (process.env.NODE_ENV === 'development') {
-  }
 }
 
 /**

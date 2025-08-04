@@ -77,6 +77,13 @@ export function Card({
   className = "",
   height,
 }: CardProps) {
+  // Validate href to help debug 404 issues
+  if (href && typeof href === 'string' && process.env.NODE_ENV === 'development') {
+    // Log potential problematic hrefs (blank, hash only, etc)
+    if (href === '#' || href === '' || !href.startsWith('/')) {
+      console.warn(`Potential invalid href in Card: "${href}" for ${name || title}`);
+    }
+  }
   // Extract chemical properties and prepare badge data
   const getBadgeData = (): BadgeData | null => {
     // If showBadge is false, don't show a badge
@@ -161,19 +168,6 @@ export function Card({
 
         {/* Card Content */}
         <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>
-          {/* Debug indicator for name/title fields in dev mode */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="text-xs mb-1">
-              {name ? (
-                <span className={`${name.includes(' ') ? 'text-purple-600' : 'text-green-600'}`}>
-                  Using {name.includes(' ') ? 'multi-word ' : ''}name: {name}
-                </span>
-              ) : (
-                <span className="text-amber-600">Using title: {title}</span>
-              )}
-            </div>
-          )}
-          
           <h3 className={CARD_CONFIG.titleClass}>
             {/* Prioritize name over title */}
             {name || title}

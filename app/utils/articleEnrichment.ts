@@ -57,14 +57,6 @@ export function enrichArticle(article: Article): EnrichedArticle {
   // Create a new object to avoid mutating the original
   const enriched = { ...article } as EnrichedArticle;
   
-  // Debug logging for frontmatter
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`Enriching article: ${article.slug || 'unknown'}`);
-    console.log(`Frontmatter:`, article.frontmatter);
-    console.log(`Name before: ${article.name || 'undefined'}`);
-    console.log(`Frontmatter name: ${article.frontmatter?.name || 'undefined'}`);
-  }
-  
   // Initialize tags array if it doesn't exist
   if (!enriched.tags) {
     enriched.tags = [];
@@ -73,10 +65,6 @@ export function enrichArticle(article: Article): EnrichedArticle {
   // Ensure name is set from frontmatter if available
   if (enriched.frontmatter?.name && !enriched.name) {
     enriched.name = enriched.frontmatter.name;
-    
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`Setting name from frontmatter: ${enriched.name}`);
-    }
   }
   
   // If no name is available yet, try to extract it from the slug
@@ -103,10 +91,6 @@ export function enrichArticle(article: Article): EnrichedArticle {
       ) {
         enriched.name = material.name;
         foundMultiWord = true;
-        
-        if (process.env.NODE_ENV === 'development') {
-          console.log(`Generated multi-word name from slug: ${enriched.name}`);
-        }
         break;
       }
     }
@@ -130,10 +114,6 @@ export function enrichArticle(article: Article): EnrichedArticle {
       } else {
         // Fallback to just the first part capitalized
         enriched.name = slugParts[0].charAt(0).toUpperCase() + slugParts[0].slice(1);
-      }
-      
-      if (process.env.NODE_ENV === 'development') {
-        console.log(`Generated name from slug: ${enriched.name}`);
       }
     }
   }
@@ -221,35 +201,20 @@ export function enrichArticle(article: Article): EnrichedArticle {
     }
   }
   
-  // 4. DEVELOPMENT TEST TAGS
-  if (process.env.NODE_ENV === 'development') {
-    // Add common category tags for testing
-    enriched.tags.push('Ceramic');
-    enriched.tags.push('Surface Treatment');
-    enriched.tags.push('Laser');
-    enriched.tags.push('Cleaning');
-    enriched.tags.push('Industrial Cleaning');
-    enriched.tags.push('Precision Cleaning');
-    
-    // Also extract from the URL for testing the current page
-    if (typeof window !== 'undefined') {
-      const urlPath = window.location.pathname;
-      if (urlPath.startsWith('/tag/')) {
-        const urlTag = decodeURIComponent(urlPath.split('/').pop() || '');
-        if (urlTag && urlTag !== '') {
-          enriched.tags.push(urlTag);
-        }
-      }
-    }
-  }
-  
-  // 5. DEDUPLICATE AND ENSURE HREF
+  // DEDUPLICATE AND ENSURE HREF
   enriched.tags = [...new Set(enriched.tags)];
   
+  // Ensure href is set - critical for navigation
   if (!enriched.href) {
     if (enriched.slug) {
       enriched.href = `/${enriched.slug}`;
+      
+      // Validate that href is a valid path - potentially check if file exists?
+      if (process.env.NODE_ENV === 'development') {
+        // Advanced validation could go here in the future
+      }
     } else {
+      // If no slug, use # but mark it for debugging
       enriched.href = '#';
     }
   }

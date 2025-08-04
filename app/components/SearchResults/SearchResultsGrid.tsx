@@ -25,20 +25,24 @@ export function SearchResultsGrid({
         // Get badge data once to avoid calling the function twice
         const badgeData = getBadgeFromItem(item);
         
-        // Debug logging in dev mode
-        if (process.env.NODE_ENV === 'development') {
-          console.log(`Rendering card ${index}:`, {
+        // Validate href to help debug 404 issues
+        if (process.env.NODE_ENV === 'development' && (!item.href || item.href === '#')) {
+          console.warn(`Item ${index} missing valid href:`, {
             slug: item.slug,
             name: item.name,
-            frontmatterName: item.frontmatter?.name,
             title: item.title,
-            frontmatterTitle: item.frontmatter?.title,
             href: item.href
           });
+          
+          // Try to auto-fix href if possible
+          if (item.slug && !item.href) {
+            item.href = `/${item.slug}`;
+            console.info(`Auto-fixed href to /${item.slug}`);
+          }
         }
         
         // Generate a better display name from slug if no name or title exists
-        let cardName = item.frontmatter?.name || item.name || "";
+        let cardName = item.name || "";
         
         if (!cardName && item.slug) {
           // Handle multi-word material names in slugs like "silicon-carbide-laser-cleaning"
@@ -95,17 +99,17 @@ export function SearchResultsGrid({
           <Card
             key={item.id || item.slug || `item-${index}`}
             href={item.href}
-            title={item.title || item.frontmatter?.title || ""}
+            title={item.title || ""}
             name={cardName}
-            description={item.description || item.frontmatter?.description}
+            description={item.description}
             image={item.image}
             imageAlt={item.imageAlt || item.title || ""}
             tags={item.tags || []}
             badge={badgeData || undefined} // Convert null to undefined
             showBadge={!!badgeData}
             metadata={item.metadata || {
-              category: item.frontmatter?.category || item.category,
-              articleType: item.frontmatter?.articleType || item.frontmatter?.article_type,
+              category: item.category,
+              articleType: item.articleType,
               chemicalProperties: getChemicalProperties(item)
             }}
             className="h-full"

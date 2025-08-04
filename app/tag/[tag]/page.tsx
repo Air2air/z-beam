@@ -1,18 +1,25 @@
 // app/tag/[tag]/page.tsx - Simplified for build
-import { getArticlesWithTags } from "@/app/utils/articleTagsUtils";
+import { getArticlesWithTags } from "@/app/utils/tags";
 import { enrichArticles } from "../../utils/articleEnrichment";
 import { SearchResults } from "@/app/components/SearchResults/SearchResults";
-import { PageProps } from "next";
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
+// Define params as a Promise
+interface PageProps {
+  params: Promise<{ tag: string | string[] }>;
+}
+
 export default async function TagPage({ params }: PageProps) {
+  // Await params before using it
+  const paramsData = await params;
+  
   // Safely access the tag parameter with type checking
-  const tag = params?.tag ? 
-    (typeof params.tag === 'string' ? 
-      decodeURIComponent(params.tag) : 
-      decodeURIComponent(params.tag[0])
+  const tag = paramsData?.tag ? 
+    (typeof paramsData.tag === 'string' ? 
+      decodeURIComponent(paramsData.tag) : 
+      decodeURIComponent(paramsData.tag[0])
     ) : '';
   
   // Get all articles with tags
@@ -40,10 +47,13 @@ export default async function TagPage({ params }: PageProps) {
 }
 
 export async function generateMetadata({ params }: { params: any }) {
-  const tagValue = params?.tag ? 
-    (typeof params.tag === 'string' ? 
-      decodeURIComponent(params.tag) : 
-      decodeURIComponent(params.tag[0])
+  // Ensure params is awaited before accessing properties
+  const paramsData = await params;
+  
+  const tagValue = paramsData?.tag ? 
+    (typeof paramsData.tag === 'string' ? 
+      decodeURIComponent(paramsData.tag) : 
+      decodeURIComponent(paramsData.tag[0])
     ) : '';
     
   return {

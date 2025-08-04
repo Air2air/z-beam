@@ -54,30 +54,6 @@ export function Tags({ content, config }: TagsProps) {
   
   const allTags = parseTags(content);
   
-  // Debug: Log article match counts
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Tags component - All tags:', allTags);
-      console.log('Tags component - Article match counts:', articleMatchCount);
-      console.log('Tags component - Has match counts:', Object.keys(articleMatchCount).length > 0);
-      
-      // Check if any tags have matches
-      const tagsWithMatches = Object.entries(articleMatchCount)
-        .filter(([_, count]) => count > 0)
-        .map(([tag]) => tag);
-      
-      console.log('Tags component - Tags with matches:', tagsWithMatches);
-      
-      // Log tags with zero matches
-      const tagsWithZeroMatches = Object.entries(articleMatchCount)
-        .filter(([_, count]) => count === 0)
-        .map(([tag]) => tag);
-      
-      console.log('Tags component - Tags with zero matches:', tagsWithZeroMatches);
-      console.log('Tags component - hideEmptyTags setting:', hideEmptyTags);
-    }
-  }, [allTags, articleMatchCount, hideEmptyTags]);
-  
   // Filter out tags with zero matching articles if hideEmptyTags is true
   const tags = hideEmptyTags 
     ? allTags.filter(tag => {
@@ -114,9 +90,6 @@ export function Tags({ content, config }: TagsProps) {
               className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
             >
               {tag}
-              {process.env.NODE_ENV === 'development' && Object.keys(articleMatchCount).length > 0 && (
-                <span className="ml-1 text-xs opacity-70">({articleMatchCount[tag] || 0})</span>
-              )}
             </button>
           ) : (
             // Link for navigation to tag page
@@ -126,32 +99,10 @@ export function Tags({ content, config }: TagsProps) {
               className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
             >
               {tag}
-              {process.env.NODE_ENV === 'development' && Object.keys(articleMatchCount).length > 0 && (
-                <span className="ml-1 text-xs opacity-70">({articleMatchCount[tag] || 0})</span>
-              )}
             </Link>
           )
         ))}
       </div>
-
-      {/* Development-only debug information showing hidden tags */}
-      {process.env.NODE_ENV === 'development' && hideEmptyTags && allTags.length !== tags.length && (
-        <div className="mt-4 text-sm bg-gray-100 p-3 rounded-md">
-          <h4 className="font-semibold text-gray-600">Hidden Tags (No Matching Articles):</h4>
-          <div className="flex flex-wrap gap-2 mt-2">
-            {allTags
-              .filter(tag => !tags.includes(tag))
-              .map((tag, index) => (
-                <span
-                  key={index}
-                  className="inline-block px-3 py-1 rounded-full text-xs text-gray-500 bg-gray-200"
-                >
-                  {tag} (0)
-                </span>
-              ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

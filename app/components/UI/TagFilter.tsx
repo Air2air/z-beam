@@ -49,9 +49,6 @@ export function TagFilter({
               className={`${tagClass} px-3 py-1 rounded-full text-sm transition-colors flex items-center`}
             >
               {tag}
-              {tagItemCounts && process.env.NODE_ENV === 'development' && (
-                <span className="ml-1 text-xs opacity-70">({tagItemCounts[tag] || 0})</span>
-              )}
             </Link>
           );
         }
@@ -65,9 +62,6 @@ export function TagFilter({
               className={`${tagClass} px-3 py-1 rounded-full text-sm transition-colors flex items-center`}
             >
               {tag}
-              {tagItemCounts && process.env.NODE_ENV === 'development' && (
-                <span className="ml-1 text-xs opacity-70">({tagItemCounts[tag] || 0})</span>
-              )}
             </button>
           );
         }
@@ -79,9 +73,6 @@ export function TagFilter({
             className={`${tagClass} px-3 py-1 rounded-full text-sm flex items-center`}
           >
             {tag}
-            {tagItemCounts && process.env.NODE_ENV === 'development' && (
-              <span className="ml-1 text-xs opacity-70">({tagItemCounts[tag] || 0})</span>
-            )}
           </span>
         );
       })}
