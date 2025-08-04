@@ -31,6 +31,7 @@ interface BadgeData {
   formula?: string;
   materialType?: string;
   color?: string;
+  show?: boolean; // Added for simplified flag
 }
 
 export interface CardProps {
@@ -43,7 +44,6 @@ export interface CardProps {
   imageAlt?: string;
   tags?: string[];
   badge?: BadgeData | null; // Allow null
-  showBadge?: boolean;
   metadata?: {
     category?: string;
     articleType?: string;
@@ -72,7 +72,6 @@ export function Card({
   imageAlt,
   tags = [],
   badge,
-  showBadge = false,
   metadata,
   className = "",
   height,
@@ -84,50 +83,18 @@ export function Card({
       console.warn(`Potential invalid href in Card: "${href}" for ${name || title}`);
     }
   }
-  // Extract chemical properties and prepare badge data
-  const getBadgeData = (): BadgeData | null => {
-    // If showBadge is false, don't show a badge
-    if (!showBadge) return null;
-    
-    // If explicit badge data is provided, use it
-    if (badge) return badge;
-    
-    // Extract from metadata if available
-    if (metadata?.chemicalProperties) {
-      const props = metadata.chemicalProperties;
-      
-      // Only return badge data if we have at least a symbol or formula
-      if (props.symbol || props.formula) {
-        return {
-          symbol: props.symbol,
-          formula: props.formula,
-          atomicNumber: props.atomicNumber,
-          materialType: props.materialType || metadata.category,
-          color: getMaterialColor(props.materialType || metadata.category)
-        };
-      }
-    }
-    
-    return null;
-  };
+  // Simplified badge handling - show badges on all cards, using slug-based fallback if needed
+  // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
+  const slug = href?.split('/').pop() || '';
 
-  const badgeData = getBadgeData();
-
-  // Helper function to map material types to colors
-  function getMaterialColor(materialType?: string): string {
-    if (!materialType) return "blue";
-
-    const typeMap: Record<string, string> = {
-      metal: "blue",
-      ceramic: "green",
-      polymer: "purple",
-      composite: "yellow",
-      semiconductor: "red",
-      compound: "gray",
-    };
-
-    return typeMap[materialType.toLowerCase()] || "blue";
-  }
+  // Debug logging for badge visibility
+  console.log('Card Badge Debug:', {
+    href,
+    slug,
+    hasMetadata: !!metadata,
+    hasChemicalProperties: !!(metadata && metadata.chemicalProperties),
+    chemicalProperties: metadata?.chemicalProperties
+  });
 
   return (
     <Link
@@ -153,17 +120,13 @@ export function Card({
             }}
           />
 
-          {/* Chemical Symbol Badge (if applicable) */}
-          {badgeData && (
-            <BadgeSymbol
-              chemicalSymbol={badgeData.symbol}
-              atomicNumber={badgeData.atomicNumber}
-              chemicalFormula={badgeData.formula}
-              materialType={badgeData.materialType}
-              variant="card"
-              color={badgeData.color}
-            />
-          )}
+          {/* Chemical Symbol Badge (always show - uses slug-based fallback) */}
+          <BadgeSymbol
+            frontmatter={metadata ? { 
+              chemicalProperties: metadata.chemicalProperties 
+            } : undefined}
+            slug={slug}
+          />
         </div>
 
         {/* Card Content */}

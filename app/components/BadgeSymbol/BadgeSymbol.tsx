@@ -1,107 +1,264 @@
 // app/components/BadgeSymbol/BadgeSymbol.tsx
 "use client";
 
-import React, { useMemo } from 'react';
-import { MaterialType } from '../../types/materials';
-import { getMaterialGradient } from '../../utils/materialBadgeUtils';
+import React from "react";
+import { Article, ArticleFrontmatter } from "../../types/Article";
 
 interface BadgeSymbolProps {
-  chemicalSymbol?: string;
-  atomicNumber?: number | string;
-  chemicalFormula?: string;
-  materialType?: string;
-  variant?: 'card' | 'large' | 'small';
-  color?: string;
+  // Only needed props
+  variant?: "card" | "large" | "small";
+  position?: string;
+
+  // Primary data source - frontmatter
+  frontmatter?: ArticleFrontmatter;
+  // For convenience, can extract frontmatter from article
+  article?: Article;
+  // For fallback when no chemical data exists
+  slug?: string;
 }
 
 export function BadgeSymbol({
-  chemicalSymbol,
-  atomicNumber,
-  chemicalFormula,
-  materialType,
-  variant = 'card',
-  color = 'blue'
+  // Only needed props
+  variant = "card",
+  position = "absolute top-2 right-2",
+
+  // Primary data sources
+  article,
+  frontmatter,
+  slug,
 }: BadgeSymbolProps) {
+  // Debug logging to see what data is actually being passed
+  console.log("BadgeSymbol received:", { article, frontmatter, slug });
+
+  // Get frontmatter from article if not directly provided
+  const fm = frontmatter || article?.frontmatter;
+  // Get slug from either article, frontmatter, or direct prop
+  const itemSlug = slug || article?.slug || fm?.slug;
+
+  // Debug log the resolved frontmatter
+  console.log("Resolved frontmatter:", fm);
+
+  // Generate default badge data if no frontmatter or no chemicalProperties
+  let symbol, formula, materialType, atomicNumber;
+
+  if (fm?.chemicalProperties) {
+    // Extract data from frontmatter's chemicalProperties if available
+    symbol = fm.chemicalProperties.symbol;
+    formula = fm.chemicalProperties.formula;
+    materialType = fm.chemicalProperties.materialType;
+    atomicNumber = fm.chemicalProperties.atomicNumber;
+
+    // Format the symbol with proper scientific casing
+    if (symbol) {
+      symbol = formatSymbol(symbol);
+      console.log("Formatted symbol from frontmatter:", symbol);
+    }
+  }
+  
+  // Only use slug as fallback if we absolutely need to (no frontmatter data)
+  if (!symbol && !formula && !materialType && itemSlug) {
+    // We have no chemical data from frontmatter, so generate fallback from slug
+    console.log("No chemical data in frontmatter, using slug fallback:", itemSlug);
+    symbol = formatSymbol(generateSymbolFromSlug(itemSlug));
+    materialType = determineMaterialTypeFromSlug(itemSlug);
+    formula = symbol; // Use symbol as fallback formula
+  }
+
+  // Known element symbols mapped to atomic numbers (simplified version)
+  const ELEMENTS: Record<string, number> = {
+    // Single-letter elements (uppercase)
+    'H': 1,
+    'C': 6, 
+    'N': 7, 
+    'O': 8,
+    // Two-letter elements (first letter uppercase, second lowercase)
+    'Fe': 26,
+    'Cu': 29, 
+    'Zn': 30, 
+    'Ag': 47, 
+    'Au': 79
+  };
+
+  // Helper function to generate a symbol from a slug
+  function generateSymbolFromSlug(slug: string): string {
+    // Remove any file extension if present
+    const cleanSlug = slug.replace(/\.[^/.]+$/, "");
+
+    // Split by hyphens or underscores
+    const parts = cleanSlug.split(/[-_]/);
+
+    let result = "";
+    if (parts.length >= 2) {
+      // Take first letter of first word and first letter of second word
+      result = parts[0].charAt(0) + parts[1].charAt(0);
+    } else if (parts.length === 1) {
+      // If only one word, take first two letters
+      result = parts[0].substring(0, Math.min(2, parts[0].length));
+    } else {
+      // Fallback
+      result = "XX";
+    }
+
+    // Ensure it's limited to 3 characters and properly formatted
+    result = result.substring(0, 3);
+    
+    // Note: We will format this with formatSymbol() at the calling location
+    return result;
+  }
+
+  // Helper function to determine material type from slug
+  function determineMaterialTypeFromSlug(slug: string): string {
+    const lowerSlug = slug.toLowerCase();
+
+    // Check for common material keywords in the slug
+    if (
+      lowerSlug.includes("metal") ||
+      lowerSlug.includes("steel") ||
+      lowerSlug.includes("aluminum")
+    ) {
+      return "metal";
+    } else if (
+      lowerSlug.includes("ceramic") ||
+      lowerSlug.includes("nitride") ||
+      lowerSlug.includes("oxide")
+    ) {
+      return "ceramic";
+    } else if (lowerSlug.includes("polymer") || lowerSlug.includes("plastic")) {
+      return "polymer";
+    } else if (
+      lowerSlug.includes("composite") ||
+      lowerSlug.includes("carbon-fiber")
+    ) {
+      return "composite";
+    } else if (
+      lowerSlug.includes("silicon") ||
+      lowerSlug.includes("semiconductor")
+    ) {
+      return "semiconductor";
+    } else {
+      // Default fallback
+      return "compound";
+    }
+  }
+
+ 
+  // Format symbol with proper case and limit to 3 characters following chemical symbol conventions
+  function formatSymbol(input?: string): string {
+    if (!input) return "";
+
+    // Limit to 3 characters
+    const limitedSymbol = input.substring(0, 3);
+
+    // Handle chemical symbol conventions:
+    // - Single-letter symbols are uppercase (H, C, O)
+    // - Multi-letter symbols have first letter uppercase, rest lowercase (He, Al, Si, Fe)
+    // - Two-letter standard element symbols never have both letters uppercase
+    if (limitedSymbol.length === 1) {
+      return limitedSymbol.toUpperCase();
+    } else {
+      // For two or more letters, capitalize first letter only
+      return (
+        limitedSymbol.charAt(0).toUpperCase() +
+        limitedSymbol.slice(1).toLowerCase()
+      );
+    }
+  }
+
+  // If we have a symbol but no atomic number, check known elements
+  if (symbol && !atomicNumber) {
+    // Format the symbol correctly for lookup
+    const formattedSymbol = formatSymbol(symbol);
+    if (ELEMENTS[formattedSymbol]) {
+      atomicNumber = ELEMENTS[formattedSymbol];
+      console.log(`Found atomic number ${atomicNumber} for symbol ${formattedSymbol}`);
+    }
+  }
+
+  // Determine color - we're using a consistent style now
+  const color = "badge-default"; // Single consistent style
+
   // If no symbol or formula is provided, don't render
-  if (!chemicalSymbol && !chemicalFormula) return null;
-  
+  if (!symbol && !formula) {
+    console.log("No symbol or formula available, returning null");
+    return null;
+  }
+
   // Determine what to display - prefer formula for complex compounds
-  const displaySymbol = chemicalFormula || chemicalSymbol || '';
-  
+  // For symbol-only display, make sure it's properly formatted
+  const displaySymbol = formula || (symbol ? formatSymbol(symbol) : "") || "";
+
+  // Log the formatted symbol for debugging
+  console.log("Formatted symbol for display:", displaySymbol);
+
   // Determine if we have a complex formula that needs special handling
-  const isComplexFormula = displaySymbol.length > 2 || /[0-9]/.test(displaySymbol);
-  
+  const isComplexFormula =
+    displaySymbol.length > 2 || /[0-9]/.test(displaySymbol);
+
   // Configure sizes based on variant and complexity
   const sizeConfig = {
     card: {
-      container: isComplexFormula ? 'w-14 h-14' : 'w-12 h-12',
-      symbol: isComplexFormula ? 'text-lg' : 'text-xl',
-      number: 'text-xs',
-      type: 'text-[10px]'
+      container: isComplexFormula ? "w-12 h-12" : "w-10 h-10",
+      symbol: isComplexFormula ? "text-lg" : "text-xl",
+      number: "text-xs"
     },
     large: {
-      container: isComplexFormula ? 'w-20 h-20' : 'w-16 h-16',
-      symbol: isComplexFormula ? 'text-xl' : 'text-2xl',
-      number: 'text-sm',
-      type: 'text-xs'
+      container: isComplexFormula ? "w-16 h-16" : "w-14 h-14",
+      symbol: isComplexFormula ? "text-xl" : "text-2xl",
+      number: "text-sm"
     },
     small: {
-      container: isComplexFormula ? 'w-10 h-10' : 'w-8 h-8',
-      symbol: isComplexFormula ? 'text-sm' : 'text-base',
-      number: 'text-[8px]',
-      type: 'text-[6px]'
-    }
+      container: isComplexFormula ? "w-10 h-8" : "w-8 h-7",
+      symbol: isComplexFormula ? "text-sm" : "text-base",
+      number: "text-[8px]"
+    },
   };
-  
-  // Color configuration
-  const colorConfig = {
-    blue: 'bg-blue-100 text-blue-800 border-blue-300',
-    green: 'bg-green-100 text-green-800 border-green-300',
-    red: 'bg-red-100 text-red-800 border-red-300',
-    yellow: 'bg-yellow-100 text-yellow-800 border-yellow-300',
-    purple: 'bg-purple-100 text-purple-800 border-purple-300',
-    gray: 'bg-gray-100 text-gray-800 border-gray-300'
+
+  // Default text colors - consistent styling
+  const textColorConfig = {
+    default: "text-gray-100 font-semibold", // Dark text for better readability
+    number: "text-gray-700 font-bold"
   };
-  
+
+  // Utility function to format chemical formula with subscripts
+  const formatChemicalFormula = (formula: string): string => {
+    return formula.replace(/([0-9]+)/g, "<sub>$1</sub>");
+  };
+
   const sizes = sizeConfig[variant];
-  const colors = colorConfig[color as keyof typeof colorConfig] || colorConfig.blue;
-  
+
+  // Build className parts separately for better maintainability
+  const containerClasses = [
+    sizes.container,
+    "bg-red-900", // Simple white background
+    position,
+    "rounded-md border border-red-800",
+    "flex flex-col items-center justify-center",
+    "shadow-sm",
+  ].join(" ");
+
   return (
-    <div 
-      className={`
-        ${sizes.container}
-        ${colors}
-        absolute top-2 right-2
-        rounded-md border
-        flex flex-col items-center justify-center
-        shadow-sm
-      `}
-    >
+    <div className={containerClasses}>
       {/* Atomic number if available */}
       {atomicNumber && (
-        <span className={`${sizes.number} font-medium`}>
+        <span className={`${sizes.number} ${textColorConfig.number}`}>
           {atomicNumber}
         </span>
       )}
-      
+
       {/* Symbol or Formula - Use subscripts for numbers in formulas */}
-      <span className={`${sizes.symbol} font-bold leading-tight`}>
+      <span
+        className={`${sizes.symbol} ${textColorConfig.default} leading-tight`}
+      >
         {isComplexFormula ? (
-          <span dangerouslySetInnerHTML={{ 
-            __html: displaySymbol.replace(/([0-9]+)/g, '<sub>$1</sub>') 
-          }} />
+          <span
+            dangerouslySetInnerHTML={{
+              __html: formatChemicalFormula(displaySymbol),
+            }}
+          />
         ) : (
           displaySymbol
         )}
       </span>
-      
-      {/* Material type if available */}
-      {materialType && (
-        <span className={`${sizes.type} font-medium capitalize`}>
-          {materialType}
-        </span>
-      )}
     </div>
   );
 }
-

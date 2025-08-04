@@ -22,6 +22,12 @@ export const metadata = {
     default: SITE_CONFIG.name,
   },
   description: SITE_CONFIG.description,
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/images/Site/Favicon/favicon_350.png', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +40,10 @@ export default function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} dark scroll-smooth`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/Site/Favicon/favicon_350.png" type="image/png" />
+      </head>
       <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100">
         <Navbar />
         <main className="flex-grow w-full py-8">{children}</main>
