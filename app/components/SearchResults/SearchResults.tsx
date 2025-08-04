@@ -5,8 +5,6 @@ import { SearchResultsGrid } from "./SearchResultsGrid";
 import { SearchHeader } from "./SearchHeader";
 import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
-import { FrontmatterDebug } from "../Debug/FrontmatterDebug";
-import { FrontmatterNameChecker } from "../Debug/FrontmatterNameChecker";
 import { Article, EnrichedArticle } from "../../types/Article";
 
 interface SearchResultsProps {
@@ -52,14 +50,10 @@ export function SearchResults({
         .replace(/\+/g, ' ')
         .trim();
       
-      console.log(`Setting selectedTag to: "${decodedTag}" (from initialTag: "${initialTag}")`);
-      
       // Check if this tag exists in our items
       const tagExists = items.some(item => 
         item.tags && item.tags.some(t => t.toLowerCase() === decodedTag.toLowerCase())
       );
-      
-      console.log(`Tag "${decodedTag}" exists in items: ${tagExists}`);
       
       // Try finding a capitalized version of the tag if it exists in our items
       if (!tagExists && decodedTag) {
@@ -78,7 +72,6 @@ export function SearchResults({
         );
         
         if (matchingTag) {
-          console.log(`Found matching tag with different case: "${matchingTag}"`);
           setSelectedTag(matchingTag); // Use the version that exists in the items
           return;
         }
@@ -87,22 +80,6 @@ export function SearchResults({
       setSelectedTag(decodedTag);
     }
   }, [initialTag, items]);
-  
-  // Debugging: Log when component mounts and test tag matching
-  useEffect(() => {
-    console.log("SearchResults mounted with items:", items.length);
-    
-    // Test tag matching directly
-    if (initialTag && items.length > 0) {
-      console.log(`Testing tag matching with initialTag: "${initialTag}"`);
-      
-      // Check first few items
-      items.slice(0, 3).forEach((item, index) => {
-        console.log(`Item ${index} tags:`, item.tags);
-        console.log(`Matches tag "${initialTag}": ${itemMatchesTag(item, initialTag)}`);
-      });
-    }
-  }, [items, initialTag]);
   
   // Simple tag matching function
   function itemMatchesTag(item: any, tag: string): boolean {
@@ -120,21 +97,6 @@ export function SearchResults({
       
       return false;
     });
-    
-    // Debug logging in development
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`Tag match check for "${item.title || 'untitled'}":`);
-      console.log(`- Looking for: "${tag}" (lowercase: "${tagLower}")`);
-      console.log(`- Item tags: ${item.tags.join(', ')}`);
-      console.log(`- Match result: ${hasMatch ? 'YES' : 'NO'}`);
-      
-      if (!hasMatch) {
-        // Show all lowercase tags for comparison
-        const lowerTags = item.tags.map(t => t?.toLowerCase());
-        console.log(`- Item tags (lowercase): ${lowerTags.join(', ')}`);
-        console.log(`- Would match: ${lowerTags.includes(tagLower) ? 'YES' : 'NO'}`);
-      }
-    }
     
     return hasMatch;
   }
@@ -332,14 +294,6 @@ export function SearchResults({
             </div>
           </div>
         </div>
-      )}
-      
-      {/* More detailed frontmatter debugging */}
-      {process.env.NODE_ENV === 'development' && (
-        <>
-          <FrontmatterDebug items={items} />
-          <FrontmatterNameChecker />
-        </>
       )}
     </div>
   );

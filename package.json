@@ -20,7 +20,8 @@
     "deploy:staging": "gh workflow run deploy.yml -f environment=staging",
     "deploy:prod": "gh workflow run deploy.yml -f environment=production",
     "deploy:images": "gh workflow run deploy-cloudinary-images.yml",
-    "ci": "npm run type-check && npm run lint && npm run build"
+    "ci": "npm run type-check && npm run lint && npm run build",
+    "kill": "lsof -ti tcp:3000 | xargs kill"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",

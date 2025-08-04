@@ -24,7 +24,6 @@ export interface ArticleMetadata {
 }
 
 export function createMetadata(metadata: ArticleMetadata): NextMetadata {
-  console.log("Creating metadata from:", JSON.stringify(metadata, null, 2));
   
   // Extract all properties safely with defaults
   const {
@@ -71,7 +70,6 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     robots: noindex ? { index: false } : undefined,
   };
   
-  console.log("Generated Next.js metadata:", JSON.stringify(result, null, 2));
   
   return result;
 }

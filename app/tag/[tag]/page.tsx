@@ -35,15 +35,6 @@ export default async function TagPage({ params }: PageProps) {
         initialTag={tag}
         showTagFilter={true}
       />
-      
-      {/* Development debug panel */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="mt-8 p-4 bg-gray-100 rounded-md text-sm">
-          <h3 className="font-bold mb-2">Debug Info</h3>
-          <p>Tag: {tag}</p>
-          <p>Matching articles: {matchingArticles.length}</p>
-        </div>
-      )}
     </div>
   );
 }
