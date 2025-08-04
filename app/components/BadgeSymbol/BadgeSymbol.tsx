@@ -197,8 +197,8 @@ export function BadgeSymbol({
   // Configure sizes based on variant and complexity
   const sizeConfig = {
     card: {
-      container: isComplexFormula ? "w-12 h-12" : "w-10 h-10",
-      symbol: isComplexFormula ? "text-lg" : "text-xl",
+      container: isComplexFormula ? "w-12 h-12" : "w-8 h-8",
+      symbol: isComplexFormula ? "text-lg" : "text-md",
       number: "text-xs"
     },
     large: {
@@ -207,7 +207,7 @@ export function BadgeSymbol({
       number: "text-sm"
     },
     small: {
-      container: isComplexFormula ? "w-10 h-8" : "w-8 h-7",
+      container: isComplexFormula ? "w-8 h-8" : "w-7 h-7",
       symbol: isComplexFormula ? "text-sm" : "text-base",
       number: "text-[8px]"
     },

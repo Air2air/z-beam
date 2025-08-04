@@ -5,6 +5,7 @@ import { HomeCardList } from "./components/List/HomeCardList";
 import { getArticle, loadComponentData } from "./utils/contentIntegrator"; // Add loadComponentData here
 import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentUtils";
+import { getFeaturedHomeCards } from "./utils/homeCardConverter";
 
 // Remove this static declaration
 // export const metadata: Metadata = {
@@ -51,9 +52,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* HomeCardList */}
+      {/* Featured Solutions - using List component with HomeCards data */}
       <section className="container mx-auto px-4 py-8">
-        <HomeCardList heading="Featured Solutions" className="mb-8" />
+        <List
+          items={getFeaturedHomeCards()}
+          heading="Featured Solutions"
+          columns={3}
+          className="mb-8"
+        />
       </section>
 
       {/* Materials - Pass slugs and filter */}

@@ -1,0 +1,25 @@
+/* Basic card styles */
+
+/* Featured card styling */
+.featured-item {
+  /* Make cards a bit larger */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Ensure featured cards appear above others */
+}
+
+/* Adjust image height for featured cards */
+.featured-item .card-image-container {
+  height: 12rem !important; /* Force taller image for featured cards */
+}
+
+/* Larger title for featured cards */
+.featured-item h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Make description show more lines in featured cards */
+.featured-item p {
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}

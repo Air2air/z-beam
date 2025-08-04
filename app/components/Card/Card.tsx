@@ -86,11 +86,15 @@ export function Card({
   // Simplified badge handling - show badges on all cards, using slug-based fallback if needed
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
+  
+  // Check if this is a featured card by examining the className
+  const isFeatured = className?.includes('featured-item');
 
   // Debug logging for badge visibility
   console.log('Card Badge Debug:', {
     href,
     slug,
+    isFeatured,
     hasMetadata: !!metadata,
     hasChemicalProperties: !!(metadata && metadata.chemicalProperties),
     chemicalProperties: metadata?.chemicalProperties
@@ -105,9 +109,9 @@ export function Card({
       style={height ? { height } : {}}
     >
       <article className="flex flex-col h-full">
-        {/* Image Container with fixed height */}
+        {/* Image Container with dynamic height based on featured status */}
         <div
-          className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`}
+          className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}
         >
           <Thumbnail
             src={image || imageUrl}
@@ -120,13 +124,15 @@ export function Card({
             }}
           />
 
-          {/* Chemical Symbol Badge (always show - uses slug-based fallback) */}
-          <BadgeSymbol
-            frontmatter={metadata ? { 
-              chemicalProperties: metadata.chemicalProperties 
-            } : undefined}
-            slug={slug}
-          />
+          {/* Chemical Symbol Badge (show only if not featured) */}
+          {!isFeatured && (
+            <BadgeSymbol
+              frontmatter={metadata ? { 
+                chemicalProperties: metadata.chemicalProperties 
+              } : undefined}
+              slug={slug}
+            />
+          )}
         </div>
 
         {/* Card Content */}
@@ -157,5 +163,3 @@ export function Card({
     </Link>
   );
 }
-
-

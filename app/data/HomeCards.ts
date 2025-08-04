@@ -4,6 +4,7 @@ export interface HomeCard {
   slug: string;
   description: string;
   imageUrl: string;
+  featured?: boolean; // Add featured property
 }
 
 export const homeCards: HomeCard[] = [
@@ -11,28 +12,36 @@ export const homeCards: HomeCard[] = [
     id: 1,
     title: "Materials",
     slug: "materials",
-    description: "Precision laser cleaning techniques for aircraft components and aerospace materials.",
-    imageUrl: "https://res.cloudinary.com/dbzw24uge/image/upload/c_fill,w_600,h_320,q_auto,f_auto/v1752729691/Material/Material/material_stainless_steel.jpg"
+    description:
+      "Precision laser cleaning techniques for aircraft components and aerospace materials.",
+    imageUrl: "/images/Site/Netalux/photo_pro.jpg",
+    featured: true,
   },
   {
     id: 2,
     title: "Services",
     slug: "services",
-    description: "Restoring vintage and modern automotive components using non-abrasive laser technology.",
-    imageUrl: "https://res.cloudinary.com/dbzw24uge/image/upload/c_fill,w_600,h_320,q_auto,f_auto/v1752729691/Material/Material/material_copper.jpg"
+    description:
+      "Restoring vintage and modern automotive components using non-abrasive laser technology.",
+    imageUrl: "/images/Site/Netalux/photo_pro.jpg",
+    featured: true,
   },
   {
     id: 3,
     title: "Applications",
     slug: "applications",
-    description: "Advanced cleaning methods for hafnium and hafnium-based alloys in high-temperature applications.",
-    imageUrl: "/images/site/hafnium-laser-cleaning.jpg"
+    description:
+      "Advanced cleaning methods for hafnium and hafnium-based alloys in high-temperature applications.",
+    imageUrl: "/images/Site/Netalux/photo_pro.jpg",
+    featured: true,
   },
   {
     id: 4,
     title: "About Z-Beam",
     slug: "about",
-    description: "Preparing industrial surfaces for coating, painting, and bonding with laser cleaning.",
-    imageUrl: "/images/site/about.jpg"
-  }
+    description:
+      "Preparing industrial surfaces for coating, painting, and bonding with laser cleaning.",
+    imageUrl: "/images/Site/Netalux/photo_pro.jpg",
+    featured: true,
+  },
 ];

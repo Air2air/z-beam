@@ -12,6 +12,7 @@ interface ListProps {
     description?: string;
     image?: string;
     badge?: string;
+    featured?: boolean; // Add featured property
   }>;
   title?: string;
   heading?: string; // Add heading as an alias for title
@@ -121,6 +122,8 @@ export async function List({
         chemicalSymbol,
         atomicNumber,
         chemicalFormula,
+        // Pass the featured flag
+        featured: item.featured,
         // Pass the full article for other needs
         materialData: article
       };
@@ -146,27 +149,33 @@ export async function List({
       {displayTitle && <h2 className="list-title">{displayTitle}</h2>}
       
       <div className={`grid gap-6 ${gridCols[columns]}`}>
-        {filteredItems.map((item) => (
-          <Card
-            key={item.slug}
-            title={item.title}
-            description={item.description}
-            href={`/${item.slug}`}
-            badge={item.badge || {
-              symbol: item.chemicalSymbol,
-              formula: item.chemicalFormula, 
-              atomicNumber: item.atomicNumber,
-              materialType: item.category
-            }}
-            showBadge={!!item.badge || !!item.chemicalSymbol || !!item.chemicalFormula}
-            imageUrl={item.imageUrl}
-            imageAlt={item.title}
-            metadata={{
-              category: item.category,
-              articleType: item.articleType
-            }}
-          />
-        ))}
+        {filteredItems.map((item) => {
+          // We'll still hide the BadgeSymbol for featured items
+          const isFeatured = item.featured;
+          
+          return (
+            <Card
+              key={item.slug}
+              title={item.title}
+              description={item.description}
+              href={`/${item.slug}`}
+              badge={item.badge || {
+                symbol: item.chemicalSymbol,
+                formula: item.chemicalFormula, 
+                atomicNumber: item.atomicNumber,
+                materialType: item.category
+              }}
+              imageUrl={item.imageUrl}
+              imageAlt={item.title}
+              metadata={{
+                category: item.category,
+                articleType: item.articleType
+              }}
+              className={isFeatured ? 'featured-item' : ''}
+              height={isFeatured ? 'auto' : undefined}
+            />
+          );
+        })}
       </div>
     </div>
   );
