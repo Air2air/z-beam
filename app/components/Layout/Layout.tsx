@@ -6,6 +6,7 @@ import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { Author } from '../Author/Author';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
+import { Hero } from '../Hero/Hero';
 
 // Update component order to include tags
 const COMPONENT_ORDER = [
@@ -55,6 +56,10 @@ export function Layout({
   // Determine the title to display
   const displayTitle = title || metadata?.subject || (slug ? `Article: ${slug}` : '');
   
+  // Extract material name for hero image (from subject or slug)
+  const materialName = metadata?.subject?.toLowerCase() || 
+    (slug?.includes('-') ? slug.split('-')[0].toLowerCase() : slug?.toLowerCase());
+  
   // Generate JSON-LD if we have enough metadata
   const jsonLdData = metadata?.title && metadata?.description ? 
     schemas.technicalArticle({
@@ -73,7 +78,18 @@ export function Layout({
       {/* Only include JSON-LD here, not other meta tags */}
       {jsonLdData && <JsonLD data={jsonLdData} />}
       
-      {!hideHeader && displayTitle && (
+      {/* Add Hero component */}
+      {!hideHeader && materialName && (
+        <Hero
+          title={displayTitle}
+          subtitle={metadata?.description}
+          materialSlug={materialName}
+          theme="dark"
+          align="center"
+        />
+      )}
+      
+      {!hideHeader && displayTitle && !materialName && (
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">
             {displayTitle}
@@ -99,7 +115,7 @@ export function Layout({
           case 'content':
             return <Content key={type} content={content} config={config} />;
           case 'caption':
-            return <Caption key={type} content={content} config={config} />;
+            return <Caption key={type} content={content} materialSlug={materialName} slug={slug} config={config} />;
           case 'bullets':
             return <Bullets key={type} content={content} config={config} />;
           case 'table':

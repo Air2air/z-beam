@@ -1,4 +1,8 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-**Results:** Laser cleaning removed 100% of surface oxides and organic contaminants from Al₂O₃, achieving sub-micron cleanliness (SEM-verified). Surface roughness reduced by 60% (white light interferometry), with no thermal cracking (ΔT < 50°C). Wettability improved 40% while maintaining 99.5% material purity.  
-
-**Equipment:** 200W pulsed fiber laser (1064nm, 50ns pulses) at 8 J/cm² fluence. Z-Beam LPX-200 system with 0.8mm spot size, 100kHz repetition rate, and closed-loop chiller ensured stable operation per ISO 14644-1 standards.
+---
+category: ceramic
+article_type: material
+subject: Alumina
+status: failed
+---
+No content generated for Alumina (caption)

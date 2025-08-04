@@ -42,6 +42,7 @@ export interface CardProps {
   image?: string;
   imageUrl?: string;
   imageAlt?: string;
+  materialSlug?: string; // Add materialSlug for hero images
   tags?: string[];
   badge?: BadgeData | null; // Allow null
   metadata?: {
@@ -70,6 +71,7 @@ export function Card({
   image,
   imageUrl,
   imageAlt,
+  materialSlug,
   tags = [],
   badge,
   metadata,
@@ -87,15 +89,23 @@ export function Card({
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
   
+  // Determine material slug for image - use passed materialSlug, or extract from metadata.subject or slug
+  const effectiveMaterialSlug = materialSlug || 
+    (metadata?.subject ? metadata.subject.toLowerCase() : null) || 
+    (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());
+  
   // Check if this is a featured card by examining the className
   const isFeatured = className?.includes('featured-item');
 
   // Debug logging for badge visibility
-  console.log('Card Badge Debug:', {
+  console.log('Card Debug:', {
     href,
     slug,
+    materialSlug,
+    effectiveMaterialSlug,
     isFeatured,
     hasMetadata: !!metadata,
+    metadataSubject: metadata?.subject,
     hasChemicalProperties: !!(metadata && metadata.chemicalProperties),
     chemicalProperties: metadata?.chemicalProperties
   });
@@ -116,6 +126,7 @@ export function Card({
           <Thumbnail
             src={image || imageUrl}
             alt={imageAlt || name || title}
+            materialSlug={effectiveMaterialSlug}
             fallbackSrc="/images/Site/Logo/logo_.png"
             objectFit="cover"
             priority={false}

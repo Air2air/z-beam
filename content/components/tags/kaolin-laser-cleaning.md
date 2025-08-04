@@ -1,2 +1,8 @@
 <!-- Category: ceramic, Article Type: material, Subject: Kaolin -->
-Laser Cleaning, Ceramic, Heritage Conservation, Surface Treatment, Kaolin Removal, Non-contact Cleaning, Precision Cleaning, Industrial Processing, Evelyn Wu
+---
+category: ceramic
+article_type: material
+subject: Kaolin
+status: failed
+---
+No content generated for Kaolin (tags)

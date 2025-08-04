@@ -1,5 +1,0 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
-- **Technical Specifications**: Optimal cleaning uses a Q-switched Nd:YAG laser (1064nm ±2nm) with adjustable fluence (0.5–12 J/cm²), pulse duration (10–100ns), and spot size (0.1–5mm), ensuring precise contaminant removal without thermal damage.
-- **Applications**: Ideal for art restoration (delicate glaze preservation), industrial oxidation removal, and architectural conservation (historical tiles), leveraging non-contact 50–500W modular power at 20–200kHz repetition rates.
-- **Environmental Benefits**: Eliminates acidic cleaners (100% reduction) and saves ~500 gallons of water per session, aligning with ASTM C242 and ISO 13006 standards for sustainable ceramic treatment.
-- **Geographic Context**: Developed by Taiwan-based expert Evelyn Wu, this method supports global cultural heritage projects and industrial applications, combining aluminosilicate compatibility (50–60% kaolinite) with high thermal shock resistance.

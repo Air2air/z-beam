@@ -1,0 +1,93 @@
+/* Caption component styles */
+.caption-container {
+  margin: 1.5rem 0;
+  padding: 0;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  color: #4a5568;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .caption-container {
+    background-color: #1a202c;
+    border-color: #2d3748;
+    color: #e2e8f0;
+  }
+}
+
+.caption-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.caption-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.caption-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #4b5563;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+}
+
+/* Dark mode text color */
+@media (prefers-color-scheme: dark) {
+  .caption-text {
+    color: #9ca3af;
+    background-color: #111827;
+    border-top-color: #2d3748;
+  }
+}
+
+.caption-content p:last-child {
+  margin-bottom: 0;
+}
+
+.caption-content {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Ensure proper spacing */
+.caption-content p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.caption-content p:last-child {
+  margin-bottom: 0;
+}
+
+.caption-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .caption-container-with-image {
+    flex-direction: column;
+  }
+  
+  .caption-image-wrapper {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+  
+  .caption-image {
+    width: 100%;
+    height: auto;
+  }
+}

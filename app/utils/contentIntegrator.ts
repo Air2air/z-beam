@@ -122,7 +122,9 @@ async function loadMetaTags(slug: string): Promise<ArticleMetadata | null> {
       description: data.description,
       keywords: typeof data.keywords === 'string' ? data.keywords.split(',').map(k => k.trim()) : data.keywords,
       canonical: data.openGraph?.url,
-      ogType: data.openGraph?.type || 'article'
+      ogType: data.openGraph?.type || 'article',
+      // Add materialSlug derived from subject for easier reference
+      materialSlug: commentMetadata.subject ? commentMetadata.subject.toLowerCase() : null
     };
     
     return metadata;

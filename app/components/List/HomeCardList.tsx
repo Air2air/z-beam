@@ -44,7 +44,7 @@ export function HomeCardList({ cards, heading, className = "", featured = false 
         </h2>
       )}
       
-      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${featured ? 'featured-cards' : ''}`}>
+      <div className={`grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 ${featured ? 'featured-cards' : ''}`}>
         {cardsToRender.map((card) => (
           <Card
             key={card.slug || card.id}

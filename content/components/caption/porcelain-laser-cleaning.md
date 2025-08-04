@@ -1,4 +1,0 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
-**Results:** Laser cleaning removed 99.9% of surface contaminants (oxides, soot) from porcelain while preserving glaze integrity. SEM analysis confirmed 0% substrate damage. Surface roughness reduced by 80% (Ra 0.8→0.16μm), improving wettability (contact angle 110°→65°). Kaolinite structure remained intact per XRD.  
-
-**Equipment:** Q-switched Nd:YAG laser (1064nm ±2nm) at 0.5–12 J/cm² fluence, 10–100ns pulses, 20–200kHz repetition rate. Modular 50–500W system with 0.1–5mm spot size achieved selective contaminant ablation without thermal shock to Al₂Si₂O₅(OH)₄ matrix.

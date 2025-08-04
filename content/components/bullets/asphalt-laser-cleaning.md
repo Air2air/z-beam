@@ -1,5 +1,0 @@
-<!-- Category: composite, Article Type: material, Subject: Asphalt -->
-- **Technical Specifications**: Optimal laser cleaning uses **Nd:YAG or fiber lasers** (1064–1070nm wavelength) with **100–1000W pulsed power**, **50–200ns pulse duration**, and **2–10mm spot size**, achieving controlled ablation at **0.8–5 J/cm² fluence** without aggregate damage.
-- **Applications**: Effective for **road maintenance** (2–5 J/cm² for bitumen removal), **airport runways** (3–8kHz repetition rate for rubber deposits), and **parking lots** (100W lasers for gum/stain removal), preserving surface integrity.
-- **Environmental Benefits**: **Zero runoff** eliminates water/chemical use, while **thermal vaporization** reduces particulate waste by **85%** compared to mechanical methods, complying with **ASTM D8** and **Caltrans Section 39** standards.
-- **Manufacturing & Context**: Primarily deployed in **California (Los Angeles, San Jose, San Diego)** for **highway and urban infrastructure**, leveraging **0.2mm depth control** and **95% contaminant removal** (per ASTM D4129) for sustainable pavement preservation.

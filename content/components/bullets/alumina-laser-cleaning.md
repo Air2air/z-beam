@@ -1,5 +1,8 @@
 <!-- Category: ceramic, Article Type: material, Subject: Alumina -->
-- **Technical Specifications**: Optimal laser cleaning uses a **1064nm ±2nm fiber laser** with **50–1000W pulsed power**, **10–200ns pulse duration**, and adjustable **0.05–3mm spot size**, achieving precise ablation without thermal damage to Al₂O₃ surfaces.
-- **Industrial Applications**: Ideal for **semiconductor substrate cleaning**, **medical device sterilization**, and **aerospace component preparation**, removing contaminants with **sub-micron precision** while preserving Alumina's **thermal shock resistance** (2072°C melting point).
-- **Environmental Advantages**: Eliminates chemical waste with **100% reduction** in hazardous agents, consuming **40% less energy** than ultrasonic methods, compliant with **ISO 14644-1** cleanroom standards for particulate control.
-- **Manufacturing & Compliance**: Deployed in **high-purity industries** (99.5% Al₂O₃), featuring **closed-loop chiller cooling** (-10°C to +40°C) and meeting **California OSHA Title 8** safety requirements for industrial laser systems.
+---
+category: ceramic
+article_type: material
+subject: Alumina
+status: failed
+---
+No content generated for Alumina (bullets)

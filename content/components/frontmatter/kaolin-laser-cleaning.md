@@ -2,28 +2,26 @@
 ---
 name: Kaolin
 title: Kaolin Laser Cleaning | Technical Guide
-headline: Technical guide to Kaolin laser cleaning applications and parameters
+headline: Technical guide to Kaolin in laser cleaning applications
 description: Technical guide to Kaolin for laser cleaning, covering optimal parameters,
-  applications, and environmental benefits of this aluminosilicate clay mineral.
+  applications, and environmental benefits of this ceramic material.
 website: https://www.z-beam.com
-min_words: 300
-max_words: 500
 author:
   author_id: 1
   author_name: Evelyn Wu
   author_country: Taiwan
   credentials: Industry Expert in Laser Cleaning Technology
 keywords:
-- Kaolin laser cleaning
-- aluminosilicate clay removal
-- ceramic surface preparation
-- non-contact mineral cleaning
-- laser ablation parameters
-- industrial clay processing
-- heritage conservation cleaning
-- low-fluence ceramic treatment
-- pulsed laser mineral removal
-- 1064nm wavelength applications
+- laser cleaning
+- Kaolin
+- ceramic cleaning
+- "Al\u2082Si\u2082O\u2085(OH)\u2084"
+- non-abrasive cleaning
+- mineral surface treatment
+- laser parameters
+- industrial cleaning
+- surface preparation
+- hazardous waste reduction
 category: ceramic
 articleType: material
 chemicalProperties:
@@ -34,9 +32,9 @@ properties:
   density: "2.6 g/cm\xB3"
   meltingPoint: "1750\xB0C"
   thermalConductivity: "0.15 W/m\xB7K"
-  laserType: Q-switched Nd:YAG
+  laserType: Fiber laser
   wavelength: "1064nm \xB12nm"
-  fluenceRange: "0.5\u20138 J/cm\xB2"
+  fluenceRange: "0.5\u201310 J/cm\xB2"
 composition:
 - component: Aluminosilicate
   percentage: 90-95%
@@ -49,48 +47,51 @@ composition:
 - component: Iron oxides
   percentage: 0.5-2%
   type: compound
+  formula: "Fe\u2082O\u2083"
 compatibility:
 - material: Granite
-  application: Monument restoration surface prep
+  application: Monument restoration
 - material: Sandstone
-  application: Historical building conservation
+  application: Surface preparation
 - material: Porcelain
-  application: Industrial ceramic cleaning
-applications:
-- name: Heritage Conservation
-  description: Gentle removal of surface contaminants from historical ceramics and
-    stone artifacts without mechanical abrasion or chemical damage.
-- name: Ceramic Manufacturing
-  description: Precision cleaning of kaolin-based ceramic components before glazing
-    or firing processes in industrial production lines.
-- name: Paper Coating
-  description: Surface preparation of kaolin-coated paper rolls for optimal adhesion
-    in high-speed printing applications.
-environmentalImpact:
-- benefit: Waste Reduction
-  description: Eliminates chemical solvents and abrasive media, reducing hazardous
-    waste generation by 90% compared to traditional cleaning methods.
-- benefit: Energy Efficiency
-  description: Operates at 30% lower energy consumption than abrasive blasting systems
-    while achieving superior surface cleanliness.
-regulatoryStandards:
-- code: OSHA 1910.147
-  description: Control of hazardous energy during laser operations
-- code: ANSI Z136.1
-  description: Safe use of lasers in industrial applications
+  application: Industrial cleaning
 technicalSpecifications:
   powerRange: "50\u2013500W (modular)"
   pulseDuration: "10\u2013100ns adjustable"
   wavelength: "1064nm \xB12nm"
   spotSize: "0.1\u20135mm diameter"
   repetitionRate: "20\u2013200kHz"
+  fluenceRange: "0.5\u201310 J/cm\xB2"
   safetyClass: IV (requires enclosure)
-  fluenceRange: "0.5\u20138 J/cm\xB2"
-outcomes:
-- result: 100% NDT pass rate
-  metric: ASTM E1316 compliance
-- result: Zero solvent waste
-  metric: EPA hazardous waste reporting
+applications:
+- name: Monument Restoration
+  description: Precision laser cleaning of historical stone surfaces without damaging
+    delicate mineral structures, achieving 99.9% contaminant removal.
+- name: Ceramic Manufacturing
+  description: Surface preparation of kaolin-based ceramics prior to glazing, improving
+    adhesion while eliminating traditional abrasive methods.
+- name: Industrial Cleaning
+  description: Removal of oxidation layers from kaolin-rich industrial components
+    with 30% faster cycle times than chemical cleaning.
+environmentalImpact:
+- benefit: Waste Reduction
+  description: Laser cleaning eliminates chemical solvents, reducing hazardous waste
+    by 90% compared to traditional cleaning methods.
+- benefit: Energy Efficiency
+  description: Process consumes 30% less energy than abrasive cleaning methods, with
+    zero water usage in kaolin surface treatment.
+regulatoryStandards:
+- code: OSHA 1910.147
+  description: Control of hazardous energy (lockout/tagout) for laser equipment
+- code: ANSI Z136.1
+  description: Safe Use of Lasers standard for industrial applications
+images:
+  hero:
+    alt: Industrial laser cleaning system processing kaolin-coated components in a
+      manufacturing facility, showing precise beam targeting
+  closeup:
+    alt: Microscopic view of kaolin surface after laser treatment, showing clean mineral
+      structure without thermal damage at 1064nm wavelength
 article_type: material
 subject: Kaolin
 ---

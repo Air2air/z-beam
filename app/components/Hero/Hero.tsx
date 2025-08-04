@@ -1,10 +1,12 @@
 // app/components/Hero/Hero.tsx
 import './styles.css';
+import Image from 'next/image';
 
 interface HeroProps {
   title: string;
   subtitle?: string;
   image?: string;
+  materialSlug?: string; // Add this to support material_slug based image path
   align?: 'left' | 'center' | 'right';
   theme?: 'dark' | 'light';
   cta?: {
@@ -17,6 +19,7 @@ export function Hero({
   title, 
   subtitle, 
   image, 
+  materialSlug,
   align = 'center', 
   theme = 'dark',
   cta 
@@ -24,12 +27,15 @@ export function Hero({
   const alignClass = align !== 'center' ? `text-${align}` : 'text-center';
   const themeClass = `theme-${theme}`;
   
+  // Determine image source with fallbacks
+  const imageSource = image || (materialSlug ? `/images/Material/${materialSlug}_hero.jpg` : undefined);
+  
   return (
     <div className={`hero-section ${themeClass}`}>
-      {image && (
+      {imageSource && (
         <div 
           className="hero-background"
-          style={{ backgroundImage: `url(${image})` }}
+          style={{ backgroundImage: `url(${imageSource})` }}
         />
       )}
       

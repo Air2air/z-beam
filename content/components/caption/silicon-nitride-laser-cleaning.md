@@ -1,4 +1,0 @@
-<!-- Category: ceramic, Article Type: material, Subject: Silicon Nitride -->
-**Results:** Laser cleaning removed organic contaminants and oxide layers from Silicon Nitride (Si₃N₄), achieving 99.9% purity (SEM analysis). Surface roughness reduced by 60% (white light interferometry), while maintaining material integrity. Wettability improved without thermal damage, critical for aerospace and medical applications.  
-
-**Equipment:** Q-switched Nd:YAG laser (1064nm ±2nm, 0.5–10 J/cm² fluence, 5–100ns pulses). Operated at 20–200W pulsed power with 0.05–3mm spot size. Closed-loop chiller ensured thermal stability during precision ablation.

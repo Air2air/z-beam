@@ -21,6 +21,7 @@ const THUMBNAIL_CONFIG = {
 interface ThumbnailProps {
   src?: string;
   alt: string;
+  materialSlug?: string; // Add materialSlug for hero images
   fallbackSrc?: string;
   className?: string;
   priority?: boolean;
@@ -35,6 +36,7 @@ interface ThumbnailProps {
 export function Thumbnail({
   src,
   alt,
+  materialSlug,
   fallbackSrc = "/images/Site/Logo/logo_.png",
   className = "",
   priority = false,
@@ -45,11 +47,22 @@ export function Thumbnail({
   height,
   fallbackPadding, // Allow override via props
 }: ThumbnailProps) {
+  // Determine the source with materialSlug fallback
+  const effectiveSrc = src || (materialSlug ? `/images/Material/${materialSlug}_hero.jpg` : undefined);
+  
+  // Debug logging
+  console.log('Thumbnail Debug:', {
+    originalSrc: src,
+    materialSlug,
+    effectiveSrc,
+    fallbackSrc
+  });
+  
   const [imageState, setImageState] = useState<{
     src: string | undefined;
     error: boolean;
   }>({
-    src: src,
+    src: effectiveSrc,
     error: false,
   });
 
