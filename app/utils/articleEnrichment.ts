@@ -62,6 +62,11 @@ export function enrichArticle(article: Article): EnrichedArticle {
     enriched.tags = [];
   }
   
+  // Add author name as a tag if available
+  if (enriched.author?.author_name && !enriched.tags.includes(enriched.author.author_name)) {
+    enriched.tags.push(enriched.author.author_name);
+  }
+  
   // Ensure name is set from frontmatter if available
   if (enriched.frontmatter?.name && !enriched.name) {
     enriched.name = enriched.frontmatter.name;
@@ -153,6 +158,11 @@ export function enrichArticle(article: Article): EnrichedArticle {
       enriched.tags.push(enriched.frontmatter.articleType);
     }
     
+    // Add author name from frontmatter if it exists
+    if (enriched.frontmatter.author && enriched.frontmatter.author.author_name) {
+      enriched.tags.push(enriched.frontmatter.author.author_name);
+    }
+    
     // Parse raw content if it exists - EXTRACT TAGS FROM THE FIRST LINE
     if (enriched.content && typeof enriched.content === 'string') {
       const contentLines = enriched.content.trim().split('\n');
@@ -183,6 +193,11 @@ export function enrichArticle(article: Article): EnrichedArticle {
     if (enriched.metadata.keywords && Array.isArray(enriched.metadata.keywords)) {
       enriched.tags.push(...enriched.metadata.keywords);
     }
+  }
+  
+  // Add author name as a tag
+  if (enriched.author?.author_name) {
+    enriched.tags.push(enriched.author.author_name);
   }
   
   // 3. EXTRACT FROM SLUG

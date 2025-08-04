@@ -141,6 +141,17 @@ async function initializeTagCache() {
     tags.forEach(tag => tagSet.add(tag));
   }
   
+  // Add author names to the tag set
+  for (const article of articles) {
+    if (article.author?.author_name) {
+      // Add the author name to the tag set
+      tagSet.add(article.author.author_name);
+      
+      // Log for debugging
+      console.log(`Added author tag: ${article.author.author_name} from article ${article.slug}`);
+    }
+  }
+  
   // Convert tag set to array
   const allTags = Array.from(tagSet).sort();
   
@@ -159,7 +170,14 @@ async function initializeTagCache() {
   // Store tags for each article
   for (const article of articles) {
     if (article.slug) {
-      const tags = await getArticleTagsFromTagsDir(article.slug);
+      // Get tags from tags directory
+      let tags = await getArticleTagsFromTagsDir(article.slug);
+      
+      // Add author name as a tag if available
+      if (article.author?.author_name) {
+        tags.push(article.author.author_name);
+      }
+      
       articleTags[article.slug] = tags;
     }
   }
@@ -216,6 +234,19 @@ export const getArticlesWithTags = cache(async (): Promise<Article[]> => {
   for (const article of articles) {
     if (article.slug && _tagsCache?.articleTags[article.slug]) {
       article.tags = _tagsCache.articleTags[article.slug];
+      
+      // Ensure author name is included in tags if available
+      if (article.author?.author_name && !article.tags.includes(article.author.author_name)) {
+        article.tags.push(article.author.author_name);
+      }
+    } else if (article.slug) {
+      // If no tags found in cache, initialize with empty array
+      article.tags = [];
+      
+      // Add author name as tag if available
+      if (article.author?.author_name) {
+        article.tags.push(article.author.author_name);
+      }
     }
   }
   
