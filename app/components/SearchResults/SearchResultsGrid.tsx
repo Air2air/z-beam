@@ -20,7 +20,7 @@ export function SearchResultsGrid({
   };
   
   return (
-    <div className={`grid gap-6 ${gridCols[columns]}`}>
+    <div className={`grid gap-4 ${gridCols[columns]}`}>
       {items.map((item, index) => {
         // Get badge data once to avoid calling the function twice
         const badgeData = getBadgeFromItem(item);

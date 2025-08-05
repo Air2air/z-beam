@@ -148,7 +148,7 @@ export async function List({
     <div className={`list-section ${className}`}>
       {displayTitle && <h2 className="list-title">{displayTitle}</h2>}
       
-      <div className={`grid gap-6 ${gridCols[columns]}`}>
+      <div className={`grid gap-4 ${gridCols[columns]}`}>
         {filteredItems.map((item) => {
           // We'll still hide the BadgeSymbol for featured items
           const isFeatured = item.featured;

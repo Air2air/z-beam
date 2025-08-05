@@ -38,7 +38,7 @@ export default async function TagExplorerPage() {
         </p>
       </div>
       
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-4 mb-8">
         {letters.map(letter => (
           <a 
             key={letter}

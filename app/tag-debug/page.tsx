@@ -40,7 +40,7 @@ export default function TagDebugPage() {
           
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-4">Author Tags</h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-4">
               {tags
                 .filter(tag => /^[A-Z][a-z]+ [A-Z][a-z]+$/.test(tag)) // Simple pattern to match potential author names
                 .map(tag => (
@@ -53,7 +53,7 @@ export default function TagDebugPage() {
           
           <div>
             <h2 className="text-2xl font-bold mb-4">All Tags</h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-4">
               {tags.map(tag => (
                 <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">
                   {tag}

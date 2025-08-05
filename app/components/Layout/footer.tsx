@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-col items-center gap-2 md:flex-row md:gap-6">
+        <nav className="flex flex-col items-center gap-4 md:flex-row md:gap-4">
           {footerNav.map((item) => (
             <Link
               key={item.name}

@@ -1,11 +1,10 @@
 // app/page.tsx - Much simpler
 
 import { List } from "./components/List/List";
-import { HomeCardList } from "./components/List/HomeCardList";
 import { getArticle, loadComponentData } from "./utils/contentIntegrator"; // Add loadComponentData here
 import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentUtils";
-import { getFeaturedHomeCards } from "./utils/homeCardConverter";
+import { SectionCardList } from "./components/SectionCard/SectionCardList";
 
 // Remove this static declaration
 // export const metadata: Metadata = {
@@ -52,14 +51,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Featured Solutions - using List component with HomeCards data */}
+   
       <section className="container mx-auto px-4 py-8">
-        <List
-          items={getFeaturedHomeCards()}
-          heading="Featured Solutions"
-          columns={3}
-          className="mb-8"
-        />
+        <SectionCardList />
       </section>
 
       {/* Materials - Pass slugs and filter */}

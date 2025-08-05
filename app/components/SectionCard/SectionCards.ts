@@ -1,4 +1,4 @@
-export interface HomeCard {
+export interface SectionCard {
   id: number;
   title: string;
   slug: string;
@@ -7,7 +7,7 @@ export interface HomeCard {
   featured?: boolean; // Add featured property
 }
 
-export const homeCards: HomeCard[] = [
+export const sectionCards: SectionCard[] = [
   {
     id: 1,
     title: "Materials",

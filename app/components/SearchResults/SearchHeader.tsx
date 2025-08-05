@@ -39,7 +39,7 @@ export function SearchHeader({
           onSelectTag={(tag) => {
             onTagSelect(tag);
           }}
-          className="flex flex-wrap gap-2 justify-center"
+          className="flex flex-wrap gap-4 justify-center"
           tagItemCounts={tagItemCounts}
         />
       )}

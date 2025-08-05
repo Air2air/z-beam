@@ -80,7 +80,7 @@ export function Tags({ content, config }: TagsProps) {
     <div className={`tags-container ${className}`}>
       {title && <h3 className="text-lg font-medium mb-2">{title}</h3>}
       
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-4">
         {tags.map((tag, index) => (
           onClick ? (
             // Interactive button for in-page filtering

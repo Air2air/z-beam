@@ -62,7 +62,7 @@ export default function SearchClient({ initialArticles, initialTags }: SearchCli
           <p className="text-gray-700">No articles found matching your criteria.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredArticles.map((article) => (
             <Card 
               key={article.slug}

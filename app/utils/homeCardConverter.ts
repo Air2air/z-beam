@@ -1,9 +1,9 @@
-// app/utils/homeCardConverter.ts
-import { homeCards } from '../data/HomeCards';
+// app/utils/sectionCardConverter.ts
+import { sectionCards } from '../components/SectionCard/SectionCards';
 
-// Convert HomeCards to a format compatible with the List component
-export function convertHomeCardsToListItems() {
-  return homeCards.map(card => ({
+// Convert SectionCards to a format compatible with the List component
+export function convertSectionCardsToListItems() {
+  return sectionCards.map(card => ({
     slug: card.slug,
     title: card.title,
     description: card.description,
@@ -14,6 +14,6 @@ export function convertHomeCardsToListItems() {
 }
 
 // Get featured cards only
-export function getFeaturedHomeCards() {
-  return convertHomeCardsToListItems().filter(item => item.featured);
+export function getSectionCards() {
+  return convertSectionCardsToListItems().filter(item => item.featured);
 }

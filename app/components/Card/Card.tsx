@@ -152,20 +152,7 @@ export function Card({
           {description && (
             <p className={CARD_CONFIG.descriptionClass}>{description}</p>
           )}
-          
-          {/* Tags */}
-          {tags && tags.length > 0 && (
-            <div className="mt-auto pt-4 flex flex-wrap gap-1">
-              {tags.slice(0, 3).map((tag, index) => (
-                <span
-                  key={index}
-                  className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+
         </div>
       </article>
     </Link>
