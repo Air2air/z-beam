@@ -171,7 +171,7 @@ export async function List({
                 category: item.category,
                 articleType: item.articleType
               }}
-              className={isFeatured ? 'featured-item' : ''}
+
               height={isFeatured ? 'auto' : undefined}
             />
           );

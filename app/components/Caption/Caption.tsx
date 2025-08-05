@@ -35,11 +35,9 @@ export function Caption({ content, image, materialSlug, slug, config }: CaptionP
         </div>
       )}
       
-      <div className="caption-text">
+      <div className="caption-text p-8">
         <MarkdownRenderer 
           content={content}
-          prose={false}
-          className="caption-content"
         />
       </div>
     </div>
