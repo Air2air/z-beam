@@ -6,9 +6,9 @@ interface HeroProps {
   title: string;
   subtitle?: string;
   image?: string;
-  materialSlug?: string; // Add this to support material_slug based image path
   align?: 'left' | 'center' | 'right';
   theme?: 'dark' | 'light';
+  frontmatter?: any; // Frontmatter contains all image path information
   cta?: {
     text: string;
     href: string;
@@ -19,16 +19,21 @@ export function Hero({
   title, 
   subtitle, 
   image, 
-  materialSlug,
   align = 'center', 
   theme = 'dark',
+  frontmatter,
   cta 
 }: HeroProps) {
   const alignClass = align !== 'center' ? `text-${align}` : 'text-center';
   const themeClass = `theme-${theme}`;
   
-  // Determine image source with the new naming pattern
-  const imageSource = image || (materialSlug ? `/images/${materialSlug}-laser-cleaning-hero.jpg` : undefined);
+  // Determine image source, prioritizing frontmatter
+  let imageSource = image;
+  
+  if (!imageSource && frontmatter?.images?.hero?.url) {
+    // Use the hero image URL from frontmatter
+    imageSource = frontmatter.images.hero.url;
+  }
   
   return (
     <div className={`hero-section ${themeClass}`}>

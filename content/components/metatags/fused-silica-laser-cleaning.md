@@ -1,74 +1,65 @@
 <!-- Category: glass, Article Type: material, Subject: Fused Silica -->
 ---
-title: "Fused Silica in Laser Cleaning: Technical Guide for Optimal Processing"
+title: "Fused Silica Laser Cleaning: Technical Guide for Optimal Processing"
 description: "Comprehensive technical guide for laser cleaning applications of fused\
-  \ silica (SiO\u2082). Learn optimal parameters (193-355nm, 0.5-5 J/cm\xB2), semiconductor/optical\
-  \ applications, and environmental benefits of this high-purity glass with 99.995%\
-  \ SiO\u2082 content."
+  \ silica (SiO\u2082). Learn about optimal parameters (0.5-20 J/cm\xB2 fluence, 193-1064nm\
+  \ wavelengths), industrial applications (semiconductor optics, space telescopes),\
+  \ and material benefits like 15-20 J/cm\xB2 laser damage threshold and 0.55\xD7\
+  10\u207B\u2076/\xB0C thermal expansion."
 keywords:
 - fused silica laser cleaning
-- "SiO\u2082 ablation parameters"
-- ultraviolet laser processing
-- "high-purity quartz"
+- "SiO\u2082 optical properties"
+- quartz glass processing
+- "UV-transparent materials"
+- laser ablation parameters
+- "high-purity silica"
+- thermal shock resistance
+- industrial laser applications
+- cleanroom compatible materials
 - low thermal expansion glass
-- laser damage threshold
-- nanosecond pulse cleaning
-- optical component maintenance
-- contaminant removal
-- "non-contact surface treatment"
-- excimer laser cleaning
-- semiconductor wafer cleaning
 author:
   name: Evelyn Wu
-  credentials: "PhD in Materials Science, Laser Processing Specialist (LIA-Certified)"
+  credentials: "PhD in Materials Science, Laser Processing Specialist"
   country: Taiwan
 openGraph:
+  title: "Fused Silica Laser Cleaning: Technical Guide for Industrial Applications"
+  description: "Expert guide to laser cleaning fused silica (SiO\u2082) with Nd:YAG/Excimer\
+    \ lasers. Covers semiconductor optics cleaning (0.5nm RMS roughness), 99.9% contaminant\
+    \ removal, and ISO 21254 compliance."
   type: article
-  title: "Fused Silica Laser Cleaning: Precision Parameters for Industrial Applications"
-  description: "Technical guide detailing UV laser cleaning of fused silica (SiO\u2082\
-    ) for semiconductor wafers, optical coatings, and lithography masks. Includes\
-    \ fluence ranges (0.5-5 J/cm\xB2), wavelength selection (193-355nm), and contamination\
-    \ removal metrics (>99.7% efficiency)."
   url: "https://www.z-beam.com/fused-silica-laser-cleaning"
   images:
   - url: "https://www.z-beam.com/images/fused-silica-laser-cleaning-hero.jpg"
-    alt: Laser cleaning process on fused silica optical component showing contaminant
-      ablation
-  - url: "https://www.z-beam.com/images/fused-silica-laser-cleaning-closeup.jpg"
-    alt: "Microscopic view of laser-cleaned fused silica surface showing 0.2\xB5m\
-      \ Ra roughness"
-  site_name: Laser Processing Materials Database
+    alt: Laser cleaning system processing a fused silica optical component
+    width: 1200
+    height: 630
   article:
-    published_time: "2023-11-15T00:00:00+08:00"
-    modified_time: "2023-11-20T00:00:00+08:00"
     author: Evelyn Wu
-    section: Advanced Materials
-    tags:
-    - Laser Cleaning
-    - Fused Silica
-    - Semiconductor Manufacturing
+    published_time: "2023-11-15T00:00:00+08:00"
+    section: Industrial Laser Processing
   siteName: "Z-Beam"
   locale: en_US
 twitter:
   card: summary_large_image
-  title: "Optimizing Laser Cleaning for Fused Silica (SiO\u2082) | Technical Guide"
-  description: "Key parameters for UV laser cleaning of high-purity fused silica:\
-    \ 193-355nm wavelength, 20ns pulses, 0.5-5 J/cm\xB2 fluence. Achieve <0.5nm Ra\
-    \ surface roughness with 60% energy savings vs plasma cleaning."
+  title: "Fused Silica Laser Cleaning: Achieve 0.2\xB5m Surface Roughness"
+  description: "Technical breakdown of laser cleaning fused silica for semiconductor\
+    \ and space applications. 15-20 J/cm\xB2 damage threshold, 99.999% SiO\u2082 purity."
   images:
   - "https://www.z-beam.com/images/fused-silica-laser-cleaning-hero.jpg"
-  creator: "@LaserMaterialsSci"
-  site: "@IndustrialLasers"
+  creator: "@LaserMaterialsExpert"
 materialData:
   formula: "SiO\u2082"
   applications:
-  - Lithography Mask Repair (193nm excimer)
-  - Optical Coating Maintenance (355nm DPSS)
-  - Semiconductor Wafer Cleaning (248nm)
+  - "Semiconductor Lithography Optics: 266nm laser cleaning with <0.5nm RMS roughness"
+  - "Space Telescope Mirrors: 193nm excimer laser preserves >99% UV reflectivity"
+  - "High-Power Laser Systems: Femtosecond ablation at 1030nm"
   properties:
-    thermalStability: "1200\xB0C"
-    expansionCoefficient: "0.55\xD710\u207B\u2076/K"
-    laserDamageThreshold: "10 J/cm\xB2 (355nm, 20ns)"
+    thermalExpansion: "0.55\xD710\u207B\u2076/\xB0C"
+    damageThreshold: "15-20 J/cm\xB2 (1064nm)"
+    purity: "99.999% SiO\u2082"
+  standards:
+  - "ISO 10110-17 (Laser damage threshold)"
+  - "SEMI F47-0706 (Microelectronics grade)"
 application:
   name: Fused Silica Laser Cleaning
   description: "Removal of contaminants, oxides, and coatings from Fused Silica surfaces\

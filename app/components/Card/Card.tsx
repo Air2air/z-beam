@@ -120,8 +120,8 @@ export function Card({
         >
           <Thumbnail
             src={image || imageUrl || undefined} // Only pass src if it's explicitly set
-            alt={imageAlt || name || title || `${effectiveMaterialSlug}-laser-cleaning`}
-            materialSlug={effectiveMaterialSlug}
+            alt={imageAlt || name || title || (metadata?.subject ? metadata.subject : 'Image')}
+            frontmatter={metadata}
             fallbackSrc="/images/Site/Logo/logo_.png"
             objectFit="cover"
             priority={false}

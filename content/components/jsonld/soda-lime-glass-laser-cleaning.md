@@ -3,17 +3,36 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Soda-Lime Glass",
-  "description": "Technical overview of soda-lime glass properties, optimal laser parameters (1064nm, 0.5-5 J/cm\u00b2), and applications in precision cleaning. Includes composition (72% SiO\u2082, 15% Na\u2082O), thermal conductivity (1.05 W/m\u00b7K), and regulatory compliance.",
+  "description": "Technical overview of soda-lime glass (SiO\u2082\u00b7Na\u2082O\u00b7CaO) for laser cleaning applications, including physical properties (2.4-2.8 g/cm\u00b3 density, 600-900\u00b0C softening point), optimal laser parameters (1064-10,600 nm wavelength, 0.5-5 J/cm\u00b2 fluence), and...",
   "url": "https://www.z-beam.com/soda-lime-glass-laser-cleaning",
-  "headline": "Comprehensive technical guide for laser cleaning applications on soda-lime glass",
+  "headline": "Comprehensive technical guide for laser cleaning of soda-lime glass",
   "image": [
     "https://www.z-beam.com/images/soda-lime-glass-laser-cleaning-hero.jpg",
     "https://www.z-beam.com/images/soda-lime-glass-laser-cleaning-closeup.jpg"
   ],
-  "brand": {
-    "@type": "Brand",
-    "name": "Z-Beam"
+  "author": {
+    "@type": "Person",
+    "name": "Evelyn Wu",
+    "address": {
+      "@type": "Country",
+      "name": "Taiwan"
+    },
+    "hasCredential": "PhD in Materials Science, Laser Processing Specialist with 12+ years in industrial applications"
   },
+  "keywords": [
+    "soda-lime glass",
+    "laser cleaning parameters",
+    "SiO\u2082\u00b7Na\u2082O\u00b7CaO",
+    "glass surface treatment",
+    "nanosecond laser ablation",
+    "industrial glass cleaning",
+    "contaminant removal",
+    "laser-material interaction",
+    "non-contact cleaning",
+    "thermal stress management",
+    "optical transmission",
+    "surface roughness control"
+  ],
   "category": "glass",
   "additionalProperty": [
     {
@@ -34,32 +53,32 @@
     {
       "@type": "PropertyValue",
       "name": "density",
-      "value": "2.5 g/cm\u00b3"
+      "value": "2.4-2.8 g/cm\u00b3"
     },
     {
       "@type": "PropertyValue",
       "name": "meltingPoint",
-      "value": "600-1000\u00b0C (softening range)"
+      "value": "600-900\u00b0C (softening point)"
     },
     {
       "@type": "PropertyValue",
       "name": "hardness",
-      "value": "6.0-6.5 Mohs"
+      "value": "5.5-6.5 Mohs"
     },
     {
       "@type": "PropertyValue",
       "name": "thermalConductivity",
-      "value": "1.05 W/m\u00b7K"
+      "value": "0.8-1.2 W/m\u00b7K"
     },
     {
       "@type": "PropertyValue",
       "name": "laserType",
-      "value": "Nd:YAG, Fiber"
+      "value": "Nd:YAG, Fiber, CO\u2082"
     },
     {
       "@type": "PropertyValue",
       "name": "wavelength",
-      "value": "1064nm (IR) or 355nm (UV)"
+      "value": "1064-10,600 nm"
     },
     {
       "@type": "PropertyValue",
@@ -70,77 +89,73 @@
   "material": [
     {
       "@type": "ChemicalSubstance",
-      "name": "Silicon Dioxide",
-      "chemicalComposition": "72%",
-      "molecularFormula": "SiO\u2082"
+      "name": "Silicon dioxide",
+      "molecularFormula": "SiO\u2082",
+      "percentage": "70-75%"
     },
     {
       "@type": "ChemicalSubstance",
-      "name": "Sodium Oxide",
-      "chemicalComposition": "15%",
-      "molecularFormula": "Na\u2082O"
+      "name": "Sodium oxide",
+      "molecularFormula": "Na\u2082O",
+      "percentage": "12-16%"
     },
     {
       "@type": "ChemicalSubstance",
-      "name": "Calcium Oxide",
-      "chemicalComposition": "9%",
-      "molecularFormula": "CaO"
+      "name": "Calcium oxide",
+      "molecularFormula": "CaO",
+      "percentage": "8-12%"
     },
     {
       "@type": "ChemicalSubstance",
-      "name": "Magnesium Oxide",
-      "chemicalComposition": "4%",
-      "molecularFormula": "MgO"
+      "name": "Minor additives",
+      "molecularFormula": "MgO, Al\u2082O\u2083",
+      "percentage": "1-5%"
     }
   ],
   "application": [
     {
       "@type": "TechArticle",
-      "name": "Display Manufacturing",
-      "description": "Precision removal of organic residues from LCD/OLED panels without substrate damage using 355nm UV laser at 2.5 J/cm\u00b2"
+      "name": "Display manufacturing",
+      "description": "Precision removal of organic contaminants from LCD/OLED glass substrates without thermal damage to ITO coatings"
     },
     {
       "@type": "TechArticle",
-      "name": "Architectural Glass",
-      "description": "Large-area cleaning of construction glass with 1064nm fiber laser at 100W average power and 500mm/s scan speed"
+      "name": "Architectural glass restoration",
+      "description": "Non-abrasive cleaning of historical glass structures with 99.9% contaminant removal efficiency"
     },
     {
       "@type": "TechArticle",
-      "name": "Laboratory Equipment",
-      "description": "Sterilization and particulate removal from glassware using pulsed IR laser with 10ns pulse duration"
+      "name": "Laboratory equipment",
+      "description": "Sterilization and particle removal from glassware using 266nm UV laser systems"
     }
   ],
-  "keywords": [
-    "soda-lime glass",
-    "laser cleaning parameters",
-    "SiO\u2082\u00b7Na\u2082O\u00b7CaO",
-    "glass surface treatment",
-    "industrial laser applications",
-    "thermal stress reduction",
-    "non-contact cleaning",
-    "UV laser processing",
-    "transparent material ablation",
-    "surface contamination removal"
-  ],
-  "author": {
-    "@type": "Person",
-    "name": "Evelyn Wu",
-    "nationality": {
-      "@type": "Country",
-      "name": "Taiwan"
-    },
-    "hasCredential": "PhD in Materials Science, Laser Processing Specialist"
+  "brand": {
+    "@type": "Brand",
+    "name": "Z-Beam"
   },
   "review": {
     "@type": "Review",
-    "reviewBody": "Technical guide for optimal processing of soda-lime glass using laser cleaning techniques.",
+    "reviewBody": "Technical guide for laser cleaning of soda-lime glass",
     "author": {
       "@type": "Person",
       "name": "Evelyn Wu"
     }
   },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://www.z-beam.com/soda-lime-glass-laser-cleaning"
-  }
+  "hasPart": [
+    {
+      "@type": "TechArticle",
+      "name": "Technical Specifications",
+      "description": "Power Range: 10-500W (pulsed), Pulse Duration: 5-200ns, Wavelength: 1064nm (IR) or 10,600nm (CO\u2082), Spot Size: 50-500\u00b5m, Repetition Rate: 10-100kHz, Fluence Range: 0.5-5 J/cm\u00b2, Safety Class: Class 4 (requires full enclosure and interlock systems)"
+    },
+    {
+      "@type": "TechArticle",
+      "name": "Regulatory Standards",
+      "description": "ISO 11553-1: Safety requirements for laser processing machines - Part 1: General requirements, ANSI Z136.1: American National Standard for Safe Use of Lasers, EN 166: Personal eye protection - Specifications for laser eye protection filters"
+    },
+    {
+      "@type": "TechArticle",
+      "name": "Outcomes",
+      "description": "Surface roughness: 0.1-0.5\u00b5m Ra (measured by white light interferometry), Contaminant removal efficiency: >99% (measured by FTIR spectroscopy), Processing speed: 0.5-2 m\u00b2/hour (depending on contamination level)"
+    }
+  ]
 }

@@ -1,12 +1,12 @@
-<!-- Category: composite, Article Type: material, Subject: Rubber -->
-<!-- Category: composite, Article Type: material, Subject: Rubber -->
----
+<!-- Category: composite, Article Type: material, Subject: Rubber -
+<!-- Category: composite, Article Type: material, Subject: Rubber -
+-->
 name: Rubber
 title: 'Laser Cleaning of Rubber: Technical Guide for Optimal Processing'
 headline: Comprehensive technical analysis of rubber for laser cleaning applications
-description: "Technical overview of rubber (Cu2085Hu2088)u2099, a composite material
-   with density 0.92-1.2 g/cmxB3, optimal laser cleaning at 1064nm wavelength, and
-   fluence range 0.5-5 J/cmxB2. Used in automotive, aerospace, and industrial applications."
+description: Technical overview of rubber (Cu2085Hu2088)u2099, a composite material
+  with density 0.92-1.2 g/cmxB3, optimal laser cleaning at 1064nm wavelength, and
+  fluence range 0.5-5 J/cmxB2. Used in automotive, aerospace, and industrial applications.
 author:
   name: Evelyn Wu
   country: Taiwan
@@ -14,7 +14,7 @@ author:
 keywords:
 - rubber laser cleaning
 - elastomer processing
-- "Cu2085Hu2088 polymer"
+- Cu2085Hu2088 polymer
 - industrial rubber cleaning
 - laser ablation parameters
 - rubber composite properties
@@ -26,22 +26,22 @@ keywords:
 - automotive rubber applications
 category: composite
 chemicalProperties:
-  formula: "(Cu2085Hu2088)u2099"
+  formula: (Cu2085Hu2088)u2099
   symbol: Rb
   materialType: composite
 properties:
-  density: "0.92-1.2 g/cmxB3"
-  meltingPoint: "180-220xB0C (decomposes)"
+  density: 0.92-1.2 g/cmxB3
+  meltingPoint: 180-220xB0C (decomposes)
   hardness: 40-90 Shore A
-  thermalConductivity: "0.13-0.16 W/mxB7K"
+  thermalConductivity: 0.13-0.16 W/mxB7K
   laserType: Nd:YAG or fiber laser
-  wavelength: "1064 nm xB15nm"
-  fluenceRange: "0.5-5 J/cmxB2"
+  wavelength: 1064 nm xB15nm
+  fluenceRange: 0.5-5 J/cmxB2
 composition:
 - component: Natural rubber (polyisoprene)
   percentage: 30-60%
   type: polymer
-  formula: "(Cu2085Hu2088)u2099"
+  formula: (Cu2085Hu2088)u2099
 - component: Carbon black
   percentage: 20-35%
   type: filler
@@ -49,7 +49,7 @@ composition:
 - component: Sulfur (vulcanizing agent)
   percentage: 1-3%
   type: additive
-  formula: "Su2088"
+  formula: Su2088
 - component: Zinc oxide
   percentage: 2-5%
   type: activator
@@ -69,15 +69,15 @@ images:
   hero:
     alt: Laser cleaning process on industrial rubber conveyor belt showing precise
       contaminant removal
-    url: /images/laser-cleaning-rubber-hero.jpg
+    url: /images/rubber-laser-cleaning-hero.jpg
   closeup:
     alt: Microscopic view of rubber surface before and after laser cleaning at 1064nm
       wavelength
-    url: /images/rubber-laser-closeup.jpg
+    url: /images/rubber-laser-cleaning-closeup.jpg
 applications:
 - name: Tire manufacturing mold cleaning
-  description: "Precision removal of rubber residues from complex mold geometries
-     using 100-300W pulsed Nd:YAG lasers at 2-3 J/cmxB2 fluence"
+  description: Precision removal of rubber residues from complex mold geometries using
+    100-300W pulsed Nd:YAG lasers at 2-3 J/cmxB2 fluence
 - name: Aerospace seal maintenance
   description: Non-destructive cleaning of rubber O-rings and gaskets on aircraft
     components with 50-150W fiber lasers at 1kHz repetition rate
@@ -99,7 +99,7 @@ technicalSpecifications:
   wavelength: 1064 nm (primary), 532 nm (for colored rubbers)
   spotSize: 0.5-2.0 mm
   repetitionRate: 1-100 kHz
-  fluenceRange: "0.5-5 J/cmxB2"
+  fluenceRange: 0.5-5 J/cmxB2
   safetyClass: Class 4 (requires full PPE and enclosure)
 regulatoryStandards:
 - code: ISO 1853:2018
@@ -111,11 +111,11 @@ regulatoryStandards:
   description: Laser product safety requirements for industrial cleaning systems
 outcomes:
 - result: Surface cleanliness
-  metric: '>99.5% contaminant removal measured by FTIR spectroscopy'
+  metric: '99.5% contaminant removal measured by FTIR spectroscopy'
 - result: Material preservation
   metric: <0.1mm depth alteration measured by profilometry
 - result: Processing speed
-  metric: "2-5 mxB2/hour coverage rate for typical industrial applications"
+  metric: 2-5 mxB2/hour coverage rate for typical industrial applications
 article_type: material
 subject: Rubber
----
+

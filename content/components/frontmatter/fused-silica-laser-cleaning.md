@@ -1,110 +1,107 @@
-<!-- Category: glass, Article Type: material, Subject: Fused Silica -->
-<!-- Category: glass, Article Type: material, Subject: Fused Silica -->
----
+<!-- Category: glass, Article Type: material, Subject: Fused Silica -
+<!-- Category: glass, Article Type: material, Subject: Fused Silica -
+-->
 name: Fused Silica
-title: 'Fused Silica in Laser Cleaning: Technical Guide for Optimal Processing'
+title: 'Fused Silica Laser Cleaning: Technical Guide for Optimal Processing'
 headline: Comprehensive technical guide for laser cleaning applications of fused silica
-description: "Fused silica (SiOu2082) is a high-purity amorphous glass with exceptional
-   thermal stability (up to 1200xB0C), low thermal expansion (0.55xD710u207Bu2076
-  /K), and UV-IR transparency. Ideal for precision laser cleaning in semiconductor
-   and optical applications."
+description: Fused silica (SiO₂) is a high-purity amorphous glass with exceptional
+  optical, thermal, and chemical stability. Ideal for laser cleaning due to low thermal
+  expansion (0.55×10⁻⁶/°C) and high laser damage threshold (15-20 J/cm² at 1064nm).
 author:
   name: Evelyn Wu
   country: Taiwan
-  credentials: PhD in Materials Science, Laser Processing Specialist (LIA-Certified)
+  credentials: PhD in Materials Science, Laser Processing Specialist with 12+ years
+    in industrial applications
 keywords:
 - fused silica laser cleaning
-- "SiOu2082 ablation parameters"
-- ultraviolet laser processing
-- high-purity quartz
+- SiO₂ optical properties
+- quartz glass processing
+- UV-transparent materials
+- laser ablation parameters
+- high-purity silica
+- thermal shock resistance
+- industrial laser applications
+- cleanroom compatible materials
 - low thermal expansion glass
-- laser damage threshold
-- nanosecond pulse cleaning
-- optical component maintenance
-- contaminant removal
-- non-contact surface treatment
 category: glass
 chemicalProperties:
-  formula: "SiOu2082"
+  formula: SiO₂
   symbol: FS
   materialType: glass
 properties:
-  density: "2.20 g/cmxB3"
-  meltingPoint: "1713xB0C"
+  density: 2.20 g/cm³
+  meltingPoint: 1713°C
   hardness: 6.5 Mohs
-  thermalConductivity: "1.38 W/mxB7K"
-  laserType: Excimer (193-308nm) or Nd:YAG (266-1064nm)
-  wavelength: 193-355nm (optimal)
-  fluenceRange: "0.5-5 J/cmxB2 (contaminant dependent)"
+  thermalConductivity: 1.38 W/m·K
+  laserType: Nd:YAG, Excimer, Fiber
+  wavelength: 193-1064 nm
+  fluenceRange: 0.5-20 J/cm²
 composition:
 - component: Silicon Dioxide
-  percentage: 99.995%
+  percentage: 99.999%
   type: compound
-  formula: "SiOu2082"
-- component: Hydroxyl Content
-  percentage: <5 ppm
-  type: impurity
-  formula: "OHu207B"
+  formula: SiO₂
+- component: Hydroxyl Groups
+  percentage: ≤10 ppm
+  type: structural
+  formula: OH⁻
 compatibility:
-- material: Semiconductor Wafers
-  application: "Precision removal of photoresist without substrate damage using 248nm
-     excimer laser at 1.2 J/cmxB2"
-- material: Optical Coatings
-  application: "Selective cleaning of AR coatings with 355nm DPSS at 0.8 J/cmxB2
-     pulse energy"
-- material: Metal Contaminants
-  application: "Particulate removal from fused silica surfaces using 1064nm Nd:YAG
-     at 3.5 J/cmxB2 with 20ns pulses"
+- material: Stainless Steel
+  application: Removal of metal deposition from fused silica optics in semiconductor
+    manufacturing
+- material: Photoresist
+  application: Precision cleaning of EUV lithography masks without substrate damage
+- material: Carbon Deposits
+  application: Laser ablation of soot from high-power laser system optics
 images:
   hero:
-    alt: Laser cleaning process on fused silica optical component showing contaminant
-      ablation
-    url: /images/fused-silica-hero.jpg
+    alt: Laser cleaning system processing a fused silica optical component
+    url: /images/fused-silica-laser-cleaning-hero.jpg
   closeup:
-    alt: "Microscopic view of laser-cleaned fused silica surface showing 0.2xB5m
-       Ra roughness"
-    url: /images/fused-silica-closeup.jpg
+    alt: Microscopic view of laser-cleaned fused silica surface showing 0.2µm surface
+      roughness
+    url: /images/fused-silica-laser-cleaning-closeup.jpg
 applications:
-- name: Lithography Mask Repair
-  description: 193nm ArF excimer laser removes sub-100nm particles from EUV masks
-    with <0.1nm surface modification
-- name: Laser Optics Maintenance
-  description: 355nm wavelength cleans dielectric coatings with 99.9% contaminant
-    removal and <0.01% transmission loss
-- name: Wafer Manufacturing
-  description: "Non-contact cleaning of 450mm silicon wafers achieves Class 1 (<0.1
-     particles/cmxB2) cleanliness"
+- name: Semiconductor Lithography Optics
+  description: Nanosecond pulsed laser cleaning at 266nm removes organic contaminants
+    while maintaining <0.5nm RMS surface roughness
+- name: High-Power Laser Systems
+  description: Femtosecond laser ablation at 1030nm eliminates coating defects with
+    <0.1% absorption increase at 1064nm
+- name: Space Telescope Mirrors
+  description: Low-fluence excimer laser cleaning (193nm) preserves UV reflectivity
+    (99% at 200-300nm)
 environmentalImpact:
-- benefit: Chemical Reduction
-  description: Eliminates 100% of solvent use compared to wet cleaning methods
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than plasma cleaning systems (2.1kW vs 5.4kW)
-- benefit: Waste Minimization
-  description: "Produces 0.5kg/mxB2 less hazardous waste than chemical processes"
+- benefit: Reduced chemical waste
+  description: Eliminates 95% of solvent use compared to traditional cleaning methods
+- benefit: Energy efficiency
+  description: Laser cleaning consumes 70% less energy than thermal decomposition
+    techniques
+- benefit: Material conservation
+  description: Extends component lifespan by 3-5x through non-contact processing
 technicalSpecifications:
-  powerRange: 10-200W (pulsed)
-  pulseDuration: 5-50ns (optimal 20ns)
-  wavelength: 193-355nm (UV preferred)
-  spotSize: "50-500xB5m (adjustable)"
-  repetitionRate: 10-100kHz
-  fluenceRange: "0.5-5 J/cmxB2"
-  safetyClass: Class 4 (requires EN 60825-1 compliance)
+  powerRange: 10-500W
+  pulseDuration: 5ns-150fs
+  wavelength: 193nm (Excimer), 266/355/532/1064nm (Nd:YAG)
+  spotSize: 20-500µm
+  repetitionRate: 1-100kHz
+  fluenceRange: 0.5-20 J/cm²
+  safetyClass: Class 4 (all wavelengths)
 regulatoryStandards:
 - code: ISO 10110-17
-  description: Optics and photonics - Preparation of drawings for optical elements
-    and systems - Surface texture requirements for laser damage testing
+  description: 'Optics and photonics - Preparation of drawings for optical elements
+    and systems: Laser irradiation damage threshold'
+- code: MIL-PRF-13830B
+  description: Performance specification for optical components for fire control instruments
 - code: SEMI F47-0706
-  description: Specification for laser cleaning of semiconductor processing equipment
-    components
-- code: DIN EN 60825-1
-  description: Safety of laser products - Equipment classification and requirements
+  description: Specification for processed fused silica wafers used in microelectronics
 outcomes:
-- result: Surface Roughness
-  metric: <0.5nm Ra (measured by white light interferometry)
-- result: Contaminant Removal
-  metric: '>99.7% efficiency (SEM-EDS analysis)'
-- result: Throughput
-  metric: "15cmxB2/min at 1.5J/cmxB2 (automated systems)"
+- result: Surface roughness improvement
+  metric: 0.2-0.5nm RMS achieved via white-light interferometry
+- result: Contaminant removal efficiency
+  metric: '99.9% reduction measured by XPS analysis'
+- result: Laser-induced damage threshold
+  metric: 15-20 J/cm² at 1064nm per ISO 21254
 article_type: material
 subject: Fused Silica
----
+

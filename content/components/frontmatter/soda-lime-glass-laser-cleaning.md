@@ -1,117 +1,117 @@
-<!-- Category: glass, Article Type: material, Subject: Soda-Lime Glass -->
-<!-- Category: glass, Article Type: material, Subject: Soda-Lime Glass -->
----
+<!-- Category: glass, Article Type: material, Subject: Soda-Lime Glass -
+<!-- Category: glass, Article Type: material, Subject: Soda-Lime Glass -
+-->
 name: Soda-Lime Glass
-title: 'Soda-Lime Glass Laser Cleaning: Technical Guide for Optimal Processing'
-headline: Comprehensive technical guide for laser cleaning applications on soda-lime
-  glass
-description: "Technical overview of soda-lime glass properties, optimal laser parameters
-   (1064nm, 0.5-5 J/cmxB2), and applications in precision cleaning. Includes composition
-   (72% SiOu2082, 15% Nau2082O), thermal conductivity (1.05 W/mxB7K), and regulatory
-   compliance."
+title: 'Soda-Lime Glass Laser Cleaning: Technical Guide & Applications'
+headline: Comprehensive technical guide for laser cleaning of soda-lime glass
+description: Technical overview of soda-lime glass (SiO₂·Na₂O·CaO) for laser cleaning
+  applications, including physical properties (2.4-2.8 g/cm³ density, 600-900°C softening
+  point), optimal laser parameters (1064-10,600 nm wavelength, 0.5-5 J/cm² fluence),
+  and...
 author:
   name: Evelyn Wu
   country: Taiwan
-  credentials: PhD in Materials Science, Laser Processing Specialist
+  credentials: PhD in Materials Science, Laser Processing Specialist with 12+ years
+    in industrial applications
 keywords:
 - soda-lime glass
 - laser cleaning parameters
-- "SiOu2082xB7Nau2082OxB7CaO"
+- SiO₂·Na₂O·CaO
 - glass surface treatment
-- industrial laser applications
-- thermal stress reduction
+- nanosecond laser ablation
+- industrial glass cleaning
+- contaminant removal
+- laser-material interaction
 - non-contact cleaning
-- UV laser processing
-- transparent material ablation
-- surface contamination removal
+- thermal stress management
+- optical transmission
+- surface roughness control
 category: glass
 chemicalProperties:
-  formula: "SiOu2082xB7Nau2082OxB7CaO"
+  formula: SiO₂·Na₂O·CaO
   symbol: SL
   materialType: glass
 properties:
-  density: "2.5 g/cmxB3"
-  meltingPoint: "600-1000xB0C (softening range)"
-  hardness: 6.0-6.5 Mohs
-  thermalConductivity: "1.05 W/mxB7K"
-  laserType: Nd:YAG, Fiber
-  wavelength: 1064nm (IR) or 355nm (UV)
-  fluenceRange: "0.5-5 J/cmxB2"
+  density: 2.4-2.8 g/cm³
+  meltingPoint: 600-900°C (softening point)
+  hardness: 5.5-6.5 Mohs
+  thermalConductivity: 0.8-1.2 W/m·K
+  laserType: Nd:YAG, Fiber, CO₂
+  wavelength: 1064-10,600 nm
+  fluenceRange: 0.5-5 J/cm²
 composition:
-- component: Silicon Dioxide
-  percentage: 72%
+- component: Silicon dioxide
+  percentage: 70-75%
   type: compound
-  formula: "SiOu2082"
-- component: Sodium Oxide
-  percentage: 15%
+  formula: SiO₂
+- component: Sodium oxide
+  percentage: 12-16%
   type: compound
-  formula: "Nau2082O"
-- component: Calcium Oxide
-  percentage: 9%
+  formula: Na₂O
+- component: Calcium oxide
+  percentage: 8-12%
   type: compound
   formula: CaO
-- component: Magnesium Oxide
-  percentage: 4%
+- component: Minor additives
+  percentage: 1-5%
   type: compound
-  formula: MgO
+  formula: MgO, Al₂O₃
 compatibility:
-- material: Stainless Steel
-  application: Window frame cleaning without thermal damage to metal components
-- material: Polycarbonate
-  application: Hybrid display panel cleaning with differential ablation thresholds
-- material: Aluminum Oxide
-  application: Optical component assemblies with mixed material contamination
+- material: Stainless steel fixtures
+  application: Removal of metal oxide deposits from glass handling equipment
+- material: Polymer adhesives
+  application: Residue-free cleaning of display bonding surfaces
+- material: Atmospheric contaminants
+  application: Soot and particulate removal from architectural glass
 images:
   hero:
-    alt: Laser cleaning process on soda-lime glass surface showing precise contaminant
-      removal
-    url: /images/soda-lime-laser-cleaning-hero.jpg
+    alt: Laser cleaning process on soda-lime glass surface showing contaminant removal
+    url: /images/soda-lime-glass-laser-cleaning-hero.jpg
   closeup:
-    alt: "Microscopic view of laser-cleaned soda-lime glass surface showing 0.2xB5
-      m Ra roughness"
-    url: /images/soda-lime-laser-cleaning-closeup.jpg
+    alt: Microscopic view of laser-cleaned soda-lime glass surface showing 0.2µm Ra
+      roughness
+    url: /images/soda-lime-glass-laser-cleaning-closeup.jpg
 applications:
-- name: Display Manufacturing
-  description: "Precision removal of organic residues from LCD/OLED panels without
-     substrate damage using 355nm UV laser at 2.5 J/cmxB2"
-- name: Architectural Glass
-  description: Large-area cleaning of construction glass with 1064nm fiber laser at
-    100W average power and 500mm/s scan speed
-- name: Laboratory Equipment
-  description: Sterilization and particulate removal from glassware using pulsed IR
-    laser with 10ns pulse duration
+- name: Display manufacturing
+  description: Precision removal of organic contaminants from LCD/OLED glass substrates
+    without thermal damage to ITO coatings
+- name: Architectural glass restoration
+  description: Non-abrasive cleaning of historical glass structures with 99.9% contaminant
+    removal efficiency
+- name: Laboratory equipment
+  description: Sterilization and particle removal from glassware using 266nm UV laser
+    systems
 environmentalImpact:
 - benefit: Reduced chemical usage
-  description: Eliminates 95% of solvent consumption compared to traditional cleaning
+  description: Eliminates 100% of hazardous cleaning solvents compared to traditional
     methods
-- benefit: Energy efficiency
-  description: "50% lower energy consumption per mxB2 compared to plasma cleaning"
+- benefit: Water conservation
+  description: Saves 500L water per m² of cleaned surface versus wet cleaning processes
 - benefit: Waste reduction
-  description: Zero abrasive media waste generation versus mechanical cleaning
+  description: Produces 90% less solid waste compared to mechanical abrasion methods
 technicalSpecifications:
-  powerRange: 10-200W (pulsed)
-  pulseDuration: 5-50ns
-  wavelength: 1064nm (IR) or 355nm (UV)
-  spotSize: "50-200xB5m"
-  repetitionRate: 20-100kHz
-  fluenceRange: "0.5-5 J/cmxB2"
-  safetyClass: Class 4 (requires full enclosure)
+  powerRange: 10-500W (pulsed)
+  pulseDuration: 5-200ns
+  wavelength: 1064nm (IR) or 10,600nm (CO₂)
+  spotSize: 50-500µm
+  repetitionRate: 10-100kHz
+  fluenceRange: 0.5-5 J/cm²
+  safetyClass: Class 4 (requires full enclosure and interlock systems)
 regulatoryStandards:
 - code: ISO 11553-1
-  description: Safety requirements for laser processing machines
+  description: 'Safety requirements for laser processing machines - Part 1: General
+    requirements'
 - code: ANSI Z136.1
-  description: Safe Use of Lasers in industrial applications
+  description: American National Standard for Safe Use of Lasers
 - code: EN 166
-  description: Personal eye protection for laser radiation
+  description: Personal eye protection - Specifications for laser eye protection filters
 outcomes:
 - result: Surface roughness
-  metric: "0.2-0.5xB5m Ra (measured by white light interferometry)"
+  metric: 0.1-0.5µm Ra (measured by white light interferometry)
 - result: Contaminant removal efficiency
-  metric: '>99.8% (measured by FTIR spectroscopy)'
+  metric: '99% (measured by FTIR spectroscopy)'
 - result: Processing speed
-  metric: "0.5-2 mxB2/hour (depends on contamination level)"
-- result: Thermal stress
-  metric: <5 MPa residual stress (measured by polariscope)
+  metric: 0.5-2 m²/hour (depending on contamination level)
 article_type: material
 subject: Soda-Lime Glass
----
+

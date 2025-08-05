@@ -6,20 +6,24 @@ import './styles.css';
 interface CaptionProps {
   content: string;
   image?: string;
-  materialSlug?: string;
-  slug?: string;  // Adding slug parameter for the new path format
+  frontmatter?: any; // Frontmatter contains all image path information
   config?: {
     className?: string;
   };
 }
 
-export function Caption({ content, image, materialSlug, slug, config }: CaptionProps) {
+export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   if (!content) return null;
   
   const { className = '' } = config || {};
   
-  // Determine image source with the new format
-  const imageSource = image || (slug ? `/images/${slug}-closeup.jpg` : undefined);
+  // Determine image source, prioritizing frontmatter
+  let imageSource = image;
+  
+  if (!imageSource && frontmatter?.images?.closeup?.url) {
+    // Use the closeup image URL from frontmatter
+    imageSource = frontmatter.images.closeup.url;
+  }
   
   return (
     <div className={`caption-container ${className}`}>

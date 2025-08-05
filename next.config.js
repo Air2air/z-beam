@@ -11,6 +11,8 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    unoptimized: true, // For local development/testing
+    dangerouslyAllowSVG: true,
   },
 
   experimental: {

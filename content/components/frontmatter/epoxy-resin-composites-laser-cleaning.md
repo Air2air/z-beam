@@ -1,14 +1,14 @@
-<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -->
-<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -->
----
+<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -
+<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -
+-->
 name: Epoxy Resin Composites
 title: 'Epoxy Resin Composites in Laser Cleaning: Technical Guide & Applications'
 headline: Comprehensive technical analysis of epoxy resin composites for laser cleaning
   applications
-description: "Epoxy resin composites (Cu2082u2081Hu2082u2084Ou2084 + fillers)
-   are thermosetting polymers with high chemical resistance, used in aerospace and
-   automotive industries. Optimal laser cleaning requires precise control of wavelength
-   (1064-10,600nm) and fluence (0.5-8 J/c..."
+description: Epoxy resin composites (Cu2082u2081Hu2082u2084Ou2084 + fillers) are thermosetting
+  polymers with high chemical resistance, used in aerospace and automotive industries.
+  Optimal laser cleaning requires precise control of wavelength (1064-10,600nm) and
+  fluence (0.5-8 J/c...
 author:
   name: Evelyn Wu
   country: Taiwan
@@ -26,22 +26,22 @@ keywords:
 - automotive composites
 category: composite
 chemicalProperties:
-  formula: "Cu2082u2081Hu2082u2084Ou2084 + fillers"
+  formula: Cu2082u2081Hu2082u2084Ou2084 + fillers
   symbol: EP
   materialType: composite
 properties:
-  density: "1.1-1.4 g/cmxB3"
-  meltingPoint: "120-250xB0C (decomposition)"
+  density: 1.1-1.4 g/cmxB3
+  meltingPoint: 120-250xB0C (decomposition)
   hardness: 80-90 Shore D
-  thermalConductivity: "0.1-0.3 W/mxB7K"
-  laserType: "Nd:YAG or COu2082"
-  wavelength: "1064nm (Nd:YAG) or 10,600nm (COu2082)"
-  fluenceRange: "0.5-8 J/cmxB2"
+  thermalConductivity: 0.1-0.3 W/mxB7K
+  laserType: Nd:YAG or COu2082
+  wavelength: 1064nm (Nd:YAG) or 10,600nm (COu2082)
+  fluenceRange: 0.5-8 J/cmxB2
 composition:
 - component: Diglycidyl ether of bisphenol A (DGEBA)
   percentage: 60-70%
   type: compound
-  formula: "Cu2082u2081Hu2082u2084Ou2084"
+  formula: Cu2082u2081Hu2082u2084Ou2084
 - component: Hardener (amine or anhydride)
   percentage: 30-40%
   type: compound
@@ -49,7 +49,7 @@ composition:
 - component: Glass fiber reinforcement
   percentage: 0-50%
   type: structural
-  formula: "SiOu2082"
+  formula: SiOu2082
 compatibility:
 - material: Carbon fiber
   application: Pre-bond surface treatment for aerospace components
@@ -60,10 +60,10 @@ compatibility:
 images:
   hero:
     alt: Laser cleaning of epoxy composite surface showing precise contaminant removal
-    url: /images/epoxy-laser-hero.jpg
+    url: /images/epoxy-resin-composites-laser-cleaning-hero.jpg
   closeup:
     alt: Microscopic view of epoxy resin surface after 1064nm laser treatment
-    url: /images/epoxy-laser-closeup.jpg
+    url: /images/epoxy-resin-composites-laser-cleaning-closeup.jpg
 applications:
 - name: Aerospace component refurbishment
   description: Precise removal of oxidation and contaminants from CFRP-epoxy structures
@@ -82,10 +82,10 @@ environmentalImpact:
 technicalSpecifications:
   powerRange: 20-500W (pulsed)
   pulseDuration: 10-200ns
-  wavelength: "1064nm (Nd:YAG) or 10,600nm (COu2082)"
+  wavelength: 1064nm (Nd:YAG) or 10,600nm (COu2082)
   spotSize: 0.1-5mm diameter
   repetitionRate: 10-100kHz
-  fluenceRange: "0.5-8 J/cmxB2"
+  fluenceRange: 0.5-8 J/cmxB2
   safetyClass: Class 4 (IEC 60825-1)
 regulatoryStandards:
 - code: ISO 11357-3
@@ -96,11 +96,11 @@ regulatoryStandards:
   description: Safety of laser products - Equipment classification requirements
 outcomes:
 - result: Surface roughness reduction
-  metric: "Ra 0.8-1.2u03BCm achieved (measured by profilometry)"
+  metric: Ra 0.8-1.2u03BCm achieved (measured by profilometry)
 - result: Bond strength improvement
   metric: 30-45% increase (ASTM D1002 lap shear test)
 - result: Processing speed
-  metric: "0.5-2 mxB2/hour coverage rate (depending on contamination level)"
+  metric: 0.5-2 mxB2/hour coverage rate (depending on contamination level)
 article_type: material
 subject: Epoxy Resin Composites
----
+

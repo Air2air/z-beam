@@ -18,47 +18,53 @@ const THUMBNAIL_CONFIG = {
 interface ThumbnailProps {
   src?: string;
   alt: string;
-  materialSlug?: string;
   fallbackSrc?: string;
   className?: string;
   priority?: boolean;
   objectFit?: ObjectFit;
   width?: number;
   height?: number;
+  frontmatter?: any; // The frontmatter contains all image path information
   onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
 }
 
 export function Thumbnail({
   src,
   alt,
-  materialSlug,
   fallbackSrc = THUMBNAIL_CONFIG.fallbackImage,
   className = "",
   priority = false,
   objectFit = "cover",
   width,
   height,
+  frontmatter,
   onError
 }: ThumbnailProps) {
-  // Extract the base name from material slug
-  const extractBaseName = (slug: string | undefined) => {
-    if (!slug) return undefined;
+  // Helper function to process image paths
+  const processImagePath = (path: string | undefined) => {
+    if (!path) return undefined;
     
-    if (slug.includes('/')) {
-      const parts = slug.split('/');
-      const filename = parts[parts.length - 1];
-      return filename.replace(/\.[^/.]+$/, "");
-    }
+    // If path starts with a slash, it's already a path
+    if (path.startsWith('/')) return path;
     
-    return slug;
+    // If it includes a file extension, assume it's a relative path
+    if (/\.(jpg|jpeg|png|gif|webp|svg)$/.test(path)) return `/images/${path}`;
+    
+    // Otherwise, just use the path as a base filename in the images directory
+    return `/images/${path}.jpg`;
   };
   
-  // Build the image path from material slug
-  const baseSlug = extractBaseName(materialSlug);
-  const materialImagePath = baseSlug ? `/images/${baseSlug}-laser-cleaning-hero.jpg` : undefined;
+  // Determine image source, prioritizing frontmatter
+  let imageSrc = src;
   
-  // Determine which image source to use (in order of priority)
-  const imageSrc = materialImagePath || src;
+  // Add debugging
+  console.log('Thumbnail props:', { src, alt, frontmatter });
+  
+  if (!imageSrc && frontmatter?.images?.hero?.url) {
+    // Use the hero image URL from frontmatter
+    imageSrc = frontmatter.images.hero.url;
+    console.log('Using hero image from frontmatter:', imageSrc);
+  }
   
   // State to track image loading status
   const [imageError, setImageError] = useState(false);
@@ -91,6 +97,9 @@ export function Thumbnail({
 
   // Ensure we always have a valid src string
   const finalSrc = displaySrc || fallbackSrc;
+  
+  // Debug final image source
+  console.log('Final image source:', finalSrc);
 
   return (
     <div

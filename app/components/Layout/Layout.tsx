@@ -83,7 +83,7 @@ export function Layout({
         <Hero
           title={displayTitle}
           subtitle={metadata?.description}
-          materialSlug={materialName}
+          frontmatter={metadata}
           theme="dark"
           align="center"
         />
@@ -115,7 +115,7 @@ export function Layout({
           case 'content':
             return <Content key={type} content={content} config={config} />;
           case 'caption':
-            return <Caption key={type} content={content} materialSlug={materialName} slug={slug} config={config} />;
+            return <Caption key={type} content={content} frontmatter={metadata} config={config} />;
           case 'bullets':
             return <Bullets key={type} content={content} config={config} />;
           case 'table':

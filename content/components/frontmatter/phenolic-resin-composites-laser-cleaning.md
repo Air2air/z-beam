@@ -1,13 +1,13 @@
-<!-- Category: composite, Article Type: material, Subject: Phenolic Resin Composites -->
-<!-- Category: composite, Article Type: material, Subject: Phenolic Resin Composites -->
----
+<!-- Category: composite, Article Type: material, Subject: Phenolic Resin Composites -
+<!-- Category: composite, Article Type: material, Subject: Phenolic Resin Composites -
+-->
 name: Phenolic Resin Composites
 title: 'Phenolic Resin Composites in Laser Cleaning: Technical Guide & Applications'
 headline: Comprehensive technical analysis of phenolic resin composites for laser
   cleaning applications
-description: "Phenolic resin composites (Cu2087Hu2086Ou2082 + fillers) are thermosetting
-   polymers with high thermal stability (180-300xB0C), used in laser cleaning with
-   1064nm Nd:YAG lasers at 0.5-5 J/cmxB2 fluence for precise contaminant removal."
+description: Phenolic resin composites (Cu2087Hu2086Ou2082 + fillers) are thermosetting
+  polymers with high thermal stability (180-300xB0C), used in laser cleaning with
+  1064nm Nd:YAG lasers at 0.5-5 J/cmxB2 fluence for precise contaminant removal.
 author:
   name: Evelyn Wu
   country: Taiwan
@@ -26,30 +26,30 @@ keywords:
 - non-contact cleaning
 category: composite
 chemicalProperties:
-  formula: "Cu2087Hu2086Ou2082 + fillers"
+  formula: Cu2087Hu2086Ou2082 + fillers
   symbol: PR
   materialType: composite
 properties:
-  density: "1.25-1.32 g/cmxB3"
-  meltingPoint: "180-300xB0C (decomposition)"
+  density: 1.25-1.32 g/cmxB3
+  meltingPoint: 180-300xB0C (decomposition)
   hardness: 80-95 Shore D
-  thermalConductivity: "0.15-0.25 W/mxB7K"
+  thermalConductivity: 0.15-0.25 W/mxB7K
   laserType: Nd:YAG
   wavelength: 1064 nm
-  fluenceRange: "0.5-5 J/cmxB2"
+  fluenceRange: 0.5-5 J/cmxB2
 composition:
 - component: Phenol-formaldehyde resin
   percentage: 50-70%
   type: polymer
-  formula: "(Cu2087Hu2086Ou2082)u2099"
+  formula: (Cu2087Hu2086Ou2082)u2099
 - component: Wood flour filler
   percentage: 20-30%
   type: organic filler
-  formula: "Cu2086Hu2081u2080Ou2085"
+  formula: Cu2086Hu2081u2080Ou2085
 - component: Mineral fillers
   percentage: 10-20%
   type: inorganic filler
-  formula: "SiOu2082/CaCOu2083"
+  formula: SiOu2082/CaCOu2083
 compatibility:
 - material: Aluminum substrates
   application: Removal of phenolic resin insulation from aerospace components
@@ -61,14 +61,14 @@ images:
   hero:
     alt: Laser cleaning process on phenolic resin composite surface showing precise
       material removal
-    url: /images/phenolic-laser-hero.jpg
+    url: /images/phenolic-resin-composites-laser-cleaning-hero.jpg
   closeup:
     alt: Microscopic view of laser-cleaned phenolic resin surface showing intact substrate
-    url: /images/phenolic-laser-closeup.jpg
+    url: /images/phenolic-resin-composites-laser-cleaning-closeup.jpg
 applications:
 - name: Aerospace component refurbishment
-  description: "Precision removal of degraded phenolic resin insulation from aluminum
-     engine components using 1064nm laser at 2.5 J/cmxB2"
+  description: Precision removal of degraded phenolic resin insulation from aluminum
+    engine components using 1064nm laser at 2.5 J/cmxB2
 - name: Composite tool maintenance
   description: Cleaning of cured resin deposits from steel molds with 100W pulsed
     laser at 10kHz repetition rate
@@ -88,10 +88,10 @@ environmentalImpact:
 technicalSpecifications:
   powerRange: 50-300W
   pulseDuration: 10-100 ns
-  wavelength: "1064 nm xB15nm"
+  wavelength: 1064 nm xB15nm
   spotSize: 0.1-2.0 mm diameter
   repetitionRate: 1-50 kHz
-  fluenceRange: "0.5-5 J/cmxB2"
+  fluenceRange: 0.5-5 J/cmxB2
   safetyClass: Class 4 (IEC 60825-1)
 regulatoryStandards:
 - code: ISO 11357-3
@@ -103,11 +103,11 @@ regulatoryStandards:
   description: Safety of laser products - Equipment classification and requirements
 outcomes:
 - result: Surface cleanliness
-  metric: '>99.5% contaminant removal verified by FTIR spectroscopy'
+  metric: '99.5% contaminant removal verified by FTIR spectroscopy'
 - result: Substrate preservation
   metric: <0.1% base material loss measured by profilometry
 - result: Processing speed
-  metric: "2-5 cmxB2/s cleaning rate at optimal parameters"
+  metric: 2-5 cmxB2/s cleaning rate at optimal parameters
 article_type: material
 subject: Phenolic Resin Composites
----
+

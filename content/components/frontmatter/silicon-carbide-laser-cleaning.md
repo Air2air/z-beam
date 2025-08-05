@@ -1,13 +1,13 @@
-<!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -->
-<!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -->
----
+<!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -
+<!-- Category: ceramic, Article Type: material, Subject: Silicon Carbide -
+-->
 name: Silicon Carbide
 title: 'Silicon Carbide (SiC) Laser Cleaning: Technical Guide for Industrial Applications'
 headline: Comprehensive technical guide for laser cleaning of Silicon Carbide (SiC)
   ceramics
-description: "Silicon Carbide (SiC) is an advanced ceramic with exceptional hardness
-   (9.5 Mohs), thermal conductivity (120-490 W/mxB7K), and chemical resistance.
-   Ideal for laser cleaning in semiconductor, aerospace, and automotive applications."
+description: Silicon Carbide (SiC) is an advanced ceramic with exceptional hardness
+  (9.5 Mohs), thermal conductivity (120-490 W/mxB7K), and chemical resistance. Ideal
+  for laser cleaning in semiconductor, aerospace, and automotive applications.
 author:
   name: Evelyn Wu
   country: Taiwan
@@ -29,13 +29,13 @@ chemicalProperties:
   symbol: SiC
   materialType: ceramic
 properties:
-  density: "3.21 g/cmxB3"
-  meltingPoint: "2730xB0C (decomposes)"
-  hardness: "9.5 Mohs (2600-3000 kg/mmxB2 Vickers)"
-  thermalConductivity: "120-490 W/mxB7K (varies by polytype)"
+  density: 3.21 g/cmxB3
+  meltingPoint: 2730xB0C (decomposes)
+  hardness: 9.5 Mohs (2600-3000 kg/mmxB2 Vickers)
+  thermalConductivity: 120-490 W/mxB7K (varies by polytype)
   laserType: Q-switched Nd:YAG or Fiber Laser
   wavelength: 1064 nm (IR) or 532 nm (green)
-  fluenceRange: "2.5-8.0 J/cmxB2 (optimal ablation threshold)"
+  fluenceRange: 2.5-8.0 J/cmxB2 (optimal ablation threshold)
 composition:
 - component: Silicon
   percentage: 70.05%
@@ -46,7 +46,7 @@ composition:
   type: element
   formula: C
 compatibility:
-- material: "Aluminum Oxide (Alu2082Ou2083)"
+- material: Aluminum Oxide (Alu2082Ou2083)
   application: Co-cleaning of hybrid ceramic components in semiconductor wafer carriers
 - material: Graphite
   application: Joint cleaning of SiC-coated graphite susceptors in CVD reactors
@@ -56,15 +56,15 @@ images:
   hero:
     alt: Laser cleaning process on silicon carbide wafer showing precise contaminant
       removal
-    url: /images/sic-laser-cleaning-hero.jpg
+    url: /images/silicon-carbide-laser-cleaning-hero.jpg
   closeup:
     alt: SEM micrograph of SiC surface after laser cleaning showing preserved grain
       structure
-    url: /images/sic-laser-cleaning-closeup.jpg
+    url: /images/silicon-carbide-laser-cleaning-closeup.jpg
 applications:
 - name: Semiconductor Wafer Processing
-  description: "Precision removal of photoresist and particles from 200mm/300mm SiC
-     wafers with <0.1u03BCm surface roughness preservation"
+  description: Precision removal of photoresist and particles from 200mm/300mm SiC
+    wafers with <0.1u03BCm surface roughness preservation
 - name: Aerospace Component Refurbishment
   description: Selective cleaning of SiC turbine blade coatings without substrate
     damage at 10-20W average power
@@ -82,10 +82,10 @@ environmentalImpact:
 technicalSpecifications:
   powerRange: 10-200W (pulsed)
   pulseDuration: 10-100 ns
-  wavelength: "1064 nm (IR) xB12nm"
-  spotSize: "50-200 u03BCm (adjustable)"
+  wavelength: 1064 nm (IR) xB12nm
+  spotSize: 50-200 u03BCm (adjustable)
   repetitionRate: 20-100 kHz
-  fluenceRange: "2.5-8.0 J/cmxB2"
+  fluenceRange: 2.5-8.0 J/cmxB2
   safetyClass: Class 4 (ANSI Z136.1)
 regulatoryStandards:
 - code: ISO 18554:2016
@@ -97,11 +97,11 @@ regulatoryStandards:
     ceramics
 outcomes:
 - result: Surface cleanliness
-  metric: "u22645 particles/cmxB2 (0.2u03BCm size) by SEM analysis"
+  metric: u22645 particles/cmxB2 (0.2u03BCm size) by SEM analysis
 - result: Material removal rate
-  metric: "0.05-0.2 u03BCm/pass measured by white light interferometry"
+  metric: 0.05-0.2 u03BCm/pass measured by white light interferometry
 - result: Thermal damage depth
-  metric: "<5u03BCm HAZ confirmed by cross-sectional microscopy"
+  metric: <5u03BCm HAZ confirmed by cross-sectional microscopy
 article_type: material
 subject: Silicon Carbide
----
+
