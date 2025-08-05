@@ -1,0 +1,5 @@
+<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -->
+* **Material Composition & Properties**: Epoxy resin composites consist of DGEBA (60-70%), hardener (30-40%), and optional glass fiber reinforcement (0-50%). Key properties include density (1.1-1.4 g/cm³), hardness (80-90 Shore D), and thermal conductivity (0.1-0.3 W/m·K), with decomposition at 120-250°C.
+* **Laser Cleaning Parameters**: Optimal performance requires Nd:YAG (1064nm) or CO₂ (10,600nm) lasers, with fluence range of 0.5-8 J/cm², pulse duration of 10-200ns, and power range of 20-500W (pulsed). Spot size (0.1-5mm) and repetition rate (10-100kHz) ensure precision.
+* **Industrial Applications**: Widely used in aerospace (CFRP surface treatment), automotive (mold cleaning), and electronics (encapsulation removal). Achieves 30-45% bond strength improvement (ASTM D1002) and surface roughness of Ra 0.8-1.2μm.
+* **Environmental & Safety Benefits**: Reduces solvent use by 95%, generates 80% less waste than mechanical methods, and consumes 30-50% less energy. Complies with ISO 11357-3, ASTM D792, and EN 60825-1 (Class 4 laser safety).

@@ -1,0 +1,5 @@
+<!-- Category: composite, Article Type: material, Subject: Urethane Composites -->
+* **Optimal Laser Parameters**: Utilizes Nd:YAG or fiber lasers at 1064nm wavelength with fluence range of 0.5-5 J/cm², pulse durations of 10-200ns, and power range of 50-500W pulsed. Achieves precision cleaning with 20μm accuracy and minimal heat-affected zones.
+* **Material Composition**: Comprises 60-85% polyurethane matrix (C₃H₇NO₂)ₙ, 10-30% glass fibers (SiO₂), 2-5% carbon black (C), and 3-8% flame retardants (Al(OH)₃). Offers tailored mechanical properties (75-95 Shore D hardness) and thermal stability (180-220°C decomposition).
+* **Industrial Applications**: Ideal for aerospace component refurbishment (2.5 J/cm²), automotive mold cleaning (95% residue removal), and medical device sterilization (0.8 J/cm² UV). Compatible with aluminum, CFRP, and steel substrates for surface pretreatment.
+* **Environmental & Performance Benefits**: Reduces solvent use by 5-8L/m², lowers energy consumption by 40-60%, and cuts particulate waste by 98%. Enhances surface roughness (Ra 0.2μm) and adhesion (8.2N/mm peel strength) while meeting ISO 18562-1 and NFPA 70E standards.

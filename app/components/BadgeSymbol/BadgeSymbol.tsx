@@ -3,6 +3,7 @@
 
 import React from "react";
 import { Article, ArticleFrontmatter } from "../../types/Article";
+import "./styles.css"; // Import the styles
 
 interface BadgeSymbolProps {
   // Only needed props
@@ -20,23 +21,17 @@ interface BadgeSymbolProps {
 export function BadgeSymbol({
   // Only needed props
   variant = "card",
-  position = "absolute top-2 right-2",
+  position = "absolute top-2 right-2", // This will be overridden by our CSS
 
   // Primary data sources
   article,
   frontmatter,
   slug,
 }: BadgeSymbolProps) {
-  // Debug logging to see what data is actually being passed
-  console.log("BadgeSymbol received:", { article, frontmatter, slug });
-
   // Get frontmatter from article if not directly provided
   const fm = frontmatter || article?.frontmatter;
   // Get slug from either article, frontmatter, or direct prop
   const itemSlug = slug || article?.slug || fm?.slug;
-
-  // Debug log the resolved frontmatter
-  console.log("Resolved frontmatter:", fm);
 
   // Generate default badge data if no frontmatter or no chemicalProperties
   let symbol, formula, materialType, atomicNumber;
@@ -51,14 +46,12 @@ export function BadgeSymbol({
     // Format the symbol with proper scientific casing
     if (symbol) {
       symbol = formatSymbol(symbol);
-      console.log("Formatted symbol from frontmatter:", symbol);
     }
   }
   
   // Only use slug as fallback if we absolutely need to (no frontmatter data)
   if (!symbol && !formula && !materialType && itemSlug) {
     // We have no chemical data from frontmatter, so generate fallback from slug
-    console.log("No chemical data in frontmatter, using slug fallback:", itemSlug);
     symbol = formatSymbol(generateSymbolFromSlug(itemSlug));
     materialType = determineMaterialTypeFromSlug(itemSlug);
     formula = symbol; // Use symbol as fallback formula
@@ -170,7 +163,6 @@ export function BadgeSymbol({
     const formattedSymbol = formatSymbol(symbol);
     if (ELEMENTS[formattedSymbol]) {
       atomicNumber = ELEMENTS[formattedSymbol];
-      console.log(`Found atomic number ${atomicNumber} for symbol ${formattedSymbol}`);
     }
   }
 
@@ -179,7 +171,6 @@ export function BadgeSymbol({
 
   // If no symbol or formula is provided, don't render
   if (!symbol && !formula) {
-    console.log("No symbol or formula available, returning null");
     return null;
   }
 
@@ -188,7 +179,6 @@ export function BadgeSymbol({
   const displaySymbol = formula || (symbol ? formatSymbol(symbol) : "") || "";
 
   // Log the formatted symbol for debugging
-  console.log("Formatted symbol for display:", displaySymbol);
 
   // Determine if we have a complex formula that needs special handling
   const isComplexFormula =
@@ -230,24 +220,25 @@ export function BadgeSymbol({
   const containerClasses = [
     sizes.container,
     "bg-red-900", // Simple white background
-    position,
+    // position, // Don't use the position prop, use our CSS classes instead
     "rounded-md border border-red-800",
     "flex flex-col items-center justify-center",
     "shadow-sm",
+    "badge-container", // Add our custom class for z-index
   ].join(" ");
 
   return (
-    <div className={containerClasses}>
+    <div className={`badge-symbol ${containerClasses}`}>
       {/* Atomic number if available */}
       {atomicNumber && (
-        <span className={`${sizes.number} ${textColorConfig.number}`}>
+        <span className={`${sizes.number} ${textColorConfig.number} badge-content`}>
           {atomicNumber}
         </span>
       )}
 
       {/* Symbol or Formula - Use subscripts for numbers in formulas */}
       <span
-        className={`${sizes.symbol} ${textColorConfig.default} leading-tight`}
+        className={`${sizes.symbol} ${textColorConfig.default} leading-tight badge-content`}
       >
         {isComplexFormula ? (
           <span

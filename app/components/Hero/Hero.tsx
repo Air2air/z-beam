@@ -27,8 +27,8 @@ export function Hero({
   const alignClass = align !== 'center' ? `text-${align}` : 'text-center';
   const themeClass = `theme-${theme}`;
   
-  // Determine image source with fallbacks
-  const imageSource = image || (materialSlug ? `/images/Material/${materialSlug}_hero.jpg` : undefined);
+  // Determine image source with the new naming pattern
+  const imageSource = image || (materialSlug ? `/images/${materialSlug}-laser-cleaning-hero.jpg` : undefined);
   
   return (
     <div className={`hero-section ${themeClass}`}>

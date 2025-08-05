@@ -2,7 +2,6 @@
 "use client";
 
 import "./styles.scss";
-import { useState } from "react";
 import Link from "next/link";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
@@ -10,18 +9,18 @@ import { Thumbnail } from "../Thumbnail/Thumbnail";
 // Global card configuration with a single variant
 const CARD_CONFIG = {
   // Layout
-  padding: "p-4",
-  imageHeight: "aspect-[16/9] h-28", // Combine aspect ratio with min-height
+  padding: "p-2",
+  imageHeight: "aspect-[16/9] h-20", // Combine aspect ratio with min-height
 
   // Typography
   titleClass:
-    "text-lg font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-200",
+    "text-lg font-semibold group-hover:text-blue-600 transition-colors duration-200",
   descriptionClass:
-    "text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2",
+    "text-gray-600 dark:text-gray-300 text-sm line-clamp-2",
 
   // Appearance
   cardClass:
-    "bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
+    "rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
 };
 
 // New standardized interface for badge data
@@ -89,26 +88,22 @@ export function Card({
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
   
+  // For frontmatter files, we need to handle the path correctly
+  const isFrontmatterPath = (path: string | undefined) => {
+    return path && path.includes('content/components/frontmatter/');
+  };
+  
   // Determine material slug for image - use passed materialSlug, or extract from metadata.subject or slug
-  const effectiveMaterialSlug = materialSlug || 
+  const effectiveMaterialSlug = 
+    // If materialSlug is a frontmatter path, use it directly
+    (materialSlug && isFrontmatterPath(materialSlug)) ? materialSlug :
+    // Otherwise use the normal fallbacks
+    materialSlug || 
     (metadata?.subject ? metadata.subject.toLowerCase() : null) || 
     (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());
   
   // Check if this is a featured card by examining the className
   const isFeatured = className?.includes('featured-item');
-
-  // Debug logging for badge visibility
-  console.log('Card Debug:', {
-    href,
-    slug,
-    materialSlug,
-    effectiveMaterialSlug,
-    isFeatured,
-    hasMetadata: !!metadata,
-    metadataSubject: metadata?.subject,
-    hasChemicalProperties: !!(metadata && metadata.chemicalProperties),
-    chemicalProperties: metadata?.chemicalProperties
-  });
 
   return (
     <Link
@@ -124,25 +119,27 @@ export function Card({
           className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}
         >
           <Thumbnail
-            src={image || imageUrl}
-            alt={imageAlt || name || title}
+            src={image || imageUrl || undefined} // Only pass src if it's explicitly set
+            alt={imageAlt || name || title || `${effectiveMaterialSlug}-laser-cleaning`}
             materialSlug={effectiveMaterialSlug}
             fallbackSrc="/images/Site/Logo/logo_.png"
             objectFit="cover"
             priority={false}
             onError={() => {
-              // Error handling logic if needed
+              // Silent error handling
             }}
           />
 
-          {/* Chemical Symbol Badge (show only if not featured) */}
+          {/* Chemical Symbol Badge (show only if not featured) - positioned absolutely */}
           {!isFeatured && (
-            <BadgeSymbol
-              frontmatter={metadata ? { 
-                chemicalProperties: metadata.chemicalProperties 
-              } : undefined}
-              slug={slug}
-            />
+            <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
+              <BadgeSymbol
+                frontmatter={metadata ? { 
+                  chemicalProperties: metadata.chemicalProperties 
+                } : undefined}
+                slug={slug}
+              />
+            </div>
           )}
         </div>
 

@@ -1,0 +1,5 @@
+<!-- Category: composite, Article Type: material, Subject: Rubber -->
+* **Material Composition & Properties**: Rubber (C₅H₈)ₙ is a composite with density 0.92-1.2 g/cm³, hardness 40-90 Shore A, and decomposes at 180-220°C. Key components include natural rubber (30-60%), carbon black (20-35%), and sulfur (1-3%), optimized for laser cleaning at 1064nm wavelength with fluence 0.5-5 J/cm².
+* **Laser Processing Parameters**: Optimal cleaning uses Nd:YAG or fiber lasers (50-500W pulsed) at 1064nm ±5nm, with pulse duration 10-100ns, spot size 0.5-2.0mm, and repetition rate 1-100kHz. Colored rubbers may require 532nm wavelength for effective ablation.
+* **Industrial Applications**: Precision cleaning of tire molds (2-3 J/cm² fluence), aerospace seals (1kHz repetition rate), and conveyor belts (0.8-1.2mm spot size). Achieves >99.5% contaminant removal with <0.1mm depth alteration and 2-5 m²/hour coverage.
+* **Environmental & Safety Benefits**: Reduces solvent use by 95-100%, lowers energy consumption by 30-40%, and cuts particulate waste by 98% vs. mechanical methods. Complies with ISO 1853:2018, ASTM D3182-21, and EN 60825-1:2014 standards (Class 4 laser safety).

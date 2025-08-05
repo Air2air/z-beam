@@ -9,98 +9,88 @@ type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
 
 // Component configuration
 const THUMBNAIL_CONFIG = {
-  fallbackPadding: "p-8", // Generous padding for fallback images/logos
-  regularPadding: "p-0", // No padding for regular images
-  fallbackBg: "bg-gray-100 dark:bg-gray-600",
-  fallbackObjectFit: "contain" as ObjectFit, // Ensure logos are fully visible
-  regularObjectFit: "cover" as ObjectFit, // Regular images should fill the space
+  fallbackImage: "/images/Site/Logo/logo_.png",
+  regularPadding: "p-0",
+  fallbackPadding: "p-6",
+  fallbackBg: "bg-gray-100 dark:bg-gray-600"
 };
-
-// This component should NOT import Card or anything that imports Card
 
 interface ThumbnailProps {
   src?: string;
   alt: string;
-  materialSlug?: string; // Add materialSlug for hero images
+  materialSlug?: string;
   fallbackSrc?: string;
   className?: string;
   priority?: boolean;
-  objectFit?: ObjectFit; // Default for regular images
-  fallbackObjectFit?: ObjectFit; // Specific for fallback
+  objectFit?: ObjectFit;
+  width?: number;
+  height?: number;
   onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
-  width?: number; // For image resource sizing
-  height?: number; // For image resource sizing
-  fallbackPadding?: string; // Optional override for fallback padding
 }
 
 export function Thumbnail({
   src,
   alt,
   materialSlug,
-  fallbackSrc = "/images/Site/Logo/logo_.png",
+  fallbackSrc = THUMBNAIL_CONFIG.fallbackImage,
   className = "",
   priority = false,
-  objectFit = "cover", // Default for regular images
-  fallbackObjectFit, // Specific objectFit for fallback images
-  onError,
+  objectFit = "cover",
   width,
   height,
-  fallbackPadding, // Allow override via props
+  onError
 }: ThumbnailProps) {
-  // Determine the source with materialSlug fallback
-  const effectiveSrc = src || (materialSlug ? `/images/Material/${materialSlug}_hero.jpg` : undefined);
-  
-  // Debug logging
-  console.log('Thumbnail Debug:', {
-    originalSrc: src,
-    materialSlug,
-    effectiveSrc,
-    fallbackSrc
-  });
-  
-  const [imageState, setImageState] = useState<{
-    src: string | undefined;
-    error: boolean;
-  }>({
-    src: effectiveSrc,
-    error: false,
-  });
-
-  const handleImageError = () => {
-    setImageState({
-      src: fallbackSrc,
-      error: true,
-    });
-
-    if (onError) {
-      onError(
-        new Event("error") as unknown as React.SyntheticEvent<HTMLImageElement>
-      );
+  // Extract the base name from material slug
+  const extractBaseName = (slug: string | undefined) => {
+    if (!slug) return undefined;
+    
+    if (slug.includes('/')) {
+      const parts = slug.split('/');
+      const filename = parts[parts.length - 1];
+      return filename.replace(/\.[^/.]+$/, "");
     }
+    
+    return slug;
   };
-
+  
+  // Build the image path from material slug
+  const baseSlug = extractBaseName(materialSlug);
+  const materialImagePath = baseSlug ? `/images/${baseSlug}-laser-cleaning-hero.jpg` : undefined;
+  
+  // Determine which image source to use (in order of priority)
+  const imageSrc = materialImagePath || src;
+  
+  // State to track image loading status
+  const [imageError, setImageError] = useState(false);
+  
+  // Handle image load error
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    setImageError(true);
+    if (onError) onError(e);
+  };
+  
+  // Determine the final source to display
+  const displaySrc = !imageError ? imageSrc : fallbackSrc;
+  
   // Determine if we're showing a fallback image
-  const isFallbackImage =
-    imageState.error ||
-    imageState.src === fallbackSrc ||
-    !imageState.src;
-
-  // Use appropriate objectFit based on whether it's a fallback image
-  const effectiveObjectFit = isFallbackImage
-    ? (fallbackObjectFit || THUMBNAIL_CONFIG.fallbackObjectFit)
-    : objectFit;
-
-  // Map the effective objectFit to corresponding Tailwind class
+  const isFallbackImage = imageError || !imageSrc;
+  
+  // Use appropriate padding based on whether it's a fallback image
+  const paddingClass = isFallbackImage 
+    ? THUMBNAIL_CONFIG.fallbackPadding
+    : THUMBNAIL_CONFIG.regularPadding;
+    
+  // Map the objectFit to corresponding Tailwind class
   const objectFitClass = {
     cover: "object-cover",
     contain: "object-contain",
     fill: "object-fill",
-  }[effectiveObjectFit];
+    none: "object-none",
+    "scale-down": "object-scale-down"
+  }[isFallbackImage ? "contain" : objectFit];
 
-  // Use appropriate padding
-  const paddingClass = isFallbackImage
-    ? (fallbackPadding || THUMBNAIL_CONFIG.fallbackPadding)
-    : THUMBNAIL_CONFIG.regularPadding;
+  // Ensure we always have a valid src string
+  const finalSrc = displaySrc || fallbackSrc;
 
   return (
     <div
@@ -113,39 +103,22 @@ export function Thumbnail({
         height: "100%",
       }}
     >
-      {imageState.src || fallbackSrc ? (
-        <Image
-          src={imageState.src || fallbackSrc}
-          alt={alt}
-          fill={true}
-          width={width} // Used for image resource size, not layout
-          height={height} // Used for image resource size, not layout
-          className={`
-            ${objectFitClass}
-            ${paddingClass}
-          `}
-          priority={priority}
-          onError={handleImageError}
-          unoptimized={imageState.error}
-          sizes="100vw"
-          style={{ objectFit: effectiveObjectFit }}
-        />
-      ) : (
-        <Image
-          src={fallbackSrc}
-          alt={alt}
-          fill={true}
-          className={`
-            ${objectFitClass}
-            ${paddingClass}
-          `}
-          unoptimized={true}
-          sizes="100vw"
-          style={{
-            objectFit: effectiveObjectFit,
-          }}
-        />
-      )}
+      <Image
+        src={finalSrc}
+        alt={isFallbackImage ? `Fallback for ${alt}` : alt}
+        fill={true}
+        width={width} // Used for image resource size, not layout
+        height={height} // Used for image resource size, not layout
+        className={`
+          ${objectFitClass}
+          ${paddingClass}
+          ${isFallbackImage ? 'z-0' : 'z-1'}
+        `}
+        priority={priority}
+        onError={handleImageError}
+        unoptimized={true} // Set all images to unoptimized for testing
+        sizes="100vw"
+      />
     </div>
   );
 }
