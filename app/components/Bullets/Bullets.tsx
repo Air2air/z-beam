@@ -19,8 +19,6 @@ export function Bullets({ content, config }: BulletsProps) {
     <div className={`bullets-section ${className}`}>
       <MarkdownRenderer 
         content={content}
-        className="bullets-container"
-        prose={true}
         convertMarkdown={true}
       />
     </div>

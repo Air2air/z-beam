@@ -1,8 +1,5 @@
 <!-- Category: masonry, Article Type: material, Subject: Terracotta -->
----
-category: masonry
-article_type: material
-subject: Terracotta
-status: failed
----
-No content generated for Terracotta (bullets) due to frontmatter failure
+* **Material Composition & Properties**: Terracotta primarily consists of kaolinite (Al₂Si₂O₅(OH)₄, 40–60%), iron oxide (Fe₂O₃, 5–15%), and quartz (SiO₂, 20–30%), with a density of 1.8–2.1 g/cm³ and hardness of 3–4 Mohs. Its thermal conductivity (0.8–1.2 W/m·K) and melting point (1100–1200°C) make it suitable for controlled laser processing.
+* **Optimal Laser Parameters**: Best results achieved with a pulsed fiber laser (1064nm ±2nm, 20–100W, 10–100ns pulse duration) at a fluence range of 0.5–3 J/cm². Spot size (0.1–2.0 mm) and repetition rate (20–100 kHz) enable precise contamination removal with minimal substrate damage (<0.05 mm loss per pass).
+* **Key Applications**: Ideal for heritage conservation (biological growth/black crust removal), architectural restoration (0.1–0.3 mm precision on facades), and archaeological preparation (non-contact cleaning at 0.8–1.5 J/cm²). Compatible with mixed materials like bronze and limestone for joint cleaning.
+* **Environmental & Performance Benefits**: Eliminates chemical solvents, reduces energy use by 60–70% vs. mechanical methods, and preserves material (90% less loss than abrasives). Achieves 95% contaminant removal (ΔE<2) at 0.2–0.5 m²/hour processing speed, compliant with EN 15898 and ANSI Z136.1 standards.

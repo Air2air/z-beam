@@ -4,7 +4,7 @@
   "@type": "Product",
   "name": "Porcelain",
   "url": "https://www.z-beam.com/porcelain-laser-cleaning",
-  "description": "Porcelain (Al\u2082Si\u2082O\u2085(OH)\u2084\u00b7SiO\u2082\u00b7KAlSi\u2083O\u2088) is a vitrified ceramic with high chemical resistance and thermal stability. This guide details optimal laser parameters (1064nm, 0.5-5 J/cm\u00b2) for contamination removal while preserving surface integrity.",
+  "description": "Detailed analysis of porcelain (Al\u2082Si\u2082O\u2085(OH)\u2084\u00b7SiO\u2082\u00b7KAlSi\u2083O\u2088) for laser cleaning applications, including physical properties, optimal laser parameters (1064nm, 5-20J/cm\u00b2), and ceramic-specific processing techniques.",
   "headline": "Comprehensive technical guide for laser cleaning porcelain surfaces",
   "image": [
     "https://www.z-beam.com/images/porcelain-laser-cleaning-hero.jpg",
@@ -15,11 +15,34 @@
     "name": "Z-Beam"
   },
   "category": "ceramic",
-  "material": {
+  "material": "Porcelain",
+  "keywords": [
+    "porcelain laser cleaning",
+    "ceramic surface treatment",
+    "Al\u2082Si\u2082O\u2085(OH)\u2084 processing",
+    "non-abrasive cleaning",
+    "1064nm laser parameters",
+    "kaolinite removal",
+    "heritage conservation",
+    "industrial ceramic cleaning",
+    "pulsed fiber laser",
+    "surface contamination removal",
+    "thermal shock resistance",
+    "cultural artifact restoration"
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Evelyn Wu",
+    "nationality": {
+      "@type": "Country",
+      "name": "Taiwan"
+    },
+    "hasCredential": "PhD in Materials Science, Laser Processing Specialist (LIA Certified)"
+  },
+  "chemicalComposition": {
     "@type": "ChemicalSubstance",
-    "name": "Porcelain",
-    "chemicalComposition": "Al\u2082Si\u2082O\u2085(OH)\u2084\u00b7SiO\u2082\u00b7KAlSi\u2083O\u2088",
-    "materialType": "ceramic"
+    "chemicalFormula": "Al\u2082Si\u2082O\u2085(OH)\u2084\u00b7SiO\u2082\u00b7KAlSi\u2083O\u2088",
+    "hasRepresentation": "Po"
   },
   "additionalProperty": [
     {
@@ -40,65 +63,47 @@
     {
       "@type": "PropertyValue",
       "name": "thermalConductivity",
-      "value": "1.5-2.0 W/m\u00b7K"
+      "value": "1.5 W/m\u00b7K"
     }
-  ],
-  "keywords": [
-    "porcelain laser cleaning",
-    "ceramic surface treatment",
-    "kaolinite processing",
-    "non-abrasive cleaning",
-    "industrial ceramics",
-    "laser fluence optimization",
-    "surface contamination removal",
-    "thermal shock resistance",
-    "heritage conservation",
-    "industrial porcelain"
   ],
   "application": [
     {
       "@type": "TechArticle",
-      "name": "Dental Prosthetics Cleaning",
-      "description": "Precision removal of organic residues from porcelain crowns using 1064nm laser at 2.5 J/cm\u00b2 fluence"
+      "name": "Cultural heritage restoration",
+      "description": "Precise removal of biological growth and atmospheric deposits from historical porcelain artifacts with 1064nm laser at 8-12J/cm\u00b2"
     },
     {
       "@type": "TechArticle",
-      "name": "Heritage Conservation",
-      "description": "Non-contact cleaning of antique porcelain artifacts with controlled 10ns pulses at 1.2 J/cm\u00b2"
+      "name": "Industrial kiln maintenance",
+      "description": "Cleaning of porcelain buildup on refractory components using 100W pulsed fiber laser at 15-20J/cm\u00b2"
     },
     {
       "@type": "TechArticle",
-      "name": "Industrial Component Refurbishment",
-      "description": "High-throughput cleaning of electrical insulators using 200W pulsed laser at 100Hz repetition rate"
+      "name": "Medical device manufacturing",
+      "description": "Surface preparation of dental porcelain crowns with 50W laser at 5-8J/cm\u00b2 for optimal bonding"
     }
   ],
-  "author": {
-    "@type": "Person",
-    "name": "Evelyn Wu",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Z-Beam"
-    },
-    "hasCredential": "PhD in Materials Science, Laser Processing Specialist",
-    "nationality": {
-      "@type": "Country",
-      "name": "Taiwan"
-    }
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Materials scientists, conservation specialists, industrial engineers"
   },
+  "isRelatedTo": [
+    {
+      "@type": "Product",
+      "name": "Pulsed fiber laser",
+      "description": "Laser system for porcelain cleaning applications"
+    }
+  ],
   "review": {
     "@type": "Review",
-    "reviewBody": "Detailed technical specifications for laser cleaning porcelain surfaces",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
     "author": {
       "@type": "Person",
       "name": "Evelyn Wu"
     }
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://www.z-beam.com/porcelain-laser-cleaning"
-  },
-  "isRelatedTo": {
-    "@type": "WebPage",
-    "url": "https://www.ceramicartsnetwork.org/technical-resources"
   }
 }

@@ -36,6 +36,17 @@ export interface Article {
       materialType?: string;
       [key: string]: any;
     };
+    images?: {
+      hero?: {
+        url?: string;
+        alt?: string;
+      };
+      closeup?: {
+        url?: string;
+        alt?: string;
+      };
+      [key: string]: any;
+    };
     // Rest of your interface definition...
     [key: string]: any;
   };
@@ -142,16 +153,28 @@ export async function getAllArticles(): Promise<Article[]> {
               outcomes: data.outcomes || [],
               composition: data.composition || [],
               compatibility: data.compatibility || [],
+              images: data.images || {}, // Add images to metadata
               technicalSpecifications: data.technicalSpecifications || {},
               countries: data.countries || [],
               manufacturingCenters: data.manufacturingCenters || []
             }
           };
           
-          break; // Stop once we've found the article
+          // For frontmatter files, always try to read any top-level properties
+          if (dir.includes('frontmatter') && articleData) {
+            // Add any missing properties from raw data to articleData
+            Object.entries(data).forEach(([key, value]) => {
+              // articleData is guaranteed to be non-null here because of the check in the if condition
+              if (key !== 'metadata' && articleData && !articleData[key]) {
+                articleData[key] = value;
+              }
+            });
+          }
+          
+          break;
         }
       } catch (error) {
-        console.error(`Error reading ${slug} from ${dir}:`, error);
+        console.error(`Error loading article for ${slug} in ${dir}:`, error);
       }
     }
     
@@ -160,55 +183,62 @@ export async function getAllArticles(): Promise<Article[]> {
     }
   }
   
-  // Make sure each article has proper tags
-  return articles.map(article => {
-    // Ensure article has tags array
-    if (!article.tags) {
-      article.tags = [];
-    }
-    
-    // Add category as a tag if it exists
-    if (article.metadata?.category && !article.tags.includes(article.metadata.category)) {
-      article.tags.push(article.metadata.category);
-    }
-    
-    // Add subject as a tag if it exists
-    if (article.metadata?.subject && !article.tags.includes(article.metadata.subject)) {
-      article.tags.push(article.metadata.subject);
-    }
-    
-    // Add article type as a tag if it exists
-    if (article.metadata?.articleType && !article.tags.includes(article.metadata.articleType)) {
-      article.tags.push(article.metadata.articleType);
-    }
-    
-    return article;
-  });
+  return articles;
 }
 
-export async function getAllTags(): Promise<string[]> {
-  const articles = await getAllArticles();
+export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  // Try to find the article in any of the content directories
+  const directories = [
+    path.join(process.cwd(), 'content', 'components', 'frontmatter'),
+    path.join(process.cwd(), 'content', 'components', 'metatags'),
+    path.join(process.cwd(), 'content', 'components', 'content')
+  ];
   
-  // Collect all tags from articles
-  const tagSet = new Set<string>();
-  
-  articles.forEach(article => {
-    if (article.tags) {
-      article.tags.forEach(tag => tagSet.add(tag));
+  for (const dir of directories) {
+    const filePath = path.join(dir, `${slug}.md`);
+    
+    try {
+      if (existsSync(filePath)) { // Use the imported existsSync
+        const fileContents = await fs.readFile(filePath, 'utf8');
+        const { data } = matter(fileContents);
+        
+        const articleData: Article = {
+          slug,
+          title: data.title || 'Untitled',
+          name: data.name || '',
+          headline: data.headline || '',
+          description: data.description || '',
+          image: data.image || '',
+          imageAlt: data.imageAlt || '',
+          tags: data.tags || [],
+          website: data.website || '',
+          author: data.author || {},
+          metadata: {
+            keywords: data.keywords || [],
+            category: data.category || '',
+            articleType: data.articleType || '',
+            subject: data.subject || '',
+            chemicalProperties: data.chemicalProperties || {},
+            properties: data.properties || {},
+            applications: data.applications || [],
+            environmentalImpact: data.environmentalImpact || [],
+            regulatoryStandards: data.regulatoryStandards || [],
+            outcomes: data.outcomes || [],
+            composition: data.composition || [],
+            compatibility: data.compatibility || [],
+            images: data.images || {}, // Add images to metadata
+            technicalSpecifications: data.technicalSpecifications || {},
+            countries: data.countries || [],
+            manufacturingCenters: data.manufacturingCenters || []
+          }
+        };
+        
+        return articleData;
+      }
+    } catch (error) {
+      console.error(`Error loading article for ${slug} in ${dir}:`, error);
     }
-  });
+  }
   
-  // Convert Set to Array and sort alphabetically
-  return Array.from(tagSet).sort();
-}
-
-export async function getArticlesByTag(tag: string): Promise<Article[]> {
-  const articles = await getAllArticles();
-  
-  // Filter articles by tag (case-insensitive)
-  return articles.filter(article => 
-    article.tags?.some(articleTag => 
-      articleTag.toLowerCase() === tag.toLowerCase()
-    )
-  );
+  return null;
 }

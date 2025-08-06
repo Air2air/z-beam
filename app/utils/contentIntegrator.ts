@@ -28,7 +28,26 @@ export interface ArticleData {
 export async function getArticle(slug: string): Promise<ArticleData | null> {
   try {
     // 1. Load metadata directly from metatags
-    const metadata = await loadMetaTags(slug);
+    let metadata = await loadMetaTags(slug);
+    
+    // 1.1 Try to load frontmatter data for this article
+    try {
+      const { loadFrontmatterData } = await import('./frontmatterLoader');
+      const frontmatterData = await loadFrontmatterData(slug);
+      
+      if (frontmatterData) {
+        console.log('Found frontmatter data for', slug, 'with images:', frontmatterData.images);
+        // Merge the frontmatter data with the metadata, giving priority to frontmatter
+        if (metadata) {
+          Object.assign(metadata, frontmatterData);
+        } else {
+          // If no metadata was found, use frontmatter data as metadata
+          metadata = frontmatterData;
+        }
+      }
+    } catch (frontmatterError) {
+      console.error('Error loading frontmatter:', frontmatterError);
+    }
     
     // 2. Load components
     const components: Record<string, any> = {};

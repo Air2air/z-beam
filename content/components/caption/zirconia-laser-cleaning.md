@@ -1,4 +1,8 @@
 <!-- Category: ceramic, Article Type: material, Subject: Zirconia -->
-**Results:** Section** **Before Cleaning:** The zirconia component exhibits surface degradation from organic contaminants (carbonaceous residues, machining oils) and a thin oxide layer (ZrO₂-x), contributing to increased surface roughness (Ra ≈ 1.2–1.8 µm) and reduced wettability (contact angle >90°). **After Laser Cleaning:**...
-
-**Equipment:** Section** - **Laser System:** Pulsed Nd:YAG (1064 nm) or fiber laser with 532 nm (SHG) option. - **Parameters:** - **Fluence:** 3–8 J/cm² (optimized for minimal thermal stress). - **Pulse Duration:** 20–50 ns (prevents melting). - **Repetition Rate:** 20–100 kHz (balancing...
+---
+category: ceramic
+article_type: material
+subject: Zirconia
+status: failed
+---
+No content generated for Zirconia (caption) due to frontmatter failure

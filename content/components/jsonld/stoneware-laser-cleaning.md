@@ -4,22 +4,24 @@
   "@type": "Product",
   "name": "Stoneware",
   "url": "https://www.z-beam.com/stoneware-laser-cleaning",
-  "description": "Stoneware (SiO\u2082\u00b7Al\u2082O\u2083\u00b7MgO\u00b7K\u2082O) is a dense ceramic with high thermal stability. Laser cleaning parameters: 1064nm wavelength, 0.5\u201310 J/cm\u00b2 fluence. Used in heritage restoration and industrial surface treatment.",
+  "description": "Technical overview of stoneware (SiO\u2082\u00b7Al\u2082O\u2083\u00b7MgO\u00b7K\u2082O) for laser cleaning applications, including physical properties, optimal laser parameters, and environmental benefits. Density: 2.3\u20132.5 g/cm\u00b3, hardness: 6\u20137 Mohs.",
+  "headline": "Comprehensive technical guide for laser cleaning stoneware ceramics",
+  "image": [
+    "https://www.z-beam.com/images/stoneware-laser-cleaning-hero.jpg",
+    "https://www.z-beam.com/images/stoneware-laser-cleaning-closeup.jpg"
+  ],
   "brand": {
     "@type": "Brand",
     "name": "Z-Beam"
   },
   "category": "ceramic",
-  "image": [
-    "https://www.z-beam.com/images/stoneware-laser-cleaning-hero.jpg",
-    "https://www.z-beam.com/images/stoneware-laser-cleaning-closeup.jpg"
-  ],
+  "material": {
+    "@type": "ChemicalSubstance",
+    "name": "Stoneware",
+    "chemicalComposition": "SiO\u2082\u00b7Al\u2082O\u2083\u00b7MgO\u00b7K\u2082O",
+    "identifier": "SW"
+  },
   "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "formula",
-      "value": "SiO\u2082\u00b7Al\u2082O\u2083\u00b7MgO\u00b7K\u2082O"
-    },
     {
       "@type": "PropertyValue",
       "name": "density",
@@ -41,84 +43,63 @@
       "value": "1.5\u20132.0 W/m\u00b7K"
     }
   ],
-  "material": [
-    {
-      "@type": "ChemicalSubstance",
-      "name": "Silica",
-      "chemicalComposition": "SiO\u2082",
-      "percentage": "50\u201360%"
-    },
-    {
-      "@type": "ChemicalSubstance",
-      "name": "Alumina",
-      "chemicalComposition": "Al\u2082O\u2083",
-      "percentage": "20\u201330%"
-    },
-    {
-      "@type": "ChemicalSubstance",
-      "name": "Magnesium oxide",
-      "chemicalComposition": "MgO",
-      "percentage": "5\u201310%"
-    },
-    {
-      "@type": "ChemicalSubstance",
-      "name": "Potassium oxide",
-      "chemicalComposition": "K\u2082O",
-      "percentage": "3\u20138%"
-    }
-  ],
-  "application": [
-    {
-      "@type": "TechArticle",
-      "name": "Cultural heritage conservation",
-      "description": "Selective removal of biological growths and pollution crusts from historical stoneware with 0.1mm precision"
-    },
-    {
-      "@type": "TechArticle",
-      "name": "Food processing equipment",
-      "description": "Non-contact sterilization of stoneware surfaces achieving 99.9% microbial reduction at 3 J/cm\u00b2"
-    },
-    {
-      "@type": "TechArticle",
-      "name": "Chemical reactor linings",
-      "description": "Removal of hardened deposits from stoneware reactor vessels with <0.5% substrate loss"
-    }
-  ],
   "keywords": [
     "stoneware ceramic",
     "laser cleaning parameters",
-    "SiO\u2082\u00b7Al\u2082O\u2083 composite",
+    "SiO\u2082\u00b7Al\u2082O\u2083\u00b7MgO\u00b7K\u2082O",
     "ceramic surface treatment",
-    "industrial laser applications",
-    "cultural heritage conservation",
     "non-abrasive cleaning",
-    "thermal shock resistance",
+    "industrial laser applications",
+    "thermal conductivity ceramics",
+    "cultural heritage restoration",
     "pulsed fiber laser",
-    "material ablation thresholds"
+    "1064 nm wavelength",
+    "contaminant removal",
+    "ceramic microstructure"
   ],
   "author": {
     "@type": "Person",
     "name": "Evelyn Wu",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "Taiwan"
+    "nationality": {
+      "@type": "Country",
+      "name": "Taiwan"
     },
-    "hasCredential": "PhD in Materials Science, Laser Processing Specialist"
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "degree",
+      "name": "PhD in Materials Science, Laser Processing Specialist"
+    }
   },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.z-beam.com/search?q=stoneware",
-    "query-input": "required name=q"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://www.z-beam.com/stoneware-laser-cleaning",
-    "priceCurrency": "USD",
-    "price": "0",
-    "availability": "https://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Z-Beam"
+  "application": [
+    {
+      "@type": "TechArticle",
+      "name": "Industrial stoneware component cleaning",
+      "description": "Precision removal of oxide layers and surface contaminants from technical stoneware components used in chemical processing equipment"
+    },
+    {
+      "@type": "TechArticle",
+      "name": "Cultural heritage conservation",
+      "description": "Gentle cleaning of historical stoneware artifacts with controlled laser parameters to preserve original surface characteristics"
+    },
+    {
+      "@type": "TechArticle",
+      "name": "Architectural ceramic restoration",
+      "description": "Selective removal of biological growth and atmospheric deposits from building facades and decorative elements"
+    }
+  ],
+  "isRelatedTo": [
+    {
+      "@type": "Product",
+      "name": "Pulsed fiber laser",
+      "description": "Laser system with 1064 nm wavelength \u00b12 nm for stoneware cleaning applications"
+    }
+  ],
+  "review": {
+    "@type": "Review",
+    "reviewBody": "Technical guide provides comprehensive parameters for stoneware laser cleaning",
+    "author": {
+      "@type": "Person",
+      "name": "Evelyn Wu"
     }
   }
 }

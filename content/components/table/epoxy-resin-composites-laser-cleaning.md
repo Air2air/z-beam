@@ -1,36 +1,36 @@
 <!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -->
 ### Data Table: Here are three informative markdown tables for Epoxy Resin Composites, focusing on technical specifications, material properties, and compatibility:: ---
 
-| Parameter               | Value Range               | Units       | Notes                                                                 |
-|-------------------------|---------------------------|-------------|-----------------------------------------------------------------------|
-| **Laser Type**          | Nd:YAG, CO₂               | -           | Nd:YAG (1064nm) for precision; CO₂ (10,600nm) for bulk removal       |
-| **Wavelength**          | 1064–10,600               | nm          | Shorter wavelengths reduce thermal damage                             |
-| **Fluence Range**       | 0.5–8                     | J/cm²       | Higher fluence for thick contaminants                                |
-| **Power Range**         | 20–500                    | W (pulsed)  | Adjust based on epoxy thickness and filler content                   |
-| **Pulse Duration**      | 10–200                    | ns          | Shorter pulses minimize heat-affected zone (HAZ)                     |
-| **Repetition Rate**     | 10–100                    | kHz         | Higher rates improve cleaning speed                                  |
-| **Spot Size**           | 0.1–5                     | mm          | Smaller spots for intricate geometries                               |
-| **Safety Class**        | Class 4 (IEC 60825-1)     | -           | Requires protective eyewear and enclosures                           |
+| Parameter               | Value Range               | Unit       | Notes                                                                 |
+|-------------------------|---------------------------|------------|-----------------------------------------------------------------------|
+| **Laser Type**          | Q-switched Nd:YAG         | -          | Pulsed system for controlled ablation                                 |
+| **Wavelength**          | 1064 ±5                  | nm         | Optimal for epoxy absorption                                         |
+| **Power Range**         | 10–500                   | W          | Pulsed mode                                                          |
+| **Pulse Duration**      | 10–100                   | ns         | Shorter pulses reduce thermal damage                                 |
+| **Spot Size**           | 50–500                   | μm         | Smaller for precision work (e.g., PCB cleaning)                      |
+| **Repetition Rate**     | 10–200                   | kHz        | Higher rates for large-area cleaning                                 |
+| **Fluence Range**       | 0.5–5                    | J/cm²      | Critical for avoiding substrate damage                               |
+| **Safety Class**        | Class 4 (IEC 60825-1)    | -          | Requires protective measures                                         |
 
 
 ### Data Table: Here are three informative markdown tables for Epoxy Resin Composites, focusing on technical specifications, material properties, and compatibility:: ---: ---
 
-| Property                | Value Range               | Units       | Test Standard                    | Notes                                  |
-|-------------------------|---------------------------|-------------|-----------------------------------|----------------------------------------|
-| **Density**             | 1.1–1.4                   | g/cm³       | ASTM D792                         | Varies with filler content             |
-| **Melting Point**       | 120–250 (decomposition)   | °C          | ISO 11357-3                       | Thermoset; decomposes instead of melts |
-| **Hardness**            | 80–90                     | Shore D     | ASTM D2240                        | High scratch resistance                |
-| **Thermal Conductivity**| 0.1–0.3                   | W/m·K       | ASTM E1461                        | Low conductivity reduces heat spread   |
-| **Tensile Strength**    | 70–100                    | MPa         | ASTM D638                         | Reinforced grades exceed 100 MPa       |
-| **Glass Transition (Tg)**| 120–200                  | °C          | DMA (ISO 6721-11)                 | Higher Tg for aerospace grades         |
+| Property                | Value Range               | Unit       | Test Standard                     |
+|-------------------------|---------------------------|------------|-----------------------------------|
+| **Density**             | 1.1–1.4                  | g/cm³      | ASTM D792                         |
+| **Melting Point**       | 150–300 (decomposition)  | °C         | TGA analysis                      |
+| **Hardness**            | 80–90                    | Shore D    | ASTM D2583                        |
+| **Thermal Conductivity**| 0.2–0.5                  | W/m·K      | ISO 22007-2                       |
+| **Tensile Strength**    | 60–120                   | MPa        | ASTM D638                         |
+| **Flexural Modulus**    | 3–6                      | GPa        | ASTM D790                         |
 
 
 ### Data Table: Here are three informative markdown tables for Epoxy Resin Composites, focusing on technical specifications, material properties, and compatibility:: ---: ---: ---
 
-| Substrate Material      | Application               | Laser Parameters              | Outcome Metrics                     |
-|-------------------------|---------------------------|-------------------------------|-------------------------------------|
-| **Carbon Fiber (CFRP)** | Aerospace surface prep    | 1064nm, 2–5 J/cm², 50kHz     | Ra 0.8μm, +40% bond strength       |
-| **Aluminum Alloys**     | Adhesive removal          | CO₂, 5–8 J/cm², 20kHz        | 100% adhesive residue removal       |
-| **Polymer Coatings**    | Selective layer ablation  | Nd:YAG, 0.5–1.5 J/cm², 100kHz | <5% substrate damage                |
-| **Glass Fiber**         | Mold cleaning             | CO₂, 3–6 J/cm², 30kHz        | 0.2 m²/hour coverage rate           |
+| Substrate Material      | Application               | Laser Parameters (Example)           | Outcome Metric                     |
+|-------------------------|---------------------------|--------------------------------------|------------------------------------|
+| **Carbon Fiber (CFRP)** | Aerospace repair          | 20W, 100kHz, 1.5 J/cm²              | Ra 1.0μm, 95% bond strength       |
+| **Aluminum Alloys**     | Adhesive prep             | 30W, 50kHz, 2.0 J/cm²               | Clean surface (contact angle <5°) |
+| **Polyurethane Coatings**| Multi-layer removal      | 100W, 200kHz, 3.5 J/cm²             | 0.1mm³/pulse ablation rate        |
+| **PCB Encapsulation**   | Electronics refurbishment | 10W, 20kHz, 0.8 J/cm² (50μm spot)   | Zero trace damage (SEM-verified)  |
 

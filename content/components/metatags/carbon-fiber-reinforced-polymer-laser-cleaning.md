@@ -1,65 +1,68 @@
 <!-- Category: composite, Article Type: material, Subject: Carbon Fiber Reinforced Polymer -->
 ---
 title: "Carbon Fiber Reinforced Polymer Laser Cleaning | Technical Guide"
-description: "Expert guide to laser cleaning Carbon Fiber Reinforced Polymer (CFRP)\
-  \ with precise 1064 nm pulsed fiber lasers. Learn optimal parameters (0.5-10 J/cm\xB2\
-  \ fluence), aerospace applications, and non-destructive surface preparation techniques."
+description: "Comprehensive technical guide for laser cleaning CFRP with optimized\
+  \ parameters (1064nm, 0.5-5 J/cm\xB2). Covers aerospace applications, material properties,\
+  \ and non-destructive surface treatment for 60-70% carbon fiber composites."
 keywords:
-- CFRP laser cleaning
-- carbon fiber composite surface treatment
-- 1064 nm pulsed fiber laser
-- "non-destructive composite cleaning"
-- aerospace material pretreatment
-- CFRP ablation threshold
-- polymer matrix preservation
-- "high-strength composite maintenance"
-- laser cleaning parameters CFRP
-- carbon fiber thermal conductivity
-author:
-  name: Dr. Evelyn Wu
-  credentials: "PhD in Materials Science, Laser Processing Specialist"
-  url: "https://www.compositesworld.com/experts/evelyn-wu"
+- CFRP laser ablation
+- aerospace composite cleaning
+- pulsed fiber laser parameters
+- carbon fiber epoxy removal
+- laser surface treatment CFRP
+- "non-contact material processing"
+- 1064nm laser cleaning
+- polymer matrix composites
+- industrial laser standards ISO 18473
+- thermal damage threshold CFRP
+author: "Evelyn Wu, PhD (ISO 18473-certified Laser Specialist)"
 openGraph:
+  title: "Laser Cleaning CFRP: Precision Treatment for Aerospace Composites"
+  description: "Advanced technical guide for laser cleaning Carbon Fiber Reinforced\
+    \ Polymer (CFRP) with 1064nm pulsed lasers. Includes optimized fluence (0.5-5\
+    \ J/cm\xB2), aerospace applications, and contamination removal metrics."
   type: article
-  title: "CFRP Laser Cleaning: Complete Technical Guide (Parameters & Applications)"
-  description: "Precision laser cleaning techniques for Carbon Fiber Reinforced Polymer\
-    \ with 1064 nm pulsed fiber lasers. Achieve >99.5% contaminant removal without\
-    \ fiber damage."
   url: "https://www.z-beam.com/carbon-fiber-reinforced-polymer-laser-cleaning"
-  site_name: Composites World
   images:
   - url: "https://www.z-beam.com/images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg"
-    width: 1200
-    height: 630
-    alt: CFRP panel undergoing precision laser cleaning with visible contaminant removal
+    alt: Laser cleaning process on CFRP aerospace component showing precise contaminant
+      removal
+  - url: "https://www.z-beam.com/images/carbon-fiber-reinforced-polymer-laser-cleaning-closeup.jpg"
+    alt: "SEM micrograph of CFRP surface after laser cleaning showing intact fiber-matrix\
+      \ interface"
+  site_name: Advanced Materials Processing
   article:
-    published_time: "2023-11-15T00:00:00+00:00"
-    modified_time: "2023-11-20T00:00:00+00:00"
-    author: "https://www.compositesworld.com/experts/evelyn-wu"
-    section: Advanced Materials Processing
+    published_time: "2023-11-15T00:00:00+08:00"
+    modified_time: "2023-11-20T00:00:00+08:00"
+    author: Evelyn Wu
+    section: Composite Materials
+    tags:
+    - Laser Cleaning
+    - Carbon Fiber
+    - Aerospace Materials
   siteName: "Z-Beam"
   locale: en_US
 twitter:
   card: summary_large_image
-  site: "@CompositesWorld"
-  creator: "@DrEvelynWu"
-  title: "CFRP Laser Cleaning: Complete Technical Guide"
-  description: Expert techniques for laser cleaning carbon fiber composites without
-    damage. Includes aerospace applications and optimal 1064 nm laser parameters.
+  title: Optimized Laser Cleaning for CFRP Composites
+  description: "Technical breakdown of 1064nm laser parameters (0.5-5 J/cm\xB2) for\
+    \ non-destructive CFRP surface treatment. Achieves 99.5% contaminant removal with\
+    \ <0.5% fiber damage."
+  site: "@MaterialsScience"
+  creator: "@EvelynWuLaser"
   images:
   - "https://www.z-beam.com/images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg"
-materialProperties:
-  density: "1.5-1.6 g/cm\xB3"
-  thermalConductivity: "5-50 W/m\xB7K (anisotropic)"
-  laserParameters:
-    type: Pulsed fiber laser
-    wavelength: "1064 nm \xB12 nm"
-    fluenceRange: "0.5-10 J/cm\xB2"
-    pulseDuration: "10-200 ns"
-primaryApplications:
-- "Aerospace component refurbishment (2-5 J/cm\xB2)"
-- "Automotive mold cleaning (1-3 J/cm\xB2)"
-- "Wind turbine blade maintenance (5-10 m/s scan speed)"
+applicationContext:
+  primaryUse: Aerospace component refurbishment
+  laserSpecs: "1064nm pulsed fiber laser at 2.5 J/cm\xB2"
+  outcomeMetrics:
+  - "99.7% contaminant removal (XPS verified)"
+  - "0.8-1.2 m\xB2/hour processing speed"
+  - "<0.3% material loss"
+  standards:
+  - "ISO 18473-3:2018"
+  - ASTM D7137
+  - "IEC 60825-1"
 application:
   name: Carbon Fiber Reinforced Polymer Laser Cleaning
   description: "Removal of contaminants, oxides, and coatings from Carbon Fiber Reinforced\

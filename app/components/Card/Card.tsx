@@ -119,15 +119,11 @@ export function Card({
           className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}
         >
           <Thumbnail
-            src={image || imageUrl || undefined} // Only pass src if it's explicitly set
+            src={image || imageUrl || undefined}
             alt={imageAlt || name || title || (metadata?.subject ? metadata.subject : 'Image')}
             frontmatter={metadata}
-            fallbackSrc="/images/Site/Logo/logo_.png"
             objectFit="cover"
             priority={false}
-            onError={() => {
-              // Silent error handling
-            }}
           />
 
           {/* Chemical Symbol Badge (show only if not featured) - positioned absolutely */}

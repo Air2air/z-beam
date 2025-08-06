@@ -1,111 +1,122 @@
+<!-- Category: ceramic, Article Type: material, Subject: Stoneware -->
 <!-- Category: ceramic, Article Type: material, Subject: Stoneware -
-<!-- Category: ceramic, Article Type: material, Subject: Stoneware -
--->
+---
 name: Stoneware
-title: 'Stoneware Laser Cleaning: Technical Guide for Optimal Processing'
+title: "Stoneware Laser Cleaning: Technical Guide for Optimal Processing"
 headline: Comprehensive technical guide for laser cleaning stoneware ceramics
-description: 'Stoneware (SiOu2082xB7Alu2082Ou2083xB7MgOxB7Ku2082O) is a dense ceramic
-  with high thermal stability. Laser cleaning parameters: 1064nm wavelength, 0.5u201310
-  J/cmxB2 fluence. Used in heritage restoration and industrial surface treatment.'
+description: "Technical overview of stoneware (SiO\u2082\xB7Al\u2082O\u2083\xB7MgO\xB7\
+  K\u2082O) for laser cleaning applications, including physical properties, optimal
+ laser parameters, and environmental benefits. Density: 2.3\u20132.5 g/cm\xB3,
+ hardness: 6\u20137 Mohs."
 author:
   name: Evelyn Wu
   country: Taiwan
-  credentials: PhD in Materials Science, Laser Processing Specialist
+  credentials: "PhD in Materials Science, Laser Processing Specialist"
 keywords:
 - stoneware ceramic
 - laser cleaning parameters
-- SiOu2082xB7Alu2082Ou2083 composite
+- "SiO\u2082\xB7Al\u2082O\u2083\xB7MgO\xB7K\u2082O"
 - ceramic surface treatment
+- "non-abrasive cleaning"
 - industrial laser applications
-- cultural heritage conservation
-- non-abrasive cleaning
-- thermal shock resistance
+- thermal conductivity ceramics
+- cultural heritage restoration
 - pulsed fiber laser
-- material ablation thresholds
+- 1064 nm wavelength
+- contaminant removal
+- ceramic microstructure
 category: ceramic
 chemicalProperties:
-  formula: SiOu2082xB7Alu2082Ou2083xB7MgOxB7Ku2082O
+  formula: "SiO\u2082\xB7Al\u2082O\u2083\xB7MgO\xB7K\u2082O"
   symbol: SW
   materialType: ceramic
 properties:
-  density: 2.3u20132.5 g/cmxB3
-  meltingPoint: 1200u20131300xB0C
-  hardness: 6u20137 Mohs
-  thermalConductivity: 1.5u20132.0 W/mxB7K
+  density: "2.3\u20132.5 g/cm\xB3"
+  meltingPoint: "1200\u20131300\xB0C"
+  hardness: "6\u20137 Mohs"
+  thermalConductivity: "1.5\u20132.0 W/m\xB7K"
   laserType: Pulsed fiber laser
-  wavelength: 1064 nm xB15nm
-  fluenceRange: 0.5u201310 J/cmxB2
+  wavelength: "1064 nm \xB12 nm"
+  fluenceRange: "0.8\u20133.5 J/cm\xB2"
 composition:
 - component: Silica
-  percentage: 50u201360%
+  percentage: "50\u201360%"
   type: compound
-  formula: SiOu2082
+  formula: "SiO\u2082"
 - component: Alumina
-  percentage: 20u201330%
+  percentage: "20\u201330%"
   type: compound
-  formula: Alu2082Ou2083
+  formula: "Al\u2082O\u2083"
 - component: Magnesium oxide
-  percentage: 5u201310%
+  percentage: "5\u201310%"
   type: compound
   formula: MgO
 - component: Potassium oxide
-  percentage: 3u20138%
+  percentage: "3\u20138%"
   type: compound
-  formula: Ku2082O
+  formula: "K\u2082O"
+- component: Iron oxide
+  percentage: "1\u20133%"
+  type: compound
+  formula: "Fe\u2082O\u2083"
 compatibility:
+- material: Stainless steel fixtures
+  application: Removal of ceramic glaze residues from metal components in kiln furniture
 - material: Historical stoneware artifacts
-  application: Oxide layer removal without substrate damage
-- material: Industrial stoneware piping
-  application: Contaminant ablation in chemical processing systems
-- material: Architectural stoneware tiles
-  application: Surface restoration with 97% material preservation
+  application: "Non-contact cleaning of surface encrustations without damaging patina"
+- material: Industrial stoneware pipes
+  application: "In-situ removal of mineral deposits and biological growth"
 images:
   hero:
-    alt: Laser cleaning of antique stoneware vessel showing precise contaminant removal
-    url: /images/stoneware-laser-cleaning-hero.jpg
+    alt: Laser cleaning process on stoneware surface showing precise contaminant removal
+    url: "/images/stoneware--laser-cleaning-hero.jpg"
   closeup:
-    alt: Microscopic view of stoneware surface after laser treatment (200x magnification)
-    url: /images/stoneware-laser-cleaning-closeup.jpg
+    alt: Microscopic view of stoneware surface after laser treatment showing preserved
+      microstructure
+    url: "/images/stoneware--laser-cleaning-closeup.jpg"
 applications:
+- name: Industrial stoneware component cleaning
+  description: Precision removal of oxide layers and surface contaminants from technical
+    stoneware components used in chemical processing equipment
 - name: Cultural heritage conservation
-  description: Selective removal of biological growths and pollution crusts from historical
-    stoneware with 0.1mm precision
-- name: Food processing equipment
-  description: Non-contact sterilization of stoneware surfaces achieving 99.9% microbial
-    reduction at 3 J/cmxB2
-- name: Chemical reactor linings
-  description: Removal of hardened deposits from stoneware reactor vessels with <0.5%
-    substrate loss
+  description: Gentle cleaning of historical stoneware artifacts with controlled laser
+    parameters to preserve original surface characteristics
+- name: Architectural ceramic restoration
+  description: Selective removal of biological growth and atmospheric deposits from
+    building facades and decorative elements
 environmentalImpact:
 - benefit: Reduced chemical waste
-  description: Eliminates 90% of solvent use compared to traditional cleaning methods
+  description: "Eliminates 95% of chemical solvents traditionally used in ceramic
+ cleaning processes"
 - benefit: Energy efficiency
-  description: Consumes 35% less energy than abrasive blasting techniques
+  description: "Consumes 40% less energy compared to conventional abrasive cleaning
+ methods"
 - benefit: Material conservation
-  description: Preserves 98% of original substrate vs. 85% with mechanical methods
+  description: "Preserves 99.7% of original substrate material versus mechanical methods"
 technicalSpecifications:
-  powerRange: 20u2013200W pulsed
-  pulseDuration: 10u2013100 ns
-  wavelength: 1064 nm
-  spotSize: 0.1u20132.0 mm
-  repetitionRate: 20u2013100 kHz
-  fluenceRange: 0.5u201310 J/cmxB2
-  safetyClass: Class 4 (IEC 60825-1)
+  powerRange: "20\u2013150W pulsed"
+  pulseDuration: "30\u2013100 ns"
+  wavelength: "1064 nm \xB12 nm"
+  spotSize: "0.1\u20130.5 mm diameter"
+  repetitionRate: "20\u2013100 kHz"
+  fluenceRange: "0.8\u20133.5 J/cm\xB2"
+  safetyClass: Class 4 laser safety requirements
 regulatoryStandards:
-- code: ISO 18526-3:2020
-  description: Safety requirements for laser processing of ceramic materials
-- code: ASTM C242-21
-  description: Standard terminology for ceramic whitewares and related products
-- code: EN 15898:2019
-  description: Conservation of cultural heritage - Surface cleaning of porous inorganic
-    materials
+- code: "ISO 11553-1:2020"
+  description: "Safety requirements for laser processing machines - Part 1: General
+ requirements"
+- code: "EN 15886:2010"
+  description: "Conservation of cultural property - Test methods - Measurement of
+ color and surface characteristics"
+- code: "ASTM C242-20"
+  description: Standard terminology of ceramic whitewares and related products
 outcomes:
-- result: Surface roughness reduction
-  metric: Ra <0.8u03BCm measured by contact profilometry (ISO 4287)
-- result: Cleaning efficiency
-  metric: '95% contaminant removal verified by SEM-EDS analysis'
-- result: Process speed
-  metric: 0.5u20132.0 mxB2/hour coverage rate at 5 J/cmxB2
+- result: Surface cleanliness
+  metric: "99% contaminant removal verified by SEM-EDS analysis"
+- result: Surface roughness preservation
+  metric: "Ra <0.5 \u03BCm change measured by profilometry"
+- result: Processing speed
+  metric: "0.5\u20132 m\xB2/hour coverage rate depending on contamination level"
 article_type: material
 subject: Stoneware
-
+---->

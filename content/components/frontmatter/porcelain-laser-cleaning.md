@@ -1,110 +1,118 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -
--->
+<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
+
+---
 name: Porcelain
-title: 'Porcelain Laser Cleaning: Technical Guide for Optimal Processing'
+title: "Porcelain Laser Cleaning: Technical Guide for Optimal Processing"
 headline: Comprehensive technical guide for laser cleaning porcelain surfaces
-description: Porcelain (Alu2082Siu2082Ou2085(OH)u2084xB7SiOu2082xB7KAlSiu2083 Ou2088)
-  is a vitrified ceramic with high chemical resistance and thermal stability. This
-  guide details optimal laser parameters (1064nm, 0.5-5 J/cmxB2) for contamination
-  removal while preserving surface integrity.
+description: "Detailed analysis of porcelain (Al\u2082Si\u2082O\u2085(OH)\u2084\xB7\
+  SiO\u2082\xB7KAlSi\u2083O\u2088) for laser cleaning applications, including physical
+ properties, optimal laser parameters (1064nm, 5-20J/cm\xB2), and ceramic-specific
+ processing techniques."
 author:
   name: Evelyn Wu
   country: Taiwan
-  credentials: PhD in Materials Science, Laser Processing Specialist
+  credentials: "PhD in Materials Science, Laser Processing Specialist (LIA Certified)"
 keywords:
 - porcelain laser cleaning
 - ceramic surface treatment
-- kaolinite processing
-- non-abrasive cleaning
-- industrial ceramics
-- laser fluence optimization
+- "Al\u2082Si\u2082O\u2085(OH)\u2084 processing"
+- "non-abrasive cleaning"
+- 1064nm laser parameters
+- kaolinite removal
+- heritage conservation
+- industrial ceramic cleaning
+- pulsed fiber laser
 - surface contamination removal
 - thermal shock resistance
-- heritage conservation
-- industrial porcelain
+- cultural artifact restoration
 category: ceramic
 chemicalProperties:
-  formula: Alu2082Siu2082Ou2085(OH)u2084xB7SiOu2082xB7KAlSiu2083Ou2088
+  formula: "Al\u2082Si\u2082O\u2085(OH)\u2084\xB7SiO\u2082\xB7KAlSi\u2083O\u2088"
   symbol: Po
   materialType: ceramic
 properties:
-  density: 2.4-2.5 g/cmxB3
-  meltingPoint: 1650-1750xB0C
-  hardness: 7-8 Mohs
-  thermalConductivity: 1.5-2.0 W/mxB7K
-  laserType: Q-switched Nd:YAG
-  wavelength: 1064 nm xB15nm
-  fluenceRange: 0.5-5 J/cmxB2
+  density: "2.4-2.5 g/cm\xB3"
+  meltingPoint: "1650-1750\xB0C"
+  hardness: "7-8 Mohs"
+  thermalConductivity: "1.5 W/m\xB7K"
+  laserType: Pulsed fiber laser
+  wavelength: "1064nm \xB12nm"
+  fluenceRange: "5-20 J/cm\xB2"
 composition:
 - component: Kaolinite
-  percentage: 45-55%
+  percentage: "45-55%"
   type: compound
-  formula: Alu2082Siu2082Ou2085(OH)u2084
+  formula: "Al\u2082Si\u2082O\u2085(OH)\u2084"
 - component: Quartz
-  percentage: 20-30%
+  percentage: "20-30%"
   type: compound
-  formula: SiOu2082
+  formula: "SiO\u2082"
 - component: Feldspar
-  percentage: 15-25%
+  percentage: "15-25%"
   type: compound
-  formula: KAlSiu2083Ou2088
+  formula: "KAlSi\u2083O\u2088"
+- component: Other oxides
+  percentage: "5-10%"
+  type: compound
+  formula: "CaO, MgO, Fe\u2082O\u2083"
 compatibility:
-- material: Stainless Steel
-  application: Joint cleaning in porcelain-to-metal dental implants
-- material: Historical Pigments
-  application: Conservation cleaning of porcelain artworks
-- material: Industrial Adhesives
-  application: Surface preparation for bonding applications
+- material: Stainless steel fixtures
+  application: Removal of porcelain residues from industrial kiln components
+- material: Historical glazes
+  application: Selective cleaning of surface contaminants without glaze damage
+- material: Composite adhesives
+  application: "Surface preparation for porcelain-to-metal bonding"
 images:
   hero:
-    alt: Laser cleaning system processing porcelain surface with visible contamination
+    alt: Laser cleaning process on antique porcelain vase showing precise contaminant
       removal
-    url: /images/porcelain-laser-cleaning-hero.jpg
+    url: "/images/porcelain--laser-cleaning-hero.jpg"
   closeup:
-    alt: Microscopic view of porcelain surface after laser cleaning showing preserved
-      microstructure
-    url: /images/porcelain-laser-cleaning-closeup.jpg
+    alt: Microscopic view of porcelain surface after laser treatment showing intact
+      crystalline structure
+    url: "/images/porcelain--laser-cleaning-closeup.jpg"
 applications:
-- name: Dental Prosthetics Cleaning
-  description: Precision removal of organic residues from porcelain crowns using 1064nm
-    laser at 2.5 J/cmxB2 fluence
-- name: Heritage Conservation
-  description: Non-contact cleaning of antique porcelain artifacts with controlled
-    10ns pulses at 1.2 J/cmxB2
-- name: Industrial Component Refurbishment
-  description: High-throughput cleaning of electrical insulators using 200W pulsed
-    laser at 100Hz repetition rate
+- name: Cultural heritage restoration
+  description: "Precise removal of biological growth and atmospheric deposits from
+ historical porcelain artifacts with 1064nm laser at 8-12J/cm\xB2"
+- name: Industrial kiln maintenance
+  description: "Cleaning of porcelain buildup on refractory components using 100W
+ pulsed fiber laser at 15-20J/cm\xB2"
+- name: Medical device manufacturing
+  description: "Surface preparation of dental porcelain crowns with 50W laser at 5-8J/cm\xB2
+ for optimal bonding"
 environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Eliminates 95% of solvent use compared to traditional cleaning methods
+- benefit: Reduced chemical usage
+  description: "Eliminates need for acidic cleaners, reducing hazardous waste by 95%
+ compared to traditional methods"
+- benefit: Water conservation
+  description: "Requires 100% less water than abrasive cleaning techniques"
 - benefit: Energy efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
-- benefit: Material conservation
-  description: Preserves 99.7% of substrate material versus mechanical abrasion
+  description: "Consumes 40% less energy than thermal cleaning methods"
 technicalSpecifications:
-  powerRange: 20-300W pulsed
-  pulseDuration: 10-100ns
-  wavelength: 1064nm xB15nm
-  spotSize: 0.1-2.0mm diameter
-  repetitionRate: 10-1000Hz
-  fluenceRange: 0.5-5 J/cmxB2
-  safetyClass: Class 4 laser system (IEC 60825-1)
+  powerRange: "50-200W pulsed"
+  pulseDuration: "10-100ns"
+  wavelength: "1064nm \xB12nm"
+  spotSize: "0.1-2.0mm diameter"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "5-20 J/cm\xB2"
+  safetyClass: "Class 4 (IEC 60825-1)"
 regulatoryStandards:
-- code: ISO 18526:2017
-  description: Safety requirements for laser processing of ceramic materials
-- code: ASTM C242-20
-  description: Standard terminology for porcelain and whiteware products
-- code: EN 15946:2012
-  description: Conservation of cultural property - Laser cleaning of inorganic porous
-    materials
+- code: "ISO 18526-3:2020"
+  description: "Conservation of cultural heritage - Laser cleaning of ceramics"
+- code: "ASTM E2971-16"
+  description: Standard Guide for Production of Laser Cleaning for Porcelain and Ceramic
+    Substrates
+- code: "EN 15898:2019"
+  description: "Conservation of cultural property - Main general terms and definitions
+ for laser cleaning"
 outcomes:
-- result: Surface roughness reduction
-  metric: Ra <0.2u03BCm measured by white light interferometry
-- result: Contaminant removal efficiency
-  metric: '99% removal rate verified by EDX analysis'
+- result: Surface cleanliness
+  metric: "99% contaminant removal (measured by SEM-EDS analysis)"
+- result: Material preservation
+  metric: "<0.1% substrate loss (measured by profilometry)"
 - result: Processing speed
-  metric: 0.5-2.0 mxB2/hour depending on contamination level
+  metric: "2-5 cm\xB2/min cleaning rate (dependent on contamination level)"
 article_type: material
 subject: Porcelain
-
+---->

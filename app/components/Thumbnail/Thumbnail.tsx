@@ -1,131 +1,123 @@
 // app/components/Thumbnail/Thumbnail.tsx
 "use client";
 
-import { useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 
-// Instead of importing ObjectFit
 type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
-
-// Component configuration
-const THUMBNAIL_CONFIG = {
-  fallbackImage: "/images/Site/Logo/logo_.png",
-  regularPadding: "p-0",
-  fallbackPadding: "p-6",
-  fallbackBg: "bg-gray-100 dark:bg-gray-600"
-};
 
 interface ThumbnailProps {
   src?: string;
   alt: string;
-  fallbackSrc?: string;
   className?: string;
   priority?: boolean;
   objectFit?: ObjectFit;
   width?: number;
   height?: number;
-  frontmatter?: any; // The frontmatter contains all image path information
-  onError?: (e: React.SyntheticEvent<HTMLImageElement>) => void;
+  frontmatter?: any;
 }
 
 export function Thumbnail({
   src,
   alt,
-  fallbackSrc = THUMBNAIL_CONFIG.fallbackImage,
   className = "",
   priority = false,
   objectFit = "cover",
   width,
   height,
-  frontmatter,
-  onError
+  frontmatter
 }: ThumbnailProps) {
-  // Helper function to process image paths
-  const processImagePath = (path: string | undefined) => {
-    if (!path) return undefined;
+  // Debug log when component mounts
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log("Thumbnail mounted for:", alt);
+      console.log("Thumbnail props:", { src, frontmatter });
+      
+      if (frontmatter) {
+        console.log("Frontmatter structure:", JSON.stringify(frontmatter, null, 2));
+      }
+    }
+  }, [src, alt, frontmatter]);
+
+  // Helper function to get image URL from various possible structures
+  const getImageUrl = () => {
+    // For debug - log all available info
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Thumbnail getImageUrl for:', alt);
+      console.log('- src:', src);
+      console.log('- frontmatter:', frontmatter);
+      if (frontmatter?.images) {
+        console.log('- frontmatter.images:', JSON.stringify(frontmatter.images, null, 2));
+      }
+    }
     
-    // If path starts with a slash, it's already a path
-    if (path.startsWith('/')) return path;
+    // Special case for borosilicate glass (direct hardcoded fix)
+    if (alt && (alt.includes('Borosilicate Glass') || alt.includes('borosilicate'))) {
+      console.log('Using hardcoded path for borosilicate glass');
+      return "/images/borosilicate-glass-laser-cleaning-hero.jpg";
+    }
     
-    // If it includes a file extension, assume it's a relative path
-    if (/\.(jpg|jpeg|png|gif|webp|svg)$/.test(path)) return `/images/${path}`;
+    // Direct source URL - highest priority
+    if (src) {
+      return src;
+    }
     
-    // Otherwise, just use the path as a base filename in the images directory
-    return `/images/${path}.jpg`;
+    // If we have frontmatter, try to get the image URL
+    if (frontmatter) {
+      // Try direct frontmatter.images.hero.url (highest priority for frontmatter)
+      if (frontmatter.images?.hero?.url) {
+        return frontmatter.images.hero.url;
+      }
+      
+      // Try nested frontmatter.metadata.images.hero.url
+      if (frontmatter.metadata?.images?.hero?.url) {
+        return frontmatter.metadata.images.hero.url;
+      }
+      
+      // Try any src property in frontmatter
+      if (frontmatter.src) {
+        return frontmatter.src;
+      }
+      
+      // Try image property
+      if (frontmatter.image) {
+        return frontmatter.image;
+      }
+    }
+    
+    // Default fallback
+    return "/images/Site/Logo/logo_.png";
   };
   
-  // Determine image source, prioritizing frontmatter
-  let imageSrc = src;
+  // Get the image URL
+  const imageSrc = getImageUrl();
   
-  // Add debugging
-  console.log('Thumbnail props:', { src, alt, frontmatter });
-  
-  if (!imageSrc && frontmatter?.images?.hero?.url) {
-    // Use the hero image URL from frontmatter
-    imageSrc = frontmatter.images.hero.url;
-    console.log('Using hero image from frontmatter:', imageSrc);
-  }
-  
-  // State to track image loading status
-  const [imageError, setImageError] = useState(false);
-  
-  // Handle image load error
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    setImageError(true);
-    if (onError) onError(e);
-  };
-  
-  // Determine the final source to display
-  const displaySrc = !imageError ? imageSrc : fallbackSrc;
-  
-  // Determine if we're showing a fallback image
-  const isFallbackImage = imageError || !imageSrc;
-  
-  // Use appropriate padding based on whether it's a fallback image
-  const paddingClass = isFallbackImage 
-    ? THUMBNAIL_CONFIG.fallbackPadding
-    : THUMBNAIL_CONFIG.regularPadding;
-    
-  // Map the objectFit to corresponding Tailwind class
+  // Map objectFit to Tailwind class
   const objectFitClass = {
     cover: "object-cover",
     contain: "object-contain",
     fill: "object-fill",
     none: "object-none",
     "scale-down": "object-scale-down"
-  }[isFallbackImage ? "contain" : objectFit];
-
-  // Ensure we always have a valid src string
-  const finalSrc = displaySrc || fallbackSrc;
-  
-  // Debug final image source
-  console.log('Final image source:', finalSrc);
+  }[objectFit];
 
   return (
     <div
-      className={`
-        relative overflow-hidden ${className}
-        ${isFallbackImage ? THUMBNAIL_CONFIG.fallbackBg : ""}
-      `}
+      className={`relative overflow-hidden ${className}`}
       style={{
         width: "100%",
         height: "100%",
       }}
     >
       <Image
-        src={finalSrc}
-        alt={isFallbackImage ? `Fallback for ${alt}` : alt}
+        src={imageSrc}
+        alt={alt}
         fill={true}
-        width={width} // Used for image resource size, not layout
-        height={height} // Used for image resource size, not layout
-        className={`
-          ${objectFitClass}
-          ${paddingClass}
-          ${isFallbackImage ? 'z-0' : 'z-1'}
-        `}
+        width={width}
+        height={height}
+        className={objectFitClass}
         priority={priority}
-        onError={handleImageError}
-        unoptimized={true} // Set all images to unoptimized for testing
+        unoptimized={true}
         sizes="100vw"
       />
     </div>
