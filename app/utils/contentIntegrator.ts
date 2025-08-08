@@ -29,21 +29,18 @@ export async function getArticle(slug: string): Promise<ArticleData | null> {
   try {
     // 1. Load metadata directly from metatags
     let metadata = await loadMetaTags(slug);
+    console.log(`DEBUG getArticle - loaded metatags for ${slug}:`, metadata);
     
     // 1.1 Try to load frontmatter data for this article
     try {
       const { loadFrontmatterData } = await import('./frontmatterLoader');
       const frontmatterData = await loadFrontmatterData(slug);
+      console.log(`DEBUG getArticle - loaded frontmatter for ${slug}:`, frontmatterData);
       
       if (frontmatterData) {
-        console.log('Found frontmatter data for', slug, 'with images:', frontmatterData.images);
         // Merge the frontmatter data with the metadata, giving priority to frontmatter
-        if (metadata) {
-          Object.assign(metadata, frontmatterData);
-        } else {
-          // If no metadata was found, use frontmatter data as metadata
-          metadata = frontmatterData;
-        }
+        metadata = { ...(metadata || {}), ...frontmatterData };
+        console.log(`DEBUG getArticle - merged metadata for ${slug}:`, metadata?.images);
       }
     } catch (frontmatterError) {
       console.error('Error loading frontmatter:', frontmatterError);

@@ -1,8 +1,3 @@
-<!-- Category: ceramic, Article Type: material, Subject: Zirconia -->
----
-category: ceramic
-article_type: material
-subject: Zirconia
-status: failed
----
-No content generated for Zirconia (caption) due to frontmatter failure
+**Before Cleaning:** "figure 1: zirconia (zro₂) ceramic surface before (left) and after (right) laser cleaning at 1064nm wavelength, showing complete removal of surface contaminants while preserving the underlying microstructure. treatment performed with 50w average power, 30ns pulse duration, and 1.0mm spot size...
+
+**Equipment:** "figure 2: "sem micrograph of yttria-stabilized zirconia surface post-laser cleaning (fluence: 2.5 j/cm²), demonstrating intact grain boundaries and absence of thermal cracking. scale bar: 20μm.\""

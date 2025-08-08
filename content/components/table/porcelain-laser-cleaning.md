@@ -1,42 +1,48 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
-### Data Table: Here are three informative markdown tables for porcelain (material) based on the provided content guidance:: ---
-
-| Component       | Percentage | Type      | Chemical Formula       | Role in Porcelain          |
-|-----------------|------------|-----------|-------------------------|----------------------------|
-| Kaolinite       | 45-55%     | Compound  | Al₂Si₂O₅(OH)₄          | Primary clay mineral, provides plasticity |
-| Quartz          | 20-30%     | Compound  | SiO₂                   | Adds mechanical strength and thermal stability |
-| Feldspar        | 15-25%     | Compound  | KAlSi₃O₈              | Fluxing agent, lowers melting point |
-| Other Oxides    | 5-10%      | Compound  | CaO, MgO, Fe₂O₃       | Modifies color and sintering behavior |
-
-
-### Data Table: Here are three informative markdown tables for porcelain (material) based on the provided content guidance:: ---: ---
-
-| Property               | Value Range             | Unit       | Significance for Laser Cleaning          |
-|------------------------|-------------------------|------------|------------------------------------------|
-| Density                | 2.4 - 2.5               | g/cm³      | Affects energy absorption during laser processing |
-| Melting Point          | 1650 - 1750             | °C         | Determines maximum safe laser fluence    |
-| Hardness (Mohs)        | 7 - 8                   | -          | Indicates resistance to mechanical damage |
-| Thermal Conductivity   | 1.5                     | W/m·K      | Influences heat dissipation during laser pulses |
-| Thermal Shock Resistance | High                 | -          | Critical for pulsed laser applications   |
+| Property | Value | Unit |  
+|----------|-------|------|  
+| Chemical Formula | Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈ | - |  
+| Density | 2.3–2.5 | g/cm³ |  
+| Flexural Strength | 50–150 | MPa |  
+| Compressive Strength | 400–700 | MPa |  
+| Thermal Conductivity | 1.0–1.5 | W/m·K |  
+| Thermal Expansion Coefficient | 5.0–6.0 | ×10⁻⁶/K |  
+| Melting Point | 1,650–1,800 | °C |  
+| Water Absorption | <0.5 | % |  
+| Hardness (Mohs) | 7–8 | - |  
 
 
-### Data Table: Here are three informative markdown tables for porcelain (material) based on the provided content guidance:: ---: ---: ---
-
-| Parameter              | Specification           | Notes                                   |
-|------------------------|-------------------------|-----------------------------------------|
-| Laser Type             | Pulsed Fiber Laser      | Preferred for controlled ablation       |
-| Wavelength             | 1064nm ±2nm            | Optimal absorption for porcelain        |
-| Fluence Range          | 5 - 20                  | J/cm²   | Lower for delicate artifacts, higher for industrial cleaning |
-| Pulse Duration         | 10 - 100                | ns       | Balances precision and material removal |
-| Repetition Rate        | 20 - 100                | kHz      | Adjustable for contamination severity   |
-| Spot Size              | 0.1 - 2.0               | mm       | Smaller for detailed work, larger for speed |
+| Parameter | Value | Unit |  
+|-----------|-------|------|  
+| Firing Temperature | 1,200–1,400 | °C |  
+| Glaze Adhesion Strength | 20–40 | MPa |  
+| Dielectric Strength | 10–15 | kV/mm |  
+| Volume Resistivity | 10¹²–10¹⁴ | Ω·cm |  
+| Loss Tangent (1 MHz) | 0.002–0.008 | - |  
+| Optical Reflectance | 80–90 | % |  
 
 
-### Data Table: Here are three informative markdown tables for porcelain (material) based on the provided content guidance:: ---: ---: ---: ---
+| Application | Benefit | Metric |  
+|-------------|---------|--------|  
+| Electrical Insulators | High dielectric strength | Withstands >10 kV/mm |  
+| Dental Crowns | Biocompatibility | ISO 6872:2015 compliant |  
+| Tableware | Scratch resistance | Mohs hardness ≥7 |  
+| Laboratory Ware | Chemical inertness | Resists acids (pH 1–14) |  
+| Architectural Tiles | Low porosity | Water absorption <0.5% |  
 
-| Application Scenario          | Compatible Materials/Systems | Key Considerations                          |
-|-------------------------------|------------------------------|---------------------------------------------|
-| Cultural Heritage Restoration | Historical glazes, pigments  | Low fluence (8-12 J/cm²) to avoid glaze damage |
-| Industrial Kiln Maintenance   | Stainless steel fixtures     | Higher fluence (15-20 J/cm²) for thick deposits |
-| Medical Device Manufacturing  | Dental adhesives, alloys     | Precision cleaning (5-8 J/cm²) for bonding surfaces |
+
+| Standard Code | Description |  
+|--------------|-------------|  
+| ISO 13006:2018 | Ceramic tiles - Definitions, classification, characteristics |  
+| ASTM C242-20 | Standard terminology for ceramic whitewares |  
+| EN 14411:2016 | Ceramic tiles - Grouping and technical criteria |  
+| ISO 6872:2015 | Dental ceramic materials |  
+| IEC 60672-3:1997 | Ceramic and glass insulating materials - Test methods |  
+
+
+| Factor | Metric |  
+|--------|--------|  
+| Recyclability | 100% reusable as raw material (post-crushing) |  
+| Energy Consumption (firing) | 8–12 kWh/kg |  
+| CO₂ Emissions (production) | 0.8–1.2 kg CO₂/kg porcelain |  
+| Waste Reduction | Near-zero landfill waste (closed-loop slurry systems) |  
 

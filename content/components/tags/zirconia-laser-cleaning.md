@@ -1,8 +1,1 @@
-<!-- Category: ceramic, Article Type: material, Subject: Zirconia -->
----
-category: ceramic
-article_type: material
-subject: Zirconia
-status: failed
----
-No content generated for Zirconia (tags) due to frontmatter failure
+laser-cleaning, zirconia-ceramic, laser-ablation, zirconia, pulsed-fiber-laser, non-contact-cleaning, industrial-laser-parameters, surface-contamination-removal, ZrO₂-composite, evelyn-wu

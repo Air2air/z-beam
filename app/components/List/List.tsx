@@ -174,7 +174,7 @@ export async function List({
               }
               imageUrl={item.imageUrl}
               imageAlt={item.title}
-              metadata={{
+              metadata={item.materialData?.metadata || {
                 category: item.category,
                 articleType: item.articleType,
               }}
@@ -191,7 +191,7 @@ export async function List({
 function getArticleImage(
   item: { slug: string; image?: string },
   article: Article | null
-): string {
+): string | undefined {
   // First, try to use the directly provided image
   if (item.image) return item.image;
 
@@ -204,32 +204,9 @@ function getArticleImage(
     article?.metadata?.["ogImage"] ||
     article?.metadata?.["openGraph"]?.["images"]?.[0]?.["url"];
   if (ogImage) return ogImage;
-
-  // Use a category-specific fallback
-  const category = article?.metadata?.category?.toLowerCase();
-  if (category) {
-    const categoryFallbacks: Record<string, string> = {
-      ceramic: "/images/Site/Logo/logo_.png",
-      metal: "/images/fallbacks/metal-fallback.jpg",
-      polymer: "/images/fallbacks/polymer-fallback.jpg",
-      material: "/images/fallbacks/material-fallback.jpg",
-      application: "/images/fallbacks/application-fallback.jpg",
-      technique: "/images/fallbacks/technique-fallback.jpg",
-      industry: "/images/fallbacks/industry-fallback.jpg",
-    };
-
-    if (categoryFallbacks[category]) {
-      return categoryFallbacks[category];
-    }
-  }
-
-  // Fallback based on slug pattern (for specific content types)
-  if (item.slug.includes("laser-")) {
-    return '/images/Site/Logo/logo_.png"';
-  }
-
-  // Final default fallback
-  return "/images/fallbacks/default-fallback.jpg";
+  
+  // Return undefined to let the Thumbnail component handle all fallbacks
+  return undefined;
 }
 
 // Helper function to map categories to colors

@@ -1,5 +1,4 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
-* **Optimal Laser Parameters**: Utilizes pulsed fiber laser at 1064nm ±2nm wavelength with fluence range of 5-20 J/cm², power range of 50-200W, and pulse duration of 10-100ns for precise cleaning while minimizing thermal shock to porcelain (Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈).
-* **Key Applications**: Ideal for cultural heritage restoration (8-12J/cm² for contaminant removal), industrial kiln maintenance (15-20J/cm² for porcelain buildup), and medical device manufacturing (5-8J/cm² for dental porcelain surface preparation).
-* **Material Benefits**: Preserves porcelain integrity (<0.1% substrate loss) with 99% contaminant removal, while offering thermal shock resistance (1.5 W/m·K conductivity) and hardness compatibility (7-8 Mohs).
-* **Environmental & Regulatory Advantages**: Reduces chemical usage by 95%, conserves water, and complies with ISO 18526-3:2020 and ASTM E2971-16 standards for ceramic laser cleaning.
+* **Material Composition & Properties**: Porcelain (Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈) is a high-density ceramic with a complex composite structure, offering excellent thermal and chemical resistance, making it ideal for laser cleaning without thermal degradation.
+* **Optimal Laser Parameters**: A pulsed fiber laser at 1064nm wavelength is recommended for effective ablation of surface contaminants (e.g., oxides, soot) while minimizing heat-affected zones (HAZ) on porcelain substrates.
+* **Applications**: Ideal for industrial and cultural heritage restoration, including non-contact cleaning of porcelain artifacts, electrical insulators, and sanitaryware, ensuring precision and surface integrity.
+* **Benefits**: Laser cleaning provides contamination removal without mechanical abrasion, preserving delicate porcelain surfaces and enabling selective cleaning of intricate designs or porous regions.

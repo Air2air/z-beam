@@ -1,5 +1,0 @@
-<!-- Category: metal, Article Type: material, Subject: Gold -->
-* **Material Properties & Laser Compatibility**: Gold (Au) exhibits high thermal conductivity (318 W/m·K) and reflectivity (95% at 1064nm), requiring precise laser parameters (10-100W pulsed, 532-1064nm wavelength, 0.5-5 J/cm² fluence). Optimal systems include Nd:YAG or fiber lasers with 5-50ns pulse durations and 50-200µm spot sizes.
-* **Key Applications**: Precision cleaning for jewelry restoration (≤0.1µm material loss), electronics contact cleaning (99.9% particulate removal), and cultural heritage conservation (non-contact 532nm processing). Compatible with bimetallic connectors, silicon wafers, and polymer substrates.
-* **Performance Outcomes**: Achieves Ra 0.05-0.2µm surface roughness, 99.5% contaminant removal (EDX verified), and <0.3µm thickness loss per cycle. Complies with ISO 18526 for cultural artifacts and ASTM E2015-04 for adhesion preparation.
-* **Environmental & Efficiency Benefits**: Eliminates 100% of chemical solvents, reduces gold waste by 92% vs. mechanical polishing, and consumes 35% less energy than ultrasonic cleaning. Class 4 laser safety (IEC 60825-1) ensures compliance.

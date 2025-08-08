@@ -1,108 +1,56 @@
-<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -->
-<!-- Category: composite, Article Type: material, Subject: Epoxy Resin Composites -
 ---
-name: Epoxy Resin Composites
-title: "Epoxy Resin Composites in Laser Cleaning: Technical Guide & Applications"
-headline: Technical analysis of epoxy resin composites for precision laser cleaning
-description: "Epoxy resin composites (C\u2082\u2081H\u2082\u2084O\u2084 + fillers)
- are thermosetting polymers with high chemical resistance and mechanical strength.
-  This guide details optimal 1064nm laser parameters (0.5-5 J/cm\xB2 fluence) for
- contaminant removal while preserving substr..."
-author:
-  name: Evelyn Wu
-  country: Taiwan
-  credentials: "PhD in Materials Science, Laser Processing Specialist at National
- Tsing Hua University"
+Note: All data assumes ambient conditions (25°C, 1 atm) unless specified.
+title: Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning composite epoxy resin composites
+description: Technical overview of epoxy resin composites, for laser cleaning applications, and industrial applications.
 keywords:
-- epoxy resin laser ablation
-- polymer composite cleaning
-- 1064nm wavelength optimization
-- thermosetting material processing
-- laser fluence parameters
-- industrial coating removal
-- aerospace composite maintenance
-- "non-contact surface preparation"
-- "VOC-free cleaning"
-- ISO 11145 compliance
-category: composite
-chemicalProperties:
-  formula: "C\u2082\u2081H\u2082\u2084O\u2084 + fillers"
-  symbol: EP
-  materialType: composite
-properties:
-  density: "1.1-1.4 g/cm\xB3"
-  meltingPoint: "150-300\xB0C (decomposition)"
-  hardness: "80-90 Shore D"
-  thermalConductivity: "0.2-0.5 W/m\xB7K"
-  laserType: "Q-switched Nd:YAG"
-  wavelength: "1064nm \xB15nm"
-  fluenceRange: "0.5-5 J/cm\xB2"
-composition:
-- component: "Diglycidyl ether of bisphenol-A (DGEBA)"
-  percentage: "60-70%"
-  type: compound
-  formula: "C\u2082\u2081H\u2082\u2084O\u2084"
-- component: Hardener (amine)
-  percentage: "30-40%"
-  type: compound
-  formula: "R-NH\u2082"
-- component: Glass fiber reinforcement
-  percentage: "0-50%"
-  type: structural
-  formula: "SiO\u2082"
-compatibility:
-- material: Carbon fiber substrates
-  application: Aerospace component refurbishment
-- material: Aluminum alloys
-  application: Adhesive bonding surface preparation
-- material: Polyurethane coatings
-  application: "Multi-layer coating removal"
+- epoxy resin composites
+- epoxy resin composites composite
+- laser ablation
+- laser cleaning
+- non-contact cleaning
+- pulsed fiber laser
+- surface contamination removal
+- industrial laser parameters
+- thermal processing
+- surface restoration
 images:
   hero:
-    alt: Laser cleaning head removing epoxy residue from composite aircraft panel
+    alt: Epoxy Resin Composites surface undergoing laser cleaning showing precise contamination removal
+    url: /images/epoxy-resin-composites-laser-cleaning-hero.jpg
   closeup:
-    alt: Microscopic view of epoxy resin surface after 1064nm laser treatment showing
-      clean ablation
-applications:
-- name: Aircraft composite repair
-  description: |
-    Selective removal of damaged epoxy layers (0.2mm depth control) from CFRP structures using 20W pulsed laser at 100kHz repetition rate
-- name: Electronics encapsulation removal
-  description: "Precision ablation of epoxy potting compounds from PCBs with 50\u03BC\
-    m spot size and 1.2 J/cm\xB2 fluence to preserve copper traces\n"
-- name: Wind turbine blade maintenance
-  description: |
-    Large-area cleaning of epoxy gel coats using 500W scanning laser system with 5m/min processing speed
-environmentalImpact:
-- benefit: VOC reduction
-  description: |
-    Eliminates 98% of solvent use compared to chemical stripping methods
-- benefit: Waste minimization
-  description: "Produces 0.05kg/m\xB2 ablated material vs 0.5kg/m\xB2 mechanical waste\n"
-- benefit: Energy efficiency
-  description: "Consumes 15-30Wh/cm\xB2 vs 50-80Wh/cm\xB2 for thermal decomposition\n"
+    alt: Microscopic view of epoxy resin composites surface after laser treatment showing preserved microstructure
+    url: /images/epoxy-resin-composites-laser-cleaning-closeup.jpg
 technicalSpecifications:
-  powerRange: "10-500W pulsed"
-  pulseDuration: "10-100ns"
-  wavelength: "1064nm \xB15nm"
-  spotSize: "50-500\u03BCm"
-  repetitionRate: "10-200kHz"
-  fluenceRange: "0.5-5 J/cm\xB2"
-  safetyClass: "Class 4 (IEC 60825-1)"
+  powerRange: 20-100W
+  pulseDuration: 10-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.1-2.0mm
+  repetitionRate: 10-50kHz
+  fluenceRange: 0.5-5 J/cm²
+  safetyClass: Class 4 (requires full enclosure)
 regulatoryStandards:
-- code: ISO 11145
-  description: Laser equipment classification and safety requirements
-- code: ASTM D2583
-  description: Standard test method for indentation hardness of rigid plastics
-- code: REACH Annex XVII
-  description: Restriction of hazardous substances in epoxy formulations
+- code: "IEC 60825-1:2014"
+  description: Safety of laser products - Equipment classification and requirements
+- code: "ISO 11146:2021"
+  description: Lasers and laser-related equipment - Test methods for laser beam widths
+- code: "EN 15898:2019"
+  description: Conservation of cultural property - Main general terms and definitions
+environmentalImpact:
+- benefit: Reduced chemical waste
+  description: Eliminates 100% of solvent use compared to traditional cleaning methods, preventing ~200L/year of hazardous waste in medium-scale operations.
+- benefit: Energy efficiency
+  description: Laser process consumes 40% less energy than thermal cleaning methods, with typical power draw of 0.5-2.5 kWh/m² treated surface.
+- benefit: Zero volatile emissions
+  description: Non-contact process produces no volatile organic compounds (VOCs) or hazardous air pollutants during operation.
 outcomes:
-- result: Surface roughness
-  metric: "Ra 0.8-1.2\u03BCm (measured by white light interferometry)"
-- result: Ablation rate
-  metric: "0.05-0.2mm\xB3/pulse (measured by gravimetric analysis)"
-- result: Bond strength retention
-  metric: "\u226590% original adhesion (ASTM D1002)"
-article_type: material
+- result: Surface cleanliness
+  metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508)
+- result: Substrate preservation
+  metric: < 0.05mm maximum depth alteration measured by white light interferometry
+- result: Processing speed
+  metric: 0.5-2.0 m²/hour coverage rate at 50W power
 subject: Epoxy Resin Composites
----->
+article_type: material
+category: composite
+---

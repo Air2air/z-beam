@@ -119,9 +119,8 @@ export function Card({
           className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}
         >
           <Thumbnail
-            src={image || imageUrl || undefined}
             alt={imageAlt || name || title || (metadata?.subject ? metadata.subject : 'Image')}
-            frontmatter={metadata}
+            slug={slug}
             objectFit="cover"
             priority={false}
           />
@@ -145,9 +144,6 @@ export function Card({
             {/* Prioritize name over title */}
             {name || title}
           </h3>
-          {description && (
-            <p className={CARD_CONFIG.descriptionClass}>{description}</p>
-          )}
 
         </div>
       </article>

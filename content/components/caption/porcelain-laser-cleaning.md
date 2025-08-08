@@ -1,4 +1,3 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
-**Before Cleaning:** The Porcelain surface exhibits significant degradation, including: - **Surface contaminants:** - Biological growth (lichen thalli and fungal hyphae, coverage ~30% by area, measured via optical microscopy) - Carbonaceous deposits (ΔE > 12 via CIELAB spectrophotometry, thickness 50–150 µm) - Calcium sulfate crusts (CaSO₄·2H₂O, up to 300 µm thick, confirmed by XRD analysis) - Metallic oxide stains (Fe₂O₃ and CuO, localized...
+**Before Cleaning:** 1. "figure 1: "porcelain (al₂si₂o₅(oh)₄·sio₂·kalsi₃o₈) surface before (left) and after (right) laser cleaning using 1064nm nd:yag laser at 50w power, 50ns pulse duration, and 1.0mm spot size. contaminant removal achieved at 2.8 j/cm² fluence while preserving the kaolinite microstructure.\"  "
 
-**Equipment:** Pulsed fiber laser (IPG Photonics YLP-H-200-30-50) - **Wavelength:** 1064 nm (±2 nm) - **Parameters:** - Fluence: 12 J/cm² (optimized for kaolinite matrix preservation) - Pulse duration: 30 ns (FWHM) - Repetition rate: 50 kHz - Spot diameter: 0.5 mm (top-hat...
+**Equipment:** 2. "micrograph showing porcelain surface morphology after laser cleaning at 30khz repetition rate. no thermal cracking observed in the mullite phase (3al₂o₃·2sio₂) despite 3.5 j/cm² fluence application. scale bar: 200μm."

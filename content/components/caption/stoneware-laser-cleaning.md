@@ -1,4 +1,3 @@
-<!-- Category: ceramic, Article Type: material, Subject: Stoneware -->
-**Before Cleaning:** The Stoneware (SiO₂·Al₂O₃·MgO·K₂O) surface exhibits significant contamination and degradation, including: - **Surface contaminants:** - Biological growth (lichens/microbial biofilm, thickness: 50–150 µm measured via optical profilometry). - Carbonaceous deposits (ΔE > 12 via CIELAB spectrophotometry, indicative of organic soot accumulation). - Calcium sulfate (CaSO₄·2H₂O) crusts (thickness: 100–200 µm, confirmed by XRD analysis). - **Oxide layers:** - Iron oxide staining (Fe₂O₃/Fe₃O₄, 5–10...
+**Before Cleaning:** 1. "stoneware (sio₂·al₂o₃·mgo·k₂o) surface before laser cleaning showing surface contamination and oxidation layers."
 
-**Equipment:** Pulsed fiber laser (IPG Photonics YLP-H-150-20-50) with the following parameters: - **Wavelength:** 1064 nm (±2 nm). - **Parameters:** - Fluence: 2.5 J/cm² (optimized for contaminant ablation threshold). - Pulse duration: 50 ns (FWHM). - Repetition rate: 40 kHz (duty cycle:...
+**Equipment:** 2. "stoneware ceramic after 1064nm laser treatment at 50w, 20ns pulse duration, demonstrating selective removal of contaminants while preserving the vitrified matrix (0.5 j/cm² fluence, 0.5mm spot size)."

@@ -1,2 +1,1 @@
-<!-- Category: ceramic, Article Type: material, Subject: Porcelain -->
-Laser Cleaning, Porcelain, Ceramic-cleaning, Heritage-conservation, Pulsed-fiber-laser, Non-abrasive-cleaning, 1064nm-laser, Industrial-kiln-maintenance, Cultural-artifact-restoration, Evelyn-wu
+laser-ablation, porcelain, surface-contamination-removal, ceramic-restoration, porcelain-ceramic, pulsed-fiber-laser, non-contact-cleaning, industrial-laser-parameters, laser-cleaning, evelyn-wu

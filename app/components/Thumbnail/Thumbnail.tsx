@@ -1,97 +1,68 @@
 // app/components/Thumbnail/Thumbnail.tsx
 "use client";
 
-import { useEffect } from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
 
 interface ThumbnailProps {
-  src?: string;
   alt: string;
   className?: string;
   priority?: boolean;
   objectFit?: ObjectFit;
   width?: number;
   height?: number;
-  frontmatter?: any;
+  slug?: string; // Add slug to fetch data directly
+  frontmatter?: any; // Keep as fallback for cases where data is already available
 }
 
 export function Thumbnail({
-  src,
   alt,
   className = "",
   priority = false,
   objectFit = "cover",
   width,
   height,
+  slug,
   frontmatter
 }: ThumbnailProps) {
-  // Debug log when component mounts
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log("Thumbnail mounted for:", alt);
-      console.log("Thumbnail props:", { src, frontmatter });
-      
-      if (frontmatter) {
-        console.log("Frontmatter structure:", JSON.stringify(frontmatter, null, 2));
-      }
-    }
-  }, [src, alt, frontmatter]);
+  const [imageUrl, setImageUrl] = useState<string>("");
+  const [loading, setLoading] = useState(false);
 
-  // Helper function to get image URL from various possible structures
-  const getImageUrl = () => {
-    // For debug - log all available info
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Thumbnail getImageUrl for:', alt);
-      console.log('- src:', src);
-      console.log('- frontmatter:', frontmatter);
-      if (frontmatter?.images) {
-        console.log('- frontmatter.images:', JSON.stringify(frontmatter.images, null, 2));
-      }
+  useEffect(() => {
+    // If we already have frontmatter, use it directly
+    if (frontmatter?.images?.hero?.url) {
+      console.log("Thumbnail - Using provided frontmatter:", frontmatter.images.hero.url);
+      setImageUrl(frontmatter.images.hero.url);
+      return;
     }
-    
-    // Special case for borosilicate glass (direct hardcoded fix)
-    if (alt && (alt.includes('Borosilicate Glass') || alt.includes('borosilicate'))) {
-      console.log('Using hardcoded path for borosilicate glass');
-      return "/images/borosilicate-glass-laser-cleaning-hero.jpg";
+
+    // If we have a slug, fetch the data directly
+    if (slug && !frontmatter) {
+      setLoading(true);
+      fetch(`/api/articles/${slug}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log("Thumbnail - Fetched data for slug:", slug, data);
+          if (data?.metadata?.images?.hero?.url) {
+            console.log("Thumbnail - Using fetched image:", data.metadata.images.hero.url);
+            setImageUrl(data.metadata.images.hero.url);
+          } else {
+            console.log("Thumbnail - No image found in fetched data");
+            setImageUrl("");
+          }
+        })
+        .catch(error => {
+          console.error("Thumbnail - Error fetching data for slug:", slug, error);
+          setImageUrl("");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     }
-    
-    // Direct source URL - highest priority
-    if (src) {
-      return src;
-    }
-    
-    // If we have frontmatter, try to get the image URL
-    if (frontmatter) {
-      // Try direct frontmatter.images.hero.url (highest priority for frontmatter)
-      if (frontmatter.images?.hero?.url) {
-        return frontmatter.images.hero.url;
-      }
-      
-      // Try nested frontmatter.metadata.images.hero.url
-      if (frontmatter.metadata?.images?.hero?.url) {
-        return frontmatter.metadata.images.hero.url;
-      }
-      
-      // Try any src property in frontmatter
-      if (frontmatter.src) {
-        return frontmatter.src;
-      }
-      
-      // Try image property
-      if (frontmatter.image) {
-        return frontmatter.image;
-      }
-    }
-    
-    // Default fallback
-    return "/images/Site/Logo/logo_.png";
-  };
-  
-  // Get the image URL
-  const imageSrc = getImageUrl();
-  
+  }, [slug, frontmatter]);
+
   // Map objectFit to Tailwind class
   const objectFitClass = {
     cover: "object-cover",
@@ -109,17 +80,27 @@ export function Thumbnail({
         height: "100%",
       }}
     >
-      <Image
-        src={imageSrc}
-        alt={alt}
-        fill={true}
-        width={width}
-        height={height}
-        className={objectFitClass}
-        priority={priority}
-        unoptimized={true}
-        sizes="100vw"
-      />
+      {loading ? (
+        <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
+          <span>Loading...</span>
+        </div>
+      ) : imageUrl ? (
+        <Image
+          src={imageUrl}
+          alt={alt}
+          fill={true}
+          width={width}
+          height={height}
+          className={objectFitClass}
+          priority={priority}
+          unoptimized={true}
+          sizes="100vw"
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
+          <span>No image</span>
+        </div>
+      )}
     </div>
   );
 }
