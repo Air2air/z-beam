@@ -77,14 +77,6 @@ export function Card({
   className = "",
   height,
 }: CardProps) {
-  // Validate href to help debug 404 issues
-  if (href && typeof href === 'string' && process.env.NODE_ENV === 'development') {
-    // Log potential problematic hrefs (blank, hash only, etc)
-    if (href === '#' || href === '' || !href.startsWith('/')) {
-      console.warn(`Potential invalid href in Card: "${href}" for ${name || title}`);
-    }
-  }
-  // Simplified badge handling - show badges on all cards, using slug-based fallback if needed
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
   

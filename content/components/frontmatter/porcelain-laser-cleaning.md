@@ -1,18 +1,28 @@
 ---
 name: Porcelain
+properties:
+  density: 2.3–2.5 g/cm³
+  meltingPoint: 1650–1750°C
+  thermalConductivity: 1.0–1.5 W/m·K
+  flexuralStrength: 50–150 MPa
+  compressiveStrength: 400–700 MPa
 applications:
 - industry: Art Restoration
-  useCase: "Removal of soot and biological growth from porcelain artifacts (fluence: 0.8–1.5 J/cm², wavelength: 1064 nm)."
+  useCase: "Removal of soot and organic deposits from porcelain artifacts (fluence: 0.5–2.0 J/cm², wavelength: 1064 nm)."
   detail: Specific laser cleaning application
-- industry: Electronics Manufacturing
-  useCase: "Cleaning ceramic substrates before metallization (power: 20–50 W, pulse duration: 50 ns)."
+- industry: Electronics
+  useCase: "Cleaning of porcelain insulators in high-voltage applications (power: 50–200 W, pulse duration: 50 ns)."
   detail: Specific laser cleaning application
 - industry: Medical Devices
-  useCase: "Sterilization and surface preparation of dental porcelain (fluence: 2.0–3.5 J/cm², wavelength: 10.6 µm)."
+  useCase: "Sterilization and surface cleaning of dental porcelain (fluence: 1.0–3.0 J/cm², wavelength: 10.6 µm)."
   detail: Specific laser cleaning application
 - industry: Aerospace
-  useCase: "Decontamination of thermal barrier coatings (fluence: 4.0–6.0 J/cm², scan speed: 500 mm/s)."
+  useCase: "Decontamination of thermal barrier coatings (power: 100–300 W, scan speed: 500 mm/s)."
   detail: Specific laser cleaning application
+composition:
+- component: Contaminant Removal Efficiency
+  percentage: 95–99%
+  type: compound
 technicalSpecifications:
   powerRange: 20-100W
   pulseDuration: 10-100ns
@@ -21,11 +31,9 @@ technicalSpecifications:
   repetitionRate: 10-50kHz
   fluenceRange: 0.5–5.0 J/cm²
   safetyClass: Class 4 (requires full enclosure)
-environmentalImpact:
-  energyEfficiency: 30–50%
 title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic porcelain
-description: Technical overview of porcelain, for laser cleaning applications, and industrial applications.
+description: Technical overview of porcelain, for laser cleaning applications, including 2.3–2.5 g/cm³ density, and industrial applications.
 keywords:
 - porcelain
 - porcelain ceramic
@@ -53,6 +61,13 @@ regulatoryStandards:
   description: Lasers and laser-related equipment - Test methods for laser beam widths
 - code: "EN 15898:2019"
   description: Conservation of cultural property - Main general terms and definitions
+environmentalImpact:
+- benefit: Reduced chemical waste
+  description: Eliminates 100% of solvent use compared to traditional cleaning methods, preventing ~200L/year of hazardous waste in medium-scale operations.
+- benefit: Energy efficiency
+  description: Laser process consumes 40% less energy than thermal cleaning methods, with typical power draw of 0.5-2.5 kWh/m² treated surface.
+- benefit: Zero volatile emissions
+  description: Non-contact process produces no volatile organic compounds (VOCs) or hazardous air pollutants during operation.
 outcomes:
 - result: Surface cleanliness
   metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508)

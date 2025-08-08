@@ -1,11 +1,14 @@
 ---
-headline: Comprehensive technical guide for laser cleaning ceramic porcelain
-description: Technical overview of porcelain, for laser cleaning applications, and industrial applications.
-keywords:
-- porcelain cleaning
-- laser restoration
-- ceramic preservation
-- Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈
-- material science
-articleBody: "Porcelain, a high-quality ceramic material with the chemical composition Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈, requires meticulous care during restoration. Laser cleaning offers a non-abrasive, precise method to remove contaminants without damaging the delicate surface. This technique is ideal for preserving historical artifacts and fine porcelain artworks. The process utilizes controlled laser pulses to vaporize dirt and oxidation layers while leaving the underlying material intact. Developed by experts like Evelyn Wu, this method ensures long-term preservation of porcelain's aesthetic and structural integrity. image: - /images/porcelain-laser-cleaning-hero.jpg - /images/porcelain-laser-cleaning-closeup.jpg datePublished: 2025-08-07 dateModified: 2025-08-07 author: Evelyn Wu materialType: ceramic materialSymbol: Po category: ceramic subjectSlug: porcelain title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing images: hero: alt: Porcelain surface undergoing laser cleaning showing precise contamination removal url: /images/porcelain-laser-cleaning-hero.jpg closeup: alt: Microscopic view of porcelain surface after laser treatment showing preserved microstructure url: /images/porcelain-laser-cleaning-closeup.jpg technicalSpecifications: powerRange: 20-100W pulseDuration: 10-100ns wavelength: 1064nm (primary), 532nm (optional) spotSize: 0.1-2.0mm repetitionRate: 10-50kHz fluenceRange: 0.5-5 J/cm² safetyClass: Class 4 (requires full enclosure) regulatoryStandards: - code: IEC 60825-1:2014 description: Safety of laser products - Equipment classification and requirements - code: ISO 11146:2021 description: Lasers and laser-related equipment - Test methods for laser beam widths - code: EN 15898:2019 description: Conservation of cultural property - Main general terms and definitions environmentalImpact: - benefit: Reduced chemical waste description: Eliminates 100% of solvent use compared to traditional cleaning methods, preventing ~200L/year of hazardous waste in medium-scale operations. - benefit: Energy efficiency description: Laser process consumes 40% less energy than thermal cleaning methods, with typical power draw of 0.5-2.5 kWh/m² treated surface. - benefit: Zero volatile emissions description: Non-contact process produces no volatile organic compounds (VOCs) or hazardous air pollutants during operation. outcomes: - result: Surface cleanliness metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508) - result: Substrate preservation metric: < 0.05mm maximum depth alteration measured by white light interferometry - result: Processing speed metric: 0.5-2.0 m²/hour coverage rate at 50W power subject: Porcelain article_type: material "
+headline: Porcelain Laser Cleaning - Advanced Restoration for Ceramic Materials
+description: Discover the innovative laser cleaning technique for porcelain, a delicate ceramic material. This non-abrasive method preserves intricate details while removing contaminants.
+keywords: - porcelain cleaning - laser restoration - ceramic conservation - Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈ - material science - heritage preservation
+articleBody: "Porcelain (Material Symbol: Po) is a high-value ceramic composed of kaolinite (Al₂Si₂O₅(OH)₄), silica (SiO₂), and feldspar (KAlSi₃O₈). Laser cleaning offers precise contaminant removal without mechanical contact, ideal for preserving delicate glazes and painted surfaces. The process uses controlled laser pulses to vaporize surface deposits while leaving the underlying material intact. This technique is particularly valuable for museum-quality porcelain restoration, industrial cleaning of high-precision ceramic components, and architectural conservation. Authored by materials specialist Evelyn Wu, this guide covers the wavelength selection, energy parameters, and safety protocols for effective porcelain laser cleaning."
+image: - /images/porcelain-laser-cleaning-hero.jpg - /images/porcelain-laser-cleaning-closeup.jpg
+datePublished: 2025-08-08
+dateModified: 2025-08-08
+author: Evelyn Wu
+materialType: ceramic
+category: ceramic
+chemicalFormula: Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈
+subjectSlug: porcelain
 ---

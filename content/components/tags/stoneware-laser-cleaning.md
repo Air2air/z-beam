@@ -1,1 +1,1 @@
-stoneware, stoneware-ceramic, laser-cleaning, ceramic-restoration, pulsed-fiber-laser, non-contact-cleaning, industrial-laser-parameters, surface-restoration, thermal-processing, evelyn-wu
+ablation, stoneware, restoration, fiber, ceramic, evelyn-wu, laser, industrial, non-contact, thermal

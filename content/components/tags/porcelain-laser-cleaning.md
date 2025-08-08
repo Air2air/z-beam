@@ -1,1 +1,1 @@
-laser-ablation, porcelain, surface-contamination-removal, ceramic-restoration, porcelain-ceramic, pulsed-fiber-laser, non-contact-cleaning, industrial-laser-parameters, laser-cleaning, evelyn-wu
+ablation, laser, restoration, porcelain, ceramic, evelyn-wu, non-contact, thermal

@@ -33,7 +33,6 @@ export function Thumbnail({
   useEffect(() => {
     // If we already have frontmatter, use it directly
     if (frontmatter?.images?.hero?.url) {
-      console.log("Thumbnail - Using provided frontmatter:", frontmatter.images.hero.url);
       setImageUrl(frontmatter.images.hero.url);
       return;
     }
@@ -44,17 +43,14 @@ export function Thumbnail({
       fetch(`/api/articles/${slug}`)
         .then(response => response.json())
         .then(data => {
-          console.log("Thumbnail - Fetched data for slug:", slug, data);
           if (data?.metadata?.images?.hero?.url) {
-            console.log("Thumbnail - Using fetched image:", data.metadata.images.hero.url);
             setImageUrl(data.metadata.images.hero.url);
           } else {
-            console.log("Thumbnail - No image found in fetched data");
             setImageUrl("");
           }
         })
         .catch(error => {
-          console.error("Thumbnail - Error fetching data for slug:", slug, error);
+          console.error("Error fetching thumbnail data:", error);
           setImageUrl("");
         })
         .finally(() => {

@@ -1,3 +1,3 @@
-**Before Cleaning:** 1. "figure 1: "porcelain (al₂si₂o₅(oh)₄·sio₂·kalsi₃o₈) surface before (left) and after (right) laser cleaning using 1064nm nd:yag laser at 50w power, 50ns pulse duration, and 1.0mm spot size. contaminant removal achieved at 2.8 j/cm² fluence while preserving the kaolinite microstructure.\"  "
+**Before Cleaning:** 1. "porcelain (al₂si₂o₅(oh)₄·sio₂·kalsi₃o₈) surface before laser cleaning showing surface contamination layer (∼50-200μm thickness) with visible organic deposits and oxidation products."
 
-**Equipment:** 2. "micrograph showing porcelain surface morphology after laser cleaning at 30khz repetition rate. no thermal cracking observed in the mullite phase (3al₂o₃·2sio₂) despite 3.5 j/cm² fluence application. scale bar: 200μm."
+**Equipment:** 2. "after laser cleaning at 1064nm wavelength with 2.0mm spot size: "complete removal of surface contaminants while preserving the kaolinite-rich porcelain substrate. treatment parameters: 80w power, 30ns pulse duration, 3.2 j/cm² fluence.\""

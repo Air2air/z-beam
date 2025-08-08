@@ -1,1 +1,1 @@
-laser-cleaning, zirconia-ceramic, laser-ablation, zirconia, pulsed-fiber-laser, non-contact-cleaning, industrial-laser-parameters, surface-contamination-removal, ZrO₂-composite, evelyn-wu
+ablation, restoration, zirconia-ceramic, zirconia, aerospace, evelyn-wu, laser, non-contact
