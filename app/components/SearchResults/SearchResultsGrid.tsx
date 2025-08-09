@@ -11,16 +11,16 @@ export function SearchResultsGrid({
   items,
   columns
 }: SearchResultsGridProps) {
-  // Grid column classes based on number of columns
+  // Enhanced grid column classes with better responsive breakpoints
   const gridCols = {
     1: "grid-cols-1",
-    2: "grid-cols-1 md:grid-cols-2",
-    3: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
-    4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+    2: "grid-cols-1 sm:grid-cols-2",
+    3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+    4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
   };
   
   return (
-    <div className={`grid gap-4 ${gridCols[columns]}`}>
+    <div className={`grid gap-4 ${gridCols[columns]} auto-rows-fr`}>
       {items.map((item, index) => {
         // Get badge data once to avoid calling the function twice
         const badgeData = getBadgeFromItem(item);
@@ -106,7 +106,6 @@ export function SearchResultsGrid({
             imageAlt={item.imageAlt || item.title || ""}
             tags={item.tags || []}
             badge={badgeData || undefined} // Convert null to undefined
-            showBadge={!!badgeData}
             metadata={item.metadata || {
               category: item.category,
               articleType: item.articleType,

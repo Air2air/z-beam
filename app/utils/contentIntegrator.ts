@@ -52,6 +52,7 @@ export async function getArticle(slug: string): Promise<ArticleData | null> {
       "content",
       "bullets",
       "table",
+      "propertiestable",
       "caption",
       "jsonld",
       "tags",
@@ -181,7 +182,11 @@ export async function loadComponentData(
       ? await processedContent 
       : processedContent;
     
-    const enhancedContent = enhanceTablesWithHeadings(htmlContent);
+    // Use different enhancement based on component type
+    // Note: propertiestable component handles its own enhancement internally
+    const enhancedContent = type === 'propertiestable' 
+      ? htmlContent
+      : enhanceTablesWithHeadings(htmlContent);
 
     // Return generic structure
     return {

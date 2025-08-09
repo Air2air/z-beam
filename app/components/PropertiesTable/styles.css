@@ -1,0 +1,90 @@
+/* app/components/PropertiesTable/styles.css */
+
+/* Simple properties table wrapper */
+.properties-table {
+  margin: 0;
+  width: 100%;
+}
+
+/* Flexbox container for property cards */
+.properties-table .properties-flex-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  overflow: hidden;
+}
+
+/* Mobile layout: 2-column grid below md breakpoint (768px) */
+@media (max-width: 767px) {
+  .properties-table .properties-flex-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+/* Individual property card styling */
+.properties-table .property-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 120px;
+  flex: 1;
+  container-type: inline-size;
+}
+
+/* Property value styling */
+.properties-table .property-value,
+.properties-table h2.property-value {
+  font-size: clamp(0.75rem, 8cqw, 1.5rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  line-height: 1.2;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Property key styling */
+.properties-table .property-key {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Property-specific colors */
+/* .properties-table td:first-child {
+  font-weight: 600;
+} */
+
+/* Colored backgrounds based on column position */
+.properties-table .property-card:nth-child(1) {
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
+
+.properties-table .property-card:nth-child(2) {
+  background-color: #f59e0b !important;
+  color: white !important;
+}
+
+.properties-table .property-card:nth-child(3) {
+  background-color: #059669 !important;
+  color: white !important;
+}
+
+.properties-table .property-card:nth-child(4) {
+  background-color: #7c3aed !important;
+  color: white !important;
+}
+
+/* Default styling for any additional columns beyond 4 */
+.properties-table .property-card:nth-child(n+5) {
+  background-color: #6b7280 !important;
+  color: white !important;
+}

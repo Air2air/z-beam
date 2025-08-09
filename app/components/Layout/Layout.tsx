@@ -1,6 +1,7 @@
 // app/components/Layout/Layout.tsx
 import { Content } from "../Content/Content";
 import { Table } from "../Table/Table";
+import { PropertiesTable } from "../PropertiesTable";
 import { Bullets } from "../Bullets/Bullets";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
@@ -8,8 +9,9 @@ import { Author } from '../Author/Author';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { Hero } from '../Hero/Hero';
 
-// Update component order to include tags
+// Update component order to include propertiestable and tags
 const COMPONENT_ORDER = [
+  'propertiestable',
   'content',
   'caption',
   'bullets',
@@ -112,6 +114,8 @@ export function Layout({
         const { content, config } = components[type];
         
         switch(type) {
+          case 'propertiestable':
+            return <PropertiesTable key={type} content={content} config={config} />;
           case 'content':
             return <Content key={type} content={content} config={config} />;
           case 'caption':

@@ -7,6 +7,25 @@ import { BreadcrumbItem, BreadcrumbsProps } from "../../types";
 
 export function Breadcrumbs({ className }: { className?: string }) {
   const pathname = usePathname();
+  
+  // Handle case where pathname might be null
+  if (!pathname) {
+    return (
+      <nav className="flex py-4" aria-label="Breadcrumb">
+        <ol className="inline-flex items-center space-x-1 md:space-x-2">
+          <li className="inline-flex items-center">
+            <Link
+              href="/"
+              className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white"
+            >
+              Home
+            </Link>
+          </li>
+        </ol>
+      </nav>
+    );
+  }
+  
   // Split the pathname into segments and filter out empty strings (e.g., from leading slash)
   const segments = pathname.split("/").filter((segment) => segment !== "");
 

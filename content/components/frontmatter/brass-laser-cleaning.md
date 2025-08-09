@@ -1,26 +1,23 @@
 ---
-name: Beryllium
-applications:
-- industry: Aerospace
-  useCase: Removal of oxides from beryllium mirrors in satellite optics
-  detail: Specific laser cleaning application
-- industry: Electronics
-  useCase: Precision cleaning of beryllium-copper alloy contacts
-  detail: Specific laser cleaning application
+name: Brass
+properties:
+  density: 8.4–8.73 g/cm³
+  meltingPoint: 900–940°C
+  thermalConductivity: 109–125 W/m·K
 technicalSpecifications:
-  powerRange: 20-100W
+  powerRange: 500W
   pulseDuration: 10-100ns
   wavelength: 1064nm (primary), 532nm (optional)
   spotSize: 0.1-2.0mm
   repetitionRate: 10-50kHz
   fluenceRange: 0.5–10 J/cm²
   safetyClass: Class 4 (requires full enclosure)
-title: Laser Cleaning Beryllium - Technical Guide for Optimal Processing
-headline: Comprehensive technical guide for laser cleaning metal beryllium
-description: Technical overview of beryllium, for laser cleaning applications, and industrial applications.
+title: Laser Cleaning Brass - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning metal brass
+description: Technical overview of brass, for laser cleaning applications, including 8.4–8.73 g/cm³ density, and industrial applications.
 keywords:
-- beryllium
-- beryllium metal
+- brass
+- brass metal
 - laser ablation
 - laser cleaning
 - non-contact cleaning
@@ -33,11 +30,11 @@ keywords:
 - corrosion removal
 images:
   hero:
-    alt: Beryllium surface undergoing laser cleaning showing precise contamination removal
-    url: /images/beryllium-laser-cleaning-hero.jpg
+    alt: Brass surface undergoing laser cleaning showing precise contamination removal
+    url: /images/brass-laser-cleaning-hero.jpg
   closeup:
-    alt: Microscopic view of beryllium surface after laser treatment showing preserved microstructure
-    url: /images/beryllium-laser-cleaning-closeup.jpg
+    alt: Microscopic view of brass surface after laser treatment showing preserved microstructure
+    url: /images/brass-laser-cleaning-closeup.jpg
 regulatoryStandards:
 - code: "IEC 60825-1:2014"
   description: Safety of laser products - Equipment classification and requirements
@@ -59,7 +56,7 @@ outcomes:
   metric: < 0.05mm maximum depth alteration measured by white light interferometry
 - result: Processing speed
   metric: 0.5-2.0 m²/hour coverage rate at 50W power
-subject: Beryllium
+subject: Brass
 article_type: material
 category: metal
 ---

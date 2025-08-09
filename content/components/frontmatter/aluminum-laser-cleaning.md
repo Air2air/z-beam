@@ -1,26 +1,40 @@
 ---
-name: Beryllium
+name: Aluminum
+properties:
+  density: 2.70 g/cm³
+  meltingPoint: 660.32°C
+  thermalConductivity: 237 W/m·K
 applications:
 - industry: Aerospace
-  useCase: Removal of oxides from beryllium mirrors in satellite optics
+  useCase: Removal of oxides and coatings from aluminum fuselage components
+  detail: Specific laser cleaning application
+- industry: Automotive
+  useCase: Cleaning of aluminum alloy wheels before welding
   detail: Specific laser cleaning application
 - industry: Electronics
-  useCase: Precision cleaning of beryllium-copper alloy contacts
+  useCase: Precision cleaning of aluminum heat sinks
   detail: Specific laser cleaning application
+- industry: Reflectivity Restoration
+  useCase: Restoring original surface reflectivity (>90% at 1064 nm)
+  detail: Specific laser cleaning application
+composition:
+- component: Oxide Removal Efficiency
+  percentage: 95–99%
+  type: compound
 technicalSpecifications:
   powerRange: 20-100W
   pulseDuration: 10-100ns
   wavelength: 1064nm (primary), 532nm (optional)
   spotSize: 0.1-2.0mm
   repetitionRate: 10-50kHz
-  fluenceRange: 0.5–10 J/cm²
+  fluenceRange: 0.5–5 J/cm²
   safetyClass: Class 4 (requires full enclosure)
-title: Laser Cleaning Beryllium - Technical Guide for Optimal Processing
-headline: Comprehensive technical guide for laser cleaning metal beryllium
-description: Technical overview of beryllium, for laser cleaning applications, and industrial applications.
+title: Laser Cleaning Aluminum - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning metal aluminum
+description: Technical overview of aluminum, for laser cleaning applications, including 2.70 g/cm³ density, and industrial applications.
 keywords:
-- beryllium
-- beryllium metal
+- aluminum
+- aluminum metal
 - laser ablation
 - laser cleaning
 - non-contact cleaning
@@ -33,11 +47,11 @@ keywords:
 - corrosion removal
 images:
   hero:
-    alt: Beryllium surface undergoing laser cleaning showing precise contamination removal
-    url: /images/beryllium-laser-cleaning-hero.jpg
+    alt: Aluminum surface undergoing laser cleaning showing precise contamination removal
+    url: /images/aluminum-laser-cleaning-hero.jpg
   closeup:
-    alt: Microscopic view of beryllium surface after laser treatment showing preserved microstructure
-    url: /images/beryllium-laser-cleaning-closeup.jpg
+    alt: Microscopic view of aluminum surface after laser treatment showing preserved microstructure
+    url: /images/aluminum-laser-cleaning-closeup.jpg
 regulatoryStandards:
 - code: "IEC 60825-1:2014"
   description: Safety of laser products - Equipment classification and requirements
@@ -59,7 +73,7 @@ outcomes:
   metric: < 0.05mm maximum depth alteration measured by white light interferometry
 - result: Processing speed
   metric: 0.5-2.0 m²/hour coverage rate at 50W power
-subject: Beryllium
+subject: Aluminum
 article_type: material
 category: metal
 ---
