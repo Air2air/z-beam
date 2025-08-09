@@ -1,5 +1,4 @@
 // app/search/page.tsx
-import { Suspense } from "react";
 import SearchClient from "./search-client";
 import { getAllArticles } from "../utils/contentUtils";
 import { getAllUniqueTags } from "../utils/tags";
@@ -16,9 +15,7 @@ export default async function SearchPage() {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Search</h1>
         
-        <Suspense fallback={<div>Loading search results...</div>}>
-          <SearchClient initialArticles={articles} initialTags={tags} />
-        </Suspense>
+        <SearchClient initialArticles={articles} initialTags={tags} />
       </div>
     );
   } catch (error) {

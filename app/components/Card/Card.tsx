@@ -89,7 +89,7 @@ export function Card({
   const effectiveMaterialSlug = 
     // If materialSlug is a frontmatter path, use it directly
     (materialSlug && isFrontmatterPath(materialSlug)) ? materialSlug :
-    // Otherwise use the normal fallbacks
+    // Otherwise use the normal options
     materialSlug || 
     (metadata?.subject ? metadata.subject.toLowerCase() : null) || 
     (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());

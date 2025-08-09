@@ -89,7 +89,7 @@ export function SearchResultsGrid({
                 .map(part => part.charAt(0).toUpperCase() + part.slice(1))
                 .join(" ");
             } else {
-              // Fallback to just the first part capitalized
+              // Use first part capitalized
               cardName = slugParts[0].charAt(0).toUpperCase() + slugParts[0].slice(1);
             }
           }

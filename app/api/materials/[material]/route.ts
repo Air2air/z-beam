@@ -16,7 +16,6 @@ export async function GET(
     
     // List all files in the directory
     const allFiles = fs.readdirSync(contentDir);
-    console.log(`API: All files in frontmatter directory:`, allFiles);
   
     // Clean the material name for search
     const cleanMaterialName = materialName.toLowerCase().replace(/[^a-z0-9-]/g, '-');
@@ -25,9 +24,6 @@ export async function GET(
     let matchingFiles = allFiles.filter(file => 
       file.toLowerCase().includes(cleanMaterialName.toLowerCase())
     );
-
-    console.log(`API: Searching for material ${materialName} (cleaned: ${cleanMaterialName})`);
-    console.log(`API: Found ${matchingFiles.length} potential matches: ${matchingFiles.join(', ')}`);
 
     if (matchingFiles.length === 0) {
       return NextResponse.json(

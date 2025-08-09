@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { enhanceTablesWithHeadings } from './tableEnhancer';
 
 // Single interface for article metadata
 export interface ArticleMetadata {
@@ -174,13 +175,17 @@ export async function loadComponentData(
 
     // Always convert markdown to HTML
     const processedContent = marked(content.trim());
+    
+    // Enhance tables for better visual separation
+    const htmlContent = processedContent instanceof Promise 
+      ? await processedContent 
+      : processedContent;
+    
+    const enhancedContent = enhanceTablesWithHeadings(htmlContent);
 
     // Return generic structure
     return {
-      content:
-        processedContent instanceof Promise
-          ? await processedContent
-          : processedContent,
+      content: enhancedContent,
       config: Object.keys(data).length > 0 ? data : getDefaultConfig(type),
     };
   } catch (error) {

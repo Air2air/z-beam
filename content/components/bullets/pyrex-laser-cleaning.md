@@ -1,0 +1,4 @@
+* **Optimal Wavelength for Laser Cleaning**: Pyrex responds effectively to a **1064nm pulsed fiber laser**, ensuring efficient ablation of surface contaminants without damaging the substrate due to its high thermal resistance and low thermal expansion.
+* **Non-Contact Precision Cleaning**: Laser cleaning of Pyrex enables **non-contact, residue-free removal** of oxides, organic films, and particulate contaminants, preserving the glass's optical and mechanical integrity.
+* **Industrial Applications**: Ideal for **high-precision industries** (e.g., semiconductor, aerospace, and optics) where contamination-free Pyrex surfaces are critical for performance and longevity.
+* **Thermal and Mechanical Stability**: Pyrex's inherent **low thermal expansion coefficient** minimizes risk of cracking or distortion during laser processing, making it suitable for repeated cleaning cycles in harsh environments.

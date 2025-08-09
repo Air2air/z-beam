@@ -1,1 +1,1 @@
-ablation, stoneware, restoration, fiber, ceramic, evelyn-wu, laser, industrial, non-contact, thermal
+ceramic, restoration, thermal, fiber, non-contact, stoneware, ablation, evelyn wu

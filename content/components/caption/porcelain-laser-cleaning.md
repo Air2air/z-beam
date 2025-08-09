@@ -1,3 +1,3 @@
-**Before Cleaning:** 1. "porcelain (al₂si₂o₅(oh)₄·sio₂·kalsi₃o₈) surface before laser cleaning showing surface contamination layer (∼50-200μm thickness) with visible organic deposits and oxidation products."
+**Porcelain (Al₂O₃·2SiO₂·2H₂O)** surface (left) before cleaning, showing organic residues and oxide layers.
 
-**Equipment:** 2. "after laser cleaning at 1064nm wavelength with 2.0mm spot size: "complete removal of surface contaminants while preserving the kaolinite-rich porcelain substrate. treatment parameters: 80w power, 30ns pulse duration, 3.2 j/cm² fluence.\""
+**After laser cleaning** (right) at 1064 nm, 50 w, 100 ns pulse duration, 500 µm spot size, showing contaminant removal with substrate preservation.

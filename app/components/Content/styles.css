@@ -1,0 +1,106 @@
+/* Enhanced table container styles */
+.table-enhanced-container {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.table-enhanced-inner {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.dark .table-enhanced-inner {
+  background-color: #111827;
+  border-color: #374151;
+}
+
+.table-enhanced {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  border: none !important;
+}
+
+.table-enhanced thead {
+  background-color: #f9fafb;
+}
+
+.dark .table-enhanced thead {
+  background-color: #1f2937;
+}
+
+.table-enhanced thead th {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+.dark .table-enhanced thead th {
+  border-bottom-color: #374151;
+  color: #f9fafb;
+}
+
+.table-enhanced tbody {
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.dark .table-enhanced tbody {
+  background-color: #111827;
+  border-top-color: #374151;
+}
+
+.table-enhanced tbody td {
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+  border: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .table-enhanced tbody td {
+  color: #d1d5db;
+  border-bottom-color: #374151;
+}
+
+.table-enhanced tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-enhanced tbody tr:hover {
+  background-color: #f9fafb;
+  transition: background-color 150ms ease-in-out;
+}
+
+.dark .table-enhanced tbody tr:hover {
+  background-color: #1f2937;
+}
+
+/* Spacing between multiple tables */
+.table-enhanced-container + .table-enhanced-container {
+  margin-top: 3rem;
+}
+
+/* Responsive table handling */
+@media (max-width: 640px) {
+  .table-enhanced-inner {
+    overflow-x: auto;
+  }
+  
+  .table-enhanced thead th,
+  .table-enhanced tbody td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}

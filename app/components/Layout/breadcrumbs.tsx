@@ -96,7 +96,7 @@ export function Breadcrumbs({ className }: { className?: string }) {
                 {crumb.label}
               </Link>
             ) : (
-              // Item without href (fallback to span)
+              // Item without href (default to span)
               <span className="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">
                 {crumb.label}
               </span>

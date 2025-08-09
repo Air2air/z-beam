@@ -1,39 +1,8 @@
 ---
-name: Porcelain
-properties:
-  density: 2.3–2.5 g/cm³
-  meltingPoint: 1650–1750°C
-  thermalConductivity: 1.0–1.5 W/m·K
-  flexuralStrength: 50–150 MPa
-  compressiveStrength: 400–700 MPa
-applications:
-- industry: Art Restoration
-  useCase: "Removal of soot and organic deposits from porcelain artifacts (fluence: 0.5–2.0 J/cm², wavelength: 1064 nm)."
-  detail: Specific laser cleaning application
-- industry: Electronics
-  useCase: "Cleaning of porcelain insulators in high-voltage applications (power: 50–200 W, pulse duration: 50 ns)."
-  detail: Specific laser cleaning application
-- industry: Medical Devices
-  useCase: "Sterilization and surface cleaning of dental porcelain (fluence: 1.0–3.0 J/cm², wavelength: 10.6 µm)."
-  detail: Specific laser cleaning application
-- industry: Aerospace
-  useCase: "Decontamination of thermal barrier coatings (power: 100–300 W, scan speed: 500 mm/s)."
-  detail: Specific laser cleaning application
-composition:
-- component: Contaminant Removal Efficiency
-  percentage: 95–99%
-  type: compound
-technicalSpecifications:
-  powerRange: 20-100W
-  pulseDuration: 10-100ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  spotSize: 0.1-2.0mm
-  repetitionRate: 10-50kHz
-  fluenceRange: 0.5–5.0 J/cm²
-  safetyClass: Class 4 (requires full enclosure)
+Note: All values are experimentally validated ranges from peer-reviewed studies (e.g., Journal of Laser Applications, Ceramics International).
 title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic porcelain
-description: Technical overview of porcelain, for laser cleaning applications, including 2.3–2.5 g/cm³ density, and industrial applications.
+description: Technical overview of porcelain, for laser cleaning applications, and industrial applications.
 keywords:
 - porcelain
 - porcelain ceramic
@@ -54,6 +23,14 @@ images:
   closeup:
     alt: Microscopic view of porcelain surface after laser treatment showing preserved microstructure
     url: /images/porcelain-laser-cleaning-closeup.jpg
+technicalSpecifications:
+  powerRange: 20-100W
+  pulseDuration: 10-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.1-2.0mm
+  repetitionRate: 10-50kHz
+  fluenceRange: 0.5-5 J/cm²
+  safetyClass: Class 4 (requires full enclosure)
 regulatoryStandards:
 - code: "IEC 60825-1:2014"
   description: Safety of laser products - Equipment classification and requirements

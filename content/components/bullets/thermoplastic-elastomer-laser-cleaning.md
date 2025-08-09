@@ -1,0 +1,4 @@
+* **Optimal Laser Parameters**: TE responds effectively to **1064nm wavelength** (pulsed fiber laser), balancing ablation efficiency and minimal thermal damage due to its composite structure ((CₓHᵧ)ₙ).
+* **Non-Contact Cleaning Advantage**: Laser ablation removes surface contaminants (oxides, residues) without mechanical stress, preserving TE’s elasticity and structural integrity.
+* **Industrial Applications**: Ideal for precision cleaning in automotive seals, medical devices, and electronics where chemical-free, residue-less cleaning is critical.
+* **Thermal Sensitivity Consideration**: Requires controlled energy density to avoid excessive melting; pulsed lasers are preferred for localized material removal without bulk degradation.

@@ -40,7 +40,7 @@ export default async function TagPage({ params }: PageProps) {
       <SearchResults 
         items={matchingArticles} 
         initialTag={tag}
-        showTagFilter={true}
+        showTagFilter={false}
       />
     </div>
   );

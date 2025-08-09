@@ -1,61 +1,60 @@
 | Property | Value | Unit |  
 |----------|-------|------|  
 | Chemical Formula | ZrO₂ | - |  
-| Crystal Structure | Cubic (stabilized), Monoclinic (pure) | - |  
-| Density | 5.68–6.10 | g/cm³ |  
+| Material Type | Ceramic | - |  
+| Density | 5.68 - 6.10 | g/cm³ |  
 | Melting Point | ~2715 | °C |  
-| Thermal Conductivity | 2–3 | W/m·K |  
-| Hardness (Vickers) | 1200–1400 | HV |  
-| Flexural Strength | 800–1200 | MPa |  
-| Fracture Toughness | 6–12 | MPa·√m |  
-| Young’s Modulus | 200–210 | GPa |  
-| Coefficient of Thermal Expansion | 10–11 | ×10⁻⁶/K |  
+| Thermal Conductivity | 2 - 3 | W/m·K |  
+| Hardness (Vickers) | 1200 - 1400 | HV |  
+| Flexural Strength | 800 - 1200 | MPa |  
+| Young's Modulus | 200 - 210 | GPa |  
+| Fracture Toughness | 5 - 10 | MPa·√m |  
+| Coefficient of Thermal Expansion (CTE) | 10 - 11 | ×10⁻⁶/K |  
 
 
-| Type | Stabilizing Oxide | % Stabilizer | Key Characteristics |  
-|------|-------------------|-------------|---------------------|  
-| Yttria-Stabilized (YSZ) | Y₂O₃ | 3–8% | High ionic conductivity, thermal shock resistance |  
-| Magnesia-Stabilized (MSZ) | MgO | 8–10% | Improved mechanical strength, lower cost |  
-| Calcia-Stabilized (CSZ) | CaO | 8–15% | Cost-effective, moderate toughness |  
-| Ceria-Stabilized (CeSZ) | CeO₂ | 10–20% | Superior toughness, low-temperature degradation resistance |  
+| Property | Value | Unit |  
+|----------|-------|------|  
+| Dielectric Constant (1 MHz) | 22 - 30 | - |  
+| Electrical Resistivity | >10¹² | Ω·cm |  
+| Band Gap | ~5.0 - 5.5 | eV |  
+| Refractive Index | ~2.15 - 2.20 | - |  
 
 
-| Property | Value | Unit | Notes |  
-|----------|-------|------|-------|  
-| Electrical Resistivity | 10⁶–10⁸ | Ω·cm | Highly insulating (pure ZrO₂) |  
-| Ionic Conductivity (YSZ) | 0.1–0.15 | S/cm (at 1000°C) | Used in solid oxide fuel cells (SOFCs) |  
-| Thermal Shock Resistance | ΔT > 500 | °C | Superior to alumina |  
-| Specific Heat Capacity | 400–500 | J/kg·K | Depends on stabilization |  
+| Grade | Stabilizer | Stabilizer Content (%) | Key Characteristics |  
+|-------|------------|----------------------|---------------------|  
+| Y-TZP | Yttria (Y₂O₃) | 3 - 5 | High strength, fracture toughness |  
+| Mg-PSZ | Magnesia (MgO) | 8 - 10 | Thermal shock resistance |  
+| Ce-TZP | Ceria (CeO₂) | 10 - 12 | Superior toughness |  
+| Alumina-Toughened Zirconia (ATZ) | Alumina (Al₂O₃) | 10 - 20 | Enhanced wear resistance |  
 
 
 | Test | Condition | Value | Unit |  
 |------|-----------|-------|------|  
-| Biaxial Flexural Strength | RT, polished | 1000–1200 | MPa |  
-| Weibull Modulus | YSZ (3 mol%) | 10–15 | - | Measures reliability |  
-| Fatigue Limit (10⁷ cycles) | YSZ (3 mol%) | 400–600 | MPa |  
-| Wear Rate (Pin-on-Disk) | 10 N load, 0.3 m/s | <10⁻⁶ | mm³/N·m |  
+| Compressive Strength | Room Temp | 2000 - 2500 | MPa |  
+| Weibull Modulus | - | 10 - 15 | - |  
+| Thermal Shock Resistance | ΔT = 400°C | >500 | Cycles |  
+| Wear Rate (Pin-on-Disk) | 10 N load | <10⁻⁶ | mm³/N·m |  
 
 
-| Application | Benefit | Metric |  
-|-------------|---------|--------|  
-| Dental Implants | Biocompatibility | 99.9% osseointegration success |  
-| Thermal Barrier Coatings (TBCs) | Heat resistance | Reduces substrate temp. by 100–300°C |  
-| Oxygen Sensors | Response time | <50 ms at 700°C |  
-| Cutting Tools | Tool life | 2–3× longer than carbide |  
-| SOFC Electrolytes | Efficiency | >60% energy conversion |  
+| Application | Benefit | Quantifiable Impact |  
+|-------------|---------|----------------------|  
+| Dental Implants | Biocompatibility | 99.5% osseointegration success |  
+| Cutting Tools | Wear Resistance | 3x longer lifespan vs. carbide |  
+| Thermal Barrier Coatings | Low Thermal Conductivity | Reduces substrate temp by 200-300°C |  
+| Oxygen Sensors | High Ionic Conductivity | Response time <50 ms |  
 
 
-| Standard | Scope | Relevance |  
-|----------|-------|-----------|  
-| ISO 13356:2015 | Surgical implants (YSZ) | Defines purity, mechanical requirements |  
-| ASTM F1873-98 | Dental ceramics | Fracture toughness testing |  
-| ISO 6474-1:2019 | Bioceramics | Compositional limits |  
-| IEC 60793-1-44 | Optical fibers (ZrO₂-doped) | Transmission performance |  
+| Standard Code | Description |  
+|--------------|-------------|  
+| ISO 13356:2015 | Implants for surgery - Yttria-stabilized zirconia |  
+| ASTM F2393-12 | Standard specification for high-purity dense zirconia |  
+| ISO 6474-2:2019 | Ceramic surgical implants - Zirconia-based materials |  
+| EN 725-5:2007 | Advanced technical ceramics - Test methods for zirconia powders |  
 
 
-| Parameter | Value | Unit | Notes |  
-|-----------|-------|------|-------|  
-| Biocompatibility (ISO 10993) | Class A (non-toxic) | - | Approved for medical use |  
-| Chemical Inertness | Resistant to acids/bases (pH 1–13) | - | Except HF and hot H₂SO₄ |  
-| Recycling Potential | >90% recoverable | - | High-temperature reprocessing |  
+| Parameter | Value | Unit |  
+|-----------|-------|------|  
+| Biocompatibility (ISO 10993) | Class III (Medical Grade) | - |  
+| Chemical Resistance | Resistant to acids/bases (pH 1-13) | - |  
+| Radioactivity (Naturally Occurring Zr) | <1 Bq/g | - |  
 

@@ -1,10 +1,10 @@
 ---
-meta_title: "Laser Cleaning Stoneware - Technical Guide for Optimal Processing | SW Ceramic Ablation"
-meta_description: Expert guide on laser cleaning stoneware ceramics (SW) using 1064nm pulsed fiber lasers. Learn optimal parameters for non-contact removal of surface contaminants from SiO₂·Al₂O₃·MgO·K₂O composites without thermal damage. Includes industrial applications for ceramic restoration and thermal processing.
-meta_keywords: stoneware, stoneware ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, SiO₂Al₂O₃MgOK₂O composite, industrial laser parameters, thermal processing, surface restoration, ceramic restoration, stoneware density, ceramic laser processing, SW material cleaning
+meta_title: Laser Cleaning Stoneware Ceramic - Technical Guide
+meta_description: "Expert guide on laser cleaning stoneware (SiO₂·Al₂O₃·MgO·K₂O) with 1064nm pulsed fiber lasers. Optimize parameters for contamination removal & surface restoration."
+meta_keywords: stoneware, ceramic cleaning, laser ablation, pulsed fiber laser, SiO₂Al₂O₃MgOK₂O, non-contact cleaning, industrial laser, surface restoration, thermal processing, contamination removal
 openGraph:
-  title: "Laser Cleaning Stoneware - Technical Guide for Optimal Processing | SW Ceramic Ablation"
-  description: Expert guide on laser cleaning stoneware ceramics (SW) using 1064nm pulsed fiber lasers. Learn optimal parameters for non-contact removal of surface contaminants from SiO₂·Al₂O₃·MgO·K₂O composites without thermal damage. Includes industrial applications for ceramic restoration and thermal processing.
+  title: Laser Cleaning Stoneware Ceramic - Technical Guide
+  description: "Expert guide on laser cleaning stoneware (SiO₂·Al₂O₃·MgO·K₂O) with 1064nm pulsed fiber lasers. Optimize parameters for contamination removal & surface restoration."
   url: "https://www.z-beam.com/stoneware-laser-cleaning"
   siteName: Z-Beam
   type: article
@@ -16,9 +16,8 @@ openGraph:
     alt: Stoneware surface undergoing laser cleaning showing precise contamination removal
 twitter:
   card: summary_large_image
-  title: "Laser Cleaning Stoneware - Technical Guide for Optimal Processing | SW Ceramic Ablation"
-  description: Expert guide on laser cleaning stoneware ceramics (SW) using 1064nm pulsed fiber lasers. Learn optimal parameters for non-contact removal of surface contaminants from SiO₂·Al₂O₃·MgO·K₂O composites without thermal damage. Includes industrial applications for ceramic restoration and thermal processing.
+  title: Laser Cleaning Stoneware Ceramic - Technical Guide
+  description: "Expert guide on laser cleaning stoneware (SiO₂·Al₂O₃·MgO·K₂O) with 1064nm pulsed fiber lasers. Optimize parameters for contamination removal & surface restoration."
   images:
   - /images/stoneware-laser-cleaning-hero.jpg
-Headline: Comprehensive Technical Guide for Laser Cleaning Ceramic Stoneware (SiO₂·Al₂O₃·MgO·K₂O)
 ---

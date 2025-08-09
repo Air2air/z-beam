@@ -66,7 +66,7 @@ export function TagFilter({
           );
         }
 
-        // Fallback if neither linkPrefix nor onSelectTag is provided
+        // Default if neither linkPrefix nor onSelectTag is provided
         return (
           <span
             key={tag}

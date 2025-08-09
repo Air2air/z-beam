@@ -66,7 +66,7 @@ export async function List({
   filterBy = "all",
   className = "",
 }: ListProps) {
-  // Use heading as fallback for title
+  // Use heading for title
   const displayTitle = title || heading;
 
   // Process items from either slugs or items prop

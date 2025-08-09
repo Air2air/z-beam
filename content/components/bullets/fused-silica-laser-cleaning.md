@@ -1,0 +1,4 @@
+* **High Laser Transmission & Stability**: Fused silica (SiO₂) exhibits exceptional transparency at 1064nm, making it ideal for pulsed fiber laser cleaning. Its low thermal expansion ensures minimal distortion under high-intensity laser exposure.
+* **Non-Contact Precision Cleaning**: Enables contamination removal (e.g., oxides, particulates) without mechanical contact, preserving surface integrity. Optimal for delicate or high-purity industrial applications like optics and semiconductors.
+* **Thermal & Chemical Resistance**: Withstands extreme temperatures and aggressive environments, ensuring durability during laser ablation processes without degradation or contamination.
+* **Industrial Parameter Compatibility**: Compatible with standard pulsed laser settings (e.g., 10–100ns pulse widths, 1–100kHz frequencies), balancing ablation efficiency and surface restoration for SiO₂ composites.

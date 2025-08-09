@@ -18,7 +18,7 @@ export type MaterialType =
   | 'alloy'     // Metal mixtures (Steel, Bronze)
   | 'composite' // Multi-material systems (CFRP, CMC)
   | 'ceramic'   // Processed inorganic materials
-  | 'other';    // Fallback
+  | 'other';    // Default
 
 export interface MaterialBadgeData {
   symbol: string;           // Display symbol (2-3 chars)

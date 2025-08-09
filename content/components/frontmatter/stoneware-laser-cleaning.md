@@ -3,13 +3,9 @@ name: Stoneware
 properties:
   density: 2.3–2.5 g/cm³
   meltingPoint: 1200–1300°C
-  thermalConductivity: 1.0–1.5 W/m·K
-  flexuralStrength: 10–30 MPa
-  compressiveStrength: 50–100 MPa
-applications:
-- industry: Cultural heritage restoration
-  useCase: - Removal of biological growth (lichens, algae) from historical stoneware artifacts
-  detail: Specific laser cleaning application
+  thermalConductivity: 1.5–2.5 W/m·K
+  flexuralStrength: 40–60 MPa
+  compressiveStrength: 150–250 MPa
 technicalSpecifications:
   powerRange: 20-100W
   pulseDuration: 10-100ns

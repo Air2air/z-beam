@@ -1,0 +1,4 @@
+* **Material Composition**: Brick consists of a composite of **Al₂Si₂O₅(OH)₄ (kaolinite clay) and Fe₂O₃ (iron oxide)**, contributing to its durability and reddish hue. The presence of iron oxide may influence laser absorption and thermal response during cleaning.
+* **Optimal Laser Parameters**: A **pulsed fiber laser at 1064nm** is effective for brick cleaning, balancing ablation efficiency and minimal thermal damage. Adjust pulse duration and fluence to avoid surface degradation.
+* **Applications**: Ideal for **non-contact removal of surface contaminants (soot, paint, biological growth)** in masonry restoration, historical preservation, and industrial cleaning without mechanical abrasion.
+* **Key Benefits**: Laser cleaning offers **precision, reduced substrate damage, and eco-friendliness** compared to chemical or abrasive methods, making it suitable for delicate brick surfaces in heritage and modern structures.

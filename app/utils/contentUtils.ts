@@ -131,8 +131,8 @@ export async function getAllArticles(): Promise<Article[]> {
           
           articleData = {
             slug,
-            title: data.title || 'Untitled', // Keep as fallback
-            name: data.name || '', // Make sure this is mapped properly
+            title: data.title,
+            name: data.name || '',
             headline: data.headline || '',
             description: data.description || '',
             image: data.image || '',

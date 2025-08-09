@@ -1,3 +1,3 @@
-**Before Cleaning:** "figure 1: zirconia (zro₂) ceramic surface before (left) and after (right) laser cleaning at 1064nm wavelength, showing complete removal of surface contaminants while preserving the underlying microstructure. treatment performed with 50w average power, 30ns pulse duration, and 1.0mm spot size...
+**Zirconia (ZrO₂)** ceramic surface (left) before cleaning, showing oxide layer and organic residue.
 
-**Equipment:** "figure 2: "sem micrograph of yttria-stabilized zirconia surface post-laser cleaning (fluence: 2.5 j/cm²), demonstrating intact grain boundaries and absence of thermal cracking. scale bar: 20μm.\""
+**After laser cleaning** (right) at 1064 nm, 50 w, 100 ns pulse duration, and 500 µm spot size, achieving contaminant-free surface with minimal subsurface damage, showing complete contaminant removal.

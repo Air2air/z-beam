@@ -1,0 +1,4 @@
+* **Optimal Laser Parameters**: Float glass responds effectively to **1064nm pulsed fiber lasers**, ensuring precise ablation of surface contaminants without substrate damage due to controlled thermal processing.
+* **Non-Contact Cleaning Advantage**: Laser cleaning eliminates mechanical contact, preventing micro-scratches or stress fractures common in traditional methods, ideal for delicate float glass surfaces.
+* **Industrial Applications**: Suitable for removing **oxides, organic residues, and particulate contamination** in sectors like automotive (windshields), construction (façades), and electronics (display panels).
+* **Surface Restoration**: Enables high-precision **surface restoration** by selectively stripping layers (e.g., coatings or adhesives) while preserving the glass’s optical clarity and structural integrity.

@@ -6,6 +6,7 @@ interface ContentProps {
   config?: {
     wrapHeadings?: boolean;
     maxWidth?: string;
+    enhanceTables?: boolean;
   };
 }
 

@@ -1,0 +1,4 @@
+* **Material Composition**: Polyester resin composites (PE) consist of a polymer matrix ((C₁₀H₈O₄)ₙ) reinforced with fillers, offering a balance of mechanical strength and chemical resistance, making them suitable for laser cleaning without significant degradation.
+* **Laser Parameters**: Optimal laser cleaning is achieved using a **1064nm pulsed fiber laser**, which minimizes thermal damage while effectively ablating surface contaminants due to the material's moderate absorption at this wavelength.
+* **Applications**: Ideal for **non-contact cleaning** in industrial settings, such as removing oxidation, paint, or adhesives from polyester resin composite surfaces, ensuring precision and preserving substrate integrity.
+* **Benefits**: Laser cleaning offers **selective contamination removal** with minimal heat-affected zones (HAZ), enhancing surface restoration without mechanical abrasion or chemical residues, critical for maintaining composite performance.

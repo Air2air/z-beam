@@ -1,30 +1,8 @@
 ---
 name: Carbon Fiber Reinforced Polymer
-properties:
-  density: 1.5–2.0 g/cm³
-  thermalConductivity: 5–50 W/m·K
-  tensileStrength: 500–700 MPa
-applications:
-- industry: Aerospace
-  useCase: Removal of paint/coatings (thickness
-  detail: Specific laser cleaning application
-- industry: Automotive
-  useCase: De-bonding of adhesives (fluence
-  detail: Specific laser cleaning application
-- industry: Electronics
-  useCase: Delicate ablation of epoxy over carbon fiber circuits (pulse energy <50 µJ).
-  detail: Specific laser cleaning application
-technicalSpecifications:
-  powerRange: 20-100W
-  pulseDuration: 10-100ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  spotSize: 0.1-2.0mm
-  repetitionRate: 10-50kHz
-  fluenceRange: 0.5–5.0 J/cm²
-  safetyClass: Class 4 (requires full enclosure)
 title: Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite carbon fiber reinforced polymer
-description: Technical overview of carbon fiber reinforced polymer, for laser cleaning applications, including 1.5–2.0 g/cm³ density, and industrial applications.
+description: Technical overview of carbon fiber reinforced polymer, for laser cleaning applications, and industrial applications.
 keywords:
 - carbon fiber reinforced polymer
 - carbon fiber reinforced polymer composite
@@ -43,6 +21,14 @@ images:
   closeup:
     alt: Microscopic view of carbon fiber reinforced polymer surface after laser treatment showing preserved microstructure
     url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-closeup.jpg
+technicalSpecifications:
+  powerRange: 20-100W
+  pulseDuration: 10-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.1-2.0mm
+  repetitionRate: 10-50kHz
+  fluenceRange: 0.5-5 J/cm²
+  safetyClass: Class 4 (requires full enclosure)
 regulatoryStandards:
 - code: "IEC 60825-1:2014"
   description: Safety of laser products - Equipment classification and requirements

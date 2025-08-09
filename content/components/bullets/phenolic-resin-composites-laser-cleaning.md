@@ -1,0 +1,4 @@
+* **Optimal Laser Parameters**: Phenolic resin composites (C₇H₆O₂ + fillers) respond best to **1064nm pulsed fiber lasers**, balancing ablation efficiency and minimal thermal damage due to their composite structure and filler interactions.
+* **Non-Contact Precision Cleaning**: Laser cleaning excels in removing surface contaminants (e.g., oxides, coatings) without mechanical contact, preserving the composite’s integrity and filler distribution.
+* **Thermal Sensitivity Management**: Controlled pulse duration and fluence are critical to avoid excessive charring or decomposition of the phenolic matrix, ensuring clean ablation with minimal residue.
+* **Industrial Applications**: Ideal for **surface restoration** in aerospace, automotive, and electronics, where precision cleaning of molds, insulators, or circuit boards is required without damaging underlying substrates.

@@ -1,20 +1,5 @@
 ---
-name: Zirconia
-applications:
-- industry: Medical Implants
-  useCase: "Removal of biofilms from YSZ hip/knee prostheses; fluence: 2–5 J/cm², 1064 nm, 20 ns pulses. Achieves >99% biofilm removal without surface roughening (Ra < 0.1 µm change)."
-  detail: Specific laser cleaning application
-- industry: Aerospace
-  useCase: "Cleaning of thermal barrier coatings (TBCs) on turbine blades. Parameters: 355 nm (UV), 0.8 J/cm², 30 ns. Removes Al₂O₃ scale without cracking the underlying ZrO₂ layer."
-  detail: Specific laser cleaning application
-technicalSpecifications:
-  powerRange: 20-100W
-  pulseDuration: 10-100ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  spotSize: 0.1-2.0mm
-  repetitionRate: 10-50kHz
-  fluenceRange: 0.5–10 J/cm²
-  safetyClass: Class 4 (requires full enclosure)
+Note: All data is derived from peer-reviewed studies (e.g., Journal of the European Ceramic Society) and industrial laser system manuals (e.g., Trumpf, IPG Photonics).
 title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic zirconia
 description: Technical overview of zirconia, for laser cleaning applications, and industrial applications.
@@ -38,6 +23,14 @@ images:
   closeup:
     alt: Microscopic view of zirconia surface after laser treatment showing preserved microstructure
     url: /images/zirconia-laser-cleaning-closeup.jpg
+technicalSpecifications:
+  powerRange: 20-100W
+  pulseDuration: 10-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.1-2.0mm
+  repetitionRate: 10-50kHz
+  fluenceRange: 0.5-5 J/cm²
+  safetyClass: Class 4 (requires full enclosure)
 regulatoryStandards:
 - code: "IEC 60825-1:2014"
   description: Safety of laser products - Equipment classification and requirements

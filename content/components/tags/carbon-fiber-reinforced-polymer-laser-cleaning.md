@@ -1,1 +1,1 @@
-composite, precision, restoration, aerospace, evelyn-wu, automotive, ablation, non-contact, laser
+composite, surface, thermal, precision, laser, non-contact, ablation, evelyn wu

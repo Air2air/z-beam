@@ -14,7 +14,7 @@ interface BadgeSymbolProps {
   frontmatter?: ArticleFrontmatter;
   // For convenience, can extract frontmatter from article
   article?: Article;
-  // For fallback when no chemical data exists
+  // For default when no chemical data exists
   slug?: string;
 }
 
@@ -49,12 +49,12 @@ export function BadgeSymbol({
     }
   }
   
-  // Only use slug as fallback if we absolutely need to (no frontmatter data)
+  // Only use slug if we absolutely need to (no frontmatter data)
   if (!symbol && !formula && !materialType && itemSlug) {
-    // We have no chemical data from frontmatter, so generate fallback from slug
+    // We have no chemical data from frontmatter, so generate from slug
     symbol = formatSymbol(generateSymbolFromSlug(itemSlug));
     materialType = determineMaterialTypeFromSlug(itemSlug);
-    formula = symbol; // Use symbol as fallback formula
+    formula = symbol;
   }
 
   // Known element symbols mapped to atomic numbers (simplified version)
@@ -88,7 +88,7 @@ export function BadgeSymbol({
       // If only one word, take first two letters
       result = parts[0].substring(0, Math.min(2, parts[0].length));
     } else {
-      // Fallback
+      // Default
       result = "XX";
     }
 
@@ -129,7 +129,7 @@ export function BadgeSymbol({
     ) {
       return "semiconductor";
     } else {
-      // Default fallback
+      // Default
       return "compound";
     }
   }

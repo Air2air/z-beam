@@ -146,9 +146,6 @@ async function initializeTagCache() {
     if (article.author?.author_name) {
       // Add the author name to the tag set
       tagSet.add(article.author.author_name);
-      
-      // Log for debugging
-      console.log(`Added author tag: ${article.author.author_name} from article ${article.slug}`);
     }
   }
   

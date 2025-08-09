@@ -77,8 +77,15 @@ export function Thumbnail({
       }}
     >
       {loading ? (
-        <div className="w-full h-full flex items-center justify-center bg-gray-100 text-gray-500">
-          <span>Loading...</span>
+        <div className="w-full h-full flex items-center justify-center bg-gray-600">
+          <Image
+            src="/images/Site/Logo/logo_.png"
+            alt="Loading..."
+            width={60}
+            height={60}
+            className="object-contain opacity-50"
+            unoptimized={true}
+          />
         </div>
       ) : imageUrl ? (
         <Image
@@ -93,8 +100,15 @@ export function Thumbnail({
           sizes="100vw"
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-500">
-          <span>No image</span>
+        <div className="w-full h-full flex items-center justify-center bg-gray-600">
+          <Image
+            src="/images/Site/Logo/logo_.png"
+            alt="No image available"
+            width={60}
+            height={60}
+            className="object-contain opacity-50"
+            unoptimized={true}
+          />
         </div>
       )}
     </div>

@@ -1,5 +1,23 @@
 ---
-Note: All data assumes ambient conditions (25°C, 1 atm) unless specified.
+name: Epoxy Resin Composites
+applications:
+- industry: Aerospace
+  useCase: "Removal of epoxy coatings from carbon fiber composites (measured ablation rate: 0.1–0.3 mm³/s)"
+  detail: Specific laser cleaning application
+- industry: Electronics
+  useCase: "Delamination of epoxy encapsulants from PCBs (fluence: 1.2 J/cm², wavelength: 355 nm)"
+  detail: Specific laser cleaning application
+- industry: Automotive
+  useCase: "Cleaning of epoxy adhesives from metal joints (power: 50 W, pulse duration: 50 ns)"
+  detail: Specific laser cleaning application
+technicalSpecifications:
+  powerRange: 20-100W
+  pulseDuration: 10-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.1-2.0mm
+  repetitionRate: 10-50kHz
+  fluenceRange: 0.5–5 J/cm²
+  safetyClass: Class 4 (requires full enclosure)
 title: Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite epoxy resin composites
 description: Technical overview of epoxy resin composites, for laser cleaning applications, and industrial applications.
@@ -21,14 +39,6 @@ images:
   closeup:
     alt: Microscopic view of epoxy resin composites surface after laser treatment showing preserved microstructure
     url: /images/epoxy-resin-composites-laser-cleaning-closeup.jpg
-technicalSpecifications:
-  powerRange: 20-100W
-  pulseDuration: 10-100ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  spotSize: 0.1-2.0mm
-  repetitionRate: 10-50kHz
-  fluenceRange: 0.5-5 J/cm²
-  safetyClass: Class 4 (requires full enclosure)
 regulatoryStandards:
 - code: "IEC 60825-1:2014"
   description: Safety of laser products - Equipment classification and requirements

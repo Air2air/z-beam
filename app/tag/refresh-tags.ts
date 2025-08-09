@@ -4,7 +4,7 @@ import { invalidateTagCache } from '../utils/tags';
 // Invalidate the cache
 invalidateTagCache()
   .then(() => {
-    console.log('Tag cache has been invalidated. Author names are now included as tags.');
+    // Tag cache has been invalidated
   })
   .catch(error => {
     console.error('Error invalidating tag cache:', error);
