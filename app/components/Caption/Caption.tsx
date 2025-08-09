@@ -3,7 +3,7 @@
 
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './styles.css';
 
 interface CaptionProps {
@@ -18,10 +18,64 @@ interface CaptionProps {
 export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
+  const captionTextRef = useRef<HTMLDivElement>(null);
   
   if (!content) return null;
   
   const { className = '' } = config || {};
+  
+  // Transform p tags to div tags after component mounts
+  useEffect(() => {
+    const transformParagraphs = () => {
+      if (captionTextRef.current) {
+        // First, make the MarkdownRenderer's wrapper div a flex container
+        const markdownDiv = captionTextRef.current.querySelector('div');
+        if (markdownDiv) {
+          markdownDiv.classList.add('flex', 'gap-8');
+        }
+
+        // Then transform p tags to div tags
+        const paragraphs = captionTextRef.current.querySelectorAll('p');
+        if (paragraphs.length > 0) {
+          paragraphs.forEach(p => {
+            const div = document.createElement('div');
+            div.innerHTML = p.innerHTML;
+            div.classList.add('flex-1'); // Make divs equal width
+            // Copy any attributes if needed
+            Array.from(p.attributes).forEach(attr => {
+              div.setAttribute(attr.name, attr.value);
+            });
+            p.parentNode?.replaceChild(div, p);
+          });
+        }
+      }
+    };
+
+    // Use MutationObserver to watch for when content is added
+    if (captionTextRef.current) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            setTimeout(transformParagraphs, 0);
+          }
+        });
+      });
+
+      observer.observe(captionTextRef.current, {
+        childList: true,
+        subtree: true
+      });
+
+      // Also try immediately and with a timeout
+      transformParagraphs();
+      const timeoutId = setTimeout(transformParagraphs, 10);
+
+      return () => {
+        observer.disconnect();
+        clearTimeout(timeoutId);
+      };
+    }
+  }, [content]);
   
   // Determine image source, prioritizing frontmatter
   let imageSource = image;
@@ -49,7 +103,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
           )}
           <Image
             src={imageSource}
-            alt="Detail closeup"
+            alt={frontmatter?.images?.closeup?.alt || frontmatter?.title || "Material detail closeup image"}
             width={800}
             height={450}
             className="caption-image"
@@ -75,7 +129,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
         </div>
       )}
       
-      <div className="caption-text p-8">
+      <div className="caption-text p-8" ref={captionTextRef}>
         <MarkdownRenderer 
           content={content}
         />
