@@ -28,19 +28,22 @@
 
 /* Individual property card styling */
 .properties-table .property-card {
-  padding: 1rem;
+  padding: 0 .5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
   min-width: 120px;
+  min-height: 70px;
   flex: 1;
   container-type: inline-size;
 }
 
 /* Property value styling */
 .properties-table .property-value,
-.properties-table h2.property-value {
-  font-size: clamp(0.75rem, 8cqw, 1.5rem);
+.properties-table h2.property-value,
+.properties-table h3.property-value {
+  font-size: clamp(0.875rem, 8cqw, 1.25rem);
   font-weight: 700;
   margin: 0 0 0.5rem 0;
   padding: 0;
@@ -49,12 +52,24 @@
   hyphens: auto;
 }
 
+/* Larger font size for md and above (768px+) */
+@media (min-width: 768px) {
+  .properties-table .property-value,
+  .properties-table h2.property-value,
+  .properties-table h3.property-value {
+    font-size: clamp(1.25rem, 8cqw, 2rem);
+  }
+}
+
 /* Property key styling */
 .properties-table .property-key {
   font-size: 0.75rem;
   opacity: 0.8;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  line-height: 1.1;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Property-specific colors */
