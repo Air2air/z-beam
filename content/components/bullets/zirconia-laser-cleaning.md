@@ -1,4 +1,4 @@
-* **Material Properties**: Zirconia (ZrO₂) is a high-performance ceramic with exceptional thermal stability, chemical resistance, and mechanical strength, making it ideal for laser cleaning applications where precision and non-contact processing are critical.
-* **Laser Parameters**: Optimal laser cleaning of zirconia typically employs a **pulsed fiber laser at 1064nm wavelength**, balancing energy absorption and minimal thermal damage to the substrate while effectively removing surface contaminants.
-* **Applications**: Widely used in **industrial settings** for **surface contamination removal**, **ceramic restoration**, and **thermal processing**, particularly in aerospace, medical devices, and electronics where contamination-free surfaces are essential.
-* **Benefits**: Laser cleaning offers **non-contact, selective material removal** with minimal substrate impact, preserving zirconia's structural integrity and eliminating the need for abrasive or chemical methods.
+• Power Range: 20-100W operating power with precise energy control for contamination removal without substrate damage
+• Material Density: 5.68-6.10 g/cm³ requiring optimized fluence parameters between 1.0-8.0 J/cm² for effective ablation
+• Aerospace Applications: Thermal barrier coating maintenance on turbine blades using 1064nm wavelength at 2.5-5.0 J/cm² fluence with 30-50ns pulse duration
+• Processing Efficiency: Achieves >99.5% contamination removal with throughput rates of 2-4 m²/hour while maintaining base material loss below 0.1μm depth

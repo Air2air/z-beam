@@ -1,1 +1,5 @@
+---
+# Content configuration
+---
+
 non-contact, automotive, metal, thermal, aerospace, fiber, cleaning, evelyn wu

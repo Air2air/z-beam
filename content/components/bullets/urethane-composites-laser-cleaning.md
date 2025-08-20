@@ -1,4 +1,8 @@
+---
+# Content configuration
+---
+
 * **Optimal Laser Parameters**: Urethane composites (UR) respond effectively to **1064nm pulsed fiber lasers**, balancing ablation efficiency with minimal thermal damage. Pulse duration and fluence must be tuned to avoid filler degradation while ensuring complete contamination removal.
-* **Non-Contact Cleaning Advantage**: Laser ablation offers **non-contact, precision cleaning** of urethane composites, preserving substrate integrity and eliminating mechanical wear or chemical residue risks associated with traditional methods.
-* **Industrial Applications**: Ideal for **surface restoration** in automotive, aerospace, and electronics, where urethane composites require contamination removal (e.g., oxides, adhesives) without altering underlying material properties.
-* **Thermal Sensitivity Management**: The **low thermal conductivity** of urethane composites necessitates controlled laser parameters to prevent excessive heat buildup, ensuring filler stability (e.g., glass/carbon) and avoiding matrix delamination.
+* **Non-Contact Precision Cleaning**: Laser ablation enables **selective removal of surface contaminants** (e.g., oxides, residues) without mechanical contact, preserving the composite’s structural integrity and filler distribution.
+* **Thermal Sensitivity Management**: The **(C₃H₇NO₂)ₙ + fillers** formulation requires controlled energy input to prevent excessive heat buildup, which can alter polymer chains or dislodge fillers. Short pulses and scanning strategies mitigate thermal risks.
+* **Industrial Applications**: Ideal for **surface restoration** in aerospace, automotive, and electronics, where urethane composites demand contamination-free surfaces for coatings or adhesives. Compatible with automated systems for high-throughput processing.

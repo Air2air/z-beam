@@ -1,66 +1,70 @@
 ---
 name: Epoxy Resin Composites
-applications:
+properties: 
+    density: 1.1–1.4 g/cm³
+    flexuralStrength: 70–150 MPa
+    glassTransitionTemperature: 120–250°C
+    thermalConductivity: 0.1–0.5 W/m·K
+    coefficientOfThermalExpansion: 50–80 × 10⁻⁶/°C
+    dielectricStrength: 15–25 kV/mm
+    waterAbsorption: "0.1–0.5% (24h immersion)"
+composition: 
+- component: Epoxy resin primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent
+  type: polymer
+  formula: C₂₁H₂₄O₄
+- component: "Hardener (amine-based)"
+- component: Glass fiber reinforcement primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent
+- component: Carbon fiber reinforcement primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent primary constituent
+applications: 
 - industry: Aerospace
-  useCase: "Removal of epoxy coatings from carbon fiber composites (measured ablation rate: 0.1–0.3 mm³/s)"
-  detail: Specific laser cleaning application
+  thicknessRange: 2–10 mm
+  removalRate: 0.5–2.0 cm²/min
 - industry: Electronics
-  useCase: "Delamination of epoxy encapsulants from PCBs (fluence: 1.2 J/cm², wavelength: 355 nm)"
-  detail: Specific laser cleaning application
+  tolerance: ±5 μm
 - industry: Automotive
-  useCase: "Cleaning of epoxy adhesives from metal joints (power: 50 W, pulse duration: 50 ns)"
-  detail: Specific laser cleaning application
-technicalSpecifications:
-  powerRange: 20-100W
-  pulseDuration: 10-100ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  spotSize: 0.1-2.0mm
-  repetitionRate: 10-50kHz
-  fluenceRange: 0.5–5 J/cm²
-  safetyClass: Class 4 (requires full enclosure)
-title: Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing
+compatibility: 
+- material: Carbon fiber
+- material: Aluminum substrates
+- material: Polyurethane coatings
+  environmentalImpact: 
+  VOCReduction: "95% compared to chemical stripping"
+  energyConsumption: 0.5–1.2 kWh/m² (vs 2.5 kWh/m² for thermal methods)
+technicalSpecifications: 
+    powerRange: 10–200 W (pulsed)
+    wavelength: "1064 nm (primary), 532 nm (surface cleaning), 355 nm (precision)"
+    spotSize: 50–500 μm
+    repetitionRate: 10–100 kHz
+    fluenceRange: 0.5–5.0 J/cm²
+    safetyClass: Class 4 (requires full enclosure)
+    laserType: 
+    "Q-switched Nd: YAG or fiber laser"
+    scanSpeed: 100–1000 mm/s
+    regulatoryStandards: 
+  - standard: "ISO 11357-3"
+    scope: Thermal analysis of epoxy composites
+- standard: ASTM D2584
+- standard: "EN 438-2"
+  outcomes: 
+  surfaceCleanliness: "≤5 μg/cm² residual contamination (ISO 8502-3)"
+  heatAffectedZone: "<50 μm depth"
+  adhesionImprovement: "200–300% increase in bond strength (ASTM D3164)"
+  title: "Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing"
 headline: Comprehensive technical guide for laser cleaning composite epoxy resin composites
-description: Technical overview of epoxy resin composites, for laser cleaning applications, and industrial applications.
-keywords:
-- epoxy resin composites
-- epoxy resin composites composite
+description: "Technical overview of epoxy resin composites, for laser cleaning applications, including 1.1–1.4 g/cm³ density, and industrial applications."
+keywords: - epoxy resin composites
 - laser ablation
 - laser cleaning
-- non-contact cleaning
+- "non-contact cleaning"
 - pulsed fiber laser
 - surface contamination removal
 - industrial laser parameters
 - thermal processing
 - surface restoration
-images:
-  hero:
+    images: 
     alt: Epoxy Resin Composites surface undergoing laser cleaning showing precise contamination removal
-    url: /images/epoxy-resin-composites-laser-cleaning-hero.jpg
-  closeup:
-    alt: Microscopic view of epoxy resin composites surface after laser treatment showing preserved microstructure
-    url: /images/epoxy-resin-composites-laser-cleaning-closeup.jpg
-regulatoryStandards:
-- code: "IEC 60825-1:2014"
-  description: Safety of laser products - Equipment classification and requirements
-- code: "ISO 11146:2021"
-  description: Lasers and laser-related equipment - Test methods for laser beam widths
-- code: "EN 15898:2019"
-  description: Conservation of cultural property - Main general terms and definitions
-environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Eliminates 100% of solvent use compared to traditional cleaning methods, preventing ~200L/year of hazardous waste in medium-scale operations.
-- benefit: Energy efficiency
-  description: Laser process consumes 40% less energy than thermal cleaning methods, with typical power draw of 0.5-2.5 kWh/m² treated surface.
-- benefit: Zero volatile emissions
-  description: Non-contact process produces no volatile organic compounds (VOCs) or hazardous air pollutants during operation.
-outcomes:
-- result: Surface cleanliness
-  metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508)
-- result: Substrate preservation
-  metric: < 0.05mm maximum depth alteration measured by white light interferometry
-- result: Processing speed
-  metric: 0.5-2.0 m²/hour coverage rate at 50W power
-subject: Epoxy Resin Composites
-article_type: material
+    url: "/images/epoxy-resin-composites-laser-cleaning-hero.jpg"
+    closeup: 
+    subject: Epoxy Resin Composites
+    article_type: material
 category: composite
 ---

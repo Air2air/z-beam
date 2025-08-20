@@ -5,7 +5,8 @@
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import { logger, safeContentOperation } from './logger';
+import { safeMatterParse } from './yamlSanitizer';
 
 // Export the interface for the Article
 export interface Article {
@@ -53,7 +54,7 @@ export interface Article {
 }
 
 export async function getAllArticleSlugs(): Promise<string[]> {
-  try {
+  return safeContentOperation(async () => {
     // Get slugs from any component directory (metatags, content, etc.)
     const metatagsDir = path.join(process.cwd(), 'content', 'components', 'metatags');
     const contentDir = path.join(process.cwd(), 'content', 'components', 'content');
@@ -62,7 +63,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
     let slugs: string[] = [];
     
     // Check metatags directory first
-    if (existsSync(metatagsDir)) { // Use the imported existsSync
+    if (existsSync(metatagsDir)) {
       const metaFiles = await fs.readdir(metatagsDir);
       const metaSlugs = metaFiles
         .filter(file => file.endsWith('.md'))
@@ -71,7 +72,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
     }
     
     // Then check content directory
-    if (existsSync(contentDir)) { // Use the imported existsSync
+    if (existsSync(contentDir)) {
       const contentFiles = await fs.readdir(contentDir);
       const contentSlugs = contentFiles
         .filter(file => file.endsWith('.md'))
@@ -86,7 +87,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
     }
     
     // Finally check frontmatter directory
-    if (existsSync(frontmatterDir)) { // Use the imported existsSync
+    if (existsSync(frontmatterDir)) {
       const frontmatterFiles = await fs.readdir(frontmatterDir);
       const frontmatterSlugs = frontmatterFiles
         .filter(file => file.endsWith('.md'))
@@ -101,10 +102,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
     }
     
     return slugs;
-  } catch (error) {
-    console.error('Error getting article slugs:', error);
-    return [];
-  }
+  }, [], 'getAllArticleSlugs');
 }
 
 export async function getAllArticles(): Promise<Article[]> {
@@ -125,9 +123,9 @@ export async function getAllArticles(): Promise<Article[]> {
       const filePath = path.join(dir, `${slug}.md`);
       
       try {
-        if (existsSync(filePath)) { // Use the imported existsSync
+        if (existsSync(filePath)) {
           const fileContents = await fs.readFile(filePath, 'utf8');
-          const { data } = matter(fileContents);
+          const { data } = safeMatterParse(fileContents);
           
           articleData = {
             slug,
@@ -174,7 +172,7 @@ export async function getAllArticles(): Promise<Article[]> {
           break;
         }
       } catch (error) {
-        console.error(`Error loading article for ${slug} in ${dir}:`, error);
+        logger.error(`Error loading article for ${slug} in ${dir}`, error, { slug, dir });
       }
     }
     
@@ -198,9 +196,9 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     const filePath = path.join(dir, `${slug}.md`);
     
     try {
-      if (existsSync(filePath)) { // Use the imported existsSync
+      if (existsSync(filePath)) {
         const fileContents = await fs.readFile(filePath, 'utf8');
-        const { data } = matter(fileContents);
+        const { data } = safeMatterParse(fileContents);
         
         const articleData: Article = {
           slug,
@@ -236,7 +234,7 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
         return articleData;
       }
     } catch (error) {
-      console.error(`Error loading article for ${slug} in ${dir}:`, error);
+      logger.error(`Error loading article for ${slug} in ${dir}`, error, { slug, dir });
     }
   }
   

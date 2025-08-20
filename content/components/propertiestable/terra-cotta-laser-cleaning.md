@@ -1,6 +1,10 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | N/A |
-| Compressive Strength | High |
 | Material Symbol | N/A |
-| Category | Masonry |
+| Material Type | N/A |
+| Structure Type | Pure element |

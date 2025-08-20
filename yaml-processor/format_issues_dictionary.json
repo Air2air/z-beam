@@ -1,0 +1,94 @@
+{
+  "version": "2.1.0",
+  "last_updated": "2025-08-20T15:29:32.658877",
+  "format_issues": {
+    "encoding_issues": {
+      "patterns": [
+        "\\\\xB7",
+        "\\\\xB2",
+        "\\\\xB3",
+        "\\\\x[0-9A-Fa-f]{2}"
+      ],
+      "fixes": {
+        "\\xB7": "·",
+        "\\xB2": "²",
+        "\\xB3": "³"
+      },
+      "description": "Special character encoding issues in chemical formulas"
+    },
+    "indentation_issues": {
+      "patterns": [
+        "^(\\s*)- \\w+:.*\\n(\\s+)\\w+:",
+        "^(\\s*)\\w+:\\s*\\n(\\s*)\\w+:"
+      ],
+      "description": "Bad indentation in list items and nested properties"
+    },
+    "incomplete_entries": {
+      "patterns": [
+        "- name:\\s*$",
+        "- property:\\s*$",
+        "content:\\s*$",
+        "^\\s*\\w+:\\s*$",
+        "^\\s*\\w+:\\s*\".*\"$"
+      ],
+      "description": "Missing values for meta tags, properties, and content fields"
+    },
+    "malformed_structures": {
+      "patterns": [
+        ".*\"[^\"]*\"[^\"]*\"[^\"]*\".*",
+        "formula:\"\".*\"\"",
+        ".*percentage.*component.*",
+        ".*'}].*",
+        ".*'].*"
+      ],
+      "description": "Corrupted or truncated content lines"
+    },
+    "property_declaration_issues": {
+      "patterns": [
+        "^(\\s*)properties:\\s*$",
+        "^(\\s*)chemicalProperties:\\s*$",
+        "^(\\s*)compatibility:\\s*$",
+        "^\\s*(\\w+):.*\\n.*^\\s*\\1:"
+      ],
+      "description": "Property declarations without proper nested content"
+    },
+    "list_structure_issues": {
+      "patterns": [
+        "^(\\s*)- \\w+:\\s*\\n(\\s{4,})\\w+:",
+        "compatibility:\\s*\\[\\]"
+      ],
+      "description": "Improperly structured lists and arrays"
+    }
+  },
+  "discovered_patterns": {
+    "encoding_issues": [],
+    "indentation_issues": [],
+    "incomplete_entries": [
+      "^\\s*\\w+:\\s*\".*\"$"
+    ],
+    "malformed_structures": [],
+    "property_declaration_issues": [
+      "^\\s*(\\w+):.*\\n.*^\\s*\\1:"
+    ],
+    "list_structure_issues": []
+  },
+  "total_patterns": 13,
+  "statistics": {
+    "patterns_by_category": {
+      "encoding_issues": 4,
+      "indentation_issues": 2,
+      "incomplete_entries": 5,
+      "malformed_structures": 5,
+      "property_declaration_issues": 4,
+      "list_structure_issues": 2
+    },
+    "newly_discovered": {
+      "encoding_issues": 0,
+      "indentation_issues": 0,
+      "incomplete_entries": 1,
+      "malformed_structures": 0,
+      "property_declaration_issues": 1,
+      "list_structure_issues": 0
+    }
+  }
+}

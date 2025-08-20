@@ -1,4 +1,405 @@
-* **Optimal Wavelength for Laser Cleaning**: Aluminum (Al) responds effectively to a **1064nm pulsed fiber laser**, which minimizes thermal damage while efficiently removing oxides, paints, and contaminants due to its high absorption at this wavelength.
-* **Non-Contact Precision Cleaning**: Laser cleaning offers **non-contact, selective material removal**, preserving the base aluminum substrate without mechanical abrasion or chemical residues, ideal for delicate or precision components.
-* **Industrial Applications**: Suitable for **surface restoration**, **pre-weld/pre-paint preparation**, and **contaminant removal** in aerospace, automotive, and electronics industries, where aluminum's lightweight and corrosion-resistant properties are critical.
-* **Thermal Sensitivity Considerations**: Aluminum's high thermal conductivity requires **pulsed laser parameters** to avoid excessive heat buildup, ensuring controlled ablation and preventing surface deformation or melting.
+---
+# Content configuration
+---
+
+# Aluminum Key Points
+
+- •
+-  
+- M
+- a
+- t
+- e
+- r
+- i
+- a
+- l
+-  
+- P
+- r
+- o
+- p
+- e
+- r
+- t
+- i
+- e
+- s
+- :
+-  
+- D
+- e
+- n
+- s
+- i
+- t
+- y
+-  
+- o
+- f
+-  
+- 2
+- .
+- 7
+- 0
+- g
+- /
+- c
+- m
+- ³
+-  
+- w
+- i
+- t
+- h
+-  
+- t
+- h
+- e
+- r
+- m
+- a
+- l
+-  
+- c
+- o
+- n
+- d
+- u
+- c
+- t
+- i
+- v
+- i
+- t
+- y
+-  
+- o
+- f
+-  
+- 2
+- 3
+- 7
+-  
+- W
+- /
+- m
+- ·
+- K
+- 
+
+- •
+-  
+- L
+- a
+- s
+- e
+- r
+-  
+- P
+- a
+- r
+- a
+- m
+- e
+- t
+- e
+- r
+- s
+- :
+-  
+- O
+- p
+- t
+- i
+- m
+- a
+- l
+-  
+- c
+- l
+- e
+- a
+- n
+- i
+- n
+- g
+-  
+- a
+- t
+-  
+- 1
+- 0
+- 6
+- 4
+- n
+- m
+-  
+- w
+- a
+- v
+- e
+- l
+- e
+- n
+- g
+- t
+- h
+-  
+- w
+- i
+- t
+- h
+-  
+- f
+- l
+- u
+- e
+- n
+- c
+- e
+-  
+- r
+- a
+- n
+- g
+- e
+-  
+- o
+- f
+-  
+- 1
+- .
+- 5
+- -
+- 5
+- .
+- 0
+-  
+- J
+- /
+- c
+- m
+- ²
+- 
+
+- •
+-  
+- A
+- e
+- r
+- o
+- s
+- p
+- a
+- c
+- e
+-  
+- A
+- p
+- p
+- l
+- i
+- c
+- a
+- t
+- i
+- o
+- n
+- :
+-  
+- O
+- x
+- i
+- d
+- e
+-  
+- l
+- a
+- y
+- e
+- r
+-  
+- r
+- e
+- m
+- o
+- v
+- a
+- l
+-  
+- u
+- s
+- i
+- n
+- g
+-  
+- p
+- u
+- l
+- s
+- e
+- d
+-  
+- f
+- i
+- b
+- e
+- r
+-  
+- l
+- a
+- s
+- e
+- r
+- s
+-  
+- a
+- t
+-  
+- 3
+- 0
+- k
+- H
+- z
+-  
+- r
+- e
+- p
+- e
+- t
+- i
+- t
+- i
+- o
+- n
+-  
+- r
+- a
+- t
+- e
+-  
+- a
+- n
+- d
+-  
+- s
+- p
+- o
+- t
+-  
+- s
+- i
+- z
+- e
+-  
+- o
+- f
+-  
+- 1
+- .
+- 2
+- m
+- m
+- 
+
+- •
+-  
+- P
+- e
+- r
+- f
+- o
+- r
+- m
+- a
+- n
+- c
+- e
+-  
+- M
+- e
+- t
+- r
+- i
+- c
+- :
+-  
+- A
+- c
+- h
+- i
+- e
+- v
+- e
+- s
+-  
+- s
+- u
+- r
+- f
+- a
+- c
+- e
+-  
+- c
+- l
+- e
+- a
+- n
+- l
+- i
+- n
+- e
+- s
+- s
+-  
+- o
+- f
+-  
+- ≤
+- 5
+- 0
+- m
+- g
+- /
+- m
+- ²
+-  
+- r
+- e
+- s
+- i
+- d
+- u
+- e
+-  
+- p
+- e
+- r
+-  
+- S
+- A
+- E
+-  
+- A
+- M
+- S
+- -
+- S
+- T
+- D
+- -
+- 5
+- 9
+- 5
+-  
+- s
+- t
+- a
+- n
+- d
+- a
+- r
+- d
+- s

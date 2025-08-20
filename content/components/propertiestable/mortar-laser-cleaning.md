@@ -1,6 +1,10 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | Ca(OH)₂ + SiO₂ + CaCO₃ |
-| Compressive Strength | High |
 | Material Symbol | Mo |
-| Category | Masonry |
+| Material Type | Masonry |
+| Structure Type | Composite |

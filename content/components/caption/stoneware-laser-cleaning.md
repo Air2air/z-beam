@@ -1,3 +1,3 @@
-**Stoneware**4) surface (left) before cleaning, showing oxide layers and organic residues.
+[Material] surface before laser cleaning shows [contamination type] (left).
 
-**After laser cleaning** (right) After laser cleaning at 1064 nm, 50 w, 100 ns pulse duration, and 500 µm spot size, showing contaminant removal and restored surface integrity ].
+**After laser cleaning** (right) After treatment with 1064nm laser at [fluence], [pulse duration] pulses, and [spot size] spot size (right), showing [result description].

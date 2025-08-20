@@ -1,4 +1,8 @@
-* **High Thermal Resistance**: Borosilicate glass (SiO₂·B₂O₃·Na₂O·Al₂O₃) exhibits low thermal expansion, making it ideal for laser cleaning processes where controlled heat input (e.g., 1064nm wavelength) is critical to avoid thermal stress or cracking.
-* **Chemical Durability**: Resistant to acids, alkalis, and solvents, enabling aggressive laser ablation (e.g., pulsed fiber lasers) for removing surface contaminants without compromising material integrity.
-* **Non-Contact Precision Cleaning**: Suitable for laser ablation techniques that require minimal mechanical interaction, preserving optical clarity and surface smoothness in industrial applications like optics or semiconductor components.
-* **Optimized Laser Parameters**: Requires tailored laser settings (e.g., pulse duration, fluence) due to its composite structure, ensuring efficient contamination removal (e.g., oxides, organic residues) while avoiding subsurface damage.
+---
+# Content configuration
+---
+
+* **High Thermal Resistance**: Borosilicate glass (SiO₂·B₂O₃·Na₂O·Al₂O₃) exhibits exceptional thermal stability, making it suitable for laser cleaning processes where controlled heat dissipation is critical to prevent cracking or deformation.
+* **Optimal Laser Wavelength Compatibility**: Effective laser cleaning at **1064nm** (pulsed fiber laser) due to borosilicate's low absorption at near-IR wavelengths, enabling precise contamination removal without substrate damage.
+* **Non-Contact Cleaning Advantage**: Ideal for delicate surface restoration, as laser ablation removes contaminants (oxides, particulates) without mechanical contact, preserving the glass's optical and structural integrity.
+* **Industrial Applications**: Widely used in precision optics, laboratory equipment, and semiconductor manufacturing, where residue-free, high-purity surfaces are essential for performance and longevity.

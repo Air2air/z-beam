@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | Cu₁₋ₓZnₓ |

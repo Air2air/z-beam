@@ -2,7 +2,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { getArticleBySlug } from "../../utils/contentAPI";
+import { Article } from "../../types/Article";
+import { Card } from "../Card/Card";
+import { logger } from "../../utils/logger";
 
 type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
 
@@ -50,7 +54,7 @@ export function Thumbnail({
           }
         })
         .catch(error => {
-          console.error("Error fetching thumbnail data:", error);
+          logger.error("Error fetching thumbnail data", error, { slug });
           setImageUrl("");
         })
         .finally(() => {

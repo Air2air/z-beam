@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Phenolic Resin Composites - Technical Guide for Optimal Processing  
 
 ## Introduction  

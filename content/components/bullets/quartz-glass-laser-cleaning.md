@@ -1,4 +1,8 @@
-* **High Transparency to Laser Wavelengths**: Quartz glass exhibits exceptional transparency to 1064nm laser wavelengths, making it ideal for laser cleaning applications where precise energy absorption and minimal substrate damage are critical.
-* **Thermal Stability and Low Thermal Expansion**: With superior thermal resistance and low thermal expansion, quartz glass withstands high-intensity pulsed fiber laser cleaning without cracking or deformation, ensuring consistent surface restoration.
-* **Non-Contact Cleaning Efficiency**: Laser ablation on quartz glass enables non-contact removal of surface contaminants (e.g., oxides, organic residues) without mechanical stress, preserving the material’s optical and structural integrity.
-* **Industrial Application Versatility**: Suitable for high-precision industries (semiconductors, optics, aerospace), quartz glass laser cleaning operates at optimized industrial laser parameters (pulse duration, fluence) for contamination-free, high-throughput processing.
+---
+# Content configuration
+---
+
+* **High Thermal Resistance & Optical Clarity**: Quartz glass excels in laser cleaning due to its exceptional thermal stability (up to ~1200°C) and high transmittance (≥90%) at 1064nm, minimizing thermal distortion and enabling efficient laser energy delivery for precise ablation of contaminants.
+* **Non-Contact Precision Cleaning**: Ideal for pulsed fiber laser systems (e.g., 1064nm wavelength), quartz glass allows non-contact removal of surface contaminants (oxides, particles) without mechanical stress, preserving substrate integrity in sensitive applications like optics or semiconductors.
+* **Low Thermal Expansion & Chemical Inertness**: Near-zero thermal expansion (0.55 × 10⁻⁶/K) ensures dimensional stability during laser cleaning, while chemical inertness prevents reactions with contaminants or cleaning byproducts, maintaining surface purity.
+* **Industrial Applications**: Widely used in high-precision industries (semiconductor, aerospace) for restoring optical components, removing coatings, or decontaminating quartz-based equipment, with optimized laser parameters (pulse duration, fluence) to avoid micro-cracking or subsurface damage.

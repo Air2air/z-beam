@@ -1,3 +1,6 @@
-**Porcelain (Al₂O₃·2SiO₂·2H₂O)** surface (left) before cleaning, showing organic residues and oxide layers.
+---
+# Content configuration
+---
 
-**After laser cleaning** (right) at 1064 nm, 50 w, 100 ns pulse duration, 500 µm spot size, showing contaminant removal with substrate preservation.
+**Porcelain surface before laser cleaning shows atmospheric soiling and oxidation layers (left).**
+**After laser cleaning** (right) After treatment with 1064nm laser at 2.5 J/cm², 30ns pulses, and 0.8mm spot size (right), showing complete contaminant removal with intact glaze surface.

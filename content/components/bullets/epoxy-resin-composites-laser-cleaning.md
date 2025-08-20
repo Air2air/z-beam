@@ -1,4 +1,8 @@
-* **Optimal Laser Parameters**: Epoxy resin composites (C₂₁H₂₄O₄ + fillers) respond effectively to pulsed fiber lasers at **1064nm wavelength**, balancing ablation efficiency with minimal thermal damage to the substrate. Pulse duration and fluence must be calibrated to avoid excessive charring or filler degradation.
-* **Non-Contact Cleaning Advantage**: Laser ablation removes surface contaminants (e.g., oxides, adhesives) without mechanical contact, preserving the composite’s structural integrity. Ideal for delicate or intricate geometries where traditional methods risk damage.
-* **Thermal Sensitivity Management**: Epoxy’s low thermal conductivity requires precise energy control to prevent matrix cracking or filler disbondment. Short pulses (nanosecond range) and controlled repetition rates mitigate heat accumulation.
-* **Industrial Applications**: Widely used in aerospace, automotive, and electronics for restoring epoxy-based components (e.g., circuit boards, composite panels). Laser cleaning ensures selective contamination removal without chemical residues or secondary waste.
+---
+# Content configuration
+---
+
+* **Optimal Laser Parameters**: Epoxy resin composites (C₂₁H₂₄O₄ + fillers) respond best to **1064nm pulsed fiber lasers**, balancing ablation efficiency and minimal thermal damage. Pulse duration and fluence must be tuned to avoid matrix degradation while removing surface contaminants.
+* **Non-Contact Precision Cleaning**: Laser cleaning excels for **non-contact removal of oxides, coatings, and adhesives** from epoxy composites, preserving substrate integrity without mechanical abrasion or chemical residues.
+* **Thermal Sensitivity Management**: The composite’s **low thermal conductivity** requires controlled energy input to prevent delamination or filler damage. Short pulses and high repetition rates mitigate heat accumulation.
+* **Industrial Applications**: Ideal for **aerospace, automotive, and electronics** where precision cleaning of epoxy-based components (e.g., circuit boards, structural parts) is critical for surface restoration and adhesion prep.

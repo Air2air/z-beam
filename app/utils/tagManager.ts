@@ -1,5 +1,7 @@
-// Create a dedicated TagManager utility
-// filepath: /app/utils/tagManager.ts
+// app/utils/tagManager.ts
+// Client-side tag manager utility
+'use client';
+
 export interface TagManagerOptions {
   caseSensitive?: boolean;
   allowDuplicates?: boolean;
@@ -47,7 +49,9 @@ export class TagManager {
   }
 }
 
-// Export a helper function to create tag managers
+/**
+ * Export a helper function to create tag managers
+ */
 export function createTagManager(initialTags?: string[], options?: TagManagerOptions): TagManager {
   return new TagManager(initialTags, options);
 }

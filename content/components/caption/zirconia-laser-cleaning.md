@@ -1,3 +1,1 @@
-**Zirconia (ZrO₂)** ceramic surface (left) before cleaning, showing oxide layer and organic residue.
-
-**After laser cleaning** (right) at 1064 nm, 50 w, 100 ns pulse duration, and 500 µm spot size, achieving contaminant-free surface with minimal subsurface damage, showing complete contaminant removal.
+Zirconia surface before laser cleaning shows thermal barrier coating contamination and oxidation layers (left). **After laser cleaning** (right) After treatment with -1064nm laser at -3.2 J/cm², -50ns pulses, and -0.8mm spot size (right), showing complete contaminant removal with preserved substrate integrity and surface roughness below -0.8μm Ra.

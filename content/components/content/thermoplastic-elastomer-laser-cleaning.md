@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Thermoplastic Elastomer - Technical Guide for Optimal Processing  
 
 ## Introduction  

@@ -1,6 +1,6 @@
 // app/api/articles/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { getArticle } from '@/app/utils/contentIntegrator';
+import { getArticle } from '@/app/utils/contentAPI'; // Updated to use contentAPI
 
 export async function GET(
   request: NextRequest,

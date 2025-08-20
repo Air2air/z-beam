@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Rubber - Technical Guide for Optimal Processing  
 
 ## Introduction  

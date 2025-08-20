@@ -7,7 +7,8 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { cache } from 'react';
 import { Article } from '../types/Article';
-import { getAllArticles } from './contentUtils';
+import { loadAllArticles } from './contentAPI';
+import { logger } from './logger';
 
 // Constants
 const TAGS_DIRECTORY = path.join(process.cwd(), 'content', 'components', 'tags');
@@ -128,7 +129,7 @@ async function initializeTagCache() {
   }
   
   // Get all articles
-  const articles = await getAllArticles();
+  const articles = await loadAllArticles();
   
   // Get all unique tags from tag files
   const tagFiles = await getAllTagFiles();
@@ -224,7 +225,7 @@ export const getAllUniqueTags = getAllTags;
  */
 export const getArticlesWithTags = cache(async (): Promise<Article[]> => {
   // Get all articles
-  const articles = await getAllArticles();
+  const articles = await loadAllArticles();
   await initializeTagCache();
   
   // Add tags to each article
@@ -288,4 +289,83 @@ export async function filterArticlesByTag(articles: Article[], tag: string): Pro
  */
 export async function invalidateTagCache(): Promise<void> {
   _tagsCache = null;
+}
+
+// ===============================
+// POPULAR TAGS FUNCTIONALITY
+// ===============================
+
+/**
+ * Get popular tags by usage count
+ */
+export const getPopularTags = cache(async (limit: number = 10): Promise<string[]> => {
+  const allTagsWithCounts = await getTagsWithCounts();
+  
+  // Convert to array of [tag, count] pairs
+  const tagCountPairs = Object.entries(allTagsWithCounts);
+  
+  // Sort by count (descending)
+  tagCountPairs.sort((a, b) => b[1] - a[1]);
+  
+  // Return the top tags (limit)
+  return tagCountPairs.slice(0, limit).map(pair => pair[0]);
+});
+
+// ===============================
+// BACKWARD COMPATIBILITY
+// ===============================
+
+// DEPRECATED aliases with warnings - these should be avoided in new code
+export const getAllTags_DEPRECATED = cache(async () => {
+  logger.warn('getAllTags_DEPRECATED is deprecated. Use getAllTags instead.');
+  return await getAllTags();
+});
+
+export const getAllTagsWithCounts_DEPRECATED = cache(async () => {
+  logger.warn('getAllTagsWithCounts_DEPRECATED is deprecated. Use getTagsWithCounts instead.');
+  return await getTagsWithCounts();
+});
+
+export const filterArticlesByTag_DEPRECATED = async (
+  articles: Article[], 
+  tag: string
+): Promise<Article[]> => {
+  logger.warn('filterArticlesByTag_DEPRECATED is deprecated. Use filterArticlesByTag instead.');
+  return await filterArticlesByTag(articles, tag);
+};
+
+export const getArticlesWithTags_DEPRECATED = cache(async (): Promise<Article[]> => {
+  logger.warn('getArticlesWithTags_DEPRECATED is deprecated. Use getEnrichedArticles instead.');
+  return await getEnrichedArticles();
+});
+
+export const getPopularTags_DEPRECATED = cache(async (limit: number = 10): Promise<string[]> => {
+  logger.warn('getPopularTags_DEPRECATED is deprecated. Use getPopularTags instead.');
+  return await getPopularTags(limit);
+});
+
+/**
+ * A helper function to log the migration guide
+ */
+export async function logTagMigrationGuide(): Promise<void> {
+  const migrationGuide = `
+MIGRATION GUIDE: Tag System Update
+
+The tag system has been updated to a more efficient implementation.
+All tag-related functionality is now centralized in the ./tags.ts file.
+
+Please update your imports to use the new tag system:
+
+OLD:
+import { getAllTags } from '../utils/tagUtils';
+import { filterArticlesByTag } from '../utils/articleTagsUtils';
+
+NEW:
+import { getAllTags, filterArticlesByTag } from '../utils/tags';
+
+For backward compatibility, you can also import from tagIntegration.ts:
+import { getAllTags, filterArticlesByTag } from '../utils/tagIntegration';
+`;
+  
+  logger.warn(migrationGuide);
 }

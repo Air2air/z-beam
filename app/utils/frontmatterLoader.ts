@@ -1,7 +1,8 @@
 // app/utils/frontmatterLoader.ts
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import { safeMatterParse } from './yamlSanitizer';
+import { logger } from './logger';
 
 export async function loadFrontmatterData(slug: string): Promise<any> {
   try {
@@ -21,7 +22,7 @@ export async function loadFrontmatterData(slug: string): Promise<any> {
     
     // Simple approach: Try to parse with gray-matter
     try {
-      const { data } = matter(fileContent);
+      const { data } = safeMatterParse(fileContent);
       
       // Direct regex extraction for images even if gray-matter worked
       const heroImageMatch = fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/);
@@ -55,7 +56,7 @@ export async function loadFrontmatterData(slug: string): Promise<any> {
       return result;
     }
   } catch (error) {
-    console.error(`Error loading frontmatter for ${slug}:`, error);
+    logger.error(`Error loading frontmatter for ${slug}`, error, { slug });
     return null;
   }
 }

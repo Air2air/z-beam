@@ -1,14 +1,17 @@
-| **Application**          | **Quantifiable Benefit**                              |  
-|--------------------------|-------------------------------------------------------|  
-| Automotive seals         | 50% weight reduction vs. rubber, 30% cost savings     |  
-| Medical tubing          | USP Class VI compliant, <0.1% extractables            |  
-| Consumer electronics    | V-0 flame rating (UL 94), 10^8 flex cycles endurance  |  
-| Industrial hoses        | 3x longer lifespan vs. PVC at 80°C                    |  
+---
+# Content configuration
+---
 
-
-| **Material**  | **Adhesion Compatibility** | **Chemical Resistance** |  
-|---------------|----------------------------|-------------------------|  
-| Polypropylene | Excellent (mechanical bond)| Resistant to acids      |  
-| ABS           | Good (with primer)         | Poor to ketones         |  
-| Metals        | Fair (requires adhesive)   | Resistant to alkalis    |  
+| Property | Value Range/Description |
+|----------|-------------------------|
+| Hardness (Shore A) | 30A - 95A |
+| Hardness (Shore D) | 30D - 60D |
+| Tensile Strength | 5 - 50 MPa |
+| Elongation at Break | 100% - 1000% |
+| Tear Strength | 20 - 100 kN/m |
+| Density | 0.9 - 1.3 g/cm³ |
+| Melting Point | 120°C - 250°C |
+| Service Temperature Range | -60°C to +135°C |
+| Thermal Conductivity | 0.15 - 0.3 W/m·K |
+| Dielectric Strength | 15 - 30 kV/mm |
 

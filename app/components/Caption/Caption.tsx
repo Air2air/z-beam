@@ -6,10 +6,21 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import './styles.css';
 
+interface FrontmatterType {
+  images?: {
+    closeup?: {
+      url?: string;
+      alt?: string;
+    };
+  };
+  title?: string;
+  [key: string]: unknown;
+}
+
 interface CaptionProps {
   content: string;
   image?: string;
-  frontmatter?: any; // Frontmatter contains all image path information
+  frontmatter?: FrontmatterType; // Frontmatter contains all image path information
   config?: {
     className?: string;
   };
@@ -19,10 +30,6 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
   const captionTextRef = useRef<HTMLDivElement>(null);
-  
-  if (!content) return null;
-  
-  const { className = '' } = config || {};
   
   // Transform p tags to div tags after component mounts
   useEffect(() => {
@@ -76,6 +83,10 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       };
     }
   }, [content]);
+  
+  if (!content) return null;
+  
+  const { className = '' } = config || {};
   
   // Determine image source, prioritizing frontmatter
   let imageSource = image;

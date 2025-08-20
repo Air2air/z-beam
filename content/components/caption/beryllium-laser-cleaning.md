@@ -1,3 +1,7 @@
-beryllium (be)] sem surface (left) before cleaning, showing oxide layers and particulate contaminants.
+---
+# Content configuration
+---
 
-**After laser cleaning** (right) at 1064 nm, 50 w, 10 ns pulse duration, 500 µm spot size showing contaminant removal with minimal substrate damage.
+Beryllium surface before laser cleaning shows oxide layer contamination (left).
+
+**After laser cleaning** (right) After treatment with 1064 nm laser at 5 j/cm², 20 ns pulses, and 500 µm spot size (right), showing complete contaminant removal.

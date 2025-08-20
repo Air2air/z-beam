@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | SiO₂·B₂O₃·Na₂O·Al₂O₃ |

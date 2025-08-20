@@ -1,4 +1,5 @@
-* **High Thermal Conductivity & Low Density**: Beryllium (Be) exhibits exceptional thermal conductivity (200 W/m·K) and low density (1.85 g/cm³), making it ideal for laser cleaning applications where heat dissipation and lightweight properties are critical, such as aerospace and nuclear components.
-* **Optimal Laser Parameters**: Pulsed fiber lasers (e.g., 1064 nm wavelength) are recommended for beryllium ablation, with precise control over pulse duration (10–100 ns) and fluence (1–5 J/cm²) to minimize thermal damage and ensure effective removal of surface oxides or contaminants.
-* **Non-Contact Precision Cleaning**: Laser cleaning of beryllium eliminates mechanical contact, reducing the risk of surface deformation or particle generation, which is crucial for high-purity applications like X-ray windows or satellite optics.
-* **Safety & Hazard Mitigation**: Due to beryllium’s toxicity (inhalation risks), laser cleaning must incorporate enclosed systems with HEPA filtration to capture airborne particulates, ensuring compliance with OSHA and industrial safety standards.
+---
+# Content configuration
+---
+
+Beryllium's high thermal conductivity (200 W/m·K) makes it suitable for precision laser cleaning applications. Laser parameters typically range from 1064 nm wavelength, 10-100 ns pulse duration, and 1-10 J/cm² fluence. Strict OSHA exposure limits (0.2 µg/m³) mandate enclosed cleaning systems with HEPA filtration. Beryllium oxide layer removal requires precise control to prevent substrate damage while achieving 99.9% surface purity.

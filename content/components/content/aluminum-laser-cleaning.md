@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Aluminum - Technical Guide for Optimal Processing  
 
 ## Introduction  

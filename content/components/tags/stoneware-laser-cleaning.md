@@ -1,1 +1,1 @@
-ceramic, restoration, thermal, fiber, non-contact, stoneware, ablation, evelyn wu
+stoneware, ceramic-material, laser-cleaning, cultural-heritage, industrial-manufacturing, surface-treatment, non-abrasive-processing

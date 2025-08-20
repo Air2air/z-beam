@@ -1,9 +1,8 @@
 // app/components/Tags/Tags.tsx
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 interface TagsProps {
   content: string; // The raw content from the tags markdown file
@@ -17,15 +16,14 @@ interface TagsProps {
     onClick?: (tag: string) => void; // Alternative to links - for in-page filtering
     hideEmptyTags?: boolean; // Whether to hide tags with no matching articles
     articleMatchCount?: Record<string, number>; // Counts of articles matching each tag
-    [key: string]: any;
+    [key: string]: unknown;
   };
 }
 
 export function Tags({ content, config }: TagsProps) {
-  if (!content) return null;
-  
   const router = useRouter();
-  const pathname = usePathname();
+  
+  if (!content) return null;
   
   const { 
     className = "my-6", 

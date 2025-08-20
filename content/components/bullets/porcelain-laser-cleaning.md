@@ -1,4 +1,8 @@
-* **Material Composition & Properties**: Porcelain (Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈) is a high-density ceramic with a complex composite structure, offering excellent thermal and chemical resistance, making it ideal for laser cleaning without thermal degradation.
-* **Optimal Laser Parameters**: A pulsed fiber laser at **1064nm wavelength** is recommended for porcelain cleaning, providing precise ablation of surface contaminants (e.g., oxides, soot) while minimizing heat-affected zones due to its non-contact nature.
-* **Key Applications**: Laser cleaning is highly effective for **surface restoration** of porcelain in industrial settings, including heritage ceramic restoration, removal of industrial deposits, and pre-treatment for coatings or adhesives.
-* **Benefits Over Traditional Methods**: Non-abrasive and **selective contamination removal** without damaging the porcelain substrate, ensuring high precision and eliminating chemical waste associated with conventional cleaning techniques.
+---
+# Content configuration
+---
+
+• Material Properties: Density range of 2.3-2.5 g/cm³ with thermal conductivity of 1.05 W/m·K
+• Laser Parameters: Optimal processing at 1064nm wavelength with fluence range of 0.8–8 J/cm² and spot sizes from 0.2-1.5mm
+• Industrial Application: Cleaning high-voltage porcelain insulators using 532nm wavelength at 2.5 J/cm² with >95% contamination removal efficiency
+• Performance Metric: Achieves cleaning rates of 0.5-2 m²/hour while maintaining dielectric strength within ±3% of original values

@@ -1,4 +1,4 @@
-* **Material Composition & Properties**: Stoneware (SW) is a ceramic composite (SiO₂·Al₂O₃·MgO·K₂O) with high thermal stability and mechanical strength, making it suitable for laser cleaning without structural degradation. Its refractory nature requires precise laser parameter control to avoid thermal stress or microcracking.
-* **Optimal Laser Parameters**: A pulsed fiber laser at **1064nm wavelength** is ideal for stoneware cleaning, balancing ablation efficiency and minimal heat-affected zones (HAZ). Pulse duration and fluence must be optimized to remove surface contaminants (e.g., oxides, soot) while preserving the ceramic substrate.
-* **Applications & Benefits**: Non-contact laser cleaning effectively restores stoneware in industrial settings (e.g., historical ceramics, kiln components) by removing stubborn deposits without chemicals or abrasives. Ensures precision, repeatability, and eco-friendly processing compared to traditional methods.
-* **Key Considerations**: Monitor laser energy density (fluence) to prevent over-ablation, as stoneware’s heterogeneous composition may react unevenly. Pre-testing on sample areas is recommended to calibrate parameters for specific contamination types (e.g., organic vs. inorganic layers).
+• Power Range: 15-80W operating power with adjustable intensity control
+• Thermal Conductivity: 1.5 W/m·K enabling controlled energy absorption during laser processing
+• Cultural Heritage Application: Removal of biological contaminants using 1064nm wavelength at 2.5-4.0 J/cm² fluence with 30ns pulses
+• Cleaning Efficiency: Achieves >95% contamination removal while maintaining >99% original surface integrity per ISO 8501-1 standards

@@ -1,3 +1,7 @@
-**Pyrex (Borosilicate Glass (SiO₂-B₂O₃-Na₂O))** surface (left) before cleaning, showing organic residues and particulate contaminants.
+---
+# Content configuration
+---
 
-**After laser cleaning** (right) at 1064 nm, 20 w, 100 ns pulse duration, and 500 µm spot size, achieving contaminant removal with minimal substrate modification, showing complete contaminant removal.
+**Pyrex** (left) (**Borosilicate Glass (SiO₂-B₂O₃-Na₂O)**, SiO₂/b₂o₃) sem-eds before cleaning, showing organic residues and particulate adhesion.
+
+**After laser cleaning** (right) After laser cleaning at 1064 nm, 50 w, 100 ns pulse duration, 500 µm spot size; contaminants removed with no substrate damage, showing complete contaminant removal.

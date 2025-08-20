@@ -1,1 +1,1 @@
-ceramic, zro2, laser, cleaning, zirconia, restoration, ablation, evelyn wu
+zirconia, ceramic-material, laser-cleaning, aerospace-applications, medical-devices, thermal-processing, surface-restoration

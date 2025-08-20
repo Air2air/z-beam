@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Urethane Composites - Technical Guide for Optimal Processing  
 
 ## Introduction  

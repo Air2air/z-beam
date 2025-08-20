@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Beryllium - Technical Guide for Optimal Processing  
 
 ## Introduction  

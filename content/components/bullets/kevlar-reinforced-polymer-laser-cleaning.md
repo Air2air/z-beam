@@ -1,4 +1,8 @@
-* **Material Composition**: Kevlar-Reinforced Polymer (KV) consists of aromatic polyamide fibers (C₁₄H₁₀N₂O₂) embedded in a polymer matrix, offering high tensile strength and thermal stability, making it resistant to mechanical and thermal degradation during laser cleaning.
-* **Optimal Laser Parameters**: A pulsed fiber laser at 1064 nm wavelength is ideal for laser cleaning KV composites, balancing ablation efficiency with minimal thermal damage to the underlying polymer matrix.
-* **Key Applications**: Suitable for non-contact removal of surface contaminants (e.g., oxides, coatings) in aerospace, automotive, and defense industries, where precision and material integrity are critical.
-* **Benefits**: Combines the durability of Kevlar with the precision of laser ablation, enabling selective contamination removal without compromising the composite's structural properties or requiring harsh chemical treatments.
+---
+# Content configuration
+---
+
+* **High-Temperature Resistance**: Kevlar-Reinforced Polymer (C₁₄H₁₀N₂O₂ + polymer) exhibits exceptional thermal stability, making it suitable for laser cleaning with pulsed fiber lasers (e.g., 1064nm wavelength) without significant degradation, ensuring precise surface contamination removal.
+* **Low Thermal Conductivity**: The composite's inherent low thermal conductivity minimizes heat diffusion during laser ablation, allowing localized energy absorption and reducing the risk of substrate damage during non-contact cleaning processes.
+* **Industrial Applications**: Ideal for surface restoration in aerospace, automotive, and defense industries, where laser cleaning efficiently removes contaminants like oxides or coatings while preserving the structural integrity of Kevlar-Reinforced Polymer components.
+* **Optimized Laser Parameters**: Requires precise control of laser power (typically 10–100W) and pulse duration (ns to µs range) to balance ablation efficiency and avoid excessive thermal stress, ensuring optimal surface quality and material longevity.

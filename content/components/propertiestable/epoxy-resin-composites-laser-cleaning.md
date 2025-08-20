@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | C₂₁H₂₄O₄ + fillers |

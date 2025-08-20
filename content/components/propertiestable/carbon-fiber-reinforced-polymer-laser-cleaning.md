@@ -1,6 +1,12 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
-| Chemical Formula | C + (CₓHᵧOᵤ)ₙ |
-| Tensile Strength | >3000 MPa |
-| Thermal Expansion | Near zero |
-| Density | 1.6 g/cm³ |
+| Chemical Formula | C₆H₄O₂ |
+| Material Symbol | CFRP |
+| Category | Composite |
+| Material Type | Fiber-Reinforced Polymer |
+| Tensile Strength | 500-700 MPa |
+| Thermal Conductivity | 5-50 W/m·K |

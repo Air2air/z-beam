@@ -1,9 +1,7 @@
 import { notFound } from "next/navigation";
-import { getArticle } from "@/app/utils/contentIntegrator";
+import { getArticle } from "@/app/utils/contentAPI"; // Updated to use contentAPI
 import { Layout } from "@/app/components/Layout/Layout";
 import { createMetadata } from "@/app/utils/metadata";
-import fs from 'fs/promises';
-import path from 'path';
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 
 // Define params as a Promise
@@ -11,7 +9,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: PageProps) {
   // Await params before destructuring
   const resolvedParams = await params;
   const { slug } = resolvedParams;
@@ -40,18 +38,6 @@ export async function generateMetadata({ params }: any) {
   }
 }
 
-// Function to load tag content
-async function getTagsContent(slug: string) {
-  try {
-    const tagsPath = path.join(process.cwd(), 'content', 'components', 'tags', `${slug}.md`);
-    const tagsContent = await fs.readFile(tagsPath, 'utf8');
-    return tagsContent;
-  } catch (error) {
-    console.error(`No tags found for ${slug}`);
-    return null;
-  }
-}
-
 export default async function ArticlePage({ params }: PageProps) {
   // Await params before destructuring
   const resolvedParams = await params;
@@ -74,7 +60,7 @@ export default async function ArticlePage({ params }: PageProps) {
     const { content: tagsContent, counts: tagCounts } = await getTagsContentWithMatchCounts(slug);
     
     // Prepare the components object with tags content and counts
-    let components = article.components || {};
+    const components = article.components || {};
     
     // Only add tags component if we have tags content
     if (tagsContent && components.tags) {

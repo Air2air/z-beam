@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | C₇H₆O₂ + fillers |

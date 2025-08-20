@@ -1,4 +1,8 @@
-* **Material Composition & Laser Interaction**: Rubber ((C₅H₈)ₙ) is a composite material with a hydrocarbon-based structure, making it highly responsive to laser ablation. Optimal laser cleaning is achieved using a **1064nm pulsed fiber laser**, which minimizes thermal damage while effectively removing surface contaminants like oxides or residues.
-* **Key Applications**: Ideal for **non-contact cleaning** of rubber components in industrial settings, such as conveyor belts, seals, and gaskets. Laser cleaning restores surface integrity without mechanical abrasion, preserving material flexibility and durability.
-* **Technical Parameters**: Requires precise **pulse energy and frequency control** to avoid excessive heat buildup, which can degrade rubber. Typical settings include **low-to-moderate fluence (1–5 J/cm²)** and short pulse durations (nanosecond range) to ensure controlled material removal.
-* **Benefits Over Traditional Methods**: Eliminates chemical solvents and abrasive media, reducing waste and environmental impact. Laser cleaning offers **selective contamination removal**, enhancing efficiency in **surface restoration** while maintaining the rubber’s mechanical properties.
+---
+# Content configuration
+---
+
+* **Material Composition & Laser Interaction**: Rubber ((C₅H₈)ₙ) is a hydrocarbon-based composite with high elasticity, requiring precise laser parameters (e.g., 1064nm wavelength) to avoid thermal degradation while effectively ablating surface contaminants.
+* **Optimal Laser Parameters**: Pulsed fiber lasers are ideal for rubber cleaning, offering controlled energy delivery (e.g., 10–100µs pulse duration) to minimize heat-affected zones (HAZ) and preserve substrate integrity.
+* **Applications**: Suitable for industrial surface restoration, including mold cleaning, tire manufacturing, and removing oxidation or adhesives without mechanical abrasion or chemical solvents.
+* **Key Benefits**: Non-contact cleaning reduces wear on delicate rubber surfaces; high precision removes contaminants selectively, enhancing durability and reducing downtime in production processes.

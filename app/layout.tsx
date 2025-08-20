@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Layout/footer";
 import { SITE_CONFIG } from "./utils/constants";
+import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 
 // Define viewport manually since Viewport type is not exported from next
 export const viewport = {
@@ -45,9 +46,15 @@ export default function RootLayout({
         <link rel="icon" href="/images/Site/Favicon/favicon_350.png" type="image/png" />
       </head>
       <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100">
-        <Navbar />
-        <main className="flex-grow w-full py-8">{children}</main>
-        <Footer />
+        <ErrorBoundary componentName="Layout">
+          <Navbar />
+          <main className="flex-grow w-full py-8">
+            <ErrorBoundary componentName="Page Content">
+              {children}
+            </ErrorBoundary>
+          </main>
+          <Footer />
+        </ErrorBoundary>
         <Analytics />
         <SpeedInsights />
       </body>

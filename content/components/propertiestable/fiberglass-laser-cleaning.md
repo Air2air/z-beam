@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | SiO₂ + (CₓHᵧOᵤ)ₙ |

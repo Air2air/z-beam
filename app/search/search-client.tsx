@@ -13,7 +13,7 @@ interface SearchClientProps {
 
 export default function SearchClient({ initialArticles, initialTags }: SearchClientProps) {
   const searchParams = useSearchParams();
-  const query = searchParams.get('q') || '';
+  const query = searchParams?.get('q') || '';
   
   const [articles] = useState<Article[]>(initialArticles);
   const [tags] = useState<string[]>(initialTags);

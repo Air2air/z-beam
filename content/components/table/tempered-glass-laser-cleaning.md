@@ -1,7 +1,9 @@
-| **Application**          | **Quantifiable Benefit** |  
-|--------------------------|--------------------------|  
-| Architectural Windows    | 4-5x stronger than annealed glass, reducing breakage risk |  
-| Automotive Side Windows  | Fragments into small, blunt pieces (meets FMVSS 205) |  
-| Shower Doors             | Withstands 300°C thermal shock (prevents spontaneous breakage) |  
-| Mobile Device Screens    | Surface hardness resists scratches up to 6H pencil hardness |  
+---
+# Content configuration
+---
 
+## Technical Data
+
+| Property | Value |
+| --- | --- |
+| Regulatory Standards | [{'code': 'IEC 60825-1:2014', 'description': 'Safety of laser products - Equipment classification and requirements'}, {'code': 'ISO 11146:2021', 'description': 'Lasers and laser-related equipment - Test methods for laser beam widths'}, {'code': 'EN 15898:2019', 'description': 'Conservation of cultural property - Main general terms and definitions'}] |

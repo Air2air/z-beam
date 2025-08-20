@@ -185,11 +185,62 @@ Utilities are organized in `/app/utils/`:
 
 All legacy documentation is archived in `docs/archived/` for reference only. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the only authoritative sources.
 
+## 9. YAML Processing
+
+This project includes a comprehensive YAML processor system located in the `yaml-processor/` directory that automatically detects and fixes YAML issues.
+
+### Quick Fix
+```bash
+# Run from project root
+./fix-yaml.sh
+
+# Or run from yaml-processor directory
+cd yaml-processor
+./run_processor.sh
+```
+
+### Manual Processing
+```bash
+# From yaml-processor directory
+cd yaml-processor
+python3 yaml_processor.py ../content
+python3 yaml_processor.py ../content --verbose
+python3 yaml_processor.py ../content --no-backup
+
+# Verify coverage
+python3 verify_coverage.py
+```
+
+### Features
+- ✅ **Organized System**: Dedicated `yaml-processor/` directory
+- ✅ **Detects and fixes structural YAML issues**
+- ✅ **Handles Next.js specific parsing problems** 
+- ✅ **Creates automatic backups**
+- ✅ **Detailed diagnostics and statistics**
+- ✅ **Continuously improved based on real-world issues**
+- ✅ **Complete coverage verification**
+
+The processor automatically fixes:
+- Duplicate mapping keys
+- Bad indentation in nested structures  
+- Missing colons in mappings
+- Malformed list structures
+- Unicode encoding issues
+- Empty or incomplete values
+- General structural issues
+- Truncated content sections
+
+For detailed documentation, see `yaml-processor/README.md`.
+
 ---
 
-## 9. Quick Start
+## 10. Quick Start
 
 ```bash
+# Fix any YAML issues first
+./fix-yaml.sh
+
+# Standard workflow
 npm install
 npm run dev
 npm run build

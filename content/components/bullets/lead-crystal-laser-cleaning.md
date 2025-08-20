@@ -1,4 +1,8 @@
-* **Optimal Laser Wavelength**: Lead crystal responds effectively to **1064nm pulsed fiber lasers**, ensuring precise ablation of surface contaminants without thermal damage due to its moderate absorption at this wavelength.
-* **Non-Contact Cleaning Advantage**: Laser cleaning offers **non-contact, residue-free removal** of oxides, organic deposits, and coatings, preserving the delicate surface integrity of lead crystal artifacts or industrial components.
-* **Industrial Applications**: Ideal for **restoration of decorative glassware, optical components, and high-end lighting fixtures**, where traditional cleaning methods risk scratching or chemical etching.
-* **Parameter Sensitivity**: Requires **low pulse energy (≤1mJ) and high repetition rates (20-100kHz)** to avoid micro-fracturing, with spot size adjustments critical for balancing cleaning efficiency and surface safety.
+---
+# Content configuration
+---
+
+* **Optimal Laser Wavelength**: Lead crystal responds effectively to **1064nm pulsed fiber lasers**, ensuring precise ablation of surface contaminants without subsurface damage due to its high transparency and refractive index.
+* **Non-Contact Cleaning Advantage**: Laser cleaning offers **non-contact, residue-free removal** of oxides, organic films, and particulates, preserving the delicate surface integrity of lead crystal artifacts or industrial components.
+* **Thermal Sensitivity Management**: Controlled pulse duration and energy density prevent **thermal stress fractures** or melting, critical for maintaining lead crystal’s structural and optical clarity during restoration.
+* **Industrial Applications**: Ideal for **high-value glassware, optical components, and heritage conservation**, where traditional cleaning methods risk scratching or chemical etching. Laser parameters must be tuned to avoid lead leaching or surface haze.

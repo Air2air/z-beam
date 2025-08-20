@@ -1,6 +1,10 @@
+---
+# Content configuration
+---
+
 | Property | Value |
 |----------|-------|
 | Chemical Formula | Co |
-| Thermal Conductivity | High |
-| Electrical Conductivity | High |
 | Material Symbol | Co |
+| Category | Composite |
+| Material Type | Metal |

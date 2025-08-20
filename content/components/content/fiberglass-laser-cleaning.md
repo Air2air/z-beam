@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Fiberglass - Technical Guide for Optimal Processing  
 
 ## Overview  

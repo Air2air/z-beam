@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # **Laser Cleaning Kevlar-Reinforced Polymer - Technical Guide for Optimal Processing**  
 
 ## **Introduction**  

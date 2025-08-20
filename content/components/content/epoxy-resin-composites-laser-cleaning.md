@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # **Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing**  
 
 ## **Introduction**  

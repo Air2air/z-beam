@@ -1,1 +1,5 @@
+---
+# Content configuration
+---
+
 ablation, aerospace, restoration, thermal, non-contact, composite, industrial, evelyn wu

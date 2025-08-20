@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
-import matter from 'gray-matter';
+import { safeMatterParse } from '../../../utils/yamlSanitizer';
+import { logger } from '../../../utils/logger';
 
 export async function GET(
   request: NextRequest,
-  context: { params: { material: string } }
+  context: { params: Promise<{ material: string }> }
 ) {
-  const { params } = context;
+  const params = await context.params;
   const materialName = params.material;
   
   try {
@@ -21,7 +22,7 @@ export async function GET(
     const cleanMaterialName = materialName.toLowerCase().replace(/[^a-z0-9-]/g, '-');
     
     // Try to find a matching material file (more flexible matching)
-    let matchingFiles = allFiles.filter(file => 
+    const matchingFiles = allFiles.filter(file => 
       file.toLowerCase().includes(cleanMaterialName.toLowerCase())
     );
 
@@ -36,12 +37,12 @@ export async function GET(
     const filePath = path.join(contentDir, matchingFiles[0]);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     
-    // Parse frontmatter
-    const { data: frontmatter } = matter(fileContents);
+    // Parse frontmatter using safe parser
+    const { data: frontmatter } = safeMatterParse(fileContents);
 
     return NextResponse.json(frontmatter);
   } catch (error) {
-    console.error('Error loading material frontmatter:', error);
+    logger.error('Error loading material frontmatter', error, { material: materialName });
     return NextResponse.json(
       { error: 'Failed to load material data' },
       { status: 500 }

@@ -1,1 +1,5 @@
+---
+# Content configuration
+---
+
 ablation, fused-silica, sio2, cleaning, laser, aerospace, non-contact, evelyn wu

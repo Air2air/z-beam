@@ -1,21 +1,24 @@
 ---
-headline: Porcelain Laser Cleaning - Advanced Techniques for Ceramic Restoration
-description: Discover the cutting-edge method of laser cleaning for porcelain, a delicate ceramic material. Learn how this non-contact process preserves intricate details while removing contaminants.
+headline: Laser Cleaning of Porcelain Materials
+description: Advanced laser cleaning techniques for Porcelain materials, ensuring precision surface treatment while preserving the material's structural integrity.
 keywords: 
-  - porcelain cleaning
-  - laser restoration
-  - ceramic conservation
-  - Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈
-  - material preservation
-  - non-abrasive cleaning
-articleBody: "Porcelain (Material Symbol: Po) is a vitrified ceramic requiring specialized care during restoration. Laser cleaning offers precise contaminant removal without mechanical contact, ideal for preserving its kaolin-based composition (Chemical Formula: Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈). This article explores wavelength selection, energy density parameters, and safety protocols for treating historical and architectural porcelain. Includes before/after case studies with microscopic analysis of surface integrity post-treatment."
+- Porcelain laser cleaning
+- Porcelain material cleaning
+- non-abrasive surface treatment
+- Porcelain material processing
+- precision cleaning
+- industrial applications
+- heritage conservation
+- high-voltage insulator maintenance
+articleBody: "Porcelain is a ceramic material widely used in industrial and cultural applications due to its excellent electrical and mechanical properties. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters (typically 1064nm wavelength at fluences between 0.8–8 J/cm²) to selectively ablate unwanted material while preserving the underlying porcelain substrate. In industrial settings, this method achieves cleaning rates of 0.5-2 m²/hour while maintaining dielectric properties within ±3% of original values. For cultural heritage applications, the technique enables removal of centuries-old dirt layers without damaging fragile glazes or decorative elements."
 image: 
-  - /images/porcelain-laser-cleaning-hero.jpg
-  - /images/porcelain-laser-cleaning-closeup.jpg
-author: Evelyn Wu
+- /images/porcelain-laser-cleaning-hero.jpg
+- /images/porcelain-laser-cleaning-closeup.jpg
 datePublished: 2025-08-08
 dateModified: 2025-08-08
-materialType: ceramic
-category: ceramic
+author: Dr. Evelyn Wu
+materialType: material
+chemicalFormula: Al₂Si₂O₅(OH)₄·SiO₂·KAlSi₃O₈
+materialSymbol: Po
 subjectSlug: porcelain
 ---

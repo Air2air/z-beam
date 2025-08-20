@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Porcelain - Technical Guide for Optimal Processing  
 
 ## Overview  

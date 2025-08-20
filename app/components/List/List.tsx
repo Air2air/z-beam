@@ -1,7 +1,9 @@
 // app/components/List/List.tsx
 import "./styles.scss";
+import React from "react";
 import { Card } from "../Card/Card";
-import { getArticle } from "@/app/utils/contentIntegrator";
+import { cn } from "@/app/utils/helpers";
+import { getArticle } from "@/app/utils/contentAPI"; // Updated to use contentAPI
 
 interface ListProps {
   // Add slugs as a prop alternative to items

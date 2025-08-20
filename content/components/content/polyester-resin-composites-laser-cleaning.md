@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Polyester Resins Composites - Technical Guide for Optimal Processing  
 
 ## Overview  

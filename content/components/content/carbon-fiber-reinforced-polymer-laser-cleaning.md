@@ -1,3 +1,7 @@
+---
+# Content configuration
+---
+
 # Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing  
 
 Carbon Fiber Reinforced Polymer (CFRP), with the material formula **C + (CₓHᵧOᵤ)ₙ** and symbol **CF**, is a high-performance composite widely used in aerospace, automotive, and industrial applications due to its exceptional strength-to-weight ratio and corrosion resistance. However, surface contamination, oxidation layers, and adhesive residues often necessitate precise cleaning methods. Laser cleaning has emerged as an advanced, non-contact solution for CFRP restoration, offering controlled material removal without damaging the underlying substrate.  

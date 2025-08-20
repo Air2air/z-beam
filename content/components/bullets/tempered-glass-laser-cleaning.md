@@ -1,4 +1,5 @@
-* **Material Composition**: Tempered glass (TG) is primarily composed of **SiO₂·Na₂O·CaO**, offering high thermal resistance and mechanical strength, making it suitable for laser cleaning without structural compromise.
-* **Laser Compatibility**: Optimal cleaning is achieved using a **pulsed fiber laser (1064nm wavelength)**, ensuring precise ablation of surface contaminants while minimizing thermal stress on the glass substrate.
-* **Non-Contact Cleaning**: Laser ablation provides **non-contact, residue-free removal** of contaminants (e.g., oxides, adhesives), preserving the glass surface integrity and optical clarity.
-* **Industrial Applications**: Ideal for **surface restoration** in automotive, architectural, and display industries, where precision cleaning of tempered glass panels is critical for performance and aesthetics. These points highlight the technical advantages and practical applications of laser cleaning for tempered glass.
+---
+# Content configuration
+---
+
+Tempered glass exhibits 4-5 times higher mechanical strength than annealed glass, with typical surface compression of 10,000 psi and edge compression of 9,700 psi. Laser cleaning parameters must maintain surface temperature below 300°C to prevent thermal stress fractures. Optimal laser settings use 1064 nm wavelength at 10-20 W power with pulse durations of 10-100 ns. The process removes surface contaminants while preserving the compressive stress layer critical for tempered glass performance.

@@ -1,4 +1,10 @@
-* **Optimal Laser Parameters**: Pulsed fiber lasers at **1064 nm wavelength** are ideal for CFRP laser cleaning, balancing precision and minimal thermal damage due to the material's high absorption in the near-infrared spectrum.
-* **Non-Contact Ablation**: Laser cleaning removes surface contaminants (e.g., oxides, coatings) without mechanical contact, preserving CFRP's structural integrity and avoiding delamination risks associated with traditional methods.
-* **Thermal Sensitivity Management**: CFRP's polymer matrix (CₓHᵧOᵤ)ₙ requires controlled pulse durations (nanosecond to picosecond) to prevent resin degradation while efficiently ablating contaminants.
-* **Industrial Applications**: Widely used in aerospace, automotive, and wind energy for **surface restoration**, adhesive bonding prep, and composite repair, leveraging laser cleaning's repeatability and automation compatibility. These points prioritize technical precision while covering specifications, benefits, and applications.
+---
+# Content configuration
+---
+
+# Carbon Fiber Reinforced Polymer Key Points
+
+- Tensile strength of 500-700 MPa with density 60% lower than steel
+- Used in aerospace (50% weight reduction vs aluminum), automotive (40% fuel efficiency improvement), and sports equipment
+- Corrosion resistant with zero thermal expansion coefficient for dimensional stability
+- Manufacturing process allows complex shapes with minimal material waste (95% utilization)

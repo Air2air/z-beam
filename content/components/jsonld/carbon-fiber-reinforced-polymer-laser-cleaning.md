@@ -1,24 +1,22 @@
 ---
-headline: Laser Cleaning of Carbon Fiber Reinforced Polymer (CFRP)
-description: Advanced laser cleaning techniques for Carbon Fiber Reinforced Polymer (CFRP) composites, ensuring precision surface treatment without damage.
-keywords:
-- CFRP
-- carbon fiber
-- polymer composite
-- laser cleaning
-- surface treatment
-- composite maintenance
-- non-destructive cleaning
-articleBody: "Carbon Fiber Reinforced Polymer (CFRP) is a high-performance composite material widely used in aerospace, automotive, and structural applications. Laser cleaning offers a precise, non-contact method for removing contaminants, oxides, and residues from CFRP surfaces without compromising the material's integrity. This technique utilizes controlled laser pulses to ablate unwanted layers while preserving the underlying carbon fiber structure. Optimal wavelengths and pulse durations are selected to avoid thermal damage to the polymer matrix (CₓHᵧOᵤ)ₙ. Applications include pre-treatment for bonding, paint removal, and restoration of aged CFRP components."
-image:
+headline: Laser Cleaning of Carbon Fiber Reinforced Polymer (Al₂O₃) Ceramic Materials
+description: Advanced laser cleaning techniques for carbon fiber reinforced polymer ceramic materials, ensuring precision surface treatment while preserving the material's structural integrity.
+keywords: 
+- carbon fiber reinforced polymer laser cleaning
+- Al₂O₃ ceramic cleaning
+- non-abrasive surface treatment
+- ceramic material processing
+- precision cleaning
+- industrial applications
+articleBody: "Carbon Fiber Reinforced Polymer (Al₂O₃) is a high-performance ceramic material widely used in industrial applications due to its excellent hardness, chemical resistance, and thermal properties. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the ceramic's structural integrity. The process utilizes controlled laser parameters to selectively ablate unwanted material while preserving the underlying carbon fiber reinforced polymer substrate. This technique is particularly valuable for maintaining the surface quality of precision components in aerospace, electronics, and medical applications."
+image: 
 - /images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg
 - /images/carbon-fiber-reinforced-polymer-laser-cleaning-closeup.jpg
 datePublished: 2025-08-08
 dateModified: 2025-08-08
-author:
-  name: Evelyn Wu
-  affiliation: Taiwan
-materialType: composite
-chemicalFormula: C + (CₓHᵧOᵤ)ₙ
-materialSymbol: CF
+author: Evelyn Wu
+materialType: ceramic
+chemicalFormula: Al₂O₃
+materialSymbol: AL
+subjectSlug: carbon fiber reinforced polymer
 ---
