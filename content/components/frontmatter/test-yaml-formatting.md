@@ -1,5 +1,4 @@
 ---
----
 name: Gold Test
 applications: 
 - industry: Jewelry Manufacturing
@@ -20,10 +19,10 @@ properties:
   thermalConductivity: 318 W/m·K
 chemicalFormula: Au
 composition: 
-- component: Gold
+  components: {}
   percentage: 99.9%
 compatibility: 
 environmentalImpact: 
-- benefit: Energy efficiency
+  benefits: {}
 description: Testing
 ---

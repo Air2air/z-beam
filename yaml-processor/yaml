@@ -1,0 +1,181 @@
+#!/usr/bin/env python3
+"""
+Z-Beam YAML Comprehensive Checker
+================================
+
+A unified script for YAML processing and validation with smart file handling.
+
+Features:
+- One command for all YAML processing needs
+- Automatically skips very small or blank files
+- Smart validation of YAML structure
+- Detailed reporting with customizable verbosity
+- Safe processing with timeouts
+
+Usage:
+  ./yaml [options] [path]
+
+Options:
+  --process         Process and fix YAML issues (default behavior)
+  --validate        Only validate, don't modify files
+  --required=FIELDS Comma-separated list of required fields for validation
+  --verbose         Show detailed output
+  --timeout=SECONDS Maximum processing time per file (default: 10)
+  --skip-small=SIZE Skip files smaller than SIZE bytes (default: 50)
+  --help            Show this help message
+
+Examples:
+  ./yaml ../content          # Process all content files
+  ./yaml --validate ../content  # Only validate, don't modify
+  ./yaml --required=name,description,applications ../content  # Check for specific fields
+"""
+
+import sys
+import argparse
+import subprocess
+from pathlib import Path
+
+
+def run_processor(
+    directory,
+    validate_only=False,
+    required_fields=None,
+    verbose=False,
+    timeout=10,
+    skip_small=50,
+):
+    """Run the appropriate YAML processor script based on options."""
+
+    # Set default path if not provided
+    if not directory:
+        directory = "../content"
+
+    directory_path = Path(directory)
+    if not directory_path.exists():
+        print(f"Error: Directory {directory} does not exist")
+        return 1
+
+    # Filter out files that are too small or empty
+    file_count = 0
+    skipped_small = 0
+
+    for file_path in directory_path.rglob("*.md"):
+        if file_path.exists():
+            try:
+                size = file_path.stat().st_size
+                if size < skip_small:
+                    if verbose:
+                        print(f"Skipping small file ({size} bytes): {file_path}")
+                    skipped_small += 1
+                    continue
+                file_count += 1
+            except Exception as e:
+                print(f"Error checking file size for {file_path}: {e}")
+
+    if file_count == 0:
+        print(f"No suitable Markdown files found in {directory}")
+        if skipped_small > 0:
+            print(f"(Skipped {skipped_small} files smaller than {skip_small} bytes)")
+        return 0
+
+    print(f"Found {file_count} suitable Markdown files in {directory}")
+    if skipped_small > 0:
+        print(f"Skipped {skipped_small} small files (< {skip_small} bytes)")
+
+    # Determine which script to run
+    cmd = []
+
+    if validate_only:
+        # Validation mode - don't modify files
+        script_path = Path(__file__).parent / "yaml_validator.py"
+        cmd = ["python3", str(script_path), str(directory_path)]
+
+        if verbose:
+            cmd.append("--verbose")
+
+        if timeout:
+            cmd.extend(["--timeout", str(timeout)])
+
+        if required_fields:
+            cmd.extend(["--required-fields", required_fields])
+
+    else:
+        # Processing mode - fix issues
+        script_path = Path(__file__).parent / "yaml_processor.py"
+        cmd = ["python3", str(script_path), str(directory_path)]
+
+        if verbose:
+            cmd.append("--verbose")
+
+        if timeout:
+            cmd.extend(["--timeout", str(timeout)])
+
+    # Execute the command
+    try:
+        if verbose:
+            print(f"Running command: {' '.join(cmd)}")
+
+        result = subprocess.run(cmd, check=True)
+        return result.returncode
+    except subprocess.CalledProcessError as e:
+        print(f"Error running YAML processor: {e}")
+        return e.returncode
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        return 1
+
+
+def main():
+    """Parse arguments and run the processor."""
+    parser = argparse.ArgumentParser(
+        description="Z-Beam YAML Comprehensive Checker",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=__doc__,
+    )
+
+    # Define mutually exclusive group for process/validate
+    mode_group = parser.add_mutually_exclusive_group()
+    mode_group.add_argument(
+        "--process", action="store_true", help="Process and fix YAML issues (default)"
+    )
+    mode_group.add_argument(
+        "--validate", action="store_true", help="Only validate, don't modify files"
+    )
+
+    # Other options
+    parser.add_argument(
+        "--required",
+        dest="required_fields",
+        help="Comma-separated list of required fields",
+    )
+    parser.add_argument("--verbose", action="store_true", help="Show detailed output")
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=10,
+        help="Maximum processing time per file in seconds",
+    )
+    parser.add_argument(
+        "--skip-small", type=int, default=50, help="Skip files smaller than SIZE bytes"
+    )
+
+    # Path argument is optional, with default value
+    parser.add_argument(
+        "path", nargs="?", default="../content", help="Path to content directory"
+    )
+
+    args = parser.parse_args()
+
+    # Run the processor with the provided options
+    return run_processor(
+        directory=args.path,
+        validate_only=args.validate,
+        required_fields=args.required_fields,
+        verbose=args.verbose,
+        timeout=args.timeout,
+        skip_small=args.skip_small,
+    )
+
+
+if __name__ == "__main__":
+    sys.exit(main())

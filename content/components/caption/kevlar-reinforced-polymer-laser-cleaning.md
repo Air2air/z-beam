@@ -1,3 +1,3 @@
-**Kevlar-Reinforced Polymer (SiO₂)** surface (left) before cleaning, showing organic contaminants and particulate adhesion.
+Kevlar-Reinforced Polymer surface before laser cleaning shows embedded carbonaceous deposits and oxide layers (left).
 
-**After laser cleaning** (right) After laser cleaning at 1064 nm, 10 w, 100 ns pulse duration, and 500 µm spot size, achieving contaminant removal with minimal substrate modification, showing complete contaminant removal.
+**After laser cleaning** (right) After treatment with 1064nm laser at 3.2 J/cm², 100ns pulses, and 1.5mm spot size (right), showing complete contaminant removal with preserved fiber integrity and surface morphology.

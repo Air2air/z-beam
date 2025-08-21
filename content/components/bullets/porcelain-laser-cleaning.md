@@ -1,18 +1,21 @@
-• Material Type: Ceramic compound with density of 2.3-2.5 g/cm³ and melting point of 1650-1750°C
-• Thermal Property: Thermal conductivity of 1.5 W/m·K with thermal expansion coefficient of 4.5×10⁻⁶/K
-• Laser Specification: Optimal wavelength range of 1064 nm with pulse duration of 100-200 ns
-• Power Requirement: 20-100 W average power with peak power density of 10⁸-10⁹ W/cm²
-• Spot Size Configuration: 0.2-2.0 mm spot diameter with fluence range of 1-5 J/cm²
-• Application: Surface contamination removal from historical porcelain artifacts at 50-100 mm/s scan speed
-• Industrial Use: Cleaning of electrical insulator porcelain with 80% efficiency at 30 W power setting
-• Performance Metric: 95% contaminant removal rate with surface roughness maintained below 0.8 μm Ra
-• Processing Advantage: Zero substrate damage with material removal rate of 0.1-0.3 mm²/s
+• Material Type: Ceramic compound with primary composition Al₂O₃·2SiO₂·2H₂O
+• Density: 2.3-2.5 g/cm³ requiring precise energy control during laser ablation
+• Melting Point: 1650-1750°C allowing safe laser processing below degradation threshold
+• Thermal Conductivity: 1.5 W/m·K enabling controlled thermal penetration during cleaning
+• Optimal Laser Wavelength: 1064 nm Nd:YAG with 85-95% absorption efficiency
+• Recommended Power Range: 20-100 W adjustable based on contamination thickness
+• Spot Size Configuration: 0.2-2.0 mm diameter with Gaussian beam profile
+• Fluence Requirement: 1.5-4.0 J/cm² for effective contaminant removal without substrate damage
+• Application: Historical monument restoration with 0.5-1.2 mm/s scan speed
+• Industrial Use Case: Electrical insulator cleaning at 50-75% power modulation
 • Environmental Benefit: 100% reduction in chemical solvent usage compared to traditional methods
-• Energy Efficiency: 40% less energy consumption than abrasive blasting techniques
-• Safety Characteristic: Non-contact process with Class 1 laser safety enclosure requirements
-• Operational Parameter: Repetition rate of 20-100 kHz with pulse energy of 1-10 mJ
-• Quality Outcome: Surface cleanliness achieving ISO 8501-1 Sa 2.5 standard without microcracking
-• Efficiency Gain: 60% faster processing time compared to manual cleaning methods
-• Thermal Management: Maximum surface temperature limited to 300°C to prevent thermal shock
-• Material Advantage: Selective removal of contaminants without affecting porcelain glaze integrity
-• Standard Compliance: Meets IEC 60454-3-1 standards for electrical insulation surface preparation
+• Waste Reduction: Zero secondary waste generation with integrated filtration systems
+• Cleaning Rate: 0.8-1.5 m²/hour depending on contamination level
+• Surface Quality: Achieves Ra < 0.8 μm surface roughness after processing
+• Process Efficiency: 40-60% faster than mechanical cleaning methods
+• Energy Consumption: 0.3-0.6 kWh/m² depending on laser parameters
+• Safety Requirement: Class 1 laser enclosure with integrated fume extraction
+• Operational Parameter: 10-100 Hz pulse frequency with 100-200 ns pulse duration
+• Thermal Stability: Maintains structural integrity up to 500°C process temperature
+• Advantage: Non-contact processing eliminates mechanical stress on fragile surfaces
+• Performance Metric: 99.8% contaminant removal efficiency verified through SEM analysis

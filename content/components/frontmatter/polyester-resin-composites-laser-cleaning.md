@@ -36,22 +36,22 @@ compatibility:
 - General applications
 regulatoryStandards: Polyester Resin Composites - regulatoryStandards
 images: 
-  hero: 
+  hero: {} 
   alt: Polyester Resin Composites surface undergoing laser cleaning showing precise contamination removal
   url: /images/polyester resin composites-laser-cleaning-hero.jpg
-  closeup: 
+  closeup: {} 
 title: Laser Cleaning Polyester Resin Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic polyester resin composites
 environmentalImpact: 
-- benefit: Reduced chemical waste
+  benefits: {}
 description: Eliminates 100% of solvent use compared to traditional cleaning methods, preventing ~200L/year of hazardous waste in medium-scale operations.
-- benefit: Energy efficiency
-- benefit: Zero volatile emissions
+benefits:
+    benefits: {}
 outcomes: 
-- result: Surface cleanliness
-  metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508)
-- result: Substrate preservation
-- result: Processing speed
+results:
+results:
+  results: {}
+      metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508)
 subject: Polyester Resin Composites
 article_type: material
 ---

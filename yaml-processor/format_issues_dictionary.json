@@ -1,107 +1,58 @@
 {
-  "version": "2.1.0",
-  "last_updated": "2025-08-20T16:02:43.171059",
-  "format_issues": {
-    "encoding_issues": {
-      "patterns": [
-        "\\\\xB7",
-        "\\\\xB2",
-        "\\\\xB3",
-        "\\\\x[0-9A-Fa-f]{2}"
-      ],
-      "fixes": {
-        "\\xB7": "·",
-        "\\xB2": "²",
-        "\\xB3": "³"
-      },
-      "description": "Special character encoding issues in chemical formulas"
-    },
-    "indentation_issues": {
-      "patterns": [
-        "^(\\s*)- \\w+:.*\\n(\\s+)\\w+:",
-        "^(\\s*)\\w+:\\s*\\n(\\s*)\\w+:",
-        "^\\s{4,}[a-zA-Z][a-zA-Z_]*:\\s*$",
-        "^\\s{1,3}[a-zA-Z][a-zA-Z_]*:\\s*[^-]",
-        "^\\s{2,3}(detail|scope|content|value):",
-        "^\\s{3,7}\\w+:\\s*$",
-        "^\\s{1,3}\\w+:\\s*[^-]",
-        "^\\s{12,16}\\w+:\\s*$"
-      ],
-      "description": "Bad indentation in list items, nested properties, and root-level keys"
-    },
-    "incomplete_entries": {
-      "patterns": [
-        "- \\w+:\\s*$",
-        "^\\s*\\w+:\\s*$",
-        "^\\s*\\w+:\\s*\\n\\s*$",
-        "^\\s*\\w+:\\s*\\n\\s*[a-zA-Z]",
-        "^\\s*\\w+:\\s*\".*\"$"
-      ],
-      "description": "Missing values for keys, properties, and content fields"
-    },
-    "malformed_structures": {
-      "patterns": [
-        ".*\"[^\"]*\"[^\"]*\"[^\"]*\".*",
-        "\\w+:\"\".*\"\"",
-        ".*percentage.*component.*",
-        ".*'}].*",
-        ".*'].*",
-        "^\\s*\"[^\"]*[:-][^\"]*\"\\s*$",
-        "^\\s*\"[^\"]*\"\\s*$",
-        "^\\s*[^:\\s-]+\\s+[^:\\s-]+\\s+[^:\\s-]+.*$"
-      ],
-      "description": "Corrupted or truncated content lines, orphaned values, malformed quotes"
-    },
-    "property_declaration_issues": {
-      "patterns": [
-        "^(\\s*)properties:\\s*$",
-        "^(\\s*)chemicalProperties:\\s*$",
-        "^(\\s*)compatibility:\\s*$",
-        "^\\s*(\\w+):.*\\n.*^\\s*\\1:"
-      ],
-      "description": "Property declarations without proper nested content"
-    },
-    "list_structure_issues": {
-      "patterns": [
-        "^(\\s*)- \\w+:\\s*\\n(\\s{4,})\\w+:",
-        "compatibility:\\s*\\[\\]"
-      ],
-      "description": "Improperly structured lists and arrays"
-    }
+  "metadata": {
+    "created": "2025-08-21T16:17:28.988439",
+    "lastUpdated": "2025-08-21T16:24:59.465508",
+    "totalErrors": 7
   },
-  "discovered_patterns": {
-    "encoding_issues": [],
-    "indentation_issues": [
-      "^\\s{3,7}\\w+:\\s*$",
-      "^\\s{1,3}\\w+:\\s*[^-]",
-      "^\\s{12,16}\\w+:\\s*$"
-    ],
-    "incomplete_entries": [
-      "^\\s*\\w+:\\s*\".*\"$"
-    ],
-    "malformed_structures": [],
-    "property_declaration_issues": [
-      "^\\s*(\\w+):.*\\n.*^\\s*\\1:"
-    ],
-    "list_structure_issues": []
-  },
-  "total_patterns": 13,
-  "statistics": {
-    "patterns_by_category": {
-      "encoding_issues": 4,
-      "indentation_issues": 8,
-      "incomplete_entries": 5,
-      "malformed_structures": 8,
-      "property_declaration_issues": 4,
-      "list_structure_issues": 2
+  "errors": {
+    "bad indentation of a": {
+      "message": "bad indentation of a",
+      "solution": "Fix the indentation in list items - make sure arrays use consistent indentation with 2 spaces per level. Change '- industry: value' to have proper indentation.",
+      "firstSeen": "2025-08-21T16:17:28.989645",
+      "occurrences": 1,
+      "files": []
     },
-    "newly_discovered": {
-      "encoding_issues": 0,
-      "indentation_issues": 3,
-      "incomplete_entries": 1,
-      "malformed_structures": 0,
-      "property_declaration_issues": 1,
-      "list_structure_issues": 0
+    "indentation at line 7, column 3": {
+      "message": "indentation at line 7, column 3",
+      "solution": "",
+      "firstSeen": "2025-08-21T16:17:28.989680",
+      "occurrences": 1,
+      "files": []
+    },
+    "duplicated mapping key": {
+      "message": "duplicated mapping key",
+      "solution": "Remove or rename duplicate keys in the YAML document. Most commonly seen with 'description' appearing twice in the same section.",
+      "firstSeen": "2025-08-21T16:20:21.737646",
+      "occurrences": 1,
+      "files": []
+    },
+    "can not read a block mapping entry; a multiline key may not be an implicit key": {
+      "message": "can not read a block mapping entry; a multiline key may not be an implicit key",
+      "solution": "Check for empty lines or improper indentation in nested structures. This often occurs when there's a blank line or an object property with missing value.",
+      "firstSeen": "2025-08-21T16:20:48.163764",
+      "occurrences": 1,
+      "files": []
+    },
+    "end of the stream or a document separator is expected": {
+      "message": "end of the stream or a document separator is expected",
+      "solution": "The document is expecting another --- separator or the end of the file. Check for improper indentation or missing property values in the YAML structure.",
+      "firstSeen": "2025-08-21T16:21:05.880300",
+      "occurrences": 1,
+      "files": []
+    },
+    "expected <block end>, but found '<block mapping start>'": {
+      "message": "expected <block end>, but found '<block mapping start>'",
+      "solution": "This occurs when a nested YAML structure is improperly formed. The typical solution is to ensure proper indentation and structure for nested objects. Use proper list format for arrays and ensure that properties of nested objects have appropriate indentation.",
+      "firstSeen": "2025-08-21T16:24:34.015306",
+      "occurrences": 1,
+      "files": []
+    },
+    "expected <block end>, but found '-'": {
+      "message": "expected <block end>, but found '-'",
+      "solution": "This occurs when a list item (-) appears in an unexpected place. The solution is to properly nest list items under a parent key with correct indentation. Ensure that array items are properly grouped under a parent property.",
+      "firstSeen": "2025-08-21T16:24:48.401152",
+      "occurrences": 1,
+      "files": []
     }
   }
 }

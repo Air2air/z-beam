@@ -8,17 +8,19 @@ keywords:
 - Stoneware material processing
 - precision cleaning
 - industrial applications
-- cultural heritage conservation
-- pulsed fiber laser parameters
-articleBody: "Stoneware is a ceramic material widely used in industrial applications due to its excellent thermal stability and mechanical properties. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters between 0.8-8 J/cm² fluence with pulse durations of 20-100ns to selectively ablate unwanted material while preserving the underlying Stoneware substrate. Applications range from industrial component preparation to cultural heritage conservation, where the technique removes biological growth and atmospheric deposits from historical artifacts. Optimal processing employs 1064nm wavelength lasers operating at 15-80W power with spot sizes adjustable from 0.2-1.5mm. The technology provides environmental benefits through elimination of chemical solvents and reduced energy consumption compared to traditional methods."
+- laser ablation parameters
+- surface contamination removal
+- thermal stress minimization
+- heritage conservation cleaning
+articleBody: "Stoneware is a dense, vitrified ceramic material composed primarily of ball clay, kaolin, feldspar, and quartz, fired at high temperatures (1200-1300°C) to achieve its characteristic durability and low porosity. Laser cleaning provides an exceptional method for removing surface contaminants, mineral deposits, biological growth, and previous restoration materials from stoneware surfaces without mechanical contact or chemical residues. The process employs pulsed fiber lasers with wavelengths typically between 1064nm and 1070nm, with fluence levels carefully calibrated between 0.5-2.5 J/cm² to ensure selective ablation of contaminants while preserving the stoneware's glaze and body. Pulse durations ranging from 10-100 nanoseconds prevent thermal damage to the substrate, while repetition rates of 20-100 kHz enable efficient cleaning of large surface areas. This technique is particularly valuable for industrial stoneware components, architectural elements, and heritage artifacts where traditional cleaning methods might cause micro-abrasions or chemical penetration. The non-contact nature of laser cleaning eliminates the risk of surface scratching or material loss, making it ideal for precision cleaning applications in manufacturing, restoration, and conservation contexts."
 image:
 - /images/stoneware-laser-cleaning-hero.jpg
 - /images/stoneware-laser-cleaning-closeup.jpg
 datePublished: 2025-08-08
 dateModified: 2025-08-08
-author: Dr. Evelyn Wu
+author: Dr. Elena Rodriguez
 materialType: ceramic
-chemicalFormula: N/A
-materialSymbol: N/A
+chemicalFormula: Stoneware formula
+materialSymbol: ST
 subjectSlug: stoneware
 ---

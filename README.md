@@ -191,34 +191,33 @@ This project includes a comprehensive YAML processor system located in the `yaml
 
 ### Quick Fix
 ```bash
-# Run from project root
-./fix-yaml.sh
+# Run a comprehensive YAML check and fix
+npm run yaml
 
-# Or run from yaml-processor directory
-cd yaml-processor
-./run_processor.sh
-```
+# Validate without making changes
+npm run yaml:validate
 
-### Manual Processing
-```bash
-# From yaml-processor directory
-cd yaml-processor
-python3 yaml_processor.py ../content
-python3 yaml_processor.py ../content --verbose
-python3 yaml_processor.py ../content --no-backup
+# Check for specific required fields
+npm run yaml:check-required
 
-# Verify coverage
-python3 verify_coverage.py
+# Process only material files
+npm run yaml:materials
+
+# Fix badge symbol display issues in materials
+npm run yaml:fix-badges
+
+# Check a specific file
+npm run yaml:check-file path/to/file.md
 ```
 
 ### Features
-- ✅ **Organized System**: Dedicated `yaml-processor/` directory
+- ✅ **Simplified Commands**: Just use `npm run yaml` for most needs
+- ✅ **Smart File Handling**: Automatically skips very small or blank files
 - ✅ **Detects and fixes structural YAML issues**
 - ✅ **Handles Next.js specific parsing problems** 
-- ✅ **Creates automatic backups**
 - ✅ **Detailed diagnostics and statistics**
-- ✅ **Continuously improved based on real-world issues**
-- ✅ **Complete coverage verification**
+- ✅ **Optimized for performance**
+- ✅ **Badge symbol automatic correction**
 
 The processor automatically fixes:
 - Duplicate mapping keys
@@ -238,7 +237,7 @@ For detailed documentation, see `yaml-processor/README.md`.
 
 ```bash
 # Fix any YAML issues first
-./fix-yaml.sh
+npm run yaml
 
 # Standard workflow
 npm install

@@ -30,30 +30,30 @@ properties:
   fluenceRange: 0.8-8 J/cm²
 chemicalFormula: N/A
 composition: 
-- component: Silica (SiO₂)
-  percentage: 60-70%
-- component: Alumina (Al₂O₃)
-- component: Flux oxides (K₂O, Na₂O, CaO)
+components:
+components:
+  components: {}
+      percentage: 60-70%
 compatibility: 
-- material: Stainless steel fixtures
-  rating: Excellent
-- material: Aluminum mounting systems
-- material: Polymer components
+materials:
+materials:
+  materials: {}
+      rating: Excellent
 regulatoryStandards: ISO 11553-1, IEC 60825-1, EN 207/208 laser safety standards
 images: 
-  hero: 
+  hero: {} 
   alt: Stoneware surface undergoing precision laser cleaning showing contamination removal process
   url: /images/stoneware-laser-cleaning-hero.jpg
-  closeup: 
+  closeup: {} 
 title: Advanced Laser Cleaning Techniques for Stoneware Ceramic Materials
 headline: Precision Surface Treatment of Stoneware Using Pulsed Laser Technology
 environmentalImpact: 
-- benefit: Zero chemical waste generation
-- benefit: Reduced energy consumption
+benefits:
+    benefits: {}
 outcomes: 
-- result: Surface contamination removal efficiency
-  metric: Achieves >95% removal of organic and inorganic contaminants measured per ISO 8501-1 standards
-- result: Material preservation rate
+results:
+  results: {}
+    metric: Achieves >95% removal of organic and inorganic contaminants measured per ISO 8501-1 standards
 subject: Stoneware
 article_type: material
 ---
