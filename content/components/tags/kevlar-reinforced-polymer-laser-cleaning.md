@@ -1,5 +1,1 @@
----
-# Content configuration
----
-
-ablation, kevlar, aerospace, restoration, thermal, non-contact, composite, evelyn wu
+Kevlar-Reinforced-Polymer, composite-material, laser-cleaning, aerospace-applications, automotive-processing, non-contact-cleaning, surface-treatment

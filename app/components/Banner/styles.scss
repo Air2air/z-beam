@@ -1,0 +1,119 @@
+// Banner component styles
+.site-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  
+  .banner-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    
+    .banner-message {
+      margin: 0;
+      padding-right: 1rem;
+    }
+    
+    .banner-action {
+      padding: 0.25rem 0.75rem;
+      border-radius: 0.25rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+  }
+  
+  .banner-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.25rem;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // Banner types
+  &.banner-info {
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    
+    .banner-action {
+      background-color: #1890ff;
+      color: white;
+      
+      &:hover {
+        background-color: #40a9ff;
+      }
+    }
+  }
+  
+  &.banner-success {
+    background-color: #f6ffed;
+    border: 1px solid #b7eb8f;
+    
+    .banner-action {
+      background-color: #52c41a;
+      color: white;
+      
+      &:hover {
+        background-color: #73d13d;
+      }
+    }
+  }
+  
+  &.banner-warning {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    
+    .banner-action {
+      background-color: #faad14;
+      color: white;
+      
+      &:hover {
+        background-color: #ffc53d;
+      }
+    }
+  }
+  
+  &.banner-error {
+    background-color: #fff2f0;
+    border: 1px solid #ffccc7;
+    
+    .banner-action {
+      background-color: #ff4d4f;
+      color: white;
+      
+      &:hover {
+        background-color: #ff7875;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .site-banner {
+    .banner-content {
+      flex-direction: column;
+      align-items: flex-start;
+      
+      .banner-message {
+        margin-bottom: 0.5rem;
+        padding-right: 0;
+      }
+    }
+  }
+}

@@ -1,1 +1,1 @@
-zirconia, ceramic-material, laser-cleaning, aerospace-applications, medical-devices, thermal-processing, surface-restoration
+zirconia, ceramic-material, laser-cleaning, aerospace-applications, medical-devices, industrial-processing, surface-restoration, non-abrasive-cleaning

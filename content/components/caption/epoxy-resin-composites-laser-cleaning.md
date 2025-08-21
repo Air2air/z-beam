@@ -1,7 +1,3 @@
----
-# Content configuration
----
+**Epoxy Resin Composites (SiO₂)** surface (left) before cleaning, showing organic contaminants and particulate adhesion.
 
-**Epoxy Resin Composites** (left) (c21h25clo5) sem before cleaning, showing oxide layer and particulate contamination.
-
-**After laser cleaning** (right) at 1064 nm, 50 w, 100 ns pulse duration, 500 µm spot size showing contaminant removal with minimal substrate ablation.
+**After laser cleaning** (right) After laser cleaning at 1064 nm, 10 w, 100 ns pulse duration, and 500 µm spot size, achieving contaminant removal with minimal substrate modification, showing complete contaminant removal.

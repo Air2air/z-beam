@@ -1,5 +1,1 @@
----
-# Content configuration
----
-
-composite, surface, thermal, precision, laser, non-contact, ablation, evelyn wu
+carbon-fiber, composite-material, laser-cleaning, aerospace, automotive, surface-treatment, non-destructive

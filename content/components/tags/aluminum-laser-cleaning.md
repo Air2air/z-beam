@@ -1,5 +1,1 @@
----
-# Content configuration
----
-
-non-contact, automotive, metal, thermal, aerospace, fiber, cleaning, evelyn wu
+titanium, thermal-conductivity, aerospace, laser-cleaning, metal-material, corrosion-removal, manufacturing, laser-ablation, surface-preparation, metal-processing

@@ -166,7 +166,7 @@ export function BadgeSymbol({
     }
   }
 
-  // Determine color - we're using a consistent style now
+  // Color for badge is now consistent
   const color = "badge-default"; // Single consistent style
 
   // If no symbol or formula is provided, don't render
@@ -174,9 +174,11 @@ export function BadgeSymbol({
     return null;
   }
 
-  // Determine what to display - prefer formula for complex compounds
-  // For symbol-only display, make sure it's properly formatted
-  const displaySymbol = formula || (symbol ? formatSymbol(symbol) : "") || "";
+  // For elements, prefer using the symbol rather than the formula
+  // This handles cases where formula might be the full element name like "Aluminum" instead of "Al"
+  const displaySymbol = 
+    (materialType === 'element' && symbol) ? symbol : 
+    (formula || (symbol ? formatSymbol(symbol) : "") || "");
 
   // Log the formatted symbol for debugging
 
@@ -250,6 +252,11 @@ export function BadgeSymbol({
           displaySymbol
         )}
       </span>
+
+      {/* Debug info - will be hidden in production */}
+      {process.env.NODE_ENV === 'development' && (
+        <span className="hidden">{`Symbol: ${symbol}, Formula: ${formula}`}</span>
+      )}
     </div>
   );
 }

@@ -1,10 +1,4 @@
----
-# Content configuration
----
-
-# Carbon Fiber Reinforced Polymer Key Points
-
-- Tensile strength of 500-700 MPa with density 60% lower than steel
-- Used in aerospace (50% weight reduction vs aluminum), automotive (40% fuel efficiency improvement), and sports equipment
-- Corrosion resistant with zero thermal expansion coefficient for dimensional stability
-- Manufacturing process allows complex shapes with minimal material waste (95% utilization)
+• Power Range: 15-80W operating power with precise energy control for varying contamination levels
+• Material Density: 1.5-1.8 g/cm³ composite structure requiring optimized fluence parameters between 0.8-8 J/cm²
+• Aerospace Application: Surface preparation of wing components using 1064nm wavelength at 4 J/cm² fluence with 50ns pulses
+• Cleaning Efficiency: Achieves 99.8% contaminant removal while maintaining structural integrity with less than 0.1% material loss

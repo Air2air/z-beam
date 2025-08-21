@@ -1,7 +1,3 @@
----
-# Content configuration
----
+Beryllium surface before laser cleaning shows heavy oxide layer and hydrocarbon deposits (left).
 
-Beryllium surface before laser cleaning shows oxide layer contamination (left).
-
-**After laser cleaning** (right) After treatment with 1064 nm laser at 5 j/cm², 20 ns pulses, and 500 µm spot size (right), showing complete contaminant removal.
+**After laser cleaning** (right) After treatment with 1064nm laser at 3.2 J/cm², 30ns pulses, and 0.8mm spot size (right), showing complete oxide removal with preserved substrate integrity and restored metallic surface finish.

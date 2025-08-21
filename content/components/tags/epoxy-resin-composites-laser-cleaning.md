@@ -1,5 +1,1 @@
----
-# Content configuration
----
-
-thermal, restoration, laser, non-contact, ablation, epoxy, aerospace, evelyn wu
+epoxy-composites, thermal-properties, aerospace-cleaning, laser-ablation, composite-material, automotive-applications, surface-treatment

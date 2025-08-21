@@ -15,8 +15,19 @@
     "enforce-components": "node enforce-component-rules.js",
     "lint:components": "npm run enforce-components",
     "create:component": "node safe-component-creation.js",
-    "yaml:process": "cd yaml-processor && python3 yaml_processor.py ../content",
-    "yaml:process-verbose": "cd yaml-processor && python3 yaml_processor.py ../content --verbose",
+    
+    "# YAML Processing System": "# Scripts for processing and validating YAML frontmatter",
+    "yaml:process": "cd yaml-processor && python3 yaml_processor.py ../content /Users/todddunning/Desktop/Z-Beam/z-beam-generator/validators/examples --verbose --timeout 10",
+    "yaml:check": "cd yaml-processor && python3 yaml_validator.py ../content --verbose --timeout 10",
+    "yaml:completeness": "cd yaml-processor && python3 yaml_validator.py ../content --verbose --required-fields name,description,applications,technicalSpecifications",
+    "yaml:materials-check": "cd yaml-processor && python3 yaml_validator.py ../content/components/frontmatter --verbose --required-fields name,description,properties,applications,technicalSpecifications",
+    "yaml:test": "python3 -m unittest tests/test_yaml_validator.py",
+    "yaml:check-file": "cd yaml-processor/tools && python3 check_file_completeness.py",
+    
+    "# Maintenance Scripts": "# Scripts for project maintenance and cleanup",
+    "cleanup:archive": "./archive-cleanup.sh",
+    "docs:validate": "echo 'Validating documentation files...' && find docs -name '*.md' -type f -exec echo 'Checking {}' \\;",
+    
     "lint": "next lint --fix",
     "type-check": "tsc --noEmit",
     "deploy:staging": "gh workflow run deploy.yml -f environment=staging",

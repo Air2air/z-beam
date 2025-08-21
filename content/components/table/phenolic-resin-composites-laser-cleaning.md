@@ -1,16 +1,12 @@
----
-# Content configuration
----
-
-| Property | Value | Unit | Notes |
-|----------|-------|------|-------|
-| Density | 1.25–1.40 | g/cm³ | Varies with filler content |
-| Tensile Strength | 50–100 | MPa | Reinforced grades reach 150 MPa |
-| Flexural Strength | 70–130 | MPa | Higher with fiber reinforcement |
-| Compressive Strength | 120–200 | MPa | Dependent on resin/filler ratio |
-| Thermal Conductivity | 0.2–0.5 | W/m·K | Low for insulation applications |
-| Maximum Service Temperature | 150–200 | °C | Short-term peaks to 250°C |
-| Dielectric Strength | 10–30 | kV/mm | Excellent electrical insulation |
-| Water Absorption (24h) | 0.1–0.5 | % | Low moisture uptake |
-| Flammability Rating | UL94 V-0 | - | Self-extinguishing |
-
+| Property | Value | Unit | Application |
+|----------|-------|------|-------------|
+| Density | 1.35-1.95 | g/cm³ | Material selection and processing parameter optimization |
+| Thermal Conductivity | 0.2-0.4 | W/m·K | Heat management during laser processing |
+| Decomposition Temperature | 300-400 | °C | Maximum operating temperature limit |
+| Laser Wavelength | 1064 | nm | Primary processing wavelength for contaminant removal |
+| Optimal Fluence | 2.5-6.0 | J/cm² | Surface cleaning and coating removal applications |
+| Pulse Duration | 20-150 | ns | Contamination ablation control and thermal management |
+| Spot Size | 0.3-2.0 | mm | Processing area coverage and resolution control |
+| Cleaning Rate | 0.5-2.0 | m²/h | Industrial throughput for large-scale applications |
+| Energy Consumption | 0.8-1.2 | kWh/m² | Process efficiency compared to traditional methods |
+| VOC Reduction | 95 | % | Environmental benefit over solvent cleaning methods |

@@ -1,5 +1,1 @@
----
-# Content configuration
----
-
-ablation, aerospace, restoration, thermal, non-contact, composite, industrial, evelyn wu
+polyester-composites, thermal-properties, aerospace-cleaning, laser-ablation, composite-material

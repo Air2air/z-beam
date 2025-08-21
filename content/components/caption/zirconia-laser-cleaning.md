@@ -1,1 +1,3 @@
-Zirconia surface before laser cleaning shows thermal barrier coating contamination and oxidation layers (left). **After laser cleaning** (right) After treatment with -1064nm laser at -3.2 J/cm², -50ns pulses, and -0.8mm spot size (right), showing complete contaminant removal with preserved substrate integrity and surface roughness below -0.8μm Ra.
+**Zirconia (SiO₂)** surface (left) before cleaning, showing organic contaminants and particulate adhesion.
+
+**After laser cleaning** (right) After laser cleaning at 1064 nm, 10 w, 100 ns pulse duration, and 500 µm spot size, achieving contaminant removal with minimal substrate modification, showing complete contaminant removal.

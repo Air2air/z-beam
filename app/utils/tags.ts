@@ -357,14 +357,14 @@ All tag-related functionality is now centralized in the ./tags.ts file.
 Please update your imports to use the new tag system:
 
 OLD:
-import { getAllTags } from '../utils/tagUtils';
-import { filterArticlesByTag } from '../utils/articleTagsUtils';
+import { getAllTags } from './tagUtils';         // OLD
+import { filterArticlesByTag } from './articleTagsUtils';  // OLD
 
 NEW:
-import { getAllTags, filterArticlesByTag } from '../utils/tags';
+import { getAllTags, filterArticlesByTag } from './tags';
 
 For backward compatibility, you can also import from tagIntegration.ts:
-import { getAllTags, filterArticlesByTag } from '../utils/tagIntegration';
+import { getAllTags, filterArticlesByTag } from './tagIntegration';
 `;
   
   logger.warn(migrationGuide);

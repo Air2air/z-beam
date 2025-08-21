@@ -1,10 +1,3 @@
----
-# Content configuration
----
+# Propertiestable for Epoxy Resin Composites
 
-| Property | Value |
-|----------|-------|
-| Chemical Formula | C₂₁H₂₄O₄ + fillers |
-| Material Symbol | EP |
-| Category | Composite |
-| Material Type | Composite |
+Generated content placeholder.

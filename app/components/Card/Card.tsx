@@ -125,6 +125,7 @@ export function Card({
                   chemicalProperties: metadata.chemicalProperties 
                 } : undefined}
                 slug={slug}
+                variant="card"
               />
             </div>
           )}

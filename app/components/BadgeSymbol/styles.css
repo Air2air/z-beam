@@ -5,6 +5,7 @@
   top: 8px;
   right: 8px;
   pointer-events: auto;
+  opacity: 1 !important; /* Ensure the badge is visible */
 }
 
 .badge-container {
@@ -14,10 +15,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 1 !important;
 }
 
 /* Ensure the badge is above the thumbnail images */
 .badge-content {
   z-index: 100 !important;
   position: relative;
+  opacity: 1 !important;
+  color: white !important; /* Ensure text is visible on the red background */
 }

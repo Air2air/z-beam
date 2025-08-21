@@ -4,6 +4,11 @@
 
 import { useState, useEffect } from 'react';
 import { logger } from '../utils/logger';
+import { DebugLayout } from '../components/Debug/DebugLayout';
+import { TagDebug } from '../components/Debug/TagDebug';
+import { FrontmatterDebug } from '../components/Debug/FrontmatterDebug';
+import { FrontmatterNameChecker } from '../components/Debug/FrontmatterNameChecker';
+import { BadgeSymbol } from '../components/BadgeSymbol/BadgeSymbol';
 
 interface DebugData {
   thumbnails: any[];
@@ -27,6 +32,8 @@ export default function DebugPage() {
     { id: 'frontmatter', label: 'Frontmatter Debug', icon: '📄' },
     { id: 'borosilicate', label: 'Borosilicate Test', icon: '🔬' },
     { id: 'category', label: 'Category Fallback', icon: '📂' },
+    { id: 'tag-system', label: 'Tag System', icon: '🏷️' },
+    { id: 'badge-symbol', label: 'Badge Symbol', icon: '🧪' },
   ];
 
   const loadDebugData = async (type: string) => {
@@ -34,31 +41,25 @@ export default function DebugPage() {
     setError(null);
     
     try {
-      // Mock debug data loading - replace with actual API calls
-      const mockData = {
-        thumbnails: [
-          { slug: 'test-1', url: '/images/test-1.jpg', alt: 'Test image 1' },
-          { slug: 'test-2', url: '/images/test-2.jpg', alt: 'Test image 2' },
-        ],
-        images: [
-          { id: 1, src: '/images/sample-1.jpg', width: 800, height: 600 },
-          { id: 2, src: '/images/sample-2.jpg', width: 1200, height: 800 },
-        ],
-        materials: [
-          { name: 'Steel', fallback: 'metal-generic', status: 'active' },
-          { name: 'Aluminum', fallback: 'light-metal', status: 'active' },
-        ],
-        cards: [
-          { title: 'Card 1', type: 'material', status: 'rendered' },
-          { title: 'Card 2', type: 'service', status: 'rendered' },
-        ],
-        frontmatter: [
-          { slug: 'home', title: 'Home Page', author: 'System' },
-          { slug: 'about', title: 'About Page', author: 'Content Team' },
-        ],
+      // Get data from the new debug API
+      const response = await fetch(`/api/debug?category=${type}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error ${response.status}`);
+      }
+      
+      const result = await response.json();
+      
+      // Transform the data to match the expected format
+      const transformedData: DebugData = {
+        thumbnails: result.thumbnails || [],
+        images: result.images || [],
+        materials: result.materials || [],
+        cards: result.cards || [],
+        frontmatter: result.frontmatter || []
       };
       
-      setDebugData(mockData);
+      setDebugData(transformedData);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       setError(errorMessage);
@@ -93,6 +94,45 @@ export default function DebugPage() {
           >
             Retry
           </button>
+        </div>
+      );
+    }
+
+    // Special case for components that are now implemented
+    if (activeTab === 'tag-system') {
+      return <TagDebug />;
+    }
+    
+    // Special case for components that are now implemented
+    if (activeTab === 'frontmatter-fields') {
+      return <FrontmatterDebug />;
+    }
+    
+    // Special case for components that are now implemented
+    if (activeTab === 'name-checker') {
+      return <FrontmatterNameChecker />;
+    }
+
+    // Special case for badge symbol debug
+    if (activeTab === 'badge-symbol') {
+      return (
+        <div className="space-y-4">
+          <h3 className="text-lg font-semibold">Badge Symbol Debug</h3>
+          <p className="text-sm text-gray-700">
+            This debug tool helps you test chemical badge symbols for materials.
+            Visit the <a href="/debug/badge-symbol" className="text-blue-600 underline">dedicated Badge Symbol debug page</a> for more detailed testing.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="relative bg-gray-100 p-4 rounded-lg h-48">
+              <h3 className="text-lg font-medium mb-2">Aluminum (Al)</h3>
+              <div className="w-full h-full">
+                <BadgeSymbol 
+                  slug="aluminum" 
+                  variant="card"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
@@ -172,26 +212,7 @@ export default function DebugPage() {
         );
 
       case 'frontmatter':
-        return (
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Frontmatter Debugging</h3>
-            <div className="space-y-3">
-              {debugData?.frontmatter.map((fm, index) => (
-                <div key={index} className="border rounded-lg p-4">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="font-semibold">{fm.title}</h4>
-                      <p className="text-sm text-gray-600">Slug: {fm.slug}</p>
-                    </div>
-                    <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                      {fm.author}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
+        return <FrontmatterDebug />;
 
       case 'borosilicate':
         return (
@@ -228,72 +249,95 @@ export default function DebugPage() {
         );
 
       default:
-        return <div>Select a tab to view debug information</div>;
+        return (
+          <div className="space-y-4">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+              <h3 className="font-semibold text-yellow-800">Debug Selection</h3>
+              <p className="mt-2 text-yellow-700">Select a debug category from the tabs above to view diagnostic information.</p>
+            </div>
+            
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+              <h3 className="font-semibold text-blue-800">Debug Tools Overview</h3>
+              <p className="mt-2 text-blue-700">This debug console provides tools for testing and diagnosing different aspects of the Z-Beam system.</p>
+              
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="border border-blue-100 bg-white p-3 rounded">
+                  <h4 className="font-medium text-blue-800">Content Tools</h4>
+                  <ul className="mt-2 space-y-1 text-sm">
+                    <li>• Frontmatter validation</li>
+                    <li>• Tag system diagnostics</li>
+                    <li>• Content structure checking</li>
+                  </ul>
+                </div>
+                
+                <div className="border border-blue-100 bg-white p-3 rounded">
+                  <h4 className="font-medium text-blue-800">Media Tools</h4>
+                  <ul className="mt-2 space-y-1 text-sm">
+                    <li>• Thumbnail previews</li>
+                    <li>• Image loading tests</li>
+                    <li>• Asset optimization checks</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Debug Console</h1>
-          <p className="mt-2 text-gray-600">
-            Consolidated testing and debugging interface for all Z-Beam components
-          </p>
-        </div>
-
-        {/* Tab Navigation */}
-        <div className="mb-6">
-          <div className="border-b border-gray-200">
-            <nav className="-mb-px flex space-x-8 overflow-x-auto">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm ${
-                    activeTab === tab.id
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                  }`}
-                >
-                  <span className="mr-2">{tab.icon}</span>
-                  {tab.label}
-                </button>
-              ))}
-            </nav>
-          </div>
-        </div>
-
-        {/* Tab Content */}
-        <div className="bg-white rounded-lg shadow-sm border p-6">
-          {renderTabContent()}
-        </div>
-
-        {/* Quick Actions */}
-        <div className="mt-8 bg-white rounded-lg shadow-sm border p-6">
-          <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button 
-              onClick={() => loadDebugData(activeTab)}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
-              🔄 Refresh Data
-            </button>
-            <button 
-              onClick={() => window.location.href = '/'}
-              className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
-            >
-              🏠 Back to Home
-            </button>
-            <button 
-              onClick={() => window.open('/api/debug', '_blank')}
-              className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-            >
-              🔍 API Debug
-            </button>
-          </div>
+    <DebugLayout>
+      {/* Tab Navigation */}
+      <div className="mb-6">
+        <div className="border-b border-gray-200">
+          <nav className="-mb-px flex space-x-8 overflow-x-auto">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === tab.id
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                <span className="mr-2">{tab.icon}</span>
+                {tab.label}
+              </button>
+            ))}
+          </nav>
         </div>
       </div>
-    </div>
+
+      {/* Tab Content */}
+      <div className="bg-white rounded-lg p-6">
+        {renderTabContent()}
+      </div>
+
+      {/* Quick Actions */}
+      <div className="mt-8 bg-white rounded-lg p-6">
+        <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button 
+            onClick={() => loadDebugData(activeTab)}
+            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            🔄 Refresh Data
+          </button>
+          <button 
+            onClick={() => window.location.href = '/'}
+            className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700"
+          >
+            🏠 Back to Home
+          </button>
+          <button 
+            onClick={() => window.open('/api/debug', '_blank')}
+            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          >
+            🔍 API Debug
+          </button>
+        </div>
+      </div>
+    </DebugLayout>
   );
 }

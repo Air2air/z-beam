@@ -1,58 +1,57 @@
 ---
 name: Zirconia
 applications: 
-- industry: Aerospace Manufacturing
-  useCase: Removal of thermal barrier coating residues from turbine blades using 1064nm wavelength at 2.5-4.5 J/cm² fluence with 30ns pulse duration
-  detail: Selective ablation of ceramic coatings without substrate damage, maintaining dimensional tolerances within ±5μm
-- industry: Medical Device Manufacturing
+- industry: Archaeological Restoration
+  useCase: "Removal of biological crusts (lichens, moss) with 1064 nm Nd-YAG at 2 J/cm², 20 ns pulse duration."
+  detail: Specific laser cleaning application
+- industry: Cultural Heritage
 technicalSpecifications: 
-    powerRange: 15-80W
-    pulseDuration: 20-100ns
-    wavelength: 1064nm (primary), 532nm (optional)
-    spotSize: 0.2-1.5mm
-    repetitionRate: 10-40kHz
-    fluenceRange: 0.8–8 J/cm²
-    safetyClass: Class 4 laser requiring full enclosure and interlock systems
-description: Zirconia is a high-performance ceramic material with excellent thermal stability and mechanical properties, widely used in aerospace, medical, and industrial applications where precision surface cleaning is critical
-author: Dr. Evelyn Wu
-keywords: zirconia ceramic, laser ablation, surface cleaning, thermal barrier coating, dental implants, industrial laser processing, non-contact cleaning
+  powerRange: 20-100W
+  pulseDuration: 10-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.1-2.0mm
+  repetitionRate: 10-50kHz
+  fluenceRange: 0.5–5 J/cm²
+  safetyClass: Class 4 (requires full enclosure)
+author: Zirconia - author
+keywords: zirconia, zirconia ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration, ceramic restoration, archaeological conservation
 category: ceramic
 chemicalProperties: 
-    symbol: N/A
-    formula: N/A
-materialType: material
+  symbol: Zirconia symbol
+  formula: Zirconia formula
+materialType: Zirconia materialType
 properties: 
-    density: 5.68-6.10 g/cm³
-    meltingPoint: 2680-2710°C
-    thermalConductivity: 2-3 W/m·K
-    laserType: Pulsed fiber laser
-    wavelength: 1064nm
-    fluenceRange: 0.8-8 J/cm²
-chemicalFormula: N/A
+  density: Zirconia density
+  meltingPoint: Zirconia meltingPoint
+  thermalConductivity: Zirconia thermalConductivity
+  laserType: Zirconia laserType
+  wavelength: Zirconia wavelength
+  fluenceRange: Zirconia fluenceRange
+chemicalFormula: Zirconia chemicalFormula
 composition: 
-- component: Zirconium dioxide
-  percentage: 94-97%
-- component: Yttrium oxide
+- Zirconia related
+- General applications
 compatibility: 
-- material: Stainless steel
-  rating: Excellent
-- material: Titanium alloys
-- material: Aluminum
-regulatoryStandards: ISO 13485, ASTM F1873, MIL-STD-810G
+- Zirconia related
+- General applications
+regulatoryStandards: Zirconia - regulatoryStandards
 images: 
-    hero: 
-    alt: Zirconia turbine component undergoing precision laser cleaning process
-    url: /images/zirconia-laser-cleaning-hero.jpg
-    closeup: 
-title: Advanced Laser Cleaning Techniques for Zirconia Ceramic Materials
-headline: Precision Surface Treatment of Zirconia Using Non-Contact Laser Technology
+  hero: 
+  alt: Zirconia surface undergoing laser cleaning showing precise contamination removal
+  url: /images/zirconia-laser-cleaning-hero.jpg
+  closeup: 
+title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning ceramic zirconia
 environmentalImpact: 
 - benefit: Reduced chemical waste
+description: Eliminates 100% of solvent use compared to traditional cleaning methods, preventing ~200L/year of hazardous waste in medium-scale operations.
 - benefit: Energy efficiency
+- benefit: Zero volatile emissions
 outcomes: 
 - result: Surface cleanliness
-  metric: Achieves ISO 14644-1 Class 5 cleanliness standards with <5 particles/cm² remaining
-- result: Material preservation
+  metric: 98% contamination removal measured by SEM-EDS analysis (ASTM E1508)
+- result: Substrate preservation
+- result: Processing speed
 subject: Zirconia
 article_type: material
 ---
