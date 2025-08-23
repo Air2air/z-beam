@@ -2,8 +2,6 @@
 import './styles.css';
 
 interface HeroProps {
-  title: string;
-  subtitle?: string;
   image?: string;
   align?: 'left' | 'center' | 'right';
   theme?: 'dark' | 'light';

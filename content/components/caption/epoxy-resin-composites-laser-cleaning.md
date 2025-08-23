@@ -1,3 +1,2 @@
-Epoxy Resin Composites surface before laser cleaning shows residual adhesive and surface oxidation (left).
-
-**After laser cleaning** (right) After treatment with 1064nm laser at 1.8 J/cm², 20ns pulses, and 0.6mm spot size (right), showing complete contaminant removal with preserved substrate integrity and restored surface morphology.
+**Epoxy Resin Composites** surface (left) before cleaning, showing heavy carbonaceous soot and uncured resin residues from thermal degradation.
+**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 0.8 J/cm², 100 ns pulses, and a 500 µm spot, which selectively ablated the contamination while preserving the underlying fiberglass reinforcement and char-free polymer matrix.

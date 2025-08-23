@@ -4,12 +4,15 @@ YAML Error Tracker
 
 This script maintains a dictionary of YAML errors and their solutions.
 It can parse terminal output to extract new YAML errors and add them to the dictionary.
+It supports continuous monitoring of terminal output for automatic error tracking.
 """
 
 import json
 import os
 import re
 import sys
+import time
+import signal
 from pathlib import Path
 from datetime import datetime
 
@@ -197,6 +200,63 @@ def add_solution(error_key, solution):
         print(f"Error not found: {error_key}")
 
 
+def monitor_log_file(log_file_path, interval=5):
+    """Continuously monitor a log file for new YAML errors."""
+    import time
+
+    log_file = Path(log_file_path)
+    if not log_file.is_absolute():
+        # Make relative path absolute from the script's directory
+        log_file = Path(__file__).parent.parent / log_file
+
+    print(f"Monitoring log file: {log_file}")
+
+    # Keep track of the last position we read from
+    last_position = 0
+    if log_file.exists():
+        last_position = log_file.stat().st_size
+
+    try:
+        while True:
+            if log_file.exists():
+                current_size = log_file.stat().st_size
+
+                # If file size decreased (truncated), reset position
+                if current_size < last_position:
+                    print("Log file was truncated, resetting position.")
+                    last_position = 0
+
+                # If file has new content, process it
+                if current_size > last_position:
+                    with open(log_file, "r", encoding="utf-8") as f:
+                        f.seek(last_position)
+                        new_content = f.read()
+
+                    if new_content:
+                        print(
+                            f"Processing {len(new_content)} bytes of new log content..."
+                        )
+                        error_dict = load_error_dictionary()
+                        errors = extract_yaml_errors_from_log(new_content)
+
+                        new_errors = 0
+                        for error in errors:
+                            if add_error_to_dictionary(error_dict, error):
+                                new_errors += 1
+
+                        if new_errors > 0:
+                            save_error_dictionary(error_dict)
+                            print(f"Added {new_errors} new errors to dictionary.")
+
+                    last_position = current_size
+
+            # Wait for the specified interval
+            time.sleep(interval)
+
+    except KeyboardInterrupt:
+        print("\nMonitoring stopped.")
+
+
 def main():
     """Main function to process command line arguments."""
     if len(sys.argv) < 2:
@@ -205,6 +265,8 @@ def main():
         print("  python yaml_error_tracker.py list [--with-solutions]")
         print("  python yaml_error_tracker.py add-solution <error_key> <solution>")
         print("  python yaml_error_tracker.py add-error <error_message>")
+        print("  python yaml_error_tracker.py monitor [--interval=N]")
+        print("  python yaml_error_tracker.py report")
         sys.exit(1)
 
     command = sys.argv[1]
@@ -227,6 +289,61 @@ def main():
         add_error_to_dictionary(error_dict, error_message)
         save_error_dictionary(error_dict)
         print(f"Added new error: {error_message}")
+
+    elif command == "monitor":
+        # Extract interval if provided
+        interval = 5  # Default 5 seconds
+        for arg in sys.argv:
+            if arg.startswith("--interval="):
+                try:
+                    interval = int(arg.split("=")[1])
+                except ValueError:
+                    print("Invalid interval value. Using default of 5 seconds.")
+
+        print(f"Starting YAML error monitoring (interval: {interval}s)")
+        print("Press Ctrl+C to stop monitoring.")
+        monitor_log_file("../yaml-errors.log", interval)
+
+    elif command == "report":
+        # Generate a markdown report of all errors
+        error_dict = load_error_dictionary()
+        print("\n# YAML Error Report")
+        print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"Total unique errors: {len(error_dict['errors'])}")
+        print("\n## Error Summary")
+
+        # Group errors by common patterns
+        error_types = {}
+        for key, data in error_dict["errors"].items():
+            # Try to categorize the error
+            error_type = "Other"
+            if "indentation" in key or "indent" in key:
+                error_type = "Indentation Issues"
+            elif "colon is missed" in key or "missing colon" in key:
+                error_type = "Missing Colon Issues"
+            elif "duplicate" in key:
+                error_type = "Duplicate Key Issues"
+            elif "meta_tags" in key or "opengraph" in key:
+                error_type = "Array Conversion Issues"
+            elif "document separator" in key:
+                error_type = "Document Structure Issues"
+
+            if error_type not in error_types:
+                error_types[error_type] = []
+            error_types[error_type].append((key, data))
+
+        # Print errors by type
+        for error_type, errors in sorted(error_types.items()):
+            print(f"\n### {error_type} ({len(errors)} unique issues)")
+            for key, data in sorted(
+                errors, key=lambda x: x[1]["occurrences"], reverse=True
+            ):
+                print(f"\n#### {data['message']}")
+                print(f"- **Occurrences:** {data['occurrences']}")
+                if data["solution"]:
+                    print(f"- **Solution:** {data['solution']}")
+                if data["files"]:
+                    print(f"- **Example files:** {', '.join(data['files'][:3])}")
 
     else:
         print("Invalid command. Run with no arguments for usage information.")

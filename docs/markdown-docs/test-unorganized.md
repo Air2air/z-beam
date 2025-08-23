@@ -9,7 +9,6 @@ meltingPoint: 1000°C
 thermalConductivity: 100 W/m·K
 applications:
 - industry: Test Industry
-  useCase: Test use case here
   detail: Test details
 - industry: Another Industry
 technicalSpecifications:

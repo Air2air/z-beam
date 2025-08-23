@@ -1,10 +1,42 @@
-| Property | Value | Unit | Application |
-|----------|-------|------|-------------|
-| Density | 1.2-1.8 | g/cm³ | Material selection and weight calculations |
-| Thermal Conductivity | 0.2-0.5 | W/m·K | Heat management during laser processing |
-| Tensile Strength | 600-800 | MPa | Structural integrity assessment |
-| Wavelength | 1064 | nm | Primary processing parameter for carbon fiber composites |
-| Pulse Duration | 20-100 | ns | Contamination removal control and precision |
-| Fluence | 1.5-6.0 | J/cm² | Energy delivery optimization for surface treatment |
-| Cleaning Rate | 2-4 | m²/hour | Production efficiency measurement |
-| Surface Roughness | <0.8 | μm Ra | Quality control parameter post-cleaning |
+## Material Properties
+| Property | Value | Unit |
+| --- | --- | --- |
+| Density | 1.2 - 1.4 | g/cm³ |
+| Thermal Conductivity | 0.2 - 0.3 | W/m·K |
+| Tensile Strength | 50 - 100 | MPa |
+| Glass Transition Temperature | 120 - 200 | °C |
+
+## Material Grades and Purity
+| Property | Value | Unit |
+| --- | --- | --- |
+| Epoxy Content | 30 - 70 | % |
+| Filler Content | 30 - 70 | % |
+| Purity Level | 99.5 - 99.9 | % |
+
+## Performance Metrics
+| Property | Value | Unit |
+| --- | --- | --- |
+| Surface Roughness (Ra) | 0.1 - 1.0 | µm |
+| Cleaning Efficiency | 90 - 98 | % |
+| Residual Contamination | < 1 | % |
+
+## Standards and Compliance
+| Property | Value | Unit |
+| --- | --- | --- |
+| ASTM D638 | Compliant | - |
+| ISO 527 | Compliant | - |
+| RoHS Compliance | Yes | - |
+
+## Environmental Data
+| Property | Value | Unit |
+| --- | --- | --- |
+| Operating Temperature | -40 to 150 | °C |
+| Humidity Resistance | 95 | % RH |
+| VOC Emissions | < 10 | g/L |
+
+## Laser Cleaning Parameters
+| Property | Value | Unit |
+| --- | --- | --- |
+| Wavelength | 1064 | nm |
+| Fluence | 1 - 5 | J/cm² |
+| Pulse Duration | 10 - 100 | ns |

@@ -1,1 +1,1 @@
-stoneware, ceramic-material, laser-cleaning, cultural-heritage, industrial-manufacturing, surface-treatment, non-abrasive-processing
+stoneware, ablation, cleaning, laser, manufacturing, cultural-heritage, non-contact, yi-chun-lin

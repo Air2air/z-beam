@@ -48,7 +48,7 @@ export function Breadcrumbs({ className }: { className?: string }) {
     // Add any other static top-level routes here that should NOT be considered materials
   ]);
 
-  let allBreadcrumbs: BreadcrumbItem[] = [{ href: "/", label: "Home" }];
+  const allBreadcrumbs: BreadcrumbItem[] = [{ href: "/", label: "Home" }];
 
   let currentPathAccumulator = ""; // To build hrefs correctly
 

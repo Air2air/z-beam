@@ -1,6 +1,0 @@
----
----
-# Content configuration
----
-
-ablation, laser, restoration, thermal, non-contact, masonry, industrial, evelyn wu

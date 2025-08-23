@@ -1,6 +1,0 @@
----
----
-# Content configuration
----
-
-restoration, non-contact, float-glass, industrial, ablation, cleaning, fiber, evelyn wu

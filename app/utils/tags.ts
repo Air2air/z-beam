@@ -169,7 +169,7 @@ async function initializeTagCache() {
   for (const article of articles) {
     if (article.slug) {
       // Get tags from tags directory
-      let tags = await getArticleTagsFromTagsDir(article.slug);
+      const tags = await getArticleTagsFromTagsDir(article.slug);
       
       // Add author name as a tag if available
       if (article.author?.author_name) {

@@ -99,7 +99,7 @@ export async function List({
 
       // Extract chemical data from article
       let chemicalSymbol = article?.metadata?.chemicalSymbol;
-      let atomicNumber = article?.metadata?.atomicNumber;
+      const atomicNumber = article?.metadata?.atomicNumber;
       let chemicalFormula = article?.metadata?.chemicalFormula;
 
       // If not directly in metadata, try to get from properties

@@ -1,1 +1,1 @@
-zirconia, ceramic-material, laser-cleaning, aerospace-applications, medical-devices, industrial-processing, surface-restoration, non-abrasive-cleaning
+zirconia, ablation, cleaning, laser, dental, manufacturing, non-contact, yi-chun-lin

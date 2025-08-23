@@ -20,6 +20,8 @@ const CONTENT_DIRS = {
     bullets: path.join(process.cwd(), 'content', 'components', 'bullets'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
+    propertiestable: path.join(process.cwd(), 'content', 'components', 'propertiestable'),
+    author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
   },
   pages: path.join(process.cwd(), 'content', 'pages'),

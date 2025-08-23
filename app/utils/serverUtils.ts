@@ -22,7 +22,7 @@ export async function getMaterialFrontmatter(materialSlug: string) {
     const allFiles = fs.readdirSync(contentDir);
     
     // Find matching material files
-    let matchingFiles = allFiles.filter(file => 
+    const matchingFiles = allFiles.filter(file => 
       file.toLowerCase().includes(cleanMaterialName.toLowerCase())
     );
 

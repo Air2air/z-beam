@@ -1,3 +1,2 @@
-Stoneware surface before laser cleaning shows heavy biological growth and atmospheric soiling (left).
-
-**After laser cleaning** (right) After treatment with 1064nm laser at 1.8 J/cm², 100ns pulses, and 1.5mm spot size (right), showing complete contaminant removal with preserved original glaze surface.
+**Stoneware** surface (left) before cleaning, showing heavy, stratified organic deposits and ingrained particulate soiling.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm² fluence, which selectively ablated the contaminants while preserving the vitrified ceramic body, revealing the original glaze texture without substrate damage.

@@ -1,8 +1,8 @@
 {
   "metadata": {
     "created": "2025-08-21T16:17:28.988439",
-    "lastUpdated": "2025-08-21T16:24:59.465508",
-    "totalErrors": 7
+    "lastUpdated": "2025-08-21T16:36:45.304964",
+    "totalErrors": 11
   },
   "errors": {
     "bad indentation of a": {
@@ -53,6 +53,48 @@
       "firstSeen": "2025-08-21T16:24:48.401152",
       "occurrences": 1,
       "files": []
+    },
+    "missing colon after property name": {
+      "message": "missing colon after property name",
+      "solution": "Add missing colon and an empty value placeholder after property names",
+      "firstSeen": "2025-08-21T16:34:50.421112",
+      "occurrences": 1,
+      "files": []
+    },
+    "improper list item indentation in nested lists": {
+      "message": "improper list item indentation in nested lists",
+      "solution": "Add proper indentation to list item properties by ensuring properties under a list item are indented more than the item itself",
+      "firstSeen": "2025-08-21T16:35:58.770528",
+      "occurrences": 1,
+      "files": []
+    },
+    "property with value on next line after empty object": {
+      "message": "property with value on next line after empty object",
+      "solution": "Fix alignment of property values that appear on the next line after an empty object placeholder",
+      "firstSeen": "2025-08-21T16:36:06.253285",
+      "occurrences": 1,
+      "files": []
+    },
+    "missing dash in consecutive list items": {
+      "message": "missing dash in consecutive list items",
+      "solution": "Add missing dash (-) to list items that should be part of a sequence but are formatted as regular properties",
+      "firstSeen": "2025-08-21T16:36:45.243915",
+      "occurrences": 1,
+      "files": []
+    },
+    "no frontmatter found despite file having delimiters": {
+      "message": "No frontmatter found in file despite having YAML delimiters",
+      "solution": "This is often caused by duplicate delimiter issues (multiple --- at the start of the file) or missing closing delimiters. Run the fix_duplicate_delimiters.py script to automatically fix these issues.",
+      "firstSeen": "2025-08-21T16:45:00.000000",
+      "occurrences": 1,
+      "files": ["carbon-fiber-reinforced-polymer-laser-cleaning.md"]
+    },
+    "duplicate frontmatter delimiters": {
+      "message": "File has duplicate frontmatter delimiters at the beginning",
+      "solution": "Remove the duplicate delimiter line (---) at the beginning of the file. The correct format should have exactly two delimiter lines: one at the beginning and one at the end of the frontmatter section.",
+      "firstSeen": "2025-08-21T16:45:30.000000",
+      "occurrences": 1,
+      "files": ["carbon-fiber-reinforced-polymer-laser-cleaning.md"]
     }
   }
 }

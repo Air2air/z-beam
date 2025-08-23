@@ -8,14 +8,17 @@ import { Tags } from "../Tags/Tags";
 import { Author } from '../Author/Author';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { Hero } from '../Hero/Hero';
+import { Title } from '../Title/Title';
+import { parseAuthorContent } from '@/app/utils/authorParser';
 
-// Update component order to include propertiestable and tags
+// Update component order to include propertiestable, author, and tags
 const COMPONENT_ORDER = [
   'propertiestable',
   'content',
   'caption',
   'bullets',
   'table',
+  'author',  // Add author to the component order
   'tags'  // Add tags to the component order
 ] as const;
 
@@ -41,22 +44,31 @@ export function Layout({
     // Return a basic layout or message for pages without components
     return (
       <section className={className}>
-        {!hideHeader && (
-          <header className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              {title || metadata?.subject || (slug ? `Article: ${slug}` : '')}
-            </h1>
-          </header>
-        )}
         <div className="prose dark:prose-invert">
           <p>No content available for this page.</p>
+          {!hideHeader && (
+            <>
+              <Title>
+                {title || metadata?.subject || (slug ? `Article: ${slug}` : '')}
+              </Title>
+              {metadata?.author && (
+                <Author 
+                  author={metadata.author} 
+                  className="mt-2"
+                />
+              )}
+            </>
+          )}
         </div>
       </section>
     );
   }
   
-  // Determine the title to display
-  const displayTitle = title || metadata?.subject || (slug ? `Article: ${slug}` : '');
+  // Determine the title to display with improved hierarchy
+  const displayTitle = title || metadata?.title || metadata?.headline || metadata?.subject || (slug ? `Article: ${slug}` : '');
+  
+  // Determine the subtitle to display
+  const displaySubtitle = metadata?.title ? metadata?.headline : metadata?.description;
   
   // Extract material name for hero image (from subject or slug)
   const materialName = metadata?.subject?.toLowerCase() || 
@@ -80,31 +92,13 @@ export function Layout({
       {/* Only include JSON-LD here, not other meta tags */}
       {jsonLdData && <JsonLD data={jsonLdData} />}
       
-      {/* Add Hero component */}
+      {/* Add Hero component (now just for background image) */}
       {!hideHeader && materialName && (
         <Hero
-          title={displayTitle}
-          subtitle={metadata?.description}
           frontmatter={metadata}
           theme="dark"
           align="center"
         />
-      )}
-      
-      {!hideHeader && displayTitle && !materialName && (
-        <header className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">
-            {displayTitle}
-          </h1>
-          
-          {/* Add author component if metadata has author */}
-          {metadata?.author && (
-            <Author 
-              author={metadata.author} 
-              className="mt-2"
-            />
-          )}
-        </header>
       )}
 
       {/* Render components in specified order */}
@@ -115,7 +109,24 @@ export function Layout({
         
         switch(type) {
           case 'propertiestable':
-            return <PropertiesTable key={type} content={content} config={config} />;
+            return (
+              <div key={type}>
+                <PropertiesTable content={content} config={config} />
+                {/* Add discrete Title component after PropertiesTable */}
+                {!hideHeader && displayTitle && (
+                  <Title subtitle={displaySubtitle}>
+                    {displayTitle}
+                  </Title>
+                )}
+                {/* Add Author component after Title */}
+                {!hideHeader && metadata?.author && (
+                  <Author 
+                    author={metadata.author} 
+                    className="mt-2"
+                  />
+                )}
+              </div>
+            );
           case 'content':
             return <Content key={type} content={content} config={config} />;
           case 'caption':
@@ -124,6 +135,10 @@ export function Layout({
             return <Bullets key={type} content={content} config={config} />;
           case 'table':
             return <Table key={type} content={content} config={config} />;
+          case 'author':
+            // Parse author content from markdown and create author object
+            const parsedAuthor = parseAuthorContent(content);
+            return parsedAuthor ? <Author key={type} author={parsedAuthor} showCredentials showCountry /> : null;
           case 'tags':
             return <Tags key={type} content={content} config={config} />;
           default:

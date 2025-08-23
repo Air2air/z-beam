@@ -1,22 +1,42 @@
-| Property | Value | Unit | Application |
-|----------|-------|------|-------------|
-| Density | 1.5-1.8 | g/cm³ | Material selection and weight calculations |
-| Tensile Strength | 3000-7000 | MPa | Structural component design |
-| Thermal Conductivity | 5-10 | W/m·K | Heat management applications |
-| Melting Point | 350-400 | °C | High-temperature processing limits |
+## Material Properties
+| Property | Value | Unit |
+| --- | --- | --- |
+| Tensile Strength | 3500 - 7000 | MPa |
+| Thermal Conductivity | 5 - 10 | W/m·K |
+| Density | 1.5 - 2.0 | g/cm³ |
+| Melting Point | >3500 | °C |
 
-| Laser Parameter | Value | Unit | Processing Application |
-|-----------------|-------|------|-----------------------|
-| Wavelength | 1064 | nm | Primary ablation wavelength |
-| Power Range | 15-80 | W | Contamination level adjustment |
-| Fluence | 0.8-8 | J/cm² | Surface cleaning intensity |
-| Pulse Duration | 20-100 | ns | Precision control parameter |
-| Spot Size | 0.2-1.5 | mm | Treatment area specification |
-| Repetition Rate | 10-40 | kHz | Processing speed optimization |
+## Material Grades and Purity
+| Property | Value | Unit |
+| --- | --- | --- |
+| Carbon Fiber Content | 50 - 70 | % |
+| Resin Content | 30 - 50 | % |
+| Purity Level | 95 - 99 | % |
 
-| Performance Metric | Value | Unit | Outcome Application |
-|-------------------|-------|------|---------------------|
-| Cleaning Rate | 2-5 | m²/h | Production throughput measurement |
-| Energy Consumption | 15 | kWh/m² | Efficiency benchmarking |
-| Solvent Reduction | 98 | % | Environmental impact assessment |
-| Contaminant Removal | 99.8 | % | Quality control standard |
+## Performance Metrics
+| Property | Value | Unit |
+| --- | --- | --- |
+| Surface Roughness (Ra) | 0.1 - 1.0 | µm |
+| Cleaning Efficiency | 90 - 98 | % |
+| Debris Removal Rate | 0.5 - 2.0 | g/min |
+
+## Standards and Compliance
+| Property | Value | Unit |
+| --- | --- | --- |
+| ASTM Standard | D3039 | - |
+| ISO Standard | 527-5 | - |
+| Safety Compliance | OSHA 1910.1200 | - |
+
+## Environmental Data
+| Property | Value | Unit |
+| --- | --- | --- |
+| Operating Temperature | -50 to 150 | °C |
+| Humidity Resistance | 90 - 95 | % RH |
+| Emissions | Low | - |
+
+## Laser Cleaning Parameters
+| Property | Value | Unit |
+| --- | --- | --- |
+| Wavelength | 1064 | nm |
+| Fluence | 1 - 5 | J/cm² |
+| Pulse Duration | 10 - 100 | ns |

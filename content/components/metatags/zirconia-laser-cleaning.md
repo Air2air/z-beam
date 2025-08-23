@@ -2,11 +2,11 @@
 title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Zirconia, ZrO₂ formula, for laser cleaning applications, including 5.68 g/cm³ density, 1064 nm wavelength, and industrial applications."
+    content: "Technical overview of Zirconia for laser cleaning applications, including 6.0 g/cm³ density, 1064nm wavelength, and industrial applications."
   - name: keywords
-    content: "Zirconia laser processing, zirconium dioxide, ZrO₂ ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration, oxide ceramic cleaning, precision cleaning, industrial maintenance"
+    content: "zirconia, zirconia ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Elena Rodriguez, Materials Science Specialist"
+    content: "Yi-Chun Lin"
   - name: category
     content: "ceramic"
   - name: robots
@@ -15,7 +15,7 @@ opengraph:
   - property: og:title
     content: "Laser Cleaning Zirconia - Technical Guide for Optimal Processing"
   - property: og:description
-    content: "Comprehensive technical guide for laser cleaning Zirconia"
+    content: "Comprehensive technical guide for laser cleaning ceramic zirconia"
   - property: og:type
     content: "article"
   - property: og:image

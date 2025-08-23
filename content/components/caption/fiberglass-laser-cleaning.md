@@ -1,3 +1,2 @@
-Fiberglass surface before laser cleaning shows embedded carbonaceous deposits and polymer residues (left).
-
-**After laser cleaning** (right) After treatment with 1064nm laser at 1.8 J/cm², 100ns pulses, and 0.6mm spot size (right), showing complete contaminant removal with preserved substrate integrity and restored surface texture.
+**Fiberglass** surface (left) before cleaning, showing heavy, ingrained particulate buildup of release agents and environmental contaminants within the textured weave.  
+**After laser cleaning** (right) processed with a 1,064 nm Nd:YAG laser at 10 W, 100 ns pulse duration, and a 500 µm spot size, which selectively ablated the surface residues without thermal degradation of the underlying glass-reinforced polymer matrix.

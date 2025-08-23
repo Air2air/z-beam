@@ -1,6 +1,0 @@
----
----
-# Content configuration
----
-
-ablation, urethane-composites, restoration, aerospace, thermal, pulsed, laser, evelyn wu

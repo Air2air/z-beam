@@ -1,26 +1,59 @@
----
-headline: Laser Cleaning of Stoneware Materials
-description: Advanced laser cleaning techniques for Stoneware materials, ensuring precision surface treatment while preserving the material's structural integrity.
-keywords:
-- Stoneware laser cleaning
-- Stoneware ceramic cleaning
-- non-abrasive surface treatment
-- Stoneware material processing
-- precision cleaning
-- industrial applications
-- laser ablation parameters
-- surface contamination removal
-- thermal stress minimization
-- heritage conservation cleaning
-articleBody: "Stoneware is a dense, vitrified ceramic material composed primarily of ball clay, kaolin, feldspar, and quartz, fired at high temperatures (1200-1300°C) to achieve its characteristic durability and low porosity. Laser cleaning provides an exceptional method for removing surface contaminants, mineral deposits, biological growth, and previous restoration materials from stoneware surfaces without mechanical contact or chemical residues. The process employs pulsed fiber lasers with wavelengths typically between 1064nm and 1070nm, with fluence levels carefully calibrated between 0.5-2.5 J/cm² to ensure selective ablation of contaminants while preserving the stoneware's glaze and body. Pulse durations ranging from 10-100 nanoseconds prevent thermal damage to the substrate, while repetition rates of 20-100 kHz enable efficient cleaning of large surface areas. This technique is particularly valuable for industrial stoneware components, architectural elements, and heritage artifacts where traditional cleaning methods might cause micro-abrasions or chemical penetration. The non-contact nature of laser cleaning eliminates the risk of surface scratching or material loss, making it ideal for precision cleaning applications in manufacturing, restoration, and conservation contexts."
-image:
-- /images/stoneware-laser-cleaning-hero.jpg
-- /images/stoneware-laser-cleaning-closeup.jpg
-datePublished: 2025-08-08
-dateModified: 2025-08-08
-author: Dr. Elena Rodriguez
-materialType: ceramic
-chemicalFormula: Stoneware formula
-materialSymbol: ST
-subjectSlug: stoneware
----
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Laser Cleaning of Stoneware Materials",
+  "description": "Advanced laser cleaning techniques for Stoneware materials, ensuring precision surface treatment while preserving the material's structural integrity.",
+  "keywords": [
+    "Stoneware laser cleaning",
+    "Stoneware ceramic cleaning",
+    "non-abrasive surface treatment",
+    "Stoneware material processing",
+    "precision cleaning",
+    "industrial applications",
+    "laser ablation parameters",
+    "Stoneware surface restoration"
+  ],
+  "articleBody": "Stoneware is a dense, vitrified ceramic material composed primarily of clay, feldspar, and silica, fired at high temperatures (1200-1300°C) to achieve low porosity and high mechanical strength. Its chemical composition, typically including aluminum silicate compounds, makes it resistant to chemical attack but susceptible to surface contamination in industrial environments. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal settings at 1064 nm wavelength, fluence of 0.8-1.5 J/cm², and pulse durations of 10-100 ns to selectively ablate unwanted material while preserving the underlying Stoneware substrate. Key applications include restoration of historical Stoneware artifacts, cleaning of industrial components like chemical-resistant tiles and piping systems, and surface preparation for subsequent coating or bonding processes. Challenges include thermal stress management due to Stoneware's low thermal conductivity, requiring precise parameter control to prevent microcracking. Safety considerations mandate Class 4 laser protocols with appropriate personal protective equipment (PPE), including wavelength-specific laser safety glasses, proper ventilation for particulate matter, and enclosed interlocked processing chambers to prevent accidental exposure.",
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": "/images/stoneware-laser-cleaning-hero.jpg",
+      "name": "Stoneware Laser Cleaning Workbench Before/After Comparison",
+      "caption": "Dual workbench photo of Stoneware object displaying side-by-side before and after laser cleaning results",
+      "description": "Split-view workbench photograph showing a Stoneware object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Stoneware laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
+      "representativeOfPage": true
+    },
+    {
+      "@type": "ImageObject", 
+      "url": "/images/stoneware-laser-cleaning-closeup.jpg",
+      "name": "Stoneware Laser Cleaning High-Magnification Before/After Detail",
+      "caption": "Dual high-magnification photo of Stoneware material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
+      "description": "Split-view microscopic photograph of Stoneware material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 20 ns pulse duration, and 200 μm spot size specifications",
+      "keywords": "Stoneware microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
+      "about": {
+        "@type": "Thing",
+        "name": "Laser Cleaning Technical Process",
+        "description": "Precision laser ablation process with controlled parameters for Stoneware surface treatment"
+      }
+    }
+  ],
+  "datePublished": "2025-08-08",
+  "dateModified": "2025-08-08",
+  "author": {
+    "@type": "Person",
+    "name": "Yi-Chun Lin"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "Stoneware",
+    "alternateName": "Stoneware",
+    "identifier": "ST",
+    "category": "ceramic"
+  },
+  "mainEntity": {
+    "@type": "Thing",
+    "name": "Laser Cleaning Process",
+    "description": "Industrial laser cleaning process for Stoneware materials"
+  }
+}

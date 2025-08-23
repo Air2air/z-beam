@@ -1,1 +1,0 @@
-phenolic-composites, thermal-stability, aerospace-cleaning, laser-ablation, composite-material, automotive-applications, surface-treatment, industrial-processing

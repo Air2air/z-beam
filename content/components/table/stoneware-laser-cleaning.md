@@ -1,12 +1,43 @@
-| Property | Value | Unit | Application |
-|----------|-------|------|-------------|
-| Density | 2.3-2.5 | g/cm³ | Material selection and processing parameter calculation |
-| Melting Point | 1200-1400 | °C | Thermal processing limit determination |
-| Thermal Conductivity | 1.5 | W/m·K | Laser energy absorption modeling |
-| Wavelength | 1064 | nm | Primary laser processing parameter |
-| Power | 15-80 | W | Industrial cleaning intensity control |
-| Fluence | 0.8-8 | J/cm² | Surface treatment energy density |
-| Pulse Duration | 20-100 | ns | Contamination removal precision control |
-| Cleaning Rate | 0.5-2.0 | m²/hour | Production efficiency measurement |
-| Energy Consumption | 40-60 | % reduction | Environmental impact assessment |
-| Surface Preservation | >99 | % | Quality control metric |
+## Material Properties
+| Property | Value | Unit |
+| --- | --- | --- |
+| Density | 2.3-2.5 | g/cm³ |
+| Thermal Conductivity | 1.5-2.5 | W/m·K |
+| Hardness | 7-8 | Mohs |
+| Melting Point | 1300-1400 | °C |
+
+## Material Grades and Purity
+| Property | Value | Unit |
+| --- | --- | --- |
+| SiO2 Content | 60-70 | % |
+| Al2O3 Content | 20-25 | % |
+| Fe2O3 Content | <1 | % |
+| K2O Content | <5 | % |
+
+## Performance Metrics
+| Property | Value | Unit |
+| --- | --- | --- |
+| Cleaning Rate | 1-2 | m²/h |
+| Surface Roughness | 1-5 | µm |
+| Material Removal Rate | 0.1-0.5 | g/min |
+
+## Standards and Compliance
+| Property | Value | Unit |
+| --- | --- | --- |
+| ISO Compliance | ISO 9001 | - |
+| ASTM Standard | C242 | - |
+| Safety Standard | ANSI Z136.1 | - |
+
+## Environmental Data
+| Property | Value | Unit |
+| --- | --- | --- |
+| Dust Emission | <10 | mg/m³ |
+| Noise Level | 70-80 | dB |
+| Energy Consumption | 1-2 | kWh/m² |
+
+## Laser Cleaning Parameters
+| Property | Value | Unit |
+| --- | --- | --- |
+| Wavelength | 1064 | nm |
+| Fluence | 1-5 | J/cm² |
+| Pulse Duration | 10-100 | ns |

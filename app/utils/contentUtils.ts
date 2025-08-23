@@ -60,7 +60,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
     const contentDir = path.join(process.cwd(), 'content', 'components', 'content');
     const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
     
-    let slugs: string[] = [];
+    const slugs: string[] = [];
     
     // Check metatags directory first
     if (existsSync(metatagsDir)) {

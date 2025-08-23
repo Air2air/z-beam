@@ -1,3 +1,3 @@
-Carbon Fiber Reinforced Polymer surface before laser cleaning shows epoxy resin residue and surface oxidation (left).
+**Carbon Fiber Reinforced Polymer** surface (left) before cleaning, showing significant silicone mold release residue and embedded particulate contamination obscuring the underlying fiber weave.
 
-**After laser cleaning** (right) After treatment with 1064nm laser at 1.8 J/cm², 100ns pulses, and 0.6mm spot size (right), showing complete contaminant removal with preserved fiber integrity and surface activation.
+**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 15 W average power and 100 ns pulse duration, the composite surface is restored without matrix ablation, revealing pristine fibers and optimal topography for subsequent adhesive bonding.

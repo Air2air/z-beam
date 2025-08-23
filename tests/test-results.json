@@ -1,0 +1,28 @@
+{
+  "tests": {
+    "tests/test-yaml-errors.js": {
+      "status": "PASS",
+      "description": "YAML Error Detection and Validation",
+      "duration": 85,
+      "output": "[21:09:26.205] 📝 🔍 Starting comprehensive YAML error detection\n============================================================\n[21:09:26.210] 📝 Found 0 files in content\n[21:09:26.210] 📝 Found 0 files in pages/_md\n[21:09:26.210] 📝 Total files to test: 0\n\n\n============================================================\n[21:09:26.210] 📝 📊 YAML TESTING SUMMARY\n============================================================\n📈 Total Files: 0\n✅ Valid Files: 0\n❌ Error Files: 0\n[21:09:26.210] ✅ 🎉 No YAML"
+    },
+    "tests/test-sanitizer.js": {
+      "status": "PASS",
+      "description": "YAML Sanitization and Pattern Fixing",
+      "duration": 78,
+      "output": "🧪 Testing updated YAML sanitizer...\n\n✅ Test 1: Valid YAML (should remain unchanged)\n❌ Error: expected a single document in the stream, but found more\n\n🔧 Test 2: Broken YAML (should be fixed)\nOriginal: ---\nname: Test Material\nmeltingPoint: [>300°C]\n---\n# Content here\nResult: ---\nname: Test Material\nmeltingPoint: [\">300°C\"]\n---\n# Content here\nContains quoted value? true\n"
+    },
+    "tests/test-layout-structure.js": {
+      "status": "PASS",
+      "description": "Layout Component Structure and Positioning",
+      "duration": 59,
+      "output": "🧪 Testing new layout structure...\n\n📋 New Component Rendering Order:\n1. Hero component (background image only)\n2. PropertiesTable component\n3. Title component (after PropertiesTable)\n4. Author component (after Title)\n5. Other components (content, caption, bullets, etc.)\n\n🏷️ Title Resolution:\nTitle: \"Laser Cleaning Porcelain - Technical Guide for Optimal Processing\"\nSubtitle: \"Comprehensive technical guide for laser cleaning ceramic porcelain\"\n\n✅ Layout structure test complete!\n"
+    }
+  },
+  "summary": {
+    "passedTests": 3,
+    "totalTests": 3,
+    "passRate": 100,
+    "timestamp": "2025-08-23T21:09:26.352Z"
+  }
+}

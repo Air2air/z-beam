@@ -1,6 +1,1 @@
----
----
-# Content configuration
----
-
-ceramic, restoration, thermal, cleaning, fiber, non-contact, ablation, evelyn wu
+ablation, cleaning, laser, porcelain, non-contact, cultural-heritage, manufacturing, yi-chun-lin

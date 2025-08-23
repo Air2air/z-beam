@@ -1,1 +1,1 @@
-Kevlar-Reinforced-Polymer, composite-material, laser-cleaning, aerospace-applications, automotive-processing, non-contact-cleaning, surface-treatment
+ablation, cleaning, laser, non-contact, aerospace, automotive, kevlar-reinforced-polymer, yi-chun-lin

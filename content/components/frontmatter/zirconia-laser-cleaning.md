@@ -1,79 +1,64 @@
 ---
-
 name: Zirconia
 applications:
-- industry: Aerospace Manufacturing
-  useCase: "Removal of thermal barrier coatings and surface contaminants from zirconia turbine blades using 1064nm wavelength at 30-60W power, 50ns pulse duration, and 2.5-5.5 J/cm² fluence"
-  detail: "Precision cleaning of ceramic matrix composites without substrate damage, with controlled ablation rates of 0.2-0.5 mm³/s"
-- industry: Medical Device Manufacturing
-  useCase: "Surface preparation of zirconia dental implants and prosthetics using 1064nm wavelength at 15-40W power, 20-80ns pulse duration, and 0.8-3.2 J/cm² fluence"
-  detail: "Non-contact cleaning of bio-contaminants while maintaining surface roughness parameters (Ra < 0.8 μm) critical for osseointegration"
+- industry: [Aerospace]
+  detail: Removal of surface contaminants from turbine blades
+- industry: [Medical]
+  detail: Cleaning of dental implants and prosthetics
 technicalSpecifications:
-  powerRange: 15-80W
-  pulseDuration: 20-100ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  spotSize: 0.2-1.5mm
-  repetitionRate: 10-40kHz
-  fluenceRange: 0.8–8 J/cm²
-  safetyClass: "Class 4 laser requiring full enclosure, interlock systems, and laser safety officer supervision"
-description: "Zirconium dioxide (ZrO₂) is a high-performance ceramic material with exceptional thermal stability, chemical resistance, and mechanical strength. With a density of 5.68-6.10 g/cm³ and melting point of 2715°C, it finds applications in thermal barrier coatings, biomedical implants, and advanced structural components. Laser cleaning effectively removes oxides, contaminants, and surface layers while preserving the ceramic's structural integrity."
-author: "Dr. Elena Rodriguez, Materials Science Specialist"
-keywords: "zirconia laser cleaning, ceramic surface treatment, ZrO₂ ablation, thermal barrier coating removal, dental implant preparation, aerospace ceramic maintenance, non-contact cleaning technology"
+  powerRange: [50-200W]
+  pulseDuration: [10-200ns]
+  wavelength: [1064nm (primary), 532nm (optional)]
+  spotSize: [0.1-1.0mm]
+  repetitionRate: [20-100kHz]
+  fluenceRange: [1.0–10 J/cm²]
+  safetyClass: [Class 4 (requires full enclosure)]
+description: Technical overview of Zirconia for laser cleaning applications, including 5.68 g/cm³ density, 1064nm wavelength, and industrial applications.
+author: Yi-Chun Lin
+keywords: zirconia, zirconia ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: ceramic
 chemicalProperties:
-  symbol: ZrO₂
-  formula: ZrO₂
-  materialType: compound
+  symbol: ZrO2
+  formula: Zirconium dioxide
+  materialType: ceramic
 properties:
-  density: 5.68-6.10 g/cm³
+  density: 5.68 g/cm³
   meltingPoint: 2715°C
-  thermalConductivity: 2-3 W/m·K
-  laserType: "Q-switched Nd:YAG or fiber lasers"
+  thermalConductivity: 2 W/m·K
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.8-8 J/cm²
-  chemicalFormula: ZrO₂
+  fluenceRange: 1.0–10 J/cm²
+  chemicalFormula: ZrO2
 composition:
-components:
-components:
-  components: {}
-    percentage: 94-99.9%
-    percentage: 3-6%
-  percentage: 0.1-2%
+- Zirconium
+- Oxygen
 compatibility:
-materials:
-materials:
-materials:
-  materials: {}
-    rating: Excellent
-    rating: Excellent
-    rating: Good
-  rating: Fair
-regulatoryStandards: "ISO 13485 for medical applications, AS9100 for aerospace, ASTM C1161 for mechanical testing"
+- Stainless steel
+- Titanium
+regulatoryStandards: ISO 13385-1, ASTM F2066
 images:
   hero:
-
-    alt: "Laser cleaning system processing zirconia turbine component with precise beam control"
+    alt: Zirconia surface undergoing laser cleaning showing precise contamination removal
     url: /images/zirconia-laser-cleaning-hero.jpg
   closeup:
-
-    alt: "Microscopic view of laser-cleaned zirconia surface showing contaminant-free ceramic structure"
+    alt: Microscopic view of Zirconia surface after laser treatment showing preserved microstructure
     url: /images/zirconia-laser-cleaning-closeup.jpg
-title: "Advanced Laser Cleaning Solutions for Zirconia Ceramics in Industrial Applications"
-headline: "Precision Surface Treatment of Zirconia Components Using Non-Contact Laser Technology"
+title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning ceramic zirconia
 environmentalImpact:
-benefits:
-  benefits: {}
-    description: "Eliminates 95% of chemical solvents typically used in ceramic cleaning processes, reducing hazardous waste generation by approximately 200 liters per manufacturing cell annually"
-    description_additional: "Laser cleaning consumes 40-60% less energy compared to traditional thermal or chemical cleaning methods, with typical power consumption of 2-4 kWh per cleaning cycle"
+- benefit: Reduced chemical waste
+  description: Eliminates 95% of chemical solvents used in traditional cleaning methods
+- benefit: Energy efficiency
+  description: Uses 30% less energy compared to abrasive blasting
+- benefit: Lower emissions
+  description: Reduces CO2 emissions by 20% during the cleaning process
 outcomes:
-results:
-results:
-  results: {}
-    metric: "Achieves contamination levels below 0.1 mg/cm² as per ISO 8502-3 standards"
-    metric: "75% faster than mechanical abrasion methods, with cycle times of 2-5 minutes per component"
-  metric: "Maintains substrate integrity with less than 5μm material removal and surface roughness variation within ±0.2μm"
+- result: Improved surface quality
+  metric: Surface roughness decreased by 80% (Ra measured per ISO 4287)
+- result: Increased material lifespan
+  metric: Material durability extended by 50% as per ASTM C1161
+- result: Enhanced bonding
+  metric: Adhesion strength increased by 70% (ASTM D4541)
 subject: Zirconia
 article_type: material
-
-
 ---

@@ -18,48 +18,19 @@ export function sanitizeYamlContent(content: string): string {
     
     const [, yamlContent, markdownBody] = frontmatterMatch;
     
-    // Fix common YAML formatting issues
-    let sanitizedYaml = yamlContent
-      // Fix nested quotes - remove inner quotes if they're causing issues
-      .replace(/:\s*["']([^"']*["'][^"']*["'][^"']*)["']/g, (match, innerContent) => {
-        // Clean up nested quotes by escaping them properly
-        const cleaned = innerContent.replace(/["']/g, '\\"');
-        return `: "${cleaned}"`;
-      })
-      // Fix malformed quote patterns like useCase: '"Removal of biological...
-      .replace(/:\s*["']?["']([^"'\n]*)/g, ': "$1"')
-      // Fix sequence entries with bad indentation
-      .replace(/^(\s*)(\w+):\s*([^"\n]*)/gm, (match, indent, key, value) => {
-        // Skip if this looks like it's already properly formatted
-        if (value.startsWith('"') && value.endsWith('"')) {
-          return match;
+    // Fix only specific YAML formatting issues without breaking valid content
+    const sanitizedYaml = yamlContent
+      // Fix unquoted array values with special characters like [>300°C] -> [">300°C"]
+      .replace(/(\[)([^"\]\[]*[>°][^"\]\[]*)(\])/g, (match, openBracket, content, closeBracket) => {
+        // Only fix if content contains special characters and isn't already quoted
+        if (content.includes('>') || content.includes('°')) {
+          const trimmed = content.trim();
+          if (!trimmed.startsWith('"') && !trimmed.endsWith('"')) {
+            return `${openBracket}"${trimmed}"${closeBracket}`;
+          }
         }
-        
-        // If value contains special characters or quotes, escape and quote it
-        if (value.includes('"') || value.includes("'") || value.includes(':') || value.includes('#')) {
-          const escapedValue = value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').trim();
-          return `${indent}${key}: "${escapedValue}"`;
-        }
-        
         return match;
-      })
-      // Fix sequence list items that aren't properly indented
-      .replace(/^(\s*)([-])\s*(\w+):\s*([^\n]+)$/gm, (match, indent, dash, key, value) => {
-        // Ensure proper indentation for sequence items
-        const properIndent = indent.length < 2 ? '  ' : indent;
-        
-        // Clean and quote the value if needed
-        if (value.includes('"') || value.includes("'") || value.includes(':')) {
-          const cleanValue = value.replace(/^["']|["']$/g, '').replace(/"/g, '\\"');
-          return `${properIndent}${dash} ${key}: "${cleanValue}"`;
-        }
-        
-        return `${properIndent}${dash} ${key}: ${value}`;
-      })
-      // Remove any lines that are just quotes or malformed
-      .replace(/^\s*["']\s*$/gm, '')
-      // Fix lines that start with quotes but aren't key-value pairs
-      .replace(/^\s*["']([^"'\n:]+)["']\s*$/gm, '# $1');
+      });
     
     return `---\n${sanitizedYaml}\n---\n${markdownBody}`;
   } catch (error) {

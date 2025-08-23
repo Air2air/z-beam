@@ -1,1 +1,0 @@
-polyester-composites, thermal-properties, aerospace-cleaning, laser-ablation, composite-material

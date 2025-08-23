@@ -36,6 +36,40 @@ def fix_list_structure(content):
     lines = content.split("\n")
     fixed = False
 
+    # Fix indentation in nested list items
+    # Look for lines like: "  - industry: X" followed by "  useCase: Y" (missing indentation)
+    for i in range(len(lines) - 1):
+        if re.match(r"(\s+)- \w+:", lines[i]) and re.match(
+            r"(\s+)(?!-)\w+:", lines[i + 1]
+        ):
+            # Check if the indentation is the same (problem!)
+            indent1 = re.match(r"(\s+)", lines[i]).group(1)
+            indent2 = re.match(r"(\s+)", lines[i + 1]).group(1)
+
+            if len(indent1) == len(indent2):
+                # Add two more spaces to the second line
+                lines[i + 1] = indent1 + "  " + lines[i + 1].lstrip()
+                fixed = True
+
+    # Fix consecutive list items where some are missing the dash
+    # Pattern: "  - item1" followed by "  item2" (missing dash)
+    for i in range(len(lines) - 1):
+        if (
+            i > 0
+            and re.match(r"(\s+)- \w+:", lines[i - 1])
+            and re.match(r"(\s+)(?!-)(\w+):", lines[i])
+        ):
+            # Only if they're at same indentation level and previous line was a list item
+            indent1 = re.match(r"(\s+)", lines[i - 1]).group(1)
+            indent2 = re.match(r"(\s+)", lines[i]).group(1)
+
+            if len(indent1) == len(indent2):
+                # Add dash to the line
+                key_part = re.match(r"\s+(?!-)(\w+):", lines[i]).group(1)
+                rest_of_line = lines[i][lines[i].find(key_part) + len(key_part) :]
+                lines[i] = indent1 + "- " + key_part + rest_of_line
+                fixed = True
+
     for i in range(len(lines)):
         match = re.match(pattern, lines[i])
         if match and match.group(1) == "":  # Only match root level items
@@ -123,6 +157,16 @@ def fix_empty_properties(content):
     pattern2 = r"(\n\s+\w+):(\s*\n\s+\w+:)"
     result = re.sub(pattern2, r"\1: {}\2", result)
 
+    # Fix property names without colons
+    pattern3 = r"(\n\s*)(\w+)(\s*\n)"
+    result = re.sub(
+        pattern3,
+        lambda m: m.group(1) + m.group(2) + ": {}" + m.group(3)
+        if m.group(2).strip() not in ["---"]
+        else m.group(0),
+        result,
+    )
+
     return result, result != content
 
 
@@ -197,6 +241,17 @@ def fix_yaml_issues(file_path):
         if fixed:
             fixes_applied.append("nested objects")
 
+        content, fixed = fix_quoted_list_literals(content)
+        if fixed:
+            fixes_applied.append("quoted list literals")
+
+        # Fix property with value on next line (like "laserType: {}" followed by "Nd: YAG")
+        pattern = r"(\n\s+\w+:\s*\{\})\s*\n\s+([^-\s]\S+:)"
+        new_content = re.sub(pattern, r"\1\n  \2", content)
+        if new_content != content:
+            content = new_content
+            fixes_applied.append("property value alignment")
+
         # Only write back if changes were made
         if fixes_applied:
             with open(file_path, "w", encoding="utf-8") as f:
@@ -209,8 +264,58 @@ def fix_yaml_issues(file_path):
         return f"Error: {str(e)}", False
 
 
+def fix_quoted_list_literals(content):
+    """Fix quoted string literals that should be proper lists."""
+    lines = content.split("\n")
+    fixed = False
+
+    # Look for patterns like:
+    # keywords: "- Item1"
+    # - Item2
+    for i in range(len(lines)):
+        # Match lines with quoted strings that start with a dash
+        match = re.match(r'(\s*)(\w+):\s*"-(.*?)(?:"|$)', lines[i])
+        if match:
+            indent = match.group(1)
+            key = match.group(2)
+            item_text = match.group(3).strip()
+
+            # Replace with proper list format
+            lines[i] = f"{indent}{key}:\n{indent}  - {item_text}"
+            fixed = True
+
+            # Check if the next line is a list item at the same level
+            j = i + 1
+            while j < len(lines) and lines[j].strip().startswith("-"):
+                # Add proper indentation to the list item
+                list_match = re.match(r"(\s*)-(.*)", lines[j])
+                if list_match:
+                    lines[j] = f"{indent}  -{list_match.group(2)}"
+                j += 1
+
+    return "\n".join(lines), fixed
+
+
 def validate_yaml(content):
     """Validate YAML content."""
+    try:
+        # Skip files with empty frontmatter
+        if re.match(r"^---\s*\n\s*---\s*$", content.strip()):
+            return True, "Skipped file with empty frontmatter"
+
+        # Extract YAML section between --- markers
+        match = re.search(r"^---\s*\n(.*?)\n---", content, re.DOTALL)
+        if not match:
+            return False, "No valid frontmatter found"
+
+        yaml_content = match.group(1)
+        yaml.safe_load(yaml_content)
+        return True, "Valid YAML"
+
+    except yaml.YAMLError as e:
+        return False, f"YAML validation error: {str(e)}"
+    except Exception as e:
+        return False, f"Validation error: {str(e)}"
     try:
         # Skip files with empty frontmatter
         if re.match(r"^---\s*\n\s*---\s*$", content.strip()):
