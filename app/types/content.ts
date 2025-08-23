@@ -9,7 +9,16 @@ export interface ArticleMetadata {
   articleType?: string;
   category?: string;
   date?: string;
-  [key: string]: any;
+  // Use specific types instead of any
+  author?: string;
+  tags?: string[];
+  keywords?: string[];
+  showBadge?: boolean;
+  badge?: {
+    text?: string;
+    variant?: string;
+    color?: string;
+  };
 }
 
 export interface ArticlePost {

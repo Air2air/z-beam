@@ -29,11 +29,11 @@ const CONTENT_DIRS = {
 
 export interface ComponentData {
   content: string;
-  config?: { [key: string]: any };
+  config?: Record<string, unknown>;
 }
 
 export interface PageData {
-  metadata: { [key: string]: any };
+  metadata: Record<string, unknown>;
   components: { [componentType: string]: ComponentData };
 }
 
@@ -120,7 +120,7 @@ export const loadAllComponents = cache(async (slug: string): Promise<{ [componen
 /**
  * Load frontmatter/metadata for a slug
  */
-export const loadMetadata = cache(async (slug: string): Promise<{ [key: string]: any }> => {
+export const loadMetadata = cache(async (slug: string): Promise<Record<string, unknown>> => {
   return safeContentOperation(async () => {
     // Try frontmatter first, then metatags
     const frontmatterData = await loadComponent('frontmatter', slug, { convertMarkdown: false });
@@ -164,15 +164,15 @@ export const loadArticle = cache(async (slug: string): Promise<Article | null> =
     
     return {
       slug,
-      title: metadata.title,
-      name: metadata.name || '',
-      headline: metadata.headline || '',
-      description: metadata.description || '',
-      image: metadata.image || '',
-      imageAlt: metadata.imageAlt || '',
-      tags: metadata.tags || [],
-      website: metadata.website || '',
-      author: metadata.author || {},
+      title: (metadata.title as string) || '',
+      name: (metadata.name as string) || '',
+      headline: (metadata.headline as string) || '',
+      description: (metadata.description as string) || '',
+      image: (metadata.image as string) || '',
+      imageAlt: (metadata.imageAlt as string) || '',
+      tags: (metadata.tags as string[]) || [],
+      website: (metadata.website as string) || '',
+      author: (metadata.author as string) || '',
       metadata,
     };
   }, null, 'loadArticle', slug);
@@ -207,7 +207,7 @@ export const getArticleBySlug = loadArticle;
 /**
  * Backward compatibility for getArticle function from contentIntegrator
  */
-export const getArticle = cache(async (slug: string): Promise<{ metadata: any; components: any } | null> => {
+export const getArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return safeContentOperation(async () => {
     const pageData = await loadPageData(slug);
     
@@ -222,7 +222,7 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: any; c
 /**
  * Backward compatibility for loadComponentData function from contentIntegrator
  */
-export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: any } | null> => {
+export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: Record<string, unknown> } | null> => {
   return safeContentOperation(async () => {
     const componentData = await loadComponent(type, slug, { convertMarkdown: true });
     

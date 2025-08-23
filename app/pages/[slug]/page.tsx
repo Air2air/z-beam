@@ -1,7 +1,7 @@
 // app/pages/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { Layout } from "@/app/components/Layout/Layout";
-import { createMetadata } from "@/app/utils/metadata";
+import { createMetadata, ArticleMetadata } from "@/app/utils/metadata";
 import { loadPageData, getAllSlugs } from "@/app/utils/contentAPI";
 import { logger } from "@/app/utils/logger";
 
@@ -25,11 +25,11 @@ export async function generateMetadata({ params }: PageProps) {
     }
 
     return createMetadata({
-      title: metadata.title,
-      description: metadata.description,
+      title: metadata.title as string,
+      description: metadata.description as string,
       ...metadata,
-      canonical: metadata.canonical || `https://z-beam.com/pages/${slug}`
-    });
+      canonical: (metadata.canonical as string) || `https://z-beam.com/pages/${slug}`
+    } as ArticleMetadata);
   } catch (error) {
     logger.error(`Error generating metadata for page ${slug}`, error, { slug });
     return {
@@ -55,7 +55,7 @@ export default async function StaticPage({ params }: PageProps) {
         components={components}
         metadata={metadata}
         slug={slug}
-        title={metadata.title}
+        title={metadata.title as string}
       />
     );
   } catch (error) {

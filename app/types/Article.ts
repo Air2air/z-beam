@@ -8,7 +8,25 @@ export interface ArticleFrontmatter {
   articleType?: string;
   keywords?: string[];
   tags?: string[];
-  [key: string]: any;
+  // Use specific types instead of any
+  date?: string;
+  author?: string;
+  image?: string;
+  thumbnail?: string;
+  showBadge?: boolean;
+  slug?: string; // Add slug property
+  badge?: {
+    text?: string;
+    variant?: string;
+    color?: string;
+  };
+  // Chemical properties object for materials
+  chemicalProperties?: {
+    symbol?: string;
+    formula?: string;
+    materialType?: string;
+    atomicNumber?: number | string;
+  };
 }
 
 export interface ArticleMetadata {
@@ -16,7 +34,13 @@ export interface ArticleMetadata {
   category?: string;
   articleType?: string;
   subject?: string;
-  [key: string]: any;
+  // Use specific types instead of any
+  date?: string;
+  author?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  thumbnail?: string;
 }
 
 export interface Article {
@@ -32,11 +56,19 @@ export interface Article {
   image?: string;
   imageAlt?: string;
   showBadge?: boolean;
-  badge?: any;
+  badge?: {
+    text?: string;
+    variant?: string;
+    color?: string;
+  };
   name?: string;
   frontmatter?: ArticleFrontmatter;
   metadata?: ArticleMetadata;
-  [key: string]: any;
+  // Additional specific properties
+  date?: string;
+  author?: string;
+  content?: string;
+  excerpt?: string;
 }
 
 export interface EnrichedArticle extends Article {

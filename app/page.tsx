@@ -2,7 +2,7 @@
 
 import { List } from "./components/List/List";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
-import { createMetadata } from "./utils/metadata";
+import { createMetadata, ArticleMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentUtils";
 import { SectionCardList } from "./components/SectionCard/SectionCardList";
 
@@ -21,14 +21,14 @@ export async function generateMetadata() {
   const homeArticle = await getArticle("home");
 
   return createMetadata({
-    title: homeMetaTags?.config?.title || "Z-Beam Laser Cleaning Solutions",
-    description: homeMetaTags?.config?.description || 
+    title: (homeMetaTags?.config?.title as string) || "Z-Beam Laser Cleaning Solutions",
+    description: (homeMetaTags?.config?.description as string) || 
       "Advanced laser cleaning technology for industrial applications",
-    keywords: homeMetaTags?.config?.keywords,
-    ogImage: homeMetaTags?.config?.ogImage || "/images/home-og.jpg",
-    ogType: homeMetaTags?.config?.ogType || "website",
-    canonical: homeMetaTags?.config?.canonical,
-    noindex: homeMetaTags?.config?.noindex,
+    keywords: homeMetaTags?.config?.keywords as string[] | string,
+    ogImage: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
+    ogType: (homeMetaTags?.config?.ogType as string) || "website",
+    canonical: homeMetaTags?.config?.canonical as string,
+    noindex: homeMetaTags?.config?.noindex as boolean,
     jsonLd: homeArticle?.components?.jsonld,
   });
 }

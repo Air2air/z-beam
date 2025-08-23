@@ -110,7 +110,19 @@ export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
 
 // JSON-LD Schema interfaces
 export interface JsonLdProps {
-  data: Record<string, any>;
+  data: PersonSchema | ListingSchema | OrganizationSchema | Record<string, unknown>;
+}
+
+export interface OrganizationSchema {
+  name: string;
+  description?: string;
+  url?: string;
+  logo?: string;
+  contactPoint?: {
+    telephone?: string;
+    email?: string;
+    contactType?: string;
+  };
 }
 
 export interface PersonSchema {

@@ -29,10 +29,7 @@ export async function debugTagSystem(): Promise<TagDebugData> {
     
     // Count articles with authors
     const articlesWithAuthor = allArticles.filter(article => 
-      article.author && (
-        typeof article.author === 'string' || 
-        (typeof article.author === 'object' && article.author.author_name)
-      )
+      article.author && typeof article.author === 'string'
     ).length;
     
     // Count articles with frontmatter author
@@ -79,18 +76,12 @@ function getAuthorName(article: any): string {
     if (typeof article.author === 'string') {
       return article.author;
     }
-    if (typeof article.author === 'object' && article.author.author_name) {
-      return article.author.author_name;
-    }
   }
   
   // Check metadata
   if (article.metadata?.author) {
     if (typeof article.metadata.author === 'string') {
       return article.metadata.author;
-    }
-    if (typeof article.metadata.author === 'object' && article.metadata.author.author_name) {
-      return article.metadata.author.author_name;
     }
   }
   

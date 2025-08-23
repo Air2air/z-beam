@@ -2,28 +2,31 @@
 import React from 'react';
 
 export interface JsonLdProps {
-  data: Record<string, any>;
+  data: Record<string, unknown>;
 }
 
 export interface PersonSchema {
   name: string;
+  author_name?: string;
   url?: string;
   image?: string;
   description?: string;
   jobTitle?: string;
   worksFor?: string;
-  [key: string]: any;
+  credentials?: string;
+  author_country?: string;
+  [key: string]: unknown;
 }
 
 export interface ListingSchema {
   headline: string;
   description: string;
-  author: string | { name: string; [key: string]: any };
+  author: string | { name: string; [key: string]: unknown };
   datePublished: string;
   dateModified?: string;
   url: string;
   image?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface WebsiteSchema {
@@ -31,7 +34,7 @@ export interface WebsiteSchema {
   description: string;
   url: string;
   author?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface BreadcrumbItem {
@@ -50,7 +53,7 @@ export interface ArticleSchema {
   articleBody?: string;
   keywords?: string[];
   articleSection?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 /**
@@ -169,7 +172,7 @@ export const technicalArticleSchema = schemas.technicalArticle;
 /**
  * Helper function to get author object
  */
-const getAuthorObject = (author: any) => {
+const getAuthorObject = (author: string | PersonSchema | undefined) => {
   if (!author) return undefined;
   
   if (typeof author === 'string') {

@@ -63,8 +63,8 @@ export function enrichArticle(article: Article): EnrichedArticle {
   }
   
   // Add author name as a tag if available
-  if (enriched.author?.author_name && !enriched.tags.includes(enriched.author.author_name)) {
-    enriched.tags.push(enriched.author.author_name);
+  if (enriched.author && !enriched.tags.includes(enriched.author)) {
+    enriched.tags.push(enriched.author);
   }
   
   // Ensure name is set from frontmatter if available
@@ -159,8 +159,8 @@ export function enrichArticle(article: Article): EnrichedArticle {
     }
     
     // Add author name from frontmatter if it exists
-    if (enriched.frontmatter.author && enriched.frontmatter.author.author_name) {
-      enriched.tags.push(enriched.frontmatter.author.author_name);
+    if (enriched.frontmatter.author && typeof enriched.frontmatter.author === 'string') {
+      enriched.tags.push(enriched.frontmatter.author);
     }
     
     // Parse raw content if it exists - EXTRACT TAGS FROM THE FIRST LINE
@@ -196,8 +196,8 @@ export function enrichArticle(article: Article): EnrichedArticle {
   }
   
   // Add author name as a tag
-  if (enriched.author?.author_name) {
-    enriched.tags.push(enriched.author.author_name);
+  if (enriched.author && typeof enriched.author === 'string') {
+    enriched.tags.push(enriched.author);
   }
   
   // 3. EXTRACT FROM SLUG

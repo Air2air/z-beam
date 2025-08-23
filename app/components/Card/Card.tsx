@@ -45,18 +45,25 @@ export interface CardProps {
   tags?: string[];
   badge?: BadgeData | null; // Allow null
   metadata?: {
+    title?: string;
+    name?: string;
+    description?: string;
     category?: string;
+    subject?: string;
+    article_type?: string;
     articleType?: string;
-    date?: string;
+    keywords?: string[];
     tags?: string[];
-    // Simplified chemical properties object
-    chemicalProperties?: {
-      symbol?: string;
-      formula?: string;
-      materialType?: string;
-      atomicNumber?: number | string;
+    date?: string;
+    author?: string;
+    image?: string;
+    thumbnail?: string;
+    showBadge?: boolean;
+    badge?: {
+      text?: string;
+      variant?: string;
+      color?: string;
     };
-    [key: string]: any; // Allow other properties
   };
   className?: string;
   height?: string;
@@ -121,9 +128,7 @@ export function Card({
           {!isFeatured && (
             <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
               <BadgeSymbol
-                frontmatter={metadata ? { 
-                  chemicalProperties: metadata.chemicalProperties 
-                } : undefined}
+                frontmatter={metadata}
                 slug={slug}
                 variant="card"
               />

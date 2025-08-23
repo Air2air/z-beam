@@ -1,5 +1,9 @@
 {
   "private": true,
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -7,26 +11,13 @@
     "lint": "next lint --fix",
     "type-check": "tsc --noEmit",
     "ci": "npm run type-check && npm run lint && npm run build",
-    
     "clean": "rm -rf .next node_modules/.cache",
-    "kill-port": "lsof -ti:3000 | xargs kill -9 || true",
-    
-    "test": "node cleanup/test-runner.js",
+    "test": "node tests/test-typescript-build.js",
     "test:components": "node tests/test-component-validation.js",
-    "test:coverage": "node tests/coverage-runner.js",
-    "test:coverage:view": "cat tests/coverage-report.json | jq '.' || cat tests/coverage-report.json",
-    "test:typescript": "node tests/test-typescript-build.js",
-    "test:all": "npm run test && npm run test:components && npm run test:coverage && echo '🎉 All tests and coverage analysis completed!'",
-    "test:quick": "npm run test --silent && echo '✅ Quick tests passed'",
-    "cleanup": "./cleanup/cleanup-dead-files.sh",
-    "cleanup:analyze": "node cleanup/test-dead-file-cleanup.js",
-    
+    "test:all": "npm run test && npm run test:components && echo '🎉 All tests completed!'",
+    "cleanup": "node cleanup/test-dead-file-cleanup.js",
     "yaml:validate": "cd yaml-processor && ./yaml --validate ../content --verbose",
-    "yaml:fix": "cd yaml-processor/tools && python3 yaml_common_fixes.py ../../content/components/frontmatter",
-    "yaml:monitor": "cd yaml-processor && ./yaml-monitor.sh --watch",
-    
-    "deploy:staging": "gh workflow run deploy.yml -f environment=staging",
-    "deploy:prod": "gh workflow run deploy.yml -f environment=production"
+    "yaml:fix": "cd yaml-processor/tools && python3 yaml_common_fixes.py ../../content/components/frontmatter"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",

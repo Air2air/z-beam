@@ -19,12 +19,7 @@ export interface Article {
   name?: string;
   headline?: string;
   website?: string;
-  author?: {
-    author_id?: number;
-    author_name?: string;
-    author_country?: string;
-    credentials?: string;
-  };
+  author?: string; // Align with types/Article.ts - use string instead of object
   metadata?: {
     // Your metadata interface...
     keywords?: string[];

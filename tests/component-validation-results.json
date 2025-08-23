@@ -41,6 +41,11 @@
           "statement": "import { BadgeSymbol } from './BadgeSymbol'",
           "path": "./BadgeSymbol",
           "line": 3
+        },
+        {
+          "statement": "import { ArticleFrontmatter } from '@/app/types/Article'",
+          "path": "@/app/types/Article",
+          "line": 4
         }
       ],
       "errors": [],
@@ -725,18 +730,16 @@
       "suggestions": []
     },
     "BadgeSymbol/ServerBadgeSymbol.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [
         {
           "name": "ServerBadgeSymbolProps",
           "body": "materialSlug?: string;\n  variant?: \"card\" | \"large\" | \"small\";\n  position?: string;\n  slug?: string;",
-          "line": 5
+          "line": 6
         }
       ],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "Banner/Banner.tsx": {
@@ -812,7 +815,7 @@
       "suggestions": []
     },
     "Card/Card.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [
         {
           "name": "BadgeData",
@@ -821,14 +824,12 @@
         },
         {
           "name": "CardProps",
-          "body": "href: string;\n  title: string;\n  name?: string;\n  description?: string;\n  image?: string;\n  imageUrl?: string;\n  imageAlt?: string;\n  materialSlug?: string; // Add materialSlug for hero images\n  tags?: string[];\n  badge?: BadgeData | null; // Allow null\n  metadata?: {\n    category?: string;\n    articleType?: string;\n    date?: string;\n    tags?: string[];\n    // Simplified chemical properties object\n    chemicalProperties?: {\n      symbol?: string;\n      formula?: string;\n      materialType?: string;\n      atomicNumber?: number | string;",
+          "body": "href: string;\n  title: string;\n  name?: string;\n  description?: string;\n  image?: string;\n  imageUrl?: string;\n  imageAlt?: string;\n  materialSlug?: string; // Add materialSlug for hero images\n  tags?: string[];\n  badge?: BadgeData | null; // Allow null\n  metadata?: {\n    title?: string;\n    name?: string;\n    description?: string;\n    category?: string;\n    subject?: string;\n    article_type?: string;\n    articleType?: string;\n    keywords?: string[];\n    tags?: string[];\n    date?: string;\n    author?: string;\n    image?: string;\n    thumbnail?: string;\n    showBadge?: boolean;\n    badge?: {\n      text?: string;\n      variant?: string;\n      color?: string;",
           "line": 36
         }
       ],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "Card/ServerCard.tsx": {
@@ -946,43 +947,41 @@
       "suggestions": []
     },
     "JsonLD/JsonLD.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [
         {
           "name": "JsonLdProps",
-          "body": "data: Record<string, any>;",
+          "body": "data: Record<string, unknown>;",
           "line": 4
         },
         {
           "name": "PersonSchema",
-          "body": "name: string;\n  url?: string;\n  image?: string;\n  description?: string;\n  jobTitle?: string;\n  worksFor?: string;\n  [key: string]: any;",
+          "body": "name: string;\n  author_name?: string;\n  url?: string;\n  image?: string;\n  description?: string;\n  jobTitle?: string;\n  worksFor?: string;\n  credentials?: string;\n  author_country?: string;\n  [key: string]: unknown;",
           "line": 8
         },
         {
           "name": "ListingSchema",
-          "body": "headline: string;\n  description: string;\n  author: string | { name: string; [key: string]: any",
-          "line": 18
+          "body": "headline: string;\n  description: string;\n  author: string | { name: string; [key: string]: unknown",
+          "line": 21
         },
         {
           "name": "WebsiteSchema",
-          "body": "name: string;\n  description: string;\n  url: string;\n  author?: string;\n  [key: string]: any;",
-          "line": 29
+          "body": "name: string;\n  description: string;\n  url: string;\n  author?: string;\n  [key: string]: unknown;",
+          "line": 32
         },
         {
           "name": "BreadcrumbItem",
           "body": "name: string;\n  url: string;",
-          "line": 37
+          "line": 40
         },
         {
           "name": "ArticleSchema",
-          "body": "headline: string;\n  description: string;\n  author: string | PersonSchema;\n  datePublished: string;\n  dateModified?: string;\n  url: string;\n  image?: string;\n  articleBody?: string;\n  keywords?: string[];\n  articleSection?: string;\n  [key: string]: any;",
-          "line": 42
+          "body": "headline: string;\n  description: string;\n  author: string | PersonSchema;\n  datePublished: string;\n  dateModified?: string;\n  url: string;\n  image?: string;\n  articleBody?: string;\n  keywords?: string[];\n  articleSection?: string;\n  [key: string]: unknown;",
+          "line": 45
         }
       ],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "Layout/Container.tsx": {
@@ -1280,12 +1279,12 @@
     },
     "propsValidation": {
       "total": 39,
-      "clean": 21,
-      "issues": 18,
+      "clean": 24,
+      "issues": 15,
       "errors": 0
     },
     "overallStatus": "WARN",
-    "timestamp": "2025-08-23T21:29:36.935Z"
+    "timestamp": "2025-08-23T22:49:03.630Z"
   },
-  "timestamp": "2025-08-23T21:29:36.915Z"
+  "timestamp": "2025-08-23T22:49:03.608Z"
 }

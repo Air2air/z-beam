@@ -1,6 +1,7 @@
 // app/components/BadgeSymbol/ServerBadgeSymbol.tsx
 import { getMaterialFrontmatter } from '@/app/utils/serverUtils';
 import { BadgeSymbol } from './BadgeSymbol';
+import { ArticleFrontmatter } from '@/app/types/Article';
 
 interface ServerBadgeSymbolProps {
   materialSlug?: string;
@@ -19,7 +20,7 @@ export async function ServerBadgeSymbol({
   slug,
 }: ServerBadgeSymbolProps) {
   // Load material data if a slug is provided
-  let frontmatter: any = null;
+  let frontmatter: ArticleFrontmatter | null = null;
   
   if (materialSlug) {
     frontmatter = await getMaterialFrontmatter(materialSlug);

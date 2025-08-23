@@ -3,6 +3,21 @@
 
 import { loadMetadata } from './contentAPI';
 
+// Define image structure types
+interface HeroImage {
+  url?: string;
+  alt?: string;
+}
+
+interface ImageMetadata {
+  hero?: HeroImage;
+}
+
+interface FrontmatterWithImages {
+  images?: ImageMetadata;
+  [key: string]: unknown;
+}
+
 /**
  * Direct utility to get hero image URL from frontmatter
  */
@@ -10,7 +25,7 @@ export async function getHeroImageUrl(slug: string): Promise<string | null> {
   if (!slug) return null;
   
   // Load the frontmatter data
-  const frontmatter = await loadMetadata(slug);
+  const frontmatter = await loadMetadata(slug) as FrontmatterWithImages;
   
   // Directly access the hero image URL
   return frontmatter?.images?.hero?.url || null;
@@ -26,7 +41,7 @@ export async function getImageData(slug: string) {
   };
   
   // Load the frontmatter data
-  const frontmatter = await loadMetadata(slug);
+  const frontmatter = await loadMetadata(slug) as FrontmatterWithImages;
   
   return {
     heroUrl: frontmatter?.images?.hero?.url || null,
