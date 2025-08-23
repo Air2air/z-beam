@@ -1,0 +1,1291 @@
+{
+  "importValidation": {
+    "Author/Author.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import Image from 'next/image'",
+          "path": "next/image",
+          "line": 2
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "BadgeSymbol/BadgeSymbol.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from \"react\"",
+          "path": "react",
+          "line": 4
+        },
+        {
+          "statement": "import { Article, ArticleFrontmatter } from \"../../types/Article\"",
+          "path": "../../types/Article",
+          "line": 5
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "BadgeSymbol/ServerBadgeSymbol.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { getMaterialFrontmatter } from '@/app/utils/serverUtils'",
+          "path": "@/app/utils/serverUtils",
+          "line": 2
+        },
+        {
+          "statement": "import { BadgeSymbol } from './BadgeSymbol'",
+          "path": "./BadgeSymbol",
+          "line": 3
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Banner/Banner.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { useState } from 'react'",
+          "path": "react",
+          "line": 3
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Base/MarkdownRenderer.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from \"react\"",
+          "path": "react",
+          "line": 2
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Bullets/Bullets.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { MarkdownRenderer } from '../Base/MarkdownRenderer'",
+          "path": "../Base/MarkdownRenderer",
+          "line": 2
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Button.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from 'react'",
+          "path": "react",
+          "line": 4
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Caption/Caption.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { MarkdownRenderer } from '../Base/MarkdownRenderer'",
+          "path": "../Base/MarkdownRenderer",
+          "line": 4
+        },
+        {
+          "statement": "import Image from 'next/image'",
+          "path": "next/image",
+          "line": 5
+        },
+        {
+          "statement": "import { useState, useEffect, useRef } from 'react'",
+          "path": "react",
+          "line": 6
+        }
+      ],
+      "errors": [],
+      "warnings": [
+        "Image component used - consider importing from next/image"
+      ]
+    },
+    "Card/Card.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 5
+        },
+        {
+          "statement": "import { BadgeSymbol } from \"../BadgeSymbol/BadgeSymbol\"",
+          "path": "../BadgeSymbol/BadgeSymbol",
+          "line": 6
+        },
+        {
+          "statement": "import { Thumbnail } from \"../Thumbnail/Thumbnail\"",
+          "path": "../Thumbnail/Thumbnail",
+          "line": 7
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Card/ServerCard.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { getMaterialFrontmatter, getMaterialImagePath } from '@/app/utils/serverUtils'",
+          "path": "@/app/utils/serverUtils",
+          "line": 2
+        },
+        {
+          "statement": "import { Card } from './Card'",
+          "path": "./Card",
+          "line": 3
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Content/Content.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "Debug/DebugLayout.tsx": {
+      "status": "FAIL",
+      "imports": [
+        {
+          "statement": "import { ReactNode, useState } from 'react'",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import Link from 'next/link'",
+          "path": "next/link",
+          "line": 4
+        },
+        {
+          "statement": "import { usePathname } from 'next/navigation'",
+          "path": "next/navigation",
+          "line": 5
+        }
+      ],
+      "errors": [
+        "Link component used but next/link not imported"
+      ],
+      "warnings": []
+    },
+    "Debug/FrontmatterDebug.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { useState, useEffect } from 'react'",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import { logger } from '@/app/utils/logger'",
+          "path": "@/app/utils/logger",
+          "line": 4
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Debug/FrontmatterNameChecker.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { useState } from 'react'",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import { logger } from '@/app/utils/logger'",
+          "path": "@/app/utils/logger",
+          "line": 4
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Debug/TagDebug.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { useState, useEffect } from 'react'",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import { logger } from '@/app/utils/logger'",
+          "path": "@/app/utils/logger",
+          "line": 4
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "ErrorBoundary/ErrorBoundary.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React, { Component, ErrorInfo, ReactNode } from 'react'",
+          "path": "react",
+          "line": 4
+        },
+        {
+          "statement": "import { logger } from '../../utils/logger'",
+          "path": "../../utils/logger",
+          "line": 5
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Hero/Hero.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "JsonLD/JsonLD.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from 'react'",
+          "path": "react",
+          "line": 2
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Layout/Container.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from 'react'",
+          "path": "react",
+          "line": 5
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Layout/Layout.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { Content } from \"../Content/Content\"",
+          "path": "../Content/Content",
+          "line": 2
+        },
+        {
+          "statement": "import { Table } from \"../Table/Table\"",
+          "path": "../Table/Table",
+          "line": 3
+        },
+        {
+          "statement": "import { PropertiesTable } from \"../PropertiesTable\"",
+          "path": "../PropertiesTable",
+          "line": 4
+        },
+        {
+          "statement": "import { Bullets } from \"../Bullets/Bullets\"",
+          "path": "../Bullets/Bullets",
+          "line": 5
+        },
+        {
+          "statement": "import { Caption } from \"../Caption/Caption\"",
+          "path": "../Caption/Caption",
+          "line": 6
+        },
+        {
+          "statement": "import { Tags } from \"../Tags/Tags\"",
+          "path": "../Tags/Tags",
+          "line": 7
+        },
+        {
+          "statement": "import { Author } from '../Author/Author'",
+          "path": "../Author/Author",
+          "line": 8
+        },
+        {
+          "statement": "import { JsonLD, schemas } from '../JsonLD/JsonLD'",
+          "path": "../JsonLD/JsonLD",
+          "line": 9
+        },
+        {
+          "statement": "import { Hero } from '../Hero/Hero'",
+          "path": "../Hero/Hero",
+          "line": 10
+        },
+        {
+          "statement": "import { Title } from '../Title/Title'",
+          "path": "../Title/Title",
+          "line": 11
+        },
+        {
+          "statement": "import { parseAuthorContent } from '@/app/utils/authorParser'",
+          "path": "@/app/utils/authorParser",
+          "line": 12
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Layout/breadcrumbs.tsx": {
+      "status": "FAIL",
+      "imports": [
+        {
+          "statement": "import { usePathname } from \"next/navigation\"",
+          "path": "next/navigation",
+          "line": 4
+        },
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 5
+        },
+        {
+          "statement": "import { BreadcrumbItem, BreadcrumbsProps } from \"../../types\"",
+          "path": "../../types",
+          "line": 6
+        }
+      ],
+      "errors": [
+        "Link component used but next/link not imported"
+      ],
+      "warnings": []
+    },
+    "Layout/footer.tsx": {
+      "status": "FAIL",
+      "imports": [
+        {
+          "statement": "import Image from \"next/image\"",
+          "path": "next/image",
+          "line": 3
+        },
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 4
+        },
+        {
+          "statement": "import { BaseLinkProps, BaseImageProps } from \"../../types\"",
+          "path": "../../types",
+          "line": 5
+        }
+      ],
+      "errors": [
+        "Link component used but next/link not imported"
+      ],
+      "warnings": []
+    },
+    "Layout/nav.tsx": {
+      "status": "FAIL",
+      "imports": [
+        {
+          "statement": "import { useState } from \"react\"",
+          "path": "react",
+          "line": 4
+        },
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 5
+        },
+        {
+          "statement": "import Image from \"next/image\"",
+          "path": "next/image",
+          "line": 6
+        },
+        {
+          "statement": "import { usePathname } from \"next/navigation\"",
+          "path": "next/navigation",
+          "line": 7
+        },
+        {
+          "statement": "import { BaseImageProps, BaseLinkProps } from \"../../types\"",
+          "path": "../../types",
+          "line": 8
+        }
+      ],
+      "errors": [
+        "Link component used but next/link not imported"
+      ],
+      "warnings": [
+        "Image component used - consider importing from next/image",
+        "Image component used - consider importing from next/image"
+      ]
+    },
+    "List/List.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from \"react\"",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import { Card } from \"../Card/Card\"",
+          "path": "../Card/Card",
+          "line": 4
+        },
+        {
+          "statement": "import { cn } from \"@/app/utils/helpers\"",
+          "path": "@/app/utils/helpers",
+          "line": 5
+        },
+        {
+          "statement": "import { getArticle } from \"@/app/utils/contentAPI\"",
+          "path": "@/app/utils/contentAPI",
+          "line": 6
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "PropertiesTable/PropertiesTable.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "SearchResults/EmptySearchResults.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "SearchResults/SearchHeader.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { SearchBar } from \"../UI/SearchBar\"",
+          "path": "../UI/SearchBar",
+          "line": 2
+        },
+        {
+          "statement": "import { TagFilter } from \"../UI/TagFilter\"",
+          "path": "../UI/TagFilter",
+          "line": 3
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "SearchResults/SearchResults.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { useState, useEffect, useMemo } from \"react\"",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import { SearchResultsGrid } from \"./SearchResultsGrid\"",
+          "path": "./SearchResultsGrid",
+          "line": 4
+        },
+        {
+          "statement": "import { SearchHeader } from \"./SearchHeader\"",
+          "path": "./SearchHeader",
+          "line": 5
+        },
+        {
+          "statement": "import { SearchResultsCount } from \"./SearchResultsCount\"",
+          "path": "./SearchResultsCount",
+          "line": 6
+        },
+        {
+          "statement": "import { EmptySearchResults } from \"./EmptySearchResults\"",
+          "path": "./EmptySearchResults",
+          "line": 7
+        },
+        {
+          "statement": "import { Article, EnrichedArticle } from \"../../types/Article\"",
+          "path": "../../types/Article",
+          "line": 8
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "SearchResults/SearchResultsCount.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "SearchResults/SearchResultsGrid.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { Card } from \"../Card/Card\"",
+          "path": "../Card/Card",
+          "line": 2
+        },
+        {
+          "statement": "import { getBadgeFromItem, getChemicalProperties, getDisplayName } from \"../../utils/searchUtils\"",
+          "path": "../../utils/searchUtils",
+          "line": 3
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "SectionCard/SectionCardList.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React, { useMemo } from \"react\"",
+          "path": "react",
+          "line": 3
+        },
+        {
+          "statement": "import { sectionCards } from \"./SectionCards\"",
+          "path": "./SectionCards",
+          "line": 4
+        },
+        {
+          "statement": "import { Card } from \"../Card/Card\"",
+          "path": "../Card/Card",
+          "line": 5
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Table/Table.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "Tags/Tags.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 4
+        },
+        {
+          "statement": "import { useRouter } from \"next/navigation\"",
+          "path": "next/navigation",
+          "line": 5
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Thumbnail/Thumbnail.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import Image from \"next/image\"",
+          "path": "next/image",
+          "line": 4
+        },
+        {
+          "statement": "import React, { useState, useEffect } from \"react\"",
+          "path": "react",
+          "line": 5
+        },
+        {
+          "statement": "import { getArticleBySlug } from \"../../utils/contentAPI\"",
+          "path": "../../utils/contentAPI",
+          "line": 6
+        },
+        {
+          "statement": "import { Article } from \"../../types/Article\"",
+          "path": "../../types/Article",
+          "line": 7
+        },
+        {
+          "statement": "import { Card } from \"../Card/Card\"",
+          "path": "../Card/Card",
+          "line": 8
+        },
+        {
+          "statement": "import { logger } from \"../../utils/logger\"",
+          "path": "../../utils/logger",
+          "line": 9
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "Thumbnail/ThumbnailContainer.tsx": {
+      "status": "PASS",
+      "imports": [],
+      "errors": [],
+      "warnings": []
+    },
+    "Title/Title.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import React from 'react'",
+          "path": "react",
+          "line": 2
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "UI/OptimizedImage.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import Image from \"next/image\"",
+          "path": "next/image",
+          "line": 5
+        },
+        {
+          "statement": "import { useState } from \"react\"",
+          "path": "react",
+          "line": 6
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "UI/SearchBar.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import { useState, useEffect } from \"react\"",
+          "path": "react",
+          "line": 4
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "UI/TagFilter.tsx": {
+      "status": "PASS",
+      "imports": [
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 4
+        }
+      ],
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "propsValidation": {
+    "Author/Author.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "AuthorData",
+          "body": "author_name: string;\n  credentials?: string;\n  author_country?: string;\n  avatar?: string;",
+          "line": 4
+        },
+        {
+          "name": "AuthorProps",
+          "body": "author: AuthorData;\n  showAvatar?: boolean;\n  showCredentials?: boolean;\n  showCountry?: boolean;\n  className?: string;",
+          "line": 11
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "BadgeSymbol/BadgeSymbol.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "BadgeSymbolProps",
+          "body": "// Only needed props\n  variant?: \"card\" | \"large\" | \"small\";\n  position?: string;\n\n  // Primary data source - frontmatter\n  frontmatter?: ArticleFrontmatter;\n  // For convenience, can extract frontmatter from article\n  article?: Article;\n  // For default when no chemical data exists\n  slug?: string;",
+          "line": 8
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "BadgeSymbol/ServerBadgeSymbol.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "ServerBadgeSymbolProps",
+          "body": "materialSlug?: string;\n  variant?: \"card\" | \"large\" | \"small\";\n  position?: string;\n  slug?: string;",
+          "line": 5
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Banner/Banner.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "BannerProps",
+          "body": "message: string;\n  type?: 'info' | 'success' | 'warning' | 'error';\n  dismissible?: boolean;\n  action?: {\n    label: string;\n    href: string;",
+          "line": 5
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Base/MarkdownRenderer.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "MarkdownRendererProps",
+          "body": "content: string;\n  convertMarkdown?: boolean; // Add this flag",
+          "line": 5
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Bullets/Bullets.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "BulletsProps",
+          "body": "content: string;\n  config?: {\n    className?: string;",
+          "line": 6
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Button.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "ButtonProps",
+          "body": "variant?: 'primary' | 'secondary' | 'tertiary';\n  size?: 'sm' | 'md' | 'lg';\n  children: React.ReactNode;\n  className?: string;\n  disabled?: boolean;\n  onClick?: () => void;",
+          "line": 6
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Caption/Caption.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "FrontmatterType",
+          "body": "images?: {\n    closeup?: {\n      url?: string;\n      alt?: string;",
+          "line": 9
+        },
+        {
+          "name": "CaptionProps",
+          "body": "content: string;\n  image?: string;\n  frontmatter?: FrontmatterType; // Frontmatter contains all image path information\n  config?: {\n    className?: string;",
+          "line": 20
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Card/Card.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "BadgeData",
+          "body": "symbol?: string;\n  atomicNumber?: number | string;\n  formula?: string;\n  materialType?: string;\n  color?: string;\n  show?: boolean; // Added for simplified flag",
+          "line": 27
+        },
+        {
+          "name": "CardProps",
+          "body": "href: string;\n  title: string;\n  name?: string;\n  description?: string;\n  image?: string;\n  imageUrl?: string;\n  imageAlt?: string;\n  materialSlug?: string; // Add materialSlug for hero images\n  tags?: string[];\n  badge?: BadgeData | null; // Allow null\n  metadata?: {\n    category?: string;\n    articleType?: string;\n    date?: string;\n    tags?: string[];\n    // Simplified chemical properties object\n    chemicalProperties?: {\n      symbol?: string;\n      formula?: string;\n      materialType?: string;\n      atomicNumber?: number | string;",
+          "line": 36
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Card/ServerCard.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "ServerCardProps",
+          "body": "href: string;\n  title: string;\n  name?: string;\n  description?: string;\n  imageAlt?: string;\n  materialSlug?: string;\n  tags?: string[];\n  className?: string;\n  height?: string;",
+          "line": 5
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Content/Content.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "ContentProps",
+          "body": "content: string;\n  config?: {\n    wrapHeadings?: boolean;\n    maxWidth?: string;\n    enhanceTables?: boolean;",
+          "line": 4
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Debug/DebugLayout.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "DebugSection",
+          "body": "id: string;\n  title: string;\n  icon: string;\n  description: string;",
+          "line": 7
+        },
+        {
+          "name": "DebugLayoutProps",
+          "body": "children: ReactNode;\n  activeSection?: string;\n  sections?: DebugSection[];",
+          "line": 14
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Debug/FrontmatterDebug.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "FrontmatterItem",
+          "body": "slug: string;\n  title: string;\n  author: string;\n  [key: string]: any;",
+          "line": 6
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Debug/FrontmatterNameChecker.tsx": {
+      "status": "PASS",
+      "interfaces": [],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Debug/TagDebug.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "TagDebugData",
+          "body": "totalArticles: number;\n  articlesWithAuthor: number;\n  articlesWithFrontmatterAuthor: number;\n  sampleAuthors: Array<{\n    title: string;\n    slug: string;\n    author: string;\n    tags: string[];",
+          "line": 6
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "ErrorBoundary/ErrorBoundary.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "Props",
+          "body": "children: ReactNode;\n  fallback?: ReactNode;\n  componentName?: string;\n  onError?: (error: Error, errorInfo: ErrorInfo) => void;",
+          "line": 7
+        },
+        {
+          "name": "State",
+          "body": "hasError: boolean;\n  error?: Error;",
+          "line": 14
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Hero/Hero.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "HeroProps",
+          "body": "image?: string;\n  align?: 'left' | 'center' | 'right';\n  theme?: 'dark' | 'light';\n  frontmatter?: any; // Frontmatter contains all image path information\n  cta?: {\n    text: string;\n    href: string;",
+          "line": 4
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "JsonLD/JsonLD.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "JsonLdProps",
+          "body": "data: Record<string, any>;",
+          "line": 4
+        },
+        {
+          "name": "PersonSchema",
+          "body": "name: string;\n  url?: string;\n  image?: string;\n  description?: string;\n  jobTitle?: string;\n  worksFor?: string;\n  [key: string]: any;",
+          "line": 8
+        },
+        {
+          "name": "ListingSchema",
+          "body": "headline: string;\n  description: string;\n  author: string | { name: string; [key: string]: any",
+          "line": 18
+        },
+        {
+          "name": "WebsiteSchema",
+          "body": "name: string;\n  description: string;\n  url: string;\n  author?: string;\n  [key: string]: any;",
+          "line": 29
+        },
+        {
+          "name": "BreadcrumbItem",
+          "body": "name: string;\n  url: string;",
+          "line": 37
+        },
+        {
+          "name": "ArticleSchema",
+          "body": "headline: string;\n  description: string;\n  author: string | PersonSchema;\n  datePublished: string;\n  dateModified?: string;\n  url: string;\n  image?: string;\n  articleBody?: string;\n  keywords?: string[];\n  articleSection?: string;\n  [key: string]: any;",
+          "line": 42
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Layout/Container.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "ContainerProps",
+          "body": "children: React.ReactNode;\n  className?: string;\n  padding?: 'sm' | 'md' | 'lg';\n  shadow?: 'sm' | 'md' | 'lg';\n  sticky?: boolean;\n  as?: 'div' | 'section' | 'article';",
+          "line": 7
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Layout/Layout.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "LayoutProps",
+          "body": "components: Record<string, any> | null; // Make components accept null\n  metadata?: any;\n  slug?: string;\n  title?: string;\n  hideHeader?: boolean;\n  className?: string;",
+          "line": 25
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Layout/breadcrumbs.tsx": {
+      "status": "WARN",
+      "interfaces": [],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Layout/footer.tsx": {
+      "status": "PASS",
+      "interfaces": [],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Layout/nav.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "NavItem",
+          "body": "name: string;\n  href: string;\n  external?: boolean;\n  target?: \"_blank\" | \"_self\";\n  rel?: string;",
+          "line": 11
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "List/List.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "ListProps",
+          "body": "// Add slugs as a prop alternative to items\n  slugs?: string[];\n  items?: Array<{\n    slug: string;\n    title?: string;\n    description?: string;\n    image?: string;\n    badge?: string;\n    featured?: boolean; // Add featured property",
+          "line": 8
+        },
+        {
+          "name": "ArticleMetadata",
+          "body": "subject?: string;\n  description?: string;\n  category?: string;\n  articleType?: string;\n  image?: string;\n  chemicalSymbol?: string;\n  atomicNumber?: number;\n  chemicalFormula?: string;\n  // Add the properties field\n  properties?: {\n    chemicalFormula?: string;\n    density?: string;\n    meltingPoint?: string;\n    thermalConductivity?: string;\n    laserType?: string;\n    wavelength?: string;\n    fluenceRange?: string;",
+          "line": 27
+        },
+        {
+          "name": "Article",
+          "body": "metadata: ArticleMetadata;\n  components: Record<string, any> | null;",
+          "line": 57
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "PropertiesTable/PropertiesTable.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "PropertiesTableProps",
+          "body": "content: string;\n  config?: {\n    caption?: string;\n    className?: string;",
+          "line": 4
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "SearchResults/EmptySearchResults.tsx": {
+      "status": "PASS",
+      "interfaces": [],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "SearchResults/SearchHeader.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "SearchHeaderProps",
+          "body": "searchQuery: string;\n  onSearchChange: (value: string) => void;\n  tags: string[];\n  selectedTag: string;\n  onTagSelect: (tag: string) => void;\n  placeholder?: string;\n  showTagFilter?: boolean;\n  tagItemCounts?: Record<string, number>; // Add count information",
+          "line": 5
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "SearchResults/SearchResults.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "SearchResultsProps",
+          "body": "items: EnrichedArticle[];\n  initialTag?: string;\n  placeholder?: string;\n  columns?: 1 | 2 | 3 | 4;\n  className?: string;\n  showTagFilter?: boolean;",
+          "line": 10
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "SearchResults/SearchResultsCount.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "SearchResultsCountProps",
+          "body": "count: number;\n  selectedTag?: string;\n  searchQuery?: string;",
+          "line": 2
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "SearchResults/SearchResultsGrid.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "SearchResultsGridProps",
+          "body": "items: any[];\n  columns: 1 | 2 | 3 | 4;",
+          "line": 5
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "SectionCard/SectionCardList.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "SectionCardData",
+          "body": "id: number;\n  title?: string;\n  slug: string;\n  description: string;\n  imageUrl: string;\n  featured?: boolean; // Add featured property",
+          "line": 7
+        },
+        {
+          "name": "SectionCardListProps",
+          "body": "cards?: SectionCardData[];\n  heading?: string;\n  className?: string;\n  featured?: boolean; // Add a featured prop",
+          "line": 16
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Table/Table.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "TableProps",
+          "body": "content: string;\n  config?: {\n    showHeader?: boolean;\n    caption?: string;\n    className?: string;",
+          "line": 4
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Tags/Tags.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "TagsProps",
+          "body": "content: string; // The raw content from the tags markdown file\n  config?: {\n    className?: string;\n    title?: string;\n    pillColor?: string;\n    textColor?: string;\n    hoverColor?: string;\n    linkPrefix?: string; // Path prefix for tag links e.g., \"/tag/\"\n    onClick?: (tag: string) => void; // Alternative to links - for in-page filtering\n    hideEmptyTags?: boolean; // Whether to hide tags with no matching articles\n    articleMatchCount?: Record<string, number>; // Counts of articles matching each tag\n    [key: string]: unknown;",
+          "line": 7
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Thumbnail/Thumbnail.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "ThumbnailProps",
+          "body": "alt: string;\n  className?: string;\n  priority?: boolean;\n  objectFit?: ObjectFit;\n  width?: number;\n  height?: number;\n  slug?: string; // Add slug to fetch data directly\n  frontmatter?: any; // Keep as fallback for cases where data is already available",
+          "line": 13
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "Thumbnail/ThumbnailContainer.tsx": {
+      "status": "PASS",
+      "interfaces": [],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "Title/Title.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "TitleProps",
+          "body": "children: React.ReactNode;\n  level?: 1 | 2 | 3 | 4 | 5 | 6;\n  className?: string;\n  subtitle?: string;",
+          "line": 4
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "UI/OptimizedImage.tsx": {
+      "status": "PASS",
+      "interfaces": [
+        {
+          "name": "OptimizedImageProps",
+          "body": "src: string;\n  alt: string;\n  className?: string;\n  fill?: boolean;\n  width?: number;\n  height?: number;\n  priority?: boolean;",
+          "line": 8
+        }
+      ],
+      "propsUsage": [],
+      "issues": [],
+      "suggestions": []
+    },
+    "UI/SearchBar.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "SearchBarProps",
+          "body": "value: string;\n  onChange: (value: string) => void;\n  placeholder?: string;\n  className?: string;",
+          "line": 6
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    },
+    "UI/TagFilter.tsx": {
+      "status": "WARN",
+      "interfaces": [
+        {
+          "name": "TagFilterProps",
+          "body": "tags: string[];\n  selectedTag: string;\n  onSelectTag?: (tag: string) => void; // Optional callback\n  linkPrefix?: string;\n  className?: string;\n  tagItemCounts?: Record<string, number>; // Add counts for each tag",
+          "line": 6
+        }
+      ],
+      "propsUsage": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
+      "suggestions": []
+    }
+  },
+  "componentAnalysis": {},
+  "summary": {
+    "importValidation": {
+      "total": 39,
+      "passed": 35,
+      "failed": 4,
+      "errors": 0
+    },
+    "propsValidation": {
+      "total": 39,
+      "clean": 21,
+      "issues": 18,
+      "errors": 0
+    },
+    "overallStatus": "WARN",
+    "timestamp": "2025-08-23T21:29:36.935Z"
+  },
+  "timestamp": "2025-08-23T21:29:36.915Z"
+}

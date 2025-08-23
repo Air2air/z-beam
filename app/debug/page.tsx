@@ -3,6 +3,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { logger } from '../utils/logger';
 import { DebugLayout } from '../components/Debug/DebugLayout';
 import { TagDebug } from '../components/Debug/TagDebug';
@@ -120,7 +121,7 @@ export default function DebugPage() {
           <h3 className="text-lg font-semibold">Badge Symbol Debug</h3>
           <p className="text-sm text-gray-700">
             This debug tool helps you test chemical badge symbols for materials.
-            Visit the <a href="/debug/badge-symbol" className="text-blue-600 underline">dedicated Badge Symbol debug page</a> for more detailed testing.
+            Visit the <Link href="/debug/badge-symbol" className="text-blue-600 underline">dedicated Badge Symbol debug page</Link> for more detailed testing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative bg-gray-100 p-4 rounded-lg h-48">

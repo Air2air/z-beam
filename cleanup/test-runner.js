@@ -62,6 +62,14 @@ class TestRunner {
       {
         file: 'tests/test-layout-structure.js',
         description: 'Layout Component Structure and Positioning'
+      },
+      {
+        file: 'tests/test-typescript-build.js',
+        description: 'TypeScript Compilation and Build Validation'
+      },
+      {
+        file: 'tests/test-component-validation.js',
+        description: 'Component Import and Props Validation'
       }
     ];
 

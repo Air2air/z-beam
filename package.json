@@ -12,8 +12,12 @@
     "kill-port": "lsof -ti:3000 | xargs kill -9 || true",
     
     "test": "node cleanup/test-runner.js",
-    "test:full": "node cleanup/comprehensive-suite.js",
-    "test:cleanup": "node cleanup/test-dead-file-cleanup.js",
+    "test:components": "node tests/test-component-validation.js",
+    "test:coverage": "node tests/coverage-runner.js",
+    "test:coverage:view": "cat tests/coverage-report.json | jq '.' || cat tests/coverage-report.json",
+    "test:typescript": "node tests/test-typescript-build.js",
+    "test:all": "npm run test && npm run test:components && npm run test:coverage && echo '🎉 All tests and coverage analysis completed!'",
+    "test:quick": "npm run test --silent && echo '✅ Quick tests passed'",
     "cleanup": "./cleanup/cleanup-dead-files.sh",
     "cleanup:analyze": "node cleanup/test-dead-file-cleanup.js",
     
