@@ -10,12 +10,12 @@
     "Epoxy Resin Composites material processing",
     "precision cleaning",
     "industrial applications",
+    "surface treatment",
+    "non-contact processing",
     "laser ablation parameters",
-    "thermal degradation prevention",
-    "composite surface preparation",
-    "selective contamination removal"
+    "composite material restoration"
   ],
-  "articleBody": "Epoxy Resin Composites is a composite material widely used in industrial applications due to its excellent mechanical strength, chemical resistance, and thermal stability. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters to selectively ablate unwanted material while preserving the underlying Epoxy Resin Composites substrate. Optimal laser parameters typically include near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds to prevent thermal degradation of the epoxy matrix. Key applications include aerospace component refurbishment, wind turbine blade maintenance, automotive composite part preparation, and electronic encapsulation cleaning. Challenges include managing the material's low thermal conductivity and varying absorption characteristics, which require precise parameter optimization. Safety considerations mandate proper ventilation systems to manage volatile organic compounds released during ablation and comprehensive eye protection for operators. The non-abrasive nature of laser cleaning eliminates mechanical stress on the composite structure, making it ideal for delicate components requiring surface preparation for bonding, coating, or inspection processes.",
+  "articleBody": "Epoxy Resin Composites are advanced composite materials characterized by exceptional mechanical strength, chemical resistance, and thermal stability, making them ideal for aerospace, automotive, and marine applications. Laser cleaning provides a superior non-contact method for removing contaminants, oxidation layers, and surface coatings without compromising the epoxy matrix or fiber reinforcement. Optimal laser parameters typically involve near-infrared wavelengths (1064 nm) with controlled fluence levels (0.5-2.5 J/cm²) and short pulse durations (10-100 ns) to achieve selective ablation while minimizing thermal effects. The process effectively removes organic residues, oxidation products, and surface contaminants while preserving the composite's structural integrity and surface finish. Key challenges include managing the thermal sensitivity of epoxy resins and preventing matrix degradation, which are addressed through precise parameter optimization and real-time monitoring systems. Safety considerations require proper ventilation systems to manage volatile organic compounds released during cleaning and comprehensive laser safety protocols including appropriate PPE and enclosure systems. The technique enables precise surface preparation for bonding, coating applications, and restoration of composite components without mechanical abrasion or chemical solvents.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Yi-Chun Lin"
+    "name": "Alessandro Moretti"
   },
   "about": {
     "@type": "Thing",

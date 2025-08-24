@@ -1,18 +1,18 @@
 ---
 name: Tin
 applications:
-- industry: [Automotive]
+- industry: "Automotive"
   detail: Removing paint and coatings from Tin components
-- industry: [Electronics]
+- industry: "Electronics"
   detail: Cleaning Tin surfaces for soldering and assembly
 technicalSpecifications:
-  powerRange: [20-100W]
-  pulseDuration: [10-100ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.1-2.0mm]
-  repetitionRate: [10-50kHz]
-  fluenceRange: [0.5–5 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "20-100W"
+  pulseDuration: "10-100ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.1-2.0mm"
+  repetitionRate: "10-50kHz"
+  fluenceRange: "0.5–5 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Tin for laser cleaning applications, including 7.26 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: tin, tin metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

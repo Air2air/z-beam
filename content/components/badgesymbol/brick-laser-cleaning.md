@@ -1,4 +1,4 @@
 ---
 symbol: "BR"
-materialType: "masonry"
+materialType: "material"
 ---

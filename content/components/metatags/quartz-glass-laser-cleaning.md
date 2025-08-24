@@ -2,7 +2,7 @@
 title: Laser Cleaning Quartz Glass - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Quartz Glass, Quartz Glass, for laser cleaning applications, including 2.2 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Quartz Glass for laser cleaning applications, including 2.2 g/cm³ density, 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "quartz glass, quartz glass glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

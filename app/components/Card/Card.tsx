@@ -5,6 +5,7 @@ import "./styles.scss";
 import Link from "next/link";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
+import { BadgeData, ArticleMetadata } from "@/types/core";
 
 // Global card configuration with a single variant
 const CARD_CONFIG = {
@@ -23,16 +24,6 @@ const CARD_CONFIG = {
     "rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
 };
 
-// New standardized interface for badge data
-interface BadgeData {
-  symbol?: string;
-  atomicNumber?: number | string;
-  formula?: string;
-  materialType?: string;
-  color?: string;
-  show?: boolean; // Added for simplified flag
-}
-
 export interface CardProps {
   href: string;
   title: string;
@@ -44,27 +35,7 @@ export interface CardProps {
   materialSlug?: string; // Add materialSlug for hero images
   tags?: string[];
   badge?: BadgeData | null; // Allow null
-  metadata?: {
-    title?: string;
-    name?: string;
-    description?: string;
-    category?: string;
-    subject?: string;
-    article_type?: string;
-    articleType?: string;
-    keywords?: string[];
-    tags?: string[];
-    date?: string;
-    author?: string;
-    image?: string;
-    thumbnail?: string;
-    showBadge?: boolean;
-    badge?: {
-      text?: string;
-      variant?: string;
-      color?: string;
-    };
-  };
+  metadata?: ArticleMetadata;
   className?: string;
   height?: string;
 }

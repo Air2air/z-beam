@@ -1,3 +1,2 @@
-**Quartz Glass** surface (left) before cleaning, exhibiting significant particulate contamination and organic residues from industrial handling.
-
-**After laser cleaning** (right) processed with a 355 nm Nd:YAG laser (3.5 J/cm², 10 ns pulse, 500 µm spot), showing complete contaminant removal with no substrate damage to the high-purity silica matrix.
+**Quartz Glass** surface (left) before cleaning, showing heavy organic resin deposits and particulate contamination from industrial handling.  
+**After laser cleaning** (right) using a 355 nm Nd:YAG laser (3.5 J/cm², 10 ns pulse, 500 µm spot), exhibiting complete contaminant removal with no sub-surface damage to the high-purity fused silica substrate.

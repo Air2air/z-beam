@@ -1,5 +1,5 @@
 // app/utils/materialBadgeUtils.ts
-import { MaterialBadgeData, MaterialType } from '../types/materials';
+import { MaterialBadgeData, MaterialType } from '@/types/core';
 
 // Known element symbols mapped to atomic numbers
 const ELEMENTS: Record<string, number> = {

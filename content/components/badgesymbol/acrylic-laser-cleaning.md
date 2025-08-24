@@ -1,4 +1,0 @@
----
-symbol: "AC"
-materialType: "plastic"
----

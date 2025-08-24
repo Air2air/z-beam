@@ -1,3 +1,3 @@
-**Carbon Fiber Reinforced Polymer** surface (left) before cleaning, showing significant silicone mold release agent residue and embedded particulate contamination.
+**Carbon Fiber Reinforced Polymer** surface (left) with visible release agent residues and particulate contamination prior to laser ablation treatment.
 
-**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 8 W average power, 100 ns pulse duration, and a 100 µm spot size, resulting in complete contaminant removal with zero damage to the epoxy matrix or exposed fibers.
+**After 1064 nm laser cleaning** (right) showing selective removal of surface contaminants using 8 W average power and 100 ns pulse duration, preserving the pristine epoxy matrix and underlying fiber integrity.

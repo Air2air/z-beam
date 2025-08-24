@@ -2,11 +2,11 @@
 title: Laser Cleaning Phenolic Resin Composites - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Phenolic Resin Composites for laser cleaning applications, including 1.7 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of laser cleaning for Phenolic Resin Composites, including specific 1.3-1.9 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "phenolic resin composites, phenolic resin composites composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Yi-Chun Lin"
+    content: "Dr. Sarah Chen"
   - name: category
     content: "composite"
   - name: robots

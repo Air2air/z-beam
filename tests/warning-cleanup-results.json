@@ -1,8 +1,24 @@
 {
   "lintWarnings": {
     "status": "WARNINGS",
-    "count": 93,
+    "count": 95,
     "warnings": [
+      {
+        "file": "app/components/Author/Author.tsx",
+        "line": 15,
+        "column": 12,
+        "rule": "@typescript-eslint/no-explicit-any",
+        "message": "Unexpected any. Specify a different type.",
+        "type": "any-types"
+      },
+      {
+        "file": "app/components/Author/Author.tsx",
+        "line": 25,
+        "column": 3,
+        "rule": "@typescript-eslint/no-unused-vars",
+        "message": "'config' is defined but never used.",
+        "type": "unused-vars"
+      },
       {
         "file": "app/components/BadgeSymbol/BadgeSymbol.tsx",
         "line": 23,
@@ -29,7 +45,7 @@
       },
       {
         "file": "app/components/Layout/Layout.tsx",
-        "line": 28,
+        "line": 27,
         "column": 30,
         "rule": "@typescript-eslint/no-explicit-any",
         "message": "Unexpected any. Specify a different type.",
@@ -37,7 +53,7 @@
       },
       {
         "file": "app/components/Layout/Layout.tsx",
-        "line": 29,
+        "line": 28,
         "column": 14,
         "rule": "@typescript-eslint/no-explicit-any",
         "message": "Unexpected any. Specify a different type.",
@@ -146,28 +162,37 @@
         "rule": "@typescript-eslint/no-unused-vars",
         "message": "'createMetadata' is defined but never used.",
         "type": "unused-vars"
-      },
-      {
-        "file": "app/debug/badge-symbol/page.tsx",
-        "line": 8,
-        "column": 46,
-        "rule": "@typescript-eslint/no-explicit-any",
-        "message": "Unexpected any. Specify a different type.",
-        "type": "any-types"
-      },
-      {
-        "file": "app/debug/page.tsx",
-        "line": 15,
-        "column": 15,
-        "rule": "@typescript-eslint/no-explicit-any",
-        "message": "Unexpected any. Specify a different type.",
-        "type": "any-types"
       }
     ],
     "categories": {
-      "unused-vars": {
-        "count": 44,
+      "any-types": {
+        "count": 40,
         "examples": [
+          {
+            "file": "app/components/Author/Author.tsx",
+            "rule": "@typescript-eslint/no-explicit-any",
+            "message": "Unexpected any. Specify a different type."
+          },
+          {
+            "file": "app/components/Layout/Layout.tsx",
+            "rule": "@typescript-eslint/no-explicit-any",
+            "message": "Unexpected any. Specify a different type."
+          },
+          {
+            "file": "app/components/Layout/Layout.tsx",
+            "rule": "@typescript-eslint/no-explicit-any",
+            "message": "Unexpected any. Specify a different type."
+          }
+        ]
+      },
+      "unused-vars": {
+        "count": 45,
+        "examples": [
+          {
+            "file": "app/components/Author/Author.tsx",
+            "rule": "@typescript-eslint/no-unused-vars",
+            "message": "'config' is defined but never used."
+          },
           {
             "file": "app/components/BadgeSymbol/BadgeSymbol.tsx",
             "rule": "@typescript-eslint/no-unused-vars",
@@ -177,31 +202,6 @@
             "file": "app/components/BadgeSymbol/BadgeSymbol.tsx",
             "rule": "@typescript-eslint/no-unused-vars",
             "message": "'materialType' is assigned a value but never used."
-          },
-          {
-            "file": "app/components/Card/Card.tsx",
-            "rule": "@typescript-eslint/no-unused-vars",
-            "message": "'isFeatured' is assigned a value but never used."
-          }
-        ]
-      },
-      "any-types": {
-        "count": 39,
-        "examples": [
-          {
-            "file": "app/components/Layout/Layout.tsx",
-            "rule": "@typescript-eslint/no-explicit-any",
-            "message": "Unexpected any. Specify a different type."
-          },
-          {
-            "file": "app/components/Layout/Layout.tsx",
-            "rule": "@typescript-eslint/no-explicit-any",
-            "message": "Unexpected any. Specify a different type."
-          },
-          {
-            "file": "app/components/List/List.tsx",
-            "rule": "@typescript-eslint/no-explicit-any",
-            "message": "Unexpected any. Specify a different type."
           }
         ]
       },
@@ -244,13 +244,19 @@
   },
   "typeWarnings": {
     "status": "WARNINGS",
-    "anyTypes": 20,
+    "anyTypes": 21,
     "unusedVars": 0,
     "details": {
       "anyTypes": [
         {
+          "file": "app/components/Author/Author.tsx",
+          "line": 15,
+          "content": "config?: any;",
+          "matches": 1
+        },
+        {
           "file": "app/components/Layout/Layout.tsx",
-          "line": 29,
+          "line": 28,
           "content": "metadata?: any; // Keep any for metadata flexibility",
           "matches": 1
         },
@@ -301,12 +307,6 @@
           "line": 43,
           "content": "const result: any = {};",
           "matches": 1
-        },
-        {
-          "file": "app/utils/helpers.ts",
-          "line": 56,
-          "content": "export function safeGet<T>(obj: any, path: string, defaultValue: T): T {",
-          "matches": 1
         }
       ],
       "unusedVars": []
@@ -316,8 +316,8 @@
   "remainingWarnings": [],
   "summary": {
     "overallStatus": "WARNINGS_FOUND",
-    "totalWarnings": 93,
-    "anyTypes": 20,
-    "timestamp": "2025-08-24T01:50:14.393Z"
+    "totalWarnings": 95,
+    "anyTypes": 21,
+    "timestamp": "2025-08-24T19:57:19.157Z"
   }
 }

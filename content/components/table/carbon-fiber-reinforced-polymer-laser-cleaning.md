@@ -1,42 +1,45 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
+| Tensile Strength | 3500-7000 | MPa |
+| Young's Modulus | 230-400 | GPa |
+| Thermal Conductivity | 5-10 | W/m·K |
 | Density | 1.5-2.0 | g/cm³ |
-| Tensile Strength | 350-2000 | MPa |
-| Thermal Conductivity | 0.8-6.0 | W/m·K |
-| Melting Point | None | - |
+| Melting Point | >3500 | °C |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
 | Carbon Fiber Content | 50-70 | % |
-| Epoxy Resin Purity | 99.5 | % |
-| Void Content | <1.0 | % |
+| Resin Matrix Type | Epoxy | - |
+| Fiber Diameter | 5-10 | µm |
+| Void Content | <1 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
 | Surface Roughness (Ra) | 0.1-1.0 | µm |
-| Cleaning Efficiency | 95-99 | % |
-| Residue Removal Rate | 90-98 | % |
+| Cleaning Efficiency | 90-95 | % |
+| Debris Removal Rate | 0.5-1.0 | mm²/s |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM D3039 | Compliant | - |
-| ISO 527-5 | Compliant | - |
-| DIN EN 2563 | Compliant | - |
+| ASTM Standard | D3039 | - |
+| ISO Standard | 527-5 | - |
+| Cleanliness Level | ISO 4 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
 | Operating Temperature | -50 to 150 | °C |
-| Humidity Resistance | 85 | % RH |
-| UV Resistance | High | - |
+| Humidity Resistance | 90 | % RH |
+| Chemical Resistance | High | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1-5 | J/cm² |
+| Fluence | 0.5-2.0 | J/cm² |
 | Pulse Duration | 10-100 | ns |
+| Scanning Speed | 100-500 | mm/s |

@@ -11,6 +11,7 @@ import { Hero } from '../Hero/Hero';
 import { Title } from '../Title/Title';
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import { parseAuthorContent } from '@/app/utils/authorParser';
+import { ArticleMetadata } from '@/types/core';
 
 // Update component order to include propertiestable, author, and tags
 const COMPONENT_ORDER = [
@@ -26,7 +27,7 @@ const COMPONENT_ORDER = [
 
 interface LayoutProps {
   components: Record<string, any> | null; // Keep any for component flexibility
-  metadata?: any; // Keep any for metadata flexibility
+  metadata?: ArticleMetadata; // Use centralized type
   slug?: string;
   title?: string;
   hideHeader?: boolean;
@@ -55,7 +56,12 @@ export function Layout({
               </Title>
               {metadata?.author && (
                 <Author 
-                  author={metadata.author} 
+                  author={{
+                    author_name: typeof metadata.author === 'string' ? metadata.author : metadata.author.author_name || 'Unknown Author',
+                    credentials: typeof metadata.author === 'string' ? '' : metadata.author.credentials,
+                    author_country: typeof metadata.author === 'string' ? '' : metadata.author.author_country,
+                    avatar: typeof metadata.author === 'string' ? '' : metadata.author.avatar
+                  }}
                   className="mt-2"
                 />
               )}
@@ -81,7 +87,11 @@ export function Layout({
     schemas.technicalArticle({
       headline: metadata.title,
       description: metadata.description,
-      author: metadata.author || 'Z-Beam',
+      author: typeof metadata.author === 'string' 
+        ? metadata.author 
+        : metadata.author?.author_name 
+          ? { name: metadata.author.author_name, ...metadata.author }
+          : 'Z-Beam',
       datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
       dateModified: metadata.dateModified,
       url: metadata.canonical || `https://z-beam.com/${slug}`,
@@ -123,7 +133,12 @@ export function Layout({
                 {/* Add Author component after Title */}
                 {!hideHeader && metadata?.author && (
                   <Author 
-                    author={metadata.author} 
+                    author={{
+                      author_name: typeof metadata.author === 'string' ? metadata.author : metadata.author.author_name || 'Unknown Author',
+                      credentials: typeof metadata.author === 'string' ? '' : metadata.author.credentials,
+                      author_country: typeof metadata.author === 'string' ? '' : metadata.author.author_country,
+                      avatar: typeof metadata.author === 'string' ? '' : metadata.author.avatar
+                    }}
                     className="mt-2"
                   />
                 )}

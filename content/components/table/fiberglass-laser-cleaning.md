@@ -1,36 +1,36 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 1.8-2.1 | g/cm³ |
-| Tensile Strength | 1000-3500 | MPa |
-| Thermal Conductivity | 0.04 | W/m·K |
 | Melting Point | 840-1000 | °C |
+| Density | 1.8-2.1 | g/cm³ |
+| Thermal Conductivity | 0.04 | W/m·K |
+| Tensile Strength | 3450 | MPa |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| E-Glass Purity | 99.5 | % |
-| S-Glass Purity | 99.8 | % |
-| C-Glass Purity | 99.2 | % |
+| E-Glass Purity | >99 | % |
+| S-Glass Purity | >99 | % |
+| C-Glass Purity | >99 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90-98 | % |
-| Surface Roughness | 0.5-2.0 | µm |
-| Residue Removal | 95-99 | % |
+| Cleaning Efficiency | 90-95 | % |
+| Surface Roughness | <1 | µm |
+| Material Removal Rate | 0.5-1.5 | mm³/min |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | D2584 | - |
-| ISO Standard | 12115 | - |
-| Safety Compliance | OSHA 1910.1200 | - |
+| ASTM D2583 | Compliant | - |
+| ISO 1043-1 | Compliant | - |
+| ANSI Z136.1 | Compliant | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -50 to 250 | °C |
+| Operating Temperature | -60 to 250 | °C |
 | Humidity Resistance | 95 | % RH |
 | Chemical Resistance | High | - |
 
@@ -38,5 +38,5 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1-5 | J/cm² |
+| Fluence | 0.5-2 | J/cm² |
 | Pulse Duration | 10-100 | ns |

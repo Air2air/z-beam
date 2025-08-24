@@ -7,46 +7,9 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
+import { Article } from '../types/Article';
 
-// Export the interface for the Article
-export interface Article {
-  slug: string;
-  title?: string;
-  description?: string;
-  image?: string;
-  imageAlt?: string;
-  tags?: string[];
-  name?: string;
-  headline?: string;
-  website?: string;
-  author?: string; // Align with types/Article.ts - use string instead of object
-  metadata?: {
-    // Your metadata interface...
-    keywords?: string[];
-    category?: string;
-    articleType?: string;
-    subject?: string;
-    chemicalProperties?: {
-      symbol?: string;
-      formula?: string;
-      materialType?: string;
-      [key: string]: any;
-    };
-    images?: {
-      hero?: {
-        url?: string;
-        alt?: string;
-      };
-      closeup?: {
-        url?: string;
-        alt?: string;
-      };
-      [key: string]: any;
-    };
-    // Rest of your interface definition...
-    [key: string]: any;
-  };
-}
+export type { Article };
 
 export async function getAllArticleSlugs(): Promise<string[]> {
   return safeContentOperation(async () => {
@@ -139,7 +102,7 @@ export async function getAllArticles(): Promise<Article[]> {
               articleType: data.articleType || '',
               subject: data.subject || '',
               chemicalProperties: data.chemicalProperties || {},
-              properties: data.properties || {},
+              properties: data.properties || [],
               applications: data.applications || [],
               environmentalImpact: data.environmentalImpact || [],
               regulatoryStandards: data.regulatoryStandards || [],
@@ -150,8 +113,8 @@ export async function getAllArticles(): Promise<Article[]> {
               technicalSpecifications: data.technicalSpecifications || {},
               countries: data.countries || [],
               manufacturingCenters: data.manufacturingCenters || []
-            }
-          };
+            } as any
+          } as Article;
           
           // For frontmatter files, always try to read any top-level properties
           if (dir.includes('frontmatter') && articleData) {
@@ -223,8 +186,8 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
             technicalSpecifications: data.technicalSpecifications || {},
             countries: data.countries || [],
             manufacturingCenters: data.manufacturingCenters || []
-          }
-        };
+          } as any
+        } as Article;
         
         return articleData;
       }

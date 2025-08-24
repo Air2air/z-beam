@@ -1,14 +1,6 @@
-# Author Information
-
-**Alessandro Moretti**, Ph.D.
-
-*Materials Science and Laser Technology*
-
-**Country**: Italy
-
-**Author Image**: `public/images/author/alessandro-moretti.jpg`
-
----
-
-*This article on Quartz Glass laser cleaning was authored by Alessandro Moretti, a leading expert in materials science and laser technology from Italy.*
+Alessandro Moretti  
+Ph.D.  
+Materials Science and Laser Technology  
+Italy  
+/images/author/alessandro-moretti.jpg
 

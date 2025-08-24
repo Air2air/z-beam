@@ -97,7 +97,7 @@ export default function BadgeSymbolDebugPage() {
                   config={{
                     symbol: fm.chemicalProperties.symbol,
                     formula: fm.chemicalProperties.formula,
-                    materialType: fm.chemicalProperties.materialType,
+                    materialType: fm.chemicalProperties.materialType as any,
                     atomicNumber: fm.chemicalProperties.atomicNumber,
                     variant: "card"
                   }}

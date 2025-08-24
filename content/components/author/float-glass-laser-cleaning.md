@@ -1,14 +1,6 @@
-# Author Information
-
-**Alessandro Moretti**, Ph.D.
-
-*Materials Science and Laser Technology*
-
-**Country**: Italy
-
-**Author Image**: `public/images/author/alessandro-moretti.jpg`
-
----
-
-*This article on Float Glass laser cleaning was authored by Alessandro Moretti, a leading expert in materials science and laser technology from Italy.*
+Yi-Chun Lin  
+Ph.D.  
+Materials Science and Laser Technology  
+Taiwan  
+/images/author/yi-chun-lin.jpg
 

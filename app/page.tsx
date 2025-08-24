@@ -24,7 +24,11 @@ export async function generateMetadata() {
     title: (homeMetaTags?.config?.title as string) || "Z-Beam Laser Cleaning Solutions",
     description: (homeMetaTags?.config?.description as string) || 
       "Advanced laser cleaning technology for industrial applications",
-    keywords: homeMetaTags?.config?.keywords as string[] | string,
+    keywords: Array.isArray(homeMetaTags?.config?.keywords) 
+      ? homeMetaTags.config.keywords 
+      : typeof homeMetaTags?.config?.keywords === 'string' 
+        ? [homeMetaTags.config.keywords] 
+        : undefined,
     ogImage: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
     ogType: (homeMetaTags?.config?.ogType as string) || "website",
     canonical: homeMetaTags?.config?.canonical as string,

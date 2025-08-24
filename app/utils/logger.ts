@@ -8,7 +8,7 @@ export interface LogContext {
 export class Logger {
   private isDevelopment = process.env.NODE_ENV === 'development';
 
-  error(message: string, error?: any, context?: LogContext) {
+  error(message: string, error?: Error | unknown, context?: LogContext) {
     if (this.isDevelopment) {
       console.error(`[ERROR] ${message}`, error, context);
     }

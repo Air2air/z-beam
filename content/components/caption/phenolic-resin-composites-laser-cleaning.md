@@ -1,2 +1,2 @@
-**Phenolic Resin Composites** surface (left) before cleaning, showing heavy carbonaceous charring and degraded surface resin from thermal overexposure.
-**After laser cleaning** (right) using a 355 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse duration, 200 µm spot), precisely ablating contaminants while preserving the underlying char-resistant composite matrix.
+**Phenolic Resin Composites** surface (left) exhibiting degraded thermal oxide layers and carbonaceous staining from high-temperature service.
+**After 1,064 nm fiber laser cleaning** (right) demonstrating precise contaminant ablation at 8 J/cm² fluence with 100 ns pulses, preserving the composite's char-resistant phenolic matrix.

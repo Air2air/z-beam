@@ -1,9 +1,5 @@
 // app/utils/badgeUtils.ts
-import { MaterialType, MaterialBadgeData } from '../types/materials';
-
-export interface BadgeData extends MaterialBadgeData {
-  slug?: string;
-}
+import { MaterialType, BadgeData } from '@/types/core';
 
 /**
  * Maps material types to colors for badges

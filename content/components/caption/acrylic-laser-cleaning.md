@@ -1,2 +1,0 @@
-**Acrylic** surface (left) before cleaning, showing significant atmospheric soiling and embedded particulate contamination from prolonged environmental exposure.  
-**After laser cleaning** (right) using a 355 nm Nd:YAG laser at 0.8 J/cm² fluence and 10 ns pulse duration, resulting in complete contaminant removal with zero substrate ablation or surface matting.

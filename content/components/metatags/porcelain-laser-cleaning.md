@@ -2,11 +2,11 @@
 title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Porcelain for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Porcelain for laser cleaning applications, including 2.4-2.5 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "porcelain, porcelain ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Sarah Johnson"
+    content: "Dr. Elena Rodriguez"
   - name: category
     content: "ceramic"
   - name: robots

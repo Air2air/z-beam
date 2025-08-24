@@ -1,18 +1,18 @@
 ---
 name: Ruthenium
 applications:
-- industry: [Aerospace]
+- industry: "Aerospace"
   detail: Cleaning of turbine blades and engine components
-- industry: [Electronics]
+- industry: "Electronics"
   detail: Removal of surface contaminants on semiconductor wafers
 technicalSpecifications:
-  powerRange: [50-200W]
-  pulseDuration: [5-50ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.05-1.0mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [1.0–10 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "50-200W"
+  pulseDuration: "5-50ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.05-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Ruthenium for laser cleaning applications, including 12.45 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: ruthenium, ruthenium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

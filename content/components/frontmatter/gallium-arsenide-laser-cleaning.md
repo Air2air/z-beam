@@ -1,18 +1,18 @@
 ---
 name: Gallium Arsenide
 applications:
-- industry: [Semiconductor Manufacturing]
+- industry: "Semiconductor Manufacturing"
   detail: Cleaning of Gallium Arsenide wafers to remove surface contaminants prior to further processing
-- industry: [Optoelectronics]
+- industry: "Optoelectronics"
   detail: Laser cleaning of Gallium Arsenide components used in LED and laser diode production
 technicalSpecifications:
-  powerRange: [20-100W]
-  pulseDuration: [10-100ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.1-2.0mm]
-  repetitionRate: [10-50kHz]
-  fluenceRange: [0.5–5 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "20-100W"
+  pulseDuration: "10-100ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.1-2.0mm"
+  repetitionRate: "10-50kHz"
+  fluenceRange: "0.5–5 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Gallium Arsenide for laser cleaning applications, including 5.32 g/cm³ density, 1064nm and 532nm wavelengths, and industrial applications.
 author: Alessandro Moretti
 keywords: gallium arsenide, gallium arsenide semiconductor, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

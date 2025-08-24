@@ -1,18 +1,18 @@
 ---
 name: Iron
 applications:
-- industry: [Automotive]
+- industry: "Automotive"
   detail: Rust and corrosion removal from iron components
-- industry: [Manufacturing]
+- industry: "Manufacturing"
   detail: Surface preparation for welding and painting
 technicalSpecifications:
-  powerRange: [50-200W]
-  pulseDuration: [50-200ns]
-  wavelength: [1064nm (primary)]
-  spotSize: [0.1-1.0mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [1.0–10 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "50-200W"
+  pulseDuration: "50-200ns"
+  wavelength: "1064nm (primary)"
+  spotSize: "0.1-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Iron for laser cleaning applications, including 7.87 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: iron, iron metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

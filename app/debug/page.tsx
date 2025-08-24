@@ -12,11 +12,11 @@ import { FrontmatterNameChecker } from '../components/Debug/FrontmatterNameCheck
 import { BadgeSymbol } from '../components/BadgeSymbol/BadgeSymbol';
 
 interface DebugData {
-  thumbnails: any[];
-  images: any[];
-  materials: any[];
-  cards: any[];
-  frontmatter: any[];
+  thumbnails: Array<{ url: string; alt: string; slug: string }>;
+  images: Array<{ src: string; alt: string; width: number; height: number }>;
+  materials: Array<{ name: string; type: string; fallback: string; status: string }>;
+  cards: Array<{ title: string; content: string; type: string; status: string }>;
+  frontmatter: Array<Record<string, unknown>>;
 }
 
 export default function DebugPage() {
@@ -131,7 +131,7 @@ export default function DebugPage() {
                   content=""
                   config={{
                     symbol: "Al",
-                    materialType: "metal",
+                    materialType: "alloy" as any,
                     atomicNumber: 13,
                     variant: "card"
                   }}

@@ -1,0 +1,2 @@
+**Alumina** (Al₂O₃) ceramic surface (left) exhibiting surface staining and adsorbed organic residues.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 150 mJ/cm² fluence, showing complete contaminant ablation with no substrate damage.

@@ -5,6 +5,7 @@ import { SearchResultsGrid } from "./SearchResultsGrid";
 import { SearchHeader } from "./SearchHeader";
 import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
+import { SearchResultItem } from "@/types/core";
 import { /* Article, */ EnrichedArticle } from "../../types/Article";
 
 interface SearchResultsProps {
@@ -152,7 +153,24 @@ export function SearchResults({
     return items.filter(item => 
       itemMatchesSearch(item, searchQuery) && 
       itemMatchesTag(item, selectedTag)
-    );
+    ).map(item => ({
+      id: item.id || item.slug || 'unknown',
+      slug: item.slug || 'unknown',
+      title: item.title || 'Untitled',
+      name: item.name,
+      description: item.description,
+      type: item.metadata?.category || 'article',
+      category: item.metadata?.category,
+      articleType: item.metadata?.category || 'article',
+      tags: item.tags,
+      href: item.href,
+      imageAlt: item.imageAlt || item.title || 'Image',
+      image: item.image,
+      metadata: item.metadata as any, // Type cast during migration period
+      frontmatter: item.frontmatter,
+      content: item.content,
+      excerpt: item.excerpt
+    } as SearchResultItem));
   }, [items, searchQuery, selectedTag]);
 
   return (

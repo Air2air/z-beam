@@ -1,1 +1,1 @@
-stoneware, ablation, cleaning, laser, non-contact, manufacturing, cultural-heritage, yi-chun lin
+stoneware, ablation, cleaning, laser, non-contact, cultural-heritage, manufacturing, alessandro moretti

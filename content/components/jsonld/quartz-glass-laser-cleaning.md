@@ -5,32 +5,32 @@
   "description": "Advanced laser cleaning techniques for Quartz Glass materials, ensuring precision surface treatment while preserving the material's structural integrity and optical properties.",
   "keywords": [
     "Quartz Glass laser cleaning",
-    "Quartz Glass glass cleaning",
-    "non-abrasive surface treatment",
-    "Quartz Glass material processing",
-    "precision cleaning",
-    "industrial applications",
+    "fused silica surface treatment",
+    "non-abrasive optical cleaning",
     "laser ablation parameters",
-    "optical component cleaning"
+    "UV laser processing",
+    "contamination removal",
+    "high-purity surface preparation",
+    "industrial laser applications"
   ],
-  "articleBody": "Quartz Glass, composed primarily of silicon dioxide (SiO₂), is a high-purity glass material with exceptional thermal stability, chemical resistance, and optical transparency. These properties make it ideal for semiconductor, optical, and precision instrument applications where surface purity is critical. Laser cleaning offers a non-contact, precise method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters, typically employing nanosecond or picosecond pulsed lasers at 1064 nm or 355 nm wavelengths, with fluence levels carefully calibrated between 0.5-2.5 J/cm² to selectively ablate unwanted material while preserving the underlying Quartz Glass substrate. Key applications include cleaning optical lenses, semiconductor manufacturing components, and laboratory equipment where particulate contamination can significantly impact performance. The main challenge involves the material's transparency to certain wavelengths, requiring precise parameter optimization to achieve effective cleaning without subsurface damage or micro-cracking. Safety considerations include proper laser shielding, fume extraction for ablated contaminants, and appropriate personal protective equipment for operators. The non-abrasive nature of laser cleaning eliminates mechanical stress and chemical residue, making it superior to traditional cleaning methods for high-precision Quartz Glass components.",
+  "articleBody": "Quartz Glass, also known as fused silica, is a high-purity glass material valued for its exceptional thermal stability, optical transparency, and chemical resistance. Laser cleaning provides a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity or optical properties. The process utilizes carefully controlled laser parameters, typically employing UV wavelengths (266-355 nm) with fluences ranging from 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds. These parameters enable selective ablation of unwanted material while preserving the underlying Quartz Glass substrate. Key applications include cleaning optical components, semiconductor manufacturing equipment, and laboratory instrumentation where surface purity is critical. Challenges include managing thermal stress to prevent micro-cracking and ensuring complete contaminant removal without surface damage. Technical solutions involve precise beam shaping, real-time monitoring, and optimized scanning patterns. Safety considerations mandate proper laser safety enclosures, fume extraction systems for ablated particulates, and appropriate personal protective equipment including laser safety goggles rated for the specific wavelength employed.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/quartz-glass-laser-cleaning-hero.jpg",
       "name": "Quartz Glass Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of Quartz Glass optical component displaying side-by-side before and after laser cleaning results",
-      "description": "Split-view workbench photograph showing a Quartz Glass optical lens in before (left) with surface contamination and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
-      "keywords": "Quartz Glass laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
+      "caption": "Dual workbench photo of Quartz Glass optical component displaying side-by-side before and after laser cleaning results showing complete contaminant removal",
+      "description": "Split-view workbench photograph showing a Quartz Glass optical component in before (left, with visible surface contamination) and after (right, pristine surface) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Quartz Glass laser cleaning, before after comparison, optical component, contamination removal, workbench view",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/quartz-glass-laser-cleaning-closeup.jpg",
       "name": "Quartz Glass Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Quartz Glass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Quartz Glass material surface displaying before (left) with particulate contamination and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 10 ns pulse duration, and 50 μm spot size specifications",
-      "keywords": "Quartz Glass microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
+      "caption": "Dual high-magnification photo of Quartz Glass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications including 355 nm wavelength, 1.8 J/cm² fluence, and 20 ns pulse duration",
+      "description": "Split-view microscopic photograph of Quartz Glass material surface displaying before (left, with particulate contamination) and after (right, pristine surface) states at high magnification, processed with precision laser parameters including 355 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 100 μm spot size specifications",
+      "keywords": "Quartz Glass microscopy, surface analysis, laser parameters, technical specifications, dual comparison, UV laser processing",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",

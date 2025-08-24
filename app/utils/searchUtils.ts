@@ -1,17 +1,48 @@
 // app/utils/searchUtils.ts
-export function getMaterialColor(materialType?: string): string {
+import { MaterialType, BadgeData as CoreBadgeData } from '@/types/core';
+import { MaterialProperties } from '@/types/core/article';
+
+export function getMaterialColor(materialType?: string | MaterialType): string {
   if (!materialType) return "blue";
   
   const typeMap: Record<string, string> = {
     'metal': 'blue',
+    'alloy': 'blue',
+    'element': 'blue', 
     'ceramic': 'green',
     'polymer': 'purple',
     'composite': 'yellow',
     'semiconductor': 'red',
-    'compound': 'gray'
+    'compound': 'gray',
+    'other': 'gray'
   };
   
   return typeMap[materialType.toLowerCase()] || "blue";
+}
+
+// Helper function to safely cast material types
+function toMaterialType(value?: string): MaterialType {
+  if (!value) return 'other';
+  
+  const normalizedValue = value.toLowerCase();
+  const validTypes: MaterialType[] = [
+    'element', 'compound', 'ceramic', 'polymer', 'alloy', 'composite', 'semiconductor', 'other'
+  ];
+  
+  // Check for exact matches first
+  if (validTypes.includes(normalizedValue as MaterialType)) {
+    return normalizedValue as MaterialType;
+  }
+  
+  // Map common aliases
+  const typeMap: Record<string, MaterialType> = {
+    'metal': 'alloy',
+    'metalloid': 'semiconductor',
+    'plastic': 'polymer',
+    'material': 'other'
+  };
+  
+  return typeMap[normalizedValue] || 'other';
 }
 
 export function normalizeString(str?: string): string {
@@ -48,18 +79,13 @@ export function getDisplayName(item: any): string {
   return "Unnamed Item";
 }
 
-export interface BadgeData {
-  symbol?: string;
-  formula?: string;
-  atomicNumber?: number | string;
-  materialType?: string;
-  color?: string;
-}
+// Legacy type alias for backward compatibility
+export type BadgeData = CoreBadgeData;
 
 export interface ChemicalProperties {
   symbol?: string;
   formula?: string;
-  materialType?: string;
+  materialType?: MaterialType;
   atomicNumber?: number | string;
 }
 
@@ -78,7 +104,7 @@ export function getBadgeFromItem(item: any): BadgeData | null {
     return {
       symbol: "Al",
       formula: "Al₂O₃",
-      materialType: fm.category || "ceramic",
+      materialType: toMaterialType(fm.category || "ceramic"),
       color: getMaterialColor(fm.category)
     };
   }
@@ -87,7 +113,7 @@ export function getBadgeFromItem(item: any): BadgeData | null {
     return {
       symbol: "Si",
       formula: "Si₃N₄",
-      materialType: fm.category || "ceramic",
+      materialType: toMaterialType(fm.category || "ceramic"),
       color: getMaterialColor(fm.category)
     };
   }
@@ -100,7 +126,7 @@ export function getBadgeFromItem(item: any): BadgeData | null {
       return {
         symbol: "Al",
         formula: "Al₂O₃",
-        materialType: fm.category || "ceramic",
+        materialType: toMaterialType(fm.category || "ceramic"),
         color: getMaterialColor(fm.category)
       };
     }
@@ -109,7 +135,7 @@ export function getBadgeFromItem(item: any): BadgeData | null {
       return {
         symbol: "Si",
         formula: "Si₃N₄",
-        materialType: fm.category || "ceramic",
+        materialType: toMaterialType(fm.category || "ceramic"),
         color: getMaterialColor(fm.category)
       };
     }
@@ -118,7 +144,7 @@ export function getBadgeFromItem(item: any): BadgeData | null {
   // Generic material mapping by category
   if (fm.category) {
     return {
-      materialType: fm.category,
+      materialType: toMaterialType(fm.category),
       color: getMaterialColor(fm.category)
     };
   }
@@ -126,7 +152,7 @@ export function getBadgeFromItem(item: any): BadgeData | null {
   // Also check direct category on item
   if (item.category) {
     return {
-      materialType: item.category,
+      materialType: toMaterialType(item.category),
       color: getMaterialColor(item.category)
     };
   }

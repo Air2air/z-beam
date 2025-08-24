@@ -1,39 +1,39 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 2.3-2.5 | g/cm³ |
-| Hardness | 7-8 | Mohs |
-| Thermal Conductivity | 1.5-2.5 | W/m·K |
-| Melting Point | 1200-1350 | °C |
+| Density | 2.4 | g/cm³ |
+| Thermal Conductivity | 1.5 | W/m·K |
+| Melting Point | 1300 | °C |
+| Hardness | 7 | Mohs |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| SiO2 Content | 60-70 | % |
-| Al2O3 Content | 20-25 | % |
+| SiO2 Content | 70-80 | % |
+| Al2O3 Content | 15-20 | % |
 | Fe2O3 Content | <1 | % |
-| K2O Content | 3-5 | % |
+| K2O Content | <5 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90-95 | % |
-| Surface Roughness | 0.5-1.5 | µm |
-| Material Removal Rate | 0.1-0.3 | mm³/min |
+| Cleaning Efficiency | 95 | % |
+| Surface Roughness | 1.5 | µm |
+| Cleaning Rate | 10 | cm²/min |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | C242 | - |
-| ISO Standard | 13006 | - |
-| EN Standard | 14411 | - |
+| ASTM C242 | Compliant | - |
+| ISO 13006 | Compliant | - |
+| EN 14411 | Compliant | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Dust Emission | <50 | mg/m³ |
-| Noise Level | 70-80 | dB |
-| Energy Consumption | 1.5-2.5 | kWh/m² |
+| Operating Temperature | 0-40 | °C |
+| Humidity Range | 10-90 | % RH |
+| Dust Emission | <0.1 | mg/m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

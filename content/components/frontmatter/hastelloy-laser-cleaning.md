@@ -1,18 +1,18 @@
 ---
 name: Hastelloy
 applications:
-- industry: [Aerospace]
+- industry: "Aerospace"
   detail: Removal of oxidation and surface contaminants from Hastelloy components
-- industry: [Chemical Processing]
+- industry: "Chemical Processing"
   detail: Cleaning Hastelloy equipment to prevent corrosion and contamination
 technicalSpecifications:
-  powerRange: [50-200W]
-  pulseDuration: [5-50ns]
-  wavelength: [1064nm (primary)]
-  spotSize: [0.05-0.5mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [1.0–10 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "50-200W"
+  pulseDuration: "5-50ns"
+  wavelength: "1064nm (primary)"
+  spotSize: "0.05-0.5mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Hastelloy for laser cleaning applications, including 8.89 g/cm³ density, 1064nm wavelength, and industrial applications in aerospace and chemical processing.
 author: Alessandro Moretti
 keywords: hastelloy, hastelloy metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

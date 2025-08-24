@@ -1,15 +1,22 @@
 {
   "importValidation": {
     "Author/Author.tsx": {
-      "status": "PASS",
+      "status": "FAIL",
       "imports": [
         {
-          "statement": "import Image from 'next/image'",
+          "statement": "import Image from \"next/image\"",
           "path": "next/image",
           "line": 2
+        },
+        {
+          "statement": "import Link from \"next/link\"",
+          "path": "next/link",
+          "line": 3
         }
       ],
-      "errors": [],
+      "errors": [
+        "Link component used but next/link not imported"
+      ],
       "warnings": []
     },
     "BadgeSymbol/BadgeSymbol.tsx": {
@@ -320,11 +327,6 @@
           "statement": "import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol'",
           "path": "../BadgeSymbol/BadgeSymbol",
           "line": 12
-        },
-        {
-          "statement": "import { parseAuthorContent } from '@/app/utils/authorParser'",
-          "path": "@/app/utils/authorParser",
-          "line": 13
         }
       ],
       "errors": [],
@@ -675,21 +677,23 @@
   },
   "propsValidation": {
     "Author/Author.tsx": {
-      "status": "PASS",
+      "status": "WARN",
       "interfaces": [
         {
           "name": "AuthorData",
           "body": "author_name: string;\n  credentials?: string;\n  author_country?: string;\n  avatar?: string;",
-          "line": 4
+          "line": 5
         },
         {
           "name": "AuthorProps",
-          "body": "author: AuthorData;\n  showAvatar?: boolean;\n  showCredentials?: boolean;\n  showCountry?: boolean;\n  className?: string;",
-          "line": 11
+          "body": "author?: AuthorData;\n  content?: string;\n  config?: any;\n  showAvatar?: boolean;\n  showCredentials?: boolean;\n  showCountry?: boolean;\n  className?: string;",
+          "line": 12
         }
       ],
       "propsUsage": [],
-      "issues": [],
+      "issues": [
+        "Using \"any\" type in props or interfaces - consider specific types"
+      ],
       "suggestions": []
     },
     "BadgeSymbol/BadgeSymbol.tsx": {
@@ -965,7 +969,7 @@
         {
           "name": "LayoutProps",
           "body": "components: Record<string, any> | null; // Keep any for component flexibility\n  metadata?: any; // Keep any for metadata flexibility\n  slug?: string;\n  title?: string;\n  hideHeader?: boolean;\n  className?: string;",
-          "line": 27
+          "line": 26
         }
       ],
       "propsUsage": [],
@@ -1233,18 +1237,18 @@
   "summary": {
     "importValidation": {
       "total": 38,
-      "passed": 34,
-      "failed": 4,
+      "passed": 33,
+      "failed": 5,
       "errors": 0
     },
     "propsValidation": {
       "total": 38,
-      "clean": 28,
-      "issues": 10,
+      "clean": 27,
+      "issues": 11,
       "errors": 0
     },
     "overallStatus": "WARN",
-    "timestamp": "2025-08-24T01:50:10.920Z"
+    "timestamp": "2025-08-24T19:57:15.828Z"
   },
-  "timestamp": "2025-08-24T01:50:10.898Z"
+  "timestamp": "2025-08-24T19:57:15.807Z"
 }

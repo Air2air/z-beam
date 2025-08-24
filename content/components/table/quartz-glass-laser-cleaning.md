@@ -2,37 +2,39 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 1713 | °C |
-| Thermal Expansion | 0.59 | μm/m·°C |
-| Hardness | 5.5-6.5 | Mohs |
+| Thermal Expansion | 0.59 | ppm/°C |
+| Hardness | 7 | Mohs |
 | Density | 2.2 | g/cm³ |
+| Refractive Index | 1.46 | - |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| SiO2 Content | >99.99 | % |
 | OH Content | <10 | ppm |
-| Cl Content | <20 | ppm |
+| Impurity Level | <50 | ppm |
+| Type | Fused Silica | - |
+| Clarity | High | - |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Transmittance at 200nm | >90 | % |
 | Surface Roughness | <1 | nm |
-| Contamination Removal | >95 | % |
+| Cleanliness | >99.9 | % |
+| Ablation Threshold | 2.5 | J/cm² |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | E29 | - |
 | ISO Standard | 10110 | - |
-| RoHS Compliance | Yes | - |
+| ASTM Standard | C169-03 | - |
+| Cleanroom Compatibility | Class 100 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -50 to 900 | °C |
-| Humidity Resistance | >95 | % RH |
-| Chemical Resistance | High | - |
+| Operating Temperature | -50 to 1000 | °C |
+| Humidity Resistance | High | - |
+| Chemical Resistance | Excellent | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

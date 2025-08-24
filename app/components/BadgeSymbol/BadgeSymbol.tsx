@@ -3,19 +3,12 @@
 
 import React from "react";
 import "./styles.css"; // Import the styles
-
-export interface BadgeSymbolData {
-  symbol: string;
-  materialType?: string;
-  atomicNumber?: number;
-  formula?: string;
-  description?: string;
-}
+import { BadgeSymbolData, BadgeVariant } from "@/types/core";
 
 interface BadgeSymbolProps {
   content: string;
   config?: BadgeSymbolData & {
-    variant?: "card" | "large" | "small";
+    variant?: BadgeVariant;
     className?: string;
   };
 }
@@ -83,6 +76,11 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
       symbol: isComplexFormula ? "text-sm" : "text-base",
       number: "text-[8px]"
     },
+    inline: {
+      container: isComplexFormula ? "w-6 h-6" : "w-5 h-5",
+      symbol: isComplexFormula ? "text-xs" : "text-sm",
+      number: "text-[6px]"
+    }
   };
 
   // Default text colors - consistent styling

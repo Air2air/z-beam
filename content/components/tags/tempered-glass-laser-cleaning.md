@@ -1,1 +1,1 @@
-ablation, cleaning, laser, tempered-glass, automotive, electronics, non-contact, alessandro moretti
+tempered-glass, ablation, cleaning, laser, automotive, electronics, non-contact, alessandro moretti

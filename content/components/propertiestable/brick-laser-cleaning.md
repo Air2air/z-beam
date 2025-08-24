@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Brick |
-| Material Symbol | BR |
-| Category | Masonry |
-| Material Type | Masonry |
+| Chemical Formula | N/A |
+| Material Symbol | BRI |
+| Category | Material |
+| Material Type | Unknown |
 | Tensile Strength | N/A |
-| Thermal Conductivity | ['0.6-1… |
+| Thermal Conductivity | N/A |

@@ -2,6 +2,8 @@
 // Use any type since Metadata isn't being exported correctly from next
 type NextMetadata = any;
 
+import { ArticleMetadata } from '@/types/core';
+
 // Define author interface
 export interface AuthorInfo {
   author_id?: number;
@@ -10,18 +12,8 @@ export interface AuthorInfo {
   credentials?: string;
 }
 
-// Update ArticleMetadata to properly type the author field
-export interface ArticleMetadata {
-  title?: string;
-  description?: string;
-  keywords?: string[] | string;
-  canonical?: string;
-  ogImage?: string;
-  ogType?: 'website' | 'article' | string; // Allow any string value for ogType
-  noindex?: boolean;
-  author?: string | AuthorInfo; // Author can be a string or an object
-  [key: string]: any; // Allow other properties
-}
+// Re-export centralized ArticleMetadata
+export type { ArticleMetadata };
 
 export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   

@@ -5,4 +5,4 @@
 | Category | Ceramic |
 | Material Type | Ceramic |
 | Tensile Strength | N/A |
-| Thermal Conductivity | 2W/mK |
+| Thermal Conductivity | 2.0W/mK |

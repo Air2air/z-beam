@@ -1,1 +1,0 @@
-ablation, acrylic, pmma, cleaning, laser, automotive, non-contact, alessandro moretti

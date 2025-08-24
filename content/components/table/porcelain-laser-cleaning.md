@@ -3,41 +3,41 @@
 | --- | --- | --- |
 | Density | 2.3-2.5 | g/cm³ |
 | Hardness | 7-8 | Mohs |
+| Thermal Conductivity | 1.5-3.5 | W/m·K |
 | Melting Point | 1200-1400 | °C |
-| Thermal Conductivity | 1.5-2.0 | W/m·K |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| SiO2 Content | 60-75 | % |
+| SiO2 Content | 60-70 | % |
 | Al2O3 Content | 20-30 | % |
 | Fe2O3 Content | <1 | % |
-| Purity Grade | 99 | % |
+| Purity Level | 95-99 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90-95 | % |
-| Surface Roughness | 0.1-0.5 | µm |
-| Cleaning Speed | 1000-3000 | mm²/s |
+| Cleaning Rate | 1-5 | cm²/s |
+| Surface Roughness | <0.5 | µm |
+| Residual Contamination | <0.1 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ISO Compliance | ISO 9001 | - |
 | ASTM Standard | C242 | - |
-| FDA Approval | Yes | - |
+| ISO Standard | 13006 | - |
+| EN Standard | 14411 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | 0-40 | °C |
-| Humidity Range | 10-80 | %RH |
-| Dust Emission | <0.1 | mg/m³ |
+| Operating Temperature | 0-50 | °C |
+| Humidity Range | 10-90 | %RH |
+| Dust Tolerance | Low | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5-2.0 | J/cm² |
+| Fluence | 0.5-2 | J/cm² |
 | Pulse Duration | 10-100 | ns |

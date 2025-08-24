@@ -231,36 +231,26 @@ class AutoFixingTestSuite {
     }
   }
 
-  // Fix 'any' types with safer alternatives
+  // Fix 'any' types with intelligent replacements
   async fixAnyTypes(filePath) {
     if (!fs.existsSync(filePath)) return;
     
     try {
-      let content = fs.readFileSync(filePath, 'utf8');
-      let modified = false;
+      // Use the enhanced TypeScript any-type fixer
+      const { TypeScriptAnyFixer } = require('./fix-any-types.js');
+      const fixer = new TypeScriptAnyFixer();
       
-      // Safe replacements
-      const replacements = [
-        { from: ': any[]', to: ': unknown[]' },
-        { from: ': any;', to: ': unknown;' },
-        { from: ': any,', to: ': unknown,' },
-        { from: ': any)', to: ': unknown)' },
-        { from: '<any>', to: '<unknown>' }
-      ];
+      const fixesApplied = await fixer.fixFileTypes(filePath);
       
-      for (const { from, to } of replacements) {
-        if (content.includes(from)) {
-          content = content.replace(new RegExp(from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), to);
-          modified = true;
-        }
+      if (fixesApplied > 0) {
+        console.log(`    🔧 Applied ${fixesApplied} intelligent type fixes in ${path.basename(filePath)}`);
+        return fixesApplied;
       }
       
-      if (modified) {
-        fs.writeFileSync(filePath, content);
-        console.log(`    🔧 Fixed 'any' types in ${filePath}`);
-      }
+      return 0;
     } catch (error) {
       console.log(`    ❌ Failed to fix 'any' types in ${filePath}: ${error.message}`);
+      return 0;
     }
   }
 

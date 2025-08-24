@@ -1,6 +1,6 @@
 // app/api/badgesymbol/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { loadBadgeSymbolData } from '../../../utils/badgeSymbolLoader';
+import { loadBadgeData } from '../../../utils/badgeDataLoader';
 
 export async function GET(
   request: NextRequest,
@@ -16,7 +16,7 @@ export async function GET(
       );
     }
 
-    const badgeData = await loadBadgeSymbolData(slug);
+    const badgeData = await loadBadgeData(slug);
     
     if (!badgeData) {
       return NextResponse.json(

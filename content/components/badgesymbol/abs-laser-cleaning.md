@@ -1,4 +1,0 @@
----
-symbol: "AB"
-materialType: "plastic"
----

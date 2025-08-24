@@ -2,37 +2,37 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 2715 | °C |
+| Density | 5.6-6.0 | g/cm³ |
 | Thermal Conductivity | 2 | W/m·K |
-| Hardness | 1200 | HV |
-| Density | 6 | g/cm³ |
+| Hardness | 1200-1500 | HV |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity | 99.9 | % |
-| Yttria Stabilized | 3-8 | % |
-| Alumina Stabilized | 1-3 | % |
+| Zirconia Purity | 99.9 | % |
+| Yttria Stabilized Zirconia (YSZ) | 3-8 | % Y₂O₃ |
+| Partially Stabilized Zirconia (PSZ) | 3-5 | % MgO |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness | 0.1-1 | µm |
-| Cleaning Efficiency | 95-99 | % |
-| Ablation Threshold | 1-2 | J/cm² |
+| Cleaning Efficiency | 90-95 | % |
+| Surface Roughness (Ra) | <0.1 | µm |
+| Material Removal Rate | 0.1-0.5 | mm³/min |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ISO Standard | 13385-1 | - |
 | ASTM Standard | C1161 | - |
-| Cleanliness Level | Class 100 | - |
+| ISO Standard | 13356 | - |
+| FDA Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | 0-50 | °C |
+| Operating Temperature | -50 to 200 | °C |
 | Humidity Resistance | 95 | % RH |
-| Dust Particle Size | <0.5 | µm |
+| Chemical Resistance | High | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

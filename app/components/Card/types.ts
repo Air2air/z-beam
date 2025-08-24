@@ -1,25 +1,8 @@
 // app/components/Card/types.ts
-export interface BadgeData {
-  symbol?: string;
-  atomicNumber?: number | string;
-  formula?: string;
-  materialType?: string;
-  color?: string;
-  show?: boolean;
-}
+// Re-export centralized types for Card component
 
-export interface CardProps {
-  href: string;
-  title?: string;
-  name?: string;
-  description?: string;
-  image?: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  tags?: string[];
-  badge?: BadgeData | null;
-  metadata?: Record<string, unknown>;
-  className?: string;
-  height?: string;
-  frontmatterData?: Record<string, unknown>; // Add this property
-}
+export type { BadgeData, ArticleMetadata } from '@/types/core';
+export type { CardProps } from '@/types/components';
+
+// Legacy support - re-export with original names for backward compatibility
+export type { BadgeData as LegacyBadgeData } from '@/types/core';

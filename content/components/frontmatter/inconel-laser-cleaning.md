@@ -1,18 +1,18 @@
 ---
 name: Inconel
 applications:
-- industry: [Aerospace]
+- industry: "Aerospace"
   detail: Removal of oxidation and corrosion products from turbine blades
-- industry: [Oil and Gas]
+- industry: "Oil and Gas"
   detail: Cleaning of heat exchanger tubes and pipelines
 technicalSpecifications:
-  powerRange: [50-200W]
-  pulseDuration: [5-50ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.05-1.0mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [1.0–10 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "50-200W"
+  pulseDuration: "5-50ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.05-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Inconel for laser cleaning applications, including 8.47 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: inconel, inconel metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

@@ -1,1 +1,0 @@
-ablation, abs, cleaning, laser, automotive, electronics, non-contact, alessandro moretti

@@ -2,7 +2,7 @@
 title: Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Epoxy Resin Composites for laser cleaning applications, including 1.2-2.0 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Epoxy Resin Composites for laser cleaning applications, including 1.2-1.4 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "epoxy resin composites, epoxy resin composites composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

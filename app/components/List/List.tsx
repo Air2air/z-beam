@@ -4,6 +4,32 @@ import React from "react";
 import { Card } from "../Card/Card";
 import { /* cn */ } from "@/app/utils/helpers";
 import { getArticle, loadComponent } from "@/app/utils/contentAPI"; // Updated to use contentAPI
+import { MaterialType } from "@/types/core";
+
+// Helper function to safely cast material types
+function toMaterialType(value?: string): MaterialType {
+  if (!value) return 'other';
+  
+  const normalizedValue = value.toLowerCase();
+  const validTypes: MaterialType[] = [
+    'element', 'compound', 'ceramic', 'polymer', 'alloy', 'composite', 'semiconductor', 'other'
+  ];
+  
+  // Check for exact matches first
+  if (validTypes.includes(normalizedValue as MaterialType)) {
+    return normalizedValue as MaterialType;
+  }
+  
+  // Map common aliases
+  const typeMap: Record<string, MaterialType> = {
+    'metal': 'alloy',
+    'metalloid': 'semiconductor',
+    'plastic': 'polymer',
+    'material': 'other'
+  };
+  
+  return typeMap[normalizedValue] || 'other';
+}
 
 interface ListProps {
   // Add slugs as a prop alternative to items
@@ -119,7 +145,7 @@ export async function List({
       // Load BadgeSymbol data from content/components/badgesymbol/
       let badgeSymbolData: {
         symbol: string;
-        materialType?: string;
+        materialType?: MaterialType;
         atomicNumber?: number;
         formula?: string;
       } | null = null;
@@ -131,7 +157,7 @@ export async function List({
           if (symbolValue) {
             badgeSymbolData = {
               symbol: String(symbolValue),
-              materialType: config.materialType ? String(config.materialType) : article?.metadata?.category as string,
+              materialType: config.materialType ? toMaterialType(String(config.materialType)) : toMaterialType(article?.metadata?.category as string),
               atomicNumber: config.atomicNumber ? Number(config.atomicNumber) : atomicNumber,
               formula: config.formula ? String(config.formula) : chemicalFormula,
             };
@@ -142,7 +168,7 @@ export async function List({
         if (chemicalSymbol) {
           badgeSymbolData = {
             symbol: chemicalSymbol,
-            materialType: article?.metadata?.category as string,
+            materialType: toMaterialType(article?.metadata?.category as string),
             atomicNumber: atomicNumber,
             formula: chemicalFormula,
           };
@@ -205,7 +231,7 @@ export async function List({
                 symbol: item.chemicalSymbol,
                 formula: item.chemicalFormula,
                 atomicNumber: item.atomicNumber,
-                materialType: item.category,
+                materialType: toMaterialType(item.category),
               }}
               imageUrl={item.imageUrl}
               imageAlt={item.title}

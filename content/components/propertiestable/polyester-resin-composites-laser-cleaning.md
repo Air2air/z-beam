@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | N/A |
-| Material Symbol | POL |
-| Category | Material |
-| Material Type | Unknown |
+| Chemical Formula | Polyest… |
+| Material Symbol | PO |
+| Category | Composi… |
+| Material Type | Composi… |
 | Tensile Strength | N/A |
-| Thermal Conductivity | N/A |
+| Thermal Conductivity | 0.2-0.3… |

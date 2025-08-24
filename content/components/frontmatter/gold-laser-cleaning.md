@@ -1,18 +1,18 @@
 ---
 name: Gold
 applications:
-- industry: [Jewelry]
+- industry: "Jewelry"
   detail: Cleaning and restoring gold jewelry without damaging the surface
-- industry: [Electronics]
+- industry: "Electronics"
   detail: Removing contaminants from gold contacts and connectors
 technicalSpecifications:
-  powerRange: [5-50W]
-  pulseDuration: [10-50ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.05-1.0mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [0.1-1.0 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "5-50W"
+  pulseDuration: "10-50ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.05-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "0.1-1.0 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Gold for laser cleaning applications, including 19.3 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: gold, gold metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

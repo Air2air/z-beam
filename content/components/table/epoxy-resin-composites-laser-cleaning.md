@@ -1,10 +1,10 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 1.2 - 1.3 | g/cm³ |
-| Tensile Strength | 35 - 100 | MPa |
+| Density | 1.1 - 1.4 | g/cm³ |
+| Tensile Strength | 55 - 130 | MPa |
 | Thermal Conductivity | 0.2 - 0.3 | W/m·K |
-| Glass Transition Temperature | 80 - 180 | °C |
+| Glass Transition Temperature | 100 - 200 | °C |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
@@ -16,9 +16,9 @@
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness (Ra) | 0.1 - 1.0 | µm |
-| Cleaning Efficiency | 90 - 98 | % |
-| Residue Removal Rate | 0.5 - 2.0 | g/min |
+| Cleanliness Level | 95 - 99 | % |
+| Surface Roughness | 0.1 - 1.0 | µm |
+| Processing Speed | 100 - 500 | mm/s |
 
 ## Standards and Compliance
 | Property | Value | Unit |
@@ -30,9 +30,9 @@
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -40 to 150 | °C |
-| Humidity Resistance | 95 | % RH |
-| VOC Emissions | <10 | g/L |
+| Operating Temperature | -50 to 150 | °C |
+| Humidity Resistance | 85 - 95 | % RH |
+| UV Resistance | Good | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

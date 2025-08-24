@@ -1,4 +1,4 @@
 ---
 symbol: "PO"
-materialType: "material"
+materialType: "composite"
 ---

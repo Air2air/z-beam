@@ -5,4 +5,4 @@
 | Category | Composi… |
 | Material Type | Composi… |
 | Tensile Strength | N/A |
-| Thermal Conductivity | 5-10W/mK |
+| Thermal Conductivity | 0.8-60W… |

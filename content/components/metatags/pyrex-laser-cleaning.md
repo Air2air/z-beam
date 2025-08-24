@@ -6,7 +6,7 @@ meta_tags:
   - name: keywords
     content: "pyrex, pyrex glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "glass"
   - name: robots

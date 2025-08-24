@@ -1,9 +1,10 @@
 // app/components/SearchResults/SearchResultsGrid.tsx
 import { Card } from "../Card/Card";
-import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
+import { getBadgeFromItem, getChemicalProperties } from "../../utils/searchUtils";
+import { SearchResultItem } from "@/types/core";
 
 interface SearchResultsGridProps {
-  items: any[];
+  items: SearchResultItem[];
   columns: 1 | 2 | 3 | 4;
 }
 

@@ -1,18 +1,18 @@
 ---
 name: Zirconium
 applications:
-- industry: [Aerospace]
+- industry: "Aerospace"
   detail: Cleaning of turbine blades and engine components
-- industry: [Nuclear]
+- industry: "Nuclear"
   detail: Decontamination of reactor components
 technicalSpecifications:
-  powerRange: [50-200W]
-  pulseDuration: [5-50ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.05-1.0mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [1.0–10 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "50-200W"
+  pulseDuration: "5-50ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.05-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Zirconium for laser cleaning applications, including 6.506 g/cm³ density, 1064nm wavelength, and industrial applications in aerospace and nuclear sectors.
 author: Alessandro Moretti
 keywords: zirconium, zirconium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration

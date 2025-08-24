@@ -3,13 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { Article } from '../types/Article';
-
-export interface BadgeData {
-  symbol?: string;
-  formula?: string;
-  materialType?: string;
-  atomicNumber?: number | string;
-}
+import { BadgeData } from '@/types/core';
 
 export async function loadBadgeData(slug: string): Promise<BadgeData | null> {
   try {
