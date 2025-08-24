@@ -28,9 +28,9 @@ export function Tags({ content, config }: TagsProps) {
   const { 
     className = "my-6", 
     title = "Tags",
-    pillColor = "bg-blue-100 dark:bg-blue-900",
-    textColor = "text-blue-800 dark:text-blue-200",
-    hoverColor = "hover:bg-blue-200 dark:hover:bg-blue-800",
+    pillColor = "bg-gray-800",
+    textColor = "text-blue-800 dark:text-blue-200 dark:hover:text-blue-50",
+    hoverColor = "dark:hover:bg-gray-900",
     linkPrefix = "/tag/",
     onClick,
     hideEmptyTags = false,
@@ -48,6 +48,15 @@ export function Tags({ content, config }: TagsProps) {
       .split(',')
       .map(tag => tag.trim())
       .filter(tag => tag.length > 0);
+  };
+  
+  // Convert string to title case
+  const toTitleCase = (str: string): string => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
   };
   
   const allTags = parseTags(content);
@@ -85,18 +94,18 @@ export function Tags({ content, config }: TagsProps) {
             <button
               key={index}
               onClick={() => handleTagClick(tag)}
-              className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+              className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
             >
-              {tag}
+              {toTitleCase(tag)}
             </button>
           ) : (
             // Link for navigation to tag page
             <Link
               key={index}
               href={`${linkPrefix}${encodeURIComponent(tag)}`}
-              className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+              className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
             >
-              {tag}
+              {toTitleCase(tag)}
             </Link>
           )
         ))}
