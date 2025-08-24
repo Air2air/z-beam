@@ -4,39 +4,44 @@
 | Density | 1.1-1.4 | g/cm³ |
 | Thermal Conductivity | 0.13-0.16 | W/m·K |
 | Melting Point | 120-180 | °C |
-| Tensile Strength | 10-30 | MPa |
+| Hardness | 30-90 | Shore A |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Natural Rubber Purity | 90-95 | % |
-| Synthetic Rubber Purity | 95-99 | % |
-| Carbon Black Content | 20-50 | % |
+| Natural Rubber Content | 90-100 | % |
+| Synthetic Rubber Content | 0-10 | % |
+| Ash Content | <5 | % |
+| Moisture Content | <1 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
+| Ablation Threshold | 0.1-0.5 | J/cm² |
 | Cleaning Efficiency | 90-95 | % |
-| Surface Roughness Post-Cleaning | 0.5-2.0 | µm |
-| Residue Removal Rate | 98-100 | % |
+| Surface Roughness | 0.5-2.0 | µm |
+| Residual Contamination | <0.1 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | D2000 | - |
-| ISO Standard | 1629 | - |
+| ISO Standard | 4649 | - |
+| ASTM Standard | D2240 | - |
 | FDA Compliance | Yes | - |
+| RoHS Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -40 to 100 | °C |
-| Humidity Resistance | 80-90 | % RH |
+| Operating Temperature | -40 to 80 | °C |
+| Humidity Resistance | 50-90 | % RH |
 | UV Resistance | Moderate | - |
+| Chemical Resistance | Good | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5-2.0 | J/cm² |
+| Fluence | 1-5 | J/cm² |
 | Pulse Duration | 10-100 | ns |
+| Repetition Rate | 10-50 | kHz |

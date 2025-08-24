@@ -21,8 +21,7 @@ const COMPONENT_ORDER = [
   'caption',
   'bullets',
   'table',
-  'author',  // Add author to the component order
-  'tags'  // Add tags to the component order
+  'tags'  // Remove author from here since it's handled after title
 ] as const;
 
 interface LayoutProps {
@@ -50,22 +49,9 @@ export function Layout({
         <div className="prose dark:prose-invert">
           <p>No content available for this page.</p>
           {!hideHeader && (
-            <>
-              <Title>
-                {title || metadata?.subject || (slug ? `Article: ${slug}` : '')}
-              </Title>
-              {metadata?.author && (
-                <Author 
-                  author={{
-                    author_name: typeof metadata.author === 'string' ? metadata.author : metadata.author.author_name || 'Unknown Author',
-                    credentials: typeof metadata.author === 'string' ? '' : metadata.author.credentials,
-                    author_country: typeof metadata.author === 'string' ? '' : metadata.author.author_country,
-                    avatar: typeof metadata.author === 'string' ? '' : metadata.author.avatar
-                  }}
-                  className="mt-2"
-                />
-              )}
-            </>
+            <Title>
+              {title || metadata?.subject || (slug ? `Article: ${slug}` : '')}
+            </Title>
           )}
         </div>
       </section>
@@ -131,16 +117,22 @@ export function Layout({
                   </Title>
                 )}
                 {/* Add Author component after Title */}
-                {!hideHeader && metadata?.author && (
-                  <Author 
-                    author={{
-                      author_name: typeof metadata.author === 'string' ? metadata.author : metadata.author.author_name || 'Unknown Author',
-                      credentials: typeof metadata.author === 'string' ? '' : metadata.author.credentials,
-                      author_country: typeof metadata.author === 'string' ? '' : metadata.author.author_country,
-                      avatar: typeof metadata.author === 'string' ? '' : metadata.author.avatar
-                    }}
-                    className="mt-2"
-                  />
+                {!hideHeader && components?.author && (
+                  (() => {
+                    // Only use author from component file
+                    const authorData = parseAuthorContent(components.author.content);
+                    
+                    return authorData ? (
+                      <Author 
+                        author={authorData}
+                        showAvatar={true}
+                        showCredentials={true}
+                        showCountry={true}
+                        showSpecialties={true}
+                        className="mt-2 mb-4"
+                      />
+                    ) : null;
+                  })()
                 )}
               </div>
             );
@@ -154,10 +146,6 @@ export function Layout({
             return <Bullets key={type} content={content} config={config} />;
           case 'table':
             return <Table key={type} content={content} config={config} />;
-          case 'author':
-            // Parse author content from markdown and create author object
-            const parsedAuthor = parseAuthorContent(content);
-            return parsedAuthor ? <Author key={type} author={parsedAuthor} showCredentials showCountry /> : null;
           case 'tags':
             return <Tags key={type} content={content} config={config} />;
           default:

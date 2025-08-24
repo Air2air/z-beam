@@ -2,9 +2,9 @@
 name: Borosilicate Glass
 applications:
 - industry: "Semiconductor"
-  detail: Cleaning of semiconductor wafers for contamination removal
-- industry: "Optics"
-  detail: Restoration of optical components to maintain clarity and precision
+  detail: Cleaning of glass substrates for microchip production
+- industry: "Pharmaceutical"
+  detail: Removal of surface contaminants from glass vials and containers
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,9 +13,9 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Borosilicate Glass for laser cleaning applications, including 2.23 g/cm³ density, 1064nm wavelength, and industrial applications.
-author: Alessandro Moretti
-keywords: borosilicate glass, borosilicate glass glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
+description: Technical overview of Borosilicate Glass for laser cleaning applications, including density, wavelength, and industrial applications.
+author: Yi-Chun Lin
+keywords: borosilicate glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: glass
 chemicalProperties:
   symbol: BO
@@ -23,19 +23,19 @@ chemicalProperties:
   materialType: glass
 properties:
   density: "2.23 g/cm³"
-  meltingPoint: "1500°C"
+  meltingPoint: "1,500°C"
   thermalConductivity: "1.1 W/m·K"
-  laserType: "pulsed fiber laser"
+  laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Borosilicate Glass
 composition:
-- "Silica (SiO2)"
+- "Silicon Dioxide (SiO2)"
 - "Boron Trioxide (B2O3)"
 compatibility:
 - "Metals"
 - "Ceramics"
-regulatoryStandards: "ISO 11146-1:2005, ASTM F2156-11"
+regulatoryStandards: "ISO 11146-1, ASTM F1585"
 images:
   hero:
     alt: Borosilicate Glass surface undergoing laser cleaning showing precise contamination removal
@@ -44,21 +44,21 @@ images:
     alt: Microscopic view of Borosilicate Glass surface after laser treatment showing preserved microstructure
     url: /images/borosilicate-glass-laser-cleaning-closeup.jpg
 title: Laser Cleaning Borosilicate Glass - Technical Guide for Optimal Processing
-headline: Comprehensive technical guide for laser cleaning glass borosilicate glass
+headline: Comprehensive technical guide for laser cleaning Borosilicate Glass
 environmentalImpact:
-- benefit: "Reduced chemical waste"
-  description: "Up to 90% reduction in chemical solvents used for cleaning"
-- benefit: "Lower energy consumption"
-  description: "Laser cleaning uses 50% less energy than traditional methods"
-- benefit: "Decreased greenhouse emissions"
-  description: "Emissions reduced by 75% compared to traditional cleaning processes"
+- benefit: "Reduced chemical usage"
+  description: "Decreases chemical waste by 90% compared to traditional cleaning methods"
+- benefit: "Energy efficiency"
+  description: "Consumes 20% less energy than traditional cleaning processes"
+- benefit: "Lower CO2 emissions"
+  description: "Reduces CO2 emissions by 30% during the cleaning process"
 outcomes:
-- result: "Surface cleanliness"
-- metric: "Particle count < 100 per cm² according to ISO 14644-1"
-- result: "Surface integrity"
-  metric: "Roughness Ra < 0.1 μm as per ISO 4287"
-- result: "Contamination removal efficiency"
-  metric: "99% removal rate of organic and inorganic contaminants"
+- result: "Improved surface quality"
+  metric: "Surface roughness reduced to Ra < 0.1µm"
+- result: "Enhanced cleanliness"
+  metric: "99.9% removal of surface contaminants"
+- result: "Increased production yield"
+  metric: "Yield improvement by 15% in semiconductor manufacturing"
 subject: Borosilicate Glass
 article_type: material
 ---

@@ -2,19 +2,19 @@
 name: Urethane Composites
 applications:
 - industry: "Automotive"
-  detail: Cleaning of urethane composite parts for surface preparation and restoration
+  detail: Cleaning mold release agents from urethane composites parts
 - industry: "Aerospace"
-  detail: Precision cleaning of urethane composites used in aircraft interiors
+  detail: Surface preparation of urethane composites for bonding and painting
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "5-50ns"
+  pulseDuration: "10-200ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.2-1.5mm"
+  spotSize: "0.1-1.0mm"
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Urethane Composites for laser cleaning applications, including 1.2 g/cm³ density, 1064nm primary wavelength, and industrial applications.
-author: Alessandro Moretti
+description: Technical overview of Urethane Composites for laser cleaning applications, including density, wavelength, and industrial applications.
+author: Yi-Chun Lin
 keywords: urethane composites, urethane composites composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: composite
 chemicalProperties:
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Urethane Composites
   materialType: composite
 properties:
-  density: 1.2 g/cm³
-  meltingPoint: 150-200°C
-  thermalConductivity: 0.2 W/m·K
-  laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–10 J/cm²
+  density: "1.2 g/cm³"
+  meltingPoint: "150°C"
+  thermalConductivity: "0.2 W/m·K"
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Urethane Composites
 composition:
-- Polyurethane resin
-- Fiber reinforcement
+- "Polyurethane resin"
+- "Fiber reinforcement"
 compatibility:
-- Aluminum
-- Steel
-regulatoryStandards: ISO 11146-1
+- "Metals"
+- "Ceramics"
+regulatoryStandards: "ISO 11146-1, ASTM D638"
 images:
   hero:
     alt: Urethane Composites surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Urethane Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite urethane composites
 environmentalImpact:
-- benefit: Reduced waste generation
-  description: Up to 90% less waste compared to traditional cleaning methods
-- benefit: Lower energy consumption
-  description: 50% less energy required than abrasive methods
-- benefit: No chemical pollutants
-  description: 100% reduction in chemical waste and pollutants
+- benefit: "Reduced waste generation"
+  description: "90% less waste compared to traditional cleaning methods"
+- benefit: "Lower energy consumption"
+  description: "30% less energy use than abrasive blasting"
+- benefit: "No chemical solvents"
+  description: "Eliminates 100% of chemical waste"
 outcomes:
-- result: Improved surface cleanliness
-- metric: Contamination removal efficiency >95% as per ISO 14644-1 standard
-- result: Enhanced surface integrity
-  metric: Surface roughness reduced by 30% measured by Ra value
-- result: Increased material lifespan
-  metric: 20% increase in durability tested under ASTM D4541
+- result: "Improved surface cleanliness"
+- metric: "Contamination removal efficiency >95%"
+- result: "Enhanced bonding strength"
+  metric: "Bond strength increased by 20% post-cleaning"
+- result: "Preserved material integrity"
+  metric: "Surface roughness change <5% post-cleaning"
 subject: Urethane Composites
 article_type: material
 ---

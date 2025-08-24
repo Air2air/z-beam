@@ -9,11 +9,11 @@
     "non-abrasive material processing",
     "laser ablation parameters",
     "industrial composite maintenance",
-    "contamination removal technology",
-    "precision laser surface preparation",
-    "thermal-sensitive material cleaning"
+    "precision contamination removal",
+    "fiber-reinforced urethane cleaning",
+    "non-contact surface preparation"
   ],
-  "articleBody": "Urethane Composites represent a class of advanced polymer materials characterized by exceptional durability, chemical resistance, and thermal stability, making them ideal for demanding industrial applications. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxidation layers, and surface degradation without compromising the material's structural integrity or surface finish. The process utilizes carefully controlled laser parameters, typically employing nanosecond-pulsed fiber lasers at 1064nm wavelength with fluence levels between 0.5-2.5 J/cm² to selectively ablate unwanted material while preserving the underlying urethane matrix. Key applications include aerospace component refurbishment, automotive mold cleaning, marine equipment maintenance, and industrial tooling surface preparation. The primary challenge involves managing the relatively low thermal degradation threshold of urethane materials (typically 180-200°C), requiring precise control of pulse duration (10-100ns) and repetition rates (20-100kHz) to prevent subsurface thermal damage. Advanced scanning systems with real-time temperature monitoring ensure optimal cleaning efficiency while maintaining material integrity. Safety considerations mandate proper fume extraction systems to handle potentially hazardous decomposition byproducts and comprehensive laser safety protocols including appropriate eyewear and enclosure systems. The non-abrasive nature of laser cleaning eliminates mechanical stress and preserves the composite's dimensional stability, making it superior to traditional methods for precision applications.",
+  "articleBody": "Urethane Composites represent advanced polymer matrix materials combining polyurethane resins with reinforcing fibers, exhibiting exceptional durability, chemical resistance, and mechanical strength. Laser cleaning provides a superior non-contact method for removing surface contaminants, oxidation layers, and residual coatings without compromising the composite's structural integrity. The process utilizes precisely controlled laser parameters, typically employing near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds. These parameters ensure selective ablation of surface contaminants while preserving the urethane matrix and reinforcing fibers. Key applications include aerospace component refurbishment, automotive mold cleaning, and industrial tool maintenance where surface purity is critical. Challenges include managing the material's thermal sensitivity and preventing matrix degradation, which are addressed through precise parameter optimization and real-time monitoring systems. Safety protocols mandate proper ventilation for fume extraction and comprehensive laser safety measures including appropriate eyewear and enclosure systems. The non-abrasive nature of laser cleaning eliminates mechanical stress and preserves the composite's dimensional stability, making it ideal for precision components requiring maintained tolerances.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +29,7 @@
       "url": "/images/urethane-composites-laser-cleaning-closeup.jpg",
       "name": "Urethane Composites Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Urethane Composites material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Urethane Composites material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 30ns pulse duration, and 50μm spot size specifications",
+      "description": "Split-view microscopic photograph of Urethane Composites material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Urethane Composites microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",
@@ -42,7 +42,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Alessandro Moretti"
+    "name": "Yi-Chun Lin"
   },
   "about": {
     "@type": "Thing",

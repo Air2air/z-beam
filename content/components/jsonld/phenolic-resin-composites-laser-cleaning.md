@@ -15,7 +15,7 @@
     "laser ablation parameters",
     "thermal degradation prevention"
   ],
-  "articleBody": "Phenolic Resin Composites are thermoset polymer composites known for their exceptional thermal stability, chemical resistance, and mechanical strength, making them ideal for high-performance industrial applications. Laser cleaning provides a superior non-contact method for removing surface contaminants, oxidation layers, and residual coatings without compromising the composite's structural integrity. The process requires precise parameter optimization, typically utilizing near-infrared wavelengths (1064 nm) with controlled fluence levels (0.5-2.5 J/cm²) and short pulse durations (10-100 ns) to selectively ablate contaminants while minimizing thermal penetration. Key applications include aerospace component refurbishment, electrical insulation cleaning, and automotive part restoration. Challenges include managing the material's thermal sensitivity to prevent resin degradation, which is addressed through precise energy density control and real-time monitoring systems. Safety protocols mandate proper ventilation for fume extraction, laser safety eyewear with appropriate optical density, and enclosed processing chambers to prevent particulate exposure. The non-abrasive nature of laser cleaning eliminates mechanical stress on the composite substrate, preserving its dimensional stability and surface properties while achieving contamination removal down to micron-level precision.",
+  "articleBody": "Phenolic Resin Composites are thermoset polymer composites renowned for their exceptional thermal stability, chemical resistance, and mechanical strength, making them ideal for high-performance industrial applications. Laser cleaning provides a superior non-contact method for removing contaminants, oxidation layers, and surface coatings without compromising the composite's structural integrity. The process requires precise control of laser parameters, typically utilizing near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 ns to selectively ablate contaminants while minimizing thermal effects on the phenolic matrix. Key applications include aerospace component refurbishment, electrical insulation cleaning, and automotive part restoration. Challenges include preventing thermal degradation of the resin matrix and ensuring uniform cleaning across fiber-reinforced surfaces, which are addressed through optimized scanning patterns and real-time monitoring systems. Safety considerations mandate proper ventilation to manage ablation byproducts and comprehensive eye protection against reflected laser radiation. The non-abrasive nature of laser cleaning eliminates mechanical stress and preserves the composite's dimensional stability, making it particularly valuable for precision components where surface integrity is critical.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Alessandro Moretti"
+    "name": "Yi-Chun Lin"
   },
   "about": {
     "@type": "Thing",

@@ -12,10 +12,10 @@
     "industrial applications",
     "surface treatment",
     "non-contact processing",
-    "laser ablation",
-    "contamination removal"
+    "laser ablation parameters",
+    "contaminant removal"
   ],
-  "articleBody": "Rubber is a versatile composite material characterized by its elastic properties, chemical resistance, and durability, making it ideal for various industrial applications. Laser cleaning provides a superior method for removing contaminants, oxidation layers, and surface coatings from Rubber without mechanical abrasion or chemical solvents. The process requires precise control of laser parameters to avoid thermal degradation while effectively ablating unwanted material. Optimal parameters typically include near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds to prevent excessive heat accumulation. Key applications include cleaning of industrial seals, gaskets, conveyor belts, and automotive components where surface integrity is critical. Challenges include managing the low thermal conductivity of Rubber and preventing surface melting, which is addressed through pulsed laser operation and controlled scanning patterns. Safety considerations mandate proper ventilation to manage off-gassing of volatile compounds and appropriate laser shielding to protect operators. The non-contact nature of laser cleaning eliminates substrate damage while achieving micron-level precision in contamination removal, making it ideal for precision manufacturing and maintenance operations.",
+  "articleBody": "Rubber is a versatile composite material characterized by its elasticity, chemical resistance, and durability, making it suitable for various industrial applications. Laser cleaning provides a precise, non-contact method for removing contaminants, coatings, oxidation, and surface residues without compromising the material's structural integrity. The process utilizes controlled laser parameters, typically employing near-infrared wavelengths (1064 nm) with moderate fluence levels (0.5-2.5 J/cm²) and short pulse durations (10-100 ns) to selectively ablate unwanted material while preserving the underlying Rubber substrate. Key applications include automotive component restoration, aerospace seal cleaning, industrial gasket preparation, and medical device sterilization. Challenges include managing the material's thermal sensitivity and preventing surface degradation, which are addressed through precise parameter optimization and real-time monitoring systems. Safety considerations mandate proper ventilation to manage off-gassing, laser safety enclosures, and appropriate personal protective equipment. The non-abrasive nature of laser cleaning eliminates mechanical stress on Rubber components, making it ideal for precision applications where material integrity is critical.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Alessandro Moretti"
+    "name": "Yi-Chun Lin"
   },
   "about": {
     "@type": "Thing",

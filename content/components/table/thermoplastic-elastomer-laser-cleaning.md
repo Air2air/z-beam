@@ -2,37 +2,37 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 150-200 | °C |
-| Hardness | 20-90 | Shore A |
-| Tensile Strength | 5-30 | MPa |
-| Elongation at Break | 100-800 | % |
+| Tensile Strength | 5-20 | MPa |
+| Elongation at Break | 100-700 | % |
+| Hardness | 30-90 | Shore A |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity Level | 95-99 | % |
-| Common Grades | TPE-S, TPE-E | - |
+| Purity | 99.5 | % |
+| TPE Grade | SEBS, TPU | - |
 | Additives | UV Stabilizers | - |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleanliness Level | 90-98 | % |
-| Surface Roughness | 0.1-1.0 | µm |
+| Cleanliness Level | 95-99 | % |
+| Surface Roughness | 0.1-1.0 | μm |
 | Processing Speed | 1-5 | m/min |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | D2240 | - |
-| ISO Standard | 868 | - |
+| ISO Standard | ISO 1043-1 | - |
+| ASTM Standard | ASTM D2000 | - |
 | RoHS Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -40 to 120 | °C |
 | Recyclability | Yes | - |
 | Biodegradability | No | - |
+| VOC Emissions | Low | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

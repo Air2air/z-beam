@@ -2,41 +2,41 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Fiberglass Materials",
-  "description": "Advanced laser cleaning techniques for Fiberglass materials, ensuring precision surface treatment while preserving the material's structural integrity and resin matrix composition.",
+  "description": "Advanced laser cleaning techniques for Fiberglass materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Fiberglass laser cleaning",
-    "FRP composite treatment",
-    "non-abrasive surface preparation",
-    "fiber-reinforced polymer cleaning",
-    "laser ablation parameters",
-    "industrial composite maintenance",
-    "surface contamination removal",
+    "Fiberglass composite cleaning",
+    "non-abrasive surface treatment",
+    "Fiberglass material processing",
+    "precision cleaning",
+    "industrial applications",
+    "surface treatment",
     "non-contact processing",
-    "resin preservation",
-    "thermal damage prevention"
+    "laser ablation parameters",
+    "composite material restoration"
   ],
-  "articleBody": "Fiberglass, or glass-reinforced plastic (GRP), is a composite material consisting of glass fibers embedded in a polymer resin matrix, typically epoxy or polyester. This combination provides exceptional strength-to-weight ratio, corrosion resistance, and thermal stability. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxidation, and release agents without compromising the material's structural integrity or resin composition. The process utilizes carefully controlled laser parameters with wavelengths typically between 1064nm and 10.6μm, fluence levels of 0.5-2.5 J/cm², and pulse durations of 10-150 nanoseconds to selectively ablate unwanted surface material while preserving the underlying Fiberglass substrate. Key applications include aerospace component refurbishment, marine hull preparation, wind turbine blade maintenance, and automotive composite part cleaning. Challenges include managing the differential ablation rates between contaminants and the resin matrix, preventing thermal damage to glass fibers, and ensuring complete removal without substrate degradation. Safety protocols require proper ventilation for fume extraction, laser safety eyewear specific to the operating wavelength, and controlled processing environments to prevent accidental exposure. The non-abrasive nature of laser cleaning eliminates mechanical stress and surface damage associated with traditional methods like sandblasting or chemical stripping.",
+  "articleBody": "Fiberglass, a composite material composed of glass fibers embedded in a polymer matrix (typically epoxy or polyester resin), presents unique challenges for surface cleaning due to its heterogeneous structure and sensitivity to thermal degradation. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxidation layers, and release agents without compromising the material's structural integrity. Optimal laser parameters for Fiberglass cleaning typically utilize nanosecond pulsed lasers at 1064 nm wavelength with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 ns. These parameters provide selective ablation of surface contaminants while minimizing heat transfer to the underlying substrate. Key applications include aerospace component restoration, marine vessel maintenance, wind turbine blade cleaning, and automotive composite part preparation. The process effectively removes mold release agents, oxidation layers, paint, and environmental contaminants without damaging the delicate glass fibers or resin matrix. Technical challenges include managing the different ablation thresholds of the glass fibers and polymer resin, requiring precise parameter control to avoid resin degradation or fiber exposure. Safety considerations mandate proper ventilation to manage ablation byproducts and appropriate laser safety protocols including Class 4 laser enclosure systems and personal protective equipment.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/fiberglass-laser-cleaning-hero.jpg",
       "name": "Fiberglass Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of Fiberglass composite panel displaying side-by-side before (contaminated) and after (cleaned) laser cleaning results showing complete contaminant removal",
-      "description": "Split-view workbench photograph showing a Fiberglass composite panel in before (left, with visible mold release agent and surface contamination) and after (right, completely clean) states, demonstrating the precision cleaning achieved through optimized laser parameters without substrate damage",
-      "keywords": "Fiberglass laser cleaning, before after comparison, composite panel, contamination removal, mold release agent",
+      "caption": "Dual workbench photo of Fiberglass object displaying side-by-side before and after laser cleaning results",
+      "description": "Split-view workbench photograph showing a Fiberglass object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Fiberglass laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/fiberglass-laser-cleaning-closeup.jpg",
       "name": "Fiberglass Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Fiberglass material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.2 J/cm² fluence, and 20ns pulse duration specifications",
-      "description": "Split-view microscopic photograph of Fiberglass material surface displaying before (left, with embedded contaminants and surface oxidation) and after (right, pristine glass fibers and intact resin matrix) states at 200x magnification, processed with precision laser parameters including 1064nm wavelength, 1.2 J/cm² fluence, 20ns pulse duration, and 0.8mm spot size",
-      "keywords": "Fiberglass microscopy, surface analysis, laser parameters, technical specifications, resin preservation, glass fiber integrity",
+      "caption": "Dual high-magnification photo of Fiberglass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
+      "description": "Split-view microscopic photograph of Fiberglass material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
+      "keywords": "Fiberglass microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",
-        "description": "Precision laser ablation process with controlled parameters for Fiberglass surface treatment preserving resin matrix and glass fibers"
+        "description": "Precision laser ablation process with controlled parameters for Fiberglass surface treatment"
       }
     }
   ],
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Alessandro Moretti"
+    "name": "Yi-Chun Lin"
   },
   "about": {
     "@type": "Thing",
@@ -56,6 +56,6 @@
   "mainEntity": {
     "@type": "Thing",
     "name": "Laser Cleaning Process",
-    "description": "Industrial laser cleaning process for Fiberglass materials with optimized parameters for contaminant removal and substrate preservation"
+    "description": "Industrial laser cleaning process for Fiberglass materials"
   }
 }

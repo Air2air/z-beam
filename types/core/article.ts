@@ -2,6 +2,7 @@
 // Consolidated article and content types
 
 import { BadgeData } from './badge';
+import { AuthorData } from '../components/author';
 
 /**
  * Core article metadata structure
@@ -45,12 +46,7 @@ export interface ArticleMetadata {
   dateModified?: string;
   
   /** Author information */
-  author?: string | {
-    author_name: string;
-    credentials?: string;
-    author_country?: string;
-    avatar?: string;
-  };
+  author?: string | AuthorData;
   
   /** Main image */
   image?: string;

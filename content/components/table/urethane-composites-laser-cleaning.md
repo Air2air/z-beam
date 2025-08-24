@@ -1,38 +1,43 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Melting Point | 120-180 | °C |
-| Hardness | 60-90 | Shore A |
+| Density | 1.1-1.2 | g/cm³ |
+| Melting Point | 140-180 | °C |
+| Thermal Conductivity | 0.2-0.3 | W/m·K |
 | Tensile Strength | 20-50 | MPa |
-| Elongation at Break | 200-600 | % |
+| Hardness | 60-90 | Shore A |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity Level | 99.5 | % |
-| Filler Content | 0-30 | % |
-| Crosslink Density | 10-50 | mol/m³ |
+| Purity | 95-99 | % |
+| Polyurethane Type | Polyester/Polyether | - |
+| Reinforcement | Glass/Carbon Fiber | - |
+| Additives | UV Stabilizers | - |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness | 0.1-1.0 | µm |
-| Cleaning Efficiency | 90-98 | % |
-| Residue Removal | 95-99 | % |
+| Cleaning Efficiency | 90-95 | % |
+| Surface Roughness | <1 | µm |
+| Residue Removal | 98-100 | % |
+| Processing Speed | 100-500 | mm/s |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ISO Certification | 9001 | - |
 | ASTM Standard | D2240 | - |
+| ISO Standard | 868 | - |
 | RoHS Compliance | Yes | - |
+| REACH Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
 | Operating Temperature | -40 to 80 | °C |
-| Humidity Resistance | 95 | % RH |
-| UV Resistance | Good | - |
+| Humidity Resistance | 85-95 | % RH |
+| Chemical Resistance | Good | - |
+| UV Resistance | Moderate | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
@@ -40,3 +45,4 @@
 | Wavelength | 1064 | nm |
 | Fluence | 0.5-2.0 | J/cm² |
 | Pulse Duration | 10-100 | ns |
+| Repetition Rate | 20-100 | kHz |

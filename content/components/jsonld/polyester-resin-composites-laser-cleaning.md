@@ -5,17 +5,15 @@
   "description": "Advanced laser cleaning techniques for Polyester Resin Composites materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Polyester Resin Composites laser cleaning",
-    "Polyester Resin Composites composite cleaning",
-    "non-abrasive surface treatment",
-    "Polyester Resin Composites material processing",
-    "precision cleaning",
-    "industrial applications",
-    "surface treatment",
-    "non-contact processing",
+    "fiberglass composite surface treatment",
+    "non-abrasive resin cleaning",
     "laser ablation parameters",
-    "composite material restoration"
+    "composite material processing",
+    "industrial laser applications",
+    "surface contamination removal",
+    "non-contact cleaning technology"
   ],
-  "articleBody": "Polyester Resin Composites are thermosetting polymer materials reinforced with glass fibers or other fillers, exhibiting excellent mechanical strength, chemical resistance, and dimensional stability. These properties make them ideal for automotive, marine, and construction applications but present unique challenges for surface cleaning. Laser cleaning offers a non-contact, precise method for removing contaminants, oxidation layers, and surface coatings without compromising the composite's structural integrity or fiber reinforcement. Optimal laser parameters typically involve near-infrared wavelengths (1064 nm) with controlled fluence levels (0.5-2.5 J/cm²) and short pulse durations (10-100 ns) to selectively ablate contaminants while minimizing thermal effects on the polyester matrix. The process effectively removes marine growth from boat hulls, prepares surfaces for bonding in automotive applications, and restores historical composite artifacts without mechanical abrasion. Key challenges include managing the different ablation thresholds of resin and reinforcement materials, preventing matrix degradation, and controlling heat accumulation. Technical solutions involve precise parameter optimization, scanning strategies with overlapping rates below 30%, and real-time monitoring systems. Safety protocols require Class 1 laser enclosures, adequate ventilation for fume extraction, and appropriate PPE including laser safety goggles rated for the specific wavelength.",
+  "articleBody": "Polyester Resin Composites, commonly reinforced with fiberglass, are thermoset polymer materials valued for their high strength-to-weight ratio, chemical resistance, and durability in industrial environments. Laser cleaning provides an optimal solution for surface preparation and contamination removal without mechanical abrasion or chemical solvents that could damage the resin matrix. The process requires precise parameter optimization, typically using near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds to effectively remove surface contaminants, oxidation layers, and previous coatings while avoiding thermal degradation of the polyester matrix. Key applications include marine component refurbishment, automotive part restoration, wind turbine blade maintenance, and architectural element conservation. Challenges include the material's thermal sensitivity, requiring careful control of laser parameters to prevent resin melting or glass fiber exposure. Safety protocols mandate proper ventilation systems to manage volatile organic compounds released during processing and comprehensive laser safety measures including appropriate eyewear and enclosure systems.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +42,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Alessandro Moretti"
+    "name": "Yi-Chun Lin"
   },
   "about": {
     "@type": "Thing",

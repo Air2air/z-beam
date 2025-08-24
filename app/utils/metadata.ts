@@ -3,17 +3,11 @@
 type NextMetadata = any;
 
 import { ArticleMetadata } from '@/types/core';
+import { AuthorData } from '@/types/components/author';
 
-// Define author interface
-export interface AuthorInfo {
-  author_id?: number;
-  author_name: string;
-  author_country?: string;
-  credentials?: string;
-}
-
-// Re-export centralized ArticleMetadata
+// Re-export centralized types
 export type { ArticleMetadata };
+export type { AuthorData as AuthorInfo } from '@/types/components/author';
 
 export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   
@@ -30,10 +24,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   } = metadata;
   
   // Helper function to safely extract author name
-  const getAuthorName = (author: string | AuthorInfo | undefined): string | undefined => {
+  const getAuthorName = (author: string | AuthorData | undefined): string | undefined => {
     if (!author) return undefined;
     if (typeof author === 'string') return author;
-    return author.author_name;
+    return author.author_name || author.name;
   };
   
   // Use subject as title if available and title is not set

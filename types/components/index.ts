@@ -1,6 +1,12 @@
 // types/components/index.ts
 // Central exports for component types
 
+// Author types
+export type {
+  AuthorData,
+  AuthorProps
+} from './author';
+
 // Card types
 export type {
   CardProps,
@@ -50,3 +56,4 @@ export type {
 // Re-exports for convenience
 export type { CardProps as ComponentCardProps } from './card';
 export type { BadgeSymbolProps as ComponentBadgeProps } from './badge';
+export type { AuthorData as ComponentAuthorData } from './author';

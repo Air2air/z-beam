@@ -1,42 +1,42 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Melting Point | 840-1000 | °C |
-| Density | 1.8-2.1 | g/cm³ |
+| Density | 1.8 - 2.1 | g/cm³ |
+| Tensile Strength | 1,700 - 3,500 | MPa |
 | Thermal Conductivity | 0.04 | W/m·K |
-| Tensile Strength | 3450 | MPa |
+| Melting Point | 840 - 1,120 | °C |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| E-Glass Purity | >99 | % |
-| S-Glass Purity | >99 | % |
-| C-Glass Purity | >99 | % |
+| E-Glass Purity | 54 | % SiO₂ |
+| S-Glass Purity | 65 | % SiO₂ |
+| R-Glass Purity | 58 | % SiO₂ |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90-95 | % |
-| Surface Roughness | <1 | µm |
-| Material Removal Rate | 0.5-1.5 | mm³/min |
+| Cleaning Rate | 1 - 5 | m²/h |
+| Surface Roughness | < 1 | µm |
+| Residue Removal | > 95 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM D2583 | Compliant | - |
-| ISO 1043-1 | Compliant | - |
-| ANSI Z136.1 | Compliant | - |
+| ASTM Standard | D2583 | - |
+| ISO Standard | 1043-1 | - |
+| RoHS Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
 | Operating Temperature | -60 to 250 | °C |
-| Humidity Resistance | 95 | % RH |
+| Humidity Resistance | > 90 | % RH |
 | Chemical Resistance | High | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5-2 | J/cm² |
-| Pulse Duration | 10-100 | ns |
+| Fluence | 0.5 - 2 | J/cm² |
+| Pulse Duration | 10 - 100 | ns |

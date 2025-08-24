@@ -2,26 +2,23 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Density | 1.2 - 1.5 | g/cm³ |
-| Melting Point | 260 - 280 | °C |
+| Tensile Strength | 50 - 100 | MPa |
 | Thermal Conductivity | 0.2 - 0.3 | W/m·K |
-| Tensile Strength | 50 - 80 | MPa |
-| Hardness | 30 - 50 | Shore D |
+| Melting Point | 260 - 280 | °C |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity Level | 98 - 99.5 | % |
-| Filler Content | 10 - 40 | % |
-| Viscosity | 500 - 1500 | cP |
-| Gel Time | 10 - 30 | min |
+| General Purpose Grade | 98 | % |
+| High Purity Grade | 99.5 | % |
+| Reinforced Grade | 70 - 80 | % Fiber Content |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness | 0.5 - 2.0 | µm |
-| Cleanliness Level | 90 - 98 | % |
-| Adhesion Strength | 2 - 5 | MPa |
-| Residual Contamination | < 1 | % |
+| Surface Roughness Post-Cleaning | < 1 | μm |
+| Cleaning Efficiency | 95 - 99 | % |
+| Residue Removal Rate | 90 - 95 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
@@ -29,15 +26,13 @@
 | ASTM D638 | Compliant | - |
 | ISO 527-2 | Compliant | - |
 | RoHS | Compliant | - |
-| REACH | Compliant | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -40 to 100 | °C |
-| Humidity Resistance | 80 - 95 | % RH |
-| UV Resistance | Good | - |
-| Chemical Resistance | Moderate | - |
+| VOC Emissions | < 50 | g/L |
+| Recyclability | Limited | - |
+| Biodegradability | Non-Biodegradable | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
@@ -45,4 +40,3 @@
 | Wavelength | 1064 | nm |
 | Fluence | 1 - 3 | J/cm² |
 | Pulse Duration | 10 - 100 | ns |
-| Scanning Speed | 100 - 500 | mm/s |

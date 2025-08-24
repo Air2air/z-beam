@@ -2,41 +2,41 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Density | 2.23 | g/cm³ |
-| Thermal Expansion | 3.25 | ×10⁻⁶/K |
+| Thermal Expansion | 3.25 | ×10⁻⁶/°C |
 | Softening Point | 820 | °C |
-| Young's Modulus | 64 | GPa |
+| Hardness | 5.5 | Mohs |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
 | SiO2 Content | 80 | % |
 | B2O3 Content | 13 | % |
-| Na2O Content | 4 | % |
-| Al2O3 Content | 2 | % |
+| Na2O+K2O Content | 4 | % |
+| Fe2O3 Content | <0.05 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Hardness | 5.5 | Mohs |
+| Transmittance at 550nm | 92 | % |
 | Refractive Index | 1.47 | - |
-| Transmittance | 92 | % |
-| Chemical Durability | High | - |
+| Dielectric Constant | 4.6 | - |
+| Loss Tangent | 0.001 | - |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | E438 | - |
-| ISO Standard | 3585 | - |
-| FDA Compliance | Yes | - |
-| RoHS Compliance | Yes | - |
+| ASTM E438 | Compliant | - |
+| ISO 3585 | Compliant | - |
+| USP Class VI | Compliant | - |
+| FDA 21 CFR | Compliant | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -60 to 450 | °C |
-| Thermal Shock Resistance | 165 | K |
+| Max Operating Temp | 400 | °C |
+| Chemical Resistance | High | - |
+| Water Resistance | High | - |
 | Weather Resistance | Excellent | - |
-| Recyclability | Yes | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
@@ -44,4 +44,4 @@
 | Wavelength | 1064 | nm |
 | Fluence | 0.5-2 | J/cm² |
 | Pulse Duration | 10-100 | ns |
-| Scan Speed | 100-500 | mm/s |
+| Repetition Rate | 20-100 | kHz |

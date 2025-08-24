@@ -2,19 +2,19 @@
 name: Phenolic Resin Composites
 applications:
 - industry: "Aerospace"
-  detail: Cleaning of composite parts for surface preparation before bonding
+  detail: Removal of surface contaminants from composite parts
 - industry: "Automotive"
-  detail: Removal of contaminants from phenolic resin composite components
+  detail: Cleaning of phenolic resin components for enhanced bonding
 technicalSpecifications:
-  powerRange: "20-100W"
-  pulseDuration: "10-100ns"
+  powerRange: "50-200W"
+  pulseDuration: "5-50ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.1-2.0mm"
-  repetitionRate: "10-50kHz"
-  fluenceRange: "0.5–5 J/cm²"
+  spotSize: "0.05-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Phenolic Resin Composites for laser cleaning applications, including density, wavelength, and industrial applications.
-author: Alessandro Moretti
+author: Yi-Chun Lin
 keywords: phenolic resin composites, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: composite
 chemicalProperties:
@@ -22,19 +22,19 @@ chemicalProperties:
   formula: Phenolic Resin Composites
   materialType: composite
 properties:
-  density: "1.2-1.5 g/cm³"
-  meltingPoint: "Does not melt, decomposes above 200°C"
+  density: "1.2-1.4 g/cm³"
+  meltingPoint: "Does not melt, decomposes at >200°C"
   thermalConductivity: "0.2-0.3 W/m·K"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "0.5-5 J/cm²"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Phenolic Resin Composites
 composition:
 - "Phenol-formaldehyde resin"
-- "Reinforcement fibers (e.g., glass, carbon)"
+- "Reinforcing fibers (e.g., glass, carbon)"
 compatibility:
-- "Metals"
-- "Ceramics"
+- "Epoxy resins"
+- "Polyurethane"
 regulatoryStandards: "ISO 11146-1:2021, ASTM D792"
 images:
   hero:
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Phenolic Resin Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite phenolic resin composites
 environmentalImpact:
-- benefit: "Reduced chemical usage"
-  description: "Up to 90% less solvent required compared to traditional cleaning methods"
-- benefit: "Lower waste generation"
-  description: "Decreases waste by 85% due to no need for cleaning agents"
-- benefit: "Energy efficiency"
-  description: "Saves up to 30% in energy consumption compared to other cleaning techniques"
+- benefit: "Reduced chemical waste"
+  description: "Eliminates 95% of solvent-based cleaning agents"
+- benefit: "Lower energy consumption"
+  description: "Uses 30% less energy compared to traditional methods"
+- benefit: "Decreased emissions"
+  description: "Reduces volatile organic compound emissions by 80%"
 outcomes:
-- result: "Surface cleanliness"
-  metric: "Achieves contamination levels below 100 ppm as per ISO 14644-1"
-- result: "Surface integrity"
-  metric: "Preserves surface roughness within ±0.5 μm as per ASTM D7127"
-- result: "Processing time"
-  metric: "Reduces cleaning time by up to 70% compared to manual methods"
+- result: "Improved surface cleanliness"
+  metric: "Achieves >99% surface cleanliness per ISO 14644-1"
+- result: "Enhanced bonding strength"
+  metric: "Increases shear strength by 20% as per ASTM D1002"
+- result: "Preserved material integrity"
+  metric: "Maintains 98% of original material properties post-cleaning"
 subject: Phenolic Resin Composites
 article_type: material
 ---

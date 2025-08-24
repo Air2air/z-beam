@@ -1,66 +1,114 @@
 // app/utils/authorParser.ts
-// Utility for parsing author content from markdown
+// Simplified utility for parsing author content from markdown
 
-export interface AuthorData {
-  author_name: string;
-  credentials: string;
-  author_country: string;
-  avatar: string;
-}
+import { AuthorData } from '@/types/components/author';
+
+// Re-export for convenience
+export type { AuthorData } from '@/types/components/author';
 
 /**
  * Parse author information from markdown content
+ * Expected format:
+ * Line 1: Author Name
+ * Line 2: Ph.D. (credentials)
+ * Line 3: Specialization
+ * Line 4: Country
+ * Line 5: Avatar path
  */
 export function parseAuthorContent(content: string): AuthorData | null {
-  if (!content) return null;
+  if (!content?.trim()) return null;
   
   try {
-    // Content might be in HTML format after markdown processing
-    // Try HTML patterns first, then fallback to markdown patterns
+    // Clean content: remove HTML tags, normalize whitespace, and split into lines
+    let cleanContent = content
+      .replace(/<[^>]*>/g, '\n')  // Replace HTML tags with newlines
+      .replace(/&nbsp;/g, ' ')    // Replace non-breaking spaces
+      .replace(/\r\n/g, '\n')     // Normalize Windows line endings
+      .replace(/\r/g, '\n');      // Normalize old Mac line endings
     
-    // Extract author name (HTML format: <strong>Name</strong>, Ph.D.)
-    let nameMatch = content.match(/<strong>(.*?)<\/strong>,?\s*Ph\.D\./);
-    if (!nameMatch) {
-      // Fallback to markdown format (**Name**, Ph.D.)
-      nameMatch = content.match(/\*\*(.*?)\*\*,?\s*Ph\.D\./);
-    }
-    const authorName = nameMatch ? nameMatch[1].trim() : null;
+    let lines = cleanContent
+      .split('\n')
+      .map(line => line.trim())
+      .filter(line => line.length > 0);
     
-    // Extract specialization (HTML: <em>text</em> or markdown: *text*)
-    let credentialsMatch = content.match(/<em>(.*?)<\/em>/);
-    if (!credentialsMatch) {
-      credentialsMatch = content.match(/Ph\.D\.\s*\n\s*\*(.*?)\*/);
-    }
-    const credentials = credentialsMatch ? credentialsMatch[1].trim() : '';
-    
-    // Extract country (HTML: <strong>Country</strong>: text or markdown: **Country**: text)
-    let countryMatch = content.match(/<strong>Country<\/strong>:\s*(.*?)<\/p>/);
-    if (!countryMatch) {
-      countryMatch = content.match(/<strong>Country<\/strong>:\s*(.*?)$/m);
-      if (!countryMatch) {
-        countryMatch = content.match(/\*\*Country\*\*:\s*(.*?)$/m);
+    // If we only got one line, it might be concatenated - try to split by common patterns
+    if (lines.length === 1) {
+      const singleLine = lines[0];
+      
+      // Try to split by recognizable patterns
+      // Pattern: Name + Ph.D. + Field + Country + Image path
+      const parts: string[] = [];
+      
+      // Extract image path first (most reliable)
+      const imageMatch = singleLine.match(/(.*?)(\/images\/author\/[^\s]+\.jpg)$/);
+      if (imageMatch) {
+        const beforeImage = imageMatch[1].trim();
+        const imagePath = imageMatch[2];
+        
+        // Now split the remaining content
+        // Look for Ph.D. to separate name from rest
+        const phdMatch = beforeImage.match(/^(.*?)(Ph\.D\.)(.*)$/);
+        if (phdMatch) {
+          const name = phdMatch[1].trim();
+          const phd = phdMatch[2];
+          const remaining = phdMatch[3].trim();
+          
+          // Split remaining by common country names or patterns
+          const countryMatch = remaining.match(/^(.*?)(Taiwan|Italy|China|USA|Germany|France|Japan|Korea|UK|Canada|Australia)$/);
+          if (countryMatch) {
+            const field = countryMatch[1].trim();
+            const country = countryMatch[2];
+            
+            parts.push(name, phd, field, country, imagePath);
+          } else {
+            // Fallback: assume last word before image is country
+            const words = remaining.trim().split(/\s+/);
+            if (words.length >= 2) {
+              const country = words.pop() || '';
+              const field = words.join(' ');
+              parts.push(name, phd, field, country, imagePath);
+            }
+          }
+        }
+      }
+      
+      if (parts.length >= 5) {
+        lines = parts;
       }
     }
-    const country = countryMatch ? countryMatch[1].trim() : '';
     
-    // Extract avatar path (HTML: <code>path</code> or markdown: `path`)
-    let avatarMatch = content.match(/<code>(.*?)<\/code>/);
-    if (!avatarMatch) {
-      avatarMatch = content.match(/\*\*Author Image\*\*:\s*`(.*?)`/);
-    }
-    const avatar = avatarMatch ? avatarMatch[1].trim() : '';
-    
-    if (!authorName) {
-      console.warn('No author name found in content:', content.substring(0, 100));
+    if (lines.length < 5) {
+      console.warn('Author content has insufficient lines:', lines.length, lines);
       return null;
     }
     
-    return {
-      author_name: authorName,
-      credentials,
-      author_country: country,
-      avatar,
+    // Expected format: exactly 5 lines
+    const [name, credentials, specialization, country, avatar] = lines;
+    
+    if (!name) return null;
+    
+    const authorData: AuthorData = {
+      author_name: name,
     };
+    
+    // Add optional fields if they exist and are meaningful
+    if (credentials && credentials !== name) {
+      authorData.credentials = credentials;
+    }
+    
+    if (specialization && specialization !== credentials && specialization !== name) {
+      authorData.specialties = [specialization];
+    }
+    
+    if (country && country !== specialization && !country.startsWith('/images/')) {
+      authorData.author_country = country;
+    }
+    
+    if (avatar && avatar.startsWith('/images/')) {
+      authorData.avatar = avatar;
+    }
+    
+    return authorData;
   } catch (error) {
     console.error('Error parsing author content:', error);
     return null;

@@ -1,2 +1,2 @@
-**Phenolic Resin Composites** surface (left) exhibiting degraded thermal oxide layers and carbonaceous staining from high-temperature service.
-**After 1,064 nm fiber laser cleaning** (right) demonstrating precise contaminant ablation at 8 J/cm² fluence with 100 ns pulses, preserving the composite's char-resistant phenolic matrix.
+**Phenolic Resin Composites** surface (left) with heavy carbonaceous residue and oxide layer accumulation from thermal degradation.
+**After 1064 nm laser cleaning** (right) exhibiting complete contaminant ablation using 8 W average power, 100 ns pulses, and a 200 µm spot diameter.
