@@ -86,7 +86,7 @@ export function SearchResultsGrid({
               // Take all parts before "laser" or "cleaning" and capitalize them
               cardName = slugParts
                 .slice(0, endIndex)
-                .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+                .map((part: string) => part.charAt(0).toUpperCase() + part.slice(1))
                 .join(" ");
             } else {
               // Use first part capitalized

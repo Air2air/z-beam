@@ -7,7 +7,7 @@ interface FrontmatterItem {
   slug: string;
   title: string;
   author: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export function FrontmatterDebug() {

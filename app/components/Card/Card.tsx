@@ -3,8 +3,8 @@
 
 import "./styles.scss";
 import Link from "next/link";
-import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
+import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 
 // Global card configuration with a single variant
 const CARD_CONFIG = {
@@ -73,13 +73,13 @@ export function Card({
   href,
   title,
   name,
-  description,
-  image,
-  imageUrl,
+  // description, - unused
+  // image, - unused  
+  // imageUrl, - unused
   imageAlt,
-  materialSlug,
-  tags = [],
-  badge,
+  // materialSlug, - unused
+  // tags = [], - unused
+  badge, // Re-enabled for BadgeSymbol support
   metadata,
   className = "",
   height,
@@ -88,18 +88,18 @@ export function Card({
   const slug = href?.split('/').pop() || '';
   
   // For frontmatter files, we need to handle the path correctly
-  const isFrontmatterPath = (path: string | undefined) => {
-    return path && path.includes('content/components/frontmatter/');
-  };
+  // const isFrontmatterPath = (path: string | undefined) => {
+  //   return path && path.includes('content/components/frontmatter/');
+  // };
   
   // Determine material slug for image - use passed materialSlug, or extract from metadata.subject or slug
-  const effectiveMaterialSlug = 
-    // If materialSlug is a frontmatter path, use it directly
-    (materialSlug && isFrontmatterPath(materialSlug)) ? materialSlug :
-    // Otherwise use the normal options
-    materialSlug || 
-    (metadata?.subject ? metadata.subject.toLowerCase() : null) || 
-    (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());
+  // const effectiveMaterialSlug = 
+  //   // If materialSlug is a frontmatter path, use it directly
+  //   (materialSlug && isFrontmatterPath(materialSlug)) ? materialSlug :
+  //   // Otherwise use the normal options
+  //   materialSlug || 
+  //   (metadata?.subject ? metadata.subject.toLowerCase() : null) || 
+  //   (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());
   
   // Check if this is a featured card by examining the className
   const isFeatured = className?.includes('featured-item');
@@ -124,13 +124,19 @@ export function Card({
             priority={false}
           />
 
-          {/* Chemical Symbol Badge (show only if not featured) - positioned absolutely */}
-          {!isFeatured && (
-            <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
+          {/* BadgeSymbol overlay for cards */}
+          {badge && badge.symbol && (
+            <div className="absolute top-2 right-2 z-10">
               <BadgeSymbol
-                frontmatter={metadata}
-                slug={slug}
-                variant="card"
+                content=""
+                config={{
+                  symbol: badge.symbol,
+                  materialType: badge.materialType,
+                  atomicNumber: typeof badge.atomicNumber === 'number' ? badge.atomicNumber : 
+                               typeof badge.atomicNumber === 'string' ? parseInt(badge.atomicNumber) : undefined,
+                  formula: badge.formula,
+                  variant: "card"
+                }}
               />
             </div>
           )}

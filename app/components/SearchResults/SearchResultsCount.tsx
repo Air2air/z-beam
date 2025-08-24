@@ -14,7 +14,7 @@ export function SearchResultsCount({
     <div className="text-center text-gray-600 dark:text-gray-300">
       Found {count} {count === 1 ? 'result' : 'results'}
       {selectedTag && <span> for tag <span className="font-medium">{selectedTag}</span></span>}
-      {searchQuery && <span> matching <span className="font-medium">"{searchQuery}"</span></span>}
+      {searchQuery && <span> matching <span className="font-medium">&quot;{searchQuery}&quot;</span></span>}
     </div>
   );
 }

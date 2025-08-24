@@ -2,11 +2,11 @@
 title: Laser Cleaning Fiberglass - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Fiberglass, for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Fiberglass for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "fiberglass, fiberglass composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Yi-Chun Lin"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "composite"
   - name: robots

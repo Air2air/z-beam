@@ -1,0 +1,2 @@
+**Terra Cotta** architectural fragment (left) before intervention, exhibiting heavy black crusts of gypsum and carbonaceous particulate embedded within its porous microstructure.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm² fluence and 10 ns pulse width, revealing the original fired clay body and intricate molding details without mechanical or chemical alteration to the fragile terracotta substrate.

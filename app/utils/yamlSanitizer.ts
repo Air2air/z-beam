@@ -34,7 +34,7 @@ export function sanitizeYamlContent(content: string): string {
     
     return `---\n${sanitizedYaml}\n---\n${markdownBody}`;
   } catch (error) {
-    logger.warn('Failed to sanitize YAML content, returning original', { error: error.message });
+    logger.warn('Failed to sanitize YAML content, returning original', { error: (error as Error).message });
     return content;
   }
 }
@@ -58,7 +58,7 @@ export function safeMatterParse(content: string, options?: any): {
       orig: String(result.orig || content)
     };
   } catch (error) {
-    logger.warn('Initial YAML parsing failed, attempting sanitization', { error: error.message });
+    logger.warn('Initial YAML parsing failed, attempting sanitization', { error: (error as Error).message });
     
     try {
       // Try with sanitized content

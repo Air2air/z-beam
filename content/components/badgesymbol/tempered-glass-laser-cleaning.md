@@ -1,0 +1,4 @@
+---
+symbol: "TE"
+materialType: "glass"
+---

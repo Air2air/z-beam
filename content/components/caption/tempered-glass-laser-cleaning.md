@@ -1,0 +1,3 @@
+**Tempered Glass** surface (left) before cleaning, showing heavy environmental soiling and calcium carbonate scale deposits adhering to the low-porosity, high-compressive-strength surface.
+
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm² fluence with 100 ns pulses, achieving complete contaminant removal via selective photomechanical ablation while preserving the intrinsic surface compression layer.

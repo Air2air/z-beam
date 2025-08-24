@@ -1,0 +1,4 @@
+---
+symbol: "Ni"
+materialType: "metal"
+---

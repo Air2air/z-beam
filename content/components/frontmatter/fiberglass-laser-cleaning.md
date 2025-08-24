@@ -1,10 +1,10 @@
 ---
 name: Fiberglass
 applications:
-- industry: [Aerospace]
-  detail: Removing surface contaminants from aircraft components made of fiberglass composites
 - industry: [Automotive]
-  detail: Cleaning and preparing fiberglass parts for painting and bonding
+  detail: Cleaning and surface preparation of fiberglass body panels
+- industry: [Aerospace]
+  detail: Precision cleaning of fiberglass components for aircraft interiors
 technicalSpecifications:
   powerRange: [20-100W]
   pulseDuration: [10-100ns]
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: [10-50kHz]
   fluenceRange: [0.5–5 J/cm²]
   safetyClass: [Class 4 (requires full enclosure)]
-description: Technical overview of Fiberglass for laser cleaning applications, including [2.5 g/cm³], [1064nm], and industrial applications.
+description: Technical overview of Fiberglass for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Yi-Chun Lin
 keywords: fiberglass, fiberglass composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: composite
@@ -23,19 +23,19 @@ chemicalProperties:
   materialType: composite
 properties:
   density: [2.5 g/cm³]
-  meltingPoint: [843 K (570 °C)]
+  meltingPoint: [840-1000°C]
   thermalConductivity: [0.04 W/m·K]
-  laserType: [Pulsed Fiber Laser]
+  laserType: [Pulsed fiber laser]
   wavelength: [1064nm]
-  fluenceRange: [0.5–5 J/cm²]
+  fluenceRange: [0.5-5 J/cm²]
   chemicalFormula: Fiberglass
 composition:
-- [Silica (SiO2)]
-- [Glass fibers]
+- [Silica]
+- [Resin]
 compatibility:
-- [Epoxy resins]
-- [Polyester resins]
-regulatoryStandards: [ISO 11146-1:2021]
+- [Metals]
+- [Polymers]
+regulatoryStandards: [ISO 11145:2016]
 images:
   hero:
     alt: Fiberglass surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +47,18 @@ title: Laser Cleaning Fiberglass - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite fiberglass
 environmentalImpact:
 - benefit: [Reduced chemical waste]
-  description: [Decreases chemical usage by 95% compared to traditional methods]
+  description: [Eliminates the need for 500 liters of chemical solvents per year]
 - benefit: [Energy efficiency]
-  description: [Saves up to 80% of energy used in conventional cleaning processes]
-- benefit: [Lower emissions]
-  description: [Reduces CO2 emissions by 70% due to less energy consumption]
+  description: [Consumes 30% less energy than traditional cleaning methods]
+- benefit: [Lower CO2 emissions]
+  description: [Reduces CO2 emissions by 1.5 tons annually per system]
 outcomes:
-- result: [Improved surface cleanliness]
-- metric: [Achieves 99.9% contaminant removal as per ASTM D4236]
-- result: [Enhanced bonding strength]
-  metric: [Increases bond strength by 20% according to ISO 4587]
+- result: [Enhanced surface cleanliness]
+- metric: [Surface contamination reduced by 99% as per ASTM D4060]
 - result: [Preserved material integrity]
-  metric: [Maintains 98% of original mechanical properties as per ASTM D638]
+  metric: [Fiberglass tensile strength maintained within 5% of original value per ASTM D638]
+- result: [Increased durability]
+  metric: [Surface lifespan extended by 25% as per ISO 4892-2]
 subject: Fiberglass
 article_type: material
 ---

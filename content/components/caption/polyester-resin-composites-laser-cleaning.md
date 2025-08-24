@@ -1,0 +1,3 @@
+**Polyester Resin Composites** surface (left) before cleaning, showing heavy atmospheric soiling and embedded particulate contamination compromising the fiberglass-reinforced surface.
+
+**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 0.8 J/cm² fluence and 100 ns pulse width; the non-abrasive process has selectively removed contaminants without damaging the thermally sensitive polymer matrix.

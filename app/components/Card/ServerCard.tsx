@@ -30,7 +30,7 @@ export async function ServerCard({
 }: ServerCardProps) {
   // Load material data if a slug is provided
   let imageUrl: string | undefined = undefined;
-  let metadata: any = null;
+  let metadata: Record<string, unknown> | null = null;
   
   if (materialSlug) {
     imageUrl = await getMaterialImagePath(materialSlug);
@@ -46,7 +46,7 @@ export async function ServerCard({
       imageUrl={imageUrl}
       imageAlt={imageAlt || title}
       tags={tags}
-      metadata={metadata}
+      metadata={metadata || undefined}
       className={className}
       height={height}
     />

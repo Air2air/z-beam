@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     const category = url.searchParams.get('category') || 'all';
     
     // Prepare debug data based on the requested category
-    const debugData: Record<string, any> = {};
+    const debugData: Record<string, unknown> = {};
     
     // Always include basic system info
     debugData.system = {

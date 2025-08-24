@@ -11,9 +11,11 @@
     "precision cleaning",
     "industrial applications",
     "laser ablation parameters",
-    "yttria-stabilized zirconia"
+    "yttria-stabilized zirconia",
+    "thermal shock resistance",
+    "surface contamination removal"
   ],
-  "articleBody": "Zirconia (ZrO₂), particularly yttria-stabilized zirconia (YSZ), is a high-performance ceramic material valued for its exceptional mechanical strength, fracture toughness, chemical inertness, and thermal stability. These properties make it ideal for demanding applications but also present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxidation layers, and sintering residues without introducing mechanical stress or chemical contamination. The process relies on carefully tuned laser parameters to achieve selective ablation. Optimal cleaning typically utilizes near-infrared wavelengths (1064 nm) with fluences between 1-5 J/cm² and short pulse durations (nanosecond to picosecond range) to efficiently remove surface contaminants while minimizing thermal penetration that could cause micro-cracking or phase transformation from tetragonal to monoclinic structure. Key industrial applications include preparing zirconia components for thermal barrier coatings in aerospace turbines, cleaning dental implants and prosthetics, and surface treatment for solid oxide fuel cells (SOFCs). A primary technical challenge is the material's high reflectivity and thermal sensitivity, requiring precise control to avoid subsurface damage. Safety protocols mandate Class 1 laser enclosures, appropriate wavelength-specific eyewear (OD 7+ for 1064 nm), and fume extraction systems to capture ejected nanoparticles.",
+  "articleBody": "Zirconia (ZrO₂) is an advanced ceramic material prized for its exceptional mechanical strength, high fracture toughness, and excellent thermal stability, making it ideal for demanding industrial applications. Laser cleaning provides a precise, non-contact method for removing contaminants, oxide layers, and surface impurities without compromising Zirconia's structural integrity. The process utilizes carefully controlled laser parameters, typically employing nanosecond pulsed lasers at 1064 nm wavelength with fluences between 1-5 J/cm² and pulse durations of 10-100 ns. These parameters enable selective ablation of unwanted surface material while preserving the underlying Zirconia substrate. Key applications include cleaning dental implants and prosthetics, preparing thermal barrier coatings for aerospace components, and surface treatment of biomedical devices. Challenges include managing Zirconia's low thermal conductivity to prevent microcracking and thermal stress, which is addressed through optimized pulse repetition rates and scanning strategies. Safety considerations mandate proper laser safety enclosures, fume extraction systems for airborne particles, and appropriate personal protective equipment including laser safety goggles rated for the specific wavelength. The non-contact nature of laser cleaning eliminates mechanical stress on delicate Zirconia components while achieving superior cleanliness levels compared to traditional abrasive methods.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +31,7 @@
       "url": "/images/zirconia-laser-cleaning-closeup.jpg",
       "name": "Zirconia Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Zirconia material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Zirconia material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",
+      "description": "Split-view microscopic photograph of Zirconia material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 3.2 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications",
       "keywords": "Zirconia microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

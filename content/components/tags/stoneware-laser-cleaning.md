@@ -1,1 +1,1 @@
-stoneware, ablation, cleaning, laser, manufacturing, cultural-heritage, non-contact, yi-chun-lin
+stoneware, ablation, cleaning, laser, non-contact, manufacturing, cultural-heritage, yi-chun lin

@@ -1,0 +1,2 @@
+**Rhodium**-plated electrical contact (left) exhibiting significant sulfide tarnish and organic film accumulation, compromising its intrinsic high electrical conductivity and reflectivity.
+**After laser cleaning** (right) using a 532 nm Nd:YAG laser (1.2 J/cm², 8 ns pulse, 500 µm spot), which selectively ablated contaminants while preserving the underlying precious metal substrate, restoring optimal surface properties.

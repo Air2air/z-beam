@@ -1,0 +1,2 @@
+**Tungsten** surface (left) before processing, exhibiting visible oxide layer formation and particulate contamination from high-temperature sintering operations.  
+**After laser cleaning** (right) using a 1064 nm fiber laser (15 J/cm², 100 ns pulse duration, 200 μm spot), revealing the pure metallic substrate with complete contaminant removal and no substrate damage.

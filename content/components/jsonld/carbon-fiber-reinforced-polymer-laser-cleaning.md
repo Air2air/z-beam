@@ -5,15 +5,15 @@
   "description": "Advanced laser cleaning techniques for Carbon Fiber Reinforced Polymer materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Carbon Fiber Reinforced Polymer laser cleaning",
-    "Carbon Fiber Reinforced Polymer composite cleaning",
-    "non-abrasive surface treatment",
-    "Carbon Fiber Reinforced Polymer material processing",
-    "precision cleaning",
-    "industrial applications",
-    "laser ablation parameters",
-    "composite surface preparation"
+    "CFRP composite surface treatment",
+    "non-abrasive laser ablation",
+    "fiber-reinforced polymer processing",
+    "precision laser parameters",
+    "industrial composite cleaning",
+    "thermal degradation prevention",
+    "selective contaminant removal"
   ],
-  "articleBody": "Carbon Fiber Reinforced Polymer (CFRP) is a high-performance composite material valued for its exceptional strength-to-weight ratio, stiffness, and corrosion resistance, making it ideal for aerospace, automotive, and sporting goods industries. Laser cleaning provides a precise, non-contact method for removing contaminants, release agents, oxidation, and coatings without compromising the material's structural integrity or introducing mechanical stress. The process utilizes controlled laser parameters, typically near-infrared wavelengths (1064 nm) with fluences between 0.5-2.5 J/cm² and short pulse durations (nanosecond to picosecond range), to selectively ablate unwanted material while preserving the underlying CFRP substrate. This technique effectively eliminates surface contaminants without damaging the carbon fiber reinforcement or polymer matrix, ensuring optimal adhesion for subsequent bonding or coating operations. Technical challenges include managing the different ablation thresholds of the epoxy matrix and carbon fibers, which requires precise parameter control to prevent fiber exposure or matrix degradation. Safety protocols mandate proper ventilation to extract volatile organic compounds released during ablation and comprehensive eye protection against reflected laser radiation.",
+  "articleBody": "Carbon Fiber Reinforced Polymer (CFRP) is a high-performance composite material characterized by exceptional strength-to-weight ratio, stiffness, and chemical resistance, making it ideal for aerospace, automotive, and sporting goods applications. Laser cleaning provides a non-contact, precise method for removing contaminants, release agents, oxidation layers, and surface coatings without compromising the carbon fiber-epoxy matrix integrity. Optimal laser parameters typically involve near-infrared wavelengths (1064 nm) with controlled fluence (0.5-2.5 J/cm²) and short pulse durations (nanosecond range) to selectively ablate surface contaminants while minimizing thermal penetration. The process requires precise parameter optimization to prevent matrix degradation, fiber exposure, or thermal-induced delamination. Key challenges include managing the different ablation thresholds between contaminants and the CFRP substrate, requiring wavelength-specific absorption characteristics and real-time monitoring systems. Safety protocols mandate proper ventilation for airborne particles, laser class IV protective equipment, and fume extraction systems to capture volatile organic compounds released during the cleaning process. Industrial applications include aerospace component refurbishment, automotive composite part preparation for bonding, and wind turbine blade maintenance, where surface cleanliness directly impacts structural performance and adhesive bonding quality.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,8 +29,8 @@
       "url": "/images/carbon-fiber-reinforced-polymer-laser-cleaning-closeup.jpg",
       "name": "Carbon Fiber Reinforced Polymer Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Carbon Fiber Reinforced Polymer material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Carbon Fiber Reinforced Polymer material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",
-      "keywords": "Carbon Fiber Reinforced Polymer microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
+      "description": "Split-view microscopic photograph of Carbon Fiber Reinforced Polymer material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 100 ns pulse duration, and 50 μm spot size specifications",
+      "keywords": "CFRP microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",
@@ -47,7 +47,7 @@
   "about": {
     "@type": "Thing",
     "name": "Carbon Fiber Reinforced Polymer",
-    "alternateName": "Carbon Fiber Reinforced Polymer",
+    "alternateName": "CFRP",
     "identifier": "CA",
     "category": "composite"
   },

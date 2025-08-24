@@ -2,7 +2,7 @@
 title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Zirconia for laser cleaning applications, including 6.0 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Zirconia, 6.1 g/cm³ density, for laser cleaning applications, including 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "zirconia, zirconia ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

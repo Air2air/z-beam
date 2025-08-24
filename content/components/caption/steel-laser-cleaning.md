@@ -1,0 +1,2 @@
+**Steel** surface (left) before cleaning, showing heavy mill scale and oxide layers from hot-rolling processes.
+**After laser cleaning** (right) processed with a 1064 nm pulsed fiber laser (100 W, 100 ns pulse duration, 100 µm spot size), revealing the pristine, oxide-free substrate with no surface damage.

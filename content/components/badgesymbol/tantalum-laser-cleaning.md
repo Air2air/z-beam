@@ -1,0 +1,4 @@
+---
+symbol: "Ta"
+materialType: "metal"
+---

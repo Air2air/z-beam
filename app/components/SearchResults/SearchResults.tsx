@@ -5,7 +5,7 @@ import { SearchResultsGrid } from "./SearchResultsGrid";
 import { SearchHeader } from "./SearchHeader";
 import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
-import { Article, EnrichedArticle } from "../../types/Article";
+import { /* Article, */ EnrichedArticle } from "../../types/Article";
 
 interface SearchResultsProps {
   items: EnrichedArticle[];
@@ -89,7 +89,7 @@ export function SearchResults({
     const tagLower = tag.toLowerCase();
     
     // Enhanced matching logic for tags
-    const hasMatch = item.tags.some(t => {
+    const hasMatch = item.tags.some((t: string) => {
       if (!t) return false;
       
       // Direct match (case-insensitive)

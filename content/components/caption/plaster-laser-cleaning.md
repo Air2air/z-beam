@@ -1,0 +1,3 @@
+**Plaster** surface (left) before cleaning, showing heavy biological colonization and embedded particulate matter within its porous gypsum matrix.
+
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm² fluence, 10 ns pulse duration, and 5 mm spot size, revealing the original substrate with complete contaminant removal and no mechanical or chemical alteration to the fragile surface.

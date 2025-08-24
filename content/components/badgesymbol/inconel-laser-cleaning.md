@@ -1,0 +1,4 @@
+---
+symbol: "IN"
+materialType: "metal"
+---

@@ -1,0 +1,4 @@
+---
+symbol: "Ir"
+materialType: "metal"
+---

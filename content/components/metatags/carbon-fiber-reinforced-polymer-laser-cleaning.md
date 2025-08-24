@@ -6,7 +6,7 @@ meta_tags:
   - name: keywords
     content: "carbon fiber reinforced polymer, carbon fiber reinforced polymer composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Yi-Chun Lin"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "composite"
   - name: robots

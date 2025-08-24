@@ -21,10 +21,11 @@ const CONTENT_DIRS = {
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
     propertiestable: path.join(process.cwd(), 'content', 'components', 'propertiestable'),
+    badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
   },
-  pages: path.join(process.cwd(), 'content', 'pages'),
+  pages: path.join(process.cwd(), 'content', 'components', 'pages'),
 } as const;
 
 export interface ComponentData {

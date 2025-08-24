@@ -2,16 +2,16 @@
 name: Zirconia
 applications:
 - industry: [Aerospace]
-  detail: Removal of surface contaminants from turbine blades
+  detail: Cleaning turbine blades and engine components
 - industry: [Medical]
-  detail: Cleaning of dental implants and prosthetics
+  detail: Sterilization and cleaning of surgical tools
 technicalSpecifications:
-  powerRange: [50-200W]
-  pulseDuration: [10-200ns]
+  powerRange: [20-100W]
+  pulseDuration: [10-100ns]
   wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.1-1.0mm]
-  repetitionRate: [20-100kHz]
-  fluenceRange: [1.0–10 J/cm²]
+  spotSize: [0.1-2.0mm]
+  repetitionRate: [10-50kHz]
+  fluenceRange: [0.5–5 J/cm²]
   safetyClass: [Class 4 (requires full enclosure)]
 description: Technical overview of Zirconia for laser cleaning applications, including 5.68 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Yi-Chun Lin
@@ -19,23 +19,23 @@ keywords: zirconia, zirconia ceramic, laser ablation, laser cleaning, non-contac
 category: ceramic
 chemicalProperties:
   symbol: ZrO2
-  formula: Zirconium dioxide
+  formula: Zirconium Dioxide
   materialType: ceramic
 properties:
   density: 5.68 g/cm³
   meltingPoint: 2715°C
   thermalConductivity: 2 W/m·K
   laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–10 J/cm²
+  wavelength: 1064 nm
+  fluenceRange: 0.5–5 J/cm²
   chemicalFormula: ZrO2
 composition:
 - Zirconium
 - Oxygen
 compatibility:
-- Stainless steel
+- Stainless Steel
 - Titanium
-regulatoryStandards: ISO 13385-1, ASTM F2066
+regulatoryStandards: ISO 11145
 images:
   hero:
     alt: Zirconia surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic zirconia
 environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Eliminates 95% of chemical solvents used in traditional cleaning methods
+- benefit: Reduction in chemical waste
+  description: Up to 90% less chemical solvents used compared to traditional methods
 - benefit: Energy efficiency
-  description: Uses 30% less energy compared to abrasive blasting
-- benefit: Lower emissions
-  description: Reduces CO2 emissions by 20% during the cleaning process
+  description: 30% less energy consumption than abrasive methods
+- benefit: Lower CO2 emissions
+  description: 25% reduction in CO2 emissions during cleaning process
 outcomes:
-- result: Improved surface quality
-  metric: Surface roughness decreased by 80% (Ra measured per ISO 4287)
-- result: Increased material lifespan
-  metric: Material durability extended by 50% as per ASTM C1161
-- result: Enhanced bonding
-  metric: Adhesion strength increased by 70% (ASTM D4541)
+- result: Enhanced surface cleanliness
+- metric: ISO 14644-1 Class 3 cleanliness level achieved
+- result: Preservation of material integrity
+  metric: Less than 1% material removal rate
+- result: Increased component lifespan
+  metric: 20% increase in operational lifespan
 subject: Zirconia
 article_type: material
 ---

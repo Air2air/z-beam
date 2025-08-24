@@ -2,7 +2,7 @@
 
 import { List } from "./components/List/List";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
-import { createMetadata, ArticleMetadata } from "./utils/metadata";
+import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentUtils";
 import { SectionCardList } from "./components/SectionCard/SectionCardList";
 

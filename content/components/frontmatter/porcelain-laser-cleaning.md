@@ -1,10 +1,10 @@
 ---
 name: Porcelain
 applications:
-- industry: [Ceramics Manufacturing]
-  detail: Removal of surface contaminants and residues for quality control
-- industry: [Restoration and Conservation]
-  detail: Cleaning of historical porcelain artifacts without damage
+- industry: [Ceramics]
+  detail: Cleaning of porcelain surfaces for restoration and preservation
+- industry: [Electronics]
+  detail: Removal of contaminants from porcelain insulators
 technicalSpecifications:
   powerRange: [20-100W]
   pulseDuration: [10-100ns]
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: [10-50kHz]
   fluenceRange: [0.5–5 J/cm²]
   safetyClass: [Class 4 (requires full enclosure)]
-description: Technical overview of Porcelain for laser cleaning applications, including 2.3 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Porcelain for laser cleaning applications, including 2.4 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Yi-Chun Lin
 keywords: porcelain, porcelain ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: ceramic
@@ -22,20 +22,21 @@ chemicalProperties:
   formula: Porcelain
   materialType: ceramic
 properties:
-  density: [2.3 g/cm³]
+  density: [2.4 g/cm³]
   meltingPoint: [1200-1400°C]
-  thermalConductivity: [1.5 W/m·K]
-  laserType: [pulsed fiber laser]
+  thermalConductivity: [1.5-2.5 W/m·K]
+  laserType: [Pulsed fiber laser]
   wavelength: [1064nm]
-  fluenceRange: [0.5–5 J/cm²]
+  fluenceRange: [0.5-5 J/cm²]
   chemicalFormula: Porcelain
 composition:
 - [Kaolin]
 - [Feldspar]
+- [Quartz]
 compatibility:
 - [Glass]
-- [Ceramic Glazes]
-regulatoryStandards: [ISO 11145:2016]
+- [Ceramic]
+regulatoryStandards: [ISO 11146-1:2021]
 images:
   hero:
     alt: Porcelain surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +47,19 @@ images:
 title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic porcelain
 environmentalImpact:
-- benefit: [Reduced chemical usage]
-  description: [Decreases chemical waste by 90% compared to traditional cleaning methods]
-- benefit: [Lower energy consumption]
-  description: [Uses 30% less energy than abrasive cleaning techniques]
-- benefit: [Minimal waste generation]
-  description: [Produces 95% less waste than mechanical cleaning methods]
+- benefit: [Reduction in chemical usage]
+  description: [Decreases chemical waste by up to 90% compared to traditional methods]
+- benefit: [Energy efficiency]
+  description: [Laser cleaning consumes 20% less energy than abrasive methods]
+- benefit: [Reduced waste generation]
+  description: [Generates 75% less waste material during cleaning process]
 outcomes:
-- result: [Improved surface cleanliness]
-- metric: [Achieves 99.9% cleanliness as per ISO 14644-1 standards]
-- result: [Preservation of surface integrity]
-  metric: [Maintains surface roughness within 0.1 μm tolerance]
-- result: [Enhanced material longevity]
-  metric: [Increases lifespan by 20% due to reduced wear from cleaning]
+- result: [Improved surface quality]
+  metric: [Surface roughness reduced by up to 50% as per ISO 4287]
+- result: [Enhanced cleanliness]
+  metric: [99.9% contaminant removal efficiency measured by SEM analysis]
+- result: [Preservation of material]
+  metric: [Material integrity maintained at 98% as per ASTM C203]
 subject: Porcelain
 article_type: material
 ---

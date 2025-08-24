@@ -6,7 +6,7 @@ meta_tags:
   - name: keywords
     content: "stoneware, stoneware ceramic, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Yi-Chun Lin"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "ceramic"
   - name: robots

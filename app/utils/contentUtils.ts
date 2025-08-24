@@ -158,8 +158,8 @@ export async function getAllArticles(): Promise<Article[]> {
             // Add any missing properties from raw data to articleData
             Object.entries(data).forEach(([key, value]) => {
               // articleData is guaranteed to be non-null here because of the check in the if condition
-              if (key !== 'metadata' && articleData && !articleData[key]) {
-                articleData[key] = value;
+              if (key !== 'metadata' && articleData && !(articleData as any)[key]) {
+                (articleData as any)[key] = value;
               }
             });
           }

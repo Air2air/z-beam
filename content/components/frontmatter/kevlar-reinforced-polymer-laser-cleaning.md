@@ -2,16 +2,16 @@
 name: Kevlar-Reinforced Polymer
 applications:
 - industry: [Aerospace]
-  detail: Cleaning of composite aircraft components to remove paint and coatings
+  detail: Cleaning of composite parts for aircraft maintenance
 - industry: [Automotive]
-  detail: Surface preparation and cleaning of Kevlar-reinforced parts for bonding and painting
+  detail: Surface preparation of Kevlar components for painting or bonding
 technicalSpecifications:
-  powerRange: [20-100W]
-  pulseDuration: [10-100ns]
+  powerRange: [50-200W]
+  pulseDuration: [10-50ns]
   wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.1-2.0mm]
-  repetitionRate: [10-50kHz]
-  fluenceRange: [0.5–5 J/cm²]
+  spotSize: [0.2-1.0mm]
+  repetitionRate: [20-100kHz]
+  fluenceRange: [1.0–10 J/cm²]
   safetyClass: [Class 4 (requires full enclosure)]
 description: Technical overview of Kevlar-Reinforced Polymer for laser cleaning applications, including 1.44 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Yi-Chun Lin
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Kevlar-Reinforced Polymer
   materialType: composite
 properties:
-  density: [1.44 g/cm³]
-  meltingPoint: [450°C (decomposition)]
-  thermalConductivity: [0.04 W/m·K]
-  laserType: [Nd:YAG or fiber laser]
-  wavelength: [1064nm]
-  fluenceRange: [0.5–5 J/cm²]
+  density: 1.44 g/cm³
+  meltingPoint: Does not melt, decomposes at 427°C
+  thermalConductivity: 0.04 W/m·K
+  laserType: Pulsed fiber laser
+  wavelength: 1064nm
+  fluenceRange: 1.0–10 J/cm²
   chemicalFormula: Kevlar-Reinforced Polymer
 composition:
-- [Kevlar fibers]
-- [Epoxy resin]
+- Kevlar fibers
+- Epoxy resin
 compatibility:
-- [Carbon fiber composites]
-- [Metal alloys]
-regulatoryStandards: [ISO 11146-1, ASTM D3039/D3039M]
+- Carbon fiber composites
+- Aluminum alloys
+regulatoryStandards: ASTM D3039, ISO 527-4
 images:
   hero:
     alt: Kevlar-Reinforced Polymer surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Kevlar-Reinforced Polymer - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite kevlar-reinforced polymer
 environmentalImpact:
-- benefit: [Reduced chemical waste]
-  description: [90% reduction in chemical usage compared to traditional cleaning methods]
-- benefit: [Lower energy consumption]
-  description: [30% less energy used than abrasive blasting techniques]
-- benefit: [Minimal material waste]
-  description: [95% of the material remains intact post-cleaning]
+- benefit: Reduced chemical waste
+  description: Eliminates 95% of chemical solvents used in traditional cleaning methods
+- benefit: Energy efficiency
+  description: Uses 30% less energy compared to abrasive cleaning techniques
+- benefit: Lower emissions
+  description: Reduces CO2 emissions by 25% during the cleaning process
 outcomes:
-- result: [Improved surface quality]
-  metric: [Surface roughness reduced by 50% as per ISO 4287]
-- result: [Enhanced bonding strength]
-  metric: [Bond strength increased by 20% according to ASTM D1002]
-- result: [Increased durability]
-  metric: [Lifespan extended by 15% as measured by ASTM D3045]
+- result: Improved surface cleanliness
+- metric: Achieves 99.9% removal of surface contaminants per ASTM E1216 standard
+- result: Preserved material integrity
+  metric: Maintains 98% of original tensile strength per ASTM D3039 standard
+- result: Enhanced bonding quality
+  metric: Increases bond strength by 20% as measured by ISO 4587 standard
 subject: Kevlar-Reinforced Polymer
 article_type: material
 ---

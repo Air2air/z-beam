@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BaseLinkProps, BaseImageProps } from "../../types";
+import { BaseLinkProps /* BaseImageProps */ } from "../../types";
 
 // Footer navigation item interface
 interface FooterNavItem extends BaseLinkProps {
@@ -17,10 +17,10 @@ interface SocialLink extends BaseLinkProps {
 }
 
 // Logo props for footer
-interface FooterLogoProps extends BaseImageProps {
-  width: number;
-  height: number;
-}
+// interface FooterLogoProps extends BaseImageProps {
+//   width: number;
+//   height: number;
+// }
 
 // Navigation items for the footer
 const footerNav: FooterNavItem[] = [

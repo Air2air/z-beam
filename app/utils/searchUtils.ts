@@ -40,7 +40,7 @@ export function getDisplayName(item: any): string {
   if (item.slug) {
     return item.slug
       .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   }
   

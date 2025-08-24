@@ -1,0 +1,2 @@
+**Molybdenum** surface (left) before cleaning, showing thick oxide scale and embedded particulate contamination from high-temperature sintering operations.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (12 J/cm², 100 ns pulse duration, 500 µm spot), revealing the pure, high-purity metallic substrate with no surface damage to the refractory metal.

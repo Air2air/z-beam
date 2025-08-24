@@ -1,0 +1,2 @@
+**Lead Crystal** surface (left) before cleaning, showing heavy atmospheric sulfide tarnishing and embedded particulate contamination obscuring optical clarity.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm², 10 ns pulse duration, and a 500 µm spot, which selectively removed the surface sulfation without thermal stress to the high-lead-content glass.

@@ -19,33 +19,6 @@
           "statement": "import React from \"react\"",
           "path": "react",
           "line": 4
-        },
-        {
-          "statement": "import { Article, ArticleFrontmatter } from \"../../types/Article\"",
-          "path": "../../types/Article",
-          "line": 5
-        }
-      ],
-      "errors": [],
-      "warnings": []
-    },
-    "BadgeSymbol/ServerBadgeSymbol.tsx": {
-      "status": "PASS",
-      "imports": [
-        {
-          "statement": "import { getMaterialFrontmatter } from '@/app/utils/serverUtils'",
-          "path": "@/app/utils/serverUtils",
-          "line": 2
-        },
-        {
-          "statement": "import { BadgeSymbol } from './BadgeSymbol'",
-          "path": "./BadgeSymbol",
-          "line": 3
-        },
-        {
-          "statement": "import { ArticleFrontmatter } from '@/app/types/Article'",
-          "path": "@/app/types/Article",
-          "line": 4
         }
       ],
       "errors": [],
@@ -132,13 +105,13 @@
           "line": 5
         },
         {
-          "statement": "import { BadgeSymbol } from \"../BadgeSymbol/BadgeSymbol\"",
-          "path": "../BadgeSymbol/BadgeSymbol",
+          "statement": "import { Thumbnail } from \"../Thumbnail/Thumbnail\"",
+          "path": "../Thumbnail/Thumbnail",
           "line": 6
         },
         {
-          "statement": "import { Thumbnail } from \"../Thumbnail/Thumbnail\"",
-          "path": "../Thumbnail/Thumbnail",
+          "statement": "import { BadgeSymbol } from \"../BadgeSymbol/BadgeSymbol\"",
+          "path": "../BadgeSymbol/BadgeSymbol",
           "line": 7
         }
       ],
@@ -344,9 +317,14 @@
           "line": 11
         },
         {
+          "statement": "import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol'",
+          "path": "../BadgeSymbol/BadgeSymbol",
+          "line": 12
+        },
+        {
           "statement": "import { parseAuthorContent } from '@/app/utils/authorParser'",
           "path": "@/app/utils/authorParser",
-          "line": 12
+          "line": 13
         }
       ],
       "errors": [],
@@ -366,7 +344,7 @@
           "line": 5
         },
         {
-          "statement": "import { BreadcrumbItem, BreadcrumbsProps } from \"../../types\"",
+          "statement": "import { BreadcrumbItem } from \"../../types\"",
           "path": "../../types",
           "line": 6
         }
@@ -390,7 +368,7 @@
           "line": 4
         },
         {
-          "statement": "import { BaseLinkProps, BaseImageProps } from \"../../types\"",
+          "statement": "import { BaseLinkProps /* BaseImageProps */ } from \"../../types\"",
           "path": "../../types",
           "line": 5
         }
@@ -424,7 +402,7 @@
           "line": 7
         },
         {
-          "statement": "import { BaseImageProps, BaseLinkProps } from \"../../types\"",
+          "statement": "import { /* BaseImageProps, */ } from \"../../types\"",
           "path": "../../types",
           "line": 8
         }
@@ -451,12 +429,12 @@
           "line": 4
         },
         {
-          "statement": "import { cn } from \"@/app/utils/helpers\"",
+          "statement": "import { /* cn */ } from \"@/app/utils/helpers\"",
           "path": "@/app/utils/helpers",
           "line": 5
         },
         {
-          "statement": "import { getArticle } from \"@/app/utils/contentAPI\"",
+          "statement": "import { getArticle, loadComponent } from \"@/app/utils/contentAPI\"",
           "path": "@/app/utils/contentAPI",
           "line": 6
         }
@@ -522,7 +500,7 @@
           "line": 7
         },
         {
-          "statement": "import { Article, EnrichedArticle } from \"../../types/Article\"",
+          "statement": "import { /* Article, */ EnrichedArticle } from \"../../types/Article\"",
           "path": "../../types/Article",
           "line": 8
         }
@@ -715,27 +693,17 @@
       "suggestions": []
     },
     "BadgeSymbol/BadgeSymbol.tsx": {
-      "status": "WARN",
-      "interfaces": [
-        {
-          "name": "BadgeSymbolProps",
-          "body": "// Only needed props\n  variant?: \"card\" | \"large\" | \"small\";\n  position?: string;\n\n  // Primary data source - frontmatter\n  frontmatter?: ArticleFrontmatter;\n  // For convenience, can extract frontmatter from article\n  article?: Article;\n  // For default when no chemical data exists\n  slug?: string;",
-          "line": 8
-        }
-      ],
-      "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
-      "suggestions": []
-    },
-    "BadgeSymbol/ServerBadgeSymbol.tsx": {
       "status": "PASS",
       "interfaces": [
         {
-          "name": "ServerBadgeSymbolProps",
-          "body": "materialSlug?: string;\n  variant?: \"card\" | \"large\" | \"small\";\n  position?: string;\n  slug?: string;",
-          "line": 6
+          "name": "BadgeSymbolData",
+          "body": "symbol: string;\n  materialType?: string;\n  atomicNumber?: number;\n  formula?: string;\n  description?: string;",
+          "line": 7
+        },
+        {
+          "name": "BadgeSymbolProps",
+          "body": "content: string;\n  config?: BadgeSymbolData & {\n    variant?: \"card\" | \"large\" | \"small\";\n    className?: string;",
+          "line": 15
         }
       ],
       "propsUsage": [],
@@ -833,7 +801,7 @@
       "suggestions": []
     },
     "Card/ServerCard.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [
         {
           "name": "ServerCardProps",
@@ -842,9 +810,7 @@
         }
       ],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "Content/Content.tsx": {
@@ -879,18 +845,16 @@
       "suggestions": []
     },
     "Debug/FrontmatterDebug.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [
         {
           "name": "FrontmatterItem",
-          "body": "slug: string;\n  title: string;\n  author: string;\n  [key: string]: any;",
+          "body": "slug: string;\n  title: string;\n  author: string;\n  [key: string]: unknown;",
           "line": 6
         }
       ],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "Debug/FrontmatterNameChecker.tsx": {
@@ -932,18 +896,16 @@
       "suggestions": []
     },
     "Hero/Hero.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [
         {
           "name": "HeroProps",
-          "body": "image?: string;\n  align?: 'left' | 'center' | 'right';\n  theme?: 'dark' | 'light';\n  frontmatter?: any; // Frontmatter contains all image path information\n  cta?: {\n    text: string;\n    href: string;",
+          "body": "image?: string;\n  align?: 'left' | 'center' | 'right';\n  theme?: 'dark' | 'light';\n  frontmatter?: {\n    images?: {\n      hero?: {\n        url?: string;",
           "line": 4
         }
       ],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "JsonLD/JsonLD.tsx": {
@@ -1002,8 +964,8 @@
       "interfaces": [
         {
           "name": "LayoutProps",
-          "body": "components: Record<string, any> | null; // Make components accept null\n  metadata?: any;\n  slug?: string;\n  title?: string;\n  hideHeader?: boolean;\n  className?: string;",
-          "line": 25
+          "body": "components: Record<string, any> | null; // Keep any for component flexibility\n  metadata?: any; // Keep any for metadata flexibility\n  slug?: string;\n  title?: string;\n  hideHeader?: boolean;\n  className?: string;",
+          "line": 27
         }
       ],
       "propsUsage": [],
@@ -1013,12 +975,10 @@
       "suggestions": []
     },
     "Layout/breadcrumbs.tsx": {
-      "status": "WARN",
+      "status": "PASS",
       "interfaces": [],
       "propsUsage": [],
-      "issues": [
-        "Using \"any\" type in props or interfaces - consider specific types"
-      ],
+      "issues": [],
       "suggestions": []
     },
     "Layout/footer.tsx": {
@@ -1056,7 +1016,7 @@
         },
         {
           "name": "Article",
-          "body": "metadata: ArticleMetadata;\n  components: Record<string, any> | null;",
+          "body": "metadata: ArticleMetadata;\n  components: Record<string, unknown> | null;",
           "line": 57
         }
       ],
@@ -1272,19 +1232,19 @@
   "componentAnalysis": {},
   "summary": {
     "importValidation": {
-      "total": 39,
-      "passed": 35,
+      "total": 38,
+      "passed": 34,
       "failed": 4,
       "errors": 0
     },
     "propsValidation": {
-      "total": 39,
-      "clean": 24,
-      "issues": 15,
+      "total": 38,
+      "clean": 28,
+      "issues": 10,
       "errors": 0
     },
     "overallStatus": "WARN",
-    "timestamp": "2025-08-23T22:49:03.630Z"
+    "timestamp": "2025-08-24T01:50:10.920Z"
   },
-  "timestamp": "2025-08-23T22:49:03.608Z"
+  "timestamp": "2025-08-24T01:50:10.898Z"
 }

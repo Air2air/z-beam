@@ -1,0 +1,2 @@
+**Concrete** surface (left) before cleaning, showing heavy organic algal growth and embedded soot particulate within the porous matrix.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm² fluence, 100 ns pulse duration, and 8 mm spot size, which selectively ablated the biological layer and carbonaceous deposits while preserving the sound cementitious substrate.

@@ -1,0 +1,9 @@
+- **[APPLICATIONS]** Laser cleaning excels in restoring historical plasterwork across European cultural heritage sites, where it precisely removes soot and biological patina without damaging the delicate substrate. This non-abrasive technique is also increasingly adopted in modern manufacturing for pre-treatment surface preparation before applying new finishes or protective coatings.
+
+- **[PARAMETERS]** Optimal cleaning of plaster typically employs near-infrared wavelengths around 1064 nm with moderate fluence levels between 0.5 and 1.5 J/cm², effectively ablating contaminants while preserving the hydrated calcium sulfate matrix. Shorter pulse durations in the nanosecond range are preferred to minimize thermal penetration and prevent any dehydration or micro-fracturing of the material.
+
+- **[ENVIRONMENTAL]** The process is inherently eco-friendly, generating only minute vacuumable waste particles and completely eliminating the need for chemical solvents, thus aligning with stringent EU waste directives. This dry method significantly reduces the environmental footprint of restoration projects compared to traditional techniques that produce hazardous liquid waste.
+
+- **[SAFETY]** Strict adherence to EN 60825-1 for laser safety is mandatory, requiring Class 4 enclosure systems, interlocks, and the use of certified personal protective equipment including wavelength-specific eyewear. A critical, often overlooked protocol involves continuous fume extraction and HEPA filtration to capture any aerosolized lead particles from historical paint layers.
+
+- **[CHALLENGES]** A primary difficulty is the plaster's high susceptibility to thermal shock, which demands extremely precise parameter control to avoid causing surface whitening or sub-surface weakening. Success hinges on rigorous pre-cleaning trials on inconspicuous areas to establish a custom parameter set that accounts for the specific contamination and plaster composition.

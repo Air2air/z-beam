@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Al₂O₃·2SiO₂·2H₂O |
-| Material Symbol | N/A |
+| Chemical Formula | Porcela… |
+| Material Symbol | PO |
 | Category | Ceramic |
-| Material Type | Vitrified Ceramic |
-| Tensile Strength | 25-50 MPa |
-| Thermal Conductivity | 1.5 W/(m·K) |
+| Material Type | Ceramic |
+| Tensile Strength | N/A |
+| Thermal Conductivity | ['1.5-2… |

@@ -1,0 +1,2 @@
+**Gallium Arsenide** surface (left) before cleaning, showing visible photoresist residues and a thin native oxide layer compromising surface stoichiometry.
+**After laser cleaning** (right) using a 532 nm Nd:YAG laser (1.2 J/cm², 8 ns pulse, 500 µm spot), revealing the pristine, atomically clean substrate essential for high-electron-mobility transistor fabrication.

@@ -5,7 +5,14 @@ interface HeroProps {
   image?: string;
   align?: 'left' | 'center' | 'right';
   theme?: 'dark' | 'light';
-  frontmatter?: any; // Frontmatter contains all image path information
+  frontmatter?: {
+    images?: {
+      hero?: {
+        url?: string;
+      };
+    };
+    [key: string]: unknown;
+  }; // Frontmatter contains all image path information
   cta?: {
     text: string;
     href: string;
@@ -14,7 +21,7 @@ interface HeroProps {
 
 export function Hero({ 
   image, 
-  align = 'center', 
+  // align = 'center', - unused
   theme = 'dark',
   frontmatter,
 

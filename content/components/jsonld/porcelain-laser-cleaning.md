@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Porcelain Materials",
-  "description": "Advanced laser cleaning techniques for Porcelain materials, ensuring precision surface treatment while preserving the material's structural integrity.",
+  "description": "Advanced laser cleaning techniques for Porcelain materials, ensuring precision surface treatment while preserving the material's structural integrity and surface finish.",
   "keywords": [
     "Porcelain laser cleaning",
     "Porcelain ceramic cleaning",
@@ -11,26 +11,28 @@
     "precision cleaning",
     "industrial applications",
     "laser ablation parameters",
-    "contamination removal"
+    "surface contamination removal",
+    "thermal shock prevention",
+    "glaze preservation"
   ],
-  "articleBody": "Porcelain is a vitrified ceramic material composed primarily of kaolin, feldspar, and quartz, characterized by its high mechanical strength, chemical inertness, and thermal stability. These properties make it ideal for demanding industrial applications but present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal settings at 1064 nm wavelength, 0.5-2.0 J/cm² fluence, and nanosecond pulse durations to selectively ablate unwanted material while preserving the underlying Porcelain substrate. Key applications include restoration of historical porcelain artifacts, surface preparation for bonding in electrical insulators, and removal of surface contaminants from medical and dental porcelain components. Challenges include the material's brittleness and thermal sensitivity, which are addressed through precise parameter control and real-time monitoring systems. Safety considerations require appropriate laser safety eyewear, fume extraction systems for ablated particulates, and controlled environment operation to prevent thermal shock to the porcelain material.",
+  "articleBody": "Porcelain is a vitrified ceramic material composed primarily of kaolin, quartz, and feldspar, characterized by its high mechanical strength, chemical resistance, and thermal stability. These properties make porcelain ideal for demanding industrial applications but present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxidation layers, and surface deposits without compromising the material's structural integrity or delicate glaze finish. The process utilizes carefully controlled laser parameters, typically employing nanosecond pulsed lasers at 1064 nm wavelength with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 ns. These parameters are optimized to selectively ablate unwanted material while minimizing thermal stress that could cause microcracking or thermal shock in the porcelain substrate. Key applications include restoration of historical porcelain artifacts, cleaning of electrical insulators, preparation of medical-grade porcelain components, and surface treatment of industrial porcelain tiles and fixtures. The non-abrasive nature of laser cleaning preserves surface details and prevents mechanical damage that traditional methods might cause. Safety considerations include proper laser shielding, fume extraction for airborne particles, and appropriate personal protective equipment including laser safety goggles rated for the specific wavelength.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/porcelain-laser-cleaning-hero.jpg",
       "name": "Porcelain Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of Porcelain object displaying side-by-side before and after laser cleaning results",
-      "description": "Split-view workbench photograph showing a Porcelain object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
-      "keywords": "Porcelain laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
+      "caption": "Dual workbench photo of Porcelain electrical insulator displaying side-by-side before and after laser cleaning results showing complete contamination removal",
+      "description": "Split-view workbench photograph showing a Porcelain electrical insulator in before (left) with heavy surface contamination and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment while preserving the glaze integrity",
+      "keywords": "Porcelain laser cleaning, before after comparison, dual photo, workbench view, contamination removal, electrical insulator",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/porcelain-laser-cleaning-closeup.jpg",
       "name": "Porcelain Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Porcelain material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Porcelain material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 100 ns pulse duration, and 200 μm spot size specifications",
-      "keywords": "Porcelain microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
+      "caption": "Dual high-magnification photo of Porcelain material surface showing detailed side-by-side before and after laser cleaning results with 1064 nm wavelength, 1.8 J/cm² fluence, and 20 ns pulse duration specifications",
+      "description": "Split-view microscopic photograph of Porcelain material surface displaying before (left) with surface oxidation and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 0.5 mm spot size specifications",
+      "keywords": "Porcelain microscopy, surface analysis, laser parameters, technical specifications, dual comparison, glaze preservation",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",

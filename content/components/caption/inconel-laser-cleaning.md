@@ -1,0 +1,2 @@
+**Inconel 718** surface (left) before cleaning, showing heavy oxide scale and heat tint from prior thermal processing.
+**After laser cleaning** (right) using a 1064 nm fiber laser at 100 W, 100 ns pulse duration, and a 200 µm spot, revealing the pristine, oxidation-resistant substrate with no surface damage.

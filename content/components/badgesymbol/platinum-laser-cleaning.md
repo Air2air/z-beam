@@ -1,0 +1,4 @@
+---
+symbol: "Pt"
+materialType: "metal"
+---

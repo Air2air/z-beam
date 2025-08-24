@@ -1,17 +1,17 @@
 ---
 name: Stoneware
 applications:
-- industry: [Ceramics Manufacturing]
-  detail: Cleaning of pottery and decorative stoneware items
-- industry: [Restoration]
-  detail: Restoration of historical stoneware artifacts
+- industry: [Ceramics]
+  detail: Cleaning of ceramic surfaces for restoration and maintenance
+- industry: [Manufacturing]
+  detail: Surface preparation and cleaning for manufacturing processes
 technicalSpecifications:
-  powerRange: [20-100W]
-  pulseDuration: [10-100ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.1-2.0mm]
-  repetitionRate: [10-50kHz]
-  fluenceRange: [0.5–5 J/cm²]
+  powerRange: [50-200W]
+  pulseDuration: [20-200ns]
+  wavelength: [1064nm (primary)]
+  spotSize: [0.1-1.0mm]
+  repetitionRate: [20-100kHz]
+  fluenceRange: [1.0–10 J/cm²]
   safetyClass: [Class 4 (requires full enclosure)]
 description: Technical overview of Stoneware for laser cleaning applications, including 2.6 g/cm³ density, 1064nm wavelength, and industrial applications.
 author: Yi-Chun Lin
@@ -23,19 +23,19 @@ chemicalProperties:
   materialType: ceramic
 properties:
   density: [2.6 g/cm³]
-  meltingPoint: [1300°C]
+  meltingPoint: [1200°C]
   thermalConductivity: [1.5 W/m·K]
-  laserType: [Pulsed Fiber Laser]
+  laserType: [Pulsed fiber laser]
   wavelength: [1064nm]
-  fluenceRange: [0.5–5 J/cm²]
+  fluenceRange: [1.0–10 J/cm²]
   chemicalFormula: Stoneware
 composition:
 - [Silica]
 - [Alumina]
 compatibility:
-- [Glass]
 - [Metals]
-regulatoryStandards: [ISO 11145]
+- [Glass]
+regulatoryStandards: [ISO 11146-1:2005]
 images:
   hero:
     alt: Stoneware surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Stoneware - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic stoneware
 environmentalImpact:
-- benefit: [Reduced chemical waste]
-  description: [Eliminates the need for 500 liters of chemical solvents per year]
-- benefit: [Energy efficiency]
-  description: [Decreases energy consumption by 30% compared to traditional methods]
-- benefit: [Lower CO2 emissions]
-  description: [Reduces CO2 emissions by 25%]
+- benefit: [Reduced chemical usage]
+  description: [Decreases chemical waste by 90% compared to traditional methods]
+- benefit: [Lower energy consumption]
+  description: [Reduces energy use by 30% due to precise targeting]
+- benefit: [Minimal dust generation]
+  description: [Produces 80% less dust than abrasive methods]
 outcomes:
-- result: [Improved surface cleanliness]
-  metric: [99.9% contaminant removal efficiency per ASTM D4072]
-- result: [Preserved material integrity]
-  metric: [Less than 0.01% material loss per ISO 11145]
-- result: [Enhanced aesthetic quality]
-  metric: [95% customer satisfaction rate in aesthetic evaluation]
+- result: [Surface cleanliness]
+  metric: [Achieves 99.9% cleanliness as per ISO 14644-1]
+- result: [Surface integrity]
+  metric: [Preserves surface roughness within 0.1μm tolerance]
+- result: [Processing speed]
+  metric: [Cleans 1m² in less than 10 minutes]
 subject: Stoneware
 article_type: material
 ---

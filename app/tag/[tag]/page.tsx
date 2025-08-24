@@ -35,7 +35,7 @@ export default async function TagPage({ params }: PageProps) {
   
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Articles tagged with "{tag}"</h1>
+      <h1 className="text-3xl font-bold mb-6">Articles tagged with &quot;{tag}&quot;</h1>
       
       <SearchResults 
         items={matchingArticles} 

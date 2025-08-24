@@ -93,8 +93,14 @@ export default function BadgeSymbolDebugPage() {
               </p>
               <div className="w-full h-full">
                 <BadgeSymbol 
-                  frontmatter={fm} 
-                  variant="card"
+                  content=""
+                  config={{
+                    symbol: fm.chemicalProperties.symbol,
+                    formula: fm.chemicalProperties.formula,
+                    materialType: fm.chemicalProperties.materialType,
+                    atomicNumber: fm.chemicalProperties.atomicNumber,
+                    variant: "card"
+                  }}
                 />
               </div>
             </div>
@@ -117,8 +123,12 @@ export default function BadgeSymbolDebugPage() {
                 </p>
                 <div className="w-full h-full">
                   <BadgeSymbol 
-                    slug={material.name.toLowerCase().replace(/\s+/g, '-')} 
-                    variant="card"
+                    content=""
+                    config={{
+                      symbol: material.name.slice(0, 2), // First 2 chars as symbol
+                      materialType: material.type,
+                      variant: "card"
+                    }}
                   />
                 </div>
               </div>

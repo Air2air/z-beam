@@ -5,7 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { BaseImageProps, BaseLinkProps } from "../../types";
+import { /* BaseImageProps, */ } from "../../types";
 
 // Navigation item interface
 interface NavItem {
@@ -17,10 +17,10 @@ interface NavItem {
 }
 
 // Logo component props extending BaseImageProps
-interface LogoProps extends BaseImageProps {
-  width: number;
-  height: number;
-}
+// interface LogoProps extends BaseImageProps {
+//   width: number;
+//   height: number;
+// }
 
 // Define your navigation items
 const navItems: Record<string, NavItem> = {

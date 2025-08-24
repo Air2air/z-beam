@@ -3,9 +3,9 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { BreadcrumbItem, BreadcrumbsProps } from "../../types";
+import { BreadcrumbItem } from "../../types";
 
-export function Breadcrumbs({ className }: { className?: string }) {
+export function Breadcrumbs() {
   const pathname = usePathname();
   
   // Handle case where pathname might be null

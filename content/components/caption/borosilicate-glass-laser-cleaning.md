@@ -1,0 +1,2 @@
+**Borosilicate Glass** surface (left) before cleaning, showing heavy, baked-on organic residues and particulate contamination from laboratory use.
+**After laser cleaning** (right) using a 355 nm Nd:YAG laser (1.5 J/cm², 10 ns), successfully removing all foreign material without thermal stress to the low-CTE substrate.

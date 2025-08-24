@@ -1,0 +1,2 @@
+**Copper** surface (left) before processing, exhibiting heavy atmospheric sulfide tarnish and residual drawing compound from manufacturing.  
+**After laser cleaning** (right) using a 515 nm Nd:YAG laser (8 W, 100 ns pulse, 100 µm spot), revealing the pristine, oxide-free substrate with no mechanical or chemical surface alteration.

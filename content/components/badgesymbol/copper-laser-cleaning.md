@@ -1,0 +1,4 @@
+---
+symbol: "Cu"
+materialType: "metal"
+---

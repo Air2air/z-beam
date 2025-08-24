@@ -1,0 +1,2 @@
+**Hafnium** surface (left) before cleaning, showing visible oxide layer formation and embedded particulate contamination from high-temperature processing.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm² fluence and 100 ns pulse duration, achieving complete oxide removal with restored metallic luster and no substrate damage.

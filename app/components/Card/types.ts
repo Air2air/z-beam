@@ -18,8 +18,8 @@ export interface CardProps {
   imageAlt?: string;
   tags?: string[];
   badge?: BadgeData | null;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   className?: string;
   height?: string;
-  frontmatterData?: any; // Add this property
+  frontmatterData?: Record<string, unknown>; // Add this property
 }

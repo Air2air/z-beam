@@ -2,8 +2,8 @@
 import "./styles.scss";
 import React from "react";
 import { Card } from "../Card/Card";
-import { cn } from "@/app/utils/helpers";
-import { getArticle } from "@/app/utils/contentAPI"; // Updated to use contentAPI
+import { /* cn */ } from "@/app/utils/helpers";
+import { getArticle, loadComponent } from "@/app/utils/contentAPI"; // Updated to use contentAPI
 
 interface ListProps {
   // Add slugs as a prop alternative to items
@@ -51,12 +51,12 @@ interface ArticleMetadata {
     formula?: string;
   }>;
   // Optional: Add this for flexibility with other fields
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 interface Article {
   metadata: ArticleMetadata;
-  components: Record<string, any> | null;
+  components: Record<string, unknown> | null;
 }
 
 export async function List({
@@ -116,6 +116,39 @@ export async function List({
           : article?.metadata?.subject?.substring(0, 2) || "";
       }
 
+      // Load BadgeSymbol data from content/components/badgesymbol/
+      let badgeSymbolData: {
+        symbol: string;
+        materialType?: string;
+        atomicNumber?: number;
+        formula?: string;
+      } | null = null;
+      try {
+        const badgeSymbol = await loadComponent('badgesymbol', item.slug);
+        if (badgeSymbol?.config) {
+          const config = badgeSymbol.config as any; // Type assertion for flexibility
+          const symbolValue = config.symbol || chemicalSymbol;
+          if (symbolValue) {
+            badgeSymbolData = {
+              symbol: String(symbolValue),
+              materialType: config.materialType ? String(config.materialType) : article?.metadata?.category as string,
+              atomicNumber: config.atomicNumber ? Number(config.atomicNumber) : atomicNumber,
+              formula: config.formula ? String(config.formula) : chemicalFormula,
+            };
+          }
+        }
+      } catch (error) {
+        // If no BadgeSymbol content file exists, fall back to article metadata
+        if (chemicalSymbol) {
+          badgeSymbolData = {
+            symbol: chemicalSymbol,
+            materialType: article?.metadata?.category as string,
+            atomicNumber: atomicNumber,
+            formula: chemicalFormula,
+          };
+        }
+      }
+
       return {
         slug: item.slug,
         title: article?.metadata?.subject || item.title || item.slug,
@@ -132,6 +165,8 @@ export async function List({
         featured: item.featured,
         // Pass the full article for other needs
         materialData: article,
+        // Pass the loaded BadgeSymbol data
+        badgeSymbolData,
       };
     })
   );
@@ -166,14 +201,12 @@ export async function List({
               title={item.title}
               description={item.description}
               href={`/${item.slug}`}
-              badge={
-                item.badge || {
-                  symbol: item.chemicalSymbol,
-                  formula: item.chemicalFormula,
-                  atomicNumber: item.atomicNumber,
-                  materialType: item.category,
-                }
-              }
+              badge={item.badgeSymbolData || {
+                symbol: item.chemicalSymbol,
+                formula: item.chemicalFormula,
+                atomicNumber: item.atomicNumber,
+                materialType: item.category,
+              }}
               imageUrl={item.imageUrl}
               imageAlt={item.title}
               metadata={item.materialData?.metadata || {
@@ -204,7 +237,7 @@ function getArticleImage(
   // Try to get OpenGraph image from metadata if available
   const ogImage =
     article?.metadata?.["ogImage"] ||
-    article?.metadata?.["openGraph"]?.["images"]?.[0]?.["url"];
+    (article?.metadata as any)?.["openGraph"]?.["images"]?.[0]?.["url"];
   if (ogImage) return ogImage;
   
   // Return undefined to let the Thumbnail component handle all fallbacks

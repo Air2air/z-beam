@@ -1,0 +1,2 @@
+**Stucco** surface (left) before cleaning, showing heavy biological colonization (lichen and algae) and embedded atmospheric particulates within its porous calcium carbonate matrix.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and 8 mm spot size, which selectively ablated contaminants while preserving the delicate substrate texture and original mineral composition.

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | SiO₂ (primary component) |
-| Material Symbol | N/A |
-| Category | Composite Material |
-| Material Type | Reinforced Polymer |
-| Tensile Strength | 310-690 MPa |
-| Thermal Conductivity | 0.04 W/m·K |
+| Chemical Formula | Fibergl… |
+| Material Symbol | FI |
+| Category | Composi… |
+| Material Type | Composi… |
+| Tensile Strength | N/A |
+| Thermal Conductivity | ['0.04W… |

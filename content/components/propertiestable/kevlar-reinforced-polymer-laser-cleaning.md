@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | (C₁₄H₁₄N₂O₂)ₙ + Polymer Matrix |
-| Material Symbol | KRP |
-| Category | Composite Material |
-| Material Type | Aramid-Reinforced Thermoplastic/Thermoset |
-| Tensile Strength | 1000-3000 MPa |
-| Thermal Conductivity | 0.04-0.05 W/m·K |
+| Chemical Formula | Kevlar-… |
+| Material Symbol | KE |
+| Category | Composi… |
+| Material Type | Composi… |
+| Tensile Strength | N/A |
+| Thermal Conductivity | 0.04W/mK |

@@ -1,0 +1,2 @@
+**Ruthenium** surface (left) before cleaning, showing accumulated atmospheric sulfidation and carbonaceous particulate contamination.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse, 500 µm spot), exhibiting complete contaminant removal with no thermal alteration to the underlying precious metal.

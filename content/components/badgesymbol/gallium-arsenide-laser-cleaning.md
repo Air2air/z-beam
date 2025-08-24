@@ -1,0 +1,4 @@
+---
+symbol: "GaAs"
+materialType: "semiconductor"
+---

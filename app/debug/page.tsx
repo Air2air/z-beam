@@ -128,8 +128,13 @@ export default function DebugPage() {
               <h3 className="text-lg font-medium mb-2">Aluminum (Al)</h3>
               <div className="w-full h-full">
                 <BadgeSymbol 
-                  slug="aluminum" 
-                  variant="card"
+                  content=""
+                  config={{
+                    symbol: "Al",
+                    materialType: "metal",
+                    atomicNumber: 13,
+                    variant: "card"
+                  }}
                 />
               </div>
             </div>

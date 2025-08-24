@@ -1,0 +1,2 @@
+**Nickel** component (left) before cleaning, exhibiting heavy oxide scale and embedded particulate contamination from high-temperature service.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², revealing the pure, undamaged substrate with restored surface integrity and adhesion properties.

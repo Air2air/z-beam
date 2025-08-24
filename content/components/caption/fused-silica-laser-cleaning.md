@@ -1,0 +1,2 @@
+**Fused Silica** surface (left) before cleaning, showing significant hydrocarbon film deposition and sub-micron particulate adhesion.
+**After laser cleaning** (right) using a 355 nm Nd:YAG laser (5 ns pulse duration, 0.8 J/cm² fluence, 500 µm spot), resulting in complete contaminant ablation with no substrate damage to the high-purity SiO₂ surface.

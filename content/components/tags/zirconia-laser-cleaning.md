@@ -1,1 +1,1 @@
-zirconia, ablation, cleaning, laser, dental, manufacturing, non-contact, yi-chun-lin
+ablation, cleaning, laser, zirconia, non-contact, dental, manufacturing, yi-chun lin

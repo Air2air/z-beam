@@ -1,0 +1,4 @@
+---
+symbol: "Sn"
+materialType: "metal"
+---

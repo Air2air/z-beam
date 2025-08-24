@@ -1,0 +1,2 @@
+**Mortar** surface (left) before cleaning, showing heavy atmospheric soiling, embedded particulate matter, and biological growth.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², revealing the original substrate texture without damage to the hydrated cement matrix.

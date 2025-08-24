@@ -1,0 +1,2 @@
+**Urethane Composites** surface (left) before cleaning, showing heavy carbonaceous soot and polymerized organic residues from thermal degradation.
+**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 12 W (150 mJ, 80 ns pulse, 1.2 mm spot), selectively removing contaminants while preserving the composite's cross-linked polymer matrix and filler integrity.

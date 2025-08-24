@@ -1,0 +1,4 @@
+---
+symbol: "RU"
+materialType: "composite"
+---

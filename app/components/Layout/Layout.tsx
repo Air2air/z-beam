@@ -9,11 +9,13 @@ import { Author } from '../Author/Author';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { Hero } from '../Hero/Hero';
 import { Title } from '../Title/Title';
+import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import { parseAuthorContent } from '@/app/utils/authorParser';
 
 // Update component order to include propertiestable, author, and tags
 const COMPONENT_ORDER = [
   'propertiestable',
+  'badgesymbol',
   'content',
   'caption',
   'bullets',
@@ -23,8 +25,8 @@ const COMPONENT_ORDER = [
 ] as const;
 
 interface LayoutProps {
-  components: Record<string, any> | null; // Make components accept null
-  metadata?: any;
+  components: Record<string, any> | null; // Keep any for component flexibility
+  metadata?: any; // Keep any for metadata flexibility
   slug?: string;
   title?: string;
   hideHeader?: boolean;
@@ -127,6 +129,8 @@ export function Layout({
                 )}
               </div>
             );
+          case 'badgesymbol':
+            return <BadgeSymbol key={type} content={content} config={config} />;
           case 'content':
             return <Content key={type} content={content} config={config} />;
           case 'caption':

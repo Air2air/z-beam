@@ -1,0 +1,4 @@
+---
+symbol: "W"
+materialType: "metal"
+---

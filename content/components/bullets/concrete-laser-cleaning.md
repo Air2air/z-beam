@@ -1,0 +1,9 @@
+- **[APPLICATIONS]** Laser cleaning excels in restoring historical concrete monuments and facades across European cities, preserving intricate surface details without abrasive damage. The technology is also deployed for pre-treatment in manufacturing, removing efflorescence and contaminants before applying protective coatings on industrial concrete surfaces.
+
+- **[PARAMETERS]** Optimal cleaning employs near-infrared wavelengths (1064 nm) with fluences between 1.5-2.5 J/cm², effectively breaking the bond between contaminants and the substrate without damaging the cementitious matrix. Short pulse durations in the nanosecond range are preferred to generate rapid thermal shock in the surface layer, minimizing heat propagation into the concrete's porous structure.
+
+- **[ENVIRONMENTAL]** This process eliminates chemical solvents and abrasive media, aligning with stringent EU waste disposal directives by producing only minute, filterable particulate waste. The significant reduction in water usage and absence of hazardous runoff support sustainable conservation practices demanded by modern European industrial standards.
+
+- **[SAFETY]** Operators must wear wavelength-specific laser safety goggles and utilize Class 4 enclosed interlocked systems, adhering to the EN 60825-1 standard for radiation safety. Effective HEPA-filtered local exhaust ventilation is mandatory to capture airborne concrete dust and nanoparticles, ensuring compliance with workplace exposure limits.
+
+- **[CHALLENGES]** The heterogeneous composition of concrete can lead to differential ablation rates, requiring real-time parameter adjustment to prevent over-cleaning of softer aggregate components. Mitigation involves using scanning systems with depth monitoring and employing shorter pulse widths to better control energy deposition across varying material densities.
