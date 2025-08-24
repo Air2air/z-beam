@@ -2,18 +2,18 @@
 name: Rubber
 applications:
 - industry: "Automotive"
-  detail: Cleaning of rubber gaskets and seals to remove contaminants and restore surface integrity
+  detail: Laser cleaning of rubber gaskets and seals
 - industry: "Manufacturing"
-  detail: Surface preparation of rubber components for bonding or painting
+  detail: Surface preparation of rubber components for bonding
 technicalSpecifications:
-  powerRange: "50-200W"
+  powerRange: "20-100W"
   pulseDuration: "10-50ns"
   wavelength: "1064nm (primary), 532nm (optional)"
   spotSize: "0.1-1.0mm"
   repetitionRate: "20-100kHz"
-  fluenceRange: "1.0–10 J/cm²"
+  fluenceRange: "0.5-2.0 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Rubber for laser cleaning applications, including "1.10-1.50 g/cm³", "1064nm", and industrial applications.
+description: Technical overview of Rubber for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: rubber, rubber composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: composite
@@ -22,12 +22,12 @@ chemicalProperties:
   formula: Rubber
   materialType: composite
 properties:
-  density: "1.10-1.50 g/cm³"
-  meltingPoint: "Does not melt, decomposes at 200-300°C"
-  thermalConductivity: "0.13-0.16 W/m·K"
+  density: "1.1-1.5 g/cm³"
+  meltingPoint: "Does not melt, decomposes above 200°C"
+  thermalConductivity: "0.1-0.5 W/m·K"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "1.0–10 J/cm²"
+  fluenceRange: "0.5-2.0 J/cm²"
   chemicalFormula: Rubber
 composition:
 - "Polymer matrix"
@@ -35,7 +35,7 @@ composition:
 compatibility:
 - "Metals"
 - "Plastics"
-regulatoryStandards: "ISO 9001, ASTM D2240"
+regulatoryStandards: "ISO 11146-1, ASTM D573"
 images:
   hero:
     alt: Rubber surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +47,18 @@ title: Laser Cleaning Rubber - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite rubber
 environmentalImpact:
 - benefit: "Reduced waste"
-  description: "Laser cleaning reduces waste by up to 90% compared to traditional methods"
-- benefit: "Energy efficiency"
-  description: "Laser cleaning consumes 70% less energy than abrasive blasting"
-- benefit: "Reduced chemical usage"
-  description: "Eliminates the need for chemical solvents, reducing environmental pollution by 100%"
+  description: "Up to 90% less waste compared to traditional cleaning methods"
+- benefit: "Lower energy consumption"
+  description: "20-30% energy savings over abrasive blasting"
+- benefit: "Decreased use of chemicals"
+  description: "Eliminates need for solvents, reducing chemical waste by 100%"
 outcomes:
-- result: "Surface cleanliness"
-  metric: "Achieves cleanliness levels of less than 100 ppm of contaminants"
-- result: "Surface roughness"
-  metric: "Maintains surface roughness within 0.5-1.0 μm Ra"
-- result: "Material integrity"
-  metric: "Preserves 99% of the original material properties"
+- result: "Improved surface cleanliness"
+- metric: "Contamination removal efficiency >95% as per ISO 11146-1"
+- result: "Enhanced bonding strength"
+  metric: "Adhesion strength increased by 20-30% compared to uncleaned surfaces"
+- result: "Preserved material integrity"
+  metric: "Microstructure preservation >98% after laser cleaning"
 subject: Rubber
 article_type: material
 ---

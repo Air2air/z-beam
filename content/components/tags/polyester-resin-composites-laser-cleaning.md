@@ -1,0 +1,1 @@
+polyester-resin, composites, ablation, cleaning, laser, automotive, non-contact, alessandro moretti
