@@ -36,12 +36,16 @@ export function Hero({
     imageSource = frontmatter.images.hero.url;
   }
   
+  // URL encode the image source for CSS background-image
+  // CSS background-image requires parentheses to be escaped
+  const encodedImageSource = imageSource ? imageSource.replace(/\(/g, '%28').replace(/\)/g, '%29') : null;
+  
   return (
     <div className={`hero-section ${themeClass}`}>
-      {imageSource ? (
+      {encodedImageSource ? (
         <div 
           className="hero-background"
-          style={{ backgroundImage: `url(${imageSource})` }}
+          style={{ backgroundImage: `url(${encodedImageSource})` }}
         />
       ) : (
         <div 

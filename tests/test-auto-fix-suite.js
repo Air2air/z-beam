@@ -360,6 +360,7 @@ class AutoFixingTestSuite {
     const componentCoverage = await this.testComponentCoverage();
     const typeCoverage = await this.testTypeCoverage();
     const performanceMetrics = await this.testPerformanceMetrics();
+    const heroImageEncoding = await this.testHeroImageEncoding();
     
     // Capture post-fix state
     this.results.postFixState = await this.captureCurrentState();
@@ -372,6 +373,7 @@ class AutoFixingTestSuite {
       componentCoverage,
       typeCoverage,
       performanceMetrics,
+      heroImageEncoding,
       overallStatus: this.calculateOverallStatus(tsResult, eslintResult, buildResult),
       timestamp: new Date().toISOString(),
       fixesApplied: this.results.fixesApplied.length
@@ -499,6 +501,43 @@ class AutoFixingTestSuite {
     }
   }
 
+  // Test Hero component image encoding
+  async testHeroImageEncoding() {
+    console.log('🔍 Testing Hero component image encoding...');
+    
+    try {
+      // Run the dedicated Hero image encoding test
+      const { execSync } = require('child_process');
+      const heroTestOutput = execSync('node tests/test-hero-image-encoding.js', {
+        encoding: 'utf8',
+        cwd: this.workspaceRoot,
+        timeout: 30000
+      });
+      
+      // Parse the output to determine success
+      const isSuccess = !heroTestOutput.includes('❌') && 
+                       (heroTestOutput.includes('✅ Hero image encoding test suite completed successfully') ||
+                        heroTestOutput.includes('Overall Status: PASS'));
+      
+      const result = {
+        status: isSuccess ? 'PASSED' : 'FAILED',
+        output: heroTestOutput.slice(-500), // Last 500 chars
+        message: isSuccess ? 'Hero image encoding tests passed' : 'Hero image encoding tests failed'
+      };
+      
+      console.log(`  📊 Hero image encoding: ${result.status}`);
+      
+      return result;
+    } catch (error) {
+      console.log('  ❌ Hero image encoding tests failed');
+      return {
+        status: 'FAILED',
+        error: error.message,
+        output: error.stdout || error.stderr
+      };
+    }
+  }
+
   // Helper methods
   captureCurrentState() {
     return {
@@ -603,6 +642,14 @@ class AutoFixingTestSuite {
       console.log(`   Coverage: ${summary.typeCoverage.coverage}%`);
       console.log(`   Any Types: ${summary.typeCoverage.anyTypes}`);
       console.log(`   Type Score: ${summary.typeCoverage.typeScore}/10`);
+      console.log('');
+    }
+
+    // Hero Image Encoding
+    if (summary.heroImageEncoding) {
+      console.log('📋 Hero Image Encoding:');
+      console.log(`   Status: ${summary.heroImageEncoding.status}`);
+      console.log(`   Message: ${summary.heroImageEncoding.message || 'N/A'}`);
       console.log('');
     }
 

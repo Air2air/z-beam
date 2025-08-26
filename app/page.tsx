@@ -1,10 +1,14 @@
-// app/page.tsx - Much simpler
+// app/page.tsx - Static optimized home page
 
 import { List } from "./components/List/List";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
 import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentUtils";
 import { SectionCardList } from "./components/SectionCard/SectionCardList";
+
+// Force static generation for home page
+export const dynamic = 'force-static';
+export const revalidate = false; // Never revalidate in production
 
 // Remove this static declaration
 // export const metadata: Metadata = {

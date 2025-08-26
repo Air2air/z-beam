@@ -6,6 +6,10 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
+// Force static generation for services page
+export const dynamic = 'force-static';
+export const revalidate = false; // Never revalidate in production
+
 export const metadata = {
   title: 'Services | Z-Beam Laser Cleaning Solutions',
   description: 'Explore Z-Beam\'s comprehensive laser cleaning services, including surface preparation, oxide removal, coating removal, and customized industrial cleaning solutions.'

@@ -3,6 +3,34 @@ import { getArticle } from "@/app/utils/contentAPI"; // Updated to use contentAP
 import { Layout } from "@/app/components/Layout/Layout";
 import { createMetadata, ArticleMetadata } from "@/app/utils/metadata";
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
+import { getAllArticleSlugs } from "@/app/utils/contentUtils";
+
+// Force static generation for all article pages
+export const dynamic = 'force-static';
+export const revalidate = false; // Never revalidate in production
+
+// Generate static params for all article slugs
+export async function generateStaticParams() {
+  try {
+    const slugs = await getAllArticleSlugs();
+    
+    // Filter out any invalid slugs
+    const validSlugs = slugs.filter(slug => 
+      slug && 
+      slug !== '#' && 
+      slug !== 'undefined' && 
+      slug !== 'null' &&
+      slug.length > 0
+    );
+    
+    return validSlugs.map((slug) => ({
+      slug,
+    }));
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
+}
 
 // Define params as a Promise
 interface PageProps {

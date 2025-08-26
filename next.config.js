@@ -7,6 +7,9 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
 
+  // Static optimization settings
+  trailingSlash: false, // Ensure consistent URLs for static generation
+  
   // Image configuration
   images: {
     remotePatterns: [
@@ -29,6 +32,7 @@ const nextConfig = {
       bodySizeLimit: '2mb'
     },
     optimizePackageImports: ['react-icons', 'lodash', 'date-fns'],
+    // Enable static optimization features (remove invalid options)
   },
 
   // Headers for security and performance

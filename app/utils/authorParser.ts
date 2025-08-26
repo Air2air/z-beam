@@ -20,7 +20,7 @@ export function parseAuthorContent(content: string): AuthorData | null {
   
   try {
     // Clean content: remove HTML tags, normalize whitespace, and split into lines
-    let cleanContent = content
+    const cleanContent = content
       .replace(/<[^>]*>/g, '\n')  // Replace HTML tags with newlines
       .replace(/&nbsp;/g, ' ')    // Replace non-breaking spaces
       .replace(/\r\n/g, '\n')     // Normalize Windows line endings
