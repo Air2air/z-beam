@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-closeup.jpg",
+      "url": "/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-micro.jpg",
       "name": "Ceramic Matrix Composites (CMCs) Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Ceramic Matrix Composites (CMCs) material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Ceramic Matrix Composites (CMCs) material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",

@@ -40,9 +40,9 @@ images:
   hero:
     alt: Titanium surface undergoing laser cleaning showing precise contamination removal
     url: /images/titanium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Titanium surface after laser treatment showing preserved microstructure
-    url: /images/titanium-laser-cleaning-closeup.jpg
+    url: /images/titanium-laser-cleaning-micro.jpg
 title: Laser Cleaning Titanium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal titanium
 environmentalImpact:

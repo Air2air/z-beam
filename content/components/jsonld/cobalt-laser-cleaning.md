@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/cobalt-laser-cleaning-closeup.jpg",
+      "url": "/images/cobalt-laser-cleaning-micro.jpg",
       "name": "Cobalt Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Cobalt material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Cobalt material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 150ns pulse duration, and 50μm spot size specifications",

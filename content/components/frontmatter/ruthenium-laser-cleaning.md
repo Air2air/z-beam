@@ -40,9 +40,9 @@ images:
   hero:
     alt: Ruthenium surface undergoing laser cleaning showing precise contamination removal
     url: /images/ruthenium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Ruthenium surface after laser treatment showing preserved microstructure
-    url: /images/ruthenium-laser-cleaning-closeup.jpg
+    url: /images/ruthenium-laser-cleaning-micro.jpg
 title: Laser Cleaning Ruthenium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal ruthenium
 environmentalImpact:

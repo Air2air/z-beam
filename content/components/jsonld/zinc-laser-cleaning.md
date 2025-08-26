@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/zinc-laser-cleaning-closeup.jpg",
+      "url": "/images/zinc-laser-cleaning-micro.jpg",
       "name": "Zinc Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Zinc material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.8 J/cm² fluence, and 20ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Zinc material surface displaying before (left) with visible oxide layer and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 0.2mm spot size specifications",

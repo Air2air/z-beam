@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/brick-laser-cleaning-closeup.jpg",
+      "url": "/images/brick-laser-cleaning-micro.jpg",
       "name": "Brick Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Brick material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.8 J/cm² fluence, and 20ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Brick material surface displaying before (left) with embedded pollutants and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 0.5mm spot size specifications",

@@ -40,9 +40,9 @@ images:
   hero:
     alt: Urethane Composites surface undergoing laser cleaning showing precise contamination removal
     url: /images/urethane-composites-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Urethane Composites surface after laser treatment showing preserved microstructure
-    url: /images/urethane-composites-laser-cleaning-closeup.jpg
+    url: /images/urethane-composites-laser-cleaning-micro.jpg
 title: Laser Cleaning Urethane Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite urethane composites
 environmentalImpact:

@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/tempered-glass-laser-cleaning-closeup.jpg",
+      "url": "/images/tempered-glass-laser-cleaning-micro.jpg",
       "name": "Tempered Glass Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Tempered Glass material surface showing detailed side-by-side before and after laser cleaning results processed with 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications",
       "description": "Split-view microscopic photograph of Tempered Glass material surface displaying before (left) with visible surface contaminants and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications while maintaining compressive stress integrity",

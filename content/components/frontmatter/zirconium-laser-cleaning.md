@@ -40,9 +40,9 @@ images:
   hero:
     alt: Zirconium surface undergoing laser cleaning showing precise contamination removal
     url: /images/zirconium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Zirconium surface after laser treatment showing preserved microstructure
-    url: /images/zirconium-laser-cleaning-closeup.jpg
+    url: /images/zirconium-laser-cleaning-micro.jpg
 title: Laser Cleaning Zirconium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal zirconium
 environmentalImpact:

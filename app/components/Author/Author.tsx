@@ -30,19 +30,15 @@ export function Author({
   const country = author.author_country ? stripHtml(author.author_country) : "";
   const field = author.specialties?.[0] ? stripHtml(author.specialties[0]) : "";
 
-  // Generate author slug for linking
-  const authorSlug =
-    authorName
-      ?.toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^a-z0-9-]/g, "") || "";
+  // Generate URL-encoded author name for tag search
+  const encodedAuthorName = encodeURIComponent(authorName || "");
 
   // Return null if no author information
   if (!authorName) return null;
 
   return (
     <Link
-      href={`/author/${authorSlug}`}
+      href={`/tag/${encodedAuthorName}`}
       className="block hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4 py-1 transition-colors duration-200 cursor-pointer"
     >
       <div className={`author-component ${className}`}>

@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/concrete-laser-cleaning-closeup.jpg",
+      "url": "/images/concrete-laser-cleaning-micro.jpg",
       "name": "Concrete Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Concrete material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Concrete material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 100μm spot size specifications",

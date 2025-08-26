@@ -41,9 +41,9 @@ images:
   hero:
     alt: Stoneware surface undergoing laser cleaning showing precise contamination removal
     url: /images/stoneware-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Stoneware surface after laser treatment showing preserved microstructure
-    url: /images/stoneware-laser-cleaning-closeup.jpg
+    url: /images/stoneware-laser-cleaning-micro.jpg
 title: Laser Cleaning Stoneware - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic stoneware
 environmentalImpact:

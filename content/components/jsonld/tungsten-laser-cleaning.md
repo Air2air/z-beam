@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/tungsten-laser-cleaning-closeup.jpg",
+      "url": "/images/tungsten-laser-cleaning-micro.jpg",
       "name": "Tungsten Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Tungsten material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Tungsten material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 5.2 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",

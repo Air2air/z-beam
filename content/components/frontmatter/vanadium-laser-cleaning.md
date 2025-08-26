@@ -40,9 +40,9 @@ images:
   hero:
     alt: Vanadium surface undergoing laser cleaning showing precise contamination removal
     url: /images/vanadium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Vanadium surface after laser treatment showing preserved microstructure
-    url: /images/vanadium-laser-cleaning-closeup.jpg
+    url: /images/vanadium-laser-cleaning-micro.jpg
 title: Laser Cleaning Vanadium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal vanadium
 environmentalImpact:

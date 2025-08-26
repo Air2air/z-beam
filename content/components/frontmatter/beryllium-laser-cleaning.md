@@ -40,9 +40,9 @@ images:
   hero:
     alt: Beryllium surface undergoing laser cleaning showing precise contamination removal
     url: /images/beryllium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Beryllium surface after laser treatment showing preserved microstructure
-    url: /images/beryllium-laser-cleaning-closeup.jpg
+    url: /images/beryllium-laser-cleaning-micro.jpg
 title: Laser Cleaning Beryllium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal beryllium
 environmentalImpact:

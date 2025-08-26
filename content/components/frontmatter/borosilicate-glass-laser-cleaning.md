@@ -40,9 +40,9 @@ images:
   hero:
     alt: Borosilicate Glass surface undergoing laser cleaning showing precise contamination removal
     url: /images/borosilicate-glass-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Borosilicate Glass surface after laser treatment showing preserved microstructure
-    url: /images/borosilicate-glass-laser-cleaning-closeup.jpg
+    url: /images/borosilicate-glass-laser-cleaning-micro.jpg
 title: Laser Cleaning Borosilicate Glass - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning Borosilicate Glass
 environmentalImpact:

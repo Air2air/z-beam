@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/platinum-laser-cleaning-closeup.jpg",
+      "url": "/images/platinum-laser-cleaning-micro.jpg",
       "name": "Platinum Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Platinum medical implant surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.8 J/cm² fluence, and 100ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Platinum medical implant surface displaying before (left) with biological contaminants and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 100ns pulse duration, and 200μm spot size specifications",

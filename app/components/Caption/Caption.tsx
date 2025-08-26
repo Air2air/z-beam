@@ -8,7 +8,7 @@ import './styles.css';
 
 interface FrontmatterType {
   images?: {
-    closeup?: {
+    micro?: {
       url?: string;
       alt?: string;
     };
@@ -90,14 +90,25 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   
   // Determine image source, prioritizing frontmatter
   let imageSource = image;
+  let imageAlt = '';
   
-  if (!imageSource && frontmatter?.images?.closeup?.url) {
-    // Use the closeup image URL from frontmatter
-    imageSource = frontmatter.images.closeup.url;
+  if (!imageSource && frontmatter?.images?.micro) {
+    // Use the micro image from frontmatter
+    const microImage = frontmatter.images.micro;
+    
+    if (microImage?.url) {
+      imageSource = microImage.url;
+      imageAlt = microImage.alt || '';
+    }
   }
   
+  // Generate SEO-optimized alt text
+  const optimizedAlt = imageAlt || 
+    (frontmatter?.title ? `Detailed microscopic view of ${frontmatter.title.replace('Laser Cleaning ', '').toLowerCase()} surface after precision laser cleaning treatment` : 
+    "High-resolution microscopic surface analysis after laser cleaning process");
+  
   return (
-    <div className={`caption-container ${className}`}>
+    <figure className={`caption-container ${className}`} itemScope itemType="https://schema.org/ImageObject">
       {imageSource ? (
         <div className="caption-image-wrapper relative">
           {(imageLoading || imageError) && (
@@ -114,16 +125,22 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
           )}
           <Image
             src={imageSource}
-            alt={frontmatter?.images?.closeup?.alt || frontmatter?.title || "Material detail closeup image"}
+            alt={optimizedAlt}
             width={800}
             height={450}
             className="caption-image"
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 800px, 800px"
+            itemProp="contentUrl"
             onLoad={() => setImageLoading(false)}
             onError={() => {
               setImageLoading(false);
               setImageError(true);
             }}
           />
+          <meta itemProp="description" content={optimizedAlt} />
+          <meta itemProp="name" content={frontmatter?.title || "Laser cleaning detail"} />
         </div>
       ) : (
         <div className="caption-image-wrapper">
@@ -140,11 +157,11 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
         </div>
       )}
       
-      <div className="caption-text p-8" ref={captionTextRef}>
+      <figcaption className="caption-text p-8" ref={captionTextRef} itemProp="caption">
         <MarkdownRenderer 
           content={content}
         />
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 }

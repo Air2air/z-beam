@@ -40,9 +40,9 @@ images:
   hero:
     alt: Tantalum surface undergoing laser cleaning showing precise contamination removal
     url: /images/tantalum-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Tantalum surface after laser treatment showing preserved microstructure
-    url: /images/tantalum-laser-cleaning-closeup.jpg
+    url: /images/tantalum-laser-cleaning-micro.jpg
 title: Laser Cleaning Tantalum - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal tantalum
 environmentalImpact:

@@ -40,9 +40,9 @@ images:
   hero:
     alt: Brick surface undergoing laser cleaning showing precise contamination removal
     url: /images/brick-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Brick surface after laser treatment showing preserved microstructure
-    url: /images/brick-laser-cleaning-closeup.jpg
+    url: /images/brick-laser-cleaning-micro.jpg
 title: Laser Cleaning Brick - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry brick
 environmentalImpact:

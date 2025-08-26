@@ -40,9 +40,9 @@ images:
   hero:
     alt: Magnesium surface undergoing laser cleaning showing precise contamination removal
     url: /images/magnesium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Magnesium surface after laser treatment showing preserved microstructure
-    url: /images/magnesium-laser-cleaning-closeup.jpg
+    url: /images/magnesium-laser-cleaning-micro.jpg
 title: Laser Cleaning Magnesium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal magnesium
 environmentalImpact:

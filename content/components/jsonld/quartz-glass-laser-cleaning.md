@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/quartz-glass-laser-cleaning-closeup.jpg",
+      "url": "/images/quartz-glass-laser-cleaning-micro.jpg",
       "name": "Quartz Glass Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Quartz Glass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications including 355 nm wavelength, 1.8 J/cm² fluence, and 20 ns pulse duration",
       "description": "Split-view microscopic photograph of Quartz Glass material surface displaying before (left, with particulate contamination) and after (right, pristine surface) states at high magnification, processed with precision laser parameters including 355 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 100 μm spot size specifications",

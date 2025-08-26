@@ -40,9 +40,9 @@ images:
   hero:
     alt: Aluminum surface undergoing laser cleaning showing precise contamination removal
     url: /images/aluminum-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Aluminum surface after laser treatment showing preserved microstructure
-    url: /images/aluminum-laser-cleaning-closeup.jpg
+    url: /images/aluminum-laser-cleaning-micro.jpg
 title: Laser Cleaning Aluminum - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal aluminum
 environmentalImpact:

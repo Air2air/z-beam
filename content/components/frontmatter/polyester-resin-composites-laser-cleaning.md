@@ -40,9 +40,9 @@ images:
   hero:
     alt: Polyester Resin Composites surface undergoing laser cleaning showing precise contamination removal
     url: /images/polyester-resin-composites-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Polyester Resin Composites surface after laser treatment showing preserved microstructure
-    url: /images/polyester-resin-composites-laser-cleaning-closeup.jpg
+    url: /images/polyester-resin-composites-laser-cleaning-micro.jpg
 title: Laser Cleaning Polyester Resin Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite polyester resin composites
 environmentalImpact:

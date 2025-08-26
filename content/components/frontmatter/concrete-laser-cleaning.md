@@ -41,9 +41,9 @@ images:
   hero:
     alt: Concrete surface undergoing laser cleaning showing precise contamination removal
     url: /images/concrete-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Concrete surface after laser treatment showing preserved microstructure
-    url: /images/concrete-laser-cleaning-closeup.jpg
+    url: /images/concrete-laser-cleaning-micro.jpg
 title: Laser Cleaning Concrete - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry concrete
 environmentalImpact:

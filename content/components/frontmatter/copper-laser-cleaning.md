@@ -40,9 +40,9 @@ images:
   hero:
     alt: Copper surface undergoing laser cleaning showing precise contamination removal
     url: /images/copper-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Copper surface after laser treatment showing preserved microstructure
-    url: /images/copper-laser-cleaning-closeup.jpg
+    url: /images/copper-laser-cleaning-micro.jpg
 title: Laser Cleaning Copper - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal copper
 environmentalImpact:

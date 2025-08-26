@@ -40,9 +40,9 @@ images:
   hero:
     alt: Alumina surface undergoing laser cleaning showing precise contamination removal
     url: /images/alumina-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Alumina surface after laser treatment showing preserved microstructure
-    url: /images/alumina-laser-cleaning-closeup.jpg
+    url: /images/alumina-laser-cleaning-micro.jpg
 title: Laser Cleaning Alumina - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic alumina
 environmentalImpact:

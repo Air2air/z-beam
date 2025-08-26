@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/palladium-laser-cleaning-closeup.jpg",
+      "url": "/images/palladium-laser-cleaning-micro.jpg",
       "name": "Palladium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Palladium catalyst surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.8 J/cm² fluence, and 20ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Palladium catalyst surface displaying before (left, with visible carbon contamination and oxide layer) and after (right, clean metallic surface with preserved micro-structure) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 0.5mm spot size specifications",

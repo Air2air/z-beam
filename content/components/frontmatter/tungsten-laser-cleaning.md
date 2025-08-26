@@ -40,9 +40,9 @@ images:
   hero:
     alt: Tungsten surface undergoing laser cleaning showing precise contamination removal
     url: /images/tungsten-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Tungsten surface after laser treatment showing preserved microstructure
-    url: /images/tungsten-laser-cleaning-closeup.jpg
+    url: /images/tungsten-laser-cleaning-micro.jpg
 title: Laser Cleaning Tungsten - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal tungsten
 environmentalImpact:

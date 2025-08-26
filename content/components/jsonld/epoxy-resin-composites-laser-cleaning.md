@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/epoxy-resin-composites-laser-cleaning-closeup.jpg",
+      "url": "/images/epoxy-resin-composites-laser-cleaning-micro.jpg",
       "name": "Epoxy Resin Composites Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Epoxy Resin Composites material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Epoxy Resin Composites material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",

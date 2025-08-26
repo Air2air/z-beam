@@ -40,9 +40,9 @@ images:
   hero:
     alt: Stucco surface undergoing laser cleaning showing precise contamination removal
     url: /images/stucco-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Stucco surface after laser treatment showing preserved microstructure
-    url: /images/stucco-laser-cleaning-closeup.jpg
+    url: /images/stucco-laser-cleaning-micro.jpg
 title: Laser Cleaning Stucco - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry stucco
 environmentalImpact:

@@ -40,9 +40,9 @@ images:
   hero:
     alt: Platinum surface undergoing laser cleaning showing precise contamination removal
     url: /images/platinum-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Platinum surface after laser treatment showing preserved microstructure
-    url: /images/platinum-laser-cleaning-closeup.jpg
+    url: /images/platinum-laser-cleaning-micro.jpg
 title: Laser Cleaning Platinum - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal platinum
 environmentalImpact:

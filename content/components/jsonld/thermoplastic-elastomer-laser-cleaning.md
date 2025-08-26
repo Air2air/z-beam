@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/thermoplastic-elastomer-laser-cleaning-closeup.jpg",
+      "url": "/images/thermoplastic-elastomer-laser-cleaning-micro.jpg",
       "name": "Thermoplastic Elastomer Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Thermoplastic Elastomer material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Thermoplastic Elastomer material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",

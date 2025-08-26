@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/copper-laser-cleaning-closeup.jpg",
+      "url": "/images/copper-laser-cleaning-micro.jpg",
       "name": "Copper Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Copper material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 3.2 J/cm² fluence, and 150ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Copper material surface displaying before (left) with surface contamination and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 150ns pulse duration, and 0.8mm spot size specifications",

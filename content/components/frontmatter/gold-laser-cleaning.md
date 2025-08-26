@@ -40,9 +40,9 @@ images:
   hero:
     alt: Gold surface undergoing laser cleaning showing precise contamination removal
     url: /images/gold-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Gold surface after laser treatment showing preserved microstructure
-    url: /images/gold-laser-cleaning-closeup.jpg
+    url: /images/gold-laser-cleaning-micro.jpg
 title: Laser Cleaning Gold - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal gold
 environmentalImpact:

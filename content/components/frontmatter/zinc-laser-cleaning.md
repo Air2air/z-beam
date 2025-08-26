@@ -40,9 +40,9 @@ images:
   hero:
     alt: Zinc surface undergoing laser cleaning showing precise contamination removal
     url: /images/zinc-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Zinc surface after laser treatment showing preserved microstructure
-    url: /images/zinc-laser-cleaning-closeup.jpg
+    url: /images/zinc-laser-cleaning-micro.jpg
 title: Laser Cleaning Zinc - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal zinc
 environmentalImpact:

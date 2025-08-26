@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/inconel-laser-cleaning-closeup.jpg",
+      "url": "/images/inconel-laser-cleaning-micro.jpg",
       "name": "Inconel Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Inconel material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Inconel material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 5.2 J/cm² fluence, 150ns pulse duration, and 0.8mm spot size specifications",

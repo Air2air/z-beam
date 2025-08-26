@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/porcelain-laser-cleaning-closeup.jpg",
+      "url": "/images/porcelain-laser-cleaning-micro.jpg",
       "name": "Porcelain Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Porcelain material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Porcelain material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",

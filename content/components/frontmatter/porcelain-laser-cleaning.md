@@ -41,9 +41,9 @@ images:
   hero:
     alt: Porcelain surface undergoing laser cleaning showing precise contamination removal
     url: /images/porcelain-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Porcelain surface after laser treatment showing preserved microstructure
-    url: /images/porcelain-laser-cleaning-closeup.jpg
+    url: /images/porcelain-laser-cleaning-micro.jpg
 title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic porcelain
 environmentalImpact:

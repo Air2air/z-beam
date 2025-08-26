@@ -40,9 +40,9 @@ images:
   hero:
     alt: Gallium Arsenide surface undergoing laser cleaning showing precise contamination removal
     url: /images/gallium-arsenide-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Gallium Arsenide surface after laser treatment showing preserved microstructure
-    url: /images/gallium-arsenide-laser-cleaning-closeup.jpg
+    url: /images/gallium-arsenide-laser-cleaning-micro.jpg
 title: Laser Cleaning Gallium Arsenide - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning semiconductor gallium arsenide
 environmentalImpact:

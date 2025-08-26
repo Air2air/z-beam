@@ -41,9 +41,9 @@ images:
   hero:
     alt: Mortar surface undergoing laser cleaning showing precise contamination removal
     url: /images/mortar-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Mortar surface after laser treatment showing preserved microstructure
-    url: /images/mortar-laser-cleaning-closeup.jpg
+    url: /images/mortar-laser-cleaning-micro.jpg
 title: Laser Cleaning Mortar - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry mortar
 environmentalImpact:

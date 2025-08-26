@@ -40,9 +40,9 @@ images:
   hero:
     alt: Indium surface undergoing laser cleaning showing precise contamination removal
     url: /images/indium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Indium surface after laser treatment showing preserved microstructure
-    url: /images/indium-laser-cleaning-closeup.jpg
+    url: /images/indium-laser-cleaning-micro.jpg
 title: Laser Cleaning Indium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal indium
 environmentalImpact:

@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/steel-laser-cleaning-closeup.jpg",
+      "url": "/images/steel-laser-cleaning-micro.jpg",
       "name": "Steel Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Steel material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Steel material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 5.2 J/cm² fluence, 20ns pulse duration, and 50μm spot size specifications",

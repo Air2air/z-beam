@@ -40,9 +40,9 @@ images:
   hero:
     alt: Silicon Nitride surface undergoing laser cleaning showing precise contamination removal
     url: /images/silicon-nitride-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Silicon Nitride surface after laser treatment showing preserved microstructure
-    url: /images/silicon-nitride-laser-cleaning-closeup.jpg
+    url: /images/silicon-nitride-laser-cleaning-micro.jpg
 title: Laser Cleaning Silicon Nitride - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning ceramic silicon nitride
 environmentalImpact:

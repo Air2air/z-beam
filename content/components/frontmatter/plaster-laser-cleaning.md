@@ -40,9 +40,9 @@ images:
   hero:
     alt: Plaster surface undergoing laser cleaning showing precise contamination removal
     url: /images/plaster-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Plaster surface after laser treatment showing preserved microstructure
-    url: /images/plaster-laser-cleaning-closeup.jpg
+    url: /images/plaster-laser-cleaning-micro.jpg
 title: Laser Cleaning Plaster - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry plaster
 environmentalImpact:

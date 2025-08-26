@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/pyrex-laser-cleaning-closeup.jpg",
+      "url": "/images/pyrex-laser-cleaning-micro.jpg",
       "name": "Pyrex Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Pyrex borosilicate glass surface showing detailed side-by-side before and after laser cleaning results with 1064 nm wavelength, 1.2 J/cm² fluence, 15 ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Pyrex material surface displaying before (left, with surface contaminants and oxidation) and after (right, clean pristine surface) states at 200x magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 15 ns pulse duration, and 100 μm spot size specifications",

@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/hafnium-laser-cleaning-closeup.jpg",
+      "url": "/images/hafnium-laser-cleaning-micro.jpg",
       "name": "Hafnium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Hafnium material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 3.2 J/cm² fluence, 20ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Hafnium material surface displaying before (left) with surface contamination and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 20ns pulse duration, and 100μm spot size specifications",

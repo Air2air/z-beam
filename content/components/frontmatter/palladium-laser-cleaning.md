@@ -40,9 +40,9 @@ images:
   hero:
     alt: Palladium surface undergoing laser cleaning showing precise contamination removal
     url: /images/palladium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Palladium surface after laser treatment showing preserved microstructure
-    url: /images/palladium-laser-cleaning-closeup.jpg
+    url: /images/palladium-laser-cleaning-micro.jpg
 title: Laser Cleaning Palladium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal palladium
 environmentalImpact:

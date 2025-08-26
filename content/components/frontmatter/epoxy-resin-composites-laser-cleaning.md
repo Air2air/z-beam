@@ -40,9 +40,9 @@ images:
   hero:
     alt: Epoxy Resin Composites surface undergoing laser cleaning showing precise contamination removal
     url: /images/epoxy-resin-composites-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Epoxy Resin Composites surface after laser treatment showing preserved microstructure
-    url: /images/epoxy-resin-composites-laser-cleaning-closeup.jpg
+    url: /images/epoxy-resin-composites-laser-cleaning-micro.jpg
 title: Laser Cleaning Epoxy Resin Composites - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite epoxy resin composites
 environmentalImpact:

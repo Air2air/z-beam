@@ -40,9 +40,9 @@ images:
   hero:
     alt: Steel surface undergoing laser cleaning showing precise contamination removal
     url: /images/steel-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Steel surface after laser treatment showing preserved microstructure
-    url: /images/steel-laser-cleaning-closeup.jpg
+    url: /images/steel-laser-cleaning-micro.jpg
 title: Laser Cleaning Steel - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal steel
 environmentalImpact:

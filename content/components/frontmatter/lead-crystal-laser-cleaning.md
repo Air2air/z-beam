@@ -40,9 +40,9 @@ images:
   hero:
     alt: Lead Crystal surface undergoing laser cleaning showing precise contamination removal
     url: /images/lead-crystal-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Lead Crystal surface after laser treatment showing preserved microstructure
-    url: /images/lead-crystal-laser-cleaning-closeup.jpg
+    url: /images/lead-crystal-laser-cleaning-micro.jpg
 title: Laser Cleaning Lead Crystal - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning glass lead crystal
 environmentalImpact:

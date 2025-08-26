@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/niobium-laser-cleaning-closeup.jpg",
+      "url": "/images/niobium-laser-cleaning-micro.jpg",
       "name": "Niobium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Niobium material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Niobium material surface displaying before (left, with oxide layer and particulate contamination) and after (right, clean metallic surface) states at 200x magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 100μm spot size specifications",

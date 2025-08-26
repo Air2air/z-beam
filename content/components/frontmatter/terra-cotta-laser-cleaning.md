@@ -40,9 +40,9 @@ images:
   hero:
     alt: Terra Cotta surface undergoing laser cleaning showing precise contamination removal
     url: /images/terra-cotta-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Terra Cotta surface after laser treatment showing preserved microstructure
-    url: /images/terra-cotta-laser-cleaning-closeup.jpg
+    url: /images/terra-cotta-laser-cleaning-micro.jpg
 title: Laser Cleaning Terra Cotta - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry terra cotta
 environmentalImpact:

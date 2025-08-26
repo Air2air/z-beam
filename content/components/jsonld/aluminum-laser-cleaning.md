@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/aluminum-laser-cleaning-closeup.jpg",
+      "url": "/images/aluminum-laser-cleaning-micro.jpg",
       "name": "Aluminum Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Aluminum material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Aluminum material surface displaying before (left) with contamination and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 5.2 J/cm² fluence, 150ns pulse duration, and 80μm spot size specifications",

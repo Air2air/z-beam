@@ -40,9 +40,9 @@ images:
   hero:
     alt: Tin surface undergoing laser cleaning showing precise contamination removal
     url: /images/tin-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Tin surface after laser treatment showing preserved microstructure
-    url: /images/tin-laser-cleaning-closeup.jpg
+    url: /images/tin-laser-cleaning-micro.jpg
 title: Laser Cleaning Tin - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal tin
 environmentalImpact:

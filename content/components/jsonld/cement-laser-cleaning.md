@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/cement-laser-cleaning-closeup.jpg",
+      "url": "/images/cement-laser-cleaning-micro.jpg",
       "name": "Cement Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Cement material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Cement material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 20 ns pulse duration, and 0.5 mm spot size specifications",

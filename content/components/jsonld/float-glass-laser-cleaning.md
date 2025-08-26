@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/float-glass-laser-cleaning-closeup.jpg",
+      "url": "/images/float-glass-laser-cleaning-micro.jpg",
       "name": "Float Glass Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo (200x) of Float Glass surface showing detailed side-by-side before (contaminated) and after (clean) laser cleaning results with 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Float Glass material surface displaying before (left, showing contamination layer) and after (right, pristine surface) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 100 μm spot size",

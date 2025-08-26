@@ -1,11 +1,11 @@
 {
   "preFixState": {
-    "timestamp": "2025-08-26T01:09:35.396Z",
+    "timestamp": "2025-08-26T04:48:44.382Z",
     "fileCount": 98,
     "componentCount": 38
   },
   "postFixState": {
-    "timestamp": "2025-08-26T01:10:05.981Z",
+    "timestamp": "2025-08-26T04:49:14.075Z",
     "fileCount": 98,
     "componentCount": 38
   },
@@ -186,7 +186,7 @@
           "warningCount": 4,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/components/Author/Author.tsx\nimport Image from \"next/image\";\nimport Link from \"next/link\";\nimport { AuthorData, AuthorProps } from \"@/types/components/author\";\n\nexport function Author({\n  author,\n  showAvatar = true,\n  showCredentials = true,\n  showCountry = true,\n  showBio = false,\n  showEmail = false,\n  showLinkedIn = false,\n  showSpecialties = true,\n  className = \"\",\n}: AuthorProps) {\n  // Helper function to strip HTML tags\n  const stripHtml = (html: string): string => {\n    return html.replace(/<[^>]*>/g, \"\").trim();\n  };\n\n  // Get author name from either field\n  const authorName = stripHtml(author.author_name || author.name || \"\");\n\n  // Get avatar from either field and strip HTML\n  const authorImage = stripHtml(author.avatar || author.image || \"\");\n\n  // Get other fields and strip HTML\n  const credentials = author.credentials ? stripHtml(author.credentials) : \"\";\n  const country = author.author_country ? stripHtml(author.author_country) : \"\";\n  const field = author.specialties?.[0] ? stripHtml(author.specialties[0]) : \"\";\n\n  // Generate author slug for linking\n  const authorSlug =\n    authorName\n      ?.toLowerCase()\n      .replace(/\\s+/g, \"-\")\n      .replace(/[^a-z0-9-]/g, \"\") || \"\";\n\n  // Return null if no author information\n  if (!authorName) return null;\n\n  return (\n    <Link\n      href={`/author/${authorSlug}`}\n      className=\"block hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4 py-1 transition-colors duration-200 cursor-pointer\"\n    >\n      <div className={`author-component ${className}`}>\n        <table className=\"w-full\">\n          <tbody>\n            <tr>\n              <td className=\"w-20 pr-4 align-middle\">\n                {showAvatar && authorImage && (\n                  <div className=\"author-avatar\">\n                    <Image\n                      src={authorImage}\n                      alt={authorName || \"Author\"}\n                      width={60}\n                      height={60}\n                      className=\"rounded-full\"\n                    />\n                  </div>\n                )}\n              </td>\n              <td className=\"align-top\">\n                <div className=\"author-info\">\n                  {authorName && (\n                    <div className=\"author-name font-medium text-gray-900 dark:text-white block\">\n                      {authorName}\n                      {showCredentials && credentials && (\n                        <span className=\"ml-1 author-credentials font-medium text-gray-600 dark:text-gray-400\">\n                          {credentials}\n                        </span>\n                      )}\n                    </div>\n                  )}\n\n                  {showSpecialties && field && (\n                    <div className=\"author-field text-md text-gray-600 dark:text-gray-400\">\n                      {field}\n                    </div>\n                  )}\n\n                  {showCountry && country && (\n                    <div className=\"author-country text-sm text-gray-500 dark:text-gray-500\">\n                      {country}\n                    </div>\n                  )}\n                </div>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </Link>\n  );\n}\n",
+          "source": "// app/components/Author/Author.tsx\nimport Image from \"next/image\";\nimport Link from \"next/link\";\nimport { AuthorData, AuthorProps } from \"@/types/components/author\";\n\nexport function Author({\n  author,\n  showAvatar = true,\n  showCredentials = true,\n  showCountry = true,\n  showBio = false,\n  showEmail = false,\n  showLinkedIn = false,\n  showSpecialties = true,\n  className = \"\",\n}: AuthorProps) {\n  // Helper function to strip HTML tags\n  const stripHtml = (html: string): string => {\n    return html.replace(/<[^>]*>/g, \"\").trim();\n  };\n\n  // Get author name from either field\n  const authorName = stripHtml(author.author_name || author.name || \"\");\n\n  // Get avatar from either field and strip HTML\n  const authorImage = stripHtml(author.avatar || author.image || \"\");\n\n  // Get other fields and strip HTML\n  const credentials = author.credentials ? stripHtml(author.credentials) : \"\";\n  const country = author.author_country ? stripHtml(author.author_country) : \"\";\n  const field = author.specialties?.[0] ? stripHtml(author.specialties[0]) : \"\";\n\n  // Generate URL-encoded author name for tag search\n  const encodedAuthorName = encodeURIComponent(authorName || \"\");\n\n  // Return null if no author information\n  if (!authorName) return null;\n\n  return (\n    <Link\n      href={`/tag/${encodedAuthorName}`}\n      className=\"block hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4 py-1 transition-colors duration-200 cursor-pointer\"\n    >\n      <div className={`author-component ${className}`}>\n        <table className=\"w-full\">\n          <tbody>\n            <tr>\n              <td className=\"w-20 pr-4 align-middle\">\n                {showAvatar && authorImage && (\n                  <div className=\"author-avatar\">\n                    <Image\n                      src={authorImage}\n                      alt={authorName || \"Author\"}\n                      width={60}\n                      height={60}\n                      className=\"rounded-full\"\n                    />\n                  </div>\n                )}\n              </td>\n              <td className=\"align-top\">\n                <div className=\"author-info\">\n                  {authorName && (\n                    <div className=\"author-name font-medium text-gray-900 dark:text-white block\">\n                      {authorName}\n                      {showCredentials && credentials && (\n                        <span className=\"ml-1 author-credentials font-medium text-gray-600 dark:text-gray-400\">\n                          {credentials}\n                        </span>\n                      )}\n                    </div>\n                  )}\n\n                  {showSpecialties && field && (\n                    <div className=\"author-field text-md text-gray-600 dark:text-gray-400\">\n                      {field}\n                    </div>\n                  )}\n\n                  {showCountry && country && (\n                    <div className=\"author-country text-sm text-gray-500 dark:text-gray-500\">\n                      {country}\n                    </div>\n                  )}\n                </div>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </Link>\n  );\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -2529,7 +2529,7 @@
     },
     "build": {
       "status": "PASSED",
-      "buildTime": 19666,
+      "buildTime": 17913,
       "optimizations": {
         "score": 6,
         "details": {
@@ -2542,7 +2542,7 @@
           "Consider static generation for better performance"
         ]
       },
-      "output": " 44.8 kB\n  ├ chunks/vendor-362d063c-436abb3ff8afdc50.js  13.4 kB\n  ├ chunks/vendor-4a7382ad-671563626a228d4b.js  11.5 kB\n  ├ chunks/vendor-89d5c698-b57dd086505bea66.js  19.4 kB\n  ├ chunks/vendor-98a6762f-d61f16a66519fd7e.js  12.5 kB\n  ├ chunks/vendor-ff30e0d3-8761c8782fb7eaf3.js  53.2 kB\n  └ other shared chunks (total)                 42.3 kB\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\n"
+      "output": " 44.8 kB\n  ├ chunks/vendor-362d063c-436abb3ff8afdc50.js  13.4 kB\n  ├ chunks/vendor-4a7382ad-671563626a228d4b.js  11.5 kB\n  ├ chunks/vendor-89d5c698-b57dd086505bea66.js  19.4 kB\n  ├ chunks/vendor-98a6762f-d61f16a66519fd7e.js  12.5 kB\n  ├ chunks/vendor-ff30e0d3-8761c8782fb7eaf3.js  53.2 kB\n  └ other shared chunks (total)                 42.6 kB\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\n"
     },
     "componentCoverage": {
       "total": 38,
@@ -2553,7 +2553,7 @@
     },
     "typeCoverage": {
       "totalFiles": 98,
-      "totalLines": 8998,
+      "totalLines": 9011,
       "typedLines": 579,
       "anyTypes": 16,
       "coverage": 6,
@@ -2572,7 +2572,7 @@
       "message": "Hero image encoding tests passed"
     },
     "overallStatus": "EXCELLENT",
-    "timestamp": "2025-08-26T01:10:05.987Z",
+    "timestamp": "2025-08-26T04:49:14.081Z",
     "fixesApplied": 0
   }
 }

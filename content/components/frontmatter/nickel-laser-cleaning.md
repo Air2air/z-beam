@@ -40,9 +40,9 @@ images:
   hero:
     alt: Nickel surface undergoing laser cleaning showing precise contamination removal
     url: /images/nickel-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Nickel surface after laser treatment showing preserved microstructure
-    url: /images/nickel-laser-cleaning-closeup.jpg
+    url: /images/nickel-laser-cleaning-micro.jpg
 title: Laser Cleaning Nickel - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal nickel
 environmentalImpact:

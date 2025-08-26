@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/metal-matrix-composites-(mmcs)-laser-cleaning-closeup.jpg",
+      "url": "/images/metal-matrix-composites-(mmcs)-laser-cleaning-micro.jpg",
       "name": "Metal Matrix Composites (MMCs) Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Metal Matrix Composites (MMCs) material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Metal Matrix Composites (MMCs) material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",

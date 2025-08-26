@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/bronze-laser-cleaning-closeup.jpg",
+      "url": "/images/bronze-laser-cleaning-micro.jpg",
       "name": "Bronze Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Bronze material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Bronze material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.2 J/cm² fluence, 20ns pulse duration, and 50μm spot size specifications",

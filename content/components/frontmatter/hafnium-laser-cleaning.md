@@ -40,9 +40,9 @@ images:
   hero:
     alt: Hafnium surface undergoing laser cleaning showing precise contamination removal
     url: /images/hafnium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Hafnium surface after laser treatment showing preserved microstructure
-    url: /images/hafnium-laser-cleaning-closeup.jpg
+    url: /images/hafnium-laser-cleaning-micro.jpg
 title: Laser Cleaning Hafnium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal hafnium
 environmentalImpact:

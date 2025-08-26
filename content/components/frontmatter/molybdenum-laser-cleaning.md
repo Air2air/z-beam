@@ -40,9 +40,9 @@ images:
   hero:
     alt: Molybdenum surface undergoing laser cleaning showing precise contamination removal
     url: /images/molybdenum-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Molybdenum surface after laser treatment showing preserved microstructure
-    url: /images/molybdenum-laser-cleaning-closeup.jpg
+    url: /images/molybdenum-laser-cleaning-micro.jpg
 title: Laser Cleaning Molybdenum - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal molybdenum
 environmentalImpact:

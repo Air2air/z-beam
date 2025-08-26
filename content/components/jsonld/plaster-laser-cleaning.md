@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/plaster-laser-cleaning-closeup.jpg",
+      "url": "/images/plaster-laser-cleaning-micro.jpg",
       "name": "Plaster Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Plaster material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 1.8 J/cm² fluence, and 20ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Plaster material surface displaying before (left, with embedded contaminants) and after (right, pristine surface) states at 50x magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 0.8mm spot size specifications",

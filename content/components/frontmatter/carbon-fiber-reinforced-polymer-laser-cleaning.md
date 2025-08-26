@@ -40,9 +40,9 @@ images:
   hero:
     alt: Carbon Fiber Reinforced Polymer surface undergoing laser cleaning showing precise contamination removal
     url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Carbon Fiber Reinforced Polymer surface after laser treatment showing preserved microstructure
-    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-closeup.jpg
+    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-micro.jpg
 title: Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite carbon fiber reinforced polymer
 environmentalImpact:

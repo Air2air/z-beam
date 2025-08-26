@@ -26,7 +26,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/terra-cotta-laser-cleaning-closeup.jpg",
+      "url": "/images/terra-cotta-laser-cleaning-micro.jpg",
       "name": "Terra Cotta Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Terra Cotta material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Terra Cotta material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 200μm spot size specifications",

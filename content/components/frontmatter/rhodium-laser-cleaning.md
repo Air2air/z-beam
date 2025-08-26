@@ -40,9 +40,9 @@ images:
   hero:
     alt: Rhodium surface undergoing laser cleaning showing precise contamination removal
     url: /images/rhodium-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Rhodium surface after laser treatment showing preserved microstructure
-    url: /images/rhodium-laser-cleaning-closeup.jpg
+    url: /images/rhodium-laser-cleaning-micro.jpg
 title: Laser Cleaning Rhodium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal rhodium
 environmentalImpact:

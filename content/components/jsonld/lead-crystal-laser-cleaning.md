@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/lead-crystal-laser-cleaning-closeup.jpg",
+      "url": "/images/lead-crystal-laser-cleaning-micro.jpg",
       "name": "Lead Crystal Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Lead Crystal material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Lead Crystal material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 20 ns pulse duration, and 100 μm spot size specifications",

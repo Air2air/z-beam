@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/lead-laser-cleaning-closeup.jpg",
+      "url": "/images/lead-laser-cleaning-micro.jpg",
       "name": "Lead Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Lead material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Lead material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 100 ns pulse duration, and 50 μm spot size specifications",

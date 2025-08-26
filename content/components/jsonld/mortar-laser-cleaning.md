@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/mortar-laser-cleaning-closeup.jpg",
+      "url": "/images/mortar-laser-cleaning-micro.jpg",
       "name": "Mortar Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Mortar material surface showing detailed side-by-side before and after laser cleaning results with 1064 nm wavelength, 1.8 J/cm² fluence, and 100 ns pulse duration specifications",
       "description": "Split-view microscopic photograph of Mortar material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 100 ns pulse duration, and 5 mm spot size specifications",

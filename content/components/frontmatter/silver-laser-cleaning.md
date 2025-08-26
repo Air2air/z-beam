@@ -40,9 +40,9 @@ images:
   hero:
     alt: Silver surface undergoing laser cleaning showing precise contamination removal
     url: /images/silver-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Silver surface after laser treatment showing preserved microstructure
-    url: /images/silver-laser-cleaning-closeup.jpg
+    url: /images/silver-laser-cleaning-micro.jpg
 title: Laser Cleaning Silver - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal silver
 environmentalImpact:

@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/hastelloy-laser-cleaning-closeup.jpg",
+      "url": "/images/hastelloy-laser-cleaning-micro.jpg",
       "name": "Hastelloy Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Hastelloy material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Hastelloy material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 2.5 J/cm² fluence, 100ns pulse duration, and 50μm spot size specifications",

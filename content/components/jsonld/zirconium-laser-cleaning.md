@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/zirconium-laser-cleaning-closeup.jpg",
+      "url": "/images/zirconium-laser-cleaning-micro.jpg",
       "name": "Zirconium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Zirconium material surface showing detailed side-by-side before and after laser cleaning results with technical specifications including 1064nm wavelength, 3.2 J/cm² fluence, 20ns pulse duration",
       "description": "Split-view microscopic photograph of Zirconium material surface displaying before (left with surface contamination and oxide layer) and after (right with clean, oxide-free surface) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 20ns pulse duration, and 0.5mm spot size specifications",

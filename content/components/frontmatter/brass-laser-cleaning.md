@@ -40,9 +40,9 @@ images:
   hero:
     alt: Brass surface undergoing laser cleaning showing precise contamination removal
     url: /images/brass-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Brass surface after laser treatment showing preserved microstructure
-    url: /images/brass-laser-cleaning-closeup.jpg
+    url: /images/brass-laser-cleaning-micro.jpg
 title: Laser Cleaning Brass - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal brass
 environmentalImpact:

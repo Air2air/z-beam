@@ -40,9 +40,9 @@ images:
   hero:
     alt: Lead surface undergoing laser cleaning showing precise contamination removal
     url: /images/lead-laser-cleaning-hero.jpg
-  closeup:
+  micro:
     alt: Microscopic view of Lead surface after laser treatment showing preserved microstructure
-    url: /images/lead-laser-cleaning-closeup.jpg
+    url: /images/lead-laser-cleaning-micro.jpg
 title: Laser Cleaning Lead - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal lead
 environmentalImpact:

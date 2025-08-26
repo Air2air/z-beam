@@ -28,7 +28,7 @@
     },
     {
       "@type": "ImageObject", 
-      "url": "/images/silver-laser-cleaning-closeup.jpg",
+      "url": "/images/silver-laser-cleaning-micro.jpg",
       "name": "Silver Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Silver material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
       "description": "Split-view microscopic photograph of Silver material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications",
