@@ -25,7 +25,6 @@ export function OptimizedImage({
   priority = false,
 }: OptimizedImageProps) {
   const [error, setError] = useState(false);
-  const isCloudinary = src?.startsWith("https://res.cloudinary.com");
 
   if (error || !src) {
     return (
@@ -49,7 +48,6 @@ export function OptimizedImage({
       priority={priority}
       loading={priority ? "eager" : "lazy"}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      unoptimized={isCloudinary}
     />
   );
 }

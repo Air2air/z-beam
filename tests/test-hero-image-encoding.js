@@ -324,10 +324,9 @@ class HeroImageEncodingTest {
     return { regressionPassed, regressionFailed };
   }
 
-  // Simulate the Hero component's encoding logic
+  // Simulate the Hero component's image handling logic
   simulateHeroEncoding(imageSource) {
-    // This replicates the logic from Hero.tsx:
-    // const encodedImageSource = imageSource ? imageSource.replace(/\(/g, '%28').replace(/\)/g, '%29') : null;
+    // Note: Parentheses encoding removed as image files no longer contain parentheses
     
     if (!imageSource) {
       return null;
@@ -337,7 +336,7 @@ class HeroImageEncodingTest {
       return null;
     }
     
-    return imageSource.replace(/\(/g, '%28').replace(/\)/g, '%29');
+    return imageSource; // No encoding needed since filenames don't have parentheses
   }
 
   // Generate comprehensive report

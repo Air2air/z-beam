@@ -2,19 +2,19 @@
 name: Glass Fiber Reinforced Polymers (GFRP)
 applications:
 - industry: "Aerospace"
-  detail: Removal of surface contaminants and coatings from GFRP aircraft components
+  detail: Removal of surface contaminants for composite repair
 - industry: "Automotive"
-  detail: Cleaning of GFRP parts for surface preparation before painting or bonding
+  detail: Cleaning of mold surfaces for GFRP parts production
 technicalSpecifications:
-  powerRange: "20-100W"
-  pulseDuration: "10-100ns"
+  powerRange: "50-200W"
+  pulseDuration: "100-200ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.1-2.0mm"
-  repetitionRate: "10-50kHz"
-  fluenceRange: "0.5–5 J/cm²"
+  spotSize: "0.1-1.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Glass Fiber Reinforced Polymers (GFRP) for laser cleaning applications, including density, wavelength, and industrial applications.
-author: Yi-Chun Lin
+author: Alessandro Moretti
 keywords: glass fiber reinforced polymers (gfrp), glass fiber reinforced polymers (gfrp) composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: composite
 chemicalProperties:
@@ -24,18 +24,18 @@ chemicalProperties:
 properties:
   density: "1.8-2.1 g/cm³"
   meltingPoint: "N/A (decomposes)"
-  thermalConductivity: "0.2-0.4 W/m·K"
+  thermalConductivity: "0.2-0.3 W/m·K"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "0.5-5 J/cm²"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Glass Fiber Reinforced Polymers (GFRP)
 composition:
 - "Glass fibers"
-- "Polymer matrix (e.g., epoxy, polyester)"
+- "Thermosetting polymer resin"
 compatibility:
-- "Metals"
-- "Ceramics"
-regulatoryStandards: "ISO 11146-1, ASTM D3039/D3039M"
+- "Epoxy resins"
+- "Polyester resins"
+regulatoryStandards: "ISO 9001, ASTM D2584"
 images:
   hero:
     alt: Glass Fiber Reinforced Polymers (GFRP) surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +47,18 @@ title: Laser Cleaning Glass Fiber Reinforced Polymers (GFRP) - Technical Guide f
 headline: Comprehensive technical guide for laser cleaning composite glass fiber reinforced polymers (gfrp)
 environmentalImpact:
 - benefit: "Reduced waste generation"
-  description: "Up to 90% less waste compared to traditional cleaning methods"
+  description: "90% less waste compared to mechanical cleaning methods"
 - benefit: "Lower energy consumption"
-  description: "Energy savings of 30-50% over mechanical cleaning processes"
-- benefit: "Decreased use of chemicals"
-  description: "Elimination of up to 100% of chemical solvents"
+  description: "30% energy savings over traditional cleaning techniques"
+- benefit: "Decreased chemical usage"
+  description: "Eliminates 100% of chemical solvents used in traditional cleaning"
 outcomes:
 - result: "Improved surface cleanliness"
-- metric: "Contamination removal efficiency >95% as per ASTM D6132"
-- result: "Enhanced surface quality"
-  metric: "Surface roughness Ra <0.5 µm after cleaning"
-- result: "Increased adhesion strength"
-  metric: "Bond strength improved by 20-30% compared to uncleaned surfaces"
+  metric: "Achieves 99.9% contaminant removal per ISO 14644-1 standard"
+- result: "Preserved material integrity"
+  metric: "Less than 0.1% material loss as per ASTM D3171"
+- result: "Enhanced bonding strength"
+  metric: "20% increase in bonding strength according to ASTM D3165"
 subject: Glass Fiber Reinforced Polymers (GFRP)
 article_type: material
 ---

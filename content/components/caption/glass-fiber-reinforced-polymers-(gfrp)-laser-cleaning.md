@@ -1,2 +1,2 @@
-**Glass Fiber Reinforced Polymers (GFRP)** surface (left) with degraded resin and embedded particulate contamination compromising the fiber-matrix interface.
-**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 8 W (150 µs pulse duration, 100 µm spot), showing pristine substrate restoration with no fiber damage.
+**Glass Fiber Reinforced Polymers (GFRP)** surface (left) with accumulated thermal degradation residues and environmental soiling.
+**Post-laser ablation** (right) demonstrating precise contaminant removal using a 1064 nm Nd:YAG laser at 15 W, 100 ns pulse duration, and a 200 µm spot size, preserving the underlying fiber integrity.

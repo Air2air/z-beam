@@ -2,9 +2,9 @@
 title: Laser Cleaning Thermoplastic Elastomer - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Thermoplastic Elastomer (TPE) for laser cleaning applications, including specific 0.9-1.3 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Thermoplastic Elastomer (0.9-1.2 g/cm³ density) for laser cleaning applications, including optimal 1064nm wavelength and industrial applications."
   - name: keywords
-    content: "thermoplastic elastomer, TPE, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
+    content: "thermoplastic elastomer, thermoplastic elastomer composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
     content: "Dr. Sarah Johnson"
   - name: category

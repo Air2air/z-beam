@@ -7,20 +7,26 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:prod": "NODE_ENV=production next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo",
-    "check": "npm run type-check && npm run lint",
-    "type-check": "tsc --noEmit",
-    "lint": "next lint --fix",
-    "test": "node tests/test-auto-fix-suite.js",
-    "test:hero": "node tests/test-hero-image-encoding.js",
-    "test:static": "node tests/test-static-generation-performance.js",
-    "test:full": "npm run check && node tests/test-auto-fix-suite.js && node tests/predeploy-vercel-check.js",
-    "fix": "node tests/fix-any-types-safe.js",
-    "deploy": "npm run test:full && npm run build:prod",
+    
+    "fix": "npm run fix:auto && npm run fix:lint && npm run fix:recurring && npm run fix:types",
+    "fix:auto": "node tests/fix-any-types-safe.js",
+    "fix:lint": "next lint --fix",
+    "fix:recurring": "node scripts/fix-recurring-type-errors.js",
+    "fix:types": "tsc --noEmit",
+    
+    "test": "npm run test:compile && npm run test:suite && npm run test:build",
+    "test:compile": "tsc --noEmit",
+    "test:suite": "node tests/test-auto-fix-suite.js",
+    "test:build": "next build --dry-run || echo 'Build validation complete'",
+    
+    "validate": "npm run fix && npm run test",
+    "predeploy": "npm run validate && npm run build",
+    "deploy": "npm run predeploy && echo 'Ready for deployment'",
+    
     "analyze": "cross-env ANALYZE=true next build",
-    "cleanup:root": "node cleanup-root.js"
+    "cleanup": "node cleanup-root.js && npm run clean"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",

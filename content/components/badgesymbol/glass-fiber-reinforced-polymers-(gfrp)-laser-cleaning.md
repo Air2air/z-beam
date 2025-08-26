@@ -1,0 +1,4 @@
+---
+symbol: "GL"
+materialType: "composite"
+---

@@ -5,17 +5,15 @@
   "description": "Advanced laser cleaning techniques for Glass Fiber Reinforced Polymers (GFRP) materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Glass Fiber Reinforced Polymers (GFRP) laser cleaning",
-    "Glass Fiber Reinforced Polymers (GFRP) composite cleaning",
-    "non-abrasive surface treatment",
-    "Glass Fiber Reinforced Polymers (GFRP) material processing",
-    "precision cleaning",
-    "industrial applications",
-    "surface treatment",
-    "non-contact processing",
-    "fiberglass composite cleaning",
-    "laser ablation parameters"
+    "GFRP composite surface treatment",
+    "non-abrasive composite cleaning",
+    "fiberglass reinforced polymer processing",
+    "laser ablation parameters",
+    "industrial composite maintenance",
+    "selective contamination removal",
+    "non-contact surface preparation"
   ],
-  "articleBody": "Glass Fiber Reinforced Polymers (GFRP) is a composite material consisting of glass fibers embedded in a polymer matrix, typically epoxy, polyester, or vinyl ester resins. This combination provides exceptional strength-to-weight ratio, corrosion resistance, and dimensional stability, making it ideal for aerospace, automotive, marine, and construction applications. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxidation, and release agents without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal wavelengths between 1064-1070 nm (near-infrared) for minimal resin absorption, fluence levels of 0.5-2.5 J/cm², and pulse durations of 10-100 nanoseconds to selectively ablate unwanted material while preserving the underlying GFRP substrate. Key challenges include avoiding thermal damage to the polymer matrix and preventing fiber exposure, which requires precise parameter optimization. Safety considerations mandate proper ventilation systems to manage airborne particles, Class 1 laser enclosures, and appropriate personal protective equipment including laser safety goggles. The non-abrasive nature of laser cleaning eliminates mechanical stress on the composite structure and prevents fiber damage that can occur with traditional methods like sandblasting or chemical treatments.",
+  "articleBody": "Glass Fiber Reinforced Polymers (GFRP) represent a critical composite material extensively utilized in aerospace, automotive, and marine industries due to their high strength-to-weight ratio and corrosion resistance. Laser cleaning technology provides an advanced, non-contact method for removing surface contaminants, oxidation layers, and previous coatings without compromising the glass fiber reinforcement or polymer matrix integrity. The process employs precisely controlled laser parameters including specific wavelengths (typically 1064nm Nd:YAG or fiber lasers), optimized fluence levels (0.5-2.5 J/cm²), and pulse durations (nanosecond to picosecond range) to selectively ablate unwanted material while preserving the underlying GFRP substrate. This technique eliminates mechanical stress, prevents fiber damage, and maintains dimensional stability. Industrial applications include surface preparation for adhesive bonding, paint removal from composite structures, and restoration of aged GFRP components. The process ensures complete removal of contaminants without chemical residues or secondary waste, making it environmentally superior to traditional methods. Technical considerations include parameter optimization based on resin type, fiber orientation, and contamination composition to achieve optimal cleaning results while preventing thermal degradation of the polymer matrix.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +42,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Yi-Chun Lin"
+    "name": "Alessandro Moretti"
   },
   "about": {
     "@type": "Thing",

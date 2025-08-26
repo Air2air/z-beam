@@ -12,10 +12,10 @@
     "industrial applications",
     "surface treatment",
     "non-contact processing",
-    "laser ablation parameters",
+    "laser ablation",
     "composite material maintenance"
   ],
-  "articleBody": "Fiber-Reinforced Polyurethane (FRPU) is a high-performance composite material combining polyurethane's elasticity and chemical resistance with fiber reinforcement for enhanced tensile strength and dimensional stability. These properties make FRPU ideal for demanding applications in aerospace, automotive, and industrial components. Laser cleaning provides a superior non-contact method for removing contaminants, oxidation layers, and surface coatings without compromising the material's structural integrity or fiber-matrix interface. The process utilizes carefully controlled laser parameters, typically near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds, to selectively ablate unwanted surface material while preserving the underlying FRPU substrate. Key challenges include managing the different ablation thresholds of polyurethane matrix and reinforcing fibers, preventing thermal degradation, and ensuring uniform cleaning across complex geometries. Safety considerations require proper ventilation systems to manage ablation byproducts and comprehensive laser safety protocols including appropriate eyewear and enclosure systems. Applications span from precision cleaning of aerospace components to surface preparation for adhesive bonding in automotive assemblies and restoration of industrial equipment.",
+  "articleBody": "Fiber-Reinforced Polyurethane (FRPU) is a high-performance composite material combining polyurethane's flexibility and durability with fiber reinforcement for enhanced structural properties. Laser cleaning provides an optimal solution for surface preparation and contamination removal from FRPU components without mechanical abrasion or chemical solvents. The process utilizes precisely controlled laser parameters (typically 1064nm wavelength, 10-20J/cm² fluence, 100-200ns pulse duration) to selectively remove oxides, coatings, and surface contaminants while preserving the underlying fiber reinforcement structure. This non-contact method eliminates substrate damage risks associated with traditional cleaning techniques, maintaining the material's mechanical properties and surface integrity. Laser cleaning is particularly effective for preparing FRPU surfaces for bonding, coating, or repair operations in aerospace, automotive, and industrial applications where precision and material preservation are critical requirements.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Yi-Chun Lin"
+    "name": "Alessandro Moretti"
   },
   "about": {
     "@type": "Thing",

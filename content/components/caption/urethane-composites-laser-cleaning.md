@@ -1,2 +1,3 @@
-**Urethane Composites** surface (left) exhibiting degraded optical clarity from embedded particulate and organic residue accumulation.
-**After 1064 nm laser ablation** (right) with 8 J/cm² fluence and 100 ns pulses, achieving precise contaminant removal while preserving the polymer matrix integrity.
+**Urethane Composites** substrate (left) exhibiting significant carbonaceous residue and embedded particulate contamination.
+
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 15 W, 100 ns pulse duration, and 500 µm spot size, achieving complete ablation without substrate degradation.

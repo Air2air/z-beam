@@ -1,10 +1,10 @@
 {
   "encodingTests": {
     "Parentheses in filename": {
-      "status": "PASS",
+      "status": "FAIL",
       "input": "/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg",
       "expected": "/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg",
-      "actual": "/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg",
+      "actual": "/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg",
       "description": "Should encode parentheses for CSS background-image"
     },
     "No special characters": {
@@ -15,10 +15,10 @@
       "description": "Should leave normal filenames unchanged"
     },
     "Multiple parentheses": {
-      "status": "PASS",
+      "status": "FAIL",
       "input": "/images/test-(group)-(variant)-hero.jpg",
       "expected": "/images/test-%28group%29-%28variant%29-hero.jpg",
-      "actual": "/images/test-%28group%29-%28variant%29-hero.jpg",
+      "actual": "/images/test-(group)-(variant)-hero.jpg",
       "description": "Should encode all parentheses"
     },
     "Empty string": {
@@ -38,17 +38,20 @@
   },
   "integrationTests": {
     "encodingLogic": {
-      "status": "PASS",
-      "message": "Encoding logic found in component"
+      "status": "FAIL",
+      "message": "Encoding logic not found in component"
     },
     "typescript": {
-      "status": "PASS",
-      "message": "TypeScript compilation successful"
+      "status": "FAIL",
+      "error": {
+        "type": "Buffer",
+        "data": []
+      }
     },
     "testImage": {
-      "status": "PASS",
+      "status": "WARN",
       "path": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/public/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg",
-      "message": "Test image file found"
+      "message": "Test image file not found - integration test incomplete"
     }
   },
   "regressionTests": {
@@ -66,18 +69,18 @@
     }
   },
   "summary": {
-    "overallStatus": "PASS",
+    "overallStatus": "FAIL",
     "encodingTests": {
       "total": 5,
-      "passed": 5,
-      "failed": 0,
+      "passed": 3,
+      "failed": 2,
       "errors": 0
     },
     "integrationTests": {
       "total": 3,
-      "passed": 3,
-      "failed": 0,
-      "warnings": 0,
+      "passed": 0,
+      "failed": 2,
+      "warnings": 1,
       "errors": 0
     },
     "regressionTests": {
@@ -86,7 +89,7 @@
       "failed": 0,
       "errors": 0
     },
-    "timestamp": "2025-08-26T04:49:14.071Z"
+    "timestamp": "2025-08-26T18:51:28.707Z"
   },
-  "timestamp": "2025-08-26T04:49:11.084Z"
+  "timestamp": "2025-08-26T18:51:25.374Z"
 }

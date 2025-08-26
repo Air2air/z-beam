@@ -1,0 +1,4 @@
+---
+symbol: "ME"
+materialType: "composite"
+---

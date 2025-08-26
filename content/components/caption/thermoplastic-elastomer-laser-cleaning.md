@@ -1,3 +1,3 @@
-**Thermoplastic Elastomer** surface (left) with visible particulate and organic residue buildup, compromising its inherent flexibility and surface energy.
+**Thermoplastic Elastomer** surface (left) exhibiting significant silicone-based mold release residues and embedded particulate contamination.
 
-**After 1064 nm laser cleaning** (right) using 8 W average power, 100 ns pulses, and a 200 µm spot, achieving selective contaminant ablation with zero substrate degradation.
+**After laser cleaning** (right) with a 1,064 nm fiber laser (80 W, 100 ns pulse duration, 200 µm spot), achieving complete residue ablation without substrate degradation.

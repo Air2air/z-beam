@@ -1,1 +1,1 @@
-ablation, cleaning, laser, fiber-reinforced-polyurethane, frpu, aerospace, non-contact, yi-chun-lin
+ablation, cleaning, laser, frpu, aerospace, automotive, non-contact, alessandro-moretti

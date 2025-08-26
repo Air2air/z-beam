@@ -31,21 +31,17 @@ export function Hero({
   // Determine image source, prioritizing frontmatter
   let imageSource = image;
   
+  // Use the hero image URL from frontmatter if no direct image provided
   if (!imageSource && frontmatter?.images?.hero?.url) {
-    // Use the hero image URL from frontmatter
     imageSource = frontmatter.images.hero.url;
   }
   
-  // URL encode the image source for CSS background-image
-  // CSS background-image requires parentheses to be escaped
-  const encodedImageSource = imageSource ? imageSource.replace(/\(/g, '%28').replace(/\)/g, '%29') : null;
-  
   return (
     <div className={`hero-section ${themeClass}`}>
-      {encodedImageSource ? (
+      {imageSource ? (
         <div 
           className="hero-background"
-          style={{ backgroundImage: `url(${encodedImageSource})` }}
+          style={{ backgroundImage: `url(${imageSource})` }}
         />
       ) : (
         <div 

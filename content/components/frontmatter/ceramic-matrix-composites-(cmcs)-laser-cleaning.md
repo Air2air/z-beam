@@ -39,10 +39,10 @@ regulatoryStandards: "ASTM C1793, ISO 17161"
 images:
   hero:
     alt: Ceramic Matrix Composites (CMCs) surface undergoing laser cleaning showing precise contamination removal
-    url: /images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg
+    url: /images/ceramic-matrix-composites-cmcs-laser-cleaning-hero.jpg
   micro:
     alt: Microscopic view of Ceramic Matrix Composites (CMCs) surface after laser treatment showing preserved microstructure
-    url: /images/ceramic-matrix-composites-(cmcs)-laser-cleaning-micro.jpg
+    url: /images/ceramic-matrix-composites-cmcs-laser-cleaning-micro.jpg
 title: Laser Cleaning Ceramic Matrix Composites (CMCs) - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning composite ceramic matrix composites (cmcs)
 environmentalImpact:

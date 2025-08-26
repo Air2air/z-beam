@@ -1,21 +1,18 @@
 ---
 name: Phenolic Resin Composites
-appli    url: /images/phenolic-resin-composites-laser-cleaning-process.jpg
-  micro:
-    alt: Microscopic view of Phenolic Resin Composites surface after laser treatment showing preserved microstructure
-    url: /images/phenolic-resin-composites-laser-cleaning-micro.jpgons:
-- industry: [Aerospace]
+applications:
+- industry: "Aerospace"
   detail: Cleaning and surface preparation of composite parts for bonding and painting
-- industry: [Automotive]
+- industry: "Automotive"
   detail: Precision cleaning of phenolic resin components for improved adhesion and aesthetics
 technicalSpecifications:
-  powerRange: [20-100W]
-  pulseDuration: [10-100ns]
-  wavelength: [1064nm (primary), 532nm (optional)]
-  spotSize: [0.1-2.0mm]
-  repetitionRate: [10-50kHz]
-  fluenceRange: [0.5–5 J/cm²]
-  safetyClass: [Class 4 (requires full enclosure)]
+  powerRange: "20-100W"
+  pulseDuration: "10-100ns"
+  wavelength: "1064nm (primary), 532nm (optional)"
+  spotSize: "0.1-2.0mm"
+  repetitionRate: "10-50kHz"
+  fluenceRange: "0.5–5 J/cm²"
+  safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Phenolic Resin Composites for laser cleaning applications, including 1.25 g/cm³ density, 1064nm wavelength, and industrial applications in aerospace and automotive industries.
 author: Yi-Chun Lin
 keywords: phenolic resin composites, phenolic resin composites composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
@@ -25,20 +22,20 @@ chemicalProperties:
   formula: Phenolic Resin Composites
   materialType: composite
 properties:
-  density: [1.25 g/cm³]
-  meltingPoint: [N/A]
-  thermalConductivity: [0.2 W/m·K]
-  laserType: [Pulsed fiber laser]
-  wavelength: [1064nm]
-  fluenceRange: [0.5–5 J/cm²]
+  density: "1.25 g/cm³"
+  meltingPoint: "N/A"
+  thermalConductivity: "0.2 W/m·K"
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Phenolic Resin Composites
 composition:
-- [Phenol-formaldehyde resin]
-- [Reinforcing fibers (e.g., glass, carbon)]
+- "Phenol-formaldehyde resin"
+- "Reinforcing fibers (e.g., glass, carbon)"
 compatibility:
-- [Metals]
-- [Ceramics]
-regulatoryStandards: [ISO 11146-1, ASTM D790]
+- "Metals"
+- "Ceramics"
+regulatoryStandards: "ISO 11146-1, ASTM D790"
 images:
   hero:
     alt: Phenolic Resin Composites surface undergoing laser cleaning showing precise contamination removal

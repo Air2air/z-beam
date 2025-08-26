@@ -1,11 +1,11 @@
 {
   "preFixState": {
-    "timestamp": "2025-08-26T04:48:44.382Z",
+    "timestamp": "2025-08-26T18:51:04.854Z",
     "fileCount": 98,
     "componentCount": 38
   },
   "postFixState": {
-    "timestamp": "2025-08-26T04:49:14.075Z",
+    "timestamp": "2025-08-26T18:51:28.711Z",
     "fileCount": 98,
     "componentCount": 38
   },
@@ -20,7 +20,7 @@
     "eslint": {
       "status": "PASSED",
       "errors": 0,
-      "warnings": 56,
+      "warnings": 55,
       "details": [
         {
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/[slug]/page.tsx",
@@ -1311,50 +1311,13 @@
         },
         {
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/tag/[tag]/page.tsx",
-          "messages": [
-            {
-              "ruleId": "@typescript-eslint/no-explicit-any",
-              "severity": 1,
-              "message": "Unexpected any. Specify a different type.",
-              "line": 49,
-              "column": 62,
-              "nodeType": "TSAnyKeyword",
-              "messageId": "unexpectedAny",
-              "endLine": 49,
-              "endColumn": 65,
-              "suggestions": [
-                {
-                  "messageId": "suggestUnknown",
-                  "fix": {
-                    "range": [
-                      1506,
-                      1509
-                    ],
-                    "text": "unknown"
-                  },
-                  "desc": "Use `unknown` instead, this will force you to explicitly, and safely assert the type is correct."
-                },
-                {
-                  "messageId": "suggestNever",
-                  "fix": {
-                    "range": [
-                      1506,
-                      1509
-                    ],
-                    "text": "never"
-                  },
-                  "desc": "Use `never` instead, this is useful when instantiating generic type parameters that you don't need to know the type of."
-                }
-              ]
-            }
-          ],
+          "messages": [],
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 1,
+          "warningCount": 0,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/tag/[tag]/page.tsx - Simplified for build\nimport { getArticlesWithTags } from \"@/app/utils/tags\";\nimport { enrichArticles } from \"../../utils/articleEnrichment\";\nimport { SearchResults } from \"@/app/components/SearchResults/SearchResults\";\n\n// Force dynamic rendering\nexport const dynamic = 'force-dynamic';\n\n// Define params as a Promise\ninterface PageProps {\n  params: Promise<{ tag: string | string[] }>;\n}\n\nexport default async function TagPage({ params }: PageProps) {\n  // Await params before using it\n  const paramsData = await params;\n  \n  // Safely access the tag parameter with type checking\n  const tag = paramsData?.tag ? \n    (typeof paramsData.tag === 'string' ? \n      decodeURIComponent(paramsData.tag) : \n      decodeURIComponent(paramsData.tag[0])\n    ) : '';\n  \n  // Get all articles with tags\n  const articles = await getArticlesWithTags();\n  \n  // Enrich articles with tags and href\n  const enrichedArticles = enrichArticles(articles);\n  \n  // Find matching articles\n  const matchingArticles = enrichedArticles.filter(article => \n    article.tags && article.tags.some(t => t.toLowerCase() === tag.toLowerCase())\n  );\n  \n  return (\n    <div className=\"max-w-6xl mx-auto px-4 py-8\">\n      <h1 className=\"text-3xl font-bold mb-6\">Articles tagged with &quot;{tag}&quot;</h1>\n      \n      <SearchResults \n        items={matchingArticles} \n        initialTag={tag}\n        showTagFilter={false}\n      />\n    </div>\n  );\n}\n\nexport async function generateMetadata({ params }: { params: any }) {\n  // Ensure params is awaited before accessing properties\n  const paramsData = await params;\n  \n  const tagValue = paramsData?.tag ? \n    (typeof paramsData.tag === 'string' ? \n      decodeURIComponent(paramsData.tag) : \n      decodeURIComponent(paramsData.tag[0])\n    ) : '';\n    \n  return {\n    title: `Articles tagged with \"${tagValue}\"`,\n    description: `Browse content related to ${tagValue}`\n  };\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -2528,21 +2491,9 @@
       ]
     },
     "build": {
-      "status": "PASSED",
-      "buildTime": 17913,
-      "optimizations": {
-        "score": 6,
-        "details": {
-          "bundleAnalysis": true,
-          "imageOptimization": true,
-          "mediumBundle": true,
-          "cleanBuild": true
-        },
-        "recommendations": [
-          "Consider static generation for better performance"
-        ]
-      },
-      "output": " 44.8 kB\n  ├ chunks/vendor-362d063c-436abb3ff8afdc50.js  13.4 kB\n  ├ chunks/vendor-4a7382ad-671563626a228d4b.js  11.5 kB\n  ├ chunks/vendor-89d5c698-b57dd086505bea66.js  19.4 kB\n  ├ chunks/vendor-98a6762f-d61f16a66519fd7e.js  12.5 kB\n  ├ chunks/vendor-ff30e0d3-8761c8782fb7eaf3.js  53.2 kB\n  └ other shared chunks (total)                 42.6 kB\n\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses generateStaticParams)\nƒ  (Dynamic)  server-rendered on demand\n\n"
+      "status": "FAILED",
+      "error": "Command failed: npm run build\nFailed to compile.\n\napp/tag/[tag]/page.tsx\nType error: Type '{ params: { tag: string; }; }' does not satisfy the constraint 'PageProps'.\n  Types of property 'params' are incompatible.\n    Type '{ tag: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]\n\nNext.js build worker exited with code: 1 and signal: null\n",
+      "output": "\n> build\n> next build\n\n   ▲ Next.js 15.3.5\n   - Environments: .env\n\n   Creating an optimized production build ...\n ✓ Compiled successfully in 6.0s\n   Linting and checking validity of types ...\n\n./app/components/Author/Author.tsx\n4:10  Warning: 'AuthorData' is defined but never used.  @typescript-eslint/no-unused-vars\n11:3  Warning: 'showBio' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n12:3  Warning: 'showEmail' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n13:3  Warning: 'showLinkedIn' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/BadgeSymbol/BadgeSymbol.tsx\n16:31  Warning: 'content' is defined but never used.  @typescript-eslint/no-unused-vars\n21:5  Warning: 'materialType' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Card/Card.tsx\n76:9  Warning: 'isFeatured' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Layout/Layout.tsx\n28:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/List/List.tsx\n155:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n166:16  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars\n266:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/SearchResults/SearchResults.tsx\n86:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n169:34  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/SectionCard/SectionCardList.tsx\n25:3  Warning: 'heading' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Thumbnail/Thumbnail.tsx\n6:10  Warning: 'getArticleBySlug' is defined but never used.  @typescript-eslint/no-unused-vars\n7:10  Warning: 'Article' is defined but never used.  @typescript-eslint/no-unused-vars\n8:10  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars\n21:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/UI/TagFilter.tsx\n21:3  Warning: 'tagItemCounts' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/contact/page.tsx\n3:10  Warning: 'createMetadata' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/debug/badge-symbol/page.tsx\n8:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n100:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/debug/page.tsx\n134:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n154:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n170:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n./app/search/search-client.tsx\n3:20  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/services/page.tsx\n3:10  Warning: 'createMetadata' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/articleEnrichment.ts\n42:10  Warning: 'inferTags' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/badgeDataLoader.ts\n5:10  Warning: 'Article' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/badgeUtils.ts\n29:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n32:9  Warning: 'title' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/contentUtils.ts\n116:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n124:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n125:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n189:16  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/formatting.ts\n81:12  Warning: '_' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/frontmatterLoader.ts\n7:66  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n41:14  Warning: 'matterError' is defined but never used.  @typescript-eslint/no-unused-vars\n43:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/helpers.ts\n56:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n73:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n73:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n88:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n88:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/logger.ts\n5:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/materialBadgeUtils.ts\n15:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/metadata.ts\n3:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/searchUtils.ts\n3:10  Warning: 'MaterialProperties' is defined but never used.  @typescript-eslint/no-unused-vars\n63:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n92:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n163:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/tagDebug.ts\n28:11  Warning: 'articlesWithTags' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n73:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/yamlSanitizer.ts\n45:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n46:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\ninfo  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules\n"
     },
     "componentCoverage": {
       "total": 38,
@@ -2553,9 +2504,9 @@
     },
     "typeCoverage": {
       "totalFiles": 98,
-      "totalLines": 9011,
-      "typedLines": 579,
-      "anyTypes": 16,
+      "totalLines": 9001,
+      "typedLines": 580,
+      "anyTypes": 15,
       "coverage": 6,
       "typeScore": 0
     },
@@ -2567,12 +2518,12 @@
       "score": 2
     },
     "heroImageEncoding": {
-      "status": "PASSED",
-      "output": ":\n   Total: 3\n   Passed: 3\n   Failed: 0\n   Warnings: 0\n   Errors: 0\n\n🔍 Regression Tests:\n   Total: 3\n   Passed: 3\n   Failed: 0\n   Errors: 0\n\n🏆 Overall Status: PASS\n\n🎉 All Hero image encoding tests passed!\n✅ URL encoding works correctly for parentheses\n✅ Component integration successful\n✅ No regressions detected\n\n📁 Detailed results saved to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/tests/hero-image-encoding-test-results.json\n\n✅ Hero image encoding test suite completed successfully!\n",
-      "message": "Hero image encoding tests passed"
+      "status": "FAILED",
+      "error": "Command failed: node tests/test-hero-image-encoding.js",
+      "output": "🎬 HERO COMPONENT IMAGE ENCODING TEST\n====================================\n\n🚀 Starting Hero Image Encoding Test Suite...\n\n🔍 Testing URL encoding functionality...\n\n📋 Testing: Parentheses in filename\n  ❌ FAIL: Should encode parentheses for CSS background-image\n     Input: \"/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg\"\n     Expected: \"/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg\"\n     Actual: \"/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg\"\n\n📋 Testing: No special characters\n  ✅ PASS: Should leave normal filenames unchanged\n     Input: \"/images/aluminum-laser-cleaning-hero.jpg\"\n     Output: \"/images/aluminum-laser-cleaning-hero.jpg\"\n\n📋 Testing: Multiple parentheses\n  ❌ FAIL: Should encode all parentheses\n     Input: \"/images/test-(group)-(variant)-hero.jpg\"\n     Expected: \"/images/test-%28group%29-%28variant%29-hero.jpg\"\n     Actual: \"/images/test-(group)-(variant)-hero.jpg\"\n\n📋 Testing: Empty string\n  ✅ PASS: Should handle empty strings gracefully\n     Input: \"\"\n     Output: null\n\n📋 Testing: Null input\n  ✅ PASS: Should handle null input gracefully\n     Input: null\n     Output: null\n\n📊 URL Encoding Test Summary:\n   Passed: 3\n   Failed: 2\n   Total: 5\n\n🔍 Testing Hero component integration...\n\n📋 Testing: Component file exists and contains encoding logic\n  ❌ FAIL: Hero component missing parentheses encoding logic\n📋 Testing: TypeScript compilation with Hero component\n  ❌ FAIL: TypeScript compilation errors with Hero component\n📋 Testing: Test image files with parentheses exist\n  ⚠️  WARN: Test image with parentheses not found\n\n📊 Integration Test Summary:\n   Passed: 0\n   Failed: 2\n\n🔍 Testing for regressions...\n\n📋 Testing: Normal image paths without special characters\n  ✅ PASS: Normal image paths unchanged\n📋 Testing: Null/undefined image paths handled gracefully\n  ✅ PASS: Null/undefined paths handled gracefully\n📋 Testing: Component props interface unchanged\n  ✅ PASS: Component props interface preserved\n\n📊 Regression Test Summary:\n   Passed: 3\n   Failed: 0\n\n📊 HERO IMAGE ENCODING TEST REPORT\n==================================\n\n🔍 URL Encoding Tests:\n   Total: 5\n   Passed: 3\n   Failed: 2\n   Errors: 0\n\n🔍 Integration Tests:\n   Total: 3\n   Passed: 0\n   Failed: 2\n   Warnings: 1\n   Errors: 0\n\n🔍 Regression Tests:\n   Total: 3\n   Passed: 3\n   Failed: 0\n   Errors: 0\n\n🏆 Overall Status: FAIL\n\n⚠️  Issues detected in Hero image encoding:\n   • 2 URL encoding test(s) failed\n   • 2 integration test(s) failed\n\n📁 Detailed results saved to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/tests/hero-image-encoding-test-results.json\n\n❌ Hero image encoding test suite completed with issues!\n"
     },
-    "overallStatus": "EXCELLENT",
-    "timestamp": "2025-08-26T04:49:14.081Z",
+    "overallStatus": "GOOD",
+    "timestamp": "2025-08-26T18:51:28.716Z",
     "fixesApplied": 0
   }
 }

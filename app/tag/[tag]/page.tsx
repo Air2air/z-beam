@@ -8,19 +8,15 @@ export const dynamic = 'force-dynamic';
 
 // Define params as a Promise
 interface PageProps {
-  params: Promise<{ tag: string | string[] }>;
+  params: Promise<{ tag: string }>;
 }
 
 export default async function TagPage({ params }: PageProps) {
   // Await params before using it
   const paramsData = await params;
   
-  // Safely access the tag parameter with type checking
-  const tag = paramsData?.tag ? 
-    (typeof paramsData.tag === 'string' ? 
-      decodeURIComponent(paramsData.tag) : 
-      decodeURIComponent(paramsData.tag[0])
-    ) : '';
+  // Safely access the tag parameter 
+  const tag = paramsData?.tag ? decodeURIComponent(paramsData.tag) : '';
   
   // Get all articles with tags
   const articles = await getArticlesWithTags();
@@ -46,7 +42,7 @@ export default async function TagPage({ params }: PageProps) {
   );
 }
 
-export async function generateMetadata({ params }: { params: any }) {
+export async function generateMetadata({ params }: { params: { tag: string } }) {
   // Ensure params is awaited before accessing properties
   const paramsData = await params;
   

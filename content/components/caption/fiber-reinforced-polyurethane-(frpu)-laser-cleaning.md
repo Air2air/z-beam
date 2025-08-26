@@ -1,2 +1,3 @@
-**Fiber-Reinforced Polyurethane (FRPU)** surface (left) with heavy oxide layer and embedded particulate contamination, compromising the composite's structural integrity and adhesion properties.
-**After 1064 nm laser ablation** (right) using 8 J/cm² fluence at 100 ns pulse duration, showing complete contaminant removal with no thermal degradation to the polyurethane matrix or fiber reinforcement.
+**Fiber-Reinforced Polyurethane (FRPU)** composite (left) exhibiting heavy oxide layer and embedded particulate contamination.
+
+**After laser ablation** (right) using a 1,064 nm Nd:YAG laser at 80 W (150 ns pulse duration, 200 µm spot), showing complete contaminant removal with no fiber damage or matrix degradation.
