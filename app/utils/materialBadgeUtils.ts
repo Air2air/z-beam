@@ -12,7 +12,7 @@ const ELEMENTS: Record<string, number> = {
 /**
  * Extract material badge data from content
  */
-export function getBadgeData(article: any): MaterialBadgeData | null {
+export function getBadgeData(article: { metadata?: Record<string, unknown>; [key: string]: unknown }): MaterialBadgeData | null {
   if (!article) return null;
   
   // Helper function to extract first element symbol from formula
@@ -30,11 +30,11 @@ export function getBadgeData(article: any): MaterialBadgeData | null {
   // 1. Determine material type
   let materialType: MaterialType = 'other';
   
-  if (article.metadata?.properties?.materialType) {
-    materialType = article.metadata.properties.materialType as MaterialType;
+  if ((article.metadata?.properties as any)?.materialType) {
+    materialType = (article.metadata?.properties as any).materialType as MaterialType;
   } else if (article.metadata?.category) {
     // Map categories to material types
-    const category = article.metadata.category.toLowerCase();
+    const category = (article.metadata.category as string).toLowerCase();
     if (category === 'ceramic') materialType = 'ceramic';
     else if (category === 'polymer') materialType = 'polymer';
     else if (category === 'metal' || category === 'alloy') materialType = 'alloy';
@@ -45,28 +45,28 @@ export function getBadgeData(article: any): MaterialBadgeData | null {
   let symbol = article.metadata?.chemicalSymbol;
   
   // 3. Try to get chemical formula
-  let formula = article.metadata?.chemicalFormula;
-  if (!formula && article.metadata?.properties?.chemicalFormula) {
-    formula = article.metadata.properties.chemicalFormula;
+  let formula: unknown = article.metadata?.chemicalFormula;
+  if (!formula && (article.metadata?.properties as any)?.chemicalFormula) {
+    formula = (article.metadata?.properties as any).chemicalFormula;
   }
-  if (!formula && article.metadata?.composition?.[0]?.formula) {
-    formula = article.metadata.composition[0].formula;
+  if (!formula && (article.metadata?.composition as any)?.[0]?.formula) {
+    formula = (article.metadata?.composition as any)[0].formula;
   }
   
   // 4. Get atomic number for elements
-  let atomicNumber = article.metadata?.atomicNumber;
-  if (!atomicNumber && symbol && ELEMENTS[symbol]) {
-    atomicNumber = ELEMENTS[symbol];
+  let atomicNumber: unknown = article.metadata?.atomicNumber;
+  if (!atomicNumber && symbol && ELEMENTS[symbol as string]) {
+    atomicNumber = ELEMENTS[symbol as string];
   }
   
   // 5. If we have formula but no symbol, extract from formula
   if (formula && !symbol) {
-    symbol = extractSymbol(formula);
+    symbol = extractSymbol(formula as string);
   }
   
   // 6. Last resort: generate symbol from name
   if (!symbol && article.metadata?.subject) {
-    symbol = abbreviateName(article.metadata.subject);
+    symbol = abbreviateName(article.metadata.subject as string);
   }
   
   // If we've found nothing, return null
@@ -79,9 +79,9 @@ export function getBadgeData(article: any): MaterialBadgeData | null {
   }
   
   return {
-    symbol,
-    formula,
-    atomicNumber,
+    symbol: symbol as string,
+    formula: formula as string | undefined,
+    atomicNumber: atomicNumber as string | number | undefined,
     materialType
   };
 }

@@ -2,7 +2,7 @@
 // Centralized logging utility for the application
 
 export interface LogContext {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export class Logger {

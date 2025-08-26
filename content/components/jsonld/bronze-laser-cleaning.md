@@ -10,10 +10,12 @@
     "Bronze material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "copper alloy surface treatment"
+    "surface treatment",
+    "non-contact processing",
+    "oxide removal",
+    "patina preservation"
   ],
-  "articleBody": "Bronze is a copper-based alloy primarily composed of copper (88-95%) and tin (5-12%), with possible additions of aluminum, nickel, or phosphorus. This metal material exhibits excellent corrosion resistance, good thermal conductivity, and mechanical durability, making it suitable for various industrial applications. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising Bronze's structural integrity. The process utilizes controlled laser parameters with optimal settings including 1064nm wavelength, 0.5-2.0 J/cm² fluence, and 10-100ns pulse duration to selectively ablate unwanted material while preserving the underlying Bronze substrate. Key applications include restoration of historical artifacts, precision cleaning of marine components, surface preparation for welding in aerospace applications, and maintenance of architectural elements. Challenges include managing the material's thermal conductivity to prevent heat accumulation and addressing varying surface conditions. Technical solutions involve precise parameter optimization, real-time monitoring systems, and controlled scanning patterns. Safety considerations require proper ventilation for fume extraction, appropriate laser safety eyewear (OD 7+ at 1064nm), and comprehensive operator training in laser safety protocols specific to metal processing environments.",
+  "articleBody": "Bronze, an alloy primarily composed of copper and tin, presents unique challenges and opportunities in industrial cleaning applications. Laser cleaning technology provides an exceptional solution for removing surface contaminants, oxidation layers, and unwanted coatings from Bronze substrates without mechanical abrasion or chemical residues. The process utilizes precisely controlled laser parameters, typically employing fiber lasers with wavelengths between 1064nm for optimal absorption by Bronze's surface contaminants. Key technical considerations include fluence levels ranging from 0.5-2.5 J/cm², pulse durations of 10-100 nanoseconds, and spot sizes adjustable from 0.1-5mm depending on the application requirements. This selective ablation process effectively removes oxidation, corrosion products, and surface contaminants while preserving the underlying Bronze material's integrity and any desired patina layers. Industrial applications span across heritage conservation, marine components, architectural elements, and precision engineering components where maintaining dimensional accuracy and surface quality is critical. The non-contact nature of laser cleaning eliminates substrate damage risks associated with traditional mechanical methods, making it particularly valuable for delicate Bronze artifacts and precision components.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +31,7 @@
       "url": "/images/bronze-laser-cleaning-micro.jpg",
       "name": "Bronze Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Bronze material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Bronze material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.2 J/cm² fluence, 20ns pulse duration, and 50μm spot size specifications",
+      "description": "Split-view microscopic photograph of Bronze material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Bronze microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

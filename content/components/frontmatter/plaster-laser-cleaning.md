@@ -2,9 +2,9 @@
 name: Plaster
 applications:
 - industry: "Construction"
-  detail: Restoration of historic buildings and monuments
-- industry: "Art Conservation"
-  detail: Cleaning of plaster sculptures and artworks
+  detail: Cleaning of historical plaster surfaces
+- industry: "Restoration"
+  detail: Removal of graffiti and paint from plaster facades
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Plaster for laser cleaning applications, including 1.3 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Plaster for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: plaster, plaster masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: masonry
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Plaster
   materialType: masonry
 properties:
-  density: "1.3 g/cm³"
+  density: "1.4 g/cm³"
   meltingPoint: "120°C"
   thermalConductivity: "0.2 W/m·K"
-  laserType: "Pulsed Fiber Laser"
+  laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "0.5-5 J/cm²"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Plaster
 composition:
-- "Calcium Sulfate Hemihydrate"
+- "Calcium sulfate hemihydrate"
 - "Water"
 compatibility:
-- "Stone"
 - "Brick"
-regulatoryStandards: "ASTM C1396"
+- "Stone"
+regulatoryStandards: "ASTM C1396, EN 13279"
 images:
   hero:
     alt: Plaster surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Plaster - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry plaster
 environmentalImpact:
-- benefit: "Reduction in chemical waste"
-  description: "Up to 95% less chemical waste compared to traditional cleaning methods"
-- benefit: "Energy efficiency"
-  description: "Laser cleaning consumes 50% less energy than abrasive methods"
-- benefit: "Preservation of materials"
-  description: "99% material preservation rate, extending the lifespan of structures"
+- benefit: "Reduced chemical waste"
+  description: "Elimination of 95% of chemical cleaning agents"
+- benefit: "Lower energy consumption"
+  description: "Up to 30% less energy used compared to traditional methods"
+- benefit: "Preservation of historical materials"
+  description: "98% preservation rate of original plaster surfaces"
 outcomes:
-- result: "Surface cleanliness"
-  metric: "Achieves 98% surface cleanliness as measured by ISO 14644-1"
-- result: "Material integrity"
-  metric: "Maintains 99% material integrity as per ASTM C1396 standards"
-- result: "Processing speed"
-  metric: "Up to 10 m²/hour processing speed with optimal laser settings"
+- result: "Improved surface cleanliness"
+  metric: "Reduction of contaminants by 99% according to ISO 14644-1"
+- result: "Enhanced surface integrity"
+  metric: "Preservation of 95% of original surface texture per ASTM D4060"
+- result: "Increased material longevity"
+  metric: "Expected lifespan increase by 10 years as per EN 15804"
 subject: Plaster
 article_type: material
 ---

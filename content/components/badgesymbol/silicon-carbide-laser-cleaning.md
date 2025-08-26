@@ -1,0 +1,4 @@
+---
+symbol: "SiC"
+materialType: "semiconductor"
+---

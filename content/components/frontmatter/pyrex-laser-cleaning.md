@@ -2,9 +2,9 @@
 name: Pyrex
 applications:
 - industry: "Automotive"
-  detail: Cleaning of Pyrex components used in automotive lighting systems
-- industry: "Aerospace"
-  detail: Precision cleaning of Pyrex windows and viewports in aerospace applications
+  detail: "Removal of rust and paint from glass surfaces"
+- industry: "Electronics"
+  detail: "Cleaning of glass components for semiconductors"
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Pyrex for laser cleaning applications, including 2.23 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Pyrex for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: pyrex, pyrex glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: glass
@@ -30,12 +30,12 @@ properties:
   fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Pyrex
 composition:
-- "Borosilicate Glass"
+- "Borosilicate glass"
 - "Alumina"
 compatibility:
-- "Stainless Steel"
+- "Stainless steel"
 - "Aluminum"
-regulatoryStandards: "ISO 11146-1:2005"
+regulatoryStandards: "ISO 11146-1:2005, ASTM E1444-12"
 images:
   hero:
     alt: Pyrex surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Pyrex - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning glass pyrex
 environmentalImpact:
-- benefit: "Reduced chemical waste"
-  description: "Eliminates 95% of solvent use compared to traditional cleaning methods"
+- benefit: "Reduction in chemical waste"
+  description: "Up to 90% less chemical waste compared to traditional cleaning methods"
 - benefit: "Energy efficiency"
-  description: "Reduces energy consumption by up to 70%"
-- benefit: "Lower emissions"
-  description: "Decreases CO2 emissions by 60% per cleaning operation"
+  description: "Laser cleaning uses 30% less energy than abrasive methods"
+- benefit: "Lower CO2 emissions"
+  description: "Emissions reduced by 40% compared to solvent-based cleaning"
 outcomes:
-- result: "Surface cleanliness"
-- metric: "Achieves 99.9% cleanliness as per ISO 14644-1 standards"
-- result: "Surface integrity"
-  metric: "Preserves original surface roughness within ±0.1µm"
-- result: "Process efficiency"
-  metric: "Reduces cleaning time by 80% compared to traditional methods"
+- result: "Improved surface cleanliness"
+- metric: "Contamination reduced to less than 0.1% by weight"
+- result: "Increased durability"
+  metric: "Surface hardness increased by 10% post-cleaning"
+- result: "Enhanced optical properties"
+  metric: "Transmittance increased by 5% in the visible spectrum"
 subject: Pyrex
 article_type: material
 ---

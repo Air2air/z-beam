@@ -1,19 +1,19 @@
 ---
 name: Lead
 applications:
-- industry: "Manufacturing"
-  detail: Removing oxidation and contaminants from lead surfaces in manufacturing processes
-- industry: "Restoration"
-  detail: Cleaning lead artifacts and sculptures for preservation and restoration
+- industry: "Electronics"
+  detail: Cleaning of lead-based solder joints
+- industry: "Nuclear"
+  detail: Decontamination of lead shielding
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "5-50ns"
+  pulseDuration: "10-50ns"
   wavelength: "1064nm (primary), 532nm (optional)"
   spotSize: "0.1-1.0mm"
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Lead for laser cleaning applications, including 11.34 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Lead for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: lead, lead metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -25,7 +25,7 @@ properties:
   density: "11.34 g/cm³"
   meltingPoint: "327.46°C"
   thermalConductivity: "35.3 W/m·K"
-  laserType: "Pulsed fiber laser"
+  laserType: "Nd:YAG laser"
   wavelength: "1064nm"
   fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Pb
@@ -34,8 +34,8 @@ composition:
 - "Trace impurities"
 compatibility:
 - "Copper"
-- "Tin"
-regulatoryStandards: "OSHA, ANSI Z136.1"
+- "Steel"
+regulatoryStandards: "ISO 11146-1:2005, OSHA 1910.1025"
 images:
   hero:
     alt: Lead surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +47,18 @@ title: Laser Cleaning Lead - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal lead
 environmentalImpact:
 - benefit: "Reduced chemical waste"
-  description: "Eliminates 95% of chemical solvents used in traditional cleaning methods"
+  description: "Up to 90% less chemical waste compared to traditional cleaning methods"
 - benefit: "Lower energy consumption"
-  description: "Reduces energy use by 70% compared to mechanical cleaning"
-- benefit: "Decreased lead exposure"
-  description: "Reduces airborne lead particles by 90% during cleaning"
+  description: "30% less energy used than abrasive cleaning techniques"
+- benefit: "Minimal secondary waste"
+  description: "Generates less than 1% of the secondary waste produced by sandblasting"
 outcomes:
 - result: "Improved surface cleanliness"
-- metric: "Residue reduced to <0.1% by weight"
-- result: "Enhanced material integrity"
-  metric: "Surface roughness decreased by 50%"
-- result: "Increased operational efficiency"
-  metric: "Cleaning time reduced by 60%"
+- metric: "Surface contamination reduced to less than 0.1% by weight"
+- result: "Preserved material integrity"
+  metric: "No measurable change in lead's mechanical properties post-cleaning"
+- result: "Enhanced adhesion for subsequent treatments"
+  metric: "Adhesion strength increased by up to 50% compared to uncleaned surfaces"
 subject: Lead
 article_type: material
 ---

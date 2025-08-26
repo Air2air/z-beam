@@ -58,7 +58,12 @@ export function normalizeTag(tag: string): string {
     .join(' ');
 }
 
-export function getDisplayName(item: any): string {
+export function getDisplayName(item: {
+  name?: string;
+  frontmatter?: { name?: string; title?: string };
+  title?: string;
+  slug?: string;
+}): string {
   // Try to get the name from different sources in priority order
   if (item.name) return item.name;
   if (item.frontmatter?.name) return item.frontmatter.name;
@@ -87,7 +92,15 @@ export interface ChemicalProperties {
   atomicNumber?: number | string;
 }
 
-export function getBadgeFromItem(item: any): BadgeData | null {
+export function getBadgeFromItem(item: {
+  badge?: BadgeData;
+  frontmatter?: {
+    subject?: string;
+    category?: string;
+    commentMetadata?: { Subject?: string };
+  };
+  category?: string;
+}): BadgeData | null {
   // If the item already has a badge, use it
   if (item.badge) return item.badge;
 
@@ -158,7 +171,18 @@ export function getBadgeFromItem(item: any): BadgeData | null {
   return null;
 }
 
-export function getChemicalProperties(item: any): ChemicalProperties | null {
+export function getChemicalProperties(item: {
+  metadata?: { chemicalProperties?: ChemicalProperties };
+  frontmatter?: {
+    chemicalProperties?: ChemicalProperties;
+    chemicalSymbol?: string;
+    chemicalFormula?: string;
+    formula?: string;
+    materialType?: MaterialType;
+    category?: string;
+    subject?: string;
+  };
+}): ChemicalProperties | null {
   // First check if item.metadata already has chemical properties
   if (item.metadata?.chemicalProperties) {
     return item.metadata.chemicalProperties;
@@ -178,7 +202,7 @@ export function getChemicalProperties(item: any): ChemicalProperties | null {
       return {
         symbol: item.frontmatter.chemicalSymbol,
         formula: item.frontmatter.chemicalFormula || item.frontmatter.formula,
-        materialType: item.frontmatter.materialType || item.frontmatter.category
+        materialType: toMaterialType(item.frontmatter.materialType || item.frontmatter.category)
       };
     }
     
@@ -190,7 +214,7 @@ export function getChemicalProperties(item: any): ChemicalProperties | null {
         return {
           symbol: "Al",
           formula: "Al₂O₃",
-          materialType: item.frontmatter.category || "ceramic"
+          materialType: toMaterialType(item.frontmatter.category || "ceramic")
         };
       }
       
@@ -198,7 +222,7 @@ export function getChemicalProperties(item: any): ChemicalProperties | null {
         return {
           symbol: "Si",
           formula: "Si₃N₄",
-          materialType: item.frontmatter.category || "ceramic"
+          materialType: toMaterialType(item.frontmatter.category || "ceramic")
         };
       }
     }

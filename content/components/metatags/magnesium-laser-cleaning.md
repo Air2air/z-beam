@@ -2,11 +2,11 @@
 title: Laser Cleaning Magnesium - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Magnesium for laser cleaning applications, including 1.74 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Magnesium for laser cleaning applications, including 1.738 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "magnesium, magnesium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Sarah Johnson"
+    content: "Dr. Elena Rodriguez"
   - name: category
     content: "metal"
   - name: robots

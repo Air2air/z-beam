@@ -1,1 +1,1 @@
-platinum, ablation, cleaning, laser, aerospace, electronics, non-contact, alessandro moretti
+platinum, ablation, cleaning, laser, non-contact, aerospace, jewelry, alessandro-moretti

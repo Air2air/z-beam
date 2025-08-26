@@ -7,7 +7,7 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
-import { Article } from '../types/Article';
+import { Article } from '@/types/core';
 
 export type { Article };
 

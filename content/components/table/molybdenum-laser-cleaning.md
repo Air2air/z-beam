@@ -2,23 +2,23 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 2623 | °C |
+| Density | 10.22 | g/cm³ |
 | Thermal Conductivity | 138 | W/m·K |
-| Reflectivity | 50-60 | % |
-| Density | 10.28 | g/cm³ |
+| Reflectivity (visible) | 50-60 | % |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
 | Purity | 99.95 | % |
-| Common Grades | TZM, Mo-La | - |
-| Impurities | <0.05 | % |
+| Common Alloys | Mo-TZM, Mo-La | - |
+| Grain Size | 10-50 | µm |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Rate | 1-5 | cm²/s |
-| Surface Roughness | 0.1-1 | µm |
-| Oxide Removal | >95 | % |
+| Cleaning Efficiency | 90-95 | % |
+| Surface Roughness (Ra) | 0.1-0.5 | µm |
+| Material Removal Rate | 0.5-2 | µm/pulse |
 
 ## Standards and Compliance
 | Property | Value | Unit |
@@ -30,9 +30,9 @@
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | 20-30 | °C |
-| Humidity | <60 | % |
-| Dust Level | <ISO Class 7 | - |
+| Operating Temperature | -50 to 100 | °C |
+| Humidity Range | 10-90 | % RH |
+| Dust Tolerance | <10 | µg/m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

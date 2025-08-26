@@ -1,0 +1,2 @@
+**Dolomite** surface (left) with heavy atmospheric soiling and embedded particulate contamination compromising its CaMg(CO₃)₂ crystalline structure.  
+**After 1064 nm laser ablation** (right) using 8 J/cm² fluence and 100 ns pulses, achieving precise contaminant removal with zero substrate damage.

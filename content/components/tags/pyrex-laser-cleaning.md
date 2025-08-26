@@ -1,1 +1,1 @@
-ablation, cleaning, laser, non-contact, pyrex, aerospace, electronics, alessandro moretti
+ablation, pyrex, cleaning, laser, non-contact, manufacturing, electronics, alessandro-moretti

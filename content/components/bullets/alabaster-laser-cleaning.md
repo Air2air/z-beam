@@ -1,0 +1,9 @@
+- **[APPLICATIONS]** Laser cleaning is extensively applied in the restoration of historical alabaster monuments and the finishing of modern sculptural elements, aligning with Italy's leadership in artisanal stone manufacturing. This non-contact method is preferred for delicate conservation projects where traditional mechanical techniques pose a risk of surface abrasion.
+
+- **[PARAMETERS]** Optimal cleaning of alabaster, a hydrated calcium sulfate, typically employs a near-infrared wavelength such as 1064 nm with carefully controlled low fluence to prevent thermal alteration of its water content. Pulse durations in the nanosecond range are standard to effectively remove sulfation black crusts while preserving the stone's delicate translucency and surface integrity.
+
+- **[ENVIRONMENTAL]** The process eliminates the need for chemical solvents and generates minimal waste, substantially reducing the ecological footprint compared to conventional abrasive blasting methods. This aligns with stringent European environmental directives by preventing secondary contamination of soil and groundwater at industrial conservation sites.
+
+- **[SAFETY]** Strict adherence to European standard EN 60825-1 for laser product safety is mandatory, requiring Class 4 enclosure systems and area monitoring to protect operators from scattered radiation. Personnel must also utilize fume extraction units and wear appropriate respiratory protection to mitigate risks from the inhalation of fine particulate matter generated during the ablation process.
+
+- **[CHALLENGES]** A primary difficulty involves the precise removal of dark biological patinas without exceeding the thermal damage threshold of the relatively soft alabaster substrate. This is mitigated through the use of advanced scanning systems and real-time process monitoring to ensure uniform energy distribution and prevent localized overheating or etching.

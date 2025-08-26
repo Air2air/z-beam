@@ -2,11 +2,11 @@
 title: Laser Cleaning Mortar - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Mortar for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Mortar for laser cleaning applications, including 2.1 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
   - name: keywords
     content: "mortar, mortar masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "masonry"
   - name: robots

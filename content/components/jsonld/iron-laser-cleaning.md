@@ -10,12 +10,12 @@
     "Iron material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "surface contamination removal",
-    "oxide layer cleaning",
-    "industrial rust removal"
+    "surface treatment",
+    "non-contact processing",
+    "oxide removal",
+    "rust ablation"
   ],
-  "articleBody": "Iron is a ferromagnetic metal with high tensile strength and excellent thermal conductivity, making it ideal for industrial applications but challenging for surface treatment due to its susceptibility to oxidation. Laser cleaning offers a precise, non-contact method for removing contaminants, rust, mill scale, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal settings at 1064nm wavelength, 0.5-2.0 J/cm² fluence, and nanosecond pulse durations to selectively ablate unwanted material while preserving the underlying Iron substrate. Key applications include automotive component restoration, historical artifact conservation, industrial machinery maintenance, and precision manufacturing surface preparation. Challenges include managing thermal input to prevent microstructural changes and addressing reflective properties through proper angle adjustments. Safety protocols require Class 4 laser safety measures including appropriate eyewear, fume extraction systems for iron oxide particles, and controlled environment operation to prevent accidental exposure. The non-abrasive nature of laser cleaning eliminates secondary waste generation and enables selective cleaning of complex geometries without damaging the base material.",
+  "articleBody": "Iron is a ferromagnetic metal with excellent mechanical properties, high thermal conductivity (80.4 W/m·K), and a melting point of 1538°C, making it suitable for laser cleaning processes. The optimal laser parameters for cleaning Iron typically involve near-infrared wavelengths (1064 nm) with fluence levels between 1-5 J/cm² and pulse durations of 10-100 nanoseconds to effectively remove oxides, rust, and contaminants without damaging the substrate. Key applications include automotive component restoration, historical artifact preservation, industrial machinery maintenance, and surface preparation for welding or coating. Challenges include managing the high reflectivity of Iron at certain wavelengths and preventing thermal damage, which are addressed through precise parameter optimization and real-time monitoring systems. Safety considerations mandate proper ventilation to manage iron oxide fumes, Class 4 laser safety protocols including appropriate eyewear, and containment systems to prevent particulate dispersion. The process effectively removes mill scale, rust, paint, and organic contaminants while maintaining the base material's dimensional stability and surface finish quality.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/iron-laser-cleaning-micro.jpg",
       "name": "Iron Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Iron material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Iron material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.2 J/cm² fluence, 100ns pulse duration, and 50μm spot size specifications",
+      "description": "Split-view microscopic photograph of Iron material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Iron microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

@@ -1,2 +1,2 @@
-**Inconel 718** surface (left) before cleaning, showing heavy oxide scale and heat tint from prior thermal processing.
-**After laser cleaning** (right) using a 1064 nm fiber laser at 100 W, 100 ns pulse duration, and a 200 µm spot, revealing the pristine, oxidation-resistant substrate with no surface damage.
+**Inconel 718** surface (left) with tenacious oxide scale and embedded carbonaceous deposits from high-temperature service.
+**After laser ablation** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and 500 μm spot size, achieving complete contaminant removal with no substrate damage.

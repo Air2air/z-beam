@@ -1,0 +1,4 @@
+---
+symbol: "GaN"
+materialType: "semiconductor"
+---

@@ -2,40 +2,40 @@
 name: Aluminum
 applications:
 - industry: "Automotive"
-  detail: Removal of rust and corrosion from aluminum engine components
+  detail: Removing paint and corrosion from aluminum parts
 - industry: "Aerospace"
-  detail: Precision cleaning of aluminum aircraft parts for surface preparation
+  detail: Cleaning aluminum surfaces for improved bonding
 technicalSpecifications:
-  powerRange: "50-200W"
-  pulseDuration: "10-200ns"
+  powerRange: "20-100W"
+  pulseDuration: "10-100ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.1-1.0mm"
-  repetitionRate: "20-100kHz"
-  fluenceRange: "1.0–10 J/cm²"
+  spotSize: "0.1-2.0mm"
+  repetitionRate: "10-50kHz"
+  fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Aluminum for laser cleaning applications, including 2.7 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Aluminum for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: aluminum, aluminum metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
 chemicalProperties:
-  symbol: Al
-  formula: Al
+  symbol: AL
+  formula: Aluminum
   materialType: metal
 properties:
   density: "2.7 g/cm³"
-  meltingPoint: "660.32°C"
+  meltingPoint: "660.3 °C"
   thermalConductivity: "237 W/m·K"
-  laserType: "pulsed fiber laser"
-  wavelength: "1064nm"
-  fluenceRange: "1.0–10 J/cm²"
-  chemicalFormula: Al
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064 nm"
+  fluenceRange: "0.5–5 J/cm²"
+  chemicalFormula: Aluminum
 composition:
-- "Aluminum"
+- "Aluminum (Al)"
 - "Trace elements"
 compatibility:
-- "Steel"
+- "Stainless Steel"
 - "Titanium"
-regulatoryStandards: "ISO 11146-1"
+regulatoryStandards: "ISO 11146-1:2005"
 images:
   hero:
     alt: Aluminum surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Aluminum - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal aluminum
 environmentalImpact:
-- benefit: "Reduced waste generation"
-  description: "80% less waste compared to traditional methods"
-- benefit: "Lower energy consumption"
-  description: "30% less energy used than abrasive blasting"
-- benefit: "Reduced chemical usage"
-  description: "Eliminates need for chemical solvents"
+- benefit: "Reduced chemical waste"
+  description: "Up to 90% decrease in chemical usage compared to traditional methods"
+- benefit: "Energy efficiency"
+  description: "Laser cleaning consumes 80% less energy than sandblasting"
+- benefit: "Lower CO2 emissions"
+  description: "Emissions reduced by 75% compared to traditional cleaning processes"
 outcomes:
-- result: "Improved surface cleanliness"
-- metric: "99.9% contaminant removal efficiency"
-- result: "Enhanced surface quality"
-  metric: "Ra value improved by 50%"
-- result: "Increased material lifespan"
-  metric: "20% longer service life"
+- result: "Surface cleanliness"
+  metric: "Achieves 99.9% cleanliness as per ISO 14644-1 standard"
+- result: "Surface roughness"
+  metric: "Ra value reduced to 0.1-0.5 μm post-cleaning"
+- result: "Processing time"
+  metric: "Reduces cleaning time by up to 70% compared to manual methods"
 subject: Aluminum
 article_type: material
 ---

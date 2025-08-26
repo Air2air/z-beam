@@ -1,7 +1,7 @@
 | Property | Value |
 |----------|-------|
 | Chemical Formula | Berylli… |
-| Material Symbol | Be |
+| Material Symbol | BE |
 | Category | Metal |
 | Material Type | Metal |
 | Tensile Strength | N/A |

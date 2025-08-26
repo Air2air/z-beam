@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { Article } from "../../types/Article";
+import { Article } from "@/types/core";
 import { Card } from "../Card/Card";
 import { logger } from "../../utils/logger";
 
@@ -17,7 +17,12 @@ interface ThumbnailProps {
   width?: number;
   height?: number;
   slug?: string; // Add slug to fetch data directly
-  frontmatter?: any; // Keep as fallback for cases where data is already available
+  frontmatter?: {
+    images?: {
+      hero?: { url: string };
+    };
+    [key: string]: unknown;
+  }; // Specific structure for images
 }
 
 export function Thumbnail({

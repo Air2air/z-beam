@@ -10,10 +10,12 @@
     "Terra Cotta material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "Terra Cotta surface restoration"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "contaminant removal"
   ],
-  "articleBody": "Terra Cotta is a fired clay masonry material composed primarily of silica (SiO₂), alumina (Al₂O₃), and iron oxide (Fe₂O₃), with a porous microstructure and typical firing temperatures between 900-1100°C. Its composition and thermal history create unique challenges for laser cleaning, requiring precise parameter optimization. Optimal laser cleaning utilizes near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds to effectively remove surface contaminants, biological growth, and oxidation layers without damaging the underlying ceramic matrix. The process selectively ablates unwanted material through photothermal and photomechanical mechanisms while preserving the original surface texture and mineral composition. Key applications include architectural restoration of historical Terra Cotta facades, industrial cleaning of ceramic components, and preparation of archaeological artifacts for analysis. Challenges include managing the material's porosity, which can trap contaminants, and varying surface compositions that require adaptive laser parameter adjustment. Safety considerations mandate Class 4 laser protocols including appropriate eyewear (OD 7+ at 1064 nm), fume extraction systems for ceramic particulate matter, and controlled access to the processing area. The non-contact nature of laser cleaning eliminates mechanical stress and chemical residue, making it ideal for delicate Terra Cotta preservation projects.",
+  "articleBody": "Terra Cotta, a fired clay masonry material composed primarily of clay minerals, iron oxides, and silica, presents unique challenges for surface cleaning due to its porous nature and susceptibility to damage from traditional abrasive methods. Laser cleaning offers a revolutionary non-contact approach that selectively removes contaminants, biological growth, surface oxidation, and unwanted coatings while preserving the original Terra Cotta substrate. The process utilizes precisely controlled laser parameters including specific wavelengths (typically 1064nm Nd:YAG or fiber lasers), fluence levels (0.5-2.5 J/cm²), pulse durations (10-100 ns), and spot sizes (0.1-2.0 mm) to achieve optimal ablation without thermal damage to the underlying material. This technique effectively removes soot, dirt, biological matter, and previous restoration materials while maintaining the material's original texture and mineral composition. Industrial applications include architectural restoration, historical preservation, and manufacturing quality control where precision surface treatment is critical. The non-abrasive nature of laser cleaning eliminates mechanical stress, reduces material loss, and provides superior results compared to chemical or mechanical methods.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +31,7 @@
       "url": "/images/terra-cotta-laser-cleaning-micro.jpg",
       "name": "Terra Cotta Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Terra Cotta material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Terra Cotta material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 200μm spot size specifications",
+      "description": "Split-view microscopic photograph of Terra Cotta material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Terra Cotta microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

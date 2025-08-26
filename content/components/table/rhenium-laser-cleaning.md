@@ -4,35 +4,35 @@
 | Melting Point | 3186 | °C |
 | Density | 21.02 | g/cm³ |
 | Thermal Conductivity | 48 | W/m·K |
-| Coefficient of Thermal Expansion | 6.2 | µm/m·K |
+| Oxidation Resistance | High | - |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity | 99.99 | % |
+| Purity Level | 99.99 | % |
 | Common Alloys | Re-W, Re-Mo | - |
-| Grain Size | 10-50 | µm |
+| Surface Roughness | 0.1-1.0 | µm |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness (Ra) | 0.1-0.5 | µm |
 | Cleaning Efficiency | 95-99 | % |
-| Material Removal Rate | 0.01-0.1 | mm³/s |
+| Surface Cleanliness | 99.9 | % |
+| Residual Contamination | <0.1 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | B607 | - |
-| ISO Standard | 14903 | - |
-| RoHS Compliance | Yes | - |
+| ISO Standard | ISO 11146 | - |
+| ASTM Standard | ASTM B777 | - |
+| Safety Compliance | OSHA, ANSI | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -50 to 150 | °C |
-| Humidity Range | 10-90 | % RH |
-| Storage Temperature | -60 to 200 | °C |
+| Operating Temperature | -50 to 100 | °C |
+| Humidity Resistance | 90 | % RH |
+| Waste Generation | Minimal | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

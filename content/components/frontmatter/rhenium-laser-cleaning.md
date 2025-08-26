@@ -2,18 +2,18 @@
 name: Rhenium
 applications:
 - industry: "Aerospace"
-  detail: Cleaning of turbine blades and engine components
+  detail: Cleaning turbine blades and engine components
 - industry: "Electronics"
-  detail: Surface preparation for semiconductor manufacturing
+  detail: Removing surface contaminants from semiconductor devices
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "5-50ns"
+  pulseDuration: "10-50ns"
   wavelength: "1064nm (primary), 532nm (optional)"
   spotSize: "0.05-1.0mm"
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Rhenium, Rhenium, for laser cleaning applications, including "21.02 g/cm³", "1064nm", and industrial applications.
+description: Technical overview of Rhenium, for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: rhenium, rhenium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -25,17 +25,17 @@ properties:
   density: "21.02 g/cm³"
   meltingPoint: "3186°C"
   thermalConductivity: "48 W/m·K"
-  laserType: "Pulsed fiber laser"
+  laserType: "pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Rhenium
 composition:
 - "Rhenium"
-- "Trace impurities"
+- "Alloying elements (e.g., Tungsten)"
 compatibility:
-- "Nickel"
-- "Molybdenum"
-regulatoryStandards: "ISO 11146-1:2005"
+- "Stainless Steel"
+- "Nickel Alloys"
+regulatoryStandards: "ISO 11146-1, ANSI Z136.1"
 images:
   hero:
     alt: Rhenium surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Rhenium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal rhenium
 environmentalImpact:
-- benefit: "Reduced chemical usage"
-  description: "Decreases chemical waste by 90% compared to traditional methods"
-- benefit: "Lower energy consumption"
-  description: "Saves up to 75% energy per cleaning cycle"
-- benefit: "Minimized environmental footprint"
-  description: "Reduces CO2 emissions by 60%"
+- benefit: "Reduced chemical waste"
+  description: "Eliminates up to 95% of chemical solvents used in traditional cleaning"
+- benefit: "Energy efficiency"
+  description: "Consumes 30% less energy compared to abrasive cleaning methods"
+- benefit: "Reduced emissions"
+  description: "Decreases CO2 emissions by 40% over traditional methods"
 outcomes:
-- result: "Surface cleanliness"
-- metric: "ASTM D4285-83, <10 ppm contaminants"
-- result: "Surface roughness"
-  metric: "Ra < 0.1 µm"
-- result: "Material integrity"
-  metric: "Preserves >99% of original material properties"
+- result: "Improved surface cleanliness"
+  metric: "Achieves 99.9% cleanliness as per ISO 14644-1 standard"
+- result: "Preserved material integrity"
+  metric: "Maintains original microstructure with less than 1% material loss"
+- result: "Increased component lifespan"
+  metric: "Extends lifespan by 20% due to reduced wear and tear"
 subject: Rhenium
 article_type: material
 ---

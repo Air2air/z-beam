@@ -4,7 +4,7 @@ import path from 'path';
 import { safeMatterParse } from './yamlSanitizer';
 import { logger } from './logger';
 
-export async function loadFrontmatterData(slug: string): Promise<any> {
+export async function loadFrontmatterData(slug: string): Promise<unknown> {
   try {
     const frontmatterPath = path.join(
       process.cwd(),
@@ -31,16 +31,16 @@ export async function loadFrontmatterData(slug: string): Promise<any> {
         
         // Make sure the images structure exists
         if (!data.images) data.images = {};
-        if (!data.images.hero) data.images.hero = {};
+        if (!(data.images as any).hero) (data.images as any).hero = {};
         
         // Add or update the URL
-        data.images.hero.url = heroUrl;
+        (data.images as any).hero.url = heroUrl;
       }
       
       return data;
     } catch (matterError) {
       // Alternative: Extract image URLs directly with regex
-      const result: any = {};
+      const result: Record<string, unknown> = {};
       
       // Extract hero image URL
       const heroImageMatch = fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/);

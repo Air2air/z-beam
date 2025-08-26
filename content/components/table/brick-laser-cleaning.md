@@ -2,46 +2,40 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Density | 1.8-2.0 | g/cm³ |
+| Compressive Strength | 20-50 | MPa |
 | Thermal Conductivity | 0.6-1.0 | W/m·K |
-| Melting Point | 1,500-1,700 | °C |
-| Hardness | 7-8 | Mohs |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Silica Content | 50-60 | % |
-| Alumina Content | 20-30 | % |
-| Iron Oxide Content | 5-10 | % |
-| Purity Level | 95-99 | % |
+| SiO2 Content | 50-60 | % |
+| Al2O3 Content | 20-30 | % |
+| Fe2O3 Content | <10 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Rate | 1-5 | m²/h |
-| Surface Roughness | 10-50 | μm |
-| Efficiency | 80-90 | % |
-| Repeatability | 95-99 | % |
+| Cleaning Efficiency | 90-95 | % |
+| Surface Roughness | 1.0-3.0 | µm |
+| Material Removal Rate | 0.5-1.5 | mm/min |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | C62-17 | - |
-| ISO Standard | 13006 | - |
-| EN Standard | 771-1 | - |
-| Safety Compliance | OSHA | - |
+| ASTM C67 | Compliant | - |
+| ISO 13007 | Compliant | - |
+| EN 12004 | Compliant | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Dust Emission | 0.1-0.5 | g/m³ |
-| Noise Level | 70-85 | dB |
-| Energy Consumption | 1-3 | kWh/m² |
-| Waste Generation | 0.01-0.1 | kg/m² |
+| Operating Temperature | -10 to 40 | °C |
+| Humidity Resistance | 50-90 | % RH |
+| Dust Emission | <0.1 | mg/m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1-5 | J/cm² |
+| Power Density | 1-5 | MW/cm² |
 | Pulse Duration | 10-100 | ns |
-| Scan Speed | 100-500 | mm/s |

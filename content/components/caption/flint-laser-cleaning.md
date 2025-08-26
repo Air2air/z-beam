@@ -1,0 +1,2 @@
+**Flint** surface (left) exhibiting heavy calcareous scale and organic staining from prolonged environmental exposure.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and 2 mm spot size, achieving precise ablation of contaminants while preserving the underlying microcrystalline silica structure.

@@ -6,10 +6,10 @@ import { SearchHeader } from "./SearchHeader";
 import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
 import { SearchResultItem } from "@/types/core";
-import { /* Article, */ EnrichedArticle } from "../../types/Article";
+import { Article, SearchableArticle } from "@/types/core";
 
 interface SearchResultsProps {
-  items: EnrichedArticle[];
+  items: SearchableArticle[];
   initialTag?: string;
   placeholder?: string;
   columns?: 1 | 2 | 3 | 4;
@@ -83,7 +83,7 @@ export function SearchResults({
   }, [initialTag, items]);
   
   // Simple tag matching function
-  function itemMatchesTag(item: any, tag: string): boolean {
+  function itemMatchesTag(item: SearchableArticle, tag: string): boolean {
     if (!tag) return true;
     if (!item.tags || !Array.isArray(item.tags)) return false;
     
@@ -129,7 +129,7 @@ export function SearchResults({
   }, [allTags, tagItemCounts]);
   
   // Simple search matching function
-  function itemMatchesSearch(item: EnrichedArticle, query: string): boolean {
+  function itemMatchesSearch(item: SearchableArticle, query: string): boolean {
     if (!query) return true;
     
     const queryLower = query.toLowerCase();
@@ -166,7 +166,7 @@ export function SearchResults({
       href: item.href,
       imageAlt: item.imageAlt || item.title || 'Image',
       image: item.image,
-      metadata: item.metadata as any, // Type cast during migration period
+      metadata: item.metadata as Record<string, unknown>, // More specific type
       frontmatter: item.frontmatter,
       content: item.content,
       excerpt: item.excerpt

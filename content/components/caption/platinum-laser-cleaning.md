@@ -1,2 +1,2 @@
-**Platinum** catalytic surface (left) before cleaning, exhibiting significant carbonaceous fouling and sulfur compound deposits from industrial exhaust stream processing.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 150 mJ/cm² fluence and 100 ns pulse duration, showing complete contaminant removal with zero substrate ablation and restored surface catalytic activity.
+**Platinum** catalytic surface (left) with accumulated carbonaceous fouling and oxide scale from high-temperature operation.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm², 100 ns pulse duration, and 500 µm spot size, showing complete contaminant ablation with zero substrate damage.

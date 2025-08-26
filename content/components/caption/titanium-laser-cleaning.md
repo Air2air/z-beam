@@ -1,2 +1,2 @@
-**Titanium** surface (left) before cleaning, showing heavy atmospheric oxide layer and embedded carbonaceous deposits from prolonged high-temperature service.  
-**After laser cleaning** (right) using a 1064 nm pulsed fiber laser (15 J/cm², 100 ns pulse duration, 200 µm spot), revealing the pristine, high-purity α-phase microstructure with complete contaminant removal and no substrate damage.
+**Titanium** surface (left) before laser ablation, exhibiting a tenacious, thermally grown oxide layer (TiO₂) and embedded particulate contamination.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm², revealing the pure, undamaged α-phase microstructure with complete oxide removal.

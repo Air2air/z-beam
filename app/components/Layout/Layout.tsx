@@ -11,7 +11,8 @@ import { Hero } from '../Hero/Hero';
 import { Title } from '../Title/Title';
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import { parseAuthorContent } from '@/app/utils/authorParser';
-import { ArticleMetadata } from '@/types/core';
+import { ArticleMetadata, BadgeSymbolData } from '@/types/core';
+import { ComponentData } from '@/app/utils/contentAPI';
 
 // Update component order to include propertiestable, author, and tags
 const COMPONENT_ORDER = [
@@ -25,7 +26,7 @@ const COMPONENT_ORDER = [
 ] as const;
 
 interface LayoutProps {
-  components: Record<string, any> | null; // Keep any for component flexibility
+  components: Record<string, ComponentData> | null; // Keep as ComponentData for compatibility
   metadata?: ArticleMetadata; // Use centralized type
   slug?: string;
   title?: string;
@@ -137,7 +138,7 @@ export function Layout({
               </div>
             );
           case 'badgesymbol':
-            return <BadgeSymbol key={type} content={content} config={config} />;
+            return <BadgeSymbol key={type} content={content} config={config as unknown as BadgeSymbolData} />;
           case 'content':
             return <Content key={type} content={content} config={config} />;
           case 'caption':

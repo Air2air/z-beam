@@ -1,3 +1,2 @@
-**Bronze** surface (left) before cleaning, showing heavy atmospheric corrosion and green copper(II) carbonate hydroxide patina formation.
-
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm² fluence, revealing the original alloy surface with complete contaminant removal and no substrate damage.
+**Bronze** surface (left) prior to treatment, exhibiting heavy atmospheric corrosion and green copper sulfate patina.
+**After laser cleaning** (right) selective ablation of corrosion layers using a 1064 nm Nd:YAG laser at 80 W average power, 100 ns pulse duration, and 5 mm spot size, preserving the intact substrate.

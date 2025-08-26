@@ -5,33 +5,33 @@
   "description": "Advanced laser cleaning techniques for Tungsten materials, ensuring precision surface treatment while preserving the material's structural integrity and high-temperature properties.",
   "keywords": [
     "Tungsten laser cleaning",
-    "Tungsten metal cleaning",
-    "non-abrasive surface treatment",
-    "Tungsten material processing",
-    "precision cleaning",
-    "industrial applications",
+    "Tungsten metal processing",
     "high-melting-point metal cleaning",
-    "laser ablation parameters",
+    "non-contact surface treatment",
+    "Tungsten oxide removal",
+    "industrial laser ablation",
+    "precision material processing",
     "contamination removal",
-    "surface oxidation treatment"
+    "surface preparation",
+    "thermal management"
   ],
-  "articleBody": "Tungsten is a refractory metal with exceptional properties including the highest melting point of all metals (3422°C), high density (19.3 g/cm³), and excellent thermal conductivity. These properties make it ideal for high-temperature applications but present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising Tungsten's structural integrity. The process utilizes controlled laser parameters with optimal wavelengths between 1064-1070nm (fiber lasers), fluence levels of 2-8 J/cm², and pulse durations of 100-200ns to selectively ablate unwanted material while preserving the underlying Tungsten substrate. Key applications include cleaning tungsten electrodes for welding and EDM processes, surface preparation for nuclear components, aerospace turbine parts, and semiconductor manufacturing equipment. Challenges include Tungsten's high thermal conductivity requiring precise energy control and potential micro-cracking from thermal stress, which is mitigated through optimized pulse repetition rates and scanning strategies. Safety considerations include proper fume extraction for tungsten oxide particles and comprehensive laser safety protocols including Class 4 laser precautions and appropriate PPE.",
+  "articleBody": "Tungsten, with its exceptional properties including the highest melting point of all metals (3422°C), high density (19.3 g/cm³), and excellent thermal conductivity, presents unique challenges and opportunities for laser cleaning. The process requires precise parameter optimization to effectively remove surface contaminants, oxides, and coatings without causing micro-cracking or thermal damage to the substrate. Optimal laser parameters for Tungsten cleaning typically involve near-infrared wavelengths (1064 nm) with fluence levels between 1-4 J/cm² and pulse durations of 10-100 nanoseconds. These parameters provide sufficient energy to ablate contaminants while minimizing heat transfer to the underlying material. Key applications include surface preparation for welding and brazing in aerospace components, cleaning of heating elements and filaments in electronics, and maintenance of high-temperature furnace components in industrial settings. The high reflectivity of Tungsten at certain wavelengths requires careful laser selection and parameter tuning to ensure efficient energy absorption. Safety considerations include proper fume extraction due to potential tungsten oxide particle generation and implementation of appropriate laser safety protocols including Class 4 laser requirements, protective eyewear, and enclosed processing chambers.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/tungsten-laser-cleaning-hero.jpg",
       "name": "Tungsten Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of Tungsten object displaying side-by-side before and after laser cleaning results",
-      "description": "Split-view workbench photograph showing a Tungsten object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
-      "keywords": "Tungsten laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
+      "caption": "Dual workbench photo of Tungsten heating element displaying side-by-side before and after laser cleaning results showing complete oxide removal",
+      "description": "Split-view workbench photograph showing a Tungsten heating element in before (left with heavy oxide buildup) and after (right with clean metallic surface) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Tungsten laser cleaning, before after comparison, oxide removal, heating element, contamination removal",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/tungsten-laser-cleaning-micro.jpg",
       "name": "Tungsten Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Tungsten material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Tungsten material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 5.2 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",
+      "caption": "Dual high-magnification photo of Tungsten material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 2.5 J/cm² fluence, and 50ns pulse duration specifications",
+      "description": "Split-view microscopic photograph of Tungsten material surface displaying before (left with surface contamination) and after (right with pristine surface) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 2.5 J/cm² fluence, 50ns pulse duration, and 100μm spot size specifications",
       "keywords": "Tungsten microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

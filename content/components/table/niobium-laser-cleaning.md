@@ -1,8 +1,7 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Melting Point | 2477 | °C |
-| Boiling Point | 4744 | °C |
+| Melting Point | 2468 | K |
 | Density | 8.57 | g/cm³ |
 | Thermal Conductivity | 53.7 | W/m·K |
 | Reflectivity | 60-70 | % |
@@ -10,34 +9,34 @@
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Commercial Purity | 99.8 | % |
-| High Purity | 99.99 | % |
-| RRR (Residual Resistivity Ratio) | 300-1000 | - |
-| Grain Size | 50-100 | µm |
+| Purity Level | 99.95-99.99 | % |
+| Common Grade | RRR 300-400 | - |
+| Oxygen Content | <100 | ppm |
+| Nitrogen Content | <100 | ppm |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
 | Cleaning Efficiency | 95-99 | % |
-| Surface Roughness (Ra) | 0.1-0.5 | µm |
-| Oxide Removal Rate | 1-2 | µm/s |
-| Contamination Level Post-Cleaning | <10 | ppm |
+| Surface Roughness | 0.1-0.5 | µm |
+| Ablation Threshold | 0.1-0.3 | J/cm² |
+| Cleaning Speed | 1-5 | m²/h |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | B392 | - |
-| ISO Standard | 9001 | - |
-| Cleanliness Level | Class 100 | - |
-| Safety Compliance | ANSI Z136.1 | - |
+| ASTM Standard | B391 | - |
+| ISO Standard | 13762 | - |
+| Surface Cleanliness | ISO 4406 | - |
+| Safety Compliance | IEC 60825-1 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
 | Operating Temperature | 20-30 | °C |
 | Humidity Range | 30-70 | % RH |
-| Air Quality | ISO 8573-1 | - |
-| Waste Generation | Minimal | - |
+| Dust Level | <100000 | particles/m³ |
+| Ventilation Requirement | 10 | air changes/h |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
@@ -45,4 +44,4 @@
 | Wavelength | 1064 | nm |
 | Fluence | 0.5-2 | J/cm² |
 | Pulse Duration | 10-100 | ns |
-| Repetition Rate | 20-100 | kHz |
+| Repetition Rate | 10-100 | kHz |

@@ -1,1 +1,1 @@
-brick, ablation, cleaning, laser, non-contact, construction, restoration, alessandro moretti
+ablation, brick, cleaning, laser, manufacturing, non-contact, restoration, alessandro-moretti

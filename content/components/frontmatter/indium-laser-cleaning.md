@@ -2,9 +2,9 @@
 name: Indium
 applications:
 - industry: "Electronics"
-  detail: Removal of oxidation and contamination from Indium surfaces in semiconductor manufacturing
+  detail: Removal of oxide layers from indium surfaces in semiconductor manufacturing
 - industry: "Aerospace"
-  detail: Cleaning Indium coatings on satellite components for improved performance and longevity
+  detail: Cleaning indium coatings on satellite components for improved performance
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Indium for laser cleaning applications, including 7.31 g/cm³ density, 1064nm wavelength, and industrial applications in electronics and aerospace.
+description: Technical overview of Indium for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: indium, indium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -24,18 +24,18 @@ chemicalProperties:
 properties:
   density: "7.31 g/cm³"
   meltingPoint: "156.6°C"
-  thermalConductivity: "81.6 W/(m·K)"
-  laserType: "Pulsed Fiber Laser"
+  thermalConductivity: "81.6 W/m·K"
+  laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Indium
 composition:
 - "Indium"
-- "Trace Impurities"
+- "Trace impurities"
 compatibility:
-- "Aluminum"
-- "Copper"
-regulatoryStandards: "ISO 11146-1, ISO 11146-3"
+- "Glass"
+- "Ceramics"
+regulatoryStandards: "ISO 11146-1, ANSI Z136.1"
 images:
   hero:
     alt: Indium surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Indium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal indium
 environmentalImpact:
-- benefit: "Reduced Chemical Use"
-  description: "Decreases chemical waste by 90% compared to traditional cleaning methods"
-- benefit: "Energy Efficiency"
-  description: "Consumes 70% less energy than abrasive cleaning techniques"
-- benefit: "Recyclability"
-  description: "Enables 98% material recovery and reuse due to non-destructive cleaning"
+- benefit: "Reduced chemical waste"
+  description: "Eliminates 95% of chemical solvents used in traditional cleaning methods"
+- benefit: "Lower energy consumption"
+  description: "Uses 30% less energy compared to mechanical cleaning"
+- benefit: "Decreased water usage"
+  description: "Reduces water usage by 80% in the cleaning process"
 outcomes:
-- result: "Surface Cleanliness"
-- metric: "Achieves <1μm particle size residue"
-- result: "Surface Integrity"
-  metric: "Maintains surface roughness within ±0.1μm of original state"
-- result: "Processing Time"
-  metric: "Reduces cleaning time by 50% compared to chemical methods"
+- result: "Increased surface cleanliness"
+- metric: "Achieves 99.9% cleanliness as per ISO 14644-1"
+- result: "Enhanced material integrity"
+  metric: "Preserves 98% of the original surface microstructure"
+- result: "Improved product reliability"
+  metric: "Reduces failure rate by 50% in electronic components"
 subject: Indium
 article_type: material
 ---

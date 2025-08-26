@@ -1,2 +1,2 @@
-**Gallium** surface (left) before processing, exhibiting a thick, non-uniform oxide layer (Ga₂O₃) and adsorbed organic contaminants that impede its metallic wetting properties.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (1.5 J/cm², 10 ns pulse, 500 µm spot), revealing the pristine, low-oxidation-state metal critical for high-purity semiconductor and eutectic bonding applications.
+**Gallium** substrate (left) with visible oxide layer and particulate contamination from atmospheric exposure.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 15 W, 100 ns pulse duration, and 200 µm spot size, revealing the pristine metallic surface without thermal alteration.

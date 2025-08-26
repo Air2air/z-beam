@@ -10,12 +10,12 @@
     "Lead material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "toxic fume extraction",
-    "surface oxidation removal",
-    "low melting point processing"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "contaminant removal"
   ],
-  "articleBody": "Lead is a dense, soft, malleable metal with a low melting point of 327.5°C and excellent corrosion resistance, making it challenging for traditional cleaning methods. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal settings at 1064 nm wavelength, 0.5-2.0 J/cm² fluence, and nanosecond pulse durations to selectively ablate unwanted material while preserving the underlying Lead substrate. Key applications include cleaning lead-acid battery terminals, historical artifact restoration, radiation shielding components, and architectural leadwork. The primary challenges involve Lead's low melting point, requiring precise thermal management to prevent surface deformation, and the generation of toxic lead oxide fumes necessitating advanced ventilation systems. Safety protocols mandate HEPA filtration, proper PPE, and enclosed processing chambers to prevent lead particulate exposure. Laser cleaning effectively removes oxides, sulfates, and organic contaminants while maintaining the base material's dimensional stability and surface quality.",
+  "articleBody": "Lead (Pb) is a dense, soft, malleable metal with a low melting point of 327.5°C and excellent corrosion resistance, making it valuable for radiation shielding, batteries, and construction applications. Laser cleaning of Lead requires precise parameter optimization due to its high thermal conductivity and low melting point. Optimal laser parameters typically include near-infrared wavelengths (1064 nm) with moderate fluence levels (0.5-2.0 J/cm²) and short pulse durations (10-100 ns) to prevent thermal damage and melting. The process effectively removes oxides, surface contaminants, and old coatings while preserving the underlying Lead substrate. Key applications include cleaning lead radiation shielding components, battery terminals, architectural elements, and historical artifacts. Challenges include controlling heat input to prevent surface deformation and managing the toxic fumes generated during ablation. Specialized ventilation systems and fume extraction are mandatory safety requirements. Laser cleaning offers significant advantages over traditional methods by eliminating chemical solvents and mechanical abrasion, providing environmentally friendly, precise surface treatment with minimal material loss.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/lead-laser-cleaning-micro.jpg",
       "name": "Lead Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Lead material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Lead material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 100 ns pulse duration, and 50 μm spot size specifications",
+      "description": "Split-view microscopic photograph of Lead material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Lead microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

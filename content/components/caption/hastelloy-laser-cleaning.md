@@ -1,2 +1,2 @@
-**Hastelloy C-276** surface (left) before cleaning, showing tenacious oxide scale and embedded iron contamination from high-temperature service.
-**After laser cleaning** (right) using a 1064 nm fiber laser (15 J/cm², 100 ns pulse duration), revealing the pristine, corrosion-resistant austenitic matrix without metallurgical damage.
+**Hastelloy C-276** surface (left) exhibiting tenacious oxide scale and embedded particulate contamination from high-temperature service.
+**After laser cleaning** (right) using a 1064 nm fiber laser (15 J/cm², 100 ns pulse duration, 500 µm spot), revealing the pristine, passivation-ready substrate.

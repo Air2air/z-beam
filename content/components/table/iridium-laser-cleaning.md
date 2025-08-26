@@ -4,35 +4,35 @@
 | Melting Point | 2446 | °C |
 | Density | 22.56 | g/cm³ |
 | Thermal Conductivity | 147 | W/m·K |
-| Hardness | 6 | Mohs |
+| Hardness | 6.5 | Mohs |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity | 99.9 | % |
+| Purity Level | 99.9 | % |
 | Common Alloys | Iridium-Platinum | - |
-| Grain Size | 10-50 | µm |
+| Typical Impurities | Rhodium, Ruthenium | - |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Removal Rate | 0.1-0.5 | µm/pulse |
-| Surface Roughness | 0.1-1 | µm |
-| Efficiency | 80-90 | % |
+| Ablation Threshold | 0.5 | J/cm² |
+| Cleaning Efficiency | 95 | % |
+| Surface Roughness | 0.1 | µm |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
 | ASTM Standard | B679 | - |
-| ISO Standard | 11462 | - |
-| Cleanliness Level | Class 100 | - |
+| ISO Certification | 9001 | - |
+| Safety Compliance | OSHA | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | 20-30 | °C |
-| Humidity Range | 30-70 | % |
-| Air Quality | ISO 8573-1 | - |
+| Oxidation Resistance | High | - |
+| Corrosion Resistance | Excellent | - |
+| Recyclability | 100 | % |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

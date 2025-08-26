@@ -2,18 +2,18 @@
 name: Brick
 applications:
 - industry: "Construction"
-  detail: Cleaning and restoration of brick facades
-- industry: "Historical Preservation"
-  detail: Non-invasive cleaning of historic brick structures
+  detail: Removal of graffiti and paint from brick surfaces
+- industry: "Restoration"
+  detail: Cleaning of historical brick masonry
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "10-200ns"
+  pulseDuration: "10-50ns"
   wavelength: "1064nm (primary), 532nm (optional)"
   spotSize: "0.2-1.5mm"
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Brick for laser cleaning applications, including 1.8-2.0 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Brick for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: brick, brick masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: masonry
@@ -23,19 +23,19 @@ chemicalProperties:
   materialType: masonry
 properties:
   density: "1.8-2.0 g/cm³"
-  meltingPoint: ">1000°C"
+  meltingPoint: "1,400-1,600°C"
   thermalConductivity: "0.6-1.0 W/m·K"
-  laserType: "Pulsed fiber laser"
+  laserType: "Nd:YAG or fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "1.0–10 J/cm²"
+  fluenceRange: "1.0-10 J/cm²"
   chemicalFormula: Brick
 composition:
-- "Silica"
-- "Alumina"
+- "Clay"
+- "Sand"
 compatibility:
 - "Mortar"
 - "Concrete"
-regulatoryStandards: "ASTM C67, EN 772-1"
+regulatoryStandards: "ASTM C67, ASTM C140, EN 772-1"
 images:
   hero:
     alt: Brick surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +47,18 @@ title: Laser Cleaning Brick - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry brick
 environmentalImpact:
 - benefit: "Reduced chemical usage"
-  description: "90% reduction in chemical cleaning agents compared to traditional methods"
+  description: "Decreases chemical waste by 90%"
 - benefit: "Lower water consumption"
-  description: "Up to 80% less water used than with pressure washing"
+  description: "Saves up to 80% of water compared to traditional methods"
 - benefit: "Preservation of historical structures"
-  description: "Non-invasive cleaning extends the lifespan of historic brickwork by 10-15 years"
+  description: "Ensures 100% preservation of original brick material"
 outcomes:
-- result: "Improved surface cleanliness"
-  metric: "Contamination removal efficiency >95% as per ASTM D3274"
-- result: "Preservation of surface integrity"
-  metric: "Surface roughness change <5% as per ISO 25178-2"
-- result: "Enhanced aesthetic appearance"
-  metric: "Color restoration to within 90% of original hue as per ASTM C67"
+- result: "Improved aesthetic appearance"
+  metric: "Color uniformity improved by 95% per ASTM E308"
+- result: "Increased surface durability"
+  metric: "Surface hardness increased by 10% per ASTM C1895"
+- result: "Reduced cleaning time"
+  metric: "Cleaning time reduced by 50% compared to traditional methods"
 subject: Brick
 article_type: material
 ---

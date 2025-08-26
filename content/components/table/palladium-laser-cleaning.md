@@ -4,21 +4,21 @@
 | Melting Point | 1554.9 | °C |
 | Density | 12.02 | g/cm³ |
 | Thermal Conductivity | 71.8 | W/m·K |
-| Reflectivity (at 1064 nm) | 65 | % |
+| Reflectivity | 60-70 | % |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity | 99.95 | % |
+| Purity | 99.95-99.99 | % |
 | Common Alloys | Pd-Ag, Pd-Cu | - |
-| Surface Roughness | 0.1 - 1.0 | µm |
+| Grain Size | 10-50 | µm |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90-95 | % |
-| Surface Contamination Removal | 99 | % |
-| Processing Speed | 1000-2000 | mm²/s |
+| Cleaning Rate | 1-5 | cm²/s |
+| Surface Roughness | 0.1-1.0 | µm |
+| Ablation Threshold | 0.5-1.0 | J/cm² |
 
 ## Standards and Compliance
 | Property | Value | Unit |
@@ -32,11 +32,11 @@
 | --- | --- | --- |
 | Operating Temperature | 20-30 | °C |
 | Humidity Range | 30-70 | % |
-| Waste Generation | Minimal | - |
+| Dust Particles | <1000 | per m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5-2.0 | J/cm² |
+| Fluence | 1-5 | J/cm² |
 | Pulse Duration | 10-100 | ns |

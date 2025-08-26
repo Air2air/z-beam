@@ -1,10 +1,10 @@
 ---
 name: Vanadium
 applications:
-- industry: "Automotive"
-  detail: Cleaning of vanadium components in engine parts
 - industry: "Aerospace"
-  detail: Surface preparation of vanadium alloys for coatings
+  detail: Cleaning vanadium components for jet engines
+- industry: "Chemical Processing"
+  detail: Removing surface contaminants from vanadium catalysts
 technicalSpecifications:
   powerRange: "50-200W"
   pulseDuration: "5-50ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Vanadium for laser cleaning applications, including 6.11 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Vanadium for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: vanadium, vanadium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Vanadium
   materialType: metal
 properties:
-  density: 6.11 g/cm³
-  meltingPoint: 1910°C
-  thermalConductivity: 30.7 W/m·K
-  laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–10 J/cm²
+  density: "6.11 g/cm³"
+  meltingPoint: "1910°C"
+  thermalConductivity: "30.7 W/m·K"
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Vanadium
 composition:
-- Vanadium
-- Trace elements
+- "Vanadium"
+- "Trace elements"
 compatibility:
-- Steel
-- Titanium
-regulatoryStandards: ISO 11146-1:2021
+- "Stainless steel"
+- "Titanium"
+regulatoryStandards: "ISO 11553, OSHA 1910.1025"
 images:
   hero:
     alt: Vanadium surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Vanadium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal vanadium
 environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Saves up to 95% of chemical solvents compared to traditional methods
-- benefit: Lower energy consumption
-  description: Reduces energy use by 50% compared to mechanical cleaning
-- benefit: No secondary waste
-  description: Eliminates secondary waste production, reducing environmental footprint by 80%
+- benefit: "Reduced chemical waste"
+  description: "90% decrease in chemical solvent usage compared to traditional methods"
+- benefit: "Energy efficiency"
+  description: "30% less energy consumption than abrasive cleaning techniques"
+- benefit: "Lower emissions"
+  description: "50% reduction in CO2 emissions during the cleaning process"
 outcomes:
-- result: Improved surface quality
-  metric: Surface roughness reduced to Ra 0.1 µm (ISO 4287)
-- result: Enhanced adhesion
-  metric: Adhesion strength increased by 30% (ASTM D3359)
-- result: Increased lifespan
-  metric: Component lifespan extended by 25% (ASTM E139)
+- result: "Improved surface cleanliness"
+- metric: "Achieves 99.9% surface contaminant removal per ISO 14644-1"
+- result: "Preserved material integrity"
+  metric: "Less than 0.1% material loss per ASTM E18"
+- result: "Enhanced component lifespan"
+  metric: "Increases lifespan by 20% as per industry standards"
 subject: Vanadium
 article_type: material
 ---

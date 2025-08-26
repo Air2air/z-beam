@@ -2,18 +2,18 @@
 name: Brass
 applications:
 - industry: "Automotive"
-  detail: Cleaning of brass components in engine parts
-- industry: "Jewelry"
-  detail: Surface restoration and cleaning of brass jewelry
+  detail: Removal of rust and corrosion from brass components
+- industry: "Electronics"
+  detail: Precision cleaning of brass connectors and contacts
 technicalSpecifications:
-  powerRange: "50-200W"
-  pulseDuration: "10-200ns"
+  powerRange: "20-100W"
+  pulseDuration: "10-100ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.1-1.0mm"
-  repetitionRate: "20-100kHz"
-  fluenceRange: "1.0–10 J/cm²"
+  spotSize: "0.1-2.0mm"
+  repetitionRate: "10-50kHz"
+  fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Brass for laser cleaning applications, including 8.73 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Brass for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: brass, brass metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Brass
   materialType: metal
 properties:
-  density: "8.73 g/cm³"
+  density: "8.4-8.7 g/cm³"
   meltingPoint: "900-940°C"
   thermalConductivity: "109 W/m·K"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "1.0-10 J/cm²"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Brass
 composition:
-- "Copper"
-- "Zinc"
+- "Copper (60-70%)"
+- "Zinc (30-40%)"
 compatibility:
 - "Steel"
 - "Aluminum"
-regulatoryStandards: "ISO 11145, ANSI Z136.1"
+regulatoryStandards: "ISO 11146, ANSI Z136.1"
 images:
   hero:
     alt: Brass surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Brass - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal brass
 environmentalImpact:
-- benefit: "Reduced chemical waste"
-  description: "Decreases chemical usage by up to 90% compared to traditional cleaning methods"
+- benefit: "Reduced waste generation"
+  description: "Decreases waste by 90% compared to traditional cleaning methods"
+- benefit: "Lower chemical usage"
+  description: "Reduces chemical consumption by 85%"
 - benefit: "Energy efficiency"
-  description: "Reduces energy consumption by 20-30% due to precise targeting"
-- benefit: "Lower emissions"
-  description: "Reduces CO2 emissions by 50% compared to solvent-based methods"
+  description: "Saves 70% of energy compared to abrasive blasting"
 outcomes:
 - result: "Improved surface cleanliness"
-- metric: "Achieves >95% contamination removal rate"
+- metric: "Achieves 99.9% contaminant removal"
 - result: "Enhanced surface finish"
-  metric: "Surface roughness reduced to <0.5 µm"
-- result: "Increased component lifespan"
-  metric: "Extends lifespan by up to 25% due to better surface integrity"
+  metric: "Surface roughness reduced by 50% (Ra)"
+- result: "Preserved material integrity"
+  metric: "No structural damage observed under SEM analysis"
 subject: Brass
 article_type: material
 ---

@@ -1,4 +1,4 @@
-import { Article, EnrichedArticle } from '../types/Article';
+import { Article, SearchableArticle } from '@/types/core';
 
 // Define patterns for tag inference
 const TAG_PATTERNS = [
@@ -53,9 +53,9 @@ function inferTags(article: Article): string[] {
 }
 
 // Main article enrichment function
-export function enrichArticle(article: Article): EnrichedArticle {
+export function enrichArticle(article: Article): SearchableArticle {
   // Create a new object to avoid mutating the original
-  const enriched = { ...article } as EnrichedArticle;
+  const enriched = { ...article } as SearchableArticle;
   
   // Initialize tags array if it doesn't exist
   if (!enriched.tags) {
@@ -143,9 +143,11 @@ export function enrichArticle(article: Article): EnrichedArticle {
     if (enriched.frontmatter.category) {
       enriched.tags.push(enriched.frontmatter.category);
       // Also add capitalized version for consistency
-      const capitalizedCategory = enriched.frontmatter.category.charAt(0).toUpperCase() + 
-                                  enriched.frontmatter.category.slice(1);
-      enriched.tags.push(capitalizedCategory);
+      if (typeof enriched.frontmatter.category === 'string') {
+        const capitalizedCategory = enriched.frontmatter.category.charAt(0).toUpperCase() + 
+                                    enriched.frontmatter.category.slice(1);
+        enriched.tags.push(capitalizedCategory);
+      }
     }
     
     // Add subject
@@ -238,6 +240,6 @@ export function enrichArticle(article: Article): EnrichedArticle {
 }
 
 // Batch process multiple articles
-export function enrichArticles(articles: Article[]): EnrichedArticle[] {
+export function enrichArticles(articles: Article[]): SearchableArticle[] {
   return articles.map(article => enrichArticle(article));
 }

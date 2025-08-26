@@ -1,1 +1,1 @@
-hastelloy, ablation, cleaning, laser, non-contact, aerospace, manufacturing, alessandro moretti
+ablation, cleaning, laser, hastelloy, aerospace, manufacturing, non-contact, alessandro-moretti

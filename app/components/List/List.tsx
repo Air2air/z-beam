@@ -152,7 +152,7 @@ export async function List({
       try {
         const badgeSymbol = await loadComponent('badgesymbol', item.slug);
         if (badgeSymbol?.config) {
-          const config = badgeSymbol.config as any; // Type assertion for flexibility
+          const config = badgeSymbol.config as Record<string, unknown>; // More specific type
           const symbolValue = config.symbol || chemicalSymbol;
           if (symbolValue) {
             badgeSymbolData = {
@@ -263,7 +263,7 @@ function getArticleImage(
   // Try to get OpenGraph image from metadata if available
   const ogImage =
     article?.metadata?.["ogImage"] ||
-    (article?.metadata as any)?.["openGraph"]?.["images"]?.[0]?.["url"];
+    (article?.metadata as Record<string, unknown>)?.["openGraph"]?.["images"]?.[0]?.["url"];
   if (ogImage) return ogImage;
   
   // Return undefined to let the Thumbnail component handle all fallbacks

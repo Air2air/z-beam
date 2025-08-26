@@ -1,10 +1,10 @@
 ---
 name: Tin
 applications:
-- industry: "Automotive"
-  detail: Removing paint and coatings from Tin components
 - industry: "Electronics"
-  detail: Cleaning Tin surfaces for soldering and assembly
+  detail: Removal of oxidation and contaminants from tin-plated surfaces
+- industry: "Automotive"
+  detail: Cleaning of tin components for improved solderability and corrosion resistance
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Tin for laser cleaning applications, including 7.26 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Tin for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: tin, tin metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Sn
   materialType: metal
 properties:
-  density: 7.26 g/cm³
-  meltingPoint: 231.93°C
-  thermalConductivity: 66.8 W/m·K
-  laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: 0.5–5 J/cm²
+  density: "7.3 g/cm³"
+  meltingPoint: "232°C"
+  thermalConductivity: "66.8 W/m·K"
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Sn
 composition:
-- Tin
-- Trace impurities
+- "Pure tin"
+- "Tin alloys"
 compatibility:
-- Copper
-- Lead
-regulatoryStandards: ISO 11146-3:2015
+- "Copper"
+- "Lead"
+regulatoryStandards: "ISO 11146-1, ISO 11146-2"
 images:
   hero:
     alt: Tin surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Tin - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal tin
 environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Eliminates 90% of chemical solvents used in traditional cleaning methods
-- benefit: Energy efficiency
-  description: Uses 70% less energy compared to abrasive blasting
-- benefit: Lower emissions
-  description: Reduces CO2 emissions by 85% compared to traditional methods
+- benefit: "Reduced chemical waste"
+  description: "90% less chemical usage compared to traditional methods"
+- benefit: "Lower energy consumption"
+  description: "Up to 30% energy savings in cleaning processes"
+- benefit: "Decreased water usage"
+  description: "80% reduction in water consumption for cleaning"
 outcomes:
-- result: Improved surface cleanliness
-- metric: Achieves 99.9% contaminant removal efficiency per ISO 11146-3:2015
-- result: Enhanced surface integrity
-  metric: Preserves 98% of original Tin surface microstructure
-- result: Increased processing speed
-  metric: Reduces cleaning time by 50% compared to traditional methods
+- result: "Improved surface cleanliness"
+- metric: "Surface contamination reduced by 99% as per ASTM B209"
+- result: "Enhanced solderability"
+  metric: "Solder wetting angle improved by 20° as per IPC J-STD-003"
+- result: "Increased corrosion resistance"
+  metric: "Corrosion rate decreased by 50% as per ASTM G31"
 subject: Tin
 article_type: material
 ---

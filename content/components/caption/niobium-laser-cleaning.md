@@ -1,3 +1,2 @@
-**Niobium** surface (left) before cleaning, showing thick, non-uniform oxide layers and embedded hydrocarbon residues from forming operations.
-
-**After laser cleaning** (right) processed with a 1064 nm fiber laser (15 J/cm², 100 ns pulse duration, 500 µm spot), revealing the pristine, high-purity metallic surface essential for superconducting cavity performance.
+**Niobium** superconducting cavity surface (left) with residual organic processing oils and particulate contamination.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), achieving ultraclean surfaces without substrate damage.

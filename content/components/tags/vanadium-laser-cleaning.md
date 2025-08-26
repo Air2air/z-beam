@@ -1,1 +1,1 @@
-ablation, cleaning, laser, vanadium, aerospace, manufacturing, non-contact, alessandro moretti
+ablation, cleaning, laser, vanadium, aerospace, manufacturing, non-contact, alessandro-moretti

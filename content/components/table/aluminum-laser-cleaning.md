@@ -1,42 +1,44 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Melting Point | 660.32 | °C |
-| Thermal Conductivity | 237 | W/m·K |
-| Reflectivity | 80-90 | % |
 | Density | 2.7 | g/cm³ |
+| Melting Point | 660.3 | °C |
+| Thermal Conductivity | 237 | W/m·K |
+| Specific Heat Capacity | 0.9 | J/g·K |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity (Commercial) | 99.0-99.9 | % |
-| Alloy 6061 | 97.5 | % Al |
-| Alloy 5052 | 97.25 | % Al |
+| Purity (Commercial) | 99.0 | % |
+| Purity (High Purity) | 99.99 | % |
+| Alloy Grade (6061) | 97.5 | % Al |
+| Alloy Grade (7075) | 87.1 | % Al |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Rate | 1-5 | m²/h |
 | Surface Roughness (Ra) | 0.8-3.2 | µm |
-| Oxide Removal Efficiency | 90-95 | % |
+| Cleaning Rate | 1-5 | m²/h |
+| Efficiency | 90-95 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ISO Standard | 11146 | - |
 | ASTM Standard | B209 | - |
-| Surface Cleanliness | Class 100 | - |
+| ISO Standard | 6361-1 | - |
+| RoHS Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Dust Emission | <1 | mg/m³ |
-| Noise Level | 70-85 | dB |
-| Energy Consumption | 1-3 | kW |
+| Recyclability | 100 | % |
+| Energy Consumption | 0.5-1.5 | kWh/m² |
+| Emissions | Low | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1-5 | J/cm² |
+| Power Density | 1-10 | MW/cm² |
 | Pulse Duration | 10-100 | ns |
+| Scanning Speed | 1000-5000 | mm/s |

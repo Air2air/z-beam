@@ -3,7 +3,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { BreadcrumbItem } from "../../types";
+import { BreadcrumbItem } from "@/types/core";
 
 export function Breadcrumbs() {
   const pathname = usePathname();

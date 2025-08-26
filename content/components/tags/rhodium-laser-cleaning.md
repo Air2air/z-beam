@@ -1,1 +1,1 @@
-rhodium, ablation, cleaning, laser, aerospace, electronics, non-contact, alessandro moretti
+rhodium, ablation, cleaning, laser, aerospace, jewelry, non-contact, alessandro-moretti

@@ -1,1 +1,1 @@
-ablation, cleaning, laser, non-contact, stucco, manufacturing, construction, alessandro moretti
+ablation, stucco, cleaning, laser, aerospace, manufacturing, non-contact, alessandro-moretti

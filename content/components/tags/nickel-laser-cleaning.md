@@ -1,1 +1,1 @@
-ablation, cleaning, laser, nickel, aerospace, automotive, non-contact, alessandro moretti
+nickel, ablation, cleaning, laser, non-contact, aerospace, manufacturing, alessandro-moretti

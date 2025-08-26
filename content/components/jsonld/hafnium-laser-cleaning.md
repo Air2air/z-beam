@@ -5,32 +5,34 @@
   "description": "Advanced laser cleaning techniques for Hafnium materials, ensuring precision surface treatment while preserving the material's structural integrity and unique properties.",
   "keywords": [
     "Hafnium laser cleaning",
-    "Hafnium metal cleaning",
-    "non-abrasive surface treatment",
-    "Hafnium material processing",
-    "precision cleaning",
-    "industrial applications",
-    "high-temperature alloy cleaning",
-    "nuclear component decontamination"
+    "Hafnium metal surface treatment",
+    "non-abrasive contamination removal",
+    "Hafnium oxide layer ablation",
+    "precision laser processing",
+    "nuclear industry applications",
+    "aerospace component cleaning",
+    "high-temperature alloy treatment",
+    "ultra-high vacuum surface preparation",
+    "non-contact material processing"
   ],
-  "articleBody": "Hafnium is a lustrous, silvery, ductile metal with exceptional corrosion resistance and mechanical strength at elevated temperatures, making it valuable in nuclear, aerospace, and chemical processing industries. Its high melting point (2233°C) and strong oxide layer formation present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing contaminants, oxide layers, and surface impurities without compromising Hafnium's structural integrity. The process utilizes optimized laser parameters including 1064nm wavelength for optimal absorption, fluence levels between 1-4 J/cm², and pulse durations of 10-100 nanoseconds to selectively ablate unwanted material while preserving the underlying substrate. Key applications include nuclear reactor control rod maintenance, aerospace component refurbishment, and chemical processing equipment cleaning. Challenges include managing heat input to prevent microstructural changes and addressing the tenacious oxide layer through precise parameter control. Safety protocols require specialized ventilation for Hafnium oxide particulate management and strict laser safety measures including Class 4 laser containment and appropriate personal protective equipment.",
+  "articleBody": "Hafnium (Hf) is a lustrous, silvery, ductile metal with exceptional properties including high melting point (2233°C), excellent corrosion resistance, and remarkable neutron absorption capacity. These characteristics make it invaluable in nuclear control rods, aerospace components, and high-temperature alloys. Laser cleaning of Hafnium requires precise parameter optimization due to its high thermal conductivity (23.0 W/m·K) and specific absorption properties. Optimal laser parameters typically include near-infrared wavelengths (1064 nm) with fluence levels between 1-4 J/cm² and pulse durations of 10-100 nanoseconds to effectively remove surface contaminants, oxides, and coatings without causing microstructural damage or phase transformations. The process effectively eliminates hafnium oxide (HfO₂) layers that form at elevated temperatures while preserving the underlying metal integrity. Key applications include nuclear component refurbishment, aerospace turbine blade cleaning, and semiconductor equipment preparation where surface purity is critical. Challenges include managing heat input to prevent grain growth and maintaining surface finish requirements. Safety protocols mandate proper ventilation for aerosol management and laser safety Class 4 compliance with appropriate personal protective equipment.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/hafnium-laser-cleaning-hero.jpg",
       "name": "Hafnium Laser Cleaning Workbench Before/After Comparison",
       "caption": "Dual workbench photo of Hafnium nuclear component displaying side-by-side before and after laser cleaning results showing complete oxide removal",
-      "description": "Split-view workbench photograph showing a Hafnium control rod in before (left) with heavy oxide contamination and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment with 1064nm wavelength and 2.5 J/cm² fluence",
-      "keywords": "Hafnium laser cleaning, before after comparison, dual photo, workbench view, oxide removal, nuclear component",
+      "description": "Split-view workbench photograph showing a Hafnium nuclear control rod in before (left, with visible oxide layer and surface contaminants) and after (right, pristine metallic surface) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Hafnium laser cleaning, before after comparison, nuclear component, oxide removal, workbench view, contamination removal",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/hafnium-laser-cleaning-micro.jpg",
       "name": "Hafnium Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Hafnium material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 3.2 J/cm² fluence, 20ns pulse duration specifications",
-      "description": "Split-view microscopic photograph of Hafnium material surface displaying before (left) with surface contamination and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 20ns pulse duration, and 100μm spot size specifications",
-      "keywords": "Hafnium microscopy, surface analysis, laser parameters, technical specifications, dual comparison, nuclear grade cleaning",
+      "caption": "Dual high-magnification photo of Hafnium material surface showing detailed side-by-side before and after laser cleaning results with 1064nm wavelength, 2.5 J/cm² fluence, and 20ns pulse duration specifications",
+      "description": "Split-view microscopic photograph of Hafnium material surface displaying before (left, showing oxide layer and surface contamination) and after (right, clean metallic surface) states at 200x magnification, processed with precision laser parameters including 1064nm wavelength, 2.5 J/cm² fluence, 20ns pulse duration, and 100μm spot size specifications",
+      "keywords": "Hafnium microscopy, surface analysis, laser parameters, technical specifications, dual comparison, oxide removal",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",

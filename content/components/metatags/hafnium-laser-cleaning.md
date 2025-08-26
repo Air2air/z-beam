@@ -2,11 +2,11 @@
 title: Laser Cleaning Hafnium - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Hafnium for laser cleaning applications, including 13.31 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Hafnium for laser cleaning applications, including specific 13.31 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
   - name: keywords
     content: "hafnium, hafnium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Elena Rodriguez"
   - name: category
     content: "metal"
   - name: robots

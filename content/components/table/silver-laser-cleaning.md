@@ -2,37 +2,37 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 961.8 | °C |
-| Thermal Conductivity | 429 | W/m·K |
 | Reflectivity | 95 | % |
+| Thermal Conductivity | 429 | W/m·K |
 | Density | 10.49 | g/cm³ |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
 | Purity | 99.99 | % |
-| Common Alloys | Ag-Cu, Ag-Pd | - |
+| Common Alloy | Ag-Cu | - |
 | Hardness | 2.5 | Mohs |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Speed | 1-10 | cm²/s |
+| Cleaning Rate | 1-5 | cm²/s |
 | Surface Roughness | <0.5 | µm |
-| Efficiency | 90-95 | % |
+| Oxide Removal | 99 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
 | ASTM Standard | B29 | - |
-| ISO Standard | 9227 | - |
-| RoHS Compliant | Yes | - |
+| ISO Standard | 9001 | - |
+| RoHS Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Recyclability | High | - |
-| Toxicity | Low | - |
-| Corrosion Resistance | High | - |
+| Recyclability | 100 | % |
+| Toxicity | Non-toxic | - |
+| Waste Generation | Minimal | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

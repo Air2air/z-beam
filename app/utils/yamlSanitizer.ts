@@ -42,8 +42,8 @@ export function sanitizeYamlContent(content: string): string {
 /**
  * Safe wrapper around gray-matter that includes YAML sanitization
  */
-export function safeMatterParse(content: string, options?: any): {
-  data: { [key: string]: any };
+export function safeMatterParse(content: string, options?: Record<string, unknown>): {
+  data: { [key: string]: unknown };
   content: string;
   excerpt: string;
   orig: string;

@@ -2,11 +2,11 @@
 title: Laser Cleaning Tin - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Tin, 7.31 g/cm³ density, for laser cleaning applications, including 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Tin for laser cleaning applications, including 7.3 g/cm³ density, optimal 1064nm wavelength parameters, and industrial electronics applications."
   - name: keywords
     content: "tin, tin metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Elena Rodriguez"
   - name: category
     content: "metal"
   - name: robots

@@ -1,0 +1,2 @@
+**Granite** surface (left) before cleaning, exhibiting heavy biological growth and embedded particulate contamination within its porous crystalline matrix.
+**After laser cleaning** (right) with a 1064 nm Nd:YAG laser (10 J/cm², 100 ns pulse duration, 5 mm spot), achieving precise ablation of organic matter without damage to the feldspar and quartz grains.

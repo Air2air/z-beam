@@ -42,7 +42,7 @@ export default async function TagPage({ params }: PageProps) {
   );
 }
 
-export async function generateMetadata({ params }: { params: { tag: string } }) {
+export async function generateMetadata({ params }: PageProps) {
   // Ensure params is awaited before accessing properties
   const paramsData = await params;
   

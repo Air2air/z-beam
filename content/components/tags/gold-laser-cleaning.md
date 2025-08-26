@@ -1,1 +1,1 @@
-gold, ablation, cleaning, laser, non-contact, electronics, jewelry, alessandro moretti
+gold, ablation, cleaning, laser, electronics, jewelry, non-contact, alessandro-moretti

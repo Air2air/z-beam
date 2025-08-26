@@ -2,7 +2,7 @@
 title: Laser Cleaning Brass - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Brass for laser cleaning applications, including 8.4 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Brass for laser cleaning applications, including 8.4-8.7 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
   - name: keywords
     content: "brass, brass metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

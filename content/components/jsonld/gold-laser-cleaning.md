@@ -5,34 +5,34 @@
   "description": "Advanced laser cleaning techniques for Gold materials, ensuring precision surface treatment while preserving the material's structural integrity and surface quality.",
   "keywords": [
     "Gold laser cleaning",
-    "Gold metal cleaning",
-    "non-abrasive surface treatment",
-    "Gold material processing",
-    "precision cleaning",
-    "industrial applications",
-    "laser ablation parameters",
+    "precious metal processing",
+    "non-contact surface treatment",
+    "laser ablation of Gold",
+    "precision cleaning technology",
+    "industrial Gold restoration",
     "surface contamination removal",
-    "precious metal restoration",
-    "thermal conductivity management"
+    "laser parameter optimization",
+    "thermal conductivity management",
+    "high-reflectivity material processing"
   ],
-  "articleBody": "Gold is a noble metal with exceptional properties including high thermal conductivity (318 W/m·K), electrical conductivity, and corrosion resistance, making it ideal for precision applications in electronics, aerospace, and jewelry. Laser cleaning provides a non-contact, selective method for removing contaminants, oxides, and surface impurities without compromising Gold's structural integrity or surface finish. The process utilizes optimized laser parameters including near-infrared wavelengths (1064 nm) with controlled fluence (0.5-2.5 J/cm²) and short pulse durations (10-100 ns) to selectively ablate unwanted material while preserving the underlying Gold substrate. Key applications include cleaning of electronic connectors, restoration of historical artifacts, preparation of jewelry surfaces, and maintenance of aerospace components. Challenges include managing Gold's high reflectivity (95% at 1064 nm) and thermal conductivity, which require precise parameter optimization to achieve effective cleaning without surface melting or damage. Safety considerations include proper laser shielding, fume extraction for aerosolized contaminants, and eye protection against reflected beams. The process eliminates chemical solvents and mechanical abrasion, providing an environmentally friendly solution for high-value Gold components.",
+  "articleBody": "Gold (Au) presents unique challenges and opportunities in laser cleaning applications due to its exceptional thermal conductivity (318 W/m·K), high reflectivity across visible and near-infrared spectra, and chemical inertness. The optimal laser parameters for Gold cleaning typically utilize nanosecond pulsed lasers at 532nm wavelength with fluence ranges of 0.8-1.5 J/cm² and pulse durations of 10-50ns. These parameters effectively overcome Gold's high reflectivity while preventing thermal damage and melting points (1064°C). Key applications include precision cleaning of electronic connectors, jewelry restoration, archaeological artifact conservation, and medical device manufacturing. The primary challenge involves managing Gold's rapid heat dissipation, which requires precise energy delivery to achieve effective contaminant removal without substrate alteration. Technical solutions include using shorter wavelengths with higher absorption rates and implementing scanning strategies with optimized overlap patterns. Safety considerations focus on fume extraction for potential aerosolized contaminants, laser eye protection for the specific wavelength employed, and proper ventilation systems. The non-contact nature of laser cleaning preserves Gold's surface integrity while removing oxides, organic residues, and surface contaminants without chemical solvents or mechanical abrasion.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/gold-laser-cleaning-hero.jpg",
       "name": "Gold Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of Gold object displaying side-by-side before and after laser cleaning results",
-      "description": "Split-view workbench photograph showing a Gold object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
-      "keywords": "Gold laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
+      "caption": "Dual workbench photo of Gold electronic connector displaying side-by-side before and after laser cleaning results showing complete oxide removal",
+      "description": "Split-view workbench photograph showing a Gold-plated electronic connector in before (left) with visible oxidation and after (right) states, demonstrating the complete transformation achieved through precision 532nm laser cleaning treatment",
+      "keywords": "Gold laser cleaning, before after comparison, electronic connector, oxide removal, workbench view",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/gold-laser-cleaning-micro.jpg",
       "name": "Gold Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Gold material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Gold material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications",
-      "keywords": "Gold microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
+      "caption": "Dual high-magnification photo of Gold material surface showing detailed side-by-side before and after laser cleaning results with 532nm wavelength, 1.2 J/cm² fluence, and 20ns pulse duration specifications",
+      "description": "Split-view microscopic photograph of Gold material surface displaying before (left) with contamination layer and after (right) states at high magnification, processed with precision laser parameters including 532nm wavelength, 1.2 J/cm² fluence, 20ns pulse duration, and 50μm spot size specifications",
+      "keywords": "Gold microscopy, surface analysis, laser parameters, technical specifications, contamination removal",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",
@@ -49,7 +49,7 @@
   "about": {
     "@type": "Thing",
     "name": "Gold",
-    "alternateName": "Gold",
+    "alternateName": "Au",
     "identifier": "GO",
     "category": "metal"
   },

@@ -25,7 +25,7 @@ async function getServicesPageContent() {
     const { data, content } = matter(fileContent);
     
     // Convert markdown to HTML
-    const htmlContent = marked(content);
+    const htmlContent = await marked(content);
     
     return {
       metadata: data,

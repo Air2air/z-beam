@@ -1,1 +1,1 @@
-ablation, cleaning, laser, iron, automotive, manufacturing, non-contact, alessandro moretti
+iron, ablation, cleaning, laser, non-contact, automotive, manufacturing, alessandro-moretti

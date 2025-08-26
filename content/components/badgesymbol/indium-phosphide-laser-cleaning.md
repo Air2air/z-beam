@@ -1,0 +1,4 @@
+---
+symbol: "InP"
+materialType: "semiconductor"
+---

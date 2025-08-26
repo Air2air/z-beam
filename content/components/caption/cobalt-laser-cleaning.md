@@ -1,1 +1,2 @@
-**Cobalt** component (left) prior to laser ablation, exhibiting a tenacious, mixed-constituent surface layer of chromium oxide scale and embedded particulate contamination. **After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 150 mJ/cm² fluence and 100 ns pulse duration, revealing the pristine, high-purity metallic substrate with no measurable heat-affected zone or surface ablation.
+**Cobalt** component (left) with visible oxide layer and surface staining prior to treatment.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 80 W average power, 100 ns pulse duration, and 500 µm spot size, achieving precise contaminant ablation with no substrate damage.

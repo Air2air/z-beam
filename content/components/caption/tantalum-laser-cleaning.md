@@ -1,2 +1,2 @@
-**Tantalum** surface (left) before cleaning, showing heavy, tenacious oxide scale and embedded particulate contamination from high-temperature processing in corrosive environments.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm² fluence and 100 ns pulse duration, which selectively ablated contaminants while the substrate's high melting point (3017 °C) and thermal conductivity prevented any microstructural alteration.
+**Tantalum** surface (left) with visible oxide scale and embedded particulate contamination, exhibiting the material's characteristic high melting point (3017°C) and oxidation resistance.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm² fluence and 100 ns pulse duration, achieving precise ablation of surface oxides without metallurgical damage to the substrate.

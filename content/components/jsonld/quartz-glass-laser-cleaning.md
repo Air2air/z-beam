@@ -6,31 +6,31 @@
   "keywords": [
     "Quartz Glass laser cleaning",
     "fused silica surface treatment",
-    "non-abrasive optical cleaning",
-    "laser ablation parameters",
-    "UV laser processing",
-    "contamination removal",
-    "high-purity surface preparation",
-    "industrial laser applications"
+    "non-abrasive quartz processing",
+    "laser ablation quartz",
+    "precision optical cleaning",
+    "industrial laser applications",
+    "contamination removal quartz",
+    "non-contact quartz processing"
   ],
-  "articleBody": "Quartz Glass, also known as fused silica, is a high-purity glass material valued for its exceptional thermal stability, optical transparency, and chemical resistance. Laser cleaning provides a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity or optical properties. The process utilizes carefully controlled laser parameters, typically employing UV wavelengths (266-355 nm) with fluences ranging from 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds. These parameters enable selective ablation of unwanted material while preserving the underlying Quartz Glass substrate. Key applications include cleaning optical components, semiconductor manufacturing equipment, and laboratory instrumentation where surface purity is critical. Challenges include managing thermal stress to prevent micro-cracking and ensuring complete contaminant removal without surface damage. Technical solutions involve precise beam shaping, real-time monitoring, and optimized scanning patterns. Safety considerations mandate proper laser safety enclosures, fume extraction systems for ablated particulates, and appropriate personal protective equipment including laser safety goggles rated for the specific wavelength employed.",
+  "articleBody": "Quartz Glass, also known as fused silica, is a high-purity glass material with exceptional optical clarity, thermal stability, and chemical resistance, making it ideal for semiconductor, optical, and laboratory applications. Laser cleaning provides a superior method for removing organic contaminants, metal particles, and surface films without mechanical contact or chemical residues. The process utilizes precise laser parameters including specific wavelengths (typically 1064nm or 532nm), controlled fluence (0.5-2.5 J/cm²), and optimized pulse durations (nanosecond to femtosecond range) to selectively ablate contaminants while preserving the quartz substrate. This non-contact method eliminates micro-scratches and subsurface damage common with mechanical cleaning techniques. For high-purity applications in semiconductor manufacturing and optical systems, laser cleaning ensures particle removal down to sub-micron levels while maintaining the material's transmission properties and surface quality. The process is particularly effective for removing stubborn deposits like photoresist, metal oxides, and carbon-based contaminants from quartz surfaces without altering their chemical composition or introducing thermal stress.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/quartz-glass-laser-cleaning-hero.jpg",
       "name": "Quartz Glass Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of Quartz Glass optical component displaying side-by-side before and after laser cleaning results showing complete contaminant removal",
-      "description": "Split-view workbench photograph showing a Quartz Glass optical component in before (left, with visible surface contamination) and after (right, pristine surface) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
-      "keywords": "Quartz Glass laser cleaning, before after comparison, optical component, contamination removal, workbench view",
+      "caption": "Dual workbench photo of Quartz Glass optical component displaying side-by-side before and after laser cleaning results",
+      "description": "Split-view workbench photograph showing a Quartz Glass optical component in before (left) and after (right) states, demonstrating the complete removal of surface contaminants and restoration of optical clarity through precision laser cleaning treatment",
+      "keywords": "Quartz Glass laser cleaning, before after comparison, optical component, workbench view, contamination removal",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/quartz-glass-laser-cleaning-micro.jpg",
       "name": "Quartz Glass Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Quartz Glass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications including 355 nm wavelength, 1.8 J/cm² fluence, and 20 ns pulse duration",
-      "description": "Split-view microscopic photograph of Quartz Glass material surface displaying before (left, with particulate contamination) and after (right, pristine surface) states at high magnification, processed with precision laser parameters including 355 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 100 μm spot size specifications",
-      "keywords": "Quartz Glass microscopy, surface analysis, laser parameters, technical specifications, dual comparison, UV laser processing",
+      "caption": "Dual high-magnification photo of Quartz Glass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
+      "description": "Split-view microscopic photograph of Quartz Glass material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 100ns pulse duration, and 50μm spot size specifications",
+      "keywords": "Quartz Glass microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",

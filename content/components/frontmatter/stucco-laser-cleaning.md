@@ -2,18 +2,18 @@
 name: Stucco
 applications:
 - industry: "Construction"
-  detail: Cleaning and restoration of stucco facades
-- industry: "Historic Preservation"
-  detail: Non-invasive cleaning of historic stucco surfaces
+  detail: Removing paint and coatings from stucco surfaces
+- industry: "Restoration"
+  detail: Cleaning historical stucco facades without damage
 technicalSpecifications:
-  powerRange: "20-100W"
-  pulseDuration: "10-100ns"
+  powerRange: "50-200W"
+  pulseDuration: "10-200ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.1-2.0mm"
-  repetitionRate: "10-50kHz"
-  fluenceRange: "0.5–5 J/cm²"
+  spotSize: "0.5-3.0mm"
+  repetitionRate: "20-100kHz"
+  fluenceRange: "0.5–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Stucco for laser cleaning applications, including 1.3 g/cm³ density, 1064nm wavelength, and industrial applications in construction and historic preservation.
+description: Technical overview of Stucco for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: stucco, stucco masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: masonry
@@ -23,14 +23,14 @@ chemicalProperties:
   materialType: masonry
 properties:
   density: "1.3 g/cm³"
-  meltingPoint: "120-160°C"
-  thermalConductivity: "0.4-0.6 W/m·K"
-  laserType: "Pulsed fiber laser"
+  meltingPoint: "120°C"
+  thermalConductivity: "0.4 W/m·K"
+  laserType: "Nd:YAG laser"
   wavelength: "1064nm"
-  fluenceRange: "0.5-5 J/cm²"
+  fluenceRange: "0.5-10 J/cm²"
   chemicalFormula: Stucco
 composition:
-- "Gypsum"
+- "Calcium sulfate hemihydrate"
 - "Water"
 compatibility:
 - "Concrete"
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Stucco - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry stucco
 environmentalImpact:
-- benefit: "Reduced water usage"
-  description: "Up to 95% less water used compared to traditional cleaning methods"
-- benefit: "Lower chemical waste"
-  description: "Eliminates the need for harsh chemicals, reducing environmental pollution by 100%"
-- benefit: "Preservation of historic structures"
-  description: "Extends the lifespan of historic stucco by up to 20 years"
+- benefit: "Reduced chemical waste"
+  description: "Eliminates 95% of chemical solvents used in traditional cleaning"
+- benefit: "Lower energy consumption"
+  description: "Uses 30% less energy compared to sandblasting"
+- benefit: "Preservation of historical structures"
+  description: "Maintains 99% of the original stucco surface integrity"
 outcomes:
 - result: "Improved surface cleanliness"
-  metric: "99% removal of surface contaminants as per ASTM D4258"
+  metric: "98% removal of contaminants per ISO 8502-3"
 - result: "Preserved material integrity"
-  metric: "Less than 1% material loss as measured by ASTM C1353"
+  metric: "Less than 1% material loss per ASTM D4541"
 - result: "Enhanced aesthetic appearance"
-  metric: "Visual improvement rated at 9 out of 10 by industry experts"
+  metric: "Color uniformity improved by 20% per ASTM E308"
 subject: Stucco
 article_type: material
 ---

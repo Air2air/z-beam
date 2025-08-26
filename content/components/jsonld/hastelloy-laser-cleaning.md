@@ -2,20 +2,20 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Hastelloy Materials",
-  "description": "Advanced laser cleaning techniques for Hastelloy materials, ensuring precision surface treatment while preserving the material's structural integrity and corrosion resistance properties.",
+  "description": "Advanced laser cleaning techniques for Hastelloy materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Hastelloy laser cleaning",
-    "Hastelloy metal cleaning",
-    "non-abrasive surface treatment",
-    "Hastelloy material processing",
-    "precision cleaning",
-    "industrial applications",
-    "nickel alloy laser ablation",
-    "corrosion-resistant surface preparation",
+    "nickel alloy surface treatment",
+    "non-abrasive industrial cleaning",
+    "Hastelloy C-276 processing",
+    "precision laser ablation",
+    "corrosion-resistant alloy cleaning",
     "aerospace component cleaning",
-    "chemical processing equipment maintenance"
+    "chemical processing equipment",
+    "non-contact surface preparation",
+    "high-temperature alloy treatment"
   ],
-  "articleBody": "Hastelloy is a nickel-based superalloy renowned for its exceptional corrosion resistance, high-temperature strength, and mechanical stability, making it ideal for demanding industrial applications. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, oxides, and surface impurities without compromising the material's structural integrity or corrosion-resistant properties. The process utilizes carefully controlled laser parameters with wavelengths typically between 1064nm and 1070nm (fiber lasers), fluence levels of 0.5-5 J/cm², and pulse durations from nanoseconds to microseconds to selectively ablate unwanted material while preserving the underlying Hastelloy substrate. Key applications include aerospace component refurbishment, chemical processing equipment maintenance, nuclear industry components, and marine engineering systems where surface purity is critical. Challenges include managing the high reflectivity of nickel alloys and preventing microstructural changes, which are addressed through parameter optimization and real-time monitoring systems. Safety considerations require Class 4 laser protocols, including appropriate PPE, fume extraction systems, and area containment to protect operators from reflected radiation and process byproducts.",
+  "articleBody": "Hastelloy is a family of nickel-based superalloys renowned for exceptional corrosion resistance, high-temperature strength, and mechanical stability in harsh environments. Laser cleaning provides an advanced, non-contact method for removing oxides, contaminants, and surface coatings from Hastelloy components without compromising their metallurgical integrity. The process utilizes precisely controlled laser parameters, typically near-infrared wavelengths (1064 nm) with fluence levels between 1-5 J/cm² and pulse durations of 10-100 nanoseconds, which selectively ablate surface contaminants while preserving the underlying Hastelloy substrate. This technique is particularly valuable for applications in aerospace, chemical processing, and nuclear industries where surface purity is critical. Key challenges include managing the high reflectivity of nickel alloys and preventing thermal stress, which are addressed through optimized pulse shaping and scanning strategies. Safety protocols require appropriate laser safety eyewear, fume extraction systems, and controlled access to the processing area. The non-abrasive nature of laser cleaning eliminates mechanical damage and preserves the precise tolerances of critical Hastelloy components.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/hastelloy-laser-cleaning-micro.jpg",
       "name": "Hastelloy Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Hastelloy material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Hastelloy material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 2.5 J/cm² fluence, 100ns pulse duration, and 50μm spot size specifications",
+      "description": "Split-view microscopic photograph of Hastelloy material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Hastelloy microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

@@ -1,0 +1,2 @@
+**Gabbro** surface (left) exhibiting biological colonization and embedded particulate contamination within its complex feldspar-pyroxene matrix.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse, 500 µm spot), achieving precise ablation of surface deposits without mineralogical alteration.

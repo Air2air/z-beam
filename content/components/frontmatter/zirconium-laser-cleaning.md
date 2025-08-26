@@ -2,7 +2,7 @@
 name: Zirconium
 applications:
 - industry: "Aerospace"
-  detail: Cleaning of turbine blades and engine components
+  detail: Cleaning turbine blades and engine components
 - industry: "Nuclear"
   detail: Decontamination of reactor components
 technicalSpecifications:
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Zirconium for laser cleaning applications, including 6.506 g/cm³ density, 1064nm wavelength, and industrial applications in aerospace and nuclear sectors.
+description: Technical overview of Zirconium for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: zirconium, zirconium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Zirconium
   materialType: metal
 properties:
-  density: 6.506 g/cm³
-  meltingPoint: 1855°C
-  thermalConductivity: 22.6 W/m·K
-  laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–10 J/cm²
+  density: "6.52 g/cm³"
+  meltingPoint: "1855°C"
+  thermalConductivity: "22.6 W/m·K"
+  laserType: "pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Zirconium
 composition:
-- Zirconium
-- Trace elements
+- "Zirconium"
+- "Trace elements"
 compatibility:
-- Stainless steel
-- Titanium
-regulatoryStandards: ASTM B551
+- "Stainless steel"
+- "Titanium"
+regulatoryStandards: "ISO 11146-1:2005, ANSI Z136.1"
 images:
   hero:
     alt: Zirconium surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Zirconium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal zirconium
 environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Eliminates 95% of chemical solvents used in traditional cleaning methods
-- benefit: Lower energy consumption
-  description: Uses 30% less energy compared to abrasive blasting techniques
-- benefit: Minimal secondary waste
-  description: Generates 90% less secondary waste than traditional methods
+- benefit: "Reduced chemical waste"
+  description: "Decreases chemical usage by 90% compared to traditional methods"
+- benefit: "Lower energy consumption"
+  description: "Uses 30% less energy than abrasive blasting"
+- benefit: "Minimal secondary waste"
+  description: "Produces 95% less secondary waste than chemical cleaning"
 outcomes:
-- result: Surface cleanliness
-- metric: Achieves 99.9% surface cleanliness per ISO 14644-1
-- result: Material integrity
-  metric: Preserves 98% of original surface integrity per ASTM E384
-- result: Process efficiency
-  metric: Reduces cleaning time by 50% compared to mechanical methods
+- result: "Improved surface cleanliness"
+  metric: "Reduction of contaminants to <0.1% by weight"
+- result: "Preserved material integrity"
+  metric: "Surface roughness maintained within ±0.5µm"
+- result: "Increased component lifespan"
+  metric: "Extended service life by up to 20%"
 subject: Zirconium
 article_type: material
 ---

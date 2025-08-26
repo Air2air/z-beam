@@ -1,42 +1,41 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 1.3 - 1.8 | g/cm³ |
-| Thermal Conductivity | 0.2 - 0.3 | W/m·K |
-| Specific Heat Capacity | 0.84 - 1.0 | kJ/kg·K |
-| Melting Point | 1200 - 1300 | °C |
+| Density | 1.2 | g/cm³ |
+| Thermal Conductivity | 0.2 | W/m·K |
+| Moisture Content | 5 | % |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Calcium Sulfate Content | 90 - 95 | % |
-| Impurities | < 5 | % |
-| Water Content | 5 - 10 | % |
+| Purity | 95 | % |
+| Grade | Standard | - |
+| Additives | None | - |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90 - 95 | % |
-| Surface Roughness | 10 - 50 | µm |
-| Depth of Cleaning | 0.1 - 1.0 | mm |
+| Cleaning Efficiency | 90 | % |
+| Surface Roughness | 10 | µm |
+| Cleaning Speed | 1.5 | m²/h |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM C1396 | Compliant | - |
-| EN 13279 | Compliant | - |
-| ISO 9001 | Certified | - |
+| ASTM Compliance | C926 | - |
+| ISO Certification | 9001 | - |
+| Safety Rating | Class 1 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Dust Emission | < 10 | mg/m³ |
-| Noise Level | 70 - 80 | dB |
-| Energy Consumption | 1 - 2 | kWh/m² |
+| VOC Emissions | <10 | g/L |
+| Recyclability | 100 | % |
+| Biodegradability | 0 | % |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5 - 1.5 | J/cm² |
-| Pulse Duration | 10 - 100 | ns |
+| Power Density | 100 | W/cm² |
+| Pulse Duration | 100 | ns |

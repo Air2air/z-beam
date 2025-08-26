@@ -1,0 +1,4 @@
+---
+symbol: "GA"
+materialType: "stone"
+---

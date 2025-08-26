@@ -1,1 +1,1 @@
-cobalt, ablation, cleaning, laser, aerospace, medical, non-contact, alessandro moretti
+ablation, cobalt, cleaning, laser, aerospace, manufacturing, non-contact, alessandro-moretti

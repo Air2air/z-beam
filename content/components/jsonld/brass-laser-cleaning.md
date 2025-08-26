@@ -10,10 +10,12 @@
     "Brass material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "copper-zinc alloy treatment"
+    "surface treatment",
+    "non-contact processing",
+    "copper-zinc alloy cleaning",
+    "oxide removal"
   ],
-  "articleBody": "Brass, a copper-zinc alloy (typically 60-90% Cu, 10-40% Zn), is widely used in industrial applications due to its excellent machinability, corrosion resistance, and aesthetic appeal. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal wavelengths between 1064-1070 nm (fiber lasers), fluence levels of 0.5-3.5 J/cm², and pulse durations of 50-200 ns to selectively ablate unwanted material while preserving the underlying Brass substrate. Key applications include restoration of historical artifacts, precision cleaning of musical instruments, surface preparation for welding in marine components, and oxide removal from electrical connectors. The primary challenge involves managing the different ablation thresholds of copper and zinc components, requiring precise parameter control to prevent zinc depletion or surface melting. Safety considerations include proper fume extraction to handle zinc oxide particles, Class 4 laser safety protocols, and appropriate PPE for operators. The non-abrasive nature of laser cleaning eliminates mechanical damage risks and preserves the precise tolerances required in brass components for precision engineering applications.",
+  "articleBody": "Brass, a copper-zinc alloy (typically 60-90% copper, 10-40% zinc), is widely used in industrial applications due to its excellent machinability, corrosion resistance, and aesthetic appeal. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, surface oxidation, and tarnish without compromising the material's structural integrity or dimensional stability. The process utilizes controlled laser parameters (typically 1064nm wavelength, 10-20J/cm² fluence, 100-200ns pulse duration) to selectively ablate unwanted material while preserving the underlying Brass substrate. This method effectively removes oxides, fingerprints, lubricants, and environmental contaminants without chemical solvents or mechanical abrasion. Laser cleaning is particularly valuable for precision components, historical artifacts, and decorative brass items where surface preservation is critical. The non-contact nature eliminates secondary contamination and allows for automated processing of complex geometries. Optimal parameters vary based on zinc content and surface conditions, requiring precise calibration to avoid zinc depletion or surface modification while achieving complete contaminant removal.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +31,7 @@
       "url": "/images/brass-laser-cleaning-micro.jpg",
       "name": "Brass Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Brass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Brass material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 2.8 J/cm² fluence, 100 ns pulse duration, and 50 μm spot size specifications",
+      "description": "Split-view microscopic photograph of Brass material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Brass microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

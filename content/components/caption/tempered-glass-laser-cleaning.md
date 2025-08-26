@@ -1,3 +1,3 @@
-**Tempered Glass** surface (left) before cleaning, showing heavy atmospheric soiling and persistent water spot deposits on the low-iron, high-surface-tension glass.
+**Tempered Glass** surface (left) exhibiting stubborn oxide scaling and particulate adhesion from industrial processing.
 
-**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 8 W average power, 100 ns pulse duration, and a 2 mm spot size, achieving complete contaminant removal without thermal stress to the tempered layer.
+**Post-laser ablation** (right) with complete contaminant elimination using 1064 nm wavelength at 80 W average power, 100 ns pulse duration, and 2 mm spot size, preserving the compressive surface layer.

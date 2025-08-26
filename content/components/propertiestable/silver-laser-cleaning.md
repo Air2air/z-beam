@@ -5,4 +5,4 @@
 | Category | Metal |
 | Material Type | Metal |
 | Tensile Strength | N/A |
-| Thermal Conductivity | ['429W/… |
+| Thermal Conductivity | 429W/mK |

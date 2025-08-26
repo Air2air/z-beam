@@ -5,34 +5,34 @@
   "description": "Advanced laser cleaning techniques for Mortar materials, ensuring precision surface treatment while preserving the material's structural integrity and historical authenticity.",
   "keywords": [
     "Mortar laser cleaning",
-    "Mortar masonry cleaning",
+    "Mortar masonry restoration",
     "non-abrasive surface treatment",
-    "Mortar material processing",
+    "historical preservation",
     "precision cleaning",
-    "historical restoration",
-    "laser ablation parameters",
-    "cultural heritage preservation",
     "contaminant removal",
-    "non-destructive cleaning"
+    "surface oxidation ablation",
+    "non-contact processing",
+    "cultural heritage conservation",
+    "industrial laser applications"
   ],
-  "articleBody": "Mortar is a critical masonry material composed of cement, sand, lime, and water that forms the binding matrix in construction and historical structures. Laser cleaning offers a precise, non-contact method for removing contaminants, biological growth, carbon deposits, and surface encrustations without compromising the material's structural integrity or chemical composition. The process utilizes controlled laser parameters with optimal wavelengths between 1064-1070 nm (Nd:YAG lasers) and fluence levels of 0.5-2.5 J/cm² to selectively ablate unwanted material while preserving the underlying Mortar substrate. Pulse durations typically range from 10-150 nanoseconds, allowing precise control over the ablation threshold. Key applications include historical monument restoration, architectural conservation, industrial facility maintenance, and archaeological preservation. Challenges include Mortar's variable porosity, composition heterogeneity, and sensitivity to thermal stress, which are addressed through parameter optimization and real-time monitoring. The non-abrasive nature of laser cleaning prevents mechanical damage to delicate Mortar surfaces while effectively removing centuries of accumulated soot, pollution deposits, and biological colonization. Safety protocols require appropriate laser classification compliance, personal protective equipment, and environmental controls to manage particulate emissions during the cleaning process.",
+  "articleBody": "Mortar, a fundamental masonry material composed of cement, sand, and water, requires specialized cleaning approaches to maintain structural integrity during restoration. Laser cleaning provides an advanced, non-contact method for removing contaminants, biological growth, surface oxidation, and previous coatings without compromising the mortar's composition or mechanical properties. The process utilizes precisely controlled laser parameters—typically nanosecond or picosecond pulses at 1064nm wavelength—to selectively ablate unwanted material through photomechanical and photothermal interactions. Optimal fluence ranges between 0.5-2.5 J/cm² ensure effective contaminant removal while preserving the original mortar surface. This technique eliminates mechanical stress, chemical residue, and microstructural damage associated with traditional cleaning methods. Applications include historical building restoration, industrial facility maintenance, and architectural conservation projects where precision cleaning is critical. The non-abrasive nature of laser cleaning makes it particularly valuable for delicate mortar joints in heritage structures, allowing for controlled removal of carbon deposits, pollution crusts, and biological colonization without altering the original surface morphology or chemical composition.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/mortar-laser-cleaning-hero.jpg",
       "name": "Mortar Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of historical Mortar joint displaying side-by-side before and after laser cleaning results showing complete contaminant removal",
-      "description": "Split-view workbench photograph showing a Mortar joint from historical masonry in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment while preserving original material integrity",
-      "keywords": "Mortar laser cleaning, before after comparison, dual photo, workbench view, contamination removal, historical preservation",
+      "caption": "Dual workbench photo of Mortar object displaying side-by-side before and after laser cleaning results",
+      "description": "Split-view workbench photograph showing a Mortar object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Mortar laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/mortar-laser-cleaning-micro.jpg",
       "name": "Mortar Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Mortar material surface showing detailed side-by-side before and after laser cleaning results with 1064 nm wavelength, 1.8 J/cm² fluence, and 100 ns pulse duration specifications",
-      "description": "Split-view microscopic photograph of Mortar material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 100 ns pulse duration, and 5 mm spot size specifications",
-      "keywords": "Mortar microscopy, surface analysis, laser parameters, technical specifications, dual comparison, ablation threshold",
+      "caption": "Dual high-magnification photo of Mortar material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
+      "description": "Split-view microscopic photograph of Mortar material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
+      "keywords": "Mortar microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",

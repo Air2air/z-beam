@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Article } from '../types/Article';
+import { Article } from '@/types/core';
 import { BadgeData } from '@/types/core';
 
 export async function loadBadgeData(slug: string): Promise<BadgeData | null> {

@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Lead Crystal Materials",
-  "description": "Advanced laser cleaning techniques for Lead Crystal materials, ensuring precision surface treatment while preserving the material's structural integrity and optical clarity.",
+  "description": "Advanced laser cleaning techniques for Lead Crystal materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Lead Crystal laser cleaning",
     "Lead Crystal glass cleaning",
@@ -10,12 +10,12 @@
     "Lead Crystal material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "optical component cleaning",
-    "lead oxide glass treatment",
-    "contamination removal"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "contaminant removal"
   ],
-  "articleBody": "Lead Crystal, composed of 24-32% lead oxide (PbO) with silica and potassium, presents unique challenges for laser cleaning due to its high refractive index, thermal sensitivity, and susceptibility to surface damage. The material's low thermal conductivity (approximately 0.8 W/m·K) and thermal expansion coefficient (9.0 × 10⁻⁶/K) require precise laser parameter control to prevent thermal stress cracking. Optimal cleaning utilizes nanosecond pulsed lasers at 1064 nm wavelength with fluence levels between 0.8-1.5 J/cm² and pulse durations of 10-30 ns. This parameter range effectively removes organic contaminants, oxidation layers, and surface deposits through selective ablation while maintaining the material's optical transparency and structural integrity. Key applications include restoration of historical lead crystal artifacts, precision cleaning of optical components, and surface preparation for high-value decorative glassware. The process eliminates micro-scratches associated with mechanical cleaning methods and prevents chemical residue from traditional cleaning solutions. Specialized safety protocols include lead fume extraction systems, laser safety enclosures, and real-time monitoring to prevent lead particulate dispersion. Advanced optical monitoring systems ensure complete contaminant removal while preserving the characteristic brilliance and acoustic properties of lead crystal materials.",
+  "articleBody": "Lead Crystal, a high-quality glass containing 24-32% lead oxide (PbO), requires specialized cleaning methods to maintain its optical clarity and structural integrity. Laser cleaning provides an optimal non-contact solution for removing surface contaminants, oxidation layers, and organic residues without mechanical stress or chemical damage. The process utilizes precisely controlled laser parameters, typically employing nanosecond or picosecond pulsed lasers at wavelengths between 1064nm and 532nm, with fluence levels carefully calibrated to the material's ablation threshold. This selective ablation process effectively removes unwanted surface material while preserving the underlying Lead Crystal substrate. The technique is particularly valuable for restoring historical artifacts, precision optical components, and high-end decorative glassware where traditional cleaning methods could cause micro-scratches or chemical etching. Industrial applications benefit from the method's reproducibility, environmental safety (no chemical solvents), and ability to clean complex geometries with micron-level precision. Optimal processing parameters must account for the material's specific lead content and thermal properties to prevent thermal stress or structural damage during the cleaning process.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/lead-crystal-laser-cleaning-micro.jpg",
       "name": "Lead Crystal Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Lead Crystal material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Lead Crystal material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 20 ns pulse duration, and 100 μm spot size specifications",
+      "description": "Split-view microscopic photograph of Lead Crystal material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Lead Crystal microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

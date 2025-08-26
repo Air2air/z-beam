@@ -110,7 +110,7 @@ export function SearchResultsGrid({
             metadata={item.metadata || {
               category: item.category,
               articleType: item.articleType,
-              chemicalProperties: getChemicalProperties(item)
+              chemicalProperties: getChemicalProperties(item as unknown as Parameters<typeof getChemicalProperties>[0])
             }}
             className="h-full"
           />

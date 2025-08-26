@@ -1,0 +1,2 @@
+**Gallium Nitride** wafer surface (left) exhibiting native oxide layer and hydrocarbon contamination from ambient exposure.  
+**After 355 nm Nd:YAG laser cleaning** (right) with 150 mJ/cm² fluence and 8 ns pulses, achieving pristine surface restoration without substrate damage.

@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Vanadium Materials",
-  "description": "Advanced laser cleaning techniques for Vanadium materials, ensuring precision surface treatment while preserving the material's structural integrity and unique properties.",
+  "description": "Advanced laser cleaning techniques for Vanadium materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Vanadium laser cleaning",
     "Vanadium metal cleaning",
@@ -10,12 +10,12 @@
     "Vanadium material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "surface oxidation removal",
-    "high-purity metal treatment",
-    "industrial laser systems"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "contaminant removal"
   ],
-  "articleBody": "Vanadium is a hard, silvery-grey, ductile transition metal with excellent structural properties, including high corrosion resistance, good structural strength, and remarkable hardness. These properties make it valuable in specialized industrial applications but present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing contaminants, oxide layers, and surface impurities without compromising Vanadium's structural integrity. The optimal laser parameters for Vanadium cleaning typically involve nanosecond pulsed lasers at 1064nm wavelength with fluence levels between 1-4 J/cm² and pulse durations of 100-200ns. This parameter range effectively removes surface oxidation and contaminants while minimizing thermal effects that could alter the material's microstructure. Key applications include cleaning Vanadium components in aerospace alloys, nuclear reactor parts, surgical instruments, and high-strength steel additives. The primary challenge involves Vanadium's relatively low thermal conductivity (30.7 W/m·K), which requires precise control of laser parameters to prevent excessive heat accumulation and potential microstructural changes. Safety considerations include proper fume extraction due to potential vanadium oxide particulate generation, which requires appropriate respiratory protection and ventilation systems. Laser cleaning provides significant advantages over traditional methods by eliminating chemical solvents and mechanical abrasion, ensuring high-purity surface preparation for critical applications.",
+  "articleBody": "Vanadium is a hard, silvery-grey transition metal with excellent structural properties, including high corrosion resistance, good structural strength, and remarkable hardness. These properties make it valuable in industrial applications but present unique challenges for surface cleaning. Laser cleaning offers a precise, non-contact method for removing oxides, contaminants, and surface impurities from Vanadium without compromising its structural integrity. The optimal laser parameters for Vanadium cleaning typically involve fiber lasers with 1064nm wavelength, fluence levels between 1-5 J/cm², and pulse durations of 100-200 nanoseconds to effectively remove contaminants while minimizing thermal effects. Key applications include aerospace components, nuclear reactor parts, and high-strength steel alloys where Vanadium serves as an alloying element. The primary challenge in laser cleaning Vanadium is its high thermal conductivity and melting point (1910°C), which requires precise energy control to avoid surface modification. Safety considerations include proper fume extraction due to potential vanadium oxide formation and comprehensive laser safety protocols including Class 4 laser precautions, appropriate PPE, and adequate ventilation systems. The non-contact nature of laser cleaning eliminates secondary contamination risks while providing exceptional precision for critical Vanadium components.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/vanadium-laser-cleaning-micro.jpg",
       "name": "Vanadium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Vanadium material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Vanadium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 2.5 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",
+      "description": "Split-view microscopic photograph of Vanadium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 150ns pulse duration, and 50μm spot size specifications",
       "keywords": "Vanadium microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

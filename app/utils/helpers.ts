@@ -70,7 +70,7 @@ export function safeGet<T>(obj: any, path: string, defaultValue: T): T {
 /**
  * Debounce function to limit function calls
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => any>(
   func: T,
   delay: number
 ): (...args: Parameters<T>) => void {
@@ -85,7 +85,7 @@ export function debounce<T extends (...args: any[]) => any>(
 /**
  * Throttle function to limit function execution rate
  */
-export function throttle<T extends (...args: any[]) => any>(
+export function throttle<T extends (...args: unknown[]) => any>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {

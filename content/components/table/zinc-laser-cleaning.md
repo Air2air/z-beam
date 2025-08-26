@@ -5,27 +5,27 @@
 | Boiling Point | 907 | °C |
 | Density | 7.14 | g/cm³ |
 | Thermal Conductivity | 116 | W/m·K |
-| Reflectivity | 70-80 | % |
+| Specific Heat Capacity | 0.388 | J/g·K |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Commercial Purity | 99.995 | % |
-| High Purity | 99.9999 | % |
-| Alloy Zn-Al | 85-95 | % Zn |
+| Purity Level | 99.995 | % |
+| Common Alloys | Zn-Al, Zn-Cu | - |
+| Impurity Limit | <0.005 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
 | Cleaning Rate | 1-5 | m²/h |
 | Surface Roughness | 0.1-1.0 | µm |
-| Oxide Removal | 95-99 | % |
+| Residual Contaminants | <0.1 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM B69 | Standard | - |
-| ISO 14919 | Standard | - |
+| ASTM Standard | B69-16 | - |
+| ISO Standard | 752-2016 | - |
 | RoHS Compliance | Yes | - |
 
 ## Environmental Data
@@ -33,7 +33,7 @@
 | --- | --- | --- |
 | Recyclability | High | - |
 | Toxicity | Low | - |
-| Emissions | Minimal | - |
+| Dust Emission | <10 | mg/m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

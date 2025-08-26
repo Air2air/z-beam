@@ -1,42 +1,41 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 1.6 | g/cm³ |
-| Thermal Conductivity | 0.5 | W/m·K |
-| Melting Point | 1280 | °C |
-| Hardness | 2 | Mohs |
+| Density | 1.3-1.7 | g/cm³ |
+| Thermal Conductivity | 0.25 | W/m·K |
+| Specific Heat Capacity | 0.84 | kJ/kg·K |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity | 95-99 | % |
-| Common Additives | Gypsum, Lime | - |
-| Moisture Content | <2 | % |
+| Calcium Sulfate Dihydrate | >90 | % |
+| Impurities | <10 | % |
+| Water Content | 18-22 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90-95 | % |
-| Surface Roughness | 1-5 | µm |
-| Residual Contamination | <1 | % |
+| Hardness | 2-3 | Mohs |
+| Compressive Strength | 2-10 | MPa |
+| Tensile Strength | 0.5-2 | MPa |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | C59/C59M | - |
-| ISO Standard | 13959 | - |
-| Safety Compliance | OSHA | - |
+| ASTM C28 | Compliant | - |
+| ISO 9001 | Certified | - |
+| EN 13279 | Conforms | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Dust Emission | Low | - |
-| Noise Level | 70-80 | dB |
-| Energy Consumption | 1-2 | kW |
+| pH | 7-8 | - |
+| Solubility in Water | 0.2 | g/100ml |
+| Decomposition Temperature | 128 | °C |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5-1.5 | J/cm² |
 | Pulse Duration | 10-100 | ns |
+| Power Density | 1-10 | J/cm² |

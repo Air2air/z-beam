@@ -5,4 +5,4 @@
 | Category | Masonry |
 | Material Type | Masonry |
 | Tensile Strength | N/A |
-| Thermal Conductivity | ['0.5-1… |
+| Thermal Conductivity | 0.8-1.0… |

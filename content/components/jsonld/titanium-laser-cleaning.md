@@ -10,10 +10,12 @@
     "Titanium material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "surface oxidation removal"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "oxide removal"
   ],
-  "articleBody": "Titanium is a transition metal with exceptional strength-to-weight ratio, excellent corrosion resistance, and high melting point (1668°C), making it ideal for aerospace, medical, and marine applications. Laser cleaning of Titanium requires precise parameter optimization due to its high thermal conductivity (21.9 W/m·K) and low absorptivity at common laser wavelengths. Optimal parameters typically include fiber lasers at 1064nm wavelength with fluence levels between 1-5 J/cm² and pulse durations of 100-200ns to effectively remove oxides, contaminants, and surface impurities without causing microstructural changes or surface melting. The process effectively eliminates alpha-case layer formation while maintaining the material's inherent corrosion resistance. Key applications include aerospace component refurbishment, medical implant sterilization, and marine equipment maintenance. Challenges include managing heat input to prevent surface discoloration and maintaining consistent cleaning quality across complex geometries. Technical solutions involve real-time monitoring systems and adaptive parameter control. Safety protocols require Class 4 laser safety measures including appropriate eyewear, ventilation for fume extraction, and controlled access to the processing area to prevent exposure to reflected laser radiation and airborne particulates.",
+  "articleBody": "Titanium is a transition metal with exceptional strength-to-weight ratio, high corrosion resistance, and excellent biocompatibility, making it ideal for aerospace, medical, and marine applications. Its surface naturally forms a protective oxide layer (TiO2) that can be compromised by contaminants during manufacturing. Laser cleaning provides a non-contact, precise method for removing oxides, oils, paints, and other surface contaminants without damaging the underlying Titanium substrate. Optimal laser parameters typically include fiber lasers with 1064nm wavelength, fluence levels of 2-8 J/cm², and pulse durations of 100-200ns to effectively ablate contaminants while preventing thermal damage to the base material. The process eliminates mechanical abrasion risks, preserves dimensional accuracy, and prepares surfaces for subsequent treatments like welding or coating. Challenges include managing Titanium's high reflectivity to near-infrared wavelengths and preventing excessive heat input that could alter material properties. Technical solutions involve precise parameter optimization, beam shaping, and real-time monitoring systems. Safety protocols require Class 4 laser safety measures including appropriate eyewear, ventilation for titanium dioxide fumes, and enclosed processing chambers with interlock systems.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +31,7 @@
       "url": "/images/titanium-laser-cleaning-micro.jpg",
       "name": "Titanium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Titanium material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Titanium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 150ns pulse duration, and 100μm spot size specifications",
+      "description": "Split-view microscopic photograph of Titanium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Titanium microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

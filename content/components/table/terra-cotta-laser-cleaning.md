@@ -1,43 +1,41 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 1.6 | g/cm³ |
-| Thermal Conductivity | 0.6 | W/m·K |
-| Specific Heat Capacity | 0.8 | kJ/kg·K |
-| Melting Point | 1100 | °C |
+| Density | 1.7 | g/cm³ |
+| Porosity | 25-35 | % |
+| Compressive Strength | 20-30 | MPa |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| SiO2 Content | 50-60 | % |
-| Al2O3 Content | 20-30 | % |
-| Fe2O3 Content | 5-10 | % |
+| Grade | Standard | - |
 | Purity | 95 | % |
+| Impurities | <5 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 90 | % |
-| Surface Roughness (post-cleaning) | 1.5 | µm |
-| Material Removal Rate | 0.5 | mm³/min |
+| Cleaning Efficiency | 90-95 | % |
+| Surface Roughness | 1-2 | µm |
+| Residue | <1 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | C1272 | - |
-| ISO Standard | 13006 | - |
-| EN Standard | 14411 | - |
+| ASTM Compliance | C67 | - |
+| ISO Certification | 9001 | - |
+| Safety Standard | ANSI Z136.1 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
+| Operating Temperature | 0-50 | °C |
+| Humidity Resistance | 80 | % RH |
 | Dust Generation | Low | - |
-| Chemical Emissions | None | - |
-| Recyclability | High | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1.5 | J/cm² |
-| Pulse Duration | 100 | ns |
+| Power | 50-100 | W |
+| Pulse Duration | 10-100 | ns |

@@ -1,0 +1,2 @@
+**Bluestone** surface (left) exhibiting heavy biological colonization and iron oxide staining prior to intervention.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and a 7 mm spot size, showing complete contaminant ablation with zero substrate damage.

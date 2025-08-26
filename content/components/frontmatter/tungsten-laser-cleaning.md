@@ -2,9 +2,9 @@
 name: Tungsten
 applications:
 - industry: "Aerospace"
-  detail: Removal of surface contaminants on turbine blades
-- industry: "Semiconductor"
-  detail: Cleaning of tungsten contacts for improved conductivity
+  detail: Removal of oxidation and coatings from turbine blades
+- industry: "Electronics"
+  detail: Cleaning of Tungsten contacts and surfaces for improved conductivity
 technicalSpecifications:
   powerRange: "50-200W"
   pulseDuration: "10-200ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Tungsten for laser cleaning applications, including 19.3 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Tungsten for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: tungsten, tungsten metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: W
   materialType: metal
 properties:
-  density: 19.3 g/cm³
-  meltingPoint: 3422 °C
-  thermalConductivity: 173 W/m·K
-  laserType: Pulsed fiber laser
-  wavelength: 1064 nm
-  fluenceRange: 1.0–10 J/cm²
+  density: "19.3 g/cm³"
+  meltingPoint: "3422°C"
+  thermalConductivity: "173 W/m·K"
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: W
 composition:
-- Tungsten
-- Trace impurities
+- "Tungsten"
+- "Trace elements"
 compatibility:
-- Steel
-- Nickel alloys
-regulatoryStandards: ISO 11146-1, ANSI Z136.1
+- "Stainless Steel"
+- "Ceramics"
+regulatoryStandards: "ISO 11553-1:2020, ANSI Z136.1"
 images:
   hero:
     alt: Tungsten surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Tungsten - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal tungsten
 environmentalImpact:
-- benefit: Reduced chemical waste
-  description: Eliminates 95% of chemical solvents used in traditional cleaning
-- benefit: Lower energy consumption
-  description: Reduces energy use by 80% compared to mechanical abrasion
-- benefit: No secondary waste
-  description: Produces zero secondary waste, reducing landfill impact by 100%
+- benefit: "Reduced chemical waste"
+  description: "Eliminates up to 95% of chemical solvents used in traditional cleaning"
+- benefit: "Lower energy consumption"
+  description: "Decreases energy use by 30% compared to abrasive methods"
+- benefit: "Minimal material waste"
+  description: "Preserves 99% of the material's integrity"
 outcomes:
-- result: Improved surface cleanliness
-- metric: Surface contamination reduced to <0.1% by weight
-- result: Enhanced material longevity
-  metric: 20% increase in component lifespan
-- result: Precise cleaning control
-  metric: ±0.01mm accuracy in cleaning depth
+- result: "Improved surface cleanliness"
+- metric: "Reduces contamination by up to 99.9%"
+- result: "Enhanced material performance"
+  metric: "Increases thermal conductivity by 5%"
+- result: "Extended component lifespan"
+  metric: "Prolongs life by up to 20%"
 subject: Tungsten
 article_type: material
 ---

@@ -1,3 +1,2 @@
-**Tin** surface (left) before cleaning, showing heavy, non-uniform oxide layer (SnO₂) and embedded particulate contamination from industrial handling.
-
-**After laser cleaning** (right) using a 1064 nm fiber laser (15 W, 100 ns pulse duration, 100 μm spot size), achieving complete oxide removal and restoration of the pristine metallic surface without substrate damage.
+**Tin** surface (left) before processing, exhibiting heavy oxide layer and organic flux residues.  
+**After 1064 nm laser cleaning** (right) showing pristine surface achieved with 8 W, 100 ns pulses, and 100 µm spot size, preserving the soft substrate.

@@ -70,7 +70,10 @@ export async function debugTagSystem(): Promise<TagDebugData> {
 /**
  * Helper function to extract author name from various article formats
  */
-function getAuthorName(article: any): string {
+function getAuthorName(article: { 
+  author?: string | object; 
+  metadata?: { author?: string | object } 
+}): string {
   // Check author object
   if (article.author) {
     if (typeof article.author === 'string') {

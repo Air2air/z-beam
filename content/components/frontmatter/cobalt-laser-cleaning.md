@@ -2,40 +2,40 @@
 name: Cobalt
 applications:
 - industry: "Automotive"
-  detail: Cleaning of cobalt components for engine parts
+  detail: Rust and paint removal from metal parts
 - industry: "Aerospace"
-  detail: Surface preparation of cobalt alloys for aircraft components
+  detail: Precision cleaning of turbine components
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "5-50ns"
+  pulseDuration: "10-200ns"
   wavelength: "1064nm (primary), 532nm (optional)"
-  spotSize: "0.05-1.0mm"
+  spotSize: "0.1-1.0mm"
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Cobalt for laser cleaning applications, including 8.9 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Cobalt for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: cobalt, cobalt metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
 chemicalProperties:
-  symbol: Co
-  formula: Co
+  symbol: CO
+  formula: Cobalt
   materialType: metal
 properties:
   density: "8.9 g/cm³"
   meltingPoint: "1495°C"
   thermalConductivity: "100 W/m·K"
-  laserType: "pulsed fiber laser"
+  laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "1.0–10 J/cm²"
-  chemicalFormula: Co
+  chemicalFormula: Cobalt
 composition:
 - "Cobalt"
 - "Trace elements"
 compatibility:
-- "Stainless Steel"
-- "Nickel Alloys"
-regulatoryStandards: "ISO 11553-1:2020"
+- "Stainless steel"
+- "Nickel alloys"
+regulatoryStandards: "ISO 11145, ASTM E1742"
 images:
   hero:
     alt: Cobalt surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +47,18 @@ title: Laser Cleaning Cobalt - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal cobalt
 environmentalImpact:
 - benefit: "Reduced chemical waste"
-  description: "Up to 90% reduction in chemical solvents used compared to traditional methods"
-- benefit: "Energy efficiency"
-  description: "Laser cleaning consumes 20-30% less energy than abrasive methods"
-- benefit: "Lower emissions"
-  description: "Reduces CO2 emissions by approximately 15% per cleaning cycle"
+  description: "Up to 90% decrease in chemical usage compared to traditional methods"
+- benefit: "Lower energy consumption"
+  description: "30% less energy required than abrasive blasting"
+- benefit: "Minimal dust generation"
+  description: "85% reduction in airborne particulates"
 outcomes:
-- result: "Improved surface cleanliness"
-- metric: "Achieves 99.9% cleanliness as per ASTM D4488"
-- result: "Increased component lifespan"
-  metric: "Up to 20% increase in durability as measured by wear testing per ASTM G65"
-- result: "Reduced downtime"
-  metric: "Decreases maintenance time by 30% per ISO 22476-1"
+- result: "Surface cleanliness"
+  metric: "ASTM G121 standard, achieving >99% cleanliness"
+- result: "Material integrity"
+  metric: "Preservation of >95% of original material properties"
+- result: "Process efficiency"
+  metric: "Cleaning rate of 1 m² per hour"
 subject: Cobalt
 article_type: material
 ---

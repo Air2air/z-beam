@@ -1,4 +1,4 @@
 ---
-symbol: "TI"
+symbol: "Ti"
 materialType: "metal"
 ---

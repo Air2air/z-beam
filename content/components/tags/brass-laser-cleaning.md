@@ -1,1 +1,1 @@
-brass, ablation, cleaning, laser, non-contact, manufacturing, automotive, alessandro moretti
+ablation, brass, cu-zn, cleaning, laser, automotive, manufacturing, alessandro-moretti

@@ -10,12 +10,12 @@
     "Cement material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "concrete surface restoration",
-    "architectural conservation",
-    "industrial maintenance"
+    "surface treatment",
+    "non-contact processing",
+    "concrete restoration",
+    "contaminant removal"
   ],
-  "articleBody": "Cement is a complex hydraulic binding material composed primarily of calcium silicates, aluminates, and ferrites that hardens when mixed with water. Its porous microstructure and alkaline nature (pH ~12-13) make it susceptible to surface contamination, efflorescence, biological growth, and carbonation. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal settings at 1064 nm wavelength, 0.8-1.5 J/cm² fluence, and 10-100 ns pulse duration to selectively ablate unwanted material while preserving the underlying Cement substrate. Key applications include historical monument restoration, architectural facade cleaning, industrial floor maintenance, and preparation for surface treatments or coatings. Challenges include managing the material's variable absorption characteristics, preventing surface etching, and avoiding thermal damage to the hydrated cement phases. Technical solutions involve precise parameter optimization, real-time monitoring, and controlled scanning patterns. Safety considerations require appropriate laser class IV protocols, including proper ventilation to manage cement dust, eye protection against reflected laser radiation, and containment of ablated particulate matter to prevent respiratory hazards.",
+  "articleBody": "Cement is a fundamental masonry material composed primarily of calcium silicates, aluminates, and ferrites that forms the binding agent in concrete structures. Laser cleaning offers a revolutionary approach for surface treatment of cement-based materials, effectively removing biological growth, atmospheric pollution, paint overspray, and chemical residues without mechanical abrasion or chemical solvents. The process utilizes specific laser wavelengths (typically 1064nm Nd:YAG or fiber lasers) that are selectively absorbed by surface contaminants while reflecting off the underlying cement substrate. Optimal parameters include fluence levels of 0.5-2.5 J/cm², pulse durations of 10-100 nanoseconds, and repetition rates of 20-100 kHz, carefully calibrated to avoid thermal damage to the cement matrix. This non-contact method preserves the original surface texture and micro-structure while eliminating the risk of secondary contamination. Industrial applications include historical monument restoration, bridge maintenance, architectural facade cleaning, and preparation for surface coatings or repairs. The technique significantly reduces water consumption compared to traditional methods and eliminates the environmental impact of chemical cleaning agents.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/cement-laser-cleaning-micro.jpg",
       "name": "Cement Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Cement material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Cement material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.2 J/cm² fluence, 20 ns pulse duration, and 0.5 mm spot size specifications",
+      "description": "Split-view microscopic photograph of Cement material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Cement microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

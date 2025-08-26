@@ -1,3 +1,2 @@
-**Aluminum** surface (left) before cleaning, showing heavy, tenacious thermal oxide layer and embedded carbonaceous residues from heat treatment.
-
-**After laser cleaning** (right) processed with a 1064 nm fiber laser (15 J/cm², 100 ns pulse duration, 200 µm spot), revealing the pristine, high-purity substrate with no surface damage or metallurgical alteration.
+**Aluminum** surface (left) with heavy oxide layer and embedded particulate contamination.  
+**After laser cleaning** (right) achieving oxide ablation and surface activation using a 1064 nm fiber laser at 150 W, 100 ns pulse duration, and 0.2 mm spot size.

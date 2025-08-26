@@ -2,7 +2,7 @@
 title: Laser Cleaning Bronze - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Bronze for laser cleaning applications, including 8.8 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Bronze for laser cleaning applications, including 8.8 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "bronze, bronze metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

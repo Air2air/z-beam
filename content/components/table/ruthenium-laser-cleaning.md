@@ -4,39 +4,36 @@
 | Melting Point | 2334 | °C |
 | Density | 12.45 | g/cm³ |
 | Thermal Conductivity | 117 | W/m·K |
-| Reflectivity | 67 | % at 532 nm |
+| Hardness | 220 | HV |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
 | Purity | 99.95 | % |
-| Common Alloys | Ru-Ir, Ru-Pt | - |
-| Surface Roughness | <0.1 | µm |
+| Common Grades | Ru-1, Ru-2 | - |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
+| Ablation Threshold | 0.2 | J/cm² |
 | Cleaning Efficiency | 95 | % |
-| Surface Contamination Removal | 99 | % |
-| Residual Heat | <100 | °C |
+| Surface Roughness | 0.1 | µm |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | B719 | - |
-| ISO Standard | 14121 | - |
-| Cleanliness Level | Class 100 | - |
+| ISO Standard | ISO 11146 | - |
+| ASTM Standard | ASTM B719 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | 20-30 | °C |
-| Humidity Range | 30-70 | % RH |
-| Waste Generation | Minimal | - |
+| Oxidation Resistance | High | - |
+| Corrosion Resistance | Excellent | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1-5 | J/cm² |
-| Pulse Duration | 10-100 | ns |
+| Fluence | 1-2 | J/cm² |
+| Pulse Duration | 10-20 | ns |

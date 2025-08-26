@@ -2,9 +2,9 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 1668 | °C |
-| Density | 4.51 | g/cm³ |
 | Thermal Conductivity | 21.9 | W/m·K |
-| Reflectivity (at 1064 nm) | 50-60 | % |
+| Reflectivity | 50-60 | % |
+| Density | 4.506 | g/cm³ |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
@@ -16,23 +16,23 @@
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Speed | 1-5 | m²/h |
-| Surface Roughness (Ra) | 0.1-1.0 | µm |
-| Material Removal Rate | 0.5-2.0 | g/min |
+| Cleaning Efficiency | 95 | % |
+| Surface Roughness | 0.8-1.6 | µm |
+| Material Removal Rate | 0.1-0.5 | mm³/s |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
 | ASTM Standard | B265 | - |
 | ISO Standard | 5832-2 | - |
-| Laser Safety Class | 4 | - |
+| Surface Cleanliness | ISO 14644-1 | Class 5 |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Dust Emission | <10 | mg/m³ |
-| Noise Level | 70-85 | dB |
-| Energy Consumption | 1-3 | kW/h |
+| Operating Temperature | -20 to 60 | °C |
+| Humidity Range | 10-90 | % RH |
+| Energy Consumption | 1.5-3.0 | kWh |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

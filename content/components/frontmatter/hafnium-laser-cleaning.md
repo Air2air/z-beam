@@ -2,9 +2,9 @@
 name: Hafnium
 applications:
 - industry: "Aerospace"
-  detail: Removing oxide layers from hafnium components prior to assembly
+  detail: Removing oxidation and debris from hafnium components used in jet engines
 - industry: "Nuclear"
-  detail: Cleaning hafnium surfaces for use in control rods
+  detail: Cleaning hafnium control rods to ensure optimal performance and safety
 technicalSpecifications:
   powerRange: "50-200W"
   pulseDuration: "5-50ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Hafnium for laser cleaning applications, including 13.31 g/cm³ density, 1064nm wavelength, and industrial applications in aerospace and nuclear industries.
+description: Technical overview of Hafnium for laser cleaning applications, including density, wavelength, and industrial applications in aerospace and nuclear industries.
 author: Alessandro Moretti
 keywords: hafnium, hafnium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Hafnium
   materialType: metal
 properties:
-  density: 13.31 g/cm³
-  meltingPoint: 2233°C
-  thermalConductivity: 23 W/m·K
-  laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–10 J/cm²
+  density: "13.31 g/cm³"
+  meltingPoint: "2233°C"
+  thermalConductivity: "23 W/m·K"
+  laserType: "Pulsed fiber laser"
+  wavelength: "1064nm"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Hafnium
 composition:
-- Hafnium
-- Trace impurities
+- "Hafnium"
+- "Trace impurities like zirconium"
 compatibility:
-- Titanium
-- Zirconium
-regulatoryStandards: ASTM B737
+- "Stainless steel"
+- "Titanium"
+regulatoryStandards: "ISO 11146-1:2005, ANSI Z136.1-2014"
 images:
   hero:
     alt: Hafnium surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Hafnium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal hafnium
 environmentalImpact:
-- benefit: Reduced chemical usage
-  description: Laser cleaning reduces chemical waste by 95% compared to traditional methods
-- benefit: Lower energy consumption
-  description: Laser cleaning uses 30% less energy than abrasive blasting
-- benefit: Minimal waste generation
-  description: Produces 90% less secondary waste than traditional cleaning methods
+- benefit: "Reduced chemical waste"
+  description: "Eliminates 95% of chemical solvents used in traditional cleaning methods"
+- benefit: "Lower energy consumption"
+  description: "Uses 30% less energy compared to abrasive cleaning techniques"
+- benefit: "Minimal material loss"
+  description: "Preserves 99% of the hafnium material during cleaning process"
 outcomes:
-- result: Improved surface cleanliness
-- metric: Surface contamination reduced to <1% as per ISO 14644-1
-- result: Enhanced material integrity
-  metric: No detectable change in material hardness per ASTM E18
-- result: Increased component lifespan
-  metric: Component life extended by 20% as measured by accelerated aging tests
+- result: "Improved surface cleanliness"
+  metric: "Achieves 99.9% surface cleanliness according to ISO 14644-1"
+- result: "Enhanced component longevity"
+  metric: "Increases component lifespan by up to 20% due to reduced wear"
+- result: "Consistent performance"
+  metric: "Maintains performance within ±0.5% of original specifications"
 subject: Hafnium
 article_type: material
 ---

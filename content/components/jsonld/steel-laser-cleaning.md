@@ -10,12 +10,12 @@
     "Steel material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "oxide removal technology",
-    "surface preparation",
-    "rust removal laser"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "surface preparation"
   ],
-  "articleBody": "Steel is an iron-carbon alloy widely used in industrial applications due to its excellent mechanical properties, including high tensile strength, durability, and corrosion resistance. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, rust, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters with optimal settings typically including 1064nm wavelength for effective absorption, fluence levels between 1-10 J/cm², and pulse durations of 10-100 nanoseconds to selectively ablate unwanted material while preserving the underlying Steel substrate. Key applications include automotive component restoration, aerospace part preparation, historical artifact conservation, and weld seam cleaning where traditional methods would cause surface damage. Challenges include managing heat input to prevent microstructural changes, addressing varying contamination types, and ensuring uniform cleaning across complex geometries. Technical solutions involve precise parameter optimization, real-time monitoring systems, and adaptive laser control. Safety considerations require Class 4 laser protocols including appropriate eyewear, fume extraction systems for airborne particles, and enclosed workstations with safety interlocks. The non-abrasive nature of laser cleaning eliminates media contamination and reduces environmental impact compared to chemical or mechanical methods.",
+  "articleBody": "Steel is an iron-carbon alloy with exceptional mechanical properties including high tensile strength, durability, and resistance to deformation, making it ideal for laser cleaning applications. The process utilizes specific laser parameters optimized for Steel's material characteristics, typically employing fiber lasers with 1064nm wavelength, fluence levels of 1-10 J/cm², and pulse durations of 10-200 nanoseconds. These parameters effectively remove surface contaminants, rust, oxides, and coatings through selective ablation while preserving the underlying Steel substrate. Key applications include automotive component restoration, aerospace part preparation, historical artifact conservation, and industrial equipment maintenance. Challenges include managing heat input to prevent metallurgical changes, addressing varying surface conditions, and ensuring complete contaminant removal without substrate damage. Technical solutions involve precise parameter optimization, real-time monitoring systems, and controlled scanning patterns. Safety considerations require Class 4 laser safety protocols, proper ventilation for fume extraction, appropriate personal protective equipment including laser safety glasses, and controlled access to the processing area to prevent accidental exposure.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +31,7 @@
       "url": "/images/steel-laser-cleaning-micro.jpg",
       "name": "Steel Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Steel material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Steel material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 5.2 J/cm² fluence, 20ns pulse duration, and 50μm spot size specifications",
+      "description": "Split-view microscopic photograph of Steel material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Steel microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

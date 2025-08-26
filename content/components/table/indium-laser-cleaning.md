@@ -11,15 +11,15 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Purity Level | 99.99 | % |
-| Common Alloys | InSn, InGaAs | - |
+| Common Alloy | InSn | - |
 | Oxide Layer Thickness | 2-5 | nm |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Efficiency | 95-98 | % |
-| Surface Roughness | <0.1 | µm |
-| Residual Contamination | <0.01 | % |
+| Cleaning Efficiency | 95 | % |
+| Surface Roughness | <0.5 | µm |
+| Residue Removal | 98 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
@@ -31,13 +31,13 @@
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Toxicity | Low | - |
-| Recyclability | High | % |
-| Atmospheric Reactivity | Moderate | - |
+| Operating Temperature | 20-30 | °C |
+| Humidity Range | 30-70 | % |
+| Waste Generation | Minimal | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 0.5-2 | J/cm² |
+| Fluence | 0.5-1.5 | J/cm² |
 | Pulse Duration | 10-100 | ns |

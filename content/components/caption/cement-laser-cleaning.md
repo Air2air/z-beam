@@ -1,3 +1,2 @@
-**Cement** surface (left) before cleaning, showing heavy atmospheric soiling and embedded particulate contamination within the porous matrix.
-
-**After laser cleaning** (right) processed with a 1064 nm Nd:YAG laser at 8 J/cm², effectively ablating surface deposits while preserving the hydrated cement paste substrate.
+**Cement** surface (left) with heavy biological growth and efflorescence deposits.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 100 W, 100 ns pulse duration, and 5 mm spot size, revealing the original substrate with no mechanical or chemical damage.

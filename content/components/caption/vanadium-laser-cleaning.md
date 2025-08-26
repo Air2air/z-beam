@@ -1,2 +1,2 @@
-**Vanadium** surface (left) before cleaning, showing thick, adherent oxide scale (V₂O₅) and embedded particulate contamination from high-temperature processing.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (12 J/cm², 100 ns pulse duration, 500 µm spot), revealing the pure, oxide-free metallic substrate with no surface damage or metallurgical alteration.
+**Vanadium** component surface (left) exhibiting tenacious oxide scale and embedded particulate contamination.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), showing complete contaminant ablation with no substrate damage to the underlying refractory metal.

@@ -2,11 +2,11 @@
 title: Laser Cleaning Inconel - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Inconel alloys for laser cleaning applications, including 8.19 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Inconel laser cleaning applications, including 8.19 g/cm³ density, optimal 1064nm wavelength parameters, and aerospace/industrial applications."
   - name: keywords
     content: "inconel, inconel metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Sarah Chen"
   - name: category
     content: "metal"
   - name: robots

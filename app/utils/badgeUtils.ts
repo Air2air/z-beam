@@ -26,7 +26,7 @@ export function getMaterialColor(materialType?: string): string {
  * Extracts badge data from an item (article, card, etc.) based on its metadata and slug
  * This centralizes badge logic so it can be used by both Card and Article components
  */
-export function getBadgeData(item: any, options: { showBadge?: boolean, forceBadge?: boolean } = {}): BadgeData | null {
+export function getBadgeData(item: { badge?: BadgeData; metadata?: Record<string, unknown>; frontmatter?: Record<string, unknown>; slug?: string; category?: string }, options: { showBadge?: boolean, forceBadge?: boolean } = {}): BadgeData | null {
   const { showBadge = true, forceBadge = false } = options;
   const metadata = item.metadata || {};
   const slug = item.slug || '';
@@ -39,16 +39,16 @@ export function getBadgeData(item: any, options: { showBadge?: boolean, forceBad
   
   // Extract from metadata if available
   if (metadata.chemicalProperties) {
-    const props = metadata.chemicalProperties;
+    const props = metadata.chemicalProperties as Record<string, any>;
     
     // Only return badge data if we have at least a symbol or formula
     if (props.symbol || props.formula) {
       const badgeData: BadgeData = {
-        symbol: props.symbol,
-        formula: props.formula,
-        atomicNumber: props.atomicNumber,
+        symbol: props.symbol as string,
+        formula: props.formula as string,
+        atomicNumber: props.atomicNumber as number,
         materialType: (props.materialType || metadata.category || 'other') as MaterialType,
-        color: getMaterialColor(props.materialType || metadata.category),
+        color: getMaterialColor(props.materialType as string || metadata.category as string),
         slug
       };
       
@@ -64,11 +64,11 @@ export function getBadgeData(item: any, options: { showBadge?: boolean, forceBad
   // Try to extract from metadata directly if chemicalProperties object isn't available
   if (metadata.symbol || metadata.formula) {
     const badgeData: BadgeData = {
-      symbol: metadata.symbol,
-      formula: metadata.formula,
-      atomicNumber: metadata.atomicNumber,
+      symbol: metadata.symbol as string | undefined,
+      formula: metadata.formula as string | undefined,
+      atomicNumber: metadata.atomicNumber as number | undefined,
       materialType: (metadata.materialType || metadata.category || 'other') as MaterialType,
-      color: getMaterialColor(metadata.materialType || metadata.category),
+      color: getMaterialColor(metadata.materialType as string || metadata.category as string),
       slug
     };
     
@@ -82,18 +82,18 @@ export function getBadgeData(item: any, options: { showBadge?: boolean, forceBad
   
   // Check frontmatter if available
   if (item.frontmatter) {
-    const fm = item.frontmatter;
+    const fm = item.frontmatter as Record<string, any>;
     
     if (fm.chemicalProperties) {
-      const props = fm.chemicalProperties;
+      const props = fm.chemicalProperties as Record<string, any>;
       
       if (props.symbol || props.formula) {
         const badgeData: BadgeData = {
-          symbol: props.symbol,
-          formula: props.formula,
-          atomicNumber: props.atomicNumber,
+          symbol: props.symbol as string,
+          formula: props.formula as string,
+          atomicNumber: props.atomicNumber as number,
           materialType: (props.materialType || fm.category || 'other') as MaterialType,
-          color: getMaterialColor(props.materialType || fm.category),
+          color: getMaterialColor(props.materialType as string || fm.category as string),
           slug
         };
         
@@ -109,11 +109,11 @@ export function getBadgeData(item: any, options: { showBadge?: boolean, forceBad
     // Direct chemical properties in frontmatter
     if (fm.symbol || fm.formula) {
       const badgeData: BadgeData = {
-        symbol: fm.symbol,
-        formula: fm.formula,
-        atomicNumber: fm.atomicNumber,
+        symbol: fm.symbol as string | undefined,
+        formula: fm.formula as string | undefined,
+        atomicNumber: fm.atomicNumber as number | undefined,
         materialType: (fm.materialType || fm.category || 'other') as MaterialType,
-        color: getMaterialColor(fm.materialType || fm.category),
+        color: getMaterialColor(fm.materialType as string || fm.category as string),
         slug
       };
       

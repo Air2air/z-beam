@@ -1,1 +1,1 @@
-ablation, cleaning, laser, tantalum, aerospace, medical, non-contact, alessandro moretti
+ablation, cleaning, laser, tantalum, aerospace, electronics, non-contact, alessandro-moretti

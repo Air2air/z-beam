@@ -1,1 +1,1 @@
-iridium, ablation, cleaning, laser, aerospace, electronics, non-contact, alessandro moretti
+iridium, ablation, cleaning, laser, aerospace, electronics, non-contact, alessandro-moretti

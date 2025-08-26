@@ -1,4 +1,4 @@
 ---
-symbol: "Be"
+symbol: "BE"
 materialType: "metal"
 ---

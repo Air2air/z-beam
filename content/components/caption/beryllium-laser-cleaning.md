@@ -1,3 +1,3 @@
-**Beryllium** surface (left) before cleaning, showing visible oxide layer formation and embedded particulate contamination from prolonged atmospheric exposure.
+**Beryllium** component (left) with visible oxide layer and particulate contamination from machining.
 
-**After laser cleaning** (right) processed with a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), achieving complete oxide removal and particulate ablation without substrate damage.
+**After laser cleaning** (right) selective oxide ablation achieved using a 1064 nm Nd:YAG laser at 8 W, 100 ns pulse duration, and 200 µm spot size.

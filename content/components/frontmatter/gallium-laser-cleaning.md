@@ -1,10 +1,10 @@
 ---
 name: Gallium
 applications:
+- industry: "Automotive"
+  detail: Removal of rust and paint from engine parts
 - industry: "Electronics"
-  detail: Removal of oxide layers on Gallium surfaces for semiconductor manufacturing
-- industry: "Aerospace"
-  detail: Precision cleaning of Gallium components for satellite and spacecraft applications
+  detail: Cleaning of circuit boards and connectors
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Gallium for laser cleaning applications, including 5.91 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Gallium for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: gallium, gallium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -26,7 +26,7 @@ properties:
   meltingPoint: "29.76 °C"
   thermalConductivity: "29 W/m·K"
   laserType: "Pulsed fiber laser"
-  wavelength: "1064nm"
+  wavelength: "1064 nm"
   fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Gallium
 composition:
@@ -34,7 +34,7 @@ composition:
 - "Trace impurities"
 compatibility:
 - "Aluminum"
-- "Silicon"
+- "Copper"
 regulatoryStandards: "ISO 11553-1:2020"
 images:
   hero:
@@ -47,18 +47,18 @@ title: Laser Cleaning Gallium - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal gallium
 environmentalImpact:
 - benefit: "Reduced chemical waste"
-  description: "Decreases chemical usage by up to 90% compared to traditional cleaning methods"
+  description: "Decrease in solvent use by 90%"
 - benefit: "Lower energy consumption"
-  description: "Energy savings of up to 70% due to efficient laser operation"
-- benefit: "Minimal environmental footprint"
-  description: "Non-contact process minimizes secondary waste generation"
+  description: "Energy savings up to 75% compared to traditional methods"
+- benefit: "Minimal air pollution"
+  description: "Emissions reduced by 80% due to non-contact cleaning"
 outcomes:
-- result: "Enhanced surface cleanliness"
-- metric: "Reduced particle count to <1000/cm²"
-- result: "Improved material integrity"
-- metric: "Surface roughness reduced by 50%"
-- result: "Increased process efficiency"
-- metric: "Cleaning time reduced by 30%"
+- result: "Improved surface cleanliness"
+- metric: "Contamination reduced to <0.1% by weight"
+- result: "Enhanced material integrity"
+  metric: "Surface roughness decreased by 50% post-cleaning"
+- result: "Increased production efficiency"
+  metric: "Processing time reduced by 30%"
 subject: Gallium
 article_type: material
 ---

@@ -1,0 +1,4 @@
+---
+symbol: "GR"
+materialType: "stone"
+---

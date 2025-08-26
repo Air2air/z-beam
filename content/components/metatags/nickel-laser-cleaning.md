@@ -2,11 +2,11 @@
 title: Laser Cleaning Nickel - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Nickel for laser cleaning applications, including 8.91 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Nickel for laser cleaning applications, including 8.91 g/cm³ density, optimal 1064nm wavelength, and industrial surface restoration applications."
   - name: keywords
     content: "nickel, nickel metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Elena Rodriguez"
   - name: category
     content: "metal"
   - name: robots

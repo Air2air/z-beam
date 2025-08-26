@@ -5,4 +5,4 @@
 | Category | Glass |
 | Material Type | Glass |
 | Tensile Strength | N/A |
-| Thermal Conductivity | ['0.8W/… |
+| Thermal Conductivity | 0.7-0.9… |

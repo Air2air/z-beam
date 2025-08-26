@@ -2,11 +2,11 @@
 title: Laser Cleaning Zirconium - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Zirconium for laser cleaning applications, including 6.52 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Zirconium, 6.52 g/cm³ density, for laser cleaning applications, including 1064nm optimal wavelengths, and industrial applications."
   - name: keywords
     content: "zirconium, zirconium metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Sarah Chen"
   - name: category
     content: "metal"
   - name: robots

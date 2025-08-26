@@ -2,11 +2,11 @@
 title: Laser Cleaning Hastelloy - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Hastelloy, Hastelloy, for laser cleaning applications, including 8.9 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Hastelloy alloys for laser cleaning applications, including 8.9 g/cm³ density, optimal 1064nm wavelength, and industrial corrosion-resistant applications."
   - name: keywords
     content: "hastelloy, hastelloy metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Alessandro Moretti"
+    content: "Dr. Sarah Chen"
   - name: category
     content: "metal"
   - name: robots

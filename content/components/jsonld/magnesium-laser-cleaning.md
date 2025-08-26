@@ -10,10 +10,12 @@
     "Magnesium material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "Magnesium surface preparation"
+    "surface treatment",
+    "non-contact processing",
+    "laser ablation",
+    "oxide removal"
   ],
-  "articleBody": "Magnesium is a lightweight alkaline earth metal with excellent strength-to-weight ratio, high thermal conductivity, and good electromagnetic shielding properties, making it valuable in aerospace, automotive, and electronics industries. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, and surface oxidation without compromising the material's structural integrity. The process utilizes controlled laser parameters to selectively ablate unwanted material while preserving the underlying Magnesium substrate. Optimal laser parameters for Magnesium cleaning typically involve fiber lasers with 1064nm wavelength, fluence levels between 1-5 J/cm², and pulse durations of 100-200 nanoseconds to prevent excessive heat input and minimize the risk of ignition. Key applications include surface preparation for welding and bonding, removal of oxides and corrosion products, and precision cleaning of delicate Magnesium components in medical devices and electronics. Challenges include Magnesium's high reactivity and flammability, which require controlled atmospheres or inert gas shielding during processing. Safety protocols mandate proper ventilation, fire suppression systems, and personnel training to handle Magnesium's pyrophoric nature. The non-abrasive nature of laser cleaning prevents surface damage and maintains the material's dimensional stability, making it superior to traditional mechanical or chemical methods.",
+  "articleBody": "Magnesium is a lightweight alkaline earth metal with high reactivity and excellent strength-to-weight ratio, making it valuable in aerospace, automotive, and electronics industries. Its low density (1.738 g/cm³) and high flammability require specialized laser cleaning approaches. Optimal laser parameters for Magnesium cleaning typically involve fiber lasers with 1064 nm wavelength, fluence levels of 0.5-2.5 J/cm², and pulse durations of 10-100 ns to effectively remove oxides, contaminants, and coatings without causing thermal damage or ignition. The process selectively ablates surface impurities while preserving the underlying Magnesium substrate's mechanical properties. Key applications include preparing Magnesium alloy components for welding, removing oxidation from aerospace parts, and cleaning electronic housings. Challenges include managing Magnesium's high reflectivity (approximately 90% at 1064 nm) and preventing thermal accumulation that could lead to combustion. Technical solutions involve precise parameter optimization, controlled atmosphere processing, and real-time monitoring systems. Safety considerations mandate strict protocols including inert gas shielding (argon or nitrogen), fume extraction systems, fire suppression equipment, and comprehensive operator training. Laser cleaning eliminates chemical waste associated with traditional methods while providing reproducible, high-precision results for critical Magnesium components.",
   "image": [
     {
       "@type": "ImageObject",
@@ -29,7 +31,7 @@
       "url": "/images/magnesium-laser-cleaning-micro.jpg",
       "name": "Magnesium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Magnesium material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Magnesium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 3.2 J/cm² fluence, 150ns pulse duration, and 50μm spot size specifications",
+      "description": "Split-view microscopic photograph of Magnesium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications",
       "keywords": "Magnesium microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

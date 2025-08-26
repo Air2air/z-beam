@@ -2,7 +2,7 @@
 title: Laser Cleaning Brick - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Brick for laser cleaning applications, including 1.8-2.0 g/cm³ density, 1064nm wavelength, and industrial applications."
+    content: "Technical overview of brick laser cleaning applications, including 1.8-2.0 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
   - name: keywords
     content: "brick, brick masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

@@ -89,6 +89,78 @@ export interface ArticleMetadata {
 }
 
 /**
+ * Frontmatter structure for markdown files
+ * Mirrors ArticleMetadata but ensures string types where needed
+ */
+export interface ArticleFrontmatter {
+  /** Primary identifier/title */
+  subject?: string;
+  
+  /** Article title */
+  title?: string;
+  
+  /** Name field */
+  name?: string;
+  
+  /** Headline for display */
+  headline?: string;
+  
+  /** Article description */
+  description?: string;
+  
+  /** Content category */
+  category?: string;
+  
+  /** Article type classification */
+  articleType?: string;
+  
+  /** Article type (alternative naming) */
+  article_type?: string;
+  
+  /** Keywords for SEO */
+  keywords?: string[];
+  
+  /** Content tags */
+  tags?: string[];
+  
+  /** Publication date */
+  date?: string;
+  
+  /** Author information */
+  author?: string;
+  
+  /** Main image */
+  image?: string;
+  
+  /** Thumbnail image */
+  thumbnail?: string;
+  
+  /** Whether to show badge */
+  showBadge?: boolean;
+  
+  /** Slug */
+  slug?: string;
+  
+  /** Badge configuration */
+  badge?: {
+    text?: string;
+    variant?: string;
+    color?: string;
+  };
+  
+  /** Chemical properties */
+  chemicalProperties?: {
+    symbol?: string;
+    formula?: string;
+    materialType?: string;
+    atomicNumber?: number | string;
+  };
+  
+  /** Flexible additional fields */
+  [key: string]: unknown;
+}
+
+/**
  * Material properties structure
  */
 export interface MaterialProperties {
@@ -142,16 +214,37 @@ export interface CompositionData {
  */
 export interface Article {
   /** Article metadata */
-  metadata: ArticleMetadata;
+  metadata?: ArticleMetadata;
   
   /** Parsed components */
-  components: Record<string, unknown> | null;
+  components?: Record<string, unknown> | null;
   
   /** Raw content */
   content?: string;
   
   /** Article slug */
   slug?: string;
+  
+  /** Legacy compatibility fields */
+  id?: string;
+  path?: string;
+  filepath?: string;
+  title?: string;
+  description?: string;
+  tags?: string[];
+  category?: string;
+  href?: string;
+  image?: string;
+  imageAlt?: string;
+  showBadge?: boolean;
+  badge?: BadgeData;
+  name?: string;
+  frontmatter?: ArticleFrontmatter;
+  date?: string;
+  author?: string;
+  excerpt?: string;
+  headline?: string;
+  website?: string;
 }
 
 /**
@@ -232,4 +325,19 @@ export interface SearchResultItem {
   
   /** Link href */
   href: string;
+}
+
+/**
+ * Search-ready article with guaranteed required fields
+ * Used in search results, grids, and display components that need tags and href
+ */
+export interface SearchableArticle extends Article {
+  /** Tags array (required for search/filtering) */
+  tags: string[];
+  
+  /** Href is required for navigation */
+  href: string;
+  
+  /** Normalized tags for search optimization */
+  normalizedTags?: string[];
 }

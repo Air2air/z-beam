@@ -2,37 +2,38 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 1910 | °C |
+| Boiling Point | 3407 | °C |
 | Density | 6.11 | g/cm³ |
 | Thermal Conductivity | 30.7 | W/m·K |
-| Hardness | 70 | HV |
+| Specific Heat Capacity | 0.49 | J/g·K |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Purity | 99.9 | % |
-| Grade | V-1 | - |
-| Alloy Content | 0.1 | % |
+| Commercial Purity | 99.5 | % |
+| High-Purity Grade | 99.95 | % |
+| Alloy Grade (V-4Cr-4Ti) | 92 | % V |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Cleaning Rate | 1.5 | m²/h |
-| Surface Roughness | 0.8 | µm |
-| Efficiency | 95 | % |
+| Cleaning Efficiency | 95 | % |
+| Surface Roughness (Ra) | 0.8 | µm |
+| Material Removal Rate | 0.5 | g/min |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | B366 | - |
-| ISO Standard | 5832-14 | - |
-| Safety Compliance | OSHA | - |
+| ASTM Standard | ASTM B348 | - |
+| ISO Standard | ISO 5832-14 | - |
+| Safety Compliance | OSHA 1910.1200 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | 20-30 | °C |
-| Humidity Range | 30-70 | % |
-| Emission Level | <50 | dB |
+| Oxidation State | +5 | - |
+| Toxicity | Low | - |
+| Recyclability | High | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

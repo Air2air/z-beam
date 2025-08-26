@@ -2,7 +2,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Tempered Glass Materials",
-  "description": "Advanced laser cleaning techniques for Tempered Glass materials, ensuring precision surface treatment while preserving the material's structural integrity and compressive surface stress.",
+  "description": "Advanced laser cleaning techniques for Tempered Glass materials, ensuring precision surface treatment while preserving the material's structural integrity and compressive strength.",
   "keywords": [
     "Tempered Glass laser cleaning",
     "Tempered Glass glass cleaning",
@@ -10,29 +10,29 @@
     "Tempered Glass material processing",
     "precision cleaning",
     "industrial applications",
-    "laser ablation parameters",
-    "surface contamination removal",
-    "thermal stress management",
-    "compressive layer preservation"
+    "surface treatment",
+    "non-contact processing",
+    "contaminant removal",
+    "thermal stress management"
   ],
-  "articleBody": "Tempered Glass is a safety glass material with high compressive surface stress (typically 69-138 MPa) and enhanced mechanical strength, making it ideal for automotive, architectural, and electronic applications. Laser cleaning offers a precise, non-contact method for removing contaminants, coatings, surface oxidation, and manufacturing residues without compromising the material's structural integrity or inducing thermal stress fractures. The process utilizes carefully controlled laser parameters including near-infrared wavelengths (1064 nm), moderate fluence levels (0.5-2.5 J/cm²), and short pulse durations (10-100 ns) to selectively ablate unwanted material while preserving the underlying Tempered Glass substrate. Critical challenges include managing thermal input to prevent micro-cracking or reduction of compressive stress, requiring precise control of pulse repetition rates and scanning patterns. Applications include cleaning automotive windshields prior to bonding, removing protective films from architectural glass, and preparing electronic display surfaces for further processing. Safety protocols mandate proper laser shielding, fume extraction for vaporized contaminants, and optical protection against reflected beams. The non-abrasive nature of laser cleaning eliminates mechanical damage risks and ensures consistent surface quality across complex geometries.",
+  "articleBody": "Tempered Glass, known for its high compressive strength and safety characteristics, requires specialized cleaning approaches to maintain its structural integrity. Laser cleaning provides an optimal non-contact solution for removing surface contaminants, organic residues, and oxidation layers without inducing micro-cracks or compromising the tempered surface. The process utilizes precisely controlled laser parameters, typically with nanosecond or picosecond pulse durations at wavelengths between 1064nm and 532nm, to selectively ablate unwanted materials while preserving the underlying glass substrate. Critical technical considerations include managing thermal input to prevent thermal stress buildup, controlling fluence levels between 0.5-2.5 J/cm² to avoid surface damage, and implementing scanning patterns that ensure uniform cleaning across the entire surface. This method effectively removes industrial contaminants, adhesive residues, and environmental deposits while maintaining the glass's optical clarity and mechanical properties. The non-abrasive nature of laser cleaning makes it particularly suitable for tempered glass applications in architectural, automotive, and electronic industries where surface quality and structural integrity are paramount.",
   "image": [
     {
       "@type": "ImageObject",
       "url": "/images/tempered-glass-laser-cleaning-hero.jpg",
       "name": "Tempered Glass Laser Cleaning Workbench Before/After Comparison",
-      "caption": "Dual workbench photo of automotive Tempered Glass windshield displaying side-by-side before and after laser cleaning results showing complete removal of adhesive residues and surface contaminants",
-      "description": "Split-view workbench photograph showing a Tempered Glass automotive windshield in before (left) with visible adhesive residues and surface contamination and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment while preserving the compressive surface layer",
-      "keywords": "Tempered Glass laser cleaning, before after comparison, automotive glass, adhesive removal, contamination removal, workbench view",
+      "caption": "Dual workbench photo of Tempered Glass object displaying side-by-side before and after laser cleaning results",
+      "description": "Split-view workbench photograph showing a Tempered Glass object in before (left) and after (right) states, demonstrating the complete transformation achieved through precision laser cleaning treatment",
+      "keywords": "Tempered Glass laser cleaning, before after comparison, dual photo, workbench view, contamination removal",
       "representativeOfPage": true
     },
     {
       "@type": "ImageObject", 
       "url": "/images/tempered-glass-laser-cleaning-micro.jpg",
       "name": "Tempered Glass Laser Cleaning High-Magnification Before/After Detail",
-      "caption": "Dual high-magnification photo of Tempered Glass material surface showing detailed side-by-side before and after laser cleaning results processed with 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications",
-      "description": "Split-view microscopic photograph of Tempered Glass material surface displaying before (left) with visible surface contaminants and after (right) states at high magnification, processed with precision laser parameters including 1064 nm wavelength, 1.8 J/cm² fluence, 20 ns pulse duration, and 50 μm spot size specifications while maintaining compressive stress integrity",
-      "keywords": "Tempered Glass microscopy, surface analysis, laser parameters, technical specifications, dual comparison, compressive stress preservation",
+      "caption": "Dual high-magnification photo of Tempered Glass material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
+      "description": "Split-view microscopic photograph of Tempered Glass material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
+      "keywords": "Tempered Glass microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",
         "name": "Laser Cleaning Technical Process",

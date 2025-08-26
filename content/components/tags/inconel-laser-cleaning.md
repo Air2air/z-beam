@@ -1,1 +1,1 @@
-ablation, cleaning, laser, inconel, aerospace, manufacturing, non-contact, alessandro moretti
+ablation, cleaning, inconel, laser, aerospace, manufacturing, non-contact, alessandro-moretti

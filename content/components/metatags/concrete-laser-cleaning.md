@@ -2,7 +2,7 @@
 title: Laser Cleaning Concrete - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Concrete, 2.5 g/cm³ density, for laser cleaning applications, including 1064nm wavelength, and industrial applications."
+    content: "Technical overview of concrete for laser cleaning applications, including 2.4 g/cm³ density, optimal 1064nm wavelength, and industrial surface restoration techniques."
   - name: keywords
     content: "concrete, concrete masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

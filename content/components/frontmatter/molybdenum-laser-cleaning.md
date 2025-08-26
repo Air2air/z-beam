@@ -2,18 +2,18 @@
 name: Molybdenum
 applications:
 - industry: "Aerospace"
-  detail: Cleaning of turbine engine components for improved performance and longevity
-- industry: "Electronics"
-  detail: Removal of surface contaminants from molybdenum contacts and electrodes
+  detail: Cleaning of molybdenum components for high-temperature applications
+- industry: "Semiconductor"
+  detail: Removal of surface contaminants from molybdenum wafers
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "5-50ns"
+  pulseDuration: "10-200ns"
   wavelength: "1064nm (primary), 532nm (optional)"
   spotSize: "0.05-1.0mm"
   repetitionRate: "20-100kHz"
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Molybdenum for laser cleaning applications, including "10.2 g/cm³", "1064nm", and industrial applications.
+description: Technical overview of Molybdenum for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: molybdenum, molybdenum metal, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: metal
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Molybdenum
   materialType: metal
 properties:
-  density: "10.2 g/cm³"
+  density: "10.28 g/cm³"
   meltingPoint: "2623°C"
   thermalConductivity: "138 W/m·K"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "1.0-10 J/cm²"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Molybdenum
 composition:
 - "Molybdenum"
 - "Trace elements"
 compatibility:
-- "Steel"
+- "Stainless steel"
 - "Titanium"
-regulatoryStandards: "ISO 11146-1:2021, ASTM E1585-13"
+regulatoryStandards: "ISO 11145, ANSI Z136.1"
 images:
   hero:
     alt: Molybdenum surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Molybdenum - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning metal molybdenum
 environmentalImpact:
-- benefit: "Reduced chemical usage"
-  description: "Decrease in chemical waste by 90% compared to traditional cleaning methods"
-- benefit: "Lower energy consumption"
-  description: "Energy savings of up to 75% due to targeted cleaning"
-- benefit: "Decreased emissions"
-  description: "Reduction of CO2 emissions by 80% over traditional methods"
+- benefit: "Reduced waste"
+  description: "95% less waste compared to traditional cleaning methods"
+- benefit: "Energy efficiency"
+  description: "30% less energy consumption than sandblasting"
+- benefit: "Non-toxic"
+  description: "Eliminates the use of harmful chemicals, reducing environmental pollution"
 outcomes:
-- result: "Improved surface cleanliness"
-- metric: "Contamination reduced to <0.1% surface coverage"
-- result: "Enhanced material integrity"
-  metric: "Preservation of molybdenum microstructure with <1% damage"
-- result: "Increased component lifespan"
-  metric: "Component life extended by 20% due to cleaner surfaces"
+- result: "Surface cleanliness"
+- metric: "Achieves 99.9% surface cleanliness as per ISO 14644-1"
+- result: "Material integrity"
+  metric: "Preserves material properties with less than 0.1% material loss"
+- result: "Process speed"
+  metric: "Up to 10 m²/hour processing speed"
 subject: Molybdenum
 article_type: material
 ---

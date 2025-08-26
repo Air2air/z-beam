@@ -1,1 +1,1 @@
-zinc, ablation, cleaning, laser, automotive, manufacturing, non-contact, alessandro moretti
+zinc, ablation, cleaning, laser, non-contact, automotive, manufacturing, alessandro-moretti

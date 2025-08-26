@@ -1,4 +1,4 @@
 ---
-symbol: "RH"
+symbol: "Rh"
 materialType: "metal"
 ---

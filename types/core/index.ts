@@ -15,11 +15,13 @@ export type {
 
 export type {
   ArticleMetadata,
+  ArticleFrontmatter,
   Article,
   PageProps,
   DynamicPageProps,
   StaticPageProps,
-  SearchResultItem
+  SearchResultItem,
+  SearchableArticle
 } from './article';
 
 // Component types  

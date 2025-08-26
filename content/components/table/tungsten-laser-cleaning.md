@@ -2,37 +2,37 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Melting Point | 3422 | °C |
-| Density | 19.25 | g/cm³ |
 | Thermal Conductivity | 173 | W/m·K |
-| Coefficient of Thermal Expansion | 4.5 | µm/m·K |
+| Density | 19.25 | g/cm³ |
+| Hardness | 7.5 | Mohs |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
 | Purity | 99.95 | % |
 | Common Grades | W1, W2 | - |
-| Grain Size | 5-10 | µm |
+| Impurities (Max) | 0.05 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness Post-Cleaning | 0.1-0.5 | µm |
-| Cleaning Efficiency | 95-99 | % |
-| Oxide Removal Rate | 100 | nm/pulse |
+| Cleaning Efficiency | 95 | % |
+| Surface Roughness | 0.8 | µm |
+| Residue Removal | 98 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
 | ASTM Standard | B777 | - |
-| ISO Standard | 14917 | - |
+| ISO Standard | 14903 | - |
 | RoHS Compliance | Yes | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature Range | -50 to 100 | °C |
+| Operating Temperature | -50 to 100 | °C |
 | Humidity Resistance | 95 | % RH |
-| Dust Particle Generation | <10 | particles/cm² |
+| Dust Emission | <10 | µg/m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

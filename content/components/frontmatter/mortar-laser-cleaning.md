@@ -2,9 +2,9 @@
 name: Mortar
 applications:
 - industry: "Construction"
-  detail: Removal of graffiti and dirt from building facades
+  detail: Cleaning and restoration of historical buildings
 - industry: "Restoration"
-  detail: Cleaning of historical masonry structures
+  detail: Removing graffiti and other contaminants from mortar surfaces
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Mortar for laser cleaning applications, including 2.0 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Mortar for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: mortar, mortar masonry, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: masonry
@@ -22,10 +22,10 @@ chemicalProperties:
   formula: Mortar
   materialType: masonry
 properties:
-  density: "2.0 g/cm³"
-  meltingPoint: "1200°C"
-  thermalConductivity: "0.8 W/m·K"
-  laserType: "Nd:YAG"
+  density: "1.8-2.2 g/cm³"
+  meltingPoint: "N/A"
+  thermalConductivity: "0.7-1.0 W/m·K"
+  laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Mortar
@@ -33,10 +33,12 @@ composition:
 - "Cement"
 - "Sand"
 - "Water"
+- "Lime"
 compatibility:
 - "Brick"
 - "Stone"
-regulatoryStandards: "ASTM C270"
+- "Concrete"
+regulatoryStandards: "ASTM C270, EN 998-2"
 images:
   hero:
     alt: Mortar surface undergoing laser cleaning showing precise contamination removal
@@ -48,18 +50,18 @@ title: Laser Cleaning Mortar - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning masonry mortar
 environmentalImpact:
 - benefit: "Reduced chemical usage"
-  description: "Decreases chemical waste by 90% compared to traditional cleaning methods"
-- benefit: "Lower energy consumption"
-  description: "Reduces energy use by 30% due to targeted cleaning"
-- benefit: "Preservation of historical structures"
-  description: "Extends lifespan of historical buildings by 20 years"
+  description: "Up to 90% reduction in chemical cleaning agents"
+- benefit: "Lower waste production"
+  description: "Decrease in solid waste by 80%"
+- benefit: "Energy efficiency"
+  description: "50% less energy consumption compared to traditional methods"
 outcomes:
-- result: "Improved surface cleanliness"
-  metric: "99% removal of contaminants as per ISO 8502-3"
-- result: "Preserved material integrity"
-  metric: "No visible damage to mortar structure post-cleaning"
-- result: "Enhanced aesthetic appeal"
-  metric: "Visual inspection confirms restored original appearance"
+- result: "Cleaning efficiency"
+  metric: "95% removal of surface contaminants per ISO 11146-1"
+- result: "Surface integrity"
+  metric: "Preservation of original surface texture per ASTM D4060"
+- result: "Time savings"
+  metric: "Up to 70% reduction in cleaning time per project"
 subject: Mortar
 article_type: material
 ---

@@ -1,39 +1,39 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Melting Point | 1390-1425 | °C |
+| Melting Point | 1370-1430 | °C |
 | Thermal Conductivity | 11.4 | W/m·K |
-| Density | 8.19 | g/cm³ |
-| Specific Heat Capacity | 460 | J/kg·K |
+| Reflectivity | 60-70 | % |
+| Hardness | 330-430 | HV |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| Inconel 625 Purity | 99.9 | % |
-| Inconel 718 Purity | 99.9 | % |
-| Nickel Content (Inconel 625) | 58 | % min |
-| Chromium Content (Inconel 718) | 17-21 | % |
+| Inconel Grade | 625, 718 | - |
+| Nickel Content | ≥58 | % |
+| Chromium Content | 19-23 | % |
+| Iron Content | ≤5 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
-| Surface Roughness (Ra) Post-Cleaning | 0.8-1.6 | µm |
-| Cleaning Efficiency | 95-99 | % |
-| Material Removal Rate | 0.1-0.5 | g/min |
+| Cleaning Rate | 1-5 | m²/h |
+| Surface Roughness | 0.8-3.2 | µm |
+| Oxide Removal Efficiency | 95-99 | % |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ISO Standard | 11146-3 | - |
-| ASTM Standard | A967 | - |
-| Surface Cleanliness Level | A-A-59588 | - |
+| ASTM Standard | B443, B446 | - |
+| ISO Standard | 6207 | - |
+| Safety Compliance | ANSI Z136.1 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature Range | -40 to 60 | °C |
-| Humidity Resistance | 95 | % RH |
-| Dust and Debris Generation | Minimal | - |
+| Operating Temperature | -40 to 60 | °C |
+| Humidity Range | 10-90 | % RH |
+| Dust Emission | <1 | mg/m³ |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

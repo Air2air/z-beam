@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BaseLinkProps /* BaseImageProps */ } from "../../types";
+import { BaseLinkProps } from "@/types/core";
 
 // Footer navigation item interface
 interface FooterNavItem extends BaseLinkProps {

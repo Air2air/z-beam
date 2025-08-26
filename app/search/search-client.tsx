@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { Card } from "../components/Card/Card";
 import { TagFilter } from "../components/UI/TagFilter";
-import { Article } from "../types/Article";
+import { Article } from "@/types/core";
 
 interface SearchClientProps {
   initialArticles: Article[];

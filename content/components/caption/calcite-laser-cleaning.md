@@ -1,0 +1,2 @@
+**Calcite** (CaCO₃) surface (left) exhibiting significant sulfation crust and embedded particulate matter.
+**After laser cleaning** (right) using a 355 nm Nd:YAG laser (1.5 J/cm², 8 ns pulse, 500 µm spot), achieving precise ablation of alteration layers without damaging the underlying crystalline structure.

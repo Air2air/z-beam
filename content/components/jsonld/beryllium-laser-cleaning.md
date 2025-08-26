@@ -5,17 +5,15 @@
   "description": "Advanced laser cleaning techniques for Beryllium materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Beryllium laser cleaning",
-    "Beryllium metal cleaning",
-    "non-abrasive surface treatment",
-    "Beryllium material processing",
-    "precision cleaning",
-    "industrial applications",
-    "beryllium oxide removal",
-    "laser ablation parameters",
-    "toxic fume extraction",
-    "aerospace component cleaning"
+    "Beryllium metal surface treatment",
+    "non-abrasive Beryllium processing",
+    "laser ablation BE materials",
+    "precision contamination removal",
+    "aerospace Beryllium applications",
+    "nuclear industry surface preparation",
+    "non-contact Beryllium cleaning"
   ],
-  "articleBody": "Beryllium is a lightweight alkaline earth metal with exceptional stiffness-to-weight ratio, high thermal conductivity (200 W/m·K), and a melting point of 1287°C. These properties make it ideal for aerospace, defense, and nuclear applications but present unique challenges for surface cleaning. Laser cleaning offers a non-contact, precise method for removing contaminants, oxide layers (BeO), and surface impurities without compromising Beryllium's structural integrity. Optimal laser parameters typically include near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds to selectively ablate surface contaminants while minimizing thermal penetration. The process effectively removes beryllium oxide layers that form naturally, which is critical since BeO is highly toxic when airborne. Specialized fume extraction systems with HEPA filtration are mandatory during laser cleaning operations. Applications include precision cleaning of Beryllium components in satellite systems, nuclear reactor components, X-ray equipment, and aerospace guidance systems where surface purity is critical. The non-abrasive nature of laser cleaning prevents surface damage and maintains the material's dimensional stability, which is essential for high-precision components operating in extreme environments.",
+  "articleBody": "Beryllium (Be) is a lightweight, high-strength metal with exceptional thermal conductivity and dimensional stability, making it valuable in aerospace, nuclear, and precision instrumentation applications. Laser cleaning provides an optimal surface treatment method for Beryllium components, utilizing precise laser parameters to remove oxides, contaminants, and surface layers without mechanical contact or chemical residues. The process employs specific wavelengths (typically 1064nm fiber lasers) with controlled fluence (0.5-2.5 J/cm²) and pulse durations (10-100ns) to selectively ablate unwanted material while preserving the base Beryllium substrate. This non-contact method eliminates particulate embedding and surface damage common with traditional abrasive techniques. Laser cleaning effectively removes beryllium oxide layers while maintaining tight tolerances required for high-performance applications. The process parameters are carefully calibrated to account for Beryllium's unique thermal properties and reflectivity characteristics, ensuring complete contaminant removal without substrate alteration. This technique is particularly valuable for preparing Beryllium surfaces for welding, coating, or bonding operations in critical aerospace and nuclear components where surface purity is paramount.",
   "image": [
     {
       "@type": "ImageObject",
@@ -31,7 +29,7 @@
       "url": "/images/beryllium-laser-cleaning-micro.jpg",
       "name": "Beryllium Laser Cleaning High-Magnification Before/After Detail",
       "caption": "Dual high-magnification photo of Beryllium material surface showing detailed side-by-side before and after laser cleaning results with technical specifications",
-      "description": "Split-view microscopic photograph of Beryllium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including 1064nm wavelength, 1.8 J/cm² fluence, 20ns pulse duration, and 100μm spot size specifications",
+      "description": "Split-view microscopic photograph of Beryllium material surface displaying before (left) and after (right) states at high magnification, processed with precision laser parameters including specific wavelength, fluence, pulse duration, and spot size specifications",
       "keywords": "Beryllium microscopy, surface analysis, laser parameters, technical specifications, dual comparison",
       "about": {
         "@type": "Thing",

@@ -5,4 +5,4 @@
 | Category | Metal |
 | Material Type | Metal |
 | Tensile Strength | N/A |
-| Thermal Conductivity | ['26W/m… |
+| Thermal Conductivity | 50-60W/… |

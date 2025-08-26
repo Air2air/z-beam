@@ -1,4 +1,4 @@
 ---
-symbol: "Al"
+symbol: "AL"
 materialType: "metal"
 ---

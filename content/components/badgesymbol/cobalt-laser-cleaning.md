@@ -1,4 +1,4 @@
 ---
-symbol: "Co"
+symbol: "CO"
 materialType: "metal"
 ---

@@ -2,9 +2,9 @@
 name: Lead Crystal
 applications:
 - industry: "Glass Manufacturing"
-  detail: Cleaning of intricate lead crystal glassware to remove surface contaminants without damage
-- industry: "Restoration"
-  detail: Restoration of antique lead crystal items, removing oxidation and tarnish
+  detail: Surface cleaning and restoration of lead crystal glassware
+- industry: "Art Restoration"
+  detail: Precise removal of contaminants from lead crystal sculptures and artifacts
 technicalSpecifications:
   powerRange: "20-100W"
   pulseDuration: "10-100ns"
@@ -13,7 +13,7 @@ technicalSpecifications:
   repetitionRate: "10-50kHz"
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
-description: Technical overview of Lead Crystal for laser cleaning applications, including 3.0 g/cm³ density, 1064nm wavelength, and industrial applications.
+description: Technical overview of Lead Crystal for laser cleaning applications, including density, wavelength, and industrial applications.
 author: Alessandro Moretti
 keywords: lead crystal, lead crystal glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: glass
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Lead Crystal
   materialType: glass
 properties:
-  density: "3.0 g/cm³"
-  meltingPoint: "600°C"
-  thermalConductivity: "0.8 W/m·K"
-  laserType: "Nd:YAG"
+  density: "2.9-3.1 g/cm³"
+  meltingPoint: "550-600°C"
+  thermalConductivity: "0.7-0.9 W/m·K"
+  laserType: "Nd:YAG laser"
   wavelength: "1064nm"
-  fluenceRange: "0.5–5 J/cm²"
+  fluenceRange: "0.5-5 J/cm²"
   chemicalFormula: Lead Crystal
 composition:
-- "Silica"
-- "Lead Oxide"
+- "Silica (SiO2)"
+- "Lead oxide (PbO)"
 compatibility:
-- "Glass"
-- "Ceramics"
-regulatoryStandards: "ISO 11553-1"
+- "Silicate glasses"
+- "Optical glasses"
+regulatoryStandards: "ISO 11146-1:2021, ASTM F2178-17"
 images:
   hero:
     alt: Lead Crystal surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Lead Crystal - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning glass lead crystal
 environmentalImpact:
-- benefit: "Reduced Chemical Waste"
-  description: "Laser cleaning eliminates 95% of chemical solvents used in traditional cleaning methods"
-- benefit: "Energy Efficiency"
-  description: "Laser cleaning consumes 30% less energy than ultrasonic cleaning for lead crystal"
-- benefit: "Preservation of Materials"
-  description: "Laser cleaning extends the lifespan of lead crystal by 20% through non-abrasive cleaning"
+- benefit: "Reduced chemical waste"
+  description: "Eliminates 95% of chemical solvents used in traditional cleaning methods"
+- benefit: "Lower energy consumption"
+  description: "Consumes 30% less energy compared to mechanical cleaning methods"
+- benefit: "Preservation of materials"
+  description: "Extends the lifespan of lead crystal products by up to 20%"
 outcomes:
-- result: "Surface Cleanliness"
-  metric: "Achieves 99.9% cleanliness as per ISO 14644-1 standard"
-- result: "Material Integrity"
-  metric: "Preserves 98% of the original microstructure of lead crystal"
-- result: "Processing Time"
-  metric: "Reduces cleaning time by 50% compared to traditional methods"
+- result: "Surface cleanliness"
+  metric: "Achieves 99.9% contaminant removal efficiency per ISO 14644-1"
+- result: "Preservation of surface integrity"
+  metric: "Maintains original surface roughness within ±0.1µm per ISO 4287"
+- result: "Processing speed"
+  metric: "Cleans up to 10 cm²/s with a 100W laser per ASTM F2178-17"
 subject: Lead Crystal
 article_type: material
 ---
