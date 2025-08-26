@@ -29,7 +29,6 @@ export function getMaterialColor(materialType?: string): string {
 export function getBadgeData(item: any, options: { showBadge?: boolean, forceBadge?: boolean } = {}): BadgeData | null {
   const { showBadge = true, forceBadge = false } = options;
   const metadata = item.metadata || {};
-  const title = item.title || item.name || 'Unnamed';
   const slug = item.slug || '';
   
   // If showBadge is false and we're not forcing, don't show a badge

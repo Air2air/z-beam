@@ -2,18 +2,20 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Ceramic Matrix Composites (CMCs) Materials",
-  "description": "Advanced laser cleaning techniques for Ceramic Matrix Composites (CMCs) materials, ensuring precision surface treatment while preserving the material's structural integrity and thermal stability.",
+  "description": "Advanced laser cleaning techniques for Ceramic Matrix Composites (CMCs) materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Ceramic Matrix Composites (CMCs) laser cleaning",
-    "non-abrasive surface treatment",
-    "fiber-reinforced ceramic cleaning",
-    "high-temperature composite processing",
-    "selective laser ablation",
-    "aerospace component cleaning",
+    "CMCs composite surface treatment",
+    "non-abrasive ceramic cleaning",
+    "laser ablation of CMCs",
+    "precision composite processing",
+    "industrial CMCs maintenance",
+    "surface contamination removal",
+    "non-contact laser treatment",
     "thermal barrier coating removal",
-    "non-contact surface preparation"
+    "aerospace composite cleaning"
   ],
-  "articleBody": "Ceramic Matrix Composites (CMCs) are advanced composite materials consisting of ceramic fibers embedded in a ceramic matrix, renowned for their exceptional high-temperature stability, thermal shock resistance, and mechanical strength under extreme conditions. Laser cleaning provides a superior non-contact method for removing surface contaminants, oxidation layers, and thermal barrier coatings without compromising the material's structural integrity or fiber-matrix interface. The process utilizes precisely controlled laser parameters, typically employing nanosecond pulsed fiber lasers at 1064 nm wavelength with fluence levels between 2-8 J/cm² and pulse durations of 100-200 ns. These parameters enable selective ablation of surface contaminants while preserving the underlying CMC substrate. Key applications include aerospace component refurbishment, turbine blade maintenance, and surface preparation for recoating operations in high-temperature environments. Challenges include managing the significant difference in ablation thresholds between contaminants and the CMC substrate, requiring precise parameter optimization to prevent matrix microcracking or fiber damage. Safety considerations mandate proper fume extraction systems to handle ceramic particulates and appropriate laser safety protocols including Class 4 laser enclosure systems and personal protective equipment.",
+  "articleBody": "Ceramic Matrix Composites (CMCs) represent advanced composite materials consisting of ceramic fibers embedded within a ceramic matrix, offering exceptional thermal stability, mechanical strength, and corrosion resistance. Laser cleaning provides an optimal surface treatment method for CMCs, utilizing precisely controlled laser parameters to remove contaminants, oxidation layers, and thermal barrier coatings without compromising the material's structural integrity. The process employs specific wavelengths (typically 1064nm or 532nm) with controlled fluence (0.5-5 J/cm²) and pulse durations (nanosecond to femtosecond range) to selectively ablate surface contaminants while preserving the underlying CMC substrate. This non-contact method eliminates mechanical stress and prevents fiber damage, making it particularly valuable for aerospace components, turbine blades, and high-temperature applications where surface purity is critical. Optimal processing parameters include scanning speeds of 100-500 mm/s, spot sizes of 0.1-2.0 mm, and repetition rates of 20-100 kHz, ensuring complete contaminant removal while maintaining surface morphology and mechanical properties.",
   "image": [
     {
       "@type": "ImageObject",
@@ -42,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Yi-Chun Lin"
+    "name": "Alessandro Moretti"
   },
   "about": {
     "@type": "Thing",

@@ -1,48 +1,43 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 2.5 - 3.5 | g/cm³ |
-| Melting Point | 2000 - 3000 | °C |
-| Thermal Conductivity | 10 - 30 | W/m·K |
-| Hardness | 10 - 15 | GPa |
+| Density | 2.5 - 3.0 | g/cm³ |
+| Thermal Conductivity | 10 - 20 | W/m·K |
 | Tensile Strength | 200 - 500 | MPa |
+| Elastic Modulus | 200 - 400 | GPa |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
 | --- | --- | --- |
-| SiC Content | 60 - 90 | % |
-| Carbon Content | 0.1 - 5 | % |
-| Oxygen Content | < 1 | % |
-| Purity Level | 95 - 99 | % |
+| SiC Purity | 90 - 99 | % |
+| Carbon Fiber Content | 40 - 60 | % |
+| Oxide Content | <1 | % |
 
 ## Performance Metrics
 | Property | Value | Unit |
 | --- | --- | --- |
 | Surface Roughness | 0.1 - 1.0 | µm |
-| Cleaning Efficiency | 90 - 95 | % |
-| Contamination Removal | 98 - 100 | % |
-| Material Removal Rate | 0.01 - 0.1 | mm³/s |
+| Cleanliness Level | 95 - 99 | % |
+| Residual Contaminant | <0.1 | mg/cm² |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
 | ASTM Standard | C1793 | - |
-| ISO Standard | 17168 | - |
-| Cleanliness Level | ISO 4 | - |
-| Safety Compliance | ANSI Z136.1 | - |
+| ISO Standard | 17161 | - |
+| MIL Standard | MIL-STD-1504 | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
-| Operating Temperature | -50 to 1000 | °C |
-| Humidity Range | 10 - 90 | % RH |
-| Dust Particle Size | < 10 | µm |
-| Waste Generation | Minimal | - |
+| Operating Temperature | 1000 - 1600 | °C |
+| Humidity Resistance | 90 | % RH |
+| Chemical Resistance | Excellent | - |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |
 | --- | --- | --- |
 | Wavelength | 1064 | nm |
-| Fluence | 1 - 5 | J/cm² |
+| Power Density | 1 - 10 | MW/cm² |
 | Pulse Duration | 10 - 100 | ns |
-| Repetition Rate | 10 - 100 | kHz |
+| Scan Speed | 100 - 1000 | mm/s |

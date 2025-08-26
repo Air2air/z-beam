@@ -2,11 +2,11 @@
 title: Laser Cleaning Float Glass - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Float Glass for laser cleaning applications, including 2.5 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
+    content: "Technical overview of Float Glass for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications."
   - name: keywords
-    content: "float glass, soda lime glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
+    content: "float glass, float glass glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Sarah Chen"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "glass"
   - name: robots

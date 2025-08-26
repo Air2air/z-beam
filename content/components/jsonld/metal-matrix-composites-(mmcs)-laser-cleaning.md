@@ -5,17 +5,17 @@
   "description": "Advanced laser cleaning techniques for Metal Matrix Composites (MMCs) materials, ensuring precision surface treatment while preserving the material's structural integrity.",
   "keywords": [
     "Metal Matrix Composites (MMCs) laser cleaning",
-    "Metal Matrix Composites (MMCs) composite cleaning",
-    "non-abrasive surface treatment",
-    "Metal Matrix Composites (MMCs) material processing",
-    "precision cleaning",
-    "industrial applications",
-    "surface treatment",
-    "non-contact processing",
-    "selective ablation",
-    "fiber laser cleaning"
+    "MMC surface preparation",
+    "non-abrasive composite treatment",
+    "selective laser ablation",
+    "aluminum matrix composite cleaning",
+    "ceramic reinforcement preservation",
+    "industrial laser surface treatment",
+    "non-contact MMC processing",
+    "oxide layer removal",
+    "precision contamination ablation"
   ],
-  "articleBody": "Metal Matrix Composites (MMCs) represent advanced materials combining metallic matrices with ceramic or carbon reinforcements, offering exceptional strength-to-weight ratios, thermal stability, and wear resistance. Laser cleaning provides an optimal solution for surface preparation and contamination removal from MMCs, which present unique challenges due to their heterogeneous composition. The process requires precise parameter control to address differential ablation rates between the metal matrix and reinforcement phases. Optimal laser parameters typically include 1064nm wavelength for maximum absorption, fluence levels of 0.5-2.5 J/cm², and pulse durations of 10-100ns to ensure selective removal of oxides, oils, and contaminants without damaging the underlying composite structure. Key applications include aerospace component refurbishment, automotive brake system preparation, and electronic thermal management surface treatment. Challenges include managing thermal stress at reinforcement-matrix interfaces and preventing selective removal of softer matrix materials. Advanced scanning systems with real-time monitoring enable uniform cleaning across complex geometries. Safety protocols require Class 1 enclosure systems with appropriate fume extraction and particulate filtration to handle potentially hazardous byproducts from composite materials. The non-contact nature of laser cleaning eliminates mechanical stress and preserves the dimensional stability critical for high-performance MMC applications.",
+  "articleBody": "Metal Matrix Composites (MMCs) represent advanced engineering materials combining metallic matrices with ceramic or other reinforcement phases, offering exceptional strength-to-weight ratios and thermal properties. Laser cleaning provides an ideal surface treatment solution for MMCs, particularly aluminum matrix composites with silicon carbide or alumina reinforcements. The process utilizes precisely controlled laser parameters (typically 1064 nm wavelength, 10-20 J/cm² fluence, nanosecond pulse duration) to selectively remove contaminants, oxides, and surface impurities without damaging the reinforcement phase or matrix interface. This non-contact method eliminates mechanical stress and particulate embedding common in traditional abrasive techniques. For aluminum-silicon carbide MMCs, laser cleaning effectively removes aluminum oxide layers while preserving the silicon carbide particles, maintaining the composite's structural integrity and surface functionality. The process enables precise control over removal depth, critical for applications requiring specific surface roughness or coating adhesion properties. Industrial applications include aerospace component refurbishment, automotive brake rotor preparation, and electronic thermal management system maintenance, where surface purity and dimensional stability are paramount.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Yi-Chun Lin"
+    "name": "Alessandro Moretti"
   },
   "about": {
     "@type": "Thing",

@@ -1,11 +1,11 @@
 {
   "preFixState": {
-    "timestamp": "2025-08-26T18:51:04.854Z",
+    "timestamp": "2025-08-26T18:58:24.613Z",
     "fileCount": 98,
     "componentCount": 38
   },
   "postFixState": {
-    "timestamp": "2025-08-26T18:51:28.711Z",
+    "timestamp": "2025-08-26T18:58:47.593Z",
     "fileCount": 98,
     "componentCount": 38
   },
@@ -20,7 +20,7 @@
     "eslint": {
       "status": "PASSED",
       "errors": 0,
-      "warnings": 55,
+      "warnings": 49,
       "details": [
         {
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/[slug]/page.tsx",
@@ -292,26 +292,13 @@
         },
         {
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Card/Card.tsx",
-          "messages": [
-            {
-              "ruleId": "@typescript-eslint/no-unused-vars",
-              "severity": 1,
-              "message": "'isFeatured' is assigned a value but never used.",
-              "line": 76,
-              "column": 9,
-              "nodeType": null,
-              "messageId": "unusedVar",
-              "endLine": 76,
-              "endColumn": 19
-            }
-          ],
+          "messages": [],
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 1,
+          "warningCount": 0,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/components/Card/Card.tsx\n\"use client\";\n\nimport \"./styles.scss\";\nimport Link from \"next/link\";\nimport { Thumbnail } from \"../Thumbnail/Thumbnail\";\nimport { BadgeSymbol } from \"../BadgeSymbol/BadgeSymbol\";\nimport { BadgeData, ArticleMetadata } from \"@/types/core\";\n\n// Global card configuration with a single variant\nconst CARD_CONFIG = {\n  // Layout\n  padding: \"p-2\",\n  imageHeight: \"aspect-[16/9] h-20\", // Combine aspect ratio with min-height\n\n  // Typography\n  titleClass:\n    \"text-lg font-semibold group-hover:text-blue-600 transition-colors duration-200\",\n  descriptionClass:\n    \"text-gray-600 dark:text-gray-300 text-sm line-clamp-2\",\n\n  // Appearance\n  cardClass:\n    \"rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700\",\n};\n\nexport interface CardProps {\n  href: string;\n  title: string;\n  name?: string;\n  description?: string;\n  image?: string;\n  imageUrl?: string;\n  imageAlt?: string;\n  materialSlug?: string; // Add materialSlug for hero images\n  tags?: string[];\n  badge?: BadgeData | null; // Allow null\n  metadata?: ArticleMetadata;\n  className?: string;\n  height?: string;\n}\n\nexport function Card({\n  href,\n  title,\n  name,\n  // description, - unused\n  // image, - unused  \n  // imageUrl, - unused\n  imageAlt,\n  // materialSlug, - unused\n  // tags = [], - unused\n  badge, // Re-enabled for BadgeSymbol support\n  metadata,\n  className = \"\",\n  height,\n}: CardProps) {\n  // Extract slug from href (e.g., \"/materials/silicon-nitride\" -> \"silicon-nitride\")\n  const slug = href?.split('/').pop() || '';\n  \n  // For frontmatter files, we need to handle the path correctly\n  // const isFrontmatterPath = (path: string | undefined) => {\n  //   return path && path.includes('content/components/frontmatter/');\n  // };\n  \n  // Determine material slug for image - use passed materialSlug, or extract from metadata.subject or slug\n  // const effectiveMaterialSlug = \n  //   // If materialSlug is a frontmatter path, use it directly\n  //   (materialSlug && isFrontmatterPath(materialSlug)) ? materialSlug :\n  //   // Otherwise use the normal options\n  //   materialSlug || \n  //   (metadata?.subject ? metadata.subject.toLowerCase() : null) || \n  //   (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());\n  \n  // Check if this is a featured card by examining the className\n  const isFeatured = className?.includes('featured-item');\n\n  return (\n    <Link\n      href={href}\n      className={`\n        group block ${CARD_CONFIG.cardClass} h-full ${className}\n      `}\n      style={height ? { height } : {}}\n    >\n      <article className=\"flex flex-col h-full\">\n        {/* Image Container with dynamic height based on featured status */}\n        <div\n          className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}\n        >\n          <Thumbnail\n            alt={imageAlt || name || title || (metadata?.subject ? metadata.subject : 'Image')}\n            slug={slug}\n            objectFit=\"cover\"\n            priority={false}\n          />\n\n          {/* BadgeSymbol overlay for cards */}\n          {badge && badge.symbol && (\n            <div className=\"absolute top-2 right-2 z-10\">\n              <BadgeSymbol\n                content=\"\"\n                config={{\n                  symbol: badge.symbol,\n                  materialType: badge.materialType,\n                  atomicNumber: typeof badge.atomicNumber === 'number' ? badge.atomicNumber : \n                               typeof badge.atomicNumber === 'string' ? parseInt(badge.atomicNumber) : undefined,\n                  formula: badge.formula,\n                  variant: \"card\"\n                }}\n              />\n            </div>\n          )}\n        </div>\n\n        {/* Card Content */}\n        <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>\n          <h3 className={CARD_CONFIG.titleClass}>\n            {/* Prioritize name over title */}\n            {name || title}\n          </h3>\n\n        </div>\n      </article>\n    </Link>\n  );\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -822,53 +809,42 @@
             {
               "ruleId": "@typescript-eslint/no-unused-vars",
               "severity": 1,
-              "message": "'getArticleBySlug' is defined but never used.",
+              "message": "'Article' is defined but never used.",
               "line": 6,
               "column": 10,
               "nodeType": null,
               "messageId": "unusedVar",
               "endLine": 6,
-              "endColumn": 26
-            },
-            {
-              "ruleId": "@typescript-eslint/no-unused-vars",
-              "severity": 1,
-              "message": "'Article' is defined but never used.",
-              "line": 7,
-              "column": 10,
-              "nodeType": null,
-              "messageId": "unusedVar",
-              "endLine": 7,
               "endColumn": 17
             },
             {
               "ruleId": "@typescript-eslint/no-unused-vars",
               "severity": 1,
               "message": "'Card' is defined but never used.",
-              "line": 8,
+              "line": 7,
               "column": 10,
               "nodeType": null,
               "messageId": "unusedVar",
-              "endLine": 8,
+              "endLine": 7,
               "endColumn": 14
             },
             {
               "ruleId": "@typescript-eslint/no-explicit-any",
               "severity": 1,
               "message": "Unexpected any. Specify a different type.",
-              "line": 21,
+              "line": 20,
               "column": 17,
               "nodeType": "TSAnyKeyword",
               "messageId": "unexpectedAny",
-              "endLine": 21,
+              "endLine": 20,
               "endColumn": 20,
               "suggestions": [
                 {
                   "messageId": "suggestUnknown",
                   "fix": {
                     "range": [
-                      618,
-                      621
+                      559,
+                      562
                     ],
                     "text": "unknown"
                   },
@@ -878,8 +854,8 @@
                   "messageId": "suggestNever",
                   "fix": {
                     "range": [
-                      618,
-                      621
+                      559,
+                      562
                     ],
                     "text": "never"
                   },
@@ -891,10 +867,10 @@
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 4,
+          "warningCount": 3,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/components/Thumbnail/Thumbnail.tsx\n\"use client\";\n\nimport Image from \"next/image\";\nimport React, { useState, useEffect } from \"react\";\nimport { getArticleBySlug } from \"../../utils/contentAPI\";\nimport { Article } from \"../../types/Article\";\nimport { Card } from \"../Card/Card\";\nimport { logger } from \"../../utils/logger\";\n\ntype ObjectFit = \"fill\" | \"contain\" | \"cover\" | \"none\" | \"scale-down\";\n\ninterface ThumbnailProps {\n  alt: string;\n  className?: string;\n  priority?: boolean;\n  objectFit?: ObjectFit;\n  width?: number;\n  height?: number;\n  slug?: string; // Add slug to fetch data directly\n  frontmatter?: any; // Keep as fallback for cases where data is already available\n}\n\nexport function Thumbnail({\n  alt,\n  className = \"\",\n  priority = false,\n  objectFit = \"cover\",\n  width,\n  height,\n  slug,\n  frontmatter\n}: ThumbnailProps) {\n  const [imageUrl, setImageUrl] = useState<string>(\"\");\n  const [loading, setLoading] = useState(false);\n\n  useEffect(() => {\n    // If we already have frontmatter, use it directly\n    if (frontmatter?.images?.hero?.url) {\n      setImageUrl(frontmatter.images.hero.url);\n      return;\n    }\n\n    // If we have a slug, fetch the data directly\n    if (slug && !frontmatter) {\n      setLoading(true);\n      fetch(`/api/articles/${slug}`)\n        .then(response => response.json())\n        .then(data => {\n          if (data?.metadata?.images?.hero?.url) {\n            setImageUrl(data.metadata.images.hero.url);\n          } else {\n            setImageUrl(\"\");\n          }\n        })\n        .catch(error => {\n          logger.error(\"Error fetching thumbnail data\", error, { slug });\n          setImageUrl(\"\");\n        })\n        .finally(() => {\n          setLoading(false);\n        });\n    }\n  }, [slug, frontmatter]);\n\n  // Map objectFit to Tailwind class\n  const objectFitClass = {\n    cover: \"object-cover\",\n    contain: \"object-contain\",\n    fill: \"object-fill\",\n    none: \"object-none\",\n    \"scale-down\": \"object-scale-down\"\n  }[objectFit];\n\n  return (\n    <div\n      className={`relative overflow-hidden ${className}`}\n      style={{\n        width: \"100%\",\n        height: \"100%\",\n      }}\n    >\n      {loading ? (\n        <div className=\"w-full h-full flex items-center justify-center bg-gray-600\">\n          <Image\n            src=\"/images/Site/Logo/logo_.png\"\n            alt=\"Loading...\"\n            width={60}\n            height={60}\n            className=\"object-contain opacity-50\"\n            unoptimized={true}\n          />\n        </div>\n      ) : imageUrl ? (\n        <Image\n          src={imageUrl}\n          alt={alt}\n          fill={true}\n          width={width}\n          height={height}\n          className={objectFitClass}\n          priority={priority}\n          unoptimized={true}\n          sizes=\"100vw\"\n        />\n      ) : (\n        <div className=\"w-full h-full flex items-center justify-center bg-gray-600\">\n          <Image\n            src=\"/images/Site/Logo/logo_.png\"\n            alt=\"No image available\"\n            width={60}\n            height={60}\n            className=\"object-contain opacity-50\"\n            unoptimized={true}\n          />\n        </div>\n      )}\n    </div>\n  );\n}\n",
+          "source": "// app/components/Thumbnail/Thumbnail.tsx\n\"use client\";\n\nimport Image from \"next/image\";\nimport React, { useState, useEffect } from \"react\";\nimport { Article } from \"../../types/Article\";\nimport { Card } from \"../Card/Card\";\nimport { logger } from \"../../utils/logger\";\n\ntype ObjectFit = \"fill\" | \"contain\" | \"cover\" | \"none\" | \"scale-down\";\n\ninterface ThumbnailProps {\n  alt: string;\n  className?: string;\n  priority?: boolean;\n  objectFit?: ObjectFit;\n  width?: number;\n  height?: number;\n  slug?: string; // Add slug to fetch data directly\n  frontmatter?: any; // Keep as fallback for cases where data is already available\n}\n\nexport function Thumbnail({\n  alt,\n  className = \"\",\n  priority = false,\n  objectFit = \"cover\",\n  width,\n  height,\n  slug,\n  frontmatter\n}: ThumbnailProps) {\n  const [imageUrl, setImageUrl] = useState<string>(\"\");\n  const [loading, setLoading] = useState(false);\n\n  useEffect(() => {\n    // If we already have frontmatter, use it directly\n    if (frontmatter?.images?.hero?.url) {\n      setImageUrl(frontmatter.images.hero.url);\n      return;\n    }\n\n    // If we have a slug, fetch the data directly\n    if (slug && !frontmatter) {\n      setLoading(true);\n      fetch(`/api/articles/${slug}`)\n        .then(response => response.json())\n        .then(data => {\n          if (data?.metadata?.images?.hero?.url) {\n            setImageUrl(data.metadata.images.hero.url);\n          } else {\n            setImageUrl(\"\");\n          }\n        })\n        .catch(error => {\n          logger.error(\"Error fetching thumbnail data\", error, { slug });\n          setImageUrl(\"\");\n        })\n        .finally(() => {\n          setLoading(false);\n        });\n    }\n  }, [slug, frontmatter]);\n\n  // Map objectFit to Tailwind class\n  const objectFitClass = {\n    cover: \"object-cover\",\n    contain: \"object-contain\",\n    fill: \"object-fill\",\n    none: \"object-none\",\n    \"scale-down\": \"object-scale-down\"\n  }[objectFit];\n\n  return (\n    <div\n      className={`relative overflow-hidden ${className}`}\n      style={{\n        width: \"100%\",\n        height: \"100%\",\n      }}\n    >\n      {loading ? (\n        <div className=\"w-full h-full flex items-center justify-center bg-gray-600\">\n          <Image\n            src=\"/images/Site/Logo/logo_.png\"\n            alt=\"Loading...\"\n            width={60}\n            height={60}\n            className=\"object-contain opacity-50\"\n            unoptimized={true}\n          />\n        </div>\n      ) : imageUrl ? (\n        <Image\n          src={imageUrl}\n          alt={alt}\n          fill={true}\n          width={width}\n          height={height}\n          className={objectFitClass}\n          priority={priority}\n          unoptimized={true}\n          sizes=\"100vw\"\n        />\n      ) : (\n        <div className=\"w-full h-full flex items-center justify-center bg-gray-600\">\n          <Image\n            src=\"/images/Site/Logo/logo_.png\"\n            alt=\"No image available\"\n            width={60}\n            height={60}\n            className=\"object-contain opacity-50\"\n            unoptimized={true}\n          />\n        </div>\n      )}\n    </div>\n  );\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -967,26 +943,13 @@
         },
         {
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/contact/page.tsx",
-          "messages": [
-            {
-              "ruleId": "@typescript-eslint/no-unused-vars",
-              "severity": 1,
-              "message": "'createMetadata' is defined but never used.",
-              "line": 3,
-              "column": 10,
-              "nodeType": null,
-              "messageId": "unusedVar",
-              "endLine": 3,
-              "endColumn": 24
-            }
-          ],
+          "messages": [],
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 1,
+          "warningCount": 0,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/contact/page.tsx\nimport { Layout } from \"@/app/components/Layout/Layout\";\nimport { createMetadata } from \"@/app/utils/metadata\";\nimport fs from 'fs/promises';\nimport path from 'path';\nimport matter from 'gray-matter';\nimport { marked } from 'marked';\n\nexport const metadata = {\n  title: 'Contact Z-Beam',\n  description: 'Get in touch with Z-Beam\\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.'\n};\n\n// Function to load contact page content\nasync function getContactPageContent() {\n  try {\n    // Path to the contact page content file\n    const pagePath = path.join(process.cwd(), 'app', 'pages', '_md', 'contact.md');\n    \n    // Read and parse the file\n    const fileContent = await fs.readFile(pagePath, 'utf8');\n    const { data, content } = matter(fileContent);\n    \n    // Convert markdown to HTML\n    const htmlContent = marked(content);\n    \n    return {\n      metadata: data,\n      content: htmlContent\n    };\n  } catch (error) {\n    console.error('Error loading contact page:', error);\n    return null;\n  }\n}\n\n// Default export - the page component\nexport default async function ContactPage() {\n  const pageData = await getContactPageContent();\n  \n  if (!pageData) {\n    return (\n      <div className=\"container mx-auto px-4 py-8\">\n        <h1 className=\"text-3xl font-bold\">Error Loading Contact Page</h1>\n        <p>Sorry, there was a problem loading the contact page content.</p>\n      </div>\n    );\n  }\n  \n  return (\n    <Layout \n      components={{ content: { content: pageData.content } }}\n      metadata={pageData.metadata}\n      slug=\"contact\"\n      title={pageData.metadata.title}\n    />\n  );\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -1276,26 +1239,13 @@
         },
         {
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/services/page.tsx",
-          "messages": [
-            {
-              "ruleId": "@typescript-eslint/no-unused-vars",
-              "severity": 1,
-              "message": "'createMetadata' is defined but never used.",
-              "line": 3,
-              "column": 10,
-              "nodeType": null,
-              "messageId": "unusedVar",
-              "endLine": 3,
-              "endColumn": 24
-            }
-          ],
+          "messages": [],
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 1,
+          "warningCount": 0,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/services/page.tsx\nimport { Layout } from \"@/app/components/Layout/Layout\";\nimport { createMetadata } from \"@/app/utils/metadata\";\nimport fs from 'fs/promises';\nimport path from 'path';\nimport matter from 'gray-matter';\nimport { marked } from 'marked';\n\n// Force static generation for services page\nexport const dynamic = 'force-static';\nexport const revalidate = false; // Never revalidate in production\n\nexport const metadata = {\n  title: 'Services | Z-Beam Laser Cleaning Solutions',\n  description: 'Explore Z-Beam\\'s comprehensive laser cleaning services, including surface preparation, oxide removal, coating removal, and customized industrial cleaning solutions.'\n};\n\n// Function to load services page content\nasync function getServicesPageContent() {\n  try {\n    // Path to the services page content file\n    const pagePath = path.join(process.cwd(), 'app', 'pages', '_md', 'services.md');\n    \n    // Read and parse the file\n    const fileContent = await fs.readFile(pagePath, 'utf8');\n    const { data, content } = matter(fileContent);\n    \n    // Convert markdown to HTML\n    const htmlContent = marked(content);\n    \n    return {\n      metadata: data,\n      content: htmlContent\n    };\n  } catch (error) {\n    console.error('Error loading services page:', error);\n    return null;\n  }\n}\n\n// Default export - the page component\nexport default async function ServicesPage() {\n  const pageData = await getServicesPageContent();\n  \n  if (!pageData) {\n    return (\n      <div className=\"container mx-auto px-4 py-8\">\n        <h1 className=\"text-3xl font-bold\">Error Loading Services Page</h1>\n        <p>Sorry, there was a problem loading the services page content.</p>\n      </div>\n    );\n  }\n  \n  return (\n    <Layout \n      components={{ content: { content: pageData.content } }}\n      metadata={pageData.metadata}\n      slug=\"services\"\n      title={pageData.metadata.title}\n    />\n  );\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -1471,26 +1421,15 @@
                   "desc": "Use `never` instead, this is useful when instantiating generic type parameters that you don't need to know the type of."
                 }
               ]
-            },
-            {
-              "ruleId": "@typescript-eslint/no-unused-vars",
-              "severity": 1,
-              "message": "'title' is assigned a value but never used.",
-              "line": 32,
-              "column": 9,
-              "nodeType": null,
-              "messageId": "unusedVar",
-              "endLine": 32,
-              "endColumn": 14
             }
           ],
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 2,
+          "warningCount": 1,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/utils/badgeUtils.ts\nimport { MaterialType, BadgeData } from '@/types/core';\n\n/**\n * Maps material types to colors for badges\n */\nexport function getMaterialColor(materialType?: string): string {\n  if (!materialType) return \"blue\";\n\n  const typeMap: Record<string, string> = {\n    metal: \"blue\",\n    ceramic: \"green\",\n    polymer: \"purple\",\n    composite: \"yellow\",\n    semiconductor: \"red\",\n    compound: \"gray\",\n    element: \"teal\",\n    alloy: \"indigo\",\n    other: \"blue\",\n  };\n\n  return typeMap[materialType.toLowerCase()] || \"blue\";\n}\n\n/**\n * Extracts badge data from an item (article, card, etc.) based on its metadata and slug\n * This centralizes badge logic so it can be used by both Card and Article components\n */\nexport function getBadgeData(item: any, options: { showBadge?: boolean, forceBadge?: boolean } = {}): BadgeData | null {\n  const { showBadge = true, forceBadge = false } = options;\n  const metadata = item.metadata || {};\n  const title = item.title || item.name || 'Unnamed';\n  const slug = item.slug || '';\n  \n  // If showBadge is false and we're not forcing, don't show a badge\n  if (!showBadge && !forceBadge) return null;\n  \n  // If explicit badge data is provided, use it\n  if (item.badge) return { ...item.badge, slug };\n  \n  // Extract from metadata if available\n  if (metadata.chemicalProperties) {\n    const props = metadata.chemicalProperties;\n    \n    // Only return badge data if we have at least a symbol or formula\n    if (props.symbol || props.formula) {\n      const badgeData: BadgeData = {\n        symbol: props.symbol,\n        formula: props.formula,\n        atomicNumber: props.atomicNumber,\n        materialType: (props.materialType || metadata.category || 'other') as MaterialType,\n        color: getMaterialColor(props.materialType || metadata.category),\n        slug\n      };\n      \n      // Cache the badge data for this slug\n      if (slug) {\n        cacheBadgeData(slug, badgeData);\n      }\n      \n      return badgeData;\n    }\n  }\n  \n  // Try to extract from metadata directly if chemicalProperties object isn't available\n  if (metadata.symbol || metadata.formula) {\n    const badgeData: BadgeData = {\n      symbol: metadata.symbol,\n      formula: metadata.formula,\n      atomicNumber: metadata.atomicNumber,\n      materialType: (metadata.materialType || metadata.category || 'other') as MaterialType,\n      color: getMaterialColor(metadata.materialType || metadata.category),\n      slug\n    };\n    \n    // Cache the badge data for this slug\n    if (slug) {\n      cacheBadgeData(slug, badgeData);\n    }\n    \n    return badgeData;\n  }\n  \n  // Check frontmatter if available\n  if (item.frontmatter) {\n    const fm = item.frontmatter;\n    \n    if (fm.chemicalProperties) {\n      const props = fm.chemicalProperties;\n      \n      if (props.symbol || props.formula) {\n        const badgeData: BadgeData = {\n          symbol: props.symbol,\n          formula: props.formula,\n          atomicNumber: props.atomicNumber,\n          materialType: (props.materialType || fm.category || 'other') as MaterialType,\n          color: getMaterialColor(props.materialType || fm.category),\n          slug\n        };\n        \n        // Cache the badge data for this slug\n        if (slug) {\n          cacheBadgeData(slug, badgeData);\n        }\n        \n        return badgeData;\n      }\n    }\n    \n    // Direct chemical properties in frontmatter\n    if (fm.symbol || fm.formula) {\n      const badgeData: BadgeData = {\n        symbol: fm.symbol,\n        formula: fm.formula,\n        atomicNumber: fm.atomicNumber,\n        materialType: (fm.materialType || fm.category || 'other') as MaterialType,\n        color: getMaterialColor(fm.materialType || fm.category),\n        slug\n      };\n      \n      // Cache the badge data for this slug\n      if (slug) {\n        cacheBadgeData(slug, badgeData);\n      }\n      \n      return badgeData;\n    }\n  }\n  \n  // Check if we already have cached data for this slug\n  if (slug) {\n    const cachedBadge = getBadgeDataBySlug(slug);\n    if (cachedBadge) {\n      return cachedBadge;\n    }\n  }\n  \n  return null;\n}\n\n/**\n * Cache for storing badge data by slug\n * This allows us to associate badges with content across different views\n */\nconst badgeCache: Record<string, BadgeData> = {};\n\n/**\n * Store badge data for a specific slug\n */\nexport function cacheBadgeData(slug: string, badgeData: BadgeData): void {\n  if (!slug) return;\n  badgeCache[slug] = badgeData;\n}\n\n/**\n * Get badge data for a specific slug\n */\nexport function getBadgeDataBySlug(slug: string): BadgeData | null {\n  if (!slug) return null;\n  return badgeCache[slug] || null;\n}\n",
+          "source": "// app/utils/badgeUtils.ts\nimport { MaterialType, BadgeData } from '@/types/core';\n\n/**\n * Maps material types to colors for badges\n */\nexport function getMaterialColor(materialType?: string): string {\n  if (!materialType) return \"blue\";\n\n  const typeMap: Record<string, string> = {\n    metal: \"blue\",\n    ceramic: \"green\",\n    polymer: \"purple\",\n    composite: \"yellow\",\n    semiconductor: \"red\",\n    compound: \"gray\",\n    element: \"teal\",\n    alloy: \"indigo\",\n    other: \"blue\",\n  };\n\n  return typeMap[materialType.toLowerCase()] || \"blue\";\n}\n\n/**\n * Extracts badge data from an item (article, card, etc.) based on its metadata and slug\n * This centralizes badge logic so it can be used by both Card and Article components\n */\nexport function getBadgeData(item: any, options: { showBadge?: boolean, forceBadge?: boolean } = {}): BadgeData | null {\n  const { showBadge = true, forceBadge = false } = options;\n  const metadata = item.metadata || {};\n  const slug = item.slug || '';\n  \n  // If showBadge is false and we're not forcing, don't show a badge\n  if (!showBadge && !forceBadge) return null;\n  \n  // If explicit badge data is provided, use it\n  if (item.badge) return { ...item.badge, slug };\n  \n  // Extract from metadata if available\n  if (metadata.chemicalProperties) {\n    const props = metadata.chemicalProperties;\n    \n    // Only return badge data if we have at least a symbol or formula\n    if (props.symbol || props.formula) {\n      const badgeData: BadgeData = {\n        symbol: props.symbol,\n        formula: props.formula,\n        atomicNumber: props.atomicNumber,\n        materialType: (props.materialType || metadata.category || 'other') as MaterialType,\n        color: getMaterialColor(props.materialType || metadata.category),\n        slug\n      };\n      \n      // Cache the badge data for this slug\n      if (slug) {\n        cacheBadgeData(slug, badgeData);\n      }\n      \n      return badgeData;\n    }\n  }\n  \n  // Try to extract from metadata directly if chemicalProperties object isn't available\n  if (metadata.symbol || metadata.formula) {\n    const badgeData: BadgeData = {\n      symbol: metadata.symbol,\n      formula: metadata.formula,\n      atomicNumber: metadata.atomicNumber,\n      materialType: (metadata.materialType || metadata.category || 'other') as MaterialType,\n      color: getMaterialColor(metadata.materialType || metadata.category),\n      slug\n    };\n    \n    // Cache the badge data for this slug\n    if (slug) {\n      cacheBadgeData(slug, badgeData);\n    }\n    \n    return badgeData;\n  }\n  \n  // Check frontmatter if available\n  if (item.frontmatter) {\n    const fm = item.frontmatter;\n    \n    if (fm.chemicalProperties) {\n      const props = fm.chemicalProperties;\n      \n      if (props.symbol || props.formula) {\n        const badgeData: BadgeData = {\n          symbol: props.symbol,\n          formula: props.formula,\n          atomicNumber: props.atomicNumber,\n          materialType: (props.materialType || fm.category || 'other') as MaterialType,\n          color: getMaterialColor(props.materialType || fm.category),\n          slug\n        };\n        \n        // Cache the badge data for this slug\n        if (slug) {\n          cacheBadgeData(slug, badgeData);\n        }\n        \n        return badgeData;\n      }\n    }\n    \n    // Direct chemical properties in frontmatter\n    if (fm.symbol || fm.formula) {\n      const badgeData: BadgeData = {\n        symbol: fm.symbol,\n        formula: fm.formula,\n        atomicNumber: fm.atomicNumber,\n        materialType: (fm.materialType || fm.category || 'other') as MaterialType,\n        color: getMaterialColor(fm.materialType || fm.category),\n        slug\n      };\n      \n      // Cache the badge data for this slug\n      if (slug) {\n        cacheBadgeData(slug, badgeData);\n      }\n      \n      return badgeData;\n    }\n  }\n  \n  // Check if we already have cached data for this slug\n  if (slug) {\n    const cachedBadge = getBadgeDataBySlug(slug);\n    if (cachedBadge) {\n      return cachedBadge;\n    }\n  }\n  \n  return null;\n}\n\n/**\n * Cache for storing badge data by slug\n * This allows us to associate badges with content across different views\n */\nconst badgeCache: Record<string, BadgeData> = {};\n\n/**\n * Store badge data for a specific slug\n */\nexport function cacheBadgeData(slug: string, badgeData: BadgeData): void {\n  if (!slug) return;\n  badgeCache[slug] = badgeData;\n}\n\n/**\n * Get badge data for a specific slug\n */\nexport function getBadgeDataBySlug(slug: string): BadgeData | null {\n  if (!slug) return null;\n  return badgeCache[slug] || null;\n}\n",
           "usedDeprecatedRules": []
         },
         {
@@ -2155,33 +2094,22 @@
           "filePath": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/searchUtils.ts",
           "messages": [
             {
-              "ruleId": "@typescript-eslint/no-unused-vars",
-              "severity": 1,
-              "message": "'MaterialProperties' is defined but never used.",
-              "line": 3,
-              "column": 10,
-              "nodeType": null,
-              "messageId": "unusedVar",
-              "endLine": 3,
-              "endColumn": 28
-            },
-            {
               "ruleId": "@typescript-eslint/no-explicit-any",
               "severity": 1,
               "message": "Unexpected any. Specify a different type.",
-              "line": 63,
+              "line": 61,
               "column": 38,
               "nodeType": "TSAnyKeyword",
               "messageId": "unexpectedAny",
-              "endLine": 63,
+              "endLine": 61,
               "endColumn": 41,
               "suggestions": [
                 {
                   "messageId": "suggestUnknown",
                   "fix": {
                     "range": [
-                      1742,
-                      1745
+                      1682,
+                      1685
                     ],
                     "text": "unknown"
                   },
@@ -2191,8 +2119,8 @@
                   "messageId": "suggestNever",
                   "fix": {
                     "range": [
-                      1742,
-                      1745
+                      1682,
+                      1685
                     ],
                     "text": "never"
                   },
@@ -2204,19 +2132,19 @@
               "ruleId": "@typescript-eslint/no-explicit-any",
               "severity": 1,
               "message": "Unexpected any. Specify a different type.",
-              "line": 92,
+              "line": 90,
               "column": 40,
               "nodeType": "TSAnyKeyword",
               "messageId": "unexpectedAny",
-              "endLine": 92,
+              "endLine": 90,
               "endColumn": 43,
               "suggestions": [
                 {
                   "messageId": "suggestUnknown",
                   "fix": {
                     "range": [
-                      2553,
-                      2556
+                      2493,
+                      2496
                     ],
                     "text": "unknown"
                   },
@@ -2226,8 +2154,8 @@
                   "messageId": "suggestNever",
                   "fix": {
                     "range": [
-                      2553,
-                      2556
+                      2493,
+                      2496
                     ],
                     "text": "never"
                   },
@@ -2239,19 +2167,19 @@
               "ruleId": "@typescript-eslint/no-explicit-any",
               "severity": 1,
               "message": "Unexpected any. Specify a different type.",
-              "line": 163,
+              "line": 161,
               "column": 45,
               "nodeType": "TSAnyKeyword",
               "messageId": "unexpectedAny",
-              "endLine": 163,
+              "endLine": 161,
               "endColumn": 48,
               "suggestions": [
                 {
                   "messageId": "suggestUnknown",
                   "fix": {
                     "range": [
-                      4354,
-                      4357
+                      4294,
+                      4297
                     ],
                     "text": "unknown"
                   },
@@ -2261,8 +2189,8 @@
                   "messageId": "suggestNever",
                   "fix": {
                     "range": [
-                      4354,
-                      4357
+                      4294,
+                      4297
                     ],
                     "text": "never"
                   },
@@ -2274,10 +2202,10 @@
           "suppressedMessages": [],
           "errorCount": 0,
           "fatalErrorCount": 0,
-          "warningCount": 4,
+          "warningCount": 3,
           "fixableErrorCount": 0,
           "fixableWarningCount": 0,
-          "source": "// app/utils/searchUtils.ts\nimport { MaterialType, BadgeData as CoreBadgeData } from '@/types/core';\nimport { MaterialProperties } from '@/types/core/article';\n\nexport function getMaterialColor(materialType?: string | MaterialType): string {\n  if (!materialType) return \"blue\";\n  \n  const typeMap: Record<string, string> = {\n    'metal': 'blue',\n    'alloy': 'blue',\n    'element': 'blue', \n    'ceramic': 'green',\n    'polymer': 'purple',\n    'composite': 'yellow',\n    'semiconductor': 'red',\n    'compound': 'gray',\n    'other': 'gray'\n  };\n  \n  return typeMap[materialType.toLowerCase()] || \"blue\";\n}\n\n// Helper function to safely cast material types\nfunction toMaterialType(value?: string): MaterialType {\n  if (!value) return 'other';\n  \n  const normalizedValue = value.toLowerCase();\n  const validTypes: MaterialType[] = [\n    'element', 'compound', 'ceramic', 'polymer', 'alloy', 'composite', 'semiconductor', 'other'\n  ];\n  \n  // Check for exact matches first\n  if (validTypes.includes(normalizedValue as MaterialType)) {\n    return normalizedValue as MaterialType;\n  }\n  \n  // Map common aliases\n  const typeMap: Record<string, MaterialType> = {\n    'metal': 'alloy',\n    'metalloid': 'semiconductor',\n    'plastic': 'polymer',\n    'material': 'other'\n  };\n  \n  return typeMap[normalizedValue] || 'other';\n}\n\nexport function normalizeString(str?: string): string {\n  return (str || \"\").toLowerCase().trim();\n}\n\nexport function normalizeTag(tag: string): string {\n  if (!tag) return '';\n  \n  // Normalize capitalization - capitalize first letter of each word\n  return tag\n    .trim()\n    .split(' ')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())\n    .join(' ');\n}\n\nexport function getDisplayName(item: any): string {\n  // Try to get the name from different sources in priority order\n  if (item.name) return item.name;\n  if (item.frontmatter?.name) return item.frontmatter.name;\n  if (item.frontmatter?.title) return item.frontmatter.title;\n  if (item.title) return item.title;\n  \n  // If no name or title, try to create one from the slug\n  if (item.slug) {\n    return item.slug\n      .split('-')\n      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))\n      .join(' ');\n  }\n  \n  // Last resort\n  return \"Unnamed Item\";\n}\n\n// Legacy type alias for backward compatibility\nexport type BadgeData = CoreBadgeData;\n\nexport interface ChemicalProperties {\n  symbol?: string;\n  formula?: string;\n  materialType?: MaterialType;\n  atomicNumber?: number | string;\n}\n\nexport function getBadgeFromItem(item: any): BadgeData | null {\n  // If the item already has a badge, use it\n  if (item.badge) return item.badge;\n\n  // Extract from frontmatter\n  const fm = item.frontmatter || {};\n  \n  // Look for subject in frontmatter\n  const subject = normalizeString(fm.subject);\n  \n  // Special handling for known materials\n  if (subject === \"alumina\") {\n    return {\n      symbol: \"Al\",\n      formula: \"Al₂O₃\",\n      materialType: toMaterialType(fm.category || \"ceramic\"),\n      color: getMaterialColor(fm.category)\n    };\n  }\n  \n  if (subject === \"silicon nitride\") {\n    return {\n      symbol: \"Si\",\n      formula: \"Si₃N₄\",\n      materialType: toMaterialType(fm.category || \"ceramic\"),\n      color: getMaterialColor(fm.category)\n    };\n  }\n  \n  // Try to extract from commentMetadata if available\n  if (fm.commentMetadata?.Subject) {\n    const commentSubject = normalizeString(fm.commentMetadata.Subject);\n    \n    if (commentSubject === \"alumina\") {\n      return {\n        symbol: \"Al\",\n        formula: \"Al₂O₃\",\n        materialType: toMaterialType(fm.category || \"ceramic\"),\n        color: getMaterialColor(fm.category)\n      };\n    }\n    \n    if (commentSubject === \"silicon nitride\") {\n      return {\n        symbol: \"Si\",\n        formula: \"Si₃N₄\",\n        materialType: toMaterialType(fm.category || \"ceramic\"),\n        color: getMaterialColor(fm.category)\n      };\n    }\n  }\n  \n  // Generic material mapping by category\n  if (fm.category) {\n    return {\n      materialType: toMaterialType(fm.category),\n      color: getMaterialColor(fm.category)\n    };\n  }\n  \n  // Also check direct category on item\n  if (item.category) {\n    return {\n      materialType: toMaterialType(item.category),\n      color: getMaterialColor(item.category)\n    };\n  }\n  \n  return null;\n}\n\nexport function getChemicalProperties(item: any): ChemicalProperties | null {\n  // First check if item.metadata already has chemical properties\n  if (item.metadata?.chemicalProperties) {\n    return item.metadata.chemicalProperties;\n  }\n  \n  // Otherwise try to extract from frontmatter\n  if (item.frontmatter) {\n    // Try to find chemical properties in frontmatter\n    if (item.frontmatter.chemicalProperties) {\n      return item.frontmatter.chemicalProperties;\n    }\n    \n    // Look for individual chemical properties in frontmatter\n    if (item.frontmatter.chemicalSymbol || \n        item.frontmatter.chemicalFormula || \n        item.frontmatter.formula) {\n      return {\n        symbol: item.frontmatter.chemicalSymbol,\n        formula: item.frontmatter.chemicalFormula || item.frontmatter.formula,\n        materialType: item.frontmatter.materialType || item.frontmatter.category\n      };\n    }\n    \n    // Try to infer from subject if it's a known material\n    if (item.frontmatter.subject) {\n      const subject = normalizeString(item.frontmatter.subject);\n      \n      if (subject === \"alumina\") {\n        return {\n          symbol: \"Al\",\n          formula: \"Al₂O₃\",\n          materialType: item.frontmatter.category || \"ceramic\"\n        };\n      }\n      \n      if (subject === \"silicon nitride\") {\n        return {\n          symbol: \"Si\",\n          formula: \"Si₃N₄\",\n          materialType: item.frontmatter.category || \"ceramic\"\n        };\n      }\n    }\n  }\n  \n  return null;\n}\n\n",
+          "source": "// app/utils/searchUtils.ts\nimport { MaterialType, BadgeData as CoreBadgeData } from '@/types/core';\nexport function getMaterialColor(materialType?: string | MaterialType): string {\n  if (!materialType) return \"blue\";\n  \n  const typeMap: Record<string, string> = {\n    'metal': 'blue',\n    'alloy': 'blue',\n    'element': 'blue', \n    'ceramic': 'green',\n    'polymer': 'purple',\n    'composite': 'yellow',\n    'semiconductor': 'red',\n    'compound': 'gray',\n    'other': 'gray'\n  };\n  \n  return typeMap[materialType.toLowerCase()] || \"blue\";\n}\n\n// Helper function to safely cast material types\nfunction toMaterialType(value?: string): MaterialType {\n  if (!value) return 'other';\n  \n  const normalizedValue = value.toLowerCase();\n  const validTypes: MaterialType[] = [\n    'element', 'compound', 'ceramic', 'polymer', 'alloy', 'composite', 'semiconductor', 'other'\n  ];\n  \n  // Check for exact matches first\n  if (validTypes.includes(normalizedValue as MaterialType)) {\n    return normalizedValue as MaterialType;\n  }\n  \n  // Map common aliases\n  const typeMap: Record<string, MaterialType> = {\n    'metal': 'alloy',\n    'metalloid': 'semiconductor',\n    'plastic': 'polymer',\n    'material': 'other'\n  };\n  \n  return typeMap[normalizedValue] || 'other';\n}\n\nexport function normalizeString(str?: string): string {\n  return (str || \"\").toLowerCase().trim();\n}\n\nexport function normalizeTag(tag: string): string {\n  if (!tag) return '';\n  \n  // Normalize capitalization - capitalize first letter of each word\n  return tag\n    .trim()\n    .split(' ')\n    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())\n    .join(' ');\n}\n\nexport function getDisplayName(item: any): string {\n  // Try to get the name from different sources in priority order\n  if (item.name) return item.name;\n  if (item.frontmatter?.name) return item.frontmatter.name;\n  if (item.frontmatter?.title) return item.frontmatter.title;\n  if (item.title) return item.title;\n  \n  // If no name or title, try to create one from the slug\n  if (item.slug) {\n    return item.slug\n      .split('-')\n      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))\n      .join(' ');\n  }\n  \n  // Last resort\n  return \"Unnamed Item\";\n}\n\n// Legacy type alias for backward compatibility\nexport type BadgeData = CoreBadgeData;\n\nexport interface ChemicalProperties {\n  symbol?: string;\n  formula?: string;\n  materialType?: MaterialType;\n  atomicNumber?: number | string;\n}\n\nexport function getBadgeFromItem(item: any): BadgeData | null {\n  // If the item already has a badge, use it\n  if (item.badge) return item.badge;\n\n  // Extract from frontmatter\n  const fm = item.frontmatter || {};\n  \n  // Look for subject in frontmatter\n  const subject = normalizeString(fm.subject);\n  \n  // Special handling for known materials\n  if (subject === \"alumina\") {\n    return {\n      symbol: \"Al\",\n      formula: \"Al₂O₃\",\n      materialType: toMaterialType(fm.category || \"ceramic\"),\n      color: getMaterialColor(fm.category)\n    };\n  }\n  \n  if (subject === \"silicon nitride\") {\n    return {\n      symbol: \"Si\",\n      formula: \"Si₃N₄\",\n      materialType: toMaterialType(fm.category || \"ceramic\"),\n      color: getMaterialColor(fm.category)\n    };\n  }\n  \n  // Try to extract from commentMetadata if available\n  if (fm.commentMetadata?.Subject) {\n    const commentSubject = normalizeString(fm.commentMetadata.Subject);\n    \n    if (commentSubject === \"alumina\") {\n      return {\n        symbol: \"Al\",\n        formula: \"Al₂O₃\",\n        materialType: toMaterialType(fm.category || \"ceramic\"),\n        color: getMaterialColor(fm.category)\n      };\n    }\n    \n    if (commentSubject === \"silicon nitride\") {\n      return {\n        symbol: \"Si\",\n        formula: \"Si₃N₄\",\n        materialType: toMaterialType(fm.category || \"ceramic\"),\n        color: getMaterialColor(fm.category)\n      };\n    }\n  }\n  \n  // Generic material mapping by category\n  if (fm.category) {\n    return {\n      materialType: toMaterialType(fm.category),\n      color: getMaterialColor(fm.category)\n    };\n  }\n  \n  // Also check direct category on item\n  if (item.category) {\n    return {\n      materialType: toMaterialType(item.category),\n      color: getMaterialColor(item.category)\n    };\n  }\n  \n  return null;\n}\n\nexport function getChemicalProperties(item: any): ChemicalProperties | null {\n  // First check if item.metadata already has chemical properties\n  if (item.metadata?.chemicalProperties) {\n    return item.metadata.chemicalProperties;\n  }\n  \n  // Otherwise try to extract from frontmatter\n  if (item.frontmatter) {\n    // Try to find chemical properties in frontmatter\n    if (item.frontmatter.chemicalProperties) {\n      return item.frontmatter.chemicalProperties;\n    }\n    \n    // Look for individual chemical properties in frontmatter\n    if (item.frontmatter.chemicalSymbol || \n        item.frontmatter.chemicalFormula || \n        item.frontmatter.formula) {\n      return {\n        symbol: item.frontmatter.chemicalSymbol,\n        formula: item.frontmatter.chemicalFormula || item.frontmatter.formula,\n        materialType: item.frontmatter.materialType || item.frontmatter.category\n      };\n    }\n    \n    // Try to infer from subject if it's a known material\n    if (item.frontmatter.subject) {\n      const subject = normalizeString(item.frontmatter.subject);\n      \n      if (subject === \"alumina\") {\n        return {\n          symbol: \"Al\",\n          formula: \"Al₂O₃\",\n          materialType: item.frontmatter.category || \"ceramic\"\n        };\n      }\n      \n      if (subject === \"silicon nitride\") {\n        return {\n          symbol: \"Si\",\n          formula: \"Si₃N₄\",\n          materialType: item.frontmatter.category || \"ceramic\"\n        };\n      }\n    }\n  }\n  \n  return null;\n}\n\n",
           "usedDeprecatedRules": []
         },
         {
@@ -2493,7 +2421,7 @@
     "build": {
       "status": "FAILED",
       "error": "Command failed: npm run build\nFailed to compile.\n\napp/tag/[tag]/page.tsx\nType error: Type '{ params: { tag: string; }; }' does not satisfy the constraint 'PageProps'.\n  Types of property 'params' are incompatible.\n    Type '{ tag: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]\n\nNext.js build worker exited with code: 1 and signal: null\n",
-      "output": "\n> build\n> next build\n\n   ▲ Next.js 15.3.5\n   - Environments: .env\n\n   Creating an optimized production build ...\n ✓ Compiled successfully in 6.0s\n   Linting and checking validity of types ...\n\n./app/components/Author/Author.tsx\n4:10  Warning: 'AuthorData' is defined but never used.  @typescript-eslint/no-unused-vars\n11:3  Warning: 'showBio' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n12:3  Warning: 'showEmail' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n13:3  Warning: 'showLinkedIn' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/BadgeSymbol/BadgeSymbol.tsx\n16:31  Warning: 'content' is defined but never used.  @typescript-eslint/no-unused-vars\n21:5  Warning: 'materialType' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Card/Card.tsx\n76:9  Warning: 'isFeatured' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Layout/Layout.tsx\n28:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/List/List.tsx\n155:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n166:16  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars\n266:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/SearchResults/SearchResults.tsx\n86:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n169:34  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/SectionCard/SectionCardList.tsx\n25:3  Warning: 'heading' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Thumbnail/Thumbnail.tsx\n6:10  Warning: 'getArticleBySlug' is defined but never used.  @typescript-eslint/no-unused-vars\n7:10  Warning: 'Article' is defined but never used.  @typescript-eslint/no-unused-vars\n8:10  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars\n21:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/UI/TagFilter.tsx\n21:3  Warning: 'tagItemCounts' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/contact/page.tsx\n3:10  Warning: 'createMetadata' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/debug/badge-symbol/page.tsx\n8:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n100:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/debug/page.tsx\n134:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n154:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n170:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n./app/search/search-client.tsx\n3:20  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/services/page.tsx\n3:10  Warning: 'createMetadata' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/articleEnrichment.ts\n42:10  Warning: 'inferTags' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/badgeDataLoader.ts\n5:10  Warning: 'Article' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/badgeUtils.ts\n29:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n32:9  Warning: 'title' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/contentUtils.ts\n116:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n124:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n125:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n189:16  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/formatting.ts\n81:12  Warning: '_' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/frontmatterLoader.ts\n7:66  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n41:14  Warning: 'matterError' is defined but never used.  @typescript-eslint/no-unused-vars\n43:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/helpers.ts\n56:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n73:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n73:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n88:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n88:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/logger.ts\n5:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/materialBadgeUtils.ts\n15:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/metadata.ts\n3:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/searchUtils.ts\n3:10  Warning: 'MaterialProperties' is defined but never used.  @typescript-eslint/no-unused-vars\n63:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n92:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n163:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/tagDebug.ts\n28:11  Warning: 'articlesWithTags' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n73:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/yamlSanitizer.ts\n45:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n46:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\ninfo  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules\n"
+      "output": "\n> build\n> next build\n\n   ▲ Next.js 15.3.5\n   - Environments: .env\n\n   Creating an optimized production build ...\n ✓ Compiled successfully in 6.0s\n   Linting and checking validity of types ...\n\n./app/components/Author/Author.tsx\n4:10  Warning: 'AuthorData' is defined but never used.  @typescript-eslint/no-unused-vars\n11:3  Warning: 'showBio' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n12:3  Warning: 'showEmail' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n13:3  Warning: 'showLinkedIn' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/BadgeSymbol/BadgeSymbol.tsx\n16:31  Warning: 'content' is defined but never used.  @typescript-eslint/no-unused-vars\n21:5  Warning: 'materialType' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Layout/Layout.tsx\n28:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/List/List.tsx\n155:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n166:16  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars\n266:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/SearchResults/SearchResults.tsx\n86:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n169:34  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/SectionCard/SectionCardList.tsx\n25:3  Warning: 'heading' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/components/Thumbnail/Thumbnail.tsx\n6:10  Warning: 'Article' is defined but never used.  @typescript-eslint/no-unused-vars\n7:10  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars\n20:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/components/UI/TagFilter.tsx\n21:3  Warning: 'tagItemCounts' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/debug/badge-symbol/page.tsx\n8:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n100:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/debug/page.tsx\n134:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n154:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n170:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n./app/search/search-client.tsx\n3:20  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/articleEnrichment.ts\n42:10  Warning: 'inferTags' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/badgeDataLoader.ts\n5:10  Warning: 'Article' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/badgeUtils.ts\n29:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/contentUtils.ts\n116:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n124:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n125:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n189:16  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/formatting.ts\n81:12  Warning: '_' is defined but never used.  @typescript-eslint/no-unused-vars\n\n./app/utils/frontmatterLoader.ts\n7:66  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n41:14  Warning: 'matterError' is defined but never used.  @typescript-eslint/no-unused-vars\n43:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/helpers.ts\n56:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n73:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n73:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n88:46  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n88:56  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/logger.ts\n5:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/materialBadgeUtils.ts\n15:39  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/metadata.ts\n3:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/searchUtils.ts\n61:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n90:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n161:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/tagDebug.ts\n28:11  Warning: 'articlesWithTags' is assigned a value but never used.  @typescript-eslint/no-unused-vars\n73:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\n./app/utils/yamlSanitizer.ts\n45:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n46:26  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any\n\ninfo  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules\n"
     },
     "componentCoverage": {
       "total": 38,
@@ -2504,7 +2432,7 @@
     },
     "typeCoverage": {
       "totalFiles": 98,
-      "totalLines": 9001,
+      "totalLines": 8993,
       "typedLines": 580,
       "anyTypes": 15,
       "coverage": 6,
@@ -2523,7 +2451,7 @@
       "output": "🎬 HERO COMPONENT IMAGE ENCODING TEST\n====================================\n\n🚀 Starting Hero Image Encoding Test Suite...\n\n🔍 Testing URL encoding functionality...\n\n📋 Testing: Parentheses in filename\n  ❌ FAIL: Should encode parentheses for CSS background-image\n     Input: \"/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg\"\n     Expected: \"/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg\"\n     Actual: \"/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg\"\n\n📋 Testing: No special characters\n  ✅ PASS: Should leave normal filenames unchanged\n     Input: \"/images/aluminum-laser-cleaning-hero.jpg\"\n     Output: \"/images/aluminum-laser-cleaning-hero.jpg\"\n\n📋 Testing: Multiple parentheses\n  ❌ FAIL: Should encode all parentheses\n     Input: \"/images/test-(group)-(variant)-hero.jpg\"\n     Expected: \"/images/test-%28group%29-%28variant%29-hero.jpg\"\n     Actual: \"/images/test-(group)-(variant)-hero.jpg\"\n\n📋 Testing: Empty string\n  ✅ PASS: Should handle empty strings gracefully\n     Input: \"\"\n     Output: null\n\n📋 Testing: Null input\n  ✅ PASS: Should handle null input gracefully\n     Input: null\n     Output: null\n\n📊 URL Encoding Test Summary:\n   Passed: 3\n   Failed: 2\n   Total: 5\n\n🔍 Testing Hero component integration...\n\n📋 Testing: Component file exists and contains encoding logic\n  ❌ FAIL: Hero component missing parentheses encoding logic\n📋 Testing: TypeScript compilation with Hero component\n  ❌ FAIL: TypeScript compilation errors with Hero component\n📋 Testing: Test image files with parentheses exist\n  ⚠️  WARN: Test image with parentheses not found\n\n📊 Integration Test Summary:\n   Passed: 0\n   Failed: 2\n\n🔍 Testing for regressions...\n\n📋 Testing: Normal image paths without special characters\n  ✅ PASS: Normal image paths unchanged\n📋 Testing: Null/undefined image paths handled gracefully\n  ✅ PASS: Null/undefined paths handled gracefully\n📋 Testing: Component props interface unchanged\n  ✅ PASS: Component props interface preserved\n\n📊 Regression Test Summary:\n   Passed: 3\n   Failed: 0\n\n📊 HERO IMAGE ENCODING TEST REPORT\n==================================\n\n🔍 URL Encoding Tests:\n   Total: 5\n   Passed: 3\n   Failed: 2\n   Errors: 0\n\n🔍 Integration Tests:\n   Total: 3\n   Passed: 0\n   Failed: 2\n   Warnings: 1\n   Errors: 0\n\n🔍 Regression Tests:\n   Total: 3\n   Passed: 3\n   Failed: 0\n   Errors: 0\n\n🏆 Overall Status: FAIL\n\n⚠️  Issues detected in Hero image encoding:\n   • 2 URL encoding test(s) failed\n   • 2 integration test(s) failed\n\n📁 Detailed results saved to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/tests/hero-image-encoding-test-results.json\n\n❌ Hero image encoding test suite completed with issues!\n"
     },
     "overallStatus": "GOOD",
-    "timestamp": "2025-08-26T18:51:28.716Z",
+    "timestamp": "2025-08-26T18:58:47.598Z",
     "fixesApplied": 0
   }
 }

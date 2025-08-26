@@ -1,6 +1,5 @@
 // app/contact/page.tsx
 import { Layout } from "@/app/components/Layout/Layout";
-import { createMetadata } from "@/app/utils/metadata";
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';

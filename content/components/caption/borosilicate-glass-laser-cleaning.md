@@ -1,3 +1,3 @@
-**Borosilicate Glass** surface (left) exhibiting significant **aliphatic hydrocarbon contamination** and **light mineral scale** deposits, adhering to its low-thermal-expansion, chemically resistant structure.
+**Borosilicate Glass** substrate (left) exhibiting significant surface staining and light-scattering organic residues.
 
-**After laser cleaning** (right) using a **1064 nm Nd:YAG laser** (8 ns pulse duration, 1.2 J/cm² fluence, 500 µm spot), showing **precise, non-ablative removal** of contaminants without subsurface damage to the pristine silica network.
+**After 1064 nm laser ablation** (right) with 8 W, 100 ns pulses and a 200 µm spot, achieving pristine surface restoration without thermal stress.

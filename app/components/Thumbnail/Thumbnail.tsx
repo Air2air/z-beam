@@ -3,7 +3,6 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { getArticleBySlug } from "../../utils/contentAPI";
 import { Article } from "../../types/Article";
 import { Card } from "../Card/Card";
 import { logger } from "../../utils/logger";

@@ -1,2 +1,3 @@
-**Ceramic Matrix Composites (CMCs)** surface (left) exhibiting thermal barrier coating (TBC) overspray and carbonaceous deposits from high-temperature service.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (15 J/cm², 100 ns pulse duration, 500 µm spot), achieving selective contaminant ablation with no fiber-matrix interface degradation.
+**Ceramic Matrix Composites (CMCs)** surface (left) exhibiting thermal oxide scale and embedded environmental contaminants.
+
+**After laser cleaning** (right) with a 1064 nm fiber laser (100 W, 100 ns pulse, 200 µm spot), revealing the pristine, undamaged fiber-matrix architecture.

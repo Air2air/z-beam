@@ -2,20 +2,20 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Laser Cleaning of Borosilicate Glass Materials",
-  "description": "Advanced laser cleaning techniques for Borosilicate Glass materials, ensuring precision surface treatment while preserving the material's structural integrity.",
+  "description": "Advanced laser cleaning techniques for Borosilicate Glass materials, ensuring precision surface treatment while preserving the material's structural integrity and thermal properties.",
   "keywords": [
     "Borosilicate Glass laser cleaning",
-    "Borosilicate Glass glass cleaning",
-    "non-abrasive surface treatment",
-    "Borosilicate Glass material processing",
-    "precision cleaning",
-    "industrial applications",
-    "surface treatment",
-    "non-contact processing",
-    "thermal shock resistance",
-    "low thermal expansion"
+    "Borosilicate Glass surface treatment",
+    "non-abrasive glass cleaning",
+    "precision laser ablation",
+    "industrial glass processing",
+    "thermal shock resistant cleaning",
+    "contaminant removal",
+    "non-contact surface preparation",
+    "low thermal expansion glass",
+    "selective laser cleaning"
   ],
-  "articleBody": "Borosilicate Glass, composed primarily of silica (SiO₂, 70-80%) and boron trioxide (B₂O₃, 7-13%), exhibits exceptional thermal shock resistance and low coefficient of thermal expansion (3.3 × 10⁻⁶/K), making it ideal for laser cleaning applications. The material's chemical durability and transparency to visible light allow for precise laser processing without subsurface damage. Optimal laser parameters for Borosilicate Glass cleaning include near-infrared wavelengths (1064 nm) with fluence levels between 0.5-2.5 J/cm² and pulse durations of 10-100 nanoseconds to prevent thermal stress cracking. Key applications include cleaning laboratory glassware, optical components, pharmaceutical containers, and semiconductor processing equipment where surface purity is critical. Challenges include managing the material's transparency to certain wavelengths and preventing localized thermal stress, which is addressed through precise beam shaping and controlled energy deposition. Safety considerations mandate Class 1 laser safety enclosures, proper ventilation for ablation byproducts, and appropriate personal protective equipment including laser safety goggles rated for the specific wavelength. The non-contact nature of laser cleaning eliminates mechanical stress and chemical residue, making it superior to traditional cleaning methods for high-precision Borosilicate Glass applications.",
+  "articleBody": "Borosilicate Glass, known for its low coefficient of thermal expansion and high chemical resistance, requires specialized cleaning methods to maintain its structural integrity. Laser cleaning provides an optimal non-contact solution for removing contaminants, surface coatings, and oxidation layers without compromising the glass substrate. The process utilizes precise laser parameters including specific wavelengths (typically 1064nm or 532nm), controlled fluence levels (0.5-2.5 J/cm²), and optimized pulse durations (nanosecond to femtosecond range) to selectively ablate unwanted material while preserving the underlying Borosilicate Glass structure. This technique effectively removes organic residues, particulate matter, and surface films without inducing thermal stress cracks or micro-fractures, making it ideal for laboratory equipment, pharmaceutical containers, and optical components. The non-abrasive nature of laser cleaning ensures surface integrity while achieving contamination levels below 0.1μm particle size. Process parameters must be carefully calibrated to account for Borosilicate Glass's specific thermal properties and transmission characteristics to prevent subsurface damage while ensuring complete contaminant removal.",
   "image": [
     {
       "@type": "ImageObject",
@@ -44,7 +44,7 @@
   "dateModified": "2025-08-08",
   "author": {
     "@type": "Person",
-    "name": "Yi-Chun Lin"
+    "name": "Alessandro Moretti"
   },
   "about": {
     "@type": "Thing",

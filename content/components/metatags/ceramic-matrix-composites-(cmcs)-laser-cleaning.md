@@ -2,11 +2,11 @@
 title: Laser Cleaning Ceramic Matrix Composites (CMCs) - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of laser cleaning Ceramic Matrix Composites (CMCs), including specific 2.1-3.5 g/cm³ density values, optimal 1064nm wavelength, and aerospace applications."
+    content: "Technical overview of laser cleaning Ceramic Matrix Composites (CMCs) with 2.8 g/cm³ density, optimal 1064nm wavelength parameters, and industrial aerospace applications."
   - name: keywords
     content: "ceramic matrix composites (cmcs), ceramic matrix composites (cmcs) composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Sarah Johnson"
+    content: "Dr. Sarah Chen"
   - name: category
     content: "composite"
   - name: robots

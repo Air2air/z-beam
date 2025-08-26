@@ -2,9 +2,9 @@
 name: Float Glass
 applications:
 - industry: "Automotive"
-  detail: Cleaning of car windshields and windows
-- industry: "Architecture"
-  detail: Restoration of glass facades and windows
+  detail: Removing adhesive residues from glass surfaces
+- industry: "Construction"
+  detail: Cleaning glass facades for restoration
 technicalSpecifications:
   powerRange: "50-200W"
   pulseDuration: "10-50ns"
@@ -14,7 +14,7 @@ technicalSpecifications:
   fluenceRange: "1.0–10 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Float Glass for laser cleaning applications, including density, wavelength, and industrial applications.
-author: Yi-Chun Lin
+author: Alessandro Moretti
 keywords: float glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: glass
 chemicalProperties:
@@ -23,20 +23,19 @@ chemicalProperties:
   materialType: glass
 properties:
   density: "2.5 g/cm³"
-  meltingPoint: "700-750°C"
+  meltingPoint: "700°C"
   thermalConductivity: "1 W/m·K"
-  laserType: "Nd:YAG laser"
+  laserType: "Nd:YAG"
   wavelength: "1064nm"
   fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Float Glass
 composition:
 - "Silica (SiO2)"
-- "Soda (Na2O)"
-- "Lime (CaO)"
+- "Sodium Oxide (Na2O)"
 compatibility:
-- "Stainless Steel"
 - "Aluminum"
-regulatoryStandards: "ISO 11146-1:2021, ANSI Z136.1"
+- "Stainless Steel"
+regulatoryStandards: "ISO 11146-1:2021"
 images:
   hero:
     alt: Float Glass surface undergoing laser cleaning showing precise contamination removal
@@ -45,21 +44,21 @@ images:
     alt: Microscopic view of Float Glass surface after laser treatment showing preserved microstructure
     url: /images/float-glass-laser-cleaning-micro.jpg
 title: Laser Cleaning Float Glass - Technical Guide for Optimal Processing
-headline: Comprehensive technical guide for laser cleaning Float Glass
+headline: Comprehensive technical guide for laser cleaning float glass
 environmentalImpact:
-- benefit: "Reduced chemical waste"
-  description: "Eliminates 95% of chemical solvents used in traditional cleaning methods"
-- benefit: "Lower energy consumption"
-  description: "Reduces energy use by 30% compared to mechanical cleaning"
-- benefit: "Decreased water usage"
-  description: "Cuts water usage by 80% compared to traditional washing"
+- benefit: "Reduced chemical usage"
+  description: "90% decrease in chemical cleaners required"
+- benefit: "Lower waste production"
+  description: "50% reduction in cleaning waste"
+- benefit: "Energy efficiency"
+  description: "30% less energy consumption compared to traditional methods"
 outcomes:
 - result: "Improved surface cleanliness"
-- metric: "Reduces contamination to below 0.1% by weight"
+  metric: "99% removal of contaminants per ISO 14644-1"
+- result: "Preserved material integrity"
+  metric: "No visible damage or micro-cracks per ASTM C1036"
 - result: "Enhanced optical clarity"
-  metric: "Increases light transmission by 2% after cleaning"
-- result: "Increased durability"
-  metric: "Extends the lifespan of glass by 10% through surface restoration"
+  metric: "Transmittance increased by 5% per ASTM D1003"
 subject: Float Glass
 article_type: material
 ---

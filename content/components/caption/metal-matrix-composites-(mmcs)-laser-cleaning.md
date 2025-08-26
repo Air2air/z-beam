@@ -1,2 +1,3 @@
-**Metal Matrix Composites (MMCs)** surface (left) before laser ablation, exhibiting a tenacious aluminum oxide layer and embedded ceramic particulate contamination.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (15 J/cm², 100 ns pulse duration, 500 µm spot), revealing the pristine, undamaged composite microstructure.
+**Metal Matrix Composites (MMCs)** surface (left) prior to laser ablation, exhibiting a tenacious oxide layer and embedded particulate contamination.
+
+**After laser cleaning** (right) using a 1064 nm fiber laser (300 W, 100 ns pulse, 200 µm spot), revealing the pristine, undamaged composite microstructure.

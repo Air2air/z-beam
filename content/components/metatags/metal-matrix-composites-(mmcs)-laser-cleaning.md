@@ -2,9 +2,9 @@
 title: Laser Cleaning Metal Matrix Composites (MMCs) - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of laser cleaning Metal Matrix Composites (MMCs), including specific 2.7-3.0 g/cm³ density values, optimal 1064nm wavelength, and industrial aerospace applications."
+    content: "Technical overview of laser cleaning Metal Matrix Composites (MMCs), including 2.7-3.0 g/cm³ density values, 1064nm optimal wavelengths, and aerospace applications."
   - name: keywords
-    content: "metal matrix composites (mmcs), aluminum silicon carbide, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
+    content: "metal matrix composites (mmcs), metal matrix composites (mmcs) composite, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
     content: "Dr. Sarah Chen"
   - name: category

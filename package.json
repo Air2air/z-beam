@@ -9,24 +9,22 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo",
-    
-    "fix": "npm run fix:auto && npm run fix:lint && npm run fix:recurring && npm run fix:types",
+    "fix": "npm run fix:auto && npm run fix:lint && npm run fix:recurring && npm run cache:clean && npm run fix:types",
     "fix:auto": "node tests/fix-any-types-safe.js",
     "fix:lint": "next lint --fix",
     "fix:recurring": "node scripts/fix-recurring-type-errors.js",
-    "fix:types": "tsc --noEmit",
-    
-    "test": "npm run test:compile && npm run test:suite && npm run test:build",
-    "test:compile": "tsc --noEmit",
+    "fix:types": "rm -rf .next && tsc --noEmit",
+    "test": "npm run cache:clean && npm run test:compile && npm run test:suite && npm run test:build",
+    "test:compile": "rm -rf .next && tsc --noEmit",
     "test:suite": "node tests/test-auto-fix-suite.js",
     "test:build": "next build --dry-run || echo 'Build validation complete'",
-    
     "validate": "npm run fix && npm run test",
-    "predeploy": "npm run validate && npm run build",
+    "predeploy": "npm run cache:clean && npm run validate && npm run build:clean",
     "deploy": "npm run predeploy && echo 'Ready for deployment'",
-    
     "analyze": "cross-env ANALYZE=true next build",
-    "cleanup": "node cleanup-root.js && npm run clean"
+    "cleanup": "node cleanup-root.js && npm run clean",
+    "cache:clean": "rm -rf .next && rm -rf node_modules/.cache && rm -rf .vercel",
+    "build:clean": "npm run cache:clean && npm run build"
   },
   "dependencies": {
     "@types/marked": "^5.0.2",

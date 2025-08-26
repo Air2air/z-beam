@@ -14,7 +14,7 @@ technicalSpecifications:
   fluenceRange: "0.5–5 J/cm²"
   safetyClass: "Class 4 (requires full enclosure)"
 description: Technical overview of Fused Silica for laser cleaning applications, including density, wavelength, and industrial applications.
-author: Yi-Chun Lin
+author: Alessandro Moretti
 keywords: fused silica, fused silica glass, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration
 category: glass
 chemicalProperties:
@@ -22,20 +22,20 @@ chemicalProperties:
   formula: Fused Silica
   materialType: glass
 properties:
-  density: "2.20 g/cm³"
-  meltingPoint: "1713°C"
-  thermalConductivity: "1.38 W/m·K"
-  laserType: "Pulsed fiber laser"
-  wavelength: "1064nm"
-  fluenceRange: "0.5-5 J/cm²"
+  density: "2.2 g/cm³"
+  meltingPoint: "1710 °C"
+  thermalConductivity: "1.4 W/m·K"
+  laserType: "pulsed fiber laser"
+  wavelength: "1064 nm"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Fused Silica
 composition:
 - "Silicon Dioxide (SiO2)"
 - "Trace impurities"
 compatibility:
-- "Silicon"
 - "Metals"
-regulatoryStandards: "ISO 11146-1:2005, ANSI Z136.1"
+- "Ceramics"
+regulatoryStandards: "ISO 11146-1:2005"
 images:
   hero:
     alt: Fused Silica surface undergoing laser cleaning showing precise contamination removal
@@ -46,19 +46,19 @@ images:
 title: Laser Cleaning Fused Silica - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning glass fused silica
 environmentalImpact:
-- benefit: "Reduced chemical waste"
-  description: "Decreases chemical usage by 90%"
+- benefit: "Reduced chemical usage"
+  description: "90% reduction in chemical solvents compared to traditional cleaning methods"
 - benefit: "Lower energy consumption"
-  description: "Reduces energy use by 30% compared to traditional methods"
-- benefit: "Minimal environmental footprint"
-  description: "No secondary waste generation"
+  description: "20% less energy required than ultrasonic cleaning"
+- benefit: "Minimal waste generation"
+  description: "No secondary waste streams produced during cleaning"
 outcomes:
-- result: "Improved surface cleanliness"
-- metric: "Particle count reduced to <100 per cm² (ASTM F312-87)"
-- result: "Enhanced optical performance"
-  metric: "Transmission increased by 2% (ISO 15368)"
-- result: "Preserved material integrity"
-  metric: "Surface roughness maintained at <1 nm Ra (ISO 4287)"
+- result: "Surface cleanliness"
+- metric: "Particle count < 100/cm² per ISO 14644-1"
+- result: "Surface integrity"
+  metric: "Roughness Ra < 0.1 µm per ISO 4287"
+- result: "Process efficiency"
+  metric: "Cleaning rate > 10 cm²/s"
 subject: Fused Silica
 article_type: material
 ---

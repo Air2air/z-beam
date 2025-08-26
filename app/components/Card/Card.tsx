@@ -73,8 +73,6 @@ export function Card({
   //   (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());
   
   // Check if this is a featured card by examining the className
-  const isFeatured = className?.includes('featured-item');
-
   return (
     <Link
       href={href}

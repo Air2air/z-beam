@@ -1,2 +1,2 @@
-**Float Glass** surface (left) exhibiting persistent silicate scale and water staining from industrial processing.
-**After laser cleaning** (right) with a 1064 nm fiber laser (8 W, 100 ns pulse, 100 µm spot), achieving pristine, substrate-preserving ablation.
+**Float Glass** surface (left) prior to cleaning, exhibiting significant organic deposits and particulate buildup from environmental exposure.
+**Post laser ablation** (right) showing complete contaminant removal using a 1064 nm laser at 80 W, 100 ns pulse duration, and a 200 µm spot size, preserving the pristine substrate.
