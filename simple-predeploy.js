@@ -88,7 +88,6 @@ async function main() {
     }
     
     console.log('\n🎉 PREDEPLOY COMPLETE - READY FOR DEPLOYMENT');
-    process.exit(0);
     
   } catch (error) {
     console.error('\n❌ PREDEPLOY FAILED:', error.message);
