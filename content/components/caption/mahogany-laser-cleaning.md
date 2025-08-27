@@ -1,0 +1,2 @@
+**Mahogany** surface (left) exhibiting embedded soot deposits and degraded finish within its open-pored structure.  
+**After 1064 nm laser treatment** (right) at 0.8 J/cm², 100 ns pulse width, selectively removing contaminants while preserving the rich, underlying patina.

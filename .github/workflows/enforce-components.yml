@@ -24,6 +24,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
+    - name: Run Predeploy Validation
+      run: npm run predeploy
+      
     - name: Run type checking
       run: npm run type-check || echo "Type checking skipped"
       

@@ -1,0 +1,2 @@
+**Porphyry** surface (left) exhibiting discoloration from embedded metallic oxides and atmospheric particulates, compromising its characteristic crystalline texture.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm², 10 ns pulse duration, and a 5 mm spot size, achieving precise ablation of contaminants without alteration to the feldspar phenocrysts or groundmass.

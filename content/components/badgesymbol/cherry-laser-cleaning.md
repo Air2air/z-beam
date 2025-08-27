@@ -1,0 +1,4 @@
+---
+symbol: "CH"
+materialType: "wood"
+---

@@ -1,1 +1,1 @@
-gabbro, ablation, cleaning, laser, non-contact, manufacturing, construction, alessandro-moretti
+ablation, cleaning, laser, gabbro, aerospace, manufacturing, non-contact, alessandro-moretti

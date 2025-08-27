@@ -1,0 +1,4 @@
+---
+symbol: "WA"
+materialType: "wood"
+---

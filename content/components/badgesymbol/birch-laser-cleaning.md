@@ -1,0 +1,4 @@
+---
+symbol: "BI"
+materialType: "wood"
+---

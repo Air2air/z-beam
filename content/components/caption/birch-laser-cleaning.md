@@ -1,0 +1,2 @@
+**Birch** surface (left) before processing, exhibiting heavy soiling from environmental particulate and organic residues.  
+**After laser cleaning** (right) with a 1064 nm fiber laser (12 W, 100 ns pulse duration, 100 μm spot), showing precise ablation of contaminants without substrate damage to the delicate wood structure.

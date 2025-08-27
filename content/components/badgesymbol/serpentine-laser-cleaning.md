@@ -1,0 +1,4 @@
+---
+symbol: "SE"
+materialType: "stone"
+---

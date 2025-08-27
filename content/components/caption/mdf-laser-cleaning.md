@@ -1,0 +1,2 @@
+**MDF** surface (left) with visible adhesive residues and particulate accumulation from fabrication processes.  
+**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 12 J/cm² fluence and 100 ns pulse duration, showing precise contaminant ablation with no substrate damage.

@@ -1,0 +1,2 @@
+**Marble** surface (left) exhibiting significant biological colonization and atmospheric soiling prior to intervention.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm² fluence, revealing the pristine calcite substrate with no mechanical or chemical alteration.

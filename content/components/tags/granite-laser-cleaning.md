@@ -1,1 +1,1 @@
-granite, ablation, cleaning, laser, non-contact, construction, manufacturing, alessandro-moretti
+granite, ablation, cleaning, laser, manufacturing, construction, non-contact, alessandro-moretti

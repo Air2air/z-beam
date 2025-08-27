@@ -1,0 +1,4 @@
+---
+symbol: "GY"
+materialType: "stone"
+---

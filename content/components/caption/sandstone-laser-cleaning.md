@@ -1,0 +1,2 @@
+**Sandstone** surface (left) exhibiting significant biological colonization and atmospheric soiling within its porous matrix.  
+**After Nd:YAG laser treatment** (right) at 1064 nm wavelength, 8 J/cm² fluence, 10 ns pulse duration, and 5 mm spot size, showing precise ablation of contaminants without alteration to the fragile mineral substrate.

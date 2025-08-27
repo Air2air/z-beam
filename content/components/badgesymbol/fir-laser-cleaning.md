@@ -1,0 +1,4 @@
+---
+symbol: "FI"
+materialType: "wood"
+---

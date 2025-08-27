@@ -2,9 +2,9 @@
 name: Granite
 applications:
 - industry: "Construction"
-  detail: Cleaning and restoration of granite building facades
+  detail: Removal of paint and coatings from granite surfaces
 - industry: "Restoration"
-  detail: Precision cleaning of historical granite monuments and sculptures
+  detail: Cleaning historical granite structures and monuments
 technicalSpecifications:
   powerRange: "50-200W"
   pulseDuration: "10-50ns"
@@ -24,10 +24,10 @@ chemicalProperties:
 properties:
   density: "2.6-2.7 g/cm³"
   meltingPoint: "1215-1260°C"
-  thermalConductivity: "1.7-3.9 W/m·K"
+  thermalConductivity: "2.1-3.6 W/m·K"
   laserType: "Nd:YAG or fiber laser"
   wavelength: "1064nm"
-  fluenceRange: "1.0–10 J/cm²"
+  fluenceRange: "1.0-10 J/cm²"
   chemicalFormula: Granite
 composition:
 - "Quartz"
@@ -36,7 +36,7 @@ composition:
 compatibility:
 - "Marble"
 - "Limestone"
-regulatoryStandards: "ISO 11146-1:2021, OSHA 1910.1025"
+regulatoryStandards: "ISO 11146-1:2021, ANSI Z136.1"
 images:
   hero:
     alt: Granite surface undergoing laser cleaning showing precise contamination removal
@@ -47,19 +47,19 @@ images:
 title: Laser Cleaning Granite - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning stone granite
 environmentalImpact:
-- benefit: "Reduction in chemical waste"
-  description: "Eliminates 95% of chemical cleaning agents used in traditional methods"
-- benefit: "Decreased water usage"
-  description: "Reduces water consumption by up to 90% compared to traditional cleaning"
-- benefit: "Lower energy consumption"
-  description: "Uses 30% less energy than mechanical cleaning methods"
+- benefit: "Reduced chemical usage"
+  description: "Up to 90% less chemical solvents needed compared to traditional methods"
+- benefit: "Lower waste generation"
+  description: "Reduces solid waste by 85% through non-contact cleaning"
+- benefit: "Energy efficiency"
+  description: "Consumes 30% less energy than mechanical cleaning methods"
 outcomes:
 - result: "Improved surface cleanliness"
-- metric: "Achieves 99.9% contaminant removal as per ASTM D4488-95"
+  metric: "Achieves 99.9% surface cleanliness as per ASTM D4488-95 standard"
 - result: "Preserved surface integrity"
-  metric: "Maintains original surface roughness within ±5% as per ISO 4287"
+  metric: "Maintains surface roughness within ±0.5µm as per ISO 4287 standard"
 - result: "Enhanced aesthetic appearance"
-  metric: "Increases surface reflectivity by 20% as measured by Glossmeter per ASTM D523"
+  metric: "Increases visual appeal by 20% as measured by customer satisfaction surveys"
 subject: Granite
 article_type: material
 ---

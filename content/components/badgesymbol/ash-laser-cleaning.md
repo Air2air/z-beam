@@ -1,0 +1,4 @@
+---
+symbol: "AS"
+materialType: "wood"
+---

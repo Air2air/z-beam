@@ -1,0 +1,4 @@
+---
+symbol: "SL"
+materialType: "stone"
+---

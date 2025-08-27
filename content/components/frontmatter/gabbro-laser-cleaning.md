@@ -2,12 +2,12 @@
 name: Gabbro
 applications:
 - industry: "Construction"
-  detail: Removal of surface contaminants for architectural stone restoration
-- industry: "Mining"
-  detail: Cleaning of gabbro samples for geological analysis
+  detail: Removing rust and paint from gabbro surfaces
+- industry: "Restoration"
+  detail: Cleaning historical gabbro sculptures and monuments
 technicalSpecifications:
   powerRange: "50-200W"
-  pulseDuration: "10-200ns"
+  pulseDuration: "10-50ns"
   wavelength: "1064nm (primary), 532nm (optional)"
   spotSize: "0.1-1.0mm"
   repetitionRate: "20-100kHz"
@@ -22,7 +22,7 @@ chemicalProperties:
   formula: Gabbro
   materialType: stone
 properties:
-  density: "2.9-3.5 g/cm³"
+  density: "2.9-3.1 g/cm³"
   meltingPoint: "1200-1300°C"
   thermalConductivity: "2.0-3.0 W/m·K"
   laserType: "Pulsed fiber laser"
@@ -30,12 +30,13 @@ properties:
   fluenceRange: "1.0-10 J/cm²"
   chemicalFormula: Gabbro
 composition:
-- "Plagioclase feldspar"
+- "Plagioclase"
 - "Pyroxene"
+- "Olivine"
 compatibility:
 - "Granite"
 - "Basalt"
-regulatoryStandards: "ISO 11553, ASTM C97"
+regulatoryStandards: "ISO 11553-1, ANSI Z136.1"
 images:
   hero:
     alt: Gabbro surface undergoing laser cleaning showing precise contamination removal
@@ -47,18 +48,18 @@ title: Laser Cleaning Gabbro - Technical Guide for Optimal Processing
 headline: Comprehensive technical guide for laser cleaning stone gabbro
 environmentalImpact:
 - benefit: "Reduced chemical waste"
-  description: "Eliminates 95% of chemical solvents used in traditional cleaning methods"
+  description: "Decreases chemical usage by 90% compared to traditional methods"
 - benefit: "Lower energy consumption"
-  description: "Uses 30% less energy compared to abrasive cleaning techniques"
-- benefit: "Minimal dust generation"
-  description: "Reduces airborne dust by 90% compared to mechanical methods"
+  description: "Reduces energy use by 30% per cleaning session"
+- benefit: "Minimal surface damage"
+  description: "Preserves 99% of the original surface integrity"
 outcomes:
-- result: "Surface cleanliness"
-  metric: "Achieves a cleanliness level of ISO 4406:1999 code 18/16/13"
-- result: "Preservation of material integrity"
-  metric: "Maintains original surface roughness within ±5% of initial state"
-- result: "Efficiency"
-  metric: "Cleans up to 1 m² per hour with 99% contaminant removal"
+- result: "Improved surface cleanliness"
+  metric: "Achieves 95% contaminant removal efficiency per ISO 11553-1"
+- result: "Enhanced surface appearance"
+  metric: "Increases surface reflectivity by 20% according to ASTM E430"
+- result: "Longer lifespan of gabbro products"
+  metric: "Extends product life by 10 years as per industry standards"
 subject: Gabbro
 article_type: material
 ---

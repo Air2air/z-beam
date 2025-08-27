@@ -1,0 +1,2 @@
+**Teak** surface (left) exhibiting embedded soot deposits and biological staining within its porous, oily grain structure.  
+**After 1064 nm laser ablation** (right) using 1.2 J/cm² fluence and 100 ns pulses, achieving precise contaminant removal with zero substrate damage to the lignin-rich wood.

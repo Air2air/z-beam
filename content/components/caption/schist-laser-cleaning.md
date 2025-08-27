@@ -1,0 +1,2 @@
+**Schist** surface (left) exhibiting heavy biological colonization and iron oxide staining within its foliated structure.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm², 10 ns pulse duration, and a 4 mm spot size, achieving precise ablation of contaminants while preserving the delicate mica lamellae.

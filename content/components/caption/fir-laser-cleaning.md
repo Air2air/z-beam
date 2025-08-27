@@ -1,0 +1,2 @@
+**Fir** wood surface (left) exhibiting embedded soot and particulate contamination within its porous grain structure.
+**After laser cleaning** (right) with a 1,064 nm Nd:YAG laser (1.2 J/cm², 100 ns pulse duration, 5 mm spot), showing precise ablation of surface deposits without substrate carbonization.

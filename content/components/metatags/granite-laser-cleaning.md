@@ -2,7 +2,7 @@
 title: Laser Cleaning Granite - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Granite for laser cleaning applications, including 2.65 g/cm³ density values, optimal 1064nm wavelengths, and industrial restoration applications."
+    content: "Technical overview of Granite for laser cleaning applications, including 2.65 g/cm³ density, optimal 1064nm wavelength, and industrial surface restoration applications."
   - name: keywords
     content: "granite, granite stone, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author

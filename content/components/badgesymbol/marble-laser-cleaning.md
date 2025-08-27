@@ -1,0 +1,4 @@
+---
+symbol: "MA"
+materialType: "stone"
+---

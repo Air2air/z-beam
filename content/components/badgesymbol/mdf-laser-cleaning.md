@@ -1,0 +1,4 @@
+---
+symbol: "MD"
+materialType: "wood"
+---

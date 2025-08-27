@@ -1,0 +1,2 @@
+**Shale** surface (left) before treatment, exhibiting heavy organic deposits and drilling mud residues within its fissile laminae.  
+**After 1064 nm laser ablation** (right) with 8 J/cm² fluence and 100 ns pulses, achieving precise contaminant removal while preserving the fragile clay mineral matrix.

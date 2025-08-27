@@ -1,0 +1,9 @@
+- **[APPLICATIONS]** Laser cleaning of oak is extensively employed in the European heritage restoration sector for delicately removing aged varnishes and soot from historical artifacts and architectural elements. This non-abrasive technique is also vital in high-end furniture manufacturing for preparing surfaces prior to finishing without altering the wood's natural patina.
+
+- **[PARAMETERS]** Optimal cleaning utilizes a near-infrared fiber laser wavelength, typically 1064 nm, with a low fluence range of 0.5-1.5 J/cm² to effectively ablate contaminants while preserving the underlying lignin. A short pulse duration in the nanosecond regime is critical to minimize thermal penetration and prevent any carbonization of the delicate oak surface.
+
+- **[ENVIRONMENTAL]** This process aligns with stringent EU environmental directives by completely eliminating the need for chemical solvents and reducing hazardous waste generation associated with traditional stripping methods. The technology significantly lowers the ecological footprint of restoration and manufacturing operations, supporting sustainable industrial practices.
+
+- **[SAFETY]** Strict adherence to European standard EN 60825-1 for laser product safety is mandatory, requiring Class 1 enclosures or appropriate personal protective equipment including wavelength-specific eyewear. Proper fume extraction systems are also essential to mitigate inhalation risks from the aerosolized particulates generated during the ablation process.
+
+- **[CHALLENGES]** The primary difficulty involves the heterogeneous density between earlywood and latewood growth rings, which can lead to non-uniform cleaning and potential differential etching if parameters are not meticulously controlled. This is mitigated through advanced scanning systems and real-time process monitoring to ensure consistent energy distribution across the entire surface.

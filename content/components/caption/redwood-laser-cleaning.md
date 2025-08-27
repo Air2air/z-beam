@@ -1,0 +1,2 @@
+**Redwood** surface (left) with embedded soot and organic deposits from environmental exposure.
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 1.2 J/cm² fluence and 100 ns pulse width, achieving precise ablation without substrate damage.

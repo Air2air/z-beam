@@ -1,0 +1,4 @@
+---
+symbol: "QU"
+materialType: "stone"
+---

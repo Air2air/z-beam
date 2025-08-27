@@ -1,0 +1,4 @@
+---
+symbol: "SH"
+materialType: "stone"
+---

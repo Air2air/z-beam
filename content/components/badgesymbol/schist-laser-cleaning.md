@@ -1,0 +1,4 @@
+---
+symbol: "SC"
+materialType: "stone"
+---

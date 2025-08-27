@@ -32,22 +32,13 @@ jest.mock('marked', () => ({
   marked: jest.fn((content) => `<p>${content}</p>`)
 }));
 
+// Import after setting up mocks
+let getAllSlugs, loadComponent, loadAllComponents, loadMetadata, loadPageData, loadArticle, loadAllArticles;
+
 const fs = require('fs/promises');
 const { existsSync } = require('fs');
 
-// Import the module after mocking
-const {
-  getAllSlugs,
-  loadComponent,
-  loadAllComponents,
-  loadMetadata,
-  loadPageData,
-  loadArticle,
-  loadAllArticles
-} = require('../../app/utils/contentAPI');
-
-
-// Fixed mock setup for contentAPI tests
+// Fixed mock setup for contentAPI tests  
 const mockFs = {
   readFile: jest.fn(),
   readdir: jest.fn(),
@@ -58,14 +49,15 @@ const mockFs = {
     jest.clearAllMocks();
     
     // Mock existsSync to return true for key directories
-    this.existsSync.mockImplementation((dirPath) => {
+    existsSync.mockImplementation((dirPath) => {
       return dirPath.includes('frontmatter') || 
              dirPath.includes('metatags') || 
-             dirPath.includes('bullets');
+             dirPath.includes('bullets') ||
+             dirPath.includes('content');
     });
     
     // Mock fs.readdir with proper responses
-    this.readdir.mockImplementation((dirPath) => {
+    fs.readdir.mockImplementation((dirPath) => {
       if (dirPath.includes('frontmatter')) {
         return Promise.resolve(['article1.md', 'article2.md', 'not-markdown.txt']);
       }
@@ -79,7 +71,7 @@ const mockFs = {
     });
     
     // Mock fs.readFile with proper content
-    this.readFile.mockImplementation((filePath) => {
+    fs.readFile.mockImplementation((filePath) => {
       if (filePath.includes('test-slug')) {
         return Promise.resolve(`---
 title: Test Title
@@ -87,7 +79,13 @@ category: test
 ---
 Test content`);
       }
-      return Promise.resolve('');
+      if (filePath.includes('cached-slug')) {
+        return Promise.resolve(`---
+title: Cached
+---
+Cached content`);
+      }
+      return Promise.resolve('Content only');
     });
     
     // Mock safeMatterParse
@@ -99,28 +97,43 @@ Test content`);
           content: 'Test content'
         };
       }
+      if (content.includes('Cached')) {
+        return {
+          data: { title: 'Cached' },
+          content: 'Cached content'
+        };
+      }
       return { data: {}, content: content };
     });
   }
 };
 
-// Use consistent mock reference
-const mockExistsSync = mockFs.existsSync;
-
-// Mock the fs modules
+// Mock the fs modules properly
 jest.doMock('fs/promises', () => mockFs);
 jest.doMock('fs', () => ({ existsSync: mockFs.existsSync }));
 
 describe('Content API Utils', () => {
+  beforeAll(() => {
+    // Import the module after all mocks are set up
+    const contentAPI = require('../../app/utils/contentAPI');
+    getAllSlugs = contentAPI.getAllSlugs;
+    loadComponent = contentAPI.loadComponent;
+    loadAllComponents = contentAPI.loadAllComponents;
+    loadMetadata = contentAPI.loadMetadata;
+    loadPageData = contentAPI.loadPageData;
+    loadArticle = contentAPI.loadArticle;
+    loadAllArticles = contentAPI.loadAllArticles;
+  });
+
   beforeEach(() => {
     mockFs.setupMocks();
   });
 
   describe('getAllSlugs', () => {
     test('should return unique slugs from all component directories', async () => {
-      mockExistsSync
+      existsSync
         .mockReturnValueOnce(true)  // frontmatter dir
-        .mockReturnValueOnce(true)  // metatags dir
+        .mockReturnValueOnce(true)  // metatags dir  
         .mockReturnValueOnce(false) // content dir (doesn't exist)
         .mockReturnValueOnce(true); // bullets dir
 
@@ -129,7 +142,6 @@ describe('Content API Utils', () => {
         .mockResolvedValueOnce(['article2.md', 'article3.md'])
         .mockResolvedValueOnce(['article1.md', 'article4.md']);
 
-      const { getAllSlugs } = require('../../app/utils/contentAPI');
       const result = await getAllSlugs();
 
       expect(result).toEqual(expect.arrayContaining(['article1', 'article2', 'article3', 'article4']));

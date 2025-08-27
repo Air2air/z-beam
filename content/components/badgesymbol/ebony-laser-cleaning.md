@@ -1,0 +1,4 @@
+---
+symbol: "EB"
+materialType: "wood"
+---

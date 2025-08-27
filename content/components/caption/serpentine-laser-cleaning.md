@@ -1,0 +1,2 @@
+**Serpentine** mineral specimen (left) exhibiting tenacious biological growth and iron oxide staining within its characteristic fibrous structure.  
+**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm² fluence and 100 ns pulse duration, achieving precise contaminant ablation without damaging the underlying phyllosilicate matrix.

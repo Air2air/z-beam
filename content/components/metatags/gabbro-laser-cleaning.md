@@ -6,7 +6,7 @@ meta_tags:
   - name: keywords
     content: "gabbro, gabbro stone, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Sarah Chen"
+    content: "Dr. Elena Rodriguez"
   - name: category
     content: "stone"
   - name: robots

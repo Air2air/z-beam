@@ -1,0 +1,2 @@
+**Walnut** surface (left) before cleaning, showing accumulated organic residues and embedded particulate contamination.  
+**After laser cleaning** (right) precise ablation of surface deposits using a 1064 nm Nd:YAG laser at 0.8 J/cm² fluence and 100 ns pulse duration, preserving the delicate wood parenchyma.

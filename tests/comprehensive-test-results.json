@@ -1,11 +1,11 @@
 {
   "preFixState": {
-    "timestamp": "2025-08-26T20:54:39.499Z",
+    "timestamp": "2025-08-27T02:11:54.156Z",
     "fileCount": 98,
     "componentCount": 38
   },
   "postFixState": {
-    "timestamp": "2025-08-26T20:55:22.487Z",
+    "timestamp": "2025-08-27T02:12:32.888Z",
     "fileCount": 98,
     "componentCount": 38
   },
@@ -2179,7 +2179,7 @@
     },
     "build": {
       "status": "PASSED",
-      "buildTime": 25482,
+      "buildTime": 23194,
       "optimizations": {
         "score": 6,
         "details": {
@@ -2222,7 +2222,7 @@
       "output": "🎬 HERO COMPONENT IMAGE ENCODING TEST\n====================================\n\n🚀 Starting Hero Image Encoding Test Suite...\n\n🔍 Testing URL encoding functionality...\n\n📋 Testing: Parentheses in filename\n  ❌ FAIL: Should encode parentheses for CSS background-image\n     Input: \"/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg\"\n     Expected: \"/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg\"\n     Actual: \"/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg\"\n\n📋 Testing: No special characters\n  ✅ PASS: Should leave normal filenames unchanged\n     Input: \"/images/aluminum-laser-cleaning-hero.jpg\"\n     Output: \"/images/aluminum-laser-cleaning-hero.jpg\"\n\n📋 Testing: Multiple parentheses\n  ❌ FAIL: Should encode all parentheses\n     Input: \"/images/test-(group)-(variant)-hero.jpg\"\n     Expected: \"/images/test-%28group%29-%28variant%29-hero.jpg\"\n     Actual: \"/images/test-(group)-(variant)-hero.jpg\"\n\n📋 Testing: Empty string\n  ✅ PASS: Should handle empty strings gracefully\n     Input: \"\"\n     Output: null\n\n📋 Testing: Null input\n  ✅ PASS: Should handle null input gracefully\n     Input: null\n     Output: null\n\n📊 URL Encoding Test Summary:\n   Passed: 3\n   Failed: 2\n   Total: 5\n\n🔍 Testing Hero component integration...\n\n📋 Testing: Component file exists and contains encoding logic\n  ❌ FAIL: Hero component missing parentheses encoding logic\n📋 Testing: TypeScript compilation with Hero component\n  ✅ PASS: Hero component compiles without TypeScript errors\n📋 Testing: Test image files with parentheses exist\n  ⚠️  WARN: Test image with parentheses not found\n\n📊 Integration Test Summary:\n   Passed: 1\n   Failed: 1\n\n🔍 Testing for regressions...\n\n📋 Testing: Normal image paths without special characters\n  ✅ PASS: Normal image paths unchanged\n📋 Testing: Null/undefined image paths handled gracefully\n  ✅ PASS: Null/undefined paths handled gracefully\n📋 Testing: Component props interface unchanged\n  ✅ PASS: Component props interface preserved\n\n📊 Regression Test Summary:\n   Passed: 3\n   Failed: 0\n\n📊 HERO IMAGE ENCODING TEST REPORT\n==================================\n\n🔍 URL Encoding Tests:\n   Total: 5\n   Passed: 3\n   Failed: 2\n   Errors: 0\n\n🔍 Integration Tests:\n   Total: 3\n   Passed: 1\n   Failed: 1\n   Warnings: 1\n   Errors: 0\n\n🔍 Regression Tests:\n   Total: 3\n   Passed: 3\n   Failed: 0\n   Errors: 0\n\n🏆 Overall Status: FAIL\n\n⚠️  Issues detected in Hero image encoding:\n   • 2 URL encoding test(s) failed\n   • 1 integration test(s) failed\n\n📁 Detailed results saved to: /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/tests/hero-image-encoding-test-results.json\n\n❌ Hero image encoding test suite completed with issues!\n"
     },
     "overallStatus": "GOOD",
-    "timestamp": "2025-08-26T20:55:22.493Z",
+    "timestamp": "2025-08-27T02:12:32.893Z",
     "fixesApplied": 0
   }
 }

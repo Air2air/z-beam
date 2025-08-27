@@ -2,11 +2,11 @@
 title: Laser Cleaning Flint - Technical Guide for Optimal Processing
 meta_tags:
   - name: description
-    content: "Technical overview of Flint laser cleaning applications, including 2.65 g/cm³ density values, optimal 1064nm wavelengths, and industrial conservation applications."
+    content: "Technical overview of Flint laser cleaning applications, including 2.65 g/cm³ density values, optimal 1064nm wavelengths, and industrial stone restoration applications."
   - name: keywords
     content: "flint, flint stone, laser ablation, laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters, thermal processing, surface restoration"
   - name: author
-    content: "Dr. Elena Rodriguez"
+    content: "Dr. Sarah Johnson"
   - name: category
     content: "stone"
   - name: robots

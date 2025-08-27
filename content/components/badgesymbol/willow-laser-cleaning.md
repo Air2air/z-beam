@@ -1,0 +1,4 @@
+---
+symbol: "WI"
+materialType: "wood"
+---

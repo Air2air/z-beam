@@ -5,4 +5,4 @@
 | Category | Stone |
 | Material Type | Stone |
 | Tensile Strength | N/A |
-| Thermal Conductivity | 1.7-3.9… |
+| Thermal Conductivity | 2.1-3.6… |

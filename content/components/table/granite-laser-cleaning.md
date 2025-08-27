@@ -1,10 +1,10 @@
 ## Material Properties
 | Property | Value | Unit |
 | --- | --- | --- |
-| Density | 2.6 - 2.8 | g/cm³ |
+| Density | 2.6 - 2.7 | g/cm³ |
 | Hardness | 6 - 7 | Mohs |
-| Thermal Conductivity | 2.5 - 3.5 | W/m·K |
-| Melting Point | 1215 - 1260 | °C |
+| Thermal Conductivity | 2.8 - 3.5 | W/m·K |
+| Specific Heat Capacity | 0.79 | kJ/kg·K |
 
 ## Material Grades and Purity
 | Property | Value | Unit |
@@ -18,22 +18,22 @@
 | Property | Value | Unit |
 | --- | --- | --- |
 | Cleaning Efficiency | 90 - 95 | % |
-| Surface Roughness | 1 - 3 | µm |
-| Material Removal Rate | 0.1 - 0.5 | mm³/s |
+| Surface Roughness | 1.5 - 3.0 | µm |
+| Ablation Rate | 0.5 - 1.0 | µm/pulse |
 
 ## Standards and Compliance
 | Property | Value | Unit |
 | --- | --- | --- |
-| ASTM Standard | C616 | - |
-| ISO Standard | 13006 | - |
-| EN Standard | 12057 | - |
+| ASTM C615 | Compliant | - |
+| EN 12440 | Compliant | - |
+| ISO 13006 | Compliant | - |
 
 ## Environmental Data
 | Property | Value | Unit |
 | --- | --- | --- |
 | Dust Emission | < 10 | mg/m³ |
-| Noise Level | 70 - 80 | dB |
-| Energy Consumption | 1 - 2 | kW |
+| Noise Level | 70 - 85 | dB |
+| Energy Consumption | 1.5 - 2.5 | kWh/m² |
 
 ## Laser Cleaning Parameters
 | Property | Value | Unit |

@@ -37,6 +37,10 @@ jobs:
       if: github.event.inputs.skip_build != 'true'
       run: npm ci
     
+    - name: Run Predeploy Validation
+      if: github.event.inputs.skip_build != 'true'
+      run: npm run predeploy
+    
     - name: Build application
       if: github.event.inputs.skip_build != 'true'
       run: npm run build
