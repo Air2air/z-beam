@@ -1,5 +1,5 @@
 // app/services/page.tsx
-import { Layout } from "@/app/components/Layout/Layout";
+import { Layout } from "../components/Layout/Layout";
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';

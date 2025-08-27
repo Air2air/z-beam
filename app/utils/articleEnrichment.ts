@@ -1,4 +1,4 @@
-import { Article, SearchableArticle } from '@/types/core';
+import { Article, SearchableArticle } from '../../types/core';
 
 // Define patterns for tag inference
 const TAG_PATTERNS = [
@@ -218,8 +218,76 @@ export function enrichArticle(article: Article): SearchableArticle {
     }
   }
   
-  // DEDUPLICATE AND ENSURE HREF
-  enriched.tags = [...new Set(enriched.tags)];
+  // ENHANCED TAG INFERENCE MAPPINGS
+  const industryTagMappings: Record<string, string> = {
+    'semiconductor': 'Electronics',
+    'Semiconductor': 'Electronics'
+  };
+
+  // Apply tag mappings but keep originals too
+  const mappedTags = enriched.tags.map(tag => industryTagMappings[tag] || tag);
+  enriched.tags.push(...mappedTags);
+
+  // Ensure specific industry tags are added based on content
+  if (enriched.tags.some(tag => typeof tag === 'string' && tag.toLowerCase().includes('semiconductor'))) {
+    enriched.tags.push('Electronics');
+  }
+  
+  // Medical inference - more comprehensive
+  if (enriched.tags.some(tag => typeof tag === 'string' && (
+    tag.toLowerCase().includes('biomedical') || 
+    tag.toLowerCase().includes('medical') ||
+    tag.toLowerCase().includes('biocompatible') ||
+    tag.toLowerCase().includes('surgical') ||
+    tag.toLowerCase().includes('implant')
+  ))) {
+    enriched.tags.push('Medical');
+  }
+  
+  // Industrial inference 
+  if (enriched.tags.some(tag => typeof tag === 'string' && (
+    tag.toLowerCase().includes('engineering') || 
+    tag.toLowerCase().includes('quality') ||
+    tag.toLowerCase().includes('industrial') ||
+    tag.toLowerCase().includes('manufacturing')
+  ))) {
+    enriched.tags.push('Industrial');
+  }
+  
+  // Surface Treatment inference - check slug, title, and tags
+  const allText = `${enriched.slug || ''} ${enriched.title || ''} ${enriched.description || ''} ${enriched.tags.join(' ')}`.toLowerCase();
+  if (allText.includes('cleaning') || allText.includes('surface treatment') || allText.includes('surface')) {
+    enriched.tags.push('Surface Treatment');
+  }
+  
+  // Precision Cleaning inference - combination patterns
+  if (allText.includes('precision') && allText.includes('cleaning')) {
+    enriched.tags.push('Precision Cleaning');
+  }
+  
+  // Contaminant Removal inference
+  if (allText.includes('contaminant') && allText.includes('removal')) {
+    enriched.tags.push('Contaminant Removal');
+  }
+
+  // DEDUPLICATE AND ENSURE HREF - remove duplicates (case-insensitive, prefer capitalized)
+  const tagMap = new Map<string, string>();
+  enriched.tags.forEach(tag => {
+    // Only process string tags
+    if (typeof tag === 'string') {
+      const lowerTag = tag.toLowerCase();
+      if (!tagMap.has(lowerTag)) {
+        tagMap.set(lowerTag, tag);
+      } else {
+        // If we have a duplicate, prefer the capitalized version
+        const existing = tagMap.get(lowerTag)!;
+        if (tag.charAt(0) === tag.charAt(0).toUpperCase() && existing.charAt(0) !== existing.charAt(0).toUpperCase()) {
+          tagMap.set(lowerTag, tag);
+        }
+      }
+    }
+  });
+  enriched.tags = Array.from(tagMap.values());
   
   // Ensure href is set - critical for navigation
   if (!enriched.href) {

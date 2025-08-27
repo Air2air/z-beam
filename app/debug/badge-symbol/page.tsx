@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { BadgeSymbol } from '@/app/components/BadgeSymbol/BadgeSymbol';
-import { DebugLayout } from '@/app/components/Debug/DebugLayout';
+import { BadgeSymbol } from '../../components/BadgeSymbol/BadgeSymbol';
+import { DebugLayout } from '../../components/Debug/DebugLayout';
 
 export default function BadgeSymbolDebugPage() {
   const [materials, setMaterials] = useState<any[]>([]);

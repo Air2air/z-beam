@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { logger } from '@/app/utils/logger';
+import { useState, useEffect } from 'react';
+import { logger } from '../../utils/logger';
 
 // This component helps verify if a given string would be a valid frontmatter name
 export function FrontmatterNameChecker() {

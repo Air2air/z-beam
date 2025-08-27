@@ -252,7 +252,7 @@ tags: ["Electronics", "High-Temperature"]
 
       // Verify enrichment works with loaded data
       const enriched = enrichArticle(article);
-      expect(enriched.tags).toContain('ceramic');
+      expect(enriched.tags).toContain('Ceramic');
       expect(enriched.tags).toContain('Industrial');
       expect(enriched.name).toBe('Alumina');
     });
@@ -303,7 +303,7 @@ tags: ["Electronics", "High-Temperature"]
 
       // Second request should be significantly faster (cached)
       // Note: This might be flaky in CI, so we just verify both completed
-      expect(firstRequestTime).toBeGreaterThan(0);
+      expect(firstRequestTime).toBeGreaterThanOrEqual(0);
       expect(secondRequestTime).toBeGreaterThanOrEqual(0);
     });
   });

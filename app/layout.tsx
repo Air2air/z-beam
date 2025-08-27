@@ -1,10 +1,10 @@
 // app/layout.tsx
 import "./css/global.css";
 // Using a generic type since Metadata isn't exported correctly from next
-import { GeistSans, GeistMono } from "geist/font";
+// import { GeistSans, GeistMono } from "geist/font";
 import { Navbar } from "./components/Layout/nav";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+// import { Analytics } from "@vercel/analytics/react";
+// import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Layout/footer";
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} dark scroll-smooth`}
+      className="dark scroll-smooth"
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -55,8 +55,8 @@ export default function RootLayout({
           </main>
           <Footer />
         </ErrorBoundary>
-        <Analytics />
-        <SpeedInsights />
+        {/* <Analytics /> */}
+        {/* <SpeedInsights /> */}
       </body>
     </html>
   );

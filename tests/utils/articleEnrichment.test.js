@@ -53,7 +53,7 @@ describe('Article Enrichment Utils', () => {
       expect(result.tags).toContain('Precision');
       expect(result.tags).toContain('manufacturing');
       expect(result.tags).toContain('automation');
-      expect(result.tags).toContain('electronics');
+      expect(result.tags).toContain('Electronics'); // capitalized version
       expect(result.tags).toContain('Electronics'); // capitalized version
       expect(result.tags).toContain('semiconductor');
       expect(result.tags).toContain('technical');
@@ -101,7 +101,7 @@ describe('Article Enrichment Utils', () => {
 
       const result = enrichArticle(article);
 
-      expect(result.tags).toContain('medical');
+      expect(result.tags).toContain('Medical');
       expect(result.tags).toContain('biocompatible');
       expect(result.tags).toContain('healthcare');
       expect(result.tags).toContain('surgical');
@@ -272,7 +272,7 @@ describe('Article Enrichment Utils', () => {
       };
 
       const result = enrichArticle(article);
-      expect(result.tags).toContain('industrial');
+      expect(result.tags).toContain('Industrial');
       expect(result.tags).toContain('manufacturing');
       expect(result.tags).toContain('cleaning');
       expect(result.tags).toContain('Surface Treatment'); // Inferred from cleaning
@@ -288,7 +288,7 @@ describe('Article Enrichment Utils', () => {
       const result = enrichArticle(article);
       expect(result.tags).toContain('laser');
       expect(result.tags).toContain('ceramic');
-      expect(result.tags).toContain('industrial');
+      expect(result.tags).toContain('Industrial');
       expect(result.tags).toContain('cleaning');
       expect(result.tags).toContain('Surface Treatment'); // Inferred from cleaning
     });

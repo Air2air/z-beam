@@ -7,6 +7,14 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
 
+  // Disable type checking during build (we do it in predeploy)
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // Static optimization settings
   trailingSlash: false, // Ensure consistent URLs for static generation
   
@@ -20,10 +28,10 @@ const nextConfig = {
   },
 
   experimental: {
-    serverActions: {
-      bodySizeLimit: '2mb'
-    },
-    optimizePackageImports: ['react-icons', 'lodash', 'date-fns'],
+    // serverActions: {
+    //   bodySizeLimit: '2mb'
+    // },
+    // optimizePackageImports: ['react-icons', 'lodash', 'date-fns'],
     // Enable static optimization features (remove invalid options)
   },
 

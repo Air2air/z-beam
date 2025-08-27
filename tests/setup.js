@@ -1,24 +1,69 @@
 
+// Enhanced test setup for Next.js with component testing
+require('@testing-library/jest-dom');
+
+// Mock the marked library to handle ESM import issues
+jest.mock('marked', () => ({
+  __esModule: true,
+  marked: jest.fn((markdown) => `<p>${markdown}</p>`),
+  default: jest.fn((markdown) => `<p>${markdown}</p>`),
+}));
+
+// Mock Next.js router
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '/',
+      query: {},
+      asPath: '/',
+      push: jest.fn(),
+      replace: jest.fn(),
+      reload: jest.fn(),
+      back: jest.fn(),
+      prefetch: jest.fn().mockResolvedValue(undefined),
+      beforePopState: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn(),
+        emit: jest.fn(),
+      },
+    };
+  },
+}));
+
+// Mock Next.js Image component
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (props) => {
+    const React = require('react');
+    return React.createElement('img', props);
+  },
+}));
+
+// Mock Next.js dynamic imports
+jest.mock('next/dynamic', () => () => {
+  const DynamicComponent = () => null;
+  DynamicComponent.displayName = 'LoadableComponent';
+  DynamicComponent.preload = jest.fn();
+  return DynamicComponent;
+});
+
 // Enhanced React cache mock for Jest testing
 jest.mock('react', () => {
   const actualReact = jest.requireActual('react');
   return {
     ...actualReact,
     cache: jest.fn((fn) => {
-      // Return the function itself for testing environment
       fn.displayName = 'CachedFunction';
       return fn;
     })
   };
 });
 
-// tests/setup.js
-// Jest setup file for global test configuration
-
-// Mock Next.js modules that aren't available in test environment
+// Mock Next.js cache
 jest.mock('next/cache', () => ({
   cache: (fn) => {
-    // Simple cache implementation for tests
     const cache = new Map();
     const cachedFn = (...args) => {
       const key = JSON.stringify(args);
@@ -34,22 +79,25 @@ jest.mock('next/cache', () => ({
   }
 }));
 
-// Mock marked for tests
-jest.mock('marked', () => ({
-  marked: jest.fn((content) => `<p>${content}</p>`)
+// Mock environment variables
+process.env.NODE_ENV = 'test';
+process.env.NEXT_PUBLIC_VERCEL_URL = 'localhost:3000';
+
+// Global test utilities
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn(),
 }));
 
-// Global test setup
-global.console = {
-  ...console,
-  // Suppress console.log in tests unless explicitly needed
-  log: jest.fn(),
-  warn: jest.fn(),
-  error: jest.fn()
-};
+// Mock IntersectionObserver
+global.IntersectionObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  disconnect: jest.fn(),
+  unobserve: jest.fn(),
+}));
 
-// Setup fetch mock if needed for integration tests
-global.fetch = jest.fn();
-
-// Mock process.env for tests
-process.env.NODE_ENV = 'test';
+// Cleanup after each test
+afterEach(() => {
+  jest.clearAllMocks();
+});

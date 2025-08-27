@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import { getArticle } from "@/app/utils/contentAPI"; // Updated to use contentAPI
-import { Layout } from "@/app/components/Layout/Layout";
-import { createMetadata, ArticleMetadata } from "@/app/utils/metadata";
-import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
-import { getAllArticleSlugs } from "@/app/utils/contentUtils";
+import { getArticle } from "../utils/contentAPI"; // Updated to use contentAPI
+import { Layout } from "../components/Layout/Layout";
+import { createMetadata, ArticleMetadata } from "../utils/metadata";
+import { getTagsContentWithMatchCounts } from "../utils/tags";
+import { getAllArticleSlugs } from "../utils/contentUtils";
 
 // Force static generation for all article pages
 export const dynamic = 'force-static';

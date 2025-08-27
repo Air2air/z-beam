@@ -1,5 +1,5 @@
 // app/utils/badgeUtils.ts
-import { MaterialType, BadgeData } from '@/types/core';
+import { MaterialType, BadgeData } from '../../types/core';
 
 /**
  * Maps material types to colors for badges

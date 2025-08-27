@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { logger } from '@/app/utils/logger';
+import { logger } from '../../utils/logger';
 
 interface FrontmatterItem {
   slug: string;

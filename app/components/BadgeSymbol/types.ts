@@ -5,6 +5,6 @@ export type {
   BadgeSymbolData, 
   BadgeVariant,
   BadgeDisplayProps 
-} from '@/types/core';
+} from '../../../types/core';
 
-export type { BadgeSymbolProps } from '@/types/components';
+export type { BadgeSymbolProps } from '../../../types/components';

@@ -1,26 +1,56 @@
-module.exports = {
+const nextJest = require('next/jest');
+
+const createJestConfig = nextJest({
+  dir: './',
+});
+
+const customJestConfig = {
+  displayName: 'Next.js Testing Framework',
   testEnvironment: "node",
-  roots: ["<rootDir>/tests"],
-  testMatch: [
-    "**/__tests__/**/*.{js,jsx,ts,tsx}",
-    "**/*.(test|spec).{js,jsx,ts,tsx}"
-  ],
-  transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  },
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/app/$1"
-  },
   setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
-  testTimeout: 30000,
+  moduleNameMapper: {
+    "^@/(.*)$": "<rootDir>/app/$1",
+    "^@components/(.*)$": "<rootDir>/app/components/$1",
+    "^@utils/(.*)$": "<rootDir>/app/utils/$1",
+    "^marked$": "<rootDir>/tests/__mocks__/marked.js"
+  },
+  transformIgnorePatterns: [
+    "node_modules/(?!(marked)/)"
+  ],
   collectCoverageFrom: [
-    "app/utils/**/*.{js,ts}",
-    "app/components/**/*.{js,ts,tsx}",
+    "app/**/*.{js,jsx,ts,tsx}",
     "!app/**/*.d.ts",
-    "!app/**/node_modules/**"
+    "!app/**/types/**",
+    "!app/api/**",
+    "!**/*.config.js",
+    "!**/node_modules/**"
+  ],
+  coverageReporters: [
+    "text",
+    "lcov",
+    "html"
   ],
   coverageDirectory: "coverage",
-  coverageReporters: ["text", "lcov", "html"],
-  verbose: true
+  testMatch: [
+    "<rootDir>/tests/**/*.test.{js,jsx,ts,tsx}",
+    "<rootDir>/tests/**/*.spec.{js,jsx,ts,tsx}"
+  ],
+  testPathIgnorePatterns: [
+    "<rootDir>/.next/",
+    "<rootDir>/node_modules/"
+  ],
+  collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      statements: 10,
+      branches: 10,
+      functions: 10,
+      lines: 10
+    }
+  },
+  verbose: true,
+  maxWorkers: "50%",
+  testTimeout: 10000
 };
+
+module.exports = createJestConfig(customJestConfig);

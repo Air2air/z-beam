@@ -1,6 +1,6 @@
 // app/api/articles/[slug]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { getArticle } from '@/app/utils/contentAPI'; // Updated to use contentAPI
+import { getArticleBySlug } from '../../../utils/contentAPI';
 
 export async function GET(
   request: NextRequest,
@@ -17,7 +17,7 @@ export async function GET(
     }
 
     // Fetch the article data using the same function that List component uses
-    const article = await getArticle(slug);
+    const article = await getArticleBySlug(slug);
     
     if (!article) {
       return NextResponse.json(

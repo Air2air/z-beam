@@ -1,9 +1,9 @@
 // app/pages/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import { Layout } from "@/app/components/Layout/Layout";
-import { createMetadata, ArticleMetadata } from "@/app/utils/metadata";
-import { loadPageData, getAllSlugs } from "@/app/utils/contentAPI";
-import { logger } from "@/app/utils/logger";
+import { Layout } from "../../components/Layout/Layout";
+import { createMetadata, ArticleMetadata } from "../../utils/metadata";
+import { loadPageData, getAllSlugs } from "../../utils/contentAPI";
+import { logger } from "../../utils/logger";
 
 // Define params as a Promise for Next.js 15
 interface PageProps {

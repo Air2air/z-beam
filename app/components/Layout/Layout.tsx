@@ -10,9 +10,9 @@ import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { Hero } from '../Hero/Hero';
 import { Title } from '../Title/Title';
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import { parseAuthorContent } from '@/app/utils/authorParser';
-import { ArticleMetadata, BadgeSymbolData } from '@/types/core';
-import { ComponentData } from '@/app/utils/contentAPI';
+import { parseAuthorContent } from '../../utils/authorParser';
+import { ArticleMetadata, BadgeSymbolData } from '../../../types/core';
+import { ComponentData } from '../../utils/contentAPI';
 
 // Update component order to include propertiestable, author, and tags
 const COMPONENT_ORDER = [

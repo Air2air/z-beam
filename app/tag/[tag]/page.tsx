@@ -1,7 +1,7 @@
 // app/tag/[tag]/page.tsx - Simplified for build
-import { getArticlesWithTags } from "@/app/utils/tags";
+import { getArticlesWithTags } from "../../utils/tags";
 import { enrichArticles } from "../../utils/articleEnrichment";
-import { SearchResults } from "@/app/components/SearchResults/SearchResults";
+import { SearchResults } from "../../components/SearchResults/SearchResults";
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';

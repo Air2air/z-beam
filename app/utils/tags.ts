@@ -6,7 +6,7 @@ import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
 import { cache } from 'react';
-import { Article } from '@/types/core';
+import { Article } from '../../types/core';
 import { loadAllArticles } from './contentAPI';
 import { logger } from './logger';
 

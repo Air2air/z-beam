@@ -2,8 +2,8 @@
 import "./styles.scss";
 import React from "react";
 import { Card } from "../Card/Card";
-import { /* cn */ } from "@/app/utils/helpers";
-import { getArticle, loadComponent } from "@/app/utils/contentAPI"; // Updated to use contentAPI
+import { /* cn */ } from "../../utils/helpers";
+import { getArticle, loadComponent } from "../../utils/contentAPI"; // Updated to use contentAPI
 import { MaterialType } from "@/types/core";
 
 // Helper function to safely cast material types

@@ -4,10 +4,19 @@
  * Root Directory Cleanup Script
  * 
  * Safely removes common dead/outdated files from the project root:
- * - Completed documentation files (*_COMPLETE.md, *_SUMMARY.md)
+ * - Documentation files (*_COMPLETE.md, *_SUMMARY.md, *_ASSESSMENT.md, *_FINAL.md, *_IMPROVEMENTS.md)
+ * - Project documentation (GITHUB_ACTIONS_*.md, PACKAGE_SCRIPTS_*.md, PREDEPLOY_*.md, VERCEL_*.md)
  * - Progress/analysis documentation (*_PROGRESS.md, *_ANALYSIS.md, *_REPORT.md)
  * - Legacy test files in root (test-*.js)
+ * - Debug scripts (debug-*.js) 
+ * - Cleanup utilities (cleanup-*.js, cleanup-*.sh, except cleanup-root.js)
+ * - Author system files (author-*.js, evaluate-*.js, final-*.js)
+ * - Legacy predeploy versions (streamlined-predeploy*.js, adaptive-predeploy*.js)
+ * - Predeploy artifacts (predeploy-*.json, terminal-insights.json)
  * - Build artifacts (*.tsbuildinfo)
+ * - Backup files (*.backup, *.bak, *.orig, *.log)
+ * 
+ * Protected files include essential configs, current predeploy system, and core utilities.
  * 
  * Usage: npm run cleanup:root
  */
@@ -21,15 +30,33 @@ const PROTECTED_FILES = [
   'tailwind.config.js', 'tsconfig.json', 'tsconfig.prod.json', 
   'postcss.config.js', 'next-env.d.ts', 'vercel.json', '.env', 
   '.env.local', '.env.example', '.nvmrc', '.gitignore', 
-  '.eslintrc.json', 'stop-dev-server.sh', 'cleanup-root.js'
+  '.eslintrc.json', 'stop-dev-server.sh', 'cleanup-root.js',
+  'jest.config.js', 'intelligent-predeploy.js', 'terminal-log-monitor.js',
+  'production-build-validator.js', 'vercel-diagnostics.js'
 ];
 
 // Patterns for files to clean up
 const CLEANUP_PATTERNS = [
-  /.*_(COMPLETE|SUMMARY|PROGRESS|ANALYSIS|REPORT|EVALUATION|IMPLEMENTATION|PLAN)\.md$/i,
+  /.*_(COMPLETE|SUMMARY|PROGRESS|ANALYSIS|REPORT|EVALUATION|IMPLEMENTATION|PLAN|ASSESSMENT|FINAL|IMPROVEMENTS|STANDARDIZATION|CONSOLIDATION|GUIDE)\.md$/i,
   /^test-.*\.js$/,
   /.*\.tsbuildinfo$/,
-  /.*\.(backup|bak|orig|log)$/
+  /.*\.(backup|bak|orig|log)$/,
+  /^debug-.*\.js$/,
+  /^cleanup-.*\.js$/,
+  /^cleanup-.*\.sh$/,
+  /^author-.*\.js$/,
+  /^evaluate-.*\.js$/,
+  /^final-.*\.js$/,
+  /^remove-.*\.js$/,
+  /^streamlined-predeploy.*\.js$/,
+  /^adaptive-predeploy.*\.js$/,
+  /predeploy-.*\.json$/,
+  /terminal-insights\.json$/,
+  /^predeploy-self-optimizer\.js$/,
+  /^GITHUB_ACTIONS_.*\.md$/i,
+  /^PACKAGE_SCRIPTS_.*\.md$/i,
+  /^PREDEPLOY_.*\.md$/i,
+  /^VERCEL_.*\.md$/i
 ];
 
 function shouldCleanFile(filename) {

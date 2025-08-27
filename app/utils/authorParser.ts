@@ -1,10 +1,10 @@
 // app/utils/authorParser.ts
 // Simplified utility for parsing author content from markdown
 
-import { AuthorData } from '@/types/components/author';
+import { AuthorData } from '../../types/components/author';
 
 // Re-export for convenience
-export type { AuthorData } from '@/types/components/author';
+export type { AuthorData } from '../../types/components/author';
 
 /**
  * Parse author information from markdown content

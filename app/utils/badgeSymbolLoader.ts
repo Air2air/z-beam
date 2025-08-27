@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { BadgeSymbolData } from '@/types/core';
+import { BadgeSymbolData } from '../../types/core';
 
 /**
  * Load badge symbol data from the badgesymbol content folder

@@ -166,18 +166,15 @@ describe('Search Workflow Integration', () => {
         'biocompatible', // Keyword
         'surgical-grade', // Keyword
         'cleanroom', // Keyword
-        'ceramic', // Category
-        'Ceramic', // Capitalized category
+        'Ceramic', // Category (deduplicated to capitalized version)
         'alumina', // Subject
         'case-study', // Article type
-        'industrial', // From slug
+        'Industrial', // From slug (deduplicated to capitalized version)
         'laser', // From slug
         'cleaning', // From slug
         'precision', // From slug
         'manufacturing', // From slug
         'Surface Treatment', // Inferred from cleaning
-        'Ceramic', // Inferred from ceramic content
-        'Industrial', // Inferred from industrial content
         'Medical', // Inferred from medical content
         'Precision Cleaning', // Inferred from precision + cleaning
         'Contaminant Removal' // Inferred from contaminant removal

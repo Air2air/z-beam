@@ -1,9 +1,9 @@
 'use client';
 // app/debug/content/page.tsx
 
-import { DebugLayout } from '@/app/components/Debug/DebugLayout';
-import { FrontmatterDebug } from '@/app/components/Debug/FrontmatterDebug';
-import { FrontmatterNameChecker } from '@/app/components/Debug/FrontmatterNameChecker';
+import { DebugLayout } from '../../components/Debug/DebugLayout';
+import { FrontmatterDebug } from '../../components/Debug/FrontmatterDebug';
+import { FrontmatterNameChecker } from '../../components/Debug/FrontmatterNameChecker';
 import { useState } from 'react';
 
 export default function ContentDebugPage() {

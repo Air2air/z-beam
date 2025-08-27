@@ -1,5 +1,5 @@
 // app/components/Card/ServerCard.tsx
-import { getMaterialFrontmatter, getMaterialImagePath } from '@/app/utils/serverUtils';
+import { getMaterialFrontmatter, getMaterialImagePath } from '../../utils/serverUtils';
 import { Card } from './Card';
 
 interface ServerCardProps {

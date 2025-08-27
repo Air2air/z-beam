@@ -1,7 +1,7 @@
 // app/api/debug/route.ts
 import { NextResponse } from 'next/server';
-import { logger } from '@/app/utils/logger';
-import { debugTagSystem } from '@/app/utils/tagDebug';
+import { logger } from '../../utils/logger';
+import { debugTagSystem } from '../../utils/tagDebug';
 
 // This API serves debugging data for various system components
 export async function GET(request: Request) {

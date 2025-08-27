@@ -1,5 +1,5 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData as CoreBadgeData } from '@/types/core';
+import { MaterialType, BadgeData as CoreBadgeData } from '../../types/core';
 export function getMaterialColor(materialType?: string | MaterialType): string {
   if (!materialType) return "blue";
   
