@@ -1,1 +1,1 @@
-ablation, cleaning, laser, float-glass, sio2, automotive, manufacturing, alessandro-moretti
+float, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

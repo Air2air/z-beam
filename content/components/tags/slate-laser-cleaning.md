@@ -1,1 +1,1 @@
-slate, ablation, cleaning, laser, non-contact, construction, manufacturing, alessandro-moretti
+slate, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

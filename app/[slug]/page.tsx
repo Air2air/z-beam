@@ -96,7 +96,6 @@ export default async function ArticlePage({ params }: PageProps) {
         ...components.tags,
         config: {
           ...(components.tags.config || {}),
-          hideEmptyTags: true,
           articleMatchCount: tagCounts
         }
       };

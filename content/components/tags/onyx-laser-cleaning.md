@@ -1,1 +1,1 @@
-ablation, cleaning, laser, non-contact, onyx, aerospace, automotive, alessandro-moretti
+onyx, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

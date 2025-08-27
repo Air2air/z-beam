@@ -1,1 +1,1 @@
-ablation, cobalt, cleaning, laser, aerospace, manufacturing, non-contact, alessandro-moretti
+cobalt, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

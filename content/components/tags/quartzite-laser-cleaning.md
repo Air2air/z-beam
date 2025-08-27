@@ -1,1 +1,1 @@
-ablation, cleaning, laser, quartzite, sio2, aerospace, non-contact, alessandro-moretti
+quartzite, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

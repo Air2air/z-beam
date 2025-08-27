@@ -1,1 +1,1 @@
-bamboo, ablation, cleaning, laser, non-contact, manufacturing, construction, alessandro-moretti
+bamboo, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

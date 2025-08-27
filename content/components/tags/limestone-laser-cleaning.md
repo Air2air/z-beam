@@ -1,1 +1,1 @@
-limestone, ablation, cleaning, laser, non-contact, cultural-heritage, construction, alessandro-moretti
+limestone, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

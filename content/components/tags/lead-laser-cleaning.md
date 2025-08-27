@@ -1,1 +1,1 @@
-lead, ablation, cleaning, laser, non-contact, aerospace, nuclear, alessandro-moretti
+lead, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

@@ -1,1 +1,1 @@
-ablation, brass, cu-zn, cleaning, laser, automotive, manufacturing, alessandro-moretti
+brass, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

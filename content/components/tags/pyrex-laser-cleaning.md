@@ -1,1 +1,1 @@
-ablation, pyrex, cleaning, laser, non-contact, manufacturing, electronics, alessandro-moretti
+pyrex, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

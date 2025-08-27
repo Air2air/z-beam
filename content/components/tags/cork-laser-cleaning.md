@@ -1,1 +1,1 @@
-cork, ablation, cleaning, laser, non-contact, automotive, aerospace, alessandro-moretti
+cork, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

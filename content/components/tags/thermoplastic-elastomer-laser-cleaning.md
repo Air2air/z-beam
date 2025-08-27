@@ -1,1 +1,1 @@
-ablation, thermoplastic-elastomer, tpe, cleaning, laser, automotive, manufacturing, alessandro-moretti
+thermoplastic, restoration, heritage, matrix-degradation, surface-contamination, fiber-preservation, damage-free, alessandro-moretti

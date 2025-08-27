@@ -1,1 +1,1 @@
-rhodium, ablation, cleaning, laser, aerospace, jewelry, non-contact, alessandro-moretti
+rhodium, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

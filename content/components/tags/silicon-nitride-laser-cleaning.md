@@ -1,1 +1,1 @@
-silicon-nitride, ablation, cleaning, laser, electronics, automotive, non-contact, alessandro moretti
+silicon, restoration, heritage, firing-residue, contamination, precision, controlled, alessandro-moretti

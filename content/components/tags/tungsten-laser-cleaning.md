@@ -1,1 +1,1 @@
-tungsten, ablation, cleaning, laser, non-contact, aerospace, electronics, alessandro-moretti
+tungsten, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

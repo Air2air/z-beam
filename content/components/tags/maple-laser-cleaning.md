@@ -1,1 +1,1 @@
-maple, ablation, cleaning, laser, non-contact, aerospace, manufacturing, alessandro-moretti
+maple, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

@@ -1,1 +1,1 @@
-ablation, lead-crystal, pbo-sio2, cleaning, laser, heritage-conservation, non-contact, alessandro-moretti
+lead, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

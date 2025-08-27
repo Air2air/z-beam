@@ -1,1 +1,1 @@
-schist, mica, ablation, cleaning, laser, construction, non-contact, alessandro-moretti
+schist, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

@@ -1,1 +1,1 @@
-ablation, quartz-glass, sio2, cleaning, laser, semiconductor, non-contact, alessandro-moretti
+quartz, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

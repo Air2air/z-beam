@@ -1,1 +1,1 @@
-ablation, copper, cu, cleaning, laser, electronics, non-contact, alessandro-moretti
+copper, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

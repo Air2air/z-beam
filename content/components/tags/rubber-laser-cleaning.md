@@ -1,1 +1,1 @@
-rubber, ablation, cleaning, laser, automotive, manufacturing, non-contact, yi-chun lin
+rubber, restoration, heritage, matrix-degradation, surface-contamination, fiber-preservation, damage-free, alessandro-moretti

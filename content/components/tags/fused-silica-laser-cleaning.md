@@ -1,1 +1,1 @@
-ablation, fused-silica, sio2, cleaning, laser, aerospace, electronics, alessandro-moretti
+fused, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

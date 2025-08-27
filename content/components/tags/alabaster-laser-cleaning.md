@@ -1,1 +1,1 @@
-ablation, cleaning, laser, alabaster, cultural-heritage, non-contact, stone-conservation, alessandro-moretti
+alabaster, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

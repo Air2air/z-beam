@@ -1,1 +1,1 @@
-chalk, caco3, ablation, cleaning, laser, manufacturing, non-contact, alessandro-moretti
+chalk, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

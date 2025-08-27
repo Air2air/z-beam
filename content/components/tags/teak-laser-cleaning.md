@@ -1,1 +1,1 @@
-teak, ablation, cleaning, laser, aerospace, marine, non-contact, alessandro-moretti
+teak, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

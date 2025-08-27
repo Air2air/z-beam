@@ -1,1 +1,1 @@
-zinc, ablation, cleaning, laser, non-contact, automotive, manufacturing, alessandro-moretti
+zinc, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

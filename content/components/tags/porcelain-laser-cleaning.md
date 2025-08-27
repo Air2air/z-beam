@@ -1,1 +1,1 @@
-porcelain, ablation, cleaning, laser, non-contact, cultural-heritage, manufacturing, alessandro moretti
+porcelain, restoration, heritage, firing-residue, contamination, precision, controlled, alessandro-moretti

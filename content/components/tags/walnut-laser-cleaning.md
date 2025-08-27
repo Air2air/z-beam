@@ -1,1 +1,1 @@
-walnut, ablation, cleaning, laser, non-contact, manufacturing, food-processing, alessandro-moretti
+walnut, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

@@ -1,1 +1,1 @@
-basalt, ablation, cleaning, laser, non-contact, aerospace, construction, alessandro-moretti
+basalt, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

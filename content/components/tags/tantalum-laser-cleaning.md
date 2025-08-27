@@ -1,1 +1,1 @@
-ablation, cleaning, laser, tantalum, aerospace, electronics, non-contact, alessandro-moretti
+tantalum, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

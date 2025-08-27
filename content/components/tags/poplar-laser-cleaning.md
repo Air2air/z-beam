@@ -1,1 +1,1 @@
-ablation, cleaning, laser, poplar, woodworking, manufacturing, non-contact, alessandro-moretti
+poplar, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

@@ -1,1 +1,1 @@
-ablation, cleaning, laser, non-contact, manufacturing, aerospace, ash, alessandro-moretti
+ash, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

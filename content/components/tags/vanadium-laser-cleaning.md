@@ -1,1 +1,1 @@
-ablation, cleaning, laser, vanadium, aerospace, manufacturing, non-contact, alessandro-moretti
+vanadium, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

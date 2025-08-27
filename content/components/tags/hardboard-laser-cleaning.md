@@ -1,1 +1,1 @@
-hardboard, ablation, cleaning, laser, non-contact, manufacturing, woodworking, alessandro-moretti
+hardboard, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

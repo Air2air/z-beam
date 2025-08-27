@@ -1,1 +1,1 @@
-oak, ablation, cleaning, laser, non-contact, aerospace, automotive, alessandro-moretti
+oak, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

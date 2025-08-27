@@ -1,1 +1,1 @@
-ablation, stucco, cleaning, laser, aerospace, manufacturing, non-contact, alessandro-moretti
+stucco, restoration, heritage, efflorescence, biological-growth, preservation, gentle, alessandro-moretti

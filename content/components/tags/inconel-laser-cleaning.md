@@ -1,1 +1,1 @@
-ablation, cleaning, inconel, laser, aerospace, manufacturing, non-contact, alessandro-moretti
+inconel, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

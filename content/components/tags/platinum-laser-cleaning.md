@@ -1,1 +1,1 @@
-platinum, ablation, cleaning, laser, non-contact, aerospace, jewelry, alessandro-moretti
+platinum, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

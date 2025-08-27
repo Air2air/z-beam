@@ -1,1 +1,1 @@
-cherry, ablation, cleaning, laser, non-contact, aerospace, manufacturing, alessandro-moretti
+cherry, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

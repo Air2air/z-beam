@@ -1,1 +1,1 @@
-rosewood, ablation, cleaning, laser, non-contact, aerospace, restoration, alessandro-moretti
+rosewood, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

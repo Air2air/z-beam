@@ -1,1 +1,1 @@
-ebony, ablation, cleaning, laser, non-contact, aerospace, automotive, alessandro-moretti
+ebony, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

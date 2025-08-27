@@ -1,1 +1,1 @@
-soapstone, talc, mg3si4o10(oh)2, ablation, cleaning, laser, manufacturing, non-contact, alessandro-moretti
+soapstone, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

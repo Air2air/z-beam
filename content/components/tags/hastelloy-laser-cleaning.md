@@ -1,1 +1,1 @@
-ablation, cleaning, laser, hastelloy, aerospace, manufacturing, non-contact, alessandro-moretti
+hastelloy, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

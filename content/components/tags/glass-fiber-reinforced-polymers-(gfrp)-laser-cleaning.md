@@ -1,1 +1,1 @@
-ablation, cleaning, laser, gfrp, aerospace, automotive, non-contact, alessandro-moretti
+glass, restoration, heritage, matrix-degradation, surface-contamination, fiber-preservation, damage-free, alessandro-moretti

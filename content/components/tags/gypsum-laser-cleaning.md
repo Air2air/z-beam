@@ -1,1 +1,1 @@
-gypsum, ablation, cleaning, laser, non-contact, construction, cultural-heritage, alessandro-moretti
+gypsum, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

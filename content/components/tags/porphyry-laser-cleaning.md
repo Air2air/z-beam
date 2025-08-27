@@ -1,1 +1,1 @@
-ablation, cleaning, laser, porphyry, cultural-heritage, stone-conservation, non-contact, alessandro-moretti
+porphyry, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

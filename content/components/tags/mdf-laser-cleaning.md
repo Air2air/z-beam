@@ -1,1 +1,1 @@
-mdf, ablation, cleaning, laser, non-contact, manufacturing, woodworking, alessandro-moretti
+mdf, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

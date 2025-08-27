@@ -1,1 +1,1 @@
-ablation, urethane-composites, cleaning, laser, aerospace, automotive, non-contact, alessandro-moretti
+urethane, restoration, heritage, matrix-degradation, surface-contamination, fiber-preservation, damage-free, alessandro-moretti

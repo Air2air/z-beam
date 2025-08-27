@@ -1,1 +1,1 @@
-ablation, cleaning, laser, cmc, aerospace, energy, non-contact, alessandro-moretti
+ceramic, restoration, heritage, matrix-degradation, surface-contamination, fiber-preservation, damage-free, alessandro-moretti

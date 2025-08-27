@@ -1,1 +1,1 @@
-nickel, ablation, cleaning, laser, non-contact, aerospace, manufacturing, alessandro-moretti
+nickel, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

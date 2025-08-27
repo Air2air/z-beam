@@ -1,1 +1,1 @@
-plywood, ablation, cleaning, laser, non-contact, manufacturing, woodworking, alessandro-moretti
+plywood, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

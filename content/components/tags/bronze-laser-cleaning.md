@@ -1,1 +1,1 @@
-ablation, bronze, cu-sn, cleaning, laser, automotive, manufacturing, alessandro-moretti
+bronze, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

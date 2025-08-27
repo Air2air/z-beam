@@ -1,1 +1,1 @@
-ablation, cleaning, laser, shale, non-contact, manufacturing, cultural-heritage, alessandro-moretti
+shale, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

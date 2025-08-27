@@ -1,1 +1,1 @@
-rhenium, ablation, cleaning, laser, aerospace, electronics, non-contact, alessandro-moretti
+rhenium, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

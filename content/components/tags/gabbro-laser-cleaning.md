@@ -1,1 +1,1 @@
-ablation, cleaning, laser, gabbro, aerospace, manufacturing, non-contact, alessandro-moretti
+gabbro, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

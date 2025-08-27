@@ -107,7 +107,9 @@ export const loadAllComponents = cache(async (slug: string): Promise<{ [componen
     
     await Promise.all(
       componentTypes.map(async (type) => {
-        const componentData = await loadComponent(type, slug);
+        // Skip markdown conversion for tags since they're just comma-separated values
+        const shouldConvertMarkdown = type !== 'tags';
+        const componentData = await loadComponent(type, slug, { convertMarkdown: shouldConvertMarkdown });
         if (componentData) {
           components[type] = componentData;
         }
@@ -225,7 +227,9 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
  */
 export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: Record<string, unknown> } | null> => {
   return safeContentOperation(async () => {
-    const componentData = await loadComponent(type, slug, { convertMarkdown: true });
+    // Skip markdown conversion for tags since they're just comma-separated values
+    const shouldConvertMarkdown = type !== 'tags';
+    const componentData = await loadComponent(type, slug, { convertMarkdown: shouldConvertMarkdown });
     
     if (!componentData) {
       return null;

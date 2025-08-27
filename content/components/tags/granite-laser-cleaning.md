@@ -1,1 +1,1 @@
-granite, ablation, cleaning, laser, manufacturing, construction, non-contact, alessandro-moretti
+granite, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

@@ -1,1 +1,1 @@
-ablation, alumina, al2o3, cleaning, laser, aerospace, electronics, alessandro moretti
+alumina, restoration, heritage, firing-residue, contamination, precision, controlled, alessandro-moretti

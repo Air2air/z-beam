@@ -1,1 +1,1 @@
-germanium, ge, ablation, cleaning, laser, electronics, non-contact, alessandro-moretti
+germanium, restoration, heritage, particles, films, precision, chemical-free, alessandro-moretti

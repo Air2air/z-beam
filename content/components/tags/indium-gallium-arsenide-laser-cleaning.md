@@ -1,1 +1,1 @@
-ablation, cleaning, laser, non-contact, electronics, photonics, indium-gallium-arsenide, alessandro-moretti
+indium, restoration, heritage, particles, films, precision, chemical-free, alessandro-moretti

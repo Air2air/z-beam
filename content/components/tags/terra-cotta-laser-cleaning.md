@@ -1,1 +1,0 @@
-ablation, terra-cotta, cleaning, laser, cultural-heritage, manufacturing, non-contact, alessandro-moretti

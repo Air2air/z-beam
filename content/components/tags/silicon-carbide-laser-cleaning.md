@@ -1,1 +1,1 @@
-silicon-carbide, ablation, cleaning, laser, non-contact, aerospace, electronics, alessandro-moretti
+silicon, restoration, heritage, particles, films, precision, chemical-free, alessandro-moretti

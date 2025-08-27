@@ -1,1 +1,1 @@
-serpentine, mg3si2o5(oh)4, ablation, cleaning, laser, aerospace, manufacturing, alessandro-moretti
+serpentine, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

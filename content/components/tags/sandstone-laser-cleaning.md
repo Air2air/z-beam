@@ -1,1 +1,1 @@
-ablation, sandstone, sio2, cleaning, laser, cultural-heritage, non-contact, alessandro-moretti
+sandstone, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

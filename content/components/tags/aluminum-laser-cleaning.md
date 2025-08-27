@@ -1,1 +1,1 @@
-ablation, cleaning, laser, aluminum, aerospace, automotive, non-contact, alessandro-moretti
+aluminum, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

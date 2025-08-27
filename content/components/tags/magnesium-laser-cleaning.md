@@ -1,1 +1,1 @@
-ablation, cleaning, laser, magnesium, aerospace, automotive, non-contact, alessandro-moretti
+magnesium, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

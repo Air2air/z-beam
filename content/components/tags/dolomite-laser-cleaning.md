@@ -1,1 +1,1 @@
-dolomite, ablation, cleaning, laser, non-contact, manufacturing, cultural-heritage, alessandro-moretti
+dolomite, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

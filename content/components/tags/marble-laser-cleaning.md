@@ -1,1 +1,1 @@
-marble, ablation, cleaning, laser, non-contact, cultural-heritage, construction, alessandro-moretti
+marble, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

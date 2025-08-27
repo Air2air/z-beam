@@ -1,1 +1,1 @@
-steel, ablation, cleaning, laser, automotive, manufacturing, non-contact, alessandro-moretti
+steel, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

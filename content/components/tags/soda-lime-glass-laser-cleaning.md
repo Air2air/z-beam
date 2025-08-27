@@ -1,1 +1,1 @@
-ablation, cleaning, laser, soda-lime-glass, manufacturing, electronics, non-contact, alessandro-moretti
+soda, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

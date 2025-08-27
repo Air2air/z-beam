@@ -1,1 +1,1 @@
-ablation, cleaning, laser, frpu, aerospace, automotive, non-contact, alessandro-moretti
+fiber, restoration, heritage, matrix-degradation, surface-contamination, fiber-preservation, damage-free, alessandro-moretti

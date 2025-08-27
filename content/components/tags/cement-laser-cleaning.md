@@ -1,1 +1,1 @@
-ablation, cement, cleaning, laser, construction, restoration, non-contact, alessandro-moretti
+cement, restoration, heritage, efflorescence, biological-growth, preservation, gentle, alessandro-moretti

@@ -1,1 +1,1 @@
-fir, ablation, cleaning, laser, aerospace, automotive, non-contact, alessandro-moretti
+fir, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

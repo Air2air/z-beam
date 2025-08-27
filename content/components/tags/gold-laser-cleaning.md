@@ -1,1 +1,1 @@
-gold, ablation, cleaning, laser, electronics, jewelry, non-contact, alessandro-moretti
+gold, restoration, heritage, corrosion, oxidation, precision, selective, alessandro-moretti

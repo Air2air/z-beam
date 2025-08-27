@@ -1,1 +1,1 @@
-polyester-resin, composites, ablation, cleaning, laser, automotive, non-contact, yi-chun lin
+polyester, electronics, fabrication, matrix-degradation, surface-contamination, fiber-preservation, damage-free, yi-chun-lin

@@ -1,1 +1,1 @@
-ablation, cleaning, laser, flint, sio2, aerospace, non-contact, alessandro-moretti
+flint, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

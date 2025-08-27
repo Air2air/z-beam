@@ -1,1 +1,1 @@
-breccia, ablation, cleaning, laser, non-contact, aerospace, cultural-heritage, alessandro-moretti
+breccia, restoration, heritage, organics, soot, preservation, non-invasive, alessandro-moretti

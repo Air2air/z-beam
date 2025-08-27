@@ -1,1 +1,1 @@
-ablation, plaster, caso4, cleaning, laser, restoration, non-contact, alessandro-moretti
+plaster, restoration, heritage, efflorescence, biological-growth, preservation, gentle, alessandro-moretti

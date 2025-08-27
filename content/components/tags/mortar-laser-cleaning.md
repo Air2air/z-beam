@@ -1,1 +1,1 @@
-mortar, ablation, cleaning, laser, non-contact, manufacturing, construction, alessandro-moretti
+mortar, restoration, heritage, efflorescence, biological-growth, preservation, gentle, alessandro-moretti

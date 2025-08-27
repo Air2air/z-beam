@@ -1,1 +1,1 @@
-cedar, ablation, cleaning, laser, non-contact, aerospace, woodworking, alessandro-moretti
+cedar, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

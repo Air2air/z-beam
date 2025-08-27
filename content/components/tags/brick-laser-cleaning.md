@@ -1,1 +1,1 @@
-ablation, brick, cleaning, laser, manufacturing, non-contact, restoration, alessandro-moretti
+brick, restoration, heritage, efflorescence, biological-growth, preservation, gentle, alessandro-moretti

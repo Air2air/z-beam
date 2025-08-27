@@ -1,1 +1,1 @@
-ablation, cleaning, laser, tempered-glass, sio2, automotive, manufacturing, alessandro-moretti
+tempered, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

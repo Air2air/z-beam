@@ -1,1 +1,1 @@
-ablation, phenolic-resin, cleaning, laser, aerospace, automotive, non-contact, yi-chun lin
+phenolic, electronics, fabrication, matrix-degradation, surface-contamination, fiber-preservation, damage-free, yi-chun-lin

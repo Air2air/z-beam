@@ -1,1 +1,1 @@
-ablation, borosilicate-glass, cleaning, laser, manufacturing, non-contact, restoration, alessandro-moretti
+borosilicate, restoration, heritage, etching-marks, residue, clarity-restoration, optical-quality, alessandro-moretti

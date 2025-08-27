@@ -1,1 +1,1 @@
-hickory, ablation, cleaning, laser, aerospace, manufacturing, non-contact, alessandro-moretti
+hickory, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti
