@@ -7,6 +7,7 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
+import { stripParenthesesFromSlug } from './formatting';
 import { Article } from '../../types/core';
 
 export type { Article };
@@ -25,7 +26,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
       const metaFiles = await fs.readdir(metatagsDir);
       const metaSlugs = metaFiles
         .filter(file => file.endsWith('.md'))
-        .map(file => file.replace('.md', ''));
+        .map(file => stripParenthesesFromSlug(file.replace('.md', '')));
       slugs.push(...metaSlugs);
     }
     
@@ -34,7 +35,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
       const contentFiles = await fs.readdir(contentDir);
       const contentSlugs = contentFiles
         .filter(file => file.endsWith('.md'))
-        .map(file => file.replace('.md', ''));
+        .map(file => stripParenthesesFromSlug(file.replace('.md', '')));
       
       // Add only unique slugs
       contentSlugs.forEach(slug => {
@@ -49,7 +50,7 @@ export async function getAllArticleSlugs(): Promise<string[]> {
       const frontmatterFiles = await fs.readdir(frontmatterDir);
       const frontmatterSlugs = frontmatterFiles
         .filter(file => file.endsWith('.md'))
-        .map(file => file.replace('.md', ''));
+        .map(file => stripParenthesesFromSlug(file.replace('.md', '')));
       
       // Add only unique slugs
       frontmatterSlugs.forEach(slug => {
@@ -151,15 +152,29 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   ];
   
   for (const dir of directories) {
-    const filePath = path.join(dir, `${slug}.md`);
-    
     try {
+      // First try the exact slug
+      let filePath = path.join(dir, `${slug}.md`);
+      
+      // If not found, look for files that would generate this slug (with parentheses)
+      if (!existsSync(filePath)) {
+        const files = await fs.readdir(dir);
+        const matchingFile = files.find(file => 
+          file.endsWith('.md') && 
+          stripParenthesesFromSlug(file.replace('.md', '')) === slug
+        );
+        
+        if (matchingFile) {
+          filePath = path.join(dir, matchingFile);
+        }
+      }
+      
       if (existsSync(filePath)) {
         const fileContents = await fs.readFile(filePath, 'utf8');
         const { data } = safeMatterParse(fileContents);
         
         const articleData: Article = {
-          slug,
+          slug: stripParenthesesFromSlug(slug), // Ensure slug is clean
           title: data.title || 'Untitled',
           name: data.name || '',
           headline: data.headline || '',

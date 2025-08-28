@@ -9,6 +9,8 @@ import path from 'path';
 import { marked } from 'marked';
 import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
+import { stripParenthesesFromSlug } from './formatting';
+import { loadFrontmatterData } from './frontmatterLoader';
 import type { Article } from './contentUtils';
 
 // Content directories configuration
@@ -51,7 +53,7 @@ export const getAllSlugs = cache(async (): Promise<string[]> => {
         const files = await fs.readdir(dir);
         files
           .filter(file => file.endsWith('.md'))
-          .map(file => file.replace('.md', ''))
+          .map(file => stripParenthesesFromSlug(file.replace('.md', '')))
           .forEach(slug => slugs.add(slug));
       }
     }
@@ -75,7 +77,26 @@ export const loadComponent = cache(async (
       return null;
     }
     
-    const filePath = path.join(dir, `${slug}.md`);
+    // First try the exact slug
+    let filePath = path.join(dir, `${slug}.md`);
+    
+    // If not found, look for files that would generate this slug (with parentheses)
+    if (!existsSync(filePath)) {
+      try {
+        const files = await fs.readdir(dir);
+        const matchingFile = files.find(file => 
+          file.endsWith('.md') && 
+          stripParenthesesFromSlug(file.replace('.md', '')) === slug
+        );
+        
+        if (matchingFile) {
+          filePath = path.join(dir, matchingFile);
+        }
+      } catch (error) {
+        // Directory doesn't exist or can't be read
+        return null;
+      }
+    }
     
     if (!existsSync(filePath)) {
       return null;
@@ -125,12 +146,13 @@ export const loadAllComponents = cache(async (slug: string): Promise<{ [componen
  */
 export const loadMetadata = cache(async (slug: string): Promise<Record<string, unknown>> => {
   return safeContentOperation(async () => {
-    // Try frontmatter first, then metatags
-    const frontmatterData = await loadComponent('frontmatter', slug, { convertMarkdown: false });
-    if (frontmatterData?.config) {
-      return frontmatterData.config;
+    // Use specialized frontmatter loader for frontmatter data to ensure image URL processing
+    const frontmatterData = await loadFrontmatterData(slug);
+    if (frontmatterData && Object.keys(frontmatterData).length > 0) {
+      return frontmatterData;
     }
     
+    // Fallback to basic component loading for metatags
     const metatagsData = await loadComponent('metatags', slug, { convertMarkdown: false });
     if (metatagsData?.config) {
       return metatagsData.config;

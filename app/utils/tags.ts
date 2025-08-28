@@ -9,6 +9,7 @@ import { cache } from 'react';
 import { Article } from '../../types/core';
 import { loadAllArticles } from './contentAPI';
 import { logger } from './logger';
+import { stripParenthesesFromSlug } from './formatting';
 
 // Constants
 const TAGS_DIRECTORY = path.join(process.cwd(), 'content', 'components', 'tags');
@@ -137,7 +138,7 @@ async function initializeTagCache() {
   
   // Process each tag file
   for (const file of tagFiles) {
-    const slug = file.replace('.md', '');
+    const slug = stripParenthesesFromSlug(file.replace('.md', ''));
     const tags = await getArticleTagsFromTagsDir(slug);
     tags.forEach(tag => tagSet.add(tag));
   }

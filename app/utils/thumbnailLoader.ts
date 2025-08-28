@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './formatting';
 
 export async function loadThumbnailData(slug: string, imageType: string = 'hero'): Promise<{
   src: string | null;
@@ -14,14 +15,30 @@ export async function loadThumbnailData(slug: string, imageType: string = 'hero'
     
     if (!slug) return { src: defaultImage, alt: defaultAlt };
     
-    // Check if there's a frontmatter file for this slug
-    const frontmatterPath = path.join(
+    // Check if there's a frontmatter file for this slug (first try exact match)
+    let frontmatterPath = path.join(
       process.cwd(),
       'content',
       'components',
       'frontmatter',
       `${slug}.md`
     );
+    
+    // If not found, look for files that would generate this slug (with parentheses)
+    if (!fs.existsSync(frontmatterPath)) {
+      const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
+      if (fs.existsSync(frontmatterDir)) {
+        const files = fs.readdirSync(frontmatterDir);
+        const matchingFile = files.find(file => 
+          file.endsWith('.md') && 
+          stripParenthesesFromSlug(file.replace('.md', '')) === slug
+        );
+        
+        if (matchingFile) {
+          frontmatterPath = path.join(frontmatterDir, matchingFile);
+        }
+      }
+    }
     
     if (fs.existsSync(frontmatterPath)) {
       const fileContent = fs.readFileSync(frontmatterPath, 'utf8');
@@ -31,16 +48,18 @@ export async function loadThumbnailData(slug: string, imageType: string = 'hero'
       if (data?.images) {
         // For hero images
         if (imageType === 'hero' && data.images.hero) {
+          const imageUrl = data.images.hero.url || defaultImage;
           return {
-            src: data.images.hero.url || defaultImage,
+            src: stripParenthesesFromImageUrl(imageUrl),
             alt: data.images.hero.alt || defaultAlt
           };
         }
         
         // For thumbnail images
         if (imageType === 'thumbnail' && data.images.thumbnail) {
+          const imageUrl = data.images.thumbnail.url || defaultImage;
           return {
-            src: data.images.thumbnail.url || defaultImage,
+            src: stripParenthesesFromImageUrl(imageUrl),
             alt: data.images.thumbnail.alt || defaultAlt
           };
         }

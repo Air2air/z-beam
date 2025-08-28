@@ -2,6 +2,7 @@
 'use server';
 
 import { loadMetadata } from './contentAPI';
+import { stripParenthesesFromImageUrl } from './formatting';
 
 // Define image structure types
 interface HeroImage {
@@ -27,8 +28,9 @@ export async function getHeroImageUrl(slug: string): Promise<string | null> {
   // Load the frontmatter data
   const frontmatter = await loadMetadata(slug) as FrontmatterWithImages;
   
-  // Directly access the hero image URL
-  return frontmatter?.images?.hero?.url || null;
+  // Directly access the hero image URL and strip parentheses
+  const imageUrl = frontmatter?.images?.hero?.url || null;
+  return imageUrl ? stripParenthesesFromImageUrl(imageUrl) : null;
 }
 
 /**
@@ -43,8 +45,10 @@ export async function getImageData(slug: string) {
   // Load the frontmatter data
   const frontmatter = await loadMetadata(slug) as FrontmatterWithImages;
   
+  const heroUrl = frontmatter?.images?.hero?.url || null;
+  
   return {
-    heroUrl: frontmatter?.images?.hero?.url || null,
+    heroUrl: heroUrl ? stripParenthesesFromImageUrl(heroUrl) : null,
     heroAlt: frontmatter?.images?.hero?.alt || null
   };
 }

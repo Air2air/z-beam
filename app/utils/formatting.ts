@@ -93,3 +93,30 @@ export function formatFileSize(bytes: number): string {
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
 }
+
+/**
+ * Strip parentheses from slugs for clean URLs
+ * Converts "material-(acronym)-process" to "material-acronym-process"
+ */
+export function stripParenthesesFromSlug(slug: string): string {
+  if (!slug) return slug;
+  return slug.replace(/[()]/g, '');
+}
+
+/**
+ * Strip parentheses from image URLs for web compatibility
+ * Converts "/images/material-(acronym)-hero.jpg" to "/images/material-acronym-hero.jpg"
+ */
+export function stripParenthesesFromImageUrl(imageUrl: string): string {
+  if (!imageUrl) return imageUrl;
+  return imageUrl.replace(/[()]/g, '');
+}
+
+/**
+ * URL encode parentheses for CSS background-image compatibility
+ * Converts "(" to "%28" and ")" to "%29"
+ */
+export function urlEncodeParentheses(url: string): string {
+  if (!url) return url;
+  return url.replace(/\(/g, '%28').replace(/\)/g, '%29');
+}
