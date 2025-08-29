@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Kevlar-… |
-| Material Symbol | KE |
+| Formula | Kevlar-… |
+| Symbol | KE |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.04W/mK |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 0.04W/mK |

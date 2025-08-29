@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Gallium |
-| Material Symbol | GA |
+| Formula | Gallium |
+| Symbol | GA |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 29W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 29W/mK |

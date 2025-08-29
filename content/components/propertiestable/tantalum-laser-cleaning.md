@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Tantalum |
-| Material Symbol | Ta |
+| Formula | Tantalum |
+| Symbol | Ta |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 57.5W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 57.5W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Plaster |
-| Material Symbol | PL |
+| Formula | Plaster |
+| Symbol | PL |
 | Category | Masonry |
-| Material Type | Masonry |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.2W/mK |
+| Material | Masonry |
+| Tensile | N/A |
+| Thermal | 0.2W/mK |

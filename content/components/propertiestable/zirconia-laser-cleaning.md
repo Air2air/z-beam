@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Zirconi… |
-| Material Symbol | ZrO2 |
+| Formula | Zirconi… |
+| Symbol | ZrO2 |
 | Category | Ceramic |
-| Material Type | Ceramic |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.0W/mK |
+| Material | Ceramic |
+| Tensile | N/A |
+| Thermal | 2.0W/mK |

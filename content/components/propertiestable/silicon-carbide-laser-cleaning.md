@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Silicon… |
-| Material Symbol | SiC |
+| Formula | Silicon… |
+| Symbol | SiC |
 | Category | Semicond |
-| Material Type | Semicon… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 490W/mK |
+| Material | Semicon… |
+| Tensile | N/A |
+| Thermal | 490W/mK |

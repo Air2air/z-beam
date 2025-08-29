@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Ag |
-| Material Symbol | Ag |
+| Formula | Ag |
+| Symbol | Ag |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 429W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 429W/mK |

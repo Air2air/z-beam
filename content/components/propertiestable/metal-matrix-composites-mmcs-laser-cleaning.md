@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Metal M… |
-| Material Symbol | ME |
+| Formula | Metal M… |
+| Symbol | ME |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 70-200W… |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 70-200W… |

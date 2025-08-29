@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Mortar |
-| Material Symbol | MO |
+| Formula | Mortar |
+| Symbol | MO |
 | Category | Masonry |
-| Material Type | Masonry |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.7-1.0… |
+| Material | Masonry |
+| Tensile | N/A |
+| Thermal | 0.7-1.0… |

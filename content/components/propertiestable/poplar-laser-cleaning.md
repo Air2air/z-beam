@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Poplar |
-| Material Symbol | PO |
+| Formula | Poplar |
+| Symbol | PO |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.12W/mK |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.12W/mK |

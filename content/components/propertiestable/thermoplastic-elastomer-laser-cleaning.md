@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Thermop… |
-| Material Symbol | TH |
+| Formula | Thermop… |
+| Symbol | TH |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.1-0.3… |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 0.1-0.3… |

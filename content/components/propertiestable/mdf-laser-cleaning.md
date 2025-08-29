@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | MDF |
-| Material Symbol | MD |
+| Formula | MDF |
+| Symbol | MD |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.1-0.2… |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.1-0.2… |

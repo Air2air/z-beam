@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Niobium |
-| Material Symbol | Nb |
+| Formula | Niobium |
+| Symbol | Nb |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 53.7W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 53.7W/mK |

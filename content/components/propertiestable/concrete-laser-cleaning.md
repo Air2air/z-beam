@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Concrete |
-| Material Symbol | CO |
+| Formula | Concrete |
+| Symbol | CO |
 | Category | Masonry |
-| Material Type | Masonry |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.4W/mK |
+| Material | Masonry |
+| Tensile | N/A |
+| Thermal | 1.4W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Float G… |
-| Material Symbol | FL |
+| Formula | Float G… |
+| Symbol | FL |
 | Category | Glass |
-| Material Type | Glass |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1W/mK |
+| Material | Glass |
+| Tensile | N/A |
+| Thermal | 1W/mK |

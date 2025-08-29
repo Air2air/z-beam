@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Pb |
-| Material Symbol | Pb |
+| Formula | Pb |
+| Symbol | Pb |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 35.3W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 35.3W/mK |

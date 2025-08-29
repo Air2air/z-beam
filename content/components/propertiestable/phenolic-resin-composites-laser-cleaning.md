@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Phenoli… |
-| Material Symbol | PH |
+| Formula | Phenoli… |
+| Symbol | PH |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.2-0.3… |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 0.2-0.3… |

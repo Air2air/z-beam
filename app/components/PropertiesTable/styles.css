@@ -80,26 +80,37 @@
 /* Colored backgrounds based on column position */
 .properties-table .property-card:nth-child(1) {
   background-color: #2c52bd !important;
-  color: white !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .properties-table .property-card:nth-child(2) {
   background-color: #d47e0d !important;
-  color: white !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .properties-table .property-card:nth-child(3) {
   background-color: #0e8d8b !important;
-  color: white !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .properties-table .property-card:nth-child(4) {
   background-color: #9e1a05 !important;
-  color: white !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
-/* Default styling for any additional columns beyond 4 */
-.properties-table .property-card:nth-child(n+5) {
-  background-color: #4b5563 !important;
-  color: white !important;
+/* Repeat colors 1 and 2 for additional columns */
+.properties-table .property-card:nth-child(5) {
+  background-color: #2c52bd !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.properties-table .property-card:nth-child(6) {
+  background-color: #d47e0d !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Default styling for any additional columns beyond 6 (continue pattern) */
+.properties-table .property-card:nth-child(n+7) {
+  background-color: #0e8d8b !important;
+  color: rgba(255, 255, 255, 0.85) !important;
 }

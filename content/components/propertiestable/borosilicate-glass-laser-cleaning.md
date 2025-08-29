@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Borosil… |
-| Material Symbol | BO |
+| Formula | Borosil… |
+| Symbol | BO |
 | Category | Glass |
-| Material Type | Glass |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.1W/mK |
+| Material | Glass |
+| Tensile | N/A |
+| Thermal | 1.1W/mK |

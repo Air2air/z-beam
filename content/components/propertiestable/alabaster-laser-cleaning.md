@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | CaSO4·2… |
-| Material Symbol | CaSO4·2… |
+| Formula | CaSO4·2… |
+| Symbol | CaSO4·2… |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.0W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.0W/mK |

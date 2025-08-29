@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Tempere… |
-| Material Symbol | TE |
+| Formula | Tempere… |
+| Symbol | TE |
 | Category | Glass |
-| Material Type | Glass |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.0W/mK |
+| Material | Glass |
+| Tensile | N/A |
+| Thermal | 1.0W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Iridium |
-| Material Symbol | Ir |
+| Formula | Iridium |
+| Symbol | Ir |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 147W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 147W/mK |

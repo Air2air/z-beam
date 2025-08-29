@@ -5,9 +5,12 @@ import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 
+// Mark this route as dynamic to allow request-specific data
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
-    const { searchParams } = new URL(request.url);
+    const searchParams = request.nextUrl.searchParams;
     const type = searchParams.get('type');
     const slug = searchParams.get('slug');
     const convertMarkdown = searchParams.get('convertMarkdown') === 'true';

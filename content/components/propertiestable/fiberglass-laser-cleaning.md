@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Fibergl… |
-| Material Symbol | FI |
+| Formula | Fibergl… |
+| Symbol | FI |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.04W/mK |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 0.04W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Serpent… |
-| Material Symbol | SE |
+| Formula | Serpent… |
+| Symbol | SE |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.5W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.5W/mK |

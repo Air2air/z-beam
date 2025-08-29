@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | SiO2 |
-| Material Symbol | QU |
+| Formula | SiO2 |
+| Symbol | QU |
 | Category | Glass |
-| Material Type | Glass |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.4W/mK |
+| Material | Glass |
+| Tensile | N/A |
+| Thermal | 1.4W/mK |

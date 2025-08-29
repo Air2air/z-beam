@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Zirconi… |
-| Material Symbol | Zr |
+| Formula | Zirconi… |
+| Symbol | Zr |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 22.6W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 22.6W/mK |

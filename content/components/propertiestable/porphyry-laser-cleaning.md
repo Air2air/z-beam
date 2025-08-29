@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Porphyry |
-| Material Symbol | PO |
+| Formula | Porphyry |
+| Symbol | PO |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.8-3.5… |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.8-3.5… |

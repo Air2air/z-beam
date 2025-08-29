@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Cobalt |
-| Material Symbol | CO |
+| Formula | Cobalt |
+| Symbol | CO |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 100W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 100W/mK |

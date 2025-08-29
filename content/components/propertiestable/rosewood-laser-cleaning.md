@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Rosewood |
-| Material Symbol | RO |
+| Formula | Rosewood |
+| Symbol | RO |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.16W/mK |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.16W/mK |

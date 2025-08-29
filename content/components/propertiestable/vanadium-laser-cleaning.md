@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Vanadium |
-| Material Symbol | V |
+| Formula | Vanadium |
+| Symbol | V |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 30.7W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 30.7W/mK |

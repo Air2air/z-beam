@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Slate |
-| Material Symbol | SL |
+| Formula | Slate |
+| Symbol | SL |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.7-2.9… |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 1.7-2.9… |

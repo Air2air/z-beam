@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Carbon … |
-| Material Symbol | CA |
+| Formula | Carbon … |
+| Symbol | CA |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.8-60W… |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 0.8-60W… |

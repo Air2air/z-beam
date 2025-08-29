@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Titanium |
-| Material Symbol | Ti |
+| Formula | Titanium |
+| Symbol | Ti |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 21.9W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 21.9W/mK |

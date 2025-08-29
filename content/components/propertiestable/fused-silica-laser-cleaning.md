@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Fused S… |
-| Material Symbol | FU |
+| Formula | Fused S… |
+| Symbol | FU |
 | Category | Glass |
-| Material Type | Glass |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.4W/mK |
+| Material | Glass |
+| Tensile | N/A |
+| Thermal | 1.4W/mK |

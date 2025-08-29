@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Berylli… |
-| Material Symbol | BE |
+| Formula | Berylli… |
+| Symbol | BE |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 200W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 200W/mK |

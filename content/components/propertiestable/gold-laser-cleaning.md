@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Au |
-| Material Symbol | Au |
+| Formula | Au |
+| Symbol | Au |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 318W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 318W/mK |

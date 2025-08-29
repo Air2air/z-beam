@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Bamboo |
-| Material Symbol | BA |
+| Formula | Bamboo |
+| Symbol | BA |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.2W/mK |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.2W/mK |

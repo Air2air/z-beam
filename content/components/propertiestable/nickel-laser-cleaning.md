@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Nickel |
-| Material Symbol | Ni |
+| Formula | Nickel |
+| Symbol | Ni |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 90.9W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 90.9W/mK |

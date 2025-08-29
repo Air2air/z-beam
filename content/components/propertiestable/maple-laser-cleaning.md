@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Maple |
-| Material Symbol | MA |
+| Formula | Maple |
+| Symbol | MA |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.15-0.… |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.15-0.… |

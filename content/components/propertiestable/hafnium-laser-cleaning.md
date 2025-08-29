@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Hafnium |
-| Material Symbol | Hf |
+| Formula | Hafnium |
+| Symbol | Hf |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 23W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 23W/mK |

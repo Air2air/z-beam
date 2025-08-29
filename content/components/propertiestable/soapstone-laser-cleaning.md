@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Soapsto… |
-| Material Symbol | SO |
+| Formula | Soapsto… |
+| Symbol | SO |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.5W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.5W/mK |

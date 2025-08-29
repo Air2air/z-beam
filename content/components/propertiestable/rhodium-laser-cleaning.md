@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Rhodium |
-| Material Symbol | Rh |
+| Formula | Rhodium |
+| Symbol | Rh |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 150W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 150W/mK |

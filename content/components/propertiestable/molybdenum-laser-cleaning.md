@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Molybde… |
-| Material Symbol | Mo |
+| Formula | Molybde… |
+| Symbol | Mo |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 138W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 138W/mK |

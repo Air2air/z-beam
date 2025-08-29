@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Lead Cr… |
-| Material Symbol | LE |
+| Formula | Lead Cr… |
+| Symbol | LE |
 | Category | Glass |
-| Material Type | Glass |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.7-0.9… |
+| Material | Glass |
+| Tensile | N/A |
+| Thermal | 0.7-0.9… |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | CaCO3 |
-| Material Symbol | MA |
+| Formula | CaCO3 |
+| Symbol | MA |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.07W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.07W/mK |

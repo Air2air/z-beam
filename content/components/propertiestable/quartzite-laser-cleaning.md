@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | SiO2 |
-| Material Symbol | QU |
+| Formula | SiO2 |
+| Symbol | QU |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 5.3W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 5.3W/mK |

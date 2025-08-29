@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Walnut |
-| Material Symbol | WA |
+| Formula | Walnut |
+| Symbol | WA |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.15W/mK |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.15W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Zn |
-| Material Symbol | Zn |
+| Formula | Zn |
+| Symbol | Zn |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 116W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 116W/mK |

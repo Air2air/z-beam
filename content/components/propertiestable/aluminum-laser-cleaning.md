@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Aluminum |
-| Material Symbol | AL |
+| Formula | Aluminum |
+| Symbol | AL |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 237W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 237W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Steel |
-| Material Symbol | ST |
+| Formula | Steel |
+| Symbol | ST |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 50W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 50W/mK |

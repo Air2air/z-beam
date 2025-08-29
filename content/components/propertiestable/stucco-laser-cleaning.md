@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Stucco |
-| Material Symbol | ST |
+| Formula | Stucco |
+| Symbol | ST |
 | Category | Masonry |
-| Material Type | Masonry |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.4W/mK |
+| Material | Masonry |
+| Tensile | N/A |
+| Thermal | 0.4W/mK |

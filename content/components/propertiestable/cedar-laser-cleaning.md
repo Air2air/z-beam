@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Cedar |
-| Material Symbol | CE |
+| Formula | Cedar |
+| Symbol | CE |
 | Category | Wood |
-| Material Type | Wood |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.11W/mK |
+| Material | Wood |
+| Tensile | N/A |
+| Thermal | 0.11W/mK |

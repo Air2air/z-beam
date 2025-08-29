@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Urethan… |
-| Material Symbol | UR |
+| Formula | Urethan… |
+| Symbol | UR |
 | Category | Composi… |
-| Material Type | Composi… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 0.2W/mK |
+| Material | Composi… |
+| Tensile | N/A |
+| Thermal | 0.2W/mK |

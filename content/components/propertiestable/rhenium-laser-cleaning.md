@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Rhenium |
-| Material Symbol | Re |
+| Formula | Rhenium |
+| Symbol | Re |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 48W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 48W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Cu |
-| Material Symbol | Cu |
+| Formula | Cu |
+| Symbol | Cu |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 401W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 401W/mK |

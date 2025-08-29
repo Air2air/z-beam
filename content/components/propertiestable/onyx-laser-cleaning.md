@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Onyx |
-| Material Symbol | True |
+| Formula | Onyx |
+| Symbol | True |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.5W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.5W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | CaCO3 |
-| Material Symbol | LI |
+| Formula | CaCO3 |
+| Symbol | LI |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 3.6W/mK |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 3.6W/mK |

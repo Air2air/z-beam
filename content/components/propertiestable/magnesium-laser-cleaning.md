@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Mg |
-| Material Symbol | Mg |
+| Formula | Mg |
+| Symbol | Mg |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 156W/mK |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 156W/mK |

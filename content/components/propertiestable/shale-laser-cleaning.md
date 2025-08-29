@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Shale |
-| Material Symbol | SH |
+| Formula | Shale |
+| Symbol | SH |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 1.5-2.5… |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 1.5-2.5… |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Gallium… |
-| Material Symbol | GaAs |
+| Formula | Gallium… |
+| Symbol | GaAs |
 | Category | Semicond |
-| Material Type | Semicon… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 55W/mK |
+| Material | Semicon… |
+| Tensile | N/A |
+| Thermal | 55W/mK |

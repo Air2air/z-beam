@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Bronze |
-| Material Symbol | BR |
+| Formula | Bronze |
+| Symbol | BR |
 | Category | Metal |
-| Material Type | Metal |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 50-60W/… |
+| Material | Metal |
+| Tensile | N/A |
+| Thermal | 50-60W/… |

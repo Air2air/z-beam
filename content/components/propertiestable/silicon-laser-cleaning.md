@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Silicon |
-| Material Symbol | SI |
+| Formula | Silicon |
+| Symbol | SI |
 | Category | Semicond |
-| Material Type | Semicon… |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 149W/mK |
+| Material | Semicon… |
+| Tensile | N/A |
+| Thermal | 149W/mK |

@@ -1,8 +1,8 @@
 | Property | Value |
 |----------|-------|
-| Chemical Formula | Schist |
-| Material Symbol | SC |
+| Formula | Schist |
+| Symbol | SC |
 | Category | Stone |
-| Material Type | Stone |
-| Tensile Strength | N/A |
-| Thermal Conductivity | 2.0-3.0… |
+| Material | Stone |
+| Tensile | N/A |
+| Thermal | 2.0-3.0… |
