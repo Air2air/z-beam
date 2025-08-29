@@ -3,6 +3,6 @@
 | Formula | Cherry |
 | Symbol | CH |
 | Category | Wood |
-| Material | Wood |
+| Density | 560-640… |
 | Tensile | N/A |
 | Thermal | 0.15W/mK |

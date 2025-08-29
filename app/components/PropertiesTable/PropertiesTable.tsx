@@ -74,8 +74,10 @@ function transformTableStructure(htmlContent: string): string {
       .map(
         ({ key, value, className }) =>
           `<div class="property-card ${className}">
-        <h3 class="property-value">${value}</h3>
-        <div class="property-key">${key}</div>
+        <a href="/search?property=${encodeURIComponent(key)}&value=${encodeURIComponent(value)}" class="property-link">
+          <h3 class="property-value">${value}</h3>
+          <div class="property-key">${key}</div>
+        </a>
       </div>`
       )
       .join("\n        ");

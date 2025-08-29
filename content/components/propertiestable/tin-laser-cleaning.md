@@ -3,6 +3,6 @@
 | Formula | Sn |
 | Symbol | Sn |
 | Category | Metal |
-| Material | Metal |
+| Density | 7.3g/cm³ |
 | Tensile | N/A |
 | Thermal | 66.8W/mK |

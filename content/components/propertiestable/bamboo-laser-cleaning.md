@@ -3,6 +3,6 @@
 | Formula | Bamboo |
 | Symbol | BA |
 | Category | Wood |
-| Material | Wood |
+| Density | 600-800… |
 | Tensile | N/A |
 | Thermal | 0.2W/mK |

@@ -3,6 +3,6 @@
 | Formula | Mg |
 | Symbol | Mg |
 | Category | Metal |
-| Material | Metal |
+| Density | 1.74g/c… |
 | Tensile | N/A |
 | Thermal | 156W/mK |

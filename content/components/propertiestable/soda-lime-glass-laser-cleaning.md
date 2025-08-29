@@ -3,6 +3,6 @@
 | Formula | Soda-Li… |
 | Symbol | SO |
 | Category | Glass |
-| Material | Glass |
+| Density | 2.4-2.5… |
 | Tensile | N/A |
 | Thermal | 0.9-1.0… |

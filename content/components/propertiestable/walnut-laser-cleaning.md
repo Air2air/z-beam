@@ -3,6 +3,6 @@
 | Formula | Walnut |
 | Symbol | WA |
 | Category | Wood |
-| Material | Wood |
+| Density | 0.64g/c… |
 | Tensile | N/A |
 | Thermal | 0.15W/mK |

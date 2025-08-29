@@ -3,6 +3,6 @@
 | Formula | Cedar |
 | Symbol | CE |
 | Category | Wood |
-| Material | Wood |
+| Density | 380kg/m³ |
 | Tensile | N/A |
 | Thermal | 0.11W/mK |

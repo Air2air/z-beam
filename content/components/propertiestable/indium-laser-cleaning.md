@@ -3,6 +3,6 @@
 | Formula | Indium |
 | Symbol | In |
 | Category | Metal |
-| Material | Metal |
+| Density | 7.31g/c… |
 | Tensile | N/A |
 | Thermal | 81.6W/mK |

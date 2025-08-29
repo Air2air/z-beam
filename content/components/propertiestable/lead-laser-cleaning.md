@@ -3,6 +3,6 @@
 | Formula | Pb |
 | Symbol | Pb |
 | Category | Metal |
-| Material | Metal |
+| Density | 11.34g/… |
 | Tensile | N/A |
 | Thermal | 35.3W/mK |

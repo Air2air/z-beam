@@ -3,6 +3,6 @@
 | Formula | Fir |
 | Symbol | FI |
 | Category | Wood |
-| Material | Wood |
+| Density | 0.37g/c… |
 | Tensile | N/A |
 | Thermal | 0.12W/mK |

@@ -3,6 +3,6 @@
 | Formula | Ag |
 | Symbol | Ag |
 | Category | Metal |
-| Material | Metal |
+| Density | 10.49g/… |
 | Tensile | N/A |
 | Thermal | 429W/mK |

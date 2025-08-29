@@ -3,6 +3,6 @@
 | Formula | Zn |
 | Symbol | Zn |
 | Category | Metal |
-| Material | Metal |
+| Density | 7.14g/c… |
 | Tensile | N/A |
 | Thermal | 116W/mK |

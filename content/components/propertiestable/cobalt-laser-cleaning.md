@@ -3,6 +3,6 @@
 | Formula | Cobalt |
 | Symbol | CO |
 | Category | Metal |
-| Material | Metal |
+| Density | 8.9g/cm³ |
 | Tensile | N/A |
 | Thermal | 100W/mK |

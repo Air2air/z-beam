@@ -81,10 +81,10 @@ export async function getAllArticles(): Promise<Article[]> {
     for (const dir of directories) {
       const filePath = path.join(dir, `${slug}.md`);
       
-      try {
+        try {
         if (existsSync(filePath)) {
           const fileContents = await fs.readFile(filePath, 'utf8');
-          const { data } = safeMatterParse(fileContents);
+          const { data, content } = safeMatterParse(fileContents);
           
           articleData = {
             slug,
@@ -97,6 +97,7 @@ export async function getAllArticles(): Promise<Article[]> {
             tags: data.tags || [],
             website: data.website || '',
             author: data.author || {},
+            content: content || '', // Include the content for property searching
             metadata: {
               keywords: data.keywords || [],
               category: data.category || '',
@@ -115,9 +116,7 @@ export async function getAllArticles(): Promise<Article[]> {
               countries: data.countries || [],
               manufacturingCenters: data.manufacturingCenters || []
             } as any
-          } as Article;
-          
-          // For frontmatter files, always try to read any top-level properties
+          } as Article;          // For frontmatter files, always try to read any top-level properties
           if (dir.includes('frontmatter') && articleData) {
             // Add any missing properties from raw data to articleData
             Object.entries(data).forEach(([key, value]) => {
@@ -132,6 +131,24 @@ export async function getAllArticles(): Promise<Article[]> {
         }
       } catch (error) {
         logger.error(`Error loading article for ${slug} in ${dir}`, error, { slug, dir });
+      }
+    }
+    
+    // Now also try to load property table content for this slug
+    if (articleData) {
+      try {
+        const propertyTablePath = path.join(process.cwd(), 'content', 'components', 'propertiestable', `${slug}.md`);
+        if (existsSync(propertyTablePath)) {
+          const propertyContents = await fs.readFile(propertyTablePath, 'utf8');
+          const { content: propertyContent } = safeMatterParse(propertyContents);
+          
+          // Append property table content to the main content
+          if (propertyContent) {
+            articleData.content = (articleData.content || '') + '\n' + propertyContent;
+          }
+        }
+      } catch (error) {
+        logger.error(`Error loading property table for ${slug}`, error, { slug });
       }
     }
     

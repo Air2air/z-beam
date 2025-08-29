@@ -3,6 +3,6 @@
 | Formula | Oak |
 | Symbol | OA |
 | Category | Wood |
-| Material | Wood |
+| Density | 0.6-0.9… |
 | Tensile | N/A |
 | Thermal | 0.17W/mK |

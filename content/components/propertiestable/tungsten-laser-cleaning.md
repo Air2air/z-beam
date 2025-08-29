@@ -3,6 +3,6 @@
 | Formula | W |
 | Symbol | W |
 | Category | Metal |
-| Material | Metal |
+| Density | 19.3g/c… |
 | Tensile | N/A |
 | Thermal | 173W/mK |

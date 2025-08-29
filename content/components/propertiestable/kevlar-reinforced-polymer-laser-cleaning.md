@@ -3,6 +3,6 @@
 | Formula | Kevlar-… |
 | Symbol | KE |
 | Category | Composi… |
-| Material | Composi… |
+| Density | 1.44g/c… |
 | Tensile | N/A |
 | Thermal | 0.04W/mK |

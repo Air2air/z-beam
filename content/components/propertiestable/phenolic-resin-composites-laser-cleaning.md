@@ -3,6 +3,6 @@
 | Formula | Phenoli… |
 | Symbol | PH |
 | Category | Composi… |
-| Material | Composi… |
+| Density | 1.25g/c… |
 | Tensile | N/A |
-| Thermal | 0.2-0.3… |
+| Thermal | 0.2W/mK |

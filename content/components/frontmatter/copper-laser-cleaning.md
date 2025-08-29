@@ -25,6 +25,7 @@ properties:
   density: "8.96 g/cm³"
   meltingPoint: "1085°C"
   thermalConductivity: "401 W/m·K"
+  tensileStrength: "210-350 MPa"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "1.0–10 J/cm²"

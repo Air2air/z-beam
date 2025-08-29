@@ -3,6 +3,6 @@
 | Formula | Cu |
 | Symbol | Cu |
 | Category | Metal |
-| Material | Metal |
-| Tensile | N/A |
+| Density | 8.96g/c… |
+| Tensile | 210-350… |
 | Thermal | 401W/mK |

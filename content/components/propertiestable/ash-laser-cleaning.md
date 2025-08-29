@@ -3,6 +3,6 @@
 | Formula | Ash |
 | Symbol | AS |
 | Category | Wood |
-| Material | Wood |
+| Density | 670-750… |
 | Tensile | N/A |
 | Thermal | 0.12W/mK |

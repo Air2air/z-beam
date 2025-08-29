@@ -3,6 +3,6 @@
 | Formula | Gallium… |
 | Symbol | GaAs |
 | Category | Semicond |
-| Material | Semicon… |
+| Density | 5.32g/c… |
 | Tensile | N/A |
 | Thermal | 55W/mK |

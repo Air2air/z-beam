@@ -1,21 +1,111 @@
 // app/search/page.tsx
 import SearchClient from "./search-client";
 import { getAllArticles } from "../utils/contentUtils";
-import { getAllUniqueTags } from "../utils/tags";
+import { loadComponent } from "../utils/contentAPI";
+import { MaterialType } from "@/types/core";
 
 export const dynamic = 'force-dynamic';
+
+// Helper function to safely cast material types
+function toMaterialType(value?: string): MaterialType {
+  if (!value) return 'other';
+  
+  const normalizedValue = value.toLowerCase();
+  const validTypes: MaterialType[] = [
+    'element', 'compound', 'ceramic', 'polymer', 'alloy', 'composite', 'semiconductor', 'other'
+  ];
+  
+  // Check for exact matches first
+  if (validTypes.includes(normalizedValue as MaterialType)) {
+    return normalizedValue as MaterialType;
+  }
+  
+  // Map common aliases
+  const typeMap: Record<string, MaterialType> = {
+    'metal': 'alloy',
+    'metalloid': 'semiconductor',
+    'plastic': 'polymer',
+    'material': 'other'
+  };
+  
+  return typeMap[normalizedValue] || 'other';
+}
 
 export default async function SearchPage() {
   try {
     // Fetch data server-side
     const articles = await getAllArticles();
-    const tags = await getAllUniqueTags();
+    
+    // Load BadgeSymbol data for each article
+    const articlesWithBadgeData = await Promise.all(
+      articles.map(async (article) => {
+        // Extract chemical data from article metadata
+        let chemicalSymbol = article.metadata?.chemicalSymbol;
+        const atomicNumber = article.metadata?.atomicNumber;
+        let chemicalFormula = article.metadata?.chemicalFormula;
+
+        // If not directly in metadata, try to get from properties
+        if (!chemicalFormula && article.metadata?.properties?.chemicalFormula) {
+          chemicalFormula = article.metadata.properties.chemicalFormula;
+        }
+
+        // If we have a formula but no symbol, extract symbol from formula or name
+        if (chemicalFormula && !chemicalSymbol) {
+          // Extract first element from formula (e.g., "Al" from "Al₂O₃")
+          const match = chemicalFormula.match(/([A-Z][a-z]?)/);
+          chemicalSymbol = match
+            ? match[0]
+            : article.metadata?.subject?.substring(0, 2) || "";
+        }
+
+        // Load BadgeSymbol data from content/components/badgesymbol/
+        let badgeSymbolData: {
+          symbol: string;
+          materialType?: MaterialType;
+          atomicNumber?: number;
+          formula?: string;
+        } | null = null;
+        
+        if (article.slug) {
+          try {
+            const badgeSymbol = await loadComponent('badgesymbol', article.slug);
+            if (badgeSymbol?.config) {
+              const config = badgeSymbol.config as Record<string, unknown>;
+              const symbolValue = config.symbol || chemicalSymbol;
+              if (symbolValue) {
+                badgeSymbolData = {
+                  symbol: String(symbolValue),
+                  materialType: config.materialType ? toMaterialType(String(config.materialType)) : toMaterialType(article.metadata?.category as string),
+                  atomicNumber: config.atomicNumber ? Number(config.atomicNumber) : atomicNumber,
+                  formula: config.formula ? String(config.formula) : chemicalFormula,
+                };
+              }
+            }
+          } catch (error) {
+            // If no BadgeSymbol content file exists, fall back to article metadata
+            if (chemicalSymbol) {
+              badgeSymbolData = {
+                symbol: chemicalSymbol,
+                materialType: toMaterialType(article.metadata?.category as string),
+                atomicNumber: atomicNumber,
+                formula: chemicalFormula,
+              };
+            }
+          }
+        }
+
+        return {
+          ...article,
+          badgeSymbolData
+        };
+      })
+    );
     
     return (
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Search</h1>
         
-        <SearchClient initialArticles={articles} initialTags={tags} />
+        <SearchClient initialArticles={articlesWithBadgeData} />
       </div>
     );
   } catch (error) {

@@ -3,6 +3,6 @@
 | Formula | Steel |
 | Symbol | ST |
 | Category | Metal |
-| Material | Metal |
-| Tensile | N/A |
+| Density | 7.85g/c… |
+| Tensile | 400-550… |
 | Thermal | 50W/mK |

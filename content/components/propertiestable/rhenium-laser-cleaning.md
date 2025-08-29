@@ -3,6 +3,6 @@
 | Formula | Rhenium |
 | Symbol | Re |
 | Category | Metal |
-| Material | Metal |
+| Density | 21.02g/… |
 | Tensile | N/A |
 | Thermal | 48W/mK |

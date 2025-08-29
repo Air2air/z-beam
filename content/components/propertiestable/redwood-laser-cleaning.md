@@ -3,6 +3,6 @@
 | Formula | Redwood |
 | Symbol | RE |
 | Category | Wood |
-| Material | Wood |
+| Density | 480kg/m³ |
 | Tensile | N/A |
 | Thermal | 0.12W/mK |

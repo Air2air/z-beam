@@ -3,6 +3,6 @@
 | Formula | Fused S… |
 | Symbol | FU |
 | Category | Glass |
-| Material | Glass |
+| Density | 2.2g/cm³ |
 | Tensile | N/A |
 | Thermal | 1.4W/mK |

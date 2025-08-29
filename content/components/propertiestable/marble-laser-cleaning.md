@@ -3,6 +3,6 @@
 | Formula | CaCO3 |
 | Symbol | MA |
 | Category | Stone |
-| Material | Stone |
+| Density | 2.7g/cm³ |
 | Tensile | N/A |
 | Thermal | 2.07W/mK |

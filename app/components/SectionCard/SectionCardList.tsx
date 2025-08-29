@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { sectionCards } from "./SectionCards";
-import { Card } from "../Card/Card";
+import { ArticleGridClient } from "../ArticleGrid/ArticleGridClient";
 
 interface SectionCardData {
   id: number;
@@ -42,20 +42,19 @@ export function SectionCardList({
 
   return (
     <section className={`${className}`}>
-      <div className="grid grid-cols-2 gap-4">
-        {cardsToRender.map((card) => (
-          <Card
-            key={card.slug || card.id}
-            href={`/${card.slug}`}
-            imageUrl={card.imageUrl}
-            imageAlt={card.title || card.slug || "Image"}
-            title={card.title || ""}
-            description={card.description || ""}
-            className="featured-item"
-            badge={{ show: false }}
-          />
-        ))}
-      </div>
+      <ArticleGridClient
+        items={cardsToRender.map((card) => ({
+          slug: card.slug,
+          title: card.title || "",
+          description: card.description || "",
+          href: `/${card.slug}`,
+          imageUrl: card.imageUrl,
+          imageAlt: card.title || card.slug || "Image",
+          badge: { show: false }, // Featured items don't show badges
+        }))}
+        columns={2}
+        variant="featured"
+      />
     </section>
   );
 }

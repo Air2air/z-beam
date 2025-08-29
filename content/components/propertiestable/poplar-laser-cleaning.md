@@ -3,6 +3,6 @@
 | Formula | Poplar |
 | Symbol | PO |
 | Category | Wood |
-| Material | Wood |
+| Density | 420kg/m³ |
 | Tensile | N/A |
 | Thermal | 0.12W/mK |

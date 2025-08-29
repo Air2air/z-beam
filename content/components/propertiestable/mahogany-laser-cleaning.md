@@ -3,6 +3,6 @@
 | Formula | Mahogany |
 | Symbol | MA |
 | Category | Wood |
-| Material | Wood |
+| Density | 500-850… |
 | Tensile | N/A |
 | Thermal | 0.15-0.… |

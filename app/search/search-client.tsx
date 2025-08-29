@@ -2,28 +2,94 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { Card } from "../components/Card/Card";
-import { TagFilter } from "../components/UI/TagFilter";
-import { Article } from "@/types/core";
+import { ArticleGridClient } from "../components/ArticleGrid/ArticleGridClient";
+import { Article, MaterialType } from "@/types/core";
+
+// Helper function to safely cast material types
+function toMaterialType(value?: string): MaterialType {
+  if (!value) return 'other';
+  
+  const normalizedValue = value.toLowerCase();
+  const validTypes: MaterialType[] = [
+    'element', 'compound', 'ceramic', 'polymer', 'alloy', 'composite', 'semiconductor', 'other'
+  ];
+  
+  // Check for exact matches first
+  if (validTypes.includes(normalizedValue as MaterialType)) {
+    return normalizedValue as MaterialType;
+  }
+  
+  // Map common aliases
+  const typeMap: Record<string, MaterialType> = {
+    'metal': 'alloy',
+    'metalloid': 'semiconductor',
+    'plastic': 'polymer',
+    'material': 'other'
+  };
+  
+  return typeMap[normalizedValue] || 'other';
+}
 
 interface SearchClientProps {
   initialArticles: Article[];
-  initialTags: string[];
 }
 
-export default function SearchClient({ initialArticles, initialTags }: SearchClientProps) {
+// Simple synchronous property parser for client-side filtering
+function parsePropertiesFromContent(content: string): Array<{property: string, value: string}> {
+  if (!content) return [];
+  
+  const lines = content.split('\n').filter(line => line.trim());
+  const properties: Array<{property: string, value: string}> = [];
+  
+  for (const line of lines) {
+    // Check if this is a table row (contains |)
+    if (line.includes('|')) {
+      // Skip separator lines (contains only |, -, :, and spaces)
+      if (/^[\|\-\:\s]+$/.test(line)) {
+        continue;
+      }
+      
+      // Skip header row (contains "Property" and "Value")
+      const cells = line.split('|').map(cell => cell.trim()).filter(cell => cell);
+      if (cells.length >= 2 && 
+          cells[0].toLowerCase().includes('property') && 
+          cells[1].toLowerCase().includes('value')) {
+        continue;
+      }
+      
+      // Process data row
+      if (cells.length >= 2) {
+        const property = cells[0];
+        const value = cells[1];
+        
+        if (property && value) {
+          properties.push({ property, value });
+        }
+      }
+    }
+  }
+  
+  return properties;
+}
+
+export default function SearchClient({ initialArticles }: SearchClientProps) {
   const searchParams = useSearchParams();
   const query = searchParams?.get('q') || '';
+  const propertyName = searchParams?.get('property') || '';
+  const propertyValue = searchParams?.get('value') || '';
   
   const [articles] = useState<Article[]>(initialArticles);
-  const [tags] = useState<string[]>(initialTags);
-  const [selectedTag, setSelectedTag] = useState<string>('');
   
-  // Filter articles based on search query and selected tag
+  // Filter articles based on search query and property filters
   const filteredArticles = articles.filter(article => {
-    // First, check tag filter
-    if (selectedTag && article.tags) {
-      if (!article.tags.some(tag => tag.toLowerCase() === selectedTag.toLowerCase())) {
+    // Check property filter
+    if (propertyName && propertyValue && article.content) {
+      const properties = parsePropertiesFromContent(article.content);
+      const hasMatchingProperty = properties.some(prop => 
+        prop.property.toLowerCase() === propertyName.toLowerCase() && 
+        prop.value.toLowerCase() === propertyValue.toLowerCase()
+      );
+      if (!hasMatchingProperty) {
         return false;
       }
     }
@@ -40,19 +106,12 @@ export default function SearchClient({ initialArticles, initialTags }: SearchCli
   
   return (
     <div>
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-3">Filter by Tag</h2>
-        <TagFilter 
-          tags={tags} 
-          selectedTag={selectedTag}
-          onSelectTag={setSelectedTag}
-        />
-      </div>
-      
       <div className="mb-4">
         <h2 className="text-xl font-semibold">
-          {query ? `Search Results for "${query}"` : 'All Articles'}
-          {selectedTag && ` tagged with "${selectedTag}"`}
+          {propertyName && propertyValue ? 
+            `Materials with ${propertyName}: "${propertyValue}"` :
+            query ? `Search Results for "${query}"` : 'All Articles'
+          }
         </h2>
         <p className="text-gray-600">{filteredArticles.length} results found</p>
       </div>
@@ -62,19 +121,25 @@ export default function SearchClient({ initialArticles, initialTags }: SearchCli
           <p className="text-gray-700">No articles found matching your criteria.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filteredArticles.map((article) => (
-            <Card 
-              key={article.slug}
-              title={article.title || 'Untitled Article'}
-              description={article.description || ''}
-              href={`/${article.slug}`}
-              image={article.image}
-              imageAlt={article.imageAlt || article.title || ''}
-              tags={article.tags || []}
-            />
-          ))}
-        </div>
+        <ArticleGridClient
+          items={filteredArticles.map((article) => ({
+            slug: article.slug || 'unknown',
+            title: article.metadata?.subject || article.title || 'Untitled Article',
+            description: article.description || article.excerpt || '',
+            href: `/${article.slug}`,
+            imageUrl: article.image,
+            imageAlt: article.imageAlt || article.title || '',
+            badge: (article as any).badgeSymbolData || {
+              symbol: article.metadata?.chemicalSymbol,
+              formula: article.metadata?.chemicalFormula,
+              atomicNumber: article.metadata?.atomicNumber,
+              materialType: toMaterialType(article.metadata?.category),
+            },
+            metadata: article.metadata,
+          }))}
+          columns={3}
+          variant="search"
+        />
       )}
     </div>
   );

@@ -3,6 +3,6 @@
 | Formula | Rubber |
 | Symbol | RU |
 | Category | Composi… |
-| Material | Composi… |
+| Density | 1.10-1.… |
 | Tensile | N/A |
-| Thermal | 0.1-0.5… |
+| Thermal | 0.13-0.… |

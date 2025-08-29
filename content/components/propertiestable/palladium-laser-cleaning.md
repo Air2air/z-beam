@@ -3,6 +3,6 @@
 | Formula | Palladi… |
 | Symbol | Pd |
 | Category | Metal |
-| Material | Metal |
+| Density | 12.02g/… |
 | Tensile | N/A |
 | Thermal | 71.8W/(… |

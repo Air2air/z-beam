@@ -3,6 +3,6 @@
 | Formula | Plaster |
 | Symbol | PL |
 | Category | Masonry |
-| Material | Masonry |
+| Density | 1.4g/cm³ |
 | Tensile | N/A |
 | Thermal | 0.2W/mK |

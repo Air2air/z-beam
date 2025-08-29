@@ -28,7 +28,7 @@
 
 /* Individual property card styling */
 .properties-table .property-card {
-  padding: 0 .5rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,6 +37,32 @@
   min-height: 70px;
   flex: 1;
   container-type: inline-size;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Property link styling - makes entire card clickable */
+.properties-table .property-link {
+  display: block;
+  padding: 0 .5rem;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.properties-table .property-link:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+.properties-table .property-link:active {
+  transform: translateY(0);
 }
 
 /* Property value styling */

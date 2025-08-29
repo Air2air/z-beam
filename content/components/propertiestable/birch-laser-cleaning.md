@@ -3,6 +3,6 @@
 | Formula | Birch |
 | Symbol | BI |
 | Category | Wood |
-| Material | Wood |
+| Density | 640kg/m³ |
 | Tensile | N/A |
 | Thermal | 0.15W/mK |

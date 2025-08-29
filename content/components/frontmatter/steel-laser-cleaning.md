@@ -23,8 +23,15 @@ chemicalProperties:
   materialType: metal
 properties:
   density: "7.85 g/cm³"
+  densityMin: "0.5 g/cm³"
+  densityMax: "22.6 g/cm³"
   meltingPoint: "1370-1510°C"
   thermalConductivity: "50 W/m·K"
+  thermalMin: "8 W/m·K"
+  thermalMax: "429 W/m·K"
+  tensileStrength: "400-550 MPa"
+  tensileMin: "70 MPa"
+  tensileMax: "2000 MPa"
   laserType: "Pulsed fiber laser"
   wavelength: "1064nm"
   fluenceRange: "1.0–10 J/cm²"

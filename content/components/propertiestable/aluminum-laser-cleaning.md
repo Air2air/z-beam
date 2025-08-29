@@ -3,6 +3,6 @@
 | Formula | Aluminum |
 | Symbol | AL |
 | Category | Metal |
-| Material | Metal |
-| Tensile | N/A |
+| Density | 2.7g/cm³ |
+| Tensile | 276MPa |
 | Thermal | 237W/mK |

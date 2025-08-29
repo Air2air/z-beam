@@ -3,6 +3,6 @@
 | Formula | Willow |
 | Symbol | WI |
 | Category | Wood |
-| Material | Wood |
+| Density | 400kg/m³ |
 | Tensile | N/A |
 | Thermal | 0.15W/mK |
