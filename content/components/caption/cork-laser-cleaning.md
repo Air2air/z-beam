@@ -1,2 +1,0 @@
-**Cork** substrate (left) exhibiting biological staining and embedded particulate contamination from industrial handling.  
-**Laser-cleaned surface** (right) after processing with a 355 nm Nd:YAG laser (3.5 J/cm², 10 ns pulse duration, 500 µm spot), achieving precise ablation of surface deposits without compromising the suberin-rich cellular structure.

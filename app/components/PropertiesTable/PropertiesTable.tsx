@@ -1,4 +1,6 @@
 // app/components/PropertiesTable/PropertiesTable.tsx
+import React from 'react';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import "./styles.css";
 
 interface PropertiesTableProps {
@@ -87,18 +89,83 @@ function transformTableStructure(htmlContent: string): string {
   return "";
 }
 
+/**
+ * Converts markdown table to HTML table
+ */
+function convertMarkdownTableToHtml(markdown: string): string {
+  if (!markdown) return "";
+  
+  try {
+    const lines = markdown.split('\n').filter(line => line.trim());
+    let tableHtml = '';
+    let inTable = false;
+    
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      
+      // Check if this is a table row (contains |)
+      if (line.includes('|')) {
+        if (!inTable) {
+          tableHtml += '<table>\n';
+          inTable = true;
+        }
+        
+        // Skip separator lines (contains only |, -, :, and spaces)
+        if (/^[\|\-\:\s]+$/.test(line)) {
+          continue;
+        }
+        
+        // Skip header row (contains "Property" and "Value")
+        const cells = line.split('|').map(cell => cell.trim()).filter(cell => cell);
+        if (cells.length >= 2 && 
+            cells[0].toLowerCase().includes('property') && 
+            cells[1].toLowerCase().includes('value')) {
+          continue;
+        }
+        
+        // Process table row
+        if (cells.length >= 2) {
+          tableHtml += '<tr>';
+          cells.forEach(cell => {
+            tableHtml += `<td>${cell}</td>`;
+          });
+          tableHtml += '</tr>\n';
+        }
+      } else if (inTable) {
+        // End of table
+        tableHtml += '</table>\n';
+        inTable = false;
+      }
+    }
+    
+    if (inTable) {
+      tableHtml += '</table>\n';
+    }
+    
+    return tableHtml || markdown;
+  } catch (error) {
+    console.error("Error converting markdown table:", error);
+    return markdown;
+  }
+}
+
+/**
+ * Custom PropertiesTable component that processes raw markdown content
+ */
 export function PropertiesTable({ content, config }: PropertiesTableProps) {
   if (!content) return null;
 
   const { className = "", caption } = config || {};
 
-  // Transform table structure to stack values on keys
-  const transformedContent = transformTableStructure(content);
+  // Convert markdown to HTML, then transform the table structure
+  const processedContent = React.useMemo(() => {
+    const htmlContent = convertMarkdownTableToHtml(content);
+    return transformTableStructure(htmlContent);
+  }, [content]);
 
   return (
     <div className={`properties-table ${className}`}>
-      <div dangerouslySetInnerHTML={{ __html: transformedContent }} />
-
+      <div dangerouslySetInnerHTML={{ __html: processedContent }} />
       {caption && <div className="caption">{caption}</div>}
     </div>
   );

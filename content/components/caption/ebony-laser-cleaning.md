@@ -1,2 +1,0 @@
-**Ebony** surface (left) before processing, exhibiting heavy organic staining and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (1.2 J/cm², 100 ns pulse duration, 500 µm spot), revealing pristine grain structure with zero substrate damage.

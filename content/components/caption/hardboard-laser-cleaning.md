@@ -1,2 +1,0 @@
-**Hardboard** surface (left) with accumulated particulate buildup and organic staining, prior to intervention.
-**After laser cleaning** (right) using a 1064 nm fiber laser at 12 W, 100 ns pulse duration, and 0.8 mm spot size, revealing the pristine, undamaged wood fiber substrate.

@@ -31,13 +31,13 @@ const PROTECTED_FILES = [
   'postcss.config.js', 'next-env.d.ts', 'vercel.json', '.env', 
   '.env.local', '.env.example', '.nvmrc', '.gitignore', 
   '.eslintrc.json', 'stop-dev-server.sh', 'cleanup-root.js',
-  'jest.config.js', 'intelligent-predeploy.js', 'terminal-log-monitor.js',
-  'production-build-validator.js', 'vercel-diagnostics.js'
+  'jest.config.js', 'simple-predeploy.js'
 ];
 
 // Patterns for files to clean up
 const CLEANUP_PATTERNS = [
   /.*_(COMPLETE|SUMMARY|PROGRESS|ANALYSIS|REPORT|EVALUATION|IMPLEMENTATION|PLAN|ASSESSMENT|FINAL|IMPROVEMENTS|STANDARDIZATION|CONSOLIDATION|GUIDE)\.md$/i,
+  /^ADAPTIVE_.*\.md$/i,
   /^test-.*\.js$/,
   /.*\.tsbuildinfo$/,
   /.*\.(backup|bak|orig|log)$/,
@@ -48,15 +48,35 @@ const CLEANUP_PATTERNS = [
   /^evaluate-.*\.js$/,
   /^final-.*\.js$/,
   /^remove-.*\.js$/,
+  /^analyze-.*\.js$/,
   /^streamlined-predeploy.*\.js$/,
   /^adaptive-predeploy.*\.js$/,
+  /^comprehensive-.*\.js$/,
+  /^enhanced-.*\.js$/,
+  /^intelligent-.*\.js$/,
+  /^integrated-.*\.js$/,
+  /^ultimate-.*\.js$/,
+  /^honest-.*\.js$/,
+  /^fix-.*\.js$/,
+  /^end-to-end-.*\.js$/,
+  /^jest-fix-.*\.js$/,
+  /^next-js-testing-.*\.js$/,
+  /^predeploy-.*\.js$/,
+  /^terminal-.*\.js$/,
+  /^production-build-validator\.js$/,
+  /^vercel-diagnostics\.js$/,
   /predeploy-.*\.json$/,
+  /autofix-.*\.json$/,
+  /terminal-.*\.json$/,
+  /next-js-testing-.*\.json$/,
   /terminal-insights\.json$/,
   /^predeploy-self-optimizer\.js$/,
   /^GITHUB_ACTIONS_.*\.md$/i,
   /^PACKAGE_SCRIPTS_.*\.md$/i,
   /^PREDEPLOY_.*\.md$/i,
-  /^VERCEL_.*\.md$/i
+  /^VERCEL_.*\.md$/i,
+  /^standardize-.*\.js$/,
+  /temp_.*\.html$/
 ];
 
 function shouldCleanFile(filename) {

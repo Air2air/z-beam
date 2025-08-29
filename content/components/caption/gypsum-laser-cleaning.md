@@ -1,2 +1,0 @@
-**Gypsum** surface (left) before cleaning, exhibiting significant soiling from atmospheric particulate and biological growth.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse, 500 µm spot), showing precise ablation of contaminants with no substrate damage.

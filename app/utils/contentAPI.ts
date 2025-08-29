@@ -128,9 +128,9 @@ export const loadAllComponents = cache(async (slug: string): Promise<{ [componen
     
     await Promise.all(
       componentTypes.map(async (type) => {
-        // Skip markdown conversion for tags since they're just comma-separated values
-        const shouldConvertMarkdown = type !== 'tags';
-        const componentData = await loadComponent(type, slug, { convertMarkdown: shouldConvertMarkdown });
+        // Use raw content for all components - let each component handle its own parsing
+        // This provides consistency and flexibility for components like bullets, tags, etc.
+        const componentData = await loadComponent(type, slug, { convertMarkdown: false });
         if (componentData) {
           components[type] = componentData;
         }

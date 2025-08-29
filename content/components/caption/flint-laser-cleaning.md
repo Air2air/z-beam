@@ -1,2 +1,0 @@
-**Flint** surface (left) exhibiting significant calcareous and organic residue deposits from prolonged environmental exposure.  
-**After 1064 nm laser cleaning** (right) showing precise ablation of contaminants using 8 J/cm² fluence, 100 ns pulses, and a 500 µm spot, preserving the underlying conchoidal fracture integrity.

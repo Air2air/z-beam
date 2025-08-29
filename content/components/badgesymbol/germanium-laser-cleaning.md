@@ -1,4 +1,0 @@
----
-symbol: "GE"
-materialType: "semiconductor"
----

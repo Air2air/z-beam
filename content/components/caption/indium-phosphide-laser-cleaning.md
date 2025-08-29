@@ -1,2 +1,0 @@
-**Indium Phosphide** (InP) surface (left) with native oxide layer and hydrocarbon contamination, typical for III-V semiconductor wafers.  
-**After 1064 nm laser cleaning** (right) showing pristine surface achieved with 150 mJ/cm² fluence, 10 ns pulses, and 100 μm spot size, preserving the crystalline integrity.

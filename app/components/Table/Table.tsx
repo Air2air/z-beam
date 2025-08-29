@@ -1,4 +1,5 @@
 // app/components/Table/Table.tsx
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import './styles.css';
 
 interface TableProps {
@@ -29,8 +30,12 @@ export function Table({ content, config }: TableProps) {
             ${!showHeader ? 'no-header' : ''}
             ${className}
           `}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        >
+          <MarkdownRenderer 
+            content={content}
+            convertMarkdown={true}
+          />
+        </div>
       </div>
       
       {caption && (

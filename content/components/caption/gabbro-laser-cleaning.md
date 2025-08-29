@@ -1,2 +1,0 @@
-**Gabbro** surface (left) exhibiting biological growth and embedded particulate contamination within its complex feldspar-pyroxene intergrowth structure.
-**After 1064 nm laser cleaning** (right) showing complete contaminant ablation with 8 J/cm² fluence, 100 ns pulses, and 2 mm spot size, preserving the mineral's natural texture and chromatic contrast.

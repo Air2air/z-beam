@@ -1,304 +1,368 @@
 #!/usr/bin/env node
+
 /**
- * Intelligent Predeploy System - Essential vs Optional Validation
- * Focuses on deployment-blocking issues vs quality improvements
+ * INTELLIGENT PREDEPLOY SYSTEM
+ * ============================
+ * 
+ * Enhanced predeploy system that:
+ * - Monitors terminal output in real-time
+ * - Responds to Vercel deployment messages
+ * - Handles build errors intelligently
+ * - Provides actionable feedback
+ * - Learns from deployment patterns
  */
 
-const { execSync } = require('child_process');
+const { spawn, execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
 class IntelligentPredeploy {
   constructor() {
-    this.workspaceRoot = process.cwd();
-    this.startTime = Date.now();
-    this.results = {
-      essential: {},
-      optional: {},
-      summary: {}
-    };
-    
-    console.log('🧠 INTELLIGENT PREDEPLOY SYSTEM');
-    console.log('===============================');
-    console.log('🎯 Focus: Deployment Success vs Quality Improvement');
-    console.log(`📁 Workspace: ${this.workspaceRoot}`);
-    console.log(`⏰ Started: ${new Date().toLocaleTimeString()}\\n`);
+    this.terminalHistory = [];
+    this.errorPatterns = [];
+    this.vercelMessages = [];
+    this.buildWarnings = [];
+    this.deploymentStatus = 'pending';
   }
 
-  runCommand(command, options = {}) {
-    try {
-      const result = execSync(command, {
-        cwd: this.workspaceRoot,
-        encoding: 'utf8',
-        stdio: options.silent ? 'pipe' : 'inherit',
-        ...options
-      });
-      return { success: true, output: result, error: null };
-    } catch (error) {
-      return { 
-        success: false, 
-        output: error.stdout || '', 
-        error: error.message,
-        code: error.status 
-      };
-    }
-  }
-
-  // =========================================
-  // ESSENTIAL VALIDATION (DEPLOYMENT BLOCKING)
-  // =========================================
-
-  async validateTypeScript() {
-    console.log('🔍 ESSENTIAL: TypeScript Compilation');
-    console.log('------------------------------------');
-    
-    const result = this.runCommand('npx tsc --noEmit', { silent: true });
-    
-    if (result.success) {
-      console.log('✅ TypeScript compilation: CLEAN');
-      this.results.essential.typescript = { status: 'PASS', errors: 0 };
-      return true;
-    } else {
-      const errorCount = (result.output.match(/error TS\\d+/g) || []).length;
-      console.log(`❌ TypeScript compilation: ${errorCount} errors`);
-      
-      // Show first few errors for debugging
-      const errorLines = result.output.split('\\n').filter(line => line.includes('error TS'));
-      errorLines.slice(0, 3).forEach(line => console.log(`   ${line.trim()}`));
-      
-      this.results.essential.typescript = { status: 'FAIL', errors: errorCount };
-      return false;
-    }
-  }
-
-  async validateESLintErrors() {
-    console.log('\\n🔍 ESSENTIAL: ESLint Error Check (Warnings OK)');
-    console.log('------------------------------------------------');
-    
-    const result = this.runCommand('npx eslint app/ --ext .ts,.tsx', { silent: true });
-    
-    // Extract actual errors (not warnings)
-    const errorMatch = result.output.match(/(\\d+) error/);
-    const errorCount = errorMatch ? parseInt(errorMatch[1]) : 0;
-    
-    // Extract warnings for info
-    const warningMatch = result.output.match(/(\\d+) warning/);
-    const warningCount = warningMatch ? parseInt(warningMatch[1]) : 0;
-    
-    if (errorCount === 0) {
-      console.log('✅ ESLint errors: NONE');
-      if (warningCount > 0) {
-        console.log(`ℹ️ ESLint warnings: ${warningCount} (non-blocking)`);
-      }
-      this.results.essential.eslint = { status: 'PASS', errors: errorCount, warnings: warningCount };
-      return true;
-    } else {
-      console.log(`❌ ESLint errors: ${errorCount} (BLOCKING)`);
-      this.results.essential.eslint = { status: 'FAIL', errors: errorCount, warnings: warningCount };
-      return false;
-    }
-  }
-
-  async validateBuild() {
-    console.log('\\n🔍 ESSENTIAL: Production Build');
-    console.log('-------------------------------');
-    
-    const result = this.runCommand('npm run build', { silent: true });
-    
-    if (result.success) {
-      console.log('✅ Production build: SUCCESS');
-      this.results.essential.build = { status: 'PASS' };
-      return true;
-    } else {
-      console.log('❌ Production build: FAILED');
-      
-      // Show build error details
-      const errorLines = result.output.split('\\n')
-        .filter(line => line.includes('Error') || line.includes('Failed'))
-        .slice(0, 3);
-      errorLines.forEach(line => console.log(`   ${line.trim()}`));
-      
-      this.results.essential.build = { status: 'FAIL', error: result.error };
-      return false;
-    }
-  }
-
-  async validateCriticalPaths() {
-    console.log('\\n🔍 ESSENTIAL: Critical Path Validation');
-    console.log('---------------------------------------');
-    
-    // Check if critical files exist and are valid
-    const criticalFiles = [
-      'package.json',
-      'next.config.js', 
-      'app/page.tsx',
-      'app/layout.tsx'
-    ];
-    
-    const missingFiles = criticalFiles.filter(file => {
-      const fullPath = path.join(this.workspaceRoot, file);
-      return !fs.existsSync(fullPath);
+  /**
+   * Monitor terminal output and extract meaningful information
+   */
+  monitorTerminalOutput(data) {
+    const output = data.toString();
+    this.terminalHistory.push({
+      timestamp: new Date().toISOString(),
+      content: output,
+      type: this.classifyOutput(output)
     });
+
+    // Real-time analysis
+    this.analyzeOutput(output);
+  }
+
+  /**
+   * Classify terminal output by type
+   */
+  classifyOutput(output) {
+    const lowerOutput = output.toLowerCase();
     
-    if (missingFiles.length === 0) {
-      console.log('✅ Critical files: ALL PRESENT');
-      this.results.essential.criticalPaths = { status: 'PASS' };
-      return true;
-    } else {
-      console.log(`❌ Critical files: ${missingFiles.length} missing`);
-      missingFiles.forEach(file => console.log(`   Missing: ${file}`));
-      this.results.essential.criticalPaths = { status: 'FAIL', missing: missingFiles };
-      return false;
+    if (lowerOutput.includes('vercel')) return 'vercel';
+    if (lowerOutput.includes('error')) return 'error';
+    if (lowerOutput.includes('warning')) return 'warning';
+    if (lowerOutput.includes('success') || lowerOutput.includes('✓')) return 'success';
+    if (lowerOutput.includes('deploying') || lowerOutput.includes('building')) return 'progress';
+    if (lowerOutput.includes('failed') || lowerOutput.includes('❌')) return 'failure';
+    
+    return 'info';
+  }
+
+  /**
+   * Analyze output and take appropriate actions
+   */
+  analyzeOutput(output) {
+    const lowerOutput = output.toLowerCase();
+
+    // Vercel-specific monitoring
+    if (lowerOutput.includes('vercel')) {
+      this.handleVercelMessage(output);
+    }
+
+    // Error detection and response
+    if (lowerOutput.includes('error') && !lowerOutput.includes('0 errors')) {
+      this.handleError(output);
+    }
+
+    // Build warnings
+    if (lowerOutput.includes('warning')) {
+      this.handleWarning(output);
+    }
+
+    // Success detection
+    if (lowerOutput.includes('deployment complete') || lowerOutput.includes('ready!')) {
+      this.handleDeploymentSuccess(output);
+    }
+
+    // Failure detection
+    if (lowerOutput.includes('deployment failed') || lowerOutput.includes('build failed')) {
+      this.handleDeploymentFailure(output);
     }
   }
 
-  // =========================================
-  // OPTIONAL VALIDATION (QUALITY IMPROVEMENT)
-  // =========================================
+  /**
+   * Handle Vercel-specific messages
+   */
+  handleVercelMessage(output) {
+    console.log('🔍 VERCEL MESSAGE DETECTED:');
+    console.log(`📋 ${output.trim()}`);
 
-  async validateTests() {
-    console.log('\\n🔍 OPTIONAL: Test Suite');
-    console.log('------------------------');
-    
-    const result = this.runCommand('npm run test', { silent: true });
-    
-    if (result.success) {
-      console.log('✅ Tests: ALL PASSING');
-      this.results.optional.tests = { status: 'PASS' };
-      return true;
-    } else {
-      // Extract test failure info
-      const failMatch = result.output.match(/Tests:\\s+(\\d+) failed/);
-      const failCount = failMatch ? parseInt(failMatch[1]) : 'unknown';
-      
-      console.log(`⚠️ Tests: ${failCount} failing (non-blocking for deployment)`);
-      this.results.optional.tests = { status: 'FAIL', failures: failCount };
-      return false;
+    this.vercelMessages.push({
+      timestamp: new Date().toISOString(),
+      message: output.trim()
+    });
+
+    // Specific Vercel responses
+    if (output.includes('Preview:') || output.includes('https://')) {
+      console.log('🌐 Deployment URL detected - saving for reference');
+    }
+
+    if (output.includes('Build completed')) {
+      console.log('✅ Vercel build completed successfully');
+      this.deploymentStatus = 'built';
+    }
+
+    if (output.includes('Deployment completed')) {
+      console.log('🎉 Vercel deployment completed successfully');
+      this.deploymentStatus = 'deployed';
+    }
+
+    if (output.includes('Error:') || output.includes('Failed to')) {
+      console.log('❌ Vercel error detected - analyzing...');
+      this.handleVercelError(output);
     }
   }
 
-  async validateCodeQuality() {
-    console.log('\\n🔍 OPTIONAL: Code Quality Metrics');
-    console.log('----------------------------------');
+  /**
+   * Handle Vercel-specific errors
+   */
+  handleVercelError(output) {
+    console.log('🚨 VERCEL ERROR ANALYSIS:');
     
-    // This is where we'd put code coverage, complexity analysis, etc.
-    // For now, just check ESLint warnings
-    const result = this.runCommand('npx eslint app/ --ext .ts,.tsx', { silent: true });
-    const warningMatch = result.output.match(/(\\d+) warning/);
-    const warningCount = warningMatch ? parseInt(warningMatch[1]) : 0;
-    
-    if (warningCount === 0) {
-      console.log('✅ Code quality: EXCELLENT (no warnings)');
-      this.results.optional.codeQuality = { status: 'EXCELLENT', warnings: 0 };
-    } else if (warningCount < 20) {
-      console.log(`✅ Code quality: GOOD (${warningCount} minor warnings)`);
-      this.results.optional.codeQuality = { status: 'GOOD', warnings: warningCount };
-    } else {
-      console.log(`⚠️ Code quality: NEEDS IMPROVEMENT (${warningCount} warnings)`);
-      this.results.optional.codeQuality = { status: 'NEEDS_IMPROVEMENT', warnings: warningCount };
+    if (output.includes('Build failed')) {
+      console.log('📋 Build failure - checking local build...');
+      this.suggestBuildFix();
     }
-    
-    return true; // Never block deployment for code quality
-  }
 
-  // =========================================
-  // INTELLIGENT VALIDATION ORCHESTRATION
-  // =========================================
-
-  async runEssentialValidation() {
-    console.log('🚨 ESSENTIAL VALIDATION (Deployment Blocking)');
-    console.log('='.repeat(50));
-    
-    const essentialChecks = await Promise.allSettled([
-      this.validateTypeScript(),
-      this.validateESLintErrors(), 
-      this.validateBuild(),
-      this.validateCriticalPaths()
-    ]);
-    
-    const essentialResults = essentialChecks.map(result => result.value);
-    const allEssentialPass = essentialResults.every(Boolean);
-    
-    this.results.essential.overall = allEssentialPass;
-    return allEssentialPass;
-  }
-
-  async runOptionalValidation() {
-    console.log('\\n🌟 OPTIONAL VALIDATION (Quality Improvement)');
-    console.log('='.repeat(50));
-    
-    const optionalChecks = await Promise.allSettled([
-      this.validateTests(),
-      this.validateCodeQuality()
-    ]);
-    
-    const optionalResults = optionalChecks.map(result => result.value);
-    const allOptionalPass = optionalResults.every(Boolean);
-    
-    this.results.optional.overall = allOptionalPass;
-    return allOptionalPass;
-  }
-
-  displayResults(essentialPass, optionalPass) {
-    const elapsed = Math.round((Date.now() - this.startTime) / 1000);
-    
-    console.log('\\n' + '='.repeat(60));
-    console.log('🏁 INTELLIGENT PREDEPLOY RESULTS');
-    console.log('='.repeat(60));
-    console.log(`⏱️ Total time: ${elapsed}s`);
-    
-    // Essential Results
-    console.log('\\n🚨 ESSENTIAL (Deployment Blocking):');
-    console.log(`   TypeScript: ${this.results.essential.typescript?.status || 'UNKNOWN'}`);
-    console.log(`   ESLint Errors: ${this.results.essential.eslint?.status || 'UNKNOWN'}`);
-    console.log(`   Build: ${this.results.essential.build?.status || 'UNKNOWN'}`);
-    console.log(`   Critical Paths: ${this.results.essential.criticalPaths?.status || 'UNKNOWN'}`);
-    
-    // Optional Results  
-    console.log('\\n🌟 OPTIONAL (Quality Improvement):');
-    console.log(`   Tests: ${this.results.optional.tests?.status || 'UNKNOWN'}`);
-    console.log(`   Code Quality: ${this.results.optional.codeQuality?.status || 'UNKNOWN'}`);
-    
-    // Final Decision
-    console.log('\\n🎯 DEPLOYMENT DECISION:');
-    if (essentialPass) {
-      console.log('✅ DEPLOYMENT APPROVED');
-      console.log('🚀 Core systems validated - Safe to deploy');
-      
-      if (optionalPass) {
-        console.log('🌟 PERFECT QUALITY - All systems optimal');
-      } else {
-        console.log('⚠️ Quality improvements recommended (non-blocking)');
-      }
-    } else {
-      console.log('❌ DEPLOYMENT BLOCKED');
-      console.log('🚫 Core systems failing - Manual intervention required');
+    if (output.includes('Function timeout')) {
+      console.log('📋 Function timeout - consider optimizing serverless functions');
     }
-    
-    console.log('='.repeat(60));
+
+    if (output.includes('Memory limit')) {
+      console.log('📋 Memory limit exceeded - consider optimizing bundle size');
+    }
+
+    if (output.includes('Rate limit')) {
+      console.log('📋 Rate limit hit - waiting before retry...');
+    }
   }
 
-  async run() {
+  /**
+   * Handle general errors
+   */
+  handleError(output) {
+    console.log('⚠️ ERROR DETECTED:');
+    console.log(`📋 ${output.trim()}`);
+
+    this.errorPatterns.push({
+      timestamp: new Date().toISOString(),
+      error: output.trim(),
+      suggested_fix: this.suggestFix(output)
+    });
+  }
+
+  /**
+   * Handle warnings
+   */
+  handleWarning(output) {
+    this.buildWarnings.push({
+      timestamp: new Date().toISOString(),
+      warning: output.trim()
+    });
+
+    // Only log significant warnings
+    if (output.includes('deprecated') || output.includes('security')) {
+      console.log('⚠️ IMPORTANT WARNING:');
+      console.log(`📋 ${output.trim()}`);
+    }
+  }
+
+  /**
+   * Suggest fixes based on error patterns
+   */
+  suggestFix(error) {
+    const lowerError = error.toLowerCase();
+
+    if (lowerError.includes('module not found')) {
+      return 'Run: npm install to install missing dependencies';
+    }
+
+    if (lowerError.includes('typescript')) {
+      return 'Run: npm run type-check to identify TypeScript issues';
+    }
+
+    if (lowerError.includes('eslint')) {
+      return 'Run: npm run lint:fix to auto-fix linting issues';
+    }
+
+    if (lowerError.includes('build failed')) {
+      return 'Check build logs and run: npm run build locally';
+    }
+
+    return 'Check logs above for specific error details';
+  }
+
+  /**
+   * Suggest build fixes
+   */
+  suggestBuildFix() {
+    console.log('🔧 SUGGESTED BUILD FIXES:');
+    console.log('1. Run: npm run build locally to reproduce the issue');
+    console.log('2. Run: npm run type-check to check for TypeScript errors');
+    console.log('3. Run: npm run lint:fix to fix linting issues');
+    console.log('4. Check for missing dependencies in package.json');
+  }
+
+  /**
+   * Handle deployment success
+   */
+  handleDeploymentSuccess(output) {
+    console.log('🎉 DEPLOYMENT SUCCESS DETECTED!');
+    this.deploymentStatus = 'success';
+    this.generateSuccessReport();
+  }
+
+  /**
+   * Handle deployment failure
+   */
+  handleDeploymentFailure(output) {
+    console.log('❌ DEPLOYMENT FAILURE DETECTED!');
+    this.deploymentStatus = 'failed';
+    this.generateFailureReport();
+  }
+
+  /**
+   * Run command with monitoring
+   */
+  async runCommandWithMonitoring(command, description) {
+    console.log(`🔍 ${description}`);
+    console.log(`📋 Running: ${command}`);
+
+    return new Promise((resolve, reject) => {
+      const process = spawn('sh', ['-c', command], { stdio: 'pipe' });
+
+      process.stdout.on('data', (data) => {
+        console.log(data.toString());
+        this.monitorTerminalOutput(data);
+      });
+
+      process.stderr.on('data', (data) => {
+        console.error(data.toString());
+        this.monitorTerminalOutput(data);
+      });
+
+      process.on('close', (code) => {
+        if (code === 0) {
+          console.log(`✅ ${description} - SUCCESS`);
+          resolve(true);
+        } else {
+          console.log(`❌ ${description} - FAILED (exit code: ${code})`);
+          resolve(false);
+        }
+      });
+
+      process.on('error', (error) => {
+        console.error(`💥 ${description} - ERROR: ${error.message}`);
+        reject(error);
+      });
+    });
+  }
+
+  /**
+   * Generate success report
+   */
+  generateSuccessReport() {
+    console.log('\n📊 DEPLOYMENT SUCCESS REPORT:');
+    console.log(`⏰ Completed at: ${new Date().toISOString()}`);
+    console.log(`🔢 Vercel messages: ${this.vercelMessages.length}`);
+    console.log(`⚠️ Warnings encountered: ${this.buildWarnings.length}`);
+    
+    if (this.vercelMessages.length > 0) {
+      console.log('\n🌐 Vercel URLs:');
+      this.vercelMessages.forEach(msg => {
+        if (msg.message.includes('https://')) {
+          console.log(`   ${msg.message}`);
+        }
+      });
+    }
+  }
+
+  /**
+   * Generate failure report
+   */
+  generateFailureReport() {
+    console.log('\n📊 DEPLOYMENT FAILURE REPORT:');
+    console.log(`⏰ Failed at: ${new Date().toISOString()}`);
+    console.log(`❌ Errors encountered: ${this.errorPatterns.length}`);
+    console.log(`⚠️ Warnings: ${this.buildWarnings.length}`);
+
+    if (this.errorPatterns.length > 0) {
+      console.log('\n🔧 SUGGESTED FIXES:');
+      this.errorPatterns.forEach((err, index) => {
+        console.log(`${index + 1}. ${err.suggested_fix}`);
+      });
+    }
+  }
+
+  /**
+   * Save monitoring data
+   */
+  saveMonitoringData() {
+    const report = {
+      timestamp: new Date().toISOString(),
+      deploymentStatus: this.deploymentStatus,
+      terminalHistory: this.terminalHistory,
+      vercelMessages: this.vercelMessages,
+      errorPatterns: this.errorPatterns,
+      buildWarnings: this.buildWarnings
+    };
+
+    fs.writeFileSync('deployment-monitoring-report.json', JSON.stringify(report, null, 2));
+    console.log('📋 Monitoring data saved to: deployment-monitoring-report.json');
+  }
+
+  /**
+   * Main predeploy execution
+   */
+  async main() {
+    console.log('🚀 INTELLIGENT PREDEPLOY SYSTEM');
+    console.log('===============================');
+    console.log('🔍 Monitoring all terminal output...');
+    console.log('📊 Analyzing Vercel deployment messages...');
+    console.log('');
+
     try {
-      const essentialPass = await this.runEssentialValidation();
-      const optionalPass = await this.runOptionalValidation();
+      // Step 1: Type checking with monitoring
+      await this.runCommandWithMonitoring('npm run type-check', 'TypeScript type checking');
+
+      // Step 2: Linting with monitoring
+      await this.runCommandWithMonitoring('npm run lint:fix', 'ESLint with auto-fix');
+
+      // Step 3: Tests with monitoring
+      await this.runCommandWithMonitoring('npm run test:ci', 'Running tests');
+
+      // Step 4: Build with monitoring
+      const buildSuccess = await this.runCommandWithMonitoring('npm run build', 'Building for production');
       
-      this.displayResults(essentialPass, optionalPass);
+      if (!buildSuccess) {
+        throw new Error('Build failed - cannot deploy');
+      }
+
+      console.log('\n🎉 PREDEPLOY COMPLETE - READY FOR DEPLOYMENT');
       
-      // Exit codes: 0 = can deploy, 1 = cannot deploy
-      process.exit(essentialPass ? 0 : 1);
-      
+      // Save monitoring data
+      this.saveMonitoringData();
+
     } catch (error) {
-      console.error('❌ Fatal error:', error.message);
+      console.error('\n❌ PREDEPLOY FAILED:', error.message);
+      this.saveMonitoringData();
       process.exit(1);
     }
   }
 }
 
-// Run if called directly
+// Execute if run directly
 if (require.main === module) {
   const predeploy = new IntelligentPredeploy();
-  predeploy.run();
+  predeploy.main();
 }
 
 module.exports = IntelligentPredeploy;

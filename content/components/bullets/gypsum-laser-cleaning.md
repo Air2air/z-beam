@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Laser cleaning of gypsum artifacts is extensively employed within European cultural heritage restoration, particularly for delicate sculptural elements and historical architectural details. This non-contact method effectively removes atmospheric black crusts and biological patinas without compromising the stone's intricate surface morphology.
-
-- **[PARAMETERS]** Optimal cleaning utilizes near-infrared wavelengths around 1064 nm with fluences carefully maintained below 1.5 J/cm² to prevent dehydration and surface micro-fracturing. Short nanosecond pulses are predominantly selected to efficiently ablate contaminants while preserving the gypsum's inherent hydrous structure and friable nature.
-
-- **[ENVIRONMENTAL]** The process eliminates chemical waste and aqueous runoff, aligning with stringent EU directives on sustainable conservation practices for historical monuments. This dry technique significantly reduces the ecological footprint compared to traditional chemical or mechanical methods, supporting greener industrial maintenance protocols.
-
-- **[SAFETY]** Strict adherence to EN 60825-1 for laser classification and eye protection is mandatory, with operational zones requiring controlled access and appropriate fume extraction to handle airborne gypsum particles. Personnel must also utilize local exhaust ventilation (LEV) systems to mitigate any respiratory hazards from the generated fine particulates.
-
-- **[CHALLENGES]** The primary difficulty involves the material's low thermal degradation threshold, which risks causing phase changes to bassanite or anhydrite if excessive thermal energy is applied. Mitigation strategies involve meticulous parameter calibration using on-site spectrophotometry and implementing real-time monitoring systems to prevent substrate alteration.

@@ -1,4 +1,0 @@
----
-symbol: "SiGe"
-materialType: "semiconductor"
----

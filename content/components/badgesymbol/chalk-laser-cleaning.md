@@ -1,4 +1,0 @@
----
-symbol: "CH"
-materialType: "stone"
----

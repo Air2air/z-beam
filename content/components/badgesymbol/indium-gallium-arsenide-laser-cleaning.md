@@ -1,4 +1,0 @@
----
-symbol: "InGaAs"
-materialType: "semiconductor"
----

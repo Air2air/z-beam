@@ -1,2 +1,0 @@
-**Chalk** surface (left) before processing, exhibiting significant biological growth and particulate soiling.  
-**After laser ablation** (right) using a 355 nm Nd:YAG laser (3.5 J/cm², 10 ns pulse, 500 µm spot), showing precise contaminant removal with no substrate damage.

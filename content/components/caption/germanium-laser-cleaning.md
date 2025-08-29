@@ -1,2 +1,0 @@
-**Germanium** wafer (left) with visible organic residues and native oxide layer impairing IR transmission.
-**After laser ablation** (right) using a 1064 nm laser (1.2 J/cm², 10 ns pulses, 100 µm spot), showing pristine surface with restored optical properties.

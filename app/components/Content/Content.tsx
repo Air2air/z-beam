@@ -1,4 +1,5 @@
 // app/components/Content/Content.tsx
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import './styles.css';
 
 interface ContentProps {
@@ -20,10 +21,12 @@ export function Content({ content, config }: ContentProps) {
   
   return (
     <div className={`content-section ${maxWidth}`}>
-      <div 
-        className={`content-container prose dark:prose-invert ${wrapHeadings ? 'wrap-headings' : ''}`}
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      <div className={`content-container prose dark:prose-invert ${wrapHeadings ? 'wrap-headings' : ''}`}>
+        <MarkdownRenderer 
+          content={content}
+          convertMarkdown={true}
+        />
+      </div>
     </div>
   );
 }

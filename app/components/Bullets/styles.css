@@ -5,7 +5,50 @@
   margin: 1.5rem 0;
 }
 
+/* Individual bullet point container with caption-like styling */
+.bullet-point-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: #1a202c;
+  color: #e2e8f0;
+  border: none;
+  overflow: hidden;
+}
+
 /* Override Tailwind prose styles for better bullets */
+.bullet-point-container .prose {
+  color: #becae0;
+  margin: 0;
+  max-width: none;
+}
+
+.bullet-point-container .prose ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.bullet-point-container .prose li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Style the bullet content */
+.bullet-point-container .prose p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+
+/* Preserve strong text formatting */
+.bullet-point-container .prose strong {
+  color: #f7fafc;
+  font-weight: 600;
+}
+
+/* Legacy styles for non-container mode */
 .bullets-section .prose ul {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
