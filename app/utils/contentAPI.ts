@@ -11,33 +11,8 @@ import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug } from './formatting';
 import { loadFrontmatterData } from './frontmatterLoader';
+import { extractSafeValue } from './stringHelpers';
 import type { Article } from './contentUtils';
-
-/**
- * Helper function to safely extract values from nested frontmatter structures
- */
-function extractSafeValueInternal(value: any): string {
-  if (typeof value === 'string') return value;
-  if (typeof value === 'object' && value !== null) {
-    // Handle nested patterns like { title: "value" } or { formula: "value" }
-    const keys = Object.keys(value);
-    if (keys.length === 1) {
-      const firstKey = keys[0];
-      const nestedValue = value[firstKey];
-      if (typeof nestedValue === 'string') return nestedValue;
-    }
-    // Fallback to converting the object to JSON string
-    return JSON.stringify(value);
-  }
-  return String(value || '');
-}
-
-/**
- * Async wrapper for extractSafeValue to comply with server action requirements
- */
-export async function extractSafeValue(value: any): Promise<string> {
-  return extractSafeValueInternal(value);
-}
 
 // Content directories configuration
 const CONTENT_DIRS = {
@@ -291,3 +266,6 @@ export const loadComponentData = cache(async (type: string, slug: string): Promi
   }, null, 'loadComponentData', `${type}/${slug}`);
 });
 export const getAllArticleSlugs = getAllSlugs;
+
+// Note: extractSafeValue is available from './stringHelpers' - 
+// cannot re-export sync functions from server action files

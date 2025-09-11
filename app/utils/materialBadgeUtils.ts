@@ -1,5 +1,6 @@
 // app/utils/materialBadgeUtils.ts
 import { MaterialBadgeData, MaterialType } from '../../types/core';
+import { safeMatch, extractSafeValue } from './stringHelpers';
 
 // Known element symbols mapped to atomic numbers
 const ELEMENTS: Record<string, number> = {
@@ -16,8 +17,8 @@ export function getBadgeData(article: { metadata?: Record<string, unknown>; [key
   if (!article) return null;
   
   // Helper function to extract first element symbol from formula
-  const extractSymbol = (formula: string): string => {
-    const match = formula.match(/([A-Z][a-z]?)/);
+  const extractSymbol = (formula: unknown): string => {
+    const match = safeMatch(formula, /([A-Z][a-z]?)/);
     return match ? match[0] : '';
   };
   
@@ -61,12 +62,12 @@ export function getBadgeData(article: { metadata?: Record<string, unknown>; [key
   
   // 5. If we have formula but no symbol, extract from formula
   if (formula && !symbol) {
-    symbol = extractSymbol(formula as string);
+    symbol = extractSymbol(formula);
   }
   
   // 6. Last resort: generate symbol from name
   if (!symbol && article.metadata?.subject) {
-    symbol = abbreviateName(article.metadata.subject as string);
+    symbol = abbreviateName(extractSafeValue(article.metadata.subject));
   }
   
   // If we've found nothing, return null

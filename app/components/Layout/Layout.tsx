@@ -13,6 +13,7 @@ import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import { parseAuthorContent } from '../../utils/authorParser';
 import { ArticleMetadata, BadgeSymbolData } from '../../../types/core';
 import { ComponentData } from '../../utils/contentAPI';
+import { extractSafeValue } from '../../utils/stringHelpers';
 
 // Update component order to include propertiestable, author, and tags
 const COMPONENT_ORDER = [
@@ -42,22 +43,6 @@ export function Layout({
   hideHeader = false,
   className = "max-w-4xl mx-auto px-4 py-8"
 }: LayoutProps) {
-  // Helper function to safely extract string values from nested objects
-  const extractSafeValue = (value: any): string => {
-    if (typeof value === 'string') return value;
-    if (typeof value === 'object' && value !== null) {
-      // Look for common nested patterns like { title: "value" } or { subject: "value" }
-      const keys = Object.keys(value);
-      if (keys.length === 1) {
-        const firstKey = keys[0];
-        const nestedValue = value[firstKey];
-        if (typeof nestedValue === 'string') return nestedValue;
-      }
-      // Fallback to converting the object to JSON string
-      return JSON.stringify(value);
-    }
-    return String(value || '');
-  };
 
   // Add null check before accessing components
   if (!components || Object.keys(components).length === 0) {
@@ -84,7 +69,7 @@ export function Layout({
   
   // Extract material name for hero image (from subject or slug)
   const materialName = extractSafeValue(metadata?.subject).toLowerCase() || 
-    (slug && String(slug).includes('-') ? String(slug).split('-')[0].toLowerCase() : String(slug || '').toLowerCase());
+    (slug && extractSafeValue(slug).includes('-') ? extractSafeValue(slug).split('-')[0].toLowerCase() : extractSafeValue(slug || '').toLowerCase());
   
   // Generate JSON-LD if we have enough metadata
   const jsonLdData = metadata?.title && metadata?.description ? 

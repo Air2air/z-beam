@@ -7,6 +7,7 @@ import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
 import { SearchResultItem } from "@/types/core";
 import { Article, SearchableArticle } from "@/types/core";
+import { extractSafeValue, safeIncludes } from "@/app/utils/stringHelpers";
 
 interface SearchResultsProps {
   items: SearchableArticle[];
@@ -136,15 +137,15 @@ export function SearchResults({
     
     return (
       // Title
-      (item.title && String(item.title).toLowerCase().includes(queryLower)) ||
+      (item.title && safeIncludes(extractSafeValue(item.title), queryLower)) ||
       // Description
-      (item.description && String(item.description).toLowerCase().includes(queryLower)) ||
+      (item.description && safeIncludes(extractSafeValue(item.description), queryLower)) ||
       // Frontmatter title
-      (item.frontmatter?.title && String(item.frontmatter.title).toLowerCase().includes(queryLower)) ||
+      (item.frontmatter?.title && safeIncludes(extractSafeValue(item.frontmatter.title), queryLower)) ||
       // Frontmatter description
-      (item.frontmatter?.description && String(item.frontmatter.description).toLowerCase().includes(queryLower)) ||
+      (item.frontmatter?.description && safeIncludes(extractSafeValue(item.frontmatter.description), queryLower)) ||
       // Tags
-      (item.tags && item.tags.some(tag => String(tag).toLowerCase().includes(queryLower)))
+      (item.tags && item.tags.some(tag => safeIncludes(extractSafeValue(tag), queryLower)))
     );
   }
 

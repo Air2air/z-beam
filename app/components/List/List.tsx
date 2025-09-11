@@ -5,6 +5,7 @@ import { Card } from "../Card/Card";
 import { /* cn */ } from "../../utils/helpers";
 import { getArticle, loadComponent } from "../../utils/contentAPI"; // Updated to use contentAPI
 import { MaterialType } from "@/types/core";
+import { safeMatch, extractSafeValue } from "../../utils/stringHelpers";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -136,10 +137,10 @@ export async function List({
       // If we have a formula but no symbol, extract symbol from formula or name
       if (chemicalFormula && !chemicalSymbol) {
         // Extract first element from formula (e.g., "Al" from "Al₂O₃")
-        const match = chemicalFormula.match(/([A-Z][a-z]?)/);
+        const match = safeMatch(chemicalFormula, /([A-Z][a-z]?)/);
         chemicalSymbol = match
           ? match[0]
-          : article?.metadata?.subject?.substring(0, 2) || "";
+          : extractSafeValue(article?.metadata?.subject).substring(0, 2) || "";
       }
 
       // Load BadgeSymbol data from content/components/badgesymbol/

@@ -10,6 +10,7 @@ import { Article } from '../../types/core';
 import { loadAllArticles } from './contentAPI';
 import { logger } from './logger';
 import { stripParenthesesFromSlug } from './formatting';
+import { extractSafeValue } from './stringHelpers';
 
 // Constants
 const TAGS_DIRECTORY = path.join(process.cwd(), 'content', 'components', 'tags');
@@ -48,13 +49,13 @@ export async function articleMatchesTag(article: { tags?: string[] }, tag: strin
   if (!tag) return true;
   if (!article.tags || !Array.isArray(article.tags)) return false;
   
-  const tagLower = String(tag).toLowerCase();
+  const tagLower = extractSafeValue(tag).toLowerCase();
   
   // Check each tag on the article
   return article.tags
     .filter(Boolean)
     .some(t => {
-      const tString = String(t);
+      const tString = extractSafeValue(t);
       // Direct match (case-insensitive)
       if (tString.toLowerCase() === tagLower) return true;
       

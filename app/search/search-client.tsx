@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { ArticleGridClient } from "../components/ArticleGrid/ArticleGridClient";
 import { Article, MaterialType } from "@/types/core";
+import { extractSafeValue, safeIncludes } from "../utils/stringHelpers";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -99,8 +100,8 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     
     const searchTerm = query.toLowerCase();
     return (
-      (article.title && String(article.title).toLowerCase().includes(searchTerm)) ||
-      (article.description && String(article.description).toLowerCase().includes(searchTerm))
+      (article.title && safeIncludes(extractSafeValue(article.title), searchTerm)) ||
+      (article.description && safeIncludes(extractSafeValue(article.description), searchTerm))
     );
   });
   

@@ -4,29 +4,13 @@ type NextMetadata = any;
 
 import { ArticleMetadata } from '../../types/core';
 import { AuthorData } from '../../types/components/author';
+import { extractSafeValue, safeIncludes } from './stringHelpers';
 
 // Re-export centralized types
 export type { ArticleMetadata };
 export type { AuthorData as AuthorInfo } from '../../types/components/author';
 
 export function createMetadata(metadata: ArticleMetadata): NextMetadata {
-  
-  // Helper function to extract string values from nested objects
-  const extractString = (value: any): string => {
-    if (typeof value === 'string') return value;
-    if (typeof value === 'object' && value !== null) {
-      // Look for common nested patterns like { title: "value" } or { formula: "value" }
-      const keys = Object.keys(value);
-      if (keys.length === 1) {
-        const firstKey = keys[0];
-        const nestedValue = value[firstKey];
-        if (typeof nestedValue === 'string') return nestedValue;
-      }
-      // Fallback to converting the object to JSON string
-      return JSON.stringify(value);
-    }
-    return String(value || '');
-  };
   
   // Extract all properties safely with defaults
   const {
@@ -41,9 +25,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   } = metadata;
   
   // Safely extract strings from potentially nested objects
-  const title = extractString(rawTitle);
-  const description = extractString(rawDescription);
-  const subject = extractString(rawSubject);
+  const title = extractSafeValue(rawTitle);
+  const description = extractSafeValue(rawDescription);
+  const subject = extractSafeValue(rawSubject);
   
   // Helper function to safely extract author name
   const getAuthorName = (author: string | AuthorData | undefined): string | undefined => {
@@ -55,7 +39,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Use subject as title if available and title is not set
   const actualTitle = title || subject || '';
   
-  const formattedTitle = actualTitle && !actualTitle.includes('Z-Beam') 
+  const formattedTitle = actualTitle && !safeIncludes(actualTitle, 'Z-Beam') 
     ? `${actualTitle} | Z-Beam` 
     : actualTitle || 'Z-Beam';
   
@@ -64,16 +48,16 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const result: NextMetadata = {
     title: formattedTitle,
     description: description,
-    keywords: Array.isArray(keywords) ? keywords.join(', ') : extractString(keywords),
+    keywords: Array.isArray(keywords) ? keywords.join(', ') : extractSafeValue(keywords),
     openGraph: {
       title: actualTitle || formattedTitle,
       description: description,
       type: ogType as 'website' | 'article',
-      images: ogImage ? [{ url: extractString(ogImage) }] : undefined,
+      images: ogImage ? [{ url: extractSafeValue(ogImage) }] : undefined,
       authors: authorName ? [authorName] : undefined,
     },
     alternates: {
-      canonical: extractString(canonical),
+      canonical: extractSafeValue(canonical),
     },
     robots: noindex ? { index: false } : undefined,
   };

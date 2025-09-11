@@ -2,6 +2,7 @@
 import SearchClient from "./search-client";
 import { getAllArticles } from "../utils/contentUtils";
 import { loadComponent } from "../utils/contentAPI";
+import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types/core";
 
 export const dynamic = 'force-dynamic';
@@ -53,16 +54,12 @@ export default async function SearchPage() {
         if (chemicalFormula && !chemicalSymbol) {
           // Extract first element from formula (e.g., "Al" from "Al₂O₃")
           // First safely extract string from potentially nested objects
-          const formulaString = typeof chemicalFormula === 'object' && chemicalFormula !== null
-            ? (chemicalFormula as any)?.formula || String(chemicalFormula)
-            : String(chemicalFormula);
+          const formulaString = extractSafeValue(chemicalFormula);
           
-          const match = typeof formulaString === 'string' 
-            ? formulaString.match(/([A-Z][a-z]?)/) 
-            : null;
+          const match = safeMatch(formulaString, /([A-Z][a-z]?)/);
           chemicalSymbol = match
             ? match[0]
-            : String(article.metadata?.subject || "").substring(0, 2) || "";
+            : extractSafeValue(article.metadata?.subject).substring(0, 2) || "";
         }
 
         // Load BadgeSymbol data from content/components/badgesymbol/
