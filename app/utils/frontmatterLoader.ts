@@ -54,7 +54,7 @@ export async function loadFrontmatterData(slug: string): Promise<unknown> {
       }
       
       // Direct regex extraction for images even if gray-matter worked
-      const heroImageMatch = fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/);
+      const heroImageMatch = typeof fileContent === 'string' ? fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/) : null;
       if (heroImageMatch && heroImageMatch[1]) {
         const heroUrl = stripParenthesesFromImageUrl(heroImageMatch[1].trim().replace(/"/g, ''));
         
@@ -72,7 +72,7 @@ export async function loadFrontmatterData(slug: string): Promise<unknown> {
       const result: Record<string, unknown> = {};
       
       // Extract hero image URL
-      const heroImageMatch = fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/);
+      const heroImageMatch = typeof fileContent === 'string' ? fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/) : null;
       if (heroImageMatch && heroImageMatch[1]) {
         const heroUrl = stripParenthesesFromImageUrl(heroImageMatch[1].trim().replace(/"/g, ''));
         result.images = {

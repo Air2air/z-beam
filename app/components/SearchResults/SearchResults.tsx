@@ -136,15 +136,15 @@ export function SearchResults({
     
     return (
       // Title
-      (item.title && item.title.toLowerCase().includes(queryLower)) ||
+      (item.title && String(item.title).toLowerCase().includes(queryLower)) ||
       // Description
-      (item.description && item.description.toLowerCase().includes(queryLower)) ||
+      (item.description && String(item.description).toLowerCase().includes(queryLower)) ||
       // Frontmatter title
-      (item.frontmatter?.title && item.frontmatter.title.toLowerCase().includes(queryLower)) ||
+      (item.frontmatter?.title && String(item.frontmatter.title).toLowerCase().includes(queryLower)) ||
       // Frontmatter description
-      (item.frontmatter?.description && item.frontmatter.description.toLowerCase().includes(queryLower)) ||
+      (item.frontmatter?.description && String(item.frontmatter.description).toLowerCase().includes(queryLower)) ||
       // Tags
-      (item.tags && item.tags.some(tag => tag.toLowerCase().includes(queryLower)))
+      (item.tags && item.tags.some(tag => String(tag).toLowerCase().includes(queryLower)))
     );
   }
 

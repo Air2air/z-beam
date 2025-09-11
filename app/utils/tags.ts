@@ -48,19 +48,20 @@ export async function articleMatchesTag(article: { tags?: string[] }, tag: strin
   if (!tag) return true;
   if (!article.tags || !Array.isArray(article.tags)) return false;
   
-  const tagLower = tag.toLowerCase();
+  const tagLower = String(tag).toLowerCase();
   
   // Check each tag on the article
   return article.tags
     .filter(Boolean)
     .some(t => {
+      const tString = String(t);
       // Direct match (case-insensitive)
-      if (t.toLowerCase() === tagLower) return true;
+      if (tString.toLowerCase() === tagLower) return true;
       
       // Compound tag check (e.g., "Precision Cleaning" should match with "Cleaning")
       if (tagLower.includes(' ')) {
         const tagParts = tagLower.split(' ');
-        return tagParts.some(part => t.toLowerCase() === part);
+        return tagParts.some(part => tString.toLowerCase() === part);
       }
       
       return false;

@@ -52,10 +52,17 @@ export default async function SearchPage() {
         // If we have a formula but no symbol, extract symbol from formula or name
         if (chemicalFormula && !chemicalSymbol) {
           // Extract first element from formula (e.g., "Al" from "Al₂O₃")
-          const match = chemicalFormula.match(/([A-Z][a-z]?)/);
+          // First safely extract string from potentially nested objects
+          const formulaString = typeof chemicalFormula === 'object' && chemicalFormula !== null
+            ? (chemicalFormula as any)?.formula || String(chemicalFormula)
+            : String(chemicalFormula);
+          
+          const match = typeof formulaString === 'string' 
+            ? formulaString.match(/([A-Z][a-z]?)/) 
+            : null;
           chemicalSymbol = match
             ? match[0]
-            : article.metadata?.subject?.substring(0, 2) || "";
+            : String(article.metadata?.subject || "").substring(0, 2) || "";
         }
 
         // Load BadgeSymbol data from content/components/badgesymbol/

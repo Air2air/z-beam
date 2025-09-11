@@ -12,6 +12,25 @@ import { Article } from '../../types/core';
 
 export type { Article };
 
+/**
+ * Helper function to safely extract values from nested frontmatter structures
+ */
+function extractSafeValue(value: any): string {
+  if (typeof value === 'string') return value;
+  if (typeof value === 'object' && value !== null) {
+    // Handle nested patterns like { title: "value" } or { formula: "value" }
+    const keys = Object.keys(value);
+    if (keys.length === 1) {
+      const firstKey = keys[0];
+      const nestedValue = value[firstKey];
+      if (typeof nestedValue === 'string') return nestedValue;
+    }
+    // Fallback to converting the object to JSON string
+    return JSON.stringify(value);
+  }
+  return String(value || '');
+}
+
 export async function getAllArticleSlugs(): Promise<string[]> {
   return safeContentOperation(async () => {
     // Get slugs from any component directory (metatags, content, etc.)
@@ -88,21 +107,21 @@ export async function getAllArticles(): Promise<Article[]> {
           
           articleData = {
             slug,
-            title: data.title,
-            name: data.name || '',
-            headline: data.headline || '',
-            description: data.description || '',
-            image: data.image || '',
-            imageAlt: data.imageAlt || '',
+            title: extractSafeValue(data.title) || '',
+            name: extractSafeValue(data.name) || '',
+            headline: extractSafeValue(data.headline) || '',
+            description: extractSafeValue(data.description) || '',
+            image: extractSafeValue(data.image) || '',
+            imageAlt: extractSafeValue(data.imageAlt) || '',
             tags: data.tags || [],
-            website: data.website || '',
+            website: extractSafeValue(data.website) || '',
             author: data.author || {},
             content: content || '', // Include the content for property searching
             metadata: {
               keywords: data.keywords || [],
-              category: data.category || '',
-              articleType: data.articleType || '',
-              subject: data.subject || '',
+              category: extractSafeValue(data.category) || '',
+              articleType: extractSafeValue(data.articleType) || '',
+              subject: extractSafeValue(data.subject) || '',
               chemicalProperties: data.chemicalProperties || {},
               properties: data.properties || [],
               applications: data.applications || [],
@@ -192,20 +211,20 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
         
         const articleData: Article = {
           slug: stripParenthesesFromSlug(slug), // Ensure slug is clean
-          title: data.title || 'Untitled',
-          name: data.name || '',
-          headline: data.headline || '',
-          description: data.description || '',
-          image: data.image || '',
-          imageAlt: data.imageAlt || '',
+          title: extractSafeValue(data.title) || 'Untitled',
+          name: extractSafeValue(data.name) || '',
+          headline: extractSafeValue(data.headline) || '',
+          description: extractSafeValue(data.description) || '',
+          image: extractSafeValue(data.image) || '',
+          imageAlt: extractSafeValue(data.imageAlt) || '',
           tags: data.tags || [],
-          website: data.website || '',
+          website: extractSafeValue(data.website) || '',
           author: data.author || {},
           metadata: {
             keywords: data.keywords || [],
-            category: data.category || '',
-            articleType: data.articleType || '',
-            subject: data.subject || '',
+            category: extractSafeValue(data.category) || '',
+            articleType: extractSafeValue(data.articleType) || '',
+            subject: extractSafeValue(data.subject) || '',
             chemicalProperties: data.chemicalProperties || {},
             properties: data.properties || {},
             applications: data.applications || [],

@@ -99,8 +99,8 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     
     const searchTerm = query.toLowerCase();
     return (
-      (article.title && article.title.toLowerCase().includes(searchTerm)) ||
-      (article.description && article.description.toLowerCase().includes(searchTerm))
+      (article.title && String(article.title).toLowerCase().includes(searchTerm)) ||
+      (article.description && String(article.description).toLowerCase().includes(searchTerm))
     );
   });
   

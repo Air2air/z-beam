@@ -42,6 +42,23 @@ export function Layout({
   hideHeader = false,
   className = "max-w-4xl mx-auto px-4 py-8"
 }: LayoutProps) {
+  // Helper function to safely extract string values from nested objects
+  const extractSafeValue = (value: any): string => {
+    if (typeof value === 'string') return value;
+    if (typeof value === 'object' && value !== null) {
+      // Look for common nested patterns like { title: "value" } or { subject: "value" }
+      const keys = Object.keys(value);
+      if (keys.length === 1) {
+        const firstKey = keys[0];
+        const nestedValue = value[firstKey];
+        if (typeof nestedValue === 'string') return nestedValue;
+      }
+      // Fallback to converting the object to JSON string
+      return JSON.stringify(value);
+    }
+    return String(value || '');
+  };
+
   // Add null check before accessing components
   if (!components || Object.keys(components).length === 0) {
     // Return a basic layout or message for pages without components
@@ -66,8 +83,8 @@ export function Layout({
   const displaySubtitle = metadata?.title ? metadata?.headline : metadata?.description;
   
   // Extract material name for hero image (from subject or slug)
-  const materialName = metadata?.subject?.toLowerCase() || 
-    (slug?.includes('-') ? slug.split('-')[0].toLowerCase() : slug?.toLowerCase());
+  const materialName = extractSafeValue(metadata?.subject).toLowerCase() || 
+    (slug && String(slug).includes('-') ? String(slug).split('-')[0].toLowerCase() : String(slug || '').toLowerCase());
   
   // Generate JSON-LD if we have enough metadata
   const jsonLdData = metadata?.title && metadata?.description ? 
