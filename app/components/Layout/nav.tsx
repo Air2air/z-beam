@@ -32,10 +32,6 @@ const navItems: Record<string, NavItem> = {
     name: "Services", 
     href: "/services",
   },
-  "/property": {
-    name: "Properties",
-    href: "/property",
-  },
   "/about": {
     name: "About", 
     href: "/about",
