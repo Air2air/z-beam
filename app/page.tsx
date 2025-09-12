@@ -1,6 +1,7 @@
 // app/page.tsx - Static optimized home page
 
 import { List } from "./components/List/List";
+import { Hero } from "./components/Hero/Hero";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
 import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentUtils";
@@ -47,9 +48,21 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero section */}
-      <section className="relative">
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center text-white px-4">
+      {/* Hero section with Vimeo video background */}
+      <Hero 
+        variant="fullwidth"
+        video={{
+          vimeoId: "1058778534",
+          autoplay: true,
+          loop: true,
+          background: true,
+          muted: true
+        }}
+        theme="dark"
+      >
+        {/* Commented out overlay text to resolve CSS issues */}
+        {/* 
+        <div className="flex flex-col items-center justify-center text-center text-white px-4 h-full">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Z-Beam Laser Cleaning
           </h1>
@@ -57,7 +70,8 @@ export default async function HomePage() {
             Advanced surface treatment solutions for industrial applications
           </p>
         </div>
-      </section>
+        */}
+      </Hero>
 
    
       <section className="container mx-auto px-4 py-8">
