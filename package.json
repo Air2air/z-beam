@@ -18,6 +18,7 @@
     "test:coverage": "jest --coverage",
     "validate": "npm run type-check && npm run lint && npm run test:ci && npm run build",
     "predeploy": "node intelligent-predeploy.js",
+    "predeploy:vercel": "node vercel-predeploy.js",
     "predeploy:simple": "node simple-predeploy.js",
     "deploy": "node integrated-deployment.js",
     "deploy:prod": "node integrated-deployment.js --prod --debug",
