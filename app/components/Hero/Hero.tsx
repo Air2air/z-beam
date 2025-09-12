@@ -49,7 +49,6 @@ export function Hero({
 
 }: HeroProps) {
   const themeClass = `theme-${theme}`;
-  const variantClass = variant === 'fullwidth' ? 'hero-fullwidth' : '';
   
   // Determine video source, prioritizing frontmatter
   let videoSource = video;

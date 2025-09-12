@@ -155,15 +155,16 @@ function convertMarkdownTableToHtml(markdown: string): string {
  * Custom PropertiesTable component that processes raw markdown content
  */
 export function PropertiesTable({ content, config }: PropertiesTableProps) {
-  if (!content) return null;
-
   const { className = "", caption } = config || {};
 
   // Convert markdown to HTML, then transform the table structure
   const processedContent = React.useMemo(() => {
+    if (!content) return '';
     const htmlContent = convertMarkdownTableToHtml(content);
     return transformTableStructure(htmlContent);
   }, [content]);
+
+  if (!content) return null;
 
   return (
     <div className={`properties-table ${className}`}>

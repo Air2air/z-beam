@@ -1,4 +1,5 @@
 // Quick test page for property search functionality
+import Link from 'next/link';
 
 export default function TestRangePage() {
   // Test data for display
@@ -22,7 +23,7 @@ export default function TestRangePage() {
           {testValues.map((value, index) => (
             <div key={index} className="p-3 bg-gray-50 rounded">
               <div className="font-mono text-sm">
-                <strong>Property Value:</strong> "{value}"
+                <strong>Property Value:</strong> &quot;{value}&quot;
               </div>
             </div>
           ))}
@@ -33,19 +34,19 @@ export default function TestRangePage() {
         <h2 className="text-2xl font-semibold mb-4">Test Property Search Links</h2>
         <div className="space-y-2">
           <div>
-            <a href="/search?property=Density&value=2.4-2.8" className="text-blue-600 hover:underline">
+            <Link href="/search?property=Density&value=2.4-2.8" className="text-blue-600 hover:underline">
               Test Search: Density 2.4-2.8
-            </a>
+            </Link>
           </div>
           <div>
-            <a href="/search?property=Density&value=2.7g/cm³" className="text-blue-600 hover:underline">
+            <Link href="/search?property=Density&value=2.7g/cm³" className="text-blue-600 hover:underline">
               Test Search: Density 2.7g/cm³
-            </a>
+            </Link>
           </div>
           <div>
-            <a href="/search?property=Tensile&value=276MPa" className="text-blue-600 hover:underline">
+            <Link href="/search?property=Tensile&value=276MPa" className="text-blue-600 hover:underline">
               Test Search: Tensile 276MPa
-            </a>
+            </Link>
           </div>
         </div>
       </div>

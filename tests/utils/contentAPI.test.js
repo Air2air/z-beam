@@ -39,6 +39,9 @@ jest.mock('react', () => ({
     return cached;
   }
 }));
+jest.mock('../../app/utils/frontmatterLoader', () => ({
+  loadFrontmatterData: jest.fn()
+}));
 jest.mock('../../app/utils/logger', () => ({
   logger: {
     warn: jest.fn(),
@@ -316,16 +319,15 @@ describe('Content API Utils', () => {
       mockExistsSync.mockReturnValue(true);
       mockFs.readFile.mockResolvedValue('test file content');
       
-      // First call (frontmatter) returns no config, second call (metatags) has config
-      safeMatterParse
-        .mockReturnValueOnce({
-          data: {},
-          content: 'content'
-        })
-        .mockReturnValueOnce({
-          data: { title: 'Metatags Title' },
-          content: 'content'
-        });
+      // Mock loadFrontmatterData to return empty object (no meaningful data)
+      const { loadFrontmatterData } = require('../../app/utils/frontmatterLoader');
+      jest.mocked(loadFrontmatterData).mockResolvedValueOnce({});
+      
+      // Mock metatags to have config
+      safeMatterParse.mockReturnValueOnce({
+        data: { title: 'Metatags Title' },
+        content: 'content'
+      });
 
       const result = await loadMetadata('test-slug');
 

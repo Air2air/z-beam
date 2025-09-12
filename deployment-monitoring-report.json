@@ -1,645 +1,555 @@
 {
-  "timestamp": "2025-08-29T01:16:55.802Z",
+  "timestamp": "2025-09-12T01:48:02.061Z",
   "deploymentStatus": "pending",
   "terminalHistory": [
     {
-      "timestamp": "2025-08-29T01:16:37.227Z",
+      "timestamp": "2025-09-12T01:47:40.875Z",
       "content": "\n> type-check\n> tsc --noEmit\n\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:38.761Z",
-      "content": ".next/types/app/pages/[slug]/page.ts(2,24): error TS2306: File '/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx' is not a module.\n",
-      "type": "error"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:38.762Z",
-      "content": ".next/types/app/pages/[slug]/page.ts(5,29): error TS2306: File '/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx' is not a module.\n",
-      "type": "error"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:40.306Z",
+      "timestamp": "2025-09-12T01:47:42.510Z",
       "content": "\n> lint:fix\n> eslint app/ --ext .ts,.tsx --fix\n\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:41.768Z",
-      "content": "\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Author/Author.tsx\n   4:10  warning  'AuthorData' is defined but never used             @typescript-eslint/no-unused-vars\n  11:3   warning  'showBio' is assigned a value but never used       @typescript-eslint/no-unused-vars\n  12:3   warning  'showEmail' is assigned a value but never used     @typescript-eslint/no-unused-vars\n  13:3   warning  'showLinkedIn' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/BadgeSymbol/BadgeSymbol.tsx\n  16:31  warning  'content' is defined but never used                @typescript-eslint/no-unused-vars\n  21:5   warning  'materialType' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Base/MarkdownRenderer.tsx\n  102:9  warning  'separatorLine' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Debug/FrontmatterNameChecker.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/List/List.tsx\n  166:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/PropertiesTable/PropertiesTable.tsx\n    3:10  warning  'MarkdownRenderer' is defined but never used                                                                                                                                                     @typescript-eslint/no-unused-vars\n  161:28  error    React Hook \"React.useMemo\" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SearchResults/SearchResults.tsx\n  9:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SectionCard/SectionCardList.tsx\n  25:3  warning  'heading' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Thumbnail/Thumbnail.tsx\n  6:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n  7:10  warning  'Card' is defined but never used     @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/UI/TagFilter.tsx\n  21:3  warning  'tagItemCounts' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/badge-symbol/page.tsx\n    8:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  100:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/page.tsx\n  134:46  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any\n  154:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n  170:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/search-client.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/articleEnrichment.ts\n  42:10  warning  'inferTags' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeDataLoader.ts\n  5:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeUtils.ts\n  42:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  85:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentAPI.ts\n  95:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentUtils.ts\n  117:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  125:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  126:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  204:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/formatting.ts\n  81:12  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/frontmatterLoader.ts\n  49:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  66:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  70:14  warning  'matterError' is defined but never used   @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/helpers.ts\n  56:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  73:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/materialBadgeUtils.ts\n  33:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  34:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  49:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  50:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  52:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  53:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/metadata.ts\n  3:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/tagDebug.ts\n  28:11  warning  'articlesWithTags' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n✖ 49 problems (1 error, 48 warnings)\n\n",
+      "timestamp": "2025-09-12T01:47:46.440Z",
+      "content": "\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/api/properties/route.ts\n  4:27  warning  'request' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/ArticleGrid/ArticleGrid.tsx\n   5:10  warning  'Article' is defined but never used      @typescript-eslint/no-unused-vars\n   6:28  warning  'ArticleItem' is defined but never used  @typescript-eslint/no-unused-vars\n  99:20  warning  'error' is defined but never used        @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/ArticleGrid/ArticleGridClient.tsx\n  8:10  warning  'toMaterialType' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Author/Author.tsx\n   4:10  warning  'AuthorData' is defined but never used             @typescript-eslint/no-unused-vars\n  11:3   warning  'showBio' is assigned a value but never used       @typescript-eslint/no-unused-vars\n  12:3   warning  'showEmail' is assigned a value but never used     @typescript-eslint/no-unused-vars\n  13:3   warning  'showLinkedIn' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/BadgeSymbol/BadgeSymbol.tsx\n  16:31  warning  'content' is defined but never used                @typescript-eslint/no-unused-vars\n  21:5   warning  'materialType' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Base/MarkdownRenderer.tsx\n  102:9  warning  'separatorLine' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Debug/FrontmatterNameChecker.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Hero/Hero.tsx\n  52:9  warning  'variantClass' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/List/List.tsx\n  167:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/PropertiesTable/PropertiesTable.tsx\n    3:10  warning  'MarkdownRenderer' is defined but never used                                                                                                                                                     @typescript-eslint/no-unused-vars\n  163:28  error    React Hook \"React.useMemo\" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SearchResults/SearchResults.tsx\n  9:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SectionCard/SectionCardList.tsx\n  25:3  warning  'heading' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Thumbnail/Thumbnail.tsx\n  6:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n  7:10  warning  'Card' is defined but never used     @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/UI/TagFilter.tsx\n  21:3  warning  'tagItemCounts' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/badge-symbol/page.tsx\n    8:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  100:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/page.tsx\n  134:46  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any\n  154:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n  170:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx\n  8:32  warning  'params' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/property/[property]/[value]/page.tsx\n  8:45  warning  'params' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/page.tsx\n  88:20  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/search-client.tsx\n    3:20  warning  'useEffect' is defined but never used     @typescript-eslint/no-unused-vars\n  133:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/test-range/page.tsx\n  25:50  warning  `\"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                               react/no-unescaped-entities\n  25:58  warning  `\"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                               react/no-unescaped-entities\n  36:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n  41:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n  46:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/articleEnrichment.ts\n  42:10  warning  'inferTags' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeDataLoader.ts\n  5:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeUtils.ts\n  42:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  85:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentAPI.ts\n  14:10  warning  'extractSafeValue' is defined but never used  @typescript-eslint/no-unused-vars\n  96:16  warning  'error' is defined but never used             @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentUtils.ts\n   18:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  137:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  143:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  144:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  240:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/formatting.ts\n  81:12  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/frontmatterLoader.ts\n  49:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  66:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  70:14  warning  'matterError' is defined but never used   @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/helpers.ts\n  56:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  73:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/materialBadgeUtils.ts\n  34:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  35:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  50:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  51:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  53:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  54:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/metadata.ts\n  3:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/stringHelpers.ts\n   8:41  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  27:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  34:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  42:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/tagDebug.ts\n  28:11  warning  'articlesWithTags' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n✖ 70 problems (4 errors, 66 warnings)\n\n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:41.976Z",
+      "timestamp": "2025-09-12T01:47:46.691Z",
       "content": "\n> test:ci\n> jest --coverage --watchAll=false --passWithNoTests\n\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.062Z",
+      "timestamp": "2025-09-12T01:47:48.184Z",
       "content": "FAIL Next.js Testing Framework tests/utils/contentAPI.test.js\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.063Z",
+      "timestamp": "2025-09-12T01:47:48.184Z",
       "content": "  Content API Utils\n    getAllSlugs\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.063Z",
-      "content": "      ✓ should return unique slugs from all component directories (3 ms)\n",
+      "timestamp": "2025-09-12T01:47:48.184Z",
+      "content": "      ✓ should return unique slugs from all component directories (4 ms)\n      ✓ should handle empty directories (1 ms)\n      ✓ should handle directory read errors gracefully (1 ms)\n",
+      "type": "error"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "content": "    loadComponent\n      ✓ should load component with markdown conversion (1 ms)\n      ✓ should load component without markdown conversion\n      ✓ should return null for non-existent files (1 ms)\n      ✓ should return null for unknown component types (1 ms)\n",
       "type": "success"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.063Z",
-      "content": "      ✓ should handle empty directories (1 ms)\n      ✓ should handle directory read errors gracefully (1 ms)\n    loadComponent\n      ✓ should load component with markdown conversion (1 ms)\n      ✓ should load component without markdown conversion\n",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "content": "      ✓ should handle empty frontmatter\n      ○ skipped should handle file read errors\n    loadAllComponents\n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.063Z",
-      "content": "      ✓ should return null for non-existent files (1 ms)\n      ✓ should return null for unknown component types\n      ✓ should handle empty frontmatter (1 ms)\n      ○ skipped should handle file read errors\n    loadAllComponents\n",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "content": "      ✓ should load all available components for a slug (1 ms)\n      ✓ should return empty object when no components exist\n    loadMetadata\n      ✓ should prioritize frontmatter over metatags (1 ms)\n      ✕ should fallback to metatags when frontmatter has no config (4 ms)\n      ✓ should return empty object when no metadata found (1 ms)\n    loadPageData\n      ✓ should combine metadata and components (1 ms)\n      ✓ should handle errors gracefully (1 ms)\n    loadArticle\n      ✓ should create article from metadata (1 ms)\n      ✓ should return null when no title in metadata (1 ms)\n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "content": "      ✓ should load all available components for a slug (1 ms)\n      ✓ should return empty object when no components exist (1 ms)\n    loadMetadata\n      ✓ should prioritize frontmatter over metatags\n      ✕ should fallback to metatags when frontmatter has no config (3 ms)\n      ✓ should return empty object when no metadata found (1 ms)\n",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "content": "    loadAllArticles\n      ✓ should load all articles with valid titles (1 ms)\n      ✓ should filter out articles without titles (1 ms)\n    error handling\n      ✓ should handle filesystem errors gracefully\n      ✓ should handle YAML parsing errors gracefully (1 ms)\n    caching behavior\n      ○ skipped should use cache for repeated calls\n\n  ● Content API Utils › loadMetadata › should fallback to metatags when frontmatter has no config\n\n    expect(received).toEqual(expected) // deep equality\n\n    - Expected  - 3\n    + Received  + 1\n\n    - Object {\n    -   \"title\": \"Metatags Title\",\n    - }\n    + Object {}\n\n      330 |       const result = await loadMetadata('test-slug');\n      331 |\n    > 332 |       expect(result).toEqual({\n          |                      ^\n      333 |         title: 'Metatags Title'\n      334 |       });\n      335 |     });\n\n      at Object.toEqual (tests/utils/contentAPI.test.js:332:22)\n\n",
+      "type": "error"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.478Z",
+      "content": "PASS Next.js Testing Framework tests/integration/content-pipeline.test.js\n  Content Pipeline Integration\n    Complete Content Loading Pipeline\n",
+      "type": "info"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.478Z",
+      "content": "      ✓ should load and process article through complete pipeline (87 ms)\n      ✓ should handle multiple articles correctly (13 ms)\n    Content Validation and Error Handling\n      ✓ should handle missing component files gracefully (10 ms)\n      ✓ should validate content structure integrity (13 ms)\n    Content Processing Performance\n      ✓ should process multiple articles efficiently (12 ms)\n      ✓ should cache repeated requests effectively (10 ms)\n    Data Consistency and Integrity\n      ✓ should maintain data consistency across different loading methods (10 ms)\n      ✓ should preserve type safety through pipeline (10 ms)\n\n",
+      "type": "error"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.605Z",
+      "content": "PASS Next.js Testing Framework tests/integration/search-workflow.test.js\n",
+      "type": "info"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.606Z",
+      "content": "  Search Workflow Integration\n    Article to SearchableArticle Pipeline\n      ✓ should transform basic article through complete search pipeline (2 ms)\n      ✓ should handle complex multi-word materials (1 ms)\n      ✓ should handle articles with minimal metadata (1 ms)\n    Batch Processing Pipeline\n      ✓ should process multiple articles consistently (1 ms)\n    Tag Inference and Normalization\n      ✓ should create comprehensive tag ecosystem (3 ms)\n    Error Recovery and Edge Cases\n      ✓ should handle articles with conflicting information\n      ✓ should handle empty and undefined values gracefully (1 ms)\n      ✓ should handle malformed frontmatter gracefully (1 ms)\n    Real-world Scenario Simulation\n      ✓ should handle typical material science article workflow (2 ms)\n\n",
+      "type": "error"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.731Z",
+      "content": "PASS Next.js Testing Framework tests/utils/searchUtils.test.js\n  Search Utils\n    getMaterialColor\n",
+      "type": "info"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:48.731Z",
+      "content": "      ✓ should return correct colors for material types (2 ms)\n      ✓ should handle case insensitive input\n      ✓ should default to blue for unknown materials (1 ms)\n      ✓ should handle undefined input\n    normalizeString\n      ✓ should normalize strings correctly (1 ms)\n      ✓ should handle empty and undefined inputs\n      ✓ should preserve special characters\n    normalizeTag\n      ✓ should capitalize first letter of each word\n      ✓ should handle single words\n      ✓ should handle empty strings (1 ms)\n      ✓ should trim whitespace\n    getDisplayName\n      ✓ should prioritize name field\n      ✓ should fallback to frontmatter name (1 ms)\n      ✓ should fallback to frontmatter title\n      ✓ should fallback to title\n      ✓ should generate name from slug (1 ms)\n      ✓ should handle items with no identifying information\n    getBadgeFromItem\n      ✓ should return existing badge if present\n      ✓ should create badge for alumina (1 ms)\n      ✓ should create badge for silicon nitride\n      ✓ should handle commentMetadata subject\n      ✓ should create generic badge from category (1 ms)\n",
       "type": "success"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "content": "    loadPageData\n      ✓ should combine metadata and components (1 ms)\n      ✓ should handle errors gracefully\n    loadArticle\n      ✓ should create article from metadata\n      ✓ should return null when no title in metadata (1 ms)\n    loadAllArticles\n",
-      "type": "error"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "content": "      ✓ should load all articles with valid titles (1 ms)\n      ✓ should filter out articles without titles\n    error handling\n      ✓ should handle filesystem errors gracefully\n      ✓ should handle YAML parsing errors gracefully\n    caching behavior\n      ○ skipped should use cache for repeated calls\n\n",
-      "type": "error"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "content": "  ● Content API Utils › loadMetadata › should fallback to metatags when frontmatter has no config\n\n    expect(received).toEqual(expected) // deep equality\n\n    - Expected  - 3\n    + Received  + 1\n\n    - Object {\n    -   \"title\": \"Metatags Title\",\n    - }\n    + Object {}\n\n      330 |       const result = await loadMetadata('test-slug');\n      331 |\n    > 332 |       expect(result).toEqual({\n          |                      ^\n      333 |         title: 'Metatags Title'\n      334 |       });\n      335 |     });\n\n      at Object.toEqual (tests/utils/contentAPI.test.js:332:22)\n\n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.291Z",
-      "content": "PASS Next.js Testing Framework tests/integration/content-pipeline.test.js\n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.291Z",
-      "content": "  Content Pipeline Integration\n    Complete Content Loading Pipeline\n      ✓ should load and process article through complete pipeline (42 ms)\n      ✓ should handle multiple articles correctly (11 ms)\n    Content Validation and Error Handling\n      ✓ should handle missing component files gracefully (9 ms)\n      ✓ should validate content structure integrity (13 ms)\n    Content Processing Performance\n      ✓ should process multiple articles efficiently (11 ms)\n      ✓ should cache repeated requests effectively (10 ms)\n    Data Consistency and Integrity\n      ✓ should maintain data consistency across different loading methods (10 ms)\n      ✓ should preserve type safety through pipeline (15 ms)\n\n",
-      "type": "error"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.391Z",
-      "content": "PASS Next.js Testing Framework tests/integration/search-workflow.test.js\n  Search Workflow Integration\n    Article to SearchableArticle Pipeline\n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.391Z",
-      "content": "      ✓ should transform basic article through complete search pipeline (2 ms)\n      ✓ should handle complex multi-word materials (1 ms)\n      ✓ should handle articles with minimal metadata\n    Batch Processing Pipeline\n      ✓ should process multiple articles consistently\n    Tag Inference and Normalization\n      ✓ should create comprehensive tag ecosystem (1 ms)\n    Error Recovery and Edge Cases\n      ✓ should handle articles with conflicting information\n      ✓ should handle empty and undefined values gracefully (1 ms)\n      ✓ should handle malformed frontmatter gracefully\n    Real-world Scenario Simulation\n      ✓ should handle typical material science article workflow (1 ms)\n\n",
-      "type": "error"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.478Z",
-      "content": "PASS Next.js Testing Framework tests/utils/articleEnrichment.test.js\n  Article Enrichment Utils\n    enrichArticle\n      ✓ should handle basic article enrichment (1 ms)\n      ✓ should handle multi-word material names\n      ✓ should extract tags from frontmatter (1 ms)\n",
+      "timestamp": "2025-09-12T01:47:48.731Z",
+      "content": "      ✓ should handle direct category on item\n      ✓ should return null for items without badge information\n    getChemicalProperties\n      ✓ should return existing chemical properties from metadata (1 ms)\n      ✓ should return chemical properties from frontmatter\n      ✓ should construct properties from individual frontmatter fields\n      ✓ should use formula as fallback for chemicalFormula (1 ms)\n      ✓ should infer properties for known materials\n      ✓ should infer properties for silicon nitride\n      ✓ should return null for items without chemical information (1 ms)\n      ✓ should handle case insensitive subject matching\n    material type mapping\n      ✓ should map metal to alloy\n      ✓ should map plastic to polymer (1 ms)\n      ✓ should map unknown types to other\n\n",
       "type": "success"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.478Z",
-      "content": "      ✓ should handle frontmatter author (1 ms)\n      ✓ should extract tags from content first line\n      ✓ should handle metadata fields\n      ✓ should deduplicate tags\n      ✓ should handle articles without slug\n      ✓ should filter short slug parts\n      ✓ should handle empty input gracefully\n      ✓ should preserve existing href\n      ✓ should handle known multi-word materials\n    enrichArticles\n      ✓ should enrich multiple articles (1 ms)\n      ✓ should handle empty array\n      ✓ should not mutate original articles (1 ms)\n    tag inference patterns\n      ✓ should infer tags from slug when relevant\n      ✓ should infer Surface Treatment tag from cleaning slug\n      ✓ should process industrial-related slugs (1 ms)\n      ✓ should handle complex slugs with multiple concepts\n\n",
-      "type": "success"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.578Z",
-      "content": "PASS Next.js Testing Framework tests/utils/searchUtils.test.js\n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.578Z",
-      "content": "  Search Utils\n    getMaterialColor\n      ✓ should return correct colors for material types (1 ms)\n      ✓ should handle case insensitive input\n      ✓ should default to blue for unknown materials\n      ✓ should handle undefined input (1 ms)\n    normalizeString\n      ✓ should normalize strings correctly\n      ✓ should handle empty and undefined inputs (1 ms)\n      ✓ should preserve special characters\n    normalizeTag\n      ✓ should capitalize first letter of each word\n      ✓ should handle single words (1 ms)\n      ✓ should handle empty strings\n      ✓ should trim whitespace\n    getDisplayName\n      ✓ should prioritize name field\n      ✓ should fallback to frontmatter name (1 ms)\n      ✓ should fallback to frontmatter title\n",
-      "type": "success"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.578Z",
-      "content": "      ✓ should fallback to title\n      ✓ should generate name from slug\n      ✓ should handle items with no identifying information (1 ms)\n    getBadgeFromItem\n      ✓ should return existing badge if present\n      ✓ should create badge for alumina\n      ✓ should create badge for silicon nitride (1 ms)\n      ✓ should handle commentMetadata subject\n      ✓ should create generic badge from category\n      ✓ should handle direct category on item\n      ✓ should return null for items without badge information\n    getChemicalProperties\n      ✓ should return existing chemical properties from metadata\n      ✓ should return chemical properties from frontmatter\n      ✓ should construct properties from individual frontmatter fields (1 ms)\n",
-      "type": "success"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.579Z",
-      "content": "      ✓ should use formula as fallback for chemicalFormula\n      ✓ should infer properties for known materials\n      ✓ should infer properties for silicon nitride\n      ✓ should return null for items without chemical information (1 ms)\n      ✓ should handle case insensitive subject matching\n    material type mapping\n      ✓ should map metal to alloy\n      ✓ should map plastic to polymer\n      ✓ should map unknown types to other (1 ms)\n\n",
-      "type": "success"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:43.668Z",
-      "content": "PASS Next.js Testing Framework tests/utils/contentAPI.simple.test.js\n  Content API Utils - Simple Tests\n    ✓ modules can be imported without errors (8 ms)\n    ✓ basic functionality exists\n    ✓ error handling functions exist (1 ms)\n\n",
+      "timestamp": "2025-09-12T01:47:48.858Z",
+      "content": "PASS Next.js Testing Framework tests/utils/contentAPI.simple.test.js\n  Content API Utils - Simple Tests\n    ✓ modules can be imported without errors (11 ms)\n    ✓ basic functionality exists (1 ms)\n    ✓ error handling functions exist (1 ms)\n\n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.543Z",
-      "content": "--------------------------------|---------|----------|---------|---------|---------------------------\n",
+      "timestamp": "2025-09-12T01:47:48.966Z",
+      "content": "PASS Next.js Testing Framework tests/utils/articleEnrichment.test.js\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.543Z",
-      "content": "File                            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s         \n--------------------------------|---------|----------|---------|---------|---------------------------\n",
+      "timestamp": "2025-09-12T01:47:48.966Z",
+      "content": "  Article Enrichment Utils\n    enrichArticle\n      ✓ should handle basic article enrichment (1 ms)\n      ✓ should handle multi-word material names\n      ✓ should extract tags from frontmatter (1 ms)\n      ✓ should handle frontmatter author\n      ✓ should extract tags from content first line (1 ms)\n      ✓ should handle metadata fields\n      ✓ should deduplicate tags\n      ✓ should handle articles without slug (1 ms)\n      ✓ should filter short slug parts\n      ✓ should handle empty input gracefully (1 ms)\n      ✓ should preserve existing href\n      ✓ should handle known multi-word materials (1 ms)\n    enrichArticles\n      ✓ should enrich multiple articles (1 ms)\n      ✓ should handle empty array\n      ✓ should not mutate original articles\n    tag inference patterns\n      ✓ should infer tags from slug when relevant\n      ✓ should infer Surface Treatment tag from cleaning slug\n      ✓ should process industrial-related slugs\n      ✓ should handle complex slugs with multiple concepts (1 ms)\n\n",
+      "type": "success"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:50.102Z",
+      "content": "---------------------------------|---------|----------|---------|---------|---------------------------\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "content": "All files                       |   13.48 |    14.14 |   10.79 |   13.56 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.102Z",
+      "content": "File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s         \n---------------------------------|---------|----------|---------|---------|---------------------------\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "content": " app                            |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "All files                        |   12.16 |     12.3 |   10.04 |   12.26 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "content": "  error.tsx                     |       0 |        0 |       0 |       0 | 3-15                      \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": " app                             |       0 |        0 |       0 |       0 |                           \n",
+      "type": "info"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  error.tsx                      |       0 |        0 |       0 |       0 | 3-15                      \n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "content": "  global-error.tsx              |       0 |        0 |       0 |       0 | 3-5                       \n  layout.tsx                    |       0 |      100 |       0 |       0 | 2-34                      \n  not-found.tsx                 |       0 |      100 |       0 |       0 | 1                         \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  global-error.tsx               |       0 |        0 |       0 |       0 | 3-5                       \n  layout.tsx                     |       0 |      100 |       0 |       0 | 2-34                      \n  not-found.tsx                  |       0 |      100 |       0 |       0 | 1                         \n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "content": "  page.tsx                      |       0 |        0 |       0 |       0 | 3-46                      \n app/[slug]                     |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 3-47                      \n app/[slug]                      |       0 |        0 |       0 |       0 |                           \n  page.tsx                       |       0 |        0 |       0 |       0 | 1-110                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  page.tsx                      |       0 |        0 |       0 |       0 | 1-110                     \n app/about                      |       0 |      100 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": " app/about                       |       0 |      100 |       0 |       0 |                           \n  page.tsx                       |       0 |      100 |       0 |       0 | 2-25                      \n app/components                  |       0 |        0 |       0 |       0 |                           \n  Button.tsx                     |       0 |        0 |       0 |       0 | 4-69                      \n app/components/ArticleGrid      |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  page.tsx                      |       0 |      100 |       0 |       0 | 2-25                      \n app/components                 |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  ArticleGrid.tsx                |       0 |        0 |       0 |       0 | 4-232                     \n  ArticleGridClient.tsx          |       0 |        0 |       0 |       0 | 4-97                      \n  index.ts                       |       0 |      100 |     100 |       0 | 2-3                       \n app/components/Author           |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  Button.tsx                    |       0 |        0 |       0 |       0 | 4-69                      \n app/components/Author          |       0 |        0 |       0 |       0 |                           \n  Author.tsx                    |       0 |        0 |       0 |       0 | 2-37                      \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  Author.tsx                     |       0 |        0 |       0 |       0 | 2-37                      \n app/components/BadgeSymbol      |       0 |        0 |       0 |       0 |                           \n  BadgeSymbol.tsx                |       0 |        0 |       0 |       0 | 4-100                     \n app/components/Banner           |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": " app/components/BadgeSymbol     |       0 |        0 |       0 |       0 |                           \n  BadgeSymbol.tsx               |       0 |        0 |       0 |       0 | 4-100                     \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  Banner.tsx                     |       0 |        0 |       0 |       0 | 2-42                      \n app/components/Base             |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": " app/components/Banner          |       0 |        0 |       0 |       0 |                           \n  Banner.tsx                    |       0 |        0 |       0 |       0 | 2-42                      \n app/components/Base            |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "content": "  MarkdownRenderer.tsx           |       0 |        0 |       0 |       0 | 2-169                     \n app/components/Bullets          |       0 |        0 |       0 |       0 |                           \n  Bullets.tsx                    |       0 |        0 |       0 |       0 | 2-59                      \n app/components/Caption          |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  MarkdownRenderer.tsx          |       0 |        0 |       0 |       0 | 2-169                     \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  Caption.tsx                    |       0 |        0 |       0 |       0 | 4-139                     \n app/components/Card             |       0 |        0 |       0 |       0 |                           \n  Card.tsx                       |       0 |        0 |       0 |       0 | 4-59                      \n  ServerCard.tsx                 |       0 |        0 |       0 |       0 | 2-37                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": " app/components/Bullets         |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": " app/components/Content          |       0 |        0 |       0 |       0 |                           \n  Content.tsx                    |       0 |        0 |       0 |       0 | 2-20                      \n app/components/Debug            |       0 |        0 |       0 |       0 |                           \n  DebugLayout.tsx                |       0 |        0 |       0 |       0 | 3-246                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  Bullets.tsx                   |       0 |        0 |       0 |       0 | 2-59                      \n app/components/Caption         |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  FrontmatterDebug.tsx           |       0 |        0 |       0 |       0 | 3-94                      \n  FrontmatterNameChecker.tsx     |       0 |        0 |       0 |       0 | 3-101                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  Caption.tsx                   |       0 |        0 |       0 |       0 | 4-139                     \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": " app/components/Card            |       0 |        0 |       0 |       0 |                           \n  Card.tsx                      |       0 |        0 |       0 |       0 | 4-59                      \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  ServerCard.tsx                |       0 |        0 |       0 |       0 | 2-37                      \n app/components/Content         |       0 |        0 |       0 |       0 |                           \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.545Z",
-      "content": "  Content.tsx                   |       0 |        0 |       0 |       0 | 2-20                      \n app/components/Debug           |       0 |        0 |       0 |       0 |                           \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  DebugLayout.tsx               |       0 |        0 |       0 |       0 | 3-246                     \n  FrontmatterDebug.tsx          |       0 |        0 |       0 |       0 | 3-94                      \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  FrontmatterNameChecker.tsx    |       0 |        0 |       0 |       0 | 3-101                     \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  TagDebug.tsx                  |       0 |        0 |       0 |       0 | 3-119                     \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": " app/components/ErrorBoundary   |       0 |        0 |       0 |       0 |                           \n  ErrorBoundary.tsx             |       0 |        0 |       0 |       0 | 4-80                      \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  TagDebug.tsx                   |       0 |        0 |       0 |       0 | 3-119                     \n app/components/ErrorBoundary    |       0 |        0 |       0 |       0 |                           \n",
       "type": "error"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": " app/components/Hero            |       0 |        0 |       0 |       0 |                           \n  Hero.tsx                      |       0 |        0 |       0 |       0 | 2-36                      \n app/components/JsonLD          |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  ErrorBoundary.tsx              |       0 |        0 |       0 |       0 | 4-80                      \n app/components/Hero             |       0 |        0 |       0 |       0 |                           \n  Hero.tsx                       |       0 |        0 |       0 |       0 | 2-103                     \n app/components/JsonLD           |       0 |        0 |       0 |       0 |                           \n",
+      "type": "error"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  JsonLD.tsx                     |       0 |        0 |       0 |       0 | 2-185                     \n app/components/Layout           |       0 |        0 |       0 |       0 |                           \n  Container.tsx                  |       0 |        0 |       0 |       0 | 5-54                      \n  Layout.tsx                     |       0 |        0 |       0 |       0 | 2-155                     \n  breadcrumbs.tsx                |       0 |        0 |       0 |       0 | 4-86                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  JsonLD.tsx                    |       0 |        0 |       0 |       0 | 2-185                     \n app/components/Layout          |       0 |        0 |       0 |       0 |                           \n  Container.tsx                 |       0 |        0 |       0 |       0 | 5-54                      \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  footer.tsx                     |       0 |        0 |       0 |       0 | 3-103                     \n  nav.tsx                        |       0 |        0 |       0 |       0 | 4-133                     \n app/components/List             |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  Layout.tsx                    |       0 |        0 |       0 |       0 | 2-153                     \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  List.tsx                       |       0 |        0 |       0 |       0 | 2-289                     \n  ListSimplified.tsx             |       0 |        0 |       0 |       0 | 2-57                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  breadcrumbs.tsx               |       0 |        0 |       0 |       0 | 4-86                      \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": " app/components/PropertiesTable  |       0 |        0 |       0 |       0 |                           \n  PropertiesTable.tsx            |       0 |        0 |       0 |       0 | 2-165                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  footer.tsx                    |       0 |        0 |       0 |       0 | 3-103                     \n  nav.tsx                       |       0 |        0 |       0 |       0 | 4-133                     \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  index.ts                       |       0 |      100 |     100 |       0 | 2                         \n app/components/SearchResults    |       0 |        0 |       0 |       0 |                           \n  EmptySearchResults.tsx         |       0 |      100 |       0 |       0 | 2                         \n  SearchHeader.tsx               |       0 |        0 |       0 |       0 | 2-40                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": " app/components/List            |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  SearchResults.tsx              |       0 |        0 |       0 |       0 | 3-157                     \n  SearchResultsCount.tsx         |       0 |        0 |       0 |       0 | 8                         \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  List.tsx                      |       0 |        0 |       0 |       0 | 2-288                     \n app/components/PropertiesTable |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  SearchResultsGrid.tsx          |       0 |        0 |       0 |       0 | 2-99                      \n app/components/SectionCard      |       0 |        0 |       0 |       0 |                           \n  SectionCardList.tsx            |       0 |        0 |       0 |       0 | 3-46                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  PropertiesTable.tsx           |       0 |        0 |       0 |       0 | 2-163                     \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  SectionCards.ts                |       0 |      100 |     100 |       0 | 10                        \n app/components/Table            |       0 |        0 |       0 |       0 |                           \n  Table.tsx                      |       0 |        0 |       0 |       0 | 2-22                      \n app/components/Tags             |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  index.ts                      |       0 |      100 |     100 |       0 | 2                         \n app/components/SearchResults   |       0 |        0 |       0 |       0 |                           \n  EmptySearchResults.tsx        |       0 |      100 |       0 |       0 | 2                         \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  Tags.tsx                       |       0 |        0 |       0 |       0 | 4-97                      \n app/components/Thumbnail        |       0 |        0 |       0 |       0 |                           \n  Thumbnail.tsx                  |       0 |        0 |       0 |       0 | 4-71                      \n  ThumbnailContainer.tsx         |       0 |      100 |       0 |       0 | 2-3                       \n app/components/Title            |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "content": "  SearchHeader.tsx              |       0 |        0 |       0 |       0 | 2-40                      \n",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "content": "  Title.tsx                      |       0 |        0 |       0 |       0 | 2-30                      \n app/components/UI               |       0 |        0 |       0 |       0 |                           \n  OptimizedImage.tsx             |       0 |        0 |       0 |       0 | 5-47                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  SearchResults.tsx             |       0 |        0 |       0 |       0 | 3-156                     \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  SearchBar.tsx                  |       0 |        0 |       0 |       0 | 4-57                      \n  TagFilter.tsx                  |       0 |        0 |       0 |       0 | 4-70                      \n app/contact                     |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  SearchResultsCount.tsx        |       0 |        0 |       0 |       0 | 8                         \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 2-40                      \n app/debug                       |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  SearchResultsGrid.tsx         |       0 |        0 |       0 |       0 | 2-99                      \n app/components/SectionCard     |       0 |        0 |       0 |       0 |                           \n  SectionCardList.tsx           |       0 |        0 |       0 |       0 | 3-47                      \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 5-340                     \n app/debug/badge-symbol          |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  SectionCards.ts               |       0 |      100 |     100 |       0 | 10                        \n app/components/Table           |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 3-118                     \n app/debug/content               |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  Table.tsx                     |       0 |        0 |       0 |       0 | 2-22                      \n app/components/Tags            |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 4-62                      \n app/debug/tags                  |       0 |      100 |       0 |       0 |                           \n  page.tsx                       |       0 |      100 |       0 |       0 | 4-7                       \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  Tags.tsx                      |       0 |        0 |       0 |       0 | 4-97                      \n app/components/Thumbnail       |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": " app/favicon                     |       0 |      100 |       0 |       0 |                           \n  route.js                       |       0 |      100 |       0 |       0 | 2-20                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  Thumbnail.tsx                 |       0 |        0 |       0 |       0 | 4-71                      \n  ThumbnailContainer.tsx        |       0 |      100 |       0 |       0 | 2-3                       \n app/components/Title           |       0 |        0 |       0 |       0 |                           \n  Title.tsx                     |       0 |        0 |       0 |       0 | 2-30                      \n app/components/UI              |       0 |        0 |       0 |       0 |                           \n  OptimizedImage.tsx            |       0 |        0 |       0 |       0 | 5-47                      \n  SearchBar.tsx                 |       0 |        0 |       0 |       0 | 4-57                      \n  TagFilter.tsx                 |       0 |        0 |       0 |       0 | 4-70                      \n app/contact                    |       0 |        0 |       0 |       0 |                           \n  page.tsx                      |       0 |        0 |       0 |       0 | 2-40                      \n app/debug                      |       0 |        0 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": " app/pages/[slug]                |       0 |      100 |       0 |       0 |                           \n  page.tsx                       |       0 |      100 |       0 |       0 | 2-10                      \n app/property                    |       0 |      100 |       0 |       0 |                           \n  page.tsx                       |       0 |      100 |       0 |       0 | 4                         \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.547Z",
-      "content": "  page.tsx                      |       0 |        0 |       0 |       0 | 5-340                     \n app/debug/badge-symbol         |       0 |        0 |       0 |       0 |                           \n  page.tsx                      |       0 |        0 |       0 |       0 | 3-118                     \n app/debug/content              |       0 |        0 |       0 |       0 |                           \n  page.tsx                      |       0 |        0 |       0 |       0 | 4-62                      \n app/debug/tags                 |       0 |      100 |       0 |       0 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": " app/property/[property]/[value] |       0 |      100 |       0 |       0 |                           \n  page.tsx                       |       0 |      100 |       0 |       0 | 2-10                      \n app/search                      |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  page.tsx                      |       0 |      100 |       0 |       0 | 4-7                       \n app/favicon                    |       0 |      100 |       0 |       0 |                           \n  route.js                      |       0 |      100 |       0 |       0 | 2-20                      \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 2-116                     \n  search-client.tsx              |       0 |        0 |       0 |       0 | 3-126                     \n app/services                    |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": " app/search                     |       0 |        0 |       0 |       0 |                           \n  page.tsx                      |       0 |      100 |       0 |       0 | 2-22                      \n  search-client.tsx             |       0 |        0 |       0 |       0 | 3-67                      \n app/services                   |       0 |        0 |       0 |       0 |                           \n  page.tsx                      |       0 |        0 |       0 |       0 | 2-44                      \n app/tag                        |       0 |      100 |       0 |       0 |                           \n  refresh-tags.ts               |       0 |      100 |       0 |       0 | 2-10                      \n app/tag/[tag]                  |       0 |        0 |       0 |       0 |                           \n  config.ts                     |       0 |      100 |     100 |       0 | 2                         \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |        0 |       0 |       0 | 2-44                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  page.tsx                      |       0 |        0 |       0 |       0 | 2-55                      \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": " app/tag                         |       0 |      100 |       0 |       0 |                           \n  refresh-tags.ts                |       0 |      100 |       0 |       0 | 2-10                      \n app/tag/[tag]                   |       0 |        0 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": " app/utils                      |   26.21 |     28.1 |   23.83 |   26.78 |                           \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  config.ts                      |       0 |      100 |     100 |       0 | 2                         \n  page.tsx                       |       0 |        0 |       0 |       0 | 2-55                      \n app/test-range                  |       0 |      100 |       0 |       0 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  articleEnrichment.ts          |   80.15 |    84.21 |   70.58 |   82.35 | 20-52,170-180             \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  page.tsx                       |       0 |      100 |       0 |       0 | 3-23                      \n app/utils                       |   25.18 |    27.05 |   23.23 |   25.71 |                           \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  authorParser.ts               |       0 |        0 |       0 |       0 | 18-122                    \n  badgeDataLoader.ts            |       0 |        0 |       0 |       0 | 2-36                      \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  articleEnrichment.ts           |   80.15 |    84.21 |   70.58 |   82.35 | 20-52,170-180             \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  badgeSymbolLoader.ts          |       0 |        0 |       0 |       0 | 2-72                      \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  authorParser.ts                |       0 |        0 |       0 |       0 | 18-122                    \n  badgeDataLoader.ts             |       0 |        0 |       0 |       0 | 2-36                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  badgeUtils.ts                 |       0 |        0 |       0 |       0 | 7-159                     \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  badgeSymbolLoader.ts           |       0 |        0 |       0 |       0 | 2-72                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.548Z",
-      "content": "  constants.ts                  |       0 |        0 |     100 |       0 | 4-45                      \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  badgeUtils.ts                  |       0 |        0 |       0 |       0 | 7-159                     \n  constants.ts                   |       0 |        0 |     100 |       0 | 4-45                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  contentAPI.ts                 |   85.71 |     84.9 |   83.33 |   89.24 | 93,236-240,251-261        \n",
+      "timestamp": "2025-09-12T01:47:50.106Z",
+      "content": "  contentAPI.ts                  |   85.71 |     84.9 |   83.33 |   89.24 | 94,237-241,252-262        \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  contentUtils.ts               |       0 |        0 |       0 |       0 | 5-214                     \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  contentUtils.ts                |       0 |        0 |       0 |       0 | 5-250                     \n  formatting.ts                  |    4.91 |     4.16 |    7.14 |    6.12 | 4-94,110-121              \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  formatting.ts                 |    4.91 |     4.16 |    7.14 |    6.12 | 4-94,110-121              \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  frontmatterLoader.ts           |   52.27 |    29.41 |   33.33 |   54.76 | 24-31,48-51,59-66,72-85   \n  helpers.ts                     |       0 |        0 |       0 |       0 | 9-162                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  frontmatterLoader.ts          |   52.27 |       30 |   33.33 |   54.76 | 24-31,48-51,59-66,72-85   \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  homeCardConverter.ts           |       0 |      100 |       0 |       0 | 2-18                      \n  imageLoader.ts                 |       0 |        0 |       0 |       0 | 4-50                      \n  logger.ts                      |    37.5 |     12.5 |   33.33 |   33.33 | 8,12-13,21-33,46-50,64-65 \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  helpers.ts                    |       0 |        0 |       0 |       0 | 9-162                     \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  materialBadgeUtils.ts          |       0 |        0 |       0 |       0 | 3-107                     \n  metadata.ts                    |       0 |        0 |       0 |       0 | 7-66                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  homeCardConverter.ts          |       0 |      100 |       0 |       0 | 2-18                      \n  imageLoader.ts                |       0 |        0 |       0 |       0 | 4-50                      \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  searchUtils.ts                 |   95.58 |    82.66 |     100 |   96.66 | 145-146                   \n  serverUtils.ts                 |       0 |        0 |       0 |       0 | 2-61                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  logger.ts                     |    37.5 |     12.5 |   33.33 |   33.33 | 8,12-13,21-33,46-50,64-65 \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  stringHelpers.ts               |       0 |        0 |       0 |       0 | 8-44                      \n  tableEnhancer.ts               |       0 |        0 |       0 |       0 | 7-61                      \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  materialBadgeUtils.ts         |       0 |        0 |       0 |       0 | 5-106                     \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  tagDebug.ts                    |       0 |        0 |       0 |       0 | 5-168                     \n  tagIntegration.ts              |       0 |      100 |     100 |       0 | 7                         \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  metadata.ts                   |       0 |        0 |       0 |       0 | 12-60                     \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  tagManager.ts                  |       0 |        0 |       0 |       0 | 11-56                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  searchUtils.ts                |   95.58 |    82.66 |     100 |   96.66 | 145-146                   \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  tags.ts                        |       0 |        0 |       0 |       0 | 5-373                     \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  serverUtils.ts                |       0 |        0 |       0 |       0 | 2-61                      \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "  thumbnailLoader.ts             |       0 |        0 |       0 |       0 | 2-73                      \n  yamlSanitizer.ts               |   17.64 |       15 |   33.33 |   17.64 | 10-38,61-93               \n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  tableEnhancer.ts              |       0 |        0 |       0 |       0 | 7-61                      \n",
+      "timestamp": "2025-09-12T01:47:50.107Z",
+      "content": "---------------------------------|---------|----------|---------|---------|---------------------------\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  tagDebug.ts                   |       0 |        0 |       0 |       0 | 5-168                     \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  tagIntegration.ts             |       0 |      100 |     100 |       0 | 7                         \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.549Z",
-      "content": "  tagManager.ts                 |       0 |        0 |       0 |       0 | 11-56                     \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.550Z",
-      "content": "  tags.ts                       |       0 |        0 |       0 |       0 | 5-371                     \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.550Z",
-      "content": "  thumbnailLoader.ts            |       0 |        0 |       0 |       0 | 2-73                      \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.550Z",
-      "content": "  yamlSanitizer.ts              |   17.64 |       15 |   33.33 |   17.64 | 10-38,61-93               \n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.550Z",
-      "content": "--------------------------------|---------|----------|---------|---------|---------------------------\n",
-      "type": "info"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:44.764Z",
-      "content": "Test Suites: 1 failed, 5 passed, 6 total\nTests:       1 failed, 2 skipped, 94 passed, 97 total\nSnapshots:   0 total\nTime:        1.964 s\nRan all test suites.\n",
+      "timestamp": "2025-09-12T01:47:50.386Z",
+      "content": "Test Suites: 1 failed, 5 passed, 6 total\nTests:       1 failed, 2 skipped, 94 passed, 97 total\nSnapshots:   0 total\nTime:        2.583 s\nRan all test suites.\n",
       "type": "failure"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.980Z",
+      "timestamp": "2025-09-12T01:47:50.608Z",
       "content": "\n> build\n> next build\n\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:45.615Z",
+      "timestamp": "2025-09-12T01:47:51.424Z",
       "content": "  ▲ Next.js 14.2.32\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:45.615Z",
+      "timestamp": "2025-09-12T01:47:51.424Z",
       "content": "  - Environments: .env\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:45.615Z",
+      "timestamp": "2025-09-12T01:47:51.424Z",
       "content": "\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:45.682Z",
+      "timestamp": "2025-09-12T01:47:51.493Z",
       "content": "   Creating an optimized production build ...\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:48.678Z",
+      "timestamp": "2025-09-12T01:47:54.944Z",
       "content": " ✓ Compiled successfully\n",
       "type": "success"
     },
     {
-      "timestamp": "2025-08-29T01:16:48.678Z",
+      "timestamp": "2025-09-12T01:47:54.945Z",
       "content": "   Skipping validation of types\n   Skipping linting\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:49.037Z",
+      "timestamp": "2025-09-12T01:47:55.257Z",
       "content": "   Collecting page data ...\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:50.159Z",
-      "content": "   Generating static pages (0/124) ...\n",
+      "timestamp": "2025-09-12T01:47:56.517Z",
+      "content": "   Generating static pages (0/128) ...\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:50.930Z",
-      "content": "   Generating static pages (31/124) \r\n",
+      "timestamp": "2025-09-12T01:47:56.947Z",
+      "content": "   Generating static pages (32/128) \r\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:51.275Z",
-      "content": "   Generating static pages (62/124) \r\n",
+      "timestamp": "2025-09-12T01:47:57.061Z",
+      "content": "   Generating static pages (64/128) \r\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:51.696Z",
-      "content": "   Generating static pages (93/124) \r\n",
+      "timestamp": "2025-09-12T01:47:57.223Z",
+      "content": "   Generating static pages (96/128) \r\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:51.873Z",
-      "content": " ✓ Generating static pages (124/124)\n",
+      "timestamp": "2025-09-12T01:47:57.614Z",
+      "content": " ✓ Generating static pages (128/128)\n",
       "type": "success"
     },
     {
-      "timestamp": "2025-08-29T01:16:52.085Z",
-      "content": "   Finalizing page optimization ...\n   Collecting build traces ...\n",
+      "timestamp": "2025-09-12T01:47:57.847Z",
+      "content": "   Finalizing page optimization ...\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:55.722Z",
+      "timestamp": "2025-09-12T01:47:57.847Z",
+      "content": "   Collecting build traces ...\n",
+      "type": "info"
+    },
+    {
+      "timestamp": "2025-09-12T01:48:02.000Z",
       "content": "\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:55.729Z",
-      "content": "Route (app)                                     Size     First Load JS\n┌ ○ /                                           882 B           140 kB\n├ ○ /_not-found                                 160 B           139 kB\n├ ● /[slug]                                     165 B           139 kB\n├   ├ /alabaster-laser-cleaning\n├   ├ /alumina-laser-cleaning\n├   ├ /aluminum-laser-cleaning\n├   └ [+105 more paths]\n├ ○ /about                                      166 B           139 kB\n├ ○ /api/articles                               0 B                0 B\n├ ƒ /api/articles/[slug]                        0 B                0 B\n├ ƒ /api/badgesymbol/[slug]                     0 B                0 B\n├ ƒ /api/component-data                         0 B                0 B\n├ ƒ /api/debug                                  0 B                0 B\n├ ƒ /api/markdown                               0 B                0 B\n├ ƒ /api/materials/[material]                   0 B                0 B\n├ ○ /api/tags                                   0 B                0 B\n├ ○ /contact                                    166 B           139 kB\n├ ○ /debug                                      2.74 kB         141 kB\n├ ○ /debug/badge-symbol                         1.03 kB         140 kB\n├ ○ /debug/content                              957 B           140 kB\n├ ○ /debug/tags                                 305 B           139 kB\n├ ○ /favicon                                    0 B                0 B\n├ ƒ /pages/[slug]                               160 B           139 kB\n├ ƒ /search                                     866 B           139 kB\n├ ○ /services                                   166 B           139 kB\n└ ƒ /tag/[tag]                                  3.13 kB         142 kB\n+ First Load JS shared by all                   139 kB\n  ├ chunks/vendor-362d063c-bc197712b765d104.js  14.8 kB\n  └ chunks/vendor-89d5c698-9d58f4c0316123d6.js  15.5 kB\n  ├ chunks/vendor-cfb98476-0ad880de3347342d.js  63.7 kB\n  └ other shared chunks (total)                 44.6 kB\n\nRoute (pages)                                   Size     First Load JS\n─   /_app                                       0 B             175 kB\n+ First Load JS shared by all                   175 kB\n  ├ chunks/framework-244f580fb294f19a.js        44.9 kB\n  ├ chunks/vendor-362d063c-bc197712b765d104.js  14.8 kB\n  └ chunks/vendor-89d5c698-9d58f4c0316123d6.js  15.5 kB\n  ├ chunks/vendor-cfb98476-0ad880de3347342d.js  63.7 kB\n  └ other shared chunks (total)                 36.6 kB\n",
+      "timestamp": "2025-09-12T01:48:02.004Z",
+      "content": "Route (app)                                     Size     First Load JS\n┌ ○ /                                           879 B           140 kB\n├ ○ /_not-found                                 160 B           139 kB\n├ ● /[slug]                                     166 B           139 kB\n├   ├ /alabaster-laser-cleaning\n├   ├ /alumina-laser-cleaning\n├   ├ /aluminum-laser-cleaning\n├   └ [+106 more paths]\n├ ○ /about                                      167 B           139 kB\n├ ○ /api/articles                               0 B                0 B\n├ ƒ /api/articles/[slug]                        0 B                0 B\n├ ƒ /api/badgesymbol/[slug]                     0 B                0 B\n├ ƒ /api/component-data                         0 B                0 B\n├ ƒ /api/debug                                  0 B                0 B\n├ ƒ /api/markdown                               0 B                0 B\n├ ƒ /api/materials/[material]                   0 B                0 B\n├ ƒ /api/properties                             0 B                0 B\n├ ○ /api/tags                                   0 B                0 B\n├ ○ /contact                                    166 B           139 kB\n├ ○ /debug                                      2.74 kB         142 kB\n├ ○ /debug/badge-symbol                         1.03 kB         140 kB\n├ ○ /debug/content                              957 B           140 kB\n├ ○ /debug/tags                                 305 B           139 kB\n├ ○ /favicon                                    0 B                0 B\n├ ƒ /pages/[slug]                               160 B           139 kB\n├ ○ /property                                   160 B           139 kB\n├ ƒ /property/[property]/[value]                160 B           139 kB\n├ ƒ /search                                     1.25 kB         140 kB\n├ ○ /services                                   167 B           139 kB\n├ ƒ /tag/[tag]                                  3.36 kB         142 kB\n└ ○ /test-range                                 160 B           139 kB\n+ First Load JS shared by all                   139 kB\n  ├ chunks/vendor-362d063c-bc197712b765d104.js  14.8 kB\n  └ chunks/vendor-89d5c698-4cdd0504c7679a1f.js  15.5 kB\n  ├ chunks/vendor-cfb98476-0ad880de3347342d.js  63.7 kB\n  └ other shared chunks (total)                 44.8 kB\n\nRoute (pages)                                   Size     First Load JS\n─   /_app                                       0 B             175 kB\n+ First Load JS shared by all                   175 kB\n  ├ chunks/framework-244f580fb294f19a.js        44.9 kB\n  ├ chunks/vendor-362d063c-bc197712b765d104.js  14.8 kB\n  └ chunks/vendor-89d5c698-4cdd0504c7679a1f.js  15.5 kB\n  ├ chunks/vendor-cfb98476-0ad880de3347342d.js  63.7 kB\n  └ other shared chunks (total)                 36.6 kB\n\n",
       "type": "info"
     },
     {
-      "timestamp": "2025-08-29T01:16:55.730Z",
-      "content": "\n○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses getStaticProps)\nƒ  (Dynamic)  server-rendered on demand\n\n",
+      "timestamp": "2025-09-12T01:48:02.004Z",
+      "content": "○  (Static)   prerendered as static content\n●  (SSG)      prerendered as static HTML (uses getStaticProps)\nƒ  (Dynamic)  server-rendered on demand\n\n",
       "type": "info"
     }
   ],
   "vercelMessages": [],
   "errorPatterns": [
     {
-      "timestamp": "2025-08-29T01:16:38.762Z",
-      "error": ".next/types/app/pages/[slug]/page.ts(2,24): error TS2306: File '/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx' is not a module.",
-      "suggested_fix": "Check logs above for specific error details"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:38.762Z",
-      "error": ".next/types/app/pages/[slug]/page.ts(5,29): error TS2306: File '/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx' is not a module.",
-      "suggested_fix": "Check logs above for specific error details"
-    },
-    {
-      "timestamp": "2025-08-29T01:16:41.768Z",
-      "error": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Author/Author.tsx\n   4:10  warning  'AuthorData' is defined but never used             @typescript-eslint/no-unused-vars\n  11:3   warning  'showBio' is assigned a value but never used       @typescript-eslint/no-unused-vars\n  12:3   warning  'showEmail' is assigned a value but never used     @typescript-eslint/no-unused-vars\n  13:3   warning  'showLinkedIn' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/BadgeSymbol/BadgeSymbol.tsx\n  16:31  warning  'content' is defined but never used                @typescript-eslint/no-unused-vars\n  21:5   warning  'materialType' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Base/MarkdownRenderer.tsx\n  102:9  warning  'separatorLine' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Debug/FrontmatterNameChecker.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/List/List.tsx\n  166:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/PropertiesTable/PropertiesTable.tsx\n    3:10  warning  'MarkdownRenderer' is defined but never used                                                                                                                                                     @typescript-eslint/no-unused-vars\n  161:28  error    React Hook \"React.useMemo\" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SearchResults/SearchResults.tsx\n  9:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SectionCard/SectionCardList.tsx\n  25:3  warning  'heading' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Thumbnail/Thumbnail.tsx\n  6:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n  7:10  warning  'Card' is defined but never used     @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/UI/TagFilter.tsx\n  21:3  warning  'tagItemCounts' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/badge-symbol/page.tsx\n    8:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  100:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/page.tsx\n  134:46  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any\n  154:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n  170:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/search-client.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/articleEnrichment.ts\n  42:10  warning  'inferTags' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeDataLoader.ts\n  5:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeUtils.ts\n  42:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  85:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentAPI.ts\n  95:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentUtils.ts\n  117:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  125:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  126:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  204:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/formatting.ts\n  81:12  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/frontmatterLoader.ts\n  49:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  66:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  70:14  warning  'matterError' is defined but never used   @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/helpers.ts\n  56:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  73:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/materialBadgeUtils.ts\n  33:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  34:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  49:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  50:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  52:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  53:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/metadata.ts\n  3:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/tagDebug.ts\n  28:11  warning  'articlesWithTags' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n✖ 49 problems (1 error, 48 warnings)",
+      "timestamp": "2025-09-12T01:47:46.442Z",
+      "error": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/api/properties/route.ts\n  4:27  warning  'request' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/ArticleGrid/ArticleGrid.tsx\n   5:10  warning  'Article' is defined but never used      @typescript-eslint/no-unused-vars\n   6:28  warning  'ArticleItem' is defined but never used  @typescript-eslint/no-unused-vars\n  99:20  warning  'error' is defined but never used        @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/ArticleGrid/ArticleGridClient.tsx\n  8:10  warning  'toMaterialType' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Author/Author.tsx\n   4:10  warning  'AuthorData' is defined but never used             @typescript-eslint/no-unused-vars\n  11:3   warning  'showBio' is assigned a value but never used       @typescript-eslint/no-unused-vars\n  12:3   warning  'showEmail' is assigned a value but never used     @typescript-eslint/no-unused-vars\n  13:3   warning  'showLinkedIn' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/BadgeSymbol/BadgeSymbol.tsx\n  16:31  warning  'content' is defined but never used                @typescript-eslint/no-unused-vars\n  21:5   warning  'materialType' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Base/MarkdownRenderer.tsx\n  102:9  warning  'separatorLine' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Debug/FrontmatterNameChecker.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Hero/Hero.tsx\n  52:9  warning  'variantClass' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/List/List.tsx\n  167:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/PropertiesTable/PropertiesTable.tsx\n    3:10  warning  'MarkdownRenderer' is defined but never used                                                                                                                                                     @typescript-eslint/no-unused-vars\n  163:28  error    React Hook \"React.useMemo\" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SearchResults/SearchResults.tsx\n  9:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SectionCard/SectionCardList.tsx\n  25:3  warning  'heading' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Thumbnail/Thumbnail.tsx\n  6:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n  7:10  warning  'Card' is defined but never used     @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/UI/TagFilter.tsx\n  21:3  warning  'tagItemCounts' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/badge-symbol/page.tsx\n    8:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  100:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/page.tsx\n  134:46  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any\n  154:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n  170:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx\n  8:32  warning  'params' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/property/[property]/[value]/page.tsx\n  8:45  warning  'params' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/page.tsx\n  88:20  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/search-client.tsx\n    3:20  warning  'useEffect' is defined but never used     @typescript-eslint/no-unused-vars\n  133:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/test-range/page.tsx\n  25:50  warning  `\"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                               react/no-unescaped-entities\n  25:58  warning  `\"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                               react/no-unescaped-entities\n  36:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n  41:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n  46:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/articleEnrichment.ts\n  42:10  warning  'inferTags' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeDataLoader.ts\n  5:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeUtils.ts\n  42:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  85:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentAPI.ts\n  14:10  warning  'extractSafeValue' is defined but never used  @typescript-eslint/no-unused-vars\n  96:16  warning  'error' is defined but never used             @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentUtils.ts\n   18:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  137:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  143:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  144:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  240:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/formatting.ts\n  81:12  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/frontmatterLoader.ts\n  49:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  66:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  70:14  warning  'matterError' is defined but never used   @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/helpers.ts\n  56:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  73:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/materialBadgeUtils.ts\n  34:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  35:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  50:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  51:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  53:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  54:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/metadata.ts\n  3:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/stringHelpers.ts\n   8:41  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  27:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  34:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  42:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/tagDebug.ts\n  28:11  warning  'articlesWithTags' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n✖ 70 problems (4 errors, 66 warnings)",
       "suggested_fix": "Run: npm run type-check to identify TypeScript issues"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.063Z",
-      "error": "✓ should handle empty directories (1 ms)\n      ✓ should handle directory read errors gracefully (1 ms)\n    loadComponent\n      ✓ should load component with markdown conversion (1 ms)\n      ✓ should load component without markdown conversion",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "error": "✓ should return unique slugs from all component directories (4 ms)\n      ✓ should handle empty directories (1 ms)\n      ✓ should handle directory read errors gracefully (1 ms)",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "error": "✓ should return null for non-existent files (1 ms)\n      ✓ should return null for unknown component types\n      ✓ should handle empty frontmatter (1 ms)\n      ○ skipped should handle file read errors\n    loadAllComponents",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "error": "✓ should handle empty frontmatter\n      ○ skipped should handle file read errors\n    loadAllComponents",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "error": "loadPageData\n      ✓ should combine metadata and components (1 ms)\n      ✓ should handle errors gracefully\n    loadArticle\n      ✓ should create article from metadata\n      ✓ should return null when no title in metadata (1 ms)\n    loadAllArticles",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "error": "✓ should load all available components for a slug (1 ms)\n      ✓ should return empty object when no components exist\n    loadMetadata\n      ✓ should prioritize frontmatter over metatags (1 ms)\n      ✕ should fallback to metatags when frontmatter has no config (4 ms)\n      ✓ should return empty object when no metadata found (1 ms)\n    loadPageData\n      ✓ should combine metadata and components (1 ms)\n      ✓ should handle errors gracefully (1 ms)\n    loadArticle\n      ✓ should create article from metadata (1 ms)\n      ✓ should return null when no title in metadata (1 ms)",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.064Z",
-      "error": "✓ should load all articles with valid titles (1 ms)\n      ✓ should filter out articles without titles\n    error handling\n      ✓ should handle filesystem errors gracefully\n      ✓ should handle YAML parsing errors gracefully\n    caching behavior\n      ○ skipped should use cache for repeated calls",
+      "timestamp": "2025-09-12T01:47:48.185Z",
+      "error": "loadAllArticles\n      ✓ should load all articles with valid titles (1 ms)\n      ✓ should filter out articles without titles (1 ms)\n    error handling\n      ✓ should handle filesystem errors gracefully\n      ✓ should handle YAML parsing errors gracefully (1 ms)\n    caching behavior\n      ○ skipped should use cache for repeated calls\n\n  ● Content API Utils › loadMetadata › should fallback to metatags when frontmatter has no config\n\n    expect(received).toEqual(expected) // deep equality\n\n    - Expected  - 3\n    + Received  + 1\n\n    - Object {\n    -   \"title\": \"Metatags Title\",\n    - }\n    + Object {}\n\n      330 |       const result = await loadMetadata('test-slug');\n      331 |\n    > 332 |       expect(result).toEqual({\n          |                      ^\n      333 |         title: 'Metatags Title'\n      334 |       });\n      335 |     });\n\n      at Object.toEqual (tests/utils/contentAPI.test.js:332:22)",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.291Z",
-      "error": "Content Pipeline Integration\n    Complete Content Loading Pipeline\n      ✓ should load and process article through complete pipeline (42 ms)\n      ✓ should handle multiple articles correctly (11 ms)\n    Content Validation and Error Handling\n      ✓ should handle missing component files gracefully (9 ms)\n      ✓ should validate content structure integrity (13 ms)\n    Content Processing Performance\n      ✓ should process multiple articles efficiently (11 ms)\n      ✓ should cache repeated requests effectively (10 ms)\n    Data Consistency and Integrity\n      ✓ should maintain data consistency across different loading methods (10 ms)\n      ✓ should preserve type safety through pipeline (15 ms)",
+      "timestamp": "2025-09-12T01:47:48.478Z",
+      "error": "✓ should load and process article through complete pipeline (87 ms)\n      ✓ should handle multiple articles correctly (13 ms)\n    Content Validation and Error Handling\n      ✓ should handle missing component files gracefully (10 ms)\n      ✓ should validate content structure integrity (13 ms)\n    Content Processing Performance\n      ✓ should process multiple articles efficiently (12 ms)\n      ✓ should cache repeated requests effectively (10 ms)\n    Data Consistency and Integrity\n      ✓ should maintain data consistency across different loading methods (10 ms)\n      ✓ should preserve type safety through pipeline (10 ms)",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.391Z",
-      "error": "✓ should transform basic article through complete search pipeline (2 ms)\n      ✓ should handle complex multi-word materials (1 ms)\n      ✓ should handle articles with minimal metadata\n    Batch Processing Pipeline\n      ✓ should process multiple articles consistently\n    Tag Inference and Normalization\n      ✓ should create comprehensive tag ecosystem (1 ms)\n    Error Recovery and Edge Cases\n      ✓ should handle articles with conflicting information\n      ✓ should handle empty and undefined values gracefully (1 ms)\n      ✓ should handle malformed frontmatter gracefully\n    Real-world Scenario Simulation\n      ✓ should handle typical material science article workflow (1 ms)",
+      "timestamp": "2025-09-12T01:47:48.606Z",
+      "error": "Search Workflow Integration\n    Article to SearchableArticle Pipeline\n      ✓ should transform basic article through complete search pipeline (2 ms)\n      ✓ should handle complex multi-word materials (1 ms)\n      ✓ should handle articles with minimal metadata (1 ms)\n    Batch Processing Pipeline\n      ✓ should process multiple articles consistently (1 ms)\n    Tag Inference and Normalization\n      ✓ should create comprehensive tag ecosystem (3 ms)\n    Error Recovery and Edge Cases\n      ✓ should handle articles with conflicting information\n      ✓ should handle empty and undefined values gracefully (1 ms)\n      ✓ should handle malformed frontmatter gracefully (1 ms)\n    Real-world Scenario Simulation\n      ✓ should handle typical material science article workflow (2 ms)",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:43.668Z",
-      "error": "PASS Next.js Testing Framework tests/utils/contentAPI.simple.test.js\n  Content API Utils - Simple Tests\n    ✓ modules can be imported without errors (8 ms)\n    ✓ basic functionality exists\n    ✓ error handling functions exist (1 ms)",
+      "timestamp": "2025-09-12T01:47:48.858Z",
+      "error": "PASS Next.js Testing Framework tests/utils/contentAPI.simple.test.js\n  Content API Utils - Simple Tests\n    ✓ modules can be imported without errors (11 ms)\n    ✓ basic functionality exists (1 ms)\n    ✓ error handling functions exist (1 ms)",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "error": "error.tsx                     |       0 |        0 |       0 |       0 | 3-15",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "error": "error.tsx                      |       0 |        0 |       0 |       0 | 3-15",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.544Z",
-      "error": "global-error.tsx              |       0 |        0 |       0 |       0 | 3-5                       \n  layout.tsx                    |       0 |      100 |       0 |       0 | 2-34                      \n  not-found.tsx                 |       0 |      100 |       0 |       0 | 1",
+      "timestamp": "2025-09-12T01:47:50.104Z",
+      "error": "global-error.tsx               |       0 |        0 |       0 |       0 | 3-5                       \n  layout.tsx                     |       0 |      100 |       0 |       0 | 2-34                      \n  not-found.tsx                  |       0 |      100 |       0 |       0 | 1",
       "suggested_fix": "Check logs above for specific error details"
     },
     {
-      "timestamp": "2025-08-29T01:16:44.546Z",
-      "error": "app/components/ErrorBoundary   |       0 |        0 |       0 |       0 |                           \n  ErrorBoundary.tsx             |       0 |        0 |       0 |       0 | 4-80",
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "error": "TagDebug.tsx                   |       0 |        0 |       0 |       0 | 3-119                     \n app/components/ErrorBoundary    |       0 |        0 |       0 |       0 |",
+      "suggested_fix": "Check logs above for specific error details"
+    },
+    {
+      "timestamp": "2025-09-12T01:47:50.105Z",
+      "error": "ErrorBoundary.tsx              |       0 |        0 |       0 |       0 | 4-80                      \n app/components/Hero             |       0 |        0 |       0 |       0 |                           \n  Hero.tsx                       |       0 |        0 |       0 |       0 | 2-103                     \n app/components/JsonLD           |       0 |        0 |       0 |       0 |",
       "suggested_fix": "Check logs above for specific error details"
     }
   ],
   "buildWarnings": [
     {
-      "timestamp": "2025-08-29T01:16:41.768Z",
-      "warning": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Author/Author.tsx\n   4:10  warning  'AuthorData' is defined but never used             @typescript-eslint/no-unused-vars\n  11:3   warning  'showBio' is assigned a value but never used       @typescript-eslint/no-unused-vars\n  12:3   warning  'showEmail' is assigned a value but never used     @typescript-eslint/no-unused-vars\n  13:3   warning  'showLinkedIn' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/BadgeSymbol/BadgeSymbol.tsx\n  16:31  warning  'content' is defined but never used                @typescript-eslint/no-unused-vars\n  21:5   warning  'materialType' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Base/MarkdownRenderer.tsx\n  102:9  warning  'separatorLine' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Debug/FrontmatterNameChecker.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/List/List.tsx\n  166:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/PropertiesTable/PropertiesTable.tsx\n    3:10  warning  'MarkdownRenderer' is defined but never used                                                                                                                                                     @typescript-eslint/no-unused-vars\n  161:28  error    React Hook \"React.useMemo\" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SearchResults/SearchResults.tsx\n  9:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SectionCard/SectionCardList.tsx\n  25:3  warning  'heading' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Thumbnail/Thumbnail.tsx\n  6:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n  7:10  warning  'Card' is defined but never used     @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/UI/TagFilter.tsx\n  21:3  warning  'tagItemCounts' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/badge-symbol/page.tsx\n    8:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  100:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/page.tsx\n  134:46  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any\n  154:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n  170:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/search-client.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/articleEnrichment.ts\n  42:10  warning  'inferTags' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeDataLoader.ts\n  5:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeUtils.ts\n  42:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  85:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentAPI.ts\n  95:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentUtils.ts\n  117:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  125:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  126:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  204:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/formatting.ts\n  81:12  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/frontmatterLoader.ts\n  49:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  66:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  70:14  warning  'matterError' is defined but never used   @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/helpers.ts\n  56:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  73:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/materialBadgeUtils.ts\n  33:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  34:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  49:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  50:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  52:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  53:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/metadata.ts\n  3:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/tagDebug.ts\n  28:11  warning  'articlesWithTags' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n✖ 49 problems (1 error, 48 warnings)"
+      "timestamp": "2025-09-12T01:47:46.442Z",
+      "warning": "/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/api/properties/route.ts\n  4:27  warning  'request' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/ArticleGrid/ArticleGrid.tsx\n   5:10  warning  'Article' is defined but never used      @typescript-eslint/no-unused-vars\n   6:28  warning  'ArticleItem' is defined but never used  @typescript-eslint/no-unused-vars\n  99:20  warning  'error' is defined but never used        @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/ArticleGrid/ArticleGridClient.tsx\n  8:10  warning  'toMaterialType' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Author/Author.tsx\n   4:10  warning  'AuthorData' is defined but never used             @typescript-eslint/no-unused-vars\n  11:3   warning  'showBio' is assigned a value but never used       @typescript-eslint/no-unused-vars\n  12:3   warning  'showEmail' is assigned a value but never used     @typescript-eslint/no-unused-vars\n  13:3   warning  'showLinkedIn' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/BadgeSymbol/BadgeSymbol.tsx\n  16:31  warning  'content' is defined but never used                @typescript-eslint/no-unused-vars\n  21:5   warning  'materialType' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Base/MarkdownRenderer.tsx\n  102:9  warning  'separatorLine' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Debug/FrontmatterNameChecker.tsx\n  3:20  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Hero/Hero.tsx\n  52:9  warning  'variantClass' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/List/List.tsx\n  167:16  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/PropertiesTable/PropertiesTable.tsx\n    3:10  warning  'MarkdownRenderer' is defined but never used                                                                                                                                                     @typescript-eslint/no-unused-vars\n  163:28  error    React Hook \"React.useMemo\" is called conditionally. React Hooks must be called in the exact same order in every component render. Did you accidentally call a React Hook after an early return?  react-hooks/rules-of-hooks\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SearchResults/SearchResults.tsx\n  9:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/SectionCard/SectionCardList.tsx\n  25:3  warning  'heading' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/Thumbnail/Thumbnail.tsx\n  6:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n  7:10  warning  'Card' is defined but never used     @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components/UI/TagFilter.tsx\n  21:3  warning  'tagItemCounts' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/badge-symbol/page.tsx\n    8:46  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  100:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/debug/page.tsx\n  134:46  warning  Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any\n  154:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n  170:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/pages/[slug]/page.tsx\n  8:32  warning  'params' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/property/[property]/[value]/page.tsx\n  8:45  warning  'params' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/page.tsx\n  88:20  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/search/search-client.tsx\n    3:20  warning  'useEffect' is defined but never used     @typescript-eslint/no-unused-vars\n  133:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/test-range/page.tsx\n  25:50  warning  `\"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                               react/no-unescaped-entities\n  25:58  warning  `\"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                               react/no-unescaped-entities\n  36:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n  41:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n  46:13  error    Do not use an `<a>` element to navigate to `/search/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/articleEnrichment.ts\n  42:10  warning  'inferTags' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeDataLoader.ts\n  5:10  warning  'Article' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/badgeUtils.ts\n  42:65  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  85:51  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:61  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentAPI.ts\n  14:10  warning  'extractSafeValue' is defined but never used  @typescript-eslint/no-unused-vars\n  96:16  warning  'error' is defined but never used             @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/contentUtils.ts\n   18:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  137:18  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  143:73  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  144:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  240:16  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/formatting.ts\n  81:12  warning  '_' is defined but never used  @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/frontmatterLoader.ts\n  49:45  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:30  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  63:57  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  66:25  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  70:14  warning  'matterError' is defined but never used   @typescript-eslint/no-unused-vars\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/helpers.ts\n  56:33  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  73:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  88:60  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/materialBadgeUtils.ts\n  34:40  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  35:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  50:52  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  51:48  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  53:53  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  54:49  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/metadata.ts\n  3:21  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/stringHelpers.ts\n   8:41  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  27:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  34:37  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n  42:34  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any\n\n/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/utils/tagDebug.ts\n  28:11  warning  'articlesWithTags' is assigned a value but never used  @typescript-eslint/no-unused-vars\n\n✖ 70 problems (4 errors, 66 warnings)"
     }
   ]
 }

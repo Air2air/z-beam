@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100">
         <ErrorBoundary componentName="Layout">
           <Navbar />
-          <main className="flex-grow w-full py-8">
+          <main className="flex-grow w-full py-0">
             <ErrorBoundary componentName="Page Content">
               {children}
             </ErrorBoundary>
