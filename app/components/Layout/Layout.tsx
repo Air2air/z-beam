@@ -10,8 +10,8 @@ import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { Hero } from '../Hero/Hero';
 import { Title } from '../Title/Title';
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import { parseAuthorContent } from '../../utils/authorParser';
 import { ArticleMetadata, BadgeSymbolData } from '../../../types/core';
+import { AuthorInfo } from '../../../types/components/author';
 import { ComponentData } from '../../utils/contentAPI';
 import { extractSafeValue } from '../../utils/stringHelpers';
 
@@ -119,22 +119,29 @@ export function Layout({
                     {displayTitle}
                   </Title>
                 )}
-                {/* Add Author component after Title */}
-                {!hideHeader && components?.author && (
+                {/* Add Author component after Title - using YAML data only */}
+                                {/* Add Author component after Title - using YAML authorInfo data only */}
+                {!hideHeader && metadata?.authorInfo && (
                   (() => {
-                    // Only use author from component file
-                    const authorData = parseAuthorContent(components.author.content);
-                    
-                    return authorData ? (
+                    const authorInfo = metadata.authorInfo as AuthorInfo;
+                    return (
                       <Author 
-                        author={authorData}
+                        author={{
+                          author_name: authorInfo.name || 'Unknown Author',
+                          credentials: authorInfo.title,
+                          specialties: authorInfo.expertise ? [authorInfo.expertise] : authorInfo.profile?.expertiseAreas,
+                          author_country: authorInfo.country,
+                          avatar: authorInfo.image,
+                          bio: authorInfo.profile?.description,
+                          title: authorInfo.title
+                        }}
                         showAvatar={true}
                         showCredentials={true}
                         showCountry={true}
                         showSpecialties={true}
                         className="mt-2 mb-4"
                       />
-                    ) : null;
+                    );
                   })()
                 )}
               </div>

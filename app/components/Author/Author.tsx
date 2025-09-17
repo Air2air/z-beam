@@ -14,21 +14,16 @@ export function Author({
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
-  // Helper function to strip HTML tags
-  const stripHtml = (html: string): string => {
-    return html.replace(/<[^>]*>/g, "").trim();
-  };
+  // Get author name from either field - YAML data should be clean
+  const authorName = author.author_name || author.name || "";
 
-  // Get author name from either field
-  const authorName = stripHtml(author.author_name || author.name || "");
+  // Get avatar from either field - YAML data should be clean
+  const authorImage = author.avatar || author.image || "";
 
-  // Get avatar from either field and strip HTML
-  const authorImage = stripHtml(author.avatar || author.image || "");
-
-  // Get other fields and strip HTML
-  const credentials = author.credentials ? stripHtml(author.credentials) : "";
-  const country = author.author_country ? stripHtml(author.author_country) : "";
-  const field = author.specialties?.[0] ? stripHtml(author.specialties[0]) : "";
+  // Get other fields - YAML data should be clean
+  const credentials = author.credentials || "";
+  const country = author.author_country || "";
+  const field = author.specialties?.[0] || "";
 
   // Generate URL-encoded author name for tag search
   const encodedAuthorName = encodeURIComponent(authorName || "");

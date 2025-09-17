@@ -2,6 +2,24 @@
 // Simplified author component types
 
 /**
+ * YAML Author Info structure as used in content files
+ */
+export interface AuthorInfo {
+  id: number;
+  name: string;
+  title?: string;
+  expertise?: string;
+  country?: string;
+  sex?: 'f' | 'm' | 'other';
+  image?: string;
+  profile?: {
+    description?: string;
+    expertiseAreas?: string[];
+    contactNote?: string;
+  };
+}
+
+/**
  * Simplified author data interface
  * Based on the consistent format used in content files
  */
