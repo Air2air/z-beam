@@ -120,7 +120,7 @@ export function Layout({
                   </Title>
                 )}
                 {/* Add Author component after Title - using YAML data only */}
-                                {/* Add Author component after Title - using YAML authorInfo data only */}
+                                                {/* Add Author component after Title - using YAML authorInfo data only */}
                 {!hideHeader && metadata?.authorInfo && (
                   (() => {
                     const authorInfo = metadata.authorInfo as AuthorInfo;
