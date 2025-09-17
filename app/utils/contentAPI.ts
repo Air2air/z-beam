@@ -532,14 +532,10 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
     // Check if there's an author component and merge it into metadata
     let metadata = pageData.metadata;
     if (pageData.components.author?.config) {
-      console.log('Found author component config:', pageData.components.author.config);
       metadata = {
         ...metadata,
         authorInfo: pageData.components.author.config
       };
-    } else {
-      console.log('No author component found for slug:', slug);
-      console.log('Available components:', Object.keys(pageData.components));
     }
     
     // Return in contentIntegrator format
