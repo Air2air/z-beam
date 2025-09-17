@@ -78,8 +78,9 @@ export const loadComponent = cache(async (
       return null;
     }
     
-    // First try the exact slug
+    // First try the exact slug for .md files
     let filePath = path.join(dir, `${slug}.md`);
+    let isYamlFile = false;
     
     // If not found, look for files that would generate this slug (with parentheses)
     if (!existsSync(filePath)) {
@@ -99,21 +100,92 @@ export const loadComponent = cache(async (
       }
     }
     
+    // For table component, also try .yaml files if .md not found
+    if (!existsSync(filePath) && type === 'table') {
+      const yamlPath = path.join(dir, `${slug}.yaml`);
+      if (existsSync(yamlPath)) {
+        filePath = yamlPath;
+        isYamlFile = true;
+      } else {
+        // Try with parentheses for yaml files too
+        try {
+          const files = await fs.readdir(dir);
+          const matchingYamlFile = files.find(file => 
+            file.endsWith('.yaml') && 
+            stripParenthesesFromSlug(file.replace('.yaml', '')) === slug
+          );
+          
+          if (matchingYamlFile) {
+            filePath = path.join(dir, matchingYamlFile);
+            isYamlFile = true;
+          }
+        } catch (error) {
+          // Continue with null result
+        }
+      }
+    }
+    
     if (!existsSync(filePath)) {
       return null;
     }
     
     const fileContents = await fs.readFile(filePath, 'utf8');
-    const { data, content } = safeMatterParse(fileContents);
     
-    const processedContent = options.convertMarkdown 
-      ? await marked(content)
-      : content;
-    
-    return {
-      content: processedContent,
-      config: Object.keys(data).length > 0 ? data : undefined,
-    };
+    if (isYamlFile) {
+      // Handle YAML table files - convert to markdown format expected by Table component
+      const yamlData = safeMatterParse(`---\n${fileContents}\n---`);
+      const tableData = yamlData.data.materialTables as { tables?: any[] };
+      
+      if (tableData && tableData.tables) {
+        // Convert YAML structure to markdown format
+        let markdownContent = '';
+        
+        tableData.tables.forEach((table: any) => {
+          if (table.header) {
+            markdownContent += `${table.header}\n\n`;
+          }
+          
+          if (table.rows && table.rows.length > 0) {
+            // Create markdown table header
+            markdownContent += '| Property | Value | Unit |\n';
+            markdownContent += '| --- | --- | --- |\n';
+            
+            // Add table rows
+            table.rows.forEach((row: any) => {
+              const property = row.property || '';
+              const value = row.value || '';
+              const unit = row.unit || '';
+              markdownContent += `| ${property} | ${value} | ${unit} |\n`;
+            });
+            
+            markdownContent += '\n\n';
+          }
+        });
+        
+        const processedContent = options.convertMarkdown 
+          ? await marked(markdownContent)
+          : markdownContent;
+        
+        return {
+          content: processedContent,
+          config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based tables
+        };
+      }
+      
+      return null;
+    } else {
+      // Handle markdown files as before
+      const { data, content } = safeMatterParse(fileContents);
+      
+      const processedContent = options.convertMarkdown 
+        ? await marked(content)
+        : content;
+      
+      return {
+        content: processedContent,
+        config: Object.keys(data).length > 0 ? data : undefined,
+      };
+    }
   }, null, 'loadComponent', slug);
 });
 

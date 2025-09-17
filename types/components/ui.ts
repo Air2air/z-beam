@@ -89,8 +89,11 @@ export interface BreadcrumbsProps {
  * Table component props
  */
 export interface TableProps {
-  data: {
-    headers: string[];
-    rows: string[][];
+  content: string;
+  config?: {
+    showHeader?: boolean;
+    caption?: string;
+    className?: string;
+    variant?: 'default' | 'sectioned' | 'compact';
   };
 }
