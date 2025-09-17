@@ -154,12 +154,13 @@ export const loadComponent = cache(async (
     
     if (isYamlFile) {
       // Handle YAML files for different component types
-      const yamlContent = readFileSync(filePath, 'utf-8');
-      const yamlData = matter(yamlContent);
+      // For pure YAML files, we need to parse with yaml parser, not gray-matter
+      const yaml = await import('yaml');
+      const yamlData = yaml.parse(fileContents);
       
       if (type === 'table') {
         // Handle YAML table files - convert to markdown format expected by Table component
-        const tableData = yamlData.data.materialTables as { tables?: any[] };
+        const tableData = yamlData.materialTables as { tables?: any[] };
         
         if (tableData && tableData.tables) {
           // Convert YAML structure to markdown format
@@ -171,16 +172,18 @@ export const loadComponent = cache(async (
             }
             
             if (table.rows && table.rows.length > 0) {
-              // Create markdown table header
-              markdownContent += '| Property | Value | Unit |\n';
-              markdownContent += '| --- | --- | --- |\n';
+              // Create markdown table header with Min/Max columns
+              markdownContent += '| Property | Value | Unit | Min | Max |\n';
+              markdownContent += '| --- | --- | --- | --- | --- |\n';
               
               // Add table rows
               table.rows.forEach((row: any) => {
                 const property = row.property || '';
                 const value = row.value || '';
                 const unit = row.unit || '';
-                markdownContent += `| ${property} | ${value} | ${unit} |\n`;
+                const min = row.min || '';
+                const max = row.max || '';
+                markdownContent += `| ${property} | ${value} | ${unit} | ${min} | ${max} |\n`;
               });
               
               markdownContent += '\n\n';
