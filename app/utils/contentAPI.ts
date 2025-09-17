@@ -172,18 +172,31 @@ export const loadComponent = cache(async (
             }
             
             if (table.rows && table.rows.length > 0) {
-              // Create markdown table header with Min/Max columns
-              markdownContent += '| Property | Value | Unit | Min | Max |\n';
+              // Create markdown table header with reordered columns: Property | Unit | Min | Value | Max
+              markdownContent += '| Property | Unit | Min | Value | Max |\n';
               markdownContent += '| --- | --- | --- | --- | --- |\n';
               
               // Add table rows
               table.rows.forEach((row: any) => {
                 const property = row.property || '';
-                const value = row.value || '';
                 const unit = row.unit || '';
-                const min = row.min || '';
-                const max = row.max || '';
-                markdownContent += `| ${property} | ${value} | ${unit} | ${min} | ${max} |\n`;
+                
+                // Remove units from all numeric values - extract numeric/text part before unit
+                let value = row.value || '';
+                let min = row.min || '';
+                let max = row.max || '';
+                
+                if (unit) {
+                  // Create regex pattern to match the unit at the end of strings
+                  const unitPattern = new RegExp(`\\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`);
+                  
+                  // Remove units from value, min, and max
+                  if (value) value = value.replace(unitPattern, '').trim();
+                  if (min) min = min.replace(unitPattern, '').trim();
+                  if (max) max = max.replace(unitPattern, '').trim();
+                }
+                
+                markdownContent += `| ${property} | ${unit} | ${min} | ${value} | ${max} |\n`;
               });
               
               markdownContent += '\n\n';
