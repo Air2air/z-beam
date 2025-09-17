@@ -48,6 +48,33 @@ export function Table({ content, config }: TableProps) {
     return Math.max(0, Math.min(100, position));
   };
 
+  // Function to parse value ranges and calculate positions
+  const parseValueRange = (value: string, min: string, max: string): { 
+    isRange: boolean, 
+    startPosition?: number, 
+    endPosition?: number, 
+    singlePosition?: number 
+  } => {
+    // Handle ranges like "5-10", "2.5-4.2", "5 - 10"
+    const rangeMatch = value.match(/^(\d+\.?\d*)\s*[-–—]\s*(\d+\.?\d*)$/);
+    if (rangeMatch) {
+      const startValue = rangeMatch[1];
+      const endValue = rangeMatch[2];
+      
+      return {
+        isRange: true,
+        startPosition: calculatePosition(min, startValue, max),
+        endPosition: calculatePosition(min, endValue, max)
+      };
+    }
+    
+    // Single value
+    return {
+      isRange: false,
+      singlePosition: calculatePosition(min, value, max)
+    };
+  };
+
   // Function to parse markdown table and extract structured data
   const parseMarkdownTable = (tableContent: string): { headers: string[], rows: TableRow[] } | null => {
     const lines = tableContent.trim().split('\n');
@@ -102,7 +129,6 @@ export function Table({ content, config }: TableProps) {
         <div className="enhanced-table-container">
           {sectionTitle && (
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-              <span className="w-1 h-6 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-sm mr-3 inline-block"></span>
               {sectionTitle}
             </h3>
           )}
@@ -123,7 +149,6 @@ export function Table({ content, config }: TableProps) {
       <div className="enhanced-table-container">
         {sectionTitle && (
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-            <span className="w-1 h-6 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-sm mr-3 inline-block"></span>
             {sectionTitle}
           </h3>
         )}
@@ -133,24 +158,103 @@ export function Table({ content, config }: TableProps) {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
                 <tr>
-                  {tableData.headers.map((header, index) => (
-                    <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {header}
+                  {tableData.headers.map((header, index) => {
+                    if (index === 0) {
+                      // First column (Property)
+                      return (
+                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          {header}
+                        </th>
+                      );
+                    } else if (index === 1 && isPropertyTable) {
+                      // Insert Range Indicator as 2nd column
+                      return [
+                        <th key="range-indicator" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          
+                        </th>,
+                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          {header}
+                        </th>
+                      ];
+                    } else {
+                      // All other columns
+                      return (
+                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                          {header}
+                        </th>
+                      );
+                    }
+                  })}
+                  {!isPropertyTable && tableData.headers.length > 1 && (
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      
                     </th>
-                  ))}
-                  {isPropertyTable && <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Range Indicator</th>}
+                  )}
                 </tr>
               </thead>
               <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                 {tableData.rows.map((row, index) => {
-                  const position = isPropertyTable && row.min && row.max ? 
-                    calculatePosition(row.min, row.value, row.max) : null;
+                  const rangeData = isPropertyTable && row.min && row.max ? 
+                    parseValueRange(row.value, row.min, row.max) : null;
                   
                   return (
                     <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                         {row.property}
                       </td>
+                      {isPropertyTable && rangeData !== null && (
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="flex items-center space-x-2">
+                            <div className="w-24 bg-gray-200 dark:bg-gray-700 rounded-sm h-4 relative">
+                              {rangeData.isRange ? (
+                                <>
+                                  {/* Range visualization - shaded area */}
+                                  <div 
+                                    className="bg-gradient-to-r from-blue-200 to-blue-300 dark:from-blue-800 dark:to-blue-700 h-4 rounded-sm absolute transition-all duration-300"
+                                    style={{ 
+                                      left: `${Math.min(rangeData.startPosition!, rangeData.endPosition!)}%`, 
+                                      width: `${Math.abs(rangeData.endPosition! - rangeData.startPosition!)}%` 
+                                    }}
+                                  />
+                                  {/* Start boundary indicator */}
+                                  <div 
+                                    className="absolute top-0 w-1 h-4 bg-green-600 shadow-sm"
+                                    style={{ left: `${rangeData.startPosition}%`, transform: 'translateX(-50%)' }}
+                                  />
+                                  {/* End boundary indicator */}
+                                  <div 
+                                    className="absolute top-0 w-1 h-4 bg-red-600 shadow-sm"
+                                    style={{ left: `${rangeData.endPosition}%`, transform: 'translateX(-50%)' }}
+                                  />
+                                </>
+                              ) : (
+                                <>
+                                  {/* Single value visualization */}
+                                  <div 
+                                    className="bg-gradient-to-r from-blue-500 to-indigo-600 h-4 rounded-sm transition-all duration-300"
+                                    style={{ width: `${rangeData.singlePosition}%` }}
+                                  />
+                                  <div 
+                                    className="absolute top-0 w-1 h-4 bg-red-500 shadow-sm"
+                                    style={{ left: `${rangeData.singlePosition}%`, transform: 'translateX(-50%)' }}
+                                  />
+                                </>
+                              )}
+                            </div>
+                            <span className="text-xs text-gray-500 dark:text-gray-400 min-w-fit">
+                              {rangeData.isRange 
+                                ? `${Math.min(rangeData.startPosition!, rangeData.endPosition!).toFixed(1)}-${Math.max(rangeData.startPosition!, rangeData.endPosition!).toFixed(1)}%`
+                                : `${rangeData.singlePosition!.toFixed(1)}%`
+                              }
+                            </span>
+                          </div>
+                        </td>
+                      )}
+                      {isPropertyTable && rangeData === null && (
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {/* Empty cell for rows without valid min/max values (like headings) */}
+                        </td>
+                      )}
                       {row.unit !== undefined && (
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                           {row.unit}
@@ -167,30 +271,6 @@ export function Table({ content, config }: TableProps) {
                       {row.max !== undefined && (
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                           {row.max}
-                        </td>
-                      )}
-                      {isPropertyTable && position !== null && (
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-24 bg-gray-200 dark:bg-gray-700 rounded-full h-2 relative">
-                              <div 
-                                className="bg-gradient-to-r from-blue-500 to-indigo-600 h-2 rounded-full transition-all duration-300"
-                                style={{ width: `${position}%` }}
-                              ></div>
-                              <div 
-                                className="absolute top-0 w-0.5 h-2 bg-red-500 rounded-full shadow-sm"
-                                style={{ left: `${position}%`, transform: 'translateX(-50%)' }}
-                              ></div>
-                            </div>
-                            <span className="text-xs text-gray-500 dark:text-gray-400 min-w-fit">
-                              {position.toFixed(1)}%
-                            </span>
-                          </div>
-                        </td>
-                      )}
-                      {isPropertyTable && position === null && (
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {/* Empty cell for rows without valid min/max values (like headings) */}
                         </td>
                       )}
                     </tr>
