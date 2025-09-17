@@ -172,32 +172,90 @@ export const loadComponent = cache(async (
             }
             
             if (table.rows && table.rows.length > 0) {
-              // Create markdown table header with reordered columns: Property | Unit | Min | Value | Max
-              markdownContent += '| Property | Unit | Min | Value | Max |\n';
-              markdownContent += '| --- | --- | --- | --- | --- |\n';
+              // Check table type to determine appropriate format
+              const isCompositionTable = table.header && table.header.toLowerCase().includes('composition');
+              const isLaserParametersTable = table.header && table.header.toLowerCase().includes('laser processing parameters');
               
-              // Add table rows
-              table.rows.forEach((row: any) => {
-                const property = row.property || '';
-                const unit = row.unit || '';
+              if (isCompositionTable) {
+                // For Composition tables, use simple 2-column format: Property | Value
+                markdownContent += '| Property | Value |\n';
+                markdownContent += '| --- | --- |\n';
                 
-                // Remove units from all numeric values - extract numeric/text part before unit
-                let value = row.value || '';
-                let min = row.min || '';
-                let max = row.max || '';
+                table.rows.forEach((row: any) => {
+                  const property = row.property || '';
+                  const value = row.value || '';
+                  markdownContent += `| ${property} | ${value} |\n`;
+                });
+              } else if (isLaserParametersTable) {
+                // For Laser Processing Parameters, use 3-column format: Property | Value | Unit
+                markdownContent += '| Property | Value | Unit |\n';
+                markdownContent += '| --- | --- | --- |\n';
                 
-                if (unit) {
-                  // Create regex pattern to match the unit at the end of strings
-                  const unitPattern = new RegExp(`\\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`);
+                table.rows.forEach((row: any) => {
+                  const property = row.property || '';
+                  const unit = row.unit || '';
+                  let value = row.value || '';
                   
-                  // Remove units from value, min, and max
-                  if (value) value = value.replace(unitPattern, '').trim();
-                  if (min) min = min.replace(unitPattern, '').trim();
-                  if (max) max = max.replace(unitPattern, '').trim();
-                }
+                  // Clean units from value for laser parameters too
+                  if (value && unit && unit !== '-') {
+                    const unitPattern = new RegExp(`\\s*${unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`);
+                    value = value.replace(unitPattern, '').trim();
+                  }
+                  
+                  markdownContent += `| ${property} | ${value} | ${unit} |\n`;
+                });
+              } else {
+                // For other tables, use the full 5-column format: Property | Unit | Min | Value | Max
+                markdownContent += '| Property | Unit | Min | Value | Max |\n';
+                markdownContent += '| --- | --- | --- | --- | --- |\n';
                 
-                markdownContent += `| ${property} | ${unit} | ${min} | ${value} | ${max} |\n`;
-              });
+                // Add table rows
+                table.rows.forEach((row: any) => {
+                  const property = row.property || '';
+                  const unit = row.unit || '';
+                  
+                  // Remove units from all numeric values - extract numeric/text part before unit
+                  let value = row.value || '';
+                  let min = row.min || '';
+                  let max = row.max || '';
+                  
+                  // Function to remove any unit from a string, not just the specific unit column
+                  const removeAnyUnit = (str: string): string => {
+                    if (!str) return str;
+                    
+                    let result = str;
+                    
+                    // First, handle complex range patterns with units in the middle and end
+                    // Pattern: "5 cm⁻¹-100 cm⁻¹ cm" → "5-100"
+                    // Match: number + unit + dash + number + unit + optional trailing unit
+                    const complexRangePattern = /(\d+(?:\.\d+)?)\s*[a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+(?:[\/\·\-][a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+)*\s*([–\-—])\s*(\d+(?:\.\d+)?)\s*[a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+(?:[\/\·\-][a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+)*(?:\s*[a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+(?:[\/\·\-][a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+)*)?/g;
+                    result = result.replace(complexRangePattern, '$1$2$3');
+                    
+                    // Then handle simpler range patterns: "210-350 MPa" → "210-350"
+                    const simpleRangePattern = /(\d+(?:\.\d+)?)\s*([–\-—])\s*(\d+(?:\.\d+)?)\s*[a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+(?:[\/\·\-][a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+)*/g;
+                    result = result.replace(simpleRangePattern, '$1$2$3');
+                    
+                    // Finally, remove any remaining units from the end
+                    const endUnitPatterns = [
+                      /\s*[a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+(?:[\/\·\-][a-zA-Z°µμ%⁻¹²³⁴⁵⁶⁷⁸⁹⁰]+)*\s*$/g,  // General units
+                      /\s*%+\s*$/g                                                                    // Extra percentages
+                    ];
+                    
+                    endUnitPatterns.forEach(pattern => {
+                      result = result.replace(pattern, '').trim();
+                    });
+                    
+                    return result;
+                  };
+                  
+                  // Clean the values
+                  if (value) value = removeAnyUnit(value);
+                  if (min) min = removeAnyUnit(min);
+                  if (max) max = removeAnyUnit(max);
+                  
+                  markdownContent += `| ${property} | ${unit} | ${min} | ${value} | ${max} |\n`;
+                });
+              }
               
               markdownContent += '\n\n';
             }
