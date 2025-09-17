@@ -4,9 +4,10 @@
 
 import { cache } from 'react';
 import fs from 'fs/promises';
-import { existsSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import path from 'path';
 import { marked } from 'marked';
+import matter from 'gray-matter';
 import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug } from './formatting';
@@ -124,6 +125,26 @@ export const loadComponent = cache(async (
         }
       }
     }
+
+    // For jsonld component, try YAML files in jsonld-yaml directory
+    if (!existsSync(filePath) && type === 'jsonld') {
+      const yamlDir = path.join(process.cwd(), 'content', 'components', 'jsonld-yaml');
+      const yamlPath = path.join(yamlDir, `${slug}.yaml`);
+      if (existsSync(yamlPath)) {
+        filePath = yamlPath;
+        isYamlFile = true;
+      }
+    }
+
+    // For metatags component, try YAML files in metatags-yaml directory
+    if (!existsSync(filePath) && type === 'metatags') {
+      const yamlDir = path.join(process.cwd(), 'content', 'components', 'metatags-yaml');
+      const yamlPath = path.join(yamlDir, `${slug}.yaml`);
+      if (existsSync(yamlPath)) {
+        filePath = yamlPath;
+        isYamlFile = true;
+      }
+    }
     
     if (!existsSync(filePath)) {
       return null;
@@ -132,44 +153,103 @@ export const loadComponent = cache(async (
     const fileContents = await fs.readFile(filePath, 'utf8');
     
     if (isYamlFile) {
-      // Handle YAML table files - convert to markdown format expected by Table component
-      const yamlData = safeMatterParse(`---\n${fileContents}\n---`);
-      const tableData = yamlData.data.materialTables as { tables?: any[] };
+      // Handle YAML files for different component types
+      const yamlContent = readFileSync(filePath, 'utf-8');
+      const yamlData = matter(yamlContent);
       
-      if (tableData && tableData.tables) {
-        // Convert YAML structure to markdown format
-        let markdownContent = '';
+      if (type === 'table') {
+        // Handle YAML table files - convert to markdown format expected by Table component
+        const tableData = yamlData.data.materialTables as { tables?: any[] };
         
-        tableData.tables.forEach((table: any) => {
-          if (table.header) {
-            markdownContent += `${table.header}\n\n`;
+        if (tableData && tableData.tables) {
+          // Convert YAML structure to markdown format
+          let markdownContent = '';
+          
+          tableData.tables.forEach((table: any) => {
+            if (table.header) {
+              markdownContent += `${table.header}\n\n`;
+            }
+            
+            if (table.rows && table.rows.length > 0) {
+              // Create markdown table header
+              markdownContent += '| Property | Value | Unit |\n';
+              markdownContent += '| --- | --- | --- |\n';
+              
+              // Add table rows
+              table.rows.forEach((row: any) => {
+                const property = row.property || '';
+                const value = row.value || '';
+                const unit = row.unit || '';
+                markdownContent += `| ${property} | ${value} | ${unit} |\n`;
+              });
+              
+              markdownContent += '\n\n';
+            }
+          });
+          
+          const processedContent = options.convertMarkdown 
+            ? await marked(markdownContent)
+            : markdownContent;
+          
+          return {
+            content: processedContent,
+            config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based tables
+          };
+        }
+      } else if (type === 'jsonld') {
+        // Handle YAML jsonld files
+        const materialData = yamlData.data.materialData;
+        const jsonldSchema = yamlData.data.jsonldSchema;
+        
+        if (jsonldSchema) {
+          const jsonldContent = JSON.stringify(jsonldSchema, null, 2);
+          const processedContent = options.convertMarkdown 
+            ? jsonldContent  // Don't markdown-process JSON-LD
+            : jsonldContent;
+          
+          return {
+            content: processedContent,
+            config: { 
+              ...materialData,
+              jsonld: jsonldSchema
+            },
+          };
+        }
+      } else if (type === 'metatags') {
+        // Handle YAML metatags files
+        const seoData = yamlData.data.seoData;
+        const seoConfig = yamlData.data.seoConfig;
+        
+        if (seoData) {
+          // Convert to markdown format for consistency
+          let markdownContent = `# SEO Meta Tags\n\n`;
+          markdownContent += `Title: ${seoData.title}\n\n`;
+          
+          if (seoData.metaTags) {
+            markdownContent += `## Meta Tags\n\n`;
+            seoData.metaTags.forEach((tag: any) => {
+              markdownContent += `- ${tag.name}: ${tag.content}\n`;
+            });
+            markdownContent += '\n';
           }
           
-          if (table.rows && table.rows.length > 0) {
-            // Create markdown table header
-            markdownContent += '| Property | Value | Unit |\n';
-            markdownContent += '| --- | --- | --- |\n';
-            
-            // Add table rows
-            table.rows.forEach((row: any) => {
-              const property = row.property || '';
-              const value = row.value || '';
-              const unit = row.unit || '';
-              markdownContent += `| ${property} | ${value} | ${unit} |\n`;
-            });
-            
-            markdownContent += '\n\n';
-          }
-        });
-        
-        const processedContent = options.convertMarkdown 
-          ? await marked(markdownContent)
-          : markdownContent;
-        
-        return {
-          content: processedContent,
-          config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based tables
-        };
+          const processedContent = options.convertMarkdown 
+            ? await marked(markdownContent)
+            : markdownContent;
+          
+          return {
+            content: processedContent,
+            config: { 
+              title: seoData.title,
+              meta_tags: seoData.metaTags,
+              opengraph: seoData.openGraph,
+              twitter: seoData.twitter,
+              canonical: seoData.canonical,
+              alternate: seoData.alternateLinks,
+              seoConfig: seoConfig
+            },
+          };
+        }
       }
       
       return null;
