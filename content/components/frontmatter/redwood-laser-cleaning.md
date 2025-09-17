@@ -1,123 +1,133 @@
 ---
-name:
-  name: Todd Dunning
-detail:
-  detail: Non-abrasive cleaning of delicate Redwood structures and carvings without
-    damaging the wood grain
-powerRange:
-  powerRange: 10-50W
-pulseDuration:
-  pulseDuration: 50-200ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.5-3.0mm
-repetitionRate:
-  repetitionRate: 10-50kHz
-fluenceRange:
+name: Redwood
+applications:
+- detail: Gentle removal of surface dirt, grime, and old finishes from Redwood artifacts
+    and furniture
+  industry: Woodworking & Furniture
+- detail: Non-contact cleaning of delicate Redwood structures and carvings without
+    abrasion
+  industry: Historical Preservation
+technicalSpecifications:
   fluenceRange: 0.5–2.0 J/cm²
-safetyClass:
+  powerRange: 10-50W
+  pulseDuration: 50-200ns
+  repetitionRate: 10-50kHz
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Redwood laser cleaning applications, focusing on
-  gentle ablation of contaminants while preserving the natural wood structure and
-  patina.
+  spotSize: 0.5-3.0mm
+  wavelength: 1064nm (primary), 355nm (optional for selective coating removal)
+description: Technical overview of Redwood (Sequoia sempervirens) for laser cleaning
+  applications, including optimal low-fluence 1064nm wavelength interaction for organic
+  material preservation.
 author: Todd Dunning
-id:
-  id: '4'
-sex:
-  sex: m
-title: Laser Cleaning Redwood - Gentle Preservation Techniques
-country:
+author_object:
   country: United States (California)
-expertise:
   expertise: Optical Materials for Laser Systems
-image:
+  id: 4
   image: /images/author/todd-dunning.jpg
-keywords: redwood, sequoia, laser wood cleaning, historical preservation, non-contact
-  wood cleaning, pulsed laser, surface contamination removal, wood grain preservation,
-  cultural heritage
+  name: Todd Dunning
+  sex: m
+  title: MA
+chemicalProperties:
+  formula: C6H10O5 (approx. cellulose composition)
+  materialType: Softwood
+  symbol: Redwood
+composition:
+- Cellulose (C6H10O5)n ~45%
+- Lignin (C9H10O2,OCH3)n ~30%
+- Hemicellulose ~20%
+- Extractives (tannins, oils) ~5%
+compatibility:
+- Historical Wooden Artifacts
+- Furniture and Carvings
+- Architectural Elements
+regulatoryStandards: ISO 13061 (wood physical properties), ASTM D143 (wood testing)
+images:
+  hero:
+    alt: Redwood surface undergoing laser cleaning showing precise contamination removal
+    url: /images/redwood-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Redwood surface after laser cleaning showing detailed
+      surface structure
+    url: /images/redwood-laser-cleaning-micro.jpg
+title: Laser Cleaning Redwood - Technical Guide for Gentle Wood Processing
+headline: Comprehensive technical guide for laser cleaning Redwood wood surfaces
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Eliminates need for harsh chemical strippers and cleaners on wood surfaces
+- benefit: Water Conservation
+  description: Zero water usage compared to traditional wood washing methods
+- benefit: Waste Reduction
+  description: Produces only vaporized contaminants, no secondary waste materials
+outcomes:
+- metric: Complete removal of surface contaminants without altering wood patina
+  result: Surface Cleanliness
+- metric: Zero substrate damage with proper parameter selection
+  result: Material Preservation
+- metric: 0.5-2 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
+keywords: redwood, sequoia sempervirens, wood laser cleaning, laser ablation, cultural
+  heritage conservation, non-contact wood cleaning, pulsed fiber laser, surface contamination
+  removal, historical preservation
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 4
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: United States (California)
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:59:28Z'
 category: wood
-symbol:
-  symbol: None
-formula:
-  formula: None
-materialType:
-  materialType: softwood
-density:
-  density: 0.38 g/cm³
-densityMin:
-  densityMin: 0.32 g/cm³
-densityMax:
-  densityMax: 0.45 g/cm³
-densityPercentile:
-  densityPercentile: '22.1'
-ignitionPoint:
-  ignitionPoint: 300-400°C
-thermalConductivity:
-  thermalConductivity: 0.12 W/m·K
-thermalMin:
-  thermalMin: 0.08 W/m·K
-thermalMax:
-  thermalMax: 0.15 W/m·K
-thermalPercentile:
-  thermalPercentile: '8.5'
-tensileStrength:
-  tensileStrength: 40-60 MPa
-tensileMin:
-  tensileMin: 35 MPa
-tensileMax:
-  tensileMax: 70 MPa
-tensilePercentile:
-  tensilePercentile: '5.2'
-hardness:
+properties:
+  chemicalComposition: Cellulose, Lignin, Hemicellulose
+  decompositionMax: 400°C
+  decompositionMin: 150°C
+  decompositionPercentile: 48.2
+  decompositionPoint: 200-300°C
+  density: 0.38-0.45 g/cm³
+  densityMax: 1.3 g/cm³
+  densityMin: 0.1 g/cm³
+  densityPercentile: 26.3
+  fluenceRange: 0.5–2.0 J/cm²
   hardness: 2.5-3.0 HB
-hardnessMin:
-  hardnessMin: 2.0 HB
-hardnessMax:
-  hardnessMax: 3.5 HB
-hardnessPercentile:
-  hardnessPercentile: '3.8'
-youngsModulus:
-  youngsModulus: 8.5 GPa
-modulusMin:
-  modulusMin: 7.0 GPa
-modulusMax:
-  modulusMax: 10.0 GPa
-modulusPercentile:
-  modulusPercentile: '4.2'
-laserType:
+  hardnessMax: 4000 HB
+  hardnessMin: 1 HB
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 100 cm⁻¹
+  laserAbsorptionMin: 5 cm⁻¹
+  laserReflectivityMax: 25%
+  laserReflectivityMin: 5%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Cellulose 45%"'
-- '"Lignin 28%"'
-- '"Hemicellulose 20%"'
-- '"Extractives 7%"'
-- '"Historical Wooden Artifacts"'
-- '"Architectural Woodwork"'
-- '"Outdoor Redwood Structures"'
-regulatoryStandards: ASTM E2017, ICOMOS Guidelines, ISO 11863
-alt:
-  alt: Microscopic view of Redwood surface after laser treatment showing preserved
-    cellular structure
-url:
-  url: /images/redwood-laser-cleaning-micro.jpg
-headline:
-- --
-Material: Redwood
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 500°C
+  meltingMin: 250°C
+  modulusMax: 20 GPa
+  modulusMin: 4 GPa
+  modulusPercentile: 37.5
+  specificHeatMax: 2.5 J/g·K
+  specificHeatMin: 1.2 J/g·K
+  tensileMax: 200 MPa
+  tensileMin: 20 MPa
+  tensilePercentile: 16.7
+  tensileStrength: 40-60 MPa
+  thermalConductivity: 0.12 W/m·K
+  thermalDiffusivityMax: 0.4 mm²/s
+  thermalDiffusivityMin: 0.1 mm²/s
+  thermalExpansionMax: 50 µm/m·K
+  thermalExpansionMin: 2 µm/m·K
+  thermalMax: 0.4 W/m·K
+  thermalMin: 0.04 W/m·K
+  thermalPercentile: 22.2
+  wavelength: 1064nm
+  youngsModulus: 8-12 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T19:13:01.391104
-# Material: Unknown
+# Generated: 2025-09-16T16:00:22.597767
+# Material: Redwood
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Todd Dunning"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/redwood-laser-cleaning.md

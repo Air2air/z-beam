@@ -1,125 +1,129 @@
 ---
-name:
-  name: Alessandro Moretti
-detail:
-  detail: Cleaning of Rhodium-coated reflectors and electrical components
-powerRange:
-  powerRange: 50-200W
-pulseDuration:
-  pulseDuration: 20-100ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.2-1.5mm
-repetitionRate:
-  repetitionRate: 20-100kHz
-fluenceRange:
-  fluenceRange: 1.0–4.5 J/cm²
-safetyClass:
+name: Rhodium
+applications:
+- detail: Removal of surface oxides and contaminants from Rhodium-plated connectors
+    and contacts
+  industry: Electronics Manufacturing
+- detail: Cleaning of Rhodium-coated electrical components and sensor contacts
+  industry: Aerospace Components
+technicalSpecifications:
+  fluenceRange: 0.5–3.0 J/cm²
+  powerRange: 20-100W
+  pulseDuration: 10-50ns
+  repetitionRate: 10-200kHz
   safetyClass: Class 4 (requires full enclosure)
-description:
-- --
+  spotSize: 0.1-0.8mm
+  wavelength: 1064nm (primary), 355nm (optional)
+description: Technical overview of Rhodium for laser cleaning applications, including
+  optimal 1064nm wavelength interaction, and industrial applications in precision
+  surface preparation.
 author: Alessandro Moretti
-id:
-  id: '2'
-sex:
-  sex: m
-title: Laser Cleaning Rhodium - Technical Guide for Optimal Processing
-country:
+author_object:
   country: Italy
-expertise:
   expertise: Laser-Based Additive Manufacturing
-image:
+  id: 2
   image: /images/author/alessandro-moretti.jpg
-keywords: rhodium, rhodium metal, laser ablation, laser cleaning, non-contact cleaning,
-  pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration
-category: metal
-symbol:
-  symbol: Rh
-formula:
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+chemicalProperties:
   formula: Rh
-materialType:
-  materialType: metal
-density:
-  density: 12.41 g/cm³
-densityMin:
-  densityMin: 1.8 g/cm³
-densityMax:
-  densityMax: 6.0 g/cm³
-densityPercentile:
-  densityPercentile: '51.2'
-meltingPoint:
-  meltingPoint: 1964°C
-meltingMin:
-  meltingMin: 1200°C
-meltingMax:
-  meltingMax: 2800°C
-meltingPercentile:
-  meltingPercentile: '54.5'
-thermalConductivity:
-  thermalConductivity: 150 W/m·K
-thermalMin:
-  thermalMin: 0.5 W/m·K
-thermalMax:
-  thermalMax: 200 W/m·K
-thermalPercentile:
-  thermalPercentile: '14.8'
-tensileStrength:
-  tensileStrength: 950 MPa
-tensileMin:
-  tensileMin: 50 MPa
-tensileMax:
-  tensileMax: 1000 MPa
-tensilePercentile:
-  tensilePercentile: '26.3'
-hardness:
-  hardness: 800-1200 HV
-hardnessMin:
-  hardnessMin: 500 HV
-hardnessMax:
-  hardnessMax: 2500 HV
-hardnessPercentile:
-  hardnessPercentile: '0.0'
-youngsModulus:
-  youngsModulus: 380 GPa
-modulusMin:
-  modulusMin: 150 GPa
-modulusMax:
-  modulusMax: 400 GPa
-modulusPercentile:
-  modulusPercentile: '92.0'
-laserType:
-  laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Rhodium (Rh) 99.9%"'
-- '"Trace elements (Pt, Ir, Pd)"'
-- '"Platinum"'
-- '"Gold"'
-- '"Silver"'
+  materialType: precious-metal
+  symbol: Rh
+composition:
+- Rhodium (Rh) 99.95%
+- Trace elements (Pt, Pd, Ir)
+compatibility:
+- Gold
+- Platinum
+- Palladium
+- Stainless Steel
 regulatoryStandards: ISO 14644-1, ASTM B734, IEC 60825-1
-alt:
-  alt: Microscopic view of Rhodium surface after laser treatment showing preserved
-    microstructure
-url:
-  url: /images/rhodium-laser-cleaning-micro.jpg
-headline:
-- 'benefit: "Chemical Solvent Elimination"'
-Material: Rhodium
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+images:
+  hero:
+    alt: Rhodium surface undergoing laser cleaning showing precise contamination removal
+    url: /images/rhodium-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Rhodium surface after laser cleaning showing detailed
+      surface structure
+    url: /images/rhodium-laser-cleaning-micro.jpg
+title: Laser Cleaning Rhodium - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning precious metal rhodium
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Eliminates use of cyanide-based electroplating stripping solutions
+- benefit: Water Conservation
+  description: Reduces water consumption by 95% compared to chemical stripping methods
+- benefit: Energy Efficiency
+  description: Consumes 60% less energy than thermal decomposition processes
+outcomes:
+- metric: Achieves ISO 14644-1 Class 5 cleanliness standard
+  result: Surface Cleanliness Level
+- metric: ±0.5μm accuracy with no substrate damage
+  result: Material Removal Precision
+- metric: 0.5-2 m²/hour cleaning rate depending on coating thickness
+  result: Processing Speed
+keywords: rhodium, rhodium plating, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  precious metal cleaning, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 2
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Italy
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:17:49Z'
+category: precious-metal
+properties:
+  chemicalFormula: Rh
+  density: 12.41 g/cm³
+  densityMax: 22.6 g/cm³
+  densityMin: 0.5 g/cm³
+  densityPercentile: 53.9
+  fluenceRange: 0.5–3.0 J/cm²
+  hardness: 800-1200 HV
+  hardnessMax: 500 HV
+  hardnessMin: 5 HB
+  hardnessPercentile: 100.0
+  laserAbsorptionMax: 100 cm⁻¹
+  laserAbsorptionMin: 0.02 cm⁻¹
+  laserReflectivityMax: 98%
+  laserReflectivityMin: 5%
+  laserType: Pulsed Fiber Laser
+  meltingMax: 3422°C
+  meltingMin: -39°C
+  meltingPercentile: 56.9
+  meltingPoint: 1964°C
+  modulusMax: 411 GPa
+  modulusMin: 70 GPa
+  modulusPercentile: 90.9
+  specificHeatMax: 0.90 J/g·K
+  specificHeatMin: 0.13 J/g·K
+  tensileMax: 2000 MPa
+  tensileMin: 70 MPa
+  tensilePercentile: 45.6
+  tensileStrength: 950 MPa
+  thermalConductivity: 150 W/m·K
+  thermalDiffusivityMax: 174 mm²/s
+  thermalDiffusivityMin: 4 mm²/s
+  thermalExpansionMax: 29 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 429 W/m·K
+  thermalMin: 8 W/m·K
+  thermalPercentile: 33.7
+  wavelength: 1064nm
+  youngsModulus: 380 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:37:36.957558
-# Material: Unknown
+# Generated: 2025-09-16T15:18:39.110748
+# Material: Rhodium
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Alessandro Moretti"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/rhodium-laser-cleaning.md

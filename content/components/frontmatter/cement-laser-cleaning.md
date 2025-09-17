@@ -1,122 +1,135 @@
 ---
-name:
-  name: Ikmanda Roswati
-detail:
-  detail: Cleaning of cement floors, walls, and structural elements without abrasive
+name: Cement
+applications:
+- detail: Removal of surface contaminants, efflorescence, and biological growth from
+    cement structures
+  industry: Construction & Restoration
+- detail: Cleaning of cement floors, walls, and machinery foundations without substrate
     damage
-powerRange:
+  industry: Industrial Maintenance
+technicalSpecifications:
+  fluenceRange: 0.5–2.0 J/cm²
   powerRange: 20-100W
-pulseDuration:
   pulseDuration: 50-200ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.5-3.0mm
-repetitionRate:
   repetitionRate: 10-50kHz
-fluenceRange:
-  fluenceRange: 0.5–2.5 J/cm²
-safetyClass:
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Cement for laser cleaning applications, including
-  optimal 1064nm wavelength interaction with cementitious materials, and industrial
-  applications in surface preparation and restoration.
+  spotSize: 0.5-2.0mm
+  wavelength: 1064nm (primary), 532nm (optional)
+description: Technical overview of Cement, a composite material of calcium silicates
+  and other compounds, for laser cleaning applications, including optimal 1064nm wavelength
+  interaction, and industrial applications in surface preparation and restoration.
 author: Ikmanda Roswati
-id:
-  id: '3'
-sex:
-  sex: m
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Indonesia
-expertise:
   expertise: Ultrafast Laser Physics and Material Interactions
-image:
+  id: 3
   image: /images/author/ikmanda-roswati.jpg
-keywords: cement, concrete, masonry, laser ablation, laser cleaning, non-contact cleaning,
+  name: Ikmanda Roswati
+  sex: m
+  title: Ph.D.
+chemicalProperties:
+  formula: CaO·SiO₂·Al₂O₃·Fe₂O₃
+  materialType: masonry
+  symbol: Cement
+composition:
+- Calcium oxide (CaO) 60-67%
+- Silicon dioxide (SiO₂) 17-25%
+- Aluminum oxide (Al₂O₃) 3-8%
+- Iron oxide (Fe₂O₃) 0.5-6%
+- Magnesium oxide (MgO) 0.1-4%
+- Other compounds 1-3%
+compatibility:
+- Portland Cement
+- Reinforced Concrete
+- Cementitious Composites
+regulatoryStandards: ASTM C150, EN 197-1, ISO 679
+images:
+  hero:
+    alt: Cement surface undergoing laser cleaning showing precise contamination removal
+    url: /images/cement-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Cement surface after laser cleaning showing detailed
+      surface structure
+    url: /images/cement-laser-cleaning-micro.jpg
+title: Laser Cleaning Cement - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning cement surfaces
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional acid cleaning
+    methods
+- benefit: Dust Suppression
+  description: Eliminates 95% of airborne particulates compared to mechanical cleaning
+- benefit: Water Conservation
+  description: Saves approximately 3000 liters of water per month in industrial cleaning
+    applications
+outcomes:
+- metric: Achieves 99% contaminant removal without surface damage
+  result: Surface Cleanliness Level
+- metric: Selective removal of surface layers with minimal substrate impact
+  result: Material Removal Precision
+- metric: 1-3 m²/hour cleaning rate depending on contamination type and thickness
+  result: Processing Speed
+keywords: cement, concrete, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, efflorescence removal, industrial
   laser parameters, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 3
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Indonesia
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T21:51:56Z'
 category: masonry
-symbol:
-  symbol: None
-formula:
-  formula: CaO·SiO₂·Al₂O₃·Fe₂O₃ (approximate)
-materialType:
-  materialType: cementitious composite
-density:
-  density: 2.2-2.5 g/cm³
-densityMin:
-  densityMin: 1.8 g/cm³
-densityMax:
-  densityMax: 3.0 g/cm³
-densityPercentile:
-  densityPercentile: '65.2'
-meltingPoint:
-  meltingPoint: 1450-1550°C
-meltingMin:
-  meltingMin: 1200°C
-meltingMax:
-  meltingMax: 2000°C
-meltingPercentile:
-  meltingPercentile: '48.7'
-thermalConductivity:
-  thermalConductivity: 1.05 W/m·K
-thermalMin:
-  thermalMin: 0.5 W/m·K
-thermalMax:
-  thermalMax: 2.5 W/m·K
-thermalPercentile:
-  thermalPercentile: '32.1'
-tensileStrength:
-  tensileStrength: 2-5 MPa
-tensileMin:
-  tensileMin: 1 MPa
-tensileMax:
-  tensileMax: 10 MPa
-tensilePercentile:
-  tensilePercentile: '15.8'
-hardness:
+properties:
+  chemicalFormula: CaO·SiO₂·Al₂O₃·Fe₂O₃
+  density: 2.2-2.4 g/cm³
+  densityMax: 2.8 g/cm³
+  densityMin: 1.2 g/cm³
+  densityPercentile: 68.8
+  fluenceRange: 0.5–2.0 J/cm²
   hardness: 4-6 Mohs
-hardnessMin:
-  hardnessMin: 3 Mohs
-hardnessMax:
-  hardnessMax: 8 Mohs
-hardnessPercentile:
-  hardnessPercentile: '45.0'
-youngsModulus:
-  youngsModulus: 20-30 GPa
-modulusMin:
-  modulusMin: 10 GPa
-modulusMax:
-  modulusMax: 40 GPa
-modulusPercentile:
-  modulusPercentile: '55.0'
-laserType:
+  hardnessMax: 300 HV
+  hardnessMin: 20 HV
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 50 cm⁻¹
+  laserAbsorptionMin: 0.8 cm⁻¹
+  laserReflectivityMax: 35%
+  laserReflectivityMin: 8%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Tricalcium silicate (Ca₃SiO₅) 40-70%"'
-- '"Dicalcium silicate (Ca₂SiO₄) 15-30%"'
-- '"Tricalcium aluminate (Ca₃Al₂O₆) 5-10%"'
-- '"Tetracalcium aluminoferrite (Ca₄Al₂Fe₂O₁₀) 5-15%"'
-- '"Gypsum (CaSO₄·2H₂O) 2-5%"'
-- '"Con'
-- --
-Material: Cement
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 2000°C
+  meltingMin: 1450°C
+  meltingPercentile: 0.0
+  meltingPoint: 1450°C
+  modulusMax: 50 GPa
+  modulusMin: 15 GPa
+  modulusPercentile: 28.6
+  specificHeatMax: 1.1 J/g·K
+  specificHeatMin: 0.8 J/g·K
+  tensileMax: 50 MPa
+  tensileMin: 1 MPa
+  tensilePercentile: 5.1
+  tensileStrength: 2-5 MPa
+  thermalConductivity: 0.8-1.3 W/m·K
+  thermalDiffusivityMax: 1.5 mm²/s
+  thermalDiffusivityMin: 0.3 mm²/s
+  thermalExpansionMax: 15 µm/m·K
+  thermalExpansionMin: 6 µm/m·K
+  thermalMax: 2.0 W/m·K
+  thermalMin: 0.1 W/m·K
+  thermalPercentile: 50.0
+  wavelength: 1064nm
+  youngsModulus: 20-30 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:21:33.159531
-# Material: Unknown
+# Generated: 2025-09-16T14:52:51.549712
+# Material: Cement
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Ikmanda Roswati"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/cement-laser-cleaning.md

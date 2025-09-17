@@ -11,12 +11,16 @@
   min-width: 100%;
   border-collapse: collapse;
   border: 1px solid #e5e7eb;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .table-container table {
   min-width: 100%;
   border-collapse: collapse;
   border: 1px solid #e5e7eb;
+  table-layout: fixed;
+  width: 100%;
 }
 
 .dark .table-wrapper table,
@@ -77,6 +81,8 @@
   font-size: 0.875rem;
   color: #374151;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .table-container tbody {
@@ -88,6 +94,8 @@
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
   color: #374151;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dark .table-wrapper tbody,
@@ -403,4 +411,120 @@
 
 .table-sections-container hr ~ * {
   display: none;
+}
+
+/* Equal column widths for different table types */
+/* 2-column tables (Composition) */
+.table-wrapper table th:only-child ~ th,
+.table-wrapper table td:only-child ~ td,
+.table-container table th:only-child ~ th,
+.table-container table td:only-child ~ td {
+  width: 50%;
+}
+
+.table-wrapper table th:first-child:nth-last-child(2),
+.table-wrapper table th:first-child:nth-last-child(2) ~ th,
+.table-container table th:first-child:nth-last-child(2),
+.table-container table th:first-child:nth-last-child(2) ~ th {
+  width: 50%;
+}
+
+/* 3-column tables (Laser Processing Parameters) */
+.table-wrapper table th:first-child:nth-last-child(3),
+.table-wrapper table th:first-child:nth-last-child(3) ~ th,
+.table-container table th:first-child:nth-last-child(3),
+.table-container table th:first-child:nth-last-child(3) ~ th {
+  width: 33.333%;
+}
+
+/* 5-column tables (Property tables) */
+.table-wrapper table th:first-child:nth-last-child(5),
+.table-wrapper table th:first-child:nth-last-child(5) ~ th,
+.table-container table th:first-child:nth-last-child(5),
+.table-container table th:first-child:nth-last-child(5) ~ th {
+  width: 20%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  /* Optimize column widths for mobile */
+  /* 2-column tables */
+  .table-wrapper table th:first-child:nth-last-child(2),
+  .table-container table th:first-child:nth-last-child(2) {
+    width: 40%; /* Property column slightly narrower */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(2) ~ th,
+  .table-container table th:first-child:nth-last-child(2) ~ th {
+    width: 60%; /* Value column wider */
+  }
+  
+  /* 3-column tables */
+  .table-wrapper table th:first-child:nth-last-child(3),
+  .table-container table th:first-child:nth-last-child(3) {
+    width: 40%; /* Property column */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(3) ~ th:nth-child(2),
+  .table-container table th:first-child:nth-last-child(3) ~ th:nth-child(2) {
+    width: 35%; /* Value column */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(3) ~ th:nth-child(3),
+  .table-container table th:first-child:nth-last-child(3) ~ th:nth-child(3) {
+    width: 25%; /* Unit column */
+  }
+  
+  /* 5-column tables */
+  .table-wrapper table th:first-child:nth-last-child(5),
+  .table-container table th:first-child:nth-last-child(5) {
+    width: 25%; /* Property column */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(5) ~ th:nth-child(2),
+  .table-container table th:first-child:nth-last-child(5) ~ th:nth-child(2) {
+    width: 15%; /* Unit column */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(5) ~ th:nth-child(3),
+  .table-container table th:first-child:nth-last-child(5) ~ th:nth-child(3) {
+    width: 20%; /* Min column */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(5) ~ th:nth-child(4),
+  .table-container table th:first-child:nth-last-child(5) ~ th:nth-child(4) {
+    width: 20%; /* Value column */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(5) ~ th:nth-child(5),
+  .table-container table th:first-child:nth-last-child(5) ~ th:nth-child(5) {
+    width: 20%; /* Max column */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  /* Stack approach for very small screens */
+  .table-wrapper,
+  .table-container {
+    font-size: 0.75rem;
+  }
+  
+  .table-wrapper table th,
+  .table-wrapper table td,
+  .table-container table th,
+  .table-container table td {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  /* Maintain proportions but with tighter spacing */
+  .table-wrapper table th:first-child:nth-last-child(5),
+  .table-container table th:first-child:nth-last-child(5) {
+    width: 30%; /* Property column larger on very small screens */
+  }
+  
+  .table-wrapper table th:first-child:nth-last-child(5) ~ th,
+  .table-container table th:first-child:nth-last-child(5) ~ th {
+    width: 17.5%; /* Other columns smaller */
+  }
 }

@@ -1,125 +1,132 @@
 ---
-name:
-  name: Ikmanda Roswati
-detail:
-  detail: Surface preparation of porcelain insulators and ceramic components for medical
-    equipment
-powerRange:
-  powerRange: 20-100W
-pulseDuration:
-  pulseDuration: 10-50ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.1-0.8mm
-repetitionRate:
-  repetitionRate: 10-50kHz
-fluenceRange:
+name: Porcelain
+applications:
+- detail: Removal of surface oxides and contaminants from porcelain substrates and
+    insulators
+  industry: Electronics Manufacturing
+- detail: Cleaning of porcelain thermal barrier coatings and insulators in high-temperature
+    environments
+  industry: Aerospace Components
+technicalSpecifications:
   fluenceRange: 0.5–2.5 J/cm²
-safetyClass:
+  powerRange: 20-100W
+  pulseDuration: 10-50ns
+  repetitionRate: 10-50kHz
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Porcelain (Al2O3·2SiO2·2H2O) for laser cleaning
-  applications, including optimal 1064nm wavelength interaction with ceramic materials,
-  and industrial applications in surface preparation and restoration.
+  spotSize: 0.1-0.8mm
+  wavelength: 1064nm (primary), 532nm (optional)
+description: Technical overview of Porcelain, Al2O3·2SiO2·2H2O, for laser cleaning
+  applications, including optimal 1064nm wavelength interaction, and industrial applications
+  in surface preparation.
 author: Ikmanda Roswati
-id:
-  id: '3'
-sex:
-  sex: m
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Indonesia
-expertise:
   expertise: Ultrafast Laser Physics and Material Interactions
-image:
+  id: 3
   image: /images/author/ikmanda-roswati.jpg
-keywords: porcelain, ceramic laser cleaning, laser ablation, non-contact cleaning,
-  pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  ceramic restoration, kaolinite cleaning
-category: ceramic
-symbol:
-  symbol: Porcelain
-formula:
+  name: Ikmanda Roswati
+  sex: m
+  title: Ph.D.
+chemicalProperties:
   formula: Al2O3·2SiO2·2H2O
-materialType:
   materialType: ceramic
-density:
+  symbol: Porcelain
+composition:
+- Alumina (Al2O3) 45-55%
+- Silica (SiO2) 45-55%
+- Other oxides (K2O, Na2O, CaO) 3-8%
+compatibility:
+- Porcelain
+- Ceramic Coatings
+- Glass
+regulatoryStandards: ISO 13006, ASTM C242, IEC 60672
+images:
+  hero:
+    alt: Porcelain surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/porcelain-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Porcelain surface after laser cleaning showing detailed
+      surface structure
+    url: /images/porcelain-laser-cleaning-micro.jpg
+title: Laser Cleaning Porcelain - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning ceramic porcelain
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Eliminates use of harsh acids and solvents traditionally used for porcelain
+    cleaning
+- benefit: Water Conservation
+  description: Reduces water consumption by 95% compared to aqueous cleaning methods
+- benefit: Waste Reduction
+  description: Produces minimal waste compared to abrasive blasting techniques
+outcomes:
+- metric: Achieves contamination-free surface without damaging porcelain glaze
+  result: Surface Cleanliness Level
+- metric: Selective removal of contaminants with ±2μm accuracy
+  result: Material Removal Precision
+- metric: 0.5-1.5 m²/hour cleaning rate for delicate porcelain surfaces
+  result: Processing Speed
+keywords: porcelain, porcelain ceramic, laser ablation, laser cleaning, non-contact
+  cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 3
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Indonesia
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T21:29:21Z'
+category: ceramic
+properties:
+  chemicalFormula: Al2O3·2SiO2·2H2O
   density: 2.3-2.5 g/cm³
-densityMin:
-  densityMin: 2.0 g/cm³
-densityMax:
-  densityMax: 2.8 g/cm³
-densityPercentile:
-  densityPercentile: '62.4'
-meltingPoint:
-  meltingPoint: 1650-1750°C
-meltingMin:
-  meltingMin: 1600°C
-meltingMax:
-  meltingMax: 1800°C
-meltingPercentile:
-  meltingPercentile: '68.2'
-thermalConductivity:
-  thermalConductivity: 1.5 W/m·K
-thermalMin:
-  thermalMin: 1.0 W/m·K
-thermalMax:
-  thermalMax: 3.0 W/m·K
-thermalPercentile:
-  thermalPercentile: '45.6'
-tensileStrength:
-  tensileStrength: 40-60 MPa
-tensileMin:
-  tensileMin: 30 MPa
-tensileMax:
-  tensileMax: 80 MPa
-tensilePercentile:
-  tensilePercentile: '18.9'
-hardness:
+  densityMax: 6.0 g/cm³
+  densityMin: 1.8 g/cm³
+  densityPercentile: 14.3
+  fluenceRange: 0.5–2.5 J/cm²
   hardness: 6-7 Mohs
-hardnessMin:
-  hardnessMin: 5 Mohs
-hardnessMax:
-  hardnessMax: 8 Mohs
-hardnessPercentile:
-  hardnessPercentile: '55.3'
-youngsModulus:
-  youngsModulus: 70 GPa
-modulusMin:
-  modulusMin: 60 GPa
-modulusMax:
-  modulusMax: 90 GPa
-modulusPercentile:
-  modulusPercentile: '42.1'
-laserType:
+  hardnessMax: 2500 HV
+  hardnessMin: 500 HV
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 50 cm⁻¹
+  laserAbsorptionMin: 0.1 cm⁻¹
+  laserReflectivityMax: 25%
+  laserReflectivityMin: 8%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Alumina (Al2O3): 45-50%"'
-- '"Silica (SiO2): 45-50%"'
-- '"Water of crystallization (H2O): 4-6%"'
-- '"Trace elements (K, Na, Ca, Fe): <1%"'
-- '"Stainless Steel"'
-- '"Titanium Alloys"'
-- '"Aluminum"'
-- '"Glass"'
-regulatoryStandards:
-- --
-Material: Porcelain
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 2800°C
+  meltingMin: 1200°C
+  meltingPercentile: 31.2
+  meltingPoint: 1650-1750°C
+  modulusMax: 400 GPa
+  modulusMin: 150 GPa
+  modulusPercentile: 0.0
+  specificHeatMax: 1.2 J/g·K
+  specificHeatMin: 0.4 J/g·K
+  tensileMax: 1000 MPa
+  tensileMin: 50 MPa
+  tensilePercentile: 0.0
+  tensileStrength: 40-60 MPa
+  thermalConductivity: 1.5 W/m·K
+  thermalDiffusivityMax: 80 mm²/s
+  thermalDiffusivityMin: 0.5 mm²/s
+  thermalExpansionMax: 8 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 200 W/m·K
+  thermalMin: 0.5 W/m·K
+  thermalPercentile: 0.5
+  wavelength: 1064nm
+  youngsModulus: 70 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:06:54.726312
-# Material: Unknown
+# Generated: 2025-09-16T14:30:13.128460
+# Material: Porcelain
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Ikmanda Roswati"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/porcelain-laser-cleaning.md

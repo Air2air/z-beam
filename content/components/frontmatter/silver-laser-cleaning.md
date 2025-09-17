@@ -1,127 +1,127 @@
 ---
-name:
-  name: Alessandro Moretti
-detail:
-  detail: Surface preparation of silver-coated antimicrobial components
-powerRange:
-  powerRange: 20-100W
-pulseDuration:
+name: Silver
+applications:
+- detail: Removal of tarnish and oxidation from silver jewelry and artifacts
+  industry: Jewelry Manufacturing
+- detail: Cleaning of silver contacts, connectors, and conductive traces
+  industry: Electronics
+technicalSpecifications:
+  fluenceRange: 0.5–2.0 J/cm²
+  powerRange: 10-100W
   pulseDuration: 10-50ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.1-0.8mm
-repetitionRate:
   repetitionRate: 20-200kHz
-fluenceRange:
-  fluenceRange: 0.5–3.0 J/cm²
-safetyClass:
   safetyClass: Class 4 (requires full enclosure)
+  spotSize: 0.05-0.8mm
+  wavelength: 1064nm (primary), 532nm (optional)
 description: Technical overview of Silver (Ag) for laser cleaning applications, including
-  optimal 1064nm wavelength interaction with high reflectivity metals, and industrial
-  applications in precision surface preparation.
+  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
 author: Alessandro Moretti
-id:
-  id: '2'
-sex:
-  sex: m
-title:
-- --
-country:
+author_object:
   country: Italy
-expertise:
   expertise: Laser-Based Additive Manufacturing
-image:
+  id: 2
   image: /images/author/alessandro-moretti.jpg
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+chemicalProperties:
+  formula: Ag
+  materialType: metal
+  symbol: Ag
+composition:
+- Silver (Ag) 99.9%
+- Trace elements (Cu, Zn, Pb)
+compatibility:
+- Sterling Silver
+- Silver Plated Copper
+- Silver Alloys
+regulatoryStandards: ISO 9001, ASTM B700, IEC 62368-1
+images:
+  hero:
+    alt: Silver surface undergoing laser cleaning showing precise contamination removal
+    url: /images/silver-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Silver surface after laser cleaning showing detailed
+      surface structure
+    url: /images/silver-laser-cleaning-micro.jpg
+title: Laser Cleaning Silver - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning metal silver
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional tarnish removal
+    methods
+- benefit: Water Conservation
+  description: Eliminates water usage in silver cleaning processes
+- benefit: Energy Efficiency
+  description: Consumes 60% less energy than electrochemical cleaning processes
+outcomes:
+- metric: Achieves ISO 8501-1 Sa 2.5 cleanliness standard
+  result: Surface Cleanliness Level
+- metric: ±2μm accuracy with no substrate damage
+  result: Material Removal Precision
+- metric: 0.5-2 m²/hour cleaning rate depending on tarnish level
+  result: Processing Speed
 keywords: silver, silver metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration, high reflectivity metals
+  thermal processing, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 2
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Italy
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T23:42:28Z'
 category: metal
-symbol:
-  symbol: Ag
-formula:
-  formula: Ag
-materialType:
-  materialType: metal
-density:
+properties:
+  chemicalFormula: Ag
   density: 10.49 g/cm³
-densityMin:
-  densityMin: 1.8 g/cm³
-densityMax:
   densityMax: 22.6 g/cm³
-densityPercentile:
-  densityPercentile: '42.1'
-meltingPoint:
-  meltingPoint: 961.8°C
-meltingMin:
-  meltingMin: 1200°C
-meltingMax:
-  meltingMax: 2800°C
-meltingPercentile:
-  meltingPercentile: '12.3'
-thermalConductivity:
-  thermalConductivity: 429 W/m·K
-thermalMin:
-  thermalMin: 0.5 W/m·K
-thermalMax:
-  thermalMax: 2000 W/m·K
-thermalPercentile:
-  thermalPercentile: '21.4'
-tensileStrength:
-  tensileStrength: 125-300 MPa
-tensileMin:
-  tensileMin: 50 MPa
-tensileMax:
-  tensileMax: 1000 MPa
-tensilePercentile:
-  tensilePercentile: '18.7'
-hardness:
-  hardness: 25-110 HV
-hardnessMin:
-  hardnessMin: 500 HV
-hardnessMax:
-  hardnessMax: 2500 HV
-hardnessPercentile:
-  hardnessPercentile: '0.0'
-youngsModulus:
-  youngsModulus: 83 GPa
-modulusMin:
-  modulusMin: 150 GPa
-modulusMax:
-  modulusMax: 400 GPa
-modulusPercentile:
-  modulusPercentile: '0.0'
-laserType:
+  densityMin: 0.5 g/cm³
+  densityPercentile: 45.2
+  fluenceRange: 0.5–2.0 J/cm²
+  hardness: 25-75 HV
+  hardnessMax: 500 HV
+  hardnessMin: 5 HB
+  hardnessPercentile: 9.1
+  laserAbsorptionMax: 100 cm⁻¹
+  laserAbsorptionMin: 0.02 cm⁻¹
+  laserReflectivityMax: 98%
+  laserReflectivityMin: 5%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Silver (Ag) 99.9%"'
-- '"Copper (Cu) 0.1%"'
-- '"Trace elements"'
-- '"Copper Alloys"'
-- '"Gold"'
-- '"Platinum"'
-- '"Stainless Steel"'
-regulatoryStandards: ISO 9001, ASTM B413, IEC 60825-1
-alt:
-  alt: Microscopic view of Silver surface after laser treatment showing preserved
-    microstructure
-url:
-  url: /images/silver-laser-cleaning-micro.jpg
-Material: Silver
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 3422°C
+  meltingMin: -39°C
+  meltingPercentile: 27.3
+  meltingPoint: 961.8°C
+  modulusMax: 411 GPa
+  modulusMin: 70 GPa
+  modulusPercentile: 3.8
+  specificHeatMax: 0.90 J/g·K
+  specificHeatMin: 0.13 J/g·K
+  tensileMax: 2000 MPa
+  tensileMin: 70 MPa
+  tensilePercentile: 7.4
+  tensileStrength: 125-300 MPa
+  thermalConductivity: 429 W/m·K
+  thermalDiffusivityMax: 174 mm²/s
+  thermalDiffusivityMin: 4 mm²/s
+  thermalExpansionMax: 29 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 429 W/m·K
+  thermalMin: 8 W/m·K
+  thermalPercentile: 100.0
+  wavelength: 1064nm
+  youngsModulus: 83 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:38:49.280640
-# Material: Unknown
+# Generated: 2025-09-16T16:44:50.203286
+# Material: Silver
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Alessandro Moretti"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/silver-laser-cleaning.md

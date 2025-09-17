@@ -1,128 +1,129 @@
 ---
-name:
-  name: Ikmanda Roswati
-detail:
-  detail: Surface preparation of platinum catalyst substrates for automotive applications
-powerRange:
-  powerRange: 10-100W
-pulseDuration:
-  pulseDuration: 10-200ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.05-2.0mm
-repetitionRate:
-  repetitionRate: 20-500kHz
-fluenceRange:
-  fluenceRange: 0.5–3.0 J/cm²
-safetyClass:
+name: Platinum
+applications:
+- detail: Removal of surface oxides and contaminants from Platinum substrates
+  industry: Electronics Manufacturing
+- detail: Cleaning of thermal barrier coatings and metal matrix composites
+  industry: Aerospace Components
+technicalSpecifications:
+  fluenceRange: 1.0–4.5 J/cm²
+  powerRange: 50-200W
+  pulseDuration: 20-100ns
+  repetitionRate: 20-100kHz
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Platinum (Pt) for laser cleaning applications,
-  focusing on its high reflectivity challenges, optimal 1064nm wavelength interaction
-  with frequency doubling options, and precision cleaning in high-value industries.
+  spotSize: 0.2-1.5mm
+  wavelength: 1064nm (primary), 532nm (optional)
+description: Technical overview of Platinum, Pt, for laser cleaning applications,
+  including optimal 1064nm wavelength interaction, and industrial applications in
+  surface preparation.
 author: Ikmanda Roswati
-id:
-  id: '3'
-sex:
-  sex: m
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Indonesia
-expertise:
   expertise: Ultrafast Laser Physics and Material Interactions
-image:
+  id: 3
   image: /images/author/ikmanda-roswati.jpg
-keywords: platinum cleaning, precious metal laser processing, non-contact cleaning,
-  jewelry manufacturing, medical device cleaning, catalytic converter preparation,
-  laser ablation, surface contamination removal
-category: precious-metal
-symbol:
-  symbol: Pt
-formula:
+  name: Ikmanda Roswati
+  sex: m
+  title: Ph.D.
+chemicalProperties:
   formula: Pt
-materialType:
-  materialType: precious metal
-density:
+  materialType: metal
+  symbol: Pt
+composition:
+- Platinum (Pt) 99.95%
+- Trace elements (Ir, Pd, Rh, Fe)
+compatibility:
+- Stainless Steel
+- Titanium Alloys
+- Nickel-based Superalloys
+regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+images:
+  hero:
+    alt: Platinum surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/platinum-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Platinum surface after laser cleaning showing detailed
+      surface structure
+    url: /images/platinum-laser-cleaning-micro.jpg
+title: Laser Cleaning Platinum - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning metal platinum
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
+- benefit: Water Conservation
+  description: Saves approximately 5000 liters of water per month in industrial applications
+- benefit: Energy Efficiency
+  description: Consumes 40% less energy than thermal cleaning processes
+outcomes:
+- metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+  result: Surface Cleanliness Level
+- metric: ±5μm accuracy with no substrate damage
+  result: Material Removal Precision
+- metric: 2-5 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
+keywords: platinum, platinum metal, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 3
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Indonesia
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:16:13Z'
+category: metal
+properties:
+  chemicalFormula: Pt
   density: 21.45 g/cm³
-densityMin:
-  densityMin: 1.0 g/cm³
-densityMax:
   densityMax: 22.6 g/cm³
-densityPercentile:
-  densityPercentile: '98.5'
-meltingPoint:
-  meltingPoint: 1768°C
-meltingMin:
-  meltingMin: 500°C
-meltingMax:
-  meltingMax: 3400°C
-meltingPercentile:
-  meltingPercentile: '85.2'
-thermalConductivity:
-  thermalConductivity: 71.6 W/m·K
-thermalMin:
-  thermalMin: 0.1 W/m·K
-thermalMax:
-  thermalMax: 429 W/m·K
-thermalPercentile:
-  thermalPercentile: '65.8'
-tensileStrength:
-  tensileStrength: 125-165 MPa
-tensileMin:
-  tensileMin: 10 MPa
-tensileMax:
-  tensileMax: 2000 MPa
-tensilePercentile:
-  tensilePercentile: '12.4'
-hardness:
+  densityMin: 0.5 g/cm³
+  densityPercentile: 94.8
+  fluenceRange: 1.0–4.5 J/cm²
   hardness: 40-42 HV
-hardnessMin:
-  hardnessMin: 5 HV
-hardnessMax:
-  hardnessMax: 3000 HV
-hardnessPercentile:
-  hardnessPercentile: '2.1'
-youngsModulus:
-  youngsModulus: 168 GPa
-modulusMin:
-  modulusMin: 1 GPa
-modulusMax:
-  modulusMax: 1000 GPa
-modulusPercentile:
-  modulusPercentile: '75.3'
-laserType:
+  hardnessMax: 500 HV
+  hardnessMin: 5 HB
+  hardnessPercentile: 7.3
+  laserAbsorptionMax: 100 cm⁻¹
+  laserAbsorptionMin: 0.02 cm⁻¹
+  laserReflectivityMax: 98%
+  laserReflectivityMin: 5%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Platinum (Pt) 95-99.9%"'
-- '"Iridium (Ir) 0-5%"'
-- '"Ruthenium (Ru) 0-3%"'
-- '"Other trace elements"'
-- '"Gold Alloys"'
-- '"Stainless Steel"'
-- '"Titanium"'
-- '"Ceramic Substrates"'
-regulatoryStandards: ISO 13485, ASTM B563, IEC 60601-1
-alt:
-  alt: Precision laser cleaning of platinum jewelry components showing selective contamination
-    removal
-url:
-- --
-Material: Platinum
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 3422°C
+  meltingMin: -39°C
+  meltingPercentile: 51.1
+  meltingPoint: 1768°C
+  modulusMax: 411 GPa
+  modulusMin: 70 GPa
+  modulusPercentile: 28.7
+  specificHeatMax: 0.90 J/g·K
+  specificHeatMin: 0.13 J/g·K
+  tensileMax: 2000 MPa
+  tensileMin: 70 MPa
+  tensilePercentile: 3.9
+  tensileStrength: 125-165 MPa
+  thermalConductivity: 71.6 W/m·K
+  thermalDiffusivityMax: 174 mm²/s
+  thermalDiffusivityMin: 4 mm²/s
+  thermalExpansionMax: 29 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 429 W/m·K
+  thermalMin: 8 W/m·K
+  thermalPercentile: 15.1
+  wavelength: 1064nm
+  youngsModulus: 168 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:36:25.579302
-# Material: Unknown
+# Generated: 2025-09-16T15:17:01.614253
+# Material: Platinum
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Ikmanda Roswati"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/platinum-laser-cleaning.md

@@ -326,7 +326,7 @@ class HeroImageEncodingTest {
 
   // Simulate the Hero component's image handling logic
   simulateHeroEncoding(imageSource) {
-    // Note: Parentheses encoding removed as image files no longer contain parentheses
+    // Simulate the actual encoding logic from Hero component
     
     if (!imageSource) {
       return null;
@@ -336,7 +336,8 @@ class HeroImageEncodingTest {
       return null;
     }
     
-    return imageSource; // No encoding needed since filenames don't have parentheses
+    // URL encode for CSS background-image usage - encode parentheses and other special characters
+    return imageSource.replace(/\(/g, '%28').replace(/\)/g, '%29');
   }
 
   // Generate comprehensive report

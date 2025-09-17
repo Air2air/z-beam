@@ -1,126 +1,130 @@
 ---
-name:
-  name: Yi-Chun Lin
-detail:
-  detail: Cleaning of thermal barrier coatings and stone matrix composites
-powerRange:
-  powerRange: 50-200W
-pulseDuration:
-  pulseDuration: 20-100ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.2-1.5mm
-repetitionRate:
-  repetitionRate: 20-100kHz
-fluenceRange:
+name: Shale
+applications:
+- detail: Removal of surface oxides and contaminants from Shale substrates
+  industry: Electronics Manufacturing
+- detail: Cleaning of thermal barrier coatings and stone matrix composites
+  industry: Aerospace Components
+technicalSpecifications:
   fluenceRange: 1.0–4.5 J/cm²
-safetyClass:
+  powerRange: 50-200W
+  pulseDuration: 20-100ns
+  repetitionRate: 20-100kHz
   safetyClass: Class 4 (requires full enclosure)
+  spotSize: 0.2-1.5mm
+  wavelength: 1064nm (primary), 532nm (optional)
 description: Technical overview of Shale, None, for laser cleaning applications, including
   optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
 author: Yi-Chun Lin
-id:
-  id: '1'
-sex:
-  sex: f
-title:
-- --
-country:
+author_object:
   country: Taiwan
-expertise:
   expertise: Laser Materials Processing
-image:
+  id: 1
   image: /images/author/yi-chun-lin.jpg
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+chemicalProperties:
+  formula: None
+  materialType: stone
+  symbol: None
+composition:
+- Clay minerals (illite, kaolinite) 40-60%
+- Quartz 20-40%
+- Feldspar 5-15%
+- Carbonates (calcite, dolomite) 5-15%
+- Iron oxides and other minerals 1-5%
+compatibility:
+- Stone and masonry surfaces
+- Historical artifacts
+- Building materials
+regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+images:
+  hero:
+    alt: Shale surface undergoing laser cleaning showing precise contamination removal
+    url: /images/shale-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Shale surface after laser cleaning showing detailed surface
+      structure
+    url: /images/shale-laser-cleaning-micro.jpg
+title: Laser Cleaning Shale - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning stone shale
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
+- benefit: Water Conservation
+  description: Saves approximately 5000 liters of water per month in industrial applications
+- benefit: Energy Efficiency
+  description: Consumes 40% less energy than thermal cleaning processes
+outcomes:
+- metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+  result: Surface Cleanliness Level
+- metric: ±5μm accuracy with no substrate damage
+  result: Material Removal Precision
+- metric: 2-5 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
 keywords: shale, shale stone, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 1
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Taiwan
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:43:16Z'
 category: stone
-symbol:
-  symbol: None
-formula:
-  formula: None
-materialType:
-  materialType: stone
-density:
+properties:
+  chemicalFormula: None
   density: 2.4 g/cm³
-densityMin:
-  densityMin: 1.8 g/cm³
-densityMax:
-  densityMax: 3.0 g/cm³
-densityPercentile:
-  densityPercentile: '60.0'
-meltingPoint:
-  meltingPoint: N/A (decomposes)
-meltingMin:
-  meltingMin: N/A
-meltingMax:
-  meltingMax: N/A
-meltingPercentile:
-  meltingPercentile: '0.0'
-thermalConductivity:
-  thermalConductivity: 1.5 W/m·K
-thermalMin:
-  thermalMin: 1.0 W/m·K
-thermalMax:
-  thermalMax: 3.0 W/m·K
-thermalPercentile:
-  thermalPercentile: '25.0'
-tensileStrength:
-  tensileStrength: 10-30 MPa
-tensileMin:
-  tensileMin: 5 MPa
-tensileMax:
-  tensileMax: 50 MPa
-tensilePercentile:
-  tensilePercentile: '5.0'
-hardness:
+  densityMax: 3.2 g/cm³
+  densityMin: 1.5 g/cm³
+  densityPercentile: 52.9
+  fluenceRange: 1.0–4.5 J/cm²
   hardness: 2-3 Mohs
-hardnessMin:
-  hardnessMin: 1 Mohs
-hardnessMax:
-  hardnessMax: 6 Mohs
-hardnessPercentile:
-  hardnessPercentile: '20.0'
-youngsModulus:
-  youngsModulus: 20 GPa
-modulusMin:
-  modulusMin: 10 GPa
-modulusMax:
-  modulusMax: 40 GPa
-modulusPercentile:
-  modulusPercentile: '25.0'
-laserType:
+  hardnessMax: 800 HV
+  hardnessMin: 100 HV
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 30 cm⁻¹
+  laserAbsorptionMin: 0.5 cm⁻¹
+  laserReflectivityMax: 40%
+  laserReflectivityMin: 10%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Clay minerals (illite, kaolinite) 40-60%"'
-- '"Quartz 20-30%"'
-- '"Feldspar 5-15%"'
-- '"Calcite 5-10%"'
-- '"Iron oxides and other minerals 1-5%"'
-- '"Stone and Masonry"'
-- '"Ceramic Substrates"'
-- '"Historical Artifacts"'
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
-alt:
-  alt: Microscopic view of Shale surface after laser treatment showing preserved microstructure
-url:
-  url: /images/shale-laser-cleaning-micro.jpg
-Material: Shale
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 1700°C
+  meltingMin: 1200°C
+  meltingPercentile: 0.0
+  meltingPoint: N/A (decomposes)
+  modulusMax: 100 GPa
+  modulusMin: 10 GPa
+  modulusPercentile: 11.1
+  specificHeatMax: 1.0 J/g·K
+  specificHeatMin: 0.7 J/g·K
+  tensileMax: 300 MPa
+  tensileMin: 2 MPa
+  tensilePercentile: 6.0
+  tensileStrength: 10-30 MPa
+  thermalConductivity: 1.5 W/m·K
+  thermalDiffusivityMax: 3 mm²/s
+  thermalDiffusivityMin: 0.5 mm²/s
+  thermalExpansionMax: 12 µm/m·K
+  thermalExpansionMin: 3 µm/m·K
+  thermalMax: 5.0 W/m·K
+  thermalMin: 0.2 W/m·K
+  thermalPercentile: 27.1
+  wavelength: 1064nm
+  youngsModulus: 20 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:57:04.044216
-# Material: Unknown
+# Generated: 2025-09-16T15:44:01.719024
+# Material: Shale
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Yi-Chun Lin"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/shale-laser-cleaning.md

@@ -1,10 +1,10 @@
 {
   "encodingTests": {
     "Parentheses in filename": {
-      "status": "FAIL",
+      "status": "PASS",
       "input": "/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg",
       "expected": "/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg",
-      "actual": "/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg",
+      "actual": "/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg",
       "description": "Should encode parentheses for CSS background-image"
     },
     "No special characters": {
@@ -15,10 +15,10 @@
       "description": "Should leave normal filenames unchanged"
     },
     "Multiple parentheses": {
-      "status": "FAIL",
+      "status": "PASS",
       "input": "/images/test-(group)-(variant)-hero.jpg",
       "expected": "/images/test-%28group%29-%28variant%29-hero.jpg",
-      "actual": "/images/test-(group)-(variant)-hero.jpg",
+      "actual": "/images/test-%28group%29-%28variant%29-hero.jpg",
       "description": "Should encode all parentheses"
     },
     "Empty string": {
@@ -38,8 +38,8 @@
   },
   "integrationTests": {
     "encodingLogic": {
-      "status": "FAIL",
-      "message": "Encoding logic not found in component"
+      "status": "PASS",
+      "message": "Encoding logic found in component"
     },
     "typescript": {
       "status": "PASS",
@@ -66,17 +66,17 @@
     }
   },
   "summary": {
-    "overallStatus": "FAIL",
+    "overallStatus": "WARN",
     "encodingTests": {
       "total": 5,
-      "passed": 3,
-      "failed": 2,
+      "passed": 5,
+      "failed": 0,
       "errors": 0
     },
     "integrationTests": {
       "total": 3,
-      "passed": 1,
-      "failed": 1,
+      "passed": 2,
+      "failed": 0,
       "warnings": 1,
       "errors": 0
     },
@@ -86,7 +86,7 @@
       "failed": 0,
       "errors": 0
     },
-    "timestamp": "2025-08-27T02:12:32.882Z"
+    "timestamp": "2025-09-16T22:32:08.896Z"
   },
-  "timestamp": "2025-08-27T02:12:29.022Z"
+  "timestamp": "2025-09-16T22:32:07.098Z"
 }

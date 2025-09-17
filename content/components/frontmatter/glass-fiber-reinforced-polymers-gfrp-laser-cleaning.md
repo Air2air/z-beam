@@ -1,124 +1,132 @@
 ---
-name:
-  name: Yi-Chun Lin
-detail:
-  detail: Cleaning of GFRP body panels and structural elements prior to painting or
-    repair
-powerRange:
-  powerRange: 10-100W
-pulseDuration:
-  pulseDuration: 10-200ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.1-2.0mm
-repetitionRate:
-  repetitionRate: 10-200kHz
-fluenceRange:
+name: Glass Fiber Reinforced Polymers (GFRP)
+applications:
+- detail: Removal of surface oxides and contaminants from GFRP substrates prior to
+    coating or bonding
+  industry: Electronics Manufacturing
+- detail: Cleaning of GFRP composite parts for repair and surface preparation
+  industry: Aerospace Components
+technicalSpecifications:
   fluenceRange: 0.5–3.0 J/cm²
-safetyClass:
-  safetyClass: Class 4 (requires full enclosure and fume extraction)
-description: Technical overview of laser cleaning for Glass Fiber Reinforced Polymers
-  (GFRP), focusing on precise removal of surface contaminants without damaging the
-  fragile glass fibers or polymer matrix.
+  powerRange: 10-100W
+  pulseDuration: 10-200ns
+  repetitionRate: 20-200kHz
+  safetyClass: Class 4 (requires full enclosure)
+  spotSize: 0.1-2.0mm
+  wavelength: 1064nm (primary), 355nm (optional)
+description: Technical overview of Glass Fiber Reinforced Polymers (GFRP) for laser
+  cleaning applications, including optimal wavelength interaction with polymer matrix
+  and glass fibers, and industrial applications in composite surface preparation.
 author: Yi-Chun Lin
-id:
-  id: '1'
-sex:
-  sex: f
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Taiwan
-expertise:
   expertise: Laser Materials Processing
-image:
+  id: 1
   image: /images/author/yi-chun-lin.jpg
-keywords: glass fiber reinforced polymer, gfrp, composite material, laser cleaning,
-  laser ablation, non-destructive cleaning, surface preparation, epoxy removal, contaminant
-  removal, fiber laser
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+chemicalProperties:
+  formula: SiO₂-Polymer Matrix
+  materialType: composite
+  symbol: GFRP
+composition:
+- Glass fibers (SiO₂) 50-70%
+- Polymer matrix (Epoxy/Polyester) 30-50%
+- Additives and coupling agents 1-5%
+compatibility:
+- Epoxy Resins
+- Polyester Resins
+- Composite Adhesives
+regulatoryStandards: ISO 14130, ASTM D2584, ASTM D3039
+images:
+  hero:
+    alt: Glass Fiber Reinforced Polymers (GFRP) surface undergoing laser cleaning
+      showing precise contamination removal
+    url: /images/glass-fiber-reinforced-polymers-(gfrp)-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Glass Fiber Reinforced Polymers (GFRP) surface after
+      laser cleaning showing detailed surface structure
+    url: /images/glass-fiber-reinforced-polymers-(gfrp)-laser-cleaning-micro.jpg
+title: Laser Cleaning Glass Fiber Reinforced Polymers (GFRP) - Technical Guide for
+  Optimal Processing
+headline: Comprehensive technical guide for laser cleaning Glass Fiber Reinforced
+  Polymers (GFRP) composites
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Eliminates use of acetone and other solvents for composite cleaning
+- benefit: Reduced Waste Generation
+  description: Produces minimal particulate waste compared to mechanical abrasion
+    methods
+- benefit: Energy Efficiency
+  description: Consumes 60% less energy than thermal decomposition cleaning
+outcomes:
+- metric: Achieves contamination-free surface suitable for bonding and coating
+  result: Surface Cleanliness Level
+- metric: Maintains >99% fiber integrity with no thermal damage
+  result: Fiber Preservation
+- metric: 0.5-2 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
+keywords: glass fiber reinforced polymer, gfrp composite, laser ablation, laser cleaning,
+  non-contact cleaning, pulsed fiber laser, surface contamination removal, composite
+  surface preparation, polymer matrix cleaning
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 1
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Taiwan
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T21:40:41Z'
 category: composite
-symbol:
-  symbol: N/A
-formula:
-  formula: N/A
-materialType:
-  materialType: Polymer Matrix Composite
-density:
+properties:
+  chemicalFormula: SiO₂-Polymer Matrix
   density: 1.8-2.2 g/cm³
-densityMin:
-  densityMin: 1.5 g/cm³
-densityMax:
-  densityMax: 2.5 g/cm³
-densityPercentile:
-  densityPercentile: '42.5'
-meltingPoint:
-  meltingPoint: N/A (Decomposes)
-meltingMin:
-  meltingMin: 180°C
-meltingMax:
-  meltingMax: 400°C
-meltingPercentile:
-  meltingPercentile: '0.0'
-thermalConductivity:
-  thermalConductivity: 0.3-0.5 W/m·K
-thermalMin:
-  thermalMin: 0.2 W/m·K
-thermalMax:
-  thermalMax: 1.0 W/m·K
-thermalPercentile:
-  thermalPercentile: '8.2'
-tensileStrength:
-  tensileStrength: 300-600 MPa
-tensileMin:
-  tensileMin: 200 MPa
-tensileMax:
-  tensileMax: 800 MPa
-tensilePercentile:
-  tensilePercentile: '35.7'
-hardness:
-  hardness: N/A
-hardnessMin:
-  hardnessMin: N/A
-hardnessMax:
-  hardnessMax: N/A
-hardnessPercentile:
-  hardnessPercentile: '0.0'
-youngsModulus:
-  youngsModulus: 20-40 GPa
-modulusMin:
-  modulusMin: 15 GPa
-modulusMax:
-  modulusMax: 50 GPa
-modulusPercentile:
-  modulusPercentile: '22.5'
-laserType:
+  densityMax: 2.2 g/cm³
+  densityMin: 0.9 g/cm³
+  densityPercentile: 84.6
+  fluenceRange: 0.5–3.0 J/cm²
+  glassTransitionTemp: 120-180°C
+  hardness: 80-120 Barcol
+  hardnessMax: 80 HRC
+  hardnessMin: 10 HB
+  hardnessPercentile: 100.0
+  laserAbsorptionMax: 80 cm⁻¹
+  laserAbsorptionMin: 1 cm⁻¹
+  laserReflectivityMax: 15%
+  laserReflectivityMin: 3%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Glass fibers (E-glass, S-glass) 50-70%"'
-- '"Polymer matrix (epoxy, polyester, vinyl ester) 30-50%"'
-- '"Additives and fillers 0-5%"'
-- '"Epoxy Resins"'
-- '"Polyester Resins"'
-- '"Vinyl Ester Resins"'
-regulatoryStandards: ISO 14130, ASTM D2584, IEC 60825-1
-alt:
-- --
-Material: Glass Fiber Reinforced Polymers GFRP
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 400°C
+  meltingMin: 150°C
+  modulusMax: 300 GPa
+  modulusMin: 1 GPa
+  modulusPercentile: 9.7
+  specificHeatMax: 2.0 J/g·K
+  specificHeatMin: 0.8 J/g·K
+  tensileMax: 7000 MPa
+  tensileMin: 100 MPa
+  tensilePercentile: 5.1
+  tensileStrength: 300-600 MPa
+  thermalConductivity: 0.3-0.5 W/m·K
+  thermalDiffusivityMax: 20 mm²/s
+  thermalDiffusivityMin: 0.1 mm²/s
+  thermalExpansionMax: 60 µm/m·K
+  thermalExpansionMin: 1 µm/m·K
+  thermalMax: 60 W/m·K
+  thermalMin: 0.1 W/m·K
+  thermalPercentile: 0.5
+  wavelength: 1064nm
+  youngsModulus: 20-40 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:14:17.809013
-# Material: Unknown
+# Generated: 2025-09-16T14:41:34.092542
+# Material: Glass Fiber Reinforced Polymers GFRP
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Yi-Chun Lin"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/glass-fiber-reinforced-polymers-gfrp-laser-cleaning.md

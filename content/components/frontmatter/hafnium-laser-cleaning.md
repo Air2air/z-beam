@@ -1,125 +1,127 @@
 ---
-name:
-  name: Todd Dunning
-detail:
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
-powerRange:
-  powerRange: 50-200W
-pulseDuration:
-  pulseDuration: 20-100ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.2-1.5mm
-repetitionRate:
-  repetitionRate: 20-100kHz
-fluenceRange:
+name: Hafnium
+applications:
+- detail: Removal of surface oxides and contaminants from Hafnium substrates
+  industry: Electronics Manufacturing
+- detail: Cleaning of thermal barrier coatings and metal matrix composites
+  industry: Aerospace Components
+technicalSpecifications:
   fluenceRange: 1.0–4.5 J/cm²
-safetyClass:
+  powerRange: 50-200W
+  pulseDuration: 20-100ns
+  repetitionRate: 20-100kHz
   safetyClass: Class 4 (requires full enclosure)
+  spotSize: 0.2-1.5mm
+  wavelength: 1064nm (primary), 532nm (optional)
 description: Technical overview of Hafnium for laser cleaning applications, including
   optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
 author: Todd Dunning
-id:
-  id: '4'
-sex:
-  sex: m
-title: Laser Cleaning Hafnium - Technical Guide for Optimal Processing
-country:
+author_object:
   country: United States (California)
-expertise:
   expertise: Optical Materials for Laser Systems
-image:
+  id: 4
   image: /images/author/todd-dunning.jpg
+  name: Todd Dunning
+  sex: m
+  title: MA
+chemicalProperties:
+  formula: Hf
+  materialType: metal
+  symbol: Hf
+composition:
+- Hafnium (Hf) 99.6%
+- Trace elements (Zr, Ti, Fe, O)
+compatibility:
+- Stainless Steel
+- Titanium Alloys
+- Nickel-based Superalloys
+regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+images:
+  hero:
+    alt: Hafnium surface undergoing laser cleaning showing precise contamination removal
+    url: /images/hafnium-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Hafnium surface after laser cleaning showing detailed
+      surface structure
+    url: /images/hafnium-laser-cleaning-micro.jpg
+title: Laser Cleaning Hafnium - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning metal hafnium
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
+- benefit: Water Conservation
+  description: Saves approximately 5000 liters of water per month in industrial applications
+- benefit: Energy Efficiency
+  description: Consumes 40% less energy than thermal cleaning processes
+outcomes:
+- metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+  result: Surface Cleanliness Level
+- metric: ±5μm accuracy with no substrate damage
+  result: Material Removal Precision
+- metric: 2-5 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
 keywords: hafnium, hafnium metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 4
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: United States (California)
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:06:10Z'
 category: metal
-symbol:
-  symbol: Hf
-formula:
-  formula: Hf
-materialType:
-  materialType: metal
-density:
+properties:
+  chemicalFormula: Hf
   density: 13.31 g/cm³
-densityMin:
-  densityMin: 1.8 g/cm³
-densityMax:
-  densityMax: 6.0 g/cm³
-densityPercentile:
-  densityPercentile: '100.0'
-meltingPoint:
-  meltingPoint: 2233°C
-meltingMin:
-  meltingMin: 1200°C
-meltingMax:
-  meltingMax: 2800°C
-meltingPercentile:
-  meltingPercentile: '85.2'
-thermalConductivity:
-  thermalConductivity: 23.0 W/m·K
-thermalMin:
-  thermalMin: 0.5 W/m·K
-thermalMax:
-  thermalMax: 200 W/m·K
-thermalPercentile:
-  thermalPercentile: '11.3'
-tensileStrength:
-  tensileStrength: 380-550 MPa
-tensileMin:
-  tensileMin: 50 MPa
-tensileMax:
-  tensileMax: 1000 MPa
-tensilePercentile:
-  tensilePercentile: '24.8'
-hardness:
+  densityMax: 22.6 g/cm³
+  densityMin: 0.5 g/cm³
+  densityPercentile: 58.0
+  fluenceRange: 1.0–4.5 J/cm²
   hardness: 1700-2100 HV
-hardnessMin:
-  hardnessMin: 500 HV
-hardnessMax:
-  hardnessMax: 2500 HV
-hardnessPercentile:
-  hardnessPercentile: '85.0'
-youngsModulus:
-  youngsModulus: 78 GPa
-modulusMin:
-  modulusMin: 150 GPa
-modulusMax:
-  modulusMax: 400 GPa
-modulusPercentile:
-  modulusPercentile: '0.0'
-laserType:
+  hardnessMax: 500 HV
+  hardnessMin: 5 HB
+  hardnessPercentile: 100.0
+  laserAbsorptionMax: 100 cm⁻¹
+  laserAbsorptionMin: 0.02 cm⁻¹
+  laserReflectivityMax: 98%
+  laserReflectivityMin: 5%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Hafnium (Hf) 99.6%"'
-- '"Trace elements (Zr, Ti, Fe, O)"'
-- '"Stainless Steel"'
-- '"Titanium Alloys"'
-- '"Nickel-based Superalloys"'
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
-alt:
-  alt: Microscopic view of Hafnium surface after laser treatment showing preserved
-    microstructure
-url:
-  url: /images/hafnium-laser-cleaning-micro.jpg
-headline:
-- --
-Material: Hafnium
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 3422°C
+  meltingMin: -39°C
+  meltingPercentile: 64.9
+  meltingPoint: 2233°C
+  modulusMax: 411 GPa
+  modulusMin: 70 GPa
+  modulusPercentile: 2.3
+  specificHeatMax: 0.90 J/g·K
+  specificHeatMin: 0.13 J/g·K
+  tensileMax: 2000 MPa
+  tensileMin: 70 MPa
+  tensilePercentile: 20.5
+  tensileStrength: 380-550 MPa
+  thermalConductivity: 23.0 W/m·K
+  thermalDiffusivityMax: 174 mm²/s
+  thermalDiffusivityMin: 4 mm²/s
+  thermalExpansionMax: 29 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 429 W/m·K
+  thermalMin: 8 W/m·K
+  thermalPercentile: 3.6
+  wavelength: 1064nm
+  youngsModulus: 78 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:29:26.266912
-# Material: Unknown
+# Generated: 2025-09-16T15:07:00.328827
+# Material: Hafnium
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Todd Dunning"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/hafnium-laser-cleaning.md

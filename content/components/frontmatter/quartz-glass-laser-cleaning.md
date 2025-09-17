@@ -1,126 +1,131 @@
 ---
-name:
-  name: Alessandro Moretti
-detail:
-  detail: Cleaning of thermal barrier coatings and glass matrix composites
-powerRange:
-  powerRange: 50-200W
-pulseDuration:
-  pulseDuration: 20-100ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.2-1.5mm
-repetitionRate:
-  repetitionRate: 20-100kHz
-fluenceRange:
-  fluenceRange: 1.0–4.5 J/cm²
-safetyClass:
+name: Quartz Glass
+applications:
+- detail: Removal of photoresist residues and surface contaminants from quartz wafers
+    and components
+  industry: Semiconductor Manufacturing
+- detail: Cleaning of quartz lenses, windows, and optical components without surface
+    damage
+  industry: Optics and Photonics
+technicalSpecifications:
+  fluenceRange: 0.5–2.5 J/cm²
+  powerRange: 10-100W
+  pulseDuration: 10-50ns
+  repetitionRate: 20-200kHz
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Quartz Glass, SiO2, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+  spotSize: 0.1-0.8mm
+  wavelength: 1064nm (primary), 355nm (optional)
+description: Technical overview of Quartz Glass (SiO₂) for laser cleaning applications,
+  including optimal wavelength interaction at 1064nm and 355nm, and industrial applications
+  in high-precision surface preparation.
 author: Alessandro Moretti
-id:
-  id: '2'
-sex:
-  sex: m
-title: Laser Cleaning Quartz Glass - Technical Guide for Optimal Processing
-country:
+author_object:
   country: Italy
-expertise:
   expertise: Laser-Based Additive Manufacturing
-image:
+  id: 2
   image: /images/author/alessandro-moretti.jpg
-keywords: quartz glass, fused silica, laser ablation, laser cleaning, non-contact
-  cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration
-category: glass
-symbol:
-  symbol: SiO2
-formula:
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+chemicalProperties:
   formula: SiO2
-materialType:
   materialType: glass
-density:
+  symbol: SiO₂
+composition:
+- Silicon Dioxide (SiO₂) 99.9%
+- Trace elements (Al, Na, K, Li)
+compatibility:
+- Silicon Wafers
+- Optical Coatings
+- Ceramic Materials
+regulatoryStandards: ISO 10110, SEMI Standards, MIL-PRF-13830B
+images:
+  hero:
+    alt: Quartz Glass surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/quartz-glass-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Quartz Glass surface after laser cleaning showing detailed
+      surface structure
+    url: /images/quartz-glass-laser-cleaning-micro.jpg
+title: Laser Cleaning Quartz Glass - Technical Guide for High-Precision Applications
+headline: Advanced technical guide for laser cleaning of quartz glass components
+environmentalImpact:
+- benefit: Chemical-Free Processing
+  description: Eliminates use of hazardous solvents and acids in quartz cleaning processes
+- benefit: Waterless Operation
+  description: Zero water consumption compared to traditional ultrasonic cleaning
+    methods
+- benefit: Energy Efficient
+  description: 75% less energy consumption than thermal or chemical cleaning methods
+outcomes:
+- metric: Achieves Class 100 (ISO 5) cleanroom standards
+  result: Surface Cleanliness
+- metric: Sub-nanometer surface roughness preservation
+  result: Damage-Free Processing
+- metric: 1-3 m²/hour cleaning rate with micron-level precision
+  result: Processing Throughput
+keywords: quartz glass, fused silica, laser ablation, laser cleaning, non-contact
+  cleaning, pulsed laser, surface contamination removal, optical components cleaning,
+  semiconductor cleaning
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 2
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Italy
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T21:48:25Z'
+category: glass
+properties:
+  chemicalFormula: SiO2
   density: 2.2 g/cm³
-densityMin:
-  densityMin: 2.0 g/cm³
-densityMax:
-  densityMax: 2.6 g/cm³
-densityPercentile:
-  densityPercentile: '65.0'
-meltingPoint:
-  meltingPoint: 1670-1720°C
-meltingMin:
-  meltingMin: 1600°C
-meltingMax:
-  meltingMax: 2200°C
-meltingPercentile:
-  meltingPercentile: '85.0'
-thermalConductivity:
-  thermalConductivity: 1.4 W/m·K
-thermalMin:
-  thermalMin: 1.0 W/m·K
-thermalMax:
-  thermalMax: 2.0 W/m·K
-thermalPercentile:
-  thermalPercentile: '45.0'
-tensileStrength:
-  tensileStrength: 50-70 MPa
-tensileMin:
-  tensileMin: 30 MPa
-tensileMax:
-  tensileMax: 120 MPa
-tensilePercentile:
-  tensilePercentile: '15.0'
-hardness:
+  densityMax: 8.0 g/cm³
+  densityMin: 2.2 g/cm³
+  densityPercentile: 0.0
+  fluenceRange: 0.5–2.5 J/cm²
   hardness: 7 Mohs
-hardnessMin:
-  hardnessMin: 5 Mohs
-hardnessMax:
-  hardnessMax: 7.5 Mohs
-hardnessPercentile:
-  hardnessPercentile: '90.0'
-youngsModulus:
+  hardnessMax: 750 HV
+  hardnessMin: 450 HV
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 10 cm⁻¹
+  laserAbsorptionMin: 0.01 cm⁻¹
+  laserReflectivityMax: 15%
+  laserReflectivityMin: 4%
+  laserType: Pulsed Nd:YAG Laser
+  meltingMax: 1700°C
+  meltingMin: 573°C
+  meltingPercentile: 97.3
+  meltingPoint: 1670°C
+  modulusMax: 90 GPa
+  modulusMin: 50 GPa
+  modulusPercentile: 55.0
+  specificHeatMax: 1.0 J/g·K
+  specificHeatMin: 0.7 J/g·K
+  tensileMax: 200 MPa
+  tensileMin: 30 MPa
+  tensilePercentile: 11.8
+  tensileStrength: 50 MPa
+  thermalConductivity: 1.4 W/m·K
+  thermalDiffusivityMax: 1.4 mm²/s
+  thermalDiffusivityMin: 0.4 mm²/s
+  thermalExpansionMax: 9 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 2.0 W/m·K
+  thermalMin: 0.5 W/m·K
+  thermalPercentile: 60.0
+  wavelength: 1064nm
   youngsModulus: 72 GPa
-modulusMin:
-  modulusMin: 70 GPa
-modulusMax:
-  modulusMax: 75 GPa
-modulusPercentile:
-  modulusPercentile: '50.0'
-laserType:
-  laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Silicon Dioxide (SiO2) 99.9%"'
-- '"Trace elements (Al, Na, K, Li)"'
-- '"Fused Silica"'
-- '"Borosilicate Glass"'
-- '"Optical Coatings"'
-regulatoryStandards: ISO 10110, ASTM E438, IEC 60825-1
-alt:
-  alt: Microscopic view of Quartz Glass surface after laser treatment showing preserved
-    microstructure
-url:
-  url: /images/quartz-glass-laser-cleaning-micro.jpg
-headline:
-- --
-Material: Quartz Glass
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:19:16.561380
-# Material: Unknown
+# Generated: 2025-09-16T14:49:14.404333
+# Material: Quartz Glass
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Alessandro Moretti"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/quartz-glass-laser-cleaning.md

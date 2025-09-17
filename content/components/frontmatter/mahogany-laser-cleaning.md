@@ -1,128 +1,133 @@
 ---
-name:
-  name: Yi-Chun Lin
-detail:
-  detail: Cleaning of teak and mahogany decking and trim without damaging the wood
-    grain
-powerRange:
-  powerRange: 10-50W
-pulseDuration:
-  pulseDuration: 50-200ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.5-3.0mm
-repetitionRate:
-  repetitionRate: 10-50kHz
-fluenceRange:
+name: Mahogany
+applications:
+- detail: Gentle removal of dirt, grime, and old finishes from antique and high-value
+    mahogany pieces
+  industry: Furniture Restoration
+- detail: Cleaning of weathered surfaces and biological growth from mahogany decks
+    and trim
+  industry: Marine Woodwork
+technicalSpecifications:
   fluenceRange: 0.5–2.0 J/cm²
-safetyClass:
+  powerRange: 10-50W
+  pulseDuration: 50-200ns
+  repetitionRate: 10-50kHz
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Mahogany wood for laser cleaning applications,
-  including optimal low-fluence wavelength interaction for surface restoration without
+  spotSize: 0.5-3.0mm
+  wavelength: 1064nm (primary), 532nm (optional for delicate work)
+description: Technical overview of Mahogany for laser cleaning applications, including
+  optimal low-fluence wavelength interaction for wood surface restoration without
   charring.
 author: Yi-Chun Lin
-id:
-  id: '1'
-sex:
-  sex: f
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Taiwan
-expertise:
   expertise: Laser Materials Processing
-image:
+  id: 1
   image: /images/author/yi-chun-lin.jpg
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+chemicalProperties:
+  formula: Complex organic polymer (lignin, cellulose, hemicellulose)
+  materialType: Hardwood
+  symbol: Mahogany
+composition:
+- Cellulose 40-50%
+- Lignin 20-30%
+- Hemicellulose 15-25%
+- Extractives 2-5%
+compatibility:
+- Wood Finishes
+- Wood Adhesives
+- Wood Preservatives
+regulatoryStandards: ASTM D2574, ISO 13061, ANSI/BIFMA X5.1
+images:
+  hero:
+    alt: Mahogany surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/mahogany-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed
+      surface structure
+    url: /images/mahogany-laser-cleaning-micro.jpg
+title: Laser Cleaning Mahogany - Technical Guide for Wood Restoration
+headline: Comprehensive technical guide for laser cleaning mahogany wood surfaces
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Eliminates need for harsh chemical strippers and solvents in wood restoration
+- benefit: Waste Reduction
+  description: Produces minimal waste compared to traditional sanding and chemical
+    methods
+- benefit: Energy Efficiency
+  description: Consumes 60% less energy than thermal stripping processes
+outcomes:
+- metric: Complete removal of surface contaminants without wood damage
+  result: Surface Cleanliness
+- metric: Preserves original wood patina and surface characteristics
+  result: Material Preservation
+- metric: 0.5-2 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
 keywords: mahogany, mahogany wood, laser ablation, laser cleaning, wood restoration,
   non-contact cleaning, pulsed fiber laser, surface contamination removal, antique
   furniture cleaning
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 1
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Taiwan
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:53:30Z'
 category: wood
-symbol:
-  symbol: None
-formula:
-  formula: None
-materialType:
-  materialType: hardwood
-density:
-  density: 0.52 g/cm³
-densityMin:
-  densityMin: 0.35 g/cm³
-densityMax:
-  densityMax: 0.85 g/cm³
-densityPercentile:
-  densityPercentile: '45.0'
-meltingPoint:
-  meltingPoint: Decomposes at 270-400°C
-meltingMin:
-  meltingMin: 200°C
-meltingMax:
-  meltingMax: 400°C
-meltingPercentile:
-  meltingPercentile: '65.0'
-thermalConductivity:
-  thermalConductivity: 0.12 W/m·K
-thermalMin:
-  thermalMin: 0.1 W/m·K
-thermalMax:
-  thermalMax: 0.2 W/m·K
-thermalPercentile:
-  thermalPercentile: '20.0'
-tensileStrength:
-  tensileStrength: 80-120 MPa
-tensileMin:
-  tensileMin: 50 MPa
-tensileMax:
-  tensileMax: 150 MPa
-tensilePercentile:
-  tensilePercentile: '60.0'
-hardness:
-  hardness: 800-1100 N (Janka)
-hardnessMin:
-  hardnessMin: 400 N
-hardnessMax:
-  hardnessMax: 1600 N
-hardnessPercentile:
-  hardnessPercentile: '55.0'
-youngsModulus:
-  youngsModulus: 9.7 GPa
-modulusMin:
-  modulusMin: 8.0 GPa
-modulusMax:
-  modulusMax: 12.0 GPa
-modulusPercentile:
-  modulusPercentile: '45.0'
-laserType:
+properties:
+  chemicalFormula: Complex organic polymer
+  decompositionPoint: 200-300°C
+  density: 0.52-0.85 g/cm³
+  densityMax: 1.3 g/cm³
+  densityMin: 0.1 g/cm³
+  densityPercentile: 48.8
+  fluenceRange: 0.5–2.0 J/cm²
+  hardness: 800-900 lbf (Janka)
+  hardnessMax: 4000 HB
+  hardnessMin: 1 HB
+  hardnessPercentile: 21.2
+  laserAbsorptionMax: 100 cm⁻¹
+  laserAbsorptionMin: 5 cm⁻¹
+  laserReflectivityMax: 25%
+  laserReflectivityMin: 5%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Cellulose 45%"'
-- '"Lignin 30%"'
-- '"Hemicellulose 20%"'
-- '"Extractives (tannins, oils) 5%"'
-- '"Hardwoods"'
-- '"Finished Wood Surfaces"'
-- '"Wood Composites"'
-regulatoryStandards: ISO 13061, ASTM D143, IEC 60825
-alt:
-  alt: Close-up view of mahogany wood grain after laser treatment showing clean surface
-    preservation
-url:
-- --
-Material: Mahogany
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 500°C
+  meltingMin: 250°C
+  meltingPercentile: 0.0
+  modulusMax: 20 GPa
+  modulusMin: 4 GPa
+  modulusPercentile: 39.7
+  specificHeatMax: 2.5 J/g·K
+  specificHeatMin: 1.2 J/g·K
+  tensileMax: 200 MPa
+  tensileMin: 20 MPa
+  tensilePercentile: 38.9
+  tensileStrength: 70-110 MPa
+  thermalConductivity: 0.12-0.17 W/m·K
+  thermalDiffusivityMax: 0.4 mm²/s
+  thermalDiffusivityMin: 0.1 mm²/s
+  thermalExpansionMax: 50 µm/m·K
+  thermalExpansionMin: 2 µm/m·K
+  thermalMax: 0.4 W/m·K
+  thermalMin: 0.04 W/m·K
+  thermalPercentile: 29.2
+  wavelength: 1064nm
+  youngsModulus: 9.7-11.0 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T19:05:32.740128
-# Material: Unknown
+# Generated: 2025-09-16T15:54:24.461365
+# Material: Mahogany
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Yi-Chun Lin"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/mahogany-laser-cleaning.md

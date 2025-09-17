@@ -1,9 +1,24 @@
 ---
+name: Steel
 applications:
-- detail: Removal of surface oxides and contaminants from Steel substrates
-  industry: Electronics Manufacturing
-- detail: Cleaning of thermal barrier coatings and metal matrix composites
-  industry: Aerospace Components
+- detail: Removal of rust, scale, and coatings from steel components and body panels
+  industry: Automotive Manufacturing
+- detail: Cleaning of corrosion and marine growth from steel structures and ship hulls
+  industry: Marine and Offshore
+- detail: Gentle removal of centuries of corrosion from historical steel artifacts
+    without damage
+  industry: Historical Restoration
+technicalSpecifications:
+  fluenceRange: 0.5–5.0 J/cm²
+  powerRange: 100-1000W
+  pulseDuration: 10-200ns
+  repetitionRate: 20-300kHz
+  safetyClass: Class 4 (requires full enclosure and operator protection)
+  spotSize: 0.1-2.0mm
+  wavelength: 1064nm (primary), 532nm (optional)
+description: Technical overview of carbon steel (Fe-C) for laser cleaning applications,
+  focusing on optimal 1064nm wavelength interaction with iron oxides and industrial
+  surface preparation techniques.
 author: Ikmanda Roswati
 author_object:
   country: Indonesia
@@ -11,61 +26,74 @@ author_object:
   id: 3
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
-  sex: male
+  sex: m
   title: Ph.D.
-category: metal
 chemicalProperties:
-  formula: Fe
-  materialType: metal
+  formula: Fe-C
+  materialType: ferrous metal
   symbol: Fe
+composition:
+- 'Iron (Fe): 98.0-99.5%'
+- 'Carbon (C): 0.05-2.1%'
+- 'Manganese (Mn): 0.3-1.0%'
+- 'Silicon (Si): 0.1-0.5%'
+- Other trace elements
 compatibility:
 - Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-composition:
-- Steel (Fe) 99.6%
-- Trace elements (Si, Fe, Na, Mg)
-description: Technical overview of Steel, Fe, for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
-environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
-headline: Comprehensive technical guide for laser cleaning metal Steel
+- Cast Iron
+- Carbon Steel Alloys
+- Tool Steel
+regulatoryStandards: ISO 8501-1, ASTM D4417, IEC 60825-1
 images:
   hero:
     alt: Steel surface undergoing laser cleaning showing precise contamination removal
     url: /images/steel-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Steel surface after laser treatment showing preserved
-      microstructure
+    alt: Microscopic view of Steel surface after laser cleaning showing detailed surface
+      structure
     url: /images/steel-laser-cleaning-micro.jpg
-keywords: steel, steel metal, laser ablation, laser cleaning, non-contact cleaning,
-  pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration
-name: Steel
+title: Laser Cleaning Steel - Technical Guide for Optimal Rust and Contaminant Removal
+headline: Comprehensive technical guide for laser cleaning carbon steel surfaces
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Eliminates use of hazardous chemicals like acids and solvents for derusting
+- benefit: Waste Reduction
+  description: Produces minimal waste compared to abrasive blasting methods
+- benefit: Energy Efficiency
+  description: Consumes 60% less energy than traditional mechanical cleaning methods
 outcomes:
-- metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+- metric: Achieves SA 2.5 to SA 3.0 surface preparation standard
   result: Surface Cleanliness Level
-- metric: ±5μm accuracy with no substrate damage
+- metric: Selective removal of oxides without damaging base metal
   result: Material Removal Precision
-- metric: 2-5 m²/hour cleaning rate depending on contamination level
+- metric: 3-8 m²/hour cleaning rate depending on corrosion thickness
   result: Processing Speed
+keywords: steel cleaning, carbon steel, laser rust removal, oxide removal, non-contact
+  cleaning, pulsed fiber laser, surface decontamination, industrial laser parameters,
+  corrosion removal
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 3
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Indonesia
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T22:21:08Z'
+category: metal
 properties:
-  chemicalFormula: Fe
+  chemicalFormula: Fe-C
   density: 7.85 g/cm³
   densityMax: 22.6 g/cm³
   densityMin: 0.5 g/cm³
   densityPercentile: 33.3
-  fluenceRange: 1.0–4.5 J/cm²
-  hardness: 150-250 HB
+  fluenceRange: 0.5–5.0 J/cm²
+  hardness: 120-180 HB
   hardnessMax: 500 HV
   hardnessMin: 5 HB
-  hardnessPercentile: 39.4
+  hardnessPercentile: 29.3
   laserAbsorptionMax: 100 cm⁻¹
   laserAbsorptionMin: 0.02 cm⁻¹
   laserReflectivityMax: 98%
@@ -94,35 +122,13 @@ properties:
   thermalPercentile: 10.0
   wavelength: 1064nm
   youngsModulus: 200 GPa
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
-technicalSpecifications:
-  fluenceRange: 1.0–4.5 J/cm²
-  powerRange: 50-200W
-  pulseDuration: 20-100ns
-  repetitionRate: 20-100kHz
-  safetyClass: Class 4 (requires full enclosure)
-  spotSize: 0.2-1.5mm
-  wavelength: 1064nm (primary), 532nm (optional)
-title: Laser Cleaning Steel - Technical Guide for Optimal Processing
 ---
-
 
 # Version Information
-# Generated: 2025-09-11T14:07:12.757951
-# Material: Unknown
+# Generated: 2025-09-16T15:22:02.887974
+# Material: Steel
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: Yi-Chun Lin
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
-
----
-Version Log - Generated: 2025-09-11T14:07:12.758585
-Material: Steel
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File: content/components/frontmatter/steel-laser-cleaning.md
----
+# File: content/components/frontmatter/steel-laser-cleaning.md

@@ -1,126 +1,131 @@
 ---
-name:
-  name: Yi-Chun Lin
-detail:
-  detail: Cleaning of thermal barrier coatings and glass matrix composites
-powerRange:
-  powerRange: 50-200W
-pulseDuration:
-  pulseDuration: 20-100ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.2-1.5mm
-repetitionRate:
-  repetitionRate: 20-100kHz
-fluenceRange:
+name: Soda-Lime Glass
+applications:
+- detail: Removal of surface oxides and contaminants from Soda-Lime Glass substrates
+  industry: Electronics Manufacturing
+- detail: Cleaning of thermal barrier coatings and glass matrix composites
+  industry: Aerospace Components
+technicalSpecifications:
   fluenceRange: 1.0–4.5 J/cm²
-safetyClass:
+  powerRange: 50-200W
+  pulseDuration: 20-100ns
+  repetitionRate: 20-100kHz
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Soda-Lime Glass for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+  spotSize: 0.2-1.5mm
+  wavelength: 1064nm (primary), 532nm (optional)
+description: Technical overview of Soda-Lime Glass, Na2O·CaO·6SiO2, for laser cleaning
+  applications, including optimal 1064nm wavelength interaction, and industrial applications
+  in surface preparation.
 author: Yi-Chun Lin
-id:
-  id: '1'
-sex:
-  sex: f
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Taiwan
-expertise:
   expertise: Laser Materials Processing
-image:
+  id: 1
   image: /images/author/yi-chun-lin.jpg
-keywords: soda-lime glass, laser ablation, laser cleaning, non-contact cleaning, pulsed
-  fiber laser, surface contamination removal, industrial laser parameters, thermal
-  processing, surface restoration
-category: glass
-symbol:
-  symbol: N/A
-formula:
-  formula: ~70-75% SiO₂, 12-16% Na₂O, 8-15% CaO
-materialType:
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+chemicalProperties:
+  formula: Na2O·CaO·6SiO2
   materialType: glass
-density:
+  symbol: SLG
+composition:
+- 'Silica (SiO2): 70-75%'
+- 'Sodium Oxide (Na2O): 12-16%'
+- 'Calcium Oxide (CaO): 5-11%'
+- Trace elements (Al2O3, MgO, K2O)
+compatibility:
+- Quartz
+- Borosilicate Glass
+- Alkali-free Glass
+regulatoryStandards: ISO 1288, ASTM C1036, IEC 60601-1
+images:
+  hero:
+    alt: Soda-Lime Glass surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/soda-lime-glass-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Soda-Lime Glass surface after laser cleaning showing
+      detailed surface structure
+    url: /images/soda-lime-glass-laser-cleaning-micro.jpg
+title: Laser Cleaning Soda-Lime Glass - Technical Guide for Optimal Processing
+headline: Comprehensive technical guide for laser cleaning glass soda-lime glass
+environmentalImpact:
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
+- benefit: Water Conservation
+  description: Saves approximately 5000 liters of water per month in industrial applications
+- benefit: Energy Efficiency
+  description: Consumes 40% less energy than thermal cleaning processes
+outcomes:
+- metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+  result: Surface Cleanliness Level
+- metric: ±5μm accuracy with no substrate damage
+  result: Material Removal Precision
+- metric: 2-5 m²/hour cleaning rate depending on contamination level
+  result: Processing Speed
+keywords: soda-lime glass, soda-lime glass glass, laser ablation, laser cleaning,
+  non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial
+  laser parameters, thermal processing, surface restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 1
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Taiwan
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T21:49:14Z'
+category: glass
+properties:
+  chemicalFormula: Na2O·CaO·6SiO2
   density: 2.5 g/cm³
-densityMin:
+  densityMax: 8.0 g/cm³
   densityMin: 2.2 g/cm³
-densityMax:
-  densityMax: 2.8 g/cm³
-densityPercentile:
-  densityPercentile: '45.0'
-meltingPoint:
-  meltingPoint: 550-600°C (softening point)
-meltingMin:
-  meltingMin: 500°C
-meltingMax:
-  meltingMax: 1600°C
-meltingPercentile:
-  meltingPercentile: '32.0'
-thermalConductivity:
-  thermalConductivity: 1.0 W/m·K
-thermalMin:
-  thermalMin: 0.5 W/m·K
-thermalMax:
-  thermalMax: 200 W/m·K
-thermalPercentile:
-  thermalPercentile: '0.3'
-tensileStrength:
-  tensileStrength: 30-90 MPa
-tensileMin:
-  tensileMin: 10 MPa
-tensileMax:
-  tensileMax: 1000 MPa
-tensilePercentile:
-  tensilePercentile: '8.5'
-hardness:
-  hardness: 5.5-6.0 Mohs
-hardnessMin:
-  hardnessMin: 1 Mohs
-hardnessMax:
-  hardnessMax: 10 Mohs
-hardnessPercentile:
-  hardnessPercentile: '55.0'
-youngsModulus:
-  youngsModulus: 70-80 GPa
-modulusMin:
-  modulusMin: 50 GPa
-modulusMax:
-  modulusMax: 400 GPa
-modulusPercentile:
-  modulusPercentile: '15.0'
-laserType:
+  densityPercentile: 5.2
+  fluenceRange: 1.0–4.5 J/cm²
+  hardness: 5.5-6.5 Mohs
+  hardnessMax: 750 HV
+  hardnessMin: 450 HV
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 10 cm⁻¹
+  laserAbsorptionMin: 0.01 cm⁻¹
+  laserReflectivityMax: 15%
+  laserReflectivityMin: 4%
   laserType: Pulsed Fiber Laser
-chemicalFormula:
-- '"Silica (SiO₂): 70-75%"'
-- '"Sodium Oxide (Na₂O): 12-16%"'
-- '"Calcium Oxide (CaO): 8-15%"'
-- '"Other Oxides: <5%"'
-- '"Glass"'
-- '"Ceramics"'
-- '"Metals (with appropriate parameters)"'
-regulatoryStandards: ISO 9001, ASTM C1036, IEC 60601-1
-alt:
-- --
-url:
-  url: /images/soda-lime-glass-laser-cleaning-hero.jpg
-Material: Soda-Lime Glass
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  meltingMax: 1700°C
+  meltingMin: 573°C
+  meltingPercentile: 0.2
+  meltingPoint: 550-600°C (softening point)
+  modulusMax: 90 GPa
+  modulusMin: 50 GPa
+  modulusPercentile: 62.5
+  specificHeatMax: 1.0 J/g·K
+  specificHeatMin: 0.7 J/g·K
+  tensileMax: 200 MPa
+  tensileMin: 30 MPa
+  tensilePercentile: 17.6
+  tensileStrength: 30-90 MPa
+  thermalConductivity: 1.0 W/m·K
+  thermalDiffusivityMax: 1.4 mm²/s
+  thermalDiffusivityMin: 0.4 mm²/s
+  thermalExpansionMax: 9 µm/m·K
+  thermalExpansionMin: 0.5 µm/m·K
+  thermalMax: 2.0 W/m·K
+  thermalMin: 0.5 W/m·K
+  thermalPercentile: 33.3
+  wavelength: 1064nm
+  youngsModulus: 70-80 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:19:50.725611
-# Material: Unknown
+# Generated: 2025-09-16T14:50:06.208984
+# Material: Soda-Lime Glass
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Yi-Chun Lin"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/soda-lime-glass-laser-cleaning.md

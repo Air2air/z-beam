@@ -1,125 +1,137 @@
 ---
-name:
-  name: Yi-Chun Lin
-detail:
-  detail: Cleaning of terracotta tiles, bricks, and decorative elements without damaging
-    the porous ceramic body
-powerRange:
-  powerRange: 10-50W
-pulseDuration:
+name: Terracotta
+applications:
+- detail: Removal of surface dirt, biological growth, and pollutants from historical
+    terracotta artifacts and architectural elements
+  industry: Conservation & Restoration
+- detail: Cleaning of new and aged terracotta tiles, bricks, and decorative elements
+    without surface damage
+  industry: Construction Materials
+technicalSpecifications:
+  fluenceRange: 0.5–2.5 J/cm²
+  powerRange: 10-100W
   pulseDuration: 10-150ns
-wavelength:
-  wavelength: 1064nm
-spotSize:
-  spotSize: 0.5-3.0mm
-repetitionRate:
   repetitionRate: 10-50kHz
-fluenceRange:
-  fluenceRange: 0.5–2.0 J/cm²
-safetyClass:
   safetyClass: Class 4 (requires full enclosure)
-description: Technical overview of Terracotta for laser cleaning applications, focusing
-  on the interaction of near-infrared wavelengths with the clay-based ceramic matrix
-  for precise contaminant removal.
+  spotSize: 0.5-3.0mm
+  wavelength: 1064nm (primary), 532nm (optional)
+description: Technical overview of Terracotta, a fired clay ceramic, for laser cleaning
+  applications, including optimal 1064nm wavelength interaction for contaminant removal
+  without damaging the porous substrate.
 author: Yi-Chun Lin
-id:
-  id: '1'
-sex:
-  sex: f
-title:
-  title: Ph.D.
-country:
+author_object:
   country: Taiwan
-expertise:
   expertise: Laser Materials Processing
-image:
+  id: 1
   image: /images/author/yi-chun-lin.jpg
-keywords: terracotta, terracotta masonry, laser ablation, laser cleaning, non-contact
-  cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration, cultural heritage, brick cleaning
-category: masonry
-symbol:
-  symbol: None
-formula:
-  formula: None
-materialType:
-  materialType: ceramic
-density:
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+chemicalProperties:
+  formula: Complex Silicate (Clay-based)
+  materialType: Ceramic
+  symbol: TC
+composition:
+- Clay minerals (Kaolinite, Illite) 50-60%
+- Quartz (SiO2) 20-30%
+- Feldspar 5-10%
+- Iron oxides (Fe2O3) 5-8%
+compatibility:
+- Historical Terracotta
+- Architectural Terracotta
+- Fired Clay Ceramics
+regulatoryStandards: ISO 10332, ASTM C67, EN 771-1
+images:
+  hero:
+    alt: Terracotta surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/terracotta-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Terracotta surface after laser cleaning showing detailed
+      surface structure
+    url: /images/terracotta-laser-cleaning-micro.jpg
+title: Laser Cleaning Terracotta - Technical Guide for Conservation & Restoration
+headline: Precision laser cleaning techniques for terracotta conservation and architectural
+  restoration
+environmentalImpact:
+- benefit: Chemical-Free Cleaning
+  description: Eliminates need for harsh chemical cleaners and acidic solutions traditionally
+    used on terracotta
+- benefit: Water Conservation
+  description: Requires no water compared to traditional pressure washing methods
+    that use 200-500 liters per hour
+- benefit: Waste Reduction
+  description: Produces only minimal particulate waste that can be easily captured
+    with filtration systems
+outcomes:
+- metric: Removes 95-99% of surface contaminants while preserving original patina
+    and surface texture
+  result: Surface Cleanliness
+- metric: Less than 0.1mm material loss during cleaning process
+  result: Material Preservation
+- metric: 0.5-2 m²/hour cleaning rate depending on contamination type and severity
+  result: Processing Speed
+keywords: terracotta, ceramic, laser cleaning, architectural conservation, surface
+  contamination removal, cultural heritage, non-abrasive cleaning, pulsed laser, surface
+  restoration
+prompt_chain_verification:
+  ai_detection_config_loaded: true
+  author_id: 1
+  base_config_loaded: true
+  cultural_adaptation_applied: true
+  formatting_config_loaded: true
+  human_authenticity_focus: true
+  persona_config_loaded: true
+  persona_country: Taiwan
+  prompt_components_integrated: 4
+  verification_timestamp: '2025-09-16T21:56:24Z'
+category: ceramics
+properties:
+  chemicalFormula: Complex Silicate (Clay-based)
   density: 1.8-2.2 g/cm³
-densityMin:
-  densityMin: 1.8 g/cm³
-densityMax:
-  densityMax: 2.5 g/cm³
-densityPercentile:
-  densityPercentile: '42.5'
-meltingPoint:
-  meltingPoint: 1050-1150°C
-meltingMin:
-  meltingMin: 1000°C
-meltingMax:
-  meltingMax: 1800°C
-meltingPercentile:
-  meltingPercentile: '32.1'
-thermalConductivity:
-  thermalConductivity: 0.8-1.2 W/m·K
-thermalMin:
-  thermalMin: 0.5 W/m·K
-thermalMax:
-  thermalMax: 6.0 W/m·K
-thermalPercentile:
-  thermalPercentile: '18.5'
-tensileStrength:
-  tensileStrength: 10-25 MPa
-tensileMin:
-  tensileMin: 5 MPa
-tensileMax:
-  tensileMax: 50 MPa
-tensilePercentile:
-  tensilePercentile: '12.8'
-hardness:
+  densityMax: 2.8 g/cm³
+  densityMin: 1.2 g/cm³
+  densityPercentile: 50.0
+  fluenceRange: 0.5–2.5 J/cm²
   hardness: 4-6 Mohs
-hardnessMin:
-  hardnessMin: 3 Mohs
-hardnessMax:
-  hardnessMax: 9 Mohs
-hardnessPercentile:
-  hardnessPercentile: '35.0'
-youngsModulus:
-  youngsModulus: 10-25 GPa
-modulusMin:
-  modulusMin: 5 GPa
-modulusMax:
-  modulusMax: 70 GPa
-modulusPercentile:
-  modulusPercentile: '15.2'
-laserType:
-  laserType: Q-Switched Nd:YAG Laser
-chemicalFormula:
-- '"Clay (Al2O3·2SiO2·2H2O) 50-60%"'
-- '"Silica (SiO2) 20-30%"'
-- '"Feldspar 5-15%"'
-- '"Iron Oxide (Fe2O3) 5-8%"'
-- '"Historical Terracotta"'
-- '"Architectural Terracotta"'
-- '"Unglazed Ceramics"'
-regulatoryStandards: EN 15898, EN 17138, ICOMOS Guidelines
-alt:
-- --
-Material: Terracotta
-Component: frontmatter
-Generator: Z-Beam v2.1.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-File:
-- --
+  hardnessMax: 300 HV
+  hardnessMin: 20 HV
+  hardnessPercentile: 0.0
+  laserAbsorptionMax: 50 cm⁻¹
+  laserAbsorptionMin: 0.8 cm⁻¹
+  laserReflectivityMax: 35%
+  laserReflectivityMin: 8%
+  laserType: Pulsed Nd:YAG Laser
+  meltingMax: 2000°C
+  meltingMin: 1450°C
+  meltingPercentile: 0.0
+  meltingPoint: 1050-1150°C
+  modulusMax: 50 GPa
+  modulusMin: 15 GPa
+  modulusPercentile: 0.0
+  specificHeatMax: 1.1 J/g·K
+  specificHeatMin: 0.8 J/g·K
+  tensileMax: 50 MPa
+  tensileMin: 1 MPa
+  tensilePercentile: 28.6
+  tensileStrength: 10-20 MPa
+  thermalConductivity: 0.8-1.2 W/m·K
+  thermalDiffusivityMax: 1.5 mm²/s
+  thermalDiffusivityMin: 0.3 mm²/s
+  thermalExpansionMax: 15 µm/m·K
+  thermalExpansionMin: 6 µm/m·K
+  thermalMax: 2.0 W/m·K
+  thermalMin: 0.1 W/m·K
+  thermalPercentile: 47.4
+  wavelength: 1064nm
+  youngsModulus: 10-20 GPa
 ---
 
 # Version Information
-# Generated: 2025-09-10T18:24:23.402358
-# Material: Unknown
+# Generated: 2025-09-16T14:59:10.587369
+# Material: Terracotta
 # Component: frontmatter
-# Generator: Z-Beam v1.0.0
-# Component Version: 4.0.1
-# Author: "Yi-Chun Lin"
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
 # Platform: Darwin (3.12.4)
-# Operation: generation
+# File: content/components/frontmatter/terracotta-laser-cleaning.md
