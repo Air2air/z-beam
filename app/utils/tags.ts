@@ -27,7 +27,8 @@ const CACHE_EXPIRATION = 15 * 60 * 1000; // 15 minutes
 
 // Basic tag functions
 /**
- * Parse tags from content string (from tags markdown file)
+ * Parse tags from content string (from tags markdown file) or YAML data
+ * Supports both legacy comma-separated format and new YAML v2.0 structured format
  */
 export async function parseTagsFromContent(content: string): Promise<string[]> {
   if (!content) return [];
@@ -35,7 +36,50 @@ export async function parseTagsFromContent(content: string): Promise<string[]> {
   // Skip any comment lines
   const contentWithoutComments = content.replace(/<!--.*?-->/gs, '').trim();
   
-  // Split by commas and trim each tag
+  // Check if content looks like YAML (contains "tags:" or "categories:")
+  if (contentWithoutComments.includes('tags:') || contentWithoutComments.includes('categories:')) {
+    try {
+      // Try to extract tags from YAML-like content
+      const tagMatches = contentWithoutComments.match(/tags:\s*\n((?:\s*-\s*.+\n?)*)/);
+      if (tagMatches && tagMatches[1]) {
+        // Extract list items from YAML array
+        const yamlTags = tagMatches[1]
+          .split('\n')
+          .map(line => line.replace(/^\s*-\s*/, '').trim())
+          .filter(tag => tag.length > 0);
+        
+        if (yamlTags.length > 0) {
+          return yamlTags;
+        }
+      }
+      
+      // If no direct tags array, try to extract from categories
+      const categoryMatches = contentWithoutComments.match(/categories:\s*\n((?:\s+\w+:\s*\n(?:\s*-\s*.+\n?)*)*)/);
+      if (categoryMatches && categoryMatches[1]) {
+        const categorySection = categoryMatches[1];
+        const allCategoryTags: string[] = [];
+        
+        // Extract tags from each category
+        const categoryBlocks = categorySection.split(/\n\s+\w+:\s*\n/).filter(Boolean);
+        categoryBlocks.forEach(block => {
+          const tags = block
+            .split('\n')
+            .map(line => line.replace(/^\s*-\s*/, '').trim())
+            .filter(tag => tag.length > 0);
+          allCategoryTags.push(...tags);
+        });
+        
+        if (allCategoryTags.length > 0) {
+          return allCategoryTags;
+        }
+      }
+    } catch (error) {
+      // If YAML parsing fails, fall back to comma-separated parsing
+      console.warn('Failed to parse YAML content, falling back to comma-separated format:', error);
+    }
+  }
+  
+  // Legacy comma-separated format or fallback
   return contentWithoutComments
     .split(',')
     .map(tag => tag.trim())

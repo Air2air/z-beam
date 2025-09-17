@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
-  - passivation
+  - medical
   - decoating
+  - passivation
+  - electropolishing
+  - etching
   - restoration
-  - polishing
-material: "aluminum"
+material: "nickel"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - medical
   process:
-    - anodizing
-    - passivation
     - decoating
+    - passivation
+    - etching
     - restoration
-    - polishing
   author:
   other:
+    - electropolishing
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:02:45.006690"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "nickel"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:02:45.006712
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

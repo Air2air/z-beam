@@ -1,36 +1,36 @@
 tags:
   - aerospace
+  - medical
   - automotive
-  - electronics
-  - anodizing
-  - passivation
-  - decoating
+  - decontamination
   - restoration
+  - passivation
   - polishing
-material: "aluminum"
+  - texturing
+material: "cobalt"
 count: 8
 categories:
   industry:
     - aerospace
+    - medical
     - automotive
-    - electronics
   process:
-    - anodizing
-    - passivation
-    - decoating
+    - decontamination
     - restoration
+    - passivation
     - polishing
+    - texturing
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:00:15.607766"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "cobalt"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:00:15.607783
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

@@ -1,36 +1,36 @@
 tags:
   - aerospace
-  - automotive
+  - medical
   - electronics
-  - anodizing
   - passivation
-  - decoating
-  - restoration
+  - etching
   - polishing
-material: "aluminum"
+  - texturing
+  - coating-removal
+material: "tantalum"
 count: 8
 categories:
   industry:
     - aerospace
-    - automotive
+    - medical
     - electronics
   process:
-    - anodizing
     - passivation
-    - decoating
-    - restoration
+    - etching
     - polishing
+    - texturing
   author:
+    - coating-removal
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:05:54.442901"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "tantalum"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:05:54.442932
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

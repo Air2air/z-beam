@@ -1,25 +1,25 @@
 <!-- CONTENT START -->
 tags:
-  - automotive
+  - titanium
+  - ti
   - aerospace
-  - manufacturing
-  - passivation
+  - medical
   - etching
+  - passivation
+  - metal
   - expert
-  - industrial
-  - decontamination
 count: 8
 categories:
   industry:
-    - automotive
     - aerospace
-    - manufacturing
-    - industrial
+    - medical
   process:
-    - passivation
     - etching
-    - decontamination
+    - passivation
   other:
+    - titanium
+    - ti
+    - metal
     - expert
 metadata:
   format: "yaml"
@@ -27,13 +27,13 @@ metadata:
 <!-- CONTENT END -->
 
 <!-- METADATA START -->
-material: "steel"
+material: "titanium"
   author:
-  generated: "2025-09-17T11:51:10.900953"
+  generated: "2025-09-17T11:49:36.348446"
 
 ---
-Version Log - Generated: 2025-09-17T11:51:10.921555
-Material: "steel"
+Version Log - Generated: 2025-09-17T11:49:36.369446
+Material: "titanium"
 Component: tags
 Generator: Z-Beam v1.0.0
 Component Version: 1.0.0

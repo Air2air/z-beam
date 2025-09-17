@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
+  - medical
+  - decontamination
   - passivation
-  - decoating
-  - restoration
+  - etching
   - polishing
-material: "aluminum"
+  - texturing
+material: "vanadium"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - medical
   process:
-    - anodizing
+    - decontamination
     - passivation
-    - decoating
-    - restoration
+    - etching
     - polishing
+    - texturing
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:06:35.346665"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "vanadium"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:06:35.346697
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

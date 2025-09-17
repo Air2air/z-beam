@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
-  - passivation
+  - manufacturing
   - decoating
+  - passivation
   - restoration
   - polishing
-material: "aluminum"
+  - texturing
+material: "oak"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - manufacturing
   process:
-    - anodizing
-    - passivation
     - decoating
+    - passivation
     - restoration
     - polishing
+    - texturing
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:02:57.637511"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "oak"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:02:57.637541
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

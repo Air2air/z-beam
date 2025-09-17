@@ -1,25 +1,25 @@
 <!-- CONTENT START -->
 tags:
-  - automotive
-  - aerospace
-  - manufacturing
-  - passivation
+  - silicon
+  - si
+  - electronics
+  - semiconductors
+  - surface-treatment
   - etching
+  - passivation
   - expert
-  - industrial
-  - decontamination
 count: 8
 categories:
+    - silicon
+    - si
   industry:
-    - automotive
-    - aerospace
-    - manufacturing
-    - industrial
+    - electronics
   process:
-    - passivation
-    - etching
-    - decontamination
+    - surface-treatment
   other:
+    - semiconductors
+    - etching
+    - passivation
     - expert
 metadata:
   format: "yaml"
@@ -27,13 +27,14 @@ metadata:
 <!-- CONTENT END -->
 
 <!-- METADATA START -->
-material: "steel"
+material: "silicon"
+  material:
   author:
-  generated: "2025-09-17T11:51:10.900953"
+  generated: "2025-09-17T11:47:01.317544"
 
 ---
-Version Log - Generated: 2025-09-17T11:51:10.921555
-Material: "steel"
+Version Log - Generated: 2025-09-17T11:47:01.337849
+Material: "silicon"
 Component: tags
 Generator: Z-Beam v1.0.0
 Component Version: 1.0.0

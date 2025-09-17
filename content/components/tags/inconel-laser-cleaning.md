@@ -1,21 +1,21 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
+  - medical
+  - decontamination
   - passivation
   - decoating
   - restoration
   - polishing
-material: "aluminum"
+material: "inconel"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - medical
   process:
-    - anodizing
+    - decontamination
     - passivation
     - decoating
     - restoration
@@ -23,14 +23,14 @@ categories:
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:01:26.262780"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "inconel"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:01:26.262809
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

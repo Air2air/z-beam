@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
-  - passivation
-  - decoating
+  - medical
+  - decontamination
   - restoration
   - polishing
-material: "aluminum"
+  - texturing
+  - etching
+material: "onyx"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - medical
   process:
-    - anodizing
-    - passivation
-    - decoating
+    - decontamination
     - restoration
     - polishing
+    - texturing
+    - etching
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:03:03.540089"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "onyx"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:03:03.540107
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

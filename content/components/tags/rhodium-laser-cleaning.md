@@ -2,12 +2,12 @@ tags:
   - aerospace
   - automotive
   - electronics
-  - anodizing
-  - passivation
-  - decoating
+  - plating
+  - electroplating
+  - decontamination
   - restoration
   - polishing
-material: "aluminum"
+material: "rhodium"
 count: 8
 categories:
   industry:
@@ -15,22 +15,22 @@ categories:
     - automotive
     - electronics
   process:
-    - anodizing
-    - passivation
-    - decoating
+    - decontamination
     - restoration
     - polishing
   author:
   other:
+    - plating
+    - electroplating
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:04:30.579667"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "rhodium"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:04:30.579704
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

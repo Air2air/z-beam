@@ -1,36 +1,36 @@
 tags:
   - aerospace
-  - automotive
   - electronics
+  - medical
+  - jewelry
+  - plating
+  - electroplating
   - anodizing
   - passivation
-  - decoating
-  - restoration
-  - polishing
-material: "aluminum"
+material: "gold"
 count: 8
 categories:
   industry:
     - aerospace
-    - automotive
     - electronics
+    - medical
   process:
     - anodizing
     - passivation
-    - decoating
-    - restoration
-    - polishing
   author:
   other:
+    - jewelry
+    - plating
+    - electroplating
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:00:55.442004"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "gold"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:00:55.442032
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

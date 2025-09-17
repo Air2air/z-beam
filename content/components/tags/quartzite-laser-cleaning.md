@@ -2,12 +2,12 @@ tags:
   - aerospace
   - automotive
   - electronics
-  - anodizing
-  - passivation
+  - decontamination
   - decoating
   - restoration
-  - polishing
-material: "aluminum"
+  - etching
+  - passivation
+material: "quartzite"
 count: 8
 categories:
   industry:
@@ -15,22 +15,22 @@ categories:
     - automotive
     - electronics
   process:
-    - anodizing
-    - passivation
+    - decontamination
     - decoating
     - restoration
-    - polishing
+    - etching
+    - passivation
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:04:11.021234"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "quartzite"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:04:11.021268
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
-  - passivation
+  - manufacturing
   - decoating
+  - passivation
   - restoration
   - polishing
-material: "aluminum"
+  - etching
+material: "iron"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - manufacturing
   process:
-    - anodizing
-    - passivation
     - decoating
+    - passivation
     - restoration
     - polishing
+    - etching
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T11:57:19.913262"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "iron"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T11:57:19.913292
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

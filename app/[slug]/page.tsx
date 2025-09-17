@@ -94,6 +94,7 @@ export default async function ArticlePage({ params }: PageProps) {
     if (tagsContent && components.tags) {
       components.tags = {
         ...components.tags,
+        content: tagsContent, // Set the actual tags content from YAML file
         config: {
           ...(components.tags.config || {}),
           articleMatchCount: tagCounts

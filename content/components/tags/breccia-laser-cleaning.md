@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
-  - passivation
+  - manufacturing
   - decoating
+  - decontamination
   - restoration
-  - polishing
-material: "aluminum"
+  - etching
+  - passivation
+material: "breccia"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - manufacturing
   process:
-    - anodizing
-    - passivation
     - decoating
+    - decontamination
     - restoration
-    - polishing
+    - etching
+    - passivation
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T11:59:33.011168"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "breccia"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T11:59:33.011196
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

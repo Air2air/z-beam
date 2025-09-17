@@ -1,36 +1,36 @@
 tags:
   - aerospace
   - automotive
-  - electronics
-  - anodizing
-  - passivation
-  - decoating
+  - manufacturing
+  - decontamination
   - restoration
   - polishing
-material: "aluminum"
+  - texturing
+  - stone
+material: "limestone"
 count: 8
 categories:
   industry:
     - aerospace
     - automotive
-    - electronics
+    - manufacturing
   process:
-    - anodizing
-    - passivation
-    - decoating
+    - decontamination
     - restoration
     - polishing
+    - texturing
   author:
   other:
+    - stone
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:01:53.605621"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "limestone"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:01:53.605647
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

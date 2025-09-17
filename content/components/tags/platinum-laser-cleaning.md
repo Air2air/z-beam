@@ -1,36 +1,36 @@
 tags:
+  - electroplating
+  - precious-metal
   - aerospace
-  - automotive
+  - medical
   - electronics
-  - anodizing
   - passivation
-  - decoating
-  - restoration
+  - etching
   - polishing
-material: "aluminum"
+material: "platinum"
 count: 8
 categories:
   industry:
     - aerospace
-    - automotive
+    - medical
     - electronics
   process:
-    - anodizing
     - passivation
-    - decoating
-    - restoration
+    - etching
     - polishing
   author:
+    - precious-metal
   other:
+    - electroplating
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:03:30.164269"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "platinum"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:03:30.164315
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---

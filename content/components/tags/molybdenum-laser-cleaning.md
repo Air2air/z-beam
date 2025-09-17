@@ -2,12 +2,12 @@ tags:
   - aerospace
   - automotive
   - electronics
-  - anodizing
+  - decontamination
   - passivation
   - decoating
   - restoration
   - polishing
-material: "aluminum"
+material: "molybdenum"
 count: 8
 categories:
   industry:
@@ -15,7 +15,7 @@ categories:
     - automotive
     - electronics
   process:
-    - anodizing
+    - decontamination
     - passivation
     - decoating
     - restoration
@@ -23,14 +23,14 @@ categories:
   author:
   other:
 metadata:
-  generated: "2025-09-17T11:54:21.831172"
+  generated: "2025-09-17T12:02:31.181868"
   format: "yaml"
   version: "2.0"
 
 ---
-Material: "aluminum"
+Material: "molybdenum"
 Component: tags
-Generated: 2025-09-17T11:54:21.831196
+Generated: 2025-09-17T12:02:31.181885
 Generator: Z-Beam v1.0.0
 Format: YAML v2.0
 ---
