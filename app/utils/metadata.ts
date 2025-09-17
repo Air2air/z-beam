@@ -3,12 +3,12 @@
 type NextMetadata = any;
 
 import { ArticleMetadata } from '../../types/core';
-import { AuthorData } from '../../types/components/author';
+import { AuthorInfo } from '../../types/components/author';
 import { extractSafeValue, safeIncludes } from './stringHelpers';
 
 // Re-export centralized types
 export type { ArticleMetadata };
-export type { AuthorData as AuthorInfo } from '../../types/components/author';
+export type { AuthorInfo } from '../../types/components/author';
 
 export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   
@@ -29,11 +29,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const description = extractSafeValue(rawDescription);
   const subject = extractSafeValue(rawSubject);
   
-  // Helper function to safely extract author name
-  const getAuthorName = (author: string | AuthorData | undefined): string | undefined => {
+  // Simplified helper function to safely extract author name
+  const getAuthorName = (author: string | AuthorInfo | undefined): string | undefined => {
     if (!author) return undefined;
     if (typeof author === 'string') return author;
-    return author.author_name || author.name;
+    return author.name; // Standardized field name
   };
   
   // Use subject as title if available and title is not set

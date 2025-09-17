@@ -5,13 +5,10 @@ import { PropertiesTable } from "../PropertiesTable";
 import { Bullets } from "../Bullets/Bullets";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
-import { Author } from '../Author/Author';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
-import { Hero } from '../Hero/Hero';
-import { Title } from '../Title/Title';
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import { ArticleMetadata, BadgeSymbolData } from '../../../types/core';
-import { AuthorInfo } from '../../../types/components/author';
+import { ArticleHeader } from './ArticleHeader';
+import { AuthorInfo, ArticleMetadata, BadgeSymbolData } from '@/types';
 import { ComponentData } from '../../utils/contentAPI';
 import { extractSafeValue } from '../../utils/stringHelpers';
 
@@ -52,24 +49,14 @@ export function Layout({
         <div className="prose dark:prose-invert">
           <p>No content available for this page.</p>
           {!hideHeader && (
-            <Title>
-              {title || metadata?.subject || (slug ? `Article: ${slug}` : '')}
-            </Title>
+            <h1 className="text-2xl font-bold mb-4">
+              {String(title || metadata?.subject || (slug ? `Article: ${slug}` : 'No Title'))}
+            </h1>
           )}
         </div>
       </section>
     );
   }
-  
-  // Determine the title to display with improved hierarchy
-  const displayTitle = title || metadata?.title || metadata?.headline || metadata?.subject || (slug ? `Article: ${slug}` : '');
-  
-  // Determine the subtitle to display
-  const displaySubtitle = metadata?.title ? metadata?.headline : metadata?.description;
-  
-  // Extract material name for hero image (from subject or slug)
-  const materialName = extractSafeValue(metadata?.subject).toLowerCase() || 
-    (slug && extractSafeValue(slug).includes('-') ? extractSafeValue(slug).split('-')[0].toLowerCase() : extractSafeValue(slug || '').toLowerCase());
   
   // Generate JSON-LD if we have enough metadata
   const jsonLdData = metadata?.title && metadata?.description ? 
@@ -78,8 +65,13 @@ export function Layout({
       description: metadata.description,
       author: typeof metadata.author === 'string' 
         ? metadata.author 
-        : metadata.author?.author_name 
-          ? { name: metadata.author.author_name, ...metadata.author }
+        : metadata.author?.name 
+          ? {
+              name: metadata.author.name,
+              title: metadata.author.title,
+              country: metadata.author.country,
+              image: metadata.author.image
+            }
           : 'Z-Beam',
       datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
       dateModified: metadata.dateModified,
@@ -93,12 +85,12 @@ export function Layout({
       {/* Only include JSON-LD here, not other meta tags */}
       {jsonLdData && <JsonLD data={jsonLdData} />}
       
-      {/* Add Hero component (now just for background image) */}
-      {!hideHeader && materialName && (
-        <Hero
-          frontmatter={metadata}
-          theme="dark"
-          align="center"
+      {/* Simplified header with extracted component */}
+      {!hideHeader && (
+        <ArticleHeader 
+          metadata={metadata}
+          slug={slug}
+          title={title}
         />
       )}
 
@@ -113,37 +105,6 @@ export function Layout({
             return (
               <div key={type}>
                 <PropertiesTable content={content} config={config} />
-                {/* Add discrete Title component after PropertiesTable */}
-                {!hideHeader && displayTitle && (
-                  <Title subtitle={displaySubtitle}>
-                    {displayTitle}
-                  </Title>
-                )}
-                {/* Add Author component after Title - using YAML data only */}
-                                                {/* Add Author component after Title - using YAML authorInfo data only */}
-                {!hideHeader && metadata?.authorInfo && (
-                  (() => {
-                    const authorInfo = metadata.authorInfo as AuthorInfo;
-                    return (
-                      <Author 
-                        author={{
-                          author_name: authorInfo.name || 'Unknown Author',
-                          credentials: authorInfo.title,
-                          specialties: authorInfo.expertise ? [authorInfo.expertise] : authorInfo.profile?.expertiseAreas,
-                          author_country: authorInfo.country,
-                          avatar: authorInfo.image,
-                          bio: authorInfo.profile?.description,
-                          title: authorInfo.title
-                        }}
-                        showAvatar={true}
-                        showCredentials={true}
-                        showCountry={true}
-                        showSpecialties={true}
-                        className="mt-2 mb-4"
-                      />
-                    );
-                  })()
-                )}
               </div>
             );
           case 'badgesymbol':

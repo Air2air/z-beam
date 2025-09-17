@@ -1,6 +1,7 @@
 // app/components/SearchResults/SearchResultsGrid.tsx
 import { Card } from "../Card/Card";
-import { getBadgeFromItem, getChemicalProperties } from "../../utils/searchUtils";
+import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
+import { slugToDisplayName } from "../../utils/formatting";
 import { SearchResultItem } from "@/types/core";
 
 interface SearchResultsGridProps {
@@ -46,54 +47,7 @@ export function SearchResultsGrid({
         let cardName = item.name || "";
         
         if (!cardName && item.slug) {
-          // Handle multi-word material names in slugs like "silicon-carbide-laser-cleaning"
-          // or "silicon-nitride-laser-cleaning"
-          const slugParts = item.slug.split('-');
-          
-          // Common multi-word material patterns
-          const multiWordMaterials = [
-            {pattern: ["silicon", "carbide"], name: "Silicon Carbide"},
-            {pattern: ["silicon", "nitride"], name: "Silicon Nitride"},
-            {pattern: ["aluminum", "oxide"], name: "Aluminum Oxide"},
-            {pattern: ["zirconium", "oxide"], name: "Zirconium Oxide"},
-            {pattern: ["carbon", "fiber"], name: "Carbon Fiber"},
-            {pattern: ["stainless", "steel"], name: "Stainless Steel"},
-          ];
-          
-          // Check for known multi-word materials
-          let foundMultiWord = false;
-          for (const material of multiWordMaterials) {
-            if (
-              slugParts.length >= material.pattern.length &&
-              material.pattern.every((part, i) => slugParts[i] === part)
-            ) {
-              cardName = material.name;
-              foundMultiWord = true;
-              break;
-            }
-          }
-          
-          // If no known multi-word pattern, use smart extraction
-          if (!foundMultiWord) {
-            // If the slug has "laser" or "cleaning", extract everything before that
-            const laserIndex = slugParts.indexOf("laser");
-            const cleaningIndex = slugParts.indexOf("cleaning");
-            
-            let endIndex = -1;
-            if (laserIndex > 0) endIndex = laserIndex;
-            else if (cleaningIndex > 0) endIndex = cleaningIndex;
-            
-            if (endIndex > 0) {
-              // Take all parts before "laser" or "cleaning" and capitalize them
-              cardName = slugParts
-                .slice(0, endIndex)
-                .map((part: string) => part.charAt(0).toUpperCase() + part.slice(1))
-                .join(" ");
-            } else {
-              // Use first part capitalized
-              cardName = slugParts[0].charAt(0).toUpperCase() + slugParts[0].slice(1);
-            }
-          }
+          cardName = slugToDisplayName(item.slug);
         }
         
         return (

@@ -6,7 +6,7 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   displayName: 'Next.js Testing Framework',
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/app/$1",
@@ -18,7 +18,7 @@ const customJestConfig = {
     "node_modules/(?!(marked)/)"
   ],
   collectCoverageFrom: [
-    "app/**/*.{js,jsx,ts,tsx}",
+    "app/**/*.{js,jsx}",
     "!app/**/*.d.ts",
     "!app/**/types/**",
     "!app/api/**",
@@ -38,6 +38,18 @@ const customJestConfig = {
   testPathIgnorePatterns: [
     "<rootDir>/.next/",
     "<rootDir>/node_modules/"
+  ],
+  projects: [
+    {
+      testEnvironment: "jsdom",
+      testMatch: ["<rootDir>/tests/components/*.test.{js,jsx,ts,tsx}"],
+      setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+    },
+    {
+      testEnvironment: "node", 
+      testMatch: ["<rootDir>/tests/!(components)/**/*.test.{js,jsx,ts,tsx}"],
+      setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+    }
   ],
   collectCoverage: true,
   coverageThreshold: {

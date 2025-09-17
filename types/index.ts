@@ -1,10 +1,54 @@
 // types/index.ts
-// Central type exports - single source of truth
+// CENTRALIZED TYPE EXPORTS - Single Source of Truth
 
-// Core types (new standardized)
-export * from './core';
+// Primary exports from centralized types (these take precedence)
+export type {
+  // Author types (YAML-based)
+  AuthorInfo,
+  AuthorProps,
+  
+  // Core content types
+  ArticleMetadata,
+  ComponentData,
+  LayoutProps,
+  
+  // UI component types
+  ComponentVariant,
+  ComponentSize,
+  BadgeData,
+  BadgeVariant,
+  BadgeColor,
+  
+  // Base component props
+  BaseInteractiveProps,
+  BaseContentProps,
+  BaseImageProps,
+  
+  // Page and API types
+  PageProps,
+  ApiResponse,
+  SearchResultItem,
+  
+  // Material types
+  MaterialProperties,
+  CompositionData,
+  
+  // Utility types
+  ContentItem,
+  BreadcrumbItem,
+  FadeInProps,
+  
+  // Legacy compatibility
+  Metadata,
+  Article,
+  Author,
+  Badge,
+  MaterialPost,
+  PageParams,
+  SearchParams
+} from './centralized';
 
-// Component types - explicit exports to avoid conflicts
+// Component types - specific exports to avoid conflicts
 export type {
   CardProps,
   CardListItem,
@@ -17,68 +61,22 @@ export type {
   MaterialBadgeUtils,
   ChemicalProperties,
   BadgeLoaderResult,
-  LayoutProps,
   LayoutComponentType
 } from './components';
 
-// API types - explicit exports to avoid conflicts  
+// API types (prefixed to avoid conflicts)
 export type {
-  ApiResponse,
+  ApiResponse as CoreApiResponse,
   SearchApiResponse,
   MaterialsApiResponse,
   MaterialItem,
   DebugApiResponse,
-  DebugItem
+  DebugItem,
+  SearchResultItem as ApiSearchResultItem
 } from './api';
 
-// API SearchResultItem as distinct from core
-export type { SearchResultItem as ApiSearchResultItem } from './api';
-
-// Legacy types for backward compatibility during migration
-export interface LegacyBadge {
-  variant?: 'outline' | 'subtle' | 'solid';
-  color?: 'blue' | 'green' | 'purple' | 'orange';
-  size?: 'small' | 'medium' | 'large';
-}
-
-export interface LegacyBadgeData {
-  text?: string;
-  variant?: LegacyBadge['variant'];
-  color?: LegacyBadge['color'];
-}
-
-// Legacy ContentItem interface
-export interface ContentItem {
-  id?: string;
-  type?: string;
-  slug?: string;
-  title?: string;
-  description?: string;
-  category?: string;
-  tags?: string[];
-  metadata?: Record<string, unknown>;
-}
-
-// Legacy types - maintain backward compatibility
-export type PageParams = { slug: string };
-export type SearchParams = { [key: string]: string | string[] | undefined };
-
-// Convenience re-exports with clear naming
+// Core types (legacy, use sparingly)
 export type {
-  // Core types with clear prefixes
-  BadgeData as CoreBadgeData,
-  ArticleMetadata as CoreArticleMetadata,
-  MaterialType as CoreMaterialType,
-  SearchResultItem as CoreSearchResultItem
+  MaterialType,
+  BadgeSymbolData
 } from './core';
-
-export type {
-  // Component types
-  CardProps as ComponentCardProps,
-  BadgeSymbolProps as ComponentBadgeSymbolProps
-} from './components';
-
-export type {
-  // API types
-  ApiResponse as CoreApiResponse
-} from './api';

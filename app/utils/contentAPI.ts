@@ -32,6 +32,56 @@ const CONTENT_DIRS = {
   pages: path.join(process.cwd(), 'content', 'components', 'pages'),
 } as const;
 
+/**
+ * Generic YAML file loader for all component types
+ * Consolidates repetitive YAML loading logic
+ */
+async function tryYamlFile(
+  type: string, 
+  dir: string, 
+  slug: string
+): Promise<{ filePath: string; isYamlFile: boolean } | null> {
+  // Check standard YAML location first
+  const yamlPath = path.join(dir, `${slug}.yaml`);
+  if (existsSync(yamlPath)) {
+    return { filePath: yamlPath, isYamlFile: true };
+  }
+
+  // Check special directories for certain types
+  if (type === 'jsonld') {
+    const yamlDir = path.join(process.cwd(), 'content', 'components', 'jsonld-yaml');
+    const specialYamlPath = path.join(yamlDir, `${slug}.yaml`);
+    if (existsSync(specialYamlPath)) {
+      return { filePath: specialYamlPath, isYamlFile: true };
+    }
+  }
+
+  if (type === 'metatags') {
+    const yamlDir = path.join(process.cwd(), 'content', 'components', 'metatags-yaml');
+    const specialYamlPath = path.join(yamlDir, `${slug}.yaml`);
+    if (existsSync(specialYamlPath)) {
+      return { filePath: specialYamlPath, isYamlFile: true };
+    }
+  }
+
+  // Try with parentheses stripped for all types
+  try {
+    const files = await fs.readdir(dir);
+    const matchingYamlFile = files.find(file => 
+      file.endsWith('.yaml') && 
+      stripParenthesesFromSlug(file.replace('.yaml', '')) === slug
+    );
+    
+    if (matchingYamlFile) {
+      return { filePath: path.join(dir, matchingYamlFile), isYamlFile: true };
+    }
+  } catch (error) {
+    // Directory doesn't exist or can't be read, continue
+  }
+
+  return null;
+}
+
 export interface ComponentData {
   content: string;
   config?: Record<string, unknown>;
@@ -101,73 +151,12 @@ export const loadComponent = cache(async (
       }
     }
     
-    // For table component, also try .yaml files if .md not found
-    if (!existsSync(filePath) && type === 'table') {
-      const yamlPath = path.join(dir, `${slug}.yaml`);
-      if (existsSync(yamlPath)) {
-        filePath = yamlPath;
-        isYamlFile = true;
-      } else {
-        // Try with parentheses for yaml files too
-        try {
-          const files = await fs.readdir(dir);
-          const matchingYamlFile = files.find(file => 
-            file.endsWith('.yaml') && 
-            stripParenthesesFromSlug(file.replace('.yaml', '')) === slug
-          );
-          
-          if (matchingYamlFile) {
-            filePath = path.join(dir, matchingYamlFile);
-            isYamlFile = true;
-          }
-        } catch (error) {
-          // Continue with null result
-        }
-      }
-    }
-
-    // For jsonld component, try YAML files in jsonld-yaml directory
-    if (!existsSync(filePath) && type === 'jsonld') {
-      const yamlDir = path.join(process.cwd(), 'content', 'components', 'jsonld-yaml');
-      const yamlPath = path.join(yamlDir, `${slug}.yaml`);
-      if (existsSync(yamlPath)) {
-        filePath = yamlPath;
-        isYamlFile = true;
-      }
-    }
-
-    // For metatags component, try YAML files in metatags-yaml directory
-    if (!existsSync(filePath) && type === 'metatags') {
-      const yamlDir = path.join(process.cwd(), 'content', 'components', 'metatags-yaml');
-      const yamlPath = path.join(yamlDir, `${slug}.yaml`);
-      if (existsSync(yamlPath)) {
-        filePath = yamlPath;
-        isYamlFile = true;
-      }
-    }
-
-    // For author component, also try .yaml files if .md not found
-    if (!existsSync(filePath) && type === 'author') {
-      const yamlPath = path.join(dir, `${slug}.yaml`);
-      if (existsSync(yamlPath)) {
-        filePath = yamlPath;
-        isYamlFile = true;
-      } else {
-        // Try with parentheses for yaml files too
-        try {
-          const files = await fs.readdir(dir);
-          const matchingYamlFile = files.find(file => 
-            file.endsWith('.yaml') && 
-            stripParenthesesFromSlug(file.replace('.yaml', '')) === slug
-          );
-          
-          if (matchingYamlFile) {
-            filePath = path.join(dir, matchingYamlFile);
-            isYamlFile = true;
-          }
-        } catch (error) {
-          // Continue with null result
-        }
+    // Try YAML files if markdown not found - generic approach for all component types
+    if (!existsSync(filePath)) {
+      const yamlResult = await tryYamlFile(type, dir, slug);
+      if (yamlResult) {
+        filePath = yamlResult.filePath;
+        isYamlFile = yamlResult.isYamlFile;
       }
     }
     
@@ -517,9 +506,8 @@ export const loadAllArticles = cache(async (): Promise<Article[]> => {
   }, [], 'loadAllArticles');
 });
 
-// Export legacy functions for backward compatibility
+// Export primary functions (no more duplicates)
 export const getAllArticles = loadAllArticles;
-// Backward compatibility aliases
 export const getArticleBySlug = loadArticle;
 
 /**

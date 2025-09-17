@@ -7,14 +7,13 @@ export interface JsonLdProps {
 
 export interface PersonSchema {
   name: string;
-  author_name?: string;
   url?: string;
   image?: string;
   description?: string;
   jobTitle?: string;
   worksFor?: string;
-  credentials?: string;
-  author_country?: string;
+  title?: string;
+  country?: string;
   [key: string]: unknown;
 }
 
@@ -184,9 +183,9 @@ const getAuthorObject = (author: string | PersonSchema | undefined) => {
   
   return {
     '@type': 'Person',
-    name: author.author_name || author.name,
-    ...(author.credentials && { description: author.credentials }),
-    ...(author.author_country && { nationality: author.author_country }),
+    name: author.name,
+    ...(author.title && { description: author.title }),
+    ...(author.country && { nationality: author.country }),
     ...(author.url && { url: author.url })
   };
 };

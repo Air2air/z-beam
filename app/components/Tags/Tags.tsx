@@ -1,7 +1,9 @@
 // app/components/Tags/Tags.tsx
 "use client";
 
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
+import { capitalizeWords } from '../../utils/formatting';
 import { useRouter } from "next/navigation";
 
 interface TagsProps {
@@ -52,12 +54,7 @@ export function Tags({ content, config }: TagsProps) {
   
   // Convert string to title case, replacing hyphens with spaces for display
   const toTitleCase = (str: string): string => {
-    return str
-      .replace(/-/g, ' ')  // Replace hyphens with spaces
-      .toLowerCase()
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(str);
   };
   
   const allTags = parseTags(content);

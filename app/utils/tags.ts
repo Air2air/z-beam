@@ -220,9 +220,6 @@ export const getAllTags = cache(async (): Promise<string[]> => {
   return _tagsCache?.allTags || [];
 });
 
-// For backward compatibility
-export const getAllUniqueTags = getAllTags;
-
 /**
  * Get all articles with their tags
  */
@@ -314,61 +311,5 @@ export const getPopularTags = cache(async (limit: number = 10): Promise<string[]
   return tagCountPairs.slice(0, limit).map(pair => pair[0]);
 });
 
-// ===============================
-// BACKWARD COMPATIBILITY
-// ===============================
-
-// DEPRECATED aliases with warnings - these should be avoided in new code
-export const getAllTags_DEPRECATED = cache(async () => {
-  logger.warn('getAllTags_DEPRECATED is deprecated. Use getAllTags instead.');
-  return await getAllTags();
-});
-
-export const getAllTagsWithCounts_DEPRECATED = cache(async () => {
-  logger.warn('getAllTagsWithCounts_DEPRECATED is deprecated. Use getTagsWithCounts instead.');
-  return await getTagsWithCounts();
-});
-
-export const filterArticlesByTag_DEPRECATED = async (
-  articles: Article[], 
-  tag: string
-): Promise<Article[]> => {
-  logger.warn('filterArticlesByTag_DEPRECATED is deprecated. Use filterArticlesByTag instead.');
-  return await filterArticlesByTag(articles, tag);
-};
-
-export const getArticlesWithTags_DEPRECATED = cache(async (): Promise<Article[]> => {
-  logger.warn('getArticlesWithTags_DEPRECATED is deprecated. Use getEnrichedArticles instead.');
-  return await getEnrichedArticles();
-});
-
-export const getPopularTags_DEPRECATED = cache(async (limit: number = 10): Promise<string[]> => {
-  logger.warn('getPopularTags_DEPRECATED is deprecated. Use getPopularTags instead.');
-  return await getPopularTags(limit);
-});
-
-/**
- * A helper function to log the migration guide
- */
-export async function logTagMigrationGuide(): Promise<void> {
-  const migrationGuide = `
-MIGRATION GUIDE: Tag System Update
-
-The tag system has been updated to a more efficient implementation.
-All tag-related functionality is now centralized in the ./tags.ts file.
-
-Please update your imports to use the new tag system:
-
-OLD:
-import { getAllTags } from './tagUtils';         // OLD
-import { filterArticlesByTag } from './articleTagsUtils';  // OLD
-
-NEW:
-import { getAllTags, filterArticlesByTag } from './tags';
-
-For backward compatibility, you can also import from tagIntegration.ts:
-import { getAllTags, filterArticlesByTag } from './tagIntegration';
-`;
-  
-  logger.warn(migrationGuide);
-}
+// For backward compatibility (no deprecation warnings needed)
+export const getAllUniqueTags = getAllTags;

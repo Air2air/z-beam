@@ -120,3 +120,65 @@ export function urlEncodeParentheses(url: string): string {
   if (!url) return url;
   return url.replace(/\(/g, '%28').replace(/\)/g, '%29');
 }
+
+/**
+ * Capitalizes first letter of each word (Title Case)
+ * Handles both space-separated and dash-separated words
+ */
+export function capitalizeWords(str: string): string {
+  if (!str) return str;
+  return str
+    .split(/[\s-]+/)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
+/**
+ * Creates a display name from a slug
+ * Handles multi-word material names like "silicon-carbide" -> "Silicon Carbide"
+ */
+export function slugToDisplayName(slug: string): string {
+  if (!slug) return '';
+  
+  // Handle multi-word material names in slugs like "silicon-carbide-laser-cleaning"
+  const slugParts = slug.split('-');
+  
+  // Common multi-word material patterns
+  const multiWordMaterials = [
+    {pattern: ['silicon', 'carbide'], name: 'Silicon Carbide'},
+    {pattern: ['silicon', 'nitride'], name: 'Silicon Nitride'},
+    {pattern: ['aluminum', 'oxide'], name: 'Aluminum Oxide'},
+    {pattern: ['zirconium', 'oxide'], name: 'Zirconium Oxide'},
+    {pattern: ['carbon', 'fiber'], name: 'Carbon Fiber'},
+    {pattern: ['stainless', 'steel'], name: 'Stainless Steel'},
+  ];
+  
+  // Check for known multi-word materials
+  for (const material of multiWordMaterials) {
+    if (
+      slugParts.length >= material.pattern.length &&
+      material.pattern.every((part, i) => slugParts[i] === part)
+    ) {
+      return material.name;
+    }
+  }
+  
+  // If the slug has "laser" or "cleaning", extract everything before that
+  const laserIndex = slugParts.indexOf('laser');
+  const cleaningIndex = slugParts.indexOf('cleaning');
+  
+  let endIndex = -1;
+  if (laserIndex > 0) endIndex = laserIndex;
+  else if (cleaningIndex > 0) endIndex = cleaningIndex;
+  
+  if (endIndex > 0) {
+    // Take all parts before "laser" or "cleaning" and capitalize them
+    return slugParts
+      .slice(0, endIndex)
+      .map(part => capitalizeFirst(part))
+      .join(' ');
+  }
+  
+  // Use capitalizeWords for general case
+  return capitalizeWords(slug.replace(/-/g, ' '));
+}

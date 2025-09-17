@@ -1,7 +1,7 @@
 // app/components/Author/Author.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { AuthorData, AuthorProps } from "@/types/components/author";
+import { AuthorInfo, AuthorProps } from "@/types";
 
 export function Author({
   author,
@@ -14,16 +14,12 @@ export function Author({
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
-  // Get author name from either field - YAML data should be clean
-  const authorName = author.author_name || author.name || "";
-
-  // Get avatar from either field - YAML data should be clean
-  const authorImage = author.avatar || author.image || "";
-
-  // Get other fields - YAML data should be clean
-  const credentials = author.credentials || "";
-  const country = author.author_country || "";
-  const field = author.specialties?.[0] || "";
+  // Simplified field access - no more dual compatibility
+  const authorName = author.name || "";
+  const authorImage = author.image || "";
+  const credentials = author.title || "";
+  const country = author.country || "";
+  const field = author.expertise || "";
 
   // Generate URL-encoded author name for tag search
   const encodedAuthorName = encodeURIComponent(authorName || "");

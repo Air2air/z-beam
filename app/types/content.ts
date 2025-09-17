@@ -1,25 +1,9 @@
 // app/types/content.ts
 // Unified content types for the Z-Beam website
 
-export interface ArticleMetadata {
-  title: string;
-  description?: string;
-  image?: string;
-  thumbnail?: string;
-  articleType?: string;
-  category?: string;
-  date?: string;
-  // Use specific types instead of any
-  author?: string;
-  tags?: string[];
-  keywords?: string[];
-  showBadge?: boolean;
-  badge?: {
-    text?: string;
-    variant?: string;
-    color?: string;
-  };
-}
+// Use centralized ArticleMetadata instead of local one
+import type { ArticleMetadata } from '../../types/centralized';
+export type { ArticleMetadata } from '../../types/centralized';
 
 export interface ArticlePost {
   metadata: ArticleMetadata;
@@ -32,8 +16,8 @@ export interface ArticlePost {
 export interface MaterialMetadata extends ArticleMetadata {
   articleType: "material";
   nameShort: string;
-  atomicNumber: number | null;
-  chemicalSymbol: string | null;
+  atomicNumber?: number;
+  chemicalSymbol?: string;
   materialType: string;
   metalClass: string;
   crystalStructure: string;

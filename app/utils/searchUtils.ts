@@ -1,5 +1,7 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData as CoreBadgeData } from '../../types/core';
+import { MaterialType, BadgeData } from '../../types/core';
+import { capitalizeWords } from './formatting';
+
 export function getMaterialColor(materialType?: string | MaterialType): string {
   if (!materialType) return "blue";
   
@@ -50,12 +52,8 @@ export function normalizeString(str?: string): string {
 export function normalizeTag(tag: string): string {
   if (!tag) return '';
   
-  // Normalize capitalization - capitalize first letter of each word
-  return tag
-    .trim()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
+  // Use centralized capitalizeWords function
+  return capitalizeWords(tag);
 }
 
 export function getDisplayName(item: {
@@ -72,18 +70,12 @@ export function getDisplayName(item: {
   
   // If no name or title, try to create one from the slug
   if (item.slug) {
-    return item.slug
-      .split('-')
-      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(item.slug.replace(/-/g, ' '));
   }
   
   // Last resort
   return "Unnamed Item";
 }
-
-// Legacy type alias for backward compatibility
-export type BadgeData = CoreBadgeData;
 
 export interface ChemicalProperties {
   symbol?: string;

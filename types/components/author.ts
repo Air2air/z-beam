@@ -2,16 +2,20 @@
 // Simplified author component types
 
 /**
- * YAML Author Info structure as used in content files
+ * Unified Author Info structure - single source of truth
+ * Standardized field names to eliminate redundancy
  */
 export interface AuthorInfo {
-  id: number;
-  name: string;
-  title?: string;
-  expertise?: string;
-  country?: string;
-  sex?: 'f' | 'm' | 'other';
-  image?: string;
+  id?: number;              // Optional ID for YAML references
+  name: string;             // Standardized: was author_name/name
+  title?: string;           // Standardized: was credentials/title
+  expertise?: string;       // Standardized: was specialties[0]/expertise
+  country?: string;         // Standardized: was author_country/country
+  sex?: 'f' | 'm' | 'other';// Gender for profile completeness
+  image?: string;           // Standardized: was avatar/image
+  bio?: string;            // Author biography
+  email?: string;          // Contact email
+  linkedin?: string;       // LinkedIn profile URL
   profile?: {
     description?: string;
     expertiseAreas?: string[];
@@ -20,35 +24,11 @@ export interface AuthorInfo {
 }
 
 /**
- * Simplified author data interface
- * Based on the consistent format used in content files
- */
-export interface AuthorData {
-  // Required field
-  author_name: string;
-  
-  // Optional fields from content files
-  credentials?: string;        // e.g., "Ph.D."
-  specialties?: string[];      // e.g., ["Materials Science and Laser Technology"]
-  author_country?: string;     // e.g., "Taiwan"
-  avatar?: string;            // e.g., "/images/author/yi-chun-lin.jpg"
-  
-  // Additional optional fields for enhanced author display
-  title?: string;             // Author title/position
-  bio?: string;              // Author biography
-  email?: string;            // Contact email
-  linkedin?: string;         // LinkedIn profile URL
-  
-  // Legacy compatibility (for existing code)
-  name?: string;              // Alternative to author_name
-  image?: string;             // Alternative to avatar
-}
-
-/**
  * Author component props interface
+ * Now uses simplified AuthorInfo structure
  */
 export interface AuthorProps {
-  author: AuthorData;
+  author: AuthorInfo;
   showAvatar?: boolean;
   showCredentials?: boolean;
   showCountry?: boolean;

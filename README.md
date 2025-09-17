@@ -185,7 +185,40 @@ Utilities are organized in `/app/utils/`:
 
 All legacy documentation is archived in `docs/archived/` for reference only. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the only authoritative sources.
 
-## 9. YAML Processing
+## 9. Author Architecture (v2.0)
+
+Z-Beam uses a simplified, centralized author architecture with global rendering and YAML-based content management.
+
+### Key Features
+- **Global Author Rendering**: Authors appear consistently in the header section of all pages
+- **YAML-Based Content**: Author data stored in structured YAML files
+- **Centralized Types**: Single source of truth for TypeScript definitions
+- **Clean Separation**: Author logic separated from property components
+
+### Author System Structure
+```
+content/components/author/          # Author YAML files
+├── ikmanda-roswati.yaml           # Author profiles
+└── todd-dunning.yaml              # With structured data
+
+types/centralized.ts               # Type definitions
+app/components/Layout/Layout.tsx   # Global author rendering
+app/components/Author/Author.tsx   # Author display component
+app/utils/contentAPI.ts           # YAML processing
+```
+
+### Architecture Documentation
+- **Architecture Guide**: [`docs/AUTHOR_ARCHITECTURE.md`](./docs/AUTHOR_ARCHITECTURE.md)
+- **Technical Implementation**: [`docs/TECHNICAL_IMPLEMENTATION.md`](./docs/TECHNICAL_IMPLEMENTATION.md)
+- **Migration Guide**: [`docs/MIGRATION_GUIDE.md`](./docs/MIGRATION_GUIDE.md)
+
+### Verified Working State
+- ✅ **Aluminum pages**: Ikmanda Roswati (Indonesia, Ph.D.)
+- ✅ **Copper pages**: Todd Dunning (United States, MA)
+- ✅ **Clean component separation**: No embedded author logic in property tables
+- ✅ **Global consistency**: Uniform author rendering across all pages
+
+## 10. YAML Processing
 
 This project includes a comprehensive YAML processor system located in the `yaml-processor/` directory that automatically detects and fixes YAML issues.
 
@@ -233,7 +266,7 @@ For detailed documentation, see `yaml-processor/README.md`.
 
 ---
 
-## 10. Quick Start
+## 11. Quick Start
 
 ```bash
 # Fix any YAML issues first

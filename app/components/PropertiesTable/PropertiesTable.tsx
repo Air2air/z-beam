@@ -1,5 +1,6 @@
 // app/components/PropertiesTable/PropertiesTable.tsx
 import React from 'react';
+import { toSentenceCase } from '../../utils/formatting';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import "./styles.css";
 
@@ -32,7 +33,7 @@ function transformTableStructure(htmlContent: string): string {
     const titleCaseProperties = ["Material Symbol", "Material Type", "Category"];
     
     if (titleCaseProperties.includes(key)) {
-      return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+      return toSentenceCase(value);
     }
     
     return value;

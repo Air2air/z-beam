@@ -4,6 +4,7 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { BreadcrumbItem } from "@/types/core";
+import { capitalizeWords } from "../../utils/formatting";
 
 export function Breadcrumbs() {
   const pathname = usePathname();
@@ -70,11 +71,7 @@ export function Breadcrumbs() {
     }
 
     // Generate the label (e.g., "my-material" -> "My Material")
-    const label = segment
-      .replace(/-/g, " ")
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+    const label = capitalizeWords(segment);
 
     allBreadcrumbs.push({ href: currentPathAccumulator, label });
   });

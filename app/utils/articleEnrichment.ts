@@ -1,4 +1,5 @@
 import { Article, SearchableArticle } from '../../types/core';
+import { slugToDisplayName, capitalizeFirst } from './formatting';
 
 // Define patterns for tag inference
 const TAG_PATTERNS = [
@@ -74,53 +75,7 @@ export function enrichArticle(article: Article): SearchableArticle {
   
   // If no name is available yet, try to extract it from the slug
   if (!enriched.name && enriched.slug) {
-    // Handle multi-word material names in slugs like "silicon-carbide-laser-cleaning"
-    const slugParts = enriched.slug.split('-');
-    
-    // Common multi-word material patterns
-    const multiWordMaterials = [
-      {pattern: ["silicon", "carbide"], name: "Silicon Carbide"},
-      {pattern: ["silicon", "nitride"], name: "Silicon Nitride"},
-      {pattern: ["aluminum", "oxide"], name: "Aluminum Oxide"},
-      {pattern: ["zirconium", "oxide"], name: "Zirconium Oxide"},
-      {pattern: ["carbon", "fiber"], name: "Carbon Fiber"},
-      {pattern: ["stainless", "steel"], name: "Stainless Steel"},
-    ];
-    
-    // Check for known multi-word materials
-    let foundMultiWord = false;
-    for (const material of multiWordMaterials) {
-      if (
-        slugParts.length >= material.pattern.length &&
-        material.pattern.every((part, i) => slugParts[i] === part)
-      ) {
-        enriched.name = material.name;
-        foundMultiWord = true;
-        break;
-      }
-    }
-    
-    // If no known multi-word pattern, use smart extraction
-    if (!foundMultiWord) {
-      // If the slug has "laser" or "cleaning", extract everything before that
-      const laserIndex = slugParts.indexOf("laser");
-      const cleaningIndex = slugParts.indexOf("cleaning");
-      
-      let endIndex = -1;
-      if (laserIndex > 0) endIndex = laserIndex;
-      else if (cleaningIndex > 0) endIndex = cleaningIndex;
-      
-      if (endIndex > 0) {
-        // Take all parts before "laser" or "cleaning" and capitalize them
-        enriched.name = slugParts
-          .slice(0, endIndex)
-          .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-          .join(" ");
-      } else {
-        // Use first part capitalized
-        enriched.name = slugParts[0].charAt(0).toUpperCase() + slugParts[0].slice(1);
-      }
-    }
+    enriched.name = slugToDisplayName(enriched.slug);
   }
   
   // 1. EXTRACT TAGS FROM FRONTMATTER
@@ -144,8 +99,7 @@ export function enrichArticle(article: Article): SearchableArticle {
       enriched.tags.push(enriched.frontmatter.category);
       // Also add capitalized version for consistency
       if (typeof enriched.frontmatter.category === 'string') {
-        const capitalizedCategory = enriched.frontmatter.category.charAt(0).toUpperCase() + 
-                                    enriched.frontmatter.category.slice(1);
+        const capitalizedCategory = capitalizeFirst(enriched.frontmatter.category);
         enriched.tags.push(capitalizedCategory);
       }
     }

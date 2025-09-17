@@ -1,10 +1,10 @@
 // app/utils/authorParser.ts
 // Simplified utility for parsing author content from markdown
 
-import { AuthorData } from '../../types/components/author';
+import { AuthorInfo } from '../../types/components/author';
 
 // Re-export for convenience
-export type { AuthorData } from '../../types/components/author';
+export type { AuthorInfo } from '../../types/components/author';
 
 /**
  * Parse author information from markdown content
@@ -15,7 +15,7 @@ export type { AuthorData } from '../../types/components/author';
  * Line 4: Country
  * Line 5: Avatar path
  */
-export function parseAuthorContent(content: string): AuthorData | null {
+export function parseAuthorContent(content: string): AuthorInfo | null {
   if (!content?.trim()) return null;
   
   try {
@@ -87,25 +87,25 @@ export function parseAuthorContent(content: string): AuthorData | null {
     
     if (!name) return null;
     
-    const authorData: AuthorData = {
-      author_name: name,
+    const authorData: AuthorInfo = {
+      name: name, // Standardized field name
     };
     
     // Add optional fields if they exist and are meaningful
     if (credentials && credentials !== name) {
-      authorData.credentials = credentials;
+      authorData.title = credentials; // Standardized field name
     }
     
     if (specialization && specialization !== credentials && specialization !== name) {
-      authorData.specialties = [specialization];
+      authorData.expertise = specialization; // Standardized field name
     }
     
     if (country && country !== specialization && !country.startsWith('/images/')) {
-      authorData.author_country = country;
+      authorData.country = country; // Standardized field name
     }
     
     if (avatar && avatar.startsWith('/images/')) {
-      authorData.avatar = avatar;
+      authorData.image = avatar; // Standardized field name
     }
     
     return authorData;
@@ -118,6 +118,6 @@ export function parseAuthorContent(content: string): AuthorData | null {
 /**
  * Validate that author data has required fields
  */
-export function validateAuthorData(author: AuthorData): boolean {
-  return Boolean(author.author_name && author.author_name.trim().length > 0);
+export function validateAuthorData(author: AuthorInfo): boolean {
+  return Boolean(author.name && author.name.trim().length > 0);
 }

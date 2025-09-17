@@ -5,6 +5,7 @@ import { Card } from "../Card/Card";
 import { Article, MaterialType, BadgeData } from "@/types/core";
 import { ArticleGridProps, ArticleItem } from "@/types/components/articleGrid";
 import { loadComponent } from "../../utils/contentAPI";
+import { slugToDisplayName } from "../../utils/formatting";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -189,45 +190,5 @@ export async function ArticleGrid({
 // Helper function to generate title from slug
 function generateTitleFromSlug(slug: string): string {
   if (!slug) return 'Untitled';
-
-  const slugParts = slug.split('-');
-  
-  // Common multi-word material patterns
-  const multiWordMaterials = [
-    {pattern: ["silicon", "carbide"], name: "Silicon Carbide"},
-    {pattern: ["silicon", "nitride"], name: "Silicon Nitride"},
-    {pattern: ["aluminum", "oxide"], name: "Aluminum Oxide"},
-    {pattern: ["zirconium", "oxide"], name: "Zirconium Oxide"},
-    {pattern: ["carbon", "fiber"], name: "Carbon Fiber"},
-    {pattern: ["stainless", "steel"], name: "Stainless Steel"},
-  ];
-  
-  // Check for known multi-word materials
-  for (const material of multiWordMaterials) {
-    if (
-      slugParts.length >= material.pattern.length &&
-      material.pattern.every((part, i) => slugParts[i] === part)
-    ) {
-      return material.name;
-    }
-  }
-  
-  // If the slug has "laser" or "cleaning", extract everything before that
-  const laserIndex = slugParts.indexOf("laser");
-  const cleaningIndex = slugParts.indexOf("cleaning");
-  
-  let endIndex = -1;
-  if (laserIndex > 0) endIndex = laserIndex;
-  else if (cleaningIndex > 0) endIndex = cleaningIndex;
-  
-  if (endIndex > 0) {
-    // Take all parts before "laser" or "cleaning" and capitalize them
-    return slugParts
-      .slice(0, endIndex)
-      .map((part: string) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join(" ");
-  }
-  
-  // Use first part capitalized
-  return slugParts[0].charAt(0).toUpperCase() + slugParts[0].slice(1);
+  return slugToDisplayName(slug);
 }
