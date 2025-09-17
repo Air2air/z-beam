@@ -145,6 +145,31 @@ export const loadComponent = cache(async (
         isYamlFile = true;
       }
     }
+
+    // For author component, also try .yaml files if .md not found
+    if (!existsSync(filePath) && type === 'author') {
+      const yamlPath = path.join(dir, `${slug}.yaml`);
+      if (existsSync(yamlPath)) {
+        filePath = yamlPath;
+        isYamlFile = true;
+      } else {
+        // Try with parentheses for yaml files too
+        try {
+          const files = await fs.readdir(dir);
+          const matchingYamlFile = files.find(file => 
+            file.endsWith('.yaml') && 
+            stripParenthesesFromSlug(file.replace('.yaml', '')) === slug
+          );
+          
+          if (matchingYamlFile) {
+            filePath = path.join(dir, matchingYamlFile);
+            isYamlFile = true;
+          }
+        } catch (error) {
+          // Continue with null result
+        }
+      }
+    }
     
     if (!existsSync(filePath)) {
       return null;
@@ -324,6 +349,47 @@ export const loadComponent = cache(async (
             },
           };
         }
+      } else if (type === 'author') {
+        // Handle YAML author files
+        const authorInfo = yamlData.authorInfo;
+        
+        if (authorInfo) {
+          // Convert to markdown format for content display
+          let markdownContent = `# ${authorInfo.name}\n\n`;
+          
+          if (authorInfo.title) {
+            markdownContent += `**${authorInfo.title}**\n\n`;
+          }
+          
+          if (authorInfo.expertise) {
+            markdownContent += `*${authorInfo.expertise}*\n\n`;
+          }
+          
+          if (authorInfo.profile?.description) {
+            markdownContent += `${authorInfo.profile.description}\n\n`;
+          }
+          
+          if (authorInfo.profile?.expertiseAreas && authorInfo.profile.expertiseAreas.length > 0) {
+            markdownContent += `## Expertise Areas\n\n`;
+            authorInfo.profile.expertiseAreas.forEach((area: string) => {
+              markdownContent += `- ${area}\n`;
+            });
+            markdownContent += '\n';
+          }
+          
+          if (authorInfo.profile?.contactNote) {
+            markdownContent += `*${authorInfo.profile.contactNote}*\n\n`;
+          }
+          
+          const processedContent = options.convertMarkdown 
+            ? await marked(markdownContent)
+            : markdownContent;
+          
+          return {
+            content: processedContent,
+            config: authorInfo
+          };
+        }
       }
       
       return null;
@@ -463,9 +529,22 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
   return safeContentOperation(async () => {
     const pageData = await loadPageData(slug);
     
+    // Check if there's an author component and merge it into metadata
+    let metadata = pageData.metadata;
+    if (pageData.components.author?.config) {
+      console.log('Found author component config:', pageData.components.author.config);
+      metadata = {
+        ...metadata,
+        authorInfo: pageData.components.author.config
+      };
+    } else {
+      console.log('No author component found for slug:', slug);
+      console.log('Available components:', Object.keys(pageData.components));
+    }
+    
     // Return in contentIntegrator format
     return {
-      metadata: pageData.metadata,
+      metadata,
       components: pageData.components
     };
   }, null, 'getArticle', slug);
