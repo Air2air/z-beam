@@ -46,7 +46,7 @@ images:
   micro:
     alt: Microscopic view of Hastelloy surface after laser treatment showing preserved microstructure
     url: /images/hastelloy-laser-cleaning-micro.jpg
-title: Laser Cleaning Hastelloy - Technical Guide for Optimal Processing
+title: Laser Cleaning Hastelloy
 headline: Comprehensive technical guide for laser cleaning metal hastelloy
 environmentalImpact:
 - benefit: "Reduced waste"

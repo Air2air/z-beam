@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Birch surface after laser treatment showing preserved microstructure
     url: /images/birch-laser-cleaning-micro.jpg
-title: Laser Cleaning Birch - Technical Guide for Optimal Processing
+title: Laser Cleaning Birch
 headline: Comprehensive technical guide for laser cleaning wood birch
 environmentalImpact:
 - benefit: "Reduced chemical usage"

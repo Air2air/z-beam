@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Nickel - Technical Guide for Optimal Processing
+title: Laser Cleaning Nickel
 meta_tags:
   - name: description
     content: "Technical overview of Nickel for laser cleaning applications, including 8.91 g/cm³ density, optimal 1064nm wavelength, and industrial surface restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Nickel - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Nickel"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal nickel"
   - property: og:type

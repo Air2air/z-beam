@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Fiberglass surface after laser treatment showing preserved microstructure
     url: /images/fiberglass-laser-cleaning-micro.jpg
-title: Laser Cleaning Fiberglass - Technical Guide for Optimal Processing
+title: Laser Cleaning Fiberglass
 headline: Comprehensive technical guide for laser cleaning composite fiberglass
 environmentalImpact:
 - benefit: "Reduced chemical waste"

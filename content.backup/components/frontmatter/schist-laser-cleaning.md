@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Schist surface after laser treatment showing preserved microstructure
     url: /images/schist-laser-cleaning-micro.jpg
-title: Laser Cleaning Schist - Technical Guide for Optimal Processing
+title: Laser Cleaning Schist
 headline: Comprehensive technical guide for laser cleaning stone schist
 environmentalImpact:
 - benefit: "Reduced chemical usage"

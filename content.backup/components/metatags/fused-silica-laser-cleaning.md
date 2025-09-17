@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Fused Silica - Technical Guide for Optimal Processing
+title: Laser Cleaning Fused Silica
 meta_tags:
   - name: description
     content: "Technical overview of Fused Silica for laser cleaning applications, including 2.2 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Fused Silica - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Fused Silica"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass fused silica"
   - property: og:type

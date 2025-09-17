@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Marble - Technical Guide for Optimal Processing
+title: Laser Cleaning Marble
 meta_tags:
   - name: description
     content: "Technical overview of Marble for laser cleaning applications, including 2.7 g/cm³ density values, optimal 1064nm wavelengths, and industrial stone restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Marble - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Marble"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning stone marble"
   - property: og:type

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Titanium - Technical Guide for Optimal Processing
+title: Laser Cleaning Titanium
 meta_tags:
   - name: description
     content: "Technical overview of Titanium for laser cleaning applications, including 4.506 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Titanium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Titanium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal titanium"
   - property: og:type

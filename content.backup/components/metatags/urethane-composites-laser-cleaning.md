@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Urethane Composites - Technical Guide for Optimal Processing
+title: Laser Cleaning Urethane Composites
 meta_tags:
   - name: description
     content: "Technical overview of Urethane Composites, 1.2-1.4 g/cm³ density, for laser cleaning applications, including 1064nm optimal wavelengths and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Urethane Composites - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Urethane Composites"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite urethane composites"
   - property: og:type

@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Hickory surface after laser treatment showing preserved microstructure
     url: /images/hickory-laser-cleaning-micro.jpg
-title: Laser Cleaning Hickory - Technical Guide for Optimal Processing
+title: Laser Cleaning Hickory
 headline: Comprehensive technical guide for laser cleaning wood hickory
 environmentalImpact:
 - benefit: "Reduced chemical usage"

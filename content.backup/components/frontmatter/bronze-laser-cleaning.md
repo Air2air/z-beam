@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Bronze surface after laser treatment showing preserved microstructure
     url: /images/bronze-laser-cleaning-micro.jpg
-title: Laser Cleaning Bronze - Technical Guide for Optimal Processing
+title: Laser Cleaning Bronze
 headline: Comprehensive technical guide for laser cleaning metal bronze
 environmentalImpact:
 - benefit: "Reduced chemical waste"

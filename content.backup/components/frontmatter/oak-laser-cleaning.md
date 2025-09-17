@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Oak surface after laser treatment showing preserved microstructure
     url: /images/oak-laser-cleaning-micro.jpg
-title: Laser Cleaning Oak - Technical Guide for Optimal Processing
+title: Laser Cleaning Oak
 headline: Comprehensive technical guide for laser cleaning wood oak
 environmentalImpact:
 - benefit: "Reduction in chemical usage"

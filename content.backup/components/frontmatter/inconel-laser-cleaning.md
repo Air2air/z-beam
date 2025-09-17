@@ -46,7 +46,7 @@ images:
   micro:
     alt: Microscopic view of Inconel surface after laser treatment showing preserved microstructure
     url: /images/inconel-laser-cleaning-micro.jpg
-title: Laser Cleaning Inconel - Technical Guide for Optimal Processing
+title: Laser Cleaning Inconel
 headline: Comprehensive technical guide for laser cleaning metal inconel
 environmentalImpact:
 - benefit: "Reduced chemical usage"

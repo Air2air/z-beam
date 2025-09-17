@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Lead Crystal - Technical Guide for Optimal Processing
+title: Laser Cleaning Lead Crystal
 meta_tags:
   - name: description
     content: "Technical overview of Lead Crystal for laser cleaning applications, including 3.1 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Lead Crystal - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Lead Crystal"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass lead crystal"
   - property: og:type

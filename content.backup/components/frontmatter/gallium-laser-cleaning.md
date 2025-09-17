@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Gallium surface after laser treatment showing preserved microstructure
     url: /images/gallium-laser-cleaning-micro.jpg
-title: Laser Cleaning Gallium - Technical Guide for Optimal Processing
+title: Laser Cleaning Gallium
 headline: Comprehensive technical guide for laser cleaning metal gallium
 environmentalImpact:
 - benefit: "Reduced chemical waste"

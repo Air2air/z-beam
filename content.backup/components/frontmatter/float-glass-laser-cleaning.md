@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Float Glass surface after laser treatment showing preserved microstructure
     url: /images/float-glass-laser-cleaning-micro.jpg
-title: Laser Cleaning Float Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Float Glass
 headline: Comprehensive technical guide for laser cleaning float glass
 environmentalImpact:
 - benefit: "Reduced chemical usage"

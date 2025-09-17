@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Redwood surface after laser treatment showing preserved microstructure
     url: /images/redwood-laser-cleaning-micro.jpg
-title: Laser Cleaning Redwood - Technical Guide for Optimal Processing
+title: Laser Cleaning Redwood
 headline: Comprehensive technical guide for laser cleaning wood redwood
 environmentalImpact:
 - benefit: "Reduced chemical usage"

@@ -47,7 +47,7 @@ images:
   micro:
     alt: Microscopic view of Soda-Lime Glass surface after laser treatment showing preserved microstructure
     url: /images/soda-lime-glass-laser-cleaning-micro.jpg
-title: Laser Cleaning Soda-Lime Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Soda-Lime Glass
 headline: Comprehensive technical guide for laser cleaning Soda-Lime Glass
 environmentalImpact:
 - benefit: "Reduction in chemical usage"

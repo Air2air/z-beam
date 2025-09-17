@@ -45,7 +45,7 @@ images:
   micro:
     alt: Microscopic view of Cherry surface after laser treatment showing preserved microstructure
     url: /images/cherry-laser-cleaning-micro.jpg
-title: Laser Cleaning Cherry - Technical Guide for Optimal Processing
+title: Laser Cleaning Cherry
 headline: Comprehensive technical guide for laser cleaning wood cherry
 environmentalImpact:
 - benefit: "Reduction in chemical usage"

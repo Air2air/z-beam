@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Stucco - Technical Guide for Optimal Processing
+title: Laser Cleaning Stucco
 meta_tags:
   - name: description
     content: "Technical overview of Stucco, 1.8 g/cm³ density, for laser cleaning applications, including specific density values, optimal wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Stucco - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Stucco"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning masonry stucco"
   - property: og:type

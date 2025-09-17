@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Soda-Lime Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Soda-Lime Glass
 meta_tags:
   - name: description
     content: "Technical overview of Soda-Lime Glass, 2.5 g/cm³ density, for laser cleaning applications including 1064nm wavelength and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Soda-Lime Glass - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Soda-Lime Glass"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass soda-lime glass"
   - property: og:type

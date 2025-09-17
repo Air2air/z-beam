@@ -6,7 +6,7 @@ Based on examination of the frontmatter files, here are the available fields and
 
 ### Available Fields:
 
-1. **`title`**: Full SEO-optimized title (e.g., "Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing")
+1. **`title`**: Full SEO-optimized title (e.g., "Laser Cleaning Carbon Fiber Reinforced Polymer")
 2. **`headline`**: Concise descriptive headline (e.g., "Comprehensive technical guide for laser cleaning composite carbon fiber reinforced polymer")
 3. **`subject`**: Material name (e.g., "Carbon Fiber Reinforced Polymer", "Porcelain")
 4. **`name`**: Short material name (same as subject typically)
@@ -49,7 +49,7 @@ const displaySubtitle = metadata?.title ? metadata?.headline : metadata?.descrip
 ## Field Usage Examples
 
 ### Example 1: Full title available
-- **Title**: "Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing"
+- **Title**: "Laser Cleaning Carbon Fiber Reinforced Polymer"
 - **Subtitle**: "Comprehensive technical guide for laser cleaning composite carbon fiber reinforced polymer"
 
 ### Example 2: Only headline and subject available

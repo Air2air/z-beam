@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Terracotta surface after laser treatment showing preserved microstructure
     url: /images/terracotta-laser-cleaning-micro.jpg
-title: Laser Cleaning Terracotta - Technical Guide for Optimal Processing
+title: Laser Cleaning Terracotta
 headline: Comprehensive technical guide for laser cleaning masonry terracotta
 environmentalImpact:
 - benefit: "Reduced waste"

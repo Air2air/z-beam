@@ -45,7 +45,7 @@ images:
   micro:
     alt: Microscopic view of Mahogany surface after laser treatment showing preserved microstructure
     url: /images/mahogany-laser-cleaning-micro.jpg
-title: Laser Cleaning Mahogany - Technical Guide for Optimal Processing
+title: Laser Cleaning Mahogany
 headline: Comprehensive technical guide for laser cleaning wood mahogany
 environmentalImpact:
 - benefit: "Reduced chemical usage"

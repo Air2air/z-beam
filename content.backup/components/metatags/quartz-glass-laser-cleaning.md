@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Quartz Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Quartz Glass
 meta_tags:
   - name: description
     content: "Technical overview of Quartz Glass for laser cleaning applications, including 2.2 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Quartz Glass - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Quartz Glass"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass quartz glass"
   - property: og:type

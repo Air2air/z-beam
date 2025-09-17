@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Urethane Composites surface after laser treatment showing preserved microstructure
     url: /images/urethane-composites-laser-cleaning-micro.jpg
-title: Laser Cleaning Urethane Composites - Technical Guide for Optimal Processing
+title: Laser Cleaning Urethane Composites
 headline: Comprehensive technical guide for laser cleaning composite urethane composites
 environmentalImpact:
 - benefit: "Reduction in solvent use"

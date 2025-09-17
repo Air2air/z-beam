@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Plywood surface after laser treatment showing preserved microstructure
     url: /images/plywood-laser-cleaning-micro.jpg
-title: Laser Cleaning Plywood - Technical Guide for Optimal Processing
+title: Laser Cleaning Plywood
 headline: Comprehensive technical guide for laser cleaning wood plywood
 environmentalImpact:
 - benefit: "Reduced chemical usage"

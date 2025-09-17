@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Walnut surface after laser treatment showing preserved microstructure
     url: /images/walnut-laser-cleaning-micro.jpg
-title: Laser Cleaning Walnut - Technical Guide for Optimal Processing
+title: Laser Cleaning Walnut
 headline: Comprehensive technical guide for laser cleaning wood walnut
 environmentalImpact:
 - benefit: "Reduced chemical usage"

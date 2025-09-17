@@ -6,8 +6,18 @@ import Link from 'next/link';
 import { capitalizeWords } from '../../utils/formatting';
 import { useRouter } from "next/navigation";
 
+interface TagsData {
+  tags?: string[];
+  metadata?: {
+    material?: string;
+    count?: number;
+    categories?: string[];
+    generated?: string;
+  };
+}
+
 interface TagsProps {
-  content: string; // The raw content from the tags markdown file
+  content: string | TagsData; // Can be raw YAML string or parsed YAML data
   config?: {
     className?: string;
     title?: string;
@@ -18,6 +28,7 @@ interface TagsProps {
     onClick?: (tag: string) => void; // Alternative to links - for in-page filtering
     hideEmptyTags?: boolean; // Whether to hide tags with no matching articles
     articleMatchCount?: Record<string, number>; // Counts of articles matching each tag
+    showMetadata?: boolean; // Whether to display metadata information
     [key: string]: unknown;
   };
 }
@@ -41,23 +52,28 @@ export function Tags({ content, config }: TagsProps) {
   
   // Parse tags from the content string
   // For the format shown in alumina-laser-cleaning.md
-  const parseTags = (content: string): string[] => {
-    // Skip any comment lines
-    const contentWithoutComments = content.replace(/<!--.*?-->/gs, '').trim();
-    
-    // Split by commas and trim each tag
-    return contentWithoutComments
-      .split(',')
-      .map(tag => tag.trim())
-      .filter(tag => tag.length > 0);
-  };
+const parseTags = (content: string | TagsData): string[] => {
+  // Handle YAML data structure
+  if (typeof content === 'object' && content !== null) {
+    return content.tags || [];
+  }
   
-  // Convert string to title case, replacing hyphens with spaces for display
+  // Handle legacy string format
+  if (typeof content !== 'string') {
+    return [];
+  }
+  
+  return content
+    .split(',')
+    .map(tag => tag.trim())
+    .filter(tag => tag.length > 0);
+};  // Convert string to title case, replacing hyphens with spaces for display
   const toTitleCase = (str: string): string => {
     return capitalizeWords(str);
   };
   
   const allTags = parseTags(content);
+  const metadata = typeof content === 'object' && content !== null ? content.metadata : undefined;
   
   // Filter out tags with zero matching articles if hideEmptyTags is true
   const tags = hideEmptyTags 
@@ -84,6 +100,29 @@ export function Tags({ content, config }: TagsProps) {
   return (
     <div className={`tags-container ${className}`}>
       {title && <h3 className="text-lg font-medium mb-2">{title}</h3>}
+      
+      {/* Metadata display */}
+      {config?.showMetadata && metadata && (
+        <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
+          <div className="flex flex-wrap gap-4">
+            {metadata.material && (
+              <span className="font-medium">
+                Material: <span className="font-normal">{capitalizeWords(metadata.material)}</span>
+              </span>
+            )}
+            {metadata.count && (
+              <span className="font-medium">
+                Tags: <span className="font-normal">{metadata.count}</span>
+              </span>
+            )}
+            {metadata.categories && metadata.categories.length > 0 && (
+              <span className="font-medium">
+                Categories: <span className="font-normal">{metadata.categories.map(cat => capitalizeWords(cat)).join(', ')}</span>
+              </span>
+            )}
+          </div>
+        </div>
+      )}
       
       <div className="flex flex-wrap gap-4">
         {tags.map((tag, index) => (

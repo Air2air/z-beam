@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Kevlar-Reinforced Polymer - Technical Guide for Optimal Processing
+title: Laser Cleaning Kevlar-Reinforced Polymer
 meta_tags:
   - name: description
     content: "Technical overview of Kevlar-Reinforced Polymer for laser cleaning applications, including specific 1.44 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Kevlar-Reinforced Polymer - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Kevlar-Reinforced Polymer"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite kevlar-reinforced polymer"
   - property: og:type

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Teak - Technical Guide for Optimal Processing
+title: Laser Cleaning Teak
 meta_tags:
   - name: description
     content: "Technical overview of Teak for laser cleaning applications, including 0.63-0.72 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Teak - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Teak"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood teak"
   - property: og:type

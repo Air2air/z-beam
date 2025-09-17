@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Titanium surface after laser treatment showing preserved microstructure
     url: /images/titanium-laser-cleaning-micro.jpg
-title: Laser Cleaning Titanium - Technical Guide for Optimal Processing
+title: Laser Cleaning Titanium
 headline: Comprehensive technical guide for laser cleaning metal titanium
 environmentalImpact:
 - benefit: "Reduced chemical waste"

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Plywood - Technical Guide for Optimal Processing
+title: Laser Cleaning Plywood
 meta_tags:
   - name: description
     content: "Technical overview of Plywood for laser cleaning applications, including 0.5-0.7 g/cm³ density values, optimal 1064nm wavelengths, and industrial restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Plywood - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Plywood"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood plywood"
   - property: og:type

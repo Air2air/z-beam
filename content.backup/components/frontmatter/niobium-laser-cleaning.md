@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Niobium surface after laser treatment showing preserved microstructure
     url: /images/niobium-laser-cleaning-micro.jpg
-title: Laser Cleaning Niobium - Technical Guide for Optimal Processing
+title: Laser Cleaning Niobium
 headline: Comprehensive technical guide for laser cleaning metal niobium
 environmentalImpact:
 - benefit: "Reduced chemical waste"

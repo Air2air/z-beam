@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Granite surface after laser treatment showing preserved microstructure
     url: /images/granite-laser-cleaning-micro.jpg
-title: Laser Cleaning Granite - Technical Guide for Optimal Processing
+title: Laser Cleaning Granite
 headline: Comprehensive technical guide for laser cleaning stone granite
 environmentalImpact:
 - benefit: "Reduced chemical usage"

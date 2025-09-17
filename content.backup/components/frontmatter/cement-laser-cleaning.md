@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Cement surface after laser treatment showing preserved microstructure
     url: /images/cement-laser-cleaning-micro.jpg
-title: Laser Cleaning Cement - Technical Guide for Optimal Processing
+title: Laser Cleaning Cement
 headline: Comprehensive technical guide for laser cleaning masonry cement
 environmentalImpact:
 - benefit: "Reduced chemical usage"

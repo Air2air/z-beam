@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Ceramic Matrix Composites (CMCs) surface after laser treatment showing preserved microstructure
     url: /images/ceramic-matrix-composites-(cmcs)-laser-cleaning-micro.jpg
-title: Laser Cleaning Ceramic Matrix Composites (CMCs) - Technical Guide for Optimal Processing
+title: Laser Cleaning Ceramic Matrix Composites (CMCs)
 headline: Comprehensive technical guide for laser cleaning composite ceramic matrix composites (cmcs)
 environmentalImpact:
 - benefit: "Reduced waste generation"

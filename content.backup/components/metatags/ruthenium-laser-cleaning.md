@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Ruthenium - Technical Guide for Optimal Processing
+title: Laser Cleaning Ruthenium
 meta_tags:
   - name: description
     content: "Technical overview of Ruthenium for laser cleaning applications, including 12.45 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Ruthenium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Ruthenium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal ruthenium"
   - property: og:type

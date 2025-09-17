@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Indium - Technical Guide for Optimal Processing
+title: Laser Cleaning Indium
 meta_tags:
   - name: description
     content: "Technical overview of Indium for laser cleaning applications, including 7.31 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Indium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Indium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal indium"
   - property: og:type

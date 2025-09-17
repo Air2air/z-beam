@@ -14,7 +14,7 @@ const mockComponents = {
 };
 
 const mockMetadata = {
-  title: 'Laser Cleaning Porcelain - Technical Guide for Optimal Processing',
+  title: 'Laser Cleaning Porcelain',
   headline: 'Comprehensive technical guide for laser cleaning ceramic porcelain',
   description: 'Technical overview of Porcelain for laser cleaning applications',
   subject: 'Porcelain',

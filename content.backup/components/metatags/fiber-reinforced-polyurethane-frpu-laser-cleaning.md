@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Fiber-Reinforced Polyurethane (FRPU) - Technical Guide for Optimal Processing
+title: Laser Cleaning Fiber-Reinforced Polyurethane (FRPU)
 meta_tags:
   - name: description
     content: "Technical overview of Fiber-Reinforced Polyurethane (FRPU) laser cleaning applications, including 1.2-1.4 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Fiber-Reinforced Polyurethane (FRPU) - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Fiber-Reinforced Polyurethane (FRPU)"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite fiber-reinforced polyurethane (frpu)"
   - property: og:type

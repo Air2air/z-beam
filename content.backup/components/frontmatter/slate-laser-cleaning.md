@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Slate surface after laser treatment showing preserved microstructure
     url: /images/slate-laser-cleaning-micro.jpg
-title: Laser Cleaning Slate - Technical Guide for Optimal Processing
+title: Laser Cleaning Slate
 headline: Comprehensive technical guide for laser cleaning stone slate
 environmentalImpact:
 - benefit: "Reduction in chemical usage"

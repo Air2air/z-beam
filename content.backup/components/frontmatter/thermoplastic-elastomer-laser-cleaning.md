@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Thermoplastic Elastomer surface after laser treatment showing preserved microstructure
     url: /images/thermoplastic-elastomer-laser-cleaning-micro.jpg
-title: Laser Cleaning Thermoplastic Elastomer - Technical Guide for Optimal Processing
+title: Laser Cleaning Thermoplastic Elastomer
 headline: Comprehensive technical guide for laser cleaning composite thermoplastic elastomer
 environmentalImpact:
 - benefit: "Reduced chemical waste"

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Pyrex - Technical Guide for Optimal Processing
+title: Laser Cleaning Pyrex
 meta_tags:
   - name: description
     content: "Technical overview of Pyrex for laser cleaning applications, including 2.23 g/cm³ density, 1064nm optimal wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Pyrex - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Pyrex"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass pyrex"
   - property: og:type

@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Lead surface after laser treatment showing preserved microstructure
     url: /images/lead-laser-cleaning-micro.jpg
-title: Laser Cleaning Lead - Technical Guide for Optimal Processing
+title: Laser Cleaning Lead
 headline: Comprehensive technical guide for laser cleaning metal lead
 environmentalImpact:
 - benefit: "Reduced chemical waste"

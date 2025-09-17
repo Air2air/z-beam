@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Alumina - Technical Guide for Optimal Processing
+title: Laser Cleaning Alumina
 meta_tags:
   - name: description
     content: "Technical overview of Alumina for laser cleaning applications, including specific 3.95 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Alumina - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Alumina"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning ceramic alumina"
   - property: og:type

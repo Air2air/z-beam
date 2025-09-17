@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Hastelloy - Technical Guide for Optimal Processing
+title: Laser Cleaning Hastelloy
 meta_tags:
   - name: description
     content: "Technical overview of Hastelloy alloys for laser cleaning applications, including 8.9 g/cm³ density, optimal 1064nm wavelength, and industrial corrosion-resistant applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Hastelloy - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Hastelloy"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal hastelloy"
   - property: og:type

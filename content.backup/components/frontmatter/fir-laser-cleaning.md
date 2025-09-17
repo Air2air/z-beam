@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Fir surface after laser treatment showing preserved microstructure
     url: /images/fir-laser-cleaning-micro.jpg
-title: Laser Cleaning Fir - Technical Guide for Optimal Processing
+title: Laser Cleaning Fir
 headline: Comprehensive technical guide for laser cleaning wood fir
 environmentalImpact:
 - benefit: "Reduced chemical usage"

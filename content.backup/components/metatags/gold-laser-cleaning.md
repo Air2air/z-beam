@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Gold - Technical Guide for Optimal Processing
+title: Laser Cleaning Gold
 meta_tags:
   - name: description
     content: "Technical overview of Gold (19.32 g/cm³ density) for laser cleaning applications, including 1064nm wavelength optimization and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Gold - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Gold"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal gold"
   - property: og:type

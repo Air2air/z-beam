@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Zinc - Technical Guide for Optimal Processing
+title: Laser Cleaning Zinc
 meta_tags:
   - name: description
     content: "Technical overview of Zinc for laser cleaning applications, including 7.14 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Zinc - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Zinc"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal zinc"
   - property: og:type

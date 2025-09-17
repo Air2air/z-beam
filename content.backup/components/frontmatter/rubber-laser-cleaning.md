@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Rubber surface after laser treatment showing preserved microstructure
     url: /images/rubber-laser-cleaning-micro.jpg
-title: Laser Cleaning Rubber - Technical Guide for Optimal Processing
+title: Laser Cleaning Rubber
 headline: Comprehensive technical guide for laser cleaning composite rubber
 environmentalImpact:
 - benefit: "Reduced waste"

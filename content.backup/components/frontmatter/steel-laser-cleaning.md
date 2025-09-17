@@ -50,7 +50,7 @@ images:
   micro:
     alt: Microscopic view of Steel surface after laser treatment showing preserved microstructure
     url: /images/steel-laser-cleaning-micro.jpg
-title: Laser Cleaning Steel - Technical Guide for Optimal Processing
+title: Laser Cleaning Steel
 headline: Comprehensive technical guide for laser cleaning metal steel
 environmentalImpact:
 - benefit: "Reduced chemical waste"

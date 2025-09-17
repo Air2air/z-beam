@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Niobium - Technical Guide for Optimal Processing
+title: Laser Cleaning Niobium
 meta_tags:
   - name: description
     content: "Technical overview of Niobium laser cleaning applications, including 8.57 g/cm³ density values, optimal 1064nm wavelengths, and superconducting applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Niobium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Niobium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal niobium"
   - property: og:type

@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Gold surface after laser treatment showing preserved microstructure
     url: /images/gold-laser-cleaning-micro.jpg
-title: Laser Cleaning Gold - Technical Guide for Optimal Processing
+title: Laser Cleaning Gold
 headline: Comprehensive technical guide for laser cleaning metal gold
 environmentalImpact:
 - benefit: "Reduced chemical waste"

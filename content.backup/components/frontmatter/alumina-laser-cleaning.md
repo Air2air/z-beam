@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Alumina surface after laser treatment showing preserved microstructure
     url: /images/alumina-laser-cleaning-micro.jpg
-title: Laser Cleaning Alumina - Technical Guide for Optimal Processing
+title: Laser Cleaning Alumina
 headline: Comprehensive technical guide for laser cleaning ceramic alumina
 environmentalImpact:
 - benefit: "Reduced chemical waste"

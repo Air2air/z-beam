@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Rhenium - Technical Guide for Optimal Processing
+title: Laser Cleaning Rhenium
 meta_tags:
   - name: description
     content: "Technical overview of Rhenium for laser cleaning applications, including 21.02 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Rhenium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Rhenium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal rhenium"
   - property: og:type

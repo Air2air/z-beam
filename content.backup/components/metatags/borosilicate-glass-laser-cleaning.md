@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Borosilicate Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Borosilicate Glass
 meta_tags:
   - name: description
     content: "Technical overview of Borosilicate Glass, 2.23 g/cm³ density, for laser cleaning applications, including 1064nm optimal wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Borosilicate Glass - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Borosilicate Glass"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass borosilicate glass"
   - property: og:type

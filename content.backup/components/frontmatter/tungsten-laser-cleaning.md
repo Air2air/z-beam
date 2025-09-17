@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Tungsten surface after laser treatment showing preserved microstructure
     url: /images/tungsten-laser-cleaning-micro.jpg
-title: Laser Cleaning Tungsten - Technical Guide for Optimal Processing
+title: Laser Cleaning Tungsten
 headline: Comprehensive technical guide for laser cleaning metal tungsten
 environmentalImpact:
 - benefit: "Reduced chemical waste"

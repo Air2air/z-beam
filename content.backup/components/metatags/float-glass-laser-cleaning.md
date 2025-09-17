@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Float Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Float Glass
 meta_tags:
   - name: description
     content: "Technical overview of Float Glass for laser cleaning applications, including 2.5 g/cm³ density, 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Float Glass - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Float Glass"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning glass float glass"
   - property: og:type

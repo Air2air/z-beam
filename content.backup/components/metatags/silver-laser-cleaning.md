@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Silver - Technical Guide for Optimal Processing
+title: Laser Cleaning Silver
 meta_tags:
   - name: description
     content: "Technical overview of Silver for laser cleaning applications, including 10.49 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Silver - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Silver"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal silver"
   - property: og:type

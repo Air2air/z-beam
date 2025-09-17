@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Rosewood - Technical Guide for Optimal Processing
+title: Laser Cleaning Rosewood
 meta_tags:
   - name: description
     content: "Technical overview of Rosewood for laser cleaning applications, including specific 0.8-0.9 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Rosewood - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Rosewood"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood rosewood"
   - property: og:type

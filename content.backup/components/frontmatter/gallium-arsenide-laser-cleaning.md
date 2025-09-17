@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Gallium Arsenide surface after laser treatment showing preserved microstructure
     url: /images/gallium-arsenide-laser-cleaning-micro.jpg
-title: Laser Cleaning Gallium Arsenide - Technical Guide for Optimal Processing
+title: Laser Cleaning Gallium Arsenide
 headline: Comprehensive technical guide for laser cleaning semiconductor gallium arsenide
 environmentalImpact:
 - benefit: "Reduction in chemical waste"

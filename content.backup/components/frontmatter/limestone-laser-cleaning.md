@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Limestone surface after laser treatment showing preserved microstructure
     url: /images/limestone-laser-cleaning-micro.jpg
-title: Laser Cleaning Limestone - Technical Guide for Optimal Processing
+title: Laser Cleaning Limestone
 headline: Comprehensive technical guide for laser cleaning stone limestone
 environmentalImpact:
 - benefit: "Reduced chemical usage"

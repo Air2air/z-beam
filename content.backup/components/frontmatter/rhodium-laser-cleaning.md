@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Rhodium surface after laser treatment showing preserved microstructure
     url: /images/rhodium-laser-cleaning-micro.jpg
-title: Laser Cleaning Rhodium - Technical Guide for Optimal Processing
+title: Laser Cleaning Rhodium
 headline: Comprehensive technical guide for laser cleaning metal rhodium
 environmentalImpact:
 - benefit: "Reduced chemical waste"

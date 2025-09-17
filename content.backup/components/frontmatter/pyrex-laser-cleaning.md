@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Pyrex surface after laser treatment showing preserved microstructure
     url: /images/pyrex-laser-cleaning-micro.jpg
-title: Laser Cleaning Pyrex - Technical Guide for Optimal Processing
+title: Laser Cleaning Pyrex
 headline: Comprehensive technical guide for laser cleaning glass pyrex
 environmentalImpact:
 - benefit: "Reduction in chemical waste"

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Mortar - Technical Guide for Optimal Processing
+title: Laser Cleaning Mortar
 meta_tags:
   - name: description
     content: "Technical overview of Mortar for laser cleaning applications, including 2.1 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Mortar - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Mortar"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning masonry mortar"
   - property: og:type

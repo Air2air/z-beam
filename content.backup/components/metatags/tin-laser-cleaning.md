@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Tin - Technical Guide for Optimal Processing
+title: Laser Cleaning Tin
 meta_tags:
   - name: description
     content: "Technical overview of Tin for laser cleaning applications, including 7.3 g/cm³ density, optimal 1064nm wavelength parameters, and industrial electronics applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Tin - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Tin"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal tin"
   - property: og:type

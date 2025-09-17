@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Metal Matrix Composites (MMCs) - Technical Guide for Optimal Processing
+title: Laser Cleaning Metal Matrix Composites (MMCs)
 meta_tags:
   - name: description
     content: "Technical overview of laser cleaning Metal Matrix Composites (MMCs), including 2.7-3.0 g/cm³ density values, 1064nm optimal wavelengths, and aerospace applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Metal Matrix Composites (MMCs) - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Metal Matrix Composites (MMCs)"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite metal matrix composites (mmcs)"
   - property: og:type

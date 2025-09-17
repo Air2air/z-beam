@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Fir - Technical Guide for Optimal Processing
+title: Laser Cleaning Fir
 meta_tags:
   - name: description
     content: "Technical overview of Fir wood for laser cleaning applications, including 0.45-0.55 g/cm³ density values, optimal 1064nm wavelength, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Fir - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Fir"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood fir"
   - property: og:type

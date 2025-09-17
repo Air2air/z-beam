@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Marble surface after laser treatment showing preserved microstructure
     url: /images/marble-laser-cleaning-micro.jpg
-title: Laser Cleaning Marble - Technical Guide for Optimal Processing
+title: Laser Cleaning Marble
 headline: Comprehensive technical guide for laser cleaning stone marble
 environmentalImpact:
 - benefit: "Reduced chemical usage"

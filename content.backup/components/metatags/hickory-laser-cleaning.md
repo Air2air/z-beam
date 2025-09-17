@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Hickory - Technical Guide for Optimal Processing
+title: Laser Cleaning Hickory
 meta_tags:
   - name: description
     content: "Technical overview of Hickory for laser cleaning applications, including 0.72 g/cm³ density, optimal 1064nm wavelength, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Hickory - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Hickory"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood hickory"
   - property: og:type

@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Porphyry surface after laser treatment showing preserved microstructure
     url: /images/porphyry-laser-cleaning-micro.jpg
-title: Laser Cleaning Porphyry - Technical Guide for Optimal Processing
+title: Laser Cleaning Porphyry
 headline: Comprehensive technical guide for laser cleaning stone porphyry
 environmentalImpact:
 - benefit: "Reduced chemical waste"

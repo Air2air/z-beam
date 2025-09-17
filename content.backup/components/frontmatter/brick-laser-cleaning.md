@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Brick surface after laser treatment showing preserved microstructure
     url: /images/brick-laser-cleaning-micro.jpg
-title: Laser Cleaning Brick - Technical Guide for Optimal Processing
+title: Laser Cleaning Brick
 headline: Comprehensive technical guide for laser cleaning masonry brick
 environmentalImpact:
 - benefit: "Reduced chemical usage"

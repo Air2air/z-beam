@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Inconel - Technical Guide for Optimal Processing
+title: Laser Cleaning Inconel
 meta_tags:
   - name: description
     content: "Technical overview of Inconel laser cleaning applications, including 8.19 g/cm³ density, optimal 1064nm wavelength parameters, and aerospace/industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Inconel - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Inconel"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal inconel"
   - property: og:type

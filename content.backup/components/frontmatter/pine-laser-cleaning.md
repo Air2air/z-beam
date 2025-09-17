@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Pine surface after laser treatment showing preserved microstructure
     url: /images/pine-laser-cleaning-micro.jpg
-title: Laser Cleaning Pine - Technical Guide for Optimal Processing
+title: Laser Cleaning Pine
 headline: Comprehensive technical guide for laser cleaning wood pine
 environmentalImpact:
 - benefit: "Reduced chemical waste"

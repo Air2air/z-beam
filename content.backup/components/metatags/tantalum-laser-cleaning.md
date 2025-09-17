@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Tantalum - Technical Guide for Optimal Processing
+title: Laser Cleaning Tantalum
 meta_tags:
   - name: description
     content: "Technical overview of Tantalum (16.6 g/cm³ density) for laser cleaning applications, including optimal 1064nm wavelength parameters and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Tantalum - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Tantalum"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal tantalum"
   - property: og:type

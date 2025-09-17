@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Poplar - Technical Guide for Optimal Processing
+title: Laser Cleaning Poplar
 meta_tags:
   - name: description
     content: "Technical overview of Poplar for laser cleaning applications, including 0.35-0.50 g/cm³ density values, optimal 1064nm wavelength, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Poplar - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Poplar"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood poplar"
   - property: og:type

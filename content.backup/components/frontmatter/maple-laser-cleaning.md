@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Maple surface after laser treatment showing preserved microstructure
     url: /images/maple-laser-cleaning-micro.jpg
-title: Laser Cleaning Maple - Technical Guide for Optimal Processing
+title: Laser Cleaning Maple
 headline: Comprehensive technical guide for laser cleaning wood maple
 environmentalImpact:
 - benefit: "Reduced chemical usage"

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Thermoplastic Elastomer - Technical Guide for Optimal Processing
+title: Laser Cleaning Thermoplastic Elastomer
 meta_tags:
   - name: description
     content: "Technical overview of Thermoplastic Elastomer (0.9-1.2 g/cm³ density) for laser cleaning applications, including optimal 1064nm wavelength and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Thermoplastic Elastomer - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Thermoplastic Elastomer"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite thermoplastic elastomer"
   - property: og:type

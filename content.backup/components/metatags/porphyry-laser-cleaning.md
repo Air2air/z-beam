@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Porphyry - Technical Guide for Optimal Processing
+title: Laser Cleaning Porphyry
 meta_tags:
   - name: description
     content: "Technical overview of Porphyry, a 2.7-2.9 g/cm³ density igneous rock, for 1064nm wavelength laser cleaning applications, including specific density values, optimal wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Porphyry - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Porphyry"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning stone porphyry"
   - property: og:type

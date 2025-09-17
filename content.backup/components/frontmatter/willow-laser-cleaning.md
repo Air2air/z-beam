@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Willow surface after laser treatment showing preserved microstructure
     url: /images/willow-laser-cleaning-micro.jpg
-title: Laser Cleaning Willow - Technical Guide for Optimal Processing
+title: Laser Cleaning Willow
 headline: Comprehensive technical guide for laser cleaning wood willow
 environmentalImpact:
 - benefit: "Reduced chemical use"

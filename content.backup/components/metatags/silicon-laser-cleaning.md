@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Silicon - Technical Guide for Optimal Processing
+title: Laser Cleaning Silicon
 meta_tags:
   - name: description
     content: "Technical overview of Silicon for laser cleaning applications, including 2.33 g/cm³ density, optimal 1064nm wavelength, and semiconductor manufacturing applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Silicon - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Silicon"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning semiconductor silicon"
   - property: og:type

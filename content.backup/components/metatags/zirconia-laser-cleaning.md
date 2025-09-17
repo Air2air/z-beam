@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Zirconia - Technical Guide for Optimal Processing
+title: Laser Cleaning Zirconia
 meta_tags:
   - name: description
     content: "Technical overview of Zirconia, a 6.0 g/cm³ density ceramic, for 1064nm wavelength laser cleaning applications, including specific parameters and industrial uses."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Zirconia - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Zirconia"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning ceramic zirconia"
   - property: og:type

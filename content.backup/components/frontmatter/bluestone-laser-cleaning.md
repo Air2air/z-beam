@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Bluestone surface after laser treatment showing preserved microstructure
     url: /images/bluestone-laser-cleaning-micro.jpg
-title: Laser Cleaning Bluestone - Technical Guide for Optimal Processing
+title: Laser Cleaning Bluestone
 headline: Comprehensive technical guide for laser cleaning stone bluestone
 environmentalImpact:
 - benefit: "Reduction in chemical usage"

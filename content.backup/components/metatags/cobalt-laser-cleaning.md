@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Cobalt - Technical Guide for Optimal Processing
+title: Laser Cleaning Cobalt
 meta_tags:
   - name: description
     content: "Technical overview of Cobalt for laser cleaning applications, including 8.9 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Cobalt - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Cobalt"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal cobalt"
   - property: og:type

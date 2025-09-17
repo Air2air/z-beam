@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Fiber-Reinforced Polyurethane (FRPU) surface after laser treatment showing preserved microstructure
     url: /images/fiber-reinforced-polyurethane-(frpu)-laser-cleaning-micro.jpg
-title: Laser Cleaning Fiber-Reinforced Polyurethane (FRPU) - Technical Guide for Optimal Processing
+title: Laser Cleaning Fiber-Reinforced Polyurethane (FRPU)
 headline: Comprehensive technical guide for laser cleaning composite fiber-reinforced polyurethane (frpu)
 environmentalImpact:
 - benefit: "Reduced chemical waste"

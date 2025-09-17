@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Ash - Technical Guide for Optimal Processing
+title: Laser Cleaning Ash
 meta_tags:
   - name: description
     content: "Technical overview of Ash wood for laser cleaning applications, including 0.71 g/cm³ density values, optimal 1064nm wavelengths, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Ash - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Ash"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood ash"
   - property: og:type

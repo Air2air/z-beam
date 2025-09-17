@@ -45,7 +45,7 @@ images:
   micro:
     alt: Microscopic view of Serpentine surface after laser treatment showing preserved microstructure
     url: /images/serpentine-laser-cleaning-micro.jpg
-title: Laser Cleaning Serpentine - Technical Guide for Optimal Processing
+title: Laser Cleaning Serpentine
 headline: Comprehensive technical guide for laser cleaning stone serpentine
 environmentalImpact:
 - benefit: "Reduced chemical waste"

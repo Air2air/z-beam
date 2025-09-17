@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Iron surface after laser treatment showing preserved microstructure
     url: /images/iron-laser-cleaning-micro.jpg
-title: Laser Cleaning Iron - Technical Guide for Optimal Processing
+title: Laser Cleaning Iron
 headline: Comprehensive technical guide for laser cleaning metal iron
 environmentalImpact:
 - benefit: "Reduced chemical waste"

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Copper - Technical Guide for Optimal Processing
+title: Laser Cleaning Copper
 meta_tags:
   - name: description
     content: "Technical overview of Copper for laser cleaning applications, including 8.96 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Copper - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Copper"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal copper"
   - property: og:type

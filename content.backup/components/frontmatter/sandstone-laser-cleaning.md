@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Sandstone surface after laser treatment showing preserved microstructure
     url: /images/sandstone-laser-cleaning-micro.jpg
-title: Laser Cleaning Sandstone - Technical Guide for Optimal Processing
+title: Laser Cleaning Sandstone
 headline: Comprehensive technical guide for laser cleaning stone sandstone
 environmentalImpact:
 - benefit: "Reduced chemical usage"

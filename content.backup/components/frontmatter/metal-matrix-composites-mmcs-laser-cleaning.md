@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Metal Matrix Composites (MMCs) surface after laser treatment showing preserved microstructure
     url: /images/metal-matrix-composites-(mmcs)-laser-cleaning-micro.jpg
-title: Laser Cleaning Metal Matrix Composites (MMCs) - Technical Guide for Optimal Processing
+title: Laser Cleaning Metal Matrix Composites (MMCs)
 headline: Comprehensive technical guide for laser cleaning composite metal matrix composites (mmcs)
 environmentalImpact:
 - benefit: "Reduced chemical waste"

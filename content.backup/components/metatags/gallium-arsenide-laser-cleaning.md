@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Gallium Arsenide - Technical Guide for Optimal Processing
+title: Laser Cleaning Gallium Arsenide
 meta_tags:
   - name: description
     content: "Technical overview of Gallium Arsenide (5.32 g/cm³ density) for laser cleaning applications, including 1064nm wavelength optimization and semiconductor manufacturing applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Gallium Arsenide - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Gallium Arsenide"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning semiconductor gallium arsenide"
   - property: og:type

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Schist - Technical Guide for Optimal Processing
+title: Laser Cleaning Schist
 meta_tags:
   - name: description
     content: "Technical overview of Schist for laser cleaning applications, including specific 2.7-2.9 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Schist - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Schist"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning stone schist"
   - property: og:type

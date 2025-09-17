@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing
+title: Laser Cleaning Carbon Fiber Reinforced Polymer
 meta_tags:
   - name: description
     content: "Technical overview of Carbon Fiber Reinforced Polymer (1.5-2.0 g/cm³ density) for laser cleaning applications, including 1064nm wavelength optimization and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Carbon Fiber Reinforced Polymer - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Carbon Fiber Reinforced Polymer"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite carbon fiber reinforced polymer"
   - property: og:type

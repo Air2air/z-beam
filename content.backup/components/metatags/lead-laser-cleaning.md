@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Lead - Technical Guide for Optimal Processing
+title: Laser Cleaning Lead
 meta_tags:
   - name: description
     content: "Technical overview of Lead for laser cleaning applications, including 11.34 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Lead - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Lead"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal lead"
   - property: og:type

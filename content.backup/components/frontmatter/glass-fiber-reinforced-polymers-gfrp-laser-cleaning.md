@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Glass Fiber Reinforced Polymers (GFRP) surface after laser treatment showing preserved microstructure
     url: /images/glass-fiber-reinforced-polymers-(gfrp)-laser-cleaning-micro.jpg
-title: Laser Cleaning Glass Fiber Reinforced Polymers (GFRP) - Technical Guide for Optimal Processing
+title: Laser Cleaning Glass Fiber Reinforced Polymers (GFRP)
 headline: Comprehensive technical guide for laser cleaning composite glass fiber reinforced polymers (gfrp)
 environmentalImpact:
 - benefit: "Reduced waste generation"

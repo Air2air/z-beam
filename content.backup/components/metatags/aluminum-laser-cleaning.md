@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Aluminum - Technical Guide for Optimal Processing
+title: Laser Cleaning Aluminum
 meta_tags:
   - name: description
     content: "Technical overview of Aluminum for laser cleaning applications, including 2.7 g/cm³ density, 1064nm optimal wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Aluminum - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Aluminum"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal aluminum"
   - property: og:type

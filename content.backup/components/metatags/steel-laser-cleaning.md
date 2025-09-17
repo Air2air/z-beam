@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Steel - Technical Guide for Optimal Processing
+title: Laser Cleaning Steel
 meta_tags:
   - name: description
     content: "Technical overview of Steel for laser cleaning applications, including 7.85 g/cm³ density, optimal 1064nm wavelength, and industrial rust removal applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Steel - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Steel"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal steel"
   - property: og:type

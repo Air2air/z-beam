@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Mahogany - Technical Guide for Optimal Processing
+title: Laser Cleaning Mahogany
 meta_tags:
   - name: description
     content: "Technical overview of Mahogany for laser cleaning applications, including 0.64 g/cm³ density, optimal 1064nm wavelength, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Mahogany - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Mahogany"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood mahogany"
   - property: og:type

@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of MDF surface after laser treatment showing preserved microstructure
     url: /images/mdf-laser-cleaning-micro.jpg
-title: Laser Cleaning MDF - Technical Guide for Optimal Processing
+title: Laser Cleaning MDF
 headline: Comprehensive technical guide for laser cleaning wood mdf
 environmentalImpact:
 - benefit: "Reduced chemical usage"

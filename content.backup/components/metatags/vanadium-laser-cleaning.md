@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Vanadium - Technical Guide for Optimal Processing
+title: Laser Cleaning Vanadium
 meta_tags:
   - name: description
     content: "Technical overview of Vanadium for laser cleaning applications, including 6.11 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Vanadium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Vanadium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal vanadium"
   - property: og:type

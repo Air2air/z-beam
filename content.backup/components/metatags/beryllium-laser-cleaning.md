@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Beryllium - Technical Guide for Optimal Processing
+title: Laser Cleaning Beryllium
 meta_tags:
   - name: description
     content: "Technical overview of Beryllium laser cleaning applications, including 1.85 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Beryllium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Beryllium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal beryllium"
   - property: og:type

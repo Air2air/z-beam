@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Cedar surface after laser treatment showing preserved microstructure
     url: /images/cedar-laser-cleaning-micro.jpg
-title: Laser Cleaning Cedar - Technical Guide for Optimal Processing
+title: Laser Cleaning Cedar
 headline: Comprehensive technical guide for laser cleaning wood cedar
 environmentalImpact:
 - benefit: "Reduced chemical usage"

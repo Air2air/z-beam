@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Tin surface after laser treatment showing preserved microstructure
     url: /images/tin-laser-cleaning-micro.jpg
-title: Laser Cleaning Tin - Technical Guide for Optimal Processing
+title: Laser Cleaning Tin
 headline: Comprehensive technical guide for laser cleaning metal tin
 environmentalImpact:
 - benefit: "Reduced chemical waste"

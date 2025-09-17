@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Iridium - Technical Guide for Optimal Processing
+title: Laser Cleaning Iridium
 meta_tags:
   - name: description
     content: "Technical overview of Iridium (22.56 g/cm³ density) for laser cleaning applications, including 1064nm wavelength optimization and industrial aerospace applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Iridium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Iridium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal iridium"
   - property: og:type

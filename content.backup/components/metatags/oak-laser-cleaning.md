@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Oak - Technical Guide for Optimal Processing
+title: Laser Cleaning Oak
 meta_tags:
   - name: description
     content: "Technical overview of Oak for laser cleaning applications, including specific 0.75 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Oak - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Oak"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood oak"
   - property: og:type

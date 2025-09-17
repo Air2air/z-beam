@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Glass Fiber Reinforced Polymers (GFRP) - Technical Guide for Optimal Processing
+title: Laser Cleaning Glass Fiber Reinforced Polymers (GFRP)
 meta_tags:
   - name: description
     content: "Technical overview of Glass Fiber Reinforced Polymers (GFRP) for laser cleaning applications, including 1.8-2.5 g/cm³ density values, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Glass Fiber Reinforced Polymers (GFRP) - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Glass Fiber Reinforced Polymers (GFRP)"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning composite glass fiber reinforced polymers (gfrp)"
   - property: og:type

@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Soapstone surface after laser treatment showing preserved microstructure
     url: /images/soapstone-laser-cleaning-micro.jpg
-title: Laser Cleaning Soapstone - Technical Guide for Optimal Processing
+title: Laser Cleaning Soapstone
 headline: Comprehensive technical guide for laser cleaning stone soapstone
 environmentalImpact:
 - benefit: "Reduced chemical usage"

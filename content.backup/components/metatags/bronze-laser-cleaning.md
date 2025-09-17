@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Bronze - Technical Guide for Optimal Processing
+title: Laser Cleaning Bronze
 meta_tags:
   - name: description
     content: "Technical overview of Bronze for laser cleaning applications, including 8.8 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Bronze - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Bronze"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal bronze"
   - property: og:type

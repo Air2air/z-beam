@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Willow - Technical Guide for Optimal Processing
+title: Laser Cleaning Willow
 meta_tags:
   - name: description
     content: "Technical guide for laser cleaning Willow wood with 0.45-0.55 g/cm³ density. Optimal 1064nm wavelength parameters for surface restoration and contamination removal."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Willow - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Willow"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood willow"
   - property: og:type

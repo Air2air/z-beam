@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Silicon Carbide - Technical Guide for Optimal Processing
+title: Laser Cleaning Silicon Carbide
 meta_tags:
   - name: description
     content: "Technical overview of Silicon Carbide (3.21 g/cm³ density) for laser cleaning applications, including optimal 1064nm wavelength parameters and industrial semiconductor applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Silicon Carbide - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Silicon Carbide"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning semiconductor silicon carbide"
   - property: og:type

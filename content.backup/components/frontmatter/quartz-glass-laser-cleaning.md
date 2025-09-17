@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Quartz Glass surface after laser treatment showing preserved microstructure
     url: /images/quartz-glass-laser-cleaning-micro.jpg
-title: Laser Cleaning Quartz Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Quartz Glass
 headline: Comprehensive technical guide for laser cleaning quartz glass
 environmentalImpact:
 - benefit: "Reduction in chemical usage"

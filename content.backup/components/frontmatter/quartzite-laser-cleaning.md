@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Quartzite surface after laser treatment showing preserved microstructure
     url: /images/quartzite-laser-cleaning-micro.jpg
-title: Laser Cleaning Quartzite - Technical Guide for Optimal Processing
+title: Laser Cleaning Quartzite
 headline: Comprehensive technical guide for laser cleaning stone quartzite
 environmentalImpact:
 - benefit: "Reduced chemical use"

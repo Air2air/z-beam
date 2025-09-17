@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Cobalt surface after laser treatment showing preserved microstructure
     url: /images/cobalt-laser-cleaning-micro.jpg
-title: Laser Cleaning Cobalt - Technical Guide for Optimal Processing
+title: Laser Cleaning Cobalt
 headline: Comprehensive technical guide for laser cleaning metal cobalt
 environmentalImpact:
 - benefit: "Reduced chemical waste"

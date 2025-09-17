@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Soapstone - Technical Guide for Optimal Processing
+title: Laser Cleaning Soapstone
 meta_tags:
   - name: description
     content: "Technical overview of Soapstone for laser cleaning applications, including specific 2.8 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Soapstone - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Soapstone"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning stone soapstone"
   - property: og:type

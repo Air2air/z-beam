@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Shale - Technical Guide for Optimal Processing
+title: Laser Cleaning Shale
 meta_tags:
   - name: description
     content: "Technical overview of Shale for laser cleaning applications, including 2.6 g/cm³ density, optimal 1064nm wavelength parameters, and industrial surface restoration."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Shale - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Shale"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning stone shale"
   - property: og:type

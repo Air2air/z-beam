@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Maple - Technical Guide for Optimal Processing
+title: Laser Cleaning Maple
 meta_tags:
   - name: description
     content: "Technical overview of Maple for laser cleaning applications, including 0.63-0.75 g/cm³ density values, optimal 1064nm wavelength, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Maple - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Maple"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood maple"
   - property: og:type

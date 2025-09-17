@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Rosewood surface after laser treatment showing preserved microstructure
     url: /images/rosewood-laser-cleaning-micro.jpg
-title: Laser Cleaning Rosewood - Technical Guide for Optimal Processing
+title: Laser Cleaning Rosewood
 headline: Comprehensive technical guide for laser cleaning wood rosewood
 environmentalImpact:
 - benefit: "Reduced chemical usage"

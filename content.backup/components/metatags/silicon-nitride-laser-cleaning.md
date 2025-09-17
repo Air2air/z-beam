@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Silicon Nitride - Technical Guide for Optimal Processing
+title: Laser Cleaning Silicon Nitride
 meta_tags:
   - name: description
     content: "Technical overview of Silicon Nitride (3.2 g/cm³ density) for laser cleaning applications, including optimal 1064nm wavelength parameters and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Silicon Nitride - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Silicon Nitride"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning ceramic silicon nitride"
   - property: og:type

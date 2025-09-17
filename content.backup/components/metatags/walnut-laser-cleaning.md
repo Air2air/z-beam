@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Walnut - Technical Guide for Optimal Processing
+title: Laser Cleaning Walnut
 meta_tags:
   - name: description
     content: "Technical overview of Walnut for laser cleaning applications, including 0.64 g/cm³ density, optimal 1064nm wavelength, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Walnut - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Walnut"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood walnut"
   - property: og:type

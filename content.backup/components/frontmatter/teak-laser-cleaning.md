@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Teak surface after laser treatment showing preserved microstructure
     url: /images/teak-laser-cleaning-micro.jpg
-title: Laser Cleaning Teak - Technical Guide for Optimal Processing
+title: Laser Cleaning Teak
 headline: Comprehensive technical guide for laser cleaning wood teak
 environmentalImpact:
 - benefit: "Reduced chemical use"

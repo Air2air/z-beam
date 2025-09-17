@@ -44,7 +44,7 @@ images:
   micro:
     alt: Microscopic view of Copper surface after laser treatment showing preserved microstructure
     url: /images/copper-laser-cleaning-micro.jpg
-title: Laser Cleaning Copper - Technical Guide for Optimal Processing
+title: Laser Cleaning Copper
 headline: Comprehensive technical guide for laser cleaning metal copper
 environmentalImpact:
 - benefit: "Reduced chemical usage"

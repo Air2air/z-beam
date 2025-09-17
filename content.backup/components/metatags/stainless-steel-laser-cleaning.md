@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Stainless Steel - Technical Guide for Optimal Processing
+title: Laser Cleaning Stainless Steel
 meta_tags:
   - name: description
     content: "Technical overview of Stainless Steel for laser cleaning applications, including 7.9 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Stainless Steel - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Stainless Steel"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal stainless steel"
   - property: og:type

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Redwood - Technical Guide for Optimal Processing
+title: Laser Cleaning Redwood
 meta_tags:
   - name: description
     content: "Technical overview of Redwood for laser cleaning applications, including 0.45 g/cm³ density values, optimal 1064nm wavelengths, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Redwood - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Redwood"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood redwood"
   - property: og:type

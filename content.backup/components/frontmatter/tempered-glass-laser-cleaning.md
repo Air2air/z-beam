@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Tempered Glass surface after laser treatment showing preserved microstructure
     url: /images/tempered-glass-laser-cleaning-micro.jpg
-title: Laser Cleaning Tempered Glass - Technical Guide for Optimal Processing
+title: Laser Cleaning Tempered Glass
 headline: Comprehensive technical guide for laser cleaning tempered glass
 environmentalImpact:
 - benefit: "Reduced chemical waste"

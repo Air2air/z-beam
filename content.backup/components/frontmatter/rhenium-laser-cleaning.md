@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Rhenium surface after laser treatment showing preserved microstructure
     url: /images/rhenium-laser-cleaning-micro.jpg
-title: Laser Cleaning Rhenium - Technical Guide for Optimal Processing
+title: Laser Cleaning Rhenium
 headline: Comprehensive technical guide for laser cleaning metal rhenium
 environmentalImpact:
 - benefit: "Reduced chemical waste"

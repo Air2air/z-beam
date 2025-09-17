@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Palladium - Technical Guide for Optimal Processing
+title: Laser Cleaning Palladium
 meta_tags:
   - name: description
     content: "Technical overview of Palladium for laser cleaning applications, including 12.02 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Palladium - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Palladium"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning metal palladium"
   - property: og:type

@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Cement - Technical Guide for Optimal Processing
+title: Laser Cleaning Cement
 meta_tags:
   - name: description
     content: "Technical overview of cement for laser cleaning applications, including 2.4 g/cm³ density, optimal 1064nm wavelength, and industrial applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Cement - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Cement"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning masonry cement"
   - property: og:type

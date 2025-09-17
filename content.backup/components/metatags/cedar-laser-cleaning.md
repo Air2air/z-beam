@@ -1,5 +1,5 @@
 ---
-title: Laser Cleaning Cedar - Technical Guide for Optimal Processing
+title: Laser Cleaning Cedar
 meta_tags:
   - name: description
     content: "Technical overview of Cedar for laser cleaning applications, including 0.49 g/cm³ density values, optimal 1064nm wavelengths, and industrial wood restoration applications."
@@ -13,7 +13,7 @@ meta_tags:
     content: "index, follow"
 opengraph:
   - property: og:title
-    content: "Laser Cleaning Cedar - Technical Guide for Optimal Processing"
+    content: "Laser Cleaning Cedar"
   - property: og:description
     content: "Comprehensive technical guide for laser cleaning wood cedar"
   - property: og:type

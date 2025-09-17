@@ -43,7 +43,7 @@ images:
   micro:
     alt: Microscopic view of Silicon Carbide surface after laser treatment showing preserved microstructure
     url: /images/silicon-carbide-laser-cleaning-micro.jpg
-title: Laser Cleaning Silicon Carbide - Technical Guide for Optimal Processing
+title: Laser Cleaning Silicon Carbide
 headline: Comprehensive technical guide for laser cleaning semiconductor silicon carbide
 environmentalImpact:
 - benefit: "Reduced waste"
