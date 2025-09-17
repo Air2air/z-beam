@@ -158,36 +158,52 @@ export function Table({ content, config }: TableProps) {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
                 <tr>
+                  {/* Render headers in the desired order: Property | Unit | Value | Min | Range Indicator | Max */}
                   {tableData.headers.map((header, index) => {
-                    if (index === 0) {
-                      // First column (Property)
+                    const headerName = header.toLowerCase();
+                    
+                    if (headerName === 'property') {
                       return (
-                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          {header}
-                        </th>
-                      );
-                    } else if (index === 1 && isPropertyTable) {
-                      // Insert Range Indicator as 2nd column
-                      return [
-                        <th key="range-indicator" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          
-                        </th>,
-                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          {header}
-                        </th>
-                      ];
-                    } else {
-                      // All other columns
-                      return (
-                        <th key={index} className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                        <th key="property" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                           {header}
                         </th>
                       );
                     }
-                  })}
-                  {!isPropertyTable && tableData.headers.length > 1 && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    return null; // Don't render other headers here
+                  }).filter(Boolean)}
+                  
+                  {/* Unit column */}
+                  {tableData.headers.find(h => h.toLowerCase() === 'unit') && (
+                    <th key="unit" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {tableData.headers.find(h => h.toLowerCase() === 'unit')}
+                    </th>
+                  )}
+                  
+                  {/* Value column */}
+                  {tableData.headers.find(h => h.toLowerCase() === 'value') && (
+                    <th key="value" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {tableData.headers.find(h => h.toLowerCase() === 'value')}
+                    </th>
+                  )}
+                  
+                  {/* Min column */}
+                  {tableData.headers.find(h => h.toLowerCase() === 'min') && (
+                    <th key="min" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {tableData.headers.find(h => h.toLowerCase() === 'min')}
+                    </th>
+                  )}
+                  
+                  {/* Range Indicator column */}
+                  {isPropertyTable && (
+                    <th key="range-indicator" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       
+                    </th>
+                  )}
+                  
+                  {/* Max column */}
+                  {tableData.headers.find(h => h.toLowerCase() === 'max') && (
+                    <th key="max" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      {tableData.headers.find(h => h.toLowerCase() === 'max')}
                     </th>
                   )}
                 </tr>
@@ -202,6 +218,19 @@ export function Table({ content, config }: TableProps) {
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                         {row.property}
                       </td>
+                      {row.unit !== undefined && (
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
+                          {row.unit}
+                        </td>
+                      )}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-blue-600 dark:text-blue-400">
+                        {row.value}
+                      </td>
+                      {row.min !== undefined && (
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
+                          {row.min}
+                        </td>
+                      )}
                       {isPropertyTable && rangeData !== null && (
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center space-x-2">
@@ -255,19 +284,6 @@ export function Table({ content, config }: TableProps) {
                           {/* Empty cell for rows without valid min/max values (like headings) */}
                         </td>
                       )}
-                      {row.unit !== undefined && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                          {row.unit}
-                        </td>
-                      )}
-                      {row.min !== undefined && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                          {row.min}
-                        </td>
-                      )}
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-blue-600 dark:text-blue-400">
-                        {row.value}
-                      </td>
                       {row.max !== undefined && (
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                           {row.max}
