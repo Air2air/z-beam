@@ -350,7 +350,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       {(enhancedData.technicalSpecifications || enhancedData.laser_parameters) && (
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-white mb-4">
-            Technical Specifications
+            Machine Settings
           </h3>
           <div className="specs-grid grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
             {enhancedData.laser_parameters && Object.entries(enhancedData.laser_parameters).map(([key, value]) => (
@@ -374,27 +374,6 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
                   {key.replace(/([A-Z])/g, ' $1').trim()}
                 </dt>
                 <dd className="text-sm font-semibold text-gray-900">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Material Properties */}
-      {enhancedData.chemicalProperties && (
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Material Properties
-          </h3>
-          <div className="properties-grid grid grid-cols-1 md:grid-cols-2 gap-4">
-            {Object.entries(enhancedData.chemicalProperties).map(([key, value]) => (
-              <div key={key} className="property-item p-4 bg-white rounded-lg">
-                <dt className="property-label font-medium text-gray-600 mb-1">
-                  {key.replace(/([A-Z])/g, ' $1').replace(/_/g, ' ').trim()}
-                </dt>
-                <dd className="property-value text-gray-900">
                   {value}
                 </dd>
               </div>
