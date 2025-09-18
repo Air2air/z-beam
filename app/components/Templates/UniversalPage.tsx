@@ -23,8 +23,9 @@ interface UniversalPageProps {
 
 /**
  * Universal page component that can handle different content loading strategies
+ * This is a Server Component that loads data asynchronously
  */
-export async function UniversalPage({
+async function UniversalPageComponent({
   slug,
   title,
   description,
@@ -61,7 +62,7 @@ export async function UniversalPage({
         components={pageData.components}
         metadata={pageData.metadata}
         slug={slug}
-        title={pageData.metadata?.title || title}
+        title={title || pageData.metadata?.title}
       />
     );
   } catch (error) {
@@ -76,12 +77,16 @@ export async function UniversalPage({
   }
 }
 
+// Default export for Next.js usage
+export default UniversalPageComponent;
+
 /**
  * Factory function to create page components with specific configurations
  */
 export function createPageComponent(config: UniversalPageProps) {
+  // Return an async function that uses the config to call UniversalPageComponent
   return async function GeneratedPageComponent() {
-    return <UniversalPage {...config} />;
+    return await UniversalPageComponent(config);
   };
 }
 
@@ -112,3 +117,6 @@ export const pageConfigs = {
     revalidate: false,
   }
 } as const;
+
+// Named export for test compatibility - alias the default component
+export const UniversalPage = UniversalPageComponent;

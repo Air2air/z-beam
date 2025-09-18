@@ -45,7 +45,7 @@ export function Layout({
   if (!components || Object.keys(components).length === 0) {
     // Return a basic layout or message for pages without components
     return (
-      <section className={className}>
+      <main className={className} id="main-content" role="main">
         <div className="prose dark:prose-invert">
           <p>No content available for this page.</p>
           {!hideHeader && (
@@ -54,7 +54,7 @@ export function Layout({
             </h1>
           )}
         </div>
-      </section>
+      </main>
     );
   }
   
@@ -81,48 +81,77 @@ export function Layout({
     }) : null;
   
   return (
-    <section className={className}>
+    <main className={className} id="main-content" role="main">
       {/* Only include JSON-LD here, not other meta tags */}
       {jsonLdData && <JsonLD data={jsonLdData} />}
       
-      {/* Simplified header with extracted component */}
+      {/* Article header section */}
       {!hideHeader && (
-        <ArticleHeader 
-          metadata={metadata}
-          slug={slug}
-          title={title}
-        />
+        <header role="banner">
+          <ArticleHeader 
+            metadata={metadata}
+            slug={slug}
+            title={title}
+          />
+        </header>
       )}
 
-      {/* Render components in specified order */}
-      {COMPONENT_ORDER.map(type => {
-        if (!components[type]) return null;
-        
-        const { content, config } = components[type];
-        
-        switch(type) {
-          case 'propertiestable':
-            return (
-              <div key={type}>
-                <PropertiesTable content={content} config={config} />
-              </div>
-            );
-          case 'badgesymbol':
-            return <BadgeSymbol key={type} content={content} config={config as unknown as BadgeSymbolData} />;
-          case 'content':
-            return <Content key={type} content={content} config={config} />;
-          case 'caption':
-            return <Caption key={type} content={content} frontmatter={metadata} config={config} />;
-          case 'bullets':
-            return <Bullets key={type} content={content} config={config} />;
-          case 'table':
-            return <Table key={type} content={content} config={config} />;
-          case 'tags':
-            return <Tags key={type} content={content} config={config} />;
-          default:
-            return null;
-        }
-      })}
-    </section>
+      {/* Main article content */}
+      <article role="article">
+        {/* Render components in specified order */}
+        {COMPONENT_ORDER.map(type => {
+          if (!components[type]) return null;
+          
+          const { content, config } = components[type];
+          
+          switch(type) {
+            case 'propertiestable':
+              return (
+                <section key={type} aria-labelledby="properties-heading">
+                  <PropertiesTable content={content} config={config} />
+                </section>
+              );
+            case 'badgesymbol':
+              return (
+                <section key={type} aria-label="Material classification">
+                  <BadgeSymbol content={content} config={config as unknown as BadgeSymbolData} />
+                </section>
+              );
+            case 'content':
+              return (
+                <section key={type} aria-label="Main content">
+                  <Content content={content} config={config} />
+                </section>
+              );
+            case 'caption':
+              return (
+                <section key={type} aria-label="Caption and metadata">
+                  <Caption content={content} frontmatter={metadata} config={config} />
+                </section>
+              );
+            case 'bullets':
+              return (
+                <section key={type} aria-label="Key points">
+                  <Bullets content={content} config={config} />
+                </section>
+              );
+            case 'table':
+              return (
+                <section key={type} aria-label="Data table">
+                  <Table content={content} config={config} />
+                </section>
+              );
+            case 'tags':
+              return (
+                <section key={type} aria-label="Tags and categories">
+                  <Tags content={content} config={config} />
+                </section>
+              );
+            default:
+              return null;
+          }
+        })}
+      </article>
+    </main>
   );
 }

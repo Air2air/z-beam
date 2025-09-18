@@ -210,29 +210,29 @@ export function SEOOptimizedCaption({
         </h4>
         
         <div className="properties-grid grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-          {frontmatter?.physicalProperties?.density && (
+          {frontmatter?.chemicalProperties?.density && (
             <div className="property-item">
               <span className="property-label font-medium">Density:</span>
               <span className="property-value ml-1" itemProp="density">
-                {frontmatter.physicalProperties.density}
+                {frontmatter.chemicalProperties.density}
               </span>
             </div>
           )}
           
-          {frontmatter?.physicalProperties?.meltingPoint && (
+          {frontmatter?.chemicalProperties?.meltingPoint && (
             <div className="property-item">
               <span className="property-label font-medium">Melting Point:</span>
               <span className="property-value ml-1" itemProp="meltingPoint">
-                {frontmatter.physicalProperties.meltingPoint}
+                {frontmatter.chemicalProperties.meltingPoint}
               </span>
             </div>
           )}
           
-          {frontmatter?.physicalProperties?.thermalConductivity && (
+          {frontmatter?.chemicalProperties?.thermalConductivity && (
             <div className="property-item">
               <span className="property-label font-medium">Thermal Conductivity:</span>
               <span className="property-value ml-1" itemProp="thermalConductivity">
-                {frontmatter.physicalProperties.thermalConductivity}
+                {frontmatter.chemicalProperties.thermalConductivity}
               </span>
             </div>
           )}

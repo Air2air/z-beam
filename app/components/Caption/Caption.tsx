@@ -45,6 +45,9 @@ interface EnhancedCaptionData {
     formula?: string;
     surface_finish?: string;
     corrosion_resistance?: string;
+    density?: string;
+    meltingPoint?: string;
+    thermalConductivity?: string;
   };
   technicalSpecifications?: {
     wavelength?: string;
@@ -125,6 +128,9 @@ interface FrontmatterType {
     contamination_type?: string;
     materialType?: string;
     formula?: string;
+    density?: string;
+    meltingPoint?: string;
+    thermalConductivity?: string;
   };
 }
 
@@ -357,7 +363,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       </figure>
       </div>
 
-      {/* Technical Specifications */}
+      {/* Machine Settings */}
       {(enhancedData.technicalSpecifications || enhancedData.laser_parameters) && (
         <div className="mb-8">
           <h3 className="text-lg font-semibold text-white mb-4">
@@ -397,4 +403,4 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   );
 }
 
-export type { EnhancedCaptionData, FrontmatterType, CaptionProps };
+export type { EnhancedCaptionData, FrontmatterType, CaptionProps, ParsedCaptionData };

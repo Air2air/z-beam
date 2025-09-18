@@ -247,10 +247,9 @@ const parseTags = (content: string | TagsData): string[] => {
   };
   
   return (
-    <div className={`tags-container ${className}`}>
-      {title && <h3 className="text-lg font-medium mb-2">{title}</h3>}
-      
-      {/* Metadata display */}
+    <div className={`tags-container ${className}`} data-testid="tags-container">
+      {/* Title */}
+      {title && <h3 className="text-lg font-medium mb-2">{title}</h3>}      {/* Metadata display */}
       {config?.showMetadata && (metadata || count || categories || material) && (
         <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
           <div className="flex flex-wrap gap-4">
@@ -301,6 +300,8 @@ const parseTags = (content: string | TagsData): string[] => {
                         key={index}
                         onClick={() => handleTagClick(tag)}
                         className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                        aria-label={`Filter by ${tag} tag`}
+                        title={`Filter by ${tag} tag`}
                       >
                         {toTitleCase(tag)}
                       </button>
@@ -308,9 +309,15 @@ const parseTags = (content: string | TagsData): string[] => {
                       <Link
                         key={index}
                         href={`${linkPrefix}${encodeURIComponent(tag)}`}
-                        className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                        legacyBehavior
                       >
-                        {toTitleCase(tag)}
+                        <a
+                          className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                          aria-label={`View all articles tagged with ${tag}`}
+                          title={`View all articles tagged with ${tag}`}
+                        >
+                          {toTitleCase(tag)}
+                        </a>
                       </Link>
                     )
                   ))}
@@ -328,17 +335,25 @@ const parseTags = (content: string | TagsData): string[] => {
                 key={index}
                 onClick={() => handleTagClick(tag)}
                 className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                aria-label={`Filter by ${tag} tag`}
+                title={`Filter by ${tag} tag`}
               >
                 {toTitleCase(tag)}
               </button>
             ) : (
-              // Link for navigation to tag page
+              // Link for navigation to tag page - use legacy Link approach for testing
               <Link
                 key={index}
                 href={`${linkPrefix}${encodeURIComponent(tag)}`}
-                className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                legacyBehavior
               >
-                {toTitleCase(tag)}
+                <a
+                  className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                  aria-label={`View all articles tagged with ${tag}`}
+                  title={`View all articles tagged with ${tag}`}
+                >
+                  {toTitleCase(tag)}
+                </a>
               </Link>
             )
           ))}

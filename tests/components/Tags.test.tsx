@@ -9,15 +9,19 @@ jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
 
-// Mock next/link
+// Mock next/link to handle both legacy and modern patterns  
 jest.mock('next/link', () => {
+  const mockReact = require('react');
   return function MockLink(props) {
-    const { href, children, className } = props;
-    return (
-      <a href={href} className={className}>
-        {children}
-      </a>
-    );
+    const { href, children, className, legacyBehavior, ...otherProps } = props;
+    
+    if (legacyBehavior) {
+      // In legacy behavior, children should contain the anchor tag
+      return mockReact.cloneElement(children, { href, ...otherProps });
+    } else {
+      // Modern behavior: Link itself is the anchor
+      return mockReact.createElement('a', { href, className, ...otherProps }, children);
+    }
   };
 });
 
@@ -229,7 +233,7 @@ describe('Tags Component', () => {
         />
       );
       
-      expect(screen.getByRole('generic')).toHaveClass('custom-tags-class');
+      expect(screen.getByTestId('tags-container')).toHaveClass('custom-tags-class');
     });
 
     it('should show custom title', () => {

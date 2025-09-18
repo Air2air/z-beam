@@ -63,11 +63,19 @@ const socialLinks: SocialLink[] = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-12">
+    <footer 
+      className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-12"
+      role="contentinfo"
+      aria-label="Site footer"
+    >
       <div className="container mx-auto px-4 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
         {/* Logo and Copyright */}
         <div className="flex flex-col items-center md:items-start gap-4">
-          <Link href="/" className="block">
+          <Link 
+            href="/" 
+            className="block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+            aria-label="Z-Beam home page"
+          >
             <Image
               src="/images/Site/Logo/logo_.png"
               alt="Z-Beam Logo"
@@ -83,30 +91,41 @@ export default function Footer() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-col items-center gap-4 md:flex-row md:gap-4">
+        <nav 
+          className="flex flex-col items-center gap-4 md:flex-row md:gap-4"
+          role="navigation"
+          aria-label="Footer navigation"
+        >
           {footerNav.map((item) => (
             <Link
               key={item.name}
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md px-2 py-1"
             >
               {item.name}
+              {item.external && (
+                <span className="sr-only"> (opens in new window)</span>
+              )}
             </Link>
           ))}
         </nav>
 
         {/* Social Icons */}
-        <div className="flex items-center justify-center gap-4">
+        <div 
+          className="flex items-center justify-center gap-4"
+          role="navigation"
+          aria-label="Social media links"
+        >
           {socialLinks.map((social) => (
             <a
               key={social.name}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={social.name}
-              className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition"
+              aria-label={`Follow us on ${social.name} (opens in new window)`}
+              className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-1"
             >
               {social.icon}
             </a>

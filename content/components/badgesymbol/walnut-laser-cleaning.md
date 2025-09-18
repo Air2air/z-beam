@@ -1,11 +1,11 @@
 ---
 symbol: "WAL"
-materialType: "organic"
+materialType: "composite"
 name: "Walnut"
 description: "Hardwood material with distinctive grain pattern"
 ---
 
 # Walnut Badge Symbol Data
 - Symbol: WAL
-- Material Type: Organic
+- Material Type: Composite
 - Properties: Hardwood, distinctive grain, moderate density

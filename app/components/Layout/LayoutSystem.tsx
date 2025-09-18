@@ -54,14 +54,21 @@ export function UniversalLayout(props: UniversalLayoutProps) {
     case 'article':
       const articleProps = props as ArticleLayoutProps;
       return (
-        <Layout
-          components={articleProps.components}
-          metadata={articleProps.metadata}
-          slug={articleProps.slug}
-          title={articleProps.title}
-          hideHeader={articleProps.hideHeader}
-          className={className}
-        />
+        <div 
+          data-testid="universal-layout"
+          data-slug={articleProps.slug}
+          data-title={articleProps.title || articleProps.metadata?.title}
+          data-variant="article"
+        >
+          <Layout
+            components={articleProps.components}
+            metadata={articleProps.metadata}
+            slug={articleProps.slug}
+            title={articleProps.title}
+            hideHeader={articleProps.hideHeader}
+            className={className}
+          />
+        </div>
       );
 
     case 'debug':
@@ -70,18 +77,20 @@ export function UniversalLayout(props: UniversalLayoutProps) {
         throw new Error('Debug layout requires children');
       }
       return (
-        <DebugLayout
-          activeSection={debugProps.activeSection}
-          sections={debugProps.sections}
-        >
-          {children}
-        </DebugLayout>
+        <div data-testid="universal-layout" data-variant="debug">
+          <DebugLayout
+            activeSection={debugProps.activeSection}
+            sections={debugProps.sections}
+          >
+            {children}
+          </DebugLayout>
+        </div>
       );
 
     case 'minimal':
       const minimalProps = props as DefaultLayoutProps;
       return (
-        <div className={className || "py-8"}>
+        <div className={className || "py-8"} data-testid="universal-layout" data-variant="minimal">
           {minimalProps.title && (
             <h1 className="text-3xl font-bold mb-4">{minimalProps.title}</h1>
           )}
@@ -100,7 +109,7 @@ export function UniversalLayout(props: UniversalLayoutProps) {
         : "";
       
       return (
-        <div className={className || containerClass}>
+        <div className={className || containerClass} data-testid="universal-layout" data-variant="default">
           {defaultProps.title && (
             <div className="mb-8">
               <h1 className="text-3xl font-bold mb-4">{defaultProps.title}</h1>
