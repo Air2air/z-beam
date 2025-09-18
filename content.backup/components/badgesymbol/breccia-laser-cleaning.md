@@ -1,4 +1,0 @@
----
-symbol: "BR"
-materialType: "stone"
----

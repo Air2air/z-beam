@@ -1,2 +1,0 @@
-**Soda-Lime Glass** substrate (left) exhibiting significant environmental soiling and calcium-rich surface scale.
-**Post-laser ablation** (right) showing complete contaminant removal using a 1064 nm Nd:YAG laser at 8 W, 100 ns pulse duration, and a 500 µm spot size, preserving the pristine silicate surface.

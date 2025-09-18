@@ -1,4 +1,0 @@
----
-symbol: "PY"
-materialType: "glass"
----

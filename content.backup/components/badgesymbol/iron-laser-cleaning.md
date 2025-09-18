@@ -1,4 +1,0 @@
----
-symbol: "Fe"
-materialType: "metal"
----

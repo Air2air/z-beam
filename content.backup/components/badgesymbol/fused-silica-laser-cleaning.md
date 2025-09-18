@@ -1,4 +1,0 @@
----
-symbol: "FU"
-materialType: "glass"
----

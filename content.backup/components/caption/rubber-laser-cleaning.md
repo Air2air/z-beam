@@ -1,2 +1,0 @@
-**Rubber** surface (left) before processing, exhibiting heavy carbonaceous residue and embedded particulate contamination.  
-**After laser ablation** (right) using a 1064 nm Nd:YAG laser (12 J/cm², 100 ns pulse duration, 500 µm spot), showing precise contaminant removal with no substrate degradation.

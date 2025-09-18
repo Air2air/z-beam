@@ -1,2 +1,0 @@
-**Stoneware** surface (left) before processing, exhibiting heavy organic deposits and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm², revealing the original vitrified glaze without substrate damage.

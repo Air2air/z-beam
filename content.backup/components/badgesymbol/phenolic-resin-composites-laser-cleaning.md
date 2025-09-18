@@ -1,4 +1,0 @@
----
-symbol: "PH"
-materialType: "composite"
----

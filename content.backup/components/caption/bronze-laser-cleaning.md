@@ -1,2 +1,0 @@
-**Bronze** surface (left) prior to treatment, exhibiting heavy atmospheric corrosion and green copper sulfate patina.
-**After laser cleaning** (right) selective ablation of corrosion layers using a 1064 nm Nd:YAG laser at 80 W average power, 100 ns pulse duration, and 5 mm spot size, preserving the intact substrate.

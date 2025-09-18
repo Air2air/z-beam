@@ -1,4 +1,0 @@
----
-symbol: "MO"
-materialType: "masonry"
----

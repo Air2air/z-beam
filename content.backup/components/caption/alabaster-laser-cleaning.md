@@ -1,2 +1,0 @@
-**Alabaster** surface (left) exhibiting heavy soiling with embedded particulate matter and biological growth.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm², 10 ns pulse duration, and 3 mm spot size, achieving precise ablation of contaminants without substrate damage.

@@ -1,4 +1,0 @@
----
-symbol: "PL"
-materialType: "wood"
----

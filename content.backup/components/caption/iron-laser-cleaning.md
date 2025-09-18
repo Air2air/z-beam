@@ -1,2 +1,0 @@
-**Iron** surface (left) exhibiting heavy oxide scale and particulate contamination prior to processing.
-**After laser cleaning** (right) with a 1064 nm fiber laser (15 J/cm², 100 ns pulse duration, 100 µm spot), revealing the pristine, oxide-free substrate with no thermal damage.

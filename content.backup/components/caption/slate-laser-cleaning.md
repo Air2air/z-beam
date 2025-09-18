@@ -1,2 +1,0 @@
-**Slate** surface (left) prior to intervention, exhibiting significant biological growth and embedded particulate soiling.
-**After laser cleaning** (right) with a 1064 nm Nd:YAG laser (8 J/cm², 100 ns, 5 mm spot), showing precise ablation of contaminants and preservation of the natural mineral foliation.

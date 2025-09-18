@@ -1,2 +1,0 @@
-**Cobalt** component (left) with visible oxide layer and surface staining prior to treatment.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 80 W average power, 100 ns pulse duration, and 500 µm spot size, achieving precise contaminant ablation with no substrate damage.

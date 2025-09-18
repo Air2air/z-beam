@@ -1,4 +1,0 @@
----
-symbol: "HI"
-materialType: "wood"
----

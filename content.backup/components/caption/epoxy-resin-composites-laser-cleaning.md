@@ -1,2 +1,0 @@
-**Epoxy Resin Composites** surface (left) with degraded thermal barrier coating and embedded carbonaceous deposits.  
-**After 1064 nm laser ablation** (right) using 8 J/cm² fluence and 100 ns pulses, revealing pristine fiber reinforcement without matrix damage.

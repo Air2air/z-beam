@@ -1,2 +1,0 @@
-**Porcelain** surface (left) before treatment, exhibiting heavy atmospheric soiling and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 1.2 J/cm² fluence and 10 ns pulse duration, achieving precise ablation of surface deposits without micro-fracturing the vitreous glaze.

@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Laser cleaning is predominantly employed for restoring historical stoneware artifacts and preparing industrial ceramic components within European manufacturing sectors, ensuring precise surface treatment without mechanical abrasion. This technique is also vital for maintaining architectural stoneware elements across heritage sites, aligning with strict conservation protocols.
-
-- **[PARAMETERS]** Optimal cleaning utilizes near-infrared wavelengths around 1064 nm with fluences carefully maintained between 0.5 and 1.5 J/cm² to effectively ablate contaminants while preserving the stoneware's vitrified glaze. Shorter pulse durations in the nanosecond range are preferred to minimize thermal penetration and prevent micro-cracking in the ceramic body.
-
-- **[ENVIRONMENTAL]** The process eliminates chemical solvents and abrasive media, significantly reducing hazardous waste generation and supporting the circular economy goals prevalent in European industry. This dry method also curtails airborne particulate matter compared to traditional blasting, enhancing workplace air quality.
-
-- **[SAFETY]** Strict adherence to EN 60825-1 for laser safety is mandatory, requiring Class 1 enclosures or appropriate personal protective equipment including wavelength-specific eyewear for all operators. Proper fume extraction systems must be installed to handle the plume generated during ablation, preventing inhalation risks.
-
-- **[CHALLENGES]** The primary difficulty involves the heterogeneous composition of stoneware, which can lead to uneven absorption of laser energy and potential differential cleaning rates across the surface. This is mitigated through meticulous parameter mapping and often incorporating real-time feedback systems to adjust fluence dynamically during operation.

@@ -1,2 +1,0 @@
-**Steel** surface (left) with heavy mill scale and oxide layers, exhibiting compromised surface integrity.
-**After laser cleaning** (right) using a 1064 nm fiber laser at 150 W, 100 ns pulse duration, and 100 μm spot size, achieving precise ablation without substrate damage.

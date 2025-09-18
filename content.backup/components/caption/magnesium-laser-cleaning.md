@@ -1,2 +1,0 @@
-**Magnesium** surface (left) with visible oxide layer and hydrocarbon residues, exhibiting the material's high reactivity and low melting point (650°C).  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm² fluence and 100 ns pulse duration, achieving precise contaminant ablation without substrate damage.

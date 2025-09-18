@@ -1,2 +1,0 @@
-**Travertine** surface (left) before cleaning, exhibiting heavy biological colonization and atmospheric soiling within its porous microstructure.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 0.8 J/cm² fluence and 10 ns pulse duration, achieving precise ablation of contaminants without alteration to the delicate calcite matrix.

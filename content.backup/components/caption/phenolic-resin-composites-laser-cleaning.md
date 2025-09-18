@@ -1,2 +1,0 @@
-**Phenolic Resin Composites** surface (left) with heavy carbonaceous residue and oxide layer accumulation from thermal degradation.
-**After 1064 nm laser cleaning** (right) exhibiting complete contaminant ablation using 8 W average power, 100 ns pulses, and a 200 µm spot diameter.

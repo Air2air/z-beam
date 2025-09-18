@@ -1,2 +1,0 @@
-**Stucco** surface (left) exhibiting heavy biological colonization and atmospheric soiling prior to intervention.
-**Post laser ablation** (right) using a 1064 nm Nd:YAG laser at 8 W (100 μs pulse duration, 7 mm spot), achieving precise removal of compromised material while preserving the underlying substrate integrity.

@@ -1,4 +1,0 @@
----
-symbol: "FL"
-materialType: "glass"
----

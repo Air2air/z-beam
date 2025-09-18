@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Within European high-precision manufacturing, laser cleaning is essential for removing contaminants from fused silica optics in semiconductor lithography and aerospace laser systems. This non-contact method preserves the material's exceptional surface integrity and transmission properties critical for these applications.
-
-- **[PARAMETERS]** Optimal cleaning typically employs nanosecond-pulsed UV lasers, such as the 355 nm wavelength, with a fluence meticulously maintained below the ablation threshold of fused silica to prevent sub-surface damage. This parameter set is often fine-tuned according to stringent internal factory protocols that exceed broader EN 60825-1 safety standards for laser equipment.
-
-- **[ENVIRONMENTAL]** The process is entirely dry, eliminating the need for chemical solvents and thereby aligning with the strict waste disposal directives of the European Green Deal for advanced manufacturing. This significantly reduces the environmental footprint compared to traditional cleaning methods that generate hazardous liquid waste.
-
-- **[SAFETY]** Operator safety is paramount, requiring certified Class 1 enclosures or appropriate personal protective equipment (PPE) including wavelength-specific laser safety goggles to protect against scattered radiation. Comprehensive risk assessments, as mandated by EU machinery directives, are compulsory for all integrated systems.
-
-- **[CHALLENGES]** A primary difficulty involves the precise detection of ultra-thin contaminant layers on the transparent substrate, which necessitates sophisticated process monitoring to prevent either inadequate cleaning or localized thermal overloading. Achieving consistent results across large-area optics demands exceptionally stable beam delivery and scanning systems.

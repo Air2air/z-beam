@@ -1,2 +1,0 @@
-**Gallium** substrate (left) with visible oxide layer and particulate contamination from atmospheric exposure.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 15 W, 100 ns pulse duration, and 200 µm spot size, revealing the pristine metallic surface without thermal alteration.

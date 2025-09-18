@@ -1,4 +1,0 @@
----
-symbol: "V"
-materialType: "metal"
----

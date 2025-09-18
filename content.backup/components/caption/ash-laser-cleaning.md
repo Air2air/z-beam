@@ -1,2 +1,0 @@
-**Ash** surface (left) with heavy oxide layers and embedded particulate contamination.  
-**After laser ablation** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and 500 µm spot size, achieving precise removal without substrate damage.

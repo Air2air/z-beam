@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Laser cleaning of Gallium Arsenide wafers is essential within the European optoelectronics sector for removing oxides and particulate contamination prior to epitaxial growth. This non-contact method is particularly valued in Italian manufacturing for preserving the integrity of delicate III-V semiconductor surfaces in high-frequency device production.
-
-- **[PARAMETERS]** Optimal cleaning utilizes a near-infrared wavelength, typically around 1064 nm, to efficiently ablate contaminants while minimizing the thermal load on the underlying GaAs substrate, which has a bandgap of 1.42 eV. A fluence range of 0.5 - 1.5 J/cm² with nanosecond pulses is commonly employed to achieve precise material removal without inducing surface melting or stoichiometric changes.
-
-- **[ENVIRONMENTAL]** This dry process significantly reduces the consumption of aggressive chemical solvents and acids traditionally used for wafer cleaning, aligning with stringent EU waste directives. The elimination of chemical rinsing and drying steps also translates to a substantial reduction in industrial water usage and associated waste water treatment.
-
-- **[SAFETY]** Strict adherence to IEC 60825-1 for laser safety is mandatory, requiring complete enclosure of the work area and the use of appropriate wavelength-specific laser safety eyewear by all operators. Additional protocols involve effective fume extraction systems to capture any nanoparticles generated during the ablation process, ensuring a safe working environment.
-
-- **[CHALLENGES]** The primary difficulty lies in avoiding thermal decomposition of the GaAs, which can form a non-stoichiometric layer rich in elemental gallium, thereby degrading electrical performance. This is mitigated through meticulous parameter optimization and often complemented by real-time process monitoring to ensure surface quality meets the high standards of the European microelectronics industry.

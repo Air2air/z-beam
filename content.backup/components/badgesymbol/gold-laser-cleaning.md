@@ -1,4 +1,0 @@
----
-symbol: "Au"
-materialType: "metal"
----

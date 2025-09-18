@@ -1,4 +1,0 @@
----
-symbol: "Re"
-materialType: "metal"
----

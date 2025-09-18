@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Laser cleaning effectively restores historical cement facades and industrial concrete surfaces across European heritage conservation projects, aligning with UNI EN 17138 standards for cultural material preservation. This non-abrasive technique also prepares surfaces for new coatings in manufacturing settings by removing contaminants without substrate damage.
-
-- **[PARAMETERS]** Optimal cement cleaning employs near-infrared wavelengths (1064 nm) with fluences between 0.8-1.5 J/cm² and short pulse durations (<100 ns) to selectively ablate biological growth and pollution crusts. These parameters prevent cementitious matrix degradation by maintaining peak temperatures below the Portlandite decomposition threshold.
-
-- **[ENVIRONMENTAL]** The process eliminates chemical solvents and abrasive media, significantly reducing hazardous waste streams in compliance with EU directives on industrial emissions and workplace safety. Laser systems also operate with high energy efficiency, particularly when integrated with European-made photovoltaic installations for sustainable operation.
-
-- **[SAFETY]** Strict adherence to EN 60825-1 for laser classification and eye protection is mandatory, alongside local exhaust ventilation to capture aerosolized particulates containing crystalline silica. Italian operational protocols further require continuous atmospheric monitoring and HEPA filtration systems to protect technicians and surrounding environments.
-
-- **[CHALLENGES]** Achieving uniform cleaning on highly irregular cement surfaces remains difficult, often requiring robotic articulation systems or multiple pass strategies to maintain consistent beam-to-surface distance. The initial capital investment also presents adoption barriers for smaller restoration firms despite long-term operational savings.

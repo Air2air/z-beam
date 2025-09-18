@@ -1,4 +1,0 @@
----
-symbol: "Mo"
-materialType: "metal"
----

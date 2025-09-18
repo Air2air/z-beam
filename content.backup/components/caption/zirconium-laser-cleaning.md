@@ -1,2 +1,0 @@
-**Zirconium** surface (left) exhibiting a tenacious oxide layer and embedded particulate contamination.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm², revealing the pure, oxide-free substrate with no surface damage.

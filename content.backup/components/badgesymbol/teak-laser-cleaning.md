@@ -1,4 +1,0 @@
----
-symbol: "TE"
-materialType: "wood"
----

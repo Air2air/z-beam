@@ -1,2 +1,0 @@
-**Fiberglass** composite panel (left) with accumulated environmental soiling and degraded gel coat, exhibiting compromised surface integrity.  
-**Post laser ablation** (right) showing complete contaminant removal using a 1064 nm Nd:YAG laser at 8 J/cm² fluence and 100 ns pulse width, preserving the underlying E-glass fibers and resin matrix.

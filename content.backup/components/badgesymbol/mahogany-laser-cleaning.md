@@ -1,4 +1,0 @@
----
-symbol: "MA"
-materialType: "wood"
----

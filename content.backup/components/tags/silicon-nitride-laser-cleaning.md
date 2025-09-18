@@ -1,1 +1,0 @@
-silicon, restoration, heritage, firing-residue, contamination, precision, controlled, alessandro-moretti

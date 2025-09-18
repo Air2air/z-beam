@@ -1,4 +1,0 @@
----
-symbol: "BE"
-materialType: "wood"
----

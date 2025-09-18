@@ -1,4 +1,0 @@
----
-symbol: "SO"
-materialType: "glass"
----

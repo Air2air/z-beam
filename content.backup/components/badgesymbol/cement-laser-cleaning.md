@@ -1,4 +1,0 @@
----
-symbol: "CE"
-materialType: "masonry"
----

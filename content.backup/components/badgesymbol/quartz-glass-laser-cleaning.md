@@ -1,4 +1,0 @@
----
-symbol: "QU"
-materialType: "glass"
----

@@ -1,2 +1,0 @@
-**Indium** surface (left) before processing, exhibiting significant oxide layer growth and hydrocarbon residues.  
-**After 1064 nm laser ablation** (right) with 1.2 J/cm² fluence and 100 ns pulses, achieving pristine surface restoration for ultra-high vacuum deposition.

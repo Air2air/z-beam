@@ -1,4 +1,0 @@
----
-symbol: "Nb"
-materialType: "metal"
----

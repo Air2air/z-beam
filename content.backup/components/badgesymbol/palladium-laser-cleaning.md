@@ -1,4 +1,0 @@
----
-symbol: "Pd"
-materialType: "metal"
----

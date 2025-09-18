@@ -1,4 +1,0 @@
----
-symbol: "Pb"
-materialType: "metal"
----

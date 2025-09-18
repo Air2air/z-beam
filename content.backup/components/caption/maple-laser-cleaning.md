@@ -1,2 +1,0 @@
-**Maple** wood surface (left) exhibiting embedded particulate buildup and organic staining within its porous grain structure.
-**After laser cleaning** (right) with a 1,064 nm Nd:YAG laser (8 J/cm², 100 ns pulse, 500 µm spot), showing precise ablation of contaminants without substrate degradation.

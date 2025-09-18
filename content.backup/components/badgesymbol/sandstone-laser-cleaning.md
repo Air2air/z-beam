@@ -1,4 +1,0 @@
----
-symbol: "SA"
-materialType: "stone"
----

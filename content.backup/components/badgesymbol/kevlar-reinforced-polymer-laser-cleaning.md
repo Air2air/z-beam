@@ -1,4 +1,0 @@
----
-symbol: "KE"
-materialType: "composite"
----

@@ -1,2 +1,0 @@
-**Inconel 718** surface (left) with tenacious oxide scale and embedded carbonaceous deposits from high-temperature service.
-**After laser ablation** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and 500 μm spot size, achieving complete contaminant removal with no substrate damage.

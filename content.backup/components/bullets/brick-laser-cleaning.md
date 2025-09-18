@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Laser cleaning effectively restores historical brick facades across European architectural heritage sites while also being deployed for precision preparation in modern manufacturing brick bonding applications. This non-abrasive technique meets strict conservation guidelines prevalent in the region, ensuring structural integrity is maintained without subsurface damage.
-
-- **[PARAMETERS]** Optimal results on brick substrates are typically achieved using a near-infrared wavelength, such as 1064 nm, with a fluence carefully calibrated between 0.5 and 1.5 J/cm² to avoid vitrification. A short pulse duration in the nanosecond range is standard industry practice for efficiently removing black crusts and pollutants without altering the original clay material.
-
-- **[ENVIRONMENTAL]** The process eliminates the need for chemical solvents and generates minimal secondary waste, aligning perfectly with the stringent EU directives on industrial emissions and workplace safety. This offers a significant ecological advantage over traditional mechanical or chemical methods, reducing the environmental footprint of restoration and pre-treatment workflows.
-
-- **[SAFETY]** Strict adherence to European Standard EN 60825-1 for laser product safety is mandatory, requiring complete operator protection with certified wavelength-specific goggles and engineered enclosure systems. Proper fume extraction is also critical to mitigate any health risks from airborne particulates liberated during the cleaning procedure.
-
-- **[CHALLENGES]** A primary technical hurdle involves the precise calibration needed to handle the inherent heterogeneity in brick composition and porosity, which can cause uneven cleaning if parameters are not dynamically adjusted. Furthermore, the initial capital investment for high-power laser systems remains a significant consideration for small and medium-sized enterprises within the sector.

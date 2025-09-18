@@ -1,2 +1,0 @@
-**Zinc** surface (left) with heavy oxide layer and hydrocarbon residues, exhibiting characteristic white rust and surface dullness.  
-**After laser ablation** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 μm spot), restoring metallic luster without substrate damage.

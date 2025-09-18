@@ -1,4 +1,0 @@
----
-symbol: "Hf"
-materialType: "metal"
----

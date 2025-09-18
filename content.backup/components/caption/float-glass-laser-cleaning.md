@@ -1,2 +1,0 @@
-**Float Glass** surface (left) prior to cleaning, exhibiting significant organic deposits and particulate buildup from environmental exposure.
-**Post laser ablation** (right) showing complete contaminant removal using a 1064 nm laser at 80 W, 100 ns pulse duration, and a 200 µm spot size, preserving the pristine substrate.

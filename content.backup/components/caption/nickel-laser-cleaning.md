@@ -1,2 +1,0 @@
-**Nickel** component (left) with visible oxide layer and hydrocarbon residues from high-temperature service.  
-**After laser cleaning** (right) using a 1064 nm fiber laser (10 W, 100 ns pulse duration, 200 μm spot), achieving precise ablation of surface contaminants without substrate damage.

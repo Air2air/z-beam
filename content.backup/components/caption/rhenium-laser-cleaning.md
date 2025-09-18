@@ -1,2 +1,0 @@
-**Rhenium** surface (left) with heavy oxide scale (Re₂O₇) and carbonaceous residue, exhibiting characteristic surface degradation.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 1.2 J/cm² and 100 ns pulse width, revealing the underlying, high-reflectivity substrate without thermal alteration.

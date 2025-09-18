@@ -1,2 +1,0 @@
-**Hickory** surface (left) with embedded particulate and organic resin deposits within its open grain structure.  
-**After 1064 nm laser cleaning** (right) using 8 J/cm² fluence at 100 ns pulse duration, achieving precise contaminant ablation without substrate damage.

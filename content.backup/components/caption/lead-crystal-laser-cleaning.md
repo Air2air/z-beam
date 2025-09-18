@@ -1,2 +1,0 @@
-**Lead Crystal** chandelier component (left) exhibiting significant atmospheric sulfide staining and particulate adhesion.
-**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 8 W, 100 ns pulse duration, and 2 mm spot size, achieving complete contaminant ablation with zero substrate damage.

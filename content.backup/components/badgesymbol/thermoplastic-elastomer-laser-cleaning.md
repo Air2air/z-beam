@@ -1,4 +1,0 @@
----
-symbol: "TH"
-materialType: "composite"
----

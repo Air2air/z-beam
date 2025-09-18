@@ -1,4 +1,0 @@
----
-symbol: "FI"
-materialType: "composite"
----

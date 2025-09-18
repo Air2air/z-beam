@@ -1,4 +1,0 @@
----
-symbol: "HA"
-materialType: "metal"
----

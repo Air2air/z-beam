@@ -1,4 +1,0 @@
----
-symbol: "LI"
-materialType: "stone"
----

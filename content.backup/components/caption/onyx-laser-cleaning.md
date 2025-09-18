@@ -1,2 +1,0 @@
-**Onyx** surface (left) with heavy biological staining and embedded particulate matter, exhibiting compromised translucency and surface integrity.  
-**After 1064 nm laser cleaning** (right) using 8 J/cm² fluence and 100 ns pulses, complete contaminant ablation with preserved subsurface banding and mineral composition.

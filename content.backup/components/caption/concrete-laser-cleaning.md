@@ -1,2 +1,0 @@
-**Concrete** surface (left) with heavy biological growth and embedded particulate contamination prior to intervention.
-**Post laser ablation** (right) revealing the clean aggregate, achieved using a 1064 nm Nd:YAG laser at 120 W, 100 ns pulse duration, and 10 mm spot size.

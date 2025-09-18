@@ -1,2 +1,0 @@
-**Beech** surface (left) before cleaning, exhibiting heavy soot deposits and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (1.5 J/cm², 100 ns pulse duration, 500 µm spot), showing precise ablation of surface contaminants with no thermal degradation of the delicate lignocellulosic structure.

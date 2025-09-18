@@ -1,2 +1,0 @@
-**Breccia** surface (left) before treatment, exhibiting heavy soiling from atmospheric particulate and biological growth within its complex pore network.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 10 ns pulse, 5 mm spot), showing precise ablation of contaminants without damage to the heterogeneous mineral clasts and calcite matrix.

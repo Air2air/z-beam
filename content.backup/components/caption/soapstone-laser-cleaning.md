@@ -1,2 +1,0 @@
-**Soapstone** surface (left) exhibiting heavy organic staining and embedded particulate contamination within its porous, talc-rich matrix.  
-**After laser ablation** (right) using a 1064 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse, 500 µm spot), showing precise removal of surface accretions without damage to the soft, heat-sensitive substrate.

@@ -1,4 +1,0 @@
----
-symbol: "Ag"
-materialType: "metal"
----

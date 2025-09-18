@@ -1,4 +1,0 @@
----
-symbol: "CA"
-materialType: "composite"
----

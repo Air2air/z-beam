@@ -1,4 +1,0 @@
-1. **Technical Focus:** Material-specific laser parameters for Taiwan's electronics sector utilize a 1064 nm wavelength with fluences between 0.8-1.5 J/cm² and nanosecond pulses to effectively ablate contaminants without damaging the composite's thermosetting polymer matrix.
-2. **Technical Focus:** Key industrial applications include precision cleaning of molds for encapsulating semiconductor components and restoring surface integrity on fiberglass-reinforced substrates used in high-voltage insulation.
-3. **Technical Focus:** Safety considerations mandate Class 1 enclosure integration and localized exhaust ventilation to mitigate airborne nanoparticles and VOCs, aligning with local factory safety regulations.
-4. **Technical Focus:** Environmental benefits center on eliminating chemical solvent disposal, significantly reducing hazardous waste streams from Taiwan's high-volume electronics manufacturing processes.

@@ -1,2 +1,0 @@
-**Palladium** catalytic surface (left) with accumulated carbonaceous fouling and sulfide tarnishing, exhibiting reduced surface energy.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 1.2 J/cm² fluence and 100 ns pulse width, restoring pristine surface morphology and catalytic activity without substrate annealing.

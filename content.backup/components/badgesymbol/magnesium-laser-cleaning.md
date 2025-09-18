@@ -1,4 +1,0 @@
----
-symbol: "Mg"
-materialType: "metal"
----

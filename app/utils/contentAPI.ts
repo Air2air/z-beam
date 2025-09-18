@@ -170,7 +170,10 @@ export const loadComponent = cache(async (
       // Handle YAML files for different component types
       // For pure YAML files, we need to parse with yaml parser, not gray-matter
       const yaml = await import('yaml');
-      const yamlData = yaml.parse(fileContents);
+      // Use parseAllDocuments to handle multiple documents separated by ---
+      const documents = yaml.parseAllDocuments(fileContents);
+      // Get the first document which contains the actual data
+      const yamlData = documents[0]?.toJS();
       
       if (type === 'table') {
         // Handle YAML table files - convert to markdown format expected by Table component

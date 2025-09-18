@@ -1,4 +1,0 @@
----
-symbol: "True"
-materialType: "stone"
----

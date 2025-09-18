@@ -1,4 +1,0 @@
----
-symbol: "Ru"
-materialType: "metal"
----

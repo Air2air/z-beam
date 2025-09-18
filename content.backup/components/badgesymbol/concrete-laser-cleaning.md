@@ -1,4 +1,0 @@
----
-symbol: "CO"
-materialType: "masonry"
----

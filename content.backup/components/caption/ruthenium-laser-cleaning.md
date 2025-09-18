@@ -1,2 +1,0 @@
-**Ruthenium** surface (left) with visible atmospheric sulfidation and particulate contamination compromising its catalytic activity.  
-**After 1064 nm laser cleaning** (right) using 150 mJ/cm² fluence and 10 ns pulses, achieving precise contaminant ablation while preserving the precious metal substrate integrity.

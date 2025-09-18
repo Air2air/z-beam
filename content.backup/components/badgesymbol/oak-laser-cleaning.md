@@ -1,4 +1,0 @@
----
-symbol: "OA"
-materialType: "wood"
----

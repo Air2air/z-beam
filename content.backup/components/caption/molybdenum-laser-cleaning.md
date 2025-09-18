@@ -1,2 +1,0 @@
-**Molybdenum** surface (left) before processing, exhibiting thick oxide scale and particulate contamination from high-temperature service.  
-**After laser ablation** (right) using a 1064 nm fiber laser (80 W, 100 ns pulse duration, 200 µm spot), showing complete oxide removal without substrate damage to the high-melting-point refractory metal.

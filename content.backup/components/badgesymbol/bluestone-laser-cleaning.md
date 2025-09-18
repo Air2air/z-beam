@@ -1,4 +1,0 @@
----
-symbol: "BL"
-materialType: "stone"
----

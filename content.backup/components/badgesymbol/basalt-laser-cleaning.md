@@ -1,4 +1,0 @@
----
-symbol: "BA"
-materialType: "stone"
----

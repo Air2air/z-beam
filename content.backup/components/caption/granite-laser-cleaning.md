@@ -1,2 +1,0 @@
-**Granite** surface (left) exhibiting heavy biological growth and embedded particulate contamination within its crystalline microstructure.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 12 J/cm², 100 ns pulse duration, and 5 mm spot size, achieving complete ablation of organic matter without mineral phase alteration.

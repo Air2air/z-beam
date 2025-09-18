@@ -1,4 +1,0 @@
----
-symbol: "Zn"
-materialType: "metal"
----

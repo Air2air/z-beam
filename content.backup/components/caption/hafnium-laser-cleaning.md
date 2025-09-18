@@ -1,2 +1,0 @@
-**Hafnium** surface (left) exhibiting tenacious oxide layer (HfO₂) and particulate contamination from high-temperature processing.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), showing complete oxide removal with no substrate damage to the high-melting-point (2233°C) refractory metal.

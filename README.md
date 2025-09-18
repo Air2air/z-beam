@@ -123,6 +123,9 @@ npm install                # Install dependencies
 npm run dev                # Start dev server with health checks
 npm run build              # Full build with all checks
 npm run start              # Start production server
+npm run predeploy          # Validate before deployment
+npm run deploy             # Deploy to production
+npm run deploy:preview     # Deploy to preview environment
 npm run enforce-components # Check component rules
 npm run create:component   # Safely create new component (last resort)
 ```
@@ -133,7 +136,39 @@ npm run create:component   # Safely create new component (last resort)
 
 ---
 
-## 5. Utility Functions & Content System
+## 5. Deployment & Production
+
+### Quick Deployment
+```bash
+npm run deploy             # Full validation + production deployment
+npm run deploy:preview     # Full validation + preview deployment
+```
+
+### Manual Deployment Steps
+```bash
+npm run predeploy          # 1. Validate (TypeScript, ESLint, tests, build)
+vercel --prod             # 2. Deploy to production
+```
+
+The deployment system follows GROK principles:
+- **Simple & Reliable**: Single working script, no complex monitoring
+- **Fail-fast Validation**: Catches issues before deployment
+- **Clear Error Reporting**: Shows exactly what needs fixing
+- **Minimal Complexity**: 102 lines of proven deployment logic
+
+**Deployment Pipeline:**
+1. **Prerequisites Check** - Validates dependencies and environment
+2. **TypeScript Validation** - Type checking (warnings allowed)
+3. **ESLint Auto-fix** - Code quality with automatic corrections  
+4. **Test Execution** - Test suite (failures noted but don't block)
+5. **Production Build** - Optimized Next.js build
+6. **Vercel Deployment** - Platform deployment with debugging
+
+For troubleshooting, see `DEPLOYMENT_CONSOLIDATION.md` for complete migration details.
+
+---
+
+## 6. Utility Functions & Content System
 
 Utilities are organized in `/app/utils/`:
 - `utils.ts` - Main entry point
@@ -152,7 +187,7 @@ Utilities are organized in `/app/utils/`:
 
 ---
 
-## 6. Safety Mechanisms & Self-Audit
+## 7. Safety Mechanisms & Self-Audit
 
 - **Automatic exclusions**: Shared components are excluded from enforcement
 - **Safe creation tools**: Guided process for new components (only if extension is impossible)
@@ -162,7 +197,7 @@ Utilities are organized in `/app/utils/`:
 
 ---
 
-## 7. Troubleshooting & Emergency Bypass
+## 8. Troubleshooting & Emergency Bypass
 
 - **If port 3000 is busy:**
   ```bash
@@ -181,11 +216,11 @@ Utilities are organized in `/app/utils/`:
 
 ---
 
-## 8. Previous Documentation
+## 9. Previous Documentation
 
 All legacy documentation is archived in `docs/archived/` for reference only. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the only authoritative sources.
 
-## 9. Author Architecture (v2.0)
+## 10. Author Architecture (v2.0)
 
 Z-Beam uses a simplified, centralized author architecture with global rendering and YAML-based content management.
 
@@ -218,7 +253,7 @@ app/utils/contentAPI.ts           # YAML processing
 - ✅ **Clean component separation**: No embedded author logic in property tables
 - ✅ **Global consistency**: Uniform author rendering across all pages
 
-## 10. YAML Processing
+## 11. YAML Processing
 
 This project includes a comprehensive YAML processor system located in the `yaml-processor/` directory that automatically detects and fixes YAML issues.
 
@@ -266,7 +301,7 @@ For detailed documentation, see `yaml-processor/README.md`.
 
 ---
 
-## 11. Quick Start
+## 12. Quick Start
 
 ```bash
 # Fix any YAML issues first

@@ -1,2 +1,0 @@
-**Lead** surface (left) before processing, exhibiting thick, uneven oxide scale and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm², showing complete removal of surface oxides without substrate melting or fume generation.

@@ -1,2 +1,0 @@
-**Tin** surface (left) before processing, exhibiting heavy oxide layer and organic flux residues.  
-**After 1064 nm laser cleaning** (right) showing pristine surface achieved with 8 W, 100 ns pulses, and 100 µm spot size, preserving the soft substrate.

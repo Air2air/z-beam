@@ -1,4 +1,0 @@
----
-symbol: "TR"
-materialType: "stone"
----

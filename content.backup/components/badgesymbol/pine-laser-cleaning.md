@@ -1,4 +1,0 @@
----
-symbol: "PI"
-materialType: "wood"
----

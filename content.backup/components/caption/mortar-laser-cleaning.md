@@ -1,2 +1,0 @@
-**Mortar** surface (left) exhibiting heavy biological growth and embedded particulate contamination prior to treatment.
-**Post laser ablation** (right) showing complete contaminant removal with no substrate damage using a 1064 nm laser at 80 W, 100 ns pulse duration, and 8 mm spot size.

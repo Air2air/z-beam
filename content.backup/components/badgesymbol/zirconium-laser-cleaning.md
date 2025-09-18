@@ -1,4 +1,0 @@
----
-symbol: "Zr"
-materialType: "metal"
----

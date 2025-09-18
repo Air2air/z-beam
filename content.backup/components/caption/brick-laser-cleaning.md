@@ -1,2 +1,0 @@
-**Brick** facade (left) with heavy atmospheric soiling and biological growth prior to intervention.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm², revealing original texture with zero substrate damage.

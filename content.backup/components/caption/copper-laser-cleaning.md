@@ -1,2 +1,0 @@
-**Copper** conductor surface (left) exhibiting heavy atmospheric tarnish and sulfide-based corrosion layers.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 80 W, 100 ns pulse duration, and 200 µm spot size, revealing the pristine, oxide-free substrate with no surface damage.

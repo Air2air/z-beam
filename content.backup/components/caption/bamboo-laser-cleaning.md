@@ -1,2 +1,0 @@
-**Bamboo** culm surface (left) with heavy microbial staining and embedded particulate contamination, exhibiting characteristic anisotropic fiber structure.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), showing precise ablation of biological residues without damage to the lignin-rich surface matrix.

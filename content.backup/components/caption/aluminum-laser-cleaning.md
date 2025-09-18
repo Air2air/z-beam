@@ -1,2 +1,0 @@
-**Aluminum** surface (left) with heavy oxide layer and embedded particulate contamination.  
-**After laser cleaning** (right) achieving oxide ablation and surface activation using a 1064 nm fiber laser at 150 W, 100 ns pulse duration, and 0.2 mm spot size.

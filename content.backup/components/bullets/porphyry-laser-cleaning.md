@@ -1,9 +1,0 @@
-- **[APPLICATIONS]** Laser cleaning is extensively employed for restoring historical porphyry monuments and fabricating precision architectural elements within the European heritage conservation and high-end manufacturing sectors. This non-abrasive technique is indispensable for removing atmospheric black crusts and biological patinas from delicate surfaces without compromising the stone's integrity.
-
-- **[PARAMETERS]** Optimal cleaning of porphyry's complex mineralogical structure typically employs near-infrared wavelengths around 1064 nm, with fluences carefully calibrated between 0.5 and 1.5 J/cm² to selectively ablate contaminants. Shorter pulse durations in the nanosecond range are preferred to minimize thermal penetration and prevent alteration of the stone's distinctive crystalline matrix.
-
-- **[ENVIRONMENTAL]** The process eliminates chemical waste and reduces water consumption, aligning perfectly with stringent EU environmental directives for industrial cleaning operations. This dry method also avoids generating secondary pollutants, presenting a significant advantage for urban restoration projects with strict ecological compliance requirements.
-
-- **[SAFETY]** Operator safety protocols mandate EN 60825-1 compliant Class 4 laser systems, incorporating robust interlocks and mandatory use of wavelength-specific protective eyewear for all personnel. Proper fume extraction systems are critical to handle particulate matter generated during the ablation process, ensuring a safe work environment.
-
-- **[CHALLENGES]** The primary difficulty lies in the heterogeneous composition of porphyry, where varying mineral components react differently to laser energy, requiring dynamic parameter adjustment to avoid differential etching. Overcoming this necessitates sophisticated scanning systems and real-time process monitoring to achieve uniform cleaning results across the entire surface.

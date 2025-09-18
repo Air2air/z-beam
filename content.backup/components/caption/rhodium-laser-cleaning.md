@@ -1,2 +1,0 @@
-**Rhodium** catalytic surface (left) exhibiting significant carbonaceous fouling and particulate accumulation from industrial processes.  
-**After 1064 nm laser ablation** (right) using 150 mJ/cm² fluence and 10 ns pulses, achieving complete contaminant removal with zero substrate damage to the precious metal layer.

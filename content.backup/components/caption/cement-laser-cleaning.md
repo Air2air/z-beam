@@ -1,2 +1,0 @@
-**Cement** surface (left) with heavy biological growth and efflorescence deposits.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 100 W, 100 ns pulse duration, and 5 mm spot size, revealing the original substrate with no mechanical or chemical damage.

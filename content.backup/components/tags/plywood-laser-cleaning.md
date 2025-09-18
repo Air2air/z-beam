@@ -1,1 +1,0 @@
-plywood, restoration, heritage, paint, char, grain-preservation, eco-friendly, alessandro-moretti

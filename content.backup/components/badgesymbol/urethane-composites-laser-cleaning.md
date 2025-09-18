@@ -1,4 +1,0 @@
----
-symbol: "UR"
-materialType: "composite"
----

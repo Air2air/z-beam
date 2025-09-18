@@ -1,2 +1,0 @@
-**Rosewood** surface (left) with embedded atmospheric soiling and organic residues obscuring the natural grain.
-**After laser cleaning** (right) using a 355 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse, 200 µm spot), revealing pristine substrate with no thermal alteration to delicate lignin structures.

@@ -1,2 +1,0 @@
-**Vanadium** component surface (left) exhibiting tenacious oxide scale and embedded particulate contamination.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), showing complete contaminant ablation with no substrate damage to the underlying refractory metal.

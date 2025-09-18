@@ -1,2 +1,0 @@
-**Titanium** surface (left) before laser ablation, exhibiting a tenacious, thermally grown oxide layer (TiO₂) and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 J/cm², revealing the pure, undamaged α-phase microstructure with complete oxide removal.

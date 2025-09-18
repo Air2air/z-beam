@@ -1,2 +1,0 @@
-**Limestone** surface (left) before cleaning, showing heavy soiling from atmospheric particulate and biological growth.
-**After laser cleaning** (right) with a 1064 nm Nd:YAG laser (1.2 J/cm², 10 ns pulse, 6 mm spot), achieving precise ablation of contaminants while preserving the calcite substrate.

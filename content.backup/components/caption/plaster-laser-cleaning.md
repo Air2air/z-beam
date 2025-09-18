@@ -1,2 +1,0 @@
-**Plaster** frieze (left) exhibiting significant soiling from atmospheric particulate and biological growth.
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser at 8 W (150 µs pulse duration, 5 mm spot), achieving precise ablation without substrate damage.

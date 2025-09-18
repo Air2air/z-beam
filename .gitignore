@@ -37,3 +37,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Prevent bloat accumulation (Phase 3 cleanup automation)
+# Deployment logs (should be archived automatically)
+vercel-deployment-*.json
+deployment-monitoring-report*.json
+
+# Test result files (auto-archived after 30 days)
+tests/*-results.json
+tests/*-report.json
+
+# Backup files (should be in archive/ directory)
+*.backup
+*backup*
+backup-*/
+
+# Temporary build artifacts
+.cache/
+*.tmp
+*.temp
+.temp/

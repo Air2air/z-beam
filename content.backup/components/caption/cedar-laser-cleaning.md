@@ -1,2 +1,0 @@
-**Cedar** surface (left) exhibiting significant biological staining and embedded particulate contamination from environmental exposure.  
-**After laser cleaning** (right) using a 1,064 nm Nd:YAG laser at 12 J/cm² fluence and 100 ns pulse width, demonstrating selective removal of degraded surface material while preserving the underlying wood grain and structural integrity.

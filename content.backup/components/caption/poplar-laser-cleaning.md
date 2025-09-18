@@ -1,2 +1,0 @@
-**Poplar** surface (left) before cleaning, exhibiting heavy biological staining and embedded particulate contamination.  
-**After laser cleaning** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 100 ns pulse duration, 500 µm spot), showing precise removal with no substrate damage to the low-density, porous wood structure.

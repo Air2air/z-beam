@@ -1,2 +1,0 @@
-**Iridium** component (left) with visible atmospheric oxide layer and particulate contamination from high-temperature exposure.  
-**After laser ablation** (right) using a 1064 nm Nd:YAG laser (8 J/cm², 10 ns pulse, 500 μm spot), showing pristine surface restoration without substrate damage.
