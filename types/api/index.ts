@@ -1,32 +1,11 @@
 // types/api/index.ts
-// API related types
+// API type definitions - Import from centralized source
 
-import { ArticleMetadata, BadgeData } from '../core';
+// Import base ApiResponse and SearchResultItem from centralized source
+import type { ApiResponse, SearchResultItem, ArticleMetadata, BadgeData } from '../centralized';
 
-/**
- * API response structure
- */
-export interface ApiResponse<T = any> {
-  /** Response data */
-  data?: T;
-  
-  /** Success flag */
-  success: boolean;
-  
-  /** Error message if any */
-  error?: string;
-  
-  /** Response message */
-  message?: string;
-  
-  /** Response metadata */
-  meta?: {
-    total?: number;
-    page?: number;
-    limit?: number;
-    [key: string]: unknown;
-  };
-}
+// Re-export for convenience
+export type { ApiResponse, SearchResultItem };
 
 /**
  * Search API response
@@ -46,47 +25,6 @@ export interface SearchApiResponse extends ApiResponse {
     /** Filters applied */
     filters?: Record<string, unknown>;
   };
-}
-
-/**
- * Search result item
- */
-export interface SearchResultItem {
-  /** Item ID */
-  id: string;
-  
-  /** Content slug */
-  slug: string;
-  
-  /** Title */
-  title: string;
-  
-  /** Description */
-  description?: string;
-  
-  /** Content type */
-  type: string;
-  
-  /** Category */
-  category?: string;
-  
-  /** Tags */
-  tags?: string[];
-  
-  /** Score (relevance) */
-  score?: number;
-  
-  /** Associated metadata */
-  metadata?: ArticleMetadata;
-  
-  /** Badge data */
-  badge?: BadgeData;
-  
-  /** Thumbnail URL */
-  thumbnail?: string;
-  
-  /** Link URL */
-  url?: string;
 }
 
 /**

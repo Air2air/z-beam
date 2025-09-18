@@ -3,42 +3,7 @@
 
 import './styles.css';
 import { ReactNode, useState, useEffect } from 'react';
-
-interface HeroProps {
-  image?: string;
-  video?: {
-    vimeoId?: string;
-    url?: string;
-    autoplay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    background?: boolean;
-  };
-  align?: 'left' | 'center' | 'right';
-  theme?: 'dark' | 'light';
-  variant?: 'default' | 'fullwidth';
-  children?: ReactNode;
-  frontmatter?: {
-    images?: {
-      hero?: {
-        url?: string;
-      };
-    };
-    video?: {
-      vimeoId?: string;
-      url?: string;
-      autoplay?: boolean;
-      loop?: boolean;
-      muted?: boolean;
-      background?: boolean;
-    };
-    [key: string]: unknown;
-  }; // Frontmatter contains all image path information
-  cta?: {
-    text: string;
-    href: string;
-  };
-}
+import { HeroProps } from '@/types';
 
 export function Hero({ 
   image, 

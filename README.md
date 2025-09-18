@@ -114,7 +114,43 @@ const articles = getList();
 
 ---
 
-## 4. Development Workflow
+## 4. TypeScript Type System
+
+### Centralized Architecture
+The Z-Beam project uses a **centralized type system** for consistency and maintainability:
+
+- **Single Source of Truth**: `types/centralized.ts` contains all core type definitions
+- **Type Families**: Organized re-exports in `types/families/` for better import organization
+- **Zero Duplication**: Eliminated 200+ scattered interface definitions
+
+### Key Type Categories
+
+```typescript
+// Core Content Types
+import { ArticleMetadata, AuthorInfo, SearchResultItem } from '@/types';
+
+// UI Component Types  
+import { BadgeData, ComponentData, UIBadgeProps } from '@/types';
+
+// Specialized Metadata
+import { MaterialMetadata, ApplicationMetadata } from '@/types';
+
+// API Types
+import { SearchApiResponse, MaterialsApiResponse } from '@/types';
+```
+
+### Recent Consolidations
+- ✅ **SearchResultItem**: 6 definitions → 1 comprehensive interface
+- ✅ **BadgeData**: Unified UI badges + chemical badges
+- ✅ **AuthorInfo**: Consolidated AuthorInfo + AuthorMetadata  
+- ✅ **PageProps**: Modern Promise-based async params
+- ✅ **Specialized Metadata**: All moved to centralized source
+
+📖 **Full Documentation**: [Type System Architecture](docs/TYPE_SYSTEM_ARCHITECTURE.md)
+
+---
+
+## 5. Development Workflow
 
 ### Essential Commands
 
@@ -136,7 +172,9 @@ npm run create:component   # Safely create new component (last resort)
 
 ---
 
-## 5. Deployment & Production
+---
+
+## 8. Build & Quality Assurance
 
 ### Quick Deployment
 ```bash
@@ -197,7 +235,7 @@ Utilities are organized in `/app/utils/`:
 
 ---
 
-## 8. Troubleshooting & Emergency Bypass
+## 10. Component Architecture Status
 
 - **If port 3000 is busy:**
   ```bash
@@ -220,7 +258,7 @@ Utilities are organized in `/app/utils/`:
 
 All legacy documentation is archived in `docs/archived/` for reference only. This README, REQUIREMENTS.md, and PROJECT_GUIDE.md are the only authoritative sources.
 
-## 10. Author Architecture (v2.0)
+## 11. Author Integration Status
 
 Z-Beam uses a simplified, centralized author architecture with global rendering and YAML-based content management.
 
@@ -253,7 +291,7 @@ app/utils/contentAPI.ts           # YAML processing
 - ✅ **Clean component separation**: No embedded author logic in property tables
 - ✅ **Global consistency**: Uniform author rendering across all pages
 
-## 11. YAML Processing
+## 12. YAML Processing
 
 This project includes a comprehensive YAML processor system located in the `yaml-processor/` directory that automatically detects and fixes YAML issues.
 

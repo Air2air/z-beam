@@ -1,5 +1,5 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData } from '../../types/core';
+import { MaterialType, BadgeData } from '@/types';
 import { capitalizeWords } from './formatting';
 
 export function getMaterialColor(materialType?: string | MaterialType): string {

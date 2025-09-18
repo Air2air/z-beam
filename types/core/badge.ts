@@ -1,51 +1,17 @@
 // types/core/badge.ts
-// Consolidated badge types - single source of truth for all badge-related interfaces
+// Badge types that extend centralized BadgeData
 
 import React from 'react';
+// Import core BadgeData from centralized source
+import type { BadgeData, MaterialType, BadgeSize } from '../centralized';
 
-export type MaterialType = 
-  | 'element' 
-  | 'compound' 
-  | 'ceramic' 
-  | 'polymer' 
-  | 'alloy' 
-  | 'composite' 
-  | 'semiconductor'
-  | 'other';
+// Re-export for convenience
+export type { BadgeData, MaterialType, BadgeSize };
 
-export type BadgeVariant = 'card' | 'large' | 'small' | 'inline';
+// Badge-specific variant type for display components (different from UI BadgeVariant)
+export type BadgeComponentVariant = BadgeSize;
 
 export type BadgePosition = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-
-/**
- * Core badge data structure
- * Contains all chemical and material properties
- */
-export interface BadgeData {
-  /** Chemical symbol (e.g., "Al", "Si", "Au") */
-  symbol?: string;
-  
-  /** Chemical formula (e.g., "Al2O3", "SiC", "Si3N4") */
-  formula?: string;
-  
-  /** Atomic number for elements */
-  atomicNumber?: number | string;
-  
-  /** Material classification */
-  materialType?: MaterialType;
-  
-  /** Badge color theme */
-  color?: string;
-  
-  /** Associated content slug */
-  slug?: string;
-  
-  /** Whether to show the badge */
-  show?: boolean;
-  
-  /** Additional description */
-  description?: string;
-}
 
 /**
  * Badge symbol specific data
@@ -61,8 +27,8 @@ export interface BadgeSymbolData extends BadgeData {
  * Controls how badges are rendered
  */
 export interface BadgeDisplayProps {
-  /** Visual variant */
-  variant?: BadgeVariant;
+  /** Visual variant (using BadgeSize for component sizing) */
+  variant?: BadgeSize;
   
   /** Position when overlaying */
   position?: BadgePosition;
@@ -90,7 +56,7 @@ export interface BadgeProps extends BadgeData, BadgeDisplayProps {
  */
 export interface BadgeConfig {
   /** Default variant for context */
-  defaultVariant: BadgeVariant;
+  defaultVariant: BadgeSize;
   
   /** Default position for context */
   defaultPosition: BadgePosition;

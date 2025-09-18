@@ -97,7 +97,7 @@ describe('Author Component', () => {
         name: 'José María García-López'
       };
       
-      render(<Author authorInfo={specialAuthor} />);
+      render(<Author author={specialAuthor} />);
       
       expect(screen.getByText('José María García-López')).toBeInTheDocument();
       const link = screen.getByRole('link');
@@ -110,7 +110,7 @@ describe('Author Component', () => {
         name: 'Dr. John Michael Smith Jr.'
       };
       
-      render(<Author authorInfo={multiWordAuthor} />);
+      render(<Author author={multiWordAuthor} />);
       
       expect(screen.getByText('Dr. John Michael Smith Jr.')).toBeInTheDocument();
       const link = screen.getByRole('link');
@@ -124,7 +124,7 @@ describe('Author Component', () => {
       
       titles.forEach(title => {
         const { unmount } = render(
-          <Author authorInfo={{ ...mockAuthorInfo, title }} />
+          <Author author={{ ...mockAuthorInfo, title }} />
         );
         
         expect(screen.getByText(title)).toBeInTheDocument();
@@ -140,7 +140,7 @@ describe('Author Component', () => {
         title: ''
       };
       
-      render(<Author authorInfo={noTitleAuthor} />);
+      render(<Author author={noTitleAuthor} />);
       
       expect(screen.getByText('Test Author')).toBeInTheDocument();
       // Should not crash with empty title
@@ -160,7 +160,7 @@ describe('Author Component', () => {
       
       countries.forEach(country => {
         const { unmount } = render(
-          <Author authorInfo={{ ...mockAuthorInfo, country }} />
+          <Author author={{ ...mockAuthorInfo, country }} />
         );
         
         expect(screen.getByText(country)).toBeInTheDocument();
@@ -179,7 +179,7 @@ describe('Author Component', () => {
         expertise: longExpertise
       };
       
-      render(<Author authorInfo={longExpertiseAuthor} />);
+      render(<Author author={longExpertiseAuthor} />);
       
       expect(screen.getByText(longExpertise)).toBeInTheDocument();
       expect(screen.getByText(longExpertise)).toHaveClass('author-field');
@@ -192,7 +192,7 @@ describe('Author Component', () => {
         expertise: shortExpertise
       };
       
-      render(<Author authorInfo={shortExpertiseAuthor} />);
+      render(<Author author={shortExpertiseAuthor} />);
       
       expect(screen.getByText(shortExpertise)).toBeInTheDocument();
     });

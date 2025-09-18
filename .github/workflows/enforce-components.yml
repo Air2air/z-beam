@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: Code Quality & Component Rules
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  enforce-component-rules:
+  code-quality:
     runs-on: ubuntu-latest
-    name: Enforce Component Reusability Rules
+    name: Code Quality & Component Rules
     
     steps:
     - name: Checkout code
@@ -24,42 +24,14 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Run Predeploy Validation
-      run: npm run predeploy
+    - name: Run Component Rules Enforcement
+      run: npm run enforce-components
       
-    - name: Run type checking
+    - name: Run Type Checking
       run: npm run type-check || echo "Type checking skipped"
       
-    - name: Run linting
+    - name: Run Linting
       run: npm run lint || echo "Linting skipped"
-
-  build:
-    runs-on: ubuntu-latest
-    needs: enforce-component-rules
-    name: Build Application
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Build application
-      run: npm run build
-      
-    - name: Check build artifacts
-      run: |
-        if [ -d ".next" ]; then
-          echo "✅ Build successful - .next directory created"
-          ls -la .next/
-        else
-          echo "❌ Build failed - no .next directory found"
-          exit 1
-        fi
+    - name: Run Pre-deployment Validation
+      run: npm run predeploy

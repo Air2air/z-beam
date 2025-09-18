@@ -47,12 +47,18 @@ const customJestConfig = {
   projects: [
     {
       testEnvironment: "jsdom",
-      testMatch: ["<rootDir>/tests/components/*.test.{js,jsx,ts,tsx}"],
+      testMatch: [
+        "<rootDir>/tests/components/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/integration/*layout*.test.{js,jsx,ts,tsx}"
+      ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
     },
     {
       testEnvironment: "node", 
-      testMatch: ["<rootDir>/tests/!(components)/**/*.test.{js,jsx,ts,tsx}"],
+      testMatch: [
+        "<rootDir>/tests/!(components)/**/*.test.{js,jsx,ts,tsx}",
+        "!<rootDir>/tests/integration/*layout*.test.{js,jsx,ts,tsx}"
+      ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
     }
   ],

@@ -3,6 +3,8 @@
 
 import { CardListItem, CardProps } from './card';
 import { ArticleMetadata, BadgeData } from '../core';
+// Import SearchResultItem from centralized source
+import type { SearchResultItem } from '../centralized';
 
 /**
  * List component properties
@@ -87,50 +89,6 @@ export interface SearchResultsGridProps {
   
   /** Number of columns */
   columns: 1 | 2 | 3 | 4;
-}
-
-/**
- * Search result item structure
- */
-export interface SearchResultItem {
-  /** Unique ID */
-  id?: string;
-  
-  /** Content slug */
-  slug: string;
-  
-  /** Display name */
-  name?: string;
-  
-  /** Title */
-  title?: string;
-  
-  /** Description */
-  description?: string;
-  
-  /** Navigation href */
-  href: string;
-  
-  /** Image */
-  image?: string;
-  
-  /** Image alt text */
-  imageAlt?: string;
-  
-  /** Tags */
-  tags?: string[];
-  
-  /** Badge data */
-  badge?: BadgeData;
-  
-  /** Metadata */
-  metadata?: ArticleMetadata;
-  
-  /** Category */
-  category?: string;
-  
-  /** Article type */
-  articleType?: string;
 }
 
 /**

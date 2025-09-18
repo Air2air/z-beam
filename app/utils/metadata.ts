@@ -2,13 +2,11 @@
 // Use any type since Metadata isn't being exported correctly from next
 type NextMetadata = any;
 
-import { ArticleMetadata } from '../../types/core';
-import { AuthorInfo } from '../../types/components/author';
+import { ArticleMetadata, AuthorInfo } from '@/types';
 import { extractSafeValue, safeIncludes } from './stringHelpers';
 
 // Re-export centralized types
-export type { ArticleMetadata };
-export type { AuthorInfo } from '../../types/components/author';
+export type { ArticleMetadata, AuthorInfo };
 
 export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   

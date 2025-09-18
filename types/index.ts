@@ -27,6 +27,7 @@ export type {
   ArticleMetadata,
   ComponentData,
   LayoutProps,
+  HeroProps,
   
   // UI component types
   ComponentVariant,
