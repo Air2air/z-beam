@@ -303,7 +303,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       {/* Main Content */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-white mb-4">
-          {capitalizedMaterial} Micrograph
+          {capitalizedMaterial} Surface Micrograph
         </h3>
         <figure 
           className="caption-container" 
