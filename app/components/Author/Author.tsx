@@ -14,6 +14,9 @@ export function Author({
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
+  // Return null if no author data provided
+  if (!author) return null;
+  
   // Simplified field access - no more dual compatibility
   const authorName = author.name || "";
   const authorImage = author.image || "";
@@ -32,7 +35,7 @@ export function Author({
       href={`/tag/${encodedAuthorName}`}
       className="block hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4 py-1 transition-colors duration-200 cursor-pointer"
     >
-      <div className={`author-component ${className}`}>
+      <div className={`author-component mt-2 mb-4 ${className}`}>
         <table className="w-full">
           <tbody>
             <tr>

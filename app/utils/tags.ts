@@ -89,9 +89,9 @@ export async function parseTagsFromContent(content: string): Promise<string[]> {
 /**
  * Check if an article matches a tag (case-insensitive)
  */
-export async function articleMatchesTag(article: { tags?: string[] }, tag: string): Promise<boolean> {
+export async function articleMatchesTag(article: { tags?: string[] } | null, tag: string): Promise<boolean> {
   if (!tag) return true;
-  if (!article.tags || !Array.isArray(article.tags)) return false;
+  if (!article || !article.tags || !Array.isArray(article.tags)) return false;
   
   const tagLower = extractSafeValue(tag).toLowerCase();
   
@@ -99,14 +99,24 @@ export async function articleMatchesTag(article: { tags?: string[] }, tag: strin
   return article.tags
     .filter(Boolean)
     .some(t => {
-      const tString = extractSafeValue(t);
-      // Direct match (case-insensitive)
-      if (tString.toLowerCase() === tagLower) return true;
+      const tString = extractSafeValue(t).toLowerCase();
       
-      // Compound tag check (e.g., "Precision Cleaning" should match with "Cleaning")
+      // Direct match (case-insensitive)
+      if (tString === tagLower) return true;
+      
+      // Check if the article tag contains the search tag (for compound tags)
+      if (tString.includes(tagLower)) return true;
+      
+      // Check if the search tag contains parts of the article tag
       if (tagLower.includes(' ')) {
         const tagParts = tagLower.split(' ');
-        return tagParts.some(part => tString.toLowerCase() === part);
+        return tagParts.some(part => tString.includes(part));
+      }
+      
+      // Check if the article tag contains parts of the search tag
+      if (tString.includes(' ')) {
+        const articleTagParts = tString.split(' ');
+        return articleTagParts.some(part => part === tagLower);
       }
       
       return false;
@@ -170,72 +180,93 @@ export async function getTagsContentWithMatchCounts(slug: string) {
 
 // Cache initialization
 async function initializeTagCache() {
-  // Skip if cache is still valid
-  if (_tagsCache && (Date.now() - _tagsCache.lastUpdated < CACHE_EXPIRATION)) {
+  try {
+    // Skip if cache is still valid
+    if (_tagsCache && (Date.now() - _tagsCache.lastUpdated < CACHE_EXPIRATION)) {
+      return _tagsCache;
+    }
+    
+    // Get all articles
+    const articles = await loadAllArticles();
+    
+    // Get all unique tags from tag files
+    const tagFiles = await getAllTagFiles();
+    const tagSet = new Set<string>();
+    
+    // Process each tag file
+    for (const file of tagFiles) {
+      const slug = stripParenthesesFromSlug(file.replace('.md', ''));
+      const tags = await getArticleTagsFromTagsDir(slug);
+      tags.forEach(tag => tagSet.add(tag));
+    }
+    
+    // Add author names to the tag set
+    for (const article of articles) {
+      if (article.author && typeof article.author === 'string') {
+        // Add the author name to the tag set
+        tagSet.add(article.author);
+      }
+    }
+    
+    // Convert tag set to array
+    const allTags = Array.from(tagSet).sort();
+    
+    // Calculate tag counts
+    const tagCounts: Record<string, number> = {};
+    const articleTags: Record<string, string[]> = {};
+    
+    // Count articles per tag
+    for (const tag of allTags) {
+      let count = 0;
+      for (const article of articles) {
+        // Create a temporary article with author as tag for matching
+        const articleWithAuthorTag = {
+          ...article,
+          tags: [...(article.tags || []), ...(article.author && typeof article.author === 'string' ? [article.author] : [])]
+        };
+        
+        if (await articleMatchesTag(articleWithAuthorTag, tag)) {
+          count++;
+        }
+      }
+      tagCounts[tag] = count;
+    }
+    
+    // Store tags for each article
+    for (const article of articles) {
+      if (article.slug) {
+        // Get tags from tags directory
+        const tags = await getArticleTagsFromTagsDir(article.slug);
+        
+        // Add author name as a tag if available
+        if (article.author && typeof article.author === 'string') {
+          tags.push(article.author);
+        }
+        
+        articleTags[article.slug] = tags;
+      }
+    }
+    
+    // Create cache
+    _tagsCache = {
+      allTags,
+      tagCounts,
+      articleTags,
+      lastUpdated: Date.now()
+    };
+    
+    return _tagsCache;
+  } catch (error) {
+    console.error('Error initializing tag cache:', error);
+    // Return empty cache on error
+    _tagsCache = {
+      allTags: [],
+      tagCounts: {},
+      articleTags: {},
+      lastUpdated: Date.now()
+    };
     return _tagsCache;
   }
-  
-  // Get all articles
-  const articles = await loadAllArticles();
-  
-  // Get all unique tags from tag files
-  const tagFiles = await getAllTagFiles();
-  const tagSet = new Set<string>();
-  
-  // Process each tag file
-  for (const file of tagFiles) {
-    const slug = stripParenthesesFromSlug(file.replace('.md', ''));
-    const tags = await getArticleTagsFromTagsDir(slug);
-    tags.forEach(tag => tagSet.add(tag));
-  }
-  
-  // Add author names to the tag set
-  for (const article of articles) {
-    if (article.author && typeof article.author === 'string') {
-      // Add the author name to the tag set
-      tagSet.add(article.author);
-    }
-  }
-  
-  // Convert tag set to array
-  const allTags = Array.from(tagSet).sort();
-  
-  // Calculate tag counts
-  const tagCounts: Record<string, number> = {};
-  const articleTags: Record<string, string[]> = {};
-  
-  // Count articles per tag
-  for (const tag of allTags) {
-    const matchResults = await Promise.all(
-      articles.map(article => articleMatchesTag(article, tag))
-    );
-    tagCounts[tag] = matchResults.filter(Boolean).length;
-  }
-  
-  // Store tags for each article
-  for (const article of articles) {
-    if (article.slug) {
-      // Get tags from tags directory
-      const tags = await getArticleTagsFromTagsDir(article.slug);
-      
-      // Add author name as a tag if available
-      if (article.author && typeof article.author === 'string') {
-        tags.push(article.author);
-      }
-      
-      articleTags[article.slug] = tags;
-    }
-  }
-  
-  // Create cache
-  _tagsCache = {
-    allTags,
-    tagCounts,
-    articleTags,
-    lastUpdated: Date.now()
-  };
-  
-  return _tagsCache;
 }
 
 // Main tag system functions (with React cache)

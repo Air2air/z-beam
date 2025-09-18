@@ -12,7 +12,9 @@ import { UniversalLayout } from '../../app/components/Layout/LayoutSystem';
 // Mock dependencies
 jest.mock('fs/promises');
 jest.mock('gray-matter');
-jest.mock('marked');
+jest.mock('marked', () => ({
+  marked: jest.fn(),
+}));
 jest.mock('../../app/utils/logger');
 jest.mock('../../app/utils/contentAPI');
 jest.mock('../../app/components/Layout/Layout', () => ({
@@ -28,7 +30,7 @@ jest.mock('../../app/components/Debug/DebugLayout', () => ({
 
 const fs = require('fs/promises');
 const matter = require('gray-matter');
-const marked = require('marked');
+const { marked } = require('marked');
 const { loadPageData } = require('../../app/utils/contentAPI');
 
 describe('Universal Templates + Layout System Integration', () => {

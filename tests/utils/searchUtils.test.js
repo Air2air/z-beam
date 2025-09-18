@@ -65,7 +65,7 @@ describe('Search Utils', () => {
     test('should capitalize first letter of each word', () => {
       expect(normalizeTag('laser cleaning')).toBe('Laser Cleaning');
       expect(normalizeTag('INDUSTRIAL MANUFACTURING')).toBe('Industrial Manufacturing');
-      expect(normalizeTag('precision-cleaning')).toBe('Precision-cleaning');
+      expect(normalizeTag('precision-cleaning')).toBe('Precision-Cleaning');
     });
 
     test('should handle single words', () => {

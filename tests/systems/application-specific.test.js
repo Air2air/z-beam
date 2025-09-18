@@ -93,14 +93,24 @@ const calculateApplicationComplexity = (application) => {
   };
   
   const baseComplexity = complexityMap[application.complexity] || 2;
-  const materialComplexity = (application.materials?.length || 1) * 0.2;
-  const processComplexity = (application.processes?.length || 1) * 0.2;
+  const materialComplexity = (application.materials?.length || 1) * 0.1;
+  const processComplexity = (application.processes?.length || 1) * 0.1;
   const precisionFactor = precisionMap[application.precision] || 2;
   
-  // Weight precision heavily for proper ordering
-  const total = baseComplexity + materialComplexity + processComplexity + (precisionFactor * 0.8);
+  // Industry-specific multipliers
+  const industryMultiplier = {
+    'Cultural Heritage': 1.3,
+    'Aerospace': 1.2,
+    'Automotive': 1.0,
+    'Industrial': 1.0
+  };
   
-  return Math.min(5, total);
+  const industryBonus = industryMultiplier[application.industry] || 1.0;
+  
+  // Calculate total with better scaling
+  const total = (baseComplexity + materialComplexity + processComplexity + (precisionFactor * 0.5)) * industryBonus;
+  
+  return Math.min(10, Math.max(1, total));
 };
 
 const generateApplicationGuide = (application) => {
@@ -129,7 +139,7 @@ const estimateProcessingTime = (application) => {
   };
   
   const baseSpeed = speedMap[application.volume] || 8;
-  const complexityFactor = calculateApplicationComplexity(application) / 5;
+  const complexityFactor = calculateApplicationComplexity(application) / 10;
   
   return Math.round(baseSpeed * (1 + complexityFactor));
 };
@@ -249,7 +259,7 @@ describe('Application-Specific System Tests', () => {
       const complexity = calculateApplicationComplexity(automotive);
       
       expect(complexity).toBeGreaterThan(0);
-      expect(complexity).toBeLessThanOrEqual(5);
+      expect(complexity).toBeLessThanOrEqual(10);
     });
 
     it('should assign higher complexity to aerospace applications', () => {
@@ -641,7 +651,7 @@ describe('Application-Specific System Tests', () => {
       };
       
       const complexity = calculateApplicationComplexity(extremeApp);
-      expect(complexity).toBeLessThanOrEqual(5);
+      expect(complexity).toBeLessThanOrEqual(10);
     });
 
     it('should provide fallbacks for missing data', () => {

@@ -52,8 +52,22 @@ export function normalizeString(str?: string): string {
 export function normalizeTag(tag: string): string {
   if (!tag) return '';
   
-  // Use centralized capitalizeWords function
-  return capitalizeWords(tag);
+  // Trim whitespace first
+  const trimmed = tag.trim();
+  if (!trimmed) return '';
+  
+  // Handle hyphenated tags by capitalizing each part but preserving hyphens
+  if (trimmed.includes('-')) {
+    return trimmed
+      .split('-')
+      .map(part => part.trim())
+      .filter(part => part.length > 0)
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+      .join('-');
+  }
+  
+  // For non-hyphenated tags, use capitalizeWords
+  return capitalizeWords(trimmed);
 }
 
 export function getDisplayName(item: {
