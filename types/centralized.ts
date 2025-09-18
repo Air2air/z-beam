@@ -170,6 +170,14 @@ export interface PageProps {
 }
 
 /**
+ * Tag page props (with async params)
+ */
+export interface TagPageProps {
+  params: Promise<{ tag: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}
+
+/**
  * API response structure
  */
 export interface ApiResponse<T = any> {

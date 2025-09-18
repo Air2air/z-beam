@@ -3,7 +3,7 @@
 
 // Author types
 export type {
-  AuthorData,
+  AuthorInfo,
   AuthorProps
 } from './author';
 
@@ -38,22 +38,22 @@ export type {
   LayoutComponentType
 } from './layout';
 
+// Import from centralized for consolidated interfaces
+export type { BaseInteractiveProps, BreadcrumbItem } from '../centralized';
+
 // UI component types
 export type {
   ComponentVariant,
   ComponentSize,
-  BaseInteractiveProps,
   BaseContentProps,
   BaseImageProps,
   BaseLinkProps,
   UIBadgeProps,
   FadeInProps,
-  BreadcrumbItem,
-  BreadcrumbsProps,
-  TableProps
+  BreadcrumbsProps
 } from './ui';
 
 // Re-exports for convenience
 export type { CardProps as ComponentCardProps } from './card';
 export type { BadgeSymbolProps as ComponentBadgeProps } from './badge';
-export type { AuthorData as ComponentAuthorData } from './author';
+export type { AuthorInfo as ComponentAuthorData } from './author';

@@ -1,6 +1,8 @@
 // types/components/author.ts
 // Simplified author component types
 
+import { AuthorProps } from '../centralized';
+
 /**
  * Unified Author Info structure - single source of truth
  * Standardized field names to eliminate redundancy
@@ -23,18 +25,5 @@ export interface AuthorInfo {
   };
 }
 
-/**
- * Author component props interface
- * Now uses simplified AuthorInfo structure
- */
-export interface AuthorProps {
-  author: AuthorInfo;
-  showAvatar?: boolean;
-  showCredentials?: boolean;
-  showCountry?: boolean;
-  showBio?: boolean;
-  showEmail?: boolean;
-  showLinkedIn?: boolean;
-  showSpecialties?: boolean;
-  className?: string;
-}
+// Re-export AuthorProps from centralized for convenience
+export type { AuthorProps };

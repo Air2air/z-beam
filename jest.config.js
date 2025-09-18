@@ -12,18 +12,23 @@ const customJestConfig = {
     "^@/(.*)$": "<rootDir>/app/$1",
     "^@components/(.*)$": "<rootDir>/app/components/$1",
     "^@utils/(.*)$": "<rootDir>/app/utils/$1",
-    "^marked$": "<rootDir>/tests/__mocks__/marked.js"
+    "^marked$": "<rootDir>/tests/__mocks__/marked.js",
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy"
   },
   transformIgnorePatterns: [
     "node_modules/(?!(marked)/)"
   ],
   collectCoverageFrom: [
-    "app/**/*.{js,jsx}",
+    "app/**/*.{js,jsx,ts,tsx}",
     "!app/**/*.d.ts",
     "!app/**/types/**",
     "!app/api/**",
     "!**/*.config.js",
-    "!**/node_modules/**"
+    "!**/node_modules/**",
+    "!app/debug/**",
+    "!app/pages/**",
+    "!app/tag/**",
+    "!app/property/**"
   ],
   coverageReporters: [
     "text",

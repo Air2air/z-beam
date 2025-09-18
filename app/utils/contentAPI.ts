@@ -379,6 +379,21 @@ export const loadComponent = cache(async (
             config: authorInfo
           };
         }
+      } else if (type === 'caption') {
+        // Handle YAML caption files (v2.0 format)
+        const captionData = yamlData;
+        
+        if (captionData) {
+          // Return the full YAML data structure for the Caption component to parse
+          // The Caption component will handle rendering based on data structure
+          return {
+            content: captionData, // Pass YAML data directly
+            config: {
+              showTechnicalDetails: true, // Enable laser parameters by default
+              showMetadata: false, // Metadata off by default
+            }
+          };
+        }
       }
       
       return null;
@@ -539,8 +554,8 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
  */
 export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: Record<string, unknown> } | null> => {
   return safeContentOperation(async () => {
-    // Skip markdown conversion for tags since they're just comma-separated values
-    const shouldConvertMarkdown = type !== 'tags';
+    // Skip markdown conversion for tags and caption (which may contain YAML data structures)
+    const shouldConvertMarkdown = type !== 'tags' && type !== 'caption';
     const componentData = await loadComponent(type, slug, { convertMarkdown: shouldConvertMarkdown });
     
     if (!componentData) {

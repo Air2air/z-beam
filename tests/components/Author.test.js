@@ -6,7 +6,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Author from '../../app/components/Author/Author';
+import { Author } from '../../app/components/Author/Author';
 
 // Mock Next.js components
 jest.mock('next/link', () => {
@@ -47,7 +47,7 @@ describe('Author Component', () => {
 
   describe('1. Basic Rendering', () => {
     test('renders author component with all information', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       // Check if all elements are present
       expect(screen.getByText('Test Author')).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe('Author Component', () => {
     });
 
     test('renders with correct CSS classes', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       // Check for key CSS classes
       const authorComponent = document.querySelector('.author-component');
@@ -83,7 +83,7 @@ describe('Author Component', () => {
     });
 
     test('creates correct tag link', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/tag/Test%20Author');
@@ -200,7 +200,7 @@ describe('Author Component', () => {
 
   describe('6. Image Handling', () => {
     test('renders image with correct attributes', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       const image = screen.getByAltText('Test Author');
       expect(image).toHaveAttribute('src', '/images/author/test-author.jpg');
@@ -219,7 +219,7 @@ describe('Author Component', () => {
       
       imageFormats.forEach(imagePath => {
         const { unmount } = render(
-          <Author authorInfo={{ ...mockAuthorInfo, image: imagePath }} />
+          <Author author={{ ...mockAuthorInfo, image: imagePath }} />
         );
         
         const image = screen.getByAltText('Test Author');
@@ -232,7 +232,7 @@ describe('Author Component', () => {
 
   describe('7. Interactive Elements', () => {
     test('has correct hover classes', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
@@ -245,7 +245,7 @@ describe('Author Component', () => {
     });
 
     test('link is properly structured', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('block', 'rounded-lg', 'px-4', 'py-1');
@@ -258,7 +258,7 @@ describe('Author Component', () => {
 
   describe('8. Table Structure', () => {
     test('renders proper table structure', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       const table = screen.getByRole('table');
       expect(table).toBeInTheDocument();
@@ -283,7 +283,7 @@ describe('Author Component', () => {
 
   describe('9. Accessibility', () => {
     test('has proper semantic structure', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       // Check for proper image alt text
       const image = screen.getByAltText('Test Author');
@@ -299,7 +299,7 @@ describe('Author Component', () => {
     });
 
     test('image has descriptive alt text', () => {
-      render(<Author authorInfo={mockAuthorInfo} />);
+      render(<Author author={mockAuthorInfo} />);
       
       const image = screen.getByAltText('Test Author');
       expect(image).toHaveAttribute('alt', 'Test Author');
@@ -323,7 +323,7 @@ describe('Author Component', () => {
         }
       };
       
-      render(<Author authorInfo={ikmandaAuthor} />);
+      render(<Author author={ikmandaAuthor} />);
       
       expect(screen.getByText('Ikmanda Roswati')).toBeInTheDocument();
       expect(screen.getByText('Ph.D.')).toBeInTheDocument();
@@ -350,7 +350,7 @@ describe('Author Component', () => {
         }
       };
       
-      render(<Author authorInfo={toddAuthor} />);
+      render(<Author author={toddAuthor} />);
       
       expect(screen.getByText('Todd Dunning')).toBeInTheDocument();
       expect(screen.getByText('MA')).toBeInTheDocument();
@@ -381,7 +381,7 @@ describe('Author Component', () => {
       };
       
       expect(() => {
-        render(<Author authorInfo={minimalAuthor} />);
+        render(<Author author={minimalAuthor} />);
       }).not.toThrow();
       
       expect(screen.getByText('Minimal Author')).toBeInTheDocument();

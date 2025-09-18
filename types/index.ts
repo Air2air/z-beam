@@ -1,6 +1,22 @@
 // types/index.ts
 // CENTRALIZED TYPE EXPORTS - Single Source of Truth
 
+// =============================================
+// TYPE FAMILIES (Recommended for new imports)
+// =============================================
+// Use these organized type families for better maintainability:
+// import { PageProps, ArticleMetadata } from '@/types/families';
+// import { BaseInteractiveProps, FadeInProps } from '@/types/families/BaseProps';
+// import { ComponentVariant, BadgeData } from '@/types/families/ComponentTypes';
+// import { ApiResponse, SearchApiResponse } from '@/types/families/ApiTypes';
+
+// Type families re-export for convenience
+export * from './families';
+
+// =============================================
+// LEGACY CENTRALIZED EXPORTS (Maintained for compatibility)
+// =============================================
+
 // Primary exports from centralized types (these take precedence)
 export type {
   // Author types (YAML-based)
@@ -26,6 +42,7 @@ export type {
   
   // Page and API types
   PageProps,
+  TagPageProps,
   ApiResponse,
   SearchResultItem,
   
@@ -43,7 +60,6 @@ export type {
   Article,
   Author,
   Badge,
-  MaterialPost,
   PageParams,
   SearchParams
 } from './centralized';
@@ -75,8 +91,24 @@ export type {
   SearchResultItem as ApiSearchResultItem
 } from './api';
 
-// Core types (legacy, use sparingly)
+// Core types (legacy, use sparingly) 
 export type {
   MaterialType,
   BadgeSymbolData
 } from './core';
+
+// Additional core article types
+export type {
+  MaterialMetadata,
+  ApplicationMetadata,
+  RegionMetadata,
+  ThesaurusMetadata,
+  ArticlePost,
+  MaterialPost,
+  ApplicationPost,
+  RegionPost,
+  ThesaurusPost,
+  AuthorPost,
+  ContentType,
+  FilterCriteria
+} from './core/article';

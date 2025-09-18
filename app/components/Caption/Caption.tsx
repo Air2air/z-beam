@@ -1,167 +1,186 @@
 // app/components/Caption/Caption.tsx
 "use client";
 
-import { MarkdownRenderer } from '../Base/MarkdownRenderer';
-import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { CaptionHeader } from './CaptionHeader';
+import { CaptionImage } from './CaptionImage';
+import { CaptionContent } from './CaptionContent';
+import { TechnicalDetails } from './TechnicalDetails';
+import { MetadataDisplay } from './MetadataDisplay';
+import { useCaptionParsing, CaptionYamlData, ParsedCaptionData } from './useCaptionParsing';
 import './styles.css';
+import { AuthorInfo } from '../../../types';
 
 interface FrontmatterType {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  author?: string | AuthorInfo;
+  name?: string;
   images?: {
     micro?: {
       url?: string;
-      alt?: string;
     };
   };
-  title?: string;
-  [key: string]: unknown;
+  author_object?: {
+    name: string;
+    email?: string;
+    affiliation?: string;
+    title?: string;
+    expertise?: string[];
+  };
+  technicalSpecifications?: {
+    wavelength?: string;
+    power?: string;
+    pulse_duration?: string;
+    scanning_speed?: string;
+    material?: string;
+  };
+  chemicalProperties?: {
+    composition?: string;
+    surface_treatment?: string;
+    contamination_type?: string;
+    materialType?: string;
+    formula?: string;
+  };
 }
 
+export type { FrontmatterType, ParsedCaptionData };
+
 interface CaptionProps {
-  content: string;
+  content: string | CaptionYamlData;
   image?: string;
-  frontmatter?: FrontmatterType; // Frontmatter contains all image path information
+  frontmatter?: FrontmatterType;
   config?: {
     className?: string;
+    showTechnicalDetails?: boolean;
+    showMetadata?: boolean;
   };
 }
 
 export function Caption({ content, image, frontmatter, config }: CaptionProps) {
-  const [imageLoading, setImageLoading] = useState(true);
-  const [imageError, setImageError] = useState(false);
-  const captionTextRef = useRef<HTMLDivElement>(null);
-  
-  // Transform p tags to div tags after component mounts
-  useEffect(() => {
-    const transformParagraphs = () => {
-      if (captionTextRef.current) {
-        // First, make the MarkdownRenderer's wrapper div a flex container
-        const markdownDiv = captionTextRef.current.querySelector('div');
-        if (markdownDiv) {
-          markdownDiv.classList.add('flex', 'gap-8');
-        }
-
-        // Then transform p tags to div tags
-        const paragraphs = captionTextRef.current.querySelectorAll('p');
-        if (paragraphs.length > 0) {
-          paragraphs.forEach(p => {
-            const div = document.createElement('div');
-            div.innerHTML = p.innerHTML;
-            div.classList.add('flex-1'); // Make divs equal width
-            // Copy any attributes if needed
-            Array.from(p.attributes).forEach(attr => {
-              div.setAttribute(attr.name, attr.value);
-            });
-            p.parentNode?.replaceChild(div, p);
-          });
-        }
-      }
-    };
-
-    // Use MutationObserver to watch for when content is added
-    if (captionTextRef.current) {
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-            setTimeout(transformParagraphs, 0);
-          }
-        });
-      });
-
-      observer.observe(captionTextRef.current, {
-        childList: true,
-        subtree: true
-      });
-
-      // Also try immediately and with a timeout
-      transformParagraphs();
-      const timeoutId = setTimeout(transformParagraphs, 10);
-
-      return () => {
-        observer.disconnect();
-        clearTimeout(timeoutId);
-      };
-    }
-  }, [content]);
-  
-  if (!content) return null;
-  
+  const captionData = useCaptionParsing(content);
   const { className = '' } = config || {};
-  
-  // Determine image source, prioritizing frontmatter
-  let imageSource = image;
-  let imageAlt = '';
-  
-  if (!imageSource && frontmatter?.images?.micro) {
-    // Use the micro image from frontmatter
-    const microImage = frontmatter.images.micro;
-    
-    if (microImage?.url) {
-      imageSource = microImage.url;
-      imageAlt = microImage.alt || '';
-    }
-  }
-  
-  // Generate SEO-optimized alt text
-  const optimizedAlt = imageAlt || 
-    (frontmatter?.title ? `Detailed microscopic view of ${frontmatter.title.replace('Laser Cleaning ', '').toLowerCase()} surface after precision laser cleaning treatment` : 
-    "High-resolution microscopic surface analysis after laser cleaning process");
-  
+
+  // Get material name for heading
+  const materialName = typeof captionData.material === 'string' ? captionData.material : 
+                      typeof frontmatter?.name === 'string' ? frontmatter.name : 'Material';
+
+  // Determine image source
+  const imageSource = image || 
+    (frontmatter?.images?.micro?.url ? frontmatter.images.micro.url : undefined);
+
+  // Generate comprehensive SEO data
+  const authorName = frontmatter?.author_object?.name || 
+    (typeof frontmatter?.author === 'string' ? frontmatter.author : 
+     typeof frontmatter?.author === 'object' && frontmatter.author?.name ? frontmatter.author.name : 
+     'Z-Beam Research Team');
+
+  const seoData = {
+    materialType: frontmatter?.chemicalProperties?.materialType || 'material',
+    description: frontmatter?.description || `Surface topography analysis of ${materialName} after laser cleaning treatment`,
+    author: authorName,
+    wavelength: captionData.laserParams?.wavelength || frontmatter?.technicalSpecifications?.wavelength,
+    materialFormula: frontmatter?.chemicalProperties?.formula,
+  };
+
   return (
-    <figure className={`caption-container ${className}`} itemScope itemType="https://schema.org/ImageObject">
-      {imageSource ? (
-        <div className="caption-image-wrapper relative">
-          {(imageLoading || imageError) && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-600 z-10">
-              <Image
-                src="/images/Site/Logo/logo_.png"
-                alt={imageError ? "Image not available" : "Loading..."}
-                width={60}
-                height={60}
-                className="object-contain opacity-50"
-                unoptimized={true}
-              />
-            </div>
-          )}
-          <Image
-            src={imageSource}
-            alt={optimizedAlt}
-            width={800}
-            height={450}
-            className="caption-image"
-            loading="lazy"
-            decoding="async"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 800px, 800px"
-            itemProp="contentUrl"
-            onLoad={() => setImageLoading(false)}
-            onError={() => {
-              setImageLoading(false);
-              setImageError(true);
-            }}
-          />
-          <meta itemProp="description" content={optimizedAlt} />
-          <meta itemProp="name" content={frontmatter?.title || "Laser cleaning detail"} />
-        </div>
-      ) : (
-        <div className="caption-image-wrapper">
-          <div className="flex items-center justify-center bg-gray-600 h-[450px]">
-            <Image
-              src="/images/Site/Logo/logo_.png"
-              alt="No image available"
-              width={60}
-              height={60}
-              className="object-contain opacity-50"
-              unoptimized={true}
-            />
-          </div>
-        </div>
-      )}
+    <section 
+      className="caption-section" 
+      itemScope 
+      itemType="https://schema.org/AnalysisNewsArticle"
+      aria-labelledby="surface-analysis-heading"
+    >
+      {/* Enhanced JSON-LD structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "AnalysisNewsArticle",
+            "headline": `${materialName} Surface Topography Analysis`,
+            "description": seoData.description,
+            "author": {
+              "@type": "Person",
+              "name": seoData.author,
+              "jobTitle": frontmatter?.author_object?.title,
+              "expertise": frontmatter?.author_object?.expertise
+            },
+            "about": {
+              "@type": "Material",
+              "name": materialName,
+              "materialType": seoData.materialType,
+              "chemicalFormula": seoData.materialFormula
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": imageSource,
+              "caption": `${materialName} surface analysis showing before and after laser cleaning`,
+              "width": "800",
+              "height": "450"
+            },
+            "technique": {
+              "@type": "DefinedTerm",
+              "name": "Laser Cleaning",
+              "description": "Surface treatment using focused laser energy for contaminant removal"
+            },
+            "datePublished": captionData.metadata?.generated || new Date().toISOString(),
+            "publisher": {
+              "@type": "Organization",
+              "name": "Z-Beam"
+            }
+          })
+        }}
+      />
+
+      <CaptionHeader 
+        materialName={materialName} 
+        frontmatter={frontmatter}
+        captionData={captionData}
+      />
       
-      <figcaption className="caption-text p-8" ref={captionTextRef} itemProp="caption">
-        <MarkdownRenderer 
-          content={content}
+      <figure 
+        className={`caption-container ${className}`} 
+        itemScope 
+        itemType="https://schema.org/ImageObject"
+        role="img"
+        aria-labelledby="surface-analysis-heading"
+        aria-describedby="surface-analysis-description"
+      >
+        <CaptionImage 
+          imageSource={imageSource} 
+          frontmatter={frontmatter}
+          materialName={materialName}
+          seoData={seoData}
         />
-      </figcaption>
-    </figure>
+        
+        <figcaption 
+          id="surface-analysis-description"
+          className="caption-text p-8"
+          itemProp="caption"
+        >
+                    <CaptionContent
+            content={captionData.renderedContent}
+            beforeText={captionData.beforeText || ''}
+            afterText={captionData.afterText || ''}
+            materialName={materialName}
+            frontmatter={frontmatter}
+            seoData={seoData}
+          />
+          
+          <TechnicalDetails 
+            laserParams={captionData.laserParams}
+            show={config?.showTechnicalDetails ?? true}
+            frontmatter={frontmatter}
+          />
+          
+          <MetadataDisplay 
+            metadata={captionData.metadata}
+            material={captionData.material}
+            show={config?.showMetadata ?? false}
+            frontmatter={frontmatter}
+          />
+        </figcaption>
+      </figure>
+    </section>
   );
 }

@@ -2,7 +2,7 @@
 // Consolidated article and content types
 
 import { BadgeData } from './badge';
-import { AuthorData } from '../components/author';
+import { AuthorInfo } from '../components/author';
 
 /**
  * Core article metadata structure
@@ -46,7 +46,7 @@ export interface ArticleMetadata {
   dateModified?: string;
   
   /** Author information */
-  author?: string | AuthorData;
+  author?: string | AuthorInfo;
   
   /** Main image */
   image?: string;
@@ -341,3 +341,139 @@ export interface SearchableArticle extends Article {
   /** Normalized tags for search optimization */
   normalizedTags?: string[];
 }
+
+// -------- SPECIALIZED METADATA TYPES (from app/types/content.ts) --------
+
+/**
+ * Material-specific metadata structure
+ */
+export interface MaterialMetadata extends ArticleMetadata {
+  articleType: "material";
+  nameShort: string;
+  atomicNumber?: number;
+  chemicalSymbol?: string;
+  materialType: string;
+  metalClass: string;
+  crystalStructure: string;
+  primaryApplication: string;
+  density?: number;
+  meltingPoint?: number;
+  thermalConductivity?: number;
+  electricalConductivity?: number;
+  corrosionResistance?: string;
+}
+
+/**
+ * Application-specific metadata structure
+ */
+export interface ApplicationMetadata extends ArticleMetadata {
+  articleType: "application";
+  industry: string;
+  applicationCategory: string;
+  targetMaterials: string[];
+  processingParameters?: {
+    laserPower?: number | string;
+    scanSpeed?: number | string;
+    wavelength?: number | string;
+    pulseFrequency?: number | string;
+    spotSize?: number | string;
+  };
+  regulatoryStandards?: string[];
+  safetyConsiderations?: string[];
+}
+
+/**
+ * Region-specific metadata structure
+ */
+export interface RegionMetadata extends ArticleMetadata {
+  articleType: "region";
+  regionName: string;
+  countryCode?: string;
+  continent?: string;
+  localStandards?: string[];
+  regulatoryBody?: string;
+  marketSize?: string;
+  keyIndustries?: string[];
+  localPartners?: string[];
+}
+
+/**
+ * Thesaurus-specific metadata structure
+ */
+export interface ThesaurusMetadata extends ArticleMetadata {
+  articleType: "thesaurus";
+  term: string;
+  definition: string;
+  relatedTerms?: string[];
+  category?: string;
+  abbreviation?: string;
+  technicalLevel?: "Beginner" | "Intermediate" | "Advanced" | "Expert";
+}
+
+// -------- POST TYPES --------
+
+/**
+ * Base article post structure
+ */
+export interface ArticlePost {
+  metadata: ArticleMetadata;
+  slug: string;
+  content: string;
+}
+
+/**
+ * Material-specific post structure
+ */
+export interface MaterialPost extends ArticlePost {
+  metadata: MaterialMetadata;
+}
+
+/**
+ * Application-specific post structure
+ */
+export interface ApplicationPost extends ArticlePost {
+  metadata: ApplicationMetadata;
+}
+
+/**
+ * Region-specific post structure
+ */
+export interface RegionPost extends ArticlePost {
+  metadata: RegionMetadata;
+}
+
+/**
+ * Thesaurus-specific post structure
+ */
+export interface ThesaurusPost extends ArticlePost {
+  metadata: ThesaurusMetadata;
+}
+
+/**
+ * Author post structure
+ */
+export interface AuthorPost {
+  metadata: AuthorInfo; // Using existing AuthorInfo instead of AuthorMetadata
+  slug: string;
+  content: string;
+}
+
+// -------- UTILITY TYPES --------
+
+/**
+ * Content type classification
+ */
+export type ContentType = 'article' | 'author' | 'tag' | 'category';
+
+/**
+ * Filter criteria for search and filtering
+ */
+export type FilterCriteria = {
+  type: ContentType;
+  value: string | number;
+};
+
+/**
+ * Legacy type alias for backwards compatibility
+ */
+export type Metadata = ArticleMetadata;

@@ -4,8 +4,9 @@ import React from "react";
 import { Card } from "../Card/Card";
 import { /* cn */ } from "../../utils/helpers";
 import { getArticle, loadComponent } from "../../utils/contentAPI"; // Updated to use contentAPI
-import { MaterialType } from "@/types/core";
+import { MaterialType } from "../../../types/core";
 import { safeMatch, extractSafeValue } from "../../utils/stringHelpers";
+import { ArticleMetadata, Article } from "../../../types";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -50,40 +51,20 @@ interface ListProps {
   className?: string;
 }
 
-// Update your existing ArticleMetadata interface at the top of the file
-interface ArticleMetadata {
-  subject?: string;
-  description?: string;
-  category?: string;
-  articleType?: string;
-  image?: string;
+interface ProcessedListItem {
+  slug: string;
+  title: string;
+  description: string;
+  badge?: any;
+  imageUrl?: string;
+  category: string;
+  articleType: string;
   chemicalSymbol?: string;
   atomicNumber?: number;
   chemicalFormula?: string;
-  // Add the properties field
-  properties?: {
-    chemicalFormula?: string;
-    density?: string;
-    meltingPoint?: string;
-    thermalConductivity?: string;
-    laserType?: string;
-    wavelength?: string;
-    fluenceRange?: string;
-  };
-  // Add composition field
-  composition?: Array<{
-    component: string;
-    percentage: string;
-    type: string;
-    formula?: string;
-  }>;
-  // Optional: Add this for flexibility with other fields
-  [key: string]: unknown;
-}
-
-interface Article {
-  metadata: ArticleMetadata;
-  components: Record<string, unknown> | null;
+  featured?: boolean;
+  materialData?: Article | null;
+  badgeSymbolData?: any;
 }
 
 export async function List({
@@ -108,7 +89,7 @@ export async function List({
   }
 
   // Fetch articles - Update the return object structure
-  const articles = await Promise.all(
+  const articles: ProcessedListItem[] = await Promise.all(
     processedItems.map(async (item) => {
       const article = (await getArticle(item.slug)) as Article | null;
 
@@ -127,12 +108,7 @@ export async function List({
       // Extract chemical data from article
       let chemicalSymbol = article?.metadata?.chemicalSymbol;
       const atomicNumber = article?.metadata?.atomicNumber;
-      let chemicalFormula = article?.metadata?.chemicalFormula;
-
-      // If not directly in metadata, try to get from properties
-      if (!chemicalFormula && article?.metadata?.properties?.chemicalFormula) {
-        chemicalFormula = article.metadata.properties.chemicalFormula;
-      }
+      const chemicalFormula = article?.metadata?.chemicalFormula;
 
       // If we have a formula but no symbol, extract symbol from formula or name
       if (chemicalFormula && !chemicalSymbol) {
@@ -140,7 +116,7 @@ export async function List({
         const match = safeMatch(chemicalFormula, /([A-Z][a-z]?)/);
         chemicalSymbol = match
           ? match[0]
-          : extractSafeValue(article?.metadata?.subject).substring(0, 2) || "";
+          : extractSafeValue(article?.metadata?.title).substring(0, 2) || "";
       }
 
       // Load BadgeSymbol data from content/components/badgesymbol/
@@ -178,7 +154,7 @@ export async function List({
 
       return {
         slug: item.slug,
-        title: article?.metadata?.subject || item.title || item.slug,
+        title: article?.metadata?.title || item.title || item.slug,
         description: article?.metadata?.description || item.description || "",
         badge: badgeObject,
         imageUrl: imageUrl,

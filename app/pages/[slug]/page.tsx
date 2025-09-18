@@ -1,9 +1,6 @@
 // app/pages/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-
-interface PageProps {
-  params: { slug: string };
-}
+import { PageProps } from '../../../types';
 
 export default function Page({ params }: PageProps) {
   // TODO: Implement pages functionality

@@ -24,17 +24,17 @@ export type {
   SearchableArticle
 } from './article';
 
+// Import from centralized for consolidated interfaces
+export type { BaseInteractiveProps, BreadcrumbItem } from '../centralized';
+
 // Component types  
 export type {
   ComponentVariant,
   ComponentSize,
-  BaseInteractiveProps,
   BaseContentProps,
   BaseImageProps,
   BaseLinkProps,
   UIBadgeProps,
   FadeInProps,
-  BreadcrumbItem,
-  BreadcrumbsProps,
-  TableProps
+  BreadcrumbsProps
 } from '../components/ui';

@@ -18,8 +18,8 @@ jest.mock('fs');
 jest.mock('../../app/utils/contentAPI');
 jest.mock('../../app/utils/logger');
 
-const mockFs = fs as jest.Mocked<typeof fs>;
-const mockExistsSync = existsSync as jest.MockedFunction<typeof existsSync>;
+const mockFs = fs;
+const mockExistsSync = existsSync;
 
 describe('Tags Utility Functions', () => {
   beforeEach(() => {
@@ -348,7 +348,7 @@ aluminum, laser, cleaning, aerospace`;
     it('should handle invalid article data in matching', async () => {
       const invalidArticle = null;
       
-      expect(await articleMatchesTag(invalidArticle as any, 'test')).toBe(false);
+      expect(await articleMatchesTag(invalidArticle, 'test')).toBe(false);
     });
   });
 });

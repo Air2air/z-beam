@@ -19,24 +19,50 @@ export async function GET(request: NextRequest) {
       );
     }
     
-    // Load component content
-    const componentPath = path.join(
+    // Load component content - check for YAML first, then markdown
+    let componentPath = path.join(
       process.cwd(),
       'content',
       'components',
       type,
-      `${slug}.md`
+      `${slug}.yaml`
     );
     
-    if (!fs.existsSync(componentPath)) {
-      return NextResponse.json(
-        { error: 'Component not found' },
-        { status: 404 }
+    const isYamlFile = fs.existsSync(componentPath);
+    
+    if (!isYamlFile) {
+      componentPath = path.join(
+        process.cwd(),
+        'content',
+        'components',
+        type,
+        `${slug}.md`
       );
+      
+      if (!fs.existsSync(componentPath)) {
+        return NextResponse.json(
+          { error: 'Component not found' },
+          { status: 404 }
+        );
+      }
     }
     
     const fileContent = fs.readFileSync(componentPath, 'utf8');
-    const { data, content } = matter(fileContent);
+    
+    let data: any = {};
+    let content: string = '';
+    
+    if (isYamlFile) {
+      // For YAML files, parse the entire content as data
+      const yaml = require('yaml');
+      data = yaml.parse(fileContent);
+      content = data; // For YAML components, the data is the content
+    } else {
+      // For markdown files, use gray-matter
+      const parsed = matter(fileContent);
+      data = parsed.data;
+      content = parsed.content;
+    }
     
     // Load frontmatter if it's a frontmatter request
     let frontmatterData = {};

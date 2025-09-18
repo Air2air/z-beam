@@ -4,6 +4,7 @@ import { Layout } from "../components/Layout/Layout";
 import { createMetadata, ArticleMetadata } from "../utils/metadata";
 import { getTagsContentWithMatchCounts } from "../utils/tags";
 import { getAllArticleSlugs } from "../utils/contentUtils";
+import { PageProps } from "../../types";
 
 // Force static generation for all article pages
 export const dynamic = 'force-static';
@@ -32,15 +33,17 @@ export async function generateStaticParams() {
   }
 }
 
-// Define params as a Promise
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
-
 export async function generateMetadata({ params }: PageProps) {
   // Await params before destructuring
   const resolvedParams = await params;
   const { slug } = resolvedParams;
+  
+  if (!slug) {
+    return {
+      title: `Page Not Found | Z-Beam`,
+      description: 'The requested page could not be found.'
+    };
+  }
   
   try {
     const article = await getArticle(slug);
@@ -70,6 +73,10 @@ export default async function ArticlePage({ params }: PageProps) {
   // Await params before destructuring
   const resolvedParams = await params;
   const { slug } = resolvedParams;
+
+  if (!slug) {
+    return notFound();
+  }
   
   // Validate slug - prevent meaningless values from even trying
   if (!slug || slug === '#' || slug === 'undefined' || slug === 'null') {

@@ -1,6 +1,8 @@
 // types/components/ui.ts
 // User interface component types
 
+import { BaseInteractiveProps, BreadcrumbItem } from '../centralized';
+
 /**
  * Component variant types for consistent theming
  */
@@ -10,15 +12,6 @@ export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
  * Component size types for consistent sizing
  */
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
-
-/**
- * Base props for all interactive elements
- */
-export interface BaseInteractiveProps {
-  className?: string;
-  onClick?: () => void;
-  disabled?: boolean;
-}
 
 /**
  * Base props for components that display content
@@ -75,25 +68,7 @@ export interface FadeInProps {
 /**
  * Navigation breadcrumb interfaces
  */
-export interface BreadcrumbItem {
-  label: string;
-  href?: string;
-}
-
 export interface BreadcrumbsProps {
   items: BreadcrumbItem[];
   className?: string;
-}
-
-/**
- * Table component props
- */
-export interface TableProps {
-  content: string;
-  config?: {
-    showHeader?: boolean;
-    caption?: string;
-    className?: string;
-    variant?: 'default' | 'sectioned' | 'compact';
-  };
 }

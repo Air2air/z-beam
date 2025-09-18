@@ -2,16 +2,12 @@
 import { getArticlesWithTags } from "../../utils/tags";
 import { enrichArticles } from "../../utils/articleEnrichment";
 import { SearchResults } from "../../components/SearchResults/SearchResults";
+import { TagPageProps } from "../../../types";
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
 
-// Define params as a Promise
-interface PageProps {
-  params: Promise<{ tag: string }>;
-}
-
-export default async function TagPage({ params }: PageProps) {
+export default async function TagPage({ params }: TagPageProps) {
   // Await params before using it
   const paramsData = await params;
   
@@ -42,7 +38,7 @@ export default async function TagPage({ params }: PageProps) {
   );
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: TagPageProps) {
   // Ensure params is awaited before accessing properties
   const paramsData = await params;
   
