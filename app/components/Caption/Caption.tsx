@@ -273,6 +273,12 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       itemScope 
       itemType="https://schema.org/TechArticle"
     >
+      {/* JSON-LD Structured Data - invisible to users, visible to search engines */}
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
       {/* Quality Metrics */}
       {enhancedData.quality_metrics && (
         <div className="mb-8">
