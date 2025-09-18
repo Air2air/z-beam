@@ -301,11 +301,15 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       )}
 
       {/* Main Content */}
-      <figure 
-        className="caption-container mb-8" 
-        itemScope 
-        itemType="https://schema.org/ImageObject"
-      >
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-white mb-4">
+          {capitalizedMaterial} Micrograph
+        </h3>
+        <figure 
+          className="caption-container" 
+          itemScope 
+          itemType="https://schema.org/ImageObject"
+        >
         {enhancedData.images?.micro?.url && (
           <img
             src={enhancedData.images.micro.url}
@@ -351,6 +355,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
           )}
         </figcaption>
       </figure>
+      </div>
 
       {/* Technical Specifications */}
       {(enhancedData.technicalSpecifications || enhancedData.laser_parameters) && (
