@@ -105,7 +105,7 @@ Microscopic examination confirms total contamination removal while preserving su
     // Image Metadata
     images: {
       micro: {
-        url: "/images/oak-cleaning-analysis.jpg",
+        url: "/images/oak-laser-cleaning-micro.jpg",
         alt: "Microscopic comparison of oak surface before and after laser cleaning showing complete contamination removal",
         width: 800,
         height: 450,
@@ -120,7 +120,7 @@ Microscopic examination confirms total contamination removal while preserving su
     canonical_url: "https://z-beam.com/analysis/oak-laser-cleaning",
     og_title: "Oak Laser Cleaning Analysis - 99.2% Contamination Removal",
     og_description: "Professional microscopic analysis of precision laser cleaning on oak, achieving complete contamination removal with preserved substrate integrity.",
-    og_image: "/images/oak-cleaning-analysis-social.jpg",
+    og_image: "/images/oak-laser-cleaning-micro-social.jpg",
     twitter_card: "summary_large_image",
     schema_type: "AnalysisNewsArticle",
     last_modified: "2025-09-17T18:04:53.611251Z"

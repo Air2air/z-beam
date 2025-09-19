@@ -144,28 +144,39 @@ console.log('========================================');
 console.log(`
 For your Python project that generates image paths, ensure consistent naming:
 
-NAMING PATTERN RULES:
+NAMING PATTERN RULES (Updated September 2025):
 1. **Frontmatter files**: {material-name}-laser-cleaning.md
 2. **Hero images**: {material-name}-laser-cleaning-hero.jpg  
 3. **Micro images**: {material-name}-laser-cleaning-micro.jpg
+4. **Social images**: {material-name}-laser-cleaning-micro-social.jpg
+
+MIGRATION COMPLETED:
+✅ All files updated from old pattern: {material-name}-cleaning-analysis.jpg
+✅ New standardized pattern: {material-name}-laser-cleaning-micro.jpg
+✅ Social media images: {material-name}-laser-cleaning-micro-social.jpg
 
 FRONTMATTER STRUCTURE:
 Use the structured format for consistency:
 
 \`\`\`yaml
 images:
+  micro:
+    alt: "Descriptive alt text for microscopic analysis"
+    url: /images/{material-name}-laser-cleaning-micro.jpg
   hero:
     alt: "Descriptive alt text for hero image"
     url: /images/{material-name}-laser-cleaning-hero.jpg
-  micro:
-    alt: "Descriptive alt text for microscopic view"
-    url: /images/{material-name}-laser-cleaning-micro.jpg
+
+seo_data:
+  og_image: "/images/{material-name}-laser-cleaning-micro-social.jpg"
 \`\`\`
 
 PYTHON GENERATOR PROMPT:
 "Generate frontmatter files with:
 - Filename: {material_name}-laser-cleaning.md (where material_name is kebab-case)
-- Image paths using exact format: /images/{material_name}-laser-cleaning-hero.jpg
+- Micro image paths: /images/{material_name}-laser-cleaning-micro.jpg
+- Hero image paths: /images/{material_name}-laser-cleaning-hero.jpg
+- Social image paths: /images/{material_name}-laser-cleaning-micro-social.jpg
 - Structured YAML with images.hero.url and images.micro.url properties
 - Ensure material name consistency between filename and image paths
 - Use descriptive alt text for accessibility"
@@ -173,5 +184,5 @@ PYTHON GENERATOR PROMPT:
 SPECIFIC CORRECTIONS NEEDED:
 ${pathIssues.length > 0 ? pathIssues.map(issue => 
   `- Fix ${issue.file}.md: Change "${issue.current}" to "${issue.expected}"`
-).join('\n') : '- No immediate corrections needed'}
+).join('\n') : '- No immediate corrections needed - migration completed!'}
 `);

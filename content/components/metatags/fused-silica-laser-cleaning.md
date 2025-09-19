@@ -6,7 +6,7 @@ meta_tags:
     non-contact process uses specific IR & UV wavelengths to remove contaminants without
     substrate damage."'
 - name: keywords
-  content: fused silica laser cleaning, laser ablation, glass processing, surface
+  content: fused-silica laser cleaning, laser ablation, glass processing, surface
     contamination removal, non-contact cleaning, laser parameters, pulse duration,
     pulse energy, repetition rate, fluence, wavelength, Nd:YAG laser, fiber laser,
     ultraviolet laser, IR laser, surface preparation, surface treatment, coating removal,
@@ -56,7 +56,7 @@ opengraph:
 - property: og:type
   content: article
 - property: og:image
-  content: /images/fused silica-laser-cleaning-hero.jpg
+  content: /images/fused-silica-laser-cleaning-hero.jpg
 - property: og:image:alt
   content: Fused Silica laser cleaning process showing precision glass restoration
     and surface treatment
@@ -65,7 +65,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/fused silica-laser-cleaning
+  content: https://z-beam.com/fused-silica-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -86,17 +86,17 @@ twitter:
     wavelengths to remove contaminants without damage. Ideal for optics, semiconductors,
     and aerospace."'
 - name: twitter:image
-  content: /images/fused silica-laser-cleaning-hero.jpg
+  content: /images/fused-silica-laser-cleaning-hero.jpg
 - name: twitter:image:alt
   content: Fused Silica glass laser cleaning technical guide
 - name: twitter:site
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/fused silica-laser-cleaning
+canonical: https://z-beam.com/fused-silica-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/fused silica-laser-cleaning
+  href: https://z-beam.com/fused-silica-laser-cleaning
 ---
 
 ---

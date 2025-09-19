@@ -7,7 +7,7 @@ meta_tags:
     including optimal wavelength interaction with SiGe bandgap, and industrial applications
     in semiconductor surface preparation.
 - name: keywords
-  content: silicon germanium, SiGe, semiconductor laser cleaning, laser ablation,
+  content: silicon-germanium, SiGe, semiconductor laser cleaning, laser ablation,
     non-contact cleaning, pulsed fiber laser, surface contamination removal, wafer
     cleaning, epitaxial preparation
 - name: author
@@ -46,7 +46,7 @@ opengraph:
 - property: og:type
   content: article
 - property: og:image
-  content: /images/silicon germanium-laser-cleaning-hero.jpg
+  content: /images/silicon-germanium-laser-cleaning-hero.jpg
 - property: og:image:alt
   content: Silicon Germanium laser cleaning process showing precision semiconductor
     restoration and surface treatment
@@ -55,7 +55,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/silicon germanium-laser-cleaning
+  content: https://z-beam.com/silicon-germanium-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -76,17 +76,17 @@ twitter:
     including optimal wavelength interaction with SiGe bandgap, and industrial applications
     in semiconductor surface preparation.
 - name: twitter:image
-  content: /images/silicon germanium-laser-cleaning-hero.jpg
+  content: /images/silicon-germanium-laser-cleaning-hero.jpg
 - name: twitter:image:alt
   content: Silicon Germanium semiconductor laser cleaning technical guide
 - name: twitter:site
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/silicon germanium-laser-cleaning
+canonical: https://z-beam.com/silicon-germanium-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/silicon germanium-laser-cleaning
+  href: https://z-beam.com/silicon-germanium-laser-cleaning
 ---
 
 ---

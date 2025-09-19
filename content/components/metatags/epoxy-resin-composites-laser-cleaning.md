@@ -2,11 +2,11 @@
 title: Epoxy Resin Composites Laser Cleaning
 meta_tags:
 - name: description
-  content: '"Discover precise laser cleaning for epoxy resin composites. Our 1064nm
+  content: '"Discover precise laser cleaning for epoxy-resin-composites. Our 1064nm
     fiber lasers remove contaminants without substrate damage. Ideal for aerospace
     & automotive prep."'
 - name: keywords
-  content: epoxy resin composites, laser cleaning, laser ablation, composite restoration,
+  content: epoxy-resin-composites, laser cleaning, laser ablation, composite restoration,
     surface preparation, adhesion promotion, contaminant removal, laser parameters,
     wavelength, pulse duration, fluence, power density, repetition rate, scanning
     speed, passivation removal, oxide layer ablation, thermal damage control, non-abrasive
@@ -50,14 +50,14 @@ opengraph:
   content: Epoxy Resin Composites Laser Cleaning
 - property: og:description
   content: '"Revolutionize your surface prep with our advanced laser cleaning for
-    epoxy resin composites. Using precise 1064nm wavelengths, our non-abrasive process
+    epoxy-resin-composites. Using precise 1064nm wavelengths, our non-abrasive process
     removes coatings, oxides, and contaminants without thermal damage. Perfect for
     aerospace, automotive, and wind turbine maintenance. Restore adhesion and ensure
     perfect bonding."'
 - property: og:type
   content: article
 - property: og:image
-  content: /images/epoxy resin composites-laser-cleaning-hero.jpg
+  content: /images/epoxy-resin-composites-laser-cleaning-hero.jpg
 - property: og:image:alt
   content: Epoxy Resin Composites laser cleaning process showing precision composite
     restoration and surface treatment
@@ -66,7 +66,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/epoxy resin composites-laser-cleaning
+  content: https://z-beam.com/epoxy-resin-composites-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -83,21 +83,21 @@ twitter:
 - name: twitter:title
   content: Epoxy Resin Composites Laser Cleaning
 - name: twitter:description
-  content: '"Laser clean epoxy resin composites with 1064nm precision. Non-contact
+  content: '"Laser clean epoxy-resin-composites with 1064nm precision. Non-contact
     removal of coatings & contaminants for superior surface prep in aerospace & automotive
     applications."'
 - name: twitter:image
-  content: /images/epoxy resin composites-laser-cleaning-hero.jpg
+  content: /images/epoxy-resin-composites-laser-cleaning-hero.jpg
 - name: twitter:image:alt
   content: Epoxy Resin Composites composite laser cleaning technical guide
 - name: twitter:site
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/epoxy resin composites-laser-cleaning
+canonical: https://z-beam.com/epoxy-resin-composites-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/epoxy resin composites-laser-cleaning
+  href: https://z-beam.com/epoxy-resin-composites-laser-cleaning
 ---
 
 ---

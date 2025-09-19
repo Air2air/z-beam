@@ -2,7 +2,7 @@
 title: Tempered Glass Laser Cleaning
 meta_tags:
 - name: description
-  content: Discover precision laser cleaning for tempered glass. Our 1064nm wavelength
+  content: Discover precision laser cleaning for tempered-glass. Our 1064nm wavelength
     system safely removes contaminants without damage. Ideal for manufacturing & restoration.
 - name: keywords
   content: Tempered glass laser cleaning, laser ablation, surface contamination removal,
@@ -49,14 +49,14 @@ opengraph:
   content: Tempered Glass Laser Cleaning
 - property: og:description
   content: Revolutionize your surface cleaning with our advanced laser technology
-    for tempered glass. Using a precise 1064nm wavelength, our non-contact process
+    for tempered-glass. Using a precise 1064nm wavelength, our non-contact process
     removes oxides, fingerprints, and grime without thermal stress or damage. Perfect
     for architectural glass, electronics manufacturing, and historical preservation.
     Learn how!
 - property: og:type
   content: article
 - property: og:image
-  content: /images/tempered glass-laser-cleaning-hero.jpg
+  content: /images/tempered-glass-laser-cleaning-hero.jpg
 - property: og:image:alt
   content: Tempered Glass laser cleaning process showing precision glass restoration
     and surface treatment
@@ -65,7 +65,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/tempered glass-laser-cleaning
+  content: https://z-beam.com/tempered-glass-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -82,21 +82,21 @@ twitter:
 - name: twitter:title
   content: Tempered Glass Laser Cleaning
 - name: twitter:description
-  content: Precision laser cleaning for tempered glass. 1064nm wavelength safely removes
+  content: Precision laser cleaning for tempered-glass. 1064nm wavelength safely removes
     contaminants without damage or abrasives. Ideal for manufacturing & restoration.
     Learn more.
 - name: twitter:image
-  content: /images/tempered glass-laser-cleaning-hero.jpg
+  content: /images/tempered-glass-laser-cleaning-hero.jpg
 - name: twitter:image:alt
   content: Tempered Glass glass laser cleaning technical guide
 - name: twitter:site
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/tempered glass-laser-cleaning
+canonical: https://z-beam.com/tempered-glass-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/tempered glass-laser-cleaning
+  href: https://z-beam.com/tempered-glass-laser-cleaning
 ---
 
 ---

@@ -2,7 +2,7 @@
 title: Lead Crystal Laser Cleaning
 meta_tags:
 - name: description
-  content: '"Safely restore lead crystal with precision laser cleaning. Our non-abrasive
+  content: '"Safely restore lead-crystal with precision laser cleaning. Our non-abrasive
     1064nm wavelength removes contaminants without damage. Ideal for heirlooms & artifacts."'
 - name: keywords
   content: Lead Crystal laser cleaning, laser ablation, glass processing, surface
@@ -49,14 +49,14 @@ opengraph:
 - property: og:title
   content: Lead Crystal Laser Cleaning
 - property: og:description
-  content: '"Discover the art of restoring lead crystal with precision laser technology.
+  content: '"Discover the art of restoring lead-crystal with precision laser technology.
     Our specialized 1064nm wavelength safely removes tarnish, dirt, and stains without
     abrasives or chemicals. Perfect for delicate heirlooms, museum artifacts, and
     luxury glassware. Learn how we preserve intricate details."'
 - property: og:type
   content: article
 - property: og:image
-  content: /images/lead crystal-laser-cleaning-hero.jpg
+  content: /images/lead-crystal-laser-cleaning-hero.jpg
 - property: og:image:alt
   content: Lead Crystal laser cleaning process showing precision glass restoration
     and surface treatment
@@ -65,7 +65,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/lead crystal-laser-cleaning
+  content: https://z-beam.com/lead-crystal-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -82,20 +82,20 @@ twitter:
 - name: twitter:title
   content: Lead Crystal Laser Cleaning
 - name: twitter:description
-  content: '"Precision laser cleaning for lead crystal. Using a 1064nm wavelength
+  content: '"Precision laser cleaning for lead-crystal. Using a 1064nm wavelength
     to safely remove tarnish & contaminants without damage. Restore heirlooms & artifacts."'
 - name: twitter:image
-  content: /images/lead crystal-laser-cleaning-hero.jpg
+  content: /images/lead-crystal-laser-cleaning-hero.jpg
 - name: twitter:image:alt
   content: Lead Crystal glass laser cleaning technical guide
 - name: twitter:site
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/lead crystal-laser-cleaning
+canonical: https://z-beam.com/lead-crystal-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/lead crystal-laser-cleaning
+  href: https://z-beam.com/lead-crystal-laser-cleaning
 ---
 
 ---

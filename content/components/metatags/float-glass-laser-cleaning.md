@@ -15,7 +15,7 @@ meta_tags:
     restoration,pollutant removal,soot removal,paint stripping,coating removal,oxide
     layer removal,environmentally friendly cleaning,no chemical solvents,waste reduction,selective
     ablation,precision cleaning,heat affected zone,HAZ minimization,surface roughness,hydrophobicity,hydrophilicity,glass
-    strengthening,laser etching,annealed glass,tempered glass,laminated glass,low-iron
+    strengthening,laser etching,annealed glass,tempered-glass,laminated glass,low-iron
     glass,transmittance improvement,optical clarity,defect removal,particulate removal,organic
     residue,inorganic contamination,process automation,robotic integration,quality
     control,in-line inspection

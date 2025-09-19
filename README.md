@@ -27,7 +27,7 @@ This README is the single source of truth for building, maintaining, and extendi
 │   ├── layout.tsx          # Root layout
 │   └── page.tsx            # Home page
 ├── public/                 # Static assets
-│   └── images/             # Image assets
+│   └── images/             # Image assets (see docs/IMAGE_NAMING_CONVENTIONS.md)
 ├── content/                # All MDX/MD files (read-only)
 │   ├── application/        # Application articles
 │   ├── author/             # Author profiles

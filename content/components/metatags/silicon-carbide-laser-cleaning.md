@@ -7,7 +7,7 @@ meta_tags:
     including optimal 1064nm wavelength interaction, and industrial applications in
     surface preparation.
 - name: keywords
-  content: silicon carbide, silicon carbide semiconductor, laser ablation, laser cleaning,
+  content: silicon-carbide, silicon-carbide semiconductor, laser ablation, laser cleaning,
     non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial
     laser parameters, thermal processing, surface restoration
 - name: author
@@ -46,7 +46,7 @@ opengraph:
 - property: og:type
   content: article
 - property: og:image
-  content: /images/silicon carbide-laser-cleaning-hero.jpg
+  content: /images/silicon-carbide-laser-cleaning-hero.jpg
 - property: og:image:alt
   content: Silicon Carbide laser cleaning process showing precision semiconductor
     restoration and surface treatment
@@ -55,7 +55,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/silicon carbide-laser-cleaning
+  content: https://z-beam.com/silicon-carbide-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -76,17 +76,17 @@ twitter:
     including optimal 1064nm wavelength interaction, and industrial applications in
     surface preparation.
 - name: twitter:image
-  content: /images/silicon carbide-laser-cleaning-hero.jpg
+  content: /images/silicon-carbide-laser-cleaning-hero.jpg
 - name: twitter:image:alt
   content: Silicon Carbide semiconductor laser cleaning technical guide
 - name: twitter:site
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/silicon carbide-laser-cleaning
+canonical: https://z-beam.com/silicon-carbide-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/silicon carbide-laser-cleaning
+  href: https://z-beam.com/silicon-carbide-laser-cleaning
 ---
 
 ---

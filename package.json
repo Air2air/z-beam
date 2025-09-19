@@ -33,7 +33,8 @@
     "test:components": "jest tests/components",
     "test:parsing": "node tests/test-parsing-standardization.js",
     "test:content": "node tests/test-content-validation.js",
-    "test:comprehensive": "npm run test:parsing && npm run test:content && npm run test:ci",
+    "test:images": "jest tests/image-naming-conventions.test.js",
+    "test:comprehensive": "npm run test:parsing && npm run test:content && npm run test:images && npm run test:ci",
     "validate:fast": "npm run type-check && npm run test:unit",
     "precommit": "npm run validate:fast"
   },

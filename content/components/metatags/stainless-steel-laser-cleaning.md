@@ -49,7 +49,7 @@ opengraph:
 - property: og:image:height
   content: '630'
 - property: og:url
-  content: https://z-beam.com/stainless steel-laser-cleaning
+  content: https://z-beam.com/stainless-steel-laser-cleaning
 - property: og:site_name
   content: Z-Beam Laser Processing Guide
 - property: og:locale
@@ -75,10 +75,10 @@ twitter:
   content: '@z-beamTech'
 - name: twitter:creator
   content: '@z-beamTech'
-canonical: https://z-beam.com/stainless steel-laser-cleaning
+canonical: https://z-beam.com/stainless-steel-laser-cleaning
 alternate:
 - hreflang: en
-  href: https://z-beam.com/stainless steel-laser-cleaning
+  href: https://z-beam.com/stainless-steel-laser-cleaning
 ---
 
 ---

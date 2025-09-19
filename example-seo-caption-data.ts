@@ -99,7 +99,7 @@ Microscopic examination confirms complete organic residue elimination while pres
     // Image Metadata
     images: {
       micro: {
-        url: "/images/aluminum-cleaning-analysis.jpg",
+        url: "/images/aluminum-laser-cleaning-micro.jpg",
         alt: "Microscopic comparison of aluminum surface before and after laser cleaning showing complete contamination removal",
         width: 800,
         height: 450,
@@ -123,7 +123,7 @@ Microscopic examination confirms complete organic residue elimination while pres
     canonical_url: "https://z-beam.com/analysis/aluminum-laser-cleaning",
     og_title: "Aluminum Laser Cleaning Analysis - 99.7% Contamination Removal",
     og_description: "Professional microscopic analysis of precision laser cleaning on aluminum 6061-T6, achieving complete contamination removal with preserved substrate integrity.",
-    og_image: "/images/aluminum-cleaning-analysis-social.jpg",
+    og_image: "/images/aluminum-laser-cleaning-micro-social.jpg",
     twitter_card: "summary_large_image",
     schema_type: "AnalysisNewsArticle",
     last_modified: "2025-09-17T14:30:00Z"
