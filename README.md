@@ -4,6 +4,8 @@
 
 This README is the single source of truth for building, maintaining, and extending the Z-Beam project. It integrates all critical principles, workflows, and enforcement mechanisms from previous documentation.
 
+**🔍 Automatic Deployment Monitoring Active** - All deployments are now automatically tracked and monitored for status changes.
+
 ---
 
 ## 1. Core Mandate & Principles
