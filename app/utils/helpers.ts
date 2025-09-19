@@ -1,7 +1,7 @@
 // app/utils/helpers.ts
 // Common helper functions for React components and app logic
 
-import { ComponentVariant, ComponentSize } from '../../types/core';
+import { ComponentVariant, ComponentSize } from '@/types';
 
 /**
  * Combines multiple class names, filtering out falsy values

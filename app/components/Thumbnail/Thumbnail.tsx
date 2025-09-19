@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { Article } from "@/types/core";
+import { Article } from "@/types";
 import { Card } from "../Card/Card";
 import { logger } from "../../utils/logger";
 

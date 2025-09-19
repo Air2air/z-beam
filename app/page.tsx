@@ -1,11 +1,11 @@
 // app/page.tsx - Static optimized home page
 
-import { List } from "./components/List/List";
+import { UnifiedArticleGridSSR } from "./components/ArticleGrid/UnifiedArticleGridSSR";
 import { Hero } from "./components/Hero/Hero";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
 import { createMetadata } from "./utils/metadata";
-import { getAllArticleSlugs } from "./utils/contentUtils";
-import { SectionCardList } from "./components/SectionCard/SectionCardList";
+import { getAllArticleSlugs } from "./utils/contentAPI";
+import { sectionCards } from "./components/SectionCard/SectionCards";
 
 // Force static generation for home page
 export const dynamic = 'force-static';
@@ -34,11 +34,8 @@ export async function generateMetadata() {
       : typeof homeMetaTags?.config?.keywords === 'string' 
         ? [homeMetaTags.config.keywords] 
         : undefined,
-    ogImage: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
-    ogType: (homeMetaTags?.config?.ogType as string) || "website",
-    canonical: homeMetaTags?.config?.canonical as string,
-    noindex: homeMetaTags?.config?.noindex as boolean,
-    jsonLd: homeArticle?.components?.jsonld,
+    image: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
+    slug: "home",
   });
 }
 
@@ -75,12 +72,26 @@ export default async function HomePage() {
 
    
       <section className="container mx-auto px-4 py-8">
-        <SectionCardList />
+        <UnifiedArticleGridSSR
+          items={sectionCards
+            .filter(card => card.featured)
+            .map(card => ({
+              slug: card.slug,
+              title: card.title,
+              description: card.description,
+              href: `/${card.slug}`,
+              imageUrl: card.imageUrl,
+              imageAlt: card.title,
+              badge: { show: false }, // Featured items don't show badges
+            }))}
+          columns={2}
+          variant="featured"
+        />
       </section>
 
       {/* Materials - Pass slugs and filter */}
       <section className="container mx-auto px-4 py-8">
-        <List
+        <UnifiedArticleGridSSR
           slugs={slugs}
           filterBy="material"
           heading="Material-Specific Solutions"
@@ -90,7 +101,7 @@ export default async function HomePage() {
 
       {/* Applications */}
       <section className="container mx-auto px-4 py-8">
-        <List
+        <UnifiedArticleGridSSR
           slugs={slugs}
           filterBy="application"
           heading="Applications & Techniques"
@@ -100,7 +111,7 @@ export default async function HomePage() {
 
       {/* All Articles */}
       <section className="container mx-auto px-4 py-12">
-        <List
+        <UnifiedArticleGridSSR
           slugs={slugs}
           filterBy="all"
           heading="All Solutions"

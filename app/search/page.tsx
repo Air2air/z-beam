@@ -1,9 +1,9 @@
 // app/search/page.tsx
 import SearchClient from "./search-client";
-import { getAllArticles } from "../utils/contentUtils";
+import { getAllArticles } from "../utils/contentAPI";
 import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
-import { MaterialType } from "@/types/core";
+import { MaterialType } from "@/types";
 
 export const dynamic = 'force-dynamic';
 
@@ -109,7 +109,7 @@ export default async function SearchPage() {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Search</h1>
         
-        <SearchClient initialArticles={articlesWithBadgeData} />
+        <SearchClient initialArticles={articlesWithBadgeData as any} />
       </div>
     );
   } catch (error) {

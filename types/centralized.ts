@@ -88,6 +88,13 @@ export interface ArticleMetadata {
   // Enhanced frontmatter fields
   chemicalProperties?: ChemicalProperties;
   properties?: Record<string, PropertyWithUnits>;
+  
+  // Legacy compatibility fields
+  subject?: string; // Legacy field for older components
+  video?: string; // For video metadata
+  chemicalSymbol?: string;
+  chemicalFormula?: string;
+  atomicNumber?: number;
   machineSettings?: MachineSettings;
   applications?: string[];
   compatibility?: string[];
@@ -292,6 +299,17 @@ export interface BaseContentProps {
   title: string;
   description: string;
   className?: string;
+}
+
+/**
+ * Base link component props
+ */
+export interface BaseLinkProps {
+  href: string;
+  children: ReactNode;
+  className?: string;
+  target?: '_blank' | '_self';
+  rel?: string;
 }
 
 /**
@@ -526,11 +544,65 @@ export interface UIBadgeProps {
 }
 
 /**
+ * Material badge data for materials system
+ */
+export interface MaterialBadgeData extends BadgeData {
+  /** Material type is required for materials */
+  materialType: MaterialType;
+}
+
+/**
+ * Badge symbol specific data
+ * Extends BadgeData with symbol-specific properties
+ */
+export interface BadgeSymbolData extends BadgeData {
+  /** Required symbol for badge symbol components */
+  symbol: string;
+}
+
+/**
  * Breadcrumbs component props
  */
 export interface BreadcrumbsProps {
   items: BreadcrumbItem[];
   className?: string;
+}
+
+/**
+ * Article grid item interface
+ */
+export interface ArticleItem {
+  slug: string;
+  title?: string;
+  description?: string;
+  href?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  badge?: any; // Using any for now to avoid type conflicts
+  tags?: string[];
+  featured?: boolean;
+  metadata?: Record<string, unknown>;
+  height?: string;
+  name?: string;
+  image?: string;
+  article?: {
+    metadata?: Record<string, unknown>;
+    components?: Record<string, ComponentData>;
+  } | null;
+}
+
+/**
+ * Article grid component props
+ */
+export interface ArticleGridProps {
+  items: ArticleItem[];
+  title?: string;
+  heading?: string;
+  columns?: 1 | 2 | 3 | 4;
+  className?: string;
+  showBadgeSymbols?: boolean;
+  loadBadgeSymbolData?: boolean;
+  variant?: 'standard' | 'featured';
 }
 
 /**
@@ -642,9 +714,45 @@ export interface ApiSearchParams {
 // LEGACY COMPATIBILITY
 // ===============================
 
+// Enhanced Article type that consolidates contentAPI requirements
+export interface Article {
+  slug: string;
+  title: string;
+  name?: string;
+  headline?: string;
+  description?: string;
+  content?: string;
+  tags?: string[];
+  category?: string;
+  href?: string;
+  image?: string;
+  imageAlt?: string;
+  showBadge?: boolean;
+  badge?: any;
+  author?: string;
+  date?: string;
+  excerpt?: string;
+  website?: string;
+  metadata?: ArticleMetadata | Record<string, unknown>;
+  frontmatter?: Record<string, unknown>;
+  // Legacy compatibility
+  id?: string;
+  path?: string;
+  filepath?: string;
+  type?: string;
+  // Additional fields for component compatibility
+  subject?: string; // For Card component compatibility
+  video?: string; // For Hero component compatibility
+}
+
+// Search-ready article with guaranteed required fields
+export interface SearchableArticle extends Article {
+  tags: string[];
+  href: string;
+}
+
 // Re-exports for backward compatibility
 export type Metadata = ArticleMetadata;
-export type Article = ContentItem & { metadata: ArticleMetadata };
 export type Author = AuthorInfo;
 export type Badge = BadgeData;
 

@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { sectionCards } from "./SectionCards";
-import { ArticleGridClient } from "../ArticleGrid/ArticleGridClient";
+import { UnifiedArticleGrid } from "../ArticleGrid/UnifiedArticleGrid";
 
 interface SectionCardData {
   id: number;
@@ -42,7 +42,7 @@ export function SectionCardList({
 
   return (
     <section className={`${className}`}>
-      <ArticleGridClient
+      <UnifiedArticleGrid
         items={cardsToRender.map((card) => ({
           slug: card.slug,
           title: card.title || "",

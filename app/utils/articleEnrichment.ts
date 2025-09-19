@@ -1,4 +1,4 @@
-import { Article, SearchableArticle } from '../../types/core';
+import { Article, SearchableArticle } from '@/types';
 import { slugToDisplayName, capitalizeFirst } from './formatting';
 
 // Define patterns for tag inference

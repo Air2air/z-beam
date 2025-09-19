@@ -5,7 +5,7 @@ import "./styles.scss";
 import Link from "next/link";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
-import { BadgeData, ArticleMetadata } from "@/types/core";
+import { BadgeData, ArticleMetadata } from "@/types";
 
 // Global card configuration with a single variant
 const CARD_CONFIG = {

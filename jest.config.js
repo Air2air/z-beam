@@ -46,20 +46,41 @@ const customJestConfig = {
   ],
   projects: [
     {
+      displayName: "jsdom",
       testEnvironment: "jsdom",
       testMatch: [
-        "<rootDir>/tests/components/*.test.{js,jsx,ts,tsx}",
-        "<rootDir>/tests/integration/*layout*.test.{js,jsx,ts,tsx}"
+        "<rootDir>/tests/components/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/integration/universal-templates-layout-integration*.test.tsx",
+        "<rootDir>/tests/alabaster-tags.test.js"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+      moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/app/$1",
+        "^@components/(.*)$": "<rootDir>/app/components/$1",
+        "^@utils/(.*)$": "<rootDir>/app/utils/$1",
+        "^marked$": "<rootDir>/tests/__mocks__/marked.js",
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+      },
     },
     {
+      displayName: "node",
       testEnvironment: "node", 
       testMatch: [
-        "<rootDir>/tests/!(components)/**/*.test.{js,jsx,ts,tsx}",
-        "!<rootDir>/tests/integration/*layout*.test.{js,jsx,ts,tsx}"
+        "<rootDir>/tests/**/*.test.{js,jsx,ts,tsx}"
+      ],
+      testPathIgnorePatterns: [
+        "<rootDir>/tests/components/",
+        "<rootDir>/tests/integration/",
+        "<rootDir>/tests/alabaster-tags.test.js"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+      moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/app/$1",
+        "^@components/(.*)$": "<rootDir>/app/components/$1",
+        "^@utils/(.*)$": "<rootDir>/app/utils/$1",
+        "^marked$": "<rootDir>/tests/__mocks__/marked.js",
+        "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+      },
     }
   ],
   collectCoverage: true,

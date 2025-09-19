@@ -3,7 +3,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { BreadcrumbItem } from "@/types/core";
+import { BreadcrumbItem } from "@/types";
 import { capitalizeWords } from "../../utils/formatting";
 
 export function Breadcrumbs() {

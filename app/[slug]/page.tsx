@@ -3,7 +3,7 @@ import { getArticle } from "../utils/contentAPI"; // Updated to use contentAPI
 import { Layout } from "../components/Layout/Layout";
 import { createMetadata, ArticleMetadata } from "../utils/metadata";
 import { getTagsContentWithMatchCounts } from "../utils/tags";
-import { getAllArticleSlugs } from "../utils/contentUtils";
+import { getAllArticleSlugs } from "../utils/contentAPI";
 import { PageProps } from "../../types";
 
 // Force static generation for all article pages
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: PageProps) {
     return createMetadata({
       ...article.metadata,
       canonical: (article.metadata.canonical as string) || `https://z-beam.com/${slug}`
-    } as ArticleMetadata);
+    } as unknown as ArticleMetadata);
   } catch (error) {
     console.error(`Error generating metadata for ${slug}:`, error);
     return {
@@ -111,7 +111,7 @@ export default async function ArticlePage({ params }: PageProps) {
     
     // Return the article layout
     return (
-      <Layout components={components} metadata={article.metadata} slug={slug} />
+      <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={slug} />
     );
   } catch (error) {
     console.error(`Error rendering page for ${slug}:`, error);

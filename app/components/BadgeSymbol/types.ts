@@ -3,8 +3,5 @@
 
 export type { 
   BadgeSymbolData, 
-  BadgeVariant,
-  BadgeDisplayProps 
-} from '../../../types/core';
-
-export type { BadgeSymbolProps } from '../../../types/components';
+  BadgeVariant
+} from '@/types';

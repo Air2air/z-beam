@@ -325,6 +325,10 @@ aluminum, laser, cleaning, aerospace`;
 
   describe('Error Handling', () => {
     it('should handle file system errors gracefully', async () => {
+      // Mock loadAllArticles to return empty array when file system fails
+      const { loadAllArticles } = require('../../app/utils/contentAPI');
+      loadAllArticles.mockResolvedValue([]);
+      
       mockFs.readdir.mockRejectedValue(new Error('Permission denied'));
       
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation();

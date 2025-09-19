@@ -3,7 +3,7 @@
 
 import React from "react";
 import "./styles.css"; // Import the styles
-import { BadgeSymbolData, BadgeVariant } from "@/types/core";
+import { BadgeSymbolData, BadgeVariant } from "@/types";
 
 interface BadgeSymbolProps {
   content: string;

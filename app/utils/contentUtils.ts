@@ -1,6 +1,5 @@
 // app/utils/contentUtils.ts
 // Mark this file as server-only to prevent client-side imports of Node.js modules
-'use server';
 
 import fs from 'fs/promises';
 import { existsSync } from 'fs';

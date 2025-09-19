@@ -15,33 +15,31 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     title: rawTitle,
     description: rawDescription,
     keywords = [],
-    canonical,
-    ogImage,
-    ogType = 'article',
-    noindex,
-    subject: rawSubject,
+    image: ogImage,
+    slug: rawSlug,
   } = metadata;
+  
+  const ogType = 'article'; // Default type
   
   // Safely extract strings from potentially nested objects
   const title = extractSafeValue(rawTitle);
   const description = extractSafeValue(rawDescription);
-  const subject = extractSafeValue(rawSubject);
+  const slug = extractSafeValue(rawSlug);
   
   // Simplified helper function to safely extract author name
-  const getAuthorName = (author: string | AuthorInfo | undefined): string | undefined => {
+  const getAuthorName = (author: AuthorInfo | undefined): string | undefined => {
     if (!author) return undefined;
-    if (typeof author === 'string') return author;
     return author.name; // Standardized field name
   };
   
-  // Use subject as title if available and title is not set
-  const actualTitle = title || subject || '';
+  // Use title directly
+  const actualTitle = title || '';
   
   const formattedTitle = actualTitle && !safeIncludes(actualTitle, 'Z-Beam') 
     ? `${actualTitle} | Z-Beam` 
     : actualTitle || 'Z-Beam';
   
-  const authorName = getAuthorName(metadata.author);
+  const authorName = getAuthorName(metadata.authorInfo);
   
   const result: NextMetadata = {
     title: formattedTitle,
@@ -54,12 +52,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       images: ogImage ? [{ url: extractSafeValue(ogImage) }] : undefined,
       authors: authorName ? [authorName] : undefined,
     },
-    alternates: {
-      canonical: extractSafeValue(canonical),
-    },
-    robots: noindex ? { index: false } : undefined,
   };
-  
   
   return result;
 }

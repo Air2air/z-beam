@@ -2,7 +2,7 @@
 import { Card } from "../Card/Card";
 import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
 import { slugToDisplayName } from "../../utils/formatting";
-import { SearchResultItem } from "@/types/core";
+import { SearchResultItem } from "@/types";
 
 interface SearchResultsGridProps {
   items: SearchResultItem[];

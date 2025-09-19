@@ -36,7 +36,13 @@
     "test:images": "jest tests/image-naming-conventions.test.js",
     "test:comprehensive": "npm run test:parsing && npm run test:content && npm run test:images && npm run test:ci",
     "validate:fast": "npm run type-check && npm run test:unit",
-    "precommit": "npm run validate:fast"
+    "precommit": "npm run validate:fast",
+    "validate:grok": "node scripts/buildValidation.ts",
+    "validate:grok:strict": "node scripts/buildValidation.ts --strict",
+    "audit:components": "node scripts/componentAudit.ts",
+    "validate:startup": "node -e \"const {startupValidator} = require('./app/utils'); startupValidator.validateSystem().then(r => console.log('Startup validation:', r.passed ? 'PASS' : 'FAIL')).catch(e => {console.error('Startup validation failed:', e); process.exit(1);})\"",
+    "validate:content": "node -e \"const {contentValidator} = require('./app/utils'); contentValidator.validateAllContent().then(r => console.log('Content validation:', r.passed ? 'PASS' : 'FAIL', `(${r.errors.length} errors, ${r.warnings.length} warnings)`)).catch(e => {console.error('Content validation failed:', e); process.exit(1);})\"",
+    "validate:all": "npm run validate:startup && npm run validate:content && npm run validate:grok && npm run audit:components"
   },
   "dependencies": {
     "@babel/runtime": "^7.28.4",

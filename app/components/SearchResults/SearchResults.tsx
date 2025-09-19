@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { SearchResultsGrid } from "./SearchResultsGrid";
+import { UnifiedArticleGrid } from "../ArticleGrid/UnifiedArticleGrid";
 import { SearchHeader } from "./SearchHeader";
 import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
-import { SearchResultItem } from "@/types/core";
-import { Article, SearchableArticle } from "@/types/core";
+import { SearchResultItem } from "@/types";
+import { Article, SearchableArticle } from "@/types";
 import { extractSafeValue, safeIncludes } from "@/app/utils/stringHelpers";
 
 interface SearchResultsProps {
@@ -167,11 +167,11 @@ export function SearchResults({
       href: item.href,
       imageAlt: item.imageAlt || item.title || 'Image',
       image: item.image,
-      metadata: item.metadata as Record<string, unknown>, // More specific type
+      metadata: item.metadata as unknown as Record<string, unknown>, // More specific type
       frontmatter: item.frontmatter,
       content: item.content,
       excerpt: item.excerpt
-    } as SearchResultItem));
+    } as unknown as SearchResultItem));
   }, [items, searchQuery, selectedTag]);
 
   return (
@@ -197,9 +197,10 @@ export function SearchResults({
       
       {/* Results grid or empty state */}
       {filteredItems.length > 0 ? (
-        <SearchResultsGrid 
-          items={filteredItems} 
-          columns={columns} 
+        <UnifiedArticleGrid 
+          searchResults={filteredItems}
+          columns={columns}
+          variant="search"
         />
       ) : (
         <EmptySearchResults />

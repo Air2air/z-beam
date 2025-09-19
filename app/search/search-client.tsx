@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { ArticleGridClient } from "../components/ArticleGrid/ArticleGridClient";
-import { Article, MaterialType } from "@/types/core";
+import { UnifiedArticleGrid } from "../components/ArticleGrid/UnifiedArticleGridClient";
+import { Article, MaterialType } from "@/types";
 import { extractSafeValue, safeIncludes } from "../utils/stringHelpers";
 
 // Helper function to safely cast material types
@@ -122,24 +122,24 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
           <p className="text-gray-700">No articles found matching your criteria.</p>
         </div>
       ) : (
-        <ArticleGridClient
+        <UnifiedArticleGrid
           items={filteredArticles.map((article) => ({
             slug: article.slug || 'unknown',
-            title: article.metadata?.subject || article.title || 'Untitled Article',
+            title: article.title || 'Untitled Article',
             description: article.description || article.excerpt || '',
             href: `/${article.slug}`,
             imageUrl: article.image,
             imageAlt: article.imageAlt || article.title || '',
             badge: (article as any).badgeSymbolData || {
-              symbol: article.metadata?.chemicalSymbol,
-              formula: article.metadata?.chemicalFormula,
-              atomicNumber: article.metadata?.atomicNumber,
+              symbol: (article.metadata as any)?.chemicalSymbol,
+              formula: (article.metadata as any)?.chemicalFormula,
+              atomicNumber: (article.metadata as any)?.atomicNumber,
               materialType: toMaterialType(article.metadata?.category),
             },
-            metadata: article.metadata,
+            metadata: article.metadata as unknown as Record<string, unknown>,
           }))}
           columns={3}
-          variant="search"
+          variant="default"
         />
       )}
     </div>

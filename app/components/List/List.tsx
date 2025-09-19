@@ -4,9 +4,9 @@ import React from "react";
 import { Card } from "../Card/Card";
 import { /* cn */ } from "../../utils/helpers";
 import { getArticle, loadComponent } from "../../utils/contentAPI"; // Updated to use contentAPI
-import { MaterialType } from "../../../types/core";
+import { MaterialType } from "@/types";
 import { safeMatch, extractSafeValue } from "../../utils/stringHelpers";
-import { ArticleMetadata, Article } from "../../../types";
+import { ArticleMetadata, Article } from "@/types";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
