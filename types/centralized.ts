@@ -9,7 +9,7 @@ import { ReactNode } from 'react';
 // ===============================
 
 /**
- * Author information structure - single source of truth
+ * Author information structure - enhanced comprehensive version
  * Standardized field names to eliminate redundancy
  */
 export interface AuthorInfo {
@@ -32,10 +32,38 @@ export interface AuthorInfo {
     expertiseAreas?: string[];
     contactNote?: string;
   };
+  
+  // Enhanced author object fields
+  affiliation?: string;
+  credentials?: string[];
+  experience_years?: number;
+  verification_level?: 'verified' | 'expert' | 'industry_leader' | 'academic';
+  research_focus?: string[];
+  publications_count?: number;
+  h_index?: number;
+  industry_experience?: string[];
+  certifications?: string[];
+  awards?: string[];
+  speaking_engagements?: string[];
+  patent_count?: number;
+  contact_information?: {
+    phone?: string;
+    website?: string;
+    orcid?: string;
+    google_scholar?: string;
+    researchgate?: string;
+  };
+  professional_memberships?: string[];
+  languages?: string[];
+  availability?: {
+    consulting?: boolean;
+    speaking?: boolean;
+    collaboration?: boolean;
+  };
 }
 
 /**
- * Article metadata (base for all content types)
+ * Article metadata (base for all content types) - enhanced version
  */
 export interface ArticleMetadata {
   id?: string;
@@ -56,6 +84,21 @@ export interface ArticleMetadata {
   references?: string[];
   targetAudience?: string;
   articleType?: string;
+  
+  // Enhanced frontmatter fields
+  chemicalProperties?: ChemicalProperties;
+  properties?: Record<string, PropertyWithUnits>;
+  machineSettings?: MachineSettings;
+  applications?: string[];
+  compatibility?: string[];
+  outcomes?: string[];
+  prompt_chain_verification?: VerificationSystem;
+  author_object?: AuthorInfo; // Support both field names
+  technical_specifications?: Record<string, PropertyWithUnits>;
+  safety_considerations?: string[];
+  environmental_impact?: Record<string, PropertyWithUnits>;
+  cost_analysis?: Record<string, PropertyWithUnits>;
+  quality_metrics?: Record<string, PropertyWithUnits>;
 }
 
 // ===============================
@@ -350,18 +393,87 @@ export interface SearchResultItem {
 // ===============================
 
 /**
- * Material properties
+ * Material properties - enhanced to support dual value system
  */
 export interface MaterialProperties {
   chemicalFormula?: string;
   materialType?: string;
-  density?: string;
-  meltingPoint?: string;
-  thermalConductivity?: string;
+  density?: string | PropertyWithUnits;
+  meltingPoint?: string | PropertyWithUnits;
+  thermalConductivity?: string | PropertyWithUnits;
   laserType?: string;
-  wavelength?: string;
-  fluenceRange?: string;
-  [key: string]: string | number | undefined;
+  wavelength?: string | PropertyWithUnits;
+  fluenceRange?: string | PropertyWithUnits;
+  [key: string]: string | number | PropertyWithUnits | undefined;
+}
+
+/**
+ * Property with dual value system (text + numeric + units)
+ */
+export interface PropertyWithUnits {
+  text?: string;
+  numeric?: number;
+  units?: string;
+  min?: number;
+  max?: number;
+  percentile?: number;
+  range?: {
+    min: number;
+    max: number;
+    units?: string;
+  };
+}
+
+/**
+ * Chemical properties structure
+ */
+export interface ChemicalProperties {
+  formula?: string | PropertyWithUnits;
+  molecularWeight?: PropertyWithUnits;
+  density?: PropertyWithUnits;
+  meltingPoint?: PropertyWithUnits;
+  boilingPoint?: PropertyWithUnits;
+  solubility?: PropertyWithUnits;
+  reactivity?: PropertyWithUnits;
+  toxicity?: PropertyWithUnits;
+  stability?: PropertyWithUnits;
+  corrosionResistance?: PropertyWithUnits;
+  [key: string]: string | PropertyWithUnits | undefined;
+}
+
+/**
+ * Machine settings for laser processing
+ */
+export interface MachineSettings {
+  power?: PropertyWithUnits;
+  speed?: PropertyWithUnits;
+  frequency?: PropertyWithUnits;
+  wavelength?: PropertyWithUnits;
+  pulseWidth?: PropertyWithUnits;
+  spotSize?: PropertyWithUnits;
+  passes?: PropertyWithUnits;
+  scanningPattern?: string;
+  beamProfile?: string;
+  focusPosition?: PropertyWithUnits;
+  assistGas?: string;
+  pressure?: PropertyWithUnits;
+  [key: string]: string | PropertyWithUnits | undefined;
+}
+
+/**
+ * Verification tracking system
+ */
+export interface VerificationSystem {
+  timestamp?: string;
+  verified_by?: string;
+  verification_level?: 'preliminary' | 'peer_reviewed' | 'expert_validated' | 'industry_standard';
+  accuracy_score?: number;
+  confidence_level?: number;
+  source_reliability?: number;
+  last_updated?: string;
+  review_notes?: string[];
+  validation_criteria?: string[];
+  [key: string]: unknown;
 }
 
 /**

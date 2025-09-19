@@ -1,49 +1,162 @@
 ---
 name: Steel
-applications:
-- detail: Removal of rust, scale, and coatings from steel components and body panels
-  industry: Automotive Manufacturing
-- detail: Cleaning of corrosion and marine growth from steel structures and ship hulls
-  industry: Marine and Offshore
-- detail: Gentle removal of centuries of corrosion from historical steel artifacts
-    without damage
-  industry: Historical Restoration
-technicalSpecifications:
-  fluenceRange: 0.5–5.0 J/cm²
-  powerRange: 100-1000W
-  pulseDuration: 10-200ns
-  repetitionRate: 20-300kHz
-  safetyClass: Class 4 (requires full enclosure and operator protection)
-  spotSize: 0.1-2.0mm
+category: metal
+title: Laser Cleaning Steel
+headline: Comprehensive technical guide for laser cleaning metal steel
+description: Technical overview of Steel, Fe-C alloy, for laser cleaning applications,
+  including optimal 1064nm wavelength interaction, and industrial applications in
+  surface preparation and restoration.
+keywords: steel, steel metal, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
+chemicalProperties:
+  symbol: Fe
+  formula: Fe-C
+  materialType: metal
+properties:
+  density: 7.85 g/cm³
+  densityNumeric: 7.85
+  densityUnit: g/cm³
+  densityMin: 7.7 g/cm³
+  densityMinNumeric: 7.7
+  densityMinUnit: g/cm³
+  densityMax: 8.0 g/cm³
+  densityMaxNumeric: 8.0
+  densityMaxUnit: g/cm³
+  densityPercentile: 75.2
+  meltingPoint: 1370-1530°C
+  meltingPointNumeric: 1450.0
+  meltingPointUnit: °C
+  meltingPercentile: 65.8
+  thermalConductivity: 50.2 W/m·K
+  thermalConductivityNumeric: 50.2
+  thermalConductivityUnit: W/m·K
+  thermalPercentile: 68.3
+  tensileStrength: 400-600 MPa
+  tensileStrengthNumeric: 500.0
+  tensileStrengthUnit: MPa
+  tensilePercentile: 45.2
+  hardness: 150-250 HB
+  hardnessNumeric: 200.0
+  hardnessUnit: HB
+  hardnessMin: 100 HB
+  hardnessMinNumeric: 100.0
+  hardnessMinUnit: HB
+  hardnessMax: 600 HB
+  hardnessMaxNumeric: 600.0
+  hardnessMaxUnit: HB
+  hardnessPercentile: 42.1
+  youngsModulus: 200 GPa
+  youngsModulusNumeric: 200.0
+  youngsModulusUnit: GPa
+  modulusMin: 190 GPa
+  modulusMinNumeric: 190.0
+  modulusMinUnit: GPa
+  modulusMax: 210 GPa
+  modulusMaxNumeric: 210.0
+  modulusMaxUnit: GPa
+  modulusPercentile: 85.0
+  laserType: Pulsed Fiber Laser
+  wavelength: 1064nm
+  fluenceRange: 1.5–6.0 J/cm²
+  chemicalFormula: Fe-C
+composition:
+- Iron (Fe) 98.0-99.5%
+- Carbon (C) 0.2-2.1%
+- Manganese (Mn) 0.3-1.0%
+- Silicon (Si) 0.2-0.6%
+- Trace elements (S, P, Cu)
+machineSettings:
+  powerRange: 100-500W
+  powerRangeNumeric: 300.0
+  powerRangeUnit: W
+  powerRangeMin: 20W
+  powerRangeMinNumeric: 20.0
+  powerRangeMinUnit: W
+  powerRangeMax: 500W
+  powerRangeMaxNumeric: 500.0
+  powerRangeMaxUnit: W
+  pulseDuration: 50-200ns
+  pulseDurationNumeric: 125.0
+  pulseDurationUnit: ns
+  pulseDurationMin: 1ns
+  pulseDurationMinNumeric: 1.0
+  pulseDurationMinUnit: ns
+  pulseDurationMax: 1000ns
+  pulseDurationMaxNumeric: 1000.0
+  pulseDurationMaxUnit: ns
   wavelength: 1064nm (primary), 532nm (optional)
-description: Technical overview of carbon steel (Fe-C) for laser cleaning applications,
-  focusing on optimal 1064nm wavelength interaction with iron oxides and industrial
-  surface preparation techniques.
+  wavelengthNumeric: 1064.0
+  wavelengthUnit: nm
+  wavelengthMin: 355nm
+  wavelengthMinNumeric: 355.0
+  wavelengthMinUnit: nm
+  wavelengthMax: 2940nm
+  wavelengthMaxNumeric: 2940.0
+  wavelengthMaxUnit: nm
+  spotSize: 0.3-2.0mm
+  spotSizeNumeric: 1.15
+  spotSizeUnit: mm
+  spotSizeMin: 0.01mm
+  spotSizeMinNumeric: 0.01
+  spotSizeMinUnit: mm
+  spotSizeMax: 10mm
+  spotSizeMaxNumeric: 10.0
+  spotSizeMaxUnit: mm
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
+  repetitionRateUnit: kHz
+  repetitionRateMin: 1kHz
+  repetitionRateMinNumeric: 1.0
+  repetitionRateMinUnit: kHz
+  repetitionRateMax: 1000kHz
+  repetitionRateMaxNumeric: 1000.0
+  repetitionRateMaxUnit: kHz
+  fluenceRange: 1.5–6.0 J/cm²
+  fluenceRangeNumeric: 1.5
+  fluenceRangeUnit: J/cm²
+  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeMinNumeric: 0.1
+  fluenceRangeMinUnit: J/cm²
+  fluenceRangeMax: 50J/cm²
+  fluenceRangeMaxNumeric: 50.0
+  fluenceRangeMaxUnit: J/cm²
+  scanningSpeed: 50-500mm/s
+  scanningSpeedNumeric: 275.0
+  scanningSpeedUnit: mm/s
+  scanningSpeedMin: 1mm/s
+  scanningSpeedMinNumeric: 1.0
+  scanningSpeedMinUnit: mm/s
+  scanningSpeedMax: 5000mm/s
+  scanningSpeedMaxNumeric: 5000.0
+  scanningSpeedMaxUnit: mm/s
+  beamProfile: Gaussian TEM00
+  beamProfileOptions:
+  - Gaussian TEM00
+  - Top-hat
+  - Donut
+  - Multi-mode
+  safetyClass: Class 4 (requires full enclosure)
+applications:
+- industry: Automotive Manufacturing
+  detail: Removal of rust, paint, and surface contaminants from Steel components
+- industry: Marine Equipment
+  detail: Cleaning of corrosion and marine deposits from Steel surfaces
+compatibility:
+- Carbon Steel
+- Stainless Steel
+- Cast Iron
+- Tool Steel
+regulatoryStandards: ISO 8501-1, ASTM D3276, SSPC-SP 1
 author: Ikmanda Roswati
 author_object:
-  country: Indonesia
-  expertise: Ultrafast Laser Physics and Material Interactions
   id: 3
-  image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
   title: Ph.D.
-chemicalProperties:
-  formula: Fe-C
-  materialType: ferrous metal
-  symbol: Fe
-composition:
-- 'Iron (Fe): 98.0-99.5%'
-- 'Carbon (C): 0.05-2.1%'
-- 'Manganese (Mn): 0.3-1.0%'
-- 'Silicon (Si): 0.1-0.5%'
-- Other trace elements
-compatibility:
-- Stainless Steel
-- Cast Iron
-- Carbon Steel Alloys
-- Tool Steel
-regulatoryStandards: ISO 8501-1, ASTM D4417, IEC 60825-1
+  country: Indonesia
+  expertise: Ultrafast Laser Physics and Material Interactions
+  image: /images/author/ikmanda-roswati.jpg
 images:
   hero:
     alt: Steel surface undergoing laser cleaning showing precise contamination removal
@@ -52,83 +165,30 @@ images:
     alt: Microscopic view of Steel surface after laser cleaning showing detailed surface
       structure
     url: /images/steel-laser-cleaning-micro.jpg
-title: Laser Cleaning Steel - Technical Guide for Optimal Rust and Contaminant Removal
-headline: Comprehensive technical guide for laser cleaning carbon steel surfaces
 environmentalImpact:
 - benefit: Chemical Solvent Elimination
-  description: Eliminates use of hazardous chemicals like acids and solvents for derusting
-- benefit: Waste Reduction
-  description: Produces minimal waste compared to abrasive blasting methods
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
+- benefit: Water Conservation
+  description: Saves approximately 3000 liters of water per month in industrial applications
 - benefit: Energy Efficiency
-  description: Consumes 60% less energy than traditional mechanical cleaning methods
+  description: Consumes 35% less energy than abrasive blasting processes
 outcomes:
-- metric: Achieves SA 2.5 to SA 3.0 surface preparation standard
-  result: Surface Cleanliness Level
-- metric: Selective removal of oxides without damaging base metal
-  result: Material Removal Precision
-- metric: 3-8 m²/hour cleaning rate depending on corrosion thickness
-  result: Processing Speed
-keywords: steel cleaning, carbon steel, laser rust removal, oxide removal, non-contact
-  cleaning, pulsed fiber laser, surface decontamination, industrial laser parameters,
-  corrosion removal
+- result: Surface Cleanliness Level
+  metric: Achieves SA 2.5 surface preparation standard
+- result: Material Removal Precision
+  metric: ±10μm accuracy with minimal substrate damage
+- result: Processing Speed
+  metric: 3-8 m²/hour cleaning rate depending on contamination level
 prompt_chain_verification:
-  ai_detection_config_loaded: true
-  author_id: 3
   base_config_loaded: true
-  cultural_adaptation_applied: true
-  formatting_config_loaded: true
-  human_authenticity_focus: true
   persona_config_loaded: true
+  formatting_config_loaded: true
+  ai_detection_config_loaded: true
   persona_country: Indonesia
+  author_id: 3
+  verification_timestamp: '2025-09-19T06:18:21Z'
   prompt_components_integrated: 4
-  verification_timestamp: '2025-09-16T22:21:08Z'
-category: metal
-properties:
-  chemicalFormula: Fe-C
-  density: 7.85 g/cm³
-  densityMax: 22.6 g/cm³
-  densityMin: 0.5 g/cm³
-  densityPercentile: 33.3
-  fluenceRange: 0.5–5.0 J/cm²
-  hardness: 120-180 HB
-  hardnessMax: 500 HV
-  hardnessMin: 5 HB
-  hardnessPercentile: 29.3
-  laserAbsorptionMax: 100 cm⁻¹
-  laserAbsorptionMin: 0.02 cm⁻¹
-  laserReflectivityMax: 98%
-  laserReflectivityMin: 5%
-  laserType: Pulsed Fiber Laser
-  meltingMax: 3422°C
-  meltingMin: -39°C
-  meltingPercentile: 41.7
-  meltingPoint: 1370-1530°C
-  modulusMax: 411 GPa
-  modulusMin: 70 GPa
-  modulusPercentile: 38.1
-  specificHeatMax: 0.90 J/g·K
-  specificHeatMin: 0.13 J/g·K
-  tensileMax: 2000 MPa
-  tensileMin: 70 MPa
-  tensilePercentile: 22.3
-  tensileStrength: 400-600 MPa
-  thermalConductivity: 50.2 W/m·K
-  thermalDiffusivityMax: 174 mm²/s
-  thermalDiffusivityMin: 4 mm²/s
-  thermalExpansionMax: 29 µm/m·K
-  thermalExpansionMin: 0.5 µm/m·K
-  thermalMax: 429 W/m·K
-  thermalMin: 8 W/m·K
-  thermalPercentile: 10.0
-  wavelength: 1064nm
-  youngsModulus: 200 GPa
+  human_authenticity_focus: true
+  cultural_adaptation_applied: true
 ---
-
-# Version Information
-# Generated: 2025-09-16T15:22:02.887974
-# Material: Steel
-# Component: frontmatter
-# Generator: Z-Beam v2.1.0
-# Author: AI Assistant
-# Platform: Darwin (3.12.4)
-# File: content/components/frontmatter/steel-laser-cleaning.md

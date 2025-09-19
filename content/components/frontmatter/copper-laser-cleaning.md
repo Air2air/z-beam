@@ -1,45 +1,157 @@
 ---
 name: Copper
-applications:
-- detail: Removal of surface oxides and contaminants from copper PCBs and electrical
-    components
-  industry: Electronics Manufacturing
-- detail: Cleaning of copper heat exchangers and electrical connectors
-  industry: Aerospace Components
-- detail: Gentle removal of corrosion and tarnish from historical copper artifacts
-  industry: Art Conservation
-technicalSpecifications:
-  fluenceRange: 0.5–3.0 J/cm²
-  powerRange: 20-100W
-  pulseDuration: 10-50ns
-  repetitionRate: 20-200kHz
-  safetyClass: Class 4 (requires full enclosure)
-  spotSize: 0.1-0.8mm
-  wavelength: 1064nm (primary), 532nm (optional)
+category: metal
+title: Laser Cleaning Copper
+headline: Comprehensive technical guide for laser cleaning metal copper
 description: Technical overview of Copper, Cu, for laser cleaning applications, including
   optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
-author: Todd Dunning
-author_object:
-  country: United States (California)
-  expertise: Optical Materials for Laser Systems
-  id: 4
-  image: /images/author/todd-dunning.jpg
-  name: Todd Dunning
-  sex: m
-  title: MA
+keywords: copper, copper metal, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
 chemicalProperties:
+  symbol: Cu
   formula: Cu
   materialType: metal
-  symbol: Cu
+properties:
+  density: 8.96 g/cm³
+  densityNumeric: 8.96
+  densityUnit: g/cm³
+  densityMin: 1.8 g/cm³
+  densityMinNumeric: 1.8
+  densityMinUnit: g/cm³
+  densityMax: 6.0 g/cm³
+  densityMaxNumeric: 6.0
+  densityMaxUnit: g/cm³
+  densityPercentile: 51.2
+  meltingPoint: 1085°C
+  meltingPointNumeric: 1085.0
+  meltingPointUnit: °C
+  meltingPercentile: 54.5
+  thermalConductivity: 401 W/m·K
+  thermalConductivityNumeric: 401.0
+  thermalConductivityUnit: W/m·K
+  thermalPercentile: 14.8
+  tensileStrength: 210-350 MPa
+  tensileStrengthNumeric: 280.0
+  tensileStrengthUnit: MPa
+  tensilePercentile: 26.3
+  hardness: 35-95 HB
+  hardnessNumeric: 65.0
+  hardnessUnit: HB
+  hardnessMin: 500 HV
+  hardnessMinNumeric: 500.0
+  hardnessMinUnit: HV
+  hardnessMax: 2500 HV
+  hardnessMaxNumeric: 2500.0
+  hardnessMaxUnit: HV
+  hardnessPercentile: 0.0
+  youngsModulus: 110-128 GPa
+  youngsModulusNumeric: 119.0
+  youngsModulusUnit: GPa
+  modulusMin: 150 GPa
+  modulusMinNumeric: 150.0
+  modulusMinUnit: GPa
+  modulusMax: 400 GPa
+  modulusMaxNumeric: 400.0
+  modulusMaxUnit: GPa
+  modulusPercentile: 92.0
+  laserType: Pulsed Fiber Laser
+  wavelength: 1064nm
+  fluenceRange: 1.0–4.5 J/cm²
+  chemicalFormula: Cu
 composition:
 - Copper (Cu) 99.9%
 - Trace elements (O, Ag, Pb, Fe)
+machineSettings:
+  powerRange: 50-200W
+  powerRangeNumeric: 125.0
+  powerRangeUnit: W
+  powerRangeMin: 20W
+  powerRangeMinNumeric: 20.0
+  powerRangeMinUnit: W
+  powerRangeMax: 500W
+  powerRangeMaxNumeric: 500.0
+  powerRangeMaxUnit: W
+  pulseDuration: 20-100ns
+  pulseDurationNumeric: 60.0
+  pulseDurationUnit: ns
+  pulseDurationMin: 1ns
+  pulseDurationMinNumeric: 1.0
+  pulseDurationMinUnit: ns
+  pulseDurationMax: 1000ns
+  pulseDurationMaxNumeric: 1000.0
+  pulseDurationMaxUnit: ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  wavelengthNumeric: 1064.0
+  wavelengthUnit: nm
+  wavelengthMin: 355nm
+  wavelengthMinNumeric: 355.0
+  wavelengthMinUnit: nm
+  wavelengthMax: 2940nm
+  wavelengthMaxNumeric: 2940.0
+  wavelengthMaxUnit: nm
+  spotSize: 0.2-1.5mm
+  spotSizeNumeric: 0.85
+  spotSizeUnit: mm
+  spotSizeMin: 0.01mm
+  spotSizeMinNumeric: 0.01
+  spotSizeMinUnit: mm
+  spotSizeMax: 10mm
+  spotSizeMaxNumeric: 10.0
+  spotSizeMaxUnit: mm
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
+  repetitionRateUnit: kHz
+  repetitionRateMin: 1kHz
+  repetitionRateMinNumeric: 1.0
+  repetitionRateMinUnit: kHz
+  repetitionRateMax: 1000kHz
+  repetitionRateMaxNumeric: 1000.0
+  repetitionRateMaxUnit: kHz
+  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRangeNumeric: 1.0
+  fluenceRangeUnit: J/cm²
+  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeMinNumeric: 0.1
+  fluenceRangeMinUnit: J/cm²
+  fluenceRangeMax: 50J/cm²
+  fluenceRangeMaxNumeric: 50.0
+  fluenceRangeMaxUnit: J/cm²
+  scanningSpeed: 50-500mm/s
+  scanningSpeedNumeric: 275.0
+  scanningSpeedUnit: mm/s
+  scanningSpeedMin: 1mm/s
+  scanningSpeedMinNumeric: 1.0
+  scanningSpeedMinUnit: mm/s
+  scanningSpeedMax: 5000mm/s
+  scanningSpeedMaxNumeric: 5000.0
+  scanningSpeedMaxUnit: mm/s
+  beamProfile: Gaussian TEM00
+  beamProfileOptions:
+  - Gaussian TEM00
+  - Top-hat
+  - Donut
+  - Multi-mode
+  safetyClass: Class 4 (requires full enclosure)
+applications:
+- industry: Electronics Manufacturing
+  detail: Removal of surface oxides and contaminants from Copper substrates
+- industry: Aerospace Components
+  detail: Cleaning of thermal barrier coatings and metal matrix composites
 compatibility:
-- Brass
-- Bronze
 - Stainless Steel
-- Aluminum
-regulatoryStandards: ISO 8501-1, ASTM B152, IEC 60825-1
+- Titanium Alloys
+- Nickel-based Superalloys
+regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+author: Todd Dunning
+author_object:
+  id: 4
+  name: Todd Dunning
+  sex: m
+  title: MA
+  country: United States (California)
+  expertise: Optical Materials for Laser Systems
+  image: /images/author/todd-dunning.jpg
 images:
   hero:
     alt: Copper surface undergoing laser cleaning showing precise contamination removal
@@ -48,84 +160,30 @@ images:
     alt: Microscopic view of Copper surface after laser cleaning showing detailed
       surface structure
     url: /images/copper-laser-cleaning-micro.jpg
-title: Laser Cleaning Copper
-headline: Comprehensive technical guide for laser cleaning copper surfaces
 environmentalImpact:
 - benefit: Chemical Solvent Elimination
-  description: Eliminates use of acidic cleaners and chemical solvents for tarnish
-    removal
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
 - benefit: Water Conservation
-  description: Reduces water consumption by 95% compared to traditional cleaning methods
-- benefit: Waste Reduction
-  description: Minimizes hazardous waste generation from chemical cleaning processes
+  description: Saves approximately 5000 liters of water per month in industrial applications
+- benefit: Energy Efficiency
+  description: Consumes 40% less energy than thermal cleaning processes
 outcomes:
-- metric: Achieves surface cleanliness to ISO 8501-1 Sa 2.5 standard
-  result: Surface Cleanliness Level
-- metric: ±2μm accuracy with minimal substrate heating
-  result: Material Removal Precision
-- metric: 1-3 m²/hour cleaning rate for oxide removal
-  result: Processing Speed
-keywords: copper, copper metal, laser ablation, laser cleaning, non-contact cleaning,
-  pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration
+- result: Surface Cleanliness Level
+  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+- result: Material Removal Precision
+  metric: ±5μm accuracy with no substrate damage
+- result: Processing Speed
+  metric: 2-5 m²/hour cleaning rate depending on contamination level
 prompt_chain_verification:
-  ai_detection_config_loaded: true
-  author_id: 4
   base_config_loaded: true
-  cultural_adaptation_applied: true
-  formatting_config_loaded: true
-  human_authenticity_focus: true
   persona_config_loaded: true
+  formatting_config_loaded: true
+  ai_detection_config_loaded: true
   persona_country: United States (California)
+  author_id: 4
+  verification_timestamp: '2025-09-19T05:13:53Z'
   prompt_components_integrated: 4
-  verification_timestamp: '2025-09-16T22:03:33Z'
-category: metal
-properties:
-  chemicalFormula: Cu
-  density: 8.96 g/cm³
-  densityMax: 22.6 g/cm³
-  densityMin: 0.5 g/cm³
-  densityPercentile: 38.3
-  fluenceRange: 0.5–3.0 J/cm²
-  hardness: 35-45 HV
-  hardnessMax: 500 HV
-  hardnessMin: 5 HB
-  hardnessPercentile: 7.1
-  laserAbsorptionMax: 100 cm⁻¹
-  laserAbsorptionMin: 0.02 cm⁻¹
-  laserReflectivityMax: 98%
-  laserReflectivityMin: 5%
-  laserType: Pulsed Fiber Laser
-  meltingMax: 3422°C
-  meltingMin: -39°C
-  meltingPercentile: 30.9
-  meltingPoint: 1084.62°C
-  modulusMax: 411 GPa
-  modulusMin: 70 GPa
-  modulusPercentile: 14.4
-  specificHeatMax: 0.90 J/g·K
-  specificHeatMin: 0.13 J/g·K
-  tensileMax: 2000 MPa
-  tensileMin: 70 MPa
-  tensilePercentile: 10.9
-  tensileStrength: 210-350 MPa
-  thermalConductivity: 401 W/m·K
-  thermalDiffusivityMax: 174 mm²/s
-  thermalDiffusivityMin: 4 mm²/s
-  thermalExpansionMax: 29 µm/m·K
-  thermalExpansionMin: 0.5 µm/m·K
-  thermalMax: 429 W/m·K
-  thermalMin: 8 W/m·K
-  thermalPercentile: 93.3
-  wavelength: 1064nm
-  youngsModulus: 110-128 GPa
+  human_authenticity_focus: true
+  cultural_adaptation_applied: true
 ---
-
-# Version Information
-# Generated: 2025-09-16T15:04:24.581438
-# Material: Copper
-# Component: frontmatter
-# Generator: Z-Beam v2.1.0
-# Author: AI Assistant
-# Platform: Darwin (3.12.4)
-# File: content/components/frontmatter/copper-laser-cleaning.md
