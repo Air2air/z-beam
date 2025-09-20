@@ -84,11 +84,11 @@ describe('Alabaster YAML v2.0 Data Structure', () => {
     
     // Check other category tags  
     const otherSection = screen.getByText('Other').closest('div');
-    expect(otherSection).toContain(screen.getByText('Stone'));
-    expect(otherSection).toContain(screen.getByText('Gypsum'));
-    expect(otherSection).toContain(screen.getByText('Conservation'));
-    expect(otherSection).toContain(screen.getByText('Sculpture'));
-    expect(otherSection).toContain(screen.getByText('Architecture'));
+    expect(otherSection).toContainElement(screen.getByText('Stone'));
+    expect(otherSection).toContainElement(screen.getByText('Gypsum'));
+    expect(otherSection).toContainElement(screen.getByText('Conservation'));
+    expect(otherSection).toContainElement(screen.getByText('Sculpture'));
+    expect(otherSection).toContainElement(screen.getByText('Architecture'));
   });
 
   it('should handle author category even when empty', () => {

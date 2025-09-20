@@ -151,4 +151,4 @@ The **Legacy E2E Testing Infrastructure** successfully validates **99.3%** of fu
 - ✅ **API Validation**: Request/response cycle verification
 - ✅ **Material System**: Complete laser processing workflow testing
 
-**Legacy testing infrastructure successfully provides robust E2E testing** without requiring modern frameworks like Playwright, demonstrating excellent coverage of all critical user journeys and system integrations.
+**Legacy testing infrastructure successfully provides robust E2E testing** without requiring modern frameworks, demonstrating excellent coverage of all critical user journeys and system integrations.

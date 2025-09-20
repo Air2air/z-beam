@@ -153,7 +153,7 @@ class TestCoverageAnalyzer {
       priority: 'LOW',
       area: 'End-to-End Testing',
       issue: 'No browser automation tests',
-      action: 'Consider adding Playwright or Cypress for critical user flows',
+      action: 'Consider adding Cypress for critical user flows',
       effort: 'High'
     });
 

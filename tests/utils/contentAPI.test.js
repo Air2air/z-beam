@@ -3,6 +3,7 @@
 
 // Mock fs functions
 const mockExistsSync = jest.fn();
+const mockReadFileSync = jest.fn();
 const mockFs = {
   readFile: jest.fn(),
   writeFile: jest.fn(),
@@ -11,6 +12,7 @@ const mockFs = {
   setupMocks: jest.fn(() => {
     // Reset all mocks before each test
     mockExistsSync.mockReset();
+    mockReadFileSync.mockReset();
     mockFs.readFile.mockReset();
     mockFs.writeFile.mockReset();
     mockFs.access.mockReset();
@@ -28,6 +30,7 @@ jest.mock('fs/promises', () => ({
 jest.mock('fs', () => ({
   ...jest.requireActual('fs'),
   existsSync: jest.fn(),
+  readFileSync: jest.fn(),
   readFile: jest.fn(),
   writeFile: jest.fn(),
   access: jest.fn()
@@ -39,18 +42,15 @@ jest.mock('react', () => ({
     return cached;
   }
 }));
-jest.mock('../../app/utils/frontmatterLoader', () => ({
-  loadFrontmatterData: jest.fn()
-}));
 jest.mock('../../app/utils/logger', () => ({
   logger: {
     warn: jest.fn(),
     error: jest.fn(),
     info: jest.fn()
   },
-  safeContentOperation: jest.fn((operation, fallback) => {
+  safeContentOperation: jest.fn(async (operation, fallback) => {
     try {
-      return operation();
+      return await operation();
     } catch (error) {
       return fallback;
     }
@@ -67,7 +67,7 @@ jest.mock('marked', () => ({
 let getAllSlugs, loadComponent, loadAllComponents, loadMetadata, loadPageData, loadArticle, loadAllArticles;
 
 const fs = require('fs/promises');
-const { existsSync } = require('fs');
+const { existsSync, readFileSync } = require('fs');
 
 describe('Content API Utils', () => {
   beforeAll(async () => {
@@ -297,8 +297,8 @@ describe('Content API Utils', () => {
     test('should prioritize frontmatter over metatags', async () => {
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       
-      mockExistsSync.mockReturnValue(true);
-      mockFs.readFile.mockResolvedValue('test file content');
+      jest.mocked(existsSync).mockReturnValue(true);
+      jest.mocked(readFileSync).mockReturnValue('---\ntitle: Frontmatter Title\ncategory: test\n---\ncontent');
       
       safeMatterParse.mockReturnValue({
         data: { title: 'Frontmatter Title', category: 'test' },
@@ -314,19 +314,21 @@ describe('Content API Utils', () => {
     });
 
     test('should fallback to metatags when frontmatter has no config', async () => {
+      // Mock existsSync to return false for frontmatter file so it falls back to metatags
+      jest.mocked(existsSync).mockImplementation((filePath) => {
+        if (filePath.includes('frontmatter')) return false;
+        if (filePath.includes('metatags')) return true;
+        return false;
+      });
+      
+      // Mock readFileSync for metatags file
+      jest.mocked(readFileSync).mockReturnValue('title: Metatags Title');
+      
+      // Mock safeMatterParse for metatags
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
-      
-      mockExistsSync.mockReturnValue(true);
-      mockFs.readFile.mockResolvedValue('test file content');
-      
-      // Mock loadFrontmatterData to return empty object (no meaningful data)
-      const { loadFrontmatterData } = require('../../app/utils/frontmatterLoader');
-      jest.mocked(loadFrontmatterData).mockResolvedValueOnce({});
-      
-      // Mock metatags to have config
-      safeMatterParse.mockReturnValueOnce({
+      safeMatterParse.mockReturnValue({
         data: { title: 'Metatags Title' },
-        content: 'content'
+        content: ''
       });
 
       const result = await loadMetadata('test-slug');
@@ -337,7 +339,8 @@ describe('Content API Utils', () => {
     });
 
     test('should return empty object when no metadata found', async () => {
-      mockExistsSync.mockReturnValue(false);
+      jest.mocked(existsSync).mockReturnValue(false);
+      jest.mocked(fs.readFile).mockRejectedValue(new Error('File not found'));
 
       const result = await loadMetadata('non-existent');
 
@@ -349,8 +352,15 @@ describe('Content API Utils', () => {
     test('should combine metadata and components', async () => {
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       
-      mockExistsSync.mockReturnValue(true);
-      mockFs.readFile.mockResolvedValue('test content');
+      // Mock existsSync to return true for frontmatter file
+      jest.mocked(existsSync).mockImplementation((filePath) => {
+        if (filePath.includes('frontmatter')) return true;
+        return false;
+      });
+      
+      jest.mocked(readFileSync).mockReturnValue('---\ntitle: Test Page\n---\ncontent');
+      jest.mocked(fs.readFile).mockResolvedValue('test content');
+      jest.mocked(fs.readdir).mockResolvedValue([]);
       
       safeMatterParse.mockReturnValue({
         data: { title: 'Test Page' },
@@ -365,8 +375,10 @@ describe('Content API Utils', () => {
     });
 
     test('should handle errors gracefully', async () => {
-      mockExistsSync.mockReturnValue(true);
-      mockFs.readFile.mockRejectedValue(new Error('Read error'));
+      jest.mocked(existsSync).mockReturnValue(true);
+      jest.mocked(readFileSync).mockImplementation(() => {
+        throw new Error('Read error');
+      });
 
       const result = await loadPageData('error-slug');
 
@@ -381,8 +393,9 @@ describe('Content API Utils', () => {
     test('should create article from metadata', async () => {
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       
-      mockExistsSync.mockReturnValue(true);
-      mockFs.readFile.mockResolvedValue('test content');
+      jest.mocked(existsSync).mockReturnValue(true);
+      jest.mocked(readFileSync).mockReturnValue('---\ntitle: Test Article\n---\ncontent');
+      jest.mocked(fs.readFile).mockResolvedValue('test content');
       
       safeMatterParse.mockReturnValue({
         data: {
@@ -440,11 +453,14 @@ describe('Content API Utils', () => {
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       
       // Mock getAllSlugs to return test slugs
-      existsSync.mockReturnValue(true);
-      fs.readdir.mockResolvedValue(['article1.md', 'article2.md']);
+      jest.mocked(existsSync).mockReturnValue(true);
+      jest.mocked(readFileSync)
+        .mockReturnValueOnce('---\ntitle: Article 1\n---\ncontent1')
+        .mockReturnValueOnce('---\ntitle: Article 2\n---\ncontent2');
+      jest.mocked(fs.readdir).mockResolvedValue(['article1.md', 'article2.md']);
       
       // Mock file reads for articles
-      fs.readFile.mockResolvedValue('test content');
+      jest.mocked(fs.readFile).mockResolvedValue('test content');
       
       safeMatterParse
         .mockReturnValueOnce({
@@ -466,9 +482,12 @@ describe('Content API Utils', () => {
     test('should filter out articles without titles', async () => {
       const { safeMatterParse } = require('../../app/utils/yamlSanitizer');
       
-      existsSync.mockReturnValue(true);
-      fs.readdir.mockResolvedValue(['article1.md', 'article2.md']);
-      fs.readFile.mockResolvedValue('test content');
+      jest.mocked(existsSync).mockReturnValue(true);
+      jest.mocked(readFileSync)
+        .mockReturnValueOnce('---\ntitle: Valid Article\n---\ncontent1')
+        .mockReturnValueOnce('---\ndescription: No title\n---\ncontent2');
+      jest.mocked(fs.readdir).mockResolvedValue(['article1.md', 'article2.md']);
+      jest.mocked(fs.readFile).mockResolvedValue('test content');
       
       safeMatterParse
         .mockReturnValueOnce({

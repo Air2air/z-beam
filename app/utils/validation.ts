@@ -26,15 +26,15 @@ interface ImageMetadata {
 export function validateContentStructure(content: ContentStructure): ValidationResult {
   const errors: string[] = [];
   
-  if (!content.title) {
+  if (!content || !content.title || !content.title.trim()) {
     errors.push('Title is required');
   }
   
-  if (!content.slug) {
+  if (!content || !content.slug || !content.slug.trim()) {
     errors.push('Slug is required');
   }
   
-  if (content.slug && !/^[a-z0-9-]+$/.test(content.slug)) {
+  if (content?.slug && content.slug.trim() && !/^[a-z0-9-]+$/.test(content.slug.trim())) {
     errors.push('Slug must contain only lowercase letters, numbers, and hyphens');
   }
   
@@ -47,19 +47,19 @@ export function validateContentStructure(content: ContentStructure): ValidationR
 export function validateImageMetadata(metadata: ImageMetadata): ValidationResult {
   const errors: string[] = [];
   
-  if (!metadata.alt) {
+  if (!metadata || !metadata.alt || !metadata.alt.trim()) {
     errors.push('Alt text is required');
   }
   
-  if (!metadata.src) {
+  if (!metadata || !metadata.src || !metadata.src.trim()) {
     errors.push('Image source is required');
   }
   
-  if (metadata.width && typeof metadata.width !== 'number') {
+  if (metadata?.width && typeof metadata.width !== 'number') {
     errors.push('Width must be a number');
   }
   
-  if (metadata.height && typeof metadata.height !== 'number') {
+  if (metadata?.height && typeof metadata.height !== 'number') {
     errors.push('Height must be a number');
   }
   
