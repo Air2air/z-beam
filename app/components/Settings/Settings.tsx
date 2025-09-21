@@ -19,6 +19,7 @@ interface SettingsParameter {
   unit?: string;
   description?: string;
   category?: string;
+  range?: string;
 }
 
 /**
@@ -72,6 +73,9 @@ export function Settings({ content, config }: SettingsProps) {
           case 'category':
             row.category = cell;
             break;
+          case 'range':
+            row.range = cell;
+            break;
         }
       });
       
@@ -114,7 +118,7 @@ export function Settings({ content, config }: SettingsProps) {
         <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800">
+              <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Parameter
@@ -122,14 +126,9 @@ export function Settings({ content, config }: SettingsProps) {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Value
                   </th>
-                  {tableData.headers.find(h => h.toLowerCase() === 'unit') && (
+                  {tableData.headers.find(h => h.toLowerCase() === 'range') && (
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      Unit
-                    </th>
-                  )}
-                  {tableData.headers.find(h => h.toLowerCase() === 'description') && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      Description
+                      Range
                     </th>
                   )}
                   {tableData.headers.find(h => h.toLowerCase() === 'category') && (
@@ -148,19 +147,14 @@ export function Settings({ content, config }: SettingsProps) {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-blue-600 dark:text-blue-400">
                       {row.value}
                     </td>
-                    {row.unit !== undefined && (
+                    {row.range !== undefined && (
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                        {row.unit}
-                      </td>
-                    )}
-                    {row.description !== undefined && (
-                      <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400 max-w-xs">
-                        {row.description}
+                        {row.range}
                       </td>
                     )}
                     {row.category !== undefined && (
                       <td className="px-6 py-4 whitespace-nowrap text-sm">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                        <span className="category-badge">
                           {row.category}
                         </span>
                       </td>

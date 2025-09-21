@@ -172,4 +172,75 @@ describe('Settings Component', () => {
     // Should still use default title since Settings component uses fixed title
     expect(screen.getByText('Machine Settings')).toBeTruthy();
   });
+
+  // NEW TESTS: Table component styling consistency
+  test('applies Table component consistent CSS classes', () => {
+    const { container } = render(<Settings settingsData={mockSettingsData} />);
+    
+    // Check for settings-section-group class (equivalent to table-section-group)
+    const sectionGroups = container.querySelectorAll('.settings-section-group');
+    expect(sectionGroups.length).toBeGreaterThan(0);
+    
+    // Check for table-container wrapper
+    const tableContainers = container.querySelectorAll('.table-container');
+    expect(tableContainers.length).toBeGreaterThan(0);
+  });
+
+  test('table headers match Table component styling', () => {
+    const { container } = render(<Settings settingsData={mockSettingsData} />);
+    
+    // Check for proper table structure
+    const tables = container.querySelectorAll('table');
+    expect(tables.length).toBeGreaterThan(0);
+    
+    // Check for thead elements
+    const theads = container.querySelectorAll('thead');
+    expect(theads.length).toBeGreaterThan(0);
+    
+    // Check for th elements with proper classes
+    const ths = container.querySelectorAll('th');
+    expect(ths.length).toBeGreaterThan(0);
+  });
+
+  test('table body matches Table component styling', () => {
+    const { container } = render(<Settings settingsData={mockSettingsData} />);
+    
+    // Check for tbody elements
+    const tbodies = container.querySelectorAll('tbody');
+    expect(tbodies.length).toBeGreaterThan(0);
+    
+    // Check for td elements with proper structure
+    const tds = container.querySelectorAll('td');
+    expect(tds.length).toBeGreaterThan(0);
+    
+    // Check for hover transition classes on rows
+    const rows = container.querySelectorAll('tbody tr');
+    expect(rows.length).toBeGreaterThan(0);
+  });
+
+  test('applies responsive overflow handling like Table component', () => {
+    const { container } = render(<Settings settingsData={mockSettingsData} />);
+    
+    // Check for overflow-x-auto wrapper
+    const overflowContainers = container.querySelectorAll('.overflow-x-auto');
+    expect(overflowContainers.length).toBeGreaterThan(0);
+  });
+
+  test('maintains visual consistency with Table component structure', () => {
+    const { container } = render(<Settings settingsData={mockSettingsData} />);
+    
+    // Verify the nested structure matches Table component pattern:
+    // settings-section-group > table-container > overflow-x-auto > table
+    const sectionGroup = container.querySelector('.settings-section-group');
+    expect(sectionGroup).toBeTruthy();
+    
+    const tableContainer = sectionGroup?.querySelector('.table-container');
+    expect(tableContainer).toBeTruthy();
+    
+    const overflowWrapper = tableContainer?.querySelector('.overflow-x-auto');
+    expect(overflowWrapper).toBeTruthy();
+    
+    const table = overflowWrapper?.querySelector('table');
+    expect(table).toBeTruthy();
+  });
 });

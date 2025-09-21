@@ -531,32 +531,28 @@ export const loadComponent = cache(async (
         // Handle YAML settings files - convert to markdown format expected by Settings component
         const settingsData = yamlData;
         
-        if (settingsData) {
+        if (settingsData && settingsData.machineSettings && settingsData.machineSettings.settings) {
           // Convert YAML structure to markdown format
           let markdownContent = '';
           
-          // Handle different settings sections
-          const sections = [
-            { key: 'laser_parameters', title: '## Core Laser Parameters' },
-            { key: 'material_settings', title: '## Material-Specific Settings' },
-            { key: 'technical_specs', title: '## Technical Specifications' },
-            { key: 'safety_parameters', title: '## Safety and Operating Parameters' },
-            { key: 'process_settings', title: '## Process Parameters' },
-            { key: 'quality_control', title: '## Quality Control Settings' }
-          ];
+          // Process the actual YAML structure: machineSettings.settings array
+          const settingsSections = settingsData.machineSettings.settings;
           
-          sections.forEach(section => {
-            const sectionData = settingsData[section.key];
-            if (sectionData && typeof sectionData === 'object') {
-              markdownContent += `${section.title}\n\n`;
-              markdownContent += '| Parameter | Value | Unit | Description |\n';
+          settingsSections.forEach((section: any) => {
+            if (section.header) {
+              markdownContent += `${section.header}\n\n`;
+            }
+            
+            if (section.rows && Array.isArray(section.rows)) {
+              markdownContent += '| Parameter | Value | Range | Category |\n';
               markdownContent += '| --- | --- | --- | --- |\n';
               
-              Object.entries(sectionData).forEach(([key, value]) => {
-                const parameter = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-                const unit = '-'; // Default unit, can be enhanced based on parameter type
-                const description = '-'; // Default description, can be enhanced
-                markdownContent += `| ${parameter} | ${value} | ${unit} | ${description} |\n`;
+              section.rows.forEach((row: any) => {
+                const parameter = row.parameter || '-';
+                const value = row.value || '-';
+                const range = row.range || '-';
+                const category = row.category || '-';
+                markdownContent += `| ${parameter} | ${value} | ${range} | ${category} |\n`;
               });
               
               markdownContent += '\n\n';
@@ -574,8 +570,8 @@ export const loadComponent = cache(async (
         }
       } else if (type === 'jsonld') {
         // Handle YAML jsonld files
-        const materialData = yamlData.data.materialData;
-        const jsonldSchema = yamlData.data.jsonldSchema;
+        const materialData = yamlData.data?.materialData || yamlData.materialData;
+        const jsonldSchema = yamlData.data?.jsonldSchema || yamlData.jsonldSchema;
         
         if (jsonldSchema) {
           const jsonldContent = JSON.stringify(jsonldSchema, null, 2);
@@ -593,8 +589,8 @@ export const loadComponent = cache(async (
         }
       } else if (type === 'metatags') {
         // Handle YAML metatags files
-        const seoData = yamlData.data.seoData;
-        const seoConfig = yamlData.data.seoConfig;
+        const seoData = yamlData?.data?.seoData || yamlData?.seoData;
+        const seoConfig = yamlData?.data?.seoConfig || yamlData?.seoConfig;
         
         if (seoData) {
           // Convert to markdown format for consistency
@@ -626,6 +622,12 @@ export const loadComponent = cache(async (
             },
           };
         }
+        
+        // Return empty metatags data if no valid seoData found
+        return {
+          content: '# SEO Meta Tags\n\nNo meta tags data available.',
+          config: { title: 'Default Title' }
+        };
       } else if (type === 'author') {
         // Handle YAML author files
         const authorInfo = yamlData.authorInfo;

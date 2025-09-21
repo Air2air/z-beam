@@ -1,68 +1,35 @@
 /* app/components/Settings/styles.css */
+/* Settings component now uses Table component styles for consistency */
 
+/* Container styles for layout */
+.settings-sections-container {
+  margin: 2rem 0;
+}
+
+.settings-section-group {
+  margin-bottom: 2rem;
+}
+
+.settings-section-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced settings container (matches Table component pattern) */
 .enhanced-settings-container {
   margin-bottom: 2rem;
 }
 
-.settings-sections-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.settings-section-group {
-  background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-}
-
-.settings-section {
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  overflow: hidden;
-}
-
-/* Enhanced table styling for settings */
-.enhanced-settings-container table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.enhanced-settings-container th {
-  padding: 1rem 1.5rem;
-  text-align: left;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #6b7280;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: linear-gradient(to right, #eff6ff, #dbeafe);
-}
-
-.enhanced-settings-container td {
-  padding: 1rem 1.5rem;
-  font-size: 0.875rem;
-  color: #111827;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.enhanced-settings-container tr:hover {
-  background-color: #eff6ff;
-  transition: background-color 0.2s;
-}
-
-/* Parameter value highlighting */
-.enhanced-settings-container .parameter-value {
+/* Special styling for Settings component values and categories */
+.parameter-value {
   font-weight: 600;
   color: #2563eb;
 }
 
-/* Category badge styling */
-.enhanced-settings-container .category-badge {
+.dark .parameter-value {
+  color: #60a5fa;
+}
+
+.category-badge {
   display: inline-flex;
   align-items: center;
   padding: 0.125rem 0.625rem;
@@ -73,57 +40,23 @@
   color: #1e40af;
 }
 
-/* Responsive table wrapper */
-.enhanced-settings-container .overflow-x-auto {
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5db #f3f4f6;
+.dark .category-badge {
+  background-color: #1e3a8a;
+  color: #93c5fd;
 }
 
-/* Section title styling */
-.settings-section-group h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 1rem;
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .enhanced-settings-container h3 {
+    font-size: 1rem;
+  }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .settings-section-group {
-    background: linear-gradient(to bottom right, #1f2937, #111827);
-    border-color: #374151;
-  }
-  
-  .settings-section {
-    background: #111827;
-    border-color: #374151;
-  }
-  
-  .enhanced-settings-container th {
-    color: #d1d5db;
-    background: linear-gradient(to right, #1e3a8a, #1e40af);
-  }
-  
-  .enhanced-settings-container td {
-    color: white;
-    border-color: #374151;
-  }
-  
-  .enhanced-settings-container tr:hover {
-    background-color: rgba(30, 58, 138, 0.2);
-  }
-  
-  .enhanced-settings-container .parameter-value {
-    color: #60a5fa;
-  }
-  
-  .enhanced-settings-container .category-badge {
-    background-color: #1e3a8a;
-    color: #93c5fd;
-  }
-  
-  .settings-section-group h3 {
-    color: white;
-  }
+/* Settings section styling */
+.settings-section {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
 }

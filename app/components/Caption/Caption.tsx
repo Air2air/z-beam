@@ -363,42 +363,6 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
       </figure>
       </div>
 
-      {/* Machine Settings */}
-      {(enhancedData.technicalSpecifications || enhancedData.laser_parameters) && (
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Machine Settings
-          </h3>
-          <div className="specs-grid grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
-            {enhancedData.laser_parameters && Object.entries(enhancedData.laser_parameters).map(([key, value]) => (
-              <div key={key} className="spec-item">
-                <dt className="text-xs font-medium text-gray-600 uppercase tracking-wider">
-                  {key.replace(/_/g, ' ')}
-                </dt>
-                <dd className="text-sm font-semibold text-gray-900">
-                  {value}
-                  {key === 'wavelength' && 'nm'}
-                  {key === 'power' && 'W'}
-                  {key === 'pulse_duration' && 'ns'}
-                  {key === 'frequency' && 'Hz'}
-                  {key === 'energy_density' && 'J/cm²'}
-                </dd>
-              </div>
-            ))}
-            {enhancedData.technicalSpecifications && Object.entries(enhancedData.technicalSpecifications).map(([key, value]) => (
-              <div key={key} className="spec-item">
-                <dt className="text-xs font-medium text-gray-600 uppercase tracking-wider">
-                  {key.replace(/([A-Z])/g, ' $1').trim()}
-                </dt>
-                <dd className="text-sm font-semibold text-gray-900">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
     </section>
   );
 }

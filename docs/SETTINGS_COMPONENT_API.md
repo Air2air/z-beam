@@ -4,6 +4,13 @@
 
 The Settings component provides a modular solution for displaying machine parameters and laser settings in an organized, tabular format. This component is designed to work independently from caption content, achieving clean separation of concerns.
 
+**Key Features:**
+- **Table Component Consistency**: Settings component uses identical markup and styling patterns as the Table component for seamless visual integration
+- **Unified Styling**: All table elements (thead, th, tbody, td) match Table component styling exactly
+- **Responsive Design**: Inherited responsive behavior from Table component with proper mobile handling
+- **Dark Mode Support**: Complete dark mode compatibility using Table component color schemes
+- **Sectioned Display**: Support for multiple parameter groups with consistent visual treatment
+
 ## Component API
 
 ### Settings Component
@@ -163,14 +170,29 @@ content/components/settings/
 
 ## CSS Classes
 
-The Settings component uses the following CSS classes:
+The Settings component uses identical styling to the Table component for visual consistency:
 
-- `.enhanced-settings-container` - Main container
-- `.settings-sections-container` - Sections wrapper
-- `.settings-section-group` - Individual section container
-- `.settings-section` - Section content wrapper
-- `.parameter-value` - Parameter value highlighting
-- `.category-badge` - Category badges
+### Table Structure Classes
+- `.settings-section-group` - Section container (matches `.table-section-group` behavior)
+- `.table-container` - Table wrapper with overflow handling
+- `thead` - Header styling with `#f9fafb` background (`#1f2937` in dark mode)
+- `th` - Header cell styling with proper typography and spacing
+- `tbody` - Body styling with white background (`#111827` in dark mode)
+- `td` - Data cell styling with consistent padding and borders
+
+### Visual Enhancement Classes
+- `.parameter-value` - Highlighted parameter values
+- `.category-badge` - Category badges with proper styling
+- Hover effects with smooth transitions
+- Responsive design with mobile-first approach
+
+### Style Inheritance
+The Settings component inherits all visual characteristics from the Table component including:
+- Border collapse and table layout
+- Typography scales and font weights
+- Color schemes for light and dark modes
+- Spacing and padding consistency
+- Responsive behavior patterns
 
 ## Error Handling
 
