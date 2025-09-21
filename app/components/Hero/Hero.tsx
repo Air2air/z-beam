@@ -24,19 +24,22 @@ export function Hero({
   // Determine video source, prioritizing frontmatter
   let videoSource = video;
   if (!videoSource && frontmatter?.video) {
-    videoSource = frontmatter.video;
+    // Handle both string and object video types
+    if (typeof frontmatter.video === 'string') {
+      // If it's a string, assume it's a vimeo ID
+      videoSource = { vimeoId: frontmatter.video };
+    } else {
+      videoSource = frontmatter.video as any;
+    }
   }
   
   // Determine image source, prioritizing frontmatter
   let imageSource = image;
   
   // Use the hero image URL from frontmatter if no direct image provided
-  // Handle both structured (images.hero.url) and flat (url) frontmatter formats
-  if (!imageSource && frontmatter?.images?.hero?.url) {
-    imageSource = frontmatter.images.hero.url;
-  } else if (!imageSource && frontmatter?.url) {
-    // Fallback for flat frontmatter structure
-    imageSource = frontmatter.url as string;
+  // Handle both structured (image field) and flat frontmatter formats
+  if (!imageSource && frontmatter?.image) {
+    imageSource = frontmatter.image;
   }
 
   // URL encode the image source for CSS background-image usage

@@ -27,7 +27,7 @@ export default async function TagPage({ params }: TagPageProps) {
   );
   
   return (
-    <div className={CONTAINER_STYLES.wide}>
+    <div className={CONTAINER_STYLES.standard}>
       <h1 className="text-3xl font-bold mb-6">Articles tagged with &quot;{tag}&quot;</h1>
       
       <SearchResults 

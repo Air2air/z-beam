@@ -1,14 +1,13 @@
 import React from 'react';
-import { PropertiesTable } from '../PropertiesTable';
-import { BadgeSymbol } from '../BadgeSymbol';
-import { Content } from '../Content';
-import { Caption } from '../Caption';
-import { Bullets } from '../Bullets';
-import { Table } from '../Table';
-import { Tags } from '../Tags';
-import { ArticleHeader } from '../ArticleHeader';
-import { JsonLD } from '../JsonLD';
-import * as schemas from '../../../schemas';
+import { PropertiesTable } from '../PropertiesTable/PropertiesTable';
+import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
+import { Content } from '../Content/Content';
+import { Caption } from '../Caption/Caption';
+import { Bullets } from '../Bullets/Bullets';
+import { Table } from '../Table/Table';
+import { Tags } from '../Tags/Tags';
+import { ArticleHeader } from '../Article/ArticleHeader';
+import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
 import type { 
   ComponentData, 
@@ -93,7 +92,7 @@ export default function Layout({
           <ArticleHeader 
             metadata={metadata}
             slug={slug}
-            title={title}
+            title={title || ''}
           />
         </header>
       )}

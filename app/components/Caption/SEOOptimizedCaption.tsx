@@ -73,7 +73,7 @@ export function SEOOptimizedCaption({
       },
       "result": {
         "@type": "ProcessResult",
-        "description": captionData?.after || `Successful cleaning of ${materialName} surface`,
+        "description": captionData?.afterText || `Successful cleaning of ${materialName} surface`,
         "efficiency": "High",
         "surfaceQuality": "Improved"
       }
@@ -85,7 +85,7 @@ export function SEOOptimizedCaption({
         "url": imageData.beforeUrl,
         "width": imageData.width,
         "height": imageData.height,
-        "description": captionData?.before || `${capitalizedMaterial} surface before cleaning`
+        "description": captionData?.beforeText || `${capitalizedMaterial} surface before cleaning`
       },
       {
         "@type": "ImageObject", 
@@ -93,7 +93,7 @@ export function SEOOptimizedCaption({
         "url": imageData.afterUrl,
         "width": imageData.width,
         "height": imageData.height,
-        "description": captionData?.after || `${capitalizedMaterial} surface after cleaning`
+        "description": captionData?.afterText || `${capitalizedMaterial} surface after cleaning`
       }
     ] : [],
     "keywords": [
@@ -185,14 +185,14 @@ export function SEOOptimizedCaption({
           <div className="parameter-group">
             <dt className="font-medium text-gray-700">Pulse Duration</dt>
             <dd className="text-gray-900" itemProp="pulseDuration">
-              {captionData?.laserParams?.pulseDuration} ns
+              {captionData?.laserParams?.pulse_duration} ns
             </dd>
           </div>
           
           <div className="parameter-group">
             <dt className="font-medium text-gray-700">Spot Size</dt>
             <dd className="text-gray-900" itemProp="spotSize">
-              {captionData?.laserParams?.spotSize} µm
+              {captionData?.laserParams?.spot_size} µm
             </dd>
           </div>
         </div>
@@ -252,14 +252,14 @@ export function SEOOptimizedCaption({
           <div className="analysis-before mb-3">
             <h5 className="font-medium text-gray-800 mb-1">Before Treatment</h5>
             <p className="text-gray-700" itemProp="beforeDescription">
-              {captionData?.before}
+              {captionData?.beforeText}
             </p>
           </div>
           
           <div className="analysis-after">
             <h5 className="font-medium text-gray-800 mb-1">After Treatment</h5>
             <p className="text-gray-700" itemProp="afterDescription">
-              {captionData?.after}
+              {captionData?.afterText}
             </p>
           </div>
         </div>
@@ -289,7 +289,7 @@ export function SEOOptimizedCaption({
       <div className="sr-only" itemProp="text">
         This technical analysis demonstrates the laser cleaning process applied to {materialName}, 
         showcasing the effectiveness of precision laser parameters including {captionData?.laserParams?.wavelength}nm wavelength, 
-        {captionData?.laserParams?.power}W power output, and {captionData?.laserParams?.pulseDuration}ns pulse duration 
+        {captionData?.laserParams?.power}W power output, and {captionData?.laserParams?.pulse_duration}ns pulse duration 
         for optimal surface treatment and contamination removal.
       </div>
     </article>

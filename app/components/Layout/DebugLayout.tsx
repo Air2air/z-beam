@@ -83,7 +83,7 @@ export function DebugLayout({
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow-sm">
-        <div className={CONTAINER_STYLES.compact}>
+        <div className={CONTAINER_STYLES.standard}>
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-bold text-gray-900 flex items-center">
               <span className="mr-2">🛠️</span> Z-Beam Debug Console
@@ -120,7 +120,7 @@ export function DebugLayout({
       </header>
       
       <div className={`md:hidden bg-white shadow-md transition-all duration-300 ${showMenu ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
-        <nav className={CONTAINER_STYLES.compact.replace('py-8', 'py-2')}>
+        <nav className={CONTAINER_STYLES.standard.replace('py-8', 'py-2')}>
           <ul className="space-y-2">
             {debugSections.map((section) => (
               <li key={section.id}>
@@ -156,7 +156,7 @@ export function DebugLayout({
         </nav>
       </div>
       
-      <div className={CONTAINER_STYLES.compact.replace('py-8', 'py-6')}>
+      <div className={CONTAINER_STYLES.standard.replace('py-8', 'py-6')}>
         <div className="flex flex-col md:flex-row">
           <div className="hidden md:block w-full md:w-64 flex-shrink-0 mr-6">
             <div className="bg-white rounded-lg shadow-sm p-4">
@@ -257,7 +257,7 @@ export function DebugLayout({
       </div>
       
       <footer className="bg-white mt-6 border-t border-gray-200">
-        <div className={CONTAINER_STYLES.compact.replace('py-8', 'py-3')}>
+        <div className={CONTAINER_STYLES.standard.replace('py-8', 'py-3')}>
           <p className="text-center text-sm text-gray-500">
             Z-Beam Debug Console • {new Date().toLocaleDateString()}
           </p>
