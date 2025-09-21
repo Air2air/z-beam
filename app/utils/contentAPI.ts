@@ -34,6 +34,7 @@ const CONTENT_DIRS = {
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
     propertiestable: path.join(process.cwd(), 'content', 'components', 'propertiestable'),
+    settings: path.join(process.cwd(), 'content', 'components', 'settings'),
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
@@ -524,6 +525,51 @@ export const loadComponent = cache(async (
           return {
             content: processedContent,
             config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based tables
+          };
+        }
+      } else if (type === 'settings') {
+        // Handle YAML settings files - convert to markdown format expected by Settings component
+        const settingsData = yamlData;
+        
+        if (settingsData) {
+          // Convert YAML structure to markdown format
+          let markdownContent = '';
+          
+          // Handle different settings sections
+          const sections = [
+            { key: 'laser_parameters', title: '## Core Laser Parameters' },
+            { key: 'material_settings', title: '## Material-Specific Settings' },
+            { key: 'technical_specs', title: '## Technical Specifications' },
+            { key: 'safety_parameters', title: '## Safety and Operating Parameters' },
+            { key: 'process_settings', title: '## Process Parameters' },
+            { key: 'quality_control', title: '## Quality Control Settings' }
+          ];
+          
+          sections.forEach(section => {
+            const sectionData = settingsData[section.key];
+            if (sectionData && typeof sectionData === 'object') {
+              markdownContent += `${section.title}\n\n`;
+              markdownContent += '| Parameter | Value | Unit | Description |\n';
+              markdownContent += '| --- | --- | --- | --- |\n';
+              
+              Object.entries(sectionData).forEach(([key, value]) => {
+                const parameter = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                const unit = '-'; // Default unit, can be enhanced based on parameter type
+                const description = '-'; // Default description, can be enhanced
+                markdownContent += `| ${parameter} | ${value} | ${unit} | ${description} |\n`;
+              });
+              
+              markdownContent += '\n\n';
+            }
+          });
+          
+          const processedContent = options.convertMarkdown 
+            ? await marked(markdownContent)
+            : markdownContent;
+          
+          return {
+            content: processedContent,
+            config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based settings
           };
         }
       } else if (type === 'jsonld') {

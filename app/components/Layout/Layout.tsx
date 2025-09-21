@@ -10,6 +10,7 @@ import { CONTAINER_STYLES } from '../../utils/containerStyles';
 // Article content components
 import { Content } from "../Content/Content";
 import { Table } from "../Table/Table";
+import { Settings } from "../Settings/Settings";
 import { PropertiesTable } from "../PropertiesTable";
 import { Bullets } from "../Bullets/Bullets";
 import { Caption } from "../Caption/Caption";
@@ -23,6 +24,7 @@ const ARTICLE_COMPONENT_ORDER = [
   'content',
   'caption',
   'bullets',
+  'settings',
   'table',
   'tags'
 ] as const;
@@ -128,6 +130,12 @@ export function Layout(props: LayoutProps) {
                 return (
                   <section key={type} aria-label="Key points">
                     <Bullets content={content} config={config} />
+                  </section>
+                );
+              case 'settings':
+                return (
+                  <section key={type} aria-label="Machine settings and parameters">
+                    <Settings content={content} config={config} />
                   </section>
                 );
               case 'table':

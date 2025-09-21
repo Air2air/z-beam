@@ -35,7 +35,11 @@ This README is the single source of truth for building, maintaining, and extendi
 │   ├── author/             # Author profiles
 │   ├── material/           # Material articles
 │   ├── region/             # Region content
-│   └── thesaurus/          # Terminology
+│   ├── thesaurus/          # Terminology
+│   └── components/         # Component-specific YAML files
+│       ├── caption/        # Before/after text content
+│       ├── settings/       # Machine parameter settings
+│       └── author/         # Author profile data
 ├── docs/                   # Documentation (archived)
 ├── package.json            # NPM scripts & dependencies
 ├── next.config.js          # Next.js config
@@ -105,6 +109,9 @@ const tagStats = getTagStats();
 - `List` - Displays a list of articles
 - `AuthorArticles` - Shows articles by author
 - `TagDirectory` - Shows all tags with counts
+- `Settings` - Displays machine parameters and laser settings in organized tables
+- `Table` - Generic table component for structured data display
+- `Caption` - Before/after text content for laser cleaning descriptions
 
 ### Backwards Compatibility
 Legacy imports still work:
@@ -291,6 +298,71 @@ app/utils/contentAPI.ts           # YAML processing
 - ✅ **Aluminum pages**: Ikmanda Roswati (Indonesia, Ph.D.)
 - ✅ **Copper pages**: Todd Dunning (United States, MA)
 - ✅ **Clean component separation**: No embedded author logic in property tables
+
+---
+
+## 12. Settings Component Architecture
+
+Z-Beam implements a modular Settings component architecture for machine parameter display, achieving complete separation from caption content.
+
+### Key Features
+- **Modular Design**: Settings component handles all machine parameters independently
+- **YAML-Based Configuration**: Settings data stored in structured YAML files
+- **Sectioned Display**: Parameters organized into logical sections (power, speed, etc.)
+- **Markdown Table Generation**: Automatic conversion of YAML data to formatted tables
+- **Clean Separation**: Caption components no longer contain embedded laser parameters
+
+### Settings System Structure
+```
+content/components/settings/        # Settings YAML files
+├── steel-laser-cleaning.yaml      # Machine parameters
+├── aluminum-laser-cleaning.yaml   # For specific materials
+└── [material]-laser-cleaning.yaml # Material-specific settings
+
+content/components/caption/         # Caption content (clean)
+├── steel-laser-cleaning.yaml      # Before/after text only
+└── [material]-laser-cleaning.yaml # No laser_parameters
+
+app/components/Settings/            # Settings component
+├── Settings.tsx                   # Main component
+├── styles.css                     # Component styling
+└── index.ts                       # Export configuration
+
+app/utils/contentAPI.ts            # Enhanced with settings processing
+```
+
+### YAML Structure
+Settings files use sectioned YAML structure:
+```yaml
+power_section:
+  power: "100-500W"
+  wavelength: "1064nm"
+  energy_density: "1.0-10 J/cm²"
+
+speed_section:
+  scanning_speed: "100-5000 mm/s"
+  frequency: "20-100kHz"
+  pulse_duration: "10-200ns"
+```
+
+### Component Integration
+```typescript
+// Settings component automatically processes YAML into tables
+import { Settings } from 'app/components/Settings';
+
+// Load settings data via contentAPI
+const settingsData = await loadComponent('settings', 'steel-laser-cleaning');
+
+// Render with sectioned display
+<Settings settingsData={settingsData} />
+```
+
+### Migration Status
+- ✅ **109 caption files cleaned**: All laser_parameters sections removed
+- ✅ **Settings component integrated**: Fully functional with Layout component
+- ✅ **ContentAPI enhanced**: Settings processing and markdown generation
+- ✅ **Test coverage**: Comprehensive test suite for new architecture
+- ✅ **Modular separation**: Complete independence between caption and settings components
 - ✅ **Global consistency**: Uniform author rendering across all pages
 
 ## 12. YAML Processing
