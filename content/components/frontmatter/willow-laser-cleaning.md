@@ -1,70 +1,90 @@
 ---
 name: Willow
 category: wood
-title: Laser Cleaning Willow Wood
-headline: Comprehensive technical guide for laser cleaning willow wood surfaces
-description: Technical overview of willow wood, C6H10O5, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and specialized applications in
-  wood restoration and manufacturing.
+title: Willow Laser Cleaning
+headline: Comprehensive technical guide for laser cleaning wood willow
+description: Laser cleaning of Willow (Salix spp.) wood utilizes precise pulsed fiber
+  laser parameters to achieve controlled ablation of surface contaminants. The process
+  exploits the differential absorption characteristics between the contamination layer
+  and the lignocellulosic wood substrate, allowing for non-contact, selective cleaning
+  without the use of chemicals or abrasive media.
 keywords: willow, willow wood, laser ablation, laser cleaning, non-contact cleaning,
-  pulsed fiber laser, surface contamination removal, wood restoration, thermal processing,
-  surface conservation
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
 chemicalProperties:
-  symbol: Wood
-  formula: C6H10O5
+  symbol: N/A (Organic Composite)
+  formula: "C\u2086H\u2081\u2080O\u2085\u2099 (Cellulose base)"
   materialType: wood
 properties:
-  density: 0.45 g/cm³
-  densityNumeric: 0.45
-  densityUnit: g/cm³
-  densityMin: 0.35 g/cm³
-  densityMinNumeric: 0.35
-  densityMinUnit: g/cm³
-  densityMax: 0.55 g/cm³
-  densityMaxNumeric: 0.55
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.8
-  meltingPoint: 280-400°C
-  meltingPointNumeric: 340.0
-  meltingPointUnit: °C
-  meltingPercentile: 38.2
-  thermalConductivity: 0.12 W/m·K
-  thermalConductivityNumeric: 0.12
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 25.6
-  tensileStrength: 40-60 MPa
-  tensileStrengthNumeric: 50.0
+  density: "450-500 kg/m\xB3 (Salix alba)"
+  densityNumeric: 475.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "Decomposes at ~200-275\xB0C (charring)"
+  meltingPointNumeric: 237.5
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.09-0.12 W/(m\xB7K) (radial)"
+  thermalConductivityNumeric: 0.1
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 70-100 MPa (along grain)
+  tensileStrengthNumeric: 85.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 15.4
-  hardness: 2-4 HB
-  hardnessNumeric: 3.0
-  hardnessUnit: HB
-  hardnessMin: 1 HB
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 3.7
+  hardness: 1.5-2.0 kN (Janka hardness scale)
+  hardnessNumeric: 1.75
+  hardnessUnit: kN
+  hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
-  hardnessMinUnit: HB
-  hardnessMax: 6 HB
-  hardnessMaxNumeric: 6.0
-  hardnessMaxUnit: HB
-  hardnessPercentile: 5.2
-  youngsModulus: 10 GPa
-  youngsModulusNumeric: 10.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 8.3
+  youngsModulus: 8-10 GPa (along grain)
+  youngsModulusNumeric: 9.0
   youngsModulusUnit: GPa
-  modulusMin: 8 GPa
-  modulusMinNumeric: 8.0
-  modulusMinUnit: GPa
-  modulusMax: 12 GPa
-  modulusMaxNumeric: 12.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 18.7
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: C6H10O5
+  fluenceRange: "0.5\u20135 J/cm\xB2"
+  chemicalFormula: Complex Lignocellulosic Composite
 composition:
-- Cellulose (C6H10O5) 40-50%
-- Lignin 20-30%
-- Hemicellulose 20-30%
-- Trace elements (K, Ca, Mg)
+- 'Cellulose: 40-45%'
+- 'Hemicellulose: 20-25%'
+- 'Lignin: 20-25%'
+- 'Extractives and Ash: 5-10%'
 machineSettings:
   powerRange: 20-100W
   powerRangeNumeric: 60.0
@@ -75,8 +95,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +113,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.5-2.0mm
-  spotSizeNumeric: 1.25
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -111,41 +131,25 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
+  fluenceRange: "0.5\u20135 J/cm\xB2"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Wood Manufacturing
-  detail: Removal of surface contaminants and oxidation from willow wood components
-- industry: Restoration and Conservation
-  detail: Gentle cleaning of historical willow wood artifacts and sculptures
+- 'Woodworking: Removing surface contaminants and old finishes from Willow wood'
+- 'Restoration: Precision cleaning of Willow artifacts and antiques'
 compatibility:
-- Wood Finishes
-- Natural Oils
-- Wood Preservatives
-regulatoryStandards: ISO 13061, ASTM D143, EN 350
+- Compatible with other low-density hardwoods (e.g., Basswood, Poplar) for similar
+  laser processing parameters
+- Requires parameter adjustment for woods with significantly different density or
+  resin content
+regulatoryStandards: IEC 60825-1 (Laser Safety), EN 15898 (Conservation of Cultural
+  Property - Main general terms and definitions)
 author: Alessandro Moretti
 author_object:
   id: 2
@@ -157,28 +161,37 @@ author_object:
   image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Willow wood surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Willow surface undergoing laser cleaning showing precise contamination removal
     url: /images/willow-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of willow wood surface after laser cleaning showing detailed
-      grain structure
+    alt: Microscopic view of Willow surface after laser cleaning showing detailed
+      surface structure
     url: /images/willow-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional wood cleaning
-    methods
-- benefit: Water Conservation
-  description: Eliminates water usage completely in wood cleaning processes
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than chemical cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates use and disposal of chemical solvents, reducing hazardous
+    waste by 100% compared to traditional chemical stripping methods.
+- benefit: Reduced energy consumption
+  description: Laser process consumes approximately 60% less energy than thermal or
+    sandblasting techniques for equivalent surface area cleaning.
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves museum-grade conservation standards for wood artifacts
-- result: Material Removal Precision
-  metric: ±10μm accuracy with no wood substrate damage
-- result: Processing Speed
-  metric: 1-3 m²/hour cleaning rate depending on contamination level
+- result: Contaminant removal efficiency >99%
+  metric: Measured via SEM-EDS analysis showing complete removal of surface layers
+    without substrate damage.
+- result: Substrate preservation
+  metric: "Achieves cleaning with material removal of less than 50 \xB5m depth, preserving\
+    \ original wood surface integrity."
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer control)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5\u20135 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian (for specific finishing)
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -186,8 +199,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Italy
   author_id: 2
-  verification_timestamp: '2025-09-19T06:30:48Z'
+  verification_timestamp: '2025-09-20T22:44:12Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5\u20135 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Woodworking
+- Restoration
+complexity: medium
+difficultyScore: 3
 ---

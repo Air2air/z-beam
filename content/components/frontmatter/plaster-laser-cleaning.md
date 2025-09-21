@@ -1,68 +1,89 @@
 ---
 name: Plaster
 category: masonry
-title: Laser Cleaning Plaster
+title: Plaster Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning masonry plaster
-description: Technical overview of Plaster, CaSO4·2H2O, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: "Laser cleaning of plaster (calcium sulfate dihydrate) utilizes precise\
+  \ ablation thresholds to remove contaminants while preserving the hydrated gypsum\
+  \ structure. Optimal parameters avoid dehydration to bassanite (CaSO4\xB70.5H2O)\
+  \ or anhydrite (CaSO4)."
 keywords: plaster, plaster masonry, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Plaster
-  formula: CaSO4·2H2O
+  symbol: "CaSO4\xB72H2O"
+  formula: "CaSO4\xB72H2O"
   materialType: masonry
 properties:
-  density: 2.3 g/cm³
-  densityNumeric: 2.3
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  density: "2.32 g/cm\xB3"
+  densityNumeric: 2.32
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 2.8 g/cm³
-  densityMaxNumeric: 2.8
-  densityMaxUnit: g/cm³
-  densityPercentile: 45.2
-  meltingPoint: 128-163°C
-  meltingPointNumeric: 145.5
-  meltingPointUnit: °C
-  meltingPercentile: 32.5
-  thermalConductivity: 0.43 W/m·K
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 12.4
+  meltingPoint: "128\xB0C (dehydration begins), 1450\xB0C (anhydrous melting)"
+  meltingPointNumeric: 128.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.43 W/(m\xB7K) at 20\xB0C"
   thermalConductivityNumeric: 0.43
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 38.7
-  tensileStrength: 2-4 MPa
-  tensileStrengthNumeric: 3.0
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 2.0 MPa
+  tensileStrengthNumeric: 2.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 12.8
-  hardness: 2-3 Mohs
-  hardnessNumeric: 2.5
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: 1.5-2.0 Mohs
+  hardnessNumeric: 1.75
   hardnessUnit: Mohs
   hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
   hardnessMinUnit: Mohs
-  hardnessMax: 5 Mohs
-  hardnessMaxNumeric: 5.0
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 25.0
-  youngsModulus: 4-6 GPa
-  youngsModulusNumeric: 5.0
+  hardnessPercentile: 8.3
+  youngsModulus: 3.0-4.0 GPa
+  youngsModulusNumeric: 3.5
   youngsModulusUnit: GPa
-  modulusMin: 2 GPa
-  modulusMinNumeric: 2.0
-  modulusMinUnit: GPa
-  modulusMax: 10 GPa
-  modulusMaxNumeric: 10.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 15.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Nd:YAG
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: CaSO4·2H2O
+  fluenceRange: "1.0\u20133.0 J/cm\xB2"
+  chemicalFormula: "CaSO4\xB72H2O"
 composition:
-- Calcium Sulfate Dihydrate (CaSO4·2H2O) 95-98%
-- Additives (retarders, accelerators) 2-5%
+- "Calcium sulfate dihydrate (CaSO4\xB72H2O): 95-98%"
+- 'Calcium carbonate (CaCO3): 1-3%'
+- 'Silica (SiO2): 0.5-1.5%'
+- 'Other impurities: <1%'
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -73,8 +94,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -91,8 +112,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.2-1.0mm
+  spotSizeNumeric: 0.6
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -109,41 +130,25 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u20133.0 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Plaster substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and masonry matrix composites
+- 'Construction: Restoration of historical plaster surfaces'
+- 'Cultural Heritage: Cleaning of plaster sculptures and artifacts'
 compatibility:
-- Masonry Substrates
-- Concrete Surfaces
-- Brick and Stone
-regulatoryStandards: ASTM C28, ISO 3049, EN 13279
+- Historical building materials (stone, brick, wood)
+- Pigments and paints (when properly parameterized)
+- Metal reinforcements (at appropriate wavelengths)
+regulatoryStandards: EN 15898:2019 (Conservation of cultural heritage - Main general
+  terms and definitions), EN 15886:2010 (Conservation of cultural property - Test
+  methods - Colour measurement of surfaces)
 author: Alessandro Moretti
 author_object:
   id: 2
@@ -162,20 +167,28 @@ images:
       surface structure
     url: /images/plaster-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 2000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates disposal of hazardous solvents and chemical cleaners, reducing
+    environmental contamination risk by 100%
+- benefit: Reduced water consumption
+  description: "Eliminates water usage compared to traditional wet cleaning methods,\
+    \ saving approximately 50-200 liters per m\xB2 of treated surface"
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 8501-1 Sa 2.5 cleanliness standard
-- result: Material Removal Precision
-  metric: ±10μm accuracy with minimal substrate impact
-- result: Processing Speed
-  metric: 3-8 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>95% removal of pollution crusts with <5% substrate loss'
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination level and laser parameters"
+technicalSpecifications:
+  powerRange: 10-100 W (average power for pulsed Nd:YAG)
+  pulseDuration: 5-150 ns
+  wavelength: 1064 nm (IR), 532 nm (SHG)
+  spotSize: 0.2-1.5 mm
+  repetitionRate: 10-100 kHz
+  fluenceRange: "0.8-2.5 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multimode
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -183,8 +196,22 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Italy
   author_id: 2
-  verification_timestamp: '2025-09-19T05:53:45Z'
+  verification_timestamp: '2025-09-20T21:03:53Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+chemicalFormula: "CaSO4\xB72H2O"
+laser_parameters:
+  fluence_threshold: "1.0\u20133.0 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.2-1.0mm
+  laser_type: Nd:YAG
+tags:
+- Construction
+- Cultural Heritage
+complexity: medium
+difficultyScore: 3
 ---

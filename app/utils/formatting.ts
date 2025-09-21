@@ -2,11 +2,24 @@
 // Text and date formatting utilities
 
 export function formatDate(date: string): string {
+  // Handle date-only strings (YYYY-MM-DD) by treating them as local dates
+  // to avoid timezone offset issues
+  let dateObj: Date;
+  
+  if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+    // For date-only strings, create a local date to avoid UTC interpretation
+    const [year, month, day] = date.split('-').map(Number);
+    dateObj = new Date(year, month - 1, day); // month is 0-indexed in Date constructor
+  } else {
+    // For other date formats (with time/timezone), use standard parsing
+    dateObj = new Date(date);
+  }
+  
   return new Intl.DateTimeFormat('en-US', {
     month: 'long',
     day: 'numeric',
     year: 'numeric',
-  }).format(new Date(date));
+  }).format(dateObj);
 }
 
 export function slugify(str: string): string {

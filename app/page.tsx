@@ -2,10 +2,12 @@
 
 import { UnifiedArticleGridSSR } from "./components/ArticleGrid/UnifiedArticleGridSSR";
 import { Hero } from "./components/Hero/Hero";
+import { Layout } from "./components/Layout/Layout";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
 import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentAPI";
 import { sectionCards } from "./components/SectionCard/SectionCards";
+import { CONTAINER_STYLES } from "./utils/containerStyles";
 
 // Force static generation for home page
 export const dynamic = 'force-static';
@@ -44,7 +46,7 @@ export default async function HomePage() {
   const slugs = await getAllArticleSlugs();
 
   return (
-    <>
+    <Layout fullWidth>
       {/* Hero section with Vimeo video background */}
       <Hero 
         variant="fullwidth"
@@ -71,7 +73,7 @@ export default async function HomePage() {
       </Hero>
 
    
-      <section className="container mx-auto px-4 py-8">
+      <section className={CONTAINER_STYLES.standard}>
         <UnifiedArticleGridSSR
           items={sectionCards
             .filter(card => card.featured)
@@ -90,7 +92,7 @@ export default async function HomePage() {
       </section>
 
       {/* Materials - Pass slugs and filter */}
-      <section className="container mx-auto px-4 py-8">
+      <section className={CONTAINER_STYLES.standard}>
         <UnifiedArticleGridSSR
           slugs={slugs}
           filterBy="material"
@@ -100,7 +102,7 @@ export default async function HomePage() {
       </section>
 
       {/* Applications */}
-      <section className="container mx-auto px-4 py-8">
+      <section className={CONTAINER_STYLES.standard}>
         <UnifiedArticleGridSSR
           slugs={slugs}
           filterBy="application"
@@ -110,7 +112,7 @@ export default async function HomePage() {
       </section>
 
       {/* All Articles */}
-      <section className="container mx-auto px-4 py-12">
+      <section className={CONTAINER_STYLES.standard}>
         <UnifiedArticleGridSSR
           slugs={slugs}
           filterBy="all"
@@ -118,6 +120,6 @@ export default async function HomePage() {
           columns={4}
         />
       </section>
-    </>
+    </Layout>
   );
 }

@@ -4,6 +4,7 @@ import { getAllArticles } from "../utils/contentAPI";
 import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
+import { CONTAINER_STYLES } from "../utils/containerStyles";
 
 export const dynamic = 'force-dynamic';
 
@@ -106,7 +107,7 @@ export default async function SearchPage() {
     );
     
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className={CONTAINER_STYLES.standard}>
         <h1 className="text-3xl font-bold mb-6">Search</h1>
         
         <SearchClient initialArticles={articlesWithBadgeData as any} />
@@ -115,7 +116,7 @@ export default async function SearchPage() {
   } catch (error) {
     console.error("Error loading search page:", error);
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className={CONTAINER_STYLES.standard}>
         <h1 className="text-3xl font-bold mb-6">Search</h1>
         <div className="bg-red-100 p-4 rounded text-red-700">
           Failed to load content. Please try again later.

@@ -1,7 +1,7 @@
 'use client';
 // app/debug/tags/page.tsx
 
-import { DebugLayout } from '../../components/Debug/DebugLayout';
+import { DebugLayout } from '../../components/Layout/DebugLayout';
 import { TagDebug } from '../../components/Debug/TagDebug';
 
 export default function TagDebugPage() {

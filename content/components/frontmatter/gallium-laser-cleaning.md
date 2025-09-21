@@ -1,10 +1,12 @@
 ---
 name: Gallium
 category: metal
-title: Laser Cleaning Gallium
+title: Gallium Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning metal gallium
-description: Technical overview of Gallium for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: "Gallium laser cleaning utilizes precise pulsed fiber laser parameters\
+  \ to remove surface contaminants and oxides without damaging the underlying metal\
+  \ substrate. The process leverages gallium's low melting point (29.76\xB0C) and\
+  \ unique thermal properties for selective ablation with minimal thermal penetration."
 keywords: gallium, gallium metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -13,55 +15,73 @@ chemicalProperties:
   formula: Ga
   materialType: metal
 properties:
-  density: 5.91 g/cm³
+  density: "5.91 g/cm\xB3 at 29.6\xB0C"
   densityNumeric: 5.91
-  densityUnit: g/cm³
-  densityMin: 0.5 g/cm³
-  densityMinNumeric: 0.5
-  densityMinUnit: g/cm³
-  densityMax: 22.6 g/cm³
-  densityMaxNumeric: 22.6
-  densityMaxUnit: g/cm³
-  densityPercentile: 24.1
-  meltingPoint: 29.76°C
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 97.9
+  meltingPoint: "29.76\xB0C"
   meltingPointNumeric: 29.76
-  meltingPointUnit: °C
-  meltingPercentile: 1.8
-  thermalConductivity: 40.6 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "40.6 W/(m\xB7K)"
   thermalConductivityNumeric: 40.6
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 9.3
-  tensileStrength: N/A (liquid at room temperature) MPa
-  tensileStrengthNumeric: 0.0
-  tensileStrengthUnit: ''
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 20.1
+  tensileStrength: 8.3 MPa
+  tensileStrengthNumeric: 8.3
+  tensileStrengthUnit: MPa
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
   tensilePercentile: 0.0
   hardness: 1.5 Mohs
   hardnessNumeric: 1.5
   hardnessUnit: Mohs
-  hardnessMin: 0.5 Mohs
-  hardnessMinNumeric: 0.5
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
   hardnessMinUnit: Mohs
   hardnessMax: 10 Mohs
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 10.5
+  hardnessPercentile: 5.6
   youngsModulus: 9.8 GPa
   youngsModulusNumeric: 9.8
   youngsModulusUnit: GPa
-  modulusMin: 0.1 GPa
-  modulusMinNumeric: 0.1
-  modulusMinUnit: GPa
-  modulusMax: 1000 GPa
-  modulusMaxNumeric: 1000.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 0.9
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: Ga
 composition:
-- Gallium (Ga) 99.99%
-- Trace elements (Zn, Si, Fe, Mg)
+- Gallium-69 (60.11%)
+- Gallium-71 (39.89%)
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -72,8 +92,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -90,8 +110,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.05-1.0mm
+  spotSizeNumeric: 0.525
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -108,41 +128,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Gallium substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
+- 'Electronics: Removing oxide layers from gallium-based components'
+- 'Semiconductor: Cleaning gallium arsenide wafers for improved performance'
 compatibility:
-- Gallium Arsenide
-- Silicon Wafers
-- Glass Substrates
-regulatoryStandards: ISO 14644-1, ASTM E595, IEC 60825-1
+- Gallium arsenide (GaAs) wafers
+- Glass and quartz containers (non-reactive)
+- Stainless steel 316L (for handling systems)
+regulatoryStandards: IEC 60825-1 (Laser Safety), ISO 11553 (Laser Processing Machines
+  Safety), RoHS Directive for electronics applications
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -161,20 +164,29 @@ images:
       surface structure
     url: /images/gallium-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 2000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates use of hydrochloric acid and other hazardous chemicals traditionally
+    used for gallium oxide removal, reducing chemical disposal by 100%
+- benefit: Reduced energy consumption
+  description: Laser process consumes 60-70% less energy compared to chemical bath
+    and ultrasonic cleaning methods for gallium surface preparation
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 5 cleanliness standard
-- result: Material Removal Precision
-  metric: ±2μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 1-3 m²/hour cleaning rate depending on contamination level
+- result: Surface oxide removal efficiency
+  metric: ">99.9% oxide removal with surface roughness maintained below 0.5 \u03BC\
+    m Ra"
+- result: Processing speed
+  metric: "50-200 cm\xB2/min cleaning rate with sub-micron precision control"
+technicalSpecifications:
+  powerRange: 50-200 W
+  pulseDuration: 10-50 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for higher precision)
+  spotSize: 0.05-1.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "1.0-10 J/cm\xB2"
+  scanningSpeed: 100-500 mm/s
+  beamProfile: Top-hat (flat-top) for uniform energy distribution
+  beamProfileOptions: Top-hat, Gaussian, Multi-spot
+  safetyClass: Class 4 laser safety required (IEC 60825-1)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -182,8 +194,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T05:20:15Z'
+  verification_timestamp: '2025-09-20T21:12:18Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.05-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Semiconductor
+- Electronics
+complexity: medium
+difficultyScore: 3
 ---

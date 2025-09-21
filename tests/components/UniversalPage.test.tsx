@@ -8,9 +8,9 @@ import '@testing-library/jest-dom';
 import { UniversalPage, createPageComponent, pageConfigs } from '../../app/components/Templates/UniversalPage';
 
 // Mock dependencies
-jest.mock('../../app/components/Layout/LayoutSystem', () => ({
-  UniversalLayout: ({ children, variant, title, slug }: any) => (
-    <div data-testid="universal-layout" data-variant={variant} data-title={title} data-slug={slug}>
+jest.mock('../../app/components/Layout/Layout', () => ({
+  UniversalLayout: ({ children, title, slug }: any) => (
+    <div data-testid="universal-layout" data-title={title} data-slug={slug}>
       {children || title || 'Mocked Layout'}
     </div>
   ),
@@ -64,18 +64,19 @@ describe('UniversalPage', () => {
         components: mockComponents,
       });
 
+      // For async components, we need to resolve them first
       const result = await UniversalPage({
         slug: 'test-page',
         title: 'Test Page',
         useContentAPI: true,
       });
 
+      // Then render the resolved JSX
       render(result);
 
       await waitFor(() => {
         const layout = screen.getByTestId('universal-layout');
         expect(layout).toBeInTheDocument();
-        expect(layout).toHaveAttribute('data-variant', 'article');
         expect(layout).toHaveAttribute('data-title', 'Test Page');
         expect(layout).toHaveAttribute('data-slug', 'test-page');
       });
@@ -114,6 +115,7 @@ describe('UniversalPage', () => {
       });
       mockMarked.mockResolvedValue(mockHtmlContent);
 
+      // Await the async component before rendering
       const result = await UniversalPage({
         slug: 'markdown-page',
         useContentAPI: false,
@@ -126,7 +128,6 @@ describe('UniversalPage', () => {
       await waitFor(() => {
         const layout = screen.getByTestId('universal-layout');
         expect(layout).toBeInTheDocument();
-        expect(layout).toHaveAttribute('data-variant', 'article');
         expect(layout).toHaveAttribute('data-title', 'Override Title');
       });
 
@@ -190,6 +191,7 @@ describe('UniversalPage', () => {
         components: mockComponents,
       });
 
+      // Await the async component before rendering
       const result = await UniversalPage({
         slug: 'minimal-props',
       });
@@ -210,6 +212,7 @@ describe('UniversalPage', () => {
         components: mockComponents,
       });
 
+      // Await the async component before rendering
       const result = await UniversalPage({
         slug: 'title-priority',
         title: 'Override Title',
@@ -240,6 +243,7 @@ describe('createPageComponent', () => {
     });
 
     const GeneratedComponent = createPageComponent(config);
+    // Await the async generated component before rendering
     const componentResult = await GeneratedComponent();
     render(componentResult);
 
@@ -299,6 +303,7 @@ describe('Integration with LayoutSystem', () => {
       components: mockComponents,
     });
 
+    // Await the async component before rendering
     const result = await UniversalPage({
       slug: 'integration-test',
       title: 'Integration Test',
@@ -309,7 +314,6 @@ describe('Integration with LayoutSystem', () => {
 
     await waitFor(() => {
       const layout = screen.getByTestId('universal-layout');
-      expect(layout).toHaveAttribute('data-variant', 'article');
       expect(layout).toHaveAttribute('data-title', 'Integration Test');
       expect(layout).toHaveAttribute('data-slug', 'integration-test');
     });

@@ -1,11 +1,14 @@
 ---
 name: Aluminum
 category: metal
-title: Laser Cleaning Aluminum
+title: Aluminum Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning metal aluminum
-description: Technical overview of Aluminum, Al, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: "Laser cleaning of aluminum utilizes short pulses (ns-range) from fiber\
+  \ lasers at 1064 nm wavelength. The process relies on the rapid thermal expansion\
+  \ of surface contaminants, which have a lower vaporization threshold than the underlying\
+  \ aluminum substrate (melting point ~660\xB0C). This allows for selective removal\
+  \ of oxides, paints, and oils while preserving the base material's integrity and\
+  \ preventing heat-affected zones (HAZ) when parameters are correctly optimized."
 keywords: aluminum, aluminum metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -14,55 +17,74 @@ chemicalProperties:
   formula: Al
   materialType: metal
 properties:
-  density: 2.70 g/cm³
+  density: "2.70 g/cm\xB3"
   densityNumeric: 2.7
-  densityUnit: g/cm³
-  densityMin: 0.5 g/cm³
-  densityMinNumeric: 0.5
-  densityMinUnit: g/cm³
-  densityMax: 20.0 g/cm³
-  densityMaxNumeric: 20.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 12.5
-  meltingPoint: 660.3°C
-  meltingPointNumeric: 660.3
-  meltingPointUnit: °C
-  meltingPercentile: 18.2
-  thermalConductivity: 237 W/m·K
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 21.4
+  meltingPoint: "660.32 \xB0C"
+  meltingPointNumeric: 660.32
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "237 W/(m\xB7K)"
   thermalConductivityNumeric: 237.0
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 85.7
-  tensileStrength: 40-50 MPa
-  tensileStrengthNumeric: 45.0
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 100.0
+  tensileStrength: 90 MPa to 690 MPa (highly dependent on alloy and temper)
+  tensileStrengthNumeric: 90.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 2.1
-  hardness: 15-25 HB
-  hardnessNumeric: 20.0
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 4.2
+  hardness: 15 HB to 120 HB (Brinell scale, alloy-dependent)
+  hardnessNumeric: 15.0
   hardnessUnit: HB
-  hardnessMin: 1 HB
+  hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
-  hardnessMinUnit: HB
-  hardnessMax: 3000 HB
-  hardnessMaxNumeric: 3000.0
-  hardnessMaxUnit: HB
-  hardnessPercentile: 0.5
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
   youngsModulus: 69 GPa
   youngsModulusNumeric: 69.0
   youngsModulusUnit: GPa
-  modulusMin: 1 GPa
-  modulusMinNumeric: 1.0
-  modulusMinUnit: GPa
-  modulusMax: 1000 GPa
-  modulusMaxNumeric: 1000.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 6.8
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 81.7
+  laserType: Fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: Al
 composition:
-- Aluminum (Al) 99.6%
-- Trace elements (Si, Fe, Na, Mg)
+- 'Aluminum (Al): 87.0% to 99.9% (alloy-dependent)'
+- 'Copper (Cu): 0.1% to 6.0%, Silicon (Si): 0.1% to 18.0%, Magnesium (Mg): 0.1% to
+  6.0%, Manganese (Mn): 0.1% to 2.0% (common alloying elements)'
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -73,8 +95,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-200ns
+  pulseDurationNumeric: 105.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -91,8 +113,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -109,41 +131,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Aluminum substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
+- 'Automotive: Removing paint and corrosion from aluminum car parts'
+- 'Aerospace: Cleaning aluminum aircraft components for surface preparation'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Stainless Steel 304/316
+- Titanium (Ti-6Al-4V)
+- Carbon Fiber Reinforced Polymer (CFRP)
+regulatoryStandards: ISO 9013:2017 (Thermal cutting), ISO 11553:2020 (Safety of machinery
+  - Laser processing machines), IEC 60825-1:2014 (Laser product safety)
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -163,20 +168,31 @@ images:
       surface structure
     url: /images/aluminum-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Elimination of chemical waste
+  description: Replaces chemical stripping methods (e.g., methylene chloride, acidic
+    solutions), eliminating ~500-1000 kg/year of hazardous waste per industrial system.
+- benefit: Reduced energy consumption
+  description: Operates at ~30-40% electrical-to-optical efficiency for fiber lasers,
+    compared to the high energy cost of chemical production, application, and disposal.
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface cleanliness to Sa 2.5
+  metric: Achievable according to ISO 8501-1 visual assessment standard, suitable
+    for welding and bonding.
+- result: "Processing speed up to 10 m\xB2/h"
+  metric: For paint removal from large aluminum panels using a 500W laser scanner
+    system.
+technicalSpecifications:
+  powerRange: 50 W to 500 W (pulsed fiber lasers)
+  pulseDuration: 4 ns to 200 ns
+  wavelength: 1064 nm (primary), 532 nm (for higher absorption on specific oxides)
+  spotSize: "50 \xB5m to 200 \xB5m (for precision cleaning)"
+  repetitionRate: 20 kHz to 300 kHz
+  fluenceRange: "1.5 J/cm\xB2 to 8.0 J/cm\xB2 (above ablation threshold, below damage\
+    \ threshold)"
+  scanningSpeed: 1000 mm/s to 10000 mm/s
+  beamProfile: Top-hat (flat-top) for uniform energy distribution and consistent cleaning
+  beamProfileOptions: Top-hat, Gaussian, Multimode
+  safetyClass: Class 4 (IEC 60825-1)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -184,8 +200,23 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T04:54:39Z'
+  verification_timestamp: '2025-09-20T21:06:35Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+chemicalFormula: Al
+symbol: Al
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 10-200ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Fiber laser
+tags:
+- Automotive
+- Aerospace
+complexity: medium
+difficultyScore: 3
 ---

@@ -1,73 +1,94 @@
 ---
 name: Soda-Lime Glass
 category: glass
-title: Laser Cleaning Soda-Lime Glass
+title: Soda-Lime Glass Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning glass soda-lime glass
-description: Technical overview of Soda-Lime Glass, Na2O·CaO·6SiO2, for laser cleaning
-  applications, including optimal 1064nm wavelength interaction, and industrial applications
-  in surface preparation.
+description: "Laser cleaning of soda-lime glass utilizes pulsed near-infrared radiation\
+  \ to selectively ablate surface contaminants without damaging the underlying substrate.\
+  \ The process relies on the differential absorption between the contaminant layer\
+  \ and the glass, with careful control of fluence to remain below the damage threshold\
+  \ of the bulk material (~5-10 J/cm\xB2)."
 keywords: soda-lime glass, soda-lime glass glass, laser ablation, laser cleaning,
   non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial
   laser parameters, thermal processing, surface restoration
 chemicalProperties:
-  symbol: SLG
-  formula: Na2O·CaO·6SiO2
+  symbol: N/A (Amorphous Solid)
+  formula: "~72% SiO\u2082, ~14% Na\u2082O, ~9% CaO, ~4% MgO, ~0.5% Al\u2082O\u2083"
   materialType: glass
 properties:
-  density: 2.5 g/cm³
+  density: "2.5 g/cm\xB3"
   densityNumeric: 2.5
-  densityUnit: g/cm³
-  densityMin: 2.2 g/cm³
-  densityMinNumeric: 2.2
-  densityMinUnit: g/cm³
-  densityMax: 2.8 g/cm³
-  densityMaxNumeric: 2.8
-  densityMaxUnit: g/cm³
-  densityPercentile: 45.8
-  meltingPoint: 550-600°C
-  meltingPointNumeric: 575.0
-  meltingPointUnit: °C
-  meltingPercentile: 32.1
-  thermalConductivity: 1.0 W/m·K
-  thermalConductivityNumeric: 1.0
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 18.5
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 16.7
+  meltingPoint: "~1000 \xB0C (softening point ~700 \xB0C)"
+  meltingPointNumeric: 1000.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.8-1.0 W/(m\xB7K)"
+  thermalConductivityNumeric: 0.9
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.2
   tensileStrength: 30-90 MPa
   tensileStrengthNumeric: 60.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 12.7
-  hardness: 5.5-6.5 Mohs
-  hardnessNumeric: 6.0
-  hardnessUnit: Mohs
-  hardnessMin: 4.0 Mohs
-  hardnessMinNumeric: 4.0
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 1.1
+  hardness: ~6 Mohs, 470-670 HK (Knoop)
+  hardnessNumeric: 570.0
+  hardnessUnit: HK
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
   hardnessMinUnit: Mohs
-  hardnessMax: 9.0 Mohs
-  hardnessMaxNumeric: 9.0
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 25.3
-  youngsModulus: 70 GPa
-  youngsModulusNumeric: 70.0
+  hardnessPercentile: 100.0
+  youngsModulus: 70-75 GPa
+  youngsModulusNumeric: 72.5
   youngsModulusUnit: GPa
-  modulusMin: 60 GPa
-  modulusMinNumeric: 60.0
-  modulusMinUnit: GPa
-  modulusMax: 80 GPa
-  modulusMaxNumeric: 80.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 35.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 87.5
+  laserType: pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: Na2O·CaO·6SiO2
+  fluenceRange: "0.5-5 J/cm\xB2"
+  chemicalFormula: "Amorphous network of SiO\u2082 modified by Na\u2082O and CaO"
 composition:
-- Silica (SiO2) 70-75%
-- Sodium Oxide (Na2O) 12-16%
-- Calcium Oxide (CaO) 8-12%
-- Trace elements (Al2O3, MgO, K2O)
+- "Silicon Dioxide (SiO\u2082): 70-75%"
+- "Sodium Oxide (Na\u2082O): 12-16%"
+- 'Calcium Oxide (CaO): 8-12%'
+- 'Magnesium Oxide (MgO): 1-4%'
+- "Aluminum Oxide (Al\u2082O\u2083): 0.5-1.5%"
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -75,8 +96,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +114,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +123,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
+  repetitionRate: 10-50kHz
+  repetitionRateNumeric: 30.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,41 +132,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRangeNumeric: 2.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Soda-Lime Glass substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and glass matrix composites
+- 'Automotive: Cleaning of glass surfaces for improved optical clarity'
+- 'Electronics: Surface preparation for better adhesion in PCB manufacturing'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Stainless Steel (for fixturing and handling systems)
+- "Aluminum Oxide (Al\u2082O\u2083) ceramics (for nozzle materials)"
+- PTFE (Polytetrafluoroethylene) and other high-temperature polymers
+regulatoryStandards: IEC 60825-1 (Safety of Laser Products), ANSI Z136.1 (Safe Use
+  of Lasers), ISO 11553 (Safety requirements for laser processing machines)
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -165,20 +169,34 @@ images:
       detailed surface structure
     url: /images/soda-lime-glass-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Elimination of Chemical Solvents
+  description: Replaces isopropyl alcohol, acetone, and other VOC-emitting solvents,
+    reducing hazardous air pollutants by 100% in the cleaning stage.
+- benefit: Reduced Water Consumption and Wastewater
+  description: Eliminates the need for water-based rinsing and ultrasonic baths, saving
+    approximately 1000 liters of water per hour of operation compared to traditional
+    methods.
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Non-contact, Selective Contaminant Removal
+  metric: Achieves >99.9% removal efficiency of sub-micron particles and organic films
+    without substrate damage.
+- result: High-Speed, Automated Processing
+  metric: "Enables cleaning speeds of 1-2 m\xB2 per hour with positioning accuracy\
+    \ of \xB110 \xB5m, suitable for inline manufacturing."
+technicalSpecifications:
+  powerRange: 20-100 W (average power for pulsed fiber lasers)
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer control)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5-5 J/cm\xB2 (above the ablation threshold of ~0.3 J/cm\xB2 for\
+    \ contaminants)"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat (flat-top) profile for uniform energy distribution and to prevent
+    localized thermal stress.
+  beamProfileOptions: Top-hat, Gaussian, Multi-mode
+  safetyClass: Class 4 (High-power laser system requiring engineered controls and
+    personal protective equipment)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -186,8 +204,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T06:16:22Z'
+  verification_timestamp: '2025-09-20T20:58:21Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-5 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: pulsed fiber laser
+tags:
+- Automotive
+- Electronics
+complexity: medium
+difficultyScore: 3
 ---

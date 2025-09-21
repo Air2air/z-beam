@@ -1,10 +1,12 @@
 ---
 name: Silicon
 category: semiconductor
-title: Laser Cleaning Silicon
+title: Silicon Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning semiconductor silicon
-description: Technical overview of Silicon, Si, for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: Laser cleaning of silicon utilizes precise pulsed laser ablation to remove
+  surface contaminants without damaging the underlying crystalline structure. The
+  process exploits silicon's high thermal conductivity and specific absorption characteristics
+  at near-IR wavelengths for selective material removal.
 keywords: silicon, silicon semiconductor, laser ablation, laser cleaning, non-contact
   cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -13,58 +15,76 @@ chemicalProperties:
   formula: Si
   materialType: semiconductor
 properties:
-  density: 2.33 g/cm³
-  densityNumeric: 2.33
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  density: "2.329 g/cm\xB3"
+  densityNumeric: 2.329
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 6.0 g/cm³
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
   densityMaxNumeric: 6.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 51.2
-  meltingPoint: 1414°C
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 12.6
+  meltingPoint: "1414 \xB0C"
   meltingPointNumeric: 1414.0
-  meltingPointUnit: °C
-  meltingPercentile: 54.5
-  thermalConductivity: 149 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 13.4
+  thermalConductivity: "149 W/(m\xB7K)"
   thermalConductivityNumeric: 149.0
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 14.8
-  tensileStrength: 400-600 MPa
-  tensileStrengthNumeric: 500.0
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 74.4
+  tensileStrength: 130-185 MPa
+  tensileStrengthNumeric: 157.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 26.3
-  hardness: 150-250 HB
-  hardnessNumeric: 200.0
-  hardnessUnit: HB
-  hardnessMin: 500 HV
-  hardnessMinNumeric: 500.0
-  hardnessMinUnit: HV
-  hardnessMax: 2500 HV
-  hardnessMaxNumeric: 2500.0
-  hardnessMaxUnit: HV
-  hardnessPercentile: 0.0
-  youngsModulus: 112 GPa
-  youngsModulusNumeric: 112.0
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 11.3
+  hardness: 7.0 Mohs (1000-1150 HV)
+  hardnessNumeric: 1075.0
+  hardnessUnit: HV
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
+  youngsModulus: 130-188 GPa
+  youngsModulusNumeric: 159.0
   youngsModulusUnit: GPa
-  modulusMin: 150 GPa
-  modulusMinNumeric: 150.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 92.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 100.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "0.5-5 J/cm\xB2"
   chemicalFormula: Si
 composition:
-- Silicon (Si) 99.9999%
-- Trace elements (B, P, As, O)
+- 'Silicon: 99.9999999% (electronic grade)'
+- 'Trace elements: Oxygen (<1 ppb), Carbon (<0.1 ppb), Boron (<0.1 ppb)'
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -72,8 +92,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -90,8 +110,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -99,8 +119,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
+  repetitionRate: 10-50kHz
+  repetitionRateNumeric: 30.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -108,41 +128,25 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRangeNumeric: 2.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Silicon substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and semiconductor matrix composites
+- 'Semiconductor Manufacturing: Wafer cleaning and surface preparation for microchip
+  fabrication'
+- 'Photovoltaics: Cleaning of solar cell surfaces to enhance efficiency and performance'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- "Silicon dioxide (SiO\u2082) - native oxide layer"
+- "Silicon nitride (Si\u2083N\u2084) - passivation layers"
+- Aluminum - metallization layers
+regulatoryStandards: SEMI S2-0315 (Environmental, Health, and Safety Guideline for
+  Semiconductor Manufacturing Equipment), IEC 60825-1 (Laser Product Safety)
 author: Alessandro Moretti
 author_object:
   id: 2
@@ -161,20 +165,29 @@ images:
       surface structure
     url: /images/silicon-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Elimination of chemical solvents
+  description: Reduces chemical waste by 95% compared to traditional RCA cleaning
+    methods, eliminating sulfuric acid, hydrogen peroxide, and ammonium hydroxide
+    usage
+- benefit: Reduced water consumption
+  description: Decreases water usage by 80-90% compared to wet chemical cleaning processes
+    requiring multiple rinse cycles
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: ">99.9% removal of organic contaminants and particles >0.1 \u03BCm"
+- result: Processing throughput
+  metric: 100-500 wafers/hour (200mm wafers) with sub-micron precision
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer control)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5-5 J/cm\xB2"
+  scanningSpeed: 100-1000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multi-mode
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -182,8 +195,22 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Italy
   author_id: 2
-  verification_timestamp: '2025-09-19T06:10:32Z'
+  verification_timestamp: '2025-09-20T21:36:28Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+chemicalFormula: Si
+laser_parameters:
+  fluence_threshold: "0.5-5 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Semiconductor Manufacturing
+- Photovoltaics
+complexity: medium
+difficultyScore: 3
 ---

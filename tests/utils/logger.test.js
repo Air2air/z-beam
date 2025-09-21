@@ -231,7 +231,7 @@ describe('Logger System', () => {
         testLogger.security('Unauthorized access attempt', { ip: '192.168.1.1' });
 
         expect(mockConsole.warn).toHaveBeenCalledWith(
-          '[SECURITY] SECURITY: Unauthorized access attempt',
+          '[SECURITY] Unauthorized access attempt',
           { ip: '192.168.1.1' }
         );
         expect(sendSpy).toHaveBeenCalledWith(expect.objectContaining({
@@ -302,25 +302,31 @@ describe('Logger System', () => {
     test('should return fallback and log error on failed operation', async () => {
       const operation = jest.fn().mockRejectedValue(new Error('Operation failed'));
       
+      // Spy on the singleton logger's error method
+      const loggerErrorSpy = jest.spyOn(logger, 'error');
+      
       const result = await handleAsyncError(operation, 'fallback', 'Operation failed');
       
       expect(result).toBe('fallback');
       expect(operation).toHaveBeenCalled();
-      expect(mockConsole.error).toHaveBeenCalledWith('[ERROR] Operation failed');
+      expect(loggerErrorSpy).toHaveBeenCalledWith('Operation failed', expect.any(Error));
+      
+      loggerErrorSpy.mockRestore();
     });
 
     test('should handle Z-Beam errors properly', async () => {
       const error = new SecurityError('Unsafe operation');
       const operation = jest.fn().mockRejectedValue(error);
       
+      // Spy on the singleton logger's error method
+      const loggerErrorSpy = jest.spyOn(logger, 'error');
+      
       const result = await handleAsyncError(operation, 'fallback', 'Security check failed');
       
       expect(result).toBe('fallback');
-      expect(mockConsole.error).toHaveBeenCalledWith('[ERROR] Security check failed');
-      expect(mockConsole.error).toHaveBeenCalledWith('Error Details:', expect.objectContaining({
-        code: 'SECURITY_ERROR',
-        category: 'security'
-      }));
+      expect(loggerErrorSpy).toHaveBeenCalledWith('Security check failed', expect.any(SecurityError));
+      
+      loggerErrorSpy.mockRestore();
     });
   });
 
@@ -338,29 +344,43 @@ describe('Logger System', () => {
     test('should return fallback and log error on failed operation', async () => {
       const operation = jest.fn().mockRejectedValue(new Error('Content not found'));
       
+      // Spy on the singleton logger's error method
+      const loggerErrorSpy = jest.spyOn(logger, 'error');
+      
       const result = await safeContentOperation(operation, 'fallback', 'loadContent', 'test-slug');
       
       expect(result).toBe('fallback');
       expect(operation).toHaveBeenCalled();
-      expect(mockConsole.error).toHaveBeenCalledWith('[ERROR] Content operation failed: loadContent');
+      expect(loggerErrorSpy).toHaveBeenCalledWith('Content operation failed: loadContent', expect.any(Error), { slug: 'test-slug' });
+      
+      loggerErrorSpy.mockRestore();
     });
 
     test('should include slug in error context', async () => {
       const operation = jest.fn().mockRejectedValue(new Error('Content not found'));
       
+      // Spy on the singleton logger's error method
+      const loggerErrorSpy = jest.spyOn(logger, 'error');
+      
       await safeContentOperation(operation, 'fallback', 'loadContent', 'test-slug');
       
-      expect(mockConsole.error).toHaveBeenCalledWith('Context:', { slug: 'test-slug' });
+      expect(loggerErrorSpy).toHaveBeenCalledWith('Content operation failed: loadContent', expect.any(Error), { slug: 'test-slug' });
+      
+      loggerErrorSpy.mockRestore();
     });
 
     test('should work without slug parameter', async () => {
       const operation = jest.fn().mockRejectedValue(new Error('Operation failed'));
       
+      // Spy on the singleton logger's error method
+      const loggerErrorSpy = jest.spyOn(logger, 'error');
+      
       const result = await safeContentOperation(operation, 'fallback', 'operation');
       
       expect(result).toBe('fallback');
-      expect(mockConsole.error).toHaveBeenCalledWith('[ERROR] Content operation failed: operation');
-      expect(mockConsole.error).toHaveBeenCalledWith('Context:', { slug: undefined });
+      expect(loggerErrorSpy).toHaveBeenCalledWith('Content operation failed: operation', expect.any(Error), { slug: undefined });
+      
+      loggerErrorSpy.mockRestore();
     });
   });
 

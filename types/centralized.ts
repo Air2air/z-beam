@@ -232,6 +232,30 @@ export interface LayoutProps {
   slug?: string;
   hideHeader?: boolean;
   hideFooter?: boolean;
+  children?: ReactNode;
+  title?: string;
+  description?: string;
+  className?: string;
+  fullWidth?: boolean; // For pages that need full-width sections
+}
+
+/**
+ * Search Results component props
+ */
+export interface SearchResultsProps {
+  items: SearchableArticle[];
+  initialTag?: string;
+  placeholder?: string;
+  columns?: 1 | 2 | 3 | 4;
+  className?: string;
+  showTagFilter?: boolean;
+}
+
+/**
+ * Search Client component props
+ */
+export interface SearchClientProps {
+  initialArticles: Article[];
 }
 
 /**
@@ -264,12 +288,21 @@ export interface ComponentData {
   config?: Record<string, unknown>;
 }
 
+/**
+ * Page data structure combining metadata and components
+ */
+export interface PageData {
+  metadata: Record<string, unknown>;
+  components: { [componentType: string]: ComponentData };
+}
+
 // ===============================
 // UI COMPONENT TYPES
 // ===============================
 
 export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'solid' | 'subtle';
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
+export type ComponentType = 'propertiestable' | 'badgesymbol' | 'content' | 'caption' | 'bullets' | 'table' | 'tags';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';
@@ -282,6 +315,14 @@ export type MaterialType =
   | 'composite' 
   | 'semiconductor'
   | 'other';
+
+/**
+ * Markdown metadata interface
+ */
+export interface MarkdownMetadata extends ArticleMetadata {
+  frontmatter?: Record<string, unknown>;
+  markdownContent?: string;
+}
 
 /**
  * Base interactive component props
@@ -502,6 +543,39 @@ export interface CompositionData {
   percentage: string;
   type: string;
   formula?: string;
+}
+
+//===============================
+// VALIDATION TYPES
+// ===============================
+
+/**
+ * Validation result structure
+ */
+export interface ValidationResult {
+  isValid: boolean;
+  errors: string[];
+}
+
+/**
+ * Content structure for validation
+ */
+export interface ContentStructure {
+  title?: string;
+  slug?: string;
+  content?: string;
+  [key: string]: any;
+}
+
+/**
+ * Image metadata structure for validation
+ */
+export interface ImageMetadata {
+  src?: string;
+  alt?: string;
+  width?: number | string;
+  height?: number | string;
+  [key: string]: any;
 }
 
 // ===============================

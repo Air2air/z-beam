@@ -5,18 +5,8 @@ import { UnifiedArticleGrid } from "../ArticleGrid/UnifiedArticleGrid";
 import { SearchHeader } from "./SearchHeader";
 import { SearchResultsCount } from "./SearchResultsCount";
 import { EmptySearchResults } from "./EmptySearchResults";
-import { SearchResultItem } from "@/types";
-import { Article, SearchableArticle } from "@/types";
+import { SearchResultItem, Article, SearchableArticle, SearchResultsProps } from "@/types";
 import { extractSafeValue, safeIncludes } from "@/app/utils/stringHelpers";
-
-interface SearchResultsProps {
-  items: SearchableArticle[];
-  initialTag?: string;
-  placeholder?: string;
-  columns?: 1 | 2 | 3 | 4;
-  className?: string;
-  showTagFilter?: boolean;
-}
 
 export function SearchResults({
   items,

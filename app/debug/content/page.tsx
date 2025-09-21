@@ -1,7 +1,7 @@
 'use client';
 // app/debug/content/page.tsx
 
-import { DebugLayout } from '../../components/Debug/DebugLayout';
+import { DebugLayout } from '../../components/Layout/DebugLayout';
 import { FrontmatterDebug } from '../../components/Debug/FrontmatterDebug';
 import { FrontmatterNameChecker } from '../../components/Debug/FrontmatterNameChecker';
 import { useState } from 'react';

@@ -1,42 +1,64 @@
 ---
 name: Shale
 category: stone
-title: Laser Cleaning Shale
+title: Shale Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning stone shale
-description: Technical overview of Shale, None, for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: Shale laser cleaning utilizes precise pulsed fiber laser parameters to
+  selectively ablate contaminants while preserving the delicate clay mineral matrix.
+  The process exploits differential absorption between contaminants and the shale
+  substrate, with optimal results achieved at 1064nm wavelength where clay minerals
+  exhibit moderate absorption.
 keywords: shale, shale stone, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: None
-  formula: None
-  materialType: stone
+  symbol: N/A (complex mineral composite)
+  formula: "Variable composition: primarily (K,H\u2083O)(Al,Mg,Fe)\u2082(Si,Al)\u2084\
+    O\u2081\u2080[(OH)\u2082,(H\u2082O)] for clay minerals"
+  materialType: sedimentary rock
 properties:
-  density: 2.4 g/cm³
-  densityNumeric: 2.4
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  density: "2.0-2.7 g/cm\xB3"
+  densityNumeric: 2.35
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 3.0 g/cm³
-  densityMaxNumeric: 3.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 60.0
-  meltingPoint: 1200-1400°C
-  meltingPointNumeric: 1300.0
-  meltingPointUnit: °C
-  meltingPercentile: 45.2
-  thermalConductivity: 1.5 W/m·K
-  thermalConductivityNumeric: 1.5
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 2.5
-  tensileStrength: 10-30 MPa
-  tensileStrengthNumeric: 20.0
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 13.1
+  meltingPoint: "1200-1600\xB0C (varies with mineral composition)"
+  meltingPointNumeric: 1400.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 12.5
+  thermalConductivity: "1.5-2.5 W/(m\xB7K)"
+  thermalConductivityNumeric: 2.0
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.8
+  tensileStrength: 3-30 MPa (highly anisotropic)
+  tensileStrengthNumeric: 16.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 3.8
-  hardness: 2-3 Mohs
-  hardnessNumeric: 2.5
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: 2-4 Mohs scale
+  hardnessNumeric: 3.0
   hardnessUnit: Mohs
   hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
@@ -44,26 +66,27 @@ properties:
   hardnessMax: 10 Mohs
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 20.0
-  youngsModulus: 20 GPa
-  youngsModulusNumeric: 20.0
+  hardnessPercentile: 22.2
+  youngsModulus: 10-70 GPa (varies with bedding orientation)
+  youngsModulusNumeric: 40.0
   youngsModulusUnit: GPa
-  modulusMin: 1 GPa
-  modulusMinNumeric: 1.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 12.5
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 33.3
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: None
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  chemicalFormula: 'Variable: primarily clay minerals (illite, kaolinite, smectite)
+    + quartz + feldspar'
 composition:
-- Clay minerals (illite, kaolinite) 60-70%
-- Quartz 20-30%
-- Feldspar 5-10%
-- Iron oxides and carbonates 2-5%
+- 'Clay minerals (illite, kaolinite, smectite): 40-70%'
+- 'Quartz: 20-40%'
+- 'Feldspar: 5-15%'
+- 'Carbonates, iron oxides, organic matter: 5-15%'
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -74,8 +97,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 5-50ns
+  pulseDurationNumeric: 27.5
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -92,8 +115,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.5-3.0mm
+  spotSizeNumeric: 1.75
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -110,41 +133,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Shale substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and stone matrix composites
+- 'Oil and Gas: Cleaning of shale drill bits and tools'
+- 'Construction: Restoration of shale surfaces in building exteriors'
 compatibility:
-- Stone and masonry surfaces
-- Historical artifacts
-- Building materials
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Stainless steel fixtures and enclosures
+- Aluminum mounting systems
+- Quartz and borosilicate glass viewing windows
+regulatoryStandards: IEC 60825-1:2014 (Laser safety), OSHA 29 CFR 1910.1096 (Ionizing
+  radiation), NFPA 70E (Electrical safety)
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -163,20 +169,28 @@ images:
       structure
     url: /images/shale-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates 100% of chemical solvents and abrasive media typically used
+    in traditional shale cleaning methods
+- benefit: Reduced energy consumption
+  description: Laser cleaning consumes 60-70% less energy compared to high-pressure
+    water or abrasive blasting methods for shale surfaces
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>99% removal of organic deposits and mineral scale without substrate damage'
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination level and laser parameters"
+technicalSpecifications:
+  powerRange: 50-200 W
+  pulseDuration: 5-50 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for selective absorption)
+  spotSize: 0.5-3.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "1.0-10 J/cm\xB2"
+  scanningSpeed: 500-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multimode
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -184,8 +198,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T06:09:42Z'
+  verification_timestamp: '2025-09-20T21:52:02Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 5-50ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.5-3.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Oil and Gas
+complexity: medium
+difficultyScore: 3
 ---

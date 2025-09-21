@@ -1,67 +1,88 @@
 ---
 name: Niobium
 category: metal
-title: Laser Cleaning Niobium
+title: Niobium Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning metal niobium
-description: Technical overview of Niobium, Nb, for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: Laser cleaning of niobium utilizes pulsed fiber lasers to selectively
+  ablate surface contaminants (oxides, oils, particulates) without damaging the underlying
+  substrate. Its high melting point and thermal conductivity require precise control
+  of fluence to avoid surface melting or micro-cracking, making it ideal for preparing
+  superconducting surfaces and high-performance aerospace alloys.
 keywords: niobium, niobium metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration
+  thermal processing, surface restoration, SRF cavities, C-103 alloy
 chemicalProperties:
   symbol: Nb
   formula: Nb
   materialType: metal
 properties:
-  density: 8.57 g/cm³
+  density: "8.57 g/cm\xB3"
   densityNumeric: 8.57
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 6.0 g/cm³
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
   densityMaxNumeric: 6.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 51.2
-  meltingPoint: 2477°C
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "2477 \xB0C"
   meltingPointNumeric: 2477.0
-  meltingPointUnit: °C
-  meltingPercentile: 54.5
-  thermalConductivity: 53.7 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 79.8
+  thermalConductivity: "53.7 W/(m\xB7K)"
   thermalConductivityNumeric: 53.7
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 14.8
-  tensileStrength: 275 MPa
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 26.7
+  tensileStrength: 275 MPa (annealed pure Nb)
   tensileStrengthNumeric: 275.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 26.3
-  hardness: 75 HB
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 23.7
+  hardness: 75 HV (annealed pure Nb)
   hardnessNumeric: 75.0
-  hardnessUnit: HB
-  hardnessMin: 500 HV
-  hardnessMinNumeric: 500.0
-  hardnessMinUnit: HV
-  hardnessMax: 2500 HV
-  hardnessMaxNumeric: 2500.0
-  hardnessMaxUnit: HV
-  hardnessPercentile: 0.0
+  hardnessUnit: HV
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
   youngsModulus: 105 GPa
   youngsModulusNumeric: 105.0
   youngsModulusUnit: GPa
-  modulusMin: 150 GPa
-  modulusMinNumeric: 150.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 92.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 100.0
+  laserType: pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: Nb
 composition:
-- Niobium (Nb) 99.6%
-- Trace elements (Si, Fe, Na, Mg)
+- 'Niobium (Nb): > 99.9% (Reactor Grade)'
+- 'Tantalum (Ta): < 0.1%, Zirconium (Zr): < 0.01%, other trace elements'
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -72,8 +93,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -90,8 +111,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -108,41 +129,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Niobium substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
+- 'Aerospace: Cleaning of niobium components for jet engine parts'
+- 'Electronics: Surface preparation of niobium for superconducting applications'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Stainless Steel (for fixturing and tooling)
+- Tantalum (processes with similar laser parameters)
+regulatoryStandards: ANSI Z136.1 (Safe Use of Lasers), ISO 11553 (Safety of Laser
+  Processing Machines)
 author: Todd Dunning
 author_object:
   id: 4
@@ -161,20 +164,32 @@ images:
       surface structure
     url: /images/niobium-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Elimination of Chemical Solvents
+  description: Replaces hazardous chemical cleaning methods (e.g., acid pickling,
+    BCP/EP) for SRF cavities, eliminating thousands of liters of acidic waste (HF/HNO3/H3PO4)
+    per accelerator project.
+- benefit: Reduced Energy Consumption
+  description: Non-thermal process requires energy only at the point of cleaning,
+    unlike furnace heat treatments which consume significant energy to heat entire
+    components and the surrounding atmosphere.
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
+- result: Surface Cleanliness Achieved
+  metric: Hydrocarbon removal > 99.9%, achieving surface conditions necessary for
+    high-performance superconducting applications (Q0 > 1x10^10).
 - result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+  metric: "Achievable cleaning rates of 0.5 - 2.0 m\xB2/hour depending on contamination\
+    \ level and required surface finish."
+technicalSpecifications:
+  powerRange: 50-200 W (pulsed)
+  pulseDuration: 10-50 ns
+  wavelength: 1064 nm (primary), 532 nm (for higher precision)
+  spotSize: 0.1-1.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  scanningSpeed: 500-5000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian (adjustable)
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -182,8 +197,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: United States (California)
   author_id: 4
-  verification_timestamp: '2025-09-19T05:42:13Z'
+  verification_timestamp: '2025-09-20T21:22:19Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: pulsed fiber laser
+tags:
+- Aerospace
+- Electronics
+complexity: medium
+difficultyScore: 3
 ---

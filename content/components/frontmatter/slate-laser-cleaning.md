@@ -1,71 +1,96 @@
 ---
 name: Slate
 category: stone
-title: Laser Cleaning Slate
+title: Slate Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning stone slate
-description: Technical overview of Slate, Al2O3·SiO2, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: Slate laser cleaning utilizes precise pulsed laser ablation to remove
+  surface contaminants while preserving the underlying metamorphic rock structure.
+  The process exploits differential absorption between contaminants and the slate
+  substrate, with optimal parameters targeting 1064nm wavelength for effective removal
+  of organic and inorganic deposits without thermal damage to the phyllosilicate matrix.
 keywords: slate, slate stone, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Slate
-  formula: Al2O3·SiO2
-  materialType: stone
+  symbol: N/A (complex mineral composite)
+  formula: "Variable composition (primarily SiO\u2082, Al\u2082O\u2083, K\u2082O,\
+    \ Fe\u2082O\u2083, MgO)"
+  materialType: metamorphic rock
 properties:
-  density: 2.6-2.8 g/cm³
-  densityNumeric: 2.7
-  densityUnit: g/cm³
-  densityMin: 2.6 g/cm³
-  densityMinNumeric: 2.6
-  densityMinUnit: g/cm³
-  densityMax: 2.8 g/cm³
-  densityMaxNumeric: 2.8
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.1
-  meltingPoint: 1200-1400°C
+  density: "2.6-2.9 g/cm\xB3"
+  densityNumeric: 2.75
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 22.6
+  meltingPoint: "~1200-1400\xB0C (decomposition rather than distinct melting)"
   meltingPointNumeric: 1300.0
-  meltingPointUnit: °C
-  meltingPercentile: 38.7
-  thermalConductivity: 2.0-2.5 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 6.2
+  thermalConductivity: "2.0-2.5 W/(m\xB7K) (anisotropic - higher parallel to cleavage)"
   thermalConductivityNumeric: 2.25
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 8.2
-  tensileStrength: 30-50 MPa
-  tensileStrengthNumeric: 40.0
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.9
+  tensileStrength: 15-30 MPa (perpendicular to cleavage plane)
+  tensileStrengthNumeric: 22.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 12.5
-  hardness: 3-4 Mohs
-  hardnessNumeric: 3.5
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: 2.5-4.0 Mohs scale
+  hardnessNumeric: 3.25
   hardnessUnit: Mohs
-  hardnessMin: 3 Mohs
-  hardnessMinNumeric: 3.0
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
   hardnessMinUnit: Mohs
-  hardnessMax: 4 Mohs
-  hardnessMaxNumeric: 4.0
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 15.3
-  youngsModulus: 40-60 GPa
-  youngsModulusNumeric: 50.0
+  hardnessPercentile: 25.0
+  youngsModulus: 40-70 GPa (varies with orientation and mineral composition)
+  youngsModulusNumeric: 55.0
   youngsModulusUnit: GPa
-  modulusMin: 40 GPa
-  modulusMinNumeric: 40.0
-  modulusMinUnit: GPa
-  modulusMax: 60 GPa
-  modulusMaxNumeric: 60.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 35.8
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 58.3
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: Al2O3·SiO2
+  fluenceRange: "0.5-5 J/cm\xB2"
+  chemicalFormula: Complex silicate composition (no single formula)
 composition:
-- Slate (Al2O3·SiO2) 99.6%
-- Trace elements (Si, Fe, Na, Mg)
+- "Quartz (SiO\u2082): 20-40%"
+- "Muscovite/Illite (KAl\u2082(AlSi\u2083O\u2081\u2080)(OH)\u2082): 30-50%"
+- "Chlorite ((Mg,Fe)\u2083(Si,Al)\u2084O\u2081\u2080(OH)\u2082\xB7(Mg,Fe)\u2083(OH)\u2086\
+  ): 10-25%"
+- "Iron oxides (Fe\u2082O\u2083/FeO): 3-15%"
+- 'Accessory minerals: Carbonates, feldspars, pyrite (1-5%)'
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -73,8 +98,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -91,8 +116,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -100,8 +125,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
+  repetitionRate: 10-50kHz
+  repetitionRateNumeric: 30.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -109,41 +134,25 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRangeNumeric: 2.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Slate substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and stone matrix composites
+- 'Construction: Removal of graffiti and paint from slate building facades'
+- 'Restoration: Cleaning of historical slate monuments and gravestones'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Historical building materials (limestone, sandstone, marble)
+- Metallic substrates (when cleaning adjacent areas)
+- Traditional conservation materials (lime mortars, natural pigments)
+regulatoryStandards: EN 15898:2019 (Conservation of cultural heritage - Main general
+  terms and definitions), EN 17138:2018 (Conservation of cultural heritage - Methods
+  and materials for cleaning porous inorganic materials)
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -162,20 +171,29 @@ images:
       structure
     url: /images/slate-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates 100% of chemical solvents and detergents traditionally used
+    in slate cleaning, preventing groundwater contamination
+- benefit: Reduced water consumption
+  description: Uses 95% less water compared to high-pressure water jet cleaning methods
+    (typically 0.5L/min vs 10L/min for water jets)
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>95% removal of biological growth and pollution crusts with substrate preservation'
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination type and laser parameters"
+technicalSpecifications:
+  powerRange: 20-100 W (average power for pulsed fiber lasers)
+  pulseDuration: 10-100 ns (nanosecond pulses optimal for controlled ablation)
+  wavelength: 1064 nm (primary), 532 nm (optional for specific contaminant types)
+  spotSize: 0.1-2.0 mm (adjustable based on contamination type and area)
+  repetitionRate: 10-50 kHz (optimized for thermal relaxation between pulses)
+  fluenceRange: "0.5-5 J/cm\xB2 (below slate ablation threshold of ~6 J/cm\xB2)"
+  scanningSpeed: 100-2000 mm/s (variable based on contamination thickness)
+  beamProfile: Top-hat (flat-top) profile for uniform energy distribution
+  beamProfileOptions: Top-hat, Gaussian, Multi-spot
+  safetyClass: Class 4 laser safety requirements with appropriate enclosures and personal
+    protective equipment
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -183,8 +201,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T06:14:41Z'
+  verification_timestamp: '2025-09-20T21:52:53Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-5 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Restoration
+complexity: medium
+difficultyScore: 3
 ---

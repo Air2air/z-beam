@@ -1,5 +1,6 @@
 // Quick test page for property search functionality
 import Link from 'next/link';
+import { CONTAINER_STYLES } from '../utils/containerStyles';
 
 export default function TestRangePage() {
   // Test data for display
@@ -14,7 +15,7 @@ export default function TestRangePage() {
   ];
   
   return (
-    <div className="max-w-4xl mx-auto p-8">
+    <div className={CONTAINER_STYLES.standard}>
       <h1 className="text-3xl font-bold mb-6">Property Search Test Page</h1>
       
       <div className="mb-8">

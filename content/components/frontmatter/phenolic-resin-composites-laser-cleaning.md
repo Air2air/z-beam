@@ -1,72 +1,93 @@
 ---
 name: Phenolic Resin Composites
 category: composite
-title: Laser Cleaning Phenolic Resin Composites
-headline: Comprehensive technical guide for laser cleaning phenolic resin composites
-description: Technical overview of phenolic resin composites for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
-keywords: phenolic resin composites, phenolic-fiber composite, laser ablation, laser
-  cleaning, non-contact cleaning, pulsed fiber laser, surface contamination removal,
-  industrial laser parameters, thermal processing, surface restoration
+title: Phenolic Resin Composites Laser Cleaning
+headline: Comprehensive technical guide for laser cleaning composite phenolic resin
+  composites
+description: Laser cleaning of phenolic resin composites utilizes precise pulsed fiber
+  laser parameters to selectively remove surface contaminants while preserving the
+  thermoset polymer matrix and reinforcing fibers. The process exploits differential
+  absorption characteristics between contaminants and the composite substrate.
+keywords: phenolic resin composites, phenolic resin composites composite, laser ablation,
+  laser cleaning, non-contact cleaning, pulsed fiber laser, surface contamination
+  removal, industrial laser parameters, thermal processing, surface restoration
 chemicalProperties:
-  symbol: PhRC
-  formula: Phenolic-Fiber
+  symbol: "C7H6O2\xB7C6H6O (base resin)"
+  formula: "(C7H6O2\xB7C6H6O)n + reinforcing fibers (glass/carbon)"
   materialType: composite
 properties:
-  density: 1.3-1.9 g/cm³
-  densityNumeric: 1.6
-  densityUnit: g/cm³
-  densityMin: 1.2 g/cm³
-  densityMinNumeric: 1.2
-  densityMinUnit: g/cm³
-  densityMax: 2.2 g/cm³
-  densityMaxNumeric: 2.2
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.8
-  meltingPoint: 150-200°C
-  meltingPointNumeric: 175.0
-  meltingPointUnit: °C
-  meltingPercentile: 35.2
-  thermalConductivity: 0.15-0.25 W/m·K
-  thermalConductivityNumeric: 0.2
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 18.7
-  tensileStrength: 30-60 MPa
-  tensileStrengthNumeric: 45.0
+  density: "1.25-1.90 g/cm\xB3 (varies with reinforcement)"
+  densityNumeric: 1.57
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 0.0
+  meltingPoint: "Decomposes at 200-300\xB0C (does not melt)"
+  meltingPointNumeric: 250.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.15-0.35 W/m\xB7K"
+  thermalConductivityNumeric: 0.25
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 30-100 MPa
+  tensileStrengthNumeric: 65.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 15.4
-  hardness: 80-120 HB
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 1.6
+  hardness: 80-120 Barcol (scale 934-1)
   hardnessNumeric: 100.0
-  hardnessUnit: HB
-  hardnessMin: 60 HB
-  hardnessMinNumeric: 60.0
-  hardnessMinUnit: HB
-  hardnessMax: 150 HB
-  hardnessMaxNumeric: 150.0
-  hardnessMaxUnit: HB
-  hardnessPercentile: 22.1
-  youngsModulus: 3-8 GPa
-  youngsModulusNumeric: 5.5
+  hardnessUnit: Barcol
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
+  youngsModulus: 3-20 GPa
+  youngsModulusNumeric: 11.5
   youngsModulusUnit: GPa
-  modulusMin: 2 GPa
-  modulusMinNumeric: 2.0
-  modulusMinUnit: GPa
-  modulusMax: 12 GPa
-  modulusMaxNumeric: 12.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 28.9
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–3.0 J/cm²
-  chemicalFormula: Phenolic-Fiber
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  chemicalFormula: "(C7H6O2\xB7C6H6O)n + filler/reinforcement"
 composition:
-- Phenolic Resin 40-60%
-- Cellulose Fiber 30-50%
-- Additives and Fillers 5-15%
+- 'Phenolic resin matrix: 40-60%'
+- 'Glass fiber reinforcement: 30-50%'
+- 'Mineral fillers (clay, talc): 5-15%'
+- 'Additives (curing agents, modifiers): 2-8%'
 machineSettings:
-  powerRange: 20-100W
-  powerRangeNumeric: 60.0
+  powerRange: 50-200W
+  powerRangeNumeric: 125.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -74,8 +95,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 20-200ns
+  pulseDurationNumeric: 110.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -83,7 +104,7 @@ machineSettings:
   pulseDurationMax: 1000ns
   pulseDurationMaxNumeric: 1000.0
   pulseDurationMaxUnit: ns
-  wavelength: 1064nm (primary), 355nm (optional)
+  wavelength: 1064nm (primary), 532nm (optional)
   wavelengthNumeric: 1064.0
   wavelengthUnit: nm
   wavelengthMin: 355nm
@@ -92,8 +113,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.1-2.0mm
-  spotSizeNumeric: 1.05
+  spotSize: 0.05-1.0mm
+  spotSizeNumeric: 0.525
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -101,8 +122,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 10-50kHz
-  repetitionRateNumeric: 30.0
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -110,42 +131,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–3.0 J/cm²
-  fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRangeNumeric: 1.0
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from phenolic resin composite
-    substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and composite matrix surfaces
+- 'Aerospace: Removal of surface contaminants from composite parts'
+- 'Automotive: Cleaning of phenolic resin components for enhanced bonding'
 compatibility:
-- Epoxy Resins
-- Fiberglass
-- Carbon Fiber Composites
-regulatoryStandards: ISO 14527, ASTM D5941, IEC 60811
+- Glass fiber reinforced composites
+- Carbon fiber reinforced polymers (with parameter adjustment)
+- Thermoset polymer matrices
+regulatoryStandards: ISO 14001:2015, ANSI Z136.1, IEC 60825-1, OSHA 29 CFR 1910.1096
 author: Todd Dunning
 author_object:
   id: 4
@@ -157,28 +159,38 @@ author_object:
   image: /images/author/todd-dunning.jpg
 images:
   hero:
-    alt: Phenolic resin composite surface undergoing laser cleaning showing precise
+    alt: Phenolic Resin Composites surface undergoing laser cleaning showing precise
       contamination removal
     url: /images/phenolic-resin-composites-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of phenolic resin composite surface after laser cleaning
+    alt: Microscopic view of Phenolic Resin Composites surface after laser cleaning
       showing detailed surface structure
     url: /images/phenolic-resin-composites-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 95% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 2000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than thermal cleaning processes
+- benefit: 95% reduction in chemical solvent usage
+  description: Eliminates need for methylene chloride, acetone, and other hazardous
+    solvents typically used in phenolic composite cleaning
+- benefit: Zero wastewater generation
+  description: Dry process eliminates contaminated wastewater streams associated with
+    traditional chemical and abrasive cleaning methods
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 8 cleanliness standard
-- result: Material Removal Precision
-  metric: ±2μm accuracy with minimal substrate damage
-- result: Processing Speed
-  metric: 1-3 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal >99%
+  metric: Verified via SEM/EDS analysis showing complete contaminant removal without
+    substrate damage
+- result: "Processing speed 2-5 m\xB2/hour"
+  metric: Achievable cleaning rates for typical aerospace composite components with
+    100-500 mm/s scanning speeds
+technicalSpecifications:
+  powerRange: 50-200 W
+  pulseDuration: 20-200 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for selective removal)
+  spotSize: 0.05-1.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "1.0-10 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat or flat-top
+  beamProfileOptions: Top-hat, flat-top, Gaussian (with caution)
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -186,8 +198,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: United States (California)
   author_id: 4
-  verification_timestamp: '2025-09-19T05:45:36Z'
+  verification_timestamp: '2025-09-20T20:45:22Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 20-200ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.05-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Automotive
+- Aerospace
+complexity: medium
+difficultyScore: 3
 ---

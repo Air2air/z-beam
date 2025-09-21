@@ -3,25 +3,7 @@
  * For validating content structure and data
  */
 
-interface ValidationResult {
-  isValid: boolean;
-  errors: string[];
-}
-
-interface ContentStructure {
-  title?: string;
-  slug?: string;
-  content?: string;
-  [key: string]: any;
-}
-
-interface ImageMetadata {
-  src?: string;
-  alt?: string;
-  width?: number | string;
-  height?: number | string;
-  [key: string]: any;
-}
+import { ValidationResult, ContentStructure, ImageMetadata } from '@/types';
 
 export function validateContentStructure(content: ContentStructure): ValidationResult {
   const errors: string[] = [];

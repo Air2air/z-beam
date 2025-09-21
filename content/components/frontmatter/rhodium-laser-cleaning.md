@@ -1,10 +1,12 @@
 ---
 name: Rhodium
 category: metal
-title: Laser Cleaning Rhodium
+title: Rhodium Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning metal rhodium
-description: Technical overview of Rhodium for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: Laser cleaning of rhodium utilizes short pulses from a fiber laser to
+  selectively ablate surface contaminants. Rhodium's high reflectivity (~80% at 1064
+  nm) and thermal conductivity require precise fluence control to overcome reflectivity
+  and achieve efficient ablation without melting the precious metal substrate.
 keywords: rhodium, rhodium metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -13,58 +15,76 @@ chemicalProperties:
   formula: Rh
   materialType: metal
 properties:
-  density: 12.41 g/cm³
+  density: "12.41 g/cm\xB3"
   densityNumeric: 12.41
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 22.6 g/cm³
-  densityMaxNumeric: 22.6
-  densityMaxUnit: g/cm³
-  densityPercentile: 68.4
-  meltingPoint: 1964°C
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "1964 \xB0C"
   meltingPointNumeric: 1964.0
-  meltingPointUnit: °C
-  meltingPercentile: 82.1
-  thermalConductivity: 150 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 47.8
+  thermalConductivity: "150 W/(m\xB7K)"
   thermalConductivityNumeric: 150.0
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 34.9
-  tensileStrength: 950 MPa
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 74.9
+  tensileStrength: 950 MPa (annealed)
   tensileStrengthNumeric: 950.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 75.8
-  hardness: 1100-1200 HV
-  hardnessNumeric: 1150.0
-  hardnessUnit: HV
-  hardnessMin: 500 HV
-  hardnessMinNumeric: 500.0
-  hardnessMinUnit: HV
-  hardnessMax: 2500 HV
-  hardnessMaxNumeric: 2500.0
-  hardnessMaxUnit: HV
-  hardnessPercentile: 40.0
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 94.7
+  hardness: 1100 MPa (Vickers)
+  hardnessNumeric: 1100.0
+  hardnessUnit: MPa
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
   youngsModulus: 380 GPa
   youngsModulusNumeric: 380.0
   youngsModulusUnit: GPa
-  modulusMin: 150 GPa
-  modulusMinNumeric: 150.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
   modulusPercentile: 100.0
-  laserType: Pulsed Fiber Laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  laserType: pulsed fiber laser
+  wavelength: 1064 nm
+  fluenceRange: "0.5\u20135 J/cm\xB2"
   chemicalFormula: Rh
 composition:
-- Rhodium (Rh) 99.9%
-- Trace elements (Pt, Pd, Ir)
+- 'Rhodium (Rh): 99.9-99.99% (commercial grade)'
+- 'Trace impurities: <0.1% (typically Ir, Pt, Pd, Fe)'
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -72,8 +92,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -81,7 +101,7 @@ machineSettings:
   pulseDurationMax: 1000ns
   pulseDurationMaxNumeric: 1000.0
   pulseDurationMaxUnit: ns
-  wavelength: 1064nm (primary), 532nm (optional)
+  wavelength: 1064 nm (primary), 532nm (optional)
   wavelengthNumeric: 1064.0
   wavelengthUnit: nm
   wavelengthMin: 355nm
@@ -90,8 +110,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -99,8 +119,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
+  repetitionRate: 10-50kHz
+  repetitionRateNumeric: 30.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -108,41 +128,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRangeNumeric: 0.5
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Rhodium substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
+- 'Aerospace: Removing oxidation and coatings from turbine blades'
+- 'Jewelry: Cleaning and restoring rhodium-plated surfaces'
 compatibility:
-- Platinum
-- Palladium
-- Iridium
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Platinum group metals (Platinum, Palladium)
+- High-temperature superalloys (Inconel, Hastelloy)
+- Stainless steel substrates
+regulatoryStandards: IEC 60825-1 (Laser Product Safety), OSHA 29 CFR 1910.1096 (Ionizing
+  Radiation), ISO 11553 (Safety of Laser Processing Machines)
 author: Alessandro Moretti
 author_object:
   id: 2
@@ -161,20 +164,29 @@ images:
       surface structure
     url: /images/rhodium-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates use of nitric acid, cyanide-based, and sulfuric acid baths
+    traditionally used for rhodium cleaning, preventing hazardous waste streams.
+- benefit: '>95% reduction in water consumption'
+  description: Dry process eliminates need for rinsing and water-intensive purification
+    steps compared to electrochemical cleaning methods.
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal >99.9%
+  metric: Achieved via SEM-EDS analysis with no measurable substrate damage
+- result: "Processing speed up to 0.5 m\xB2/hour"
+  metric: For oxidation removal from rhodium-plated aerospace components at 50W average
+    power
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for higher precision)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5\u20135 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian (fundamental mode)
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -182,8 +194,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Italy
   author_id: 2
-  verification_timestamp: '2025-09-19T06:03:52Z'
+  verification_timestamp: '2025-09-20T21:25:29Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5\u20135 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064 nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: pulsed fiber laser
+tags:
+- Jewelry
+- Aerospace
+complexity: medium
+difficultyScore: 3
 ---

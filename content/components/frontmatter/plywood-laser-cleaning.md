@@ -1,70 +1,89 @@
 ---
 name: Plywood
 category: wood
-title: Laser Cleaning Plywood
+title: Plywood Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning wood plywood
-description: Technical overview of Plywood, C6H10O5+Adhesive, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: Plywood laser cleaning utilizes precise pulsed fiber laser parameters
+  to selectively remove surface contaminants without damaging the underlying wood
+  veneer layers. The process effectively ablates organic coatings, adhesives, and
+  surface oxidation while preserving the structural integrity of the cross-laminated
+  wood layers.
 keywords: plywood, plywood wood, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Plywood
-  formula: C6H10O5+Adhesive
+  symbol: "C\u2086H\u2081\u2080O\u2085"
+  formula: "(C\u2086H\u2081\u2080O\u2085)\u2099"
   materialType: wood
 properties:
-  density: 0.5-0.7 g/cm³
-  densityNumeric: 0.6
-  densityUnit: g/cm³
-  densityMin: 0.3 g/cm³
-  densityMinNumeric: 0.3
-  densityMinUnit: g/cm³
-  densityMax: 0.9 g/cm³
-  densityMaxNumeric: 0.9
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.1
-  meltingPoint: 180-250°C
-  meltingPointNumeric: 215.0
-  meltingPointUnit: °C
-  meltingPercentile: 18.5
-  thermalConductivity: 0.12 W/m·K
-  thermalConductivityNumeric: 0.12
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 5.2
-  tensileStrength: 30-50 MPa
-  tensileStrengthNumeric: 40.0
+  density: "500-700 kg/m\xB3 (varies by wood species and adhesive content)"
+  densityNumeric: 600.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "Decomposes at 200-300\xB0C (charring occurs before melting)"
+  meltingPointNumeric: 250.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.12-0.17 W/m\xB7K (across grain)"
+  thermalConductivityNumeric: 0.15
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 30-70 MPa (parallel to grain), 2-5 MPa (perpendicular to grain)
+  tensileStrengthNumeric: 50.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 8.3
-  hardness: 2-4 HB
-  hardnessNumeric: 3.0
-  hardnessUnit: HB
-  hardnessMin: 1 HB
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: 1.5-3.0 kN (Janka hardness scale, varies by wood species)
+  hardnessNumeric: 2.25
+  hardnessUnit: kN
+  hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
-  hardnessMinUnit: HB
-  hardnessMax: 6 HB
-  hardnessMaxNumeric: 6.0
-  hardnessMaxUnit: HB
-  hardnessPercentile: 2.0
-  youngsModulus: 8-12 GPa
-  youngsModulusNumeric: 10.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 13.9
+  youngsModulus: 8-14 GPa (parallel to grain)
+  youngsModulusNumeric: 11.0
   youngsModulusUnit: GPa
-  modulusMin: 5 GPa
-  modulusMinNumeric: 5.0
-  modulusMinUnit: GPa
-  modulusMax: 15 GPa
-  modulusMaxNumeric: 15.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 12.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: C6H10O5+Adhesive
+  fluenceRange: "0.5\u20135 J/cm\xB2"
+  chemicalFormula: "(C\u2086H\u2081\u2080O\u2085)\u2099"
 composition:
-- Cellulose (C6H10O5) 40-50%
-- Lignin 20-30%
-- Hemicellulose 15-25%
-- Adhesives (urea-formaldehyde, phenol-formaldehyde) 5-10%
+- Wood veneer layers (40-60% cellulose, 15-25% hemicellulose, 20-30% lignin)
+- Phenol-formaldehyde or urea-formaldehyde adhesive (5-10%)
+- Moisture content (6-12%)
 machineSettings:
   powerRange: 20-100W
   powerRangeNumeric: 60.0
@@ -75,8 +94,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +112,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.5-3.0mm
-  spotSizeNumeric: 1.75
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -111,43 +130,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
+  fluenceRange: "0.5\u20135 J/cm\xB2"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Woodworking & Furniture
-  detail: Removal of surface contaminants, adhesives, and coatings from plywood substrates
-- industry: Construction Materials
-  detail: Cleaning of mold, stains, and surface imperfections from engineered wood
-    products
+- 'Woodworking: Removing surface contaminants and old finishes'
+- 'Construction: Cleaning and preparing plywood surfaces for painting or bonding'
 compatibility:
-- Wood Composites
-- Particle Board
-- MDF
-- Solid Wood
-regulatoryStandards: ISO 12460, ASTM D3434, CARB Phase 2
+- Softwoods (pine, fir, cedar) and hardwoods (birch, maple, oak) used in plywood construction
+- Composite wood materials with similar cellulose/lignin composition
+regulatoryStandards: ANSI Z136.1 (Laser Safety), OSHA 29 CFR 1910.119 (Process Safety
+  Management), EPA guidelines for VOC emissions control
 author: Todd Dunning
 author_object:
   id: 4
@@ -166,21 +165,29 @@ images:
       surface structure
     url: /images/plywood-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces formaldehyde and VOC emissions from traditional chemical cleaning
-    methods
-- benefit: Water Conservation
-  description: Eliminates water usage completely compared to wet cleaning processes
-- benefit: Waste Reduction
-  description: Produces minimal waste with 95% less material loss than mechanical
-    methods
+- benefit: Zero chemical solvent usage
+  description: Eliminates 100% of VOC emissions compared to chemical stripping methods
+    (typically 200-500 g/L VOC emissions)
+- benefit: Reduced waste generation
+  description: Produces 95% less waste material compared to mechanical sanding methods,
+    with ablated material collected via filtration
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 8501-1 Sa 2.5 cleanliness standard
-- result: Material Removal Precision
-  metric: ±20μm accuracy with minimal substrate damage
-- result: Processing Speed
-  metric: 1-3 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>99% removal of paints, adhesives, and surface oxidation without substrate
+    damage'
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination type and laser parameters"
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer work)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5-5 J/cm\xB2"
+  scanningSpeed: 500-5000 mm/s
+  beamProfile: Top-hat or flat-top
+  beamProfileOptions: Top-hat, Gaussian, flat-top
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -188,8 +195,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: United States (California)
   author_id: 4
-  verification_timestamp: '2025-09-19T05:55:25Z'
+  verification_timestamp: '2025-09-20T22:06:48Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5\u20135 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Woodworking
+complexity: low
+difficultyScore: 2
 ---

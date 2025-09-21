@@ -2,35 +2,39 @@
 title: "Contact Z-Beam"
 description: "Get in touch with Z-Beam for laser cleaning solutions. Contact our team for consultations, quotes, and technical support."
 keywords: ["contact Z-Beam", "laser cleaning consultation", "technical support", "get quote"]
+hasForm: true
 ---
 
 # Contact Z-Beam
 
-## Get In Touch
+Ready to explore how Z-Beam laser cleaning technology can transform your operations? Our team of experts is here to help you find the perfect laser cleaning solution for your specific needs.
 
-Ready to explore how Z-Beam laser cleaning technology can transform your operations? Our team of experts is here to help.
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
+  <div>
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+    <p className="text-gray-600 mb-6">
+      Fill out the form below and our team will get back to you within 24 hours during business days. 
+      Please provide as much detail as possible about your laser cleaning requirements.
+    </p>
+    <!-- ContactForm component will be inserted here -->
+  </div>
+  
+  <div>
+    <!-- ContactInfo component will be inserted here -->
+  </div>
+</div>
 
-## Contact Information
+## Why Choose Z-Beam?
 
-### General Inquiries
-For general questions about our laser cleaning services and solutions.
+- **Expert Consultation**: Our team has extensive experience in laser cleaning applications across various industries
+- **Customized Solutions**: We provide tailored recommendations based on your specific cleaning requirements
+- **Technical Support**: Comprehensive support from initial consultation through implementation and beyond
+- **Proven Results**: Track record of successful laser cleaning implementations for industrial applications
 
-### Technical Support
-Need technical assistance or have questions about existing equipment? Our support team is ready to help.
+## Next Steps
 
-### Sales & Consultations
-Interested in a consultation or quote for your specific application? Connect with our sales team.
-
-## Request a Quote
-
-Contact us today to discuss your laser cleaning requirements and receive a customized quote for your project.
-
-## Office Hours
-
-Monday - Friday: 8:00 AM - 6:00 PM
-Saturday: 9:00 AM - 3:00 PM
-Sunday: Closed
-
-## Response Time
-
-We typically respond to all inquiries within 24 hours during business days.
+1. **Contact Us**: Fill out the form or send us an email
+2. **Consultation**: We'll schedule a consultation to understand your needs
+3. **Assessment**: Our experts will assess your cleaning requirements
+4. **Proposal**: Receive a customized solution proposal
+5. **Implementation**: Professional installation and training support

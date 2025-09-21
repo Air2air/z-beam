@@ -1,11 +1,14 @@
 ---
 name: Silicon Carbide
 category: semiconductor
-title: Laser Cleaning Silicon Carbide
+title: Silicon Carbide Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning semiconductor silicon carbide
-description: Technical overview of Silicon Carbide, SiC, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: "Laser cleaning of Silicon Carbide utilizes precise pulsed laser ablation\
+  \ to remove surface contaminants without damaging the underlying substrate. The\
+  \ high thermal conductivity (490 W/m\xB7K) and extreme hardness (Mohs 9.5) of SiC\
+  \ require optimized laser parameters to achieve selective removal while maintaining\
+  \ material integrity. This non-contact process eliminates chemical waste and enables\
+  \ micron-level precision for semiconductor and aerospace applications."
 keywords: silicon carbide, silicon carbide semiconductor, laser ablation, laser cleaning,
   non-contact cleaning, pulsed fiber laser, surface contamination removal, industrial
   laser parameters, thermal processing, surface restoration
@@ -14,55 +17,73 @@ chemicalProperties:
   formula: SiC
   materialType: semiconductor
 properties:
-  density: 3.21 g/cm³
+  density: "3.21 g/cm\xB3"
   densityNumeric: 3.21
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 6.0 g/cm³
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
   densityMaxNumeric: 6.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 51.2
-  meltingPoint: 2730°C
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 33.6
+  meltingPoint: "2730 \xB0C (decomposes)"
   meltingPointNumeric: 2730.0
-  meltingPointUnit: °C
-  meltingPercentile: 98.5
-  thermalConductivity: 120-270 W/m·K
-  thermalConductivityNumeric: 195.0
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 92.8
-  tensileStrength: 300-400 MPa
-  tensileStrengthNumeric: 350.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 95.6
+  thermalConductivity: "490 W/m\xB7K (at room temperature)"
+  thermalConductivityNumeric: 490.0
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 100.0
+  tensileStrength: 390 MPa (sintered alpha-SiC)
+  tensileStrengthNumeric: 390.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 21.3
-  hardness: 2500-3000 HV
-  hardnessNumeric: 2750.0
-  hardnessUnit: HV
-  hardnessMin: 500 HV
-  hardnessMinNumeric: 500.0
-  hardnessMinUnit: HV
-  hardnessMax: 2500 HV
-  hardnessMaxNumeric: 2500.0
-  hardnessMaxUnit: HV
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 35.8
+  hardness: "9.5 Mohs (2800-3200 kg/mm\xB2 Vickers)"
+  hardnessNumeric: 3000.0
+  hardnessUnit: "kg/mm\xB2"
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
   hardnessPercentile: 100.0
   youngsModulus: 410-450 GPa
   youngsModulusNumeric: 430.0
   youngsModulusUnit: GPa
-  modulusMin: 150 GPa
-  modulusMinNumeric: 150.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
   modulusPercentile: 100.0
-  laserType: Pulsed Fiber Laser
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: SiC
 composition:
-- Silicon Carbide (SiC) 99.6%
-- Trace elements (Si, Fe, Na, Mg)
+- 'Silicon: 70.05% (by weight)'
+- 'Carbon: 29.95% (by weight)'
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -73,8 +94,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -91,8 +112,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.05-1.0mm
+  spotSizeNumeric: 0.525
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -109,41 +130,25 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Silicon Carbide substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and semiconductor matrix composites
+- 'Semiconductor Manufacturing: Removal of surface contaminants for improved semiconductor
+  performance'
+- 'Aerospace: Cleaning of Silicon Carbide components for high-temperature applications'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- "Aluminum oxide (Al\u2082O\u2083) - similar thermal and mechanical properties"
+- "Silicon nitride (Si\u2083N\u2084) - comparable laser processing parameters"
+- Tungsten carbide (WC) - similar hardness and ablation characteristics
+regulatoryStandards: IEC 60825-1 (Laser Safety), ISO 11551 (Laser Ablation Testing),
+  SEMI S2 (Semiconductor Equipment Safety)
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -163,20 +168,32 @@ images:
       detailed surface structure
     url: /images/silicon-carbide-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates 100% of chemical solvents and acids traditionally used in
+    SiC cleaning, reducing hazardous waste by approximately 200-500 liters per production
+    line annually
+- benefit: Reduced energy consumption
+  description: Laser cleaning consumes 40-60% less energy compared to traditional
+    ultrasonic and chemical cleaning methods for SiC components, with typical power
+    consumption of 3-5 kWh per cleaning cycle
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: ">99.9% removal of sub-micron particles and organic residues with surface\
+    \ roughness maintained below 0.5 \u03BCm Ra"
+- result: Processing throughput
+  metric: "50-200 cm\xB2/min cleaning rate with positioning accuracy of \xB15 \u03BC\
+    m for semiconductor-grade SiC wafers"
+technicalSpecifications:
+  powerRange: 50-200 W (average power for pulsed fiber lasers)
+  pulseDuration: 10-100 ns (nanosecond range for controlled ablation)
+  wavelength: 1064 nm (primary), 532 nm (frequency-doubled for higher precision)
+  spotSize: "50-500 \u03BCm (adjustable based on contamination type and area)"
+  repetitionRate: 20-100 kHz (optimized for thermal management and removal efficiency)
+  fluenceRange: "2.5-8.0 J/cm\xB2 (above ablation threshold for SiC)"
+  scanningSpeed: 100-2000 mm/s (dependent on contamination thickness and laser parameters)
+  beamProfile: Top-hat or flat-top profile for uniform energy distribution
+  beamProfileOptions: Gaussian, Top-hat, Multimode
+  safetyClass: Class 4 (requires full enclosure and interlock systems per IEC 60825-1)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -184,8 +201,22 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T06:11:19Z'
+  verification_timestamp: '2025-09-20T21:37:16Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+chemicalFormula: SiC
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.05-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Semiconductor Manufacturing
+- Aerospace
+complexity: high
+difficultyScore: 4
 ---

@@ -1,10 +1,14 @@
 ---
 name: Zinc
 category: metal
-title: Laser Cleaning Zinc
+title: Zinc Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning metal zinc
-description: Technical overview of Zinc, Zn, for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: "Zinc laser cleaning utilizes precise laser ablation to remove surface\
+  \ contaminants without damaging the underlying zinc substrate. The process exploits\
+  \ zinc's relatively low melting point (419.5\xB0C) and high thermal conductivity\
+  \ (116 W/m\xB7K) for efficient contaminant removal while minimizing heat-affected\
+  \ zones. Optimal results are achieved with 1064nm wavelength due to zinc's high\
+  \ absorption coefficient at near-IR wavelengths."
 keywords: zinc, zinc metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -13,55 +17,74 @@ chemicalProperties:
   formula: Zn
   materialType: metal
 properties:
-  density: 7.14 g/cm³
+  density: "7.14 g/cm\xB3"
   densityNumeric: 7.14
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 6.0 g/cm³
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
   densityMaxNumeric: 6.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 51.2
-  meltingPoint: 419.5°C
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "419.5\xB0C"
   meltingPointNumeric: 419.5
-  meltingPointUnit: °C
-  meltingPercentile: 54.5
-  thermalConductivity: 116 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "116 W/m\xB7K"
   thermalConductivityNumeric: 116.0
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 14.8
-  tensileStrength: 110-200 MPa
-  tensileStrengthNumeric: 155.0
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 57.9
+  tensileStrength: 110 MPa (cast zinc), 200-400 MPa (rolled zinc)
+  tensileStrengthNumeric: 300.0
   tensileStrengthUnit: MPa
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
   tensilePercentile: 26.3
-  hardness: 30-40 HB
-  hardnessNumeric: 35.0
+  hardness: 30-42 HB (Brinell hardness)
+  hardnessNumeric: 36.0
   hardnessUnit: HB
-  hardnessMin: 500 HV
-  hardnessMinNumeric: 500.0
-  hardnessMinUnit: HV
-  hardnessMax: 2500 HV
-  hardnessMaxNumeric: 2500.0
-  hardnessMaxUnit: HV
-  hardnessPercentile: 0.0
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
   youngsModulus: 108 GPa
   youngsModulusNumeric: 108.0
   youngsModulusUnit: GPa
-  modulusMin: 150 GPa
-  modulusMinNumeric: 150.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 92.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 100.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: Zn
 composition:
-- Zinc (Zn) 99.6%
-- Trace elements (Si, Fe, Na, Mg)
+- Zinc (99.995+%) - High purity zinc for industrial applications
+- "Lead (\u22640.003%), Cadmium (\u22640.003%), Iron (\u22640.002%) - Common trace\
+  \ impurities"
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -72,8 +95,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-200ns
+  pulseDurationNumeric: 105.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -90,8 +113,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -108,41 +131,25 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Zinc substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
+- 'Automotive: Rust and corrosion removal from zinc-coated parts'
+- 'Electronics: Precision cleaning of zinc components in circuit boards'
 compatibility:
-- Stainless Steel
-- Titanium Alloys
-- Nickel-based Superalloys
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Galvanized steel (zinc-coated substrates)
+- Brass (copper-zinc alloys)
+- Zinc-aluminum alloys (ZA series)
+- Zinc-nickel electroplated surfaces
+regulatoryStandards: ISO 12944 (corrosion protection of steel structures), IEC 60825-1
+  (laser safety), EPA guidelines for hazardous waste reduction
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -161,20 +168,28 @@ images:
       structure
     url: /images/zinc-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Elimination of chemical solvents
+  description: Reduces VOC emissions by 95% compared to chemical cleaning methods,
+    eliminating hazardous waste disposal
+- benefit: Reduced water consumption
+  description: "Zero water usage compared to high-pressure water jet cleaning (saving\
+    \ ~50 liters per m\xB2 processed)"
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface cleanliness to Sa 2.5 standard
+  metric: ISO 8501-1 visual assessment standard for surface preparation
+- result: "Processing speed up to 5 m\xB2/hour"
+  metric: For moderate contamination levels at 200W laser power
+technicalSpecifications:
+  powerRange: 20-200W (pulsed)
+  pulseDuration: 10-200ns
+  wavelength: 1064nm (primary), 532nm (for higher precision)
+  spotSize: 0.1-1.0mm
+  repetitionRate: 20-100kHz
+  fluenceRange: "1.0-10 J/cm\xB2 (ablation threshold ~1.0 J/cm\xB2)"
+  scanningSpeed: 500-5000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multi-spot
+  safetyClass: Class 4 (IEC 60825-1)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -182,8 +197,23 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T06:31:36Z'
+  verification_timestamp: '2025-09-20T21:33:57Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+chemicalFormula: Zn
+symbol: Zn
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 10-200ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Automotive
+- Electronics
+complexity: medium
+difficultyScore: 3
 ---

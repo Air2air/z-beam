@@ -1,41 +1,60 @@
 ---
 name: Travertine
 category: stone
-title: Laser Cleaning Travertine
+title: Travertine Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning stone travertine
-description: Technical overview of Travertine, CaCO3, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: Travertine laser cleaning utilizes precise pulsed fiber laser parameters
+  to selectively remove surface contaminants while preserving the delicate calcium
+  carbonate matrix. The 1064 nm wavelength provides optimal absorption for contaminant
+  removal with minimal thermal penetration into the stone substrate.
 keywords: travertine, travertine stone, laser ablation, laser cleaning, non-contact
   cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Travertine
-  formula: CaCO3
+  symbol: "CaCO\u2083"
+  formula: "CaCO\u2083"
   materialType: stone
 properties:
-  density: 2.5 g/cm³
+  density: "2.3-2.7 g/cm\xB3"
   densityNumeric: 2.5
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 2.7 g/cm³
-  densityMaxNumeric: 2.7
-  densityMaxUnit: g/cm³
-  densityPercentile: 58.3
-  meltingPoint: 825°C (decomposes)
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 16.7
+  meltingPoint: "825\xB0C (decomposition)"
   meltingPointNumeric: 825.0
-  meltingPointUnit: °C
-  meltingPercentile: 12.8
-  thermalConductivity: 2.3 W/m·K
-  thermalConductivityNumeric: 2.3
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 1.2
-  tensileStrength: 8-15 MPa
-  tensileStrengthNumeric: 11.5
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "1.26-1.33 W/(m\xB7K)"
+  thermalConductivityNumeric: 1.29
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.4
+  tensileStrength: 3-8 MPa
+  tensileStrengthNumeric: 5.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 1.8
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
   hardness: 3-4 Mohs
   hardnessNumeric: 3.5
   hardnessUnit: Mohs
@@ -45,29 +64,27 @@ properties:
   hardnessMax: 10 Mohs
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 30.0
-  youngsModulus: 40-70 GPa
-  youngsModulusNumeric: 55.0
+  hardnessPercentile: 27.8
+  youngsModulus: 10-40 GPa
+  youngsModulusNumeric: 25.0
   youngsModulusUnit: GPa
-  modulusMin: 1 GPa
-  modulusMinNumeric: 1.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 18.5
-  laserType: Pulsed Fiber Laser
-  wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: CaCO3
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 8.3
+  laserType: Pulsed fiber laser
+  wavelength: 1064 nm
+  fluenceRange: "0.5-5 J/cm\xB2"
+  chemicalFormula: "CaCO\u2083"
 composition:
-- Calcium Carbonate (CaCO3) 95-99%
-- Iron Oxides (Fe2O3) 0.5-2%
-- Silica (SiO2) 0.5-1.5%
-- Other Minerals (Mg, Na, K) <1%
+- "Calcium carbonate (CaCO\u2083): 95-99%"
+- 'Iron oxides, clay minerals, organic matter: 1-5%'
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -75,8 +92,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -84,7 +101,7 @@ machineSettings:
   pulseDurationMax: 1000ns
   pulseDurationMaxNumeric: 1000.0
   pulseDurationMaxUnit: ns
-  wavelength: 1064nm (primary), 532nm (optional)
+  wavelength: 1064 nm (primary), 532nm (optional)
   wavelengthNumeric: 1064.0
   wavelengthUnit: nm
   wavelengthMin: 355nm
@@ -93,8 +110,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +119,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
+  repetitionRate: 10-50kHz
+  repetitionRateNumeric: 30.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,41 +128,26 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRangeNumeric: 2.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Travertine substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and stone matrix composites
+- 'Construction: Removal of surface contaminants and efflorescence from travertine
+  tiles and facades'
+- 'Restoration: Cleaning and restoration of historical travertine sculptures and architectural
+  elements'
 compatibility:
-- Natural Stone Surfaces
-- Architectural Elements
-- Historical Artifacts
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Marble and limestone (similar calcium carbonate composition)
+- Sandstone with calcareous cement
+regulatoryStandards: EN 15898:2019 (Conservation of cultural heritage - Main general
+  terms and definitions), UNI 11421:2015 (Cultural heritage - Laser cleaning of stone
+  surfaces)
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -165,20 +167,28 @@ images:
       surface structure
     url: /images/travertine-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates 100% of chemical solvents and acidic cleaners traditionally
+    used in travertine restoration
+- benefit: 95% reduction in water consumption
+  description: Dry process eliminates water usage compared to traditional pressure
+    washing and chemical rinsing methods
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>98% removal of biological patina and black crusts with <2% substrate loss'
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination level and laser parameters"
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for selective removal)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5-5 J/cm\xB2"
+  scanningSpeed: 100-1000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multimode
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -186,8 +196,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T06:26:40Z'
+  verification_timestamp: '2025-09-20T21:54:44Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-5 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064 nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Restoration
+complexity: medium
+difficultyScore: 3
 ---

@@ -5,7 +5,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { logger } from '../utils/logger';
-import { DebugLayout } from '../components/Debug/DebugLayout';
+import { DebugLayout } from '../components/Layout/DebugLayout';
 import { TagDebug } from '../components/Debug/TagDebug';
 import { FrontmatterDebug } from '../components/Debug/FrontmatterDebug';
 import { FrontmatterNameChecker } from '../components/Debug/FrontmatterNameChecker';

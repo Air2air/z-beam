@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Smart Deploy with Triggered Monitoring
-# Deploys and automatically monitors the deployment
+# Smart Deploy Monitor
+# Monitors Vercel build logs during deployments
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -39,11 +39,28 @@ check_vercel() {
     return 0
 }
 
-# Deploy and monitor
-deploy_with_monitoring() {
-    local deploy_type="${1:-auto}"
+# Monitor deployment by URL
+monitor_deployment_url() {
+    local url="$1"
     
-    log "🚀 Starting smart deployment with monitoring..."
+    if [ -z "$url" ]; then
+        error "No deployment URL provided"
+        return 1
+    fi
+    
+    log "👀 Starting deployment monitoring for: $url"
+    ./deploy-triggered-monitor.sh monitor "$url"
+}
+
+# Monitor latest deployment
+monitor_latest() {
+    log "� Auto-detecting and monitoring latest deployment..."
+    ./deploy-triggered-monitor.sh start
+}
+
+# Start monitoring for active deployments
+start_monitoring() {
+    log "🚀 Starting deployment monitor..."
     
     # Check prerequisites
     if ! check_vercel; then
@@ -54,93 +71,68 @@ deploy_with_monitoring() {
     log "🧹 Stopping any existing monitoring..."
     ./deploy-triggered-monitor.sh stop >/dev/null 2>&1
     
-    # Deploy based on type
-    local deployment_url=""
-    case "$deploy_type" in
-        "production"|"prod")
-            log "📦 Deploying to production..."
-            deployment_url=$(vercel --prod --confirm 2>&1 | grep -o 'https://[^[:space:]]*' | head -1)
-            ;;
-        "preview"|"staging")
-            log "🔍 Deploying preview..."
-            deployment_url=$(vercel 2>&1 | grep -o 'https://[^[:space:]]*' | head -1)
-            ;;
-        "auto")
-            log "🤖 Auto-deploying (production)..."
-            deployment_url=$(vercel --prod --confirm 2>&1 | grep -o 'https://[^[:space:]]*' | head -1)
-            ;;
-        *)
-            error "Unknown deployment type: $deploy_type"
-            echo "Valid types: production, preview, auto"
-            return 1
-            ;;
-    esac
+    # Start fresh monitoring with auto-stop when deployment completes
+    ./deploy-triggered-monitor.sh start
     
-    # Check if deployment succeeded
-    if [ -z "$deployment_url" ]; then
-        error "Deployment failed - no URL returned"
-        return 1
-    fi
-    
-    success "Deployment initiated: $deployment_url"
-    
-    # Start monitoring the specific deployment
-    log "👀 Starting deployment monitoring..."
-    ./deploy-triggered-monitor.sh monitor "$deployment_url"
-    
-    # Show status
-    sleep 2
-    ./deploy-triggered-monitor.sh status
-    
-    success "Deployment with monitoring started!"
-    log "📋 Monitor status: ./deploy-triggered-monitor.sh status"
-    log "🛑 Stop monitoring: ./deploy-triggered-monitor.sh stop"
+    success "Deployment monitoring started!"
 }
 
-# Just deploy without monitoring
-deploy_only() {
-    local deploy_type="${1:-auto}"
+# Start monitoring with auto-stop for deployment duration only
+start_deployment_monitoring() {
+    log "🚀 Starting deployment monitor for active deployment..."
     
-    log "🚀 Deploying without monitoring..."
-    
+    # Check prerequisites
     if ! check_vercel; then
         return 1
     fi
     
-    case "$deploy_type" in
-        "production"|"prod")
-            log "📦 Deploying to production..."
-            vercel --prod --confirm
-            ;;
-        "preview"|"staging")
-            log "🔍 Deploying preview..."
-            vercel
-            ;;
-        "auto")
-            log "🤖 Auto-deploying (production)..."
-            vercel --prod --confirm
-            ;;
-        *)
-            error "Unknown deployment type: $deploy_type"
-            return 1
-            ;;
-    esac
+    # Stop any existing monitoring first
+    ./deploy-triggered-monitor.sh stop >/dev/null 2>&1
+    
+    # Start monitoring that will auto-stop when no active deployments
+    nohup bash -c "
+        ./deploy-triggered-monitor.sh start
+        
+        # Monitor until no active deployments
+        while true; do
+            sleep 30
+            if ! ./deploy-triggered-monitor.sh status | grep -q 'Monitoring'; then
+                break
+            fi
+            
+            # Check if there are any active deployments
+            if ! vercel ls 2>/dev/null | grep -q 'Building\|Queued'; then
+                sleep 60  # Wait a bit more to ensure deployment is complete
+                ./deploy-triggered-monitor.sh stop
+                break
+            fi
+        done
+    " >/dev/null 2>&1 &
+    
+    success "Deployment monitoring started in background!"
 }
 
-# Monitor existing deployment
-monitor_existing() {
-    local url="$1"
-    
-    if [ -z "$url" ]; then
-        log "🔍 Auto-detecting latest deployment..."
-        ./deploy-triggered-monitor.sh start
-    else
-        log "👀 Monitoring specific deployment: $url"
-        ./deploy-triggered-monitor.sh monitor "$url"
+# Show deployment logs
+show_logs() {
+    log "📋 Showing deployment logs..."
+    if check_vercel; then
+        vercel logs --follow
     fi
 }
 
-# Show deployment info
+# Show deployment status
+show_status() {
+    log "� Checking deployment status..."
+    ./deploy-triggered-monitor.sh status
+}
+
+# Stop monitoring
+stop_monitoring() {
+    log "� Stopping deployment monitoring..."
+    ./deploy-triggered-monitor.sh stop
+}
+
+# Show recent deployments
 show_deployments() {
     log "📋 Recent deployments:"
     if check_vercel; then
@@ -150,53 +142,57 @@ show_deployments() {
 
 # Show help
 show_help() {
-    echo "Smart Deploy with Triggered Monitoring"
-    echo "======================================"
+    echo "Smart Deploy Monitor"
+    echo "==================="
     echo ""
-    echo "Usage: $0 <command> [type|url]"
+    echo "Monitors Vercel build logs during deployments"
+    echo ""
+    echo "Usage: $0 <command> [url]"
     echo ""
     echo "Commands:"
-    echo "  deploy [type]     - Deploy and auto-monitor (default: production)"
-    echo "  deploy-only [type] - Deploy without monitoring"
-    echo "  monitor [url]     - Monitor deployment (latest if no URL)"
+    echo "  start             - Start monitoring for active deployments"
+    echo "  start-deploy      - Start monitoring for deployment duration only (auto-stop)"
+    echo "  monitor [url]     - Monitor specific deployment (latest if no URL)"
     echo "  status            - Check monitoring status"
     echo "  stop              - Stop monitoring"
+    echo "  logs              - Show live deployment logs"
     echo "  list              - Show recent deployments"
     echo "  help              - Show this help"
     echo ""
-    echo "Deploy Types:"
-    echo "  auto              - Auto-deploy (production) [default]"
-    echo "  preview/staging   - Preview deployment"
-    echo "  production/prod   - Production deployment"
-    echo ""
     echo "Examples:"
-    echo "  $0 deploy                    # Deploy production and monitor"
-    echo "  $0 deploy production         # Deploy to production and monitor"
-    echo "  $0 deploy-only               # Deploy production without monitoring"
-    echo "  $0 monitor                   # Monitor latest deployment"
-    echo "  $0 monitor https://my.app    # Monitor specific deployment"
-    echo "  $0 status                    # Check if monitoring active"
-    echo "  $0 stop                      # Stop monitoring"
+    echo "  $0 start                         # Start monitoring for active deployments"
+    echo "  $0 monitor                       # Monitor latest deployment"
+    echo "  $0 monitor https://my.app        # Monitor specific deployment"
+    echo "  $0 status                        # Check if monitoring active"
+    echo "  $0 logs                          # Show live deployment logs"
+    echo "  $0 stop                          # Stop monitoring"
     echo ""
-    echo "Key principle: Monitoring only runs when explicitly triggered for a deployment."
+    echo "Note: This tool only monitors deployments. Use 'vercel' command directly to deploy."
 }
 
 # Main command handler
 case "${1:-help}" in
-    "deploy")
-        deploy_with_monitoring "${2:-auto}"
+    "start")
+        start_monitoring
         ;;
-    "deploy-only")
-        deploy_only "${2:-auto}"
+    "start-deploy")
+        start_deployment_monitoring
         ;;
     "monitor")
-        monitor_existing "$2"
+        if [ -n "$2" ]; then
+            monitor_deployment_url "$2"
+        else
+            monitor_latest
+        fi
         ;;
     "status")
-        ./deploy-triggered-monitor.sh status
+        show_status
         ;;
     "stop")
-        ./deploy-triggered-monitor.sh stop
+        stop_monitoring
+        ;;
+    "logs")
+        show_logs
         ;;
     "list")
         show_deployments
@@ -206,6 +202,7 @@ case "${1:-help}" in
         ;;
     *)
         echo "❌ Unknown command: $1"
+        echo ""
         show_help
         exit 1
         ;;

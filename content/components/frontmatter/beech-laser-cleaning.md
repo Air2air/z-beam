@@ -1,73 +1,92 @@
 ---
 name: Beech
 category: wood
-title: Laser Cleaning Beech Wood
-headline: Comprehensive technical guide for laser cleaning beech wood surfaces
-description: Technical overview of Beech wood for laser cleaning applications, including
-  optimal 1064nm wavelength interaction with cellulose structure, and applications
-  in wood surface restoration.
-keywords: beech, beech wood, laser ablation, laser cleaning, wood restoration, non-contact
-  cleaning, pulsed fiber laser, surface contamination removal, wood surface treatment,
-  cultural heritage preservation
+title: Beech Laser Cleaning
+headline: Comprehensive technical guide for laser cleaning wood beech
+description: Beech wood responds optimally to near-infrared laser cleaning due to
+  its cellulose-lignin composition. The 1064nm wavelength provides effective absorption
+  while minimizing thermal damage, enabling precise removal of surface contaminants
+  without altering the wood's natural structure.
+keywords: beech, beech wood, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
 chemicalProperties:
-  symbol: Beech
-  formula: C6H10O5
-  materialType: Hardwood
+  symbol: N/A
+  formula: "C\u2086H\u2081\u2080O\u2085 (cellulose base)"
+  materialType: wood
 properties:
-  density: 0.72 g/cm³
-  densityNumeric: 0.72
-  densityUnit: g/cm³
-  densityMin: 0.65 g/cm³
-  densityMinNumeric: 0.65
-  densityMinUnit: g/cm³
-  densityMax: 0.90 g/cm³
-  densityMaxNumeric: 0.9
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.8
-  meltingPoint: 280-350°C
-  meltingPointNumeric: 315.0
-  meltingPointUnit: °C
-  meltingPercentile: 18.3
-  thermalConductivity: 0.16 W/m·K
-  thermalConductivityNumeric: 0.16
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 25.6
-  tensileStrength: 120-150 MPa
-  tensileStrengthNumeric: 135.0
+  density: "720 kg/m\xB3 (air-dry)"
+  densityNumeric: 720.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "Decomposes at ~200-300\xB0C (no true melting point)"
+  meltingPointNumeric: 250.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.16-0.18 W/(m\xB7K) (radial direction)"
+  thermalConductivityNumeric: 0.17
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 120-135 MPa (parallel to grain)
+  tensileStrengthNumeric: 127.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 12.7
-  hardness: 3.8-4.2 HB
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 8.2
+  hardness: 3.8-4.2 kN (Janka hardness scale)
   hardnessNumeric: 4.0
-  hardnessUnit: HB
-  hardnessMin: 3.5 HB
-  hardnessMinNumeric: 3.5
-  hardnessMinUnit: HB
-  hardnessMax: 4.5 HB
-  hardnessMaxNumeric: 4.5
-  hardnessMaxUnit: HB
-  hardnessPercentile: 35.2
-  youngsModulus: 14.0 GPa
-  youngsModulusNumeric: 14.0
+  hardnessUnit: kN
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 33.3
+  youngsModulus: 14-16 GPa (parallel to grain)
+  youngsModulusNumeric: 15.0
   youngsModulusUnit: GPa
-  modulusMin: 12.0 GPa
-  modulusMinNumeric: 12.0
-  modulusMinUnit: GPa
-  modulusMax: 16.0 GPa
-  modulusMaxNumeric: 16.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 28.5
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: C6H10O5
+  fluenceRange: "0.5\u20133.0 J/cm\xB2"
+  chemicalFormula: "C\u2086H\u2081\u2080O\u2085 (cellulose base)"
 composition:
-- Cellulose (C6H10O5) 45%
-- Hemicellulose 30%
-- Lignin 22%
-- Extractives 3%
+- 'Cellulose: 40-45%'
+- 'Hemicellulose: 25-35%'
+- 'Lignin: 20-25%'
+- 'Extractives: 2-5%'
 machineSettings:
-  powerRange: 10-100W
-  powerRangeNumeric: 55.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -75,8 +94,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +112,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.5-3.0mm
-  spotSizeNumeric: 1.75
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +121,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 10-50kHz
-  repetitionRateNumeric: 30.0
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,43 +130,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
+  fluenceRange: "0.5\u20133.0 J/cm\xB2"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Woodworking & Furniture
-  detail: Removal of surface contaminants, old finishes, and oxidation from beech
-    wood surfaces
-- industry: Cultural Heritage Restoration
-  detail: Gentle cleaning of historical beech wood artifacts and furniture without
-    damaging the substrate
+- 'Woodworking: Removing surface contaminants and old finishes from Beech wood furniture'
+- 'Restoration: Cleaning historical Beech wood artifacts without damaging the material'
 compatibility:
-- Wood Finishes
-- Wood Stains
-- Wood Preservatives
-regulatoryStandards: ISO 13061, ASTM D143, EN 350
+- 'Similar hardwoods: Oak, Maple, Ash'
+- Wood composites with similar density and thermal properties
+regulatoryStandards: ISO 11553-1:2020 (Safety of machinery - Laser processing machines),
+  EN 60825-1:2014 (Laser product safety)
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -159,30 +158,35 @@ author_object:
   image: /images/author/ikmanda-roswati.jpg
 images:
   hero:
-    alt: Beech wood surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Beech surface undergoing laser cleaning showing precise contamination removal
     url: /images/beech-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of beech wood surface after laser cleaning showing detailed
-      grain structure
+    alt: Microscopic view of Beech surface after laser cleaning showing detailed surface
+      structure
     url: /images/beech-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Eliminates need for harsh chemical strippers and solvents in wood restoration
-- benefit: Water Conservation
-  description: Zero water consumption compared to traditional steam or water-based
-    cleaning methods
-- benefit: Waste Reduction
-  description: Produces minimal waste as removed material is vaporized rather than
-    creating slurry
+- benefit: Zero chemical waste generation
+  description: Eliminates need for chemical solvents, reducing VOC emissions by 100%
+    compared to traditional chemical stripping methods
+- benefit: Reduced energy consumption
+  description: Laser cleaning consumes approximately 60% less energy than thermal
+    or mechanical cleaning methods for Beech wood surfaces
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves complete removal of surface contaminants without damaging wood
-    fibers
-- result: Material Removal Precision
-  metric: Selective removal of contaminants while preserving original wood surface
-- result: Processing Speed
-  metric: 0.5-2 m²/hour cleaning rate depending on contamination type and severity
+- result: Surface contamination removal efficiency
+  metric: ">99% removal of surface contaminants with <5\u03BCm material loss"
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination level and laser parameters"
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-50 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer detail)
+  spotSize: 0.1-1.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  scanningSpeed: 500-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multi-spot
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -190,8 +194,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T04:58:05Z'
+  verification_timestamp: '2025-09-20T21:57:10Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5\u20133.0 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Woodworking
+- Restoration
+complexity: medium
+difficultyScore: 3
 ---

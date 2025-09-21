@@ -15,7 +15,7 @@ import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './format
 import { extractSafeValue } from './stringHelpers';
 import { validateSlug, validateFilePath, ValidationError, GenerationError, safeOperation } from './errorSystem';
 // Import centralized types instead of defining our own
-import { Article, ArticleMetadata, ContentItem } from '@/types';
+import { Article, ArticleMetadata, ContentItem, ComponentData, PageData } from '@/types';
 
 // Additional interfaces for internal use only (not exported)
 interface LoadedFrontmatter {
@@ -328,15 +328,8 @@ async function tryYamlFile(
   return null;
 }
 
-export interface ComponentData {
-  content: string;
-  config?: Record<string, unknown>;
-}
-
-export interface PageData {
-  metadata: Record<string, unknown>;
-  components: { [componentType: string]: ComponentData };
-}
+// ComponentData and PageData are now imported from @/types
+// Removed duplicate interface definitions
 
 /**
  * Get all available article slugs from any content directory

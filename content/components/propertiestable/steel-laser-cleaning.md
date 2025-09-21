@@ -91,24 +91,8 @@ outcomes:
   metric: "2-5 m²/hour cleaning rate depending on contamination level"
 ---
 
-| Property | Value | Unit | Notes |
-|----------|-------|------|-------|
-| Density | 7.85 | g/cm³ | High density metal |
-| Melting Point | 1370-1530 | °C | High temperature resistance |
-| Thermal Conductivity | 50.2 | W/m·K | Good heat conductor |
-| Tensile Strength | 400-600 | MPa | High strength |
-| Hardness | 150-250 | HB | Moderate hardness |
-| Young's Modulus | 200 | GPa | High stiffness |
-| Laser Wavelength | 1064 | nm | Optimal for steel |
-| Fluence Range | 1.0-4.5 | J/cm² | Safe operating range |
-| Processing Speed | 2-5 | m²/hour | Typical cleaning rate |
-
-# Steel Laser Cleaning Properties
-
-This table provides technical specifications for laser cleaning of steel materials, including optimal parameters and expected performance metrics for industrial applications.
-
 # Version Information
-# Generated: 2025-09-11T14:07:03.332580
+# Generated: 2025-09-19T16:58:42.571975
 # Material: Steel
 # Component: propertiestable
 # Generator: Z-Beam v2.1.0

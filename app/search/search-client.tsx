@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { UnifiedArticleGrid } from "../components/ArticleGrid/UnifiedArticleGridClient";
-import { Article, MaterialType } from "@/types";
+import { Article, MaterialType, SearchClientProps } from "@/types";
 import { extractSafeValue, safeIncludes } from "../utils/stringHelpers";
 
 // Helper function to safely cast material types
@@ -29,10 +29,6 @@ function toMaterialType(value?: string): MaterialType {
   };
   
   return typeMap[normalizedValue] || 'other';
-}
-
-interface SearchClientProps {
-  initialArticles: Article[];
 }
 
 // Simple synchronous property parser for client-side filtering

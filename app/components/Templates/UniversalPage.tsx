@@ -1,9 +1,10 @@
 // app/components/Templates/UniversalPage.tsx
 // Universal page template to replace redundant page components
 
-import { UniversalLayout } from '../Layout/LayoutSystem';
+import { UniversalLayout } from '../Layout/Layout';
 import { loadPageData } from '../../utils/contentAPI';
 import { logger } from '../../utils/logger';
+import { CONTAINER_STYLES } from '../../utils/containerStyles';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -58,7 +59,6 @@ async function UniversalPageComponent({
     
     return (
       <UniversalLayout
-        variant="article"
         components={pageData.components}
         metadata={pageData.metadata}
         slug={slug}
@@ -69,7 +69,7 @@ async function UniversalPageComponent({
     logger.error(`Error loading ${slug} page`, error);
     
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className={CONTAINER_STYLES.standard}>
         <h1 className="text-3xl font-bold">{errorTitle}</h1>
         <p className="mt-4">{errorMessage}</p>
       </div>

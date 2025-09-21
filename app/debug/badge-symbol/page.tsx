@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { BadgeSymbol } from '../../components/BadgeSymbol/BadgeSymbol';
-import { DebugLayout } from '../../components/Debug/DebugLayout';
+import { DebugLayout } from '../../components/Layout/DebugLayout';
 
 export default function BadgeSymbolDebugPage() {
   const [materials, setMaterials] = useState<any[]>([]);

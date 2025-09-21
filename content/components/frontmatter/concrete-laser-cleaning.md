@@ -1,73 +1,93 @@
 ---
 name: Concrete
 category: masonry
-title: Laser Cleaning Concrete
+title: Concrete Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning masonry concrete
-description: Technical overview of concrete, CaO·SiO2·Al2O3+Aggregate, for laser cleaning
-  applications, including optimal 1064nm wavelength interaction, and industrial applications
-  in surface preparation.
+description: Laser cleaning of concrete utilizes pulsed fiber lasers to selectively
+  ablate surface contaminants through rapid thermal expansion and vaporization. The
+  process exploits the differential absorption characteristics between contaminants
+  and the calcium silicate hydrate matrix of concrete, enabling precise removal without
+  mechanical damage or chemical residue.
 keywords: concrete, concrete masonry, laser ablation, laser cleaning, non-contact
   cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Concrete
-  formula: CaO·SiO2·Al2O3+Aggregate
+  symbol: N/A (Composite)
+  formula: "CaO\xB7SiO\u2082\xB7H\u2082O (C-S-H gel primary phase)"
   materialType: masonry
 properties:
-  density: 2.4 g/cm³
-  densityNumeric: 2.4
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  density: "2300\u20132500 kg/m\xB3"
+  densityNumeric: 2300.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 2.8 g/cm³
-  densityMaxNumeric: 2.8
-  densityMaxUnit: g/cm³
-  densityPercentile: 60.0
-  meltingPoint: N/A (decomposes) °C
-  meltingPointNumeric: 0.0
-  meltingPointUnit: ''
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "~1200\u20131400\xB0C (decomposition begins at ~500\xB0C)"
+  meltingPointNumeric: 1200.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
   meltingPercentile: 0.0
-  thermalConductivity: 1.7 W/m·K
-  thermalConductivityNumeric: 1.7
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 45.0
-  tensileStrength: 2-5 MPa
-  tensileStrengthNumeric: 3.5
+  thermalConductivity: "0.8\u20131.3 W/(m\xB7K)"
+  thermalConductivityNumeric: 0.8
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.2
+  tensileStrength: "2\u20135 MPa"
+  tensileStrengthNumeric: 2.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 30.0
-  hardness: 4-6 Mohs
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: "5\u20137 Mohs (aggregate dependent)"
   hardnessNumeric: 5.0
   hardnessUnit: Mohs
-  hardnessMin: 3 Mohs
-  hardnessMinNumeric: 3.0
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
   hardnessMinUnit: Mohs
-  hardnessMax: 8 Mohs
-  hardnessMaxNumeric: 8.0
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 50.0
-  youngsModulus: 30 GPa
-  youngsModulusNumeric: 30.0
+  hardnessPercentile: 44.4
+  youngsModulus: "20\u201340 GPa"
+  youngsModulusNumeric: 20.0
   youngsModulusUnit: GPa
-  modulusMin: 20 GPa
-  modulusMinNumeric: 20.0
-  modulusMinUnit: GPa
-  modulusMax: 50 GPa
-  modulusMaxNumeric: 50.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 50.0
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: CaO·SiO2·Al2O3+Aggregate
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  chemicalFormula: "Complex composite (primarily CaO\xB7SiO\u2082\xB7H\u2082O)"
 composition:
-- Portland Cement (CaO·SiO2·Al2O3) 10-15%
-- Aggregate (sand, gravel) 60-75%
-- Water 15-20%
-- Additives & Admixtures 1-5%
+- "Portland cement (10\u201315%): Calcium silicates (C3S, C2S), calcium aluminates"
+- "Aggregate (60\u201375%): Silica (SiO\u2082), limestone, gravel"
+- "Water (15\u201320%): H\u2082O for hydration"
+- "Air voids (1\u20138%): Entrained or entrapped air"
 machineSettings:
-  powerRange: 100-500W
-  powerRangeNumeric: 300.0
+  powerRange: 50-200W
+  powerRangeNumeric: 125.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -75,8 +95,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +113,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 2-10mm
-  spotSizeNumeric: 6.0
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +122,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-50kHz
-  repetitionRateNumeric: 35.0
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,41 +131,27 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
-  fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRangeNumeric: 1.0
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Construction & Demolition
-  detail: Removal of surface contaminants, paint, and graffiti from concrete structures
-- industry: Industrial Restoration
-  detail: Cleaning of concrete surfaces in preparation for coatings and repairs
+- 'Construction: Removal of paint, graffiti, and other surface contaminants from concrete
+  structures'
+- 'Restoration: Cleaning historical concrete buildings and monuments without damaging
+  the material'
 compatibility:
-- Concrete Structures
-- Reinforced Concrete
-- Precast Concrete Elements
-regulatoryStandards: ASTM C39, ASTM C109, EN 12390
+- Steel reinforcement (when properly shielded)
+- Natural stone substrates (granite, limestone)
+- Brick and masonry materials
+regulatoryStandards: 'EN 1504-10: Products and systems for protection and repair of
+  concrete structures; ISO 11145:2018 Laser and laser-related equipment - Vocabulary
+  and symbols'
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -161,24 +167,35 @@ images:
       removal
     url: /images/concrete-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of concrete surface after laser cleaning showing detailed
+    alt: Microscopic view of Concrete surface after laser cleaning showing detailed
       surface structure
     url: /images/concrete-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 3000 liters of water per month in industrial applications
-- benefit: Dust Reduction
-  description: Eliminates 95% of airborne dust particles compared to mechanical cleaning
+- benefit: Zero chemical waste generation
+  description: Eliminates use of chemical solvents and abrasive media, preventing
+    groundwater contamination and hazardous waste disposal (100% reduction in chemical
+    waste streams)
+- benefit: Reduced particulate matter emissions
+  description: "Generates 85\u201395% less airborne particulate matter compared to\
+    \ abrasive blasting methods, with effective filtration systems capturing >99%\
+    \ of generated particles"
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves SSPC-SP 2/NACE No. 2 cleanliness standard
-- result: Material Removal Precision
-  metric: Selective removal of contaminants without damaging concrete substrate
-- result: Processing Speed
-  metric: 5-15 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>95% removal of paint, graffiti, and biological growth with <0.1 mm substrate
+    loss'
+- result: Processing throughput
+  metric: "2\u201310 m\xB2/hour depending on contamination type and laser parameters"
+technicalSpecifications:
+  powerRange: "50\u2013200 W"
+  pulseDuration: "10\u2013100 ns"
+  wavelength: 1064 nm (primary), 532 nm (optional for selective removal)
+  spotSize: "0.1\u20131.0 mm"
+  repetitionRate: "20\u2013100 kHz"
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  scanningSpeed: "100\u20135000 mm/s"
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multimode
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -186,8 +203,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T05:12:59Z'
+  verification_timestamp: '2025-09-20T21:02:04Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Restoration
+complexity: low
+difficultyScore: 2
 ---

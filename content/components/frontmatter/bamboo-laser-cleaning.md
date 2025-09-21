@@ -1,70 +1,91 @@
 ---
 name: Bamboo
 category: wood
-title: Laser Cleaning Bamboo
-headline: Comprehensive technical guide for laser cleaning bamboo wood
-description: Technical overview of bamboo, C6H10O5, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+title: Bamboo Laser Cleaning
+headline: Comprehensive technical guide for laser cleaning wood bamboo
+description: Bamboo laser cleaning utilizes precise pulsed fiber laser parameters
+  to selectively remove contaminants while preserving the natural lignocellulosic
+  structure. The process exploits differential absorption between contaminants and
+  bamboo's cellulose-hemicellulose-lignin matrix.
 keywords: bamboo, bamboo wood, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Wood
-  formula: C6H10O5
-  materialType: wood
+  symbol: N/A (organic composite)
+  formula: "C\u2086H\u2081\u2080O\u2085 (cellulose base)"
+  materialType: lignocellulosic composite
 properties:
-  density: 0.6-0.8 g/cm³
+  density: "0.6-0.8 g/cm\xB3 (species dependent)"
   densityNumeric: 0.7
-  densityUnit: g/cm³
-  densityMin: 0.4 g/cm³
-  densityMinNumeric: 0.4
-  densityMinUnit: g/cm³
-  densityMax: 1.2 g/cm³
-  densityMaxNumeric: 1.2
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.5
-  meltingPoint: Decomposes at 200-300°C
-  meltingPointNumeric: 250.0
-  meltingPointUnit: °C
-  meltingPercentile: 35.2
-  thermalConductivity: 0.15-0.25 W/m·K
-  thermalConductivityNumeric: 0.2
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 18.3
-  tensileStrength: 50-150 MPa
-  tensileStrengthNumeric: 100.0
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 0.0
+  meltingPoint: "Decomposes at 200-250\xB0C (no true melting point)"
+  meltingPointNumeric: 225.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.09-0.17 W/m\xB7K (radial direction)"
+  thermalConductivityNumeric: 0.13
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 140-280 MPa (longitudinal direction)
+  tensileStrengthNumeric: 210.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 22.7
-  hardness: 2-4 HB
-  hardnessNumeric: 3.0
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 16.8
+  hardness: 4-6 HB (Brinell hardness)
+  hardnessNumeric: 5.0
   hardnessUnit: HB
-  hardnessMin: 1 HB
+  hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
-  hardnessMinUnit: HB
-  hardnessMax: 6 HB
-  hardnessMaxNumeric: 6.0
-  hardnessMaxUnit: HB
-  hardnessPercentile: 15.8
-  youngsModulus: 10-20 GPa
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 44.4
+  youngsModulus: 10-20 GPa (longitudinal direction)
   youngsModulusNumeric: 15.0
   youngsModulusUnit: GPa
-  modulusMin: 5 GPa
-  modulusMinNumeric: 5.0
-  modulusMinUnit: GPa
-  modulusMax: 30 GPa
-  modulusMaxNumeric: 30.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 28.4
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: C6H10O5
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  chemicalFormula: "Complex organic composite (C\u2086H\u2081\u2080O\u2085)n cellulose\
+    \ base"
 composition:
-- Cellulose (C6H10O5) 40-60%
-- Hemicellulose 20-30%
-- Lignin 20-30%
-- Trace minerals (Si, K, Ca, Mg)
+- 'Cellulose: 40-50%'
+- 'Hemicellulose: 20-30%'
+- 'Lignin: 20-25%'
+- 'Ash: 1-3%'
+- 'Extractives: 2-5%'
 machineSettings:
   powerRange: 20-100W
   powerRangeNumeric: 60.0
@@ -75,8 +96,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +114,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.5-2.0mm
-  spotSizeNumeric: 1.25
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +123,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 10-50kHz
-  repetitionRateNumeric: 30.0
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,41 +132,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
-  fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  fluenceRangeNumeric: 1.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from bamboo substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and bamboo matrix composites
+- 'Woodworking: Removing mold and mildew from bamboo surfaces'
+- 'Conservation: Cleaning bamboo artifacts without damaging the material'
 compatibility:
-- Wood Composites
-- Natural Fibers
-- Biodegradable Materials
-regulatoryStandards: ISO 13061, ASTM D143, EN 350
+- Wood species with similar lignocellulosic composition
+- Natural fiber composites
+- Paper and cellulose-based materials
+regulatoryStandards: 'ISO 11553: Safety of machinery - Laser processing machines;
+  IEC 60825: Laser product safety'
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -160,24 +164,32 @@ images:
     alt: Bamboo surface undergoing laser cleaning showing precise contamination removal
     url: /images/bamboo-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of bamboo surface after laser cleaning showing detailed
+    alt: Microscopic view of Bamboo surface after laser cleaning showing detailed
       surface structure
     url: /images/bamboo-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 2000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: "Eliminates solvent use (typically 5-10L/m\xB2 in traditional cleaning)\
+    \ and prevents groundwater contamination"
+- benefit: 97% reduction in water consumption
+  description: "Dry process eliminates water usage compared to traditional washing\
+    \ methods requiring 15-20L/m\xB2"
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 8 cleanliness standard
-- result: Material Removal Precision
-  metric: ±10μm accuracy with minimal substrate damage
-- result: Processing Speed
-  metric: 1-3 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>98% removal of biological growth and surface contaminants'
+- result: Material preservation accuracy
+  metric: "<5\u03BCm surface layer removal with complete substrate preservation"
+technicalSpecifications:
+  powerRange: 20-100W (pulsed)
+  pulseDuration: 10-50ns
+  wavelength: 1064nm (primary), 532nm (optional for delicate work)
+  spotSize: 0.1-1.0mm
+  repetitionRate: 20-100kHz
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  scanningSpeed: 500-2000 mm/s
+  beamProfile: Top-hat or flat-top
+  beamProfileOptions: Top-hat, flat-top, Gaussian (with caution)
+  safetyClass: Class 4 laser safety required with appropriate enclosure and interlocks
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -185,8 +197,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T04:56:20Z'
+  verification_timestamp: '2025-09-20T21:56:20Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-3.0 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Woodworking
+- Conservation
+complexity: medium
+difficultyScore: 3
 ---

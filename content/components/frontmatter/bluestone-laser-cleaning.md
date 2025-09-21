@@ -1,43 +1,62 @@
 ---
 name: Bluestone
 category: stone
-title: Laser Cleaning Bluestone
+title: Bluestone Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning stone bluestone
-description: Technical overview of Bluestone, SiO2·Al2O3, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: Laser cleaning of Bluestone utilizes precise pulsed fiber laser parameters
+  to selectively remove surface contaminants while preserving the stone's mineral
+  structure. The process exploits differential absorption between contaminants and
+  the calcium carbonate matrix, enabling non-contact, non-abrasive restoration.
 keywords: bluestone, bluestone stone, laser ablation, laser cleaning, non-contact
   cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: Bluestone
-  formula: SiO2·Al2O3
-  materialType: stone
+  symbol: "CaCO\u2083"
+  formula: "CaCO\u2083 (primary), with FeS\u2082, SiO\u2082, Al\u2082O\u2083 impurities"
+  materialType: sedimentary rock
 properties:
-  density: 2.6-2.8 g/cm³
+  density: "2.6-2.8 g/cm\xB3 (varies with mineral composition)"
   densityNumeric: 2.7
-  densityUnit: g/cm³
-  densityMin: 2.0 g/cm³
-  densityMinNumeric: 2.0
-  densityMinUnit: g/cm³
-  densityMax: 3.5 g/cm³
-  densityMaxNumeric: 3.5
-  densityMaxUnit: g/cm³
-  densityPercentile: 62.4
-  meltingPoint: 1650-1750°C
-  meltingPointNumeric: 1700.0
-  meltingPointUnit: °C
-  meltingPercentile: 68.2
-  thermalConductivity: 1.3-1.5 W/m·K
-  thermalConductivityNumeric: 1.4
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 0.8
-  tensileStrength: 8-15 MPa
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 21.4
+  meltingPoint: "825\xB0C (decomposition temperature of calcium carbonate)"
+  meltingPointNumeric: 825.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "2.5-3.0 W/m\xB7K (at 20\xB0C)"
+  thermalConductivityNumeric: 2.75
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 1.1
+  tensileStrength: 8-15 MPa (varies with bedding plane orientation)
   tensileStrengthNumeric: 11.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 0.3
-  hardness: 6-7 Mohs
-  hardnessNumeric: 6.5
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: 3-4 Mohs (calcite component)
+  hardnessNumeric: 3.5
   hardnessUnit: Mohs
   hardnessMin: 1 Mohs
   hardnessMinNumeric: 1.0
@@ -45,28 +64,29 @@ properties:
   hardnessMax: 10 Mohs
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
-  hardnessPercentile: 75.0
-  youngsModulus: 50-70 GPa
+  hardnessPercentile: 27.8
+  youngsModulus: 40-80 GPa (dependent on porosity and mineral content)
   youngsModulusNumeric: 60.0
   youngsModulusUnit: GPa
-  modulusMin: 1 GPa
-  modulusMinNumeric: 1.0
-  modulusMinUnit: GPa
-  modulusMax: 400 GPa
-  modulusMaxNumeric: 400.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 42.5
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 66.7
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: SiO2·Al2O3
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  chemicalFormula: "CaCO\u2083 (calcium carbonate)"
 composition:
-- Silica (SiO2) 60-70%
-- Alumina (Al2O3) 25-35%
-- Trace minerals (Fe, Ca, Mg, K)
+- "Calcium carbonate (CaCO\u2083): 85-95%"
+- "Quartz (SiO\u2082): 3-8%"
+- "Pyrite (FeS\u2082): 1-3%"
+- "Clay minerals (Al\u2082O\u2083\xB72SiO\u2082\xB72H\u2082O): 1-4%"
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -74,8 +94,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -92,8 +112,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -110,41 +130,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  fluenceRangeNumeric: 1.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Bluestone substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and stone matrix composites
+- 'Construction: Removal of surface contaminants and weathering from Bluestone facades'
+- 'Restoration: Precision cleaning of Bluestone sculptures and historical artifacts'
 compatibility:
-- Stone Substrates
-- Ceramic Coatings
-- Mineral Composites
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Marble and limestone (similar calcium carbonate composition)
+- Sandstone (compatible laser parameters for silicate-based stones)
+regulatoryStandards: EN 15898:2019 (Conservation of cultural heritage - Main general
+  terms and definitions), EN 15886:2010 (Conservation of cultural property - Test
+  methods - Color measurement of surfaces)
 author: Alessandro Moretti
 author_object:
   id: 2
@@ -164,21 +167,29 @@ images:
       surface structure
     url: /images/bluestone-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+- benefit: Zero chemical waste generation
+  description: Eliminates 100% of chemical solvents and acidic cleaners traditionally
+    used in stone restoration
+- benefit: Reduced water consumption
+  description: Uses 95% less water compared to traditional high-pressure water cleaning
     methods
-- benefit: Water Conservation
-  description: Saves approximately 3000 liters of water per month in stone processing
-    applications
-- benefit: Energy Efficiency
-  description: Consumes 35% less energy than abrasive cleaning processes
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 8 cleanliness standard
-- result: Material Removal Precision
-  metric: ±10μm accuracy with minimal substrate impact
-- result: Processing Speed
-  metric: 1.5-3 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: ">98% removal of black crusts and biological growth while preserving <5\u03BC\
+    m of original stone"
+- result: Processing speed for historical restoration
+  metric: "0.1-0.5 m\xB2/hour depending on contamination severity and required precision"
+technicalSpecifications:
+  powerRange: 20-100 W (average power for pulsed fiber lasers)
+  pulseDuration: 10-50 ns (short pulse for precise ablation)
+  wavelength: 1064 nm (primary), 532 nm (optional for specific contaminants)
+  spotSize: 0.1-1.0 mm (adjustable for precision work vs area coverage)
+  repetitionRate: 20-100 kHz (optimized for thermal management)
+  fluenceRange: "0.5-3.0 J/cm\xB2 (ablation threshold range for Bluestone)"
+  scanningSpeed: 100-1000 mm/s (dependent on contamination type and laser parameters)
+  beamProfile: Top-hat (for uniform energy distribution and consistent cleaning)
+  beamProfileOptions: Top-hat, Gaussian, Flat-top (configurable based on application)
+  safetyClass: Class 4 (requires full enclosure and safety interlock systems)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -186,8 +197,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Italy
   author_id: 2
-  verification_timestamp: '2025-09-19T05:00:40Z'
+  verification_timestamp: '2025-09-20T21:40:56Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-3.0 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Restoration
+complexity: medium
+difficultyScore: 3
 ---

@@ -1,70 +1,89 @@
 ---
 name: Mahogany
 category: wood
-title: Laser Cleaning Mahogany
-headline: Comprehensive technical guide for laser cleaning mahogany wood surfaces
-description: Technical overview of Mahogany wood for laser cleaning applications,
-  including optimal 1064nm wavelength interaction with wood cellulose structure, and
-  applications in wood restoration and conservation.
-keywords: mahogany, mahogany wood, laser ablation, laser cleaning, wood restoration,
-  non-contact cleaning, pulsed fiber laser, surface contamination removal, wood conservation,
-  laser wood cleaning
+title: Mahogany Laser Cleaning
+headline: Comprehensive technical guide for laser cleaning wood mahogany
+description: Laser cleaning of Mahogany utilizes short, high-energy pulses to ablate
+  surface contaminants. The process is highly selective due to the differing ablation
+  thresholds between the contamination layer and the lignocellulosic wood substrate,
+  preserving the intricate grain and structural integrity of the Mahogany.
+keywords: mahogany, mahogany wood, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
 chemicalProperties:
-  symbol: Mahogany
-  formula: C6H10O5 (cellulose)
-  materialType: hardwood
+  symbol: N/A (Organic Composite)
+  formula: "C\u2086H\u2081\u2080O\u2085 (Cellulose base)"
+  materialType: wood
 properties:
-  density: 0.65 g/cm³
-  densityNumeric: 0.65
-  densityUnit: g/cm³
-  densityMin: 0.4 g/cm³
-  densityMinNumeric: 0.4
-  densityMinUnit: g/cm³
-  densityMax: 0.85 g/cm³
-  densityMaxNumeric: 0.85
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.8
-  meltingPoint: 200-250°C (decomposition)
-  meltingPointNumeric: 225.0
-  meltingPointUnit: °C
-  meltingPercentile: 18.2
-  thermalConductivity: 0.12 W/m·K
-  thermalConductivityNumeric: 0.12
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 22.5
-  tensileStrength: 80-120 MPa
+  density: "545-705 kg/m\xB3 (varies by species)"
+  densityNumeric: 625.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "Decomposes at ~270 \xB0C (does not melt)"
+  meltingPointNumeric: 270.0
+  meltingPointUnit: Decomposes
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.12-0.17 W/(m\xB7K) (radial)"
+  thermalConductivityNumeric: 0.15
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 80-120 MPa (parallel to grain)
   tensileStrengthNumeric: 100.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 15.8
-  hardness: 800-1200 N (Janka)
-  hardnessNumeric: 1000.0
-  hardnessUnit: N
-  hardnessMin: 600 N
-  hardnessMinNumeric: 600.0
-  hardnessMinUnit: N
-  hardnessMax: 1600 N
-  hardnessMaxNumeric: 1600.0
-  hardnessMaxUnit: N
-  hardnessPercentile: 35.4
-  youngsModulus: 9.7 GPa
-  youngsModulusNumeric: 9.7
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 5.3
+  hardness: 800-900 lbf (Janka scale, Honduran Mahogany)
+  hardnessNumeric: 850.0
+  hardnessUnit: lbf
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
+  youngsModulus: 9.7-10.3 GPa
+  youngsModulusNumeric: 10.0
   youngsModulusUnit: GPa
-  modulusMin: 8.0 GPa
-  modulusMinNumeric: 8.0
-  modulusMinUnit: GPa
-  modulusMax: 12.0 GPa
-  modulusMaxNumeric: 12.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 28.6
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Nd:YAG laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: C6H10O5 (cellulose)
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  chemicalFormula: ~50% Cellulose, ~28% Hemicellulose, ~22% Lignin (approx. composition)
 composition:
-- Cellulose (C6H10O5) 45-50%
-- Lignin 25-30%
-- Hemicellulose 20-25%
-- Extractives 2-5%
+- Cellulose (40-50%)
+- Hemicellulose (20-28%)
+- Lignin (22-28%)
+- Extractives (3-5%)
 machineSettings:
   powerRange: 20-100W
   powerRangeNumeric: 60.0
@@ -75,8 +94,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +112,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.5-2.0mm
-  spotSizeNumeric: 1.25
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +121,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 10-50kHz
-  repetitionRateNumeric: 30.0
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,42 +130,24 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
-  fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  fluenceRangeNumeric: 1.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Wood Restoration
-  detail: Removal of surface contaminants, old finishes, and biological growth from
-    mahogany surfaces
-- industry: Marine Components
-  detail: Cleaning of mahogany decking and trim without damaging the wood grain structure
+- 'Furniture Manufacturing: Removing old finishes and stains from Mahogany furniture
+  surfaces'
+- 'Restoration: Cleaning and restoring historical Mahogany artifacts and structures'
 compatibility:
-- Wood Finishes
-- Wood Preservatives
-- Traditional Wood Cleaning Methods
-regulatoryStandards: ISO 13061, ASTM D143, EN 350
+- Other hardwoods with similar density and lignin content (e.g., Oak, Teak)
+- Materials processed with similar near-IR laser parameters
+regulatoryStandards: ANSI Z136.1 (Safe Use of Lasers), IEC 60825-1 (Laser Product
+  Safety)
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -158,28 +159,40 @@ author_object:
   image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Mahogany wood surface undergoing laser cleaning showing precise removal of
-      surface contaminants
+    alt: Mahogany surface undergoing laser cleaning showing precise contamination
+      removal
     url: /images/mahogany-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of mahogany wood grain after laser cleaning showing preserved
-      natural structure
+    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed
+      surface structure
     url: /images/mahogany-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Eliminates need for harsh chemical strippers and solvents in wood restoration
-- benefit: Water Conservation
-  description: Zero water usage compared to traditional pressure washing methods
-- benefit: Waste Reduction
-  description: Produces minimal waste as removed material is vaporized rather than
-    washed away
+- benefit: Zero chemical waste generation
+  description: Eliminates the use and disposal of toxic chemical strippers (e.g.,
+    methylene chloride, methanol), reducing hazardous waste by 100% compared to traditional
+    methods.
+- benefit: Reduced energy consumption
+  description: Operates with high electrical-to-optical efficiency (>30%) and targets
+    only the contamination layer, leading to an estimated 60-70% lower energy use
+    per square meter than thermal or abrasive blasting techniques.
 outcomes:
-- result: Surface Cleanliness
-  metric: Complete removal of surface contaminants without damaging wood fibers
-- result: Material Preservation
-  metric: Preserves original wood patina and character while removing unwanted layers
-- result: Processing Speed
-  metric: 0.5-2 m²/hour cleaning rate depending on contamination type and severity
+- result: Non-destructive substrate preservation
+  metric: "Achieves >99% contaminant removal with <5 \xB5m substrate loss, preserving\
+    \ patina and historical value."
+- result: High processing speed
+  metric: "Effective cleaning rates of 2-5 m\xB2/hour achievable, depending on contamination\
+    \ type and laser parameters."
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-50 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer detail)
+  spotSize: 0.1-1.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "0.5-3.0 J/cm\xB2"
+  scanningSpeed: 500-5000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian (for detailed work)
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -187,8 +200,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T05:36:02Z'
+  verification_timestamp: '2025-09-20T22:02:13Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-3.0 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Nd:YAG laser
+tags:
+- Restoration
+- Furniture Manufacturing
+complexity: medium
+difficultyScore: 3
 ---

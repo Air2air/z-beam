@@ -1,44 +1,46 @@
-<!-- CONTENT START -->
 tags:
-  - automotive
-  - aerospace
-  - manufacturing
-  - passivation
-  - etching
-  - expert
-  - industrial
-  - decontamination
+  - laser-cleaning
+  - surface-preparation
+  - industrial-technology
+  - manufacturing-processes
+  - contamination-removal
+  - material-processing
+  - quality-control
+  - precision-cleaning
+material: "steel"
 count: 8
 categories:
   industry:
-    - automotive
-    - aerospace
-    - manufacturing
-    - industrial
   process:
-    - passivation
-    - etching
-    - decontamination
+  author:
+    - laser-cleaning
+    - surface-preparation
+    - industrial-technology
+    - manufacturing-processes
+    - contamination-removal
+    - material-processing
+    - quality-control
+    - precision-cleaning
   other:
-    - expert
 metadata:
+  generated: "2025-09-19T16:58:43.121928"
   format: "yaml"
   version: "2.0"
-<!-- CONTENT END -->
-
-<!-- METADATA START -->
-material: "steel"
-  author:
-  generated: "2025-09-17T11:51:10.900953"
 
 ---
-Version Log - Generated: 2025-09-17T11:51:10.921555
 Material: "steel"
 Component: tags
+Generated: 2025-09-19T16:58:43.121939
 Generator: Z-Beam v1.0.0
-Component Version: 1.0.0
+Format: YAML v2.0
+---
+
+---
+Version Log - Generated: 2025-09-19T16:58:43.122068
+Material: Steel
+Component: tags
+Generator: Z-Beam v2.1.0
 Author: AI Assistant
 Platform: Darwin (3.12.4)
-Operation: generation
+File: content/components/tags/steel-laser-cleaning.md
 ---
-<!-- METADATA END -->

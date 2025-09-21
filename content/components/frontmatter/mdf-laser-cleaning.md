@@ -1,73 +1,93 @@
 ---
 name: MDF
 category: wood
-title: Laser Cleaning MDF
+title: MDF Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning wood mdf
-description: Technical overview of MDF, C6H10O5+Resin, for laser cleaning applications,
-  including optimal 1064nm wavelength interaction, and industrial applications in
-  surface preparation.
+description: Laser cleaning of MDF utilizes precise pulsed laser ablation to remove
+  surface contaminants without damaging the underlying wood fiber composite. The process
+  exploits the high absorption of cellulose and lignin at 1064nm, causing rapid vaporization
+  of thin layers of dirt, paint, or adhesive while minimizing thermal penetration
+  that could cause delamination or charring.
 keywords: mdf, mdf wood, laser ablation, laser cleaning, non-contact cleaning, pulsed
   fiber laser, surface contamination removal, industrial laser parameters, thermal
   processing, surface restoration
 chemicalProperties:
-  symbol: MDF
-  formula: C6H10O5+Resin
-  materialType: wood
+  symbol: N/A (Composite)
+  formula: C6H10O5 (Cellulose primary constituent)
+  materialType: wood composite
 properties:
-  density: 0.7-0.9 g/cm³
-  densityNumeric: 0.8
-  densityUnit: g/cm³
-  densityMin: 0.6 g/cm³
-  densityMinNumeric: 0.6
-  densityMinUnit: g/cm³
-  densityMax: 1.0 g/cm³
-  densityMaxNumeric: 1.0
-  densityMaxUnit: g/cm³
-  densityPercentile: 45.2
-  meltingPoint: Decomposes at 200-300°C
-  meltingPointNumeric: 250.0
-  meltingPointUnit: °C
-  meltingPercentile: 12.5
-  thermalConductivity: 0.12 W/m·K
-  thermalConductivityNumeric: 0.12
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 8.2
-  tensileStrength: 20-30 MPa
-  tensileStrengthNumeric: 25.0
+  density: "700-800 kg/m\xB3"
+  densityNumeric: 750.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "Decomposes at ~200-250\xB0C (no true melting point)"
+  meltingPointNumeric: 225.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.07-0.09 W/(m\xB7K)"
+  thermalConductivityNumeric: 0.08
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 15-30 MPa (parallel to surface)
+  tensileStrengthNumeric: 22.5
   tensileStrengthUnit: MPa
-  tensilePercentile: 5.8
-  hardness: 60-80 HB
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 0.0
+  hardness: 60-80 HB (Brinell hardness)
   hardnessNumeric: 70.0
   hardnessUnit: HB
-  hardnessMin: 40 HB
-  hardnessMinNumeric: 40.0
-  hardnessMinUnit: HB
-  hardnessMax: 100 HB
-  hardnessMaxNumeric: 100.0
-  hardnessMaxUnit: HB
-  hardnessPercentile: 3.2
-  youngsModulus: 3.5 GPa
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 100.0
+  youngsModulus: 3.0-4.0 GPa
   youngsModulusNumeric: 3.5
   youngsModulusUnit: GPa
-  modulusMin: 2.5 GPa
-  modulusMinNumeric: 2.5
-  modulusMinUnit: GPa
-  modulusMax: 4.5 GPa
-  modulusMaxNumeric: 4.5
-  modulusMaxUnit: GPa
-  modulusPercentile: 4.1
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
-  chemicalFormula: C6H10O5+Resin
+  fluenceRange: "0.5-5 J/cm\xB2"
+  chemicalFormula: Composite (Primarily C6H10O5 cellulose)
 composition:
-- Wood fibers 82%
-- Urea-formaldehyde resin 9%
-- Paraffin wax 8%
-- Other additives 1%
+- 'Wood fibers: 82-85%'
+- 'Urea-formaldehyde resin: 10-12%'
+- 'Paraffin wax: 1-2%'
+- 'Water: 5-8%'
 machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -75,8 +95,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 10-100ns
+  pulseDurationNumeric: 55.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -93,8 +113,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.1-2.0mm
+  spotSizeNumeric: 1.05
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +122,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
+  repetitionRate: 10-50kHz
+  repetitionRateNumeric: 30.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,41 +131,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRangeNumeric: 2.75
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from MDF substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and wood matrix composites
+- 'Furniture Manufacturing: Removal of surface contaminants and coatings for refinishing'
+- 'Construction: Cleaning of MDF panels before installation or painting'
 compatibility:
-- Wood composites
-- Particle board
-- Fiberboard materials
-regulatoryStandards: ISO 12460, ASTM D1037, CARB Phase 2
+- Other wood composites (particle board, HDF)
+- Natural wood species with similar resin content
+regulatoryStandards: IEC 60825-1 (Laser Safety), OSHA 29 CFR 1910.1096 (Ionizing Radiation),
+  NFPA 70 (National Electrical Code)
 author: Ikmanda Roswati
 author_object:
   id: 3
@@ -164,20 +166,29 @@ images:
       structure
     url: /images/mdf-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 2000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 60% less energy than thermal cleaning processes
+- benefit: Zero chemical solvent usage
+  description: Eliminates VOC emissions and hazardous waste disposal associated with
+    traditional chemical stripping methods for MDF
+- benefit: Reduced energy consumption
+  description: Laser cleaning consumes approximately 60-70% less energy compared to
+    thermal or abrasive cleaning methods for MDF surfaces
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 8 cleanliness standard
-- result: Material Removal Precision
-  metric: ±10μm accuracy with minimal substrate damage
-- result: Processing Speed
-  metric: 3-6 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: ">99% removal of paints, adhesives, and surface contaminants with <5\u03BC\
+    m substrate damage"
+- result: Processing speed
+  metric: "0.5-2.0 m\xB2/hour depending on contamination type and laser parameters"
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-100 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer detail)
+  spotSize: 0.1-2.0 mm
+  repetitionRate: 10-50 kHz
+  fluenceRange: "0.5-5 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian, Multimode
+  safetyClass: Class 4 (IEC 60825-1)
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -185,8 +196,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Indonesia
   author_id: 3
-  verification_timestamp: '2025-09-19T05:34:17Z'
+  verification_timestamp: '2025-09-20T22:04:07Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5-5 J/cm\xB2"
+  pulse_duration: 10-100ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 10-50kHz
+  spot_size: 0.1-2.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Construction
+- Furniture Manufacturing
+complexity: low
+difficultyScore: 2
 ---

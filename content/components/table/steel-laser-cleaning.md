@@ -1,76 +1,82 @@
-## Material Properties
-| Property | Value | Unit |
-| --- | --- | --- |
-| Density | 7.85 | g/cm³ |
-| Young's Modulus | 190-210 | GPa |
-| Thermal Conductivity | 50-60 | W/(m·K) |
-| Atomic Number | 26 | - |
-| Boiling Point | 2862 | °C |
-| Melting Point | 1370-1530 | °C |
-| Tensile Strength | 400-2000 | MPa |
-| Electrical Conductivity | 1.0×10⁷ | S/m |
-
-
-## Material Grades and Purity
-| Grade | Purity (%) | Common Impurities |
-| --- | --- | --- |
-| AISI 4340 | ≥96.0 | Cr 0.70-0.90, Ni 1.65-2.00 |
-| AISI 316 | ≥97.0 | Cr 16-18, Ni 10-14, Mo 2-3 |
-| AISI 1018 | ≥99.0 | C 0.15-0.20, Mn 0.60-0.90 |
-| AISI 304 | ≥98.0 | Cr 18-20, Ni 8-10.5 |
-
-
-## Performance Metrics
-| Metric | Value | Condition |
-| --- | --- | --- |
-| Hardness (Brinell) | 100-400 | HB |
-| Reflectivity (IR) | 85-95% | λ = 1064nm |
-| Fatigue Strength | 200-600 | MPa (10⁷ cycles) |
-| Corrosion Rate (Atmospheric) | 0.01-0.1 | mm/year |
-
-
-## Standards and Compliance
-| Standard | Scope |
-| --- | --- | --- |
-| ASTM B152/B152M | Sheet/strip/plate |
-| ISO 431 | High-conductivity copper |
-| EN 1172 | Copper for roofing |
-| IEC 60028 | International resistivity std |
-
-
-## Environmental Data
-| Parameter | Value | Unit |
-| --- | --- | --- |
-| Recyclability | 90-100% | Reusable |
-| Embodied Energy | 40-65 | MJ/kg |
-| CO₂ Footprint | 2.5-4.0 | kg CO₂/kg |
-| EU RoHS Compliance | Exempt (Annex III) | - |
-
-
-## Laser Cleaning Parameters
-| Parameter | Range | Unit |
-| --- | --- | --- |
-| Wavelength | 532nm (primary), 1064nm (optional) | - |
-| Power | 15-120 | W |
-| Pulse Duration | 5-150 | ns |
-| Spot Size | 0.2-1.8 | mm |
-| Repetition Rate | 5-60 | kHz |
-| Fluence | 1.0-4 | J/cm² |
+materialTables:
+  tables:
+  - header: '## Physical Properties'
+    rows:
+    - property: Density
+      value: '7.85'
+      unit: "g/cm\xB3"
+      min: '1.8'
+      max: '6.0'
+      percentile: 51.2
+      htmlVisualization: '<div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-blue-600
+        h-2 rounded-full" style="width: 100%"></div></div><p class="text-xs text-center">Value
+        at 100% of range</p>'
+    - property: Melting Point
+      value: '1450.0'
+      unit: "\xB0C"
+      percentile: 54.5
+      htmlVisualization: <span class="text-gray-500">-</span>
+  - header: '## Thermal Properties'
+    rows:
+    - property: Thermal Conductivity
+      value: '50.2'
+      unit: "W/m\xB7K"
+      percentile: 14.8
+      htmlVisualization: <span class="text-gray-500">-</span>
+  - header: '## Mechanical Properties'
+    rows:
+    - property: Tensile Strength
+      value: '500.0'
+      unit: MPa
+      percentile: 26.3
+      htmlVisualization: <span class="text-gray-500">-</span>
+    - property: Hardness
+      value: '200.0'
+      unit: HB
+      min: '500.0'
+      max: '2500.0'
+      percentile: 0.0
+      htmlVisualization: '<div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-blue-600
+        h-2 rounded-full" style="width: 0%"></div></div><p class="text-xs text-center">Value
+        at 0% of range</p>'
+    - property: Young's Modulus
+      value: '200.0'
+      unit: GPa
+      min: '150.0'
+      max: '400.0'
+      percentile: 92.0
+      htmlVisualization: '<div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-blue-600
+        h-2 rounded-full" style="width: 20%"></div></div><p class="text-xs text-center">Value
+        at 20% of range</p>'
+  - header: '## Laser Processing Parameters'
+    rows:
+    - property: Laser Type
+      value: Pulsed Fiber Laser
+      unit: '-'
+      htmlVisualization: <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded">Standard</span>
+    - property: Wavelength
+      value: 1064nm
+      unit: nm
+      htmlVisualization: <span class="px-2 py-1 bg-green-100 text-green-800 rounded">Optimal</span>
+    - property: Fluence Range
+      value: "1.0\u20134.5 J/cm\xB2"
+      unit: "J/cm\xB2"
+      htmlVisualization: '<div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-orange-600
+        h-2 rounded-full" style="width: 75%"></div></div>'
+  - header: '## Composition'
+    rows:
+    - property: Chemical Formula
+      value: Fe
+      unit: '-'
+      htmlVisualization: <span class="font-mono text-sm bg-gray-100 px-2 py-1 rounded">Chemical</span>
+renderInstructions: 'In Next.js, loop over tables[].rows and render as <table> with
+  <tr><td>{property}</td><td>{value} ({unit})</td><td>{min}-{max}</td><td>{percentile
+  ? percentile + ''%'' : ''N/A''}</td><td dangerouslySetInnerHTML={{__html: htmlVisualization}}
+  /></tr>. Use MDX for headers.'
 
 
 ---
-Version Log - Generated: 2025-09-11T14:07:03.170301
-Material: Unknown
-Component: table
-Generator: Z-Beam v1.0.0
-Component Version: 2.0.0
-Author: AI Assistant
-Platform: Darwin (3.12.4)
-Operation: generation
----
-
----
-Version Log - Generated: 2025-09-11T14:07:03.170759
+Version Log - Generated: 2025-09-19T16:58:59.428050
 Material: Steel
 Component: table
 Generator: Z-Beam v2.1.0

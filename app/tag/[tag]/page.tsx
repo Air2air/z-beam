@@ -3,6 +3,7 @@ import { getArticlesWithTags } from "../../utils/tags";
 import { enrichArticles } from "../../utils/articleEnrichment";
 import { SearchResults } from "../../components/SearchResults/SearchResults";
 import { TagPageProps } from "../../../types";
+import { CONTAINER_STYLES } from "../../utils/containerStyles";
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic';
@@ -26,7 +27,7 @@ export default async function TagPage({ params }: TagPageProps) {
   );
   
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className={CONTAINER_STYLES.wide}>
       <h1 className="text-3xl font-bold mb-6">Articles tagged with &quot;{tag}&quot;</h1>
       
       <SearchResults 

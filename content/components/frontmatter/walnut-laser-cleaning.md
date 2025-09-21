@@ -1,73 +1,95 @@
 ---
 name: Walnut
 category: wood
-title: Laser Cleaning Walnut
-headline: Comprehensive technical guide for laser cleaning walnut wood surfaces
-description: Technical overview of walnut wood for laser cleaning applications, including
-  optimal 1064nm wavelength interaction with cellulose structure, and applications
-  in wood surface restoration.
-keywords: walnut, walnut wood, laser ablation, laser cleaning, wood restoration, non-contact
-  cleaning, pulsed fiber laser, surface contamination removal, wood grain preservation,
-  surface restoration
+title: Walnut Laser Cleaning
+headline: Comprehensive technical guide for laser cleaning wood walnut
+description: Laser cleaning of walnut (Juglans spp.) utilizes precise pulsed fiber
+  laser parameters to achieve controlled ablation of surface contaminants. The process
+  exploits the differential absorption characteristics between the contamination layer
+  and the walnut substrate, which is primarily composed of cellulose, hemicellulose,
+  and lignin, allowing for non-contact, non-abrasive cleaning.
+keywords: walnut, walnut wood, laser ablation, laser cleaning, non-contact cleaning,
+  pulsed fiber laser, surface contamination removal, industrial laser parameters,
+  thermal processing, surface restoration
 chemicalProperties:
-  symbol: Walnut
-  formula: C6H10O5 (cellulose)
-  materialType: hardwood
+  symbol: N/A (Biological Composite)
+  formula: "C\u2086H\u2081\u2080O\u2085\u2099 (Cellulose primary component)"
+  materialType: wood
 properties:
-  density: 0.64 g/cm³
-  densityNumeric: 0.64
-  densityUnit: g/cm³
-  densityMin: 0.45 g/cm³
-  densityMinNumeric: 0.45
-  densityMinUnit: g/cm³
-  densityMax: 0.75 g/cm³
-  densityMaxNumeric: 0.75
-  densityMaxUnit: g/cm³
-  densityPercentile: 42.8
-  meltingPoint: 250-350°C
-  meltingPointNumeric: 300.0
-  meltingPointUnit: °C
-  meltingPercentile: 18.3
-  thermalConductivity: 0.12 W/m·K
-  thermalConductivityNumeric: 0.12
-  thermalConductivityUnit: W/m·K
-  thermalPercentile: 22.1
-  tensileStrength: 80-120 MPa
-  tensileStrengthNumeric: 100.0
+  density: "640-700 kg/m\xB3 (Juglans nigra)"
+  densityNumeric: 670.0
+  densityUnit: "kg/m\xB3"
+  densityMin: "1.8 g/cm\xB3"
+  densityMinNumeric: 1.8
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "~280 \xB0C (onset of pyrolysis/decomposition)"
+  meltingPointNumeric: 280.0
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 0.0
+  thermalConductivity: "0.12-0.17 W/(m\xB7K) (radial)"
+  thermalConductivityNumeric: 0.15
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 0.0
+  tensileStrength: 101 MPa (Juglans regia, parallel to grain)
+  tensileStrengthNumeric: 101.0
   tensileStrengthUnit: MPa
-  tensilePercentile: 35.6
-  hardness: 4.5-5.0 HB
-  hardnessNumeric: 4.75
-  hardnessUnit: HB
-  hardnessMin: 3.0 HB
-  hardnessMinNumeric: 3.0
-  hardnessMinUnit: HB
-  hardnessMax: 6.5 HB
-  hardnessMaxNumeric: 6.5
-  hardnessMaxUnit: HB
-  hardnessPercentile: 45.2
-  youngsModulus: 10.5 GPa
-  youngsModulusNumeric: 10.5
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
+  tensilePercentile: 5.4
+  hardness: 4.49 kN (Janka Hardness for Juglans nigra)
+  hardnessNumeric: 4.49
+  hardnessUnit: kN
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
+  hardnessPercentile: 38.8
+  youngsModulus: 11.59 GPa (Juglans regia, parallel to grain)
+  youngsModulusNumeric: 11.59
   youngsModulusUnit: GPa
-  modulusMin: 8.0 GPa
-  modulusMinNumeric: 8.0
-  modulusMinUnit: GPa
-  modulusMax: 14.0 GPa
-  modulusMaxNumeric: 14.0
-  modulusMaxUnit: GPa
-  modulusPercentile: 38.7
-  laserType: Pulsed Fiber Laser
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
+  modulusPercentile: 0.0
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 0.5–2.0 J/cm²
-  chemicalFormula: C6H10O5
+  fluenceRange: "0.5\u20133.0 J/cm\xB2"
+  chemicalFormula: "Complex biological composite; primarily cellulose (C\u2086H\u2081\
+    \u2080O\u2085)\u2099, lignin [C\u2089H\u2081\u2080O\u2083(OCH\u2083)\u2080.\u2089\
+    \u208B\u2081.\u2087]\u2099, hemicellulose"
 composition:
-- Cellulose (C6H10O5) 45-50%
-- Lignin 20-25%
-- Hemicellulose 20-25%
-- Extractives 5-10%
+- 'Cellulose: 40-50%'
+- 'Lignin: 20-30%'
+- 'Hemicellulose: 23-30%'
+- 'Extractives (tannins, juglone): 4-8%'
 machineSettings:
-  powerRange: 10-60W
-  powerRangeNumeric: 35.0
+  powerRange: 20-100W
+  powerRangeNumeric: 60.0
   powerRangeUnit: W
   powerRangeMin: 20W
   powerRangeMinNumeric: 20.0
@@ -75,8 +97,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 50-200ns
-  pulseDurationNumeric: 125.0
+  pulseDuration: 10-50ns
+  pulseDurationNumeric: 30.0
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -84,7 +106,7 @@ machineSettings:
   pulseDurationMax: 1000ns
   pulseDurationMaxNumeric: 1000.0
   pulseDurationMaxUnit: ns
-  wavelength: 1064nm (primary), 355nm (optional)
+  wavelength: 1064nm (primary), 532nm (optional)
   wavelengthNumeric: 1064.0
   wavelengthUnit: nm
   wavelengthMin: 355nm
@@ -93,8 +115,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.1-0.8mm
-  spotSizeNumeric: 0.45
+  spotSize: 0.1-1.0mm
+  spotSizeNumeric: 0.55
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -102,8 +124,8 @@ machineSettings:
   spotSizeMax: 10mm
   spotSizeMaxNumeric: 10.0
   spotSizeMaxUnit: mm
-  repetitionRate: 20-80kHz
-  repetitionRateNumeric: 50.0
+  repetitionRate: 20-100kHz
+  repetitionRateNumeric: 60.0
   repetitionRateUnit: kHz
   repetitionRateMin: 1kHz
   repetitionRateMinNumeric: 1.0
@@ -111,43 +133,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 0.5–2.0 J/cm²
+  fluenceRange: "0.5\u20133.0 J/cm\xB2"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Woodworking & Restoration
-  detail: Removal of surface contaminants, old finishes, and oxidation from walnut
-    wood surfaces
-- industry: Musical Instrument Manufacturing
-  detail: Precision cleaning of walnut instrument components without damaging delicate
-    wood grain
+- 'Furniture Manufacturing: Removing old finishes and stains from walnut furniture'
+- 'Art Restoration: Precision cleaning of walnut sculptures and frames'
 compatibility:
-- Wood Surfaces
-- Natural Finishes
-- Wood Composites
-regulatoryStandards: ISO 13061, ASTM D143, EN 350
+- Pulsed fiber lasers with nanosecond pulse durations
+- Other hardwoods with similar density and lignin content (e.g., Oak, Maple)
+regulatoryStandards: ANSI Z136.1 (Safe Use of Lasers), IEC 60825-1 (Laser Product
+  Safety)
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -159,29 +161,39 @@ author_object:
   image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Walnut wood surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Walnut surface undergoing laser cleaning showing precise contamination removal
     url: /images/walnut-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of walnut wood surface after laser cleaning showing preserved
-      grain structure
+    alt: Microscopic view of Walnut surface after laser cleaning showing detailed
+      surface structure
     url: /images/walnut-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Eliminates need for harsh chemical strippers and solvents in wood restoration
-- benefit: Water Conservation
-  description: Zero water consumption compared to traditional sanding and washing
-    methods
-- benefit: Waste Reduction
-  description: Produces minimal airborne particulate compared to mechanical sanding
+- benefit: Elimination of chemical solvents
+  description: Replaces traditional solvent-based stripping, eliminating VOC emissions
+    and hazardous waste generation associated with methylene chloride or N-methyl-2-pyrrolidone
+    (NMP) based paint strippers.
+- benefit: Reduced waste and material consumption
+  description: Non-abrasive process generates only vaporized contaminant waste, significantly
+    reducing solid waste compared to sanding or media blasting; no consumable media
+    required.
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves complete removal of surface contaminants without damaging wood
-    fibers
-- result: Material Removal Precision
-  metric: ±10μm accuracy with complete wood grain preservation
-- result: Processing Speed
-  metric: 0.5-2 m²/hour cleaning rate depending on contamination level
+- result: Contaminant removal with substrate preservation
+  metric: Achieves >95% contaminant removal while preserving >99% of the original
+    walnut substrate integrity.
+- result: Processing speed
+  metric: "Effective cleaning rates of 0.5 - 2.0 m\xB2/hour depending on contamination\
+    \ layer thickness and laser parameters."
+technicalSpecifications:
+  powerRange: 20-100 W
+  pulseDuration: 10-50 ns
+  wavelength: 1064 nm (primary), 532 nm (optional for finer detail)
+  spotSize: 0.1-1.0 mm
+  repetitionRate: 20-100 kHz
+  fluenceRange: "0.5\u20133.0 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat (flat-top)
+  beamProfileOptions: Top-hat, Gaussian
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -189,8 +201,21 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T06:29:57Z'
+  verification_timestamp: '2025-09-20T22:43:13Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+laser_parameters:
+  fluence_threshold: "0.5\u20133.0 J/cm\xB2"
+  pulse_duration: 10-50ns
+  wavelength_optimal: 1064nm
+  power_range: 20-100W
+  repetition_rate: 20-100kHz
+  spot_size: 0.1-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Art Restoration
+- Furniture Manufacturing
+complexity: medium
+difficultyScore: 3
 ---

@@ -7,7 +7,8 @@ import path from 'path';
 import { logger, safeContentOperation } from './logger';
 import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug } from './formatting';
-import { Article } from '../../types/core';
+import { parseMarkdown, extractMetadata, slugify } from './helpers';
+import { Article } from '@/types';
 
 export type { Article };
 

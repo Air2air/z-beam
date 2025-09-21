@@ -1,10 +1,12 @@
 ---
 name: Iridium
 category: metal
-title: Laser Cleaning Iridium
+title: Iridium Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning metal iridium
-description: Technical overview of Iridium, Ir, for laser cleaning applications, including
-  optimal 1064nm wavelength interaction, and industrial applications in surface preparation.
+description: Iridium laser cleaning utilizes precise pulsed fiber laser parameters
+  to remove surface contaminants without damaging the underlying high-value iridium
+  substrate, leveraging its exceptional thermal and mechanical properties for aerospace
+  and electronics applications.
 keywords: iridium, iridium metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -13,55 +15,73 @@ chemicalProperties:
   formula: Ir
   materialType: metal
 properties:
-  density: 22.56 g/cm³
+  density: "22.56 g/cm\xB3"
   densityNumeric: 22.56
-  densityUnit: g/cm³
-  densityMin: 1.8 g/cm³
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: g/cm³
-  densityMax: 22.56 g/cm³
-  densityMaxNumeric: 22.56
-  densityMaxUnit: g/cm³
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
+  densityMaxNumeric: 6.0
+  densityMaxUnit: "g/cm\xB3"
   densityPercentile: 100.0
-  meltingPoint: 2466°C
+  meltingPoint: "2466\xB0C"
   meltingPointNumeric: 2466.0
-  meltingPointUnit: °C
-  meltingPercentile: 100.0
-  thermalConductivity: 147 W/m·K
+  meltingPointUnit: "\xB0C"
+  meltingPointMin: "1200\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  meltingPercentile: 79.1
+  thermalConductivity: "147 W/(m\xB7K)"
   thermalConductivityNumeric: 147.0
-  thermalConductivityUnit: W/m·K
+  thermalConductivityUnit: W/
+  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMinNumeric: 0.5
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMaxNumeric: 200.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
   thermalPercentile: 73.4
   tensileStrength: 2000 MPa
   tensileStrengthNumeric: 2000.0
   tensileStrengthUnit: MPa
+  tensileStrengthMin: 50 MPa
+  tensileStrengthMinNumeric: 50.0
+  tensileStrengthMinUnit: MPa
+  tensileStrengthMax: 1000 MPa
+  tensileStrengthMaxNumeric: 1000.0
+  tensileStrengthMaxUnit: MPa
   tensilePercentile: 100.0
-  hardness: 1760 HV
-  hardnessNumeric: 1760.0
+  hardness: 1670 HV
+  hardnessNumeric: 1670.0
   hardnessUnit: HV
-  hardnessMin: 500 HV
-  hardnessMinNumeric: 500.0
-  hardnessMinUnit: HV
-  hardnessMax: 1760 HV
-  hardnessMaxNumeric: 1760.0
-  hardnessMaxUnit: HV
+  hardnessMin: 1 Mohs
+  hardnessMinNumeric: 1.0
+  hardnessMinUnit: Mohs
+  hardnessMax: 10 Mohs
+  hardnessMaxNumeric: 10.0
+  hardnessMaxUnit: Mohs
   hardnessPercentile: 100.0
   youngsModulus: 528 GPa
   youngsModulusNumeric: 528.0
   youngsModulusUnit: GPa
-  modulusMin: 150 GPa
-  modulusMinNumeric: 150.0
-  modulusMinUnit: GPa
-  modulusMax: 528 GPa
-  modulusMaxNumeric: 528.0
-  modulusMaxUnit: GPa
+  youngsModulusMin: 20 GPa
+  youngsModulusMinNumeric: 20.0
+  youngsModulusMinUnit: GPa
+  youngsModulusMax: 80 GPa
+  youngsModulusMaxNumeric: 80.0
+  youngsModulusMaxUnit: GPa
   modulusPercentile: 100.0
-  laserType: Pulsed Fiber Laser
+  laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: Ir
 composition:
-- Iridium (Ir) 99.9%
-- Trace elements (Rh, Pt, Pd, Ru)
+- 'Iridium: 99.9% (primary component)'
+- 'Platinum: 0.1% (typical trace element)'
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -72,8 +92,8 @@ machineSettings:
   powerRangeMax: 500W
   powerRangeMaxNumeric: 500.0
   powerRangeMaxUnit: W
-  pulseDuration: 20-100ns
-  pulseDurationNumeric: 60.0
+  pulseDuration: 1-100ns
+  pulseDurationNumeric: 50.5
   pulseDurationUnit: ns
   pulseDurationMin: 1ns
   pulseDurationMinNumeric: 1.0
@@ -90,8 +110,8 @@ machineSettings:
   wavelengthMax: 2940nm
   wavelengthMaxNumeric: 2940.0
   wavelengthMaxUnit: nm
-  spotSize: 0.2-1.5mm
-  spotSizeNumeric: 0.85
+  spotSize: 0.05-1.0mm
+  spotSizeNumeric: 0.525
   spotSizeUnit: mm
   spotSizeMin: 0.01mm
   spotSizeMinNumeric: 0.01
@@ -108,41 +128,23 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: 1.0–4.5 J/cm²
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: J/cm²
-  fluenceRangeMin: 0.1J/cm²
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: J/cm²
-  fluenceRangeMax: 50J/cm²
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: J/cm²
-  scanningSpeed: 50-500mm/s
-  scanningSpeedNumeric: 275.0
-  scanningSpeedUnit: mm/s
-  scanningSpeedMin: 1mm/s
-  scanningSpeedMinNumeric: 1.0
-  scanningSpeedMinUnit: mm/s
-  scanningSpeedMax: 5000mm/s
-  scanningSpeedMaxNumeric: 5000.0
-  scanningSpeedMaxUnit: mm/s
-  beamProfile: Gaussian TEM00
-  beamProfileOptions:
-  - Gaussian TEM00
-  - Top-hat
-  - Donut
-  - Multi-mode
-  safetyClass: Class 4 (requires full enclosure)
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
-- industry: Electronics Manufacturing
-  detail: Removal of surface oxides and contaminants from Iridium substrates
-- industry: Aerospace Components
-  detail: Cleaning of thermal barrier coatings and metal matrix composites
+- 'Aerospace: Removal of oxidation and contaminants from iridium components in rocket
+  engines'
+- 'Electronics: Cleaning iridium contacts and connectors for improved conductivity'
 compatibility:
-- Platinum Group Metals
-- High-Temperature Alloys
-- Refractory Metals
-regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+- Platinum group metals (rhodium, ruthenium, platinum)
+- Refractory metals (tungsten, molybdenum, tantalum)
+regulatoryStandards: IEC 60825-1 (Laser Safety), OSHA 29 CFR 1910.1096 (Ionizing Radiation)
 author: Yi-Chun Lin
 author_object:
   id: 1
@@ -161,20 +163,28 @@ images:
       surface structure
     url: /images/iridium-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Chemical Solvent Elimination
-  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
-    methods
-- benefit: Water Conservation
-  description: Saves approximately 5000 liters of water per month in industrial applications
-- benefit: Energy Efficiency
-  description: Consumes 40% less energy than thermal cleaning processes
+- benefit: Zero chemical waste generation
+  description: Eliminates use of hazardous acids and solvents traditionally used for
+    iridium cleaning, reducing chemical disposal by 100%
+- benefit: Reduced energy consumption
+  description: Laser cleaning consumes 60-80% less energy compared to thermal or chemical
+    cleaning methods for iridium components
 outcomes:
-- result: Surface Cleanliness Level
-  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
-- result: Material Removal Precision
-  metric: ±5μm accuracy with no substrate damage
-- result: Processing Speed
-  metric: 2-5 m²/hour cleaning rate depending on contamination level
+- result: Surface contamination removal efficiency
+  metric: '>99.9% removal of oxides and organic contaminants without substrate damage'
+- result: Processing precision
+  metric: "\xB15\u03BCm accuracy with processing speeds up to 2000 mm\xB2/min"
+technicalSpecifications:
+  powerRange: 50-200W
+  pulseDuration: 1-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.05-1.0mm
+  repetitionRate: 20-100kHz
+  fluenceRange: "1.0\u201310 J/cm\xB2"
+  scanningSpeed: 100-2000 mm/s
+  beamProfile: Top-hat or Gaussian
+  beamProfileOptions: Top-hat, Gaussian, Flat-top
+  safetyClass: Class 4
 prompt_chain_verification:
   base_config_loaded: true
   persona_config_loaded: true
@@ -182,8 +192,22 @@ prompt_chain_verification:
   ai_detection_config_loaded: true
   persona_country: Taiwan
   author_id: 1
-  verification_timestamp: '2025-09-19T05:29:07Z'
+  verification_timestamp: '2025-09-20T21:17:25Z'
   prompt_components_integrated: 4
   human_authenticity_focus: true
   cultural_adaptation_applied: true
+chemicalFormula: Ir
+laser_parameters:
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  pulse_duration: 1-100ns
+  wavelength_optimal: 1064nm
+  power_range: 50-200W
+  repetition_rate: 20-100kHz
+  spot_size: 0.05-1.0mm
+  laser_type: Pulsed fiber laser
+tags:
+- Aerospace
+- Electronics
+complexity: medium
+difficultyScore: 3
 ---
