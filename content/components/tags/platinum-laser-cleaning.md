@@ -1,36 +1,36 @@
 tags:
-  - electroplating
-  - precious-metal
+  - ikmanda-roswati
+  - metalworking
+  - industrial
   - aerospace
-  - medical
-  - electronics
+  - jewelry
+  - decontamination
+  - surface-preparation
   - passivation
-  - etching
-  - polishing
 material: "platinum"
 count: 8
 categories:
   industry:
+    - industrial
     - aerospace
-    - medical
-    - electronics
   process:
+    - decontamination
     - passivation
-    - etching
-    - polishing
   author:
-    - precious-metal
+    - ikmanda-roswati
+    - surface-preparation
   other:
-    - electroplating
+    - metalworking
+    - jewelry
 metadata:
-  generated: "2025-09-17T12:03:30.164269"
+  generated: "2025-09-22T15:12:11.831235"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "platinum"
 Component: tags
-Generated: 2025-09-17T12:03:30.164315
-Generator: Z-Beam v1.0.0
+Generated: 2025-09-22T15:12:11.831248
+Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

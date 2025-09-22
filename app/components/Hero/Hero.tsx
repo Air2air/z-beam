@@ -2,8 +2,9 @@
 'use client';
 
 import './styles.css';
-import { ReactNode, useState, useEffect } from 'react';
+import { ReactNode, useState, useEffect, useRef } from 'react';
 import { HeroProps } from '@/types';
+import Image from 'next/image';
 
 export function Hero({ 
   image, 
@@ -13,13 +14,36 @@ export function Hero({
   theme = 'dark',
   variant = 'default',
   frontmatter,
+  alt, // New prop for accessibility
+  ariaLabel, // New prop for accessibility
 
 }: HeroProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
 
   const themeClass = `theme-${theme}`;
+  
+  // Intersection Observer for lazy loading and performance optimization
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   // Determine video source, prioritizing frontmatter
   let videoSource = video;
@@ -96,6 +120,27 @@ export function Hero({
 
   const vimeoUrl = videoSource ? buildVimeoUrl(videoSource) : null;
   
+  // Generate accessible alt text
+  const getAccessibleAlt = (): string => {
+    if (alt) return alt;
+    if (frontmatter?.images?.hero?.alt) return frontmatter.images.hero.alt;
+    if (frontmatter?.title) return `Hero image for ${frontmatter.title}`;
+    return 'Hero background image';
+  };
+
+  // Generate accessible aria-label
+  const getAriaLabel = (): string => {
+    if (ariaLabel) return ariaLabel;
+    if (frontmatter?.title) return `Hero section for ${frontmatter.title}`;
+    return 'Hero section';
+  };
+
+  // Generate accessible video title
+  const getVideoTitle = (): string => {
+    if (frontmatter?.title) return `Video content for ${frontmatter.title}`;
+    return 'Hero video content';
+  };
+  
   // Tailwind classes for fullwidth variant with responsive heights
   const containerClasses = variant === 'fullwidth' 
     ? `w-full 
@@ -120,7 +165,12 @@ export function Hero({
     : "hero-content";
 
   return (
-    <div className={containerClasses}>
+    <section 
+      ref={heroRef}
+      className={containerClasses}
+      aria-label={getAriaLabel()}
+      role={variant === 'fullwidth' ? 'banner' : 'region'}
+    >
       {vimeoUrl ? (
         <div className={backgroundClasses}>
           <iframe
@@ -131,48 +181,89 @@ export function Hero({
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
+            title={getVideoTitle()}
+            aria-label={`${getVideoTitle()} - Video player`}
+            loading="lazy"
           />
         </div>
-      ) : imageSource ? (
-        <div 
-          className={backgroundClasses}
-          style={{ backgroundImage: `url(${encodedImageSource})` }}
-        >
-          {/* Loading indicator overlay */}
+      ) : imageSource && isInView ? (
+        <div className={backgroundClasses}>
+          {/* Performance-optimized Next.js Image component */}
+          <Image
+            src={imageSource}
+            alt={getAccessibleAlt()}
+            fill
+            className="object-cover"
+            style={{ zIndex: 1 }}
+            priority={variant === 'fullwidth'} // Prioritize fullwidth hero images
+            quality={85}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            onLoad={() => {
+              setImageLoaded(true);
+              setImageLoading(false);
+            }}
+            onError={() => {
+              setImageError(true);
+              setImageLoading(false);
+            }}
+            onLoadStart={() => setImageLoading(true)}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
+          />
+          {/* Loading indicator overlay with screen reader support */}
           {imageLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-10">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+            <div 
+              className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-10"
+              role="status"
+              aria-live="polite"
+              aria-label="Loading hero image"
+            >
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
+              <span className="sr-only">Loading hero image...</span>
             </div>
           )}
-          {/* Error state overlay */}
+          {/* Error state overlay with screen reader support */}
           {imageError && (
-            <div className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-75 z-10">
+            <div 
+              className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-75 z-10"
+              role="alert"
+              aria-live="assertive"
+            >
               <div className="text-white text-center">
-                <div className="text-sm opacity-75">Image unavailable</div>
+                <div className="text-sm opacity-75">Hero image could not be loaded</div>
+                <span className="sr-only">Error: Hero image failed to load</span>
               </div>
             </div>
           )}
         </div>
+      ) : imageSource && !isInView ? (
+        // Placeholder while not in view for performance
+        <div className={`${backgroundClasses} bg-gray-800 animate-pulse`} aria-hidden="true">
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700"></div>
+        </div>
       ) : (
         <div 
           className={`${backgroundClasses} flex items-center justify-center bg-gray-600`}
-          style={{ 
-            backgroundImage: `url(/images/Site/Logo/logo_.png)`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            opacity: '0.3'
-          }}
-        />
+          aria-label="Default hero background with logo"
+        >
+          <Image
+            src="/images/Site/Logo/logo_.png"
+            alt="Z-Beam company logo"
+            width={200}
+            height={120}
+            className="opacity-30 object-contain"
+            priority={false}
+          />
+        </div>
       )}
 
-      {/* Content overlay */}
+      {/* Content overlay with proper focus management */}
       {children && (
-        <div className={contentClasses}>
+        <div className={contentClasses} style={{ zIndex: 2 }}>
           {children}
         </div>
       )}
 
-    </div>
+    </section>
   );
 }

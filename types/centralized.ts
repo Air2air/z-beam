@@ -89,6 +89,26 @@ export interface ArticleMetadata {
   chemicalProperties?: ChemicalProperties;
   properties?: Record<string, PropertyWithUnits>;
   
+  // Image structure for hero and other images
+  images?: {
+    hero?: {
+      url?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    };
+    micro?: {
+      url?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    };
+    social?: {
+      url?: string;
+      alt?: string;
+    };
+  };
+  
   // Legacy compatibility fields
   subject?: string; // Legacy field for older components
   video?: string; // For video metadata
@@ -538,6 +558,10 @@ export interface HeroProps {
   children?: React.ReactNode;
   frontmatter?: ArticleMetadata;
   className?: string;
+  // Accessibility props
+  alt?: string;
+  ariaLabel?: string;
+  role?: string;
 }
 
 /**

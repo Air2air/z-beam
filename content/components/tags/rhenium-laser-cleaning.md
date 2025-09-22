@@ -1,36 +1,36 @@
 tags:
+  - yi-chun-lin
+  - metalworking
+  - industrial
   - aerospace
-  - jet-engines
-  - medical-implants
+  - semiconductor
   - decontamination
-  - restoration
+  - surface-preparation
   - passivation
-  - etching
-  - polishing
 material: "rhenium"
 count: 8
 categories:
   industry:
+    - industrial
     - aerospace
   process:
     - decontamination
-    - restoration
     - passivation
-    - etching
-    - polishing
   author:
-    - jet-engines
-    - medical-implants
+    - surface-preparation
   other:
+    - yi-chun-lin
+    - metalworking
+    - semiconductor
 metadata:
-  generated: "2025-09-17T12:04:24.638261"
+  generated: "2025-09-22T15:12:11.847252"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "rhenium"
 Component: tags
-Generated: 2025-09-17T12:04:24.638275
-Generator: Z-Beam v1.0.0
+Generated: 2025-09-22T15:12:11.847264
+Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

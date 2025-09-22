@@ -1,36 +1,36 @@
 tags:
-  - aerospace
-  - automotive
-  - manufacturing
-  - decoating
+  - yi-chun-lin
+  - masonry
+  - heritage
+  - construction
+  - art-and-restoration
   - decontamination
+  - surface-preparation
   - restoration
-  - etching
-  - passivation
 material: "breccia"
 count: 8
 categories:
   industry:
-    - aerospace
-    - automotive
-    - manufacturing
   process:
-    - decoating
     - decontamination
     - restoration
-    - etching
-    - passivation
   author:
+    - surface-preparation
   other:
+    - yi-chun-lin
+    - masonry
+    - heritage
+    - construction
+    - art-and-restoration
 metadata:
-  generated: "2025-09-17T11:59:33.011168"
+  generated: "2025-09-22T15:12:12.142315"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "breccia"
 Component: tags
-Generated: 2025-09-17T11:59:33.011196
-Generator: Z-Beam v1.0.0
+Generated: 2025-09-22T15:12:12.142328
+Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

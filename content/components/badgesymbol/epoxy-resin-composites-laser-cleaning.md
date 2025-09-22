@@ -1,11 +1,15 @@
 ---
-symbol: "EP"
-materialType: "polymer"
-name: "Epoxy Resin"
-description: "Thermosetting polymer with excellent adhesive properties and chemical resistance"
+symbol: "ERC"
+materialType: "composite"
 ---
 
-# Epoxy Resin Badge Symbol Data
-- Symbol: EP
-- Material Type: Polymer
-- Properties: Strong adhesion, chemical resistance, thermosetting
+---
+Version Log - Generated: 2025-09-22T14:58:26.032327
+Material: Unknown
+Component: badgesymbol
+Generator: Z-Beam v1.0.0
+Component Version: 2.0.0
+Author: AI Assistant
+Platform: Darwin (3.12.4)
+Operation: generation
+---

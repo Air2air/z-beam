@@ -1,9 +1,11 @@
 ---
 name: Aluminum
 category: metal
-title: Aluminum Laser Cleaning
-headline: Comprehensive technical guide for laser cleaning metal aluminum
-description: "Laser cleaning of aluminum utilizes short pulses (ns-range) from fiber lasers at 1064 nm wavelength. The process relies on the rapid thermal expansion of surface contaminants, which have a lower vaporization threshold than the underlying aluminum substrate (melting point ~660°C). This allows for selective removal of oxides, paints, and oils while preserving the base material's integrity and preventing heat-affected zones (HAZ) when parameters are correctly optimized."
+title: Laser Cleaning Aluminum
+headline: Comprehensive technical guide for laser cleaning metal Aluminum
+description: Technical overview of Aluminum, Al, for laser cleaning applications,
+  including optimal 1064nm wavelength interaction, and industrial applications in
+  surface preparation.
 keywords: aluminum, aluminum metal, laser ablation, laser cleaning, non-contact cleaning,
   pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
@@ -12,38 +14,38 @@ chemicalProperties:
   formula: Al
   materialType: metal
 properties:
-  density: "2.70 g/cm³"
-  densityNumeric: 2.7
-  densityUnit: "g/cm³"
-  densityMin: "1.8 g/cm³"
+  density: "7.85 g/cm\xB3"
+  densityNumeric: 7.85
+  densityUnit: "g/cm\xB3"
+  densityMin: "1.8 g/cm\xB3"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm³"
-  densityMax: "6.0 g/cm³"
+  densityMinUnit: "g/cm\xB3"
+  densityMax: "6.0 g/cm\xB3"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm³"
-  densityPercentile: 21.4
-  meltingPoint: "660°C"
-  meltingPointNumeric: 660
-  meltingPointUnit: "°C"
-  meltingPointMin: "1200°C"
-  meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "°C"
-  meltingPointMax: "2800°C"
-  meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "°C"
-  meltingPercentile: 0.0
-  thermalConductivity: "237 W/(m·K)"
-  thermalConductivityNumeric: 237.0
-  thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m·K"
+  densityMaxUnit: "g/cm\xB3"
+  densityPercentile: 100.0
+  meltingPoint: "1370-1530\xB0C"
+  meltingPointNumeric: 1450.0
+  meltingPointUnit: "\xB0C"
+  meltingMin: "1200\xB0C"
+  meltingMinNumeric: null
+  meltingMinUnit: null
+  meltingMax: "2800\xB0C"
+  meltingMaxNumeric: null
+  meltingMaxUnit: null
+  meltingPercentile: 15.6
+  thermalConductivity: "50.2 W/m\xB7K"
+  thermalConductivityNumeric: 50.2
+  thermalConductivityUnit: "W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m\xB7K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m·K"
-  thermalConductivityMax: "200 W/m·K"
+  thermalConductivityMinUnit: "W/m\xB7K"
+  thermalConductivityMax: "200 W/m\xB7K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m·K"
-  thermalPercentile: 100.0
-  tensileStrength: 90 MPa to 690 MPa (highly dependent on alloy and temper)
-  tensileStrengthNumeric: 90.0
+  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalPercentile: 24.9
+  tensileStrength: 400-600 MPa
+  tensileStrengthNumeric: 500.0
   tensileStrengthUnit: MPa
   tensileStrengthMin: 50 MPa
   tensileStrengthMinNumeric: 50.0
@@ -51,19 +53,19 @@ properties:
   tensileStrengthMax: 1000 MPa
   tensileStrengthMaxNumeric: 1000.0
   tensileStrengthMaxUnit: MPa
-  tensilePercentile: 4.2
-  hardness: 15 HB to 120 HB (Brinell scale, alloy-dependent)
-  hardnessNumeric: 15.0
+  tensilePercentile: 47.4
+  hardness: 150-250 HB
+  hardnessNumeric: 200.0
   hardnessUnit: HB
-  hardnessMin: 1 Mohs
-  hardnessMinNumeric: 1.0
-  hardnessMinUnit: Mohs
-  hardnessMax: 10 Mohs
-  hardnessMaxNumeric: 10.0
-  hardnessMaxUnit: Mohs
+  hardnessMin: 500 HV
+  hardnessMinNumeric: 500.0
+  hardnessMinUnit: HV
+  hardnessMax: 2500 HV
+  hardnessMaxNumeric: 2500.0
+  hardnessMaxUnit: HV
   hardnessPercentile: 100.0
-  youngsModulus: 69 GPa
-  youngsModulusNumeric: 69.0
+  youngsModulus: 200 GPa
+  youngsModulusNumeric: 200.0
   youngsModulusUnit: GPa
   youngsModulusMin: 20 GPa
   youngsModulusMinNumeric: 20.0
@@ -71,16 +73,26 @@ properties:
   youngsModulusMax: 80 GPa
   youngsModulusMaxNumeric: 80.0
   youngsModulusMaxUnit: GPa
-  modulusPercentile: 81.7
+  modulusPercentile: 100.0
   laserType: Fiber laser
   wavelength: 1064nm
-  fluenceRange: "1.0–10 J/cm²"
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   chemicalFormula: Al
-  thermalBehaviorType: melting
+  meltingPointMin: "1200\xB0C"
+  meltingPointMax: "2800\xB0C"
+  meltingPointMinNumeric: 1200.0
+  meltingPointMinUnit: "\xB0C"
+  meltingPointMaxNumeric: 2800.0
+  meltingPointMaxUnit: "\xB0C"
+  thermalMin: "0.5 W/m\xB7K"
+  thermalMax: "200 W/m\xB7K"
+  tensileMin: 50 MPa
+  tensileMax: 1000 MPa
+  modulusMin: 150 GPa
+  modulusMax: 400 GPa
 composition:
-- 'Aluminum (Al): 87.0% to 99.9% (alloy-dependent)'
-- 'Copper (Cu): 0.1% to 6.0%, Silicon (Si): 0.1% to 18.0%, Magnesium (Mg): 0.1% to
-  6.0%, Manganese (Mn): 0.1% to 2.0% (common alloying elements)'
+- Aluminum (Al) 99.6%
+- Trace elements (Si, Fe, Na, Mg)
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -127,82 +139,67 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0–10 J/cm²"
+  fluenceRange: "1.0\u201310 J/cm\xB2"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm²"
-  fluenceRangeMin: "0.1J/cm²"
+  fluenceRangeUnit: "J/cm\xB2"
+  fluenceRangeMin: "0.1J/cm\xB2"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm²"
-  fluenceRangeMax: "50J/cm²"
+  fluenceRangeMinUnit: "J/cm\xB2"
+  fluenceRangeMax: "50J/cm\xB2"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm²"
+  fluenceRangeMaxUnit: "J/cm\xB2"
 applications:
 - 'Automotive: Removing paint and corrosion from aluminum car parts'
 - 'Aerospace: Cleaning aluminum aircraft components for surface preparation'
 compatibility:
-- Stainless Steel 304/316
-- Titanium (Ti-6Al-4V)
-- Carbon Fiber Reinforced Polymer (CFRP)
-regulatoryStandards: ISO 9013:2017 (Thermal cutting), ISO 11553:2020 (Safety of machinery
-  - Laser processing machines), IEC 60825-1:2014 (Laser product safety)
-author: Ikmanda Roswati
+- Stainless Steel
+- Titanium Alloys
+- Nickel-based Superalloys
+regulatoryStandards: ISO 18562, ASTM F2100, IEC 60601-1
+author: Yi-Chun Lin
 author_object:
-  id: 3
-  name: Ikmanda Roswati
-  sex: m
-  title: Ph.D.
-  country: Indonesia
-  expertise: Ultrafast Laser Physics and Material Interactions
-  image: /images/author/ikmanda-roswati.jpg
+  name: Yi-Chun Lin
+  country: Taiwan
+  bio: ''
+  expertise: Laser Materials Processing
+  experience: ''
+  specialization: ''
 images:
   hero:
     alt: Aluminum surface undergoing laser cleaning showing precise contamination
       removal
     url: /images/aluminum-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Aluminum surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Aluminum surface after laser treatment showing preserved
+      microstructure
     url: /images/aluminum-laser-cleaning-micro.jpg
 environmentalImpact:
-- benefit: Elimination of chemical waste
-  description: Replaces chemical stripping methods (e.g., methylene chloride, acidic
-    solutions), eliminating ~500-1000 kg/year of hazardous waste per industrial system.
-- benefit: Reduced energy consumption
-  description: Operates at ~30-40% electrical-to-optical efficiency for fiber lasers,
-    compared to the high energy cost of chemical production, application, and disposal.
+- benefit: Chemical Solvent Elimination
+  description: Reduces chemical usage by 100% compared to traditional solvent cleaning
+    methods
+- benefit: Water Conservation
+  description: Saves approximately 5000 liters of water per month in industrial applications
+- benefit: Energy Efficiency
+  description: Consumes 40% less energy than thermal cleaning processes
 outcomes:
-- result: Surface cleanliness to Sa 2.5
-  metric: Achievable according to ISO 8501-1 visual assessment standard, suitable
-    for welding and bonding.
-- result: "Processing speed up to 10 m²/h"
-  metric: For paint removal from large aluminum panels using a 500W laser scanner
-    system.
+- result: Surface Cleanliness Level
+  metric: Achieves ISO 14644-1 Class 7 cleanliness standard
+- result: Material Removal Precision
+  metric: "\xB15\u03BCm accuracy with no substrate damage"
+- result: Processing Speed
+  metric: "2-5 m\xB2/hour cleaning rate depending on contamination level"
 technicalSpecifications:
-  powerRange: 50 W to 500 W (pulsed fiber lasers)
-  pulseDuration: 4 ns to 200 ns
-  wavelength: 1064 nm (primary), 532 nm (for higher absorption on specific oxides)
-  spotSize: "50 µm to 200 µm (for precision cleaning)"
-  repetitionRate: 20 kHz to 300 kHz
-  fluenceRange: "1.5 J/cm² to 8.0 J/cm² (above ablation threshold, below damage threshold)"
-  scanningSpeed: 1000 mm/s to 10000 mm/s
-  beamProfile: Top-hat (flat-top) for uniform energy distribution and consistent cleaning
-  beamProfileOptions: Top-hat, Gaussian, Multimode
-  safetyClass: Class 4 (IEC 60825-1)
-prompt_chain_verification:
-  base_config_loaded: true
-  persona_config_loaded: true
-  formatting_config_loaded: true
-  ai_detection_config_loaded: true
-  persona_country: Indonesia
-  author_id: 3
-  verification_timestamp: '2025-09-20T21:06:35Z'
-  prompt_components_integrated: 4
-  human_authenticity_focus: true
-  cultural_adaptation_applied: true
+  powerRange: 50-200W
+  pulseDuration: 20-100ns
+  wavelength: 1064nm (primary), 532nm (optional)
+  spotSize: 0.2-1.5mm
+  repetitionRate: 20-100kHz
+  fluenceRange: "1.0\u20134.5 J/cm\xB2"
+  safetyClass: Class 4 (requires full enclosure)
 chemicalFormula: Al
 symbol: Al
 laser_parameters:
-  fluence_threshold: "1.0–10 J/cm²"
+  fluence_threshold: "1.0\u201310 J/cm\xB2"
   pulse_duration: 10-200ns
   wavelength_optimal: 1064nm
   power_range: 50-200W
@@ -214,5 +211,13 @@ tags:
 - Aerospace
 complexity: medium
 difficultyScore: 3
-surface_roughness_before: 8.5
-surface_roughness_after: 1.2
+---
+
+# Version Information
+# Generated: 2025-09-22T14:15:10.300083
+# Material: Aluminum
+# Component: frontmatter
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
+# Platform: Darwin (3.12.4)
+# File: content/components/frontmatter/aluminum-laser-cleaning.md

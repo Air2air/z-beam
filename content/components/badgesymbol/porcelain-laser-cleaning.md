@@ -1,11 +1,15 @@
 ---
-symbol: "POR"
+symbol: "PORC"
 materialType: "ceramic"
-name: "Porcelain"
-description: "High-fired ceramic material with excellent durability and low porosity"
 ---
 
-# Porcelain Badge Symbol Data
-- Symbol: POR
-- Material Type: Ceramic
-- Properties: Hard, non-porous, heat resistant, chemically inert
+---
+Version Log - Generated: 2025-09-22T14:58:25.188363
+Material: Unknown
+Component: badgesymbol
+Generator: Z-Beam v1.0.0
+Component Version: 2.0.0
+Author: AI Assistant
+Platform: Darwin (3.12.4)
+Operation: generation
+---

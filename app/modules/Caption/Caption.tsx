@@ -1,7 +1,8 @@
 // app/modules/Caption/Caption.tsx
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { useCaptionParsing, CaptionData, ParsedCaptionData } from '../../components/Caption/useCaptionParsing';
 import { MetricsGrid } from '../../components/Caption/MetricsGrid';
 import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '../../../types/centralized';
@@ -10,6 +11,32 @@ import './styles.css';
 const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }) => {
   const captionData = useCaptionParsing(content);
   const { className = '' } = config || {};
+  
+  // State management for image loading and accessibility - matching Hero component patterns
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const [imageLoading, setImageLoading] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const captionRef = useRef<HTMLElement>(null);
+
+  // Intersection Observer for lazy loading and performance optimization
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (captionRef.current) {
+      observer.observe(captionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   // Simplified data processing - merge content with frontmatter
   const enhancedData: CaptionDataStructure = typeof content === 'object' ? {
@@ -62,6 +89,50 @@ const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }
 
   const materialName = enhancedData.material || 'material';
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
+
+  // Image source handling with fallbacks
+  const imageSource = enhancedData.images?.micro?.url || image;
+
+  // Reset loading states when image source changes
+  useEffect(() => {
+    if (imageSource) {
+      setImageLoaded(false);
+      setImageError(false);
+      setImageLoading(true);
+      
+      // Preload the image
+      const img = new window.Image();
+      img.onload = () => {
+        setImageLoaded(true);
+        setImageLoading(false);
+      };
+      img.onerror = () => {
+        setImageError(true);
+        setImageLoading(false);
+      };
+      img.src = imageSource;
+    } else {
+      setImageLoaded(false);
+      setImageError(false);
+      setImageLoading(false);
+    }
+  }, [imageSource]);
+
+  // Generate accessible alt text with multiple fallbacks
+  const getAccessibleAlt = (): string => {
+    if (enhancedData.accessibility?.alt_text_detailed) {
+      return enhancedData.accessibility.alt_text_detailed;
+    }
+    if (enhancedData.images?.micro?.alt) {
+      return enhancedData.images.micro.alt;
+    }
+    return `${capitalizedMaterial} surface analysis comparison showing before and after laser cleaning results`;
+  };
+
+  // Generate accessible aria-label for section
+  const getAriaLabel = (): string => {
+    return `Surface analysis section for ${capitalizedMaterial} laser cleaning treatment`;
+  };
   const analysisId = `analysis-${materialName}-${Date.now()}`;
 
   // Generate comprehensive JSON-LD structured data
@@ -126,9 +197,12 @@ const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }
 
   return (
     <section 
+      ref={captionRef}
       className={`enhanced-seo-caption ${className}`}
       itemScope 
       itemType="https://schema.org/TechArticle"
+      aria-label={getAriaLabel()}
+      role="region"
     >
       {/* JSON-LD Structured Data - invisible to users, visible to search engines */}
       <script 
@@ -146,21 +220,67 @@ const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }
           itemScope 
           itemType="https://schema.org/ImageObject"
         >
-        {enhancedData.images?.micro?.url && (
+        {imageSource && isInView ? (
           <div className="relative">
-            <img
-              src={enhancedData.images.micro.url}
-              alt={enhancedData.accessibility?.alt_text_detailed || 
-                   enhancedData.images.micro.alt ||
-                   `${capitalizedMaterial} surface analysis comparison`}
-              width={enhancedData.images.micro.width || 800}
-              height={enhancedData.images.micro.height || 450}
+            {/* Performance-optimized Next.js Image component */}
+            <Image
+              src={imageSource}
+              alt={getAccessibleAlt()}
+              width={enhancedData.images?.micro?.width || 800}
+              height={enhancedData.images?.micro?.height || 450}
               className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-lg"
               itemProp="contentUrl"
+              priority={false}
+              quality={85}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 800px, 800px"
+              onLoad={() => {
+                setImageLoaded(true);
+                setImageLoading(false);
+              }}
+              onError={() => {
+                setImageError(true);
+                setImageLoading(false);
+              }}
+              onLoadStart={() => setImageLoading(true)}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
             />
-            {/* Quality Metrics overlaid on image */}
-            {enhancedData.quality_metrics && (
-              <div className="absolute bottom-4 left-0 right-0 w-full px-4">
+
+            {/* Loading indicator overlay with screen reader support */}
+            {imageLoading && (
+              <div 
+                className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-10"
+                role="status"
+                aria-live="polite"
+                aria-label="Loading surface analysis image"
+              >
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
+                <span className="sr-only">Loading surface analysis image...</span>
+              </div>
+            )}
+
+            {/* Error state overlay with screen reader support */}
+            {imageError && (
+              <div 
+                className="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-75 z-10"
+                role="alert"
+                aria-live="assertive"
+              >
+                <div className="text-white text-center">
+                  <div className="text-sm opacity-75">Surface analysis image could not be loaded</div>
+                  <span className="sr-only">Error: Surface analysis image failed to load</span>
+                </div>
+              </div>
+            )}
+
+            {/* Quality Metrics overlaid on image with accessibility */}
+            {enhancedData.quality_metrics && imageLoaded && (
+              <div 
+                className="absolute bottom-4 left-0 right-0 w-full px-4"
+                role="region"
+                aria-label="Quality metrics overlay"
+                tabIndex={0}
+              >
                 <MetricsGrid 
                   qualityMetrics={enhancedData.quality_metrics}
                   maxCards={2}
@@ -168,6 +288,26 @@ const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }
                 />
               </div>
             )}
+          </div>
+        ) : imageSource && !isInView ? (
+          // Placeholder while not in view for performance
+          <div className="w-full h-[300px] md:h-[400px] bg-gray-800 animate-pulse rounded-lg" aria-hidden="true">
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg"></div>
+          </div>
+        ) : (
+          // Fallback when no image available
+          <div 
+            className="w-full h-[300px] md:h-[400px] flex items-center justify-center bg-gray-600 rounded-lg"
+            aria-label="No surface analysis image available"
+          >
+            <Image
+              src="/images/Site/Logo/logo_.png"
+              alt="Z-Beam company logo"
+              width={120}
+              height={72}
+              className="opacity-30 object-contain"
+              priority={false}
+            />
           </div>
         )}
         

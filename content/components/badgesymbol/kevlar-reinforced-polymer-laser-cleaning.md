@@ -1,11 +1,15 @@
 ---
-symbol: "KEV"
-materialType: "polymer"
-name: "Kevlar"
-description: "High-strength aramid fiber with exceptional tensile strength"
+symbol: "KRP"
+materialType: "composite"
 ---
 
-# Kevlar Badge Symbol Data
-- Symbol: KEV
-- Material Type: Polymer
-- Properties: High tensile strength, cut resistant, lightweight
+---
+Version Log - Generated: 2025-09-22T14:58:26.317565
+Material: Unknown
+Component: badgesymbol
+Generator: Z-Beam v1.0.0
+Component Version: 2.0.0
+Author: AI Assistant
+Platform: Darwin (3.12.4)
+Operation: generation
+---

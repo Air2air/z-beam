@@ -1,11 +1,15 @@
 ---
-symbol: "SW"
+symbol: "STON"
 materialType: "ceramic"
-name: "Stoneware"
-description: "Dense ceramic material fired at high temperatures with low porosity"
 ---
 
-# Stoneware Badge Symbol Data
-- Symbol: SW
-- Material Type: Ceramic
-- Properties: Dense, durable, low porosity, heat resistant
+---
+Version Log - Generated: 2025-09-22T14:58:25.643557
+Material: Unknown
+Component: badgesymbol
+Generator: Z-Beam v1.0.0
+Component Version: 2.0.0
+Author: AI Assistant
+Platform: Darwin (3.12.4)
+Operation: generation
+---
