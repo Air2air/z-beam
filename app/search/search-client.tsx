@@ -130,7 +130,11 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
               symbol: (article.metadata as any)?.chemicalSymbol,
               formula: (article.metadata as any)?.chemicalFormula,
               atomicNumber: (article.metadata as any)?.atomicNumber,
-              materialType: toMaterialType(article.metadata?.category),
+              materialType: toMaterialType(
+                article.metadata && 'category' in article.metadata && typeof article.metadata.category === 'string' 
+                  ? article.metadata.category 
+                  : undefined
+              ),
             },
             metadata: article.metadata as unknown as Record<string, unknown>,
           }))}

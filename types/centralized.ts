@@ -564,7 +564,7 @@ export interface PageData {
 export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'solid' | 'subtle';
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
 export type ComponentType = 'propertiestable' | 'badgesymbol' | 'content' | 'caption' | 'bullets' | 'table' | 'tags';
-export type BadgeVariant = 'outline' | 'subtle' | 'solid';
+export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';
 export type MaterialType = 
@@ -610,6 +610,28 @@ export interface BaseLinkProps {
   href: string;
   children: ReactNode;
   className?: string;
+  target?: '_blank' | '_self';
+  rel?: string;
+}
+
+/**
+ * Footer navigation item interface
+ */
+export interface FooterNavItem {
+  name: string;
+  href: string;
+  external?: boolean;
+  target?: '_blank' | '_self';
+  rel?: string;
+}
+
+/**
+ * Social link interface for footer
+ */
+export interface SocialLink {
+  name: string;
+  href: string;
+  icon: ReactNode;
   target?: '_blank' | '_self';
   rel?: string;
 }
@@ -1084,6 +1106,38 @@ export interface Article {
 export interface SearchableArticle extends Article {
   tags: string[];
   href: string;
+}
+
+/**
+ * Contact form data interface
+ */
+export interface ContactFormData {
+  name: string;
+  email: string;
+  company?: string;
+  phone?: string;
+  subject: string;
+  message: string;
+  inquiryType: 'general' | 'quote' | 'technical' | 'sales';
+}
+
+/**
+ * Processed list item for component display
+ */
+export interface ProcessedListItem {
+  slug: string;
+  title: string;
+  description: string;
+  badge?: any;
+  imageUrl?: string;
+  category: string;
+  articleType: string;
+  chemicalSymbol?: string;
+  atomicNumber?: number;
+  chemicalFormula?: string;
+  featured?: boolean;
+  materialData?: Article | null;
+  badgeSymbolData?: any;
 }
 
 // Re-exports for backward compatibility

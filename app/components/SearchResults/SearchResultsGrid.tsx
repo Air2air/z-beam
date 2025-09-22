@@ -2,7 +2,7 @@
 import { Card } from "../Card/Card";
 import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
 import { slugToDisplayName } from "../../utils/formatting";
-import { SearchResultItem } from "@/types";
+import { SearchResultItem, ArticleMetadata } from "@/types";
 
 interface SearchResultsGridProps {
   items: SearchResultItem[];
@@ -61,11 +61,15 @@ export function SearchResultsGrid({
             imageAlt={item.imageAlt || item.title || ""}
             tags={item.tags || []}
             badge={badgeData || undefined} // Convert null to undefined
-            metadata={item.metadata || {
-              category: item.category,
-              articleType: item.articleType,
-              chemicalProperties: getChemicalProperties(item as unknown as Parameters<typeof getChemicalProperties>[0])
-            }}
+            metadata={
+              item.metadata && 'title' in item.metadata && 'slug' in item.metadata
+                ? item.metadata as ArticleMetadata
+                : {
+                    title: item.title || '',
+                    slug: item.slug,
+                    category: item.category,
+                  } as ArticleMetadata
+            }
             className="h-full"
           />
         );

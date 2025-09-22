@@ -4,7 +4,7 @@ import React from "react";
 import { Card } from "../Card/Card";
 import { /* cn */ } from "../../utils/helpers";
 import { getArticle, loadComponent } from "../../utils/contentAPI"; // Updated to use contentAPI
-import { MaterialType, ListProps } from "@/types/centralized";
+import { MaterialType, ListProps, ProcessedListItem } from "@/types/centralized";
 import { safeMatch, extractSafeValue } from "../../utils/stringHelpers";
 import { ArticleMetadata, Article } from "@/types";
 
@@ -31,25 +31,6 @@ function toMaterialType(value?: string): MaterialType {
   };
   
   return typeMap[normalizedValue] || 'other';
-}
-
-interface ProcessedListItem {
-}
-
-interface ProcessedListItem {
-  slug: string;
-  title: string;
-  description: string;
-  badge?: any;
-  imageUrl?: string;
-  category: string;
-  articleType: string;
-  chemicalSymbol?: string;
-  atomicNumber?: number;
-  chemicalFormula?: string;
-  featured?: boolean;
-  materialData?: Article | null;
-  badgeSymbolData?: any;
 }
 
 export async function List({
@@ -80,20 +61,31 @@ export async function List({
 
       // Create badge object with proper structure
       const badgeText = item.badge || article?.metadata?.category;
+      const categoryColor = article?.metadata && 'category' in article.metadata && typeof article.metadata.category === 'string' 
+        ? article.metadata.category 
+        : undefined;
       const badgeObject = badgeText
         ? {
             text: badgeText,
-            color: getCategoryColor(article?.metadata?.category),
+            color: getCategoryColor(categoryColor),
           }
         : undefined;
 
       // Determine image with fallbacks
       const imageUrl = getArticleImage(item, article);
 
-      // Extract chemical data from article
-      let chemicalSymbol = article?.metadata?.chemicalSymbol;
-      const atomicNumber = article?.metadata?.atomicNumber;
-      const chemicalFormula = article?.metadata?.chemicalFormula;
+      // Extract chemical data from article with proper type guards
+      const safeMetadata = article?.metadata && typeof article.metadata === 'object' ? article.metadata : {};
+      
+      let chemicalSymbol = 'chemicalSymbol' in safeMetadata && typeof safeMetadata.chemicalSymbol === 'string' 
+        ? safeMetadata.chemicalSymbol 
+        : undefined;
+      const atomicNumber = 'atomicNumber' in safeMetadata && typeof safeMetadata.atomicNumber === 'number'
+        ? safeMetadata.atomicNumber
+        : undefined;
+      const chemicalFormula = 'chemicalFormula' in safeMetadata && typeof safeMetadata.chemicalFormula === 'string'
+        ? safeMetadata.chemicalFormula
+        : undefined;
 
       // If we have a formula but no symbol, extract symbol from formula or name
       if (chemicalFormula && !chemicalSymbol) {
@@ -137,14 +129,28 @@ export async function List({
         }
       }
 
+      // Extract values with type safety
+      const safeTitle = article?.metadata && 'title' in article.metadata && typeof article.metadata.title === 'string'
+        ? article.metadata.title
+        : item.title || item.slug;
+      const safeDescription = article?.metadata && 'description' in article.metadata && typeof article.metadata.description === 'string'
+        ? article.metadata.description
+        : item.description || "";
+      const safeCategory = article?.metadata && 'category' in article.metadata && typeof article.metadata.category === 'string'
+        ? article.metadata.category
+        : "";
+      const safeArticleType = article?.metadata && 'articleType' in article.metadata && typeof article.metadata.articleType === 'string'
+        ? article.metadata.articleType
+        : "";
+
       return {
         slug: item.slug,
-        title: article?.metadata?.title || item.title || item.slug,
-        description: article?.metadata?.description || item.description || "",
+        title: safeTitle,
+        description: safeDescription,
         badge: badgeObject,
         imageUrl: imageUrl,
-        category: article?.metadata?.category || "",
-        articleType: article?.metadata?.articleType || "",
+        category: safeCategory,
+        articleType: safeArticleType,
         // Add these properties directly to the item
         chemicalSymbol,
         atomicNumber,
@@ -197,10 +203,16 @@ export async function List({
               }}
               imageUrl={item.imageUrl}
               imageAlt={item.title}
-              metadata={item.materialData?.metadata || {
-                category: item.category,
-                articleType: item.articleType,
-              }}
+              metadata={
+                item.materialData?.metadata && 'title' in item.materialData.metadata 
+                  ? item.materialData.metadata as ArticleMetadata
+                  : {
+                      title: item.title || '',
+                      slug: item.slug,
+                      category: item.category,
+                      articleType: item.articleType,
+                    } as ArticleMetadata
+              }
               height={isFeatured ? "auto" : undefined}
             />
           );
@@ -219,7 +231,9 @@ function getArticleImage(
   if (item.image) return item.image;
 
   // Then, try to get the image from the article metadata
-  const metadataImage = article?.metadata?.image;
+  const metadataImage = article?.metadata && 'image' in article.metadata && typeof article.metadata.image === 'string'
+    ? article.metadata.image
+    : undefined;
   if (metadataImage) return metadataImage;
 
   // Try to get OpenGraph image from metadata if available

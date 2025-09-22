@@ -22,11 +22,15 @@ function extractArticleText(article: Article): string {
   
   // Add title
   if (article.title) textParts.push(article.title);
-  if (article.frontmatter?.title) textParts.push(article.frontmatter.title);
+  if (article.frontmatter?.title && typeof article.frontmatter.title === 'string') {
+    textParts.push(article.frontmatter.title);
+  }
   
   // Add description
   if (article.description) textParts.push(article.description);
-  if (article.frontmatter?.description) textParts.push(article.frontmatter.description);
+  if (article.frontmatter?.description && typeof article.frontmatter.description === 'string') {
+    textParts.push(article.frontmatter.description);
+  }
   
   // Add slug parts
   if (article.slug) textParts.push(article.slug.replace(/-/g, ' '));
@@ -69,7 +73,7 @@ export function enrichArticle(article: Article): SearchableArticle {
   }
   
   // Ensure name is set from frontmatter if available
-  if (enriched.frontmatter?.name && !enriched.name) {
+  if (enriched.frontmatter?.name && !enriched.name && typeof enriched.frontmatter.name === 'string') {
     enriched.name = enriched.frontmatter.name;
   }
   
@@ -95,7 +99,7 @@ export function enrichArticle(article: Article): SearchableArticle {
     }
     
     // Add category
-    if (enriched.frontmatter.category) {
+    if (enriched.frontmatter.category && typeof enriched.frontmatter.category === 'string') {
       enriched.tags.push(enriched.frontmatter.category);
       // Also add capitalized version for consistency
       if (typeof enriched.frontmatter.category === 'string') {
@@ -105,12 +109,12 @@ export function enrichArticle(article: Article): SearchableArticle {
     }
     
     // Add subject
-    if (enriched.frontmatter.subject) {
+    if (enriched.frontmatter.subject && typeof enriched.frontmatter.subject === 'string') {
       enriched.tags.push(enriched.frontmatter.subject);
     }
     
     // Add articleType
-    if (enriched.frontmatter.articleType) {
+    if (enriched.frontmatter.articleType && typeof enriched.frontmatter.articleType === 'string') {
       enriched.tags.push(enriched.frontmatter.articleType);
     }
     
@@ -138,11 +142,11 @@ export function enrichArticle(article: Article): SearchableArticle {
   
   // 2. EXTRACT TAGS FROM METADATA
   if (enriched.metadata) {
-    if (enriched.metadata.category) {
+    if ('category' in enriched.metadata && enriched.metadata.category && typeof enriched.metadata.category === 'string') {
       enriched.tags.push(enriched.metadata.category);
     }
     
-    if (enriched.metadata.subject) {
+    if ('subject' in enriched.metadata && enriched.metadata.subject && typeof enriched.metadata.subject === 'string') {
       enriched.tags.push(enriched.metadata.subject);
     }
     

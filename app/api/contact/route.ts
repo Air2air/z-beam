@@ -1,18 +1,9 @@
 // app/api/contact/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { ContactFormData } from '@/types';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  company?: string;
-  phone?: string;
-  subject: string;
-  message: string;
-  inquiryType: 'general' | 'quote' | 'technical' | 'sales';
-}
 
 export async function POST(request: NextRequest) {
   try {

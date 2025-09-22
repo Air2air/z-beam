@@ -39,7 +39,7 @@ interface UnifiedArticleGridProps {
   searchResults?: SearchResultItem[];
   slugs?: string[];
   columns?: 1 | 2 | 3 | 4;
-  variant?: 'default' | 'compact' | 'featured';
+  variant?: 'default' | 'compact' | 'featured' | 'search';
   heading?: string;
   className?: string;
   showBadgeSymbols?: boolean;

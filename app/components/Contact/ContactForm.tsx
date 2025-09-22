@@ -2,16 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  company: string;
-  phone: string;
-  subject: string;
-  message: string;
-  inquiryType: 'general' | 'quote' | 'technical' | 'sales';
-}
+import { ContactFormData } from '@/types';
 
 interface FormErrors {
   [key: string]: string;

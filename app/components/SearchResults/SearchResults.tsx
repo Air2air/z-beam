@@ -125,18 +125,20 @@ export function SearchResults({
     
     const queryLower = query.toLowerCase();
     
-    return (
+    const result = Boolean(
       // Title
-      (item.title && safeIncludes(extractSafeValue(item.title), queryLower)) ||
+      (item.title && typeof item.title === 'string' && safeIncludes(extractSafeValue(item.title), queryLower)) ||
       // Description
-      (item.description && safeIncludes(extractSafeValue(item.description), queryLower)) ||
+      (item.description && typeof item.description === 'string' && safeIncludes(extractSafeValue(item.description), queryLower)) ||
       // Frontmatter title
-      (item.frontmatter?.title && safeIncludes(extractSafeValue(item.frontmatter.title), queryLower)) ||
+      (item.frontmatter?.title && typeof item.frontmatter.title === 'string' && safeIncludes(extractSafeValue(item.frontmatter.title), queryLower)) ||
       // Frontmatter description
-      (item.frontmatter?.description && safeIncludes(extractSafeValue(item.frontmatter.description), queryLower)) ||
+      (item.frontmatter?.description && typeof item.frontmatter.description === 'string' && safeIncludes(extractSafeValue(item.frontmatter.description), queryLower)) ||
       // Tags
-      (item.tags && item.tags.some(tag => safeIncludes(extractSafeValue(tag), queryLower)))
+      (item.tags && item.tags.some(tag => typeof tag === 'string' && safeIncludes(extractSafeValue(tag), queryLower)))
     );
+    
+    return result;
   }
 
   // Filter items based on search query and selected tag

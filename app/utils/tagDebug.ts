@@ -34,17 +34,26 @@ export async function debugTagSystem(): Promise<TagDebugData> {
     
     // Count articles with frontmatter author
     const articlesWithFrontmatterAuthor = allArticles.filter(article => 
-      article.metadata && article.metadata.author
+      article.metadata && (
+        'authorInfo' in article.metadata && article.metadata.authorInfo ||
+        'author' in article.metadata && article.metadata.author
+      )
     ).length;
     
     // Get sample authors for display
     const sampleAuthors = allArticles
-      .filter(article => article.author || article.metadata?.author)
+      .filter(article => 
+        article.author || 
+        (article.metadata && (
+          ('authorInfo' in article.metadata && article.metadata.authorInfo) ||
+          ('author' in article.metadata && article.metadata.author)
+        ))
+      )
       .slice(0, 10)
       .map(article => ({
         title: article.title || article.slug || 'Unknown',
         slug: article.slug || 'unknown',
-        author: getAuthorName(article),
+        author: getAuthorName(article as any),
         tags: article.tags || []
       }));
     

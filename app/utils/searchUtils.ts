@@ -1,17 +1,17 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData } from '@/types';
+import { MaterialType, BadgeData, BadgeColor } from '@/types';
 import { capitalizeWords } from './formatting';
 
-export function getMaterialColor(materialType?: string | MaterialType): string {
+export function getMaterialColor(materialType?: string | MaterialType): BadgeColor {
   if (!materialType) return "blue";
   
-  const typeMap: Record<string, string> = {
+  const typeMap: Record<string, BadgeColor> = {
     'metal': 'blue',
     'alloy': 'blue',
     'element': 'blue', 
     'ceramic': 'green',
     'polymer': 'purple',
-    'composite': 'yellow',
+    'composite': 'orange',
     'semiconductor': 'red',
     'compound': 'gray',
     'other': 'gray'

@@ -4,7 +4,7 @@
 import React, { ReactNode } from 'react';
 import { ArticleHeader } from '../Article/ArticleHeader';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
-import { ArticleMetadata, ComponentData, LayoutProps } from '@/types';
+import { ArticleMetadata, ComponentData, LayoutProps, BadgeSymbolData, BadgeVariant } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
 
 // Article content components
@@ -100,7 +100,14 @@ export function Layout(props: LayoutProps) {
               case 'badgesymbol':
                 return (
                   <section key={type} aria-label="Material classification">
-                    <BadgeSymbol content={content} config={config} />
+                    <BadgeSymbol 
+                      content={content} 
+                      config={
+                        config && typeof config === 'object' && 'symbol' in config && typeof config.symbol === 'string'
+                          ? config as BadgeSymbolData & { variant?: BadgeVariant; className?: string }
+                          : undefined
+                      } 
+                    />
                   </section>
                 );
               case 'content':

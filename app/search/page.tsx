@@ -42,13 +42,25 @@ export default async function SearchPage() {
     const articlesWithBadgeData = await Promise.all(
       articles.map(async (article) => {
         // Extract chemical data from article metadata
-        let chemicalSymbol = article.metadata?.chemicalSymbol;
-        const atomicNumber = article.metadata?.atomicNumber;
-        let chemicalFormula = article.metadata?.chemicalFormula;
+        // Extract values with type safety
+        const safeMetadata = article.metadata && typeof article.metadata === 'object' ? article.metadata : {};
+        
+        let chemicalSymbol = 'chemicalSymbol' in safeMetadata && typeof safeMetadata.chemicalSymbol === 'string'
+          ? safeMetadata.chemicalSymbol
+          : undefined;
+        const atomicNumber = 'atomicNumber' in safeMetadata && typeof safeMetadata.atomicNumber === 'number'
+          ? safeMetadata.atomicNumber
+          : undefined;
+        let chemicalFormula = 'chemicalFormula' in safeMetadata && typeof safeMetadata.chemicalFormula === 'string'
+          ? safeMetadata.chemicalFormula
+          : undefined;
 
         // If not directly in metadata, try to get from properties
-        if (!chemicalFormula && article.metadata?.properties?.chemicalFormula) {
-          chemicalFormula = article.metadata.properties.chemicalFormula;
+        if (!chemicalFormula && 'properties' in safeMetadata && safeMetadata.properties && typeof safeMetadata.properties === 'object') {
+          const properties = safeMetadata.properties as Record<string, unknown>;
+          if ('chemicalFormula' in properties && typeof properties.chemicalFormula === 'string') {
+            chemicalFormula = properties.chemicalFormula;
+          }
         }
 
         // If we have a formula but no symbol, extract symbol from formula or name
@@ -80,7 +92,9 @@ export default async function SearchPage() {
               if (symbolValue) {
                 badgeSymbolData = {
                   symbol: String(symbolValue),
-                  materialType: config.materialType ? toMaterialType(String(config.materialType)) : toMaterialType(article.metadata?.category as string),
+                  materialType: config.materialType ? toMaterialType(String(config.materialType)) : toMaterialType(
+                    'category' in safeMetadata && typeof safeMetadata.category === 'string' ? safeMetadata.category : undefined
+                  ),
                   atomicNumber: config.atomicNumber ? Number(config.atomicNumber) : atomicNumber,
                   formula: config.formula ? String(config.formula) : chemicalFormula,
                 };
@@ -91,7 +105,9 @@ export default async function SearchPage() {
             if (chemicalSymbol) {
               badgeSymbolData = {
                 symbol: chemicalSymbol,
-                materialType: toMaterialType(article.metadata?.category as string),
+                materialType: toMaterialType(
+                  'category' in safeMetadata && typeof safeMetadata.category === 'string' ? safeMetadata.category : undefined
+                ),
                 atomicNumber: atomicNumber,
                 formula: chemicalFormula,
               };
