@@ -1,8 +1,9 @@
 /* app/components/Caption/enhanced-seo-caption.css */
 
 .enhanced-seo-caption {
-  max-width: 56rem;
-  margin: 0 auto;
+  max-width: none;
+  width: 100%;
+  margin: 0;
   font-feature-settings: "kern", "liga", "clig", "calt";
   color: #374151; /* Default light mode color */
 }
@@ -118,34 +119,6 @@
 }
 
 .dark .spec-item dd {
-  color: #f9fafb;
-}
-
-/* Analysis Content */
-.analysis-grid .before-analysis,
-.analysis-grid .after-analysis {
-  position: relative;
-  background-color: #ffffff;
-  border-color: #e5e7eb;
-}
-
-.dark .analysis-grid .before-analysis,
-.dark .analysis-grid .after-analysis {
-  background-color: #111827;
-  border-color: #374151;
-}
-
-.analysis-grid h4 {
-  display: flex;
-  align-items: center;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.025em;
-  color: #111827;
-}
-
-.dark .analysis-grid h4 {
   color: #f9fafb;
 }
 
@@ -339,10 +312,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .analysis-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .properties-grid {
     grid-template-columns: 1fr;
   }
@@ -353,6 +322,17 @@
   
   .caption-container figcaption {
     padding: 1rem;
+  }
+  
+  /* Stack before/after sections on mobile */
+  .caption-container figcaption .grid.md\\:grid-cols-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .before-analysis,
+  .after-analysis {
+    margin-bottom: 0;
   }
 }
 

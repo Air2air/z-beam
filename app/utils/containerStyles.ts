@@ -5,23 +5,23 @@
  * Responsive container styles with mobile-first approach
  * Consistent spacing and width constraints across all breakpoints
  */
-export const STANDARD_CONTAINER = "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8";
+export const STANDARD_CONTAINER = "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8";
 
 /**
  * Container styles - simplified to use article layout by default
  */
 export const CONTAINER_STYLES = {
   // Standard container - optimal reading width for all content
-  standard: "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8",
+  standard: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8",
   
   // Full width - for hero sections, full-bleed content (legacy support)
   fullWidth: "w-full px-4 sm:px-6 lg:px-8 py-8",
   
   // Content only - no vertical padding (for nested layouts)
-  contentOnly: "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8",
+  contentOnly: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8",
   
   // Section spacing - for page sections with extra spacing
-  section: "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16",
+  section: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16",
 } as const;
 
 /**

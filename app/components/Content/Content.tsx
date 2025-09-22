@@ -16,7 +16,7 @@ export function Content({ content, config }: ContentProps) {
   
   const {
     wrapHeadings = true,
-    maxWidth = 'max-w-3xl'
+    maxWidth = 'max-w-none'
   } = config || {};
   
   return (
