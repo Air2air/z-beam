@@ -183,7 +183,7 @@ class UnusedVariableCleaner {
       'app/utils/badgeDataLoader.ts',
       'app/utils/badgeUtils.ts',
       'app/utils/formatting.ts',
-      'app/utils/frontmatterLoader.ts',
+      'app/utils/contentAPI.ts',
       'app/utils/searchUtils.ts',
       'app/utils/tagDebug.ts'
     ];

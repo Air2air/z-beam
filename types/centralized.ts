@@ -563,7 +563,7 @@ export interface PageData {
 
 export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'solid' | 'subtle';
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ComponentType = 'propertiestable' | 'badgesymbol' | 'content' | 'caption' | 'bullets' | 'table' | 'tags';
+export type ComponentType = 'propertiestable' | 'badgesymbol' | 'content' | 'caption' | 'table' | 'tags' | 'settings';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';

@@ -292,7 +292,7 @@ class TypeScriptAnyFixer {
     }
     
     // Fix content utils with proper article types but keep flexibility
-    if (filePath.includes('utils/contentUtils.ts')) {
+    if (filePath.includes('utils/contentAPI.ts')) {
       // Keep [key: string]: unknown for metadata flexibility but add specific known properties
       fixedContent = fixedContent.replace(
         /\[key: string\]: unknown; \/\/ Flexible metadata structure/g,
@@ -301,7 +301,7 @@ class TypeScriptAnyFixer {
     }
     
     // Fix frontmatter loader with proper typing
-    if (filePath.includes('utils/frontmatterLoader.ts')) {
+    if (filePath.includes('utils/contentAPI.ts')) {
       fixedContent = fixedContent.replace(
         /const result:\s*unknown\s*=/g,
         'const result: Record<string, unknown> ='

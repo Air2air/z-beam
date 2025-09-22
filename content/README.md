@@ -7,7 +7,6 @@ This directory contains the component content files used by the Z-Beam applicati
 - `components/` - Component-specific content files
   - `author/` - Author component content
   - `badgesymbol/` - Badge symbol content
-  - `bullets/` - Bullet point content
   - `caption/` - Caption content
   - `frontmatter/` - Frontmatter content
   - `jsonld/` - JSON-LD structured data

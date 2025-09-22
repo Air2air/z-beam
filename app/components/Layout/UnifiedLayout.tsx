@@ -1,16 +1,15 @@
-// app/components/Layout/Layout.tsx
+// app/components/Layout/UnifiedLayout.tsx
 // Single, simplified layout system for maximum reusability and responsiveness
 
 import React, { ReactNode } from 'react';
-import { ArticleHeader } from '../Article/ArticleHeader';
+import { ArticleHeader } from './ArticleHeader';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
-import { ArticleMetadata, ComponentData, LayoutProps, BadgeSymbolData, BadgeVariant } from '@/types';
+import { ArticleMetadata, ComponentData } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
 
 // Article content components
 import { Content } from "../Content/Content";
 import { Table } from "../Table/Table";
-import { Settings } from "../Settings/Settings";
 import { PropertiesTable } from "../PropertiesTable";
 
 import { Caption } from "../Caption/Caption";
@@ -19,13 +18,27 @@ import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
+  'propertiestable',
   'badgesymbol', 
   'content',
   'caption',
-  'settings',
   'table',
   'tags'
 ] as const;
+
+interface LayoutProps {
+  children?: ReactNode;
+  title?: string;
+  description?: string;
+  className?: string;
+  // Layout behavior options
+  fullWidth?: boolean; // For pages that need full-width sections (like home)
+  // Article-specific props (optional for backward compatibility)
+  components?: Record<string, ComponentData> | null;
+  metadata?: ArticleMetadata;
+  slug?: string;
+  hideHeader?: boolean;
+}
 
 /**
  * Layout System - Single component for all layout needs
@@ -79,15 +92,15 @@ export function Layout(props: LayoutProps) {
         {jsonLdData && <JsonLD data={jsonLdData} />}
         
         {/* Article header */}
-      {/* Article Header with Hero, Title, PropertiesTable, and Author */}
-      {!hideHeader && (
-        <ArticleHeader 
-          metadata={metadata} 
-          slug={slug} 
-          title={title}
-          components={components}
-        />
-      )}        {/* Article content */}
+        {!hideHeader && (
+          <ArticleHeader 
+            metadata={metadata}
+            slug={slug}
+            title={title}
+          />
+        )}
+
+        {/* Article content */}
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => {
             const component = components[type];
@@ -96,17 +109,16 @@ export function Layout(props: LayoutProps) {
             const { content, config } = component;
             
             switch(type) {
+              case 'propertiestable':
+                return (
+                  <section key={type} aria-labelledby="properties-heading">
+                    <PropertiesTable content={content} config={config} />
+                  </section>
+                );
               case 'badgesymbol':
                 return (
                   <section key={type} aria-label="Material classification">
-                    <BadgeSymbol 
-                      content={content} 
-                      config={
-                        config && typeof config === 'object' && 'symbol' in config && typeof config.symbol === 'string'
-                          ? config as BadgeSymbolData & { variant?: BadgeVariant; className?: string }
-                          : undefined
-                      } 
-                    />
+                    <BadgeSymbol content={content} config={config} />
                   </section>
                 );
               case 'content':
@@ -123,12 +135,6 @@ export function Layout(props: LayoutProps) {
                       frontmatter={metadata as any} 
                       config={config} 
                     />
-                  </section>
-                );
-              case 'settings':
-                return (
-                  <section key={type} aria-label="Machine settings and parameters">
-                    <Settings content={content} config={config} />
                   </section>
                 );
               case 'table':

@@ -43,7 +43,7 @@ class ConservativeUnusedCleaner {
       { file: 'app/utils/formatting.ts', patterns: [
         { search: /\s*const\s+_\s*=\s*[^;]+;\s*\n/g, name: '_' }
       ]},
-      { file: 'app/utils/frontmatterLoader.ts', patterns: [
+      { file: 'app/utils/contentAPI.ts', patterns: [
         { search: /\s*const\s+matterError\s*=\s*[^;]+;\s*\n/g, name: 'matterError' }
       ]},
       { file: 'app/utils/tagDebug.ts', patterns: [

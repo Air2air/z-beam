@@ -1,40 +1,10 @@
 /**
  * Test Suite: API Route Testing
  * Testing API endpoints for data retrieval and processing
+ * Updated: Removed references to deprecated content API route
  */
 
 import { NextRequest } from 'next/server';
-
-// Mock API route handlers
-jest.mock('../../app/api/content/route', () => ({
-  GET: async (request: NextRequest) => {
-    const url = new URL(request.url);
-    const slug = url.searchParams.get('slug');
-    
-    if (!slug) {
-      return new Response(JSON.stringify({ error: 'Slug required' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
-    const mockContent = {
-      slug,
-      title: `Content for ${slug}`,
-      type: 'page',
-      content: `Mock content for ${slug}`,
-      metadata: {
-        lastModified: new Date().toISOString(),
-        author: 'System'
-      }
-    };
-
-    return new Response(JSON.stringify(mockContent), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
-}));
 
 jest.mock('../../app/api/search/route', () => ({
   GET: async (request: NextRequest) => {
@@ -72,52 +42,9 @@ jest.mock('../../app/api/search/route', () => ({
   }
 }));
 
-const { GET: contentGET } = require('../../app/api/content/route');
 const { GET: searchGET } = require('../../app/api/search/route');
 
 describe('API Routes', () => {
-  describe('Content API', () => {
-    test('should return content for valid slug', async () => {
-      const request = new NextRequest('http://localhost:3000/api/content?slug=test-page');
-      const response = await contentGET(request);
-      
-      expect(response.status).toBe(200);
-      
-      const data = await response.json();
-      expect(data).toHaveProperty('slug', 'test-page');
-      expect(data).toHaveProperty('title', 'Content for test-page');
-      expect(data).toHaveProperty('type', 'page');
-      expect(data).toHaveProperty('metadata');
-    });
-
-    test('should return 400 for missing slug', async () => {
-      const request = new NextRequest('http://localhost:3000/api/content');
-      const response = await contentGET(request);
-      
-      expect(response.status).toBe(400);
-      
-      const data = await response.json();
-      expect(data).toHaveProperty('error', 'Slug required');
-    });
-
-    test('should include proper content-type header', async () => {
-      const request = new NextRequest('http://localhost:3000/api/content?slug=header-test');
-      const response = await contentGET(request);
-      
-      expect(response.headers.get('Content-Type')).toBe('application/json');
-    });
-
-    test('should handle special characters in slug', async () => {
-      const request = new NextRequest('http://localhost:3000/api/content?slug=test-page-with-dashes');
-      const response = await contentGET(request);
-      
-      expect(response.status).toBe(200);
-      
-      const data = await response.json();
-      expect(data.slug).toBe('test-page-with-dashes');
-    });
-  });
-
   describe('Search API', () => {
     test('should return search results for valid query', async () => {
       const request = new NextRequest('http://localhost:3000/api/search?q=test');

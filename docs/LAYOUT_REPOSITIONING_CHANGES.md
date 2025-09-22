@@ -21,7 +21,7 @@ The new component rendering order is:
 4. **Author Component** (from frontmatter metadata)
 5. **Content Component**
 6. **Caption Component**
-7. **Bullets Component**
+7. **Settings Component**
 8. **Table Component**
 9. **Author Component** (from markdown content, if available)
 10. **Tags Component**

@@ -3,7 +3,7 @@ import { PropertiesTable } from '../PropertiesTable/PropertiesTable';
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import { Content } from '../Content/Content';
 import { Caption } from '../Caption/Caption';
-import { Bullets } from '../Bullets/Bullets';
+
 import { Table } from '../Table/Table';
 import { Tags } from '../Tags/Tags';
 import { ArticleHeader } from '../Article/ArticleHeader';
@@ -22,7 +22,6 @@ const COMPONENT_ORDER: ComponentType[] = [
   'badgesymbol',
   'content',
   'caption',
-  'bullets',
   'table',
   'tags'
 ];
@@ -132,12 +131,6 @@ export default function Layout({
                     frontmatter={metadata as any} 
                     config={config} 
                   />
-                </section>
-              );
-            case 'bullets':
-              return (
-                <section key={type} aria-label="Key points">
-                  <Bullets content={content} config={config} />
                 </section>
               );
             case 'table':

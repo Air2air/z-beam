@@ -16,7 +16,7 @@ describe('Search Utils', () => {
       expect(getMaterialColor('element')).toBe('blue');
       expect(getMaterialColor('ceramic')).toBe('green');
       expect(getMaterialColor('polymer')).toBe('purple');
-      expect(getMaterialColor('composite')).toBe('yellow');
+      expect(getMaterialColor('composite')).toBe('orange');
       expect(getMaterialColor('semiconductor')).toBe('red');
       expect(getMaterialColor('compound')).toBe('gray');
       expect(getMaterialColor('other')).toBe('gray');

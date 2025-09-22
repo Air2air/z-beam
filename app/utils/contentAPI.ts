@@ -29,8 +29,6 @@ const CONTENT_DIRS = {
   components: {
     frontmatter: path.join(process.cwd(), 'content', 'components', 'frontmatter'),
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
-    content: path.join(process.cwd(), 'content', 'components', 'content'),
-    bullets: path.join(process.cwd(), 'content', 'components', 'bullets'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
     propertiestable: path.join(process.cwd(), 'content', 'components', 'propertiestable'),
@@ -138,7 +136,6 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
     // Check all component directories for slugs (consolidated approach)
     const directories = [
       path.join(process.cwd(), 'content', 'components', 'metatags'),
-      path.join(process.cwd(), 'content', 'components', 'content'),
       path.join(process.cwd(), 'content', 'components', 'frontmatter')
     ];
     
@@ -183,8 +180,7 @@ const loadSingleArticle = cache(async (slug: string): Promise<Article | null> =>
     // Try to find the article in any of the content directories
     const directories = [
       path.join(process.cwd(), 'content', 'components', 'frontmatter'),
-      path.join(process.cwd(), 'content', 'components', 'metatags'),
-      path.join(process.cwd(), 'content', 'components', 'content')
+      path.join(process.cwd(), 'content', 'components', 'metatags')
     ];
     
     let articleData: Article | null = null;
@@ -716,7 +712,7 @@ export const loadAllComponents = cache(async (slug: string): Promise<{ [componen
     await Promise.all(
       componentTypes.map(async (type) => {
         // Use raw content for all components - let each component handle its own parsing
-        // This provides consistency and flexibility for components like bullets, tags, etc.
+        // This provides consistency and flexibility for components like tags, captions, etc.
         const componentData = await loadComponent(type, slug, { convertMarkdown: false });
         if (componentData) {
           components[type] = componentData;
