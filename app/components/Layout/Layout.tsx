@@ -19,7 +19,6 @@ import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
-  'propertiestable',
   'badgesymbol', 
   'content',
   'caption',
@@ -81,15 +80,15 @@ export function Layout(props: LayoutProps) {
         {jsonLdData && <JsonLD data={jsonLdData} />}
         
         {/* Article header */}
-        {!hideHeader && (
-          <ArticleHeader 
-            metadata={metadata}
-            slug={slug}
-            title={title}
-          />
-        )}
-
-        {/* Article content */}
+      {/* Article Header with Hero, Title, PropertiesTable, and Author */}
+      {!hideHeader && (
+        <ArticleHeader 
+          metadata={metadata} 
+          slug={slug} 
+          title={title}
+          components={components}
+        />
+      )}        {/* Article content */}
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => {
             const component = components[type];
@@ -98,12 +97,6 @@ export function Layout(props: LayoutProps) {
             const { content, config } = component;
             
             switch(type) {
-              case 'propertiestable':
-                return (
-                  <section key={type} aria-labelledby="properties-heading">
-                    <PropertiesTable content={content} config={config} />
-                  </section>
-                );
               case 'badgesymbol':
                 return (
                   <section key={type} aria-label="Material classification">

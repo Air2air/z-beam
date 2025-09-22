@@ -128,7 +128,7 @@ describe('Author Component', () => {
         );
         
         expect(screen.getByText(title)).toBeInTheDocument();
-        expect(screen.getByText(title)).toHaveClass('author-credentials');
+        expect(screen.getByText(title)).toHaveClass('author-appellation');
         
         unmount();
       });

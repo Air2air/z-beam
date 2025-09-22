@@ -205,6 +205,194 @@ export interface BadgeData {
 }
 
 // ===============================
+// CAPTION & METRICS TYPES
+// ===============================
+
+/**
+ * Enhanced Caption Data Structure - Complete interface for caption content
+ */
+export interface CaptionDataStructure {
+  before_text?: string;
+  after_text?: string;
+  material?: string;
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  laser_parameters?: {
+    wavelength?: number;
+    power?: number;
+    pulse_duration?: number;
+    spot_size?: string;
+    frequency?: number;
+    energy_density?: number;
+    scanning_speed?: string;
+    beam_profile?: string;
+    pulse_overlap?: number;
+  };
+  quality_metrics?: {
+    contamination_removal?: string;
+    surface_roughness_before?: string;
+    surface_roughness_after?: string;
+    thermal_damage?: string;
+    substrate_integrity?: string;
+    processing_efficiency?: string;
+  };
+  author_object?: AuthorInfo;
+  chemicalProperties?: {
+    composition?: string;
+    surface_treatment?: string;
+    contamination_type?: string;
+    materialType?: string;
+    formula?: string;
+    surface_finish?: string;
+    corrosion_resistance?: string;
+    density?: string;
+    meltingPoint?: string;
+    thermalConductivity?: string;
+  };
+  technicalSpecifications?: {
+    wavelength?: string;
+    power?: string;
+    pulse_duration?: string;
+    scanning_speed?: string;
+    material?: string;
+    beam_delivery?: string;
+    focus_diameter?: string;
+    processing_atmosphere?: string;
+  };
+  metadata?: {
+    generated?: string;
+    format?: string;
+    version?: string;
+    analysis_method?: string;
+    magnification?: string;
+    field_of_view?: string;
+    image_resolution?: string;
+  };
+  images?: {
+    micro?: {
+      url?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+      format?: string;
+      caption?: string;
+    };
+  };
+  accessibility?: {
+    alt_text_detailed?: string;
+    caption_language?: string;
+    technical_level?: string;
+    visual_description?: string;
+  };
+  seo_data?: {
+    canonical_url?: string;
+    og_title?: string;
+    og_description?: string;
+    schema_type?: string;
+    last_modified?: string;
+  };
+}
+
+/**
+ * Legacy frontmatter interface for backward compatibility
+ */
+export interface FrontmatterType {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  author?: string | AuthorInfo;
+  name?: string;
+  images?: {
+    micro?: {
+      url?: string;
+    };
+  };
+  author_object?: {
+    name: string;
+    email?: string;
+    affiliation?: string;
+    title?: string;
+    expertise?: string[];
+  };
+  technicalSpecifications?: {
+    wavelength?: string;
+    power?: string;
+    pulse_duration?: string;
+    scanning_speed?: string;
+    material?: string;
+  };
+  chemicalProperties?: {
+    composition?: string;
+    surface_treatment?: string;
+    contamination_type?: string;
+    materialType?: string;
+    formula?: string;
+    density?: string;
+    meltingPoint?: string;
+    thermalConductivity?: string;
+  };
+}
+
+/**
+ * Caption component props
+ */
+export interface CaptionProps {
+  content: string | any; // CaptionData type from useCaptionParsing
+  image?: string;
+  frontmatter?: FrontmatterType;
+  config?: {
+    className?: string;
+    showTechnicalDetails?: boolean;
+    showMetadata?: boolean;
+  };
+}
+
+/**
+ * Quality metrics interface for MetricsGrid component
+ */
+export interface QualityMetrics {
+  contamination_removal?: string;
+  surface_roughness_before?: string;
+  surface_roughness_after?: string;
+  thermal_damage?: string;
+  processing_efficiency?: string;
+  substrate_integrity?: string;
+  [key: string]: string | undefined;
+}
+
+/**
+ * MetricsGrid component props
+ */
+export interface MetricsGridProps {
+  qualityMetrics: QualityMetrics;
+  maxCards?: number;
+  excludeMetrics?: string[];
+  className?: string;
+}
+
+/**
+ * Parsed caption data interface for useCaptionParsing hook
+ */
+export interface ParsedCaptionData {
+  renderedContent: string;
+  beforeText?: string;
+  afterText?: string;
+  laserParams?: any; // CaptionYamlData['laser_parameters']
+  metadata?: any; // CaptionYamlData['metadata']
+  material?: string;
+  // Enhanced data fields
+  isEnhanced?: boolean;
+  qualityMetrics?: any; // EnhancedCaptionYamlData['quality_metrics']
+  authorObject?: any; // EnhancedCaptionYamlData['author_object']
+  technicalSpecs?: any; // EnhancedCaptionYamlData['technical_specifications']
+  materialProps?: any; // EnhancedCaptionYamlData['material_properties']
+  methodology?: any; // EnhancedCaptionYamlData['analysis_methodology']
+  seoMetadata?: any; // EnhancedCaptionYamlData['seo_metadata']
+  accessibility?: any; // EnhancedCaptionYamlData['accessibility']
+}
+
+// ===============================
 // COMPONENT TYPES
 // ===============================
 
@@ -256,6 +444,79 @@ export interface SearchResultsProps {
  */
 export interface SearchClientProps {
   initialArticles: Article[];
+}
+
+/**
+ * List component props
+ */
+export interface ListProps {
+  // Add slugs as a prop alternative to items
+  slugs?: string[];
+  items?: Array<{
+    slug: string;
+    title?: string;
+    description?: string;
+    image?: string;
+    badge?: string;
+    featured?: boolean; // Add featured property
+  }>;
+  title?: string;
+  heading?: string; // Add heading as an alias for title
+  columns?: 1 | 2 | 3 | 4;
+  filterBy?: string;
+  className?: string;
+  showHeadings?: boolean;
+  itemClassName?: string;
+  linkClassName?: string;
+  headingClassName?: string;
+  showExcerpts?: boolean;
+  showImages?: boolean;
+  showCategories?: boolean;
+  showTags?: boolean;
+  maxItems?: number;
+  groupBy?: 'category' | 'tag' | 'date' | 'none';
+  sortBy?: 'title' | 'date' | 'category' | 'none';
+  sortOrder?: 'asc' | 'desc';
+  layout?: 'list' | 'grid' | 'cards';
+}
+
+/**
+ * Table component props
+ */
+export interface TableProps {
+  content: string;
+  config?: {
+    showHeader?: boolean;
+    caption?: string;
+    className?: string;
+    variant?: 'default' | 'sectioned' | 'compact';
+  };
+  data?: any[];
+  columns?: string[];
+  className?: string;
+  striped?: boolean;
+  bordered?: boolean;
+  hover?: boolean;
+  responsive?: boolean;
+  caption?: string;
+}
+
+/**
+ * PropertiesTable component props
+ */
+export interface PropertiesTableProps {
+  content: string;
+  config?: {
+    caption?: string;
+    className?: string;
+  };
+  data?: Record<string, any>;
+  className?: string;
+  showHeader?: boolean;
+  title?: string;
+  maxRows?: number;
+  excludeKeys?: string[];
+  formatters?: Record<string, (value: any) => string>;
 }
 
 /**

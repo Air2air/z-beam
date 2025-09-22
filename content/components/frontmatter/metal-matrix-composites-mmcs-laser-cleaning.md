@@ -12,41 +12,41 @@ keywords: metal matrix composites mmcs, metal matrix composites mmcs composite, 
   removal, industrial laser parameters, thermal processing, surface restoration
 chemicalProperties:
   symbol: MMC
-  formula: "Variable (typically Al/SiC, Al/Al\u2082O\u2083, Ti/SiC)"
+  formula: "Variable (typically Al/SiC, Al/Al₂O₃, Ti/SiC)"
   materialType: composite
 properties:
-  density: "2.7-4.5 g/cm\xB3 (Al-based MMCs); 4.4-4.8 g/cm\xB3 (Ti-based MMCs)"
+  density: "2.7-4.5 g/cm³ (Al-based MMCs); 4.4-4.8 g/cm³ (Ti-based MMCs)"
   densityNumeric: 3.6
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 42.9
-  meltingPoint: "580-660\xB0C (Al matrix); 1660\xB0C (Ti matrix) - composite dependent"
+  meltingPoint: "580-660°C; 1660°C - composite dependent"
   meltingPointNumeric: 620.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPointUnit: "°C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "120-200 W/m\xB7K (Al/SiC); 5-7 W/m\xB7K (Al/Al\u2082O\u2083\
+  thermalConductivity: "120-200 W/m·K (Al/SiC); 5-7 W/m·K (Al/Al₂O₃"
     )"
   thermalConductivityNumeric: 160.0
-  thermalConductivityUnit: "W/m\xB7K"
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityUnit: "W/m·K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 79.9
-  tensileStrength: "300-600 MPa (Al/SiC); 150-300 MPa (Al/Al\u2082O\u2083)"
+  tensileStrength: "300-600 MPa (Al/SiC); 150-300 MPa (Al/Al₂O₃)"
   tensileStrengthNumeric: 450.0
   tensileStrengthUnit: MPa
   tensileStrengthMin: 50 MPa
@@ -56,7 +56,7 @@ properties:
   tensileStrengthMaxNumeric: 1000.0
   tensileStrengthMaxUnit: MPa
   tensilePercentile: 42.1
-  hardness: "80-120 HV (Al/SiC); 60-90 HV (Al/Al\u2082O\u2083)"
+  hardness: "80-120 HV (Al/SiC); 60-90 HV (Al/Al₂O₃)"
   hardnessNumeric: 100.0
   hardnessUnit: HV
   hardnessMin: 1 Mohs
@@ -66,7 +66,7 @@ properties:
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
   hardnessPercentile: 100.0
-  youngsModulus: "90-120 GPa (Al/SiC); 80-100 GPa (Al/Al\u2082O\u2083)"
+  youngsModulus: "90-120 GPa (Al/SiC); 80-100 GPa (Al/Al₂O₃)"
   youngsModulusNumeric: 105.0
   youngsModulusUnit: GPa
   youngsModulusMin: 20 GPa
@@ -78,8 +78,8 @@ properties:
   modulusPercentile: 100.0
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "1.0\u201310 J/cm\xB2"
-  chemicalFormula: "Variable composition (e.g., Al-20%SiC, Al-15%Al\u2082O\u2083)"
+  fluenceRange: "1.0–10 J/cm²"
+  chemicalFormula: "Variable composition (e.g., Al-20%SiC, Al-15%Al₂O₃)"
 composition:
 - Aluminum matrix (60-85%) with silicon carbide reinforcement (15-40%)
 - Titanium matrix (70-90%) with silicon carbide or boron carbide reinforcement (10-30%)
@@ -129,21 +129,21 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Aerospace: Cleaning of turbine blades and engine components'
 - 'Automotive: Removal of coatings and contaminants from brake systems'
 compatibility:
-- "Aluminum, titanium, magnesium matrices with ceramic reinforcements (SiC, Al\u2082\
-  O\u2083, B\u2084C)"
+- "Aluminum, titanium, magnesium matrices with ceramic reinforcements (SiC, Al₂\
+  O₃, B₄C)"
 - Stainless steel fixtures and handling systems
 regulatoryStandards: ISO 9013:2017 (Thermal cutting classification), ASTM E2930 (Laser
   cleaning standards), NADCAP AC7117 (Aerospace laser processing)
@@ -175,7 +175,7 @@ environmentalImpact:
 outcomes:
 - result: Surface contamination removal >99.5%
   metric: Measured via SEM-EDS analysis showing complete oxide and contaminant removal
-- result: "Processing speeds up to 2 m\xB2/hour"
+- result: "Processing speeds up to 2 m²/hour"
   metric: Achievable cleaning rates for industrial-scale MMC component processing
 technicalSpecifications:
   powerRange: 50-200 W
@@ -183,7 +183,7 @@ technicalSpecifications:
   wavelength: 1064 nm (primary), 532 nm (optional for selective ceramic removal)
   spotSize: 0.05-1.0 mm
   repetitionRate: 20-100 kHz
-  fluenceRange: "1.0-10 J/cm\xB2"
+  fluenceRange: "1.0-10 J/cm²"
   scanningSpeed: 100-2000 mm/s
   beamProfile: Top-hat (preferred for uniform cleaning)
   beamProfileOptions: Top-hat, Gaussian, Flat-top
@@ -200,7 +200,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  fluence_threshold: "1.0–10 J/cm²"
   pulse_duration: 10-200ns
   wavelength_optimal: 1064nm
   power_range: 50-200W
@@ -212,4 +212,5 @@ tags:
 - Aerospace
 complexity: high
 difficultyScore: 5
----
+surface_roughness_before: 14.5
+surface_roughness_after: 3.8

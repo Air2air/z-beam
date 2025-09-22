@@ -14,41 +14,37 @@ keywords: teak, teak wood, laser ablation, laser cleaning, non-contact cleaning,
   processing, surface restoration
 chemicalProperties:
   symbol: N/A (Organic Composite)
-  formula: "Complex Lignocellulosic Matrix (C\u2086H\u2081\u2080O\u2085)\u2099, Lignin,\
-    \ Extractives"
+  formula: "Complex Lignocellulosic Matrix (C₆H₁₀O₅)\u2099, Lignin, Extractives"
   materialType: wood
 properties:
-  density: "630\u2013750 kg/m\xB3 (air-dry)"
+  density: "630–750 kg/m³ (air-dry)"
   densityNumeric: 690.0
-  densityUnit: "kg/m\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "kg/m³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 100.0
-  meltingPoint: "Decomposes at ~270\u2013300 \xB0C (charring)"
-  meltingPointNumeric: 270.0
-  meltingPointUnit: Decomposes
-  meltingPointMin: "1200\xB0C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "0.12\u20130.18 W/(m\xB7K) (radial)"
+  thermalConductivity: "0.12–0.18 W/(m·K) (radial)"
   thermalConductivityNumeric: 0.12
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 0.0
-  tensileStrength: "100\u2013135 MPa (parallel to grain)"
+  tensileStrength: "100–135 MPa (parallel to grain)"
   tensileStrengthNumeric: 100.0
   tensileStrengthUnit: MPa
   tensileStrengthMin: 50 MPa
@@ -58,7 +54,7 @@ properties:
   tensileStrengthMaxNumeric: 1000.0
   tensileStrengthMaxUnit: MPa
   tensilePercentile: 5.3
-  hardness: "2.3\u20134.0 kN (Janka Hardness)"
+  hardness: "2.3–4.0 kN (Janka Hardness)"
   hardnessNumeric: 2.3
   hardnessUnit: kN
   hardnessMin: 1 Mohs
@@ -68,7 +64,7 @@ properties:
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
   hardnessPercentile: 14.4
-  youngsModulus: "10.0\u201314.5 GPa"
+  youngsModulus: "10.0–14.5 GPa"
   youngsModulusNumeric: 10.0
   youngsModulusUnit: GPa
   youngsModulusMin: 20 GPa
@@ -80,14 +76,18 @@ properties:
   modulusPercentile: 0.0
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Complex Organic Composite (Cellulose ~45%, Lignin ~35%, Hemicellulose
     ~15%, Extractives ~5%)
+  thermalBehaviorType: decomposition
+  decompositionPoint: "300°C"
+  decompositionPointNumeric: 300
+  decompositionPointUnit: "°C"
 composition:
-- "Cellulose (C\u2086H\u2081\u2080O\u2085)\u2099: 40\u201350%"
-- "Lignin (Complex polyphenolic): 30\u201340%"
-- "Hemicellulose: 15\u201320%"
-- "Extractives (tectoquinone, lapachol, oils, resins): 3\u20135%"
+- "Cellulose (C₆H₁₀O₅)\u2099: 40–50%"
+- "Lignin (Complex polyphenolic): 30–40%"
+- "Hemicellulose: 15–20%"
+- "Extractives (tectoquinone, lapachol, oils, resins): 3–5%"
 machineSettings:
   powerRange: 20-100W
   powerRangeNumeric: 60.0
@@ -134,15 +134,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Woodworking: Removal of surface contaminants and restoration of teak furniture'
 - 'Marine: Cleaning and maintenance of teak decks on boats and yachts'
@@ -181,17 +181,17 @@ outcomes:
 - result: Surface contaminant removal efficiency >99%
   metric: Verified via SEM-EDS analysis showing elimination of biological and salt
     contaminants without substrate damage.
-- result: "Processing rate of 5\u201315 m\xB2/hour"
+- result: "Processing rate of 5–15 m²/hour"
   metric: Achievable for standard surface contamination on teak decking using a 100W
     laser system with a 2000 mm/s scan speed.
 technicalSpecifications:
-  powerRange: "20\u2013100 W (average power for pulsed fiber lasers)"
-  pulseDuration: "10\u2013100 ns"
+  powerRange: "20–100 W (average power for pulsed fiber lasers)"
+  pulseDuration: "10–100 ns"
   wavelength: 1064 nm (primary), 532 nm (optional for finer control)
-  spotSize: "0.1\u20132.0 mm"
-  repetitionRate: "10\u201350 kHz"
-  fluenceRange: "0.5\u20135 J/cm\xB2"
-  scanningSpeed: "500\u20132000 mm/s"
+  spotSize: "0.1–2.0 mm"
+  repetitionRate: "10–50 kHz"
+  fluenceRange: "0.5–5 J/cm²"
+  scanningSpeed: "500–2000 mm/s"
   beamProfile: Top-hat (flat-top)
   beamProfileOptions: Top-hat (flat-top), Gaussian
   safetyClass: Class 4
@@ -207,7 +207,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "0.5\u20135 J/cm\xB2"
+  fluence_threshold: "0.5–5 J/cm²"
   pulse_duration: 10-100ns
   wavelength_optimal: 1064nm
   power_range: 20-100W
@@ -219,4 +219,5 @@ tags:
 - Marine
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 38.2
+surface_roughness_after: 15.8

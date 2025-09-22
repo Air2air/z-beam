@@ -4,16 +4,18 @@
 import { Hero } from "../Hero/Hero";
 import { Title } from "../Title/Title";
 import { Author } from "../Author/Author";
+import { PropertiesTable } from "../PropertiesTable";
 import { extractSafeValue } from "../../utils/stringHelpers";
-import type { ArticleMetadata } from "@/types";
+import type { ArticleMetadata, ComponentData } from "@/types";
 
 interface ArticleHeaderProps {
   metadata?: ArticleMetadata;
   slug?: string;
   title?: string;
+  components?: Record<string, ComponentData>;
 }
 
-export function ArticleHeader({ metadata, slug, title }: ArticleHeaderProps) {
+export function ArticleHeader({ metadata, slug, title, components }: ArticleHeaderProps) {
   // Extract material name for hero image (from subject or slug)
   const materialName = extractSafeValue(metadata?.subject).toLowerCase() || 
     (slug && extractSafeValue(slug).includes('-') ? extractSafeValue(slug).split('-')[0].toLowerCase() : extractSafeValue(slug || '').toLowerCase());
@@ -31,6 +33,16 @@ export function ArticleHeader({ metadata, slug, title }: ArticleHeaderProps) {
           theme="dark"
           align="center"
         />
+      )}
+
+      {/* PropertiesTable component - positioned right after Hero */}
+      {components?.propertiestable && (
+        <section aria-labelledby="properties-heading" className="my-6">
+          <PropertiesTable 
+            content={components.propertiestable.content} 
+            config={components.propertiestable.config} 
+          />
+        </section>
       )}
 
       {/* Title section */}

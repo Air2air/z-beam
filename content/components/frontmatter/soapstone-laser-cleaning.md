@@ -3,47 +3,44 @@ name: Soapstone
 category: stone
 title: Soapstone Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning stone soapstone
-description: "Laser cleaning of soapstone utilizes precise Nd:YAG laser parameters\
-  \ to selectively ablate surface contaminants while preserving the talc-rich mineral\
-  \ matrix. The low thermal conductivity (6.4 W/m\xB7K) and specific heat capacity\
-  \ allow controlled energy deposition without thermal damage to the substrate."
+description: "Laser cleaning of soapstone utilizes precise Nd:YAG laser parameters to selectively ablate surface contaminants while preserving the talc-rich mineral matrix. The low thermal conductivity (6.4 W/m·K) and specific heat capacity allow controlled energy deposition without thermal damage to the substrate."
 keywords: soapstone, soapstone stone, laser ablation, laser cleaning, non-contact
   cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: "Mg\u2083Si\u2084O\u2081\u2080(OH)\u2082"
-  formula: "Mg\u2083Si\u2084O\u2081\u2080(OH)\u2082"
+  symbol: "Mg₃Si₄O₁₀(OH)₂"
+  formula: "Mg₃Si₄O₁₀(OH)₂"
   materialType: metamorphic rock
 properties:
-  density: "2.7-2.8 g/cm\xB3"
+  density: "2.7-2.8 g/cm³"
   densityNumeric: 2.75
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 22.6
-  meltingPoint: "1200-1300 \xB0C"
-  meltingPointNumeric: 1250.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPoint: "1300°C"
+  meltingPointNumeric: 1300
+  meltingPointUnit: "°C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 3.1
-  thermalConductivity: "6.4 W/m\xB7K"
+  thermalConductivity: "6.4 W/m·K"
   thermalConductivityNumeric: 6.4
-  thermalConductivityUnit: "W/m\xB7K"
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityUnit: "W/m·K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 3.0
   tensileStrength: 15-20 MPa
   tensileStrengthNumeric: 17.5
@@ -77,11 +74,12 @@ properties:
   modulusPercentile: 58.3
   laserType: Nd:YAG laser
   wavelength: 1064nm
-  fluenceRange: "1.0\u201310 J/cm\xB2"
-  chemicalFormula: "Mg\u2083Si\u2084O\u2081\u2080(OH)\u2082"
+  fluenceRange: "1.0–10 J/cm²"
+  chemicalFormula: "Mg₃Si₄O₁₀(OH)₂"
+  thermalBehaviorType: melting
 composition:
-- "Talc (Mg\u2083Si\u2084O\u2081\u2080(OH)\u2082): 40-80%"
-- "Magnesite (MgCO\u2083): 10-40%"
+- "Talc (Mg₃Si₄O₁₀(OH)₂): 40-80%"
+- "Magnesite (MgCO₃): 10-40%"
 - 'Chlorite: 5-15%'
 - 'Amphiboles: 1-5%'
 machineSettings:
@@ -130,15 +128,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Construction: Removal of graffiti and paint from soapstone surfaces'
 - 'Restoration: Cleaning soapstone sculptures and architectural elements'
@@ -174,16 +172,16 @@ environmentalImpact:
     compared to dry abrasive methods
 outcomes:
 - result: Surface contamination removal to 99.8% purity
-  metric: "0.2 \u03BCm maximum residual contamination layer measured by SEM-EDS analysis"
+  metric: "0.2 μm maximum residual contamination layer measured by SEM-EDS analysis"
 - result: Sub-micron precision material removal
-  metric: "0.1-0.5 \u03BCm layer removal control with \xB15% accuracy across surface"
+  metric: "0.1-0.5 μm layer removal control with ±5% accuracy across surface"
 technicalSpecifications:
   powerRange: 20-100 W
   pulseDuration: 10-150 ns
   wavelength: 1064 nm
   spotSize: 0.2-2.0 mm
   repetitionRate: 10-50 kHz
-  fluenceRange: "0.8-3.5 J/cm\xB2"
+  fluenceRange: "0.8-3.5 J/cm²"
   scanningSpeed: 500-2000 mm/s
   beamProfile: Top-hat
   beamProfileOptions: Top-hat, Gaussian, Flat-top
@@ -200,7 +198,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  fluence_threshold: "1.0–10 J/cm²"
   pulse_duration: 5-50ns
   wavelength_optimal: 1064nm
   power_range: 50-200W
@@ -212,4 +210,5 @@ tags:
 - Restoration
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 28.2
+surface_roughness_after: 9.9

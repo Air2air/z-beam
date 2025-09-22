@@ -3,201 +3,52 @@
 
 import React from 'react';
 import { useCaptionParsing, CaptionData, ParsedCaptionData } from './useCaptionParsing';
-import { AuthorInfo } from '../../../types';
+import { MetricsGrid } from './MetricsGrid';
+import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '../../../types/centralized';
 import './enhanced-seo-caption.css';
-
-// Enhanced Caption Data Structure
-interface EnhancedCaptionData {
-  before_text?: string;
-  after_text?: string;
-  material?: string;
-  laser_parameters?: {
-    wavelength?: number;
-    power?: number;
-    pulse_duration?: number;
-    spot_size?: string;
-    frequency?: number;
-    energy_density?: number;
-    scanning_speed?: string;
-    beam_profile?: string;
-    pulse_overlap?: number;
-  };
-  quality_metrics?: {
-    contamination_removal?: string;
-    surface_roughness_before?: string;
-    surface_roughness_after?: string;
-    thermal_damage?: string;
-    substrate_integrity?: string;
-    processing_efficiency?: string;
-  };
-  author_object?: {
-    name?: string;
-    email?: string;
-    affiliation?: string;
-    title?: string;
-    expertise?: string[];
-  };
-  chemicalProperties?: {
-    composition?: string;
-    surface_treatment?: string;
-    contamination_type?: string;
-    materialType?: string;
-    formula?: string;
-    surface_finish?: string;
-    corrosion_resistance?: string;
-    density?: string;
-    meltingPoint?: string;
-    thermalConductivity?: string;
-  };
-  technicalSpecifications?: {
-    wavelength?: string;
-    power?: string;
-    pulse_duration?: string;
-    scanning_speed?: string;
-    material?: string;
-    beam_delivery?: string;
-    focus_diameter?: string;
-    processing_atmosphere?: string;
-  };
-  metadata?: {
-    generated?: string;
-    format?: string;
-    version?: string;
-    analysis_method?: string;
-    magnification?: string;
-    field_of_view?: string;
-    image_resolution?: string;
-  };
-  images?: {
-    micro?: {
-      url?: string;
-      alt?: string;
-      width?: number;
-      height?: number;
-      format?: string;
-      caption?: string;
-    };
-  };
-  accessibility?: {
-    alt_text_detailed?: string;
-    caption_language?: string;
-    technical_level?: string;
-    visual_description?: string;
-  };
-  keywords?: string[];
-  title?: string;
-  description?: string;
-  seo_data?: {
-    canonical_url?: string;
-    og_title?: string;
-    og_description?: string;
-    schema_type?: string;
-    last_modified?: string;
-  };
-}
-
-// Legacy frontmatter interface for backward compatibility
-interface FrontmatterType {
-  title?: string;
-  description?: string;
-  keywords?: string[];
-  author?: string | AuthorInfo;
-  name?: string;
-  images?: {
-    micro?: {
-      url?: string;
-    };
-  };
-  author_object?: {
-    name: string;
-    email?: string;
-    affiliation?: string;
-    title?: string;
-    expertise?: string[];
-  };
-  technicalSpecifications?: {
-    wavelength?: string;
-    power?: string;
-    pulse_duration?: string;
-    scanning_speed?: string;
-    material?: string;
-  };
-  chemicalProperties?: {
-    composition?: string;
-    surface_treatment?: string;
-    contamination_type?: string;
-    materialType?: string;
-    formula?: string;
-    density?: string;
-    meltingPoint?: string;
-    thermalConductivity?: string;
-  };
-}
-
-interface CaptionProps {
-  content: string | CaptionData;
-  image?: string;
-  frontmatter?: FrontmatterType;
-  config?: {
-    className?: string;
-    showTechnicalDetails?: boolean;
-    showMetadata?: boolean;
-  };
-}
 
 export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   const captionData = useCaptionParsing(content);
   const { className = '' } = config || {};
 
-  // Convert any input to enhanced format for unified processing
-  const enhancedData: EnhancedCaptionData = typeof content === 'object' ? {
-    // Use any to bypass type checking for the conversion
-    ...(content as any),
+  // Simplified data processing - merge content with frontmatter
+  const enhancedData: CaptionDataStructure = typeof content === 'object' ? {
+    // Direct assignment from content
+    ...(content as CaptionDataStructure),
     
-    // Merge with frontmatter data for backward compatibility
-    title: (content as any).title || frontmatter?.title,
-    description: (content as any).description || frontmatter?.description,
-    keywords: (content as any).keywords || frontmatter?.keywords,
+    // Fallback to frontmatter when needed
+    title: (content as CaptionDataStructure).title || frontmatter?.title,
+    description: (content as CaptionDataStructure).description || frontmatter?.description,
+    keywords: (content as CaptionDataStructure).keywords || frontmatter?.keywords,
     material: content.material || frontmatter?.name,
     
-    // Author data - prefer new format, fallback to frontmatter
-    author_object: (content as any).author_object || frontmatter?.author_object || 
+    // Author data handling
+    author_object: (content as CaptionDataStructure).author_object || 
+      frontmatter?.author_object || 
       (typeof frontmatter?.author === 'object' ? frontmatter.author : 
        typeof frontmatter?.author === 'string' ? { name: frontmatter.author } : 
        { name: 'Z-Beam Research Team' }),
     
-    // Technical specifications - merge old and new
+    // Technical and chemical properties merging
     technicalSpecifications: {
       ...frontmatter?.technicalSpecifications,
-      ...(content as any).technicalSpecifications,
+      ...(content as CaptionDataStructure).technicalSpecifications,
     },
-    
-    // Chemical properties - merge old and new  
     chemicalProperties: {
       ...frontmatter?.chemicalProperties,
-      ...(content as any).chemicalProperties,
+      ...(content as CaptionDataStructure).chemicalProperties,
     },
     
-    // Images - prefer content, fallback to frontmatter
-    images: (content as any).images || (frontmatter?.images ? {
-      micro: frontmatter.images.micro
-    } : undefined),
+    // Images handling
+    images: (content as CaptionDataStructure).images || 
+      (frontmatter?.images ? { micro: frontmatter.images.micro } : undefined),
     
-    // Convert laser parameters to proper format
-    laser_parameters: captionData.laserParams ? {
-      ...captionData.laserParams,
-      spot_size: captionData.laserParams.spot_size?.toString() || "1.0mm",
-      scanning_speed: frontmatter?.technicalSpecifications?.scanning_speed || "500 mm/min",
-      beam_profile: "gaussian",
-      pulse_overlap: undefined,
-    } : undefined,
-    
-    // Use parsed content for text fields
+    // Use parsed text content
     before_text: captionData.beforeText,
     after_text: captionData.afterText,
     
   } : {
-    // Handle legacy string content
+    // Handle string content
     title: frontmatter?.title || 'Material Analysis',
     description: frontmatter?.description || 'Surface analysis results',
     material: frontmatter?.name || 'material',
@@ -285,27 +136,6 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      {/* Quality Metrics */}
-      {enhancedData.quality_metrics && (
-        <div className="mb-8">
-          <h3 className="text-lg font-semibold text-white mb-4">
-            Quality Assessment Results
-          </h3>
-          <div className="metrics-grid grid grid-cols-2 md:grid-cols-3 gap-4">
-            {Object.entries(enhancedData.quality_metrics).map(([key, value]) => (
-              <div key={key} className="metric-card bg-white p-4 rounded-lg border">
-                <dt className="text-sm font-medium text-gray-400 uppercase tracking-wide">
-                  {key.replace(/_/g, ' ')}
-                </dt>
-                <dd className="metric-value text-2xl font-bold text-gray-900 mt-1">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
       {/* Main Content */}
       <div className="mb-8">
         <h3 className="text-lg font-semibold text-white mb-4">
@@ -317,48 +147,62 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
           itemType="https://schema.org/ImageObject"
         >
         {enhancedData.images?.micro?.url && (
-          <img
-            src={enhancedData.images.micro.url}
-            alt={enhancedData.accessibility?.alt_text_detailed || 
-                 enhancedData.images.micro.alt ||
-                 `${capitalizedMaterial} surface analysis comparison`}
-            width={enhancedData.images.micro.width || 800}
-            height={enhancedData.images.micro.height || 450}
-            className="w-full h-auto rounded-lg shadow-lg"
-            itemProp="contentUrl"
-          />
+          <div className="relative">
+            <img
+              src={enhancedData.images.micro.url}
+              alt={enhancedData.accessibility?.alt_text_detailed || 
+                   enhancedData.images.micro.alt ||
+                   `${capitalizedMaterial} surface analysis comparison`}
+              width={enhancedData.images.micro.width || 800}
+              height={enhancedData.images.micro.height || 450}
+              className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-lg"
+              itemProp="contentUrl"
+            />
+            {/* Quality Metrics overlaid on image */}
+            {enhancedData.quality_metrics && (
+              <div className="absolute bottom-4 left-0 right-0 w-full">
+                <MetricsGrid 
+                  qualityMetrics={enhancedData.quality_metrics}
+                  maxCards={2}
+                  excludeMetrics={['substrate_integrity']}
+                />
+              </div>
+            )}
+          </div>
         )}
         
-        <figcaption className="mt-6 prose max-w-none">
-          {enhancedData.before_text && (
-            <div className="mb-6">
-              <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                <span className="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
-                Before Treatment
-              </h4>
-              <p className="text-gray-700 leading-relaxed">
-                {enhancedData.before_text}
-              </p>
+        <figcaption className="mt-4 pb-4 mb-2 text-sm max-w-none">
+          {(enhancedData.before_text || enhancedData.after_text) ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {enhancedData.before_text && (
+                <div className="px-2">
+                  <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                    <span className="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                    Before Treatment
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 md:mb-0">
+                    {enhancedData.before_text}
+                  </p>
+                </div>
+              )}
+              
+              {enhancedData.after_text && (
+                <div className="px-2">
+                  <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center">
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                    After Treatment
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                    {enhancedData.after_text}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
-          
-          {enhancedData.after_text && (
-            <div className="mb-6">
-              <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-                After Treatment
-              </h4>
-              <p className="text-gray-700 leading-relaxed">
-                {enhancedData.after_text}
-              </p>
-            </div>
-          )}
-          
-          {!enhancedData.before_text && !enhancedData.after_text && captionData.renderedContent && (
-            <p className="text-gray-700 leading-relaxed">
+          ) : captionData.renderedContent ? (
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
               {captionData.renderedContent}
             </p>
-          )}
+          ) : null}
         </figcaption>
       </figure>
       </div>
@@ -367,4 +211,4 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   );
 }
 
-export type { EnhancedCaptionData, FrontmatterType, CaptionProps, ParsedCaptionData };
+export type { CaptionDataStructure, FrontmatterType, CaptionProps, ParsedCaptionData };

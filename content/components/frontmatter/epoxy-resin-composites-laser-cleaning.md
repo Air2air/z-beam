@@ -15,36 +15,32 @@ chemicalProperties:
   formula: C_{21}H_{25}ClO_{5} (typical bisphenol-A epoxy resin)
   materialType: composite
 properties:
-  density: "1.1-1.4 g/cm\xB3 (varies with reinforcement content)"
+  density: "1.1-1.4 g/cm³ (varies with reinforcement content)"
   densityNumeric: 1.25
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 0.0
-  meltingPoint: "Decomposes at 150-200\xB0C (does not melt, thermoset polymer)"
-  meltingPointNumeric: 175.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "0.1-0.5 W/m\xB7K (transverse to fibers), 1-10 W/m\xB7K (parallel\
-    \ to fibers)"
+  thermalConductivity: "0.1-0.5 W/m·K (transverse to fibers), 1-10 W/m·K (parallel to fibers)"
   thermalConductivityNumeric: 0.3
-  thermalConductivityUnit: "W/m\xB7K"
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityUnit: "W/m·K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 0.0
   tensileStrength: 300-600 MPa (carbon fiber reinforced), 100-200 MPa (glass fiber
     reinforced)
@@ -79,9 +75,13 @@ properties:
   modulusPercentile: 16.7
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Variable composition; typically bisphenol-A diglycidyl ether (DGEBA)
     based
+  thermalBehaviorType: decomposition
+  decompositionPoint: "200°C"
+  decompositionPointNumeric: 200
+  decompositionPointUnit: "°C"
 composition:
 - 'Epoxy resin matrix: 40-60%'
 - 'Carbon/glass fiber reinforcement: 40-60%'
@@ -132,15 +132,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Aerospace: Removal of surface contaminants from composite aircraft parts'
 - 'Automotive: Cleaning of epoxy resin components for improved bonding and painting'
@@ -171,23 +171,22 @@ images:
     url: /images/epoxy-resin-composites-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Zero chemical waste generation
-  description: "Eliminates use of chemical solvents (typically 5-20 liters/m\xB2 in\
-    \ traditional methods), reducing hazardous waste by 100%"
+  description: "Eliminates use of chemical solvents (typically 5-20 liters/m² in traditional methods), reducing hazardous waste by 100%"
 - benefit: Reduced energy consumption
   description: Laser cleaning consumes 30-50% less energy compared to abrasive blasting
     or chemical cleaning processes for composite materials
 outcomes:
 - result: Surface contamination removal efficiency
-  metric: '>99% removal of coatings and contaminants with <1% substrate damage'
+  metric: ">99% removal of coatings and contaminants with <1% substrate damage"
 - result: Processing speed
-  metric: "0.5-2.0 m\xB2/hour depending on contamination type and laser parameters"
+  metric: "0.5-2.0 m²/hour depending on contamination type and laser parameters"
 technicalSpecifications:
   powerRange: 50-200 W (pulsed)
   pulseDuration: 20-200 ns
   wavelength: 1064 nm (primary), 532 nm (optional for precise removal)
   spotSize: 0.1-1.0 mm
   repetitionRate: 20-100 kHz
-  fluenceRange: "1.0-10 J/cm\xB2"
+  fluenceRange: "1.0-10 J/cm²"
   scanningSpeed: 100-2000 mm/s
   beamProfile: Top-hat or Gaussian
   beamProfileOptions: Top-hat for uniform cleaning, Gaussian for precision ablation
@@ -205,7 +204,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  fluence_threshold: "1.0–10 J/cm²"
   pulse_duration: 20-200ns
   wavelength_optimal: 1064nm
   power_range: 50-200W
@@ -217,4 +216,5 @@ tags:
 - Aerospace
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 6.8
+surface_roughness_after: 1.8

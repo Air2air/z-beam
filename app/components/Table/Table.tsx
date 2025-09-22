@@ -1,17 +1,8 @@
 // app/components/Table/Table.tsx
 import React from 'react';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import { TableProps } from '@/types/centralized';
 import './styles.css';
-
-interface TableProps {
-  content: string;
-  config?: {
-    showHeader?: boolean;
-    caption?: string;
-    className?: string;
-    variant?: 'default' | 'sectioned' | 'compact';
-  };
-}
 
 interface TableRow {
   property: string;

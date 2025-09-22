@@ -187,7 +187,7 @@ const Author: React.FC<AuthorProps> = ({ authorInfo }) => {
                 <div className="author-info">
                   <div className="author-name font-medium text-gray-900 dark:text-white block">
                     {authorInfo.name}
-                    <span className="ml-1 author-credentials font-medium text-gray-600 dark:text-gray-400">
+                    <span className="ml-1 author-appellation font-medium text-gray-600 dark:text-gray-400">
                       {authorInfo.title}
                     </span>
                   </div>

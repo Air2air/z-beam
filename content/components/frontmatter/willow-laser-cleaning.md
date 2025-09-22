@@ -13,38 +13,35 @@ keywords: willow, willow wood, laser ablation, laser cleaning, non-contact clean
   thermal processing, surface restoration
 chemicalProperties:
   symbol: N/A (Organic Composite)
-  formula: "C\u2086H\u2081\u2080O\u2085\u2099 (Cellulose base)"
+  formula: "C₆H₁₀O₅\u2099 (Cellulose base)"
   materialType: wood
 properties:
-  density: "450-500 kg/m\xB3 (Salix alba)"
+  density: "450-500 kg/m³ (Salix alba)"
   densityNumeric: 475.0
-  densityUnit: "kg/m\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "kg/m³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 100.0
-  meltingPoint: "Decomposes at ~200-275\xB0C (charring)"
-  meltingPointNumeric: 237.5
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "0.09-0.12 W/(m\xB7K) (radial)"
+  thermalConductivity: "0.09-0.12 W/(m·K) (radial)"
   thermalConductivityNumeric: 0.1
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 0.0
   tensileStrength: 70-100 MPa (along grain)
   tensileStrengthNumeric: 85.0
@@ -78,8 +75,12 @@ properties:
   modulusPercentile: 0.0
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Complex Lignocellulosic Composite
+  thermalBehaviorType: decomposition
+  decompositionPoint: "275°C"
+  decompositionPointNumeric: 275
+  decompositionPointUnit: "°C"
 composition:
 - 'Cellulose: 40-45%'
 - 'Hemicellulose: 20-25%'
@@ -131,15 +132,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Woodworking: Removing surface contaminants and old finishes from Willow wood'
 - 'Restoration: Precision cleaning of Willow artifacts and antiques'
@@ -179,15 +180,14 @@ outcomes:
   metric: Measured via SEM-EDS analysis showing complete removal of surface layers
     without substrate damage.
 - result: Substrate preservation
-  metric: "Achieves cleaning with material removal of less than 50 \xB5m depth, preserving\
-    \ original wood surface integrity."
+  metric: "Achieves cleaning with material removal of less than 50 µm depth, preserving original wood surface integrity."
 technicalSpecifications:
   powerRange: 20-100 W
   pulseDuration: 10-100 ns
   wavelength: 1064 nm (primary), 532 nm (optional for finer control)
   spotSize: 0.1-2.0 mm
   repetitionRate: 10-50 kHz
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   scanningSpeed: 100-2000 mm/s
   beamProfile: Top-hat (flat-top)
   beamProfileOptions: Top-hat, Gaussian (for specific finishing)
@@ -204,7 +204,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "0.5\u20135 J/cm\xB2"
+  fluence_threshold: "0.5–5 J/cm²"
   pulse_duration: 10-100ns
   wavelength_optimal: 1064nm
   power_range: 20-100W
@@ -216,4 +216,5 @@ tags:
 - Restoration
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 52.2
+surface_roughness_after: 21.5

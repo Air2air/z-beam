@@ -2,15 +2,8 @@
 import React from 'react';
 import { toSentenceCase } from '../../utils/formatting';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import { PropertiesTableProps } from '@/types/centralized';
 import "./styles.css";
-
-interface PropertiesTableProps {
-  content: string;
-  config?: {
-    caption?: string;
-    className?: string;
-  };
-}
 
 /**
  * Transforms any table to convert ALL key-value pairs into cards

@@ -12,38 +12,35 @@ keywords: beech, beech wood, laser ablation, laser cleaning, non-contact cleanin
   thermal processing, surface restoration
 chemicalProperties:
   symbol: N/A
-  formula: "C\u2086H\u2081\u2080O\u2085 (cellulose base)"
+  formula: "C₆H₁₀O₅ (cellulose base)"
   materialType: wood
 properties:
-  density: "720 kg/m\xB3 (air-dry)"
+  density: "720 kg/m³ (air-dry)"
   densityNumeric: 720.0
-  densityUnit: "kg/m\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "kg/m³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 100.0
-  meltingPoint: "Decomposes at ~200-300\xB0C (no true melting point)"
-  meltingPointNumeric: 250.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "0.16-0.18 W/(m\xB7K) (radial direction)"
+  thermalConductivity: "0.16-0.18 W/(m·K) (radial direction)"
   thermalConductivityNumeric: 0.17
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 0.0
   tensileStrength: 120-135 MPa (parallel to grain)
   tensileStrengthNumeric: 127.5
@@ -77,8 +74,12 @@ properties:
   modulusPercentile: 0.0
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "0.5\u20133.0 J/cm\xB2"
-  chemicalFormula: "C\u2086H\u2081\u2080O\u2085 (cellulose base)"
+  fluenceRange: "0.5–3.0 J/cm²"
+  chemicalFormula: "C₆H₁₀O₅ (cellulose base)"
+  thermalBehaviorType: decomposition
+  decompositionPoint: "300°C"
+  decompositionPointNumeric: 300
+  decompositionPointUnit: "°C"
 composition:
 - 'Cellulose: 40-45%'
 - 'Hemicellulose: 25-35%'
@@ -130,15 +131,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "0.5\u20133.0 J/cm\xB2"
+  fluenceRange: "0.5–3.0 J/cm²"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Woodworking: Removing surface contaminants and old finishes from Beech wood furniture'
 - 'Restoration: Cleaning historical Beech wood artifacts without damaging the material'
@@ -173,16 +174,16 @@ environmentalImpact:
     or mechanical cleaning methods for Beech wood surfaces
 outcomes:
 - result: Surface contamination removal efficiency
-  metric: ">99% removal of surface contaminants with <5\u03BCm material loss"
+  metric: ">99% removal of surface contaminants with <5μm material loss"
 - result: Processing speed
-  metric: "0.5-2.0 m\xB2/hour depending on contamination level and laser parameters"
+  metric: "0.5-2.0 m²/hour depending on contamination level and laser parameters"
 technicalSpecifications:
   powerRange: 20-100 W
   pulseDuration: 10-50 ns
   wavelength: 1064 nm (primary), 532 nm (optional for finer detail)
   spotSize: 0.1-1.0 mm
   repetitionRate: 20-100 kHz
-  fluenceRange: "0.5-3.0 J/cm\xB2"
+  fluenceRange: "0.5-3.0 J/cm²"
   scanningSpeed: 500-2000 mm/s
   beamProfile: Top-hat (flat-top)
   beamProfileOptions: Top-hat, Gaussian, Multi-spot
@@ -199,7 +200,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "0.5\u20133.0 J/cm\xB2"
+  fluence_threshold: "0.5–3.0 J/cm²"
   pulse_duration: 10-50ns
   wavelength_optimal: 1064nm
   power_range: 20-100W
@@ -211,4 +212,5 @@ tags:
 - Restoration
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 41.2
+surface_roughness_after: 16.5

@@ -3,47 +3,47 @@ name: Serpentine
 category: stone
 title: Serpentine Laser Cleaning
 headline: Comprehensive technical guide for laser cleaning stone serpentine
-description: "Laser cleaning of serpentine-group minerals (Mg\u2083Si\u2082O\u2085\
-  (OH)\u2084) utilizes selective photothermal ablation where contaminants absorb laser\
+description: "Laser cleaning of serpentine-group minerals (Mg₃Si₂O₅"
+  (OH)₄) utilizes selective photothermal ablation where contaminants absorb laser\
   \ energy more efficiently than the hydrated magnesium silicate substrate, enabling\
   \ precise removal without mechanical or chemical damage to the valuable stone surface."
 keywords: serpentine, serpentine stone, laser ablation, laser cleaning, non-contact
   cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
   thermal processing, surface restoration
 chemicalProperties:
-  symbol: "Mg\u2083Si\u2082O\u2085(OH)\u2084"
-  formula: "Mg\u2083Si\u2082O\u2085(OH)\u2084"
+  symbol: "Mg₃Si₂O₅(OH)₄"
+  formula: "Mg₃Si₂O₅(OH)₄"
   materialType: phyllosilicate mineral
 properties:
-  density: "2.5-2.6 g/cm\xB3"
+  density: "2.5-2.6 g/cm³"
   densityNumeric: 2.55
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 17.9
-  meltingPoint: "600-700\xB0C (dehydroxylation begins)"
-  meltingPointNumeric: 650.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPoint: "700°C"
+  meltingPointNumeric: 700
+  meltingPointUnit: "°C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "1.3-2.5 W/(m\xB7K)"
+  thermalConductivity: "1.3-2.5 W/(m·K)"
   thermalConductivityNumeric: 1.9
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 0.7
   tensileStrength: 10-15 MPa
   tensileStrengthNumeric: 12.5
@@ -77,12 +77,13 @@ properties:
   modulusPercentile: 75.0
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "1.0\u201310 J/cm\xB2"
-  chemicalFormula: "Mg\u2083Si\u2082O\u2085(OH)\u2084"
+  fluenceRange: "1.0–10 J/cm²"
+  chemicalFormula: "Mg₃Si₂O₅(OH)₄"
+  thermalBehaviorType: melting
 composition:
 - 'Magnesium oxide (MgO): 43-44%'
-- "Silicon dioxide (SiO\u2082): 43-44%"
-- "Water (H\u2082O): 12-13%"
+- "Silicon dioxide (SiO₂): 43-44%"
+- "Water (H₂O): 12-13%"
 - 'Trace elements: Fe, Ni, Cr, Mn'
 machineSettings:
   powerRange: 50-200W
@@ -130,15 +131,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Construction: Cleaning of serpentine stone surfaces for restoration and maintenance'
 - 'Jewelry: Precision cleaning of serpentine gemstones for enhanced appearance'
@@ -175,18 +176,17 @@ environmentalImpact:
     negligible airborne particles through controlled ablation process
 outcomes:
 - result: Sub-micron precision contamination removal
-  metric: "Selective removal of 10-50 \u03BCm thick crusts with <5 \u03BCm substrate\
-    \ loss"
+  metric: "Selective removal of 10-50 μm thick crusts with <5 μm substrate loss"
 - result: Non-contact processing capability
-  metric: "Processing speeds of 0.5-2.0 m\xB2/hour depending on contamination level"
+  metric: "Processing speeds of 0.5-2.0 m²/hour depending on contamination level"
 technicalSpecifications:
   powerRange: 20-100 W (average power for pulsed fiber lasers)
   pulseDuration: 10-100 ns
   wavelength: 1064 nm (fundamental Nd:YAG/fiber), 532 nm (frequency-doubled for finer
     control)
-  spotSize: "100-500 \u03BCm"
+  spotSize: "100-500 μm"
   repetitionRate: 10-50 kHz
-  fluenceRange: "0.8-2.5 J/cm\xB2 (ablation threshold for serpentine group minerals)"
+  fluenceRange: "0.8-2.5 J/cm² (ablation threshold for serpentine group minerals)"
   scanningSpeed: 500-2000 mm/s
   beamProfile: Top-hat (flat-top) for uniform energy distribution
   beamProfileOptions: Top-hat, Gaussian, Multimode
@@ -203,7 +203,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  fluence_threshold: "1.0–10 J/cm²"
   pulse_duration: 10-50ns
   wavelength_optimal: 1064nm
   power_range: 50-200W
@@ -215,4 +215,5 @@ tags:
 - Jewelry
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 32.8
+surface_roughness_after: 11.5

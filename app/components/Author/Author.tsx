@@ -58,7 +58,7 @@ export function Author({
                     <div className="author-name font-medium text-gray-900 dark:text-white block">
                       {authorName}
                       {showCredentials && credentials && (
-                        <span className="ml-1 author-credentials font-medium text-gray-600 dark:text-gray-400">
+                        <span className="ml-1 author-appellation font-medium text-gray-600 dark:text-gray-400">
                           {credentials}
                         </span>
                       )}

@@ -16,37 +16,37 @@ chemicalProperties:
   formula: Complex silicate (See composition)
   materialType: Extrusive igneous rock
 properties:
-  density: "2.8\u20133.0 g/cm\xB3"
+  density: "2.8–3.0 g/cm³"
   densityNumeric: 2.8
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 23.8
-  meltingPoint: "1050\u20131250 \xB0C"
-  meltingPointNumeric: 1050.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPoint: "1250°C"
+  meltingPointNumeric: 1250
+  meltingPointUnit: "°C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 0.0
-  thermalConductivity: "1.3\u20131.8 W/(m\xB7K)"
+  thermalConductivity: "1.3–1.8 W/(m·K)"
   thermalConductivityNumeric: 1.3
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 0.4
-  tensileStrength: "10\u201330 MPa"
+  tensileStrength: "10–30 MPa"
   tensileStrengthNumeric: 10.0
   tensileStrengthUnit: MPa
   tensileStrengthMin: 50 MPa
@@ -56,7 +56,7 @@ properties:
   tensileStrengthMaxNumeric: 1000.0
   tensileStrengthMaxUnit: MPa
   tensilePercentile: 0.0
-  hardness: "5\u20136 (Mohs scale)"
+  hardness: "5–6 (Mohs scale)"
   hardnessNumeric: 5.0
   hardnessUnit: Mohs
   hardnessMin: 1 Mohs
@@ -66,7 +66,7 @@ properties:
   hardnessMaxNumeric: 10.0
   hardnessMaxUnit: Mohs
   hardnessPercentile: 44.4
-  youngsModulus: "60\u2013100 GPa"
+  youngsModulus: "60–100 GPa"
   youngsModulusNumeric: 60.0
   youngsModulusUnit: GPa
   youngsModulusMin: 20 GPa
@@ -78,16 +78,17 @@ properties:
   modulusPercentile: 66.7
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   chemicalFormula: Complex silicate (No single formula)
+  thermalBehaviorType: melting
 composition:
-- "45-55% SiO\u2082 (Silica)"
-- "10-15% Al\u2082O\u2083 (Alumina)"
-- "5-15% FeO + Fe\u2082O\u2083 (Iron oxides)"
+- "45-55% SiO₂ (Silica)"
+- "10-15% Al₂O₃ (Alumina)"
+- "5-15% FeO + Fe₂O₃ (Iron oxides)"
 - 5-10% CaO (Calcium oxide)
 - 5% MgO (Magnesium oxide)
-- "3-5% Na\u2082O + K\u2082O (Alkali oxides)"
-- "<5% TiO\u2082 (Titanium dioxide)"
+- "3-5% Na₂O + K₂O (Alkali oxides)"
+- "<5% TiO₂ (Titanium dioxide)"
 machineSettings:
   powerRange: 50-200W
   powerRangeNumeric: 125.0
@@ -134,15 +135,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Construction: Cleaning and restoration of basalt facades and sculptures'
 - 'Manufacturing: Precision cleaning of basalt surfaces in industrial equipment'
@@ -177,17 +178,17 @@ environmentalImpact:
   description: Compared to mechanical methods like sandblasting, laser cleaning produces
     minimal airborne particles
 outcomes:
-- result: '>99% contaminant removal efficiency'
+- result: ">99% contaminant removal efficiency"
   metric: Measured via spectrophotometry and SEM-EDS analysis
 - result: Sub-micron precision cleaning
-  metric: "Achieves 10-50 \u03BCm feature resolution without substrate damage"
+  metric: "Achieves 10-50 μm feature resolution without substrate damage"
 technicalSpecifications:
   powerRange: 50-200 W
   pulseDuration: 10-200 ns
   wavelength: 1064 nm (primary), 532 nm (optional for finer detail)
   spotSize: 0.1-1.0 mm
   repetitionRate: 20-100 kHz
-  fluenceRange: "1.0\u201310 J/cm\xB2"
+  fluenceRange: "1.0–10 J/cm²"
   scanningSpeed: 100-2000 mm/s
   beamProfile: Top-hat (flat-top)
   beamProfileOptions: Top-hat, Gaussian, Multimode
@@ -204,7 +205,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "1.0\u201310 J/cm\xB2"
+  fluence_threshold: "1.0–10 J/cm²"
   pulse_duration: 10-200ns
   wavelength_optimal: 1064nm
   power_range: 50-200W
@@ -216,4 +217,5 @@ tags:
 - Manufacturing
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 32.5
+surface_roughness_after: 11.2

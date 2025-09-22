@@ -4,7 +4,7 @@ import React from "react";
 import { Card } from "../Card/Card";
 import { /* cn */ } from "../../utils/helpers";
 import { getArticle, loadComponent } from "../../utils/contentAPI"; // Updated to use contentAPI
-import { MaterialType } from "@/types";
+import { MaterialType, ListProps } from "@/types/centralized";
 import { safeMatch, extractSafeValue } from "../../utils/stringHelpers";
 import { ArticleMetadata, Article } from "@/types";
 
@@ -33,22 +33,7 @@ function toMaterialType(value?: string): MaterialType {
   return typeMap[normalizedValue] || 'other';
 }
 
-interface ListProps {
-  // Add slugs as a prop alternative to items
-  slugs?: string[];
-  items?: Array<{
-    slug: string;
-    title?: string;
-    description?: string;
-    image?: string;
-    badge?: string;
-    featured?: boolean; // Add featured property
-  }>;
-  title?: string;
-  heading?: string; // Add heading as an alias for title
-  columns?: 1 | 2 | 3 | 4;
-  filterBy?: string;
-  className?: string;
+interface ProcessedListItem {
 }
 
 interface ProcessedListItem {

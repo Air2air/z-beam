@@ -37,8 +37,10 @@ export function Hero({
   let imageSource = image;
   
   // Use the hero image URL from frontmatter if no direct image provided
-  // Handle both structured (image field) and flat frontmatter formats
-  if (!imageSource && frontmatter?.image) {
+  // Handle both structured (images.hero.url) and flat (image) frontmatter formats
+  if (!imageSource && (frontmatter as any)?.images?.hero?.url) {
+    imageSource = (frontmatter as any).images.hero.url;
+  } else if (!imageSource && frontmatter?.image) {
     imageSource = frontmatter.image;
   }
 

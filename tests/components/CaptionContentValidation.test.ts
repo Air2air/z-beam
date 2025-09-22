@@ -63,10 +63,21 @@ describe('Caption Component Content Validation', () => {
     captionFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
-        const parsedContent = yaml.load(content);
         
-        // Should be able to parse without errors
-        expect(parsedContent).toBeDefined();
+        // Handle multi-document YAML files
+        if (content.includes('---')) {
+          // Split by document separator and parse each document
+          const documents = content.split(/^---$/m);
+          documents.forEach((doc, index) => {
+            if (doc.trim()) {
+              yaml.load(doc.trim());
+            }
+          });
+        } else {
+          const parsedContent = yaml.load(content);
+          // Should be able to parse without errors
+          expect(parsedContent).toBeDefined();
+        }
       } catch (error) {
         invalidFiles.push(`${path.basename(filePath)}: ${error}`);
       }
@@ -84,7 +95,17 @@ describe('Caption Component Content Validation', () => {
     captionFiles.forEach(filePath => {
       try {
         const content = fs.readFileSync(filePath, 'utf8');
-        const parsedContent = yaml.load(content) as any;
+        
+        // For multi-document YAML, get the first document which should contain the main content
+        let parsedContent: any;
+        if (content.includes('---')) {
+          const documents = content.split(/^---$/m);
+          if (documents.length > 0) {
+            parsedContent = yaml.load(documents[0].trim());
+          }
+        } else {
+          parsedContent = yaml.load(content);
+        }
         
         if (!parsedContent || 
             !parsedContent.before_text || 
@@ -132,7 +153,17 @@ describe('Caption Component Content Validation', () => {
 
     const sampleFile = captionFiles[0];
     const content = fs.readFileSync(sampleFile, 'utf8');
-    const parsedContent = yaml.load(content) as any;
+    
+    // Handle multi-document YAML files - get the first document
+    let parsedContent: any;
+    if (content.includes('---')) {
+      const documents = content.split(/^---$/m);
+      if (documents.length > 0) {
+        parsedContent = yaml.load(documents[0].trim());
+      }
+    } else {
+      parsedContent = yaml.load(content);
+    }
 
     expect(parsedContent).toHaveProperty('before_text');
     expect(parsedContent).toHaveProperty('after_text');

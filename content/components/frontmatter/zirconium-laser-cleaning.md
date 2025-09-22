@@ -15,35 +15,35 @@ chemicalProperties:
   formula: Zr
   materialType: metal
 properties:
-  density: "6.52 g/cm\xB3"
+  density: "6.52 g/cm³"
   densityNumeric: 6.52
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 100.0
-  meltingPoint: "1855 \xB0C"
-  meltingPointNumeric: 1855.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPoint: "1855°C"
+  meltingPointNumeric: 1855
+  meltingPointUnit: "°C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 40.9
-  thermalConductivity: "22.7 W/(m\xB7K)"
+  thermalConductivity: "22.7 W/(m·K)"
   thermalConductivityNumeric: 22.7
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 11.1
   tensileStrength: 330 MPa (annealed)
   tensileStrengthNumeric: 330.0
@@ -77,12 +77,13 @@ properties:
   modulusPercentile: 100.0
   laserType: pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   chemicalFormula: Zr
+  thermalBehaviorType: melting
 composition:
 - 'Zirconium (Zr): 97.5-99.2%'
 - 'Hafnium (Hf): 1-2.5% (naturally occurring)'
-- "Iron (Fe): \u22640.2%, Chromium (Cr): \u22640.1%, Nickel (Ni): \u22640.05% (in\
+- "Iron (Fe): ≤0.2%, Chromium (Cr): ≤0.1%, Nickel (Ni): ≤0.05% (in\
   \ Zircaloy alloys)"
 machineSettings:
   powerRange: 20-100W
@@ -130,15 +131,15 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "0.5\u20135 J/cm\xB2"
+  fluenceRange: "0.5–5 J/cm²"
   fluenceRangeNumeric: 0.5
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Aerospace: Removal of oxidation and coatings from engine components'
 - 'Nuclear: Cleaning of zirconium alloy surfaces for reactor applications'
@@ -174,16 +175,16 @@ environmentalImpact:
     required in traditional methods
 outcomes:
 - result: Surface contamination removal efficiency
-  metric: '>99.8% removal of oxide layers and surface contaminants'
+  metric: ">99.8% removal of oxide layers and surface contaminants"
 - result: Processing speed
-  metric: "0.1-0.5 m\xB2/hour depending on contamination level and required precision"
+  metric: "0.1-0.5 m²/hour depending on contamination level and required precision"
 technicalSpecifications:
   powerRange: 20-100 W
   pulseDuration: 10-100 ns
   wavelength: 1064 nm (primary), 532 nm (optional for higher precision)
   spotSize: 0.1-2.0 mm
   repetitionRate: 10-50 kHz
-  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRange: "0.5-5 J/cm²"
   scanningSpeed: 100-1000 mm/s
   beamProfile: Top-hat (flat-top)
   beamProfileOptions: Top-hat, Gaussian, Multi-spot
@@ -200,7 +201,7 @@ prompt_chain_verification:
   human_authenticity_focus: true
   cultural_adaptation_applied: true
 laser_parameters:
-  fluence_threshold: "0.5\u20135 J/cm\xB2"
+  fluence_threshold: "0.5–5 J/cm²"
   pulse_duration: 10-100ns
   wavelength_optimal: 1064nm
   power_range: 20-100W
@@ -212,4 +213,5 @@ tags:
 - Nuclear
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 4.8
+surface_roughness_after: 1.1

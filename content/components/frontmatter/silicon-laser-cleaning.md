@@ -15,35 +15,35 @@ chemicalProperties:
   formula: Si
   materialType: semiconductor
 properties:
-  density: "2.329 g/cm\xB3"
+  density: "2.329 g/cm³"
   densityNumeric: 2.329
-  densityUnit: "g/cm\xB3"
-  densityMin: "1.8 g/cm\xB3"
+  densityUnit: "g/cm³"
+  densityMin: "1.8 g/cm³"
   densityMinNumeric: 1.8
-  densityMinUnit: "g/cm\xB3"
-  densityMax: "6.0 g/cm\xB3"
+  densityMinUnit: "g/cm³"
+  densityMax: "6.0 g/cm³"
   densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm\xB3"
+  densityMaxUnit: "g/cm³"
   densityPercentile: 12.6
-  meltingPoint: "1414 \xB0C"
-  meltingPointNumeric: 1414.0
-  meltingPointUnit: "\xB0C"
-  meltingPointMin: "1200\xB0C"
+  meltingPoint: "1414°C"
+  meltingPointNumeric: 1414
+  meltingPointUnit: "°C"
+  meltingPointMin: "1200°C"
   meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "\xB0C"
-  meltingPointMax: "2800\xB0C"
+  meltingPointMinUnit: "°C"
+  meltingPointMax: "2800°C"
   meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "\xB0C"
+  meltingPointMaxUnit: "°C"
   meltingPercentile: 13.4
-  thermalConductivity: "149 W/(m\xB7K)"
+  thermalConductivity: "149 W/(m·K)"
   thermalConductivityNumeric: 149.0
   thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m\xB7K"
+  thermalConductivityMin: "0.5 W/m·K"
   thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m\xB7K"
-  thermalConductivityMax: "200 W/m\xB7K"
+  thermalConductivityMinUnit: "W/m·K"
+  thermalConductivityMax: "200 W/m·K"
   thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m\xB7K"
+  thermalConductivityMaxUnit: "W/m·K"
   thermalPercentile: 74.4
   tensileStrength: 130-185 MPa
   tensileStrengthNumeric: 157.5
@@ -77,8 +77,9 @@ properties:
   modulusPercentile: 100.0
   laserType: Pulsed fiber laser
   wavelength: 1064nm
-  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRange: "0.5-5 J/cm²"
   chemicalFormula: Si
+  thermalBehaviorType: melting
 composition:
 - 'Silicon: 99.9999999% (electronic grade)'
 - 'Trace elements: Oxygen (<1 ppb), Carbon (<0.1 ppb), Boron (<0.1 ppb)'
@@ -128,22 +129,22 @@ machineSettings:
   repetitionRateMax: 1000kHz
   repetitionRateMaxNumeric: 1000.0
   repetitionRateMaxUnit: kHz
-  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRange: "0.5-5 J/cm²"
   fluenceRangeNumeric: 2.75
-  fluenceRangeUnit: "J/cm\xB2"
-  fluenceRangeMin: "0.1J/cm\xB2"
+  fluenceRangeUnit: "J/cm²"
+  fluenceRangeMin: "0.1J/cm²"
   fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm\xB2"
-  fluenceRangeMax: "50J/cm\xB2"
+  fluenceRangeMinUnit: "J/cm²"
+  fluenceRangeMax: "50J/cm²"
   fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm\xB2"
+  fluenceRangeMaxUnit: "J/cm²"
 applications:
 - 'Semiconductor Manufacturing: Wafer cleaning and surface preparation for microchip
   fabrication'
 - 'Photovoltaics: Cleaning of solar cell surfaces to enhance efficiency and performance'
 compatibility:
-- "Silicon dioxide (SiO\u2082) - native oxide layer"
-- "Silicon nitride (Si\u2083N\u2084) - passivation layers"
+- "Silicon dioxide (SiO₂) - native oxide layer"
+- "Silicon nitride (Si₃N₄) - passivation layers"
 - Aluminum - metallization layers
 regulatoryStandards: SEMI S2-0315 (Environmental, Health, and Safety Guideline for
   Semiconductor Manufacturing Equipment), IEC 60825-1 (Laser Product Safety)
@@ -174,7 +175,7 @@ environmentalImpact:
     requiring multiple rinse cycles
 outcomes:
 - result: Surface contamination removal efficiency
-  metric: ">99.9% removal of organic contaminants and particles >0.1 \u03BCm"
+  metric: ">99.9% removal of organic contaminants and particles >0.1 μm"
 - result: Processing throughput
   metric: 100-500 wafers/hour (200mm wafers) with sub-micron precision
 technicalSpecifications:
@@ -183,7 +184,7 @@ technicalSpecifications:
   wavelength: 1064 nm (primary), 532 nm (optional for finer control)
   spotSize: 0.1-2.0 mm
   repetitionRate: 10-50 kHz
-  fluenceRange: "0.5-5 J/cm\xB2"
+  fluenceRange: "0.5-5 J/cm²"
   scanningSpeed: 100-1000 mm/s
   beamProfile: Top-hat (flat-top)
   beamProfileOptions: Top-hat, Gaussian, Multi-mode
@@ -201,7 +202,7 @@ prompt_chain_verification:
   cultural_adaptation_applied: true
 chemicalFormula: Si
 laser_parameters:
-  fluence_threshold: "0.5-5 J/cm\xB2"
+  fluence_threshold: "0.5-5 J/cm²"
   pulse_duration: 10-100ns
   wavelength_optimal: 1064nm
   power_range: 20-100W
@@ -213,4 +214,5 @@ tags:
 - Photovoltaics
 complexity: medium
 difficultyScore: 3
----
+surface_roughness_before: 0.8
+surface_roughness_after: 0.15
