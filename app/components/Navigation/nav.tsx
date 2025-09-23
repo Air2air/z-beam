@@ -90,7 +90,7 @@ export function Navbar() {
       {/* Skip Navigation Link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white px-4 py-2 z-[100] rounded-md m-2"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white px-4 py-2 z-[100] rounded-md m-2 focus:outline-none"
         onFocus={(e) => e.target.scrollIntoView()}
       >
         Skip to main content
@@ -123,7 +123,7 @@ export function Navbar() {
           {/* Mobile Hamburger Button */}
           <button
             ref={menuButtonRef}
-            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-1"
+            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none rounded-md p-1"
             onClick={toggleMenu}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -199,7 +199,7 @@ export function Navbar() {
                       className={`
                         block py-2 px-3 rounded-md text-lg md:text-base // Styling for links
                         transition-all duration-200 ease-in-out
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                        focus:outline-none
                         ${
                           isActive
                             ? "font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20" // Active link style with background

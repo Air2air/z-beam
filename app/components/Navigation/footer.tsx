@@ -56,7 +56,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-4">
           <Link 
             href="/" 
-            className="block focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md"
+            className="block focus:outline-none rounded-md"
             aria-label="Z-Beam home page"
           >
             <Image
@@ -85,7 +85,7 @@ export default function Footer() {
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md px-2 py-1"
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none rounded-md px-2 py-1"
             >
               {item.name}
               {item.external && (
@@ -108,7 +108,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Follow us on ${social.name} (opens in new window)`}
-              className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-1"
+              className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition focus:outline-none rounded-md p-1"
             >
               {social.icon}
             </a>

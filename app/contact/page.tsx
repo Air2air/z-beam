@@ -59,7 +59,7 @@ export default async function ContactPage() {
           </div>
         </div>
 
-        <div className="mt-16 prose prose-lg max-w-none">
+        {/* <div className="mt-16 prose prose-lg max-w-none">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Z-Beam?</h2>
           <ul className="space-y-3">
             <li className="flex items-start">
@@ -121,7 +121,7 @@ export default async function ContactPage() {
               </div>
             </li>
           </ol>
-        </div>
+        </div> */}
       </Layout>
     );
   } catch (error) {
