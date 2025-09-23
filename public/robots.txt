@@ -1,0 +1,38 @@
+# Z-Beam Laser Cleaning Robots.txt
+# Optimized for search engine crawling and indexing
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.z-beam.com/sitemap.xml
+
+# Specific crawler directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block common bot patterns that aren't search engines
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Allow all legitimate crawlers access to important pages
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /search
+Allow: /property
+Allow: /tag
+
+# Ensure sitemap is discoverable
+Sitemap: https://www.z-beam.com/sitemap.xml

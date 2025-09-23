@@ -23,14 +23,14 @@ categories:
     - ceramics
     - precision
 metadata:
-  generated: "2025-09-22T15:12:11.375685"
+  generated: "2025-09-22T15:57:39.106956"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "lead crystal"
 Component: tags
-Generated: 2025-09-22T15:12:11.375698
+Generated: 2025-09-22T15:57:39.108526
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

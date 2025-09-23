@@ -23,14 +23,14 @@ categories:
   other:
     - metalworking
 metadata:
-  generated: "2025-09-22T15:12:11.981941"
+  generated: "2025-09-22T15:57:39.720079"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "vanadium"
 Component: tags
-Generated: 2025-09-22T15:12:11.981954
+Generated: 2025-09-22T15:57:39.721494
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

@@ -23,14 +23,14 @@ categories:
     - ceramics
     - precision
 metadata:
-  generated: "2025-09-22T15:12:11.412191"
+  generated: "2025-09-22T15:57:39.159943"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "soda-lime glass"
 Component: tags
-Generated: 2025-09-22T15:12:11.412204
+Generated: 2025-09-22T15:57:39.161399
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

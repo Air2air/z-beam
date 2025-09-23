@@ -23,14 +23,14 @@ categories:
     - woodworking
     - refinishing
 metadata:
-  generated: "2025-09-22T15:12:12.425511"
+  generated: "2025-09-22T15:57:40.144539"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "fir"
 Component: tags
-Generated: 2025-09-22T15:12:12.425523
+Generated: 2025-09-22T15:57:40.146046
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

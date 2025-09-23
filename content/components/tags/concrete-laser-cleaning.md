@@ -23,14 +23,14 @@ categories:
     - construction
     - precision
 metadata:
-  generated: "2025-09-22T15:12:11.433073"
+  generated: "2025-09-22T15:57:39.181993"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "concrete"
 Component: tags
-Generated: 2025-09-22T15:12:11.433087
+Generated: 2025-09-22T15:57:39.183459
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

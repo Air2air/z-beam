@@ -23,14 +23,14 @@ categories:
     - construction
     - conservation
 metadata:
-  generated: "2025-09-22T15:12:12.320666"
+  generated: "2025-09-22T15:57:40.044998"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "travertine"
 Component: tags
-Generated: 2025-09-22T15:12:12.320678
+Generated: 2025-09-22T15:57:40.046172
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

@@ -161,7 +161,7 @@ class ConfigurationManager {
     switch (env) {
       case 'production':
         this.config.app.environment = 'production';
-        this.config.app.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://z-beam.vercel.app';
+        this.config.app.baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.z-beam.com';
         this.config.logging.level = 'warn';
         this.config.validation.strictMode = true;
         this.config.build.generateSourceMaps = false;

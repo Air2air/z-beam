@@ -23,14 +23,14 @@ categories:
     - conservation
     - refinishing
 metadata:
-  generated: "2025-09-22T15:12:12.354960"
+  generated: "2025-09-22T15:57:40.077278"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "bamboo"
 Component: tags
-Generated: 2025-09-22T15:12:12.354973
+Generated: 2025-09-22T15:57:40.078521
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

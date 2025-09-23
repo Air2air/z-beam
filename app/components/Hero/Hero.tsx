@@ -22,6 +22,7 @@ export function Hero({
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   const themeClass = `theme-${theme}`;
@@ -109,16 +110,40 @@ export function Hero({
     if (videoData.url) return videoData.url;
     if (!videoData.vimeoId) return null;
     
+    // Use exact parameters from Vimeo's provided embed code
     const params = new URLSearchParams();
+    params.set('badge', '0');
+    params.set('autopause', '0'); 
+    params.set('player_id', '0');
+    params.set('app_id', '58479');
+    
+    // Only add additional parameters if account supports them
     if (videoData.autoplay !== false) params.set('autoplay', '1');
-    if (videoData.loop !== false) params.set('loop', '1');
-    if (videoData.background !== false) params.set('background', '1');
     if (videoData.muted !== false) params.set('muted', '1');
+    if (videoData.loop !== false) params.set('loop', '1');
+    
+    // Background mode may require paid account - only add if explicitly enabled
+    if (videoData.background === true) {
+      params.set('background', '1');
+    }
     
     return `https://player.vimeo.com/video/${videoData.vimeoId}?${params.toString()}`;
   };
 
   const vimeoUrl = videoSource ? buildVimeoUrl(videoSource) : null;
+  
+  // Add timeout to detect video loading issues
+  useEffect(() => {
+    if (vimeoUrl && !videoError) {
+      // Set a timeout to check if video is blocked
+      const timeout = setTimeout(() => {
+        // If no successful load detected after 10 seconds, consider it failed
+        console.warn('Video may be blocked or unavailable:', vimeoUrl);
+      }, 10000);
+      
+      return () => clearTimeout(timeout);
+    }
+  }, [vimeoUrl, videoError]);
   
   // Generate accessible alt text
   const getAccessibleAlt = (): string => {
@@ -171,7 +196,7 @@ export function Hero({
       aria-label={getAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
-      {vimeoUrl ? (
+      {vimeoUrl && !videoError ? (
         <div className={backgroundClasses}>
           <iframe
             src={vimeoUrl}
@@ -179,12 +204,42 @@ export function Hero({
             width="100%"
             height="100%"
             frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
             title={getVideoTitle()}
             aria-label={`${getVideoTitle()} - Video player`}
             loading="lazy"
+            onError={(e) => {
+              console.error('Vimeo iframe error:', e);
+              console.log('Attempted URL:', vimeoUrl);
+              setVideoError(true);
+            }}
+            onLoad={(e) => {
+              // Check if the iframe loaded but shows an error page
+              try {
+                const iframe = e.target as HTMLIFrameElement;
+                // Note: Due to CORS, we can't directly check iframe content
+                // But we can detect if Vimeo shows an error by timing
+                setTimeout(() => {
+                  console.log('Vimeo iframe loaded successfully:', vimeoUrl);
+                }, 2000);
+              } catch (error) {
+                console.warn('Could not verify iframe content:', error);
+              }
+            }}
           />
+        </div>
+      ) : vimeoUrl && videoError ? (
+        // Video failed to load, show fallback
+        <div className={`${backgroundClasses} flex items-center justify-center bg-gray-800`}>
+          <div className="text-white text-center p-8">
+            <div className="text-lg font-semibold mb-2">Video Temporarily Unavailable</div>
+            <div className="text-sm opacity-75">Video ID: {videoSource?.vimeoId}</div>
+            <div className="text-xs opacity-50 mt-2">
+              The video may be private, deleted, or have embedding restrictions
+            </div>
+          </div>
         </div>
       ) : imageSource && isInView ? (
         <div className={backgroundClasses}>

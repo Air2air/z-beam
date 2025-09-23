@@ -23,14 +23,14 @@ categories:
     - construction
     - conservation
 metadata:
-  generated: "2025-09-22T15:12:12.189453"
+  generated: "2025-09-22T15:57:39.921662"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "limestone"
 Component: tags
-Generated: 2025-09-22T15:12:12.189466
+Generated: 2025-09-22T15:57:39.923883
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

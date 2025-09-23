@@ -8,14 +8,19 @@ import { Navbar } from "./components/Navigation/nav";
 import Footer from "./components/Navigation/footer";
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
+import { generateOrganizationSchema } from "./utils/business-config";
+
+// Generate the business schema
+const organizationSchema = generateOrganizationSchema();
 
 // Define viewport manually since Viewport type is not exported from next
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#1f2937",
 };
 
-// Define metadata without explicit type annotation
+// Enhanced metadata with comprehensive defaults
 export const metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
@@ -23,12 +28,91 @@ export const metadata = {
     default: SITE_CONFIG.name,
   },
   description: SITE_CONFIG.description,
+  keywords: [
+    'laser cleaning',
+    'industrial cleaning', 
+    'rust removal',
+    'surface preparation',
+    'metal restoration',
+    'paint removal',
+    'coating removal',
+    'corrosion treatment',
+    'heritage restoration',
+    'precision cleaning'
+  ],
+  authors: [{ name: 'Z-Beam' }],
+  creator: 'Z-Beam',
+  publisher: 'Z-Beam',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
       { url: '/images/Site/Favicon/favicon_350.png', type: 'image/png' },
     ],
+    apple: [
+      { url: '/images/icons/apple-touch-icon.png' },
+    ],
   },
+  manifest: '/manifest.json',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: SITE_CONFIG.url,
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    siteName: SITE_CONFIG.name,
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Z-Beam - Professional Laser Cleaning Services',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_CONFIG.name,
+    description: SITE_CONFIG.description,
+    images: ['/images/twitter-card.jpg'],
+    // creator: '@zbeamproductions', // Update with actual Twitter handle
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
+
+// Website schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_CONFIG.url}#website`,
+  "url": SITE_CONFIG.url,
+  "name": "Z-Beam Laser Cleaning",
+  "description": "Professional laser cleaning services for industrial surface preparation and restoration",
+  "publisher": {
+    "@id": `${SITE_CONFIG.url}#organization`
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${SITE_CONFIG.url}/search?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  }
 };
 
 export default function RootLayout({
@@ -44,11 +128,28 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/Site/Favicon/favicon_350.png" type="image/png" />
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Global Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema)
+          }}
+        />
+        
+        {/* Website Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema)
+          }}
+        />
       </head>
       <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100">
         <ErrorBoundary componentName="Layout">
           <Navbar />
-          <main className="flex-grow w-full py-0">
+          <main className="flex-grow w-full py-0" id="main-content">
             <ErrorBoundary componentName="Page Content">
               {children}
             </ErrorBoundary>

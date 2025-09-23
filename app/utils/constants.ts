@@ -2,11 +2,40 @@
 // Application constants and configuration values
 
 export const SITE_CONFIG = {
-  name: 'Z-Beam',
-  description: 'Z-Beam laser cleaning content and services',
+  name: 'Z-Beam Laser Cleaning',
+  shortName: 'Z-Beam',
+  description: 'Professional laser cleaning services. Specializing in industrial surface preparation, rust removal, and eco-friendly cleaning solutions.',
   url: process.env.NODE_ENV === 'production' 
-    ? 'https://your-domain.com' 
+    ? 'https://z-beam.com' 
     : 'http://localhost:3000',
+  author: 'Z-Beam',
+  email: 'info@z-beam.com',
+  phone: '(650) 241-8510',
+  address: {
+    street: '1002 Misty Lane',
+    city: 'Belmont',
+    state: 'CA',
+    zipCode: '94002',
+    country: 'United States'
+  },
+  social: {
+    twitter: '@ZBeamLaser',
+    facebook: 'facebook.com/profile.php?id=61573280533272',
+    linkedin: 'linkedin.com/company/z-beam/',
+    youtube: 'youtube.com/@Z-Beam'
+  },
+  keywords: [
+    'laser cleaning',
+    'industrial cleaning', 
+    'rust removal',
+    'surface preparation',
+    'metal restoration',
+    'paint removal',
+    'coating removal',
+    'corrosion treatment',
+    'heritage restoration',
+    'precision cleaning'
+  ]
 } as const;
 
 export const ANIMATION_CONFIG = {

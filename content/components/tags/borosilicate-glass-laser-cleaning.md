@@ -23,14 +23,14 @@ categories:
     - semiconductor
     - pharmaceutical
 metadata:
-  generated: "2025-09-22T15:12:11.325366"
+  generated: "2025-09-22T15:57:39.059186"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "borosilicate glass"
 Component: tags
-Generated: 2025-09-22T15:12:11.325378
+Generated: 2025-09-22T15:57:39.060370
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

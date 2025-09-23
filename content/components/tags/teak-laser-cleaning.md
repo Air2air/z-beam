@@ -23,14 +23,14 @@ categories:
     - woodworking
     - refinishing
 metadata:
-  generated: "2025-09-22T15:12:12.592148"
+  generated: "2025-09-22T15:57:40.313425"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "teak"
 Component: tags
-Generated: 2025-09-22T15:12:12.592159
+Generated: 2025-09-22T15:57:40.315102
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

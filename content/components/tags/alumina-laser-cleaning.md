@@ -23,14 +23,14 @@ categories:
     - precision
     - semiconductor
 metadata:
-  generated: "2025-09-22T15:12:11.050985"
+  generated: "2025-09-22T15:57:38.793297"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "alumina"
 Component: tags
-Generated: 2025-09-22T15:12:11.051002
+Generated: 2025-09-22T15:57:38.794511
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

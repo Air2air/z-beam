@@ -12,8 +12,7 @@ keywords: stoneware, stoneware ceramic, laser ablation, laser cleaning, non-cont
   thermal processing, surface restoration
 chemicalProperties:
   symbol: N/A (composite material)
-  formula: "Variable composition (primarily SiO₂-Al₂O₃-K₂O-Na₂"
-    O-CaO system)"
+  formula: "Variable composition (primarily SiO₂-Al₂O₃-K₂O-Na₂O-CaO system)"
   materialType: ceramic
 properties:
   density: "2.3-2.5 g/cm³"

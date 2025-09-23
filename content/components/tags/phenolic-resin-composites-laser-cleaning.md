@@ -23,14 +23,14 @@ categories:
   other:
     - polymer
 metadata:
-  generated: "2025-09-22T15:12:11.188187"
+  generated: "2025-09-22T15:57:38.933889"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "phenolic resin composites"
 Component: tags
-Generated: 2025-09-22T15:12:11.188199
+Generated: 2025-09-22T15:57:38.935277
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

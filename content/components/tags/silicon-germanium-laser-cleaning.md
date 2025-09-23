@@ -23,14 +23,14 @@ categories:
     - semiconductor
     - precision
 metadata:
-  generated: "2025-09-22T15:12:12.077615"
+  generated: "2025-09-22T15:57:39.812194"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "silicon germanium"
 Component: tags
-Generated: 2025-09-22T15:12:12.077628
+Generated: 2025-09-22T15:57:39.813443
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

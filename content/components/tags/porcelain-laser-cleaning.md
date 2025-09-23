@@ -23,14 +23,14 @@ categories:
     - ceramics
     - precision
 metadata:
-  generated: "2025-09-22T15:12:11.067467"
+  generated: "2025-09-22T15:57:38.809354"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "porcelain"
 Component: tags
-Generated: 2025-09-22T15:12:11.067480
+Generated: 2025-09-22T15:57:38.810583
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

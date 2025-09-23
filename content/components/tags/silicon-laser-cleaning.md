@@ -23,14 +23,14 @@ categories:
     - photovoltaics
     - precision
 metadata:
-  generated: "2025-09-22T15:12:12.049474"
+  generated: "2025-09-22T15:57:39.785565"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "silicon"
 Component: tags
-Generated: 2025-09-22T15:12:12.049488
+Generated: 2025-09-22T15:57:39.786839
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

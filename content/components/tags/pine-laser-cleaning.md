@@ -23,14 +23,14 @@ categories:
     - woodworking
     - refinishing
 metadata:
-  generated: "2025-09-22T15:12:12.523605"
+  generated: "2025-09-22T15:57:40.244170"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "pine"
 Component: tags
-Generated: 2025-09-22T15:12:12.523618
+Generated: 2025-09-22T15:57:40.245369
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---

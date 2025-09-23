@@ -51,6 +51,7 @@ const customJestConfig = {
       testMatch: [
         "<rootDir>/tests/components/**/*.test.{js,jsx,ts,tsx}",
         "<rootDir>/tests/integration/universal-templates-layout-integration*.test.tsx",
+        "<rootDir>/tests/integration/OrganizationSchemaIntegration.test.tsx",
         "<rootDir>/tests/alabaster-tags.test.js"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],

@@ -23,14 +23,14 @@ categories:
     - ceramics
     - precision
 metadata:
-  generated: "2025-09-22T15:12:11.103618"
+  generated: "2025-09-22T15:57:38.856722"
   format: "yaml"
   version: "2.0"
 
 ---
 Material: "zirconia"
 Component: tags
-Generated: 2025-09-22T15:12:11.103630
+Generated: 2025-09-22T15:57:38.857907
 Generator: Z-Beam v1.0.0 (Frontmatter-Based)
 Format: YAML v2.0
 ---
