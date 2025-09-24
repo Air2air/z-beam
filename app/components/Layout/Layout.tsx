@@ -16,12 +16,14 @@ import { PropertiesTable } from "../PropertiesTable";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
+import MetricsCard from '../MetricsCard/SimpleMetricsCard';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
   'badgesymbol', 
   'content',
   'caption',
+  'metricscard',
   'settings',
   'table',
   'tags'
@@ -91,6 +93,23 @@ export function Layout(props: LayoutProps) {
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => {
             const component = components[type];
+            
+            // Special handling for metricscard - render if machineSettings exists in frontmatter
+            if (type === 'metricscard') {
+              if (metadata && typeof metadata === 'object' && 'machineSettings' in metadata) {
+                return (
+                  <section key={type} aria-label="Machine metrics visualization">
+                    <MetricsCard 
+                      metadata={metadata as any}
+                      title={component?.config?.title as string}
+                      className={component?.config?.className as string}
+                    />
+                  </section>
+                );
+              }
+              return null;
+            }
+            
             if (!component) return null;
             
             const { content, config } = component;
