@@ -1,0 +1,51 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{MATERIAL_NAME}}",
+  "description": "{{MATERIAL_DESCRIPTION}}",
+  "url": "https://z-beam.com/{{SLUG}}",
+  "identifier": "{{SLUG}}",
+  "category": "{{MATERIAL_CATEGORY}}",
+  "brand": {
+    "@type": "Brand",
+    "name": "Z-Beam",
+    "url": "https://z-beam.com"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{AUTHOR_NAME}}",
+    "description": "Industrial laser cleaning specialists with expertise in material science and precision manufacturing"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Density",
+      "value": "{{DENSITY_VALUE}} {{DENSITY_UNIT}}"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Thermal Conductivity",
+      "value": "{{THERMAL_CONDUCTIVITY}} {{THERMAL_UNIT}}"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Material Type",
+      "value": "{{MATERIAL_CATEGORY}}"
+    }
+  ],
+  "keywords": "{{KEYWORDS}}",
+  "dateModified": "{{LAST_MODIFIED}}",
+  "datePublished": "{{DATE_PUBLISHED}}",
+  "applicationCategory": ["Industrial Cleaning", "Surface Treatment", "{{APPLICATIONS}}"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z-Beam",
+    "url": "https://z-beam.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://z-beam.com/logo.png",
+      "width": 512,
+      "height": 512
+    }
+  }
+}

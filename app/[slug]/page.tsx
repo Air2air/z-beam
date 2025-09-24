@@ -4,6 +4,7 @@ import { Layout } from "../components/Layout/Layout";
 import { createMetadata, ArticleMetadata } from "../utils/metadata";
 import { getTagsContentWithMatchCounts } from "../utils/tags";
 import { getAllArticleSlugs } from "../utils/contentAPI";
+import { createJsonLdForArticle } from "../utils/jsonld-helper";
 import { PageProps } from "../../types";
 
 // Force static generation for all article pages
@@ -94,6 +95,9 @@ export default async function ArticlePage({ params }: PageProps) {
     // Load tags content with match counts for this article
     const { content: tagsContent, counts: tagCounts } = await getTagsContentWithMatchCounts(slug);
     
+    // Create JSON-LD schemas for this article
+    const jsonLdSchema = createJsonLdForArticle(article, slug);
+    
     // Prepare the components object with tags content and counts
     const components = article.components || {};
     
@@ -109,9 +113,21 @@ export default async function ArticlePage({ params }: PageProps) {
       };
     }
     
-    // Return the article layout
+    // Return the article layout with JSON-LD schema
     return (
-      <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={slug} />
+      <>
+        {/* Comprehensive JSON-LD Structured Data */}
+        {jsonLdSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(jsonLdSchema, null, 2)
+            }}
+          />
+        )}
+        
+        <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={slug} />
+      </>
     );
   } catch (error) {
     console.error(`Error rendering page for ${slug}:`, error);

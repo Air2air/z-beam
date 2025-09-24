@@ -17,11 +17,11 @@ describe('Constants', () => {
     });
 
     test('should have correct site name', () => {
-      expect(SITE_CONFIG.name).toBe('Z-Beam');
+      expect(SITE_CONFIG.name).toBe('Z-Beam Laser Cleaning');
     });
 
     test('should have descriptive site description', () => {
-      expect(SITE_CONFIG.description).toBe('Z-Beam laser cleaning content and services');
+      expect(SITE_CONFIG.description).toBe('Professional laser cleaning services. Specializing in industrial surface preparation, rust removal, and eco-friendly cleaning solutions.');
     });
 
     test('should return localhost URL in development', () => {
@@ -45,7 +45,7 @@ describe('Constants', () => {
       jest.resetModules();
       const { SITE_CONFIG: prodConfig } = require('../../app/utils/constants');
       
-      expect(prodConfig.url).toBe('https://your-domain.com');
+      expect(prodConfig.url).toBe('https://z-beam.com');
       
       process.env.NODE_ENV = originalEnv;
     });
