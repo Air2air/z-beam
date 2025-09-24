@@ -15,9 +15,9 @@ const CARD_CONFIG = {
 
   // Typography
   titleClass:
-    "text-lg font-semibold group-hover:text-blue-600 transition-colors duration-200",
+    "text-base font-semibold group-hover:text-blue-600 transition-colors duration-200",
   descriptionClass:
-    "text-gray-600 dark:text-gray-300 text-sm line-clamp-2",
+    "text-gray-600 dark:text-gray-300 text-xs line-clamp-2",
 
   // Appearance
   cardClass:

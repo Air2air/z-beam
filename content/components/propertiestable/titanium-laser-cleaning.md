@@ -1,13 +1,13 @@
 | Property | Value |
 |----------|-------|
 | Density | 4.51 g/cm³ |
-| Melting Point | 1668°C |
-| Conductivity | 21.9 W/m·K |
+| Conductivity | 21.9 W/(m·K) |
 | Formula | Ti |
+| Melting Point | 1668.0°C |
 
 
 ---
-Version Log - Generated: 2025-09-22T11:46:29.673799
+Version Log - Generated: 2025-09-22T23:39:12.378734
 Material: Unknown
 Component: propertiestable
 Generator: Z-Beam v1.0.0

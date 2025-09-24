@@ -1,10 +1,14 @@
 // app/components/ArticleGrid/index.ts
-// Export clean client version for client components
-export { UnifiedArticleGrid } from './UnifiedArticleGridClient';
-export { UnifiedArticleGridSSR } from './UnifiedArticleGridSSR';
+// Single unified article grid system
 
-// Backward compatibility exports - all consolidated into UnifiedArticleGrid
-export { UnifiedArticleGrid as ArticleGrid } from './UnifiedArticleGridClient';
-export { UnifiedArticleGrid as ArticleGridClient } from './UnifiedArticleGridClient';
-export { UnifiedArticleGrid as List } from './UnifiedArticleGridClient';
-export { UnifiedArticleGrid as SearchResultsGrid } from './UnifiedArticleGridClient';
+// Main components - use these for all article grid needs
+export { ArticleGrid } from './ArticleGrid';
+export { ArticleGridSSR } from './ArticleGridSSR';
+
+// Backward compatibility exports - all point to unified components
+export { ArticleGrid as UnifiedArticleGrid } from './ArticleGrid';
+export { ArticleGridSSR as UnifiedArticleGridSSR } from './ArticleGridSSR';
+export { ArticleGrid as CategoryGroupedGrid } from './ArticleGrid';
+export { ArticleGridSSR as CategoryGroupedGridSSR } from './ArticleGridSSR';
+export { ArticleGridSSR as List } from './ArticleGridSSR';
+export { ArticleGrid as SearchResultsGrid } from './ArticleGrid';

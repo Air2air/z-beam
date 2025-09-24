@@ -2,7 +2,7 @@
 // Single, simplified layout system for maximum reusability and responsiveness
 
 import React, { ReactNode } from 'react';
-import { ArticleHeader } from './ArticleHeader';
+import { ArticleHeader } from '../Article/ArticleHeader';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { ArticleMetadata, ComponentData } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
@@ -118,7 +118,7 @@ export function Layout(props: LayoutProps) {
               case 'badgesymbol':
                 return (
                   <section key={type} aria-label="Material classification">
-                    <BadgeSymbol content={content} config={config} />
+                    <BadgeSymbol content={content} config={config as any} />
                   </section>
                 );
               case 'content':

@@ -1,6 +1,6 @@
 // app/page.tsx - Static optimized home page
 
-import { UnifiedArticleGridSSR } from "./components/ArticleGrid/UnifiedArticleGridSSR";
+import { ArticleGridSSR } from "./components/ArticleGrid";
 import { Hero } from "./components/Hero/Hero";
 import { Layout } from "./components/Layout/Layout";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
@@ -72,9 +72,9 @@ export default async function HomePage() {
         */}
       </Hero>
 
-   
+      {/* Featured Solutions Section */}
       <section className={CONTAINER_STYLES.standard}>
-        <UnifiedArticleGridSSR
+        <ArticleGridSSR
           items={sectionCards
             .filter(card => card.featured)
             .map(card => ({
@@ -84,40 +84,24 @@ export default async function HomePage() {
               href: `/${card.slug}`,
               imageUrl: card.imageUrl,
               imageAlt: card.title,
-              badge: { show: false }, // Featured items don't show badges
+              badge: undefined, // Featured items don't show badges
             }))}
           columns={2}
           variant="featured"
+          title="Featured Solutions"
         />
       </section>
 
-      {/* Materials - Pass slugs and filter */}
+      {/* All Solutions Grouped by Category */}
       <section className={CONTAINER_STYLES.standard}>
-        <UnifiedArticleGridSSR
+        <ArticleGridSSR
           slugs={slugs}
-          filterBy="material"
-          heading="Material-Specific Solutions"
+          title="Solutions by Category"
+          maxItemsPerCategory={6}
           columns={3}
-        />
-      </section>
-
-      {/* Applications */}
-      <section className={CONTAINER_STYLES.standard}>
-        <UnifiedArticleGridSSR
-          slugs={slugs}
-          filterBy="application"
-          heading="Applications & Techniques"
-          columns={2}
-        />
-      </section>
-
-      {/* All Articles */}
-      <section className={CONTAINER_STYLES.standard}>
-        <UnifiedArticleGridSSR
-          slugs={slugs}
-          filterBy="all"
-          heading="All Solutions"
-          columns={4}
+          mode="category-grouped"
+          showBadgeSymbols={true}
+          loadBadgeSymbolData={true}
         />
       </section>
     </Layout>

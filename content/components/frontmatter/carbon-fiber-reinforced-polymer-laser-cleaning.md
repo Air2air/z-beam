@@ -1,149 +1,81 @@
 ---
 name: Carbon Fiber Reinforced Polymer
 category: composite
-title: Carbon Fiber Reinforced Polymer Laser Cleaning
-headline: Comprehensive technical guide for laser cleaning composite carbon fiber
-  reinforced polymer
-description: "Laser cleaning of CFRP utilizes precise pulsed laser ablation to remove surface contaminants while preserving the structural integrity of the carbon fiber and epoxy matrix. The process exploits differential absorption characteristics between contaminants and the composite substrate, with optimal parameters carefully balanced to avoid matrix degradation (>300°C) or fiber damage."
-keywords: carbon fiber reinforced polymer, CFRP, laser ablation, laser cleaning, non-contact
-  cleaning, pulsed fiber laser, surface contamination removal, industrial laser parameters,
-  thermal processing, surface restoration
-chemicalProperties:
-  symbol: CFRP
-  formula: "C\u2099/(C₂₁H₂₅ClO₅)\u2099 (Carbon fiber/Epoxy matrix representative composition)"
-  materialType: composite
+title: Laser Cleaning Carbon Fiber Reinforced Polymer
+headline: Comprehensive laser cleaning guide for composite carbon fiber reinforced polymer
+description: Technical overview of Carbon Fiber Reinforced Polymer laser cleaning applications and parameters
+keywords:
+- carbon fiber reinforced polymer
+- carbon fiber reinforced polymer composite
+- laser ablation
+- laser cleaning
+- non-contact cleaning
+- aerospace applications
+- automotive applications
 properties:
-  density: "1.5-1.6 g/cm³ (typical for aerospace-grade CFRP)"
-  densityNumeric: 1.55
-  densityUnit: "g/cm³"
-  densityMin: "1.8 g/cm³"
-  densityMinNumeric: 1.8
-  densityMinUnit: "g/cm³"
-  densityMax: "6.0 g/cm³"
-  densityMaxNumeric: 6.0
-  densityMaxUnit: "g/cm³"
-  densityPercentile: 0.0
-  meltingPointMin: "1200°C"
-  meltingPointMinNumeric: 1200.0
-  meltingPointMinUnit: "°C"
-  meltingPointMax: "2800°C"
-  meltingPointMaxNumeric: 2800.0
-  meltingPointMaxUnit: "°C"
-  meltingPercentile: 0.0
-  thermalConductivity: "0.8-1.1 W/(m·K) (through-thickness), 5-7 W/(m·K) (in-plane)"
-  thermalConductivityNumeric: 0.95
-  thermalConductivityUnit: W/
-  thermalConductivityMin: "0.5 W/m·K"
-  thermalConductivityMinNumeric: 0.5
-  thermalConductivityMinUnit: "W/m·K"
-  thermalConductivityMax: "200 W/m·K"
-  thermalConductivityMaxNumeric: 200.0
-  thermalConductivityMaxUnit: "W/m·K"
-  thermalPercentile: 0.2
-  tensileStrength: 1500-3500 MPa (fiber direction)
-  tensileStrengthNumeric: 2500.0
+  density: 1.2
+  densityUnit: g/cm³
+  thermalConductivity: 0.2
+  thermalConductivityUnit: W/m·K
+  tensileStrength: 100
   tensileStrengthUnit: MPa
-  tensileStrengthMin: 50 MPa
-  tensileStrengthMinNumeric: 50.0
-  tensileStrengthMinUnit: MPa
-  tensileStrengthMax: 1000 MPa
-  tensileStrengthMaxNumeric: 1000.0
-  tensileStrengthMaxUnit: MPa
-  tensilePercentile: 100.0
-  hardness: 80-85 Shore D (matrix dependent)
-  hardnessNumeric: 82.5
-  hardnessUnit: Shore
-  hardnessMin: 1 Mohs
-  hardnessMinNumeric: 1.0
-  hardnessMinUnit: Mohs
-  hardnessMax: 10 Mohs
-  hardnessMaxNumeric: 10.0
-  hardnessMaxUnit: Mohs
-  hardnessPercentile: 100.0
-  youngsModulus: 120-180 GPa (fiber direction)
-  youngsModulusNumeric: 150.0
+  youngsModulus: 10
   youngsModulusUnit: GPa
-  youngsModulusMin: 20 GPa
-  youngsModulusMinNumeric: 20.0
-  youngsModulusMinUnit: GPa
-  youngsModulusMax: 80 GPa
-  youngsModulusMaxNumeric: 80.0
-  youngsModulusMaxUnit: GPa
-  modulusPercentile: 100.0
-  laserType: Pulsed fiber laser
-  wavelength: 1064nm
-  fluenceRange: "1.0–10 J/cm²"
-  chemicalFormula: "C\u2099/(C₂₁H₂₅ClO₅)\u2099"
-  thermalBehaviorType: decomposition
-composition:
-- 'Carbon fiber: 50-70% (by volume)'
-- 'Epoxy resin matrix: 30-50% (typically DGEBA-based with hardeners)'
-- 'Additives: <5% (release agents, fillers, catalysts)'
-machineSettings:
-  powerRange: 50-200W
-  powerRangeNumeric: 125.0
-  powerRangeUnit: W
-  powerRangeMin: 20W
-  powerRangeMinNumeric: 20.0
-  powerRangeMinUnit: W
-  powerRangeMax: 500W
-  powerRangeMaxNumeric: 500.0
-  powerRangeMaxUnit: W
-  pulseDuration: 10-200ns
-  pulseDurationNumeric: 105.0
-  pulseDurationUnit: ns
-  pulseDurationMin: 1ns
-  pulseDurationMinNumeric: 1.0
-  pulseDurationMinUnit: ns
-  pulseDurationMax: 1000ns
-  pulseDurationMaxNumeric: 1000.0
-  pulseDurationMaxUnit: ns
-  wavelength: 1064nm (primary), 532nm (optional)
-  wavelengthNumeric: 1064.0
-  wavelengthUnit: nm
-  wavelengthMin: 355nm
-  wavelengthMinNumeric: 355.0
-  wavelengthMinUnit: nm
-  wavelengthMax: 2940nm
-  wavelengthMaxNumeric: 2940.0
-  wavelengthMaxUnit: nm
-  spotSize: 0.05-1.0mm
-  spotSizeNumeric: 0.525
-  spotSizeUnit: mm
-  spotSizeMin: 0.01mm
-  spotSizeMinNumeric: 0.01
-  spotSizeMinUnit: mm
-  spotSizeMax: 10mm
-  spotSizeMaxNumeric: 10.0
-  spotSizeMaxUnit: mm
-  repetitionRate: 20-100kHz
-  repetitionRateNumeric: 60.0
-  repetitionRateUnit: kHz
-  repetitionRateMin: 1kHz
-  repetitionRateMinNumeric: 1.0
-  repetitionRateMinUnit: kHz
-  repetitionRateMax: 1000kHz
-  repetitionRateMaxNumeric: 1000.0
-  repetitionRateMaxUnit: kHz
-  fluenceRange: "1.0–10 J/cm²"
-  fluenceRangeNumeric: 1.0
-  fluenceRangeUnit: "J/cm²"
-  fluenceRangeMin: "0.1J/cm²"
-  fluenceRangeMinNumeric: 0.1
-  fluenceRangeMinUnit: "J/cm²"
-  fluenceRangeMax: "50J/cm²"
-  fluenceRangeMaxNumeric: 50.0
-  fluenceRangeMaxUnit: "J/cm²"
+  densityMin: 0.5
+  densityMax: 8.0
+  thermalConductivityMin: 0.1
+  thermalConductivityMax: 400
+  tensileStrengthMin: 50
+  tensileStrengthMax: 6000
+  youngsModulusMin: 5
+  youngsModulusMax: 1000
 applications:
 - 'Aerospace: Removal of release agents and surface contaminants from CFRP parts'
 - 'Automotive: Cleaning of CFRP components for improved bonding and painting'
+machineSettings:
+  powerRange: 60.0
+  powerRangeUnit: W
+  wavelength: 1064.0
+  wavelengthUnit: nm
+  pulseDuration: 15.0
+  pulseDurationUnit: ns
+  spotSize: 1.5
+  spotSizeUnit: mm
+  repetitionRate: 20.0
+  repetitionRateUnit: kHz
+  fluenceRange: 0.3
+  fluenceRangeUnit: J/cm²
+  powerRangeMin: 20.0
+  powerRangeMax: 500.0
+  pulseDurationMin: 1.0
+  pulseDurationMax: 1000.0
+  wavelengthMin: 355.0
+  wavelengthMax: 2940.0
+  spotSizeMin: 0.01
+  spotSizeMax: 10.0
+  repetitionRateMin: 1.0
+  repetitionRateMax: 1000.0
+  fluenceRangeMin: 0.1
+  fluenceRangeMax: 50.0
+  beamProfile: Gaussian TEM00
+  beamProfileOptions:
+  - Gaussian TEM00
+  - Top-hat
+  - Donut
+  - Multi-mode
+  safetyClass: Class 4 (requires full enclosure)
 compatibility:
-- Thermoset matrices (epoxy, vinyl ester, phenolic)
-- Carbon fiber (PAN-based, pitch-based)
-- Fiberglass (limited compatibility due to different absorption characteristics)
-regulatoryStandards: SAE AIR 4844/4845 (Aerospace Composite Cleaning Standards), ISO
-  8501 (Surface Preparation Standards), IEC 60825-1 (Laser Safety)
-author: Yi-Chun Lin
+  laser_types:
+  - Fiber lasers (optimal for most applications)
+  - Nd:YAG lasers (excellent for precision work)
+  - CO2 lasers (moderate effectiveness)
+  surface_treatments:
+  - Natural carbon fiber reinforced polymer surfaces
+  - Coated carbon fiber reinforced polymer
+  - Stained or contaminated surfaces
+  incompatible_conditions:
+  - Severely damaged carbon fiber reinforced polymer requiring structural repair
+  - Extremely thin carbon fiber reinforced polymer susceptible to thermal damage
 author_object:
   id: 1
   name: Yi-Chun Lin
@@ -152,61 +84,17 @@ author_object:
   country: Taiwan
   expertise: Laser Materials Processing
   image: /images/author/yi-chun-lin.jpg
-images:
-  hero:
-    alt: Carbon Fiber Reinforced Polymer surface undergoing laser cleaning showing
-      precise contamination removal
-    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Carbon Fiber Reinforced Polymer surface after laser cleaning
-      showing detailed surface structure
-    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-micro.jpg
-environmentalImpact:
-- benefit: Zero chemical solvent consumption
-  description: Eliminates use of methylene chloride, acetone, and other hazardous
-    solvents (reducing VOC emissions by 100% compared to chemical cleaning)
-- benefit: Reduced waste generation
-  description: Produces only captured particulate waste (typically <0.1% of material
-    processed) versus chemical waste streams from traditional cleaning methods
-outcomes:
-- result: Surface cleanliness Level A per SAE AIR 4844
-  metric: "Contact angle reduction to <40° for improved adhesion, surface energy >55 mN/m"
-- result: Selective contamination removal
-  metric: "Matrix removal depth control <5µm with >95% contamination removal efficiency"
-technicalSpecifications:
-  powerRange: 50-200 W (average power for pulsed fiber lasers)
-  pulseDuration: 10-200 ns
-  wavelength: 1064 nm (primary), 532 nm (optional for precise matrix removal)
-  spotSize: "50-1000 µm (adjustable based on contamination type and area)"
-  repetitionRate: 20-100 kHz
-  fluenceRange: "1.0-10 J/cm² (above epoxy matrix ablation threshold of ~1.5 J/cm² at 1064nm)"
-  scanningSpeed: 100-2000 mm/s
-  beamProfile: Top-hat (flat-top) preferred for uniform energy distribution
-  beamProfileOptions: Top-hat, Gaussian, Multimode
-  safetyClass: Class 4 (IEC 60825-1)
-prompt_chain_verification:
-  base_config_loaded: true
-  persona_config_loaded: true
-  formatting_config_loaded: true
-  ai_detection_config_loaded: true
-  persona_country: Taiwan
-  author_id: 1
-  verification_timestamp: '2025-09-20T20:41:40Z'
-  prompt_components_integrated: 4
-  human_authenticity_focus: true
-  cultural_adaptation_applied: true
-laser_parameters:
-  fluence_threshold: "1.0–10 J/cm²"
-  pulse_duration: 10-200ns
-  wavelength_optimal: 1064nm
-  power_range: 50-200W
-  repetition_rate: 20-100kHz
-  spot_size: 0.05-1.0mm
-  laser_type: Pulsed fiber laser
-tags:
-- Automotive
-- Aerospace
 complexity: high
-difficultyScore: 5
-surface_roughness_before: 8.5
-surface_roughness_after: 2.2
+difficulty_score: 5
+author_id: 1
+---
+
+
+# Version Information
+# Generated: 2025-09-23T23:19:47.737482
+# Material: Carbon Fiber Reinforced Polymer
+# Component: frontmatter
+# Generator: Z-Beam v2.1.0
+# Author: AI Assistant
+# Platform: Darwin (3.12.4)
+# File: content/components/frontmatter/carbon-fiber-reinforced-polymer-laser-cleaning.md

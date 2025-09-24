@@ -3,7 +3,7 @@
 
 import './styles.css';
 import { ReactNode, useState, useEffect, useRef } from 'react';
-import { HeroProps } from '@/types';
+import { HeroProps, ArticleMetadata } from '@/types';
 import Image from 'next/image';
 
 export function Hero({ 
@@ -154,16 +154,13 @@ export function Hero({
   };
 
   // Generate accessible aria-label
-  const getAriaLabel = (): string => {
-    if (ariaLabel) return ariaLabel;
+  const getSectionAriaLabel = (frontmatter?: ArticleMetadata): string => {
     if (frontmatter?.title) return `Hero section for ${frontmatter.title}`;
-    return 'Hero section';
-  };
-
-  // Generate accessible video title
-  const getVideoTitle = (): string => {
+    return "Hero section";
+  };  // Generate accessible video title
+    const getVideoAriaLabel = (frontmatter?: ArticleMetadata): string => {
     if (frontmatter?.title) return `Video content for ${frontmatter.title}`;
-    return 'Hero video content';
+    return "Video content";
   };
   
   // Tailwind classes for fullwidth variant with responsive heights
@@ -193,7 +190,7 @@ export function Hero({
     <section 
       ref={heroRef}
       className={containerClasses}
-      aria-label={getAriaLabel()}
+      aria-label={ariaLabel || getSectionAriaLabel(frontmatter)}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
       {vimeoUrl && !videoError ? (
@@ -207,8 +204,8 @@ export function Hero({
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            title={getVideoTitle()}
-            aria-label={`${getVideoTitle()} - Video player`}
+            title={getVideoAriaLabel(frontmatter)}
+            aria-label={`${getVideoAriaLabel(frontmatter)} - Video player`}
             loading="lazy"
             onError={(e) => {
               console.error('Vimeo iframe error:', e);

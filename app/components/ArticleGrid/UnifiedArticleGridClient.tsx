@@ -9,14 +9,9 @@ import { Card } from '../Card/Card';
 import FadeInWrapper from '../FadeInWrapper/FadeInWrapper';
 import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
+import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
 
-// Unified grid configuration
-const GRID_CONFIGS = {
-  1: "grid-cols-1",
-  2: "grid-cols-1 sm:grid-cols-2",
-  3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-  4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-} as const;
+// Grid configuration now imported from unified system
 
 // Unified input types
 interface ArticleItem {
@@ -38,7 +33,8 @@ interface UnifiedArticleGridProps {
   items?: ArticleItem[];
   searchResults?: SearchResultItem[];
   slugs?: string[];
-  columns?: 1 | 2 | 3 | 4;
+  columns?: GridColumns;
+  gap?: GridGap;
   variant?: 'default' | 'compact' | 'featured' | 'search';
   heading?: string;
   className?: string;
@@ -51,6 +47,7 @@ export function UnifiedArticleGridClient({
   searchResults = [],
   slugs = [],
   columns = 3,
+  gap = "md",
   variant = 'default',
   heading,
   className = '',
@@ -97,15 +94,17 @@ export function UnifiedArticleGridClient({
   if (!filteredItems?.length) return null;
 
   const displayTitle = heading;
-  const gridClass = GRID_CONFIGS[columns];
 
   return (
     <div className={`unified-article-grid ${className}`}>
       {displayTitle && (
-        <h2 className="text-2xl font-bold mb-6">{displayTitle}</h2>
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{displayTitle}</h2>
+          <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+        </div>
       )}
       
-      <div className={`grid gap-6 ${gridClass}`}>
+      <div className={getGridClasses({ columns, gap })}>
         {filteredItems.map((item, index) => {
           const title = item.title || slugToDisplayName(item.slug);
           const href = item.href || `/${item.slug}`;

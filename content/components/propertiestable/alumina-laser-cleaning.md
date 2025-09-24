@@ -1,13 +1,12 @@
 | Property | Value |
 |----------|-------|
 | Density | 3.95 g/cm³ |
-| Melting Point | 2072°C |
 | Conductivity | 30 W/m·K |
 | Formula | Al2O3 |
 
 
 ---
-Version Log - Generated: 2025-09-22T11:46:28.632062
+Version Log - Generated: 2025-09-22T22:57:19.551623
 Material: Unknown
 Component: propertiestable
 Generator: Z-Beam v1.0.0

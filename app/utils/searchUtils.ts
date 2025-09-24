@@ -79,8 +79,8 @@ export function getDisplayName(item: {
   // Try to get the name from different sources in priority order
   if (item.name) return item.name;
   if (item.frontmatter?.name) return item.frontmatter.name;
+  if (item.name) return item.name;
   if (item.frontmatter?.title) return item.frontmatter.title;
-  if (item.title) return item.title;
   
   // If no name or title, try to create one from the slug
   if (item.slug) {

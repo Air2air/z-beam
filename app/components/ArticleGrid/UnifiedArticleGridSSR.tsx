@@ -6,14 +6,9 @@ import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata } f
 import { getArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
+import { getGridClasses, createSectionHeader, type GridColumns, type GridGap } from "../../utils/gridConfig";
 
-// Unified grid configuration - consistent across all usages
-const GRID_CONFIGS = {
-  1: "grid-cols-1",
-  2: "grid-cols-1 sm:grid-cols-2", 
-  3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-  4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-} as const;
+// Grid configuration now imported from unified system
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -65,7 +60,8 @@ interface UnifiedArticleGridSSRProps {
   // Display configuration
   title?: string;
   heading?: string;
-  columns?: 1 | 2 | 3 | 4;
+  columns?: GridColumns;
+  gap?: GridGap;
   
   // Processing options
   filterBy?: string;
@@ -84,6 +80,7 @@ export async function UnifiedArticleGridSSR({
   title,
   heading,
   columns = 3,
+  gap = "md",
   filterBy = "all",
   variant = 'standard',
   showBadgeSymbols = true,
@@ -220,10 +217,13 @@ export async function UnifiedArticleGridSSR({
   return (
     <div className={`unified-article-grid ${className}`}>
       {displayTitle && (
-        <h2 className="text-2xl font-bold mb-6">{displayTitle}</h2>
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{displayTitle}</h2>
+          <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+        </div>
       )}
 
-      <div className={`grid gap-4 ${GRID_CONFIGS[columns]} auto-rows-fr`}>
+      <div className={getGridClasses({ columns, gap, className: "" })}>
         {filteredItems.map((item, index) => {
           // Special handling for featured items (hide badge symbols)
           const shouldShowBadge = variant === 'featured' ? 

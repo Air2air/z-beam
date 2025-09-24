@@ -3,26 +3,22 @@ import { Card } from "../Card/Card";
 import { getBadgeFromItem, getChemicalProperties, getDisplayName } from "../../utils/searchUtils";
 import { slugToDisplayName } from "../../utils/formatting";
 import { SearchResultItem, ArticleMetadata } from "@/types";
+import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
 
 interface SearchResultsGridProps {
   items: SearchResultItem[];
-  columns: 1 | 2 | 3 | 4;
+  columns: GridColumns;
+  gap?: GridGap;
 }
 
 export function SearchResultsGrid({
   items,
-  columns
+  columns,
+  gap = "sm"
 }: SearchResultsGridProps) {
-  // Enhanced grid column classes with better responsive breakpoints
-  const gridCols = {
-    1: "grid-cols-1",
-    2: "grid-cols-1 sm:grid-cols-2",
-    3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
-    4: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4",
-  };
   
   return (
-    <div className={`grid gap-4 ${gridCols[columns]} auto-rows-fr`}>
+    <div className={getGridClasses({ columns, gap })}>
       {items.map((item, index) => {
         // Get badge data once to avoid calling the function twice
         const badgeData = getBadgeFromItem(item);
