@@ -1,0 +1,67 @@
+# MetricsMachineSettings Example Data
+# Laser engraving parameters for glass etching
+
+# Component Configuration
+title: "Engraving Parameters"
+description: "Precision laser settings for glass surface etching"
+layout: "grid-2"
+maxCards: 6
+showTitle: true
+className: "mb-6"
+variant: "compact"
+
+# Display Options
+showRanges: true
+showTrends: false
+enableHover: true
+showProgressBars: true
+
+# Machine Settings Data
+machineSettings:
+  power:
+    value: 45
+    unit: "%"
+    min: 10
+    max: 100
+    description: "Laser power percentage for controlled etching"
+    priority: 1
+    
+  speed:
+    value: 800
+    unit: "mm/min"
+    min: 100
+    max: 3000
+    description: "Engraving head movement speed"
+    priority: 1
+    
+  pulseFrequency:
+    value: 15000
+    unit: "Hz"
+    min: 1000
+    max: 50000
+    description: "Pulse rate for fine detail control"
+    priority: 1
+    
+  passes:
+    value: 2
+    unit: "passes"
+    min: 1
+    max: 5
+    description: "Number of engraving passes for depth"
+    priority: 2
+    
+  lineSpacing:
+    value: 0.05
+    unit: "mm"
+    min: 0.01
+    max: 0.2
+    description: "Distance between engraving lines"
+    priority: 2
+    
+  airAssist:
+    value: 3
+    unit: "bar"
+    min: 0
+    max: 10
+    description: "Air pressure for debris removal"
+    priority: 3

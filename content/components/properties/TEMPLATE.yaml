@@ -1,0 +1,105 @@
+# MetricsProperties YAML Template
+# Complete structure for material properties components
+
+# Component Configuration
+title: "Material Properties"              # Card title
+description: "Physical and chemical characteristics"  # Card description
+layout: "grid-3"                         # Layout: grid-2, grid-3, grid-4, list
+maxCards: 8                              # Maximum number of properties to display
+showTitle: true                          # Show/hide card title
+className: "mb-8"                        # Additional CSS classes
+variant: "default"                       # Variants: default, primary, compact, minimal
+
+# Display Options
+showRanges: true                         # Show min/max ranges in tooltips
+showTrends: true                         # Show trend indicators (up/down/neutral)
+enableHover: true                        # Enable hover effects
+showProgressBars: true                   # Show progress bar visualization
+
+# Material Properties Data
+# Each property follows this structure:
+properties:
+  density:                               # Property key (used internally)
+    value: 2.7                          # Current/measured value
+    unit: "g/cm³"                       # Unit of measurement
+    min: 0.5                            # Minimum possible/typical value
+    max: 25.0                           # Maximum possible/typical value
+    description: "Mass per unit volume at room temperature"  # Tooltip description
+    priority: 1                         # Display priority (1=highest, 3=lowest)
+    
+  meltingPoint:
+    value: 660
+    unit: "°C"
+    min: -272
+    max: 3695
+    description: "Temperature at which solid becomes liquid"
+    priority: 1
+    
+  thermalConductivity:
+    value: 237
+    unit: "W/m·K"
+    min: 0.1
+    max: 429
+    description: "Ability to conduct thermal energy"
+    priority: 2
+    
+  electricalResistivity:
+    value: 28.2
+    unit: "nΩ·m"
+    min: 10
+    max: 10000000
+    description: "Resistance to electrical current flow"
+    priority: 2
+    
+  tensileStrength:
+    value: 310
+    unit: "MPa"
+    min: 1
+    max: 5000
+    description: "Maximum stress before material failure"
+    priority: 2
+    
+  youngsModulus:
+    value: 70
+    unit: "GPa"
+    min: 0.1
+    max: 1000
+    description: "Measure of material stiffness"
+    priority: 3
+
+# Common Property Types:
+# Physical Properties:
+#   - density, meltingPoint, boilingPoint, hardness
+# Thermal Properties:
+#   - thermalConductivity, thermalExpansion, specificHeat
+# Mechanical Properties:
+#   - tensileStrength, youngsModulus, compressiveStrength, shearModulus
+# Electrical Properties:
+#   - electricalResistivity, dielectricConstant
+# Optical Properties:
+#   - refractiveIndex, transmittance, absorptance
+# Chemical Properties:
+#   - corrosionResistance, chemicalDurability, pH
+
+# Search Integration
+# Each property value becomes a clickable link that searches for materials with similar values
+searchMapping:
+  density: "Density"                     # Search property name for density values
+  meltingPoint: "Melting Point"          # Search property name for melting point values
+  thermalConductivity: "Thermal Conductivity"  # Search property name for thermal values
+  tensileStrength: "Tensile Strength"    # Search property name for strength values
+  hardness: "Hardness"                   # Search property name for hardness values
+
+# Features:
+# - Clickable Values: All property values are clickable links that search for materials with similar values
+# - Progress Bars: Automatically calculate percentage: (value - min) / (max - min) * 100
+# - Search Integration: Links use format: /search?property=Density&value=2.7g/cm³
+# - Priority Display: Priority 1 (highest) → Priority 3 (lowest)
+# - Responsive Layout: Adapts to grid-2, grid-3, or grid-4 layouts
+# - Dark Mode Support: Automatic light/dark theme adaptation
+
+# Notes:
+# - Units should be standard SI or commonly recognized units
+# - Min/max values define the realistic range for progress bar visualization
+# - Properties are grouped by priority for better visual hierarchy
+# - Search queries help users find materials with similar characteristics

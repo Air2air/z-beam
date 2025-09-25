@@ -17,8 +17,8 @@ import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import SimpleMetricsCard from '../MetricsCard/MetricsCard';
-import PropertiesCard from '../MetricsCard/PropertiesCard';
-import MachineSettingsCard from '../MetricsCard/MachineSettingsCard';
+import MetricsProperties from '../MetricsCard/MetricsProperties';
+import MetricsMachineSettings from '../MetricsCard/MetricsMachineSettings';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
@@ -110,7 +110,7 @@ export function Layout(props: LayoutProps) {
                 
                 return (
                   <section key={type} aria-label="Machine settings visualization">
-                    <MachineSettingsCard 
+                    <MetricsMachineSettings 
                       metadata={metricsMetadata as any}
                       title={component.config.title as string}
                       className={component.config.className as string}
@@ -135,7 +135,7 @@ export function Layout(props: LayoutProps) {
                 
                 return (
                   <section key={type} aria-label="Material properties visualization">
-                    <PropertiesCard 
+                    <MetricsProperties 
                       metadata={propertiesMetadata as any}
                       title={component.config.title as string}
                       className={component.config.className as string}

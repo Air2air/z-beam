@@ -1,11 +1,11 @@
-// PropertiesCard component - extends MetricsCard for material properties
+// MetricsProperties component - extends MetricsCard for material properties
 "use client";
 
 import React from 'react';
 import { MetricsCard, MetricsCardProps } from './MetricsCard';
 import { ArticleMetadata } from '../../../types';
 
-export interface PropertiesCardProps {
+export interface MetricsPropertiesProps {
   metadata: ArticleMetadata;
   title?: string;
   description?: string;
@@ -14,14 +14,14 @@ export interface PropertiesCardProps {
   maxCards?: number;
 }
 
-export function PropertiesCard({
+export function MetricsProperties({
   metadata,
   title = "Material Properties",
   description = "Physical and chemical characteristics",
   className,
   mode = 'simple',
   maxCards = 6
-}: PropertiesCardProps) {
+}: MetricsPropertiesProps) {
   return (
     <MetricsCard
       metadata={metadata}
@@ -35,4 +35,4 @@ export function PropertiesCard({
   );
 }
 
-export default PropertiesCard;
+export default MetricsProperties;

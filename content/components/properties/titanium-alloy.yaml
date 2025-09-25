@@ -1,0 +1,99 @@
+# MetricsProperties Example Data
+# Comprehensive material properties for titanium-alloy
+
+# Component Configuration
+title: "Material Properties"
+description: "Physical and chemical characteristics of titanium alloy"
+layout: "grid-3"
+maxCards: 10
+showTitle: true
+className: "mb-8"
+variant: "default"
+
+# Display Options
+showRanges: true
+showTrends: true
+enableHover: true
+showProgressBars: true
+
+# Material Properties Data
+properties:
+  density:
+    value: 4.43
+    unit: "g/cm³"
+    min: 0.53
+    max: 22.59
+    description: "Mass per unit volume at room temperature"
+    priority: 1
+    
+  meltingPoint:
+    value: 1668
+    unit: "°C"
+    min: -272
+    max: 3695
+    description: "Temperature at which solid becomes liquid"
+    priority: 1
+    
+  boilingPoint:
+    value: 3287
+    unit: "°C"
+    min: -269
+    max: 5596
+    description: "Temperature at which liquid becomes gas"
+    priority: 1
+    
+  thermalConductivity:
+    value: 21.9
+    unit: "W/m·K"
+    min: 0.1
+    max: 429
+    description: "Ability to conduct thermal energy"
+    priority: 2
+    
+  electricalResistivity:
+    value: 420
+    unit: "nΩ·m"
+    min: 16
+    max: 10000000
+    description: "Resistance to electrical current flow"
+    priority: 2
+    
+  tensileStrength:
+    value: 950
+    unit: "MPa"
+    min: 70
+    max: 5000
+    description: "Maximum stress before material failure"
+    priority: 2
+    
+  youngsModulus:
+    value: 116
+    unit: "GPa"
+    min: 0.1
+    max: 1000
+    description: "Measure of material stiffness"
+    priority: 3
+    
+  thermalExpansion:
+    value: 8.6
+    unit: "μm/m·K"
+    min: 0.1
+    max: 100
+    description: "Expansion coefficient with temperature change"
+    priority: 3
+    
+  hardness:
+    value: 970
+    unit: "MPa"
+    min: 1
+    max: 10000
+    description: "Resistance to permanent deformation"
+    priority: 3
+    
+  corrosionResistance:
+    value: 9.2
+    unit: "rating"
+    min: 1.0
+    max: 10.0
+    description: "Resistance to chemical degradation (1-10 scale)"
+    priority: 3

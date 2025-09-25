@@ -1,0 +1,83 @@
+# MetricsMachineSettings Example Data
+# Comprehensive laser parameter data for steel-laser-cutting
+
+# Component Configuration
+title: "Laser Parameters"
+description: "Optimized laser settings for steel cutting applications"
+layout: "grid-3"
+maxCards: 8
+showTitle: true
+className: "mb-8"
+variant: "default"
+
+# Display Options
+showRanges: true
+showTrends: true
+enableHover: true
+showProgressBars: true
+
+# Machine Settings Data
+machineSettings:
+  power:
+    value: 2000
+    unit: "W"
+    min: 100
+    max: 6000
+    description: "Laser power output for cutting through steel"
+    priority: 1
+    
+  wavelength:
+    value: 1070
+    unit: "nm"
+    min: 355
+    max: 10600
+    description: "Fiber laser wavelength optimized for metal absorption"
+    priority: 1
+    
+  cuttingSpeed:
+    value: 1500
+    unit: "mm/min"
+    min: 200
+    max: 8000
+    description: "Material feed rate through laser beam"
+    priority: 1
+    
+  assistGas:
+    value: 15
+    unit: "bar"
+    min: 1
+    max: 20
+    description: "Gas pressure for material ejection and cooling"
+    priority: 2
+    
+  focusPosition:
+    value: -0.5
+    unit: "mm"
+    min: -3.0
+    max: 3.0
+    description: "Beam focus position relative to material surface"
+    priority: 2
+    
+  nozzleHeight:
+    value: 1.0
+    unit: "mm"
+    min: 0.5
+    max: 5.0
+    description: "Distance between nozzle and material surface"
+    priority: 2
+    
+  pulseFrequency:
+    value: 5000
+    unit: "Hz"
+    min: 100
+    max: 20000
+    description: "Pulsed mode frequency for precision control"
+    priority: 3
+    
+  kerf:
+    value: 0.15
+    unit: "mm"
+    min: 0.05
+    max: 0.5
+    description: "Width of material removed by laser beam"
+    priority: 3

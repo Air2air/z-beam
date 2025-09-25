@@ -1,11 +1,11 @@
-// MachineSettingsCard component - extends MetricsCard for laser parameters
+// MetricsMachineSettings component - extends MetricsCard for laser parameters
 "use client";
 
 import React from 'react';
 import { MetricsCard, MetricsCardProps } from './MetricsCard';
 import { ArticleMetadata } from '../../../types';
 
-export interface MachineSettingsCardProps {
+export interface MetricsMachineSettingsProps {
   metadata: ArticleMetadata;
   title?: string;
   description?: string;
@@ -14,14 +14,14 @@ export interface MachineSettingsCardProps {
   maxCards?: number;
 }
 
-export function MachineSettingsCard({
+export function MetricsMachineSettings({
   metadata,
   title = "Laser Parameters",
   description = "Optimized laser settings for material processing",
   className,
   mode = 'simple',
   maxCards = 6
-}: MachineSettingsCardProps) {
+}: MetricsMachineSettingsProps) {
   return (
     <MetricsCard
       metadata={metadata}
@@ -35,4 +35,4 @@ export function MachineSettingsCard({
   );
 }
 
-export default MachineSettingsCard;
+export default MetricsMachineSettings;

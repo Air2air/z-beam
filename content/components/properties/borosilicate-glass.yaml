@@ -1,0 +1,83 @@
+# MetricsProperties Example Data
+# Material properties for borosilicate glass
+
+# Component Configuration
+title: "Glass Properties"
+description: "Thermal and optical characteristics of borosilicate glass"
+layout: "grid-2"
+maxCards: 8
+showTitle: true
+className: "mb-6"
+variant: "default"
+
+# Display Options
+showRanges: true
+showTrends: true
+enableHover: true
+showProgressBars: true
+
+# Material Properties Data
+properties:
+  density:
+    value: 2.23
+    unit: "g/cm³"
+    min: 0.5
+    max: 6.0
+    description: "Glass density at room temperature"
+    priority: 1
+    
+  refractiveIndex:
+    value: 1.517
+    unit: ""
+    min: 1.3
+    max: 2.4
+    description: "Light bending coefficient"
+    priority: 1
+    
+  transmittance:
+    value: 92
+    unit: "%"
+    min: 0
+    max: 100
+    description: "Percentage of light transmitted"
+    priority: 1
+    
+  thermalExpansion:
+    value: 3.3
+    unit: "×10⁻⁶/K"
+    min: 0.5
+    max: 20
+    description: "Expansion coefficient with temperature"
+    priority: 2
+    
+  softeningPoint:
+    value: 821
+    unit: "°C"
+    min: 400
+    max: 1200
+    description: "Temperature where glass becomes workable"
+    priority: 2
+    
+  annealingPoint:
+    value: 565
+    unit: "°C"
+    min: 300
+    max: 800
+    description: "Stress relief temperature"
+    priority: 2
+    
+  chemicalDurability:
+    value: 8.5
+    unit: "rating"
+    min: 1.0
+    max: 10.0
+    description: "Resistance to chemical attack (1-10 scale)"
+    priority: 3
+    
+  hardness:
+    value: 6.0
+    unit: "Mohs"
+    min: 1.0
+    max: 10.0
+    description: "Scratch resistance on Mohs scale"
+    priority: 3
