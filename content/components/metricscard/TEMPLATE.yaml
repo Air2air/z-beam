@@ -84,10 +84,26 @@ machineSettings:
     description: "Number of cleaning passes"
     priority: 3
 
+# Search Integration
+# Each parameter value becomes a clickable link that searches for materials with similar values
+searchMapping:
+  power: "Power"              # Search property name for power values  
+  wavelength: "Wavelength"    # Search property name for wavelength values
+  pulseWidth: "Pulse Width"   # Search property name for pulse duration values
+  frequency: "Frequency"      # Search property name for frequency values
+  spotSize: "Spot Size"       # Search property name for spot size values
+  fluence: "Fluence"          # Search property name for fluence values
+
+# Features:
+# - Clickable Values: All parameter values are clickable links that search for materials with similar values
+# - Progress Bars: Automatically calculate percentage: (value - min) / (max - min) * 100
+# - Search Integration: Links use format: /search?property=Power&value=80W
+# - Priority Display: Priority 1 (highest) → Priority 3 (lowest)
+# - Responsive Layout: Adapts to grid-2, grid-3, or grid-4 layouts
+# - Dark Mode Support: Automatic light/dark theme adaptation
+
 # Notes:
-# - Priority 1 settings appear first (most important)
-# - Priority 2 settings appear in middle section
-# - Priority 3 settings appear last or may be hidden in compact mode
-# - Progress bars automatically calculate percentage: (value - min) / (max - min) * 100
 # - Units should be consistent and recognizable (W, nm, ns, kHz, mm, J/cm², etc.)
 # - Min/max values define the operational range for progress bar visualization
+# - Hover states provide visual feedback for clickable elements
+# - Search queries help users find materials with similar laser parameters

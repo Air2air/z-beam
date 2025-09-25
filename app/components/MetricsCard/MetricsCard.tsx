@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { ArticleMetadata, MachineSettings, SettingData, SettingCardConfig, SettingCardProps, CardData, PropertyWithUnits } from '../../../types';
 import { extractMachineSettingsFromFrontmatter, createMachineSettingsForMetricsCard } from '../../utils/metricsCardHelpers';
 
@@ -435,10 +436,14 @@ function SimpleMetricsMode({
               {hasValidRange ? (
                 // Progress bar layout when min/max values are available
                 <div className="space-y-3">
-                  <div className="font-bold text-lg">
+                  <Link 
+                    href={`/search?property=${encodeURIComponent(card.title)}&value=${encodeURIComponent(displayValue + (displayUnit ? displayUnit : ''))}`}
+                    className="font-bold text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer block"
+                    title={`Search for materials with ${card.title}: ${displayValue}${displayUnit || ''}`}
+                  >
                     {displayValue}
                     {displayUnit && <span className="text-xs font-normal ml-1">{displayUnit}</span>}
-                  </div>
+                  </Link>
                   <ProgressBar 
                     min={minValue!}
                     max={maxValue!}
@@ -449,10 +454,14 @@ function SimpleMetricsMode({
                 </div>
               ) : (
                 // Original layout when no range data is available
-                <div className="font-bold text-xl mb-2">
+                <Link 
+                  href={`/search?property=${encodeURIComponent(card.title)}&value=${encodeURIComponent(displayValue + (displayUnit ? displayUnit : ''))}`}
+                  className="font-bold text-xl mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer block"
+                  title={`Search for materials with ${card.title}: ${displayValue}${displayUnit || ''}`}
+                >
                   {displayValue}
                   {displayUnit && <span className="text-xs font-normal ml-1">{displayUnit}</span>}
-                </div>
+                </Link>
               )}
             </div>
           );
