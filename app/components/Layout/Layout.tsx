@@ -17,6 +17,8 @@ import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import SimpleMetricsCard from '../MetricsCard/MetricsCard';
+import PropertiesCard from '../MetricsCard/PropertiesCard';
+import MachineSettingsCard from '../MetricsCard/MachineSettingsCard';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
@@ -24,6 +26,7 @@ const ARTICLE_COMPONENT_ORDER = [
   'content',
   'caption',
   'metricscard',
+  'properties',
   'settings',
   'table',
   'tags'
@@ -106,9 +109,34 @@ export function Layout(props: LayoutProps) {
                 };
                 
                 return (
-                  <section key={type} aria-label="Machine metrics visualization">
-                    <SimpleMetricsCard 
+                  <section key={type} aria-label="Machine settings visualization">
+                    <MachineSettingsCard 
                       metadata={metricsMetadata as any}
+                      title={component.config.title as string}
+                      className={component.config.className as string}
+                      mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}
+                    />
+                  </section>
+                );
+              }
+              return null;
+            }
+
+            // Special handling for properties - use YAML component data
+            if (type === 'properties') {
+              if (component?.config) {
+                // Create metadata object from YAML config
+                const propertiesMetadata = {
+                  slug: metadata?.slug || '',
+                  title: component.config.title || '',
+                  description: component.config.description || '',
+                  properties: component.config.properties || {}
+                };
+                
+                return (
+                  <section key={type} aria-label="Material properties visualization">
+                    <PropertiesCard 
+                      metadata={propertiesMetadata as any}
                       title={component.config.title as string}
                       className={component.config.className as string}
                       mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}

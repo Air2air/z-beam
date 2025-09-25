@@ -4,10 +4,10 @@
 import { ArticleMetadata, PropertyWithUnits } from '@/types';
 
 /**
- * Extract machine settings from article frontmatter and transform to PropertyWithUnits format
+ * Extract machine settings or properties from article frontmatter and transform to PropertyWithUnits format
  */
-export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata): Record<string, PropertyWithUnits> {
-  const machineSettings: Record<string, PropertyWithUnits> = {};
+export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata, dataSource: 'properties' | 'machineSettings' = 'machineSettings'): Record<string, PropertyWithUnits> {
+  const extractedData: Record<string, PropertyWithUnits> = {};
   
   // First, check if machineSettings exists in metadata
   const rawSettings = metadata.machineSettings;
@@ -42,13 +42,13 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
       // Handle direct object properties
       Object.entries(rawSettings).forEach(([key, value]) => {
         if (typeof value === 'number' || typeof value === 'string') {
-          machineSettings[key] = {
+          extractedData[key] = {
             numeric: typeof value === 'number' ? value : parseNumericValue(value),
             text: String(value),
             units: inferUnits(key),
           };
         } else if (typeof value === 'object' && value !== null) {
-          machineSettings[key] = value as PropertyWithUnits;
+          extractedData[key] = value as PropertyWithUnits;
         }
       });
     }
@@ -56,26 +56,26 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
     // Transform flattened settings to PropertyWithUnits format
     Object.entries(settingsData).forEach(([key, setting]) => {
       if (setting && typeof setting === 'object') {
-        machineSettings[key] = setting as PropertyWithUnits;
+        extractedData[key] = setting as PropertyWithUnits;
       }
     });
   }
   
-  // Extract machine settings from YAML component data or frontmatter
-  const rawMachineSettings = metadata.machineSettings;
-  if (rawMachineSettings && typeof rawMachineSettings === 'object') {
+  // Extract data from the specified source (machineSettings or properties)
+  const rawData = dataSource === 'properties' ? metadata.properties : metadata.machineSettings;
+  if (rawData && typeof rawData === 'object') {
     
     // Check if this is new YAML format (has structured data with value/unit/min/max)
-    const isNewFormat = Object.values(rawMachineSettings).some(setting => 
+    const isNewFormat = Object.values(rawData).some(setting => 
       setting && typeof setting === 'object' && 'value' in setting
     );
     
     if (isNewFormat) {
       // New YAML format: direct structured data
-      Object.entries(rawMachineSettings).forEach(([key, setting]) => {
+      Object.entries(rawData).forEach(([key, setting]) => {
         if (setting && typeof setting === 'object') {
           const settingObj = setting as any;
-          machineSettings[key] = {
+          extractedData[key] = {
             numeric: settingObj.value,
             text: `${settingObj.value}${settingObj.unit ? ` ${settingObj.unit}` : ''}`,
             units: settingObj.unit,
@@ -96,10 +96,10 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
       };
       
       Object.entries(directMachineSettingsMap).forEach(([frontmatterKey, settingKey]) => {
-        const value = rawMachineSettings[frontmatterKey];
-        const unit = rawMachineSettings[`${frontmatterKey}Unit`];
-        const min = rawMachineSettings[`${frontmatterKey}Min`];
-        const max = rawMachineSettings[`${frontmatterKey}Max`];
+        const value = rawData[frontmatterKey];
+        const unit = rawData[`${frontmatterKey}Unit`];
+        const min = rawData[`${frontmatterKey}Min`];
+        const max = rawData[`${frontmatterKey}Max`];
         
         if (value !== undefined) {
           // Ensure unit is a string
@@ -109,7 +109,7 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
           const minNum = typeof min === 'number' ? min : parseNumericValue(min);
           const maxNum = typeof max === 'number' ? max : parseNumericValue(max);
           
-          machineSettings[settingKey] = {
+          extractedData[settingKey] = {
             numeric: typeof value === 'number' ? value : parseNumericValue(value),
             text: `${value}${unitStr ? ` ${unitStr}` : ''}`,
             units: unitStr,
@@ -120,7 +120,7 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
     }
   }
   
-  return machineSettings;
+  return extractedData;
 }
 
 /**
@@ -267,8 +267,8 @@ export const COMMON_MACHINE_SETTINGS = [
 /**
  * Create a MachineSettings object compatible with the MetricsCard component
  */
-export function createMachineSettingsForMetricsCard(metadata: ArticleMetadata) {
-  const extractedSettings = extractMachineSettingsFromFrontmatter(metadata);
+export function createMachineSettingsForMetricsCard(metadata: ArticleMetadata, dataSource: 'properties' | 'machineSettings' = 'machineSettings') {
+  const extractedSettings = extractMachineSettingsFromFrontmatter(metadata, dataSource);
   
   return {
     power: extractedSettings.power,

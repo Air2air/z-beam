@@ -37,6 +37,7 @@ const CONTENT_DIRS = {
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
     metricscard: path.join(process.cwd(), 'content', 'components', 'metricscard'),
+    properties: path.join(process.cwd(), 'content', 'components', 'properties'),
   },
   pages: path.join(process.cwd(), 'content', 'components', 'pages'),
 } as const;

@@ -491,7 +491,7 @@ function SimpleMetricsMode({
 // Main MetricsCard component interface
 export interface MetricsCardProps {
   metadata: ArticleMetadata;
-  baseHref: string;
+  baseHref?: string;
   title?: string;
   description?: string;
   layout?: keyof typeof GRID_LAYOUTS;
@@ -499,6 +499,7 @@ export interface MetricsCardProps {
   priorityFilter?: number[];
   showTitle?: boolean;
   className?: string;
+  dataSource?: 'properties' | 'machineSettings'; // Specify which data to use
   
   // Simple mode props (consolidated from SimpleMetricsCard)
   cards?: CardData[];
@@ -517,6 +518,7 @@ export function MetricsCard({
   priorityFilter = [1, 2, 3, 4, 5],
   showTitle = true,
   className = "",
+  dataSource = 'machineSettings', // Default to machineSettings for backward compatibility
   // Simple mode props
   cards: providedCards,
   gridCols = "grid-cols-2 md:grid-cols-4",
@@ -535,8 +537,8 @@ export function MetricsCard({
   }
 
   // Advanced mode (original functionality)
-  // Extract machine settings from frontmatter
-  const machineSettings = createMachineSettingsForMetricsCard(metadata);
+  // Extract data from frontmatter based on dataSource
+  const machineSettings = createMachineSettingsForMetricsCard(metadata, dataSource);
   
   if (!machineSettings || Object.keys(machineSettings).length === 0) {
     return (
