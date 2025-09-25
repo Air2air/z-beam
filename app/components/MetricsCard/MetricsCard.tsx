@@ -1,18 +1,60 @@
 "use client";
 
 import React from 'react';
-import { ArticleMetadata, MachineSettings, SettingData, SettingCardConfig, SettingCardProps, CardData } from '../../../types';
+import { ArticleMetadata, MachineSettings, SettingData, SettingCardConfig, SettingCardProps, CardData, PropertyWithUnits } from '../../../types';
 import { extractMachineSettingsFromFrontmatter, createMachineSettingsForMetricsCard } from '../../utils/metricsCardHelpers';
 
 // Default color palette for simple cards (consolidated from SimpleMetricsCard)
 const DEFAULT_COLORS = [
-  'bg-blue-50 border-blue-200 text-blue-900 dark:bg-blue-900/20 dark:border-blue-700 dark:text-blue-100',
-  'bg-indigo-50 border-indigo-200 text-indigo-900 dark:bg-indigo-900/20 dark:border-indigo-700 dark:text-indigo-100',
-  'bg-green-50 border-green-200 text-green-900 dark:bg-green-900/20 dark:border-green-700 dark:text-green-100',
-  'bg-yellow-50 border-yellow-200 text-yellow-900 dark:bg-yellow-900/20 dark:border-yellow-700 dark:text-yellow-100',
-  'bg-purple-50 border-purple-200 text-purple-900 dark:bg-purple-900/20 dark:border-purple-700 dark:text-purple-100',
-  'bg-red-50 border-red-200 text-red-900 dark:bg-red-900/20 dark:border-red-700 dark:text-red-100'
+  '#4F46E5', '#7C3AED', '#0891B2', '#059669', '#CA8A04', '#DC2626'
 ];
+
+// Progress bar component for visualizing value within min-max range
+interface ProgressBarProps {
+  min: number;
+  max: number;
+  value: number;
+  color?: string;
+  unit?: string;
+}
+
+function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: ProgressBarProps) {
+  // Calculate percentage position (0-100)
+  const percentage = Math.min(Math.max((value - min) / (max - min) * 100, 0), 100);
+  
+  return (
+    <div className="flex items-center gap-2 w-full">
+      {/* Min value */}
+      <span className="text-xs font-medium text-gray-600 dark:text-gray-400 whitespace-nowrap">
+        {min}{unit && <span className="ml-0.5">{unit}</span>}
+      </span>
+      
+      {/* Progress bar */}
+      <div className="flex-1 relative">
+        <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-opacity-20 rounded-full transition-all duration-300"
+            style={{ backgroundColor: color, width: '100%' }}
+          />
+          <div 
+            className="absolute top-0 left-0 h-full bg-opacity-80 rounded-full transition-all duration-300"
+            style={{ backgroundColor: color, width: `${percentage}%` }}
+          />
+        </div>
+        {/* Value indicator */}
+        <div 
+          className="absolute top-0 h-2 w-1 bg-white dark:bg-gray-900 transform -translate-x-0.5 transition-all duration-300"
+          style={{ left: `${percentage}%` }}
+        />
+      </div>
+      
+      {/* Max value */}
+      <span className="text-xs font-medium text-gray-600 dark:text-gray-400 whitespace-nowrap">
+        {max}{unit && <span className="ml-0.5">{unit}</span>}
+      </span>
+    </div>
+  );
+}
 
 // Predefined configurations for common laser machine settings
 const MACHINE_SETTINGS_CONFIGS: SettingCardConfig[] = [
@@ -332,47 +374,84 @@ function SimpleMetricsMode({
             ? card.unit.text 
             : String(card.unit || '');
 
-          // Extract min/max values from metadata if available
-          let minValue = '';
-          let maxValue = '';
-          if (metadata?.machineSettings?.settings && Array.isArray(metadata.machineSettings.settings)) {
-            // Find the corresponding parameter in the settings
-            const parameterKey = card.key === 'power' ? 'Power Range' 
-              : card.key === 'wavelength' ? 'Wavelength'
-              : card.key === 'pulseDuration' ? 'Pulse Duration'
-              : card.key === 'repetitionRate' ? 'Repetition Rate'
-              : card.key === 'spotSize' ? 'Spot Size'
-              : card.key === 'fluence' ? 'Fluence Range'
-              : '';
+          // Helper function to extract numeric value from PropertyWithUnits or string
+          const extractNumericValue = (value: string | PropertyWithUnits | undefined): number | undefined => {
+            if (!value) return undefined;
+            if (typeof value === 'string') {
+              const parsed = parseFloat(value);
+              return isNaN(parsed) ? undefined : parsed;
+            }
+            if (typeof value === 'object' && 'text' in value) {
+              const parsed = parseFloat(String(value.text));
+              return isNaN(parsed) ? undefined : parsed;
+            }
+            return undefined;
+          };
+
+          // Extract min/max values from the numeric fields in machineSettings
+          let minValue: number | undefined;
+          let maxValue: number | undefined;
+          
+          if (metadata?.machineSettings) {
+            const settings = metadata.machineSettings;
             
-            if (parameterKey) {
-              for (const section of metadata.machineSettings.settings) {
-                if (section && typeof section === 'object' && 'rows' in section && Array.isArray(section.rows)) {
-                  const row = section.rows.find(r => r && typeof r === 'object' && 'parameter' in r && r.parameter === parameterKey);
-                  if (row && typeof row === 'object' && 'range' in row && row.range) {
-                    const rangeMatch = String(row.range).match(/^([\d.]+)\s*-\s*([\d.]+)/);
-                    if (rangeMatch) {
-                      minValue = rangeMatch[1];
-                      maxValue = rangeMatch[2];
-                    }
-                    break;
-                  }
-                }
-              }
+            // Map card keys to their corresponding Min/Max field names
+            switch (card.key) {
+              case 'power':
+                minValue = extractNumericValue(settings.powerMin);
+                maxValue = extractNumericValue(settings.powerMax);
+                break;
+              case 'wavelength':
+                minValue = extractNumericValue(settings.wavelengthMin);
+                maxValue = extractNumericValue(settings.wavelengthMax);
+                break;
+              case 'pulseDuration':
+                minValue = extractNumericValue(settings.pulseDurationMin);
+                maxValue = extractNumericValue(settings.pulseDurationMax);
+                break;
+              case 'repetitionRate':
+                minValue = extractNumericValue(settings.repetitionRateMin);
+                maxValue = extractNumericValue(settings.repetitionRateMax);
+                break;
+              case 'spotSize':
+                minValue = extractNumericValue(settings.spotSizeMin);
+                maxValue = extractNumericValue(settings.spotSizeMax);
+                break;
+              case 'fluence':
+                minValue = extractNumericValue(settings.fluenceMin);
+                maxValue = extractNumericValue(settings.fluenceMax);
+                break;
             }
           }
 
+          // Extract numeric value from displayValue for progress calculation
+          const numericValue = parseFloat(displayValue.replace(/[^\d.-]/g, ''));
+          const hasValidRange = minValue !== undefined && maxValue !== undefined && !isNaN(numericValue) && minValue < maxValue;
+
           const cardContent = (
             <div className="text-center">
-              <h3 className="font-semibold text-base mb-2">{card.title}</h3>
-              <div className="font-bold text-xl mb-2">
-                {displayValue}
-                {displayUnit && <span className="text-xs font-normal ml-1">{displayUnit}</span>}
-              </div>
-              {minValue && maxValue && (
-                <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-                  Range: {minValue} - {maxValue}
-                  {displayUnit && <span className="ml-1">{displayUnit}</span>}
+              <h3 className="font-semibold text-base mb-3">{card.title}</h3>
+              
+              {hasValidRange ? (
+                // Progress bar layout when min/max values are available
+                <div className="space-y-3">
+                  <div className="font-bold text-lg">
+                    {displayValue}
+                    {displayUnit && <span className="text-xs font-normal ml-1">{displayUnit}</span>}
+                  </div>
+                  <ProgressBar 
+                    min={minValue!}
+                    max={maxValue!}
+                    value={numericValue}
+                    color={card.color}
+                    unit={displayUnit}
+                  />
+                </div>
+              ) : (
+                // Original layout when no range data is available
+                <div className="font-bold text-xl mb-2">
+                  {displayValue}
+                  {displayUnit && <span className="text-xs font-normal ml-1">{displayUnit}</span>}
                 </div>
               )}
             </div>
