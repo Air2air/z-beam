@@ -15,13 +15,13 @@ const CARD_CONFIG = {
 
   // Typography
   titleClass:
-    "text-base font-semibold group-hover:text-blue-600 transition-colors duration-200",
+    "text-base font-semibold",
   descriptionClass:
     "text-gray-600 dark:text-gray-300 text-xs line-clamp-2",
 
   // Appearance
   cardClass:
-    "rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
+    "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
 };
 
 export interface CardProps {
@@ -77,7 +77,7 @@ export function Card({
     <Link
       href={href}
       className={`
-        group block ${CARD_CONFIG.cardClass} h-full ${className}
+        group block ${CARD_CONFIG.cardClass} h-full ${className} hover:shadow-lg hover:scale-105 transition-all duration-200
       `}
       style={height ? { height } : {}}
     >

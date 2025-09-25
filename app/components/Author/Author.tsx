@@ -33,7 +33,7 @@ export function Author({
   return (
     <Link
       href={`/tag/${encodedAuthorName}`}
-      className="block hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg px-4 py-1 transition-colors duration-200 cursor-pointer"
+      className="block rounded-lg px-4 py-1 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
     >
       <div className={`author-component mt-2 mb-4 ${className}`}>
         <table className="w-full">

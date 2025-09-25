@@ -270,7 +270,7 @@ export function Hero({
               aria-live="polite"
               aria-label="Loading hero image"
             >
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
+              <div className="rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
               <span className="sr-only">Loading hero image...</span>
             </div>
           )}
