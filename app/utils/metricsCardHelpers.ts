@@ -61,40 +61,63 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
     });
   }
   
-  // Extract machine settings directly from machineSettings object in frontmatter
+  // Extract machine settings from YAML component data or frontmatter
   const rawMachineSettings = metadata.machineSettings;
   if (rawMachineSettings && typeof rawMachineSettings === 'object') {
-    const directMachineSettingsMap = {
-      powerRange: 'power',
-      wavelength: 'wavelength', 
-      pulseDuration: 'pulseWidth',
-      repetitionRate: 'frequency',
-      spotSize: 'spotSize',
-      fluenceRange: 'fluence'
-    };
     
-    Object.entries(directMachineSettingsMap).forEach(([frontmatterKey, settingKey]) => {
-      const value = rawMachineSettings[frontmatterKey];
-      const unit = rawMachineSettings[`${frontmatterKey}Unit`];
-      const min = rawMachineSettings[`${frontmatterKey}Min`];
-      const max = rawMachineSettings[`${frontmatterKey}Max`];
+    // Check if this is new YAML format (has structured data with value/unit/min/max)
+    const isNewFormat = Object.values(rawMachineSettings).some(setting => 
+      setting && typeof setting === 'object' && 'value' in setting
+    );
+    
+    if (isNewFormat) {
+      // New YAML format: direct structured data
+      Object.entries(rawMachineSettings).forEach(([key, setting]) => {
+        if (setting && typeof setting === 'object') {
+          const settingObj = setting as any;
+          machineSettings[key] = {
+            numeric: settingObj.value,
+            text: `${settingObj.value}${settingObj.unit ? ` ${settingObj.unit}` : ''}`,
+            units: settingObj.unit,
+            range: (settingObj.min !== undefined && settingObj.max !== undefined) ? 
+              { min: settingObj.min, max: settingObj.max } : undefined
+          };
+        }
+      });
+    } else {
+      // Legacy frontmatter format
+      const directMachineSettingsMap = {
+        powerRange: 'power',
+        wavelength: 'wavelength', 
+        pulseDuration: 'pulseWidth',
+        repetitionRate: 'frequency',
+        spotSize: 'spotSize',
+        fluenceRange: 'fluence'
+      };
       
-      if (value !== undefined) {
-        // Ensure unit is a string
-        const unitStr = typeof unit === 'string' ? unit : inferUnits(frontmatterKey);
+      Object.entries(directMachineSettingsMap).forEach(([frontmatterKey, settingKey]) => {
+        const value = rawMachineSettings[frontmatterKey];
+        const unit = rawMachineSettings[`${frontmatterKey}Unit`];
+        const min = rawMachineSettings[`${frontmatterKey}Min`];
+        const max = rawMachineSettings[`${frontmatterKey}Max`];
         
-        // Ensure min/max are numbers
-        const minNum = typeof min === 'number' ? min : parseNumericValue(min);
-        const maxNum = typeof max === 'number' ? max : parseNumericValue(max);
-        
-        machineSettings[settingKey] = {
-          numeric: typeof value === 'number' ? value : parseNumericValue(value),
-          text: `${value}${unitStr ? ` ${unitStr}` : ''}`,
-          units: unitStr,
-          range: (minNum !== undefined && maxNum !== undefined) ? { min: minNum, max: maxNum } : undefined
-        };
-      }
-    });
+        if (value !== undefined) {
+          // Ensure unit is a string
+          const unitStr = typeof unit === 'string' ? unit : inferUnits(frontmatterKey);
+          
+          // Ensure min/max are numbers
+          const minNum = typeof min === 'number' ? min : parseNumericValue(min);
+          const maxNum = typeof max === 'number' ? max : parseNumericValue(max);
+          
+          machineSettings[settingKey] = {
+            numeric: typeof value === 'number' ? value : parseNumericValue(value),
+            text: `${value}${unitStr ? ` ${unitStr}` : ''}`,
+            units: unitStr,
+            range: (minNum !== undefined && maxNum !== undefined) ? { min: minNum, max: maxNum } : undefined
+          };
+        }
+      });
+    }
   }
   
   return machineSettings;

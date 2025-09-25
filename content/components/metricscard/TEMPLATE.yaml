@@ -1,0 +1,93 @@
+# MetricsCard YAML Template
+# Complete structure for metricscard components
+
+# MetricsCard Configuration
+title: "Laser Parameters"                    # Card title
+description: "Optimized settings for X material processing"  # Card description
+layout: "grid-3"                            # Layout: grid-2, grid-3, grid-4, list
+maxCards: 6                                 # Maximum number of cards to display
+showTitle: true                             # Show/hide card title
+className: "mb-8"                           # Additional CSS classes
+variant: "default"                          # Variants: default, primary, compact, minimal
+
+# Display Options
+showRanges: true                           # Show min/max ranges in tooltips
+showTrends: true                           # Show trend indicators (up/down/neutral)
+enableHover: true                          # Enable hover effects
+showProgressBars: true                     # Show progress bar visualization
+
+# Machine Settings Data
+# Each setting follows this structure:
+machineSettings:
+  power:                                   # Setting key (used internally)
+    value: 80                             # Current/recommended value
+    unit: "W"                             # Unit of measurement
+    min: 20                               # Minimum safe/effective value
+    max: 500                              # Maximum safe/effective value
+    description: "Laser power output for material processing"  # Tooltip description
+    priority: 1                           # Display priority (1=highest, 3=lowest)
+    
+  wavelength:
+    value: 1064
+    unit: "nm"
+    min: 355
+    max: 2940
+    description: "Optical wavelength for material interaction"
+    priority: 1
+    
+  pulseWidth:                             # Alternative names: pulseDuration
+    value: 5
+    unit: "ns"
+    min: 1
+    max: 1000
+    description: "Temporal width of laser pulses"
+    priority: 2
+    
+  frequency:                              # Alternative names: repetitionRate
+    value: 30
+    unit: "kHz"
+    min: 1
+    max: 1000
+    description: "Pulse repetition rate"
+    priority: 2
+    
+  spotSize:                               # Alternative names: beamDiameter
+    value: 2
+    unit: "mm"
+    min: 0.01
+    max: 10
+    description: "Focused beam diameter"
+    priority: 2
+    
+  fluence:                                # Alternative names: energyDensity
+    value: 0.8
+    unit: "J/cm²"
+    min: 0.1
+    max: 50
+    description: "Energy density per pulse"
+    priority: 3
+
+# Additional optional settings:
+  scanSpeed:
+    value: 100
+    unit: "mm/s"
+    min: 10
+    max: 1000
+    description: "Material processing speed"
+    priority: 3
+    
+  passes:
+    value: 3
+    unit: "passes"
+    min: 1
+    max: 10
+    description: "Number of cleaning passes"
+    priority: 3
+
+# Notes:
+# - Priority 1 settings appear first (most important)
+# - Priority 2 settings appear in middle section
+# - Priority 3 settings appear last or may be hidden in compact mode
+# - Progress bars automatically calculate percentage: (value - min) / (max - min) * 100
+# - Units should be consistent and recognizable (W, nm, ns, kHz, mm, J/cm², etc.)
+# - Min/max values define the operational range for progress bar visualization

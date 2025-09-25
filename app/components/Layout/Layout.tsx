@@ -94,15 +94,24 @@ export function Layout(props: LayoutProps) {
           {ARTICLE_COMPONENT_ORDER.map(type => {
             const component = components[type];
             
-            // Special handling for metricscard - render if machineSettings exists in frontmatter
+            // Special handling for metricscard - use YAML component data
             if (type === 'metricscard') {
-              if (metadata && typeof metadata === 'object' && 'machineSettings' in metadata) {
+              if (component?.config) {
+                // Create metadata object from YAML config
+                const metricsMetadata = {
+                  slug: metadata?.slug || '',
+                  title: component.config.title || '',
+                  description: component.config.description || '',
+                  machineSettings: component.config.machineSettings || {}
+                };
+                
                 return (
                   <section key={type} aria-label="Machine metrics visualization">
                     <SimpleMetricsCard 
-                      metadata={metadata as any}
-                      title={component?.config?.title as string}
-                      className={component?.config?.className as string}
+                      metadata={metricsMetadata as any}
+                      title={component.config.title as string}
+                      className={component.config.className as string}
+                      mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}
                     />
                   </section>
                 );
