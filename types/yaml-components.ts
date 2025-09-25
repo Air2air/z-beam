@@ -175,19 +175,17 @@ export interface MetaTagsYamlData {
   seoConfig: SeoConfig;
 }
 
-export interface TableRow {
-  property: string;
-  value: string;
-  unit: string;
-  min?: string;
-  max?: string;
-  percentile?: number;
-  htmlVisualization?: string;
-}
-
 export interface MaterialTable {
   header: string;
-  rows: TableRow[];
+  rows: Array<{
+    property: string;
+    value: string;
+    unit: string;
+    min?: string;
+    max?: string;
+    percentile?: number;
+    htmlVisualization?: string;
+  }>;
 }
 
 export interface TableYamlData {

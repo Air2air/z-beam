@@ -1173,3 +1173,233 @@ export type Badge = BadgeData;
 export type MaterialPost = ContentItem;
 export type PageParams = { slug: string };
 export type SearchParams = Record<string, string | string[] | undefined>;
+
+// ===============================
+// COMPONENT INTERFACES
+// ===============================
+
+/**
+ * Form error tracking for contact forms
+ */
+export interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  company?: string;
+  subject?: string;
+  message?: string;
+  inquiryType?: string;
+}
+
+/**
+ * Setting data for machine settings cards
+ */
+export interface SettingData {
+  key: string;
+  title: string;
+  value: number | string;
+  unit?: string;
+  description: string;
+  priority: number;
+  colorScheme: string;
+  trend?: 'up' | 'down' | 'neutral';
+  minValue?: number;
+  maxValue?: number;
+}
+
+/**
+ * Setting card configuration
+ */
+export interface SettingCardConfig {
+  key: keyof MachineSettings;
+  title: string;
+  description: string;
+  priority: number;
+  colorScheme: string;
+  unitKey?: keyof MachineSettings;
+  minKey?: keyof MachineSettings;
+  maxKey?: keyof MachineSettings;
+}
+
+/**
+ * Individual setting card props
+ */
+export interface SettingCardProps {
+  setting: SettingData;
+  href?: string;
+}
+
+/**
+ * Card data interface for simple metrics cards
+ */
+export interface CardData {
+  key: string;
+  title: string;
+  value: any;
+  unit?: any;
+  color?: string;
+  href?: string;
+}
+
+/**
+ * Navigation item interface
+ */
+export interface NavItem {
+  name: string;
+  href: string;
+  current: boolean;
+  children?: NavItem[];
+  icon?: React.ComponentType;
+}
+
+/**
+ * Table row interface
+ */
+export interface TableRow {
+  property: string;
+  value: string;
+  unit?: string;
+  category?: string;
+  min?: string;
+  max?: string;
+  percentile?: number;
+}
+
+/**
+ * Universal page props
+ */
+export interface UniversalPageProps {
+  params: {
+    slug: string;
+  };
+  searchParams?: Record<string, string | string[] | undefined>;
+}
+
+/**
+ * Layout props interface
+ */
+export interface ComponentLayoutProps {
+  metadata: ArticleMetadata;
+  content?: React.ReactNode;
+  showDebug?: boolean;
+}
+
+/**
+ * Article header props
+ */
+export interface ArticleHeaderProps {
+  metadata: ArticleMetadata;
+  showBreadcrumbs?: boolean;
+}
+
+/**
+ * Content props interface
+ */
+export interface ContentProps {
+  children: React.ReactNode;
+}
+
+/**
+ * Debug section interface
+ */
+export interface DebugSection {
+  id: string;
+  title: string;
+  data: any;
+  expanded?: boolean;
+}
+
+/**
+ * Debug layout props
+ */
+export interface DebugLayoutProps {
+  sections: DebugSection[];
+  title?: string;
+}
+
+/**
+ * SEO caption props
+ */
+export interface SEOCaptionProps {
+  frontmatter: ArticleMetadata;
+  content: string | CaptionDataStructure;
+}
+
+/**
+ * Settings props interface
+ */
+export interface SettingsProps {
+  metadata: ArticleMetadata;
+}
+
+/**
+ * Settings parameter interface
+ */
+export interface SettingsParameter {
+  parameter: string;
+  value: string | number;
+  unit?: string;
+  range?: string;
+  category: string;
+}
+
+/**
+ * Search results grid props
+ */
+export interface SearchResultsGridProps {
+  articles: ArticleMetadata[];
+  searchQuery?: string;
+}
+
+/**
+ * Caption image props
+ */
+export interface CaptionImageProps {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+}
+
+/**
+ * FadeIn wrapper props
+ */
+export interface FadeInWrapperProps {
+  children: React.ReactNode;
+  delay?: number;
+  duration?: number;
+  className?: string;
+}
+
+/**
+ * Section card interface
+ */
+export interface SectionCard {
+  id: string;
+  title: string;
+  description: string;
+  href: string;
+  icon?: React.ComponentType;
+  color?: string;
+}
+
+/**
+ * Tag debug data interface
+ */
+export interface TagDebugData {
+  tag: string;
+  count: number;
+  articles: string[];
+  normalized: string;
+  category?: string;
+}
+
+/**
+ * Frontmatter item interface
+ */
+export interface FrontmatterItem {
+  file: string;
+  frontmatter: Record<string, any>;
+  errors?: string[];
+}

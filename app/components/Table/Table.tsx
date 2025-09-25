@@ -6,10 +6,12 @@ import './styles.css';
 
 interface TableRow {
   property: string;
-  unit?: string;
-  min?: string;
   value: string;
+  unit?: string;
+  category?: string;
+  min?: string;
   max?: string;
+  percentile?: number;
 }
 
 /**

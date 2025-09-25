@@ -3,23 +3,16 @@ import React from 'react';
 import { toSentenceCase } from '../../utils/formatting';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { PropertiesTableProps } from '@/types/centralized';
+import SimpleMetricsCard, { CardData } from '../MetricsCard/MetricsCard';
 import "./styles.css";
 
 /**
- * Transforms any table to convert ALL key-value pairs into cards
+ * Extracts key-value pairs from table content and converts to CardData format
  */
-function transformTableStructure(htmlContent: string): string {
+function extractTableData(htmlContent: string): CardData[] {
   if (!htmlContent.includes("<table")) {
-    return htmlContent;
+    return [];
   }
-
-  // Function to convert property names to CSS class names
-  const getPropertyClassName = (propertyName: string): string => {
-    return propertyName
-      .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]/g, '');
-  };
 
   // Function to apply title case formatting for specific properties
   const formatPropertyValue = (key: string, value: string): string => {
@@ -35,17 +28,13 @@ function transformTableStructure(htmlContent: string): string {
   // Find only the first table
   const firstTableMatch = htmlContent.match(/<table[^>]*>[\s\S]*?<\/table>/i);
   if (!firstTableMatch) {
-    return htmlContent;
+    return [];
   }
 
   const tableHtml = firstTableMatch[0];
   
   // Extract all key-value pairs from the first table
-  const keyValuePairs: Array<{
-    key: string;
-    value: string;
-    className: string;
-  }> = [];
+  const cardData: CardData[] = [];
   const rowMatches = tableHtml.matchAll(
     /<tr[^>]*>\s*<td[^>]*>([^<]+)<\/td>\s*<td[^>]*>([^<]+)<\/td>\s*<\/tr>/gi
   );
@@ -57,32 +46,15 @@ function transformTableStructure(htmlContent: string): string {
     // Apply formatting based on property type
     cleanValue = formatPropertyValue(cleanKey, cleanValue);
 
-    // Generate CSS class name dynamically
-    const className = getPropertyClassName(cleanKey);
-    keyValuePairs.push({ key: cleanKey, value: cleanValue, className });
+    cardData.push({
+      key: cleanKey.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
+      title: cleanKey,
+      value: cleanValue,
+      href: `/search?property=${encodeURIComponent(cleanKey)}&value=${encodeURIComponent(cleanValue)}`
+    });
   }
 
-  // If we found key-value pairs, create a flex row of cards
-  if (keyValuePairs.length > 0) {
-    const cardCells = keyValuePairs
-      .map(
-        ({ key, value, className }) =>
-          `<div class="property-card ${className}">
-        <a href="/search?property=${encodeURIComponent(key)}&value=${encodeURIComponent(value)}" class="property-link">
-          <h3 class="property-value">${value}</h3>
-          <div class="property-key">${key}</div>
-        </a>
-      </div>`
-      )
-      .join("\n        ");
-
-    return `<div class="properties-flex-container">
-      ${cardCells}
-    </div>`;
-  }
-
-  // Return empty if no properties found
-  return "";
+  return cardData;
 }
 
 /**
@@ -146,23 +118,28 @@ function convertMarkdownTableToHtml(markdown: string): string {
 }
 
 /**
- * Custom PropertiesTable component that processes raw markdown content
+ * Custom PropertiesTable component that uses MetricsCard for display
  */
 export function PropertiesTable({ content, config }: PropertiesTableProps) {
   const { className = "", caption } = config || {};
 
-  // Convert markdown to HTML, then transform the table structure
-  const processedContent = React.useMemo(() => {
-    if (!content) return '';
+  // Convert markdown to HTML, then extract card data
+  const cardData = React.useMemo(() => {
+    if (!content) return [];
     const htmlContent = convertMarkdownTableToHtml(content);
-    return transformTableStructure(htmlContent);
+    return extractTableData(htmlContent);
   }, [content]);
 
-  if (!content) return null;
+  if (!content || cardData.length === 0) return null;
 
   return (
     <div className={`properties-table ${className}`}>
-      <div dangerouslySetInnerHTML={{ __html: processedContent }} />
+      <SimpleMetricsCard 
+        cards={cardData}
+        title="" // No title for properties tables
+        gridCols="grid-cols-2 md:grid-cols-4 lg:grid-cols-4"
+        className="properties-metrics-card"
+      />
       {caption && <div className="caption">{caption}</div>}
     </div>
   );

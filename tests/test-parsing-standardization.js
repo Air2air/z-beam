@@ -4,10 +4,8 @@
 console.log('🧪 PARSING STANDARDIZATION TEST');
 console.log('===============================\n');
 
-const fs = require('    console.log('📄 Validating raw content processing...');
-    
-    // Test raw content handling for remaining components
-    console.log('  ✅ Raw content processing validated for remaining components'); = require('path');
+const fs = require('fs');
+const path = require('path');
 
 class ParsingStandardizationValidator {
   constructor() {

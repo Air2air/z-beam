@@ -36,6 +36,7 @@ const CONTENT_DIRS = {
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
+    metricscard: path.join(process.cwd(), 'content', 'components', 'metricscard'),
   },
   pages: path.join(process.cwd(), 'content', 'components', 'pages'),
 } as const;
@@ -678,6 +679,17 @@ export const loadComponent = cache(async (
               showTechnicalDetails: true, // Enable laser parameters by default
               showMetadata: false, // Metadata off by default
             }
+          };
+        }
+      } else if (type === 'metricscard') {
+        // Handle YAML metricscard files
+        const metricsCardData = yamlData;
+        
+        if (metricsCardData) {
+          // Return the YAML configuration for the MetricsCard component
+          return {
+            content: '', // MetricsCard doesn't need content, just config
+            config: metricsCardData
           };
         }
       }

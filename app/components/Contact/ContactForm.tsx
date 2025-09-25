@@ -2,11 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ContactFormData } from '@/types';
-
-interface FormErrors {
-  [key: string]: string;
-}
+import { ContactFormData, FormErrors } from '@/types';
 
 export function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({

@@ -16,7 +16,7 @@ import { PropertiesTable } from "../PropertiesTable";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import MetricsCard from '../MetricsCard/SimpleMetricsCard';
+import SimpleMetricsCard from '../MetricsCard/MetricsCard';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
@@ -99,7 +99,7 @@ export function Layout(props: LayoutProps) {
               if (metadata && typeof metadata === 'object' && 'machineSettings' in metadata) {
                 return (
                   <section key={type} aria-label="Machine metrics visualization">
-                    <MetricsCard 
+                    <SimpleMetricsCard 
                       metadata={metadata as any}
                       title={component?.config?.title as string}
                       className={component?.config?.className as string}
