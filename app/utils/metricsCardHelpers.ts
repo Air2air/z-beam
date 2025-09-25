@@ -61,32 +61,41 @@ export function extractMachineSettingsFromFrontmatter(metadata: ArticleMetadata)
     });
   }
   
-  // ALSO check for direct frontmatter machine settings properties
-  // Look for common machine settings properties directly in metadata
-  const directMachineSettingsMap = {
-    powerRange: 'power',
-    wavelength: 'wavelength', 
-    pulseDuration: 'pulseWidth',
-    repetitionRate: 'frequency',
-    spotSize: 'spotSize',
-    fluenceRange: 'fluence'
-  };
-  
-  Object.entries(directMachineSettingsMap).forEach(([frontmatterKey, settingKey]) => {
-    const value = (metadata as any)[frontmatterKey];
-    const unit = (metadata as any)[`${frontmatterKey}Unit`];
-    const min = (metadata as any)[`${frontmatterKey}Min`];
-    const max = (metadata as any)[`${frontmatterKey}Max`];
+  // Extract machine settings directly from machineSettings object in frontmatter
+  const rawMachineSettings = metadata.machineSettings;
+  if (rawMachineSettings && typeof rawMachineSettings === 'object') {
+    const directMachineSettingsMap = {
+      powerRange: 'power',
+      wavelength: 'wavelength', 
+      pulseDuration: 'pulseWidth',
+      repetitionRate: 'frequency',
+      spotSize: 'spotSize',
+      fluenceRange: 'fluence'
+    };
     
-    if (value !== undefined) {
-      machineSettings[settingKey] = {
-        numeric: typeof value === 'number' ? value : parseNumericValue(value),
-        text: `${value}${unit ? ` ${unit}` : ''}`,
-        units: unit || inferUnits(frontmatterKey),
-        range: (min !== undefined && max !== undefined) ? { min, max } : undefined
-      };
-    }
-  });
+    Object.entries(directMachineSettingsMap).forEach(([frontmatterKey, settingKey]) => {
+      const value = rawMachineSettings[frontmatterKey];
+      const unit = rawMachineSettings[`${frontmatterKey}Unit`];
+      const min = rawMachineSettings[`${frontmatterKey}Min`];
+      const max = rawMachineSettings[`${frontmatterKey}Max`];
+      
+      if (value !== undefined) {
+        // Ensure unit is a string
+        const unitStr = typeof unit === 'string' ? unit : inferUnits(frontmatterKey);
+        
+        // Ensure min/max are numbers
+        const minNum = typeof min === 'number' ? min : parseNumericValue(min);
+        const maxNum = typeof max === 'number' ? max : parseNumericValue(max);
+        
+        machineSettings[settingKey] = {
+          numeric: typeof value === 'number' ? value : parseNumericValue(value),
+          text: `${value}${unitStr ? ` ${unitStr}` : ''}`,
+          units: unitStr,
+          range: (minNum !== undefined && maxNum !== undefined) ? { min: minNum, max: maxNum } : undefined
+        };
+      }
+    });
+  }
   
   return machineSettings;
 }
