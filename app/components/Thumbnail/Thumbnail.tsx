@@ -3,9 +3,7 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { Article } from "@/types";
-import { Card } from "../Card/Card";
-import { logger } from "../../utils/logger";
+import { Article, ArticleMetadata } from "@/types";
 
 type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
 
@@ -16,13 +14,7 @@ interface ThumbnailProps {
   objectFit?: ObjectFit;
   width?: number;
   height?: number;
-  slug?: string; // Add slug to fetch data directly
-  frontmatter?: {
-    images?: {
-      hero?: { url: string };
-    };
-    [key: string]: unknown;
-  }; // Specific structure for images
+  frontmatter?: ArticleMetadata; // Use standardized type
 }
 
 export function Thumbnail({
@@ -32,40 +24,19 @@ export function Thumbnail({
   objectFit = "cover",
   width,
   height,
-  slug,
   frontmatter
 }: ThumbnailProps) {
   const [imageUrl, setImageUrl] = useState<string>("");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // If we already have frontmatter, use it directly
+    // Use frontmatter data directly - no API calls needed
+    // If no frontmatter is provided, don't fetch anything (GROK: simplification)
     if (frontmatter?.images?.hero?.url) {
       setImageUrl(frontmatter.images.hero.url);
-      return;
+    } else {
+      setImageUrl("");
     }
-
-    // If we have a slug, fetch the data directly
-    if (slug && !frontmatter) {
-      setLoading(true);
-      fetch(`/api/articles/${slug}`)
-        .then(response => response.json())
-        .then(data => {
-          if (data?.metadata?.images?.hero?.url) {
-            setImageUrl(data.metadata.images.hero.url);
-          } else {
-            setImageUrl("");
-          }
-        })
-        .catch(error => {
-          logger.error("Error fetching thumbnail data", error, { slug });
-          setImageUrl("");
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  }, [slug, frontmatter]);
+  }, [frontmatter]);
 
   // Map objectFit to Tailwind class
   const objectFitClass = {
@@ -84,18 +55,7 @@ export function Thumbnail({
         height: "100%",
       }}
     >
-      {loading ? (
-        <div className="w-full h-full flex items-center justify-center bg-gray-600">
-          <Image
-            src="/images/Site/Logo/logo_.png"
-            alt="Loading..."
-            width={60}
-            height={60}
-            className="object-contain opacity-50"
-            unoptimized={true}
-          />
-        </div>
-      ) : imageUrl ? (
+      {imageUrl ? (
         <Image
           src={imageUrl}
           alt={alt}

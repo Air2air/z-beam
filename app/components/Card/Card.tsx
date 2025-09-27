@@ -77,7 +77,7 @@ export function Card({
         >
           <Thumbnail
             alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
-            slug={slug}
+            frontmatter={frontmatter}
             objectFit="cover"
             priority={false}
           />

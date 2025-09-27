@@ -1,7 +1,7 @@
 // app/components/Author/Author.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { ArticleMetadata, AuthorProps } from "@/types";
+import { AuthorProps } from "@/types";
 
 export function Author({
   frontmatter,
@@ -14,24 +14,18 @@ export function Author({
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
-  // Get author data from frontmatter only
-  const author = frontmatter?.authorInfo;
+  // Frontmatter-first: use author_object directly from frontmatter
+  const author = frontmatter?.author_object || frontmatter?.authorInfo;
   
-  // Return null if no author data provided
-  if (!author || !frontmatter) return null;
-  
-  // Simplified field access - no more dual compatibility
-  const authorName = author.name || "";
-  const authorImage = author.image || "";
-  const credentials = author.title || "";
-  const country = author.country || "";
-  const field = author.expertise || "";
+  // Always render with meaningful fallbacks
+  const authorName = author?.name || 'Z-Beam';
+  const authorImage = author?.image || '';
+  const credentials = author?.title || '';
+  const country = author?.country || '';
+  const field = author?.expertise || '';
 
   // Generate URL-encoded author name for tag search
-  const encodedAuthorName = encodeURIComponent(authorName || "");
-
-  // Return null if no author information
-  if (!authorName) return null;
+  const encodedAuthorName = encodeURIComponent(authorName);
 
   return (
     <Link
@@ -47,7 +41,7 @@ export function Author({
                   <div className="author-avatar">
                     <Image
                       src={authorImage}
-                      alt={authorName || "Author"}
+                      alt={authorName}
                       width={60}
                       height={60}
                       className="rounded-full"
@@ -57,16 +51,14 @@ export function Author({
               </td>
               <td className="align-top">
                 <div className="author-info">
-                  {authorName && (
-                    <div className="author-name font-medium text-gray-900 dark:text-white block">
-                      {authorName}
-                      {showCredentials && credentials && (
-                        <span className="ml-1 author-appellation font-medium text-gray-600 dark:text-gray-400">
-                          {credentials}
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  <div className="author-name font-medium text-gray-900 dark:text-white block">
+                    {authorName}
+                    {showCredentials && credentials && (
+                      <span className="ml-1 author-appellation font-medium text-gray-600 dark:text-gray-400">
+                        {credentials}
+                      </span>
+                    )}
+                  </div>
 
                   {showSpecialties && field && (
                     <div className="author-field text-md text-gray-600 dark:text-gray-400">

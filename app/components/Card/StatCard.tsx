@@ -221,7 +221,7 @@ export function StatCard({
         <div className="relative w-full aspect-[16/9] h-20 overflow-hidden bg-gray-50 dark:bg-gray-800">
           <Thumbnail
             alt={cardProps.frontmatter?.images?.hero?.alt || cardProps.frontmatter?.subject || cardProps.frontmatter?.title || 'Stat Card'}
-            slug={cardProps.href?.split('/').pop() || ''}
+            frontmatter={cardProps.frontmatter}
             objectFit="cover"
             priority={false}
           />

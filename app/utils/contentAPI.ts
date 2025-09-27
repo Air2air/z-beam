@@ -55,7 +55,7 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
   return safeContentOperation(async () => {
     // Secure path construction with validation
     const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
-    let frontmatterPath = path.join(frontmatterDir, `${validatedSlug}.md`);
+    let frontmatterPath = path.join(frontmatterDir, `${validatedSlug}.yaml`);
     
     // Validate constructed path for security
     validateFilePath(frontmatterPath, [frontmatterDir]);
@@ -65,8 +65,8 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
       if (existsSync(frontmatterDir)) {
         const files = await fs.readdir(frontmatterDir);
         const matchingFile = files.find(file => 
-          file.endsWith('.md') && 
-          stripParenthesesFromSlug(file.replace('.md', '')) === validatedSlug
+          file.endsWith('.yaml') && 
+          stripParenthesesFromSlug(file.replace('.yaml', '')) === validatedSlug
         );
         
         if (matchingFile) {
@@ -84,10 +84,12 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
     const fileContent = readFileSync(frontmatterPath, 'utf8');
     
     try {
-      const { data } = safeMatterParse(fileContent);
+      // Parse as pure YAML since these are now .yaml files
+      const yaml = require('yaml');
+      const data = yaml.parse(fileContent);
       
       // Process all image URLs to strip parentheses
-      if (data.images && typeof data.images === 'object') {
+      if (data && data.images && typeof data.images === 'object') {
         Object.keys(data.images as Record<string, unknown>).forEach(imageType => {
           const imageData = (data.images as any)[imageType];
           if (imageData && imageData.url) {
@@ -96,36 +98,10 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
         });
       }
       
-      // Direct regex extraction for images even if gray-matter worked
-      const heroImageMatch = typeof fileContent === 'string' ? fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/) : null;
-      if (heroImageMatch && heroImageMatch[1]) {
-        const heroUrl = stripParenthesesFromImageUrl(heroImageMatch[1].trim().replace(/"/g, ''));
-        
-        // Make sure the images structure exists
-        if (!data.images) data.images = {};
-        if (!(data.images as any).hero) (data.images as any).hero = {};
-        
-        // Add or update the URL
-        (data.images as any).hero.url = heroUrl;
-      }
-      
-      return data;
-    } catch (matterError) {
-      // Alternative: Extract image URLs directly with regex
-      const result: Record<string, unknown> = {};
-      
-      // Extract hero image URL
-      const heroImageMatch = typeof fileContent === 'string' ? fileContent.match(/hero:[\s\S]*?url:[\s]*([^\n"]+)/) : null;
-      if (heroImageMatch && heroImageMatch[1]) {
-        const heroUrl = stripParenthesesFromImageUrl(heroImageMatch[1].trim().replace(/"/g, ''));
-        result.images = {
-          hero: {
-            url: heroUrl
-          }
-        };
-      }
-      
-      return result;
+      return data || {};
+    } catch (error) {
+      console.warn(`Failed to parse YAML for ${validatedSlug}:`, error);
+      return {};
     }
   }, {}, 'loadFrontmatterDataInline', slug);
 });
@@ -137,20 +113,15 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
   return safeContentOperation(async () => {
     const slugs = new Set<string>();
     
-    // Check all component directories for slugs (consolidated approach)
-    const directories = [
-      path.join(process.cwd(), 'content', 'components', 'metatags'),
-      path.join(process.cwd(), 'content', 'components', 'frontmatter')
-    ];
+    // Check frontmatter directory for YAML files (primary source)
+    const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
     
-    for (const dir of directories) {
-      if (existsSync(dir)) {
-        const files = await fs.readdir(dir);
-        files
-          .filter(file => file.endsWith('.md'))
-          .map(file => stripParenthesesFromSlug(file.replace('.md', '')))
-          .forEach(slug => slugs.add(slug));
-      }
+    if (existsSync(frontmatterDir)) {
+      const files = await fs.readdir(frontmatterDir);
+      files
+        .filter(file => file.endsWith('.yaml'))
+        .map(file => stripParenthesesFromSlug(file.replace('.yaml', '')))
+        .forEach(slug => slugs.add(slug));
     }
     
     return Array.from(slugs);
@@ -841,21 +812,55 @@ export const getArticleBySlug = loadSingleArticle;
  */
 export const getArticle = cache(async (slug: string): Promise<{ metadata: Record<string, unknown>; components: Record<string, ComponentData> } | null> => {
   return safeContentOperation(async () => {
-    const pageData = await loadPageData(slug);
+    // SIMPLIFIED: Load frontmatter data directly - bypass all legacy complexity
+    const frontmatterData = await loadFrontmatterDataInline(slug);
     
-    // Check if there's an author component and merge it into metadata
-    let metadata = pageData.metadata;
-    if (pageData.components.author?.config) {
-      metadata = {
-        ...metadata,
-        authorInfo: pageData.components.author.config
-      };
+    if (!frontmatterData || Object.keys(frontmatterData).length === 0) {
+      console.log(`getArticle debug for slug: ${slug}`);
+      console.log('frontmatterData:', Object.keys(frontmatterData || {}));
+      console.log('Has title?', frontmatterData?.title);
+      console.log('Returning null - no frontmatter data found');
+      return null;
     }
     
-    // Return in contentIntegrator format
+    console.log(`getArticle debug for slug: ${slug}`);
+    console.log('frontmatterData:', Object.keys(frontmatterData || {}));
+    console.log('Has title?', frontmatterData?.title);
+    console.log('Returning article with title:', frontmatterData?.title);
+    
+    // Use frontmatter data as the primary metadata source
+    const metadata = {
+      ...frontmatterData,
+      slug,
+      // Ensure we have the author info accessible in both formats for compatibility
+      authorInfo: frontmatterData.author_object || frontmatterData.authorInfo
+    };
+
+    // Load all the standard article components that Layout expects
+    const components: Record<string, ComponentData> = {};
+    
+    // Load standard components that Layout looks for
+    const componentTypes = ['text', 'caption', 'settings', 'table', 'tags', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
+    
+    for (const type of componentTypes) {
+      try {
+        const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'tags' && type !== 'caption' });
+        if (componentData && (componentData.content || componentData.config)) {
+          components[type] = componentData;
+        }
+      } catch (error) {
+        // Component doesn't exist, skip it
+        console.log(`Component ${type} not found for ${slug}, skipping`);
+      }
+    }
+    
+    // Always provide title and author components with frontmatter data
+    components.title = { config: frontmatterData, content: '' };
+    components.author = { config: frontmatterData, content: '' };
+    
     return {
       metadata,
-      components: pageData.components
+      components
     };
   }, null, 'getArticle', slug);
 });

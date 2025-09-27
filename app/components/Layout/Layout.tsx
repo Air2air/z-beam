@@ -2,10 +2,15 @@
 // Single, simplified layout system for maximum reusability and responsiveness
 
 import React, { ReactNode } from 'react';
-import { ArticleHeader } from '../Article/ArticleHeader';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { ArticleMetadata, ComponentData, LayoutProps, BadgeSymbolData, BadgeVariant } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
+
+// Header components (previously in ArticleHeader)
+import { Hero } from "../Hero/Hero";
+import { Title } from "../Title/Title";
+import { Author } from "../Author/Author";
+import { extractSafeValue } from "../../utils/stringHelpers";
 
 // Article content components
 import { Content } from "../Content/Content";
@@ -23,7 +28,7 @@ import MetricsMachineSettings from '../MetricsCard/MetricsMachineSettings';
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
   'badgesymbol', 
-  'content',
+  'text',
   'caption',
   'metricsmachinesettings',
   'metricsproperties',
@@ -83,16 +88,45 @@ export function Layout(props: LayoutProps) {
         {/* Structured data */}
         {jsonLdData && <JsonLD data={jsonLdData} />}
         
-        {/* Article header */}
-      {/* Article Header with Hero, Title, PropertiesTable, and Author */}
-      {!hideHeader && (
-        <ArticleHeader 
-          metadata={metadata} 
-          slug={slug} 
-          title={title}
-          components={components}
-        />
-      )}        {/* Article content */}
+        {/* Article header components - previously in ArticleHeader */}
+        {!hideHeader && (
+          <div className="header-section mb-6">
+            {/* Hero component for background image */}
+            {(() => {
+              // Extract material name for hero image (from subject or slug)
+              const materialName = extractSafeValue(metadata?.subject).toLowerCase() || 
+                (slug && extractSafeValue(slug).includes('-') ? extractSafeValue(slug).split('-')[0].toLowerCase() : extractSafeValue(slug || '').toLowerCase());
+              
+              return materialName && (
+                <Hero
+                  frontmatter={metadata}
+                  theme="dark"
+                />
+              );
+            })()}
+
+            {/* PropertiesTable component - positioned right after Hero */}
+            {components?.propertiestable && (
+              <section aria-labelledby="properties-heading" className="my-6">
+                <PropertiesTable 
+                  content={components.propertiestable.content} 
+                  config={components.propertiestable.config} 
+                />
+              </section>
+            )}
+
+            {/* Title and Author components - simplified frontmatter-only */}
+            <Title frontmatter={metadata} title={title} />
+            <Author 
+              frontmatter={metadata}
+              showAvatar={true}
+              showCredentials={true}
+              showCountry={true}
+              showSpecialties={true}
+              className="mt-2 mb-4"
+            />
+          </div>
+        )}        {/* Article content */}
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => {
             const component = components[type];
@@ -165,7 +199,7 @@ export function Layout(props: LayoutProps) {
                     />
                   </section>
                 );
-              case 'content':
+              case 'text':
                 return (
                   <section key={type} aria-label="Main content">
                     <Content content={content} config={config} />

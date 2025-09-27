@@ -1,18 +1,14 @@
 // app/components/Title/Title.tsx
 import React from 'react';
-
-interface TitleProps {
-  children: React.ReactNode;
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
-  className?: string;
-  subtitle?: string;
-}
+import { TitleProps } from '@/types';
 
 export function Title({ 
   children, 
+  frontmatter,
   level = 1, 
   className = '',
-  subtitle 
+  subtitle,
+  title
 }: TitleProps) {
   const baseClasses = 'font-bold text-gray-900 dark:text-white mb-4';
   
@@ -26,17 +22,20 @@ export function Title({
   };
   
   const combinedClasses = `${baseClasses} ${levelClasses[level]} ${className}`.trim();
-  
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   
+  // Frontmatter-first approach: prioritize frontmatter.title
+  const displayTitle = frontmatter?.title || title || children || 'Article';
+  const displaySubtitle = frontmatter?.description || subtitle;
+
   return (
     <header className="mb-8 mt-6">
       <Tag className={combinedClasses}>
-        {children}
+        {String(displayTitle)}
       </Tag>
-      {subtitle && (
+      {displaySubtitle && (
         <p className="text-base text-gray-600 dark:text-gray-300 mt-2">
-          {subtitle}
+          {String(displaySubtitle)}
         </p>
       )}
     </header>

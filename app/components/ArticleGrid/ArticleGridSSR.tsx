@@ -286,19 +286,21 @@ export async function ArticleGridSSR({
                   {displayItems.map((item, index) => (
                     <Card
                       key={`${category}-${item.slug}-${index}`}
-                      title={item.title || slugToDisplayName(item.slug)}
-                      name={item.name}
-                      description={item.description || ''}
                       href={item.href || `/${item.slug}`}
-                      imageUrl={item.imageUrl || item.image || ''}
-                      imageAlt={item.imageAlt || item.title || slugToDisplayName(item.slug)}
-                      badge={showBadgeSymbols ? item.badge : undefined}
-                      tags={item.tags || []}
-                      metadata={{
+                      frontmatter={{
                         title: item.title || slugToDisplayName(item.slug),
+                        subject: item.name || item.title || slugToDisplayName(item.slug),
+                        description: item.description || '',
                         slug: item.slug,
+                        images: item.imageUrl ? {
+                          hero: {
+                            url: item.imageUrl,
+                            alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                          }
+                        } : undefined,
                         ...item.metadata
                       } as ArticleMetadata}
+                      badge={showBadgeSymbols ? item.badge : undefined}
                       className="h-full"
                     />
                   ))}
@@ -342,19 +344,21 @@ export async function ArticleGridSSR({
         {filteredItems.map((item, index) => (
           <Card
             key={`${item.slug}-${index}`}
-            title={item.title || slugToDisplayName(item.slug)}
-            name={item.name}
-            description={item.description || ''}
             href={item.href || `/${item.slug}`}
-            imageUrl={item.imageUrl || item.image || ''}
-            imageAlt={item.imageAlt || item.title || slugToDisplayName(item.slug)}
-            badge={showBadgeSymbols ? item.badge : undefined}
-            tags={item.tags || []}
-            metadata={{
+            frontmatter={{
               title: item.title || slugToDisplayName(item.slug),
+              subject: item.name || item.title || slugToDisplayName(item.slug),
+              description: item.description || '',
               slug: item.slug,
+              images: item.imageUrl ? {
+                hero: {
+                  url: item.imageUrl,
+                  alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                }
+              } : undefined,
               ...item.metadata
             } as ArticleMetadata}
+            badge={showBadgeSymbols ? item.badge : undefined}
             className={`h-full ${
               variant === 'compact' ? 'compact' : variant === 'featured' ? 'featured' : ''
             }`}

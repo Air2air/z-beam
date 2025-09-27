@@ -8,10 +8,26 @@ import { Layout } from '../../app/components/Layout/Layout';
 import { ArticleMetadata, ComponentData } from '../../types/centralized';
 
 // Mock child components to focus on layout logic
-jest.mock('../../app/components/Article/ArticleHeader', () => ({
-  ArticleHeader: ({ metadata, slug, title }: any) => (
-    <div data-testid="article-header" data-slug={slug} data-title={title}>
-      Article Header for {metadata?.title || title}
+jest.mock('../../app/components/Hero/Hero', () => ({
+  Hero: ({ frontmatter, theme }: any) => (
+    <div data-testid="hero" data-theme={theme}>
+      Hero for {frontmatter?.title}
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Title/Title', () => ({
+  Title: ({ frontmatter, title, children }: any) => (
+    <div data-testid="title" data-title={frontmatter?.title || title} data-subtitle={frontmatter?.description}>
+      {frontmatter?.title || title || children}
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Author/Author', () => ({
+  Author: ({ frontmatter }: any) => (
+    <div data-testid="author">
+      Author: {frontmatter?.authorInfo?.name}
     </div>
   ),
 }));
@@ -171,7 +187,9 @@ describe('Layout Component', () => {
 
       expect(screen.getByRole('main')).toBeInTheDocument();
       expect(screen.getByRole('article')).toBeInTheDocument();
-      expect(screen.getByTestId('article-header')).toBeInTheDocument();
+      expect(screen.getByTestId('hero')).toBeInTheDocument();
+      expect(screen.getByTestId('title')).toBeInTheDocument();
+      expect(screen.getByTestId('author')).toBeInTheDocument();
       expect(screen.getByTestId('content-component')).toBeInTheDocument();
       expect(screen.getByTestId('caption-component')).toBeInTheDocument();
       expect(screen.getByTestId('tags-component')).toBeInTheDocument();

@@ -431,6 +431,18 @@ export interface AuthorProps {
 }
 
 /**
+ * Title component props
+ */
+export interface TitleProps {
+  children?: ReactNode;
+  frontmatter?: ArticleMetadata;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  className?: string;
+  subtitle?: string;
+  title?: string;
+}
+
+/**
  * Layout component props
  */
 export interface LayoutProps {
