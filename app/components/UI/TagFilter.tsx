@@ -37,8 +37,8 @@ export function TagFilter({
           tag.toLowerCase() === selectedTag.toLowerCase();
 
         const tagClass = isSelected
-          ? "bg-blue-500 text-white hover:bg-blue-600"
-          : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700";
+          ? "bg-blue-500 text-white"
+          : "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200";
 
         // For link-based navigation
         if (linkPrefix) {

@@ -1,4 +1,4 @@
-// app/components/Caption/M          <div className="metric-card bg-gray-700 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6 transition-transform duration-200 ease-in-out hover:transform hover:-translate-y-0.5">tricsGrid/MetricsGrid.tsx
+// app/components/Caption/MetricsGrid/MetricsGrid.tsx
 import React from 'react';
 import { QualityMetrics, MetricsGridProps } from '../../../../types/centralized';
 import './styles.css';
@@ -25,7 +25,7 @@ export function MetricsGrid({
     <div className={`metrics-grid grid w-full min-w-0 overflow-hidden ${maxCards === 2 ? 'grid-cols-2' : `grid-cols-${maxCards}`} ${className}`}>
       {filteredMetrics.map(([key, value]) => (
         <div key={key} className="flex justify-start items-start min-w-0 overflow-hidden">
-          <div className="metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6 transition-transform duration-200 ease-in-out hover:transform hover:-translate-y-0.5">
+          <div className="metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6">
             <dt className="text-xs font-medium text-gray-400 uppercase tracking-wider leading-tight truncate w-full">
               {key.replace(/_/g, ' ')}
             </dt>

@@ -104,7 +104,7 @@ export function FrontmatterNameChecker() {
             />
             <button
               onClick={handleCheckName}
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              className="px-4 py-2 bg-blue-600 text-white rounded"
             >
               Check
             </button>
@@ -144,7 +144,7 @@ export function FrontmatterNameChecker() {
                       </code>
                       <button
                         onClick={handleUseSuggestion}
-                        className="ml-2 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded hover:bg-blue-200"
+                        className="ml-2 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded"
                       >
                         Use this
                       </button>

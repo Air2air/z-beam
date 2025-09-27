@@ -207,7 +207,7 @@ export function Table({ content, config }: TableProps) {
                     parseValueRange(row.value, row.min, row.max) : null;
                   
                   return (
-                    <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <tr key={index} className="">
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                         {row.property}
                       </td>
@@ -232,7 +232,7 @@ export function Table({ content, config }: TableProps) {
                                 <>
                                   {/* Range visualization - shaded area */}
                                   <div 
-                                    className="bg-gradient-to-r from-blue-200 to-blue-300 dark:from-blue-800 dark:to-blue-700 h-4 rounded-sm absolute transition-all duration-300"
+                                    className="bg-gradient-to-r from-blue-200 to-blue-300 dark:from-blue-800 dark:to-blue-700 h-4 rounded-sm absolute"
                                     style={{ 
                                       left: `${Math.min(rangeData.startPosition!, rangeData.endPosition!)}%`, 
                                       width: `${Math.abs(rangeData.endPosition! - rangeData.startPosition!)}%` 
@@ -253,7 +253,7 @@ export function Table({ content, config }: TableProps) {
                                 <>
                                   {/* Single value visualization */}
                                   <div 
-                                    className="bg-gradient-to-r from-blue-500 to-indigo-600 h-4 rounded-sm transition-all duration-300"
+                                    className="bg-gradient-to-r from-blue-500 to-indigo-600 h-4 rounded-sm"
                                     style={{ width: `${rangeData.singlePosition}%` }}
                                   />
                                   <div 

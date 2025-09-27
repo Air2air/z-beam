@@ -25,8 +25,8 @@ const ARTICLE_COMPONENT_ORDER = [
   'badgesymbol', 
   'content',
   'caption',
-  'metricscard',
-  'properties',
+  'metricsmachinesettings',
+  'metricsproperties',
   'settings',
   'table',
   'tags'
@@ -97,8 +97,8 @@ export function Layout(props: LayoutProps) {
           {ARTICLE_COMPONENT_ORDER.map(type => {
             const component = components[type];
             
-            // Special handling for metricscard - use YAML component data
-            if (type === 'metricscard') {
+            // Special handling for metricsmachinesettings - use YAML component data
+            if (type === 'metricsmachinesettings') {
               if (component?.config) {
                 // Create metadata object from YAML config
                 const metricsMetadata = {
@@ -122,10 +122,10 @@ export function Layout(props: LayoutProps) {
               return null;
             }
 
-            // Special handling for properties - use YAML component data
-            if (type === 'properties') {
+            // Special handling for metricsproperties - use MD component data
+            if (type === 'metricsproperties') {
               if (component?.config) {
-                // Create metadata object from YAML config
+                // Create metadata object from MD config
                 const propertiesMetadata = {
                   slug: metadata?.slug || '',
                   title: component.config.title || '',

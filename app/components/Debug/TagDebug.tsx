@@ -48,7 +48,7 @@ export function TagDebug() {
     return (
       <div className="p-4 bg-gray-50 rounded border">
         <div className="flex items-center space-x-2">
-          <div className="animate-spin h-4 w-4 border-2 border-blue-500 rounded-full border-t-transparent"></div>
+          <div className="h-4 w-4 border-2 border-blue-500 rounded-full border-t-transparent"></div>
           <span>Loading tag data...</span>
         </div>
       </div>

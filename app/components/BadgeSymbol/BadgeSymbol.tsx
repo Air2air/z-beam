@@ -102,7 +102,8 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
     "bg-red-900", // Red background for visibility
     "rounded-md border border-red-800",
     "flex flex-col items-center justify-center",
-    "shadow-sm",
+    "shadow-sm hover:shadow-md hover:scale-105",
+    "transition-all duration-200",
     "badge-container", // Add our custom class for z-index
     className
   ].join(" ");

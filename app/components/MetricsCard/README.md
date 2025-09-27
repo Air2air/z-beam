@@ -7,7 +7,7 @@ The `MetricsCard` component provides a standalone, flexible solution for display
 ### 🔧 Completely Standalone
 - **Zero dependencies on Card or StatCard components**
 - **Self-contained styling and color schemes**
-- **Built-in data extraction from frontmatter**
+- **Built-in data extraction from frontmatter and MD files**
 - **No external component requirements**
 
 ### 🎨 Flexible Display Options
@@ -16,21 +16,35 @@ The `MetricsCard` component provides a standalone, flexible solution for display
 - **Customizable titles and descriptions**
 - **Responsive design with Tailwind CSS**
 
-### 🚀 Ready-to-Use Variants
-- **MetricsCard**: Full-featured configurable component
+### 🚀 Ready-to-Use Components
+- **MetricsCard**: Machine settings from frontmatter
+- **MetricsProperties**: Material properties from MD files
 - **PrimaryMetricsCard**: Essential parameters only
 - **CompactMetricsCard**: Space-efficient 2x2 grid
 - **MinimalMetricsCard**: Clean display without title
+
+### 📊 Two Component Types
+- **Machine Settings** (`metricsmachinesettings`): Laser processing parameters (power, wavelength, etc.)
+- **Material Properties** (`metricsproperties`): Material characteristics (density, thermal conductivity, etc.)
 
 ## Quick Start
 
 ```tsx
 import { MetricsCard, PrimaryMetricsCard, CompactMetricsCard } from '@/components/MetricsCard';
+import MetricsProperties from '@/components/MetricsCard/MetricsProperties';
 
-// Basic usage with article metadata
+// Machine Settings - Basic usage with article metadata
 <MetricsCard 
   metadata={articleMetadata} 
   baseHref="/property/aluminum-6061"
+/>
+
+// Material Properties - Display material properties from MD files
+<MetricsProperties 
+  metadata={articleMetadata} 
+  title="Material Properties"
+  className="mb-8"
+  mode="advanced"
 />
 
 // Primary settings only (high priority)

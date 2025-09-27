@@ -45,18 +45,20 @@ export default async function HomePage() {
   // Only fetch slugs once
   const slugs = await getAllArticleSlugs();
 
+  // Create frontmatter object for Hero component
+  const heroFrontmatter = {
+    title: "Z-Beam Laser Cleaning",
+    description: "Advanced surface treatment solutions for industrial applications", 
+    slug: "home",
+    video: "1058778534" // Vimeo ID
+  };
+
   return (
     <Layout fullWidth>
       {/* Hero section with Vimeo video background */}
       <Hero 
+        frontmatter={heroFrontmatter}
         variant="fullwidth"
-        video={{
-          vimeoId: "1058778534",
-          autoplay: true,
-          loop: true,
-          background: true,
-          muted: true
-        }}
         theme="dark"
       >
         {/* Commented out overlay text to resolve CSS issues */}

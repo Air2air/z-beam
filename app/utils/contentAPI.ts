@@ -36,8 +36,10 @@ const CONTENT_DIRS = {
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
-    metricscard: path.join(process.cwd(), 'content', 'components', 'metricscard'),
-    properties: path.join(process.cwd(), 'content', 'components', 'properties'),
+    text: path.join(process.cwd(), 'content', 'components', 'text'),
+    jsonld: path.join(process.cwd(), 'content', 'components', 'jsonld'),
+    metricsmachinesettings: path.join(process.cwd(), 'content', 'components', 'metricsmachinesettings'),
+    metricsproperties: path.join(process.cwd(), 'content', 'components', 'metricsproperties'),
   },
   pages: path.join(process.cwd(), 'content', 'components', 'pages'),
 } as const;
@@ -682,8 +684,8 @@ export const loadComponent = cache(async (
             }
           };
         }
-      } else if (type === 'metricscard') {
-        // Handle YAML metricscard files
+      } else if (type === 'metricsmachinesettings') {
+        // Handle YAML metricsmachinesettings files
         const metricsCardData = yamlData;
         
         if (metricsCardData) {
@@ -691,6 +693,17 @@ export const loadComponent = cache(async (
           return {
             content: '', // MetricsCard doesn't need content, just config
             config: metricsCardData
+          };
+        }
+      } else if (type === 'metricsproperties') {
+        // Handle YAML metricsproperties files
+        const propertiesData = yamlData;
+        
+        if (propertiesData) {
+          // Return the YAML configuration for the MetricsProperties component
+          return {
+            content: '', // MetricsProperties doesn't need content, just config
+            config: propertiesData
           };
         }
       }

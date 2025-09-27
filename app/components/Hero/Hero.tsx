@@ -7,16 +7,11 @@ import { HeroProps, ArticleMetadata } from '@/types';
 import Image from 'next/image';
 
 export function Hero({ 
-  image, 
-  video,
+  frontmatter,
   children,
-  // align = 'center', - unused
   theme = 'dark',
   variant = 'default',
-  frontmatter,
-  alt, // New prop for accessibility
-  ariaLabel, // New prop for accessibility
-
+  className = '',
 }: HeroProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -46,28 +41,15 @@ export function Hero({
     return () => observer.disconnect();
   }, []);
   
-  // Determine video source, prioritizing frontmatter
-  let videoSource = video;
-  if (!videoSource && frontmatter?.video) {
-    // Handle both string and object video types
-    if (typeof frontmatter.video === 'string') {
-      // If it's a string, assume it's a vimeo ID
-      videoSource = { vimeoId: frontmatter.video };
-    } else {
-      videoSource = frontmatter.video as any;
-    }
-  }
+  // Determine video source from frontmatter only
+  let videoSource = frontmatter?.video ? (
+    typeof frontmatter.video === 'string' 
+      ? { vimeoId: frontmatter.video } 
+      : frontmatter.video as any
+  ) : null;
   
-  // Determine image source, prioritizing frontmatter
-  let imageSource = image;
-  
-  // Use the hero image URL from frontmatter if no direct image provided
-  // Handle both structured (images.hero.url) and flat (image) frontmatter formats
-  if (!imageSource && (frontmatter as any)?.images?.hero?.url) {
-    imageSource = (frontmatter as any).images.hero.url;
-  } else if (!imageSource && frontmatter?.image) {
-    imageSource = frontmatter.image;
-  }
+  // Determine image source from frontmatter only
+  let imageSource = frontmatter?.images?.hero?.url || frontmatter?.image;
 
   // URL encode the image source for CSS background-image usage
   // This is crucial for handling special characters like parentheses in filenames
@@ -145,22 +127,19 @@ export function Hero({
     }
   }, [vimeoUrl, videoError]);
   
-  // Generate accessible alt text
+  // Generate accessible alt text from frontmatter only
   const getAccessibleAlt = (): string => {
-    if (alt) return alt;
-    if (frontmatter?.images?.hero?.alt) return frontmatter.images.hero.alt;
-    if (frontmatter?.title) return `Hero image for ${frontmatter.title}`;
-    return 'Hero background image';
+    // Use frontmatter images structure or generate from title
+    return frontmatter?.images?.hero?.alt || 
+           (frontmatter?.title ? `Hero image for ${frontmatter.title}` : 'Hero background image');
   };
 
-  // Generate accessible aria-label
-  const getSectionAriaLabel = (frontmatter?: ArticleMetadata): string => {
-    if (frontmatter?.title) return `Hero section for ${frontmatter.title}`;
-    return "Hero section";
-  };  // Generate accessible video title
-    const getVideoAriaLabel = (frontmatter?: ArticleMetadata): string => {
-    if (frontmatter?.title) return `Video content for ${frontmatter.title}`;
-    return "Video content";
+  // Generate accessible aria-label from frontmatter only
+  const getSectionAriaLabel = (): string => {
+    return frontmatter?.title ? `Hero section for ${frontmatter.title}` : "Hero section";
+  };  // Generate accessible video title from frontmatter
+  const getVideoAriaLabel = (): string => {
+    return frontmatter?.title ? `Video content for ${frontmatter.title}` : "Video content";
   };
   
   // Tailwind classes for fullwidth variant with responsive heights
@@ -190,7 +169,7 @@ export function Hero({
     <section 
       ref={heroRef}
       className={containerClasses}
-      aria-label={ariaLabel || getSectionAriaLabel(frontmatter)}
+      aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
       {vimeoUrl && !videoError ? (
@@ -204,8 +183,8 @@ export function Hero({
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            title={getVideoAriaLabel(frontmatter)}
-            aria-label={`${getVideoAriaLabel(frontmatter)} - Video player`}
+            title={getVideoAriaLabel()}
+            aria-label={`${getVideoAriaLabel()} - Video player`}
             loading="lazy"
             onError={(e) => {
               console.error('Vimeo iframe error:', e);

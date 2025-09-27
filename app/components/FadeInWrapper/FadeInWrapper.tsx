@@ -22,7 +22,7 @@ export default function FadeInWrapper({ children, delay = 0, className = '' }: F
 
   return (
     <div 
-      className={`transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
+      className={`${isVisible ? 'opacity-100' : 'opacity-0'} ${className}`}
     >
       {children}
     </div>

@@ -8,7 +8,7 @@ import { MetricsGrid } from './MetricsGrid';
 import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '../../../types/centralized';
 import './enhanced-seo-caption.css';
 
-export function Caption({ content, image, frontmatter, config }: CaptionProps) {
+export function Caption({ content, frontmatter, config }: CaptionProps) {
   const captionData = useCaptionParsing(content);
   const { className = '' } = config || {};
   
@@ -92,7 +92,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
   const analysisId = `analysis-${materialName}-${Date.now()}`;
 
   // Image source handling with fallbacks
-  const imageSource = enhancedData.images?.micro?.url || image;
+  const imageSource = enhancedData.images?.micro?.url;
 
   // Reset loading states when image source changes
   useEffect(() => {
@@ -158,7 +158,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
     },
     "image": {
       "@type": "ImageObject",
-      "url": image || enhancedData.images?.micro?.url,
+      "url": enhancedData.images?.micro?.url,
       "caption": `${capitalizedMaterial} surface analysis showing before and after laser cleaning results`,
       "width": enhancedData.images?.micro?.width || 800,
       "height": enhancedData.images?.micro?.height || 450,
@@ -254,7 +254,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
                 aria-live="polite"
                 aria-label="Loading surface analysis image"
               >
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
+                <div className="rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
                 <span className="sr-only">Loading surface analysis image...</span>
               </div>
             )}
@@ -291,7 +291,7 @@ export function Caption({ content, image, frontmatter, config }: CaptionProps) {
           </div>
         ) : imageSource && !isInView ? (
           // Placeholder while not in view for performance
-          <div className="w-full h-[300px] md:h-[400px] bg-gray-800 animate-pulse rounded-lg" aria-hidden="true">
+          <div className="w-full h-[300px] md:h-[400px] bg-gray-800 rounded-lg" aria-hidden="true">
             <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg"></div>
           </div>
         ) : (

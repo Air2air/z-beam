@@ -359,7 +359,6 @@ export interface FrontmatterType {
  */
 export interface CaptionProps {
   content: string | any; // CaptionData type from useCaptionParsing
-  image?: string;
   frontmatter?: FrontmatterType;
   config?: {
     className?: string;
@@ -420,7 +419,7 @@ export interface ParsedCaptionData {
  * Author component props
  */
 export interface AuthorProps {
-  author: AuthorInfo;
+  frontmatter?: ArticleMetadata;
   showAvatar?: boolean;
   showCredentials?: boolean;
   showCountry?: boolean;
@@ -540,28 +539,17 @@ export interface PropertiesTableProps {
 }
 
 /**
- * Hero component props
+ * Hero component props - Uses frontmatter as 100% data source
  */
 export interface HeroProps {
-  image?: string;
-  video?: {
-    vimeoId?: string;
-    url?: string;
-    autoplay?: boolean;
-    loop?: boolean;
-    muted?: boolean;
-    background?: boolean;
-  };
-  align?: 'left' | 'center' | 'right';
+  // Required data source
+  frontmatter?: ArticleMetadata;
+  
+  // Layout and behavior only
   theme?: 'dark' | 'light';
   variant?: 'default' | 'fullwidth';
   children?: React.ReactNode;
-  frontmatter?: ArticleMetadata;
   className?: string;
-  // Accessibility props
-  alt?: string;
-  ariaLabel?: string;
-  role?: string;
 }
 
 /**
@@ -587,7 +575,7 @@ export interface PageData {
 
 export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'solid' | 'subtle';
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ComponentType = 'propertiestable' | 'badgesymbol' | 'content' | 'caption' | 'table' | 'tags' | 'settings';
+export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'propertiestable' | 'settings' | 'table' | 'tags' | 'text';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';

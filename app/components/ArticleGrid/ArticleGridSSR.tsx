@@ -299,7 +299,7 @@ export async function ArticleGridSSR({
                         slug: item.slug,
                         ...item.metadata
                       } as ArticleMetadata}
-                      className="h-full hover:shadow-lg transition-shadow duration-300"
+                      className="h-full"
                     />
                   ))}
                 </div>
@@ -355,7 +355,7 @@ export async function ArticleGridSSR({
               slug: item.slug,
               ...item.metadata
             } as ArticleMetadata}
-            className={`h-full hover:shadow-lg transition-shadow duration-300 ${
+            className={`h-full ${
               variant === 'compact' ? 'compact' : variant === 'featured' ? 'featured' : ''
             }`}
             height={variant === 'compact' ? 'h-48' : variant === 'featured' ? 'auto' : undefined}

@@ -198,12 +198,11 @@ export function Navbar() {
                       }}
                       className={`
                         block py-2 px-3 rounded-md text-lg md:text-base // Styling for links
-                        transition-all duration-200 ease-in-out
-                        focus:outline-none
+                        focus:outline-none transition-colors duration-200
                         ${
                           isActive
                             ? "font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20" // Active link style with background
-                            : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-700" // Inactive link style
+                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400" // Inactive link style with hover
                         }
                       `}
                       role="menuitem"

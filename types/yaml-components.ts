@@ -194,3 +194,77 @@ export interface TableYamlData {
   };
   renderInstructions?: string;
 }
+
+// MetricsProperties interfaces
+export interface MaterialProperty {
+  value: number;
+  unit: string;
+  min: number;
+  max: number;
+  description: string;
+  priority: number;
+}
+
+export interface MaterialProperties {
+  density?: MaterialProperty;
+  thermalConductivity?: MaterialProperty;
+  tensileStrength?: MaterialProperty;
+  youngsModulus?: MaterialProperty;
+  thermalExpansion?: MaterialProperty;
+  meltingPoint?: MaterialProperty;
+  hardness?: MaterialProperty;
+  electricalConductivity?: MaterialProperty;
+  specificHeat?: MaterialProperty;
+  poissonRatio?: MaterialProperty;
+}
+
+export interface MetricsPropertiesConfig {
+  title?: string;
+  description?: string;
+  className?: string;
+  variant?: 'compact' | 'advanced';
+  properties: MaterialProperties;
+}
+
+export interface MetricsPropertiesYamlData {
+  properties: MaterialProperties;
+  title?: string;
+  description?: string;
+  className?: string;
+  variant?: string;
+}
+
+// MetricsMachineSettings interfaces
+export interface MachineSettingValue {
+  value: number;
+  unit: string;
+  min?: number;
+  max?: number;
+  description?: string;
+  priority?: number;
+}
+
+export interface MachineSettings {
+  powerRange?: MachineSettingValue;
+  wavelength?: MachineSettingValue;
+  pulseDuration?: MachineSettingValue;
+  spotSize?: MachineSettingValue;
+  repetitionRate?: MachineSettingValue;
+  fluenceRange?: MachineSettingValue;
+}
+
+export interface MetricsMachineSettingsConfig {
+  title?: string;
+  description?: string;
+  className?: string;
+  variant?: 'compact' | 'advanced';
+  machineSettings: MachineSettings;
+}
+
+export interface MetricsMachineSettingsYamlData {
+  machineSettings: MachineSettings;
+  title?: string;
+  description?: string;
+  className?: string;
+  variant?: string;
+}

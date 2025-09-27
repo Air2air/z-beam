@@ -34,17 +34,17 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: Progress
       <div className="flex-1 relative">
         <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
           <div 
-            className="h-full bg-opacity-20 rounded-full transition-all duration-300"
+            className="h-full bg-opacity-20 rounded-full"
             style={{ backgroundColor: color, width: '100%' }}
           />
           <div 
-            className="absolute top-0 left-0 h-full bg-opacity-80 rounded-full transition-all duration-300"
+            className="absolute top-0 left-0 h-full bg-opacity-80 rounded-full"
             style={{ backgroundColor: color, width: `${percentage}%` }}
           />
         </div>
         {/* Value indicator */}
         <div 
-          className="absolute top-0 h-2 w-1 bg-white dark:bg-gray-900 transform -translate-x-0.5 transition-all duration-300"
+          className="absolute top-0 h-2 w-1 bg-white dark:bg-gray-900 transform -translate-x-0.5"
           style={{ left: `${percentage}%` }}
         />
       </div>
@@ -221,9 +221,8 @@ function SettingCard({ setting, href }: SettingCardProps) {
 
   const cardContent = (
     <div className={`
-      relative p-4 rounded-lg border transition-all duration-200 
+      relative p-4 rounded-lg border 
       ${colors.bg} ${colors.border}
-      hover:shadow-lg hover:border-opacity-80 
       group cursor-pointer h-full flex flex-col text-center
     `}>
       <div className={`absolute top-0 left-0 right-0 h-1 ${colors.accent} rounded-t-lg`}></div>
@@ -438,7 +437,7 @@ function SimpleMetricsMode({
                 <div className="space-y-3">
                   <Link 
                     href={`/search?property=${encodeURIComponent(card.title)}&value=${encodeURIComponent(displayValue + (displayUnit ? displayUnit : ''))}`}
-                    className="font-bold text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer block"
+                    className="font-bold text-lg cursor-pointer block"
                     title={`Search for materials with ${card.title}: ${displayValue}${displayUnit || ''}`}
                   >
                     {displayValue}
@@ -456,7 +455,7 @@ function SimpleMetricsMode({
                 // Original layout when no range data is available
                 <Link 
                   href={`/search?property=${encodeURIComponent(card.title)}&value=${encodeURIComponent(displayValue + (displayUnit ? displayUnit : ''))}`}
-                  className="font-bold text-xl mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer block"
+                  className="font-bold text-xl mb-2 cursor-pointer block"
                   title={`Search for materials with ${card.title}: ${displayValue}${displayUnit || ''}`}
                 >
                   {displayValue}
@@ -470,7 +469,7 @@ function SimpleMetricsMode({
             <a
               key={card.key}
               href={card.href}
-              className={`border-2 rounded-lg p-4 block transition-all hover:scale-105 hover:shadow-lg ${card.color}`}
+              className={`border-2 rounded-lg p-4 block ${card.color}`}
             >
               {cardContent}
             </a>

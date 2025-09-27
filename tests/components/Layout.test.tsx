@@ -1,192 +1,237 @@
 /**
- * Test Suite: Layout Component
- * Testing the main Layout component that wraps page content
+ * Layout Component Tests
+ * Tests the main layout system that handles both article and page layouts
  */
 
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { Layout } from '../../app/components/Layout/Layout';
+import { ArticleMetadata, ComponentData } from '../../types/centralized';
 
-// Create a test Layout component for testing
-const Layout = ({ children, title, description, className }: any) => (
-  <div 
-    data-testid="layout-wrapper" 
-    className={className}
-    data-title={title}
-    data-description={description}
-  >
-    <header data-testid="header">Header</header>
-    <main data-testid="main">{children}</main>
-    <footer data-testid="footer">Footer</footer>
-  </div>
-);
+// Mock child components to focus on layout logic
+jest.mock('../../app/components/Article/ArticleHeader', () => ({
+  ArticleHeader: ({ metadata, slug, title }: any) => (
+    <div data-testid="article-header" data-slug={slug} data-title={title}>
+      Article Header for {metadata?.title || title}
+    </div>
+  ),
+}));
 
-// Mock Settings component for routing tests
-const Settings = ({ settingsData }: { settingsData?: any }) => (
-  <div data-testid="settings-component">
-    <h2>Machine Settings</h2>
-    {settingsData ? (
-      <div>{settingsData.content}</div>
-    ) : (
-      <p>No settings data available</p>
-    )}
-  </div>
-);
+jest.mock('../../app/components/JsonLD/JsonLD', () => ({
+  JsonLD: ({ data }: any) => (
+    <script data-testid="json-ld" type="application/ld+json">
+      {JSON.stringify(data)}
+    </script>
+  ),
+  schemas: {
+    technicalArticle: (data: any) => ({ ...data, '@type': 'TechnicalArticle' }),
+  },
+}));
+
+jest.mock('../../app/components/Content/Content', () => ({
+  Content: ({ content, config }: any) => (
+    <div data-testid="content-component" data-config={JSON.stringify(config)}>
+      {content}
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Caption/Caption', () => ({
+  Caption: ({ content, frontmatter, config }: any) => (
+    <div data-testid="caption-component" data-content={content}>
+      Caption: {frontmatter?.title}
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Tags/Tags', () => ({
+  Tags: ({ content, config }: any) => (
+    <div data-testid="tags-component" data-content={content}>
+      Tags Component
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Table/Table', () => ({
+  Table: ({ content, config }: any) => (
+    <div data-testid="table-component" data-content={content}>
+      Table Component
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Settings/Settings', () => ({
+  Settings: ({ content, config }: any) => (
+    <div data-testid="settings-component" data-content={content}>
+      Settings Component
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/BadgeSymbol/BadgeSymbol', () => ({
+  BadgeSymbol: ({ content, config }: any) => (
+    <div data-testid="badge-symbol-component" data-content={content}>
+      Badge Symbol: {config?.symbol}
+    </div>
+  ),
+}));
 
 describe('Layout Component', () => {
-  test('should render with default structure', () => {
-    render(
-      <Layout>
-        <div>Test content</div>
-      </Layout>
-    );
+  const mockMetadata: ArticleMetadata = {
+    slug: 'test-article',
+    title: 'Test Article',
+    description: 'Test article description',
+    authorInfo: { name: 'Test Author' },
+    datePublished: '2023-01-01',
+    lastModified: '2023-01-02',
+    image: '/test-image.jpg',
+    keywords: ['test', 'article'],
+  };
 
-    expect(screen.getByTestId('layout-wrapper')).toBeTruthy();
-    expect(screen.getByTestId('header')).toBeTruthy();
-    expect(screen.getByTestId('main')).toBeTruthy();
-    expect(screen.getByTestId('footer')).toBeTruthy();
-    expect(screen.getByText('Test content')).toBeTruthy();
-  });
-
-  test('should pass through props correctly', () => {
-    render(
-      <Layout 
-        title="Test Title"
-        description="Test Description"
-        className="custom-class"
-      >
-        <div>Content</div>
-      </Layout>
-    );
-
-    const wrapper = screen.getByTestId('layout-wrapper');
-    expect(wrapper.getAttribute('data-title')).toBe('Test Title');
-    expect(wrapper.getAttribute('data-description')).toBe('Test Description');
-    expect(wrapper.className).toContain('custom-class');
-  });
-
-  test('should handle empty children', () => {
-    render(<Layout />);
-
-    expect(screen.getByTestId('layout-wrapper')).toBeTruthy();
-    const main = screen.getByTestId('main');
-    expect(main.textContent).toBe('');
-  });
-
-  test('should handle multiple children', () => {
-    render(
-      <Layout>
-        <div>First child</div>
-        <div>Second child</div>
-        <span>Third child</span>
-      </Layout>
-    );
-
-    expect(screen.getByText('First child')).toBeTruthy();
-    expect(screen.getByText('Second child')).toBeTruthy();
-    expect(screen.getByText('Third child')).toBeTruthy();
-  });
-
-  test('should handle complex nested content', () => {
-    render(
-      <Layout title="Complex Layout">
-        <section>
-          <h1>Article Title</h1>
-          <p>Article content with <strong>emphasis</strong></p>
-          <ul>
-            <li>List item 1</li>
-            <li>List item 2</li>
-          </ul>
-        </section>
-      </Layout>
-    );
-
-    expect(screen.getByRole('heading', { level: 1 }).textContent).toBe('Article Title');
-    expect(screen.getByText('emphasis')).toBeTruthy();
-    expect(screen.getByText('List item 1')).toBeTruthy();
-  });
-
-  describe('Settings Component Integration', () => {
-    test('should render Settings component within Layout', () => {
-      const settingsData = {
-        content: `
-## Power Settings
-| Parameter | Value |
-|-----------|-------|
-| power | 100-500W |
-        `
-      };
-
+  describe('Regular Page Layout', () => {
+    it('should render basic page layout with title and description', () => {
       render(
-        <Layout title="Settings Page">
-          <Settings settingsData={settingsData} />
+        <Layout 
+          title="Test Page" 
+          description="Test page description"
+        >
+          <div data-testid="page-content">Page content</div>
         </Layout>
       );
 
-      expect(screen.getByTestId('layout-wrapper')).toBeTruthy();
-      // Check that Settings component is rendered properly
-      expect(screen.getByTestId('settings-component')).toBeTruthy();
-      expect(screen.getByText('Machine Settings')).toBeTruthy();
-      // Look for the markdown content as text content (not fully rendered markdown)
-      expect(screen.getByText(/100-500W/)).toBeTruthy();
+      expect(screen.getByRole('main')).toBeInTheDocument();
+      expect(screen.getByText('Test Page')).toBeInTheDocument();
+      expect(screen.getByText('Test page description')).toBeInTheDocument();
+      expect(screen.getByTestId('page-content')).toBeInTheDocument();
     });
 
-    test('should handle Settings component without data', () => {
+    it('should render without header when fullWidth is true', () => {
       render(
-        <Layout title="Settings Page">
-          <Settings />
+        <Layout 
+          title="Test Page" 
+          description="Test page description"
+          fullWidth={true}
+        >
+          <div data-testid="page-content">Page content</div>
         </Layout>
       );
 
-      expect(screen.getByTestId('settings-component')).toBeTruthy();
-      expect(screen.getByText('Machine Settings')).toBeTruthy();
-      expect(screen.getByText('No settings data available')).toBeTruthy();
+      // Title should not be shown when fullWidth is true for regular pages
+      expect(screen.queryByText('Test Page')).not.toBeInTheDocument();
+      expect(screen.getByTestId('page-content')).toBeInTheDocument();
     });
 
-    test('should support Settings component alongside other content', () => {
-      const settingsData = {
-        content: `
-## Speed Settings
-| Parameter | Value |
-|-----------|-------|
-| speed | 1000 mm/s |
-        `
-      };
-
+    it('should apply full width layout when fullWidth is true', () => {
       render(
-        <Layout title="Mixed Content Page">
-          <div>Header content</div>
-          <Settings settingsData={settingsData} />
-          <div>Footer content</div>
+        <Layout fullWidth={true}>
+          <div data-testid="page-content">Page content</div>
         </Layout>
       );
 
-      // Check that all components are rendered
-      expect(screen.getByText('Header content')).toBeTruthy();
-      expect(screen.getByText('Machine Settings')).toBeTruthy();
-      expect(screen.getByText(/1000 mm\/s/)).toBeTruthy();
-      expect(screen.getByText('Footer content')).toBeTruthy();
+      const main = screen.getByRole('main');
+      expect(main).toHaveClass('w-full');
     });
 
-    test('should handle multiple Settings components', () => {
-      const powerSettings = {
-        content: `## Power\n| power | 100W |`
-      };
+    it('should apply contained layout by default', () => {
+      render(
+        <Layout>
+          <div data-testid="page-content">Page content</div>
+        </Layout>
+      );
+
+      const main = screen.getByRole('main');
+      expect(main).toHaveClass('max-w-6xl');
+    });
+  });
+
+  describe('Article Layout', () => {
+    const mockComponents: Record<string, ComponentData> = {
+      content: {
+        content: 'Test article content',
+        config: { style: 'default' },
+      },
+      caption: {
+        content: 'Test caption content',
+        config: { variant: 'default' },
+      },
+      tags: {
+        content: 'tag1, tag2, tag3',
+        config: { display: 'list' },
+      },
+    };
+
+    it('should render article layout with components', () => {
+      render(
+        <Layout
+          title="Test Article"
+          metadata={mockMetadata}
+          components={mockComponents}
+          slug="test-article"
+        />
+      );
+
+      expect(screen.getByRole('main')).toBeInTheDocument();
+      expect(screen.getByRole('article')).toBeInTheDocument();
+      expect(screen.getByTestId('article-header')).toBeInTheDocument();
+      expect(screen.getByTestId('content-component')).toBeInTheDocument();
+      expect(screen.getByTestId('caption-component')).toBeInTheDocument();
+      expect(screen.getByTestId('tags-component')).toBeInTheDocument();
+    });
+
+    it('should render empty state when no components provided', () => {
+      render(
+        <Layout
+          title="Empty Article"
+          components={{}}
+          slug="empty-article"
+        />
+      );
+
+      expect(screen.getByText('Empty Article')).toBeInTheDocument();
+      expect(screen.getByText('This page is currently being prepared. Please check back later.')).toBeInTheDocument();
+    });
+
+    it('should generate JSON-LD structured data for articles', () => {
+      render(
+        <Layout
+          metadata={mockMetadata}
+          components={mockComponents}
+          slug="test-article"
+        />
+      );
+
+      const jsonLd = screen.getByTestId('json-ld');
+      expect(jsonLd).toBeInTheDocument();
       
-      const speedSettings = {
-        content: `## Speed\n| speed | 1000 mm/s |`
-      };
+      const data = JSON.parse(jsonLd.textContent || '{}');
+      expect(data['@type']).toBe('TechnicalArticle');
+      expect(data.headline).toBe('Test Article');
+      expect(data.description).toBe('Test article description');
+    });
+  });
 
+  describe('Accessibility', () => {
+    it('should have proper semantic structure for articles', () => {
       render(
-        <Layout title="Multiple Settings">
-          <Settings settingsData={powerSettings} />
-          <Settings settingsData={speedSettings} />
+        <Layout
+          metadata={mockMetadata}
+          components={{ content: { content: 'Test', config: {} } }}
+          slug="test-article"
+        />
+      );
+
+      expect(screen.getByRole('main')).toBeInTheDocument();
+      expect(screen.getByRole('article')).toBeInTheDocument();
+    });
+
+    it('should have proper semantic structure for pages', () => {
+      render(
+        <Layout title="Test Page">
+          <div>Page content</div>
         </Layout>
       );
 
-      const settingsComponents = screen.getAllByTestId('settings-component');
-      expect(settingsComponents).toHaveLength(2);
-      expect(screen.getByText(/100W/)).toBeTruthy();
-      expect(screen.getByText(/1000 mm\/s/)).toBeTruthy();
+      expect(screen.getByRole('main')).toBeInTheDocument();
+      expect(screen.queryByRole('article')).not.toBeInTheDocument();
     });
   });
 });

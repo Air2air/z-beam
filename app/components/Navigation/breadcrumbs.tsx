@@ -107,7 +107,7 @@ export function Breadcrumbs() {
               // Other items are links (only if href exists)
               <Link
                 href={crumb.href}
-                className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white"
+                className="ml-1 text-sm font-medium text-gray-700 md:ml-2 dark:text-gray-200"
               >
                 {crumb.label}
               </Link>

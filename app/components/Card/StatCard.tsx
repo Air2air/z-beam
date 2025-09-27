@@ -212,7 +212,7 @@ export function StatCard({
     <Link
       href={cardProps.href}
       className={`
-        group block rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden 
+        group block rounded-lg shadow-md overflow-hidden 
         border border-gray-200 dark:border-gray-700 h-full ${className}
       `}
     >
@@ -248,7 +248,7 @@ export function StatCard({
         <div className={`p-4 flex-grow flex flex-col space-y-3 ${colors.background}`}>
           {/* Card Title */}
           <div className="mb-2">
-            <h3 className="text-base font-semibold group-hover:text-blue-600 transition-colors duration-200">
+            <h3 className="text-base font-semibold">
               {cardTitle || cardProps.name || cardProps.title}
             </h3>
             {cardDescription && (

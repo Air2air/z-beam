@@ -391,9 +391,10 @@ describe('JSON-LD Component Implementation', () => {
         // Check for common Schema.org properties
         const validProperties = [
           '@context', '@type', '@id', 'name', 'description', 'url', 'image',
-          'headline', 'author', 'publisher', 'datePublished', 'dateModified',
-          'mainEntityOfPage', 'articleBody', 'wordCount', 'keywords',
-          'sameAs', 'logo', 'contactPoint', 'address', 'telephone', 'email'
+          'headline', 'alternativeHeadline', 'author', 'publisher', 'datePublished', 'dateModified',
+          'mainEntityOfPage', 'articleBody', 'wordCount', 'keywords', 'articleSection',
+          'sameAs', 'logo', 'contactPoint', 'address', 'telephone', 'email',
+          'inLanguage', 'isAccessibleForFree', 'about', 'mainEntity'
         ];
 
         Object.keys(data).forEach(key => {

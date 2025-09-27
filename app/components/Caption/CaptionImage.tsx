@@ -83,7 +83,7 @@ export function CaptionImage({ imageSource, frontmatter, materialName, seoData }
               aria-live="polite"
               aria-label="Loading caption image"
             >
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
+              <div className="rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
               <span className="sr-only">Loading caption image...</span>
             </div>
           )}
@@ -132,7 +132,7 @@ export function CaptionImage({ imageSource, frontmatter, materialName, seoData }
         </>
       ) : imageSource && !isInView ? (
         // Placeholder while not in view for performance
-        <div className="w-full h-[450px] bg-gray-800 animate-pulse" aria-hidden="true">
+        <div className="w-full h-[450px] bg-gray-800" aria-hidden="true">
           <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700"></div>
         </div>
       ) : null}

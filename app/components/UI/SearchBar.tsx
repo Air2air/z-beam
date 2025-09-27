@@ -99,7 +99,7 @@ export function SearchBar({
             title="Clear search"
           >
             <svg 
-              className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" 
+              className="w-4 h-4 text-gray-500 dark:text-gray-400" 
               aria-hidden="true" 
               fill="currentColor" 
               viewBox="0 0 20 20" 

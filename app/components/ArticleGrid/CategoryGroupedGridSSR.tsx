@@ -265,7 +265,7 @@ export async function CategoryGroupedGridSSR({
                       slug: item.slug,
                       ...item.metadata
                     } as ArticleMetadata}
-                    className="h-full hover:shadow-lg transition-shadow duration-300"
+                    className="h-full"
                   />
                 ))}
               </div>

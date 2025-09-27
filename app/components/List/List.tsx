@@ -192,8 +192,18 @@ export async function List({
           return (
             <Card
               key={item.slug}
-              title={item.title}
-              description={item.description}
+              frontmatter={{
+                title: item.title,
+                description: item.description,
+                slug: item.slug,
+                category: item.category,
+                images: {
+                  hero: {
+                    url: item.imageUrl,
+                    alt: item.title
+                  }
+                }
+              }}
               href={`/${item.slug}`}
               badge={item.badgeSymbolData || {
                 symbol: item.chemicalSymbol,
@@ -201,21 +211,7 @@ export async function List({
                 atomicNumber: item.atomicNumber,
                 materialType: toMaterialType(item.category),
               }}
-              imageUrl={item.imageUrl}
-              imageAlt={item.title}
-              metadata={
-                item.materialData?.metadata && 'title' in item.materialData.metadata 
-                  ? item.materialData.metadata as ArticleMetadata
-                  : {
-                      title: item.title || '',
-                      slug: item.slug,
-                      category: item.category,
-                      articleType: item.articleType,
-                    } as ArticleMetadata
-              }
-              height={isFeatured ? "auto" : undefined}
-            />
-          );
+              height={height || undefined}
         })}
       </div>
     </div>

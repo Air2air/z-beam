@@ -3,30 +3,30 @@ machineSettings:
   - header: '## Machine Configuration'
     rows:
     - parameter: Power Range
-      value: 150.0
-      range: 20.0 - 500.0
+      value: 150
+      range: 150.0 - 500.0
       category: Laser Power
     - parameter: Wavelength
-      value: 1064.0
-      range: 355.0 - 2940.0
+      value: 1064
+      range: 1064 - 1064
       category: Optical
     - parameter: Pulse Duration
-      value: 20.0
-      range: 1.0 - 1000.0
+      value: 20
+      range: 20.0 - 200.0
       category: Temporal
     - parameter: Repetition Rate
-      value: 40.0
-      range: 1.0 - 1000.0
+      value: 40
+      range: 40.0 - 200.0
       category: Timing
   - header: '## Processing Parameters'
     rows:
     - parameter: Fluence Range
       value: 3.8
-      range: 0.1 - 50.0
+      range: 3.8 - 31.2
       category: Energy Density
     - parameter: Spot Size
       value: 0.8
-      range: 0.01 - 10.0
+      range: 0.8 - 2.5
       category: Beam Geometry
     - parameter: Scanning Speed
       value: 50-200mm/s
@@ -39,7 +39,7 @@ machineSettings:
   - header: '## Safety Parameters'
     rows:
     - parameter: Safety Class
-      value: Class 4 (requires full enclosure)
+      value: Class 4
       range: Class 1 - Class 4
       category: Laser Safety
     - parameter: Beam Enclosure

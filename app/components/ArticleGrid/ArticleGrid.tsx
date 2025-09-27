@@ -263,7 +263,7 @@ export function ArticleGrid({
                   <button
                     onClick={() => setSearchTerm('')}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 
-                               text-gray-500 hover:text-gray-700 text-xl leading-none"
+                               text-gray-500 text-xl leading-none"
                     aria-label="Clear search"
                   >
                     ×
@@ -289,10 +289,10 @@ export function ArticleGrid({
                   <button
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                    className={`px-4 py-2 rounded-lg text-sm font-medium
                       ${selectedCategory === category 
                         ? 'bg-blue-600 text-white shadow-md' 
-                        : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
                       }`}
                   >
                     {category} ({groupedItems[category]?.length || 0})

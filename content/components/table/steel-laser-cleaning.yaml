@@ -15,26 +15,17 @@ materialTables:
     - property: Density
       value: '7.8'
       unit: g/cm³
-    - property: Thermal Conductivity
-      value: '15'
-      unit: W/m·K
-    - property: Tensile Strength
-      value: '200'
-      unit: MPa
-    - property: Young's Modulus
-      value: '200'
-      unit: GPa
   - header: '## Laser Processing Parameters'
     rows:
     - property: Power Range
-      value: '100.0'
+      value: '100'
       unit: W
     - property: Pulse Duration
-      value: '20.0'
+      value: '20'
       unit: ns
       category: Standard
     - property: Wavelength
-      value: '1064.0'
+      value: '1064'
       unit: nm
       category: Optimal
     - property: Spot Size
@@ -42,21 +33,17 @@ materialTables:
       unit: mm
       category: Configurable
     - property: Repetition Rate
-      value: '20.0'
+      value: '20'
       unit: kHz
       category: Variable
     - property: Fluence Range
       value: '1.3'
       unit: J/cm²
       category: Range
-    - property: Beam Profile
-      value: Gaussian TEM00
+    - property: Laser Type
+      value: Pulsed fiber laser
       unit: '-'
       category: System
-    - property: Safety Class
-      value: Class 4 (requires full enclosure)
-      unit: '-'
-      category: Safety
   - header: '## Applications & Industries'
     rows:
     - property: Automotive
@@ -70,7 +57,18 @@ materialTables:
   - header: '## Compatibility & Standards'
     rows:
     - property: Material Compatibility
-      value: laser_types, surface_treatments, incompatible_conditions
+      value: incompatibleConditions, laserTypes, surfaceTreatments
       unit: '-'
       category: Compatibility
 renderInstructions: 'In Next.js, loop over tables[].rows and render as <table> with <tr><td>{property}</td><td>{value} ({unit})</td><td>{min}-{max}</td><td>{percentile ? percentile + ''%'' : ''N/A''}</td><td>{category}</td></tr>. Use MDX for headers. Pure data structure optimized for performance.'
+
+
+---
+Version Log - Generated: 2025-09-24T19:36:53.854719
+Material: Steel
+Component: table
+Generator: Z-Beam v2.1.0
+Author: AI Assistant
+Platform: Darwin (3.12.4)
+File: content/components/table/steel-laser-cleaning.yaml
+---

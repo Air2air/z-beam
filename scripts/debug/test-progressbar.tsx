@@ -2,7 +2,7 @@
 // This script demonstrates the progress bar functionality with sample data
 
 import React from 'react';
-import { MetricsCard } from '../app/components/MetricsCard/MetricsCard';
+import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
 
 // Sample metadata with Min/Max values for testing progress bars
 const testMetadata = {

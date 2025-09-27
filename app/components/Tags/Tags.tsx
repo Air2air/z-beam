@@ -53,8 +53,8 @@ export function Tags({ content, config }: TagsProps) {
     className = "my-6", 
     title = "Tags",
     pillColor = "bg-gray-800",
-    textColor = "text-blue-800 dark:text-blue-200 dark:hover:text-blue-50",
-    hoverColor = "dark:hover:bg-gray-900",
+    textColor = "text-blue-800 dark:text-blue-200",
+    hoverColor = "",
     linkPrefix = "/tag/",
     onClick,
     hideEmptyTags = false,
@@ -312,7 +312,7 @@ const parseTags = (content: string | TagsData): string[] => {
                         legacyBehavior
                       >
                         <a
-                          className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                          className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer flex items-center`}
                           aria-label={`View all articles tagged with ${tag}`}
                           title={`View all articles tagged with ${tag}`}
                         >

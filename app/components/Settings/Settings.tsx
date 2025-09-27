@@ -140,7 +140,7 @@ export function Settings({ content, config }: SettingsProps) {
               </thead>
               <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                 {tableData.rows.map((row, index) => (
-                  <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                  <tr key={index} className="">
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                       {row.parameter}
                     </td>

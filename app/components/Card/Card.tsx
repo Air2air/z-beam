@@ -25,38 +25,27 @@ const CARD_CONFIG = {
 };
 
 export interface CardProps {
+  frontmatter?: ArticleMetadata;
   href: string;
-  title: string;
-  name?: string;
-  description?: string;
-  image?: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  materialSlug?: string; // Add materialSlug for hero images
-  tags?: string[];
   badge?: BadgeData | null; // Allow null
-  metadata?: ArticleMetadata;
   className?: string;
   height?: string;
 }
 
 export function Card({
+  frontmatter,
   href,
-  title,
-  name,
-  // description, - unused
-  // image, - unused  
-  // imageUrl, - unused
-  imageAlt,
-  // materialSlug, - unused
-  // tags = [], - unused
   badge, // Re-enabled for BadgeSymbol support
-  metadata,
   className = "",
   height,
 }: CardProps) {
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
+  
+  // Get data from frontmatter only
+  const title = frontmatter?.title || '';
+  const subject = frontmatter?.subject || ''; // Use subject instead of name
+  const imageAlt = frontmatter?.images?.hero?.alt || '';
   
   // For frontmatter files, we need to handle the path correctly
   // const isFrontmatterPath = (path: string | undefined) => {
@@ -87,7 +76,7 @@ export function Card({
           className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}
         >
           <Thumbnail
-            alt={imageAlt || name || title || (metadata?.subject ? metadata.subject : 'Image')}
+            alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
             slug={slug}
             objectFit="cover"
             priority={false}
@@ -114,8 +103,8 @@ export function Card({
         {/* Card Content */}
         <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>
           <h3 className={CARD_CONFIG.titleClass}>
-            {/* Prioritize name over title */}
-            {name || title}
+            {/* Prioritize subject over title */}
+            {subject || title}
           </h3>
 
         </div>

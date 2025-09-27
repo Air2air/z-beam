@@ -110,16 +110,26 @@ export function UnifiedArticleGridClient({
           const href = item.href || `/${item.slug}`;
           const imageUrl = item.imageUrl || item.image;
           
+          // Create frontmatter object from item data
+          const frontmatter = {
+            ...item.metadata,
+            title: title,
+            description: item.description || '',
+            slug: item.slug,
+            images: {
+              hero: {
+                url: imageUrl,
+                alt: item.imageAlt || title
+              }
+            },
+            tags: item.tags
+          };
+          
           return (
             <FadeInWrapper key={`${item.slug}-${index}`} delay={index * 100}>
               <Card
+                frontmatter={frontmatter}
                 href={href}
-                title={title}
-                description={item.description || ''}
-                imageUrl={imageUrl}
-                imageAlt={item.imageAlt || title}
-                metadata={item.metadata as any}
-                tags={item.tags}
                 height={variant === 'compact' ? 'h-48' : 'h-64'}
               />
             </FadeInWrapper>

@@ -1,10 +1,10 @@
 // app/components/Author/Author.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { AuthorInfo, AuthorProps } from "@/types";
+import { ArticleMetadata, AuthorProps } from "@/types";
 
 export function Author({
-  author,
+  frontmatter,
   showAvatar = true,
   showCredentials = true,
   showCountry = true,
@@ -14,8 +14,11 @@ export function Author({
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
+  // Get author data from frontmatter only
+  const author = frontmatter?.authorInfo;
+  
   // Return null if no author data provided
-  if (!author) return null;
+  if (!author || !frontmatter) return null;
   
   // Simplified field access - no more dual compatibility
   const authorName = author.name || "";

@@ -50,22 +50,28 @@ export function SearchResultsGrid({
           <Card
             key={item.id || item.slug || `item-${index}`}
             href={item.href}
-            title={item.title || ""}
-            name={cardName}
-            description={item.description}
-            image={item.image}
-            imageAlt={item.imageAlt || item.title || ""}
-            tags={item.tags || []}
+            frontmatter={{
+              ...(
+                item.metadata && 'title' in item.metadata && 'slug' in item.metadata
+                  ? item.metadata as ArticleMetadata
+                  : {
+                      title: item.title || '',
+                      slug: item.slug,
+                      category: item.category,
+                    } as ArticleMetadata
+              ),
+              title: item.title || cardName,
+              subject: cardName,
+              description: item.description,
+              tags: item.tags || [],
+              images: {
+                hero: {
+                  url: item.image,
+                  alt: item.imageAlt || item.title || ""
+                }
+              }
+            }}
             badge={badgeData || undefined} // Convert null to undefined
-            metadata={
-              item.metadata && 'title' in item.metadata && 'slug' in item.metadata
-                ? item.metadata as ArticleMetadata
-                : {
-                    title: item.title || '',
-                    slug: item.slug,
-                    category: item.category,
-                  } as ArticleMetadata
-            }
             className="h-full"
           />
         );

@@ -92,7 +92,7 @@ export function DebugLayout({
             <div className="md:hidden">
               <button 
                 onClick={() => setShowMenu(!showMenu)}
-                className="p-2 rounded-md text-gray-500 hover:text-gray-600 focus:outline-none"
+                className="p-2 rounded-md text-gray-500 focus:outline-none"
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={showMenu ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
@@ -101,16 +101,16 @@ export function DebugLayout({
             </div>
             
             <div className="hidden md:flex items-center space-x-4">
-              <Link href="/" className="text-gray-600 hover:text-gray-900 flex items-center">
+              <Link href="/" className="text-gray-600 flex items-center">
                 <span>Home</span>
               </Link>
-              <Link href="/api/debug" target="_blank" className="text-gray-600 hover:text-gray-900 flex items-center">
+              <Link href="/api/debug" target="_blank" className="text-gray-600 flex items-center">
                 <span>API</span>
               </Link>
               <Link 
                 href="#" 
                 onClick={() => window.location.reload()}
-                className="text-gray-600 hover:text-gray-900 flex items-center"
+                className="text-gray-600 flex items-center"
               >
                 <span>Refresh</span>
               </Link>
@@ -119,14 +119,14 @@ export function DebugLayout({
         </div>
       </header>
       
-      <div className={`md:hidden bg-white shadow-md transition-all duration-300 ${showMenu ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
+      <div className={`md:hidden bg-white shadow-md ${showMenu ? 'max-h-screen' : 'max-h-0 overflow-hidden'}`}>
         <nav className={CONTAINER_STYLES.standard.replace('py-8', 'py-2')}>
           <ul className="space-y-2">
             {debugSections.map((section) => (
               <li key={section.id}>
                 <Link 
                   href={`/debug/${section.id !== 'overview' ? section.id : ''}`}
-                  className={`block px-3 py-2 rounded-md ${currentSection === section.id ? 'bg-blue-50 text-blue-700' : 'text-gray-700 hover:bg-gray-50'}`}
+                  className={`block px-3 py-2 rounded-md ${currentSection === section.id ? 'bg-blue-50 text-blue-700' : 'text-gray-700'}`}
                   onClick={() => setShowMenu(false)}
                 >
                   <div className="flex items-center">
@@ -139,16 +139,16 @@ export function DebugLayout({
           </ul>
           
           <div className="mt-4 pt-4 border-t border-gray-100">
-            <Link href="/" className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">
+            <Link href="/" className="block px-3 py-2 text-gray-700 rounded-md">
               Home
             </Link>
-            <Link href="/api/debug" target="_blank" className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md">
+            <Link href="/api/debug" target="_blank" className="block px-3 py-2 text-gray-700 rounded-md">
               API
             </Link>
             <Link 
               href="#" 
               onClick={() => window.location.reload()}
-              className="block px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-md"
+              className="block px-3 py-2 text-gray-700 rounded-md"
             >
               Refresh
             </Link>
@@ -171,7 +171,7 @@ export function DebugLayout({
                         className={`flex items-center px-3 py-2 rounded-md text-sm ${
                           currentSection === section.id 
                             ? 'bg-blue-50 text-blue-700' 
-                            : 'text-gray-700 hover:bg-gray-50'
+                            : 'text-gray-700'
                         }`}
                       >
                         <span className="mr-2">{section.icon}</span>
@@ -192,7 +192,7 @@ export function DebugLayout({
                     <Link 
                       href="#" 
                       onClick={() => window.location.reload()}
-                      className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                      className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md"
                     >
                       <span className="mr-2">🔄</span>
                       <span>Refresh</span>
@@ -202,7 +202,7 @@ export function DebugLayout({
                     <Link 
                       href="/api/debug" 
                       target="_blank"
-                      className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                      className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md"
                     >
                       <span className="mr-2">🔌</span>
                       <span>API Endpoint</span>
@@ -211,7 +211,7 @@ export function DebugLayout({
                   <li>
                     <Link 
                       href="/" 
-                      className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-md"
+                      className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md"
                     >
                       <span className="mr-2">🏠</span>
                       <span>Return to Site</span>

@@ -31,7 +31,6 @@ export function ArticleHeader({ metadata, slug, title, components }: ArticleHead
         <Hero
           frontmatter={metadata}
           theme="dark"
-          align="center"
         />
       )}
 
@@ -55,7 +54,7 @@ export function ArticleHeader({ metadata, slug, title, components }: ArticleHead
       {/* Author component - simplified direct usage */}
       {metadata?.authorInfo && (
         <Author 
-          author={metadata.authorInfo}
+          frontmatter={metadata}
           showAvatar={true}
           showCredentials={true}
           showCountry={true}

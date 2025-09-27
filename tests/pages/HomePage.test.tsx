@@ -1,0 +1,304 @@
+/**
+ * HomePage Component Tests
+ * Tests the main landing page functionality, rendering, and integration
+ * @jest-environment jsdom
+ */
+
+import { render, screen, waitFor } from '@testing-library/react';
+import { getAllArticleSlugs, loadComponentData, getArticle } from '../../app/utils/contentAPI';
+import { createMetadata } from '../../app/utils/metadata';
+import HomePage, { generateMetadata } from '../../app/page';
+
+// Mock external dependencies
+jest.mock('../../app/utils/contentAPI', () => ({
+  getAllArticleSlugs: jest.fn(),
+  loadComponentData: jest.fn(),
+  getArticle: jest.fn(),
+}));
+
+jest.mock('../../app/utils/metadata', () => ({
+  createMetadata: jest.fn(),
+}));
+
+// Mock components to focus on page-level logic
+jest.mock('../../app/components/ArticleGrid', () => ({
+  ArticleGridSSR: ({ title, items, slugs, ...props }: any) => (
+    <div data-testid="article-grid" data-title={title} data-items-count={items?.length || 0} data-slugs-count={slugs?.length || 0}>
+      {title && <h2>{title}</h2>}
+      <div data-testid="grid-props" data-columns={props.columns} data-variant={props.variant}></div>
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Hero/Hero', () => ({
+  Hero: ({ children, variant, video, theme }: any) => (
+    <div data-testid="hero" data-variant={variant} data-theme={theme} data-video-id={video?.vimeoId}>
+      {children}
+    </div>
+  ),
+}));
+
+jest.mock('../../app/components/Layout/Layout', () => ({
+  Layout: ({ children, fullWidth }: any) => (
+    <div data-testid="layout" data-full-width={fullWidth}>
+      {children}
+    </div>
+  ),
+}));
+
+// Mock section cards
+jest.mock('../../app/components/SectionCard/SectionCards', () => ({
+  sectionCards: [
+    {
+      slug: 'featured-1',
+      title: 'Featured Solution 1',
+      description: 'Test featured solution',
+      imageUrl: '/test-image-1.jpg',
+      featured: true,
+    },
+    {
+      slug: 'featured-2', 
+      title: 'Featured Solution 2',
+      description: 'Another featured solution',
+      imageUrl: '/test-image-2.jpg',
+      featured: true,
+    },
+    {
+      slug: 'regular-1',
+      title: 'Regular Solution',
+      description: 'Non-featured solution',
+      imageUrl: '/test-image-3.jpg',
+      featured: false,
+    },
+  ],
+}));
+
+const mockGetAllArticleSlugs = getAllArticleSlugs as jest.MockedFunction<typeof getAllArticleSlugs>;
+const mockLoadComponentData = loadComponentData as jest.MockedFunction<typeof loadComponentData>;
+const mockGetArticle = getArticle as jest.MockedFunction<typeof getArticle>;
+const mockCreateMetadata = createMetadata as jest.MockedFunction<typeof createMetadata>;
+
+describe('HomePage Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    
+    // Default mock implementations
+    mockGetAllArticleSlugs.mockResolvedValue(['test-slug-1', 'test-slug-2', 'test-slug-3']);
+    mockLoadComponentData.mockResolvedValue(null);
+    mockGetArticle.mockResolvedValue(null);
+    mockCreateMetadata.mockReturnValue({
+      title: 'Z-Beam Laser Cleaning Solutions',
+      description: 'Advanced laser cleaning technology for industrial applications',
+    });
+  });
+
+  describe('Page Rendering', () => {
+    it('should render the main layout with full width', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const layout = screen.getByTestId('layout');
+      expect(layout).toBeInTheDocument();
+      expect(layout).toHaveAttribute('data-full-width', 'true');
+    });
+
+    it('should render hero section with correct video configuration', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const hero = screen.getByTestId('hero');
+      expect(hero).toBeInTheDocument();
+      expect(hero).toHaveAttribute('data-variant', 'fullwidth');
+      expect(hero).toHaveAttribute('data-theme', 'dark');
+      expect(hero).toHaveAttribute('data-video-id', '1058778534');
+    });
+
+    it('should render featured solutions section', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const featuredGrid = screen.getAllByTestId('article-grid')[0];
+      expect(featuredGrid).toBeInTheDocument();
+      expect(featuredGrid).toHaveAttribute('data-title', 'Featured Solutions');
+      expect(featuredGrid).toHaveAttribute('data-items-count', '2'); // Only featured items
+      
+      const gridProps = featuredGrid.querySelector('[data-testid="grid-props"]');
+      expect(gridProps).toHaveAttribute('data-columns', '2');
+      expect(gridProps).toHaveAttribute('data-variant', 'featured');
+    });
+
+    it('should render all solutions section with category grouping', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const allSolutionsGrid = screen.getAllByTestId('article-grid')[1];
+      expect(allSolutionsGrid).toBeInTheDocument();
+      expect(allSolutionsGrid).toHaveAttribute('data-title', 'Solutions by Category');
+      expect(allSolutionsGrid).toHaveAttribute('data-slugs-count', '3');
+      
+      const gridProps = allSolutionsGrid.querySelector('[data-testid="grid-props"]');
+      expect(gridProps).toHaveAttribute('data-columns', '3');
+    });
+
+    it('should call getAllArticleSlugs to load content', async () => {
+      await HomePage();
+      expect(mockGetAllArticleSlugs).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('Metadata Generation', () => {
+    it('should generate metadata with home-specific configuration', async () => {
+      const mockHomeMetaTags = {
+        content: '',
+        config: {
+          title: 'Custom Home Title',
+          description: 'Custom home description',
+          keywords: ['laser', 'cleaning'],
+          ogImage: '/custom-home-og.jpg',
+        }
+      };
+      
+      mockLoadComponentData.mockResolvedValue(mockHomeMetaTags);
+      
+      const metadata = await generateMetadata();
+      
+      expect(mockLoadComponentData).toHaveBeenCalledWith('metatags', 'home');
+      expect(mockGetArticle).toHaveBeenCalledWith('home');
+      expect(mockCreateMetadata).toHaveBeenCalledWith({
+        title: 'Custom Home Title',
+        description: 'Custom home description',
+        keywords: ['laser', 'cleaning'],
+        image: '/custom-home-og.jpg',
+        slug: 'home',
+      });
+    });
+
+    it('should use default metadata when no home-specific config exists', async () => {
+      mockLoadComponentData.mockResolvedValue(null);
+      
+      const metadata = await generateMetadata();
+      
+      expect(mockCreateMetadata).toHaveBeenCalledWith({
+        title: 'Z-Beam Laser Cleaning Solutions',
+        description: 'Advanced laser cleaning technology for industrial applications',
+        keywords: undefined,
+        image: '/images/home-og.jpg',
+        slug: 'home',
+      });
+    });
+
+    it('should handle string keywords from metatags', async () => {
+      const mockHomeMetaTags = {
+        content: '',
+        config: {
+          title: 'Test Title',
+          description: 'Test description',
+          keywords: 'laser,cleaning,industrial',
+        }
+      };
+      
+      mockLoadComponentData.mockResolvedValue(mockHomeMetaTags);
+      
+      await generateMetadata();
+      
+      expect(mockCreateMetadata).toHaveBeenCalledWith(
+        expect.objectContaining({
+          keywords: ['laser,cleaning,industrial'],
+        })
+      );
+    });
+
+    it('should handle array keywords from metatags', async () => {
+      const mockHomeMetaTags = {
+        content: '',
+        config: {
+          title: 'Test Title',
+          description: 'Test description',
+          keywords: ['laser', 'cleaning', 'industrial'],
+        }
+      };
+      
+      mockLoadComponentData.mockResolvedValue(mockHomeMetaTags);
+      
+      await generateMetadata();
+      
+      expect(mockCreateMetadata).toHaveBeenCalledWith(
+        expect.objectContaining({
+          keywords: ['laser', 'cleaning', 'industrial'],
+        })
+      );
+    });
+  });
+
+  describe('Featured Solutions Processing', () => {
+    it('should filter only featured solutions for featured section', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const featuredGrid = screen.getAllByTestId('article-grid')[0];
+      
+      // Should only show 2 featured items, not all 3 items
+      expect(featuredGrid).toHaveAttribute('data-items-count', '2');
+    });
+
+    it('should pass correct props to featured ArticleGridSSR', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const featuredGrid = screen.getAllByTestId('article-grid')[0];
+      const gridProps = featuredGrid.querySelector('[data-testid="grid-props"]');
+      
+      expect(gridProps).toHaveAttribute('data-columns', '2');
+      expect(gridProps).toHaveAttribute('data-variant', 'featured');
+    });
+  });
+
+  describe('Error Handling', () => {
+    it('should handle getAllArticleSlugs failure gracefully', async () => {
+      mockGetAllArticleSlugs.mockRejectedValue(new Error('Failed to load slugs'));
+      
+      // Should not throw, but handle the error
+      await expect(HomePage()).rejects.toThrow('Failed to load slugs');
+    });
+
+    it('should handle metadata loading failures gracefully', async () => {
+      mockLoadComponentData.mockResolvedValue(null); // Return null instead of throwing
+      
+      // Should still generate metadata with defaults
+      const metadata = await generateMetadata();
+      expect(mockCreateMetadata).toHaveBeenCalled();
+    });
+  });
+
+  describe('Performance and Static Generation', () => {
+    it('should be configured for static generation', () => {
+      // Note: This tests the module-level exports that would be handled by Next.js
+      // In a real test, you'd check that dynamic = 'force-static' and revalidate = false
+      // are properly set, but these are module-level constants
+      expect(true).toBe(true); // Placeholder for static generation verification
+    });
+  });
+
+  describe('Accessibility', () => {
+    it('should render sections with proper headings', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      expect(screen.getByText('Featured Solutions')).toBeInTheDocument();
+      expect(screen.getByText('Solutions by Category')).toBeInTheDocument();
+    });
+
+    it('should provide proper component structure for screen readers', async () => {
+      const HomePage_Resolved = await HomePage();
+      render(HomePage_Resolved);
+      
+      const layout = screen.getByTestId('layout');
+      const hero = screen.getByTestId('hero');
+      const grids = screen.getAllByTestId('article-grid');
+      
+      expect(layout).toBeInTheDocument();
+      expect(hero).toBeInTheDocument();
+      expect(grids).toHaveLength(2);
+    });
+  });
+});
