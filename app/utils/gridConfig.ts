@@ -4,7 +4,7 @@
 // Grid responsive breakpoint configurations
 export const GRID_CONFIGS = {
   1: "grid-cols-2",
-  2: "grid-cols-2 sm:grid-cols-3", 
+  2: "grid-cols-2", // Always 2 columns at all sizes
   3: "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4",
   4: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5",
 } as const;

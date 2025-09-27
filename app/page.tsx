@@ -90,7 +90,7 @@ export default async function HomePage() {
             }))}
           columns={2}
           variant="featured"
-          title="Featured Solutions"
+          title=""
         />
       </section>
 

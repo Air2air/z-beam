@@ -66,9 +66,15 @@ export function Card({
     <Link
       href={href}
       className={`
-        group block ${CARD_CONFIG.cardClass} h-full ${className} hover:shadow-lg hover:scale-105 transition-all duration-200
+        group block ${CARD_CONFIG.cardClass} h-full ${className} hover:shadow-lg transition-all duration-200
       `}
       style={height ? { height } : {}}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'scale(1.03)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'scale(1)';
+      }}
     >
       <article className="flex flex-col h-full">
         {/* Image Container with dynamic height based on featured status */}
