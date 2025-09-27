@@ -73,10 +73,14 @@ describe('Caption Component Layout Integration', () => {
   test('should support CaptionProps interface', () => {
     const captionProps: CaptionProps = {
       content: mockCaptionData,
-      image: 'test-image.jpg',
       frontmatter: {
         title: 'Test',
-        author: 'Test Author'
+        name: 'test-material',
+        images: {
+          micro: {
+            url: 'test-image.jpg'
+          }
+        }
       },
       config: {
         className: 'test-class',
@@ -86,7 +90,7 @@ describe('Caption Component Layout Integration', () => {
     };
 
     expect(captionProps.content).toBeDefined();
-    expect(captionProps.image).toBe('test-image.jpg');
+    expect(captionProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
     expect(captionProps.config?.className).toBe('test-class');
   });
 });

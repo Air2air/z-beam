@@ -220,7 +220,7 @@ export function StatCard({
         {/* Image Container */}
         <div className="relative w-full aspect-[16/9] h-20 overflow-hidden bg-gray-50 dark:bg-gray-800">
           <Thumbnail
-            alt={cardProps.imageAlt || cardProps.name || cardProps.title || 'Stat Card'}
+            alt={cardProps.frontmatter?.images?.hero?.alt || cardProps.frontmatter?.subject || cardProps.frontmatter?.title || 'Stat Card'}
             slug={cardProps.href?.split('/').pop() || ''}
             objectFit="cover"
             priority={false}
@@ -249,7 +249,7 @@ export function StatCard({
           {/* Card Title */}
           <div className="mb-2">
             <h3 className="text-base font-semibold">
-              {cardTitle || cardProps.name || cardProps.title}
+              {cardTitle || cardProps.frontmatter?.subject || cardProps.frontmatter?.title}
             </h3>
             {cardDescription && (
               <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 leading-tight">

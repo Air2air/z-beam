@@ -8,7 +8,7 @@ import { MetricsGrid } from '../../components/Caption/MetricsGrid';
 import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '../../../types/centralized';
 import './styles.css';
 
-const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }) => {
+const Caption: React.FC<CaptionProps> = ({ content, frontmatter, config }) => {
   const captionData = useCaptionParsing(content);
   const { className = '' } = config || {};
   
@@ -91,7 +91,7 @@ const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
 
   // Image source handling with fallbacks
-  const imageSource = enhancedData.images?.micro?.url || image;
+  const imageSource = enhancedData.images?.micro?.url;
 
   // Reset loading states when image source changes
   useEffect(() => {
@@ -158,7 +158,7 @@ const Caption: React.FC<CaptionProps> = ({ content, image, frontmatter, config }
     },
     "image": {
       "@type": "ImageObject",
-      "url": image || enhancedData.images?.micro?.url,
+      "url": enhancedData.images?.micro?.url,
       "caption": `${capitalizedMaterial} surface analysis showing before and after laser cleaning results`,
       "width": enhancedData.images?.micro?.width || 800,
       "height": enhancedData.images?.micro?.height || 450,

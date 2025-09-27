@@ -212,6 +212,8 @@ export async function List({
                 materialType: toMaterialType(item.category),
               }}
               height={height || undefined}
+            />
+          );
         })}
       </div>
     </div>

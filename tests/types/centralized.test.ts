@@ -53,10 +53,14 @@ describe('Centralized Types - Caption System', () => {
   test('CaptionProps should support all component configurations', () => {
     const captionProps: CaptionProps = {
       content: 'Simple string content',
-      image: 'test-image.jpg',
       frontmatter: {
         title: 'Test Title',
-        author: 'Test Author'
+        name: 'test-material',
+        images: {
+          micro: {
+            url: 'test-image.jpg'
+          }
+        }
       },
       config: {
         className: 'custom-class',
@@ -66,7 +70,7 @@ describe('Centralized Types - Caption System', () => {
     };
 
     expect(captionProps.content).toBe('Simple string content');
-    expect(captionProps.image).toBe('test-image.jpg');
+    expect(captionProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
     expect(captionProps.config?.showTechnicalDetails).toBe(true);
   });
 

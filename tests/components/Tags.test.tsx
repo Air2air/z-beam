@@ -12,7 +12,7 @@ jest.mock('next/navigation', () => ({
 // Mock next/link to handle both legacy and modern patterns  
 jest.mock('next/link', () => {
   const mockReact = require('react');
-  return function MockLink(props) {
+  return function MockLink(props: any) {
     const { href, children, className, legacyBehavior, ...otherProps } = props;
     
     if (legacyBehavior) {
