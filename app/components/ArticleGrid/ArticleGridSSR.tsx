@@ -101,7 +101,7 @@ export async function ArticleGridSSR({
   gap = "md",
   mode = 'simple',
   variant = 'default',
-  maxItemsPerCategory = 6,
+  maxItemsPerCategory,
   categoryOrder = DEFAULT_CATEGORY_ORDER,
   filterBy = 'all',
   showBadgeSymbols = true,
@@ -257,8 +257,12 @@ export async function ArticleGridSSR({
         <div className="space-y-12">
           {sortedCategories.map((category) => {
             const categoryItems = groupedItems[category];
-            const displayItems = categoryItems.slice(0, maxItemsPerCategory);
-            const hasMore = categoryItems.length > maxItemsPerCategory;
+            const displayItems = maxItemsPerCategory 
+              ? categoryItems.slice(0, maxItemsPerCategory)
+              : categoryItems; // Show all items if no limit specified
+            const hasMore = maxItemsPerCategory 
+              ? categoryItems.length > maxItemsPerCategory 
+              : false;
 
             return (
               <section key={category} className="category-section">

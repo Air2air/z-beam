@@ -99,7 +99,6 @@ export default async function HomePage() {
         <ArticleGridSSR
           slugs={slugs}
           title="Solutions by Category"
-          maxItemsPerCategory={6}
           columns={3}
           mode="category-grouped"
           showBadgeSymbols={true}
