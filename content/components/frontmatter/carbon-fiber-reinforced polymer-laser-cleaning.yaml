@@ -1,191 +1,220 @@
-name: Beech
-category: Wood
-subcategory: Beech
-title: Beech Laser Cleaning
-description: Laser cleaning parameters for Ash
+name: CFRP
+category: Composite
+subcategory: Carbon Fiber Reinforced Polymer (CFRP)
+title: CFRP Laser Cleaning
+description: Laser cleaning parameters for Carbon Fiber Reinforced Polymer (CFRP)
 materialProperties:
   density:
-    value: 720
-    unit: kg/m³
+    value: 1.6
+    unit: g/cm³
     confidence: 95
-    description: Average density of European beech wood at 12% moisture content
-    min: 0.12
-    max: 1.25
+    description: Typical density for CFRP composites with 60-70% fiber volume fraction
+    min: 0.5
+    max: 8
   meltingPoint:
-    value: 280
+    value: N/A
     unit: °C
-    confidence: 85
-    description: Approximate pyrolysis onset temperature where thermal decomposition
-      begins
+    confidence: 90
+    description: CFRP decomposes rather than melts; decomposition begins around 350-400°C
+      for epoxy matrix
     min: null
     max: null
   thermalConductivity:
-    value: 0.16
+    value: Anisotropic
     unit: W/m·K
-    confidence: 90
-    description: Thermal conductivity perpendicular to grain at room temperature
-    min: 0.04
-    max: 0.4
-  tensileStrength:
-    value: 120
-    unit: MPa
-    confidence: 90
-    description: Tensile strength parallel to grain
-    min: 20
-    max: 200
-  hardness:
-    value: 65
-    unit: N/mm²
-    confidence: 88
-    description: Brinell hardness perpendicular to grain
-    min: 0.4
-    max: 22.5
-  youngsModulus:
-    value: 14
-    unit: GPa
     confidence: 92
-    description: Modulus of elasticity parallel to grain
+    description: 'In-plane: 5-10 W/m·K (fiber direction), Through-thickness: 0.5-1.0
+      W/m·K'
+    min: 0.1
+    max: 400
+  tensileStrength:
+    value: Anisotropic
+    unit: MPa
+    confidence: 94
+    description: 'Longitudinal: 1500-2500, Transverse: 40-80 (highly dependent on
+      fiber orientation)'
+    min: 50
+    max: 6000
+  youngsModulus:
+    value: Anisotropic
+    unit: GPa
+    confidence: 96
+    description: 'Longitudinal: 120-180, Transverse: 8-12 (highly anisotropic mechanical
+      properties)'
     min: 5
-    max: 25
+    max: 1000
   thermalExpansion:
-    value: 5.5
-    unit: 10^-6/K
+    value: Anisotropic
+    unit: 10⁻⁶/°C
     confidence: 88
-    description: Linear thermal expansion coefficient parallel to grain
-    min: 3
-    max: 60
+    description: 'In-plane: 0.1-0.5, Through-thickness: 25-40 (highly anisotropic
+      due to fiber constraint)'
+    min: -1
+    max: 50
   thermalDiffusivity:
-    value: 0.15
+    value: 0.8
     unit: mm²/s
     confidence: 85
-    description: Thermal diffusivity at room temperature
+    description: Average thermal diffusivity for typical CFRP composites
     min: 0.1
-    max: 0.4
+    max: 180
   specificHeat:
-    value: 1800
-    unit: J/kg·K
-    confidence: 92
+    value: 1.1
+    unit: kJ/kg·K
+    confidence: 90
     description: Specific heat capacity at room temperature
-    min: 1.2
-    max: 4.2
+    min: 0.5
+    max: 2
   absorptionCoefficient:
     value: 0.85
     unit: dimensionless
-    confidence: 82
-    description: Estimated absorption coefficient for near-infrared lasers (1064 nm)
+    confidence: 88
+    description: High absorption coefficient for IR lasers (1064 nm) due to carbon
+      fiber content
+    min: null
+    max: null
+  reflectivity:
+    value: 0.15
+    unit: dimensionless
+    confidence: 85
+    description: Low reflectivity at 1064 nm wavelength due to carbon fiber absorption
     min: null
     max: null
   ablationThreshold:
-    value: 0.8
+    value: 0.5
+    unit: J/cm²
+    confidence: 82
+    description: Approximate ablation threshold for nanosecond pulses at 1064 nm
+    min: null
+    max: null
+  laserDamageThreshold:
+    value: 1.2
     unit: J/cm²
     confidence: 80
-    description: Estimated laser ablation threshold for nanosecond pulses at 1064
-      nm
+    description: Damage threshold for matrix material before significant fiber damage
+      occurs
+    min: null
+    max: null
+  oxidationResistance:
+    value: Moderate
+    unit: qualitative
+    confidence: 85
+    description: Carbon fibers oxidize above 400°C in air; epoxy matrix degrades at
+      lower temperatures
     min: null
     max: null
   porosity:
-    value: 55
+    value: 1.5
     unit: '%'
-    confidence: 90
-    description: Typical porosity of beech wood structure
+    confidence: 82
+    description: Typical porosity in well-manufactured CFRP laminates
+    min: null
+    max: null
+  surfaceRoughness:
+    value: 1.2
+    unit: μm Ra
+    confidence: 88
+    description: Typical surface roughness of as-manufactured CFRP surfaces
     min: null
     max: null
 applications:
-- 'Restoration: Gentle cleaning for restoration and conservation applications'
+- 'Aerospace: Precision cleaning of aerospace components and assemblies'
+- 'Manufacturing: Industrial surface preparation and contamination removal'
+- 'Medical: Sterilization and cleaning of medical devices and instruments'
 machineSettings:
   powerRange:
-    value: 40
+    value: 100
     unit: W
-    confidence: 90
-    description: Optimal average power for Beech surface cleaning without charring
-    min: 20
-    max: 60
+    confidence: 92
+    description: Optimal average power for CFRP surface cleaning without matrix damage
+    min: 80
+    max: 120
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength with good absorption in wood components
+    description: Near-infrared wavelength for optimal CFRP interaction with minimal
+      absorption depth
     min: 1030
     max: 1070
   spotSize:
-    value: 100
+    value: 50
     unit: μm
-    confidence: 92
-    description: Beam spot diameter for precise cleaning control
-    min: 50
-    max: 200
+    confidence: 84
+    description: Beam spot diameter for precise cleaning resolution on CFRP surface
+    min: 30
+    max: 100
   repetitionRate:
-    value: 20
+    value: 100
     unit: kHz
     confidence: 87
-    description: Optimal repetition rate for efficient cleaning coverage
-    min: 10
-    max: 50
+    description: Optimal repetition rate for efficient cleaning with thermal management
+    min: 50
+    max: 200
+  fluenceThreshold:
+    value: 1.2
+    unit: J/cm²
+    confidence: 88
+    description: Threshold fluence for contaminant removal while preserving CFRP integrity
+    min: 0.8
+    max: 1.8
   pulseWidth:
-    value: 100
+    value: 10
     unit: ns
     confidence: 85
     description: Nanosecond pulse duration for controlled ablation of surface contaminants
-    min: 50
-    max: 200
+    min: 5
+    max: 20
   scanSpeed:
     value: 500
     unit: mm/s
-    confidence: 89
-    description: Optimal scanning speed for uniform surface treatment
-    min: 200
-    max: 1000
-  fluenceThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 91
-    description: Fluence threshold for effective contaminant removal without wood
-      damage
-    min: 1.5
-    max: 4.0
+    confidence: 86
+    description: Optimal scanning speed for uniform cleaning coverage
+    min: 300
+    max: 800
   overlapRatio:
     value: 50
     unit: '%'
-    confidence: 86
-    description: Optimal pulse overlap for complete surface coverage
-    min: 30
-    max: 70
+    confidence: 83
+    description: Optimal pulse overlap for complete surface coverage without over-processing
+    min: 40
+    max: 60
   passCount:
     value: 2
     unit: passes
-    confidence: 88
-    description: Recommended number of passes for thorough cleaning
+    confidence: 85
+    description: Recommended number of passes for thorough cleaning with safety margin
     min: 1
     max: 3
   energyDensity:
-    value: 3.2
+    value: 6.1
     unit: J/cm²
-    confidence: 85
-    description: Energy density optimized for Beech surface treatment
-    min: 2.0
-    max: 5.0
+    confidence: 82
+    description: Calculated energy density based on power, spot size, and scan parameters
+    min: 4.5
+    max: 8.0
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-- EPA Clean Air Act Compliance
 author_object:
-  id: 4
-  name: Todd Dunning
-  sex: m
-  title: MA
-  country: United States (California)
-  expertise: Optical Materials for Laser Systems
-  image: /images/author/todd-dunning.jpg
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Beech surface undergoing laser cleaning showing precise contamination removal
-    url: /images/beech-laser-cleaning-hero.jpg
+    alt: Carbon Fiber Reinforced Polymer surface undergoing laser cleaning showing
+      precise contamination removal
+    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Beech surface after laser cleaning showing detailed surface
-      structure
-    url: /images/beech-laser-cleaning-micro.jpg
+    alt: Microscopic view of Carbon Fiber Reinforced Polymer surface after laser cleaning
+      showing detailed surface structure
+    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -211,7 +240,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 4
+author_id: 1
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues

@@ -1,191 +1,216 @@
-name: Soapstone
-category: Stone
-subcategory: Soapstone
-title: Soapstone Laser Cleaning
-description: Laser cleaning parameters for Alabaster
+name: Pyrex
+category: Glass
+subcategory: Pyrex
+title: Pyrex Laser Cleaning
+description: Laser cleaning parameters for Borosilicate Glass
 materialProperties:
   density:
-    value: 2.75
+    value: 2.23
     unit: g/cm³
-    confidence: 95
-    description: Average density of soapstone due to high talc content
-    min: 1.5
-    max: 3.4
+    confidence: 98
+    description: Density of Pyrex borosilicate glass at room temperature
+    min: 1.2
+    max: 7.6
   meltingPoint:
-    value: 1350
+    value: 820
     unit: °C
-    confidence: 85
-    description: Approximate melting point considering talc decomposition
+    confidence: 95
+    description: Softening point where Pyrex begins to deform significantly
     min: null
     max: null
   thermalConductivity:
-    value: 6.2
+    value: 1.1
     unit: W/m·K
-    confidence: 88
+    confidence: 92
     description: Thermal conductivity at room temperature
-    min: 0.2
-    max: 5
+    min: 0.02
+    max: 4.2
   hardness:
-    value: 1.0
+    value: 6.5
     unit: Mohs
-    confidence: 98
-    description: Mohs hardness scale - very soft due to talc content
-    min: 1
-    max: 7
+    confidence: 92
+    description: Mohs hardness scale
+    min: 4.5
+    max: 9
   youngsModulus:
-    value: 25
+    value: 62
     unit: GPa
-    confidence: 85
-    description: Elastic modulus reflecting soft, pliable nature
+    confidence: 94
+    description: Young's modulus of elasticity
     min: 10
-    max: 100
+    max: 95
   thermalExpansion:
-    value: 8.5
-    unit: 10⁻⁶/K
-    confidence: 82
-    description: Coefficient of thermal expansion
-    min: 3
-    max: 16
-  specificHeat:
-    value: 0.98
-    unit: J/g·K
-    confidence: 90
-    description: Specific heat capacity at 25°C
-    min: 0.7
-    max: 1.2
-  compressiveStrength:
-    value: 55
-    unit: MPa
+    value: 3.25
+    unit: ×10⁻⁶/°C
+    confidence: 96
+    description: Coefficient of linear thermal expansion (20-300°C)
+    min: 0.1
+    max: 15
+  thermalDiffusivity:
+    value: 0.55
+    unit: mm²/s
     confidence: 88
-    description: Uniaxial compressive strength
+    description: Thermal diffusivity at room temperature
+    min: 0.01
+    max: 1.8
+  specificHeat:
+    value: 830
+    unit: J/kg·K
+    confidence: 90
+    description: Specific heat capacity at room temperature
+    min: 0.5
+    max: 1
+  flexuralStrength:
+    value: 69
+    unit: MPa
+    confidence: 85
+    description: Flexural (bending) strength
     min: null
     max: null
-  absorptionCoefficient:
-    value: 0.65
+  refractiveIndex:
+    value: 1.474
     unit: dimensionless
-    confidence: 80
-    description: Estimated absorption coefficient for common laser wavelengths
+    confidence: 98
+    description: Refractive index at 589 nm wavelength
+    min: null
+    max: null
+  transmissivity:
+    value: 92
+    unit: '%'
+    confidence: 95
+    description: Visible light transmission (2 mm thickness)
     min: null
     max: null
   ablationThreshold:
-    value: 0.8
+    value: 2.5
     unit: J/cm²
-    confidence: 75
-    description: Estimated laser ablation threshold for nanosecond pulses
+    confidence: 82
+    description: Laser ablation threshold for 1064 nm Nd:YAG laser
     min: null
     max: null
-  porosity:
-    value: 1.2
-    unit: '%'
-    confidence: 90
-    description: Typical porosity range for dense soapstone
+  laserDamageThreshold:
+    value: 15
+    unit: J/cm²
+    confidence: 80
+    description: Permanent damage threshold for nanosecond pulses
     min: null
     max: null
   chemicalStability:
-    value: 85
-    unit: '% resistance'
-    confidence: 88
-    description: Resistance to acids and chemicals at room temperature
+    value: 0.05
+    unit: mg/cm²
+    confidence: 96
+    description: Weight loss in 6N HCl after 24 hours at 100°C
+    min: null
+    max: null
+  crystallineStructure:
+    value: Amorphous
+    unit: N/A
+    confidence: 99
+    description: Non-crystalline glass structure
+    min: null
+    max: null
+  surfaceRoughness:
+    value: 0.5
+    unit: nm Ra
+    confidence: 85
+    description: Typical surface roughness for polished Pyrex
     min: null
     max: null
 applications:
-- 'Jewelry: Precision cleaning and polishing of precious metal jewelry'
+- 'Automotive: Paint removal and surface preparation for automotive parts'
+- 'Electronics: Precision cleaning of electronic components and circuit boards'
 machineSettings:
   powerRange:
-    value: 40
+    value: 20
     unit: W
     confidence: 90
-    description: Optimal average power for Soapstone surface cleaning without thermal
-      damage
-    min: 20
-    max: 80
+    description: Average power for effective Pyrex cleaning without thermal damage
+    min: 10
+    max: 40
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-infrared wavelength for optimal absorption in Soapstone mineral
-      composition
+    description: Near-IR wavelength with good Pyrex absorption for controlled ablation
     min: 1030
-    max: 1080
+    max: 1070
   spotSize:
     value: 100
     unit: μm
     confidence: 92
-    description: Beam diameter for precise cleaning control on Soapstone surface
+    description: Beam spot diameter for precise cleaning control
     min: 50
     max: 200
   repetitionRate:
     value: 20
     unit: kHz
     confidence: 87
-    description: Repetition rate for efficient contaminant removal while minimizing
-      heat accumulation
+    description: Optimal repetition rate for Pyrex cleaning efficiency
     min: 10
     max: 50
   pulseWidth:
     value: 100
     unit: ns
     confidence: 85
-    description: Pulse duration balancing ablation efficiency and thermal control
+    description: Nanosecond pulse duration for efficient contaminant removal
     min: 50
     max: 200
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 85
-    description: Optimal scanning speed for uniform cleaning coverage
+    description: Optimal scanning speed for uniform cleaning
     min: 200
     max: 1000
   fluenceThreshold:
     value: 2.5
     unit: J/cm²
-    confidence: 88
-    description: Minimum fluence required for effective Soapstone surface cleaning
+    confidence: 89
+    description: Fluence threshold for Pyrex surface cleaning
     min: 1.5
     max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
-    confidence: 90
-    description: Optimal beam overlap for uniform cleaning without excessive processing
+    confidence: 86
+    description: Optimal pulse overlap for complete coverage
     min: 30
     max: 70
   passCount:
-    value: 2
+    value: 3
     unit: passes
-    confidence: 86
-    description: Recommended number of passes for complete contaminant removal
+    confidence: 88
+    description: Recommended number of passes for thorough cleaning
     min: 1
-    max: 4
-  energyDensity:
-    value: 5.1
-    unit: J/cm²
-    confidence: 84
-    description: Calculated energy density based on spot size and pulse energy
-    min: 3.0
-    max: 8.0
+    max: 5
+  laserType:
+    value: Nd:YAG
+    unit: n/a
+    confidence: 90
+    description: Preferred laser type for Pyrex cleaning applications
+    min: null
+    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
 author_object:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
   title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Soapstone surface undergoing laser cleaning showing precise contamination
-      removal
-    url: /images/soapstone-laser-cleaning-hero.jpg
+    alt: Pyrex surface undergoing laser cleaning showing precise contamination removal
+    url: /images/pyrex-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Soapstone surface after laser cleaning showing detailed
-      surface structure
-    url: /images/soapstone-laser-cleaning-micro.jpg
+    alt: Microscopic view of Pyrex surface after laser cleaning showing detailed surface
+      structure
+    url: /images/pyrex-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -211,7 +236,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 2
+author_id: 1
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
