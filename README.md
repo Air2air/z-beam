@@ -112,6 +112,7 @@ const tagStats = getTagStats();
 - `Settings` - Displays machine parameters and laser settings in organized tables
 - `Table` - Generic table component for structured data display
 - `Caption` - Before/after text content for laser cleaning descriptions
+- `DataMetrics` - **Unified metrics component** - Intelligently displays material properties, quality metrics, or statistical data in an optimized format
 
 ### Backwards Compatibility
 Legacy imports still work:
@@ -364,6 +365,75 @@ const settingsData = await loadComponent('settings', 'steel-laser-cleaning');
 - ✅ **Test coverage**: Comprehensive test suite for new architecture
 - ✅ **Modular separation**: Complete independence between caption and settings components
 - ✅ **Global consistency**: Uniform author rendering across all pages
+
+## 13. Unified Metrics Component Architecture
+
+Z-Beam implements a consolidated DataMetrics component that intelligently handles all metrics display patterns with a single unified interface.
+
+### Key Features
+- **Intelligent Auto-Detection**: Automatically detects data type and selects optimal display format
+- **Three Display Modes**: `auto`, `grid`, `stats`, and `cards` for different data types
+- **Unified Component**: Single component replaces MetricsCard, DataMetrics, and StatCard
+- **Layout Integration**: One component call in Layout.tsx renders all metrics consistently
+- **Type-Safe Processing**: Handles quality metrics, statistical data, and metadata seamlessly
+
+### Component Architecture
+```typescript
+// Single unified component with intelligent mode detection
+<DataMetrics 
+  mode="auto"                    // Automatically detects best display format
+  title="Material Properties & Specifications"
+  maxCards={8}                   // Limit display for performance
+  layout="auto"                  // Responsive layout handling
+  showTitle={true}              // Optional title display
+/>
+```
+
+### Data Processing Intelligence
+The component automatically processes three data types:
+
+1. **Quality Metrics** (Grid Mode)
+   - Surface quality measurements
+   - Contamination removal rates
+   - Process efficiency metrics
+
+2. **Statistical Data** (Stats Mode)
+   - Trend analysis with change indicators
+   - Comparative performance data
+   - Historical metrics
+
+3. **Metadata Properties** (Cards Mode)
+   - Material specifications
+   - Technical parameters
+   - Property descriptions with confidence scores
+
+### Layout Integration
+```typescript
+// Single component call in Layout.tsx
+const DataMetrics = await getDataMetrics();
+
+<DataMetrics 
+  mode="auto"
+  title="Material Properties & Specifications"
+  maxCards={8}
+  layout="auto"
+/>
+```
+
+### Consolidation Benefits
+- ✅ **Reduced Complexity**: 3 components → 1 unified interface
+- ✅ **Intelligent Display**: Automatic format selection based on data type
+- ✅ **Consistent Rendering**: Single component ensures uniform appearance
+- ✅ **Enhanced Performance**: Optimized data processing and display
+- ✅ **Simplified Maintenance**: One component to update and test
+
+### Migration From Legacy Components
+Previous separate components are now handled by DataMetrics:
+- `MetricsCard` → `DataMetrics` with metadata
+- `DataMetricsGrid` → `DataMetrics` with quality metrics  
+- `StatCard` → `DataMetrics` with statistical data
+
+The unified component maintains full backward compatibility while providing enhanced functionality.
 
 ## 12. YAML Processing
 

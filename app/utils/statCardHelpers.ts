@@ -1,7 +1,7 @@
 // app/utils/statCardHelpers.ts
 // Utilities for converting frontmatter data to StatCard format
 
-import { StatData } from '../components/Card/StatCard';
+import { StatData } from '../components/DataMetrics/DataMetrics';
 import { ArticleMetadata } from '@/types';
 
 // Extract property statistics from frontmatter

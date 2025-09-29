@@ -521,6 +521,9 @@ export interface TableProps {
     caption?: string;
     className?: string;
     variant?: 'default' | 'sectioned' | 'compact';
+    includedFields?: string[];
+    excludedFields?: string[];
+    tableType?: 'auto' | 'frontmatter' | 'legacy';
   };
   data?: any[];
   columns?: string[];
@@ -530,24 +533,6 @@ export interface TableProps {
   hover?: boolean;
   responsive?: boolean;
   caption?: string;
-}
-
-/**
- * PropertiesTable component props
- */
-export interface PropertiesTableProps {
-  content: string;
-  config?: {
-    caption?: string;
-    className?: string;
-  };
-  data?: Record<string, any>;
-  className?: string;
-  showHeader?: boolean;
-  title?: string;
-  maxRows?: number;
-  excludeKeys?: string[];
-  formatters?: Record<string, (value: any) => string>;
 }
 
 /**
@@ -587,7 +572,7 @@ export interface PageData {
 
 export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'solid' | 'subtle';
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'propertiestable' | 'settings' | 'table' | 'tags' | 'text';
+export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'settings' | 'table' | 'tags' | 'text';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';
@@ -1239,6 +1224,68 @@ export interface CardData {
   unit?: any;
   color?: string;
   href?: string;
+}
+
+/**
+ * Generic metric configuration for flexible MetricsCard usage
+ * Allows MetricsCard to work with any frontmatter keys containing numeric values
+ */
+export interface GenericMetricConfig {
+  /** The frontmatter key to extract the value from */
+  key: string;
+  /** Display title for the metric card */
+  title: string;
+  /** Description text shown on the card */
+  description?: string;
+  /** Visual priority for sorting and filtering (1=highest) */
+  priority?: number;
+  /** Color scheme for the card styling */
+  colorScheme?: 'blue' | 'indigo' | 'purple' | 'green' | 'yellow' | 'red' | 'gray';
+  /** Optional unit suffix if not found in the data */
+  defaultUnit?: string;
+  /** Optional formatting function for the display value */
+  formatter?: (value: number | string, unit?: string) => string;
+  /** Custom color hex code (overrides colorScheme) */
+  customColor?: string;
+}
+
+/**
+ * Generic metric data extracted from frontmatter
+ */
+export interface GenericMetricData {
+  key: string;
+  title: string;
+  value: number | string;
+  unit?: string;
+  description?: string;
+  priority?: number;
+  colorScheme?: string;
+  customColor?: string;
+  trend?: 'up' | 'down' | 'neutral';
+  minValue?: number;
+  maxValue?: number;
+  /** Original raw value from frontmatter (for debugging) */
+  rawValue?: any;
+}
+
+/**
+ * Configuration for auto-discovery of numeric frontmatter keys
+ */
+export interface MetricAutoDiscoveryConfig {
+  /** Keys to include (if empty, includes all numeric keys) */
+  includeKeys?: string[];
+  /** Keys to exclude from auto-discovery */
+  excludeKeys?: string[];
+  /** Patterns to match for key inclusion (regex strings) */
+  includePatterns?: string[];
+  /** Patterns to match for key exclusion (regex strings) */  
+  excludePatterns?: string[];
+  /** Maximum number of metrics to auto-discover */
+  maxMetrics?: number;
+  /** Default priority for auto-discovered metrics */
+  defaultPriority?: number;
+  /** Whether to include nested object properties */
+  includeNested?: boolean;
 }
 
 /**

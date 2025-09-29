@@ -2,8 +2,23 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArticleMetadata, MachineSettings, SettingData, SettingCardConfig, SettingCardProps, CardData, PropertyWithUnits } from '../../../types';
-import { extractMachineSettingsFromFrontmatter, createMachineSettingsForMetricsCard } from '../../utils/metricsCardHelpers';
+import { 
+  ArticleMetadata, 
+  MachineSettings, 
+  SettingData, 
+  SettingCardConfig, 
+  SettingCardProps, 
+  CardData, 
+  PropertyWithUnits,
+  GenericMetricConfig,
+  GenericMetricData,
+  MetricAutoDiscoveryConfig
+} from '../../../types';
+import { 
+  extractMachineSettingsFromFrontmatter, 
+  createMachineSettingsForMetricsCard,
+  extractGenericMetricsFromFrontmatter
+} from '../../utils/metricsCardHelpers';
 
 // Default color palette for simple cards (consolidated from SimpleMetricsCard)
 const DEFAULT_COLORS = [
@@ -57,7 +72,7 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: Progress
   );
 }
 
-// Predefined configurations for common laser machine settings
+// Predefined configurations for common laser machine settings (LEGACY - for backward compatibility)
 const MACHINE_SETTINGS_CONFIGS: SettingCardConfig[] = [
   {
     key: 'power',
@@ -156,7 +171,79 @@ const COLOR_SCHEMES = {
   }
 };
 
-// Extract setting data from machine settings
+// NEW: Generic metric card component
+function GenericMetricCard({ metric, href }: { metric: GenericMetricData; href?: string }) {
+  const colors = COLOR_SCHEMES[metric.colorScheme as keyof typeof COLOR_SCHEMES] || COLOR_SCHEMES.gray;
+  
+  const formatValue = (value: number | string, unit?: string) => {
+    if (value == null || value === undefined) {
+      return 'N/A';
+    }
+    if (typeof value === 'number') {
+      const formatted = value % 1 === 0 ? value.toString() : value.toFixed(2);
+      return unit ? `${formatted} ${unit}` : formatted;
+    }
+    return value?.toString() || 'N/A';
+  };
+
+  // Use custom color if provided
+  const customStyle = metric.customColor ? {
+    backgroundColor: metric.customColor,
+    borderColor: metric.customColor,
+    color: 'white'
+  } : {};
+
+  const cardContent = (
+    <div className={`
+      relative p-4 rounded-lg border 
+      ${metric.customColor ? 'text-white' : colors.bg + ' ' + colors.border}
+      group cursor-pointer h-full flex flex-col text-center
+    `} style={metric.customColor ? { backgroundColor: `${metric.customColor}20`, borderColor: metric.customColor } : {}}>
+      <div 
+        className={`absolute top-0 left-0 right-0 h-1 rounded-t-lg ${metric.customColor ? '' : colors.accent}`}
+        style={metric.customColor ? { backgroundColor: metric.customColor } : {}}
+      ></div>
+      
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <div className="mb-2 text-center">
+          <h3 className={`font-semibold text-sm ${metric.customColor ? 'text-gray-800 dark:text-gray-200' : colors.text} text-center`}>
+            {metric.title}
+          </h3>
+        </div>
+        
+        <div className={`text-2xl font-bold mb-1 text-center ${metric.customColor ? 'text-gray-900 dark:text-gray-100' : colors.value}`}>
+          {formatValue(metric.value, metric.unit)}
+        </div>
+        
+        {metric.description && (
+          <p className={`text-xs leading-relaxed text-center ${metric.customColor ? 'text-gray-600 dark:text-gray-400' : colors.text + ' opacity-80'}`}>
+            {metric.description}
+          </p>
+        )}
+        
+        {metric.minValue !== undefined && metric.maxValue !== undefined && (
+          <div className="mt-3 pt-2 border-t border-current opacity-20 text-center">
+            <div className={`text-xs opacity-60 text-center ${metric.customColor ? 'text-gray-600 dark:text-gray-400' : colors.text}`}>
+              Range: {formatValue(metric.minValue, metric.unit)} - {formatValue(metric.maxValue, metric.unit)}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+
+  if (href) {
+    return (
+      <a href={href} className="block h-full">
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
+}
+
+// LEGACY: Extract setting data from machine settings (kept for backward compatibility)
 function extractSettingData(
   machineSettings: MachineSettings,
   config: SettingCardConfig
@@ -207,7 +294,7 @@ function extractSettingData(
   };
 }
 
-// Individual setting card component
+// LEGACY: Individual setting card component (kept for backward compatibility)
 function SettingCard({ setting, href }: SettingCardProps) {
   const colors = COLOR_SCHEMES[setting.colorScheme as keyof typeof COLOR_SCHEMES] || COLOR_SCHEMES.gray;
   
@@ -503,7 +590,15 @@ export interface MetricsCardProps {
   // Simple mode props (consolidated from SimpleMetricsCard)
   cards?: CardData[];
   gridCols?: string;
-  mode?: 'advanced' | 'simple';
+  mode?: 'advanced' | 'simple' | 'generic';
+  
+  // NEW: Generic metric support
+  /** Custom metric configurations for specific keys */
+  metricConfigs?: GenericMetricConfig[];
+  /** Auto-discovery configuration for finding numeric keys */
+  autoDiscovery?: MetricAutoDiscoveryConfig;
+  /** Use generic extraction instead of hardcoded machine settings */
+  useGenericExtraction?: boolean;
 }
 
 // Main MetricsCard component
@@ -521,7 +616,11 @@ export function MetricsCard({
   // Simple mode props
   cards: providedCards,
   gridCols = "grid-cols-2 md:grid-cols-4",
-  mode = 'advanced'
+  mode = 'advanced',
+  // NEW: Generic mode props
+  metricConfigs,
+  autoDiscovery,
+  useGenericExtraction = false
 }: MetricsCardProps) {
   
   // Simple mode - consolidated from SimpleMetricsCard
@@ -535,7 +634,57 @@ export function MetricsCard({
     />;
   }
 
-  // Advanced mode (original functionality)
+  // NEW: Generic mode - uses generic metric extraction
+  if (mode === 'generic' || useGenericExtraction) {
+    const genericMetrics = extractGenericMetricsFromFrontmatter(
+      metadata, 
+      metricConfigs, 
+      autoDiscovery
+    );
+
+    if (genericMetrics.length === 0) {
+      return (
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+          No numeric metrics found in frontmatter
+        </div>
+      );
+    }
+
+    // Filter by priority and limit results
+    const filteredMetrics = genericMetrics
+      .filter(metric => priorityFilter.includes(metric.priority || 5))
+      .slice(0, maxCards);
+
+    return (
+      <div className={`metrics-card-container ${className}`}>
+        {showTitle && (
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+              {title}
+            </h2>
+            {description && (
+              <p className="text-gray-600 dark:text-gray-400">
+                {description}
+              </p>
+            )}
+            <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded mt-2"></div>
+          </div>
+        )}
+        
+        <div className={`grid gap-4 ${GRID_LAYOUTS[layout]}`}>
+          {filteredMetrics.map((metric) => (
+            <GenericMetricCard
+              key={metric.key}
+              metric={metric}
+              href={baseHref ? `${baseHref}#${metric.key}` : undefined}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  // Advanced mode (original functionality) - LEGACY support
   // Extract data from frontmatter based on dataSource
   const machineSettings = createMachineSettingsForMetricsCard(metadata, dataSource);
   
@@ -645,6 +794,85 @@ export function MinimalMetricsCard({
       className={className}
     />
   );
+}
+
+// NEW: Generic MetricsCard convenience functions
+/**
+ * Auto-discover and display any numeric frontmatter keys
+ */
+export function GenericMetricsCard({
+  metadata,
+  baseHref,
+  title = "Metrics",
+  className = "",
+  maxCards = 6,
+  excludeKeys = []
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'title' | 'className' | 'maxCards'> & { excludeKeys?: string[] }) {
+  return (
+    <MetricsCard
+      metadata={metadata}
+      baseHref={baseHref}
+      title={title}
+      mode="generic"
+      useGenericExtraction={true}
+      maxCards={maxCards}
+      className={className}
+      autoDiscovery={{
+        excludeKeys: ['id', 'slug', 'title', 'description', 'datePublished', 'lastModified', ...excludeKeys],
+        maxMetrics: maxCards
+      }}
+    />
+  );
+}
+
+/**
+ * Display specific numeric frontmatter keys with custom configurations
+ */
+export function CustomMetricsCard({
+  metadata,
+  baseHref,
+  metricConfigs,
+  title = "Custom Metrics",
+  className = "",
+  layout = "auto"
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'metricConfigs' | 'title' | 'className' | 'layout'>) {
+  return (
+    <MetricsCard
+      metadata={metadata}
+      baseHref={baseHref}
+      title={title}
+      mode="generic"
+      useGenericExtraction={true}
+      metricConfigs={metricConfigs}
+      layout={layout}
+      className={className}
+    />
+  );
+}
+
+/**
+ * Quick way to create metric configs for common use cases
+ */
+export function createMetricConfigs(keys: string[], options: {
+  defaultPriority?: number;
+  defaultColorScheme?: string;
+  titleFormatter?: (key: string) => string;
+  descriptionFormatter?: (key: string) => string;
+} = {}): GenericMetricConfig[] {
+  const {
+    defaultPriority = 3,
+    defaultColorScheme = 'blue',
+    titleFormatter = (key) => key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()),
+    descriptionFormatter = (key) => `${titleFormatter!(key)} measurement`
+  } = options;
+
+  return keys.map((key, index) => ({
+    key,
+    title: titleFormatter(key),
+    description: descriptionFormatter(key),
+    priority: defaultPriority,
+    colorScheme: (['blue', 'indigo', 'purple', 'green', 'yellow', 'red'][index % 6] as any) || defaultColorScheme
+  }));
 }
 
 // Default export for backward compatibility with SimpleMetricsCard

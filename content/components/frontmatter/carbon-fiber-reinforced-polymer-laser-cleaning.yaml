@@ -1,0 +1,318 @@
+name: CFRP
+category: Composite
+subcategory: Carbon Fiber Reinforced Polymer (CFRP)
+title: CFRP Laser Cleaning
+description: Laser cleaning parameters for Carbon Fiber Reinforced Polymer (CFRP)
+materialProperties:
+  density:
+    value: 1.6
+    unit: g/cm³
+    confidence: 95
+    description: Typical density for CFRP composites with 60-70% fiber volume fraction
+    min: 0.5
+    max: 8
+  meltingPoint:
+    value: N/A
+    unit: °C
+    confidence: 90
+    description: CFRP decomposes rather than melts; decomposition begins around 350-400°C
+      for epoxy matrix
+    min: null
+    max: null
+  thermalConductivity:
+    value: 5-150
+    unit: W/m·K
+    confidence: 85
+    description: 'Highly anisotropic: 5-10 W/m·K transverse, 100-150 W/m·K longitudinal
+      to fibers'
+    min: 0.1
+    max: 400
+  tensileStrength:
+    value: 1500-3500
+    unit: MPa
+    confidence: 94
+    description: 'Highly dependent on fiber orientation: 1500-2000 MPa transverse,
+      2500-3500 MPa longitudinal'
+    min: 50
+    max: 6000
+  youngsModulus:
+    value: 70-230
+    unit: GPa
+    confidence: 96
+    description: 'Anisotropic modulus: 70-100 GPa transverse, 180-230 GPa longitudinal
+      to fibers'
+    min: 5
+    max: 1000
+  thermalExpansion:
+    value: -1 to 30
+    unit: ×10⁻⁶/°C
+    confidence: 88
+    description: 'Anisotropic coefficient: negative in fiber direction (-1 to 0),
+      positive transverse (20-30)'
+    min: -1
+    max: 50
+  specificHeat:
+    value: 900
+    unit: J/kg·K
+    confidence: 92
+    description: Specific heat capacity at room temperature for typical CFRP composites
+    min: 0.5
+    max: 2
+  absorptionCoefficient:
+    value: 0.7-0.95
+    unit: dimensionless
+    confidence: 85
+    description: High absorption for IR lasers (1064 nm) due to carbon fiber content
+    min: null
+    max: null
+  reflectivity:
+    value: 0.05-0.3
+    unit: dimensionless
+    confidence: 82
+    description: Low reflectivity at 1064 nm wavelength due to carbon fiber absorption
+    min: null
+    max: null
+  ablationThreshold:
+    value: 0.5-2.0
+    unit: J/cm²
+    confidence: 80
+    description: Laser ablation threshold for nanosecond pulses at 1064 nm wavelength
+    min: null
+    max: null
+  laserDamageThreshold:
+    value: 1.5-3.0
+    unit: J/cm²
+    confidence: 78
+    description: Damage threshold before significant material degradation occurs
+    min: null
+    max: null
+  oxidationResistance:
+    value: '400'
+    unit: °C
+    confidence: 88
+    description: Maximum continuous service temperature before oxidative degradation
+    min: null
+    max: null
+  surfaceRoughness:
+    value: 0.5-5.0
+    unit: μm Ra
+    confidence: 85
+    description: Typical surface roughness range for as-manufactured CFRP surfaces
+    min: null
+    max: null
+  glassTransitionTemperature:
+    value: 120-180
+    unit: °C
+    confidence: 90
+    description: Glass transition temperature range for epoxy matrix systems
+    min: null
+    max: null
+applications:
+- 'Automotive: Paint removal and surface preparation for automotive parts'
+- 'Medical: Sterilization and cleaning of medical devices and instruments'
+- 'Manufacturing: Industrial surface preparation and contamination removal'
+machineSettings:
+  powerRange:
+    value: 100
+    unit: W
+    confidence: 92
+    description: Optimal average power for CFRP surface cleaning without matrix damage
+    min: 80
+    max: 120
+  wavelength:
+    value: 1064
+    unit: nm
+    confidence: 88
+    description: Near-IR wavelength for optimal CFRP absorption and minimal substrate
+      damage
+    min: 1030
+    max: 1070
+  spotSize:
+    value: 50
+    unit: μm
+    confidence: 84
+    description: Focused spot size for precise cleaning resolution
+    min: 30
+    max: 100
+  repetitionRate:
+    value: 100
+    unit: kHz
+    confidence: 87
+    description: High repetition rate for efficient cleaning with thermal management
+    min: 50
+    max: 200
+  pulseWidth:
+    value: 10
+    unit: ns
+    confidence: 85
+    description: Nanosecond pulse duration for controlled ablation of contaminants
+    min: 5
+    max: 20
+  scanSpeed:
+    value: 1000
+    unit: mm/s
+    confidence: 86
+    description: Optimal scanning speed for uniform cleaning coverage
+    min: 500
+    max: 2000
+  fluenceThreshold:
+    value: 2.5
+    unit: J/cm²
+    confidence: 89
+    description: Fluence threshold for contaminant removal without CFRP damage
+    min: 1.5
+    max: 4.0
+  overlapRatio:
+    value: 50
+    unit: '%'
+    confidence: 83
+    description: Optimal beam overlap for uniform cleaning without excessive heating
+    min: 40
+    max: 70
+  passCount:
+    value: 2
+    unit: passes
+    confidence: 85
+    description: Recommended number of passes for complete contaminant removal
+    min: 1
+    max: 3
+  laserType:
+    value: Fiber Laser
+    unit: N/A
+    confidence: 90
+    description: Recommended laser type for CFRP cleaning applications
+    min: null
+    max: null
+regulatoryStandards:
+- FDA 21 CFR 1040.10 - Laser Product Performance Standards
+- ANSI Z136.1 - Safe Use of Lasers
+- IEC 60825 - Safety of Laser Products
+- OSHA 29 CFR 1926.95 - Personal Protective Equipment
+author_object:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg
+images:
+  hero:
+    alt: Carbon Fiber Reinforced Polymer surface undergoing laser cleaning showing
+      precise contamination removal
+    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Carbon Fiber Reinforced Polymer surface after laser cleaning
+      showing detailed surface structure
+    url: /images/carbon-fiber-reinforced-polymer-laser-cleaning-micro.jpg
+environmentalImpact:
+- benefit: Chemical Waste Elimination
+  description: Eliminates hazardous chemical waste streams
+  applicableIndustries:
+  - Semiconductor
+  - Electronics
+  - Medical
+  - Nuclear
+  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  sustainabilityBenefit: ''
+- benefit: Water Usage Reduction
+  description: Dry process requires no water
+  applicableIndustries: []
+  quantifiedBenefits: ''
+  sustainabilityBenefit: Significant water conservation in industrial processes
+- benefit: Energy Efficiency
+  description: Focused energy delivery with minimal waste heat
+  applicableIndustries: []
+  quantifiedBenefits: ''
+  sustainabilityBenefit: ''
+- benefit: Air Quality Improvement
+  description: Eliminates volatile organic compounds from chemical cleaning
+  applicableIndustries: []
+  quantifiedBenefits: ''
+  sustainabilityBenefit: ''
+author_id: 1
+applicationTypes:
+- type: Precision Cleaning
+  description: High-precision removal of microscopic contaminants and residues
+  industries:
+  - Semiconductor
+  - MEMS
+  - Optics
+  - Medical Devices
+  qualityMetrics:
+  - Particle count reduction
+  - Surface roughness maintenance
+  - Chemical purity
+  typicalTolerances: Sub-micron accuracy with minimal substrate impact
+  objectives: []
+- type: Surface Preparation
+  description: Preparation of surfaces for bonding, coating, or further processing
+  industries:
+  - Aerospace
+  - Automotive
+  - Manufacturing
+  - Construction
+  qualityMetrics:
+  - Surface energy
+  - Cleanliness level
+  - Roughness profile
+  typicalTolerances: ''
+  objectives:
+  - Adhesion enhancement
+  - Contamination removal
+  - Surface activation
+- type: Restoration Cleaning
+  description: Gentle removal of accumulated contamination while preserving original
+    material
+  industries:
+  - Cultural Heritage
+  - Architecture
+  - Art Conservation
+  - Historical Restoration
+  qualityMetrics: []
+  typicalTolerances: ''
+  objectives: []
+- type: Contamination Removal
+  description: General removal of unwanted surface deposits and contaminants
+  industries:
+  - Manufacturing
+  - Marine
+  - Oil & Gas
+  - Power Generation
+  qualityMetrics: []
+  typicalTolerances: ''
+  objectives: []
+outcomeMetrics:
+- metric: Contaminant Removal Efficiency
+  description: Percentage of target contaminants successfully removed from surface
+  measurementMethods:
+  - Before/after microscopy
+  - Chemical analysis
+  - Mass spectrometry
+  typicalRanges: 95-99.9% depending on application and material
+  factorsAffecting:
+  - Contamination type
+  - Adhesion strength
+  - Surface geometry
+  units: []
+- metric: Processing Speed
+  description: Rate of surface area processed per unit time
+  measurementMethods: []
+  typicalRanges: ''
+  factorsAffecting: []
+  units:
+  - m²/h
+  - cm²/min
+  - mm²/s
+- metric: Surface Quality Preservation
+  description: Maintenance of original surface characteristics after cleaning
+  measurementMethods: []
+  typicalRanges: ''
+  factorsAffecting: []
+  units: []
+- metric: Thermal Damage Avoidance
+  description: Prevention of heat-related material alterations during cleaning
+  measurementMethods: []
+  typicalRanges: ''
+  factorsAffecting: []
+  units: []

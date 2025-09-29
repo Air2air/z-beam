@@ -5,8 +5,8 @@
 // Re-export everything from centralized.ts (SINGLE SOURCE OF TRUTH)
 export * from './centralized';
 
-// Also export YAML component types
-export * from './yaml-components';
+// Note: YAML component types are not re-exported to avoid conflicts
+// Import directly from './yaml-components' if needed
 
 // Note: ALL IMPORTS SHOULD USE:
 // import { TypeName } from '@/types'

@@ -16,12 +16,11 @@ import { extractSafeValue } from "../../utils/stringHelpers";
 import { Content } from "../Content/Content";
 import { Table } from "../Table/Table";
 import { Settings } from "../Settings/Settings";
-import { PropertiesTable } from "../PropertiesTable";
 
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import SimpleMetricsCard from '../MetricsCard/MetricsCard';
+import DataMetrics from '../DataMetrics/DataMetrics';
 import MetricsProperties from '../MetricsCard/MetricsProperties';
 import MetricsMachineSettings from '../MetricsCard/MetricsMachineSettings';
 
@@ -105,12 +104,17 @@ export function Layout(props: LayoutProps) {
               );
             })()}
 
-            {/* PropertiesTable component - positioned right after Hero */}
-            {components?.propertiestable && (
-              <section aria-labelledby="properties-heading" className="my-6">
-                <PropertiesTable 
-                  content={components.propertiestable.content} 
-                  config={components.propertiestable.config} 
+            {/* Unified DataMetrics - Intelligently displays all metric data */}
+            {metadata && Object.keys(metadata).length > 0 && (
+              <section aria-labelledby="data-metrics-heading" className="my-8">
+                <DataMetrics
+                  metadata={metadata}
+                  mode="auto"
+                  title="Material Properties & Specifications"
+                  maxCards={8}
+                  excludeKeys={['id', 'slug', 'title', 'description', 'name', 'category', 'subcategory']}
+                  layout="auto"
+                  showTitle={true}
                 />
               </section>
             )}
@@ -224,7 +228,11 @@ export function Layout(props: LayoutProps) {
               case 'table':
                 return (
                   <section key={type} aria-label="Data table">
-                    <Table content={content} config={config} />
+                    <Table 
+                      content={content} 
+                      config={config} 
+                      frontmatterData={metadata}
+                    />
                   </section>
                 );
               case 'tags':

@@ -31,7 +31,6 @@ const CONTENT_DIRS = {
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
-    propertiestable: path.join(process.cwd(), 'content', 'components', 'propertiestable'),
     settings: path.join(process.cwd(), 'content', 'components', 'settings'),
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
@@ -225,24 +224,6 @@ const loadSingleArticle = cache(async (slug: string): Promise<Article | null> =>
         }
       } catch (error) {
         logger.error(`Error loading article for ${slug} in ${dir}`, error, { slug, dir });
-      }
-    }
-    
-    // Load property table content for this slug
-    if (articleData) {
-      try {
-        const propertyTablePath = path.join(process.cwd(), 'content', 'components', 'propertiestable', `${slug}.md`);
-        if (existsSync(propertyTablePath)) {
-          const propertyContents = await fs.readFile(propertyTablePath, 'utf8');
-          const { content: propertyContent } = safeMatterParse(propertyContents);
-          
-          // Append property table content to the main content
-          if (propertyContent) {
-            articleData.content = (articleData.content || '') + '\n' + propertyContent;
-          }
-        }
-      } catch (error) {
-        logger.error(`Error loading property table for ${slug}`, error, { slug });
       }
     }
     

@@ -11,7 +11,6 @@ This directory contains the component content files used by the Z-Beam applicati
   - `frontmatter/` - Frontmatter content
   - `jsonld/` - JSON-LD structured data
   - `metatags/` - Meta tag content
-  - `propertiestable/` - Properties table content
   - `table/` - Table content
   - `tags/` - Tag content
   - `text/` - Text content

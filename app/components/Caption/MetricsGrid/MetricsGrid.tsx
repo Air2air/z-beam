@@ -1,6 +1,6 @@
 // app/components/Caption/MetricsGrid/MetricsGrid.tsx
 import React from 'react';
-import { QualityMetrics, MetricsGridProps } from '../../../../types/centralized';
+import { QualityMetrics, MetricsGridProps } from '@/types';
 import './styles.css';
 
 export function MetricsGrid({ 

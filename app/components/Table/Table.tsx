@@ -1,123 +1,174 @@
 // app/components/Table/Table.tsx
 import React from 'react';
-import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { TableProps } from '@/types/centralized';
 import './styles.css';
+
+interface FrontmatterTableData {
+  [key: string]: any;
+}
 
 interface TableRow {
   property: string;
   value: string;
   unit?: string;
-  category?: string;
-  min?: string;
-  max?: string;
-  percentile?: number;
+  description?: string;
+  confidence?: number;
 }
 
 /**
- * Enhanced Table component with visual range indicators for Min/Value/Max relationships
+ * Frontmatter-focused Table component for displaying structured frontmatter data
  */
-export function Table({ content, config }: TableProps) {
-  if (!content) return null;
+export function Table({ content, config, frontmatterData }: TableProps & { frontmatterData?: FrontmatterTableData }) {
+  if (!frontmatterData && !content) return null;
   
   const {
     showHeader = true,
     className = '',
     caption,
-    variant = 'default'
+    variant = 'default',
+    includedFields,
+    excludedFields,
+    tableType = 'auto'
   } = config || {};
 
-  // Function to calculate position percentage for range indicators
-  const calculatePosition = (min: string, value: string, max: string): number => {
-    const minNum = parseFloat(min.replace(/[^\d.-]/g, ''));
-    const valueNum = parseFloat(value.replace(/[^\d.-]/g, ''));
-    const maxNum = parseFloat(max.replace(/[^\d.-]/g, ''));
+  // Extract displayable frontmatter data
+  const extractFrontmatterRows = (data: FrontmatterTableData): TableRow[] => {
+    const rows: TableRow[] = [];
     
-    if (isNaN(minNum) || isNaN(valueNum) || isNaN(maxNum) || maxNum === minNum) {
-      return 50; // Default to center if calculation fails
-    }
-    
-    const position = ((valueNum - minNum) / (maxNum - minNum)) * 100;
-    return Math.max(0, Math.min(100, position));
-  };
+    if (!data) return rows;
 
-  // Function to parse value ranges and calculate positions
-  const parseValueRange = (value: string, min: string, max: string): { 
-    isRange: boolean, 
-    startPosition?: number, 
-    endPosition?: number, 
-    singlePosition?: number 
-  } => {
-    // Handle ranges like "5-10", "2.5-4.2", "5 - 10"
-    const rangeMatch = value.match(/^(\d+\.?\d*)\s*[-–—]\s*(\d+\.?\d*)$/);
-    if (rangeMatch) {
-      const startValue = rangeMatch[1];
-      const endValue = rangeMatch[2];
-      
-      return {
-        isRange: true,
-        startPosition: calculatePosition(min, startValue, max),
-        endPosition: calculatePosition(min, endValue, max)
-      };
-    }
-    
-    // Single value
-    return {
-      isRange: false,
-      singlePosition: calculatePosition(min, value, max)
+    // Helper function to format values
+    const formatValue = (value: any): string => {
+      if (value === null || value === undefined) return 'N/A';
+      if (typeof value === 'boolean') return value ? 'Yes' : 'No';
+      if (typeof value === 'number') return value.toString();
+      if (Array.isArray(value)) return value.join(', ');
+      if (typeof value === 'object') {
+        // Handle nested objects like materialProperties
+        return Object.keys(value).length > 0 ? `${Object.keys(value).length} properties` : 'N/A';
+      }
+      return String(value);
     };
-  };
 
-  // Function to parse markdown table and extract structured data
-  const parseMarkdownTable = (tableContent: string): { headers: string[], rows: TableRow[] } | null => {
-    const lines = tableContent.trim().split('\n');
-    if (lines.length < 3) return null;
-    
-    const headerLine = lines.find(line => line.includes('|') && !line.includes('---'));
-    const separatorIndex = lines.findIndex(line => line.includes('---'));
-    
-    if (!headerLine || separatorIndex === -1) return null;
-    
-    const headers = headerLine.split('|').map(h => h.trim()).filter(h => h);
-    const dataLines = lines.slice(separatorIndex + 1).filter(line => line.includes('|'));
-    
-    const rows: TableRow[] = dataLines.map(line => {
-      const cells = line.split('|').map(c => c.trim()).filter(c => c);
-      const row: TableRow = { property: '', value: '' };
-      
-      headers.forEach((header, index) => {
-        const cell = cells[index] || '';
-        switch (header.toLowerCase()) {
-          case 'property':
-            row.property = cell;
-            break;
-          case 'unit':
-            row.unit = cell;
-            break;
-          case 'min':
-            row.min = cell;
-            break;
-          case 'value':
-            row.value = cell;
-            break;
-          case 'max':
-            row.max = cell;
-            break;
+    // Simple frontmatter fields that can be displayed directly
+    const simpleFields = [
+      { key: 'name', label: 'Name' },
+      { key: 'category', label: 'Category' },
+      { key: 'subcategory', label: 'Subcategory' },
+      { key: 'title', label: 'Title' },
+      { key: 'description', label: 'Description' },
+      { key: 'author_id', label: 'Author ID' },
+    ];
+
+    // Add simple fields
+    simpleFields.forEach(field => {
+      if (data[field.key] !== undefined) {
+        const shouldInclude = includedFields ? includedFields.includes(field.key) : true;
+        const shouldExclude = excludedFields ? excludedFields.includes(field.key) : false;
+        
+        if (shouldInclude && !shouldExclude) {
+          rows.push({
+            property: field.label,
+            value: formatValue(data[field.key]),
+            description: `${field.label} information`
+          });
         }
-      });
-      
-      return row;
+      }
     });
-    
-    return { headers, rows };
+
+    // Handle applications array
+    if (data.applications && Array.isArray(data.applications)) {
+      const shouldInclude = includedFields ? includedFields.includes('applications') : true;
+      const shouldExclude = excludedFields ? excludedFields.includes('applications') : false;
+      
+      if (shouldInclude && !shouldExclude) {
+        rows.push({
+          property: 'Applications',
+          value: `${data.applications.length} applications`,
+          description: 'Number of defined applications'
+        });
+      }
+    }
+
+    // Handle regulatory standards
+    if (data.regulatoryStandards && Array.isArray(data.regulatoryStandards)) {
+      const shouldInclude = includedFields ? includedFields.includes('regulatoryStandards') : true;
+      const shouldExclude = excludedFields ? excludedFields.includes('regulatoryStandards') : false;
+      
+      if (shouldInclude && !shouldExclude) {
+        rows.push({
+          property: 'Regulatory Standards',
+          value: `${data.regulatoryStandards.length} standards`,
+          description: 'Number of regulatory standards'
+        });
+      }
+    }
+
+    // Handle environmental impact
+    if (data.environmentalImpact && Array.isArray(data.environmentalImpact)) {
+      const shouldInclude = includedFields ? includedFields.includes('environmentalImpact') : true;
+      const shouldExclude = excludedFields ? excludedFields.includes('environmentalImpact') : false;
+      
+      if (shouldInclude && !shouldExclude) {
+        rows.push({
+          property: 'Environmental Benefits',
+          value: `${data.environmentalImpact.length} benefits`,
+          description: 'Number of environmental benefits'
+        });
+      }
+    }
+
+    // Handle application types
+    if (data.applicationTypes && Array.isArray(data.applicationTypes)) {
+      const shouldInclude = includedFields ? includedFields.includes('applicationTypes') : true;
+      const shouldExclude = excludedFields ? excludedFields.includes('applicationTypes') : false;
+      
+      if (shouldInclude && !shouldExclude) {
+        rows.push({
+          property: 'Application Types',
+          value: `${data.applicationTypes.length} types`,
+          description: 'Number of application types'
+        });
+      }
+    }
+
+    // Handle outcome metrics
+    if (data.outcomeMetrics && Array.isArray(data.outcomeMetrics)) {
+      const shouldInclude = includedFields ? includedFields.includes('outcomeMetrics') : true;
+      const shouldExclude = excludedFields ? excludedFields.includes('outcomeMetrics') : false;
+      
+      if (shouldInclude && !shouldExclude) {
+        rows.push({
+          property: 'Outcome Metrics',
+          value: `${data.outcomeMetrics.length} metrics`,
+          description: 'Number of tracked metrics'
+        });
+      }
+    }
+
+    // Handle author object
+    if (data.author_object && typeof data.author_object === 'object') {
+      const shouldInclude = includedFields ? includedFields.includes('author_object') : true;
+      const shouldExclude = excludedFields ? excludedFields.includes('author_object') : false;
+      
+      if (shouldInclude && !shouldExclude) {
+        const author = data.author_object;
+        rows.push({
+          property: 'Author',
+          value: author.name || 'Unknown',
+          description: `${author.title || ''} from ${author.country || 'Unknown'}`
+        });
+      }
+    }
+
+    return rows;
   };
 
-  // Enhanced rendering function with range indicators
-  const renderEnhancedTable = (content: string, sectionTitle?: string) => {
-    const tableData = parseMarkdownTable(content);
+  // Render frontmatter table
+  const renderFrontmatterTable = (data: FrontmatterTableData, sectionTitle?: string) => {
+    const rows = extractFrontmatterRows(data);
     
-    if (!tableData) {
-      // Fallback to markdown renderer
+    if (rows.length === 0) {
       return (
         <div className="enhanced-table-container">
           {sectionTitle && (
@@ -125,19 +176,15 @@ export function Table({ content, config }: TableProps) {
               {sectionTitle}
             </h3>
           )}
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
-            <div className="overflow-x-auto">
-              <MarkdownRenderer content={content} convertMarkdown={true} />
-            </div>
+          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <p className="text-gray-500 dark:text-gray-400 text-center">
+              No displayable frontmatter data available
+            </p>
           </div>
         </div>
       );
     }
-    
-    const isPropertyTable = tableData.headers.length === 5 && 
-                           tableData.headers.includes('Min') && 
-                           tableData.headers.includes('Max');
-    
+
     return (
       <div className="enhanced-table-container">
         {sectionTitle && (
@@ -151,140 +198,49 @@ export function Table({ content, config }: TableProps) {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
                 <tr>
-                  {/* Render headers in the desired order: Property | Unit | Value | Min | Range Indicator | Max */}
-                  {tableData.headers.map((header, index) => {
-                    const headerName = header.toLowerCase();
-                    
-                    if (headerName === 'property') {
-                      return (
-                        <th key="property" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                          {header}
-                        </th>
-                      );
-                    }
-                    return null; // Don't render other headers here
-                  }).filter(Boolean)}
-                  
-                  {/* Unit column */}
-                  {tableData.headers.find(h => h.toLowerCase() === 'unit') && (
-                    <th key="unit" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {tableData.headers.find(h => h.toLowerCase() === 'unit')}
-                    </th>
-                  )}
-                  
-                  {/* Value column */}
-                  {tableData.headers.find(h => h.toLowerCase() === 'value') && (
-                    <th key="value" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {tableData.headers.find(h => h.toLowerCase() === 'value')}
-                    </th>
-                  )}
-                  
-                  {/* Min column */}
-                  {tableData.headers.find(h => h.toLowerCase() === 'min') && (
-                    <th key="min" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {tableData.headers.find(h => h.toLowerCase() === 'min')}
-                    </th>
-                  )}
-                  
-                  {/* Range Indicator column */}
-                  {isPropertyTable && (
-                    <th key="range-indicator" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      
-                    </th>
-                  )}
-                  
-                  {/* Max column */}
-                  {tableData.headers.find(h => h.toLowerCase() === 'max') && (
-                    <th key="max" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                      {tableData.headers.find(h => h.toLowerCase() === 'max')}
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    Property
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    Value
+                  </th>
+                  {variant !== 'compact' && (
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                      Description
                     </th>
                   )}
                 </tr>
               </thead>
               <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
-                {tableData.rows.map((row, index) => {
-                  const rangeData = isPropertyTable && row.min && row.max ? 
-                    parseValueRange(row.value, row.min, row.max) : null;
-                  
-                  return (
-                    <tr key={index} className="">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                        {row.property}
-                      </td>
-                      {row.unit !== undefined && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
-                          {row.unit}
-                        </td>
-                      )}
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-blue-600 dark:text-blue-400">
+                {rows.map((row, index) => (
+                  <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                      {row.property}
+                    </td>
+                    <td className="px-6 py-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
+                      <div className="max-w-xs overflow-hidden text-ellipsis">
                         {row.value}
+                      </div>
+                      {row.unit && (
+                        <span className="text-xs text-gray-500 dark:text-gray-400 ml-1">
+                          {row.unit}
+                        </span>
+                      )}
+                      {row.confidence && (
+                        <div className="text-xs text-green-600 dark:text-green-400 mt-1">
+                          Confidence: {row.confidence}%
+                        </div>
+                      )}
+                    </td>
+                    {variant !== 'compact' && (
+                      <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300">
+                        <div className="max-w-sm">
+                          {row.description}
+                        </div>
                       </td>
-                      {row.min !== undefined && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                          {row.min}
-                        </td>
-                      )}
-                      {isPropertyTable && rangeData !== null && (
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-24 bg-gray-200 dark:bg-gray-700 rounded-sm h-4 relative">
-                              {rangeData.isRange ? (
-                                <>
-                                  {/* Range visualization - shaded area */}
-                                  <div 
-                                    className="bg-gradient-to-r from-blue-200 to-blue-300 dark:from-blue-800 dark:to-blue-700 h-4 rounded-sm absolute"
-                                    style={{ 
-                                      left: `${Math.min(rangeData.startPosition!, rangeData.endPosition!)}%`, 
-                                      width: `${Math.abs(rangeData.endPosition! - rangeData.startPosition!)}%` 
-                                    }}
-                                  />
-                                  {/* Start boundary indicator */}
-                                  <div 
-                                    className="absolute top-0 w-1 h-4 bg-green-600 shadow-sm"
-                                    style={{ left: `${rangeData.startPosition}%`, transform: 'translateX(-50%)' }}
-                                  />
-                                  {/* End boundary indicator */}
-                                  <div 
-                                    className="absolute top-0 w-1 h-4 bg-red-600 shadow-sm"
-                                    style={{ left: `${rangeData.endPosition}%`, transform: 'translateX(-50%)' }}
-                                  />
-                                </>
-                              ) : (
-                                <>
-                                  {/* Single value visualization */}
-                                  <div 
-                                    className="bg-gradient-to-r from-blue-500 to-indigo-600 h-4 rounded-sm"
-                                    style={{ width: `${rangeData.singlePosition}%` }}
-                                  />
-                                  <div 
-                                    className="absolute top-0 w-1 h-4 bg-red-500 shadow-sm"
-                                    style={{ left: `${rangeData.singlePosition}%`, transform: 'translateX(-50%)' }}
-                                  />
-                                </>
-                              )}
-                            </div>
-                            <span className="text-xs text-gray-500 dark:text-gray-400 min-w-fit">
-                              {rangeData.isRange 
-                                ? `${Math.min(rangeData.startPosition!, rangeData.endPosition!).toFixed(1)}-${Math.max(rangeData.startPosition!, rangeData.endPosition!).toFixed(1)}%`
-                                : `${rangeData.singlePosition!.toFixed(1)}%`
-                              }
-                            </span>
-                          </div>
-                        </td>
-                      )}
-                      {isPropertyTable && rangeData === null && (
-                        <td className="px-6 py-4 whitespace-nowrap">
-                          {/* Empty cell for rows without valid min/max values (like headings) */}
-                        </td>
-                      )}
-                      {row.max !== undefined && (
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                          {row.max}
-                        </td>
-                      )}
-                    </tr>
-                  );
-                })}
+                    )}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
@@ -293,63 +249,49 @@ export function Table({ content, config }: TableProps) {
     );
   };
 
-  // Parse sectioned content into individual sections
-  const parseSectionedContent = (content: string) => {
-    const sections = content.split(/^## /gm).filter(Boolean);
-    return sections.map(section => {
-      const lines = section.split('\n');
-      const title = lines[0];
-      const sectionContent = lines.slice(1).join('\n').trim();
-      return { title, content: sectionContent };
-    });
-  };
-
-  // Remove version log sections from content
-  const cleanContent = (content: string) => {
-    return content.split('---\nVersion Log')[0].trim();
-  };
-
-  // Check if content contains multiple table sections (material data pattern)
-  const isSectionedContent = content.includes('## Material Properties') || 
-                            content.includes('## Material Grades') ||
-                            content.includes('## Performance Metrics') ||
-                            content.includes('## Physical Properties') ||
-                            content.includes('## Thermal Properties') ||
-                            content.includes('## Optical Properties') ||
-                            content.includes('## Mechanical Properties');
-
-  if (isSectionedContent && variant !== 'compact') {
-    const sections = parseSectionedContent(cleanContent(content));
-    
+  // Handle legacy content (fallback for existing YAML table files)
+  const renderLegacyContent = (content: string) => {
     return (
-      <div className={`table-sections-container ${className}`}>
+      <div className="enhanced-table-container">
+        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="text-gray-500 dark:text-gray-400">
+            <p className="mb-2 font-medium">Legacy Table Content:</p>
+            <pre className="text-xs bg-gray-100 dark:bg-gray-800 p-4 rounded overflow-x-auto">
+              {content.substring(0, 500)}...
+            </pre>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Main render logic
+  if (frontmatterData) {
+    return (
+      <div className={`frontmatter-table-section ${className}`}>
         {caption && (
           <div className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
             {caption}
           </div>
         )}
-        
-        <div className="space-y-8">
-          {sections.map((section, index) => (
-            <div key={index} className="table-section-group">
-              {renderEnhancedTable(section.content, section.title)}
-            </div>
-          ))}
-        </div>
+        {renderFrontmatterTable(frontmatterData, caption)}
       </div>
     );
   }
 
-  // Default single table rendering
-  return (
-    <div className={`table-section ${className}`}>
-      {caption && (
-        <div className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-          {caption}
-        </div>
-      )}
-      
-      {renderEnhancedTable(cleanContent(content))}
-    </div>
-  );
+  // Fallback to legacy content rendering
+  if (content) {
+    return (
+      <div className={`table-section ${className}`}>
+        {caption && (
+          <div className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+            {caption}
+          </div>
+        )}
+        {renderLegacyContent(content)}
+      </div>
+    );
+  }
+
+  return null;
 }

@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useCaptionParsing, CaptionData, ParsedCaptionData } from './useCaptionParsing';
 import { MetricsGrid } from './MetricsGrid';
-import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '../../../types/centralized';
+import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import './enhanced-seo-caption.css';
 
 export function Caption({ content, frontmatter, config }: CaptionProps) {

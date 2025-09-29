@@ -12,8 +12,7 @@ import {
   ParsedCaptionData,
   AuthorInfo,
   ListProps,
-  TableProps,
-  PropertiesTableProps
+  TableProps
 } from '../../types/centralized';
 
 describe('Centralized Types - Caption System', () => {
@@ -190,22 +189,6 @@ describe('Centralized Types - Component Props', () => {
     expect(tableProps.content).toBe('Table content');
     expect(tableProps.config?.variant).toBe('sectioned');
     expect(tableProps.striped).toBe(true);
-  });
-
-  test('PropertiesTableProps should support properties display', () => {
-    const propsTableProps: PropertiesTableProps = {
-      content: 'Properties content',
-      config: {
-        caption: 'Material Properties'
-      },
-      showHeader: false,
-      maxRows: 10,
-      excludeKeys: ['internal_id']
-    };
-
-    expect(propsTableProps.content).toBe('Properties content');
-    expect(propsTableProps.showHeader).toBe(false);
-    expect(propsTableProps.excludeKeys).toContain('internal_id');
   });
 });
 
