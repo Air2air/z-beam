@@ -1,4 +1,4 @@
-// Export all MetricsCard components
+// Export all MetricsCard components - unified solution for frontmatter data
 export {
   MetricsCard,
   PrimaryMetricsCard,
@@ -9,12 +9,3 @@ export {
   createMetricConfigs,
   type MetricsCardProps
 } from './MetricsCard';
-
-// Export DataMetrics as the unified solution
-export {
-  DataMetrics,
-  DataMetricsGrid,
-  DataMetricsStats,
-  type DataMetricsProps,
-  type StatData
-} from '../DataMetrics';

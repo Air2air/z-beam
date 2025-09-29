@@ -20,9 +20,7 @@ import { Settings } from "../Settings/Settings";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import DataMetrics from '../DataMetrics/DataMetrics';
-import MetricsProperties from '../MetricsCard/MetricsProperties';
-import MetricsMachineSettings from '../MetricsCard/MetricsMachineSettings';
+import { MetricsCard } from '../MetricsCard/MetricsCard';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
@@ -104,15 +102,28 @@ export function Layout(props: LayoutProps) {
               );
             })()}
 
-            {/* Unified DataMetrics - Intelligently displays all metric data */}
-            {metadata && Object.keys(metadata).length > 0 && (
-              <section aria-labelledby="data-metrics-heading" className="my-8">
-                <DataMetrics
+            {/* Material Properties from frontmatter */}
+            {metadata && metadata.materialProperties && (
+              <section aria-labelledby="material-properties-heading" className="my-8">
+                <MetricsCard
                   metadata={metadata}
-                  mode="auto"
-                  title="Material Properties & Specifications"
+                  dataSource="materialProperties"
+                  title="Material Properties"
                   maxCards={8}
-                  excludeKeys={['id', 'slug', 'title', 'description', 'name', 'category', 'subcategory']}
+                  layout="auto"
+                  showTitle={true}
+                />
+              </section>
+            )}
+            
+            {/* Machine Settings from frontmatter */}
+            {metadata && metadata.machineSettings && (
+              <section aria-labelledby="machine-settings-heading" className="my-8">
+                <MetricsCard
+                  metadata={metadata}
+                  dataSource="machineSettings"
+                  title="Machine Settings"
+                  maxCards={8}
                   layout="auto"
                   showTitle={true}
                 />
@@ -148,8 +159,9 @@ export function Layout(props: LayoutProps) {
                 
                 return (
                   <section key={type} aria-label="Machine settings visualization">
-                    <MetricsMachineSettings 
+                    <MetricsCard 
                       metadata={metricsMetadata as any}
+                      dataSource="machineSettings"
                       title={component.config.title as string}
                       className={component.config.className as string}
                       mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}
@@ -168,13 +180,14 @@ export function Layout(props: LayoutProps) {
                   slug: metadata?.slug || '',
                   title: component.config.title || '',
                   description: component.config.description || '',
-                  properties: component.config.properties || {}
+                  materialProperties: component.config.properties || {}
                 };
                 
                 return (
                   <section key={type} aria-label="Material properties visualization">
-                    <MetricsProperties 
+                    <MetricsCard 
                       metadata={propertiesMetadata as any}
+                      dataSource="materialProperties"
                       title={component.config.title as string}
                       className={component.config.className as string}
                       mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}

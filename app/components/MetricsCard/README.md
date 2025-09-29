@@ -1,6 +1,6 @@
 # MetricsCard Component
 
-The `MetricsCard` component provides a standalone, flexible solution for displaying machine settings data in a visually appealing grid format. It extracts and displays key laser processing parameters from article metadata, making it perfect for technical documentation and material processing guides.
+The `MetricsCard` component provides a standalone, flexible solution for displaying frontmatter data in a visually appealing grid format. It can extract and display either machine settings or material properties from article metadata, making it perfect for technical documentation and material processing guides.
 
 ## Key Features
 
@@ -17,45 +17,49 @@ The `MetricsCard` component provides a standalone, flexible solution for display
 - **Responsive design with Tailwind CSS**
 
 ### 🚀 Ready-to-Use Components
-- **MetricsCard**: Machine settings from frontmatter
-- **MetricsProperties**: Material properties from MD files
+- **MetricsCard**: Unified component for both machine settings and material properties from frontmatter
 - **PrimaryMetricsCard**: Essential parameters only
 - **CompactMetricsCard**: Space-efficient 2x2 grid
 - **MinimalMetricsCard**: Clean display without title
+- **GenericMetricsCard**: Auto-discover any numeric frontmatter keys
+- **CustomMetricsCard**: Display specific keys with custom configurations
 
-### 📊 Two Component Types
-- **Machine Settings** (`metricsmachinesettings`): Laser processing parameters (power, wavelength, etc.)
-- **Material Properties** (`metricsproperties`): Material characteristics (density, thermal conductivity, etc.)
+### 📊 Two Data Sources
+- **Machine Settings** (`dataSource="machineSettings"`): Laser processing parameters from frontmatter (power, wavelength, etc.)
+- **Material Properties** (`dataSource="materialProperties"`): Material characteristics from frontmatter (density, thermal conductivity, etc.)
 
 ## Quick Start
 
 ```tsx
 import { MetricsCard, PrimaryMetricsCard, CompactMetricsCard } from '@/components/MetricsCard';
-import MetricsProperties from '@/components/MetricsCard/MetricsProperties';
 
-// Machine Settings - Basic usage with article metadata
+// Machine Settings from frontmatter - Basic usage with article metadata
 <MetricsCard 
-  metadata={articleMetadata} 
+  metadata={articleMetadata}
+  dataSource="machineSettings" 
   baseHref="/property/aluminum-6061"
 />
 
-// Material Properties - Display material properties from MD files
-<MetricsProperties 
-  metadata={articleMetadata} 
+// Material Properties from frontmatter - Display material properties
+<MetricsCard 
+  metadata={articleMetadata}
+  dataSource="materialProperties"
   title="Material Properties"
   className="mb-8"
   mode="advanced"
 />
 
-// Primary settings only (high priority)
+// Primary settings only (high priority) - works with both data sources
 <PrimaryMetricsCard 
-  metadata={articleMetadata} 
+  metadata={articleMetadata}
+  dataSource="machineSettings"
   baseHref="/property/aluminum-6061"
 />
 
-// Compact 2x2 grid layout
+// Compact 2x2 grid layout - works with both data sources
 <CompactMetricsCard 
-  metadata={articleMetadata} 
+  metadata={articleMetadata}
+  dataSource="materialProperties"
   baseHref="/property/aluminum-6061"
 />
 ```

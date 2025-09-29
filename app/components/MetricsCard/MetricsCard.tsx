@@ -574,7 +574,7 @@ function SimpleMetricsMode({
   );
 }
 
-// Main MetricsCard component interface
+// Main MetricsCard component interface - handles materialProperties and machineSettings from frontmatter
 export interface MetricsCardProps {
   metadata: ArticleMetadata;
   baseHref?: string;
@@ -585,14 +585,14 @@ export interface MetricsCardProps {
   priorityFilter?: number[];
   showTitle?: boolean;
   className?: string;
-  dataSource?: 'properties' | 'machineSettings'; // Specify which data to use
+  dataSource?: 'materialProperties' | 'machineSettings'; // Only frontmatter data sources
   
   // Simple mode props (consolidated from SimpleMetricsCard)
   cards?: CardData[];
   gridCols?: string;
   mode?: 'advanced' | 'simple' | 'generic';
   
-  // NEW: Generic metric support
+  // Generic metric support for frontmatter
   /** Custom metric configurations for specific keys */
   metricConfigs?: GenericMetricConfig[];
   /** Auto-discovery configuration for finding numeric keys */
@@ -617,7 +617,7 @@ export function MetricsCard({
   cards: providedCards,
   gridCols = "grid-cols-2 md:grid-cols-4",
   mode = 'advanced',
-  // NEW: Generic mode props
+  // Generic mode props
   metricConfigs,
   autoDiscovery,
   useGenericExtraction = false
@@ -686,7 +686,9 @@ export function MetricsCard({
 
   // Advanced mode (original functionality) - LEGACY support
   // Extract data from frontmatter based on dataSource
-  const machineSettings = createMachineSettingsForMetricsCard(metadata, dataSource);
+  // Map materialProperties to properties for helper function compatibility
+  const helperDataSource = dataSource === 'materialProperties' ? 'properties' : dataSource;
+  const machineSettings = createMachineSettingsForMetricsCard(metadata, helperDataSource);
   
   if (!machineSettings || Object.keys(machineSettings).length === 0) {
     return (
@@ -743,17 +745,19 @@ export function MetricsCard({
 export function PrimaryMetricsCard({
   metadata,
   baseHref,
-  className = ""
-}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'className'>) {
+  className = "",
+  dataSource = 'machineSettings'
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'className' | 'dataSource'>) {
   return (
     <MetricsCard
       metadata={metadata}
       baseHref={baseHref}
       title="Primary Settings"
-      description="Essential laser parameters for this material"
+      description="Essential parameters for this material"
       layout="grid-3"
       maxCards={3}
       priorityFilter={[1]}
+      dataSource={dataSource}
       className={className}
     />
   );
@@ -762,8 +766,9 @@ export function PrimaryMetricsCard({
 export function CompactMetricsCard({
   metadata,
   baseHref,
-  className = ""
-}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'className'>) {
+  className = "",
+  dataSource = 'machineSettings'
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'className' | 'dataSource'>) {
   return (
     <MetricsCard
       metadata={metadata}
@@ -772,6 +777,7 @@ export function CompactMetricsCard({
       layout="grid-2"
       maxCards={4}
       priorityFilter={[1, 2]}
+      dataSource={dataSource}
       className={className}
     />
   );
@@ -780,8 +786,9 @@ export function CompactMetricsCard({
 export function MinimalMetricsCard({
   metadata,
   baseHref,
-  className = ""
-}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'className'>) {
+  className = "",
+  dataSource = 'machineSettings'
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'className' | 'dataSource'>) {
   return (
     <MetricsCard
       metadata={metadata}
@@ -790,13 +797,14 @@ export function MinimalMetricsCard({
       layout="grid-3"
       maxCards={3}
       priorityFilter={[1]}
+      dataSource={dataSource}
       showTitle={false}
       className={className}
     />
   );
 }
 
-// NEW: Generic MetricsCard convenience functions
+// Generic MetricsCard convenience functions for frontmatter data
 /**
  * Auto-discover and display any numeric frontmatter keys
  */
@@ -806,8 +814,9 @@ export function GenericMetricsCard({
   title = "Metrics",
   className = "",
   maxCards = 6,
-  excludeKeys = []
-}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'title' | 'className' | 'maxCards'> & { excludeKeys?: string[] }) {
+  excludeKeys = [],
+  dataSource = 'machineSettings'
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'title' | 'className' | 'maxCards' | 'dataSource'> & { excludeKeys?: string[] }) {
   return (
     <MetricsCard
       metadata={metadata}
@@ -816,6 +825,7 @@ export function GenericMetricsCard({
       mode="generic"
       useGenericExtraction={true}
       maxCards={maxCards}
+      dataSource={dataSource}
       className={className}
       autoDiscovery={{
         excludeKeys: ['id', 'slug', 'title', 'description', 'datePublished', 'lastModified', ...excludeKeys],
@@ -834,8 +844,9 @@ export function CustomMetricsCard({
   metricConfigs,
   title = "Custom Metrics",
   className = "",
-  layout = "auto"
-}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'metricConfigs' | 'title' | 'className' | 'layout'>) {
+  layout = "auto",
+  dataSource = 'machineSettings'
+}: Pick<MetricsCardProps, 'metadata' | 'baseHref' | 'metricConfigs' | 'title' | 'className' | 'layout' | 'dataSource'>) {
   return (
     <MetricsCard
       metadata={metadata}
@@ -845,6 +856,7 @@ export function CustomMetricsCard({
       useGenericExtraction={true}
       metricConfigs={metricConfigs}
       layout={layout}
+      dataSource={dataSource}
       className={className}
     />
   );
@@ -876,11 +888,11 @@ export function createMetricConfigs(keys: string[], options: {
 }
 
 // Default export for backward compatibility with SimpleMetricsCard
-export default function SimpleMetricsCard(props: Partial<MetricsCardProps> & { metadata?: ArticleMetadata }) {
+export default function SimpleMetricsCard(props: Partial<MetricsCardProps> & { metadata: ArticleMetadata }) {
   return (
     <MetricsCard
       {...props}
-      metadata={props.metadata || {} as ArticleMetadata}
+      metadata={props.metadata}
       baseHref={props.baseHref || '#'}
       mode="simple"
     />
