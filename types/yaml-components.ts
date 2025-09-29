@@ -1,6 +1,9 @@
 // types/yaml-components.ts
 // TypeScript interfaces for YAML component structures
 
+// Import shared types from centralized.ts to avoid conflicts
+import type { MaterialProperties, MachineSettings } from './centralized';
+
 export interface MaterialData {
   name: string;
   applications: Array<{
@@ -196,38 +199,19 @@ export interface TableYamlData {
 }
 
 // MetricsProperties interfaces
-export interface MaterialProperty {
-  value: number;
-  unit: string;
-  min: number;
-  max: number;
-  description: string;
-  priority: number;
-}
-
-export interface MaterialProperties {
-  density?: MaterialProperty;
-  thermalConductivity?: MaterialProperty;
-  tensileStrength?: MaterialProperty;
-  youngsModulus?: MaterialProperty;
-  thermalExpansion?: MaterialProperty;
-  meltingPoint?: MaterialProperty;
-  hardness?: MaterialProperty;
-  electricalConductivity?: MaterialProperty;
-  specificHeat?: MaterialProperty;
-  poissonRatio?: MaterialProperty;
-}
+// Note: MaterialProperties interface removed to avoid conflict with centralized.ts
+// Import MaterialProperties from '@/types' instead
 
 export interface MetricsPropertiesConfig {
   title?: string;
   description?: string;
   className?: string;
   variant?: 'compact' | 'advanced';
-  properties: MaterialProperties;
+  properties: MaterialProperties; // Uses centralized MaterialProperties
 }
 
 export interface MetricsPropertiesYamlData {
-  properties: MaterialProperties;
+  properties: MaterialProperties; // Uses centralized MaterialProperties
   title?: string;
   description?: string;
   className?: string;
@@ -235,34 +219,19 @@ export interface MetricsPropertiesYamlData {
 }
 
 // MetricsMachineSettings interfaces
-export interface MachineSettingValue {
-  value: number;
-  unit: string;
-  min?: number;
-  max?: number;
-  description?: string;
-  priority?: number;
-}
-
-export interface MachineSettings {
-  powerRange?: MachineSettingValue;
-  wavelength?: MachineSettingValue;
-  pulseDuration?: MachineSettingValue;
-  spotSize?: MachineSettingValue;
-  repetitionRate?: MachineSettingValue;
-  fluenceRange?: MachineSettingValue;
-}
+// Note: MachineSettings interface removed to avoid conflict with centralized.ts
+// Import MachineSettings from '@/types' instead
 
 export interface MetricsMachineSettingsConfig {
   title?: string;
   description?: string;
   className?: string;
   variant?: 'compact' | 'advanced';
-  machineSettings: MachineSettings;
+  machineSettings: MachineSettings; // Uses centralized MachineSettings
 }
 
 export interface MetricsMachineSettingsYamlData {
-  machineSettings: MachineSettings;
+  machineSettings: MachineSettings; // Uses centralized MachineSettings
   title?: string;
   description?: string;
   className?: string;

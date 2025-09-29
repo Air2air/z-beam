@@ -13,19 +13,18 @@ import { Author } from "../Author/Author";
 import { extractSafeValue } from "../../utils/stringHelpers";
 
 // Article content components
-import { Content } from "../Content/Content";
+
 import { Table } from "../Table/Table";
 import { Settings } from "../Settings/Settings";
 
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
-import { MetricsCard } from '../MetricsCard/MetricsCard';
+import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
   'badgesymbol', 
-  'text',
   'caption',
   'metricsmachinesettings',
   'metricsproperties',
@@ -102,34 +101,6 @@ export function Layout(props: LayoutProps) {
               );
             })()}
 
-            {/* Material Properties from frontmatter */}
-            {metadata && metadata.materialProperties && (
-              <section aria-labelledby="material-properties-heading" className="my-8">
-                <MetricsCard
-                  metadata={metadata}
-                  dataSource="materialProperties"
-                  title="Material Properties"
-                  maxCards={8}
-                  layout="auto"
-                  showTitle={true}
-                />
-              </section>
-            )}
-            
-            {/* Machine Settings from frontmatter */}
-            {metadata && metadata.machineSettings && (
-              <section aria-labelledby="machine-settings-heading" className="my-8">
-                <MetricsCard
-                  metadata={metadata}
-                  dataSource="machineSettings"
-                  title="Machine Settings"
-                  maxCards={8}
-                  layout="auto"
-                  showTitle={true}
-                />
-              </section>
-            )}
-
             {/* Title and Author components - simplified frontmatter-only */}
             <Title frontmatter={metadata} title={title} />
             <Author 
@@ -140,6 +111,34 @@ export function Layout(props: LayoutProps) {
               showSpecialties={true}
               className="mt-2 mb-4"
             />
+
+            {/* Material Properties from frontmatter - positioned after Author */}
+            {metadata && metadata.materialProperties && (
+              <section aria-labelledby="material-properties-heading" className="my-8">
+                <MetricsGrid
+                  metadata={metadata}
+                  dataSource="materialProperties"
+                  title="Material Properties"
+                  maxCards={8}
+                  layout="auto"
+                  showTitle={true}
+                />
+              </section>
+            )}
+            
+            {/* Machine Settings from frontmatter - positioned after Author */}
+            {metadata && metadata.machineSettings && (
+              <section aria-labelledby="machine-settings-heading" className="my-8">
+                <MetricsGrid
+                  metadata={metadata}
+                  dataSource="machineSettings"
+                  title="Machine Settings"
+                  maxCards={8}
+                  layout="auto"
+                  showTitle={true}
+                />
+              </section>
+            )}
           </div>
         )}        {/* Article content */}
         <article role="article" className="space-y-8">
@@ -159,12 +158,11 @@ export function Layout(props: LayoutProps) {
                 
                 return (
                   <section key={type} aria-label="Machine settings visualization">
-                    <MetricsCard 
+                    <MetricsGrid 
                       metadata={metricsMetadata as any}
                       dataSource="machineSettings"
                       title={component.config.title as string}
                       className={component.config.className as string}
-                      mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}
                     />
                   </section>
                 );
@@ -185,12 +183,11 @@ export function Layout(props: LayoutProps) {
                 
                 return (
                   <section key={type} aria-label="Material properties visualization">
-                    <MetricsCard 
+                    <MetricsGrid 
                       metadata={propertiesMetadata as any}
                       dataSource="materialProperties"
                       title={component.config.title as string}
                       className={component.config.className as string}
-                      mode={component.config.variant === 'compact' ? 'simple' : 'advanced'}
                     />
                   </section>
                 );
@@ -214,12 +211,6 @@ export function Layout(props: LayoutProps) {
                           : undefined
                       } 
                     />
-                  </section>
-                );
-              case 'text':
-                return (
-                  <section key={type} aria-label="Main content">
-                    <Content content={content} config={config} />
                   </section>
                 );
               case 'caption':

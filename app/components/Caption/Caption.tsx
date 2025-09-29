@@ -290,9 +290,11 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
             )}
           </div>
         ) : imageSource && !isInView ? (
-          // Placeholder while not in view for performance
-          <div className="w-full h-[300px] md:h-[400px] bg-gray-800 rounded-lg" aria-hidden="true">
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg"></div>
+          // Placeholder while not in view for performance - properly contained
+          <div className="relative">
+            <div className="w-full h-[300px] md:h-[400px] bg-gray-800 animate-pulse rounded-lg shadow-lg" aria-hidden="true">
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700 rounded-lg"></div>
+            </div>
           </div>
         ) : (
           // Fallback when no image available

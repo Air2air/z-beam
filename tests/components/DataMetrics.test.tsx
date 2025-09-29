@@ -1,12 +1,13 @@
 /**
- * Test Suite: DataMetrics Component
- * Comprehensive testing for consolidated DataMetrics functionality
- * Tests MetricsCard, MetricsGrid, and StatCard consolidation
+ * Test Suite: DataMetrics Component (DEPRECATED - Use MetricsCard instead)
+ * Legacy tests for DataMetrics functionality - prefer MetricsCard for new development
+ * Tests MetricsCard consolidation and migration path
  */
 
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
+// NOTE: DataMetrics is deprecated in favor of consolidated MetricsCard
 import {
   DataMetrics,
   DataMetricsGrid,
@@ -14,6 +15,7 @@ import {
   type DataMetricsProps,
   type StatData
 } from '../../app/components/DataMetrics';
+import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
 import { QualityMetrics, ArticleMetadata, CardData } from '../../types';
 
 // Mock data for testing
@@ -380,10 +382,25 @@ describe('DataMetrics Convenience Components', () => {
   });
 });
 
-describe('DataMetrics Integration with MetricsCard', () => {
+describe('DataMetrics Migration to MetricsCard', () => {
   afterEach(cleanup);
 
-  it('should integrate with MetricsCard for complex metadata', () => {
+  it('should prefer MetricsCard over DataMetrics for frontmatter data', () => {
+    // Test the preferred approach using MetricsCard directly
+    render(
+      <MetricsCard 
+        metadata={mockArticleMetadata}
+        dataSource="machineSettings"
+        title="Machine Settings"
+        baseHref="/test"
+      />
+    );
+    
+    expect(screen.getByText('Machine Settings')).toBeInTheDocument();
+  });
+
+  it('should integrate with DataMetrics for legacy compatibility', () => {
+    // Legacy DataMetrics usage for backward compatibility
     render(
       <DataMetrics 
         mode="metrics"

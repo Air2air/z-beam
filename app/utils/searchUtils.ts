@@ -1,5 +1,5 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData, BadgeColor } from '@/types';
+import { MaterialType, BadgeData, BadgeColor, ChemicalProperties } from '@/types';
 import { capitalizeWords } from './formatting';
 
 export function getMaterialColor(materialType?: string | MaterialType): BadgeColor {
@@ -89,13 +89,6 @@ export function getDisplayName(item: {
   
   // Last resort
   return "Unnamed Item";
-}
-
-export interface ChemicalProperties {
-  symbol?: string;
-  formula?: string;
-  materialType?: MaterialType;
-  atomicNumber?: number | string;
 }
 
 export function getBadgeFromItem(item: {

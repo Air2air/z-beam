@@ -1,11 +1,8 @@
-// Export all MetricsCard components - unified solution for frontmatter data
-export {
-  MetricsCard,
-  PrimaryMetricsCard,
-  CompactMetricsCard,
-  MinimalMetricsCard,
-  GenericMetricsCard,
-  CustomMetricsCard,
-  createMetricConfigs,
-  type MetricsCardProps
-} from './MetricsCard';
+// Export the new MetricsCard and MetricsGrid structure
+export { MetricsCard } from './MetricsCard';
+export type { MetricsCardProps } from './MetricsCard';
+export { MetricsGrid } from './MetricsGrid';
+export type { MetricsGridProps } from './MetricsGrid';
+
+// For backward compatibility, export MetricsGrid as the old MetricsCard name
+export { MetricsGrid as MetricsCardLegacy } from './MetricsGrid';
