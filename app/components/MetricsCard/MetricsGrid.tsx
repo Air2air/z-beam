@@ -101,8 +101,24 @@ function extractCardsFromFrontmatter(
     const color = METRIC_COLOR_MAP[key] || DEFAULT_COLORS[colorIndex % DEFAULT_COLORS.length];
     colorIndex++;
 
-    // Format title (convert camelCase to readable)
-    const title = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+    // Name mapping for custom display titles
+    const TITLE_MAPPING: Record<string, string> = {
+      'fluenceThreshold': 'Fluence',
+      'thermalConductivity': 'Therm. Cond.',
+      'thermalExpansion': 'Therm. Exp.',
+      'thermalDiffusivity': 'Therm. Diff.',
+      'tensileStrength': 'Tensile Strength',
+      'youngsModulus': 'Y. Modulus',
+      'overlapRatio': 'Overlap',
+      'meltingPoint': 'Melting Point',
+      'powerRange': 'Power Range',
+      'pulseWidth': 'Pulse Width',
+      'repetitionRate': 'Repetition',
+      'scanSpeed': 'Scan'
+    };
+    
+    // Format title using mapping or convert camelCase to readable
+    const title = TITLE_MAPPING[key] || key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
     
     // Extract value, unit, min, max from nested object structure or fallback to flat structure
     let displayValue: string;

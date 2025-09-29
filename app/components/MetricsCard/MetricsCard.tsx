@@ -134,7 +134,7 @@ export function MetricsCard({
       
       {/* Title with unit in parentheses */}
       <div className="flex-1 flex flex-col justify-center text-center">
-        <h3 className="font-medium text-sm leading-tight">
+        <h3 className="font-medium text-sm leading-tight whitespace-nowrap">
           {title}
           {displayUnit && <span className="text-gray-500 dark:text-gray-400"> {displayUnit}</span>}
         </h3>
