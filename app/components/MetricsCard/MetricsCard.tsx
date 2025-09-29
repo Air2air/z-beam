@@ -16,15 +16,35 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: Progress
   // Calculate percentage position (0-100)
   const percentage = Math.min(Math.max((value - min) / (max - min) * 100, 0), 100);
   
+  // Dynamic alignment based on position to prevent overflow
+  const getAlignment = () => {
+    if (percentage <= 15) {
+      // Near left edge: align left (no transform)
+      return { transform: 'none', left: `${percentage}%` };
+    } else if (percentage >= 85) {
+      // Near right edge: align right (translate full width)
+      return { transform: 'translateX(-100%)', left: `${percentage}%` };
+    } else {
+      // Middle: center align (translate half width)
+      return { transform: 'translateX(-50%)', left: `${percentage}%` };
+    }
+  };
+  
+  const alignmentStyle = getAlignment();
+  
   return (
     <div className="w-full">
       {/* Current value positioned above the bar at pointer position */}
       <div className="relative w-full mb-1 h-4">
         <div 
-          className="absolute text-lg font-bold text-gray-800 dark:text-gray-200 transform -translate-x-1/2 z-10"
-          style={{ left: `${percentage}%`, top: '-8px' }}
+          className="absolute text-lg font-bold text-gray-800 dark:text-gray-200 z-10"
+          style={{ 
+            left: alignmentStyle.left,
+            transform: alignmentStyle.transform,
+            top: '-8px' 
+          }}
         >
-          {value}{unit && <span className="ml-0.5">{unit}</span>}
+          {value}
         </div>
       </div>
       
@@ -52,10 +72,10 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: Progress
       {/* Min and Max values positioned under the bar */}
       <div className="flex justify-between items-center">
         <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-          {min}{unit && <span className="ml-0.5">{unit}</span>}
+          {min}
         </span>
         <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
-          {max}{unit && <span className="ml-0.5">{unit}</span>}
+          {max}
         </span>
       </div>
     </div>
@@ -88,7 +108,7 @@ export function MetricsCard({
   
   // Convert value to display format
   const displayValue = String(value);
-  const displayUnit = String(unit || '');
+  const displayUnit = unit || '';
   
   // Extract numeric value for progress calculation
   const numericValue = parseFloat(displayValue.replace(/[^\d.-]/g, ''));
@@ -112,9 +132,12 @@ export function MetricsCard({
         <div className="h-2 mb-1"></div>
       )}
       
-      {/* Title centered */}
+      {/* Title with unit in parentheses */}
       <div className="flex-1 flex flex-col justify-center text-center">
-        <h3 className="font-medium text-sm leading-tight">{title}</h3>
+        <h3 className="font-medium text-sm leading-tight">
+          {title}
+          {displayUnit && <span className="text-gray-500 dark:text-gray-400"> {displayUnit}</span>}
+        </h3>
       </div>
     </div>
   );

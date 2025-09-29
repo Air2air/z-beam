@@ -101,16 +101,13 @@ function extractCardsFromFrontmatter(
     const color = METRIC_COLOR_MAP[key] || DEFAULT_COLORS[colorIndex % DEFAULT_COLORS.length];
     colorIndex++;
 
-    // Get unit
-    const unitKey = `${key}Unit`;
-    const unit = sourceData[unitKey] || '';
-    
     // Format title (convert camelCase to readable)
     const title = key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
     
-    // Extract value properly - handle objects, arrays, and primitives
+    // Extract value, unit, min, max from nested object structure or fallback to flat structure
     let displayValue: string;
     let numericValue: number | undefined;
+    let unit = '';
     
     if (typeof value === 'object' && value !== null) {
       if (Array.isArray(value)) {
@@ -118,11 +115,14 @@ function extractCardsFromFrontmatter(
         // Try to extract numeric value from first element
         numericValue = value.length > 0 ? Number(value[0]) : undefined;
       } else if (value.value !== undefined) {
+        // Nested object structure: { value: 7.85, unit: 'g/cm³', min: 0.53, max: 22.6 }
         displayValue = String(value.value);
         numericValue = Number(value.value);
+        unit = value.unit || '';
       } else if (value.current !== undefined) {
         displayValue = String(value.current);
         numericValue = Number(value.current);
+        unit = value.unit || '';
       } else if (value.toString && typeof value.toString === 'function') {
         displayValue = value.toString();
       } else {
@@ -133,23 +133,37 @@ function extractCardsFromFrontmatter(
       numericValue = Number(value);
     }
     
-    // Get min/max values - try multiple possible key formats
-    const minKey = `${key}Min`;
-    const maxKey = `${key}Max`;
-    let min = sourceData[minKey] ? Number(sourceData[minKey]) : undefined;
-    let max = sourceData[maxKey] ? Number(sourceData[maxKey]) : undefined;
+    // Fallback: try separate unit key approach if no unit found in object
+    if (!unit) {
+      const unitKey = `${key}Unit`;
+      unit = sourceData[unitKey] || '';
+    }
     
-    // Also try looking for min/max within the value object itself
+    // Extract min/max values from nested object structure or fallback to flat structure
+    let min: number | undefined;
+    let max: number | undefined;
+    
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      if (value.min !== undefined) min = Number(value.min);
-      if (value.max !== undefined) max = Number(value.max);
+      // Extract from nested object structure
+      min = value.min !== null && value.min !== undefined ? Number(value.min) : undefined;
+      max = value.max !== null && value.max !== undefined ? Number(value.max) : undefined;
+      
+      // Handle range arrays if present
       if (value.range && Array.isArray(value.range) && value.range.length === 2) {
         min = Number(value.range[0]);
         max = Number(value.range[1]);
       }
     }
     
-    // Add fallback min/max values for common metrics if not found
+    // Fallback: try separate min/max keys if not found in object
+    if (min === undefined || max === undefined) {
+      const minKey = `${key}Min`;
+      const maxKey = `${key}Max`;
+      min = min ?? (sourceData[minKey] ? Number(sourceData[minKey]) : undefined);
+      max = max ?? (sourceData[maxKey] ? Number(sourceData[maxKey]) : undefined);
+    }
+    
+    // Add fallback min/max values for common metrics if still not found
     if (min === undefined || max === undefined) {
       const fallbackRanges: Record<string, [number, number]> = {
         'density': [0.8, 8.0],
@@ -178,7 +192,7 @@ function extractCardsFromFrontmatter(
     
     // Debug log to see what we're getting
     if (key === 'density' || key === 'powerRange') {
-      console.log(`Debug ${key}:`, { value, displayValue, numericValue, min, max, minKey, maxKey });
+      console.log(`Debug ${key}:`, { value, displayValue, numericValue, min, max, unit });
     }
     
     cards.push({
