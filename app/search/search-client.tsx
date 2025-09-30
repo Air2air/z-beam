@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { UnifiedArticleGrid } from "../components/ArticleGrid/UnifiedArticleGridClient";
+import { ArticleGrid } from "../components/ArticleGrid/client";
 import { Article, MaterialType, SearchClientProps } from "@/types";
-import { extractSafeValue, safeIncludes } from "../utils/stringHelpers";
+import { extractSafeValue, safeIncludes } from "../utils/client-safe";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -69,6 +69,58 @@ function parsePropertiesFromContent(content: string): Array<{property: string, v
   return properties;
 }
 
+// Parse properties from article metadata/frontmatter
+function parsePropertiesFromMetadata(metadata: any): Array<{property: string, value: string}> {
+  if (!metadata || typeof metadata !== 'object') return [];
+  
+  const properties: Array<{property: string, value: string}> = [];
+  
+  // Helper function to extract property data
+  const extractProperty = (key: string, data: any, propertyName?: string) => {
+    if (!data) return;
+    
+    // Use original key as property name unless override provided
+    const displayName = propertyName || key;
+    
+    if (typeof data === 'object' && data !== null) {
+      // Handle nested objects with value/unit structure
+      if (data.value !== undefined) {
+        const value = data.unit ? `${data.value} ${data.unit}` : String(data.value);
+        properties.push({ property: displayName, value });
+      } else if (data.numeric !== undefined) {
+        const value = data.units ? `${data.numeric} ${data.units}` : String(data.numeric);
+        properties.push({ property: displayName, value });
+      }
+    } else if (data !== null && data !== undefined) {
+      // Handle primitive values
+      properties.push({ property: displayName, value: String(data) });
+    }
+  };
+  
+  // Check material properties - only extract what actually exists
+  if (metadata.materialProperties) {
+    Object.entries(metadata.materialProperties).forEach(([key, value]) => {
+      extractProperty(key, value);
+    });
+  }
+  
+  // Check machine settings - only extract what actually exists
+  if (metadata.machineSettings) {
+    Object.entries(metadata.machineSettings).forEach(([key, value]) => {
+      extractProperty(key, value);
+    });
+  }
+  
+  // Check properties field (alternative structure) - only extract what actually exists
+  if (metadata.properties) {
+    Object.entries(metadata.properties).forEach(([key, value]) => {
+      extractProperty(key, value);
+    });
+  }
+  
+  return properties;
+}
+
 export default function SearchClient({ initialArticles }: SearchClientProps) {
   const searchParams = useSearchParams();
   const query = searchParams?.get('q') || '';
@@ -77,15 +129,127 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   const [articles] = useState<Article[]>(initialArticles);
   
+  // Debug logging when property search is active
+  const isPropertySearch = propertyName && propertyValue;
+  
+  if (isPropertySearch) {
+    console.log('Property search debug:', {
+      propertyName,
+      propertyValue,
+      articlesCount: articles.length,
+      sampleArticle: articles[0] ? {
+        title: articles[0].title,
+        metadataKeys: articles[0].metadata ? Object.keys(articles[0].metadata) : 'No metadata',
+        hasMaterialProperties: !!(articles[0].metadata && articles[0].metadata.materialProperties),
+        hasMachineSettings: !!(articles[0].metadata && articles[0].metadata.machineSettings)
+      } : 'No articles'
+    });
+    
+    // Test property extraction on first few articles
+    if (articles.length > 0) {
+      const testProps = parsePropertiesFromMetadata(articles[0].metadata);
+      console.log('Sample extracted properties from first article:', testProps.slice(0, 10));
+      
+      // Check specifically for absorptionCoefficient if that's what we're searching for
+      if (propertyName === 'absorptionCoefficient') {
+        const absorptionProps = testProps.filter(p => 
+          p.property.toLowerCase().includes('absorption') || 
+          p.property.includes('absorptionCoefficient')
+        );
+        console.log('Absorption-related properties found:', absorptionProps);
+      }
+    }
+  }
+  
   // Filter articles based on search query and property filters
   const filteredArticles = articles.filter(article => {
     // Check property filter
-    if (propertyName && propertyValue && article.content) {
-      const properties = parsePropertiesFromContent(article.content);
-      const hasMatchingProperty = properties.some(prop => 
-        prop.property.toLowerCase() === propertyName.toLowerCase() && 
-        prop.value.toLowerCase() === propertyValue.toLowerCase()
-      );
+    if (propertyName && propertyValue) {
+      // Get properties from both content and metadata
+      const contentProperties = article.content ? parsePropertiesFromContent(article.content) : [];
+      const metadataProperties = parsePropertiesFromMetadata(article.metadata);
+      const allProperties = [...contentProperties, ...metadataProperties];
+      
+      // Debug logging for first few articles and specific problem cases
+      if (articles.indexOf(article) < 3 || article.title?.toLowerCase().includes('gold')) {
+        console.log(`Article ${article.title}:`, {
+          contentPropsCount: contentProperties.length,
+          metadataPropsCount: metadataProperties.length,
+          totalPropsCount: allProperties.length,
+          sampleProps: allProperties.slice(0, 5),
+          hasMetadata: !!article.metadata,
+          metadataKeys: article.metadata ? Object.keys(article.metadata) : [],
+          allPropertyNames: allProperties.map(p => p.property)
+        });
+      }
+      
+      // Check for matching property with exact property name matching
+      const hasMatchingProperty = allProperties.some(prop => {
+        // Direct exact property name matching (most reliable)
+        const exactPropertyMatch = prop.property === propertyName;
+        
+        // More restrictive flexible matching - only if exact match fails
+        const searchPropLower = propertyName.toLowerCase().replace(/[^\w]/g, '');
+        const actualPropLower = prop.property.toLowerCase().replace(/[^\w]/g, '');
+        const flexibleNameMatch = !exactPropertyMatch && actualPropLower === searchPropLower;
+        
+        // Only allow exact matches or very close flexible matches
+        const propNameMatch = exactPropertyMatch || flexibleNameMatch;
+        
+        // Early exit if property name doesn't match
+        if (!propNameMatch) {
+          return false;
+        }
+        
+        // Flexible value matching
+        const searchVal = String(propertyValue).toLowerCase().trim();
+        const actualVal = String(prop.value).toLowerCase().trim();
+        
+        // Clean values for numeric comparison (remove units and extra formatting)
+        const cleanPropValue = prop.value.replace(/[^\d.-]/g, '');
+        const cleanSearchValue = propertyValue.replace(/[^\d.-]/g, '');
+        
+        // Try multiple value matching strategies
+        const exactMatch = actualVal === searchVal;
+        const containsValueMatch = actualVal.includes(searchVal) || searchVal.includes(actualVal);
+        
+        // Numeric matching with tighter tolerance
+        let numericMatch = false;
+        if (cleanPropValue && cleanSearchValue) {
+          const propNum = parseFloat(cleanPropValue);
+          const searchNum = parseFloat(cleanSearchValue);
+          if (!isNaN(propNum) && !isNaN(searchNum)) {
+            // Tighter tolerance: 5% for better precision (reduced from 10%)
+            const tolerance = Math.max(Math.abs(searchNum * 0.05), 0.1);
+            numericMatch = Math.abs(propNum - searchNum) <= tolerance;
+          }
+        }
+        
+        // More restrictive value matching - prioritize exact matches
+        const valueMatch = exactMatch || numericMatch; // Removed containsValueMatch for precision
+        const isMatch = propNameMatch && valueMatch;
+        
+        // Debug matches for first few articles and specifically for tensileStrength searches
+        if ((articles.indexOf(article) < 2 || article.title?.toLowerCase().includes('gold')) && (propNameMatch || valueMatch)) {
+          console.log('Match attempt:', {
+            article: article.title,
+            property: prop.property,
+            value: prop.value,
+            searchProperty: propertyName,
+            searchValue: propertyValue,
+            exactPropertyMatch,
+            flexibleNameMatch,
+            propNameMatch,
+            valueMatch,
+            exactMatch,
+            numericMatch,
+            isMatch
+          });
+        }
+        
+        return isMatch;
+      });
+      
       if (!hasMatchingProperty) {
         return false;
       }
@@ -95,9 +259,45 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     if (!query) return true;
     
     const searchTerm = query.toLowerCase();
+    
+    // Helper function to safely extract and check author information
+    const checkAuthorMatch = (article: any, searchTerm: string): boolean => {
+      // Check simple author field
+      if (article.author && safeIncludes(extractSafeValue(article.author), searchTerm)) {
+        return true;
+      }
+      
+      // Check author in metadata
+      if (article.metadata?.author && safeIncludes(extractSafeValue(article.metadata.author), searchTerm)) {
+        return true;
+      }
+      
+      // Check author_object structure
+      const authorObj = article.metadata?.author_object || article.metadata?.authorInfo;
+      if (authorObj) {
+        if (authorObj.name && safeIncludes(extractSafeValue(authorObj.name), searchTerm)) {
+          return true;
+        }
+        if (authorObj.title && safeIncludes(extractSafeValue(authorObj.title), searchTerm)) {
+          return true;
+        }
+        if (authorObj.expertise && Array.isArray(authorObj.expertise)) {
+          if (authorObj.expertise.some((exp: string) => safeIncludes(extractSafeValue(exp), searchTerm))) {
+            return true;
+          }
+        }
+        if (authorObj.country && safeIncludes(extractSafeValue(authorObj.country), searchTerm)) {
+          return true;
+        }
+      }
+      
+      return false;
+    };
+    
     return (
       (article.title && safeIncludes(extractSafeValue(article.title), searchTerm)) ||
-      (article.description && safeIncludes(extractSafeValue(article.description), searchTerm))
+      (article.description && safeIncludes(extractSafeValue(article.description), searchTerm)) ||
+      checkAuthorMatch(article, searchTerm)
     );
   });
   
@@ -118,7 +318,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
           <p className="text-gray-700">No articles found matching your criteria.</p>
         </div>
       ) : (
-        <UnifiedArticleGrid
+        <ArticleGrid
           items={filteredArticles.map((article) => ({
             slug: article.slug || 'unknown',
             title: article.title || 'Untitled Article',

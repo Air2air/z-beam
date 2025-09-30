@@ -49,11 +49,13 @@ export interface MetricsGridProps {
   dataSource?: 'materialProperties' | 'machineSettings';
   title?: string;
   description?: string;
+  titleFormat?: 'default' | 'comparison';
   layout?: keyof typeof GRID_LAYOUTS;
   maxCards?: number;
   showTitle?: boolean;
   className?: string;
   baseHref?: string;
+  searchable?: boolean; // Enable search functionality for all cards
 }
 
 // Helper function to extract cards from frontmatter data
@@ -69,6 +71,7 @@ function extractCardsFromFrontmatter(
   max?: number;
   color: string;
   href?: string;
+  fullPropertyName?: string;
 }> {
   const cards: Array<{
     key: string;
@@ -107,7 +110,7 @@ function extractCardsFromFrontmatter(
       'thermalConductivity': 'Therm. Cond.',
       'thermalExpansion': 'Therm. Exp.',
       'thermalDiffusivity': 'Therm. Diff.',
-      'tensileStrength': 'Tensile Strength',
+      'tensileStrength': 'Ten. Strength',
       'youngsModulus': 'Y. Modulus',
       'overlapRatio': 'Overlap',
       'meltingPoint': 'Melting Point',
@@ -130,21 +133,27 @@ function extractCardsFromFrontmatter(
         displayValue = value.join(', ');
         // Try to extract numeric value from first element
         numericValue = value.length > 0 ? Number(value[0]) : undefined;
+      } else if (value.numeric !== undefined) {
+        // Standard structure: { numeric: 80, units: '%', min: 60, max: 100 }
+        displayValue = String(value.numeric);
+        numericValue = Number(value.numeric);
+        unit = value.units || value.unit || '';
       } else if (value.value !== undefined) {
-        // Nested object structure: { value: 7.85, unit: 'g/cm³', min: 0.53, max: 22.6 }
+        // Alternative structure: { value: 7.85, unit: 'g/cm³', min: 0.53, max: 22.6 }
         displayValue = String(value.value);
         numericValue = Number(value.value);
-        unit = value.unit || '';
+        unit = value.unit || value.units || '';
       } else if (value.current !== undefined) {
         displayValue = String(value.current);
         numericValue = Number(value.current);
-        unit = value.unit || '';
-      } else if (value.toString && typeof value.toString === 'function') {
-        displayValue = value.toString();
+        unit = value.unit || value.units || '';
       } else {
-        displayValue = JSON.stringify(value);
+        // For complex objects, try to convert to string
+        displayValue = value.toString && typeof value.toString === 'function' ? value.toString() : JSON.stringify(value);
+        numericValue = undefined;
       }
     } else {
+      // Simple value
       displayValue = String(value);
       numericValue = Number(value);
     }
@@ -160,7 +169,7 @@ function extractCardsFromFrontmatter(
     let max: number | undefined;
     
     if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      // Extract from nested object structure
+      // Extract from standard structure (numeric/units/min/max)
       min = value.min !== null && value.min !== undefined ? Number(value.min) : undefined;
       max = value.max !== null && value.max !== undefined ? Number(value.max) : undefined;
       
@@ -206,11 +215,6 @@ function extractCardsFromFrontmatter(
       }
     }
     
-    // Debug log to see what we're getting
-    if (key === 'density' || key === 'powerRange') {
-      console.log(`Debug ${key}:`, { value, displayValue, numericValue, min, max, unit });
-    }
-    
     cards.push({
       key,
       title,
@@ -219,7 +223,8 @@ function extractCardsFromFrontmatter(
       min,
       max,
       color,
-      href: undefined // Can add search link logic here if needed
+      href: undefined, // Can add search link logic here if needed
+      fullPropertyName: key // Store the original property name for search
     });
   });
 
@@ -232,15 +237,30 @@ export function MetricsGrid({
   dataSource = 'machineSettings',
   title,
   description,
+  titleFormat = 'default',
   layout = 'auto',
   maxCards = 8,
   showTitle = true,
   className = '',
-  baseHref
+  baseHref,
+  searchable = true // Default to true for clickable cards
 }: MetricsGridProps) {
   
   // Extract cards from frontmatter
   const cards = extractCardsFromFrontmatter(metadata, dataSource);
+  
+  // Generate intelligent title if using comparison format
+  const displayTitle = titleFormat === 'comparison' && !title
+    ? (() => {
+        const materialName = metadata?.title?.replace(/\s*laser\s*cleaning/i, '').trim() || 
+                           metadata?.subject?.replace(/\s*laser\s*cleaning/i, '').trim() ||
+                           (metadata?.slug ? metadata.slug.split('-')[0].charAt(0).toUpperCase() + metadata.slug.split('-')[0].slice(1) : 'Material');
+        const categoryName = metadata?.category || 'Category';
+        return dataSource === 'materialProperties' 
+          ? `Properties: ${materialName} vs. other ${categoryName}s`
+          : `Machine settings: ${materialName} vs. other ${categoryName}s`;
+      })()
+    : title;
   
   // Limit cards if maxCards is specified
   const limitedCards = maxCards ? cards.slice(0, maxCards) : cards;
@@ -257,11 +277,11 @@ export function MetricsGrid({
   return (
     <div className={`metrics-grid-container ${className}`}>
       {/* Title section */}
-      {showTitle && title && (
+      {showTitle && displayTitle && (
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {title}
-          </h2>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+            {displayTitle}
+          </h3>
           {description && (
             <p className="text-gray-600 dark:text-gray-400">
               {description}
@@ -282,6 +302,8 @@ export function MetricsGrid({
             href={card.href}
             min={card.min}
             max={card.max}
+            searchable={searchable}
+            fullPropertyName={card.fullPropertyName}
           />
         ))}
       </div>

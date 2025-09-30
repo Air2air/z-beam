@@ -1,6 +1,6 @@
 // app/search/page.tsx
 import SearchClient from "./search-client";
-import { getAllArticles } from "../utils/contentAPI";
+import { loadAllArticles } from "../utils/contentAPI";
 import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
@@ -36,7 +36,12 @@ function toMaterialType(value?: string): MaterialType {
 export default async function SearchPage() {
   try {
     // Fetch data server-side
-    const articles = await getAllArticles();
+    const articles = await loadAllArticles();
+    
+    console.log('Search page server-side debug:', {
+      articlesCount: articles.length,
+      sampleTitles: articles.slice(0, 3).map(a => a.title)
+    });
     
     // Load BadgeSymbol data for each article
     const articlesWithBadgeData = await Promise.all(
@@ -121,6 +126,11 @@ export default async function SearchPage() {
         };
       })
     );
+    
+    console.log('Search page final articles before passing to client:', {
+      finalArticlesCount: articlesWithBadgeData.length,
+      sampleFinalTitles: articlesWithBadgeData.slice(0, 3).map(a => a.title)
+    });
     
     return (
       <div className={CONTAINER_STYLES.standard}>
