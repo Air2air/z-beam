@@ -2,11 +2,12 @@
 "use client";
 
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { useCaptionParsing, CaptionData, ParsedCaptionData } from './useCaptionParsing';
 import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import './enhanced-seo-caption.css';
+import './caption-accessibility.css';
 
 export function Caption({ content, frontmatter, config }: CaptionProps) {
   const captionData = useCaptionParsing(content);
@@ -17,7 +18,12 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
   const [imageError, setImageError] = useState(false);
   const [imageLoading, setImageLoading] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [focusedMetricIndex, setFocusedMetricIndex] = useState(-1);
+  const [metricsExpanded, setMetricsExpanded] = useState(true);
+  const [announceMessage, setAnnounceMessage] = useState('');
   const captionRef = useRef<HTMLElement>(null);
+  const metricsRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer for lazy loading and performance optimization
   useEffect(() => {
@@ -87,9 +93,72 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
     images: frontmatter?.images ? { micro: frontmatter.images.micro } : undefined,
   };
 
+  // Enhanced keyboard navigation for quality metrics
+  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
+    if (!enhancedData.quality_metrics) return;
+    
+    const metricsEntries = Object.entries(enhancedData.quality_metrics)
+      .filter(([key]) => key !== 'substrate_integrity')
+      .slice(0, 2);
+    
+    const maxIndex = metricsEntries.length - 1;
+    
+    switch (event.key) {
+      case 'ArrowRight':
+      case 'ArrowDown':
+        event.preventDefault();
+        setFocusedMetricIndex(prev => Math.min(prev + 1, maxIndex));
+        setAnnounceMessage(`Focused on ${metricsEntries[Math.min(focusedMetricIndex + 1, maxIndex)]?.[0]?.replace(/_/g, ' ')} metric`);
+        break;
+        
+      case 'ArrowLeft':
+      case 'ArrowUp':
+        event.preventDefault();
+        setFocusedMetricIndex(prev => Math.max(prev - 1, 0));
+        setAnnounceMessage(`Focused on ${metricsEntries[Math.max(focusedMetricIndex - 1, 0)]?.[0]?.replace(/_/g, ' ')} metric`);
+        break;
+        
+      case 'Home':
+        event.preventDefault();
+        setFocusedMetricIndex(0);
+        setAnnounceMessage(`Focused on first metric: ${metricsEntries[0]?.[0]?.replace(/_/g, ' ')}`);
+        break;
+        
+      case 'End':
+        event.preventDefault();
+        setFocusedMetricIndex(maxIndex);
+        setAnnounceMessage(`Focused on last metric: ${metricsEntries[maxIndex]?.[0]?.replace(/_/g, ' ')}`);
+        break;
+        
+      case 'Enter':
+      case ' ':
+        event.preventDefault();
+        setMetricsExpanded(prev => !prev);
+        setAnnounceMessage(metricsExpanded ? 'Quality metrics collapsed' : 'Quality metrics expanded');
+        break;
+        
+      case 'Escape':
+        event.preventDefault();
+        setFocusedMetricIndex(-1);
+        captionRef.current?.focus();
+        setAnnounceMessage('Focus returned to main caption');
+        break;
+    }
+  }, [enhancedData.quality_metrics, focusedMetricIndex, metricsExpanded]);
+
   const materialName = enhancedData.material || 'material';
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
   const analysisId = `analysis-${materialName}-${Date.now()}`;
+  
+  // Generate comprehensive accessibility IDs
+  const sectionId = `caption-section-${analysisId}`;
+  const titleId = `caption-title-${analysisId}`;
+  const imageId = `caption-image-${analysisId}`;
+  const metricsId = `caption-metrics-${analysisId}`;
+  const descriptionId = `caption-desc-${analysisId}`;
+  const beforeId = `before-treatment-${analysisId}`;
+  const afterId = `after-treatment-${analysisId}`;
+  const liveRegionId = `caption-announcements-${analysisId}`;
 
   // Image source handling with fallbacks
   const imageSource = enhancedData.images?.micro?.url;
@@ -133,6 +202,19 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
   // Generate accessible aria-label for section
   const getAriaLabel = (): string => {
     return `Surface analysis section for ${capitalizedMaterial} laser cleaning treatment`;
+  };
+  
+  // Generate comprehensive accessibility description
+  const getAccessibilityDescription = (): string => {
+    const hasMetrics = enhancedData.quality_metrics && Object.keys(enhancedData.quality_metrics).length > 0;
+    const hasBeforeAfter = enhancedData.before_text && enhancedData.after_text;
+    
+    let description = `Interactive ${capitalizedMaterial} laser cleaning analysis`;
+    if (hasMetrics) description += ' with quality metrics overlay';
+    if (hasBeforeAfter) description += ' and before/after comparison';
+    description += '. Use arrow keys to navigate metrics, Enter to toggle expansion, Escape to return focus.';
+    
+    return description;
   };
 
   // Generate comprehensive JSON-LD structured data
@@ -198,12 +280,32 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
   return (
     <section 
       ref={captionRef}
+      id={sectionId}
       className={`enhanced-seo-caption ${className}`}
       itemScope 
       itemType="https://schema.org/TechArticle"
       aria-label={getAriaLabel()}
+      aria-describedby={`${descriptionId} ${liveRegionId}`}
       role="region"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
     >
+      
+      {/* Live region for screen reader announcements */}
+      <div 
+        id={liveRegionId}
+        className="sr-only" 
+        aria-live="polite" 
+        aria-atomic="true"
+        role="status"
+      >
+        {announceMessage}
+      </div>
+      
+      {/* Hidden comprehensive description for screen readers */}
+      <div id={descriptionId} className="sr-only">
+        {getAccessibilityDescription()}
+      </div>
       {/* JSON-LD Structured Data - invisible to users, visible to search engines */}
       <script 
         type="application/ld+json"
@@ -212,36 +314,65 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
       
       {/* Main Content */}
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-white mb-4">
-          Material Properties
-        </h3>
+        <header>
+          <h3 
+            id={titleId}
+            className="text-xl font-bold text-white mb-4"
+            role="heading"
+            aria-level={3}
+          >
+            Material Properties - {capitalizedMaterial}
+          </h3>
+        </header>
         <figure 
           className="caption-container" 
           itemScope 
           itemType="https://schema.org/ImageObject"
+          role="img"
+          aria-labelledby={titleId}
+          aria-describedby={imageId}
         >
+        
+        {/* Hidden image description for screen readers */}
+        <div id={imageId} className="sr-only">
+          {enhancedData.images?.micro?.url 
+            ? `Surface analysis image showing ${capitalizedMaterial} before and after laser cleaning treatment with ${enhancedData.quality_metrics ? 'interactive quality metrics overlay' : 'technical details'}`
+            : `No image available for ${capitalizedMaterial} surface analysis`
+          }
+        </div>
         {imageSource && isInView ? (
-          <div className="relative">
+          <div 
+            ref={imageRef}
+            className="relative"
+            role="img"
+            aria-label={getAccessibleAlt()}
+          >
             {/* Performance-optimized Next.js Image component */}
             <Image
               src={imageSource}
               alt={getAccessibleAlt()}
               width={enhancedData.images?.micro?.width || 800}
               height={enhancedData.images?.micro?.height || 450}
-              className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[300px] md:h-[400px] object-cover rounded-lg shadow-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               itemProp="contentUrl"
               priority={false} // Caption images are typically below-fold
               quality={85}
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 800px, 800px"
+              tabIndex={0}
               onLoad={() => {
                 setImageLoaded(true);
                 setImageLoading(false);
+                setAnnounceMessage('Surface analysis image loaded successfully');
               }}
               onError={() => {
                 setImageError(true);
                 setImageLoading(false);
+                setAnnounceMessage('Surface analysis image failed to load');
               }}
-              onLoadStart={() => setImageLoading(true)}
+              onLoadStart={() => {
+                setImageLoading(true);
+                setAnnounceMessage('Loading surface analysis image');
+              }}
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
             />
@@ -250,12 +381,13 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
             {imageLoading && (
               <div 
                 className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-10"
-                role="status"
-                aria-live="polite"
+                role="progressbar"
                 aria-label="Loading surface analysis image"
+                aria-describedby={`${imageId}-loading`}
+                tabIndex={0}
               >
-                <div className="rounded-full h-8 w-8 border-b-2 border-white" aria-hidden="true"></div>
-                <span className="sr-only">Loading surface analysis image...</span>
+                <div className="rounded-full h-8 w-8 border-b-2 border-white animate-spin" aria-hidden="true"></div>
+                <span id={`${imageId}-loading`} className="sr-only">Loading surface analysis image for {capitalizedMaterial}...</span>
               </div>
             )}
 
@@ -274,31 +406,86 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
             )}
 
             {/* Quality Metrics overlaid on image with accessibility */}
-            {enhancedData.quality_metrics && imageLoaded && (
+            {enhancedData.quality_metrics && imageLoaded && metricsExpanded && (
               <div 
+                ref={metricsRef}
+                id={metricsId}
                 className="absolute bottom-4 left-0 right-0 w-full px-4"
                 role="region"
-                aria-label="Quality metrics overlay"
+                aria-label="Interactive quality metrics overlay"
+                aria-describedby={`${metricsId}-desc`}
+                aria-expanded={metricsExpanded}
                 tabIndex={0}
+                onKeyDown={handleKeyDown}
               >
+              
+              {/* Hidden description for screen readers */}
+              <div id={`${metricsId}-desc`} className="sr-only">
+                Quality metrics overlay with {Object.keys(enhancedData.quality_metrics).length} measurements. 
+                Use arrow keys to navigate, Enter to toggle, Escape to exit.
+              </div>
                 {/* Quality metrics display - inline to remove Caption MetricsGrid dependency */}
                 {enhancedData.quality_metrics && Object.keys(enhancedData.quality_metrics).length > 0 && (
-                  <div className="grid grid-cols-2 gap-2 w-full min-w-0 overflow-hidden">
+                  <div 
+                    className="grid grid-cols-2 gap-2 w-full min-w-0 overflow-hidden"
+                    role="list"
+                    aria-label="Quality metrics list"
+                  >
                     {Object.entries(enhancedData.quality_metrics)
                       .filter(([key]) => key !== 'substrate_integrity')
                       .slice(0, 2)
-                      .map(([key, value]) => (
-                        <div key={key} className="flex justify-start items-start min-w-0 overflow-hidden">
-                          <div className="metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6">
-                            <dt className="text-xs font-medium text-gray-400 uppercase tracking-wider leading-tight truncate w-full">
-                              {key.replace(/_/g, ' ')}
-                            </dt>
-                            <dd className="text-lg font-bold text-gray-100 mt-1 leading-tight -tracking-wide truncate w-full">
-                              {String(value)}
-                            </dd>
+                      .map(([key, value], index) => {
+                        const isFocused = focusedMetricIndex === index;
+                        const metricId = `metric-${key}-${analysisId}`;
+                        const labelId = `metric-label-${key}-${analysisId}`;
+                        
+                        return (
+                          <div 
+                            key={key} 
+                            className="flex justify-start items-start min-w-0 overflow-hidden"
+                            role="listitem"
+                          >
+                            <div 
+                              id={metricId}
+                              className={`metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6 transition-all duration-200 ${
+                                isFocused ? 'ring-2 ring-blue-500 ring-opacity-50 scale-105' : ''
+                              }`}
+                              role="article"
+                              aria-labelledby={labelId}
+                              tabIndex={isFocused ? 0 : -1}
+                            >
+                              <dt 
+                                id={labelId}
+                                className="text-xs font-medium text-gray-400 uppercase tracking-wider leading-tight truncate w-full"
+                              >
+                                {key.replace(/_/g, ' ')}
+                              </dt>
+                              <dd 
+                                className="text-lg font-bold text-gray-100 mt-1 leading-tight -tracking-wide truncate w-full"
+                                aria-describedby={labelId}
+                              >
+                                <data 
+                                  value={value}
+                                  data-property={key}
+                                  data-metric-type="quality_measurement"
+                                  data-context="surface_analysis"
+                                  data-material={captionData?.material || 'unknown'}
+                                  data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
+                                  data-magnitude={Math.abs(Number(value)) >= 100 ? 'high' : Math.abs(Number(value)) >= 1 ? 'medium' : 'low'}
+                                  itemProp="value"
+                                  itemType="https://schema.org/PropertyValue"
+                                >{String(value)}</data>
+                              </dd>
+                              
+                              {/* Screen reader description */}
+                              <div className="sr-only">
+                                Metric: {key.replace(/_/g, ' ')}, Value: {String(value)}
+                                {isFocused && ', Currently focused'}
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      ))
+                        );
+                      })
                     }
                   </div>
                 )}
@@ -329,47 +516,78 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
           </div>
         )}
         
-        <figcaption className="mt-4 pb-4 mb-2 text-sm max-w-none">
+        <figcaption 
+          className="mt-4 pb-4 mb-2 text-sm max-w-none"
+          role="group"
+          aria-labelledby={titleId}
+        >
           {(enhancedData.before_text || enhancedData.after_text) ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div 
+              className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              role="group"
+              aria-label="Before and after treatment comparison"
+            >
               {enhancedData.before_text && (
-                <div className="px-2">
+                <section 
+                  className="px-2"
+                  role="region"
+                  aria-labelledby={beforeId}
+                >
                   <h4 
+                    id={beforeId}
                     className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center"
-                    id={`before-treatment-${analysisId}`}
+                    role="heading"
+                    aria-level={4}
                   >
-                    <span className="w-2 h-2 bg-red-500 rounded-full mr-2" aria-hidden="true"></span>
+                    <span 
+                      className="w-2 h-2 bg-red-500 rounded-full mr-2" 
+                      aria-hidden="true"
+                      role="presentation"
+                    ></span>
                     Before Treatment
                   </h4>
                   <p 
                     className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 md:mb-0"
-                    aria-labelledby={`before-treatment-${analysisId}`}
+                    aria-labelledby={beforeId}
                   >
                     {enhancedData.before_text}
                   </p>
-                </div>
+                </section>
               )}
               
               {enhancedData.after_text && (
-                <div className="px-2">
+                <section 
+                  className="px-2"
+                  role="region"
+                  aria-labelledby={afterId}
+                >
                   <h4 
+                    id={afterId}
                     className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2 flex items-center"
-                    id={`after-treatment-${analysisId}`}
+                    role="heading"
+                    aria-level={4}
                   >
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2" aria-hidden="true"></span>
+                    <span 
+                      className="w-2 h-2 bg-green-500 rounded-full mr-2" 
+                      aria-hidden="true"
+                      role="presentation"
+                    ></span>
                     After Treatment
                   </h4>
                   <p 
                     className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
-                    aria-labelledby={`after-treatment-${analysisId}`}
+                    aria-labelledby={afterId}
                   >
                     {enhancedData.after_text}
                   </p>
-                </div>
+                </section>
               )}
             </div>
           ) : captionData.renderedContent ? (
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+            <p 
+              className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
+              role="text"
+            >
               {captionData.renderedContent}
             </p>
           ) : null}

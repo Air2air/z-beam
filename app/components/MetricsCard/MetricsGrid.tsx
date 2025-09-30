@@ -5,6 +5,7 @@ import { MetricsCard as SingleMetricsCard } from './MetricsCard';
 import { ArticleMetadata, PropertyWithUnits, MetricsCardProps } from '../../../types';
 import { extractMachineSettingsFromFrontmatter } from '../../utils/metricsCardHelpers';
 import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
+import './accessibility.css';
 
 // Enhanced color palette for cards with semantic meanings
 const DEFAULT_COLORS = [
@@ -239,48 +240,120 @@ export function MetricsGrid({
   // Limit cards if maxCards is specified
   const limitedCards = maxCards ? cards.slice(0, maxCards) : cards;
   
-  // If no cards, show empty state
+  // Generate unique IDs for accessibility
+  const sectionId = `metrics-section-${dataSource}`;
+  const titleId = `metrics-title-${dataSource}`;
+  const descId = `metrics-desc-${dataSource}`;
+  const gridId = `metrics-grid-${dataSource}`;
+  
+  // If no cards, show accessible empty state
   if (limitedCards.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-        No {dataSource === 'materialProperties' ? 'material properties' : 'machine settings'} available
-      </div>
+      <section 
+        id={sectionId}
+        className="text-center py-8 text-gray-500 dark:text-gray-400"
+        role="status"
+        aria-live="polite"
+      >
+        <p>No {dataSource === 'materialProperties' ? 'material properties' : 'machine settings'} available</p>
+      </section>
     );
   }
 
   return (
-    <div className={`metrics-grid-container ${className}`}>
-      {/* Title section */}
+    <section 
+      id={sectionId}
+      className={`metrics-grid-container ${className}`}
+      role="region"
+      aria-labelledby={showTitle && displayTitle ? titleId : undefined}
+      aria-describedby={description ? descId : undefined}
+    >
+      
+      {/* Enhanced header with proper semantic structure */}
       {showTitle && displayTitle && (
-        <div className="mb-6">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+        <header className="mb-6">
+          <h3 id={titleId} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             {displayTitle}
           </h3>
           {description && (
-            <p className="text-gray-600 dark:text-gray-400">
+            <p id={descId} className="text-gray-600 dark:text-gray-400">
               {description}
             </p>
           )}
+        </header>
+      )}
+      
+      {/* Grid with comprehensive accessibility */}
+      <div 
+        id={gridId}
+        className={`grid gap-4 ${GRID_LAYOUTS[layout]}`}
+        role="list"
+        aria-label={`${displayTitle || 'Metrics'} grid containing ${limitedCards.length} metric${limitedCards.length !== 1 ? 's' : ''}`}
+        
+        // Keyboard navigation support
+        onKeyDown={(e) => {
+          const cards = Array.from(e.currentTarget.querySelectorAll('[role="listitem"] article'));
+          const currentIndex = cards.findIndex(card => card.contains(document.activeElement));
+          
+          let nextIndex = currentIndex;
+          
+          switch (e.key) {
+            case 'ArrowRight':
+              nextIndex = Math.min(currentIndex + 1, cards.length - 1);
+              break;
+            case 'ArrowLeft':
+              nextIndex = Math.max(currentIndex - 1, 0);
+              break;
+            case 'ArrowDown':
+              // Move down one row (approximate)
+              const colsPerRow = Math.floor(e.currentTarget.offsetWidth / 200); // Estimate
+              nextIndex = Math.min(currentIndex + colsPerRow, cards.length - 1);
+              break;
+            case 'ArrowUp':
+              // Move up one row (approximate)
+              const colsPerRowUp = Math.floor(e.currentTarget.offsetWidth / 200);
+              nextIndex = Math.max(currentIndex - colsPerRowUp, 0);
+              break;
+            case 'Home':
+              nextIndex = 0;
+              break;
+            case 'End':
+              nextIndex = cards.length - 1;
+              break;
+            default:
+              return; // Don't prevent default for other keys
+          }
+          
+          if (nextIndex !== currentIndex) {
+            e.preventDefault();
+            (cards[nextIndex] as HTMLElement)?.focus();
+          }
+        }}
+      >
+        {limitedCards.map((card, index) => (
+          <div 
+            key={card.key}
+            role="listitem"
+            aria-setsize={limitedCards.length}
+            aria-posinset={index + 1}
+          >
+            <SingleMetricsCard
+              {...card}
+              searchable={searchable}
+            />
+          </div>
+        ))}
+      </div>
+      
+      {/* Skip to next section link */}
+      {limitedCards.length > 0 && (
+        <div className="sr-only">
+          <a href="#next-section" className="focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 rounded">
+            Skip metrics grid
+          </a>
         </div>
       )}
       
-      {/* Grid of cards */}
-      <div className={`grid gap-4 ${GRID_LAYOUTS[layout]}`}>
-        {limitedCards.map((card) => (
-          <SingleMetricsCard
-            key={card.key}
-            title={card.title}
-            value={card.value}
-            unit={card.unit}
-            color={card.color}
-            href={card.href}
-            min={card.min}
-            max={card.max}
-            searchable={searchable}
-            fullPropertyName={card.fullPropertyName}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 }

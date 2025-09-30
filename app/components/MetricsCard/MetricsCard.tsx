@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { MetricsCardProps } from '@/types';
+import './accessibility.css';
 
 // Progress bar component for visualizing value within min-max range
 interface ProgressBarProps {
@@ -11,6 +12,9 @@ interface ProgressBarProps {
   value: number;
   color?: string;
   unit?: string;
+  title: string;
+  id: string;
+  propertyName?: string;
 }
 
 // Helper function to generate search URL based on metric title and value
@@ -56,7 +60,7 @@ function generateSearchUrl(title: string, value: string | number, fullPropertyNa
   }
 }
 
-function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: ProgressBarProps) {
+function ProgressBar({ min, max, value, color = '#4F46E5', unit = '', title, id, propertyName }: ProgressBarProps) {
   // Calculate percentage position (0-100)
   const percentage = Math.min(Math.max((value - min) / (max - min) * 100, 0), 100);
   
@@ -75,54 +79,132 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: Progress
   };
   
   const alignmentStyle = getAlignment();
+  const progressId = `progress-${id}`;
+  const labelId = `progress-label-${id}`;
+  const descId = `progress-desc-${id}`;
   
   return (
-    <div className="w-full">
+    <figure className="w-full" role="img" aria-labelledby={labelId} aria-describedby={descId}>
+      
+      {/* Screen reader accessible label */}
+      <figcaption id={labelId} className="sr-only">
+        {title} progress indicator
+      </figcaption>
+      
+      {/* Screen reader description */}
+      <div id={descId} className="sr-only">
+        Current value: <data 
+          value={value}
+          data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+          data-unit={unit}
+          data-type="measurement"
+          data-context="material_property"
+          data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
+          data-magnitude={Math.abs(value) >= 1000 ? 'high' : Math.abs(value) >= 1 ? 'medium' : 'low'}
+          itemProp="value"
+          itemType="https://schema.org/PropertyValue"
+        >{value}</data> {unit}.
+        Range: {min} to {max} {unit}.
+        Progress: {Math.round(percentage)}% of maximum.
+      </div>
+      
       {/* Current value positioned above the bar at pointer position */}
       <div className="relative w-full mb-1 h-4">
         <div 
           className="absolute text-lg font-bold text-white/90 z-10"
+          aria-hidden="true" // Hide from screen readers (described above)
           style={{ 
             left: alignmentStyle.left,
             transform: alignmentStyle.transform,
             top: '-8px' 
           }}
         >
-          {value}
+          <data 
+            value={value}
+            data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+            data-unit={unit}
+            data-type="measurement"
+            data-context="material_property"
+            data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(value) >= 1000 ? 'high' : Math.abs(value) >= 1 ? 'medium' : 'low'}
+            data-position="current"
+            itemProp="value"
+            itemType="https://schema.org/PropertyValue"
+          >{value}</data>
         </div>
       </div>
       
-      {/* Progress bar */}
+      {/* WCAG compliant progress bar */}
       <div className="relative w-full mb-1">
-        <div className="w-full h-3 bg-white/20 dark:bg-white/10 rounded-full overflow-hidden">
+        <div 
+          id={progressId}
+          role="progressbar"
+          aria-valuenow={value}
+          aria-valuemin={min}
+          aria-valuemax={max}
+          aria-labelledby={labelId}
+          aria-describedby={descId}
+          tabIndex={0} // Make focusable
+          className="w-full h-3 bg-white/20 dark:bg-white/10 rounded-full overflow-hidden focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+          data-percentage={Math.round(percentage)}
+          data-component="progress-bar"
+          itemProp="value"
+        >
           {/* Background track */}
           <div 
             className="h-full opacity-30 rounded-full"
             style={{ backgroundColor: color, width: '100%' }}
+            aria-hidden="true"
           />
           {/* Progress fill */}
           <div 
             className="absolute top-0 left-0 h-full opacity-90 rounded-l-full transition-all duration-300"
             style={{ backgroundColor: color, width: `${percentage}%` }}
+            aria-hidden="true"
           />
         </div>
         {/* Current value indicator */}
         <div 
           className="absolute top-0 h-3 w-0.5 bg-white dark:bg-white/90 transform -translate-x-0.25 shadow-md rounded-full"
           style={{ left: `${percentage}%` }}
+          aria-hidden="true"
         />
       </div>
       
       {/* Min and Max values positioned under the bar */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center" aria-hidden="true">
         <span className="text-xs font-medium text-white/50">
-          {min}
+          <data 
+            value={min}
+            data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+            data-unit={unit}
+            data-type="range_minimum"
+            data-context="material_property"
+            data-precision={String(min).includes('.') ? String(min).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(min) >= 1000 ? 'high' : Math.abs(min) >= 1 ? 'medium' : 'low'}
+            data-position="minimum"
+            itemProp="minValue"
+            itemType="https://schema.org/PropertyValue"
+          >{min}</data>
         </span>
         <span className="text-xs font-medium text-white/50">
-          {max}
+          <data 
+            value={max}
+            data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+            data-unit={unit}
+            data-type="range_maximum"
+            data-context="material_property"
+            data-precision={String(max).includes('.') ? String(max).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(max) >= 1000 ? 'high' : Math.abs(max) >= 1 ? 'medium' : 'low'}
+            data-position="maximum"
+            itemProp="maxValue"
+            itemType="https://schema.org/PropertyValue"
+          >{max}</data>
         </span>
       </div>
-    </div>
+      
+    </figure>
   );
 }
 
@@ -137,7 +219,8 @@ export function MetricsCard({
   max, 
   className = '',
   searchable = false,
-  fullPropertyName
+  fullPropertyName,
+  key
 }: MetricsCardProps) {
   
   // Convert value to display format
@@ -151,56 +234,146 @@ export function MetricsCard({
   // Generate search URL if searchable is true and no href is provided
   const finalHref = href || (searchable ? generateSearchUrl(title, value, fullPropertyName) : undefined);
   const isClickable = Boolean(finalHref);
+  
+  // Generate unique IDs for accessibility
+  const cardId = `metric-card-${key}`;
+  const titleId = `metric-title-${key}`;
+  const valueId = `metric-value-${key}`;
+  const descId = `metric-desc-${key}`;
 
   const cardContent = (
-    <div className="h-full flex flex-col">
-      {/* Progress bar across the top with min/max values */}
+    <article 
+      id={cardId}
+      className="h-full flex flex-col"
+      role="article"
+      aria-labelledby={titleId}
+      aria-describedby={descId}
+      tabIndex={isClickable ? 0 : -1}
+      data-component="metrics-card"
+      data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+      data-searchable={isClickable ? 'true' : 'false'}
+      data-has-range={hasValidRange ? 'true' : 'false'}
+      data-unit={displayUnit}
+      data-value={displayValue}
+      itemScope
+      itemType="https://schema.org/PropertyValue"
+      onKeyDown={(e) => {
+        if (isClickable && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          if (finalHref) {
+            window.location.href = finalHref;
+          }
+        }
+      }}
+    >
+      
+      {/* Hidden description for screen readers */}
+      <div id={descId} className="sr-only">
+        {hasValidRange 
+          ? `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}, ranging from ${min} to ${max} ${displayUnit}`
+          : `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}`
+        }
+        {isClickable && '. Press Enter or Space to search for this metric.'}
+      </div>
+      
+      {/* Progress bar section */}
       {hasValidRange ? (
-        <div className="mb-1">
+        <section className="mb-1" aria-label="Metric visualization">
           <ProgressBar 
+            id={key || 'default'}
+            title={title}
             min={min!}
             max={max!}
             value={numericValue}
             color={color}
             unit={displayUnit}
+            propertyName={fullPropertyName}
           />
-        </div>
+        </section>
       ) : (
-        // Spacer when no progress bar
-        <div className="h-2 mb-1"></div>
+        <div className="h-2 mb-1" aria-hidden="true"></div>
       )}
       
-      {/* Value and Title with unit */}
-      <div className="flex-1 flex flex-col justify-center text-center">
-        {/* Only show value if no progress bar, otherwise just show title */}
+      {/* Value and Title section */}
+      <section className="flex-1 flex flex-col justify-center text-center">
+        
+        {/* Value display (when no progress bar) */}
         {!hasValidRange && (
           <div className="text-lg font-bold text-white/90 mb-1">
-            {displayValue}
-            {displayUnit && <span className="text-sm text-white/70 ml-1">{displayUnit}</span>}
+            <data 
+              id={valueId} 
+              value={numericValue || displayValue}
+              data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+              data-unit={displayUnit}
+              data-type="measurement"
+              data-context="material_property"
+              data-precision={String(displayValue).includes('.') ? String(displayValue).split('.')[1]?.length || 0 : 0}
+              data-magnitude={Math.abs(numericValue) >= 1000 ? 'high' : Math.abs(numericValue) >= 1 ? 'medium' : 'low'}
+              data-position="primary"
+              data-has-range={hasValidRange ? 'true' : 'false'}
+              itemProp="value"
+              itemType="https://schema.org/PropertyValue"
+            >
+              {displayValue}
+            </data>
+            {displayUnit && (
+              <span title={displayUnit} className="text-sm text-white/70 ml-1">
+                {displayUnit}
+              </span>
+            )}
           </div>
         )}
-        <h3 className="font-bold text-xs text-white/90">
-          {title}{displayUnit && <span className="font-normal"> {displayUnit}</span>}
-        </h3>
-      </div>
-    </div>
+        
+        {/* Metric title with proper heading level */}
+        <h4 
+          id={titleId} 
+          className="font-bold text-xs text-white/90"
+          data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+          data-component="metric-title"
+          itemProp="name"
+        >
+          {title}
+          {displayUnit && hasValidRange && (
+            <span title={displayUnit} className="font-normal ml-1">
+              {displayUnit}
+            </span>
+          )}
+        </h4>
+        
+      </section>
+      
+    </article>
   );
 
   // Create background colors with different opacities for normal and hover states
   const bgColor = `${color}40`; // 40 = ~25% opacity in hex for normal state
   const hoverBgColor = `${color}80`; // 80 = ~50% opacity in hex for hover state
   
-  // Add cursor pointer and hover effects for clickable cards
-  const clickableClasses = isClickable ? 'cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105' : '';
+  // Enhanced styles with accessibility features
+  const focusStyles = 'focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-offset-2';
+  const clickableClasses = isClickable 
+    ? `cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 ${focusStyles}` 
+    : '';
+
+  // Ensure minimum touch target size (44px minimum)
+  const minTouchTarget = 'min-h-[44px] min-w-[44px]';
 
   return finalHref ? (
     <Link
       href={finalHref}
-      className={`rounded-lg p-3 block h-24 ${clickableClasses} ${className}`}
+      className={`rounded-lg p-3 block h-24 ${clickableClasses} ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
-        '--hover-bg-color': hoverBgColor
+        '--hover-bg-color': hoverBgColor,
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.2s'
       } as React.CSSProperties & { '--hover-bg-color': string }}
+      
+      // Enhanced accessibility attributes
+      aria-label={`Navigate to search results for ${fullPropertyName || title}: ${displayValue}${displayUnit}`}
+      aria-describedby={descId}
+      title={`Search for ${fullPropertyName || title}: ${displayValue}${displayUnit}`}
+      
+      // Reduced motion and hover support
       onMouseEnter={(e) => {
         if (isClickable) {
           (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
@@ -211,16 +384,17 @@ export function MetricsCard({
           (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
         }
       }}
-      title={searchable && !href ? `Search for ${title}: ${displayValue}${displayUnit}` : undefined}
     >
       {cardContent}
     </Link>
   ) : (
     <div 
-      className={`rounded-lg p-3 h-24 transition-all duration-200 ${className}`}
+      className={`rounded-lg p-3 h-24 transition-all duration-200 ${minTouchTarget} ${className}`}
       style={{ 
-        backgroundColor: bgColor 
+        backgroundColor: bgColor,
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.2s'
       }}
+      role="presentation"
     >
       {cardContent}
     </div>
