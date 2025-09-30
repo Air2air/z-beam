@@ -49,6 +49,7 @@ const customJestConfig = {
       testEnvironment: "jsdom",
       testMatch: [
         "<rootDir>/tests/components/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/accessibility/**/*.test.{js,jsx,ts,tsx}",
         "<rootDir>/tests/integration/universal-templates-layout-integration*.test.tsx",
         "<rootDir>/tests/integration/OrganizationSchemaIntegration.test.tsx",
         "<rootDir>/tests/alabaster-tags.test.js"
@@ -70,6 +71,7 @@ const customJestConfig = {
       ],
       testPathIgnorePatterns: [
         "<rootDir>/tests/components/",
+        "<rootDir>/tests/accessibility/",
         "<rootDir>/tests/integration/",
         "<rootDir>/tests/alabaster-tags.test.js"
       ],

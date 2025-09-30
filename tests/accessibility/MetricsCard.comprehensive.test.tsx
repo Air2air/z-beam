@@ -2,7 +2,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import MetricsCard from '@/app/components/MetricsCard/MetricsCard';
+import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
 
 expect.extend(toHaveNoViolations);
 

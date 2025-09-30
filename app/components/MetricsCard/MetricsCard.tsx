@@ -220,7 +220,7 @@ export function MetricsCard({
   className = '',
   searchable = false,
   fullPropertyName,
-  key
+  ...rest // Capture other props including key
 }: MetricsCardProps) {
   
   // Convert value to display format
@@ -236,10 +236,11 @@ export function MetricsCard({
   const isClickable = Boolean(finalHref);
   
   // Generate unique IDs for accessibility
-  const cardId = `metric-card-${key}`;
-  const titleId = `metric-title-${key}`;
-  const valueId = `metric-value-${key}`;
-  const descId = `metric-desc-${key}`;
+  const componentKey = rest.key || title || 'default';
+  const cardId = `metric-card-${componentKey}`;
+  const titleId = `metric-title-${componentKey}`;
+  const valueId = `metric-value-${componentKey}`;
+  const descId = `metric-desc-${componentKey}`;
 
   const cardContent = (
     <article 
@@ -280,7 +281,7 @@ export function MetricsCard({
       {hasValidRange ? (
         <section className="mb-1" aria-label="Metric visualization">
           <ProgressBar 
-            id={key || 'default'}
+            id={componentKey}
             title={title}
             min={min!}
             max={max!}

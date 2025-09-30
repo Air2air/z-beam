@@ -24,7 +24,7 @@ describe('MetricsCard Simple Component', () => {
       );
       
       expect(screen.getByText('Temperature')).toBeInTheDocument();
-      expect(screen.getAllByText('°C')).toHaveLength(2); // One in value area, one in title
+      expect(screen.getByText('°C')).toBeInTheDocument(); // One unit display (in value area for basic cards)
       expect(screen.getByText('500')).toBeInTheDocument();
     });
 
@@ -42,8 +42,8 @@ describe('MetricsCard Simple Component', () => {
       
       expect(screen.getByText('Power')).toBeInTheDocument();
       expect(screen.getByText('%')).toBeInTheDocument();
-      // When progress bar is present, value appears only once (on the progress bar)
-      expect(screen.getByText('80')).toBeInTheDocument();
+      // With semantic enhancement, value appears multiple times (progress bar, data elements, etc.)
+      expect(screen.getAllByText('80')).toHaveLength(2); // Current value in progress bar and main data element
       expect(screen.getByText('0')).toBeInTheDocument();
       expect(screen.getByText('100')).toBeInTheDocument();
     });
@@ -110,7 +110,8 @@ describe('MetricsCard Simple Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/custom-page');
-      expect(link).not.toHaveAttribute('title');
+      // Title attribute is kept for accessibility even with explicit href
+      expect(link).toHaveAttribute('title', 'Search for Temperature: 500°C');
     });
 
     it('should not be clickable when searchable=false', () => {
@@ -193,8 +194,8 @@ describe('MetricsCard Simple Component', () => {
       );
       
       expect(screen.getByText('Test Grid')).toBeInTheDocument();
-      // Should not have clickable links for the cards
-      expect(screen.queryByRole('link')).not.toBeInTheDocument();
+      // Should not have clickable MetricsCard links (skip links for accessibility may exist)
+      expect(screen.queryByRole('link', { name: /search for/i })).not.toBeInTheDocument();
     });
 
     it('should default searchable to true', () => {

@@ -97,6 +97,36 @@ global.IntersectionObserver = jest.fn().mockImplementation(() => ({
   unobserve: jest.fn(),
 }));
 
+// Mock window.matchMedia
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation(query => ({
+    matches: query === '(prefers-reduced-motion: reduce)' ? false : false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
+
+// Mock window.navigator
+Object.defineProperty(window, 'navigator', {
+  writable: true,
+  value: {
+    userAgent: 'jest',
+    platform: 'node',
+    language: 'en-US',
+    languages: ['en-US', 'en'],
+    clipboard: {
+      writeText: jest.fn(),
+      readText: jest.fn(),
+    },
+  },
+});
+
 // Cleanup after each test
 afterEach(() => {
   jest.clearAllMocks();

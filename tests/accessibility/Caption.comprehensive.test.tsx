@@ -1,7 +1,7 @@
 // tests/accessibility/Caption.comprehensive.test.tsx
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Caption from '../../app/components/Caption/Caption';
+import { Caption } from '../../app/components/Caption/Caption';
 
 describe('Caption Comprehensive Accessibility', () => {
   const mockData = {
