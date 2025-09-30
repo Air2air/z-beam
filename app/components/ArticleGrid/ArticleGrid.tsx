@@ -373,18 +373,21 @@ export function ArticleGrid({
                     {displayItems.map((item, index) => (
                       <Card
                         key={`${category}-${item.slug}-${index}`}
-                        title={item.title || slugToDisplayName(item.slug)}
-                        description={item.description || ''}
-                        href={item.href || `/${item.slug}`}
-                        imageUrl={item.imageUrl || item.image || ''}
-                        imageAlt={item.imageAlt || item.title || slugToDisplayName(item.slug)}
-                        badge={showBadgeSymbols ? item.badge : undefined}
-                        tags={item.tags || []}
-                        metadata={{
+                        frontmatter={{
                           title: item.title || slugToDisplayName(item.slug),
+                          subject: item.title || slugToDisplayName(item.slug),
                           slug: item.slug,
+                          description: item.description || '',
+                          images: {
+                            hero: {
+                              alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                            }
+                          },
+                          tags: item.tags || [],
                           ...item.metadata
                         } as ArticleMetadata}
+                        href={item.href || `/${item.slug}`}
+                        badge={showBadgeSymbols ? item.badge : undefined}
                         className="h-full hover:shadow-lg transition-shadow duration-300"
                       />
                     ))}
@@ -413,18 +416,21 @@ export function ArticleGrid({
                 {filteredItems.map((item, index) => (
                   <Card
                     key={`filtered-${item.slug}-${index}`}
-                    title={item.title || slugToDisplayName(item.slug)}
-                    description={item.description || ''}
-                    href={item.href || `/${item.slug}`}
-                    imageUrl={item.imageUrl || item.image || ''}
-                    imageAlt={item.imageAlt || item.title || slugToDisplayName(item.slug)}
-                    badge={showBadgeSymbols ? item.badge : undefined}
-                    tags={item.tags || []}
-                    metadata={{
+                    frontmatter={{
                       title: item.title || slugToDisplayName(item.slug),
+                      subject: item.title || slugToDisplayName(item.slug),
                       slug: item.slug,
+                      description: item.description || '',
+                      images: {
+                        hero: {
+                          alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                        }
+                      },
+                      tags: item.tags || [],
                       ...item.metadata
                     } as ArticleMetadata}
+                    href={item.href || `/${item.slug}`}
+                    badge={showBadgeSymbols ? item.badge : undefined}
                     className="h-full hover:shadow-lg transition-shadow duration-300"
                   />
                 ))}
@@ -466,18 +472,21 @@ export function ArticleGrid({
         {filteredItems.map((item, index) => (
           <Card
             key={`${item.slug}-${index}`}
-            title={item.title || slugToDisplayName(item.slug)}
-            description={item.description || ''}
-            href={item.href || `/${item.slug}`}
-            imageUrl={item.imageUrl || item.image || ''}
-            imageAlt={item.imageAlt || item.title || slugToDisplayName(item.slug)}
-            badge={showBadgeSymbols ? item.badge : undefined}
-            tags={item.tags || []}
-            metadata={{
+            frontmatter={{
               title: item.title || slugToDisplayName(item.slug),
+              subject: item.title || slugToDisplayName(item.slug),
               slug: item.slug,
+              description: item.description || '',
+              images: {
+                hero: {
+                  alt: item.imageAlt || item.title || slugToDisplayName(item.slug)
+                }
+              },
+              tags: item.tags || [],
               ...item.metadata
             } as ArticleMetadata}
+            href={item.href || `/${item.slug}`}
+            badge={showBadgeSymbols ? item.badge : undefined}
             className={`h-full hover:shadow-lg transition-shadow duration-300 ${
               variant === 'compact' ? 'compact' : variant === 'featured' ? 'featured' : ''
             }`}
