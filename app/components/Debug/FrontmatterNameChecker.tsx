@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { logger } from '../../utils/logger';
 
 // This component helps verify if a given string would be a valid frontmatter name
 export function FrontmatterNameChecker() {
@@ -65,7 +64,7 @@ export function FrontmatterNameChecker() {
       const result = validateName(nameToCheck);
       setValidationResult(result);
     } catch (err) {
-      logger.error('Name validation error', err);
+      console.error('Name validation error', err);
       setValidationResult({
         isValid: false,
         reason: 'Error checking name'

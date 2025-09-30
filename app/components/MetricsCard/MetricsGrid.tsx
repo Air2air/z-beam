@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { MetricsCard as SingleMetricsCard } from './MetricsCard';
-import { ArticleMetadata, PropertyWithUnits } from '../../../types';
+import { ArticleMetadata, PropertyWithUnits, MetricsCardProps } from '../../../types';
 import { extractMachineSettingsFromFrontmatter } from '../../utils/metricsCardHelpers';
+import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
 
 // Enhanced color palette for cards with semantic meanings
 const DEFAULT_COLORS = [
@@ -62,27 +63,8 @@ export interface MetricsGridProps {
 function extractCardsFromFrontmatter(
   metadata: ArticleMetadata, 
   dataSource: 'materialProperties' | 'machineSettings' = 'machineSettings'
-): Array<{
-  key: string;
-  title: string;
-  value: string | number;
-  unit?: string;
-  min?: number;
-  max?: number;
-  color: string;
-  href?: string;
-  fullPropertyName?: string;
-}> {
-  const cards: Array<{
-    key: string;
-    title: string;
-    value: string | number;
-    unit?: string;
-    min?: number;
-    max?: number;
-    color: string;
-    href?: string;
-  }> = [];
+): MetricsCardProps[] {
+  const cards: MetricsCardProps[] = [];
 
   let sourceData: Record<string, any> = {};
   
@@ -225,7 +207,7 @@ function extractCardsFromFrontmatter(
       color,
       href: undefined, // Can add search link logic here if needed
       fullPropertyName: key // Store the original property name for search
-    });
+    } as MetricsCardProps);
   });
 
   return cards;
@@ -249,17 +231,9 @@ export function MetricsGrid({
   // Extract cards from frontmatter
   const cards = extractCardsFromFrontmatter(metadata, dataSource);
   
-  // Generate intelligent title if using comparison format
+  // Generate intelligent title using centralized section header mapping
   const displayTitle = titleFormat === 'comparison' && !title
-    ? (() => {
-        const materialName = metadata?.title?.replace(/\s*laser\s*cleaning/i, '').trim() || 
-                           metadata?.subject?.replace(/\s*laser\s*cleaning/i, '').trim() ||
-                           (metadata?.slug ? metadata.slug.split('-')[0].charAt(0).toUpperCase() + metadata.slug.split('-')[0].slice(1) : 'Material');
-        const categoryName = metadata?.category || 'Category';
-        return dataSource === 'materialProperties' 
-          ? `Properties: ${materialName} vs. other ${categoryName}s`
-          : `Machine settings: ${materialName} vs. other ${categoryName}s`;
-      })()
+    ? getIntelligentSectionHeader(dataSource, 'comparison', metadata)
     : title;
   
   // Limit cards if maxCards is specified

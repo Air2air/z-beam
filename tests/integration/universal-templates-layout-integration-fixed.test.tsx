@@ -15,7 +15,7 @@ jest.mock('gray-matter');
 jest.mock('marked', () => ({
   marked: jest.fn(),
 }));
-jest.mock('../../app/utils/logger');
+
 jest.mock('../../app/utils/contentAPI');
 jest.mock('../../app/components/Layout/Layout', () => ({
   Layout: ({ children, variant, title }: { children: React.ReactNode; variant?: string; title?: string }) => (

@@ -2,7 +2,7 @@
 
 /**
  * Remove Laser Parameters from Caption Components
- * Removes the laser_parameters section since it's now extracted to settings components
+ * Removes the laser_parameters section from caption files for cleaner content
  */
 
 const fs = require('fs');
@@ -114,7 +114,7 @@ function processAllCaptions() {
   
   if (cleaned > 0) {
     console.log(`\n🎉 Successfully removed laser_parameters from caption components!`);
-    console.log(`   Machine settings are now available as separate settings components.`);
+    console.log(`   Machine settings data has been cleaned from caption files.`);
   }
 }
 

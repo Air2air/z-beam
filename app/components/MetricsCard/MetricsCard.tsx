@@ -2,6 +2,16 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { MetricsCardProps } from '@/types';
+
+// Progress bar component for visualizing value within min-max range
+interface ProgressBarProps {
+  min: number;
+  max: number;
+  value: number;
+  color?: string;
+  unit?: string;
+}
 
 // Helper function to generate search URL based on metric title and value
 function generateSearchUrl(title: string, value: string | number, fullPropertyName?: string): string {
@@ -44,15 +54,6 @@ function generateSearchUrl(title: string, value: string | number, fullPropertyNa
     // Use general search
     return `/search?q=${encodeURIComponent(searchValue)}`;
   }
-}
-
-// Progress bar component for visualizing value within min-max range
-interface ProgressBarProps {
-  min: number;
-  max: number;
-  value: number;
-  color?: string;
-  unit?: string;
 }
 
 function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: ProgressBarProps) {
@@ -123,20 +124,6 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '' }: Progress
       </div>
     </div>
   );
-}
-
-// Interface for a single metrics card
-export interface MetricsCardProps {
-  title: string;
-  value: string | number;
-  unit?: string;
-  color: string;
-  href?: string;
-  min?: number;
-  max?: number;
-  className?: string;
-  searchable?: boolean; // If true, makes the card clickable to search for the value
-  fullPropertyName?: string; // Full property name for more accurate search queries
 }
 
 // Single MetricsCard component - represents one metric with progress bar

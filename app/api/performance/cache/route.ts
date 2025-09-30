@@ -1,10 +1,17 @@
 // app/api/performance/cache/route.ts
+// Simple performance logging
+const logPerformance = (operation: string, duration: number, context?: any) => {
+  if (duration > 1000) {
+    console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
+  } else {
+    console.debug(`⚡ Performance: ${operation} took ${duration}ms`, context);
+  }
+};
 // Performance monitoring endpoint for cache analytics
 // Follows GROK principles: actionable insights, fail-fast validation
 
 import { NextRequest, NextResponse } from 'next/server';
 import { CacheMonitor } from '../../../utils/performanceCache';
-import { logger } from '../../../utils/logger';
 import { validateEnvironment, ApiError } from '../../../utils/errorSystem';
 
 export async function GET(request: NextRequest) {
@@ -28,7 +35,7 @@ export async function GET(request: NextRequest) {
     };
     
     // Log performance metrics
-    logger.performance('Cache performance report generated', performance.now() - startTime, {
+    logPerformance('Cache performance report generated', performance.now() - startTime, {
       cacheCount: report.caches.length,
       totalMemoryUsage: report.totalMemoryUsage,
       recommendationCount: report.recommendations.length
@@ -46,7 +53,7 @@ export async function GET(request: NextRequest) {
     const apiError = error instanceof ApiError ? error : 
       new ApiError(`Performance monitoring failed: ${error}`, 500);
     
-    logger.error('Cache performance monitoring error', error, {
+    console.error('Cache performance monitoring error', error, {
       endpoint: '/api/performance/cache',
       responseTime: performance.now() - startTime
     });
@@ -89,7 +96,7 @@ export async function POST(request: NextRequest) {
         fileCache.clear();
         colorCache.clear();
         
-        logger.performance('All caches cleared via API', performance.now() - startTime);
+        logPerformance('All caches cleared via API', performance.now() - startTime);
         
         return NextResponse.json({
           message: 'All caches cleared successfully',
@@ -100,7 +107,7 @@ export async function POST(request: NextRequest) {
         // Force cleanup of expired entries
         CacheMonitor.getCacheReport(); // This triggers cleanup internally
         
-        logger.performance('Cache cleanup triggered via API', performance.now() - startTime);
+        logPerformance('Cache cleanup triggered via API', performance.now() - startTime);
         
         return NextResponse.json({
           message: 'Cache cleanup completed',
@@ -115,7 +122,7 @@ export async function POST(request: NextRequest) {
     const apiError = error instanceof ApiError ? error : 
       new ApiError(`Cache operation failed: ${error}`, 500);
     
-    logger.error('Cache operation error', error, {
+    console.error('Cache operation error', error, {
       endpoint: '/api/performance/cache',
       method: 'POST',
       responseTime: performance.now() - startTime

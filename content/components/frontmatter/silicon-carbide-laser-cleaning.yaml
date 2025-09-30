@@ -5,57 +5,50 @@ title: Silicon Carbide Laser Cleaning
 description: Laser cleaning parameters for Gallium Arsenide
 materialProperties:
   density:
-    value: 3.21
-    unit: g/cm³
+    value: 4.73
+    unit: "g/cm\xB3"
     confidence: 98
     description: Theoretical density of pure silicon carbide
-    min: 2.33
-    max: 7.13
-  meltingPoint:
-    value: 2730
-    unit: °C
-    confidence: 95
-    description: Decomposition temperature under normal pressure
-    min: null
-    max: null
+    min: 2.0
+    max: 5.6
   thermalConductivity:
-    value: 120
-    unit: W/m·K
+    value: 78.1
+    unit: "W/m\xB7K"
     confidence: 92
     description: Thermal conductivity at room temperature for high-purity SiC
     min: 0.2
     max: 156
   hardness:
-    value: 28
+    value: 4.5
     unit: GPa
     confidence: 92
     description: Vickers hardness (HV)
-    min: 2
-    max: 7
+    min: 5.4
+    max: 30.1
   youngsModulus:
-    value: 410
+    value: 97.5
     unit: GPa
     confidence: 95
     description: Young's modulus of elasticity
-    min: 5
-    max: 190
+    min: 53.0
+    max: 442.4
   thermalExpansion:
-    value: 4.3
-    unit: ×10⁻⁶/K
+    value: 11.15
+    unit: "\xD710\u207B\u2076/K"
     confidence: 90
-    description: Coefficient of thermal expansion (20-1000°C)
+    description: "Coefficient of thermal expansion (20-1000\xB0C)"
     min: 2.6
     max: 19.7
   specificHeat:
-    value: 750
-    unit: J/kg·K
+    value: 600.0
+    unit: "J/kg\xB7K"
     confidence: 88
     description: Specific heat capacity at room temperature
-    min: 0.3
-    max: 1.6
+    min: 277.0
+    max: 793.0
   thermalDiffusivity:
-    value: 50
-    unit: mm²/s
+    value: 45.05
+    unit: "mm\xB2/s"
     confidence: 85
     description: Thermal diffusivity at room temperature
     min: 0.1
@@ -69,28 +62,28 @@ materialProperties:
     max: null
   absorptionCoefficient:
     value: 100
-    unit: cm⁻¹
+    unit: "cm\u207B\xB9"
     confidence: 85
     description: Absorption coefficient at 1064 nm wavelength
     min: null
     max: null
   reflectivity:
     value: 0.25
-    unit: dimensionless
+    unit: ""
     confidence: 82
     description: Reflectivity at 1064 nm wavelength
     min: null
     max: null
   ablationThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 80
     description: Laser ablation threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   oxidationResistance:
     value: 1600
-    unit: °C
+    unit: "\xB0C"
     confidence: 88
     description: Maximum service temperature in oxidizing atmosphere
     min: null
@@ -102,6 +95,38 @@ materialProperties:
     description: Most common alpha-SiC polytype (6H)
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 100.0
+    min: 0.01
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 50.01
+  laserReflectivity:
+    confidence: 0.7
+    max: 70.0
+    min: 10.0
+    source: default_from_category_range
+    unit: '%'
+    value: 40.0
+  tensileStrength:
+    confidence: 0.7
+    max: 7000.0
+    min: 50.0
+    source: default_from_category_range
+    unit: MPa
+    value: 3525.0
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 1414.0
+    min: 100.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 757.0
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: melting
 applications:
 - laser cleaning
 - surface preparation
@@ -110,21 +135,19 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for SiC surface cleaning without substrate
-      damage
+    description: Optimal average power for SiC surface cleaning without substrate damage
     min: 80
     max: 120
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength with good SiC absorption for efficient contaminant
-      removal
-    min: 532
-    max: 1064
+    description: Near-IR wavelength with good SiC absorption for efficient contaminant removal
+    min: 355
+    max: 1080
   spotSize:
     value: 50
-    unit: μm
+    unit: "\u03BCm"
     confidence: 84
     description: Optimal beam diameter for precision cleaning of SiC surfaces
     min: 30
@@ -133,8 +156,7 @@ machineSettings:
     value: 100
     unit: kHz
     confidence: 87
-    description: High repetition rate for efficient area coverage while maintaining
-      thermal control
+    description: High repetition rate for efficient area coverage while maintaining thermal control
     min: 50
     max: 200
   pulseWidth:
@@ -153,7 +175,7 @@ machineSettings:
     max: 2000
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Threshold fluence for effective contaminant removal from SiC substrate
     min: 1.5
@@ -184,22 +206,12 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 3
-  name: Ikmanda Roswati
-  sex: m
-  title: Ph.D.
-  country: Indonesia
-  expertise: Ultrafast Laser Physics and Material Interactions
-  image: /images/author/ikmanda-roswati.jpg
 images:
   hero:
-    alt: Silicon Carbide surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Silicon Carbide surface undergoing laser cleaning showing precise contamination removal
     url: /images/silicon-carbide-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Silicon Carbide surface after laser cleaning showing
-      detailed surface structure
+    alt: Microscopic view of Silicon Carbide surface after laser cleaning showing detailed surface structure
     url: /images/silicon-carbide-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -226,7 +238,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 3
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -258,8 +270,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -297,9 +308,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -312,3 +323,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 3
+  name: Ikmanda Roswati
+  sex: m
+  title: Ph.D.
+  country: Indonesia
+  expertise: Ultrafast Laser Physics and Material Interactions
+  image: /images/author/ikmanda-roswati.jpg

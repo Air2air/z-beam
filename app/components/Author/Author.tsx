@@ -8,28 +8,28 @@ export function Author({
   showAvatar = true,
   showCredentials = true,
   showCountry = true,
-  showBio = false,
-  showEmail = false,
-  showLinkedIn = false,
   showSpecialties = true,
   className = "",
 }: AuthorProps) {
-  // Frontmatter-first: use author_object directly from frontmatter
-  const author = frontmatter?.author_object || frontmatter?.authorInfo;
+  // Get author data from frontmatter - check for object types first, fall back to string
+  const authorInfo = frontmatter?.authorInfo || (typeof frontmatter?.author === 'object' ? frontmatter.author : null);
+  const authorString = typeof frontmatter?.author === 'string' ? frontmatter.author : null;
   
-  // Always render with meaningful fallbacks
-  const authorName = author?.name || 'Z-Beam';
-  const authorImage = author?.image || '';
-  const credentials = author?.title || '';
-  const country = author?.country || '';
-  const field = author?.expertise || '';
+  // Use object data if available, otherwise fall back to string or defaults
+  const authorName = authorInfo?.name || authorString || 'Z-Beam';
+  const authorImage = authorInfo?.image || '';
+  const credentials = authorInfo?.title || '';
+  const country = authorInfo?.country || '';
+  const field = Array.isArray(authorInfo?.expertise) 
+    ? authorInfo.expertise.join(', ') 
+    : authorInfo?.expertise || '';
 
-  // Generate URL-encoded author name for tag search
+  // Generate URL-encoded author name for search
   const encodedAuthorName = encodeURIComponent(authorName);
 
   return (
     <Link
-      href={`/tag/${encodedAuthorName}`}
+      href={`/search?q=${encodedAuthorName}`}
       className="block rounded-lg px-4 py-1 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
     >
       <div className={`author-component mt-2 mb-4 ${className}`}>

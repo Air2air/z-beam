@@ -166,7 +166,7 @@ describe('Image Naming Conventions', () => {
   describe('Caption Files Pattern Compliance', () => {
     test.skip('should verify caption YAML files use new naming pattern', () => {
       // Skipping this test as caption files may not contain image references
-      // after Settings component extraction and caption cleanup
+      // after caption cleanup
       const captionDir = path.join(process.cwd(), 'content/components/caption');
       
       if (fs.existsSync(captionDir)) {
@@ -232,7 +232,7 @@ describe('Image Naming Conventions', () => {
 
   describe('Documentation Compliance', () => {
     test('should have image naming conventions documentation', () => {
-      const docsPath = path.join(process.cwd(), 'docs/IMAGE_NAMING_CONVENTIONS.md');
+      const docsPath = path.join(process.cwd(), 'docs/reference/IMAGE_NAMING_CONVENTIONS.md');
       expect(fs.existsSync(docsPath)).toBe(true);
       
       if (fs.existsSync(docsPath)) {

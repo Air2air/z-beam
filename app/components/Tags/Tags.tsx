@@ -5,44 +5,7 @@ import React from 'react';
 import Link from 'next/link';
 import { capitalizeWords } from '../../utils/formatting';
 import { useRouter } from "next/navigation";
-
-interface TagsData {
-  tags?: string[];
-  material?: string;                  // Top-level material field
-  count?: number;
-  categories?: {
-    industry?: string[];
-    process?: string[];
-    author?: string[];                // Added author category
-    other?: string[];
-    [key: string]: string[] | undefined;
-  };
-  metadata?: {
-    format?: string;
-    version?: string;
-    material?: string;                // Material can also be in metadata
-    author?: string;
-    generated?: string;
-  };
-}
-
-interface TagsProps {
-  content: string | TagsData; // Can be raw YAML string or parsed YAML data
-  config?: {
-    className?: string;
-    title?: string;
-    pillColor?: string;
-    textColor?: string;
-    hoverColor?: string;
-    linkPrefix?: string; // Path prefix for tag links e.g., "/tag/"
-    onClick?: (tag: string) => void; // Alternative to links - for in-page filtering
-    hideEmptyTags?: boolean; // Whether to hide tags with no matching articles
-    articleMatchCount?: Record<string, number>; // Counts of articles matching each tag
-    showMetadata?: boolean; // Whether to display metadata information
-    showCategorized?: boolean; // Whether to display tags grouped by category
-    [key: string]: unknown;
-  };
-}
+import { TagsData, TagsProps } from '@/types';
 
 export function Tags({ content, config }: TagsProps) {
   const router = useRouter();
@@ -55,7 +18,7 @@ export function Tags({ content, config }: TagsProps) {
     pillColor = "bg-gray-800",
     textColor = "text-blue-800 dark:text-blue-200",
     hoverColor = "",
-    linkPrefix = "/tag/",
+    linkPrefix = "/search?q=",
     onClick,
     hideEmptyTags = false,
     articleMatchCount = {},

@@ -47,7 +47,7 @@ describe('Author Component', () => {
 
   describe('1. Basic Rendering', () => {
     test('renders author component with all information', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       // Check if all elements are present
       expect(screen.getByText('Test Author')).toBeInTheDocument();
@@ -64,7 +64,7 @@ describe('Author Component', () => {
     });
 
     test('renders with correct CSS classes', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       // Check for key CSS classes
       const authorComponent = document.querySelector('.author-component');
@@ -83,10 +83,10 @@ describe('Author Component', () => {
     });
 
     test('creates correct tag link', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/tag/Test%20Author');
+      expect(link).toHaveAttribute('href', '/search?q=Test%20Author');
     });
   });
 
@@ -97,11 +97,11 @@ describe('Author Component', () => {
         name: 'José María García-López'
       };
       
-      render(<Author author={specialAuthor} />);
+      render(<Author frontmatter={{ author: specialAuthor }} />);
       
       expect(screen.getByText('José María García-López')).toBeInTheDocument();
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/tag/Jos%C3%A9%20Mar%C3%ADa%20Garc%C3%ADa-L%C3%B3pez');
+      expect(link).toHaveAttribute('href', '/search?q=Jos%C3%A9%20Mar%C3%ADa%20Garc%C3%ADa-L%C3%B3pez');
     });
 
     test('handles author names with spaces', () => {
@@ -110,11 +110,11 @@ describe('Author Component', () => {
         name: 'Dr. John Michael Smith Jr.'
       };
       
-      render(<Author author={multiWordAuthor} />);
+      render(<Author frontmatter={{ author: multiWordAuthor }} />);
       
       expect(screen.getByText('Dr. John Michael Smith Jr.')).toBeInTheDocument();
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/tag/Dr.%20John%20Michael%20Smith%20Jr.');
+      expect(link).toHaveAttribute('href', '/search?q=Dr.%20John%20Michael%20Smith%20Jr.');
     });
   });
 
@@ -124,7 +124,7 @@ describe('Author Component', () => {
       
       titles.forEach(title => {
         const { unmount } = render(
-          <Author author={{ ...mockAuthorInfo, title }} />
+          <Author frontmatter={{ author: { ...mockAuthorInfo, title } }} />
         );
         
         expect(screen.getByText(title)).toBeInTheDocument();
@@ -140,7 +140,7 @@ describe('Author Component', () => {
         title: ''
       };
       
-      render(<Author author={noTitleAuthor} />);
+      render(<Author frontmatter={{ author: noTitleAuthor }} />);
       
       expect(screen.getByText('Test Author')).toBeInTheDocument();
       // Should not crash with empty title
@@ -160,7 +160,7 @@ describe('Author Component', () => {
       
       countries.forEach(country => {
         const { unmount } = render(
-          <Author author={{ ...mockAuthorInfo, country }} />
+          <Author frontmatter={{ author: { ...mockAuthorInfo, country } }} />
         );
         
         expect(screen.getByText(country)).toBeInTheDocument();
@@ -179,7 +179,7 @@ describe('Author Component', () => {
         expertise: longExpertise
       };
       
-      render(<Author author={longExpertiseAuthor} />);
+      render(<Author frontmatter={{ author: longExpertiseAuthor }} />);
       
       expect(screen.getByText(longExpertise)).toBeInTheDocument();
       expect(screen.getByText(longExpertise)).toHaveClass('author-field');
@@ -192,7 +192,7 @@ describe('Author Component', () => {
         expertise: shortExpertise
       };
       
-      render(<Author author={shortExpertiseAuthor} />);
+      render(<Author frontmatter={{ author: shortExpertiseAuthor }} />);
       
       expect(screen.getByText(shortExpertise)).toBeInTheDocument();
     });
@@ -200,7 +200,7 @@ describe('Author Component', () => {
 
   describe('6. Image Handling', () => {
     test('renders image with correct attributes', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const image = screen.getByAltText('Test Author');
       expect(image).toHaveAttribute('src', '/images/author/test-author.jpg');
@@ -219,7 +219,7 @@ describe('Author Component', () => {
       
       imageFormats.forEach(imagePath => {
         const { unmount } = render(
-          <Author author={{ ...mockAuthorInfo, image: imagePath }} />
+          <Author frontmatter={{ author: { ...mockAuthorInfo, image: imagePath } }} />
         );
         
         const image = screen.getByAltText('Test Author');
@@ -232,7 +232,7 @@ describe('Author Component', () => {
 
   describe('7. Interactive Elements', () => {
     test('has correct hover classes', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
@@ -245,7 +245,7 @@ describe('Author Component', () => {
     });
 
     test('link is properly structured', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('block', 'rounded-lg', 'px-4', 'py-1');
@@ -258,7 +258,7 @@ describe('Author Component', () => {
 
   describe('8. Table Structure', () => {
     test('renders proper table structure', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const table = screen.getByRole('table');
       expect(table).toBeInTheDocument();
@@ -283,7 +283,7 @@ describe('Author Component', () => {
 
   describe('9. Accessibility', () => {
     test('has proper semantic structure', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       // Check for proper image alt text
       const image = screen.getByAltText('Test Author');
@@ -299,7 +299,7 @@ describe('Author Component', () => {
     });
 
     test('image has descriptive alt text', () => {
-      render(<Author author={mockAuthorInfo} />);
+      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const image = screen.getByAltText('Test Author');
       expect(image).toHaveAttribute('alt', 'Test Author');
@@ -323,7 +323,7 @@ describe('Author Component', () => {
         }
       };
       
-      render(<Author author={ikmandaAuthor} />);
+      render(<Author frontmatter={{ author: ikmandaAuthor }} />);
       
       expect(screen.getByText('Ikmanda Roswati')).toBeInTheDocument();
       expect(screen.getByText('Ph.D.')).toBeInTheDocument();
@@ -350,7 +350,7 @@ describe('Author Component', () => {
         }
       };
       
-      render(<Author author={toddAuthor} />);
+      render(<Author frontmatter={{ author: toddAuthor }} />);
       
       expect(screen.getByText('Todd Dunning')).toBeInTheDocument();
       expect(screen.getByText('MA')).toBeInTheDocument();
@@ -381,7 +381,7 @@ describe('Author Component', () => {
       };
       
       expect(() => {
-        render(<Author author={minimalAuthor} />);
+        render(<Author frontmatter={{ author: minimalAuthor }} />);
       }).not.toThrow();
       
       expect(screen.getByText('Minimal Author')).toBeInTheDocument();

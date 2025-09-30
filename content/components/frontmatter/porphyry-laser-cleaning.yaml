@@ -5,67 +5,59 @@ title: Porphyry Laser Cleaning
 description: Laser cleaning parameters for Alabaster
 materialProperties:
   density:
-    value: 2.65
-    unit: g/cm³
+    value: 2.45
+    unit: "g/cm\xB3"
     confidence: 95
     description: Typical density range for porphyritic igneous rocks
     min: 1.5
     max: 3.4
-  meltingPoint:
-    value: 1200
-    unit: °C
-    confidence: 85
-    description: Approximate melting temperature for quartz-feldspar porphyry composition
-    min: null
-    max: null
   thermalConductivity:
-    value: 2.9
-    unit: W/m·K
+    value: 4.1
+    unit: "W/m\xB7K"
     confidence: 88
     description: Thermal conductivity of typical porphyry at room temperature
-    min: 0.2
-    max: 5
+    min: 0.12
+    max: 8.28
   tensileStrength:
-    value: 8
+    value: 13.5
     unit: MPa
     confidence: 80
     description: Indirect tensile strength (Brazilian test)
-    min: 2
-    max: 25
+    min: 0.92
+    max: 52.28
   hardness:
-    value: 6.5
+    value: 4.0
     unit: Mohs
     confidence: 92
     description: Hardness on Mohs scale, typical for quartz-feldspar porphyry
     min: 1
     max: 7
   youngsModulus:
-    value: 70
+    value: 55.0
     unit: GPa
     confidence: 88
     description: Elastic modulus of porphyry rock
     min: 10
     max: 100
   thermalExpansion:
-    value: 8.5
-    unit: 10⁻⁶/K
+    value: 14.0
+    unit: "10\u207B\u2076/K"
     confidence: 82
     description: Coefficient of thermal expansion for quartz-rich porphyry
-    min: 3
-    max: 16
+    min: 3.5
+    max: 26.9
   specificHeat:
-    value: 0.84
-    unit: kJ/kg·K
+    value: 900.0
+    unit: "J/kg\xB7K"
     confidence: 90
     description: Specific heat capacity at room temperature
-    min: 0.7
-    max: 1.2
+    min: 705.5
+    max: 1119.5
   thermalDiffusivity:
-    value: 1.3
-    unit: mm²/s
+    value: 1.35
+    unit: "mm\xB2/s"
     confidence: 85
-    description: Thermal diffusivity calculated from conductivity, density, and specific
-      heat
+    description: Thermal diffusivity calculated from conductivity, density, and specific heat
     min: 0.2
     max: 2.5
   compressiveStrength:
@@ -84,25 +76,50 @@ materialProperties:
     max: null
   absorptionCoefficient:
     value: 0.85
-    unit: dimensionless
+    unit: ""
     confidence: 82
     description: Estimated absorption coefficient for near-infrared laser wavelengths
     min: null
     max: null
   ablationThreshold:
     value: 1.2
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 78
     description: Estimated laser ablation threshold for nanosecond pulses at 1064nm
     min: null
     max: null
   reflectivity:
     value: 0.15
-    unit: dimensionless
+    unit: ""
     confidence: 80
     description: Approximate reflectivity at common laser wavelengths (1064nm)
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 20.0
+    min: 0.1
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 10.05
+  laserReflectivity:
+    confidence: 0.7
+    max: 80.0
+    min: 5.0
+    source: default_from_category_range
+    unit: '%'
+    value: 42.5
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 1700.0
+    min: 600.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 1150.0
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: thermal_shock
 applications:
 - 'Jewelry: Precision cleaning and polishing of precious metal jewelry'
 machineSettings:
@@ -110,8 +127,7 @@ machineSettings:
     value: 90
     unit: W
     confidence: 92
-    description: Optimal average power for Porphyry surface cleaning without thermal
-      damage
+    description: Optimal average power for Porphyry surface cleaning without thermal damage
     min: 70
     max: 110
   wavelength:
@@ -120,10 +136,10 @@ machineSettings:
     confidence: 88
     description: Near-infrared wavelength optimized for Porphyry mineral absorption
     min: 532
-    max: 1064
+    max: 10640
   spotSize:
     value: 100
-    unit: μm
+    unit: "\u03BCm"
     confidence: 90
     description: Beam spot diameter for precise cleaning of Porphyry surface features
     min: 50
@@ -151,7 +167,7 @@ machineSettings:
     max: 800
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Threshold fluence for effective contaminant removal from Porphyry
     min: 1.5
@@ -175,22 +191,12 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Porphyry surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Porphyry surface undergoing laser cleaning showing precise contamination removal
     url: /images/porphyry-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Porphyry surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Porphyry surface after laser cleaning showing detailed surface structure
     url: /images/porphyry-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -217,7 +223,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 2
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -249,8 +255,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -288,9 +293,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -303,3 +308,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg

@@ -38,11 +38,6 @@ export default async function SearchPage() {
     // Fetch data server-side
     const articles = await loadAllArticles();
     
-    console.log('Search page server-side debug:', {
-      articlesCount: articles.length,
-      sampleTitles: articles.slice(0, 3).map(a => a.title)
-    });
-    
     // Load BadgeSymbol data for each article
     const articlesWithBadgeData = await Promise.all(
       articles.map(async (article) => {
@@ -126,11 +121,6 @@ export default async function SearchPage() {
         };
       })
     );
-    
-    console.log('Search page final articles before passing to client:', {
-      finalArticlesCount: articlesWithBadgeData.length,
-      sampleFinalTitles: articlesWithBadgeData.slice(0, 3).map(a => a.title)
-    });
     
     return (
       <div className={CONTAINER_STYLES.standard}>

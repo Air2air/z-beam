@@ -2,7 +2,6 @@
 // Utility to sanitize YAML frontmatter and fix common formatting issues
 
 import matter from 'gray-matter';
-import { logger } from './logger';
 
 /**
  * Sanitizes YAML frontmatter content to fix common formatting issues
@@ -34,7 +33,7 @@ export function sanitizeYamlContent(content: string): string {
     
     return `---\n${sanitizedYaml}\n---\n${markdownBody}`;
   } catch (error) {
-    logger.warn('Failed to sanitize YAML content, returning original', { error: (error as Error).message });
+    console.warn('Failed to sanitize YAML content, returning original', { error: (error as Error).message });
     return content;
   }
 }
@@ -58,7 +57,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
       orig: String(result.orig || content)
     };
   } catch (error) {
-    logger.warn('Initial YAML parsing failed, attempting sanitization', { error: (error as Error).message });
+    console.warn('Initial YAML parsing failed, attempting sanitization', { error: (error as Error).message });
     
     try {
       // Try with sanitized content
@@ -71,14 +70,14 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
         orig: String(result.orig || content)
       };
     } catch (sanitizationError) {
-      logger.error('YAML sanitization failed', sanitizationError);
+      console.error('YAML sanitization failed', sanitizationError);
       
       // Last resort: try to extract just the markdown content without frontmatter
       try {
         const frontmatterMatch = content.match(/^---\s*\n[\s\S]*?\n---\s*\n?([\s\S]*)$/);
         const markdownContent = frontmatterMatch ? frontmatterMatch[1] : content;
         
-        logger.warn('Falling back to content-only parsing due to YAML errors');
+        console.warn('Falling back to content-only parsing due to YAML errors');
         
         return {
           data: {},
@@ -88,7 +87,7 @@ export function safeMatterParse(content: string, options?: Record<string, unknow
         };
       } catch (fallbackError) {
         // Ultimate fallback - return the content as-is
-        logger.error('All parsing attempts failed, returning raw content', fallbackError);
+        console.error('All parsing attempts failed, returning raw content', fallbackError);
         
         return {
           data: {},

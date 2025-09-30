@@ -1,7 +1,10 @@
 // app/utils/helpers.ts
 // Common helper functions for React components and app logic
 
-import { ComponentVariant, ComponentSize } from '@/types';
+import { ComponentSize } from '@/types';
+
+// Local type for button variants used in getVariantClasses
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
 
 /**
  * Combines multiple class names, filtering out falsy values
@@ -14,7 +17,7 @@ export function cn(...classes: (string | undefined | null | boolean)[]): string 
  * Creates CSS class string based on variant and size
  */
 export function getVariantClasses(
-  variant: ComponentVariant = 'primary',
+  variant: ButtonVariant = 'primary',
   size: ComponentSize = 'md'
 ): string {
   const variantClasses = {

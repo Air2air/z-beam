@@ -2,7 +2,14 @@
 // Unified Performance Cache System for Z-Beam Project
 // Follows GROK principles: fail-fast, minimal changes, performance-focused
 
-import { logger } from './logger';
+// Simple performance logging function
+const logPerformance = (operation: string, duration: number, context?: any) => {
+  if (duration > 1000) {
+    console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
+  } else {
+    console.debug(`⚡ Performance: ${operation} took ${duration}ms`, context);
+  }
+};
 
 // Cache configuration
 const CACHE_CONFIG = {
@@ -18,24 +25,7 @@ const CACHE_CONFIG = {
   maxColorEntries: 100
 };
 
-// Cache entry interface with TTL
-interface CacheEntry<T> {
-  data: T;
-  timestamp: number;
-  ttl: number;
-  accessCount: number;
-  lastAccessed: number;
-}
-
-// Performance metrics tracking
-interface CacheMetrics {
-  hits: number;
-  misses: number;
-  evictions: number;
-  totalRequests: number;
-  avgResponseTime: number;
-  memoryUsage: number;
-}
+import { CacheEntry, CacheMetrics } from '@/types';
 
 class PerformanceCache<T> {
   private cache = new Map<string, CacheEntry<T>>();
@@ -76,13 +66,13 @@ class PerformanceCache<T> {
       this.cache.set(key, entry);
       this.updateMetrics('set', performance.now() - startTime);
       
-      logger.performance(`Cache SET: ${this.name}/${key}`, performance.now() - startTime, {
+      logPerformance(`Cache SET: ${this.name}/${key}`, performance.now() - startTime, {
         cacheSize: this.cache.size,
         ttl: ttl,
         operation: 'set'
       });
     } catch (error) {
-      logger.error(`Cache SET error: ${this.name}/${key}`, error);
+      console.error(`Cache SET error: ${this.name}/${key}`, error);
     }
   }
 
@@ -107,7 +97,7 @@ class PerformanceCache<T> {
         this.metrics.evictions++;
         this.updateMetrics('expired', performance.now() - startTime);
         
-        logger.performance(`Cache EXPIRED: ${this.name}/${key}`, now - entry.timestamp, {
+        logPerformance(`Cache EXPIRED: ${this.name}/${key}`, now - entry.timestamp, {
           age: now - entry.timestamp,
           ttl: entry.ttl
         });
@@ -122,7 +112,7 @@ class PerformanceCache<T> {
       
       return entry.data;
     } catch (error) {
-      logger.error(`Cache GET error: ${this.name}/${key}`, error);
+      console.error(`Cache GET error: ${this.name}/${key}`, error);
       return null;
     }
   }
@@ -148,7 +138,7 @@ class PerformanceCache<T> {
     }
 
     if (cleaned > 0) {
-      logger.performance(`Cache CLEANUP: ${this.name}`, performance.now() - startTime, {
+      logPerformance(`Cache CLEANUP: ${this.name}`, performance.now() - startTime, {
         entriesRemoved: cleaned,
         remainingEntries: this.cache.size,
         cleanupTime: performance.now() - startTime
@@ -176,7 +166,7 @@ class PerformanceCache<T> {
       this.cache.delete(oldestKey);
       this.metrics.evictions++;
       
-      logger.performance(`Cache LRU EVICT: ${this.name}/${oldestKey}`, Date.now() - oldestTime, {
+      logPerformance(`Cache LRU EVICT: ${this.name}/${oldestKey}`, Date.now() - oldestTime, {
         age: Date.now() - oldestTime,
         cacheSize: this.cache.size
       });
@@ -209,7 +199,7 @@ class PerformanceCache<T> {
     const size = this.cache.size;
     this.cache.clear();
     
-    logger.performance(`Cache CLEAR: ${this.name}`, 0, {
+    logPerformance(`Cache CLEAR: ${this.name}`, 0, {
       entriesCleared: size
     });
   }
@@ -249,12 +239,12 @@ class PreloadManager {
           }
         }
       } catch (error) {
-        logger.error(`Preload failed for material: ${material}`, error);
+        console.error(`Preload failed for material: ${material}`, error);
       }
     }
     
     const loadTime = performance.now() - startTime;
-    logger.performance('Material preloading completed', loadTime, {
+    logPerformance('Material preloading completed', loadTime, {
       materialsLoaded: loaded,
       totalTime: loadTime,
       avgTimePerMaterial: loaded > 0 ? loadTime / loaded : 0
@@ -295,13 +285,13 @@ class CacheMonitor {
       ].reduce((sum, count) => sum + count, 0);
       
       if (cleaned > 0) {
-        logger.performance('Automatic cache cleanup completed', 0, {
+        logPerformance('Automatic cache cleanup completed', 0, {
           totalEntriesRemoved: cleaned
         });
       }
     }, 5 * 60 * 1000);
     
-    logger.performance('Cache monitoring started', 0, {
+    logPerformance('Cache monitoring started', 0, {
       cleanupInterval: '5 minutes'
     });
   }
@@ -311,7 +301,7 @@ class CacheMonitor {
     if (this.cleanupInterval) {
       clearInterval(this.cleanupInterval);
       this.cleanupInterval = null;
-      logger.performance('Cache monitoring stopped', 0);
+      logPerformance('Cache monitoring stopped', 0);
     }
   }
   

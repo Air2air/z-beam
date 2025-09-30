@@ -42,20 +42,7 @@ jest.mock('react', () => ({
     return cached;
   }
 }));
-jest.mock('../../app/utils/logger', () => ({
-  logger: {
-    warn: jest.fn(),
-    error: jest.fn(),
-    info: jest.fn()
-  },
-  safeContentOperation: jest.fn(async (operation, fallback) => {
-    try {
-      return await operation();
-    } catch (error) {
-      return fallback;
-    }
-  })
-}));
+
 jest.mock('../../app/utils/yamlSanitizer', () => ({
   safeMatterParse: jest.fn()
 }));
@@ -209,11 +196,6 @@ describe('Content API Utils', () => {
     });
 
     test.skip('should handle file read errors', async () => {
-      // Mock the logger to capture error calls
-      const { logger } = require('../../app/utils/logger');
-      const originalError = logger.error;
-      logger.error = jest.fn();
-      
       // Override the default mock for this specific test - use a slug not in beforeEach
       existsSync.mockReturnValue(true);
       mockFs.readFile.mockImplementation((path) => {
@@ -228,9 +210,6 @@ describe('Content API Utils', () => {
 
       // Should return null (fallback) when file read fails
       expect(result).toBeNull();
-      
-      // Restore original logger
-      logger.error = originalError;
     });
 
     test.skip('should handle empty frontmatter', async () => {
@@ -558,41 +537,6 @@ describe('Content API Utils', () => {
       // Verify results are not null
       expect(result1).not.toBeNull();
       expect(result2).not.toBeNull();
-    });
-  });
-
-  describe('Settings Component Support', () => {
-    test('should load settings component data', async () => {
-      // This test verifies the settings component loading pattern
-      // The actual implementation may return null for non-existent files
-      const result = await loadComponent('settings', 'non-existent-settings');
-      
-      // For missing files, loadComponent should return null gracefully
-      expect(result).toBeNull();
-    });
-
-    test('should process settings YAML into markdown tables', async () => {
-      // This test verifies the settings YAML processing pattern
-      const result = await loadComponent('settings', 'non-existent-settings');
-      
-      // For missing files, loadComponent should return null gracefully
-      expect(result).toBeNull();
-    });
-
-    test('should handle settings files without sections', async () => {
-      // This test verifies the settings handling for various file structures
-      const result = await loadComponent('settings', 'non-existent-settings');
-      
-      // For missing files, loadComponent should return null gracefully
-      expect(result).toBeNull();
-    });
-
-    test('should return null for non-existent settings files', async () => {
-      mockExistsSync.mockReturnValue(false);
-
-      const result = await loadComponent('settings', 'non-existent-settings');
-
-      expect(result).toBeNull();
     });
   });
 });

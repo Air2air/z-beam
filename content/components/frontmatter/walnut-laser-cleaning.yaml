@@ -5,78 +5,71 @@ title: Walnut Laser Cleaning
 description: Laser cleaning parameters for Ash
 materialProperties:
   density:
-    value: 0.64
-    unit: g/cm³
+    value: 0.69
+    unit: "g/cm\xB3"
     confidence: 95
     description: Average density of walnut wood at 12% moisture content
     min: 0.12
     max: 1.25
-  meltingPoint:
-    value: 270
-    unit: °C
-    confidence: 85
-    description: Approximate pyrolysis/charring temperature of walnut wood
-    min: null
-    max: null
   thermalConductivity:
-    value: 0.12
-    unit: W/m·K
+    value: 0.22
+    unit: "W/m\xB7K"
     confidence: 88
     description: Thermal conductivity perpendicular to grain at room temperature
     min: 0.04
     max: 0.4
   tensileStrength:
-    value: 101
+    value: 110.0
     unit: MPa
     confidence: 92
     description: Tensile strength parallel to grain
-    min: 20
-    max: 200
+    min: 2.5
+    max: 152.5
   hardness:
-    value: 45.8
+    value: 2510.0
     unit: N
     confidence: 91
     description: Janka hardness test value
-    min: 0.4
-    max: 22.5
+    min: 0
+    max: 4650.8
   youngsModulus:
-    value: 11.6
+    value: 2502.5
     unit: GPa
     confidence: 94
     description: Modulus of elasticity parallel to grain
-    min: 5
-    max: 25
+    min: 0
+    max: 3299.24
   thermalExpansion:
-    value: 4.5e-05
-    unit: 1/°C
+    value: 30.0
+    unit: "1/\xB0C"
     confidence: 82
     description: Coefficient of thermal expansion perpendicular to grain
-    min: 3
-    max: 60
+    min: 0
+    max: 33.0
   specificHeat:
-    value: 1400
-    unit: J/kg·K
+    value: 1650.0
+    unit: "J/kg\xB7K"
     confidence: 90
     description: Specific heat capacity at room temperature
-    min: 1.2
-    max: 4.2
+    min: 695.0
+    max: 2555.0
   absorptionCoefficient:
     value: 0.85
-    unit: dimensionless
+    unit: ""
     confidence: 83
     description: Approximate absorption coefficient for common laser wavelengths (1064nm)
     min: null
     max: null
   reflectivity:
     value: 0.15
-    unit: dimensionless
+    unit: ""
     confidence: 80
     description: Average reflectivity in visible to near-IR range
     min: null
     max: null
   ablationThreshold:
     value: 0.8
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 82
     description: Estimated ablation threshold for nanosecond pulses at 1064nm
     min: null
@@ -90,7 +83,7 @@ materialProperties:
     max: null
   surfaceRoughness:
     value: 3.2
-    unit: μm
+    unit: "\u03BCm"
     confidence: 87
     description: Average surface roughness (Ra) for planed walnut
     min: null
@@ -102,6 +95,38 @@ materialProperties:
     description: Equilibrium moisture content at standard conditions
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 50.0
+    min: 1.0
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 25.5
+  laserReflectivity:
+    confidence: 0.7
+    max: 60.0
+    min: 10.0
+    source: default_from_category_range
+    unit: '%'
+    value: 35.0
+  thermalDiffusivity:
+    confidence: 0.7
+    max: 0.4
+    min: 0.0001
+    source: default_from_category_range
+    unit: "mm\xB2/s"
+    value: 0.2
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 500.0
+    min: 200.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 350.0
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: carbonization
 applications:
 - laser cleaning
 - surface preparation
@@ -118,11 +143,11 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-IR wavelength for optimal absorption in Walnut surface contaminants
-    min: 1030
-    max: 1070
+    min: 355
+    max: 10640
   spotSize:
     value: 100
-    unit: μm
+    unit: "\u03BCm"
     confidence: 90
     description: Beam spot diameter for precise cleaning control on Walnut surface
     min: 50
@@ -150,10 +175,9 @@ machineSettings:
     max: 1000
   energyDensity:
     value: 1.27
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
-    description: Fluence threshold for effective contaminant removal without wood
-      damage
+    description: Fluence threshold for effective contaminant removal without wood damage
     min: 0.8
     max: 2.0
   overlapRatio:
@@ -183,21 +207,12 @@ regulatoryStandards:
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
 - EPA Clean Air Act Compliance
-author_object:
-  id: 4
-  name: Todd Dunning
-  sex: m
-  title: MA
-  country: United States (California)
-  expertise: Optical Materials for Laser Systems
-  image: /images/author/todd-dunning.jpg
 images:
   hero:
     alt: Walnut surface undergoing laser cleaning showing precise contamination removal
     url: /images/walnut-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Walnut surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Walnut surface after laser cleaning showing detailed surface structure
     url: /images/walnut-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -224,7 +239,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 4
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -256,8 +271,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -295,9 +309,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -310,3 +324,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 4
+  name: Todd Dunning
+  sex: m
+  title: MA
+  country: United States (California)
+  expertise: Optical Materials for Laser Systems
+  image: /images/author/todd-dunning.jpg

@@ -6,22 +6,21 @@ description: Laser cleaning parameters for Carbon Fiber Reinforced Polymer (MMCs
 materialProperties:
   density:
     value: 2.85
-    unit: g/cm³
+    unit: "g/cm\xB3"
     confidence: 92
     description: Typical density for aluminum-based MMCs with 20% SiC reinforcement
     min: 0.5
     max: 8
   meltingPoint:
     value: 640
-    unit: °C
+    unit: "\xB0C"
     confidence: 88
-    description: Effective melting point considering reinforcement effects on aluminum
-      matrix
+    description: Effective melting point considering reinforcement effects on aluminum matrix
     min: null
     max: null
   thermalConductivity:
     value: 180
-    unit: W/m·K
+    unit: "W/m\xB7K"
     confidence: 90
     description: Thermal conductivity of Al/SiC MMC with 20% reinforcement
     min: 0.1
@@ -31,60 +30,60 @@ materialProperties:
     unit: MPa
     confidence: 89
     description: Ultimate tensile strength of reinforced aluminum MMC
-    min: 50
-    max: 6000
+    min: 0
+    max: 2748.5
   hardness:
     value: 120
     unit: HV
     confidence: 88
     description: Vickers hardness of SiC-reinforced aluminum composites
-    min: 20
-    max: 90
+    min: 15.5
+    max: 129.5
   youngsModulus:
     value: 110
     unit: GPa
     confidence: 91
     description: Elastic modulus for structural aluminum MMCs
-    min: 5
-    max: 1000
+    min: 0
+    max: 274.999
   thermalExpansion:
     value: 16.5
-    unit: 10⁻⁶/K
+    unit: "10\u207B\u2076/K"
     confidence: 85
     description: Coefficient of thermal expansion for Al/SiC composites
-    min: -1
-    max: 50
+    min: 0
+    max: 241.55
   thermalDiffusivity:
     value: 65
-    unit: mm²/s
+    unit: "mm\xB2/s"
     confidence: 82
     description: Thermal diffusivity at room temperature for laser heating calculations
-    min: 0.1
-    max: 180
+    min: 0
+    max: 71.493
   specificHeat:
     value: 850
-    unit: J/kg·K
+    unit: "J/kg\xB7K"
     confidence: 87
     description: Specific heat capacity of aluminum-based MMCs
-    min: 0.5
-    max: 2
+    min: 734.0
+    max: 2006.0
   absorptionCoefficient:
     value: 0.65
-    unit: dimensionless
+    unit: ""
     confidence: 80
     description: Laser absorption coefficient at 1064 nm wavelength
     min: null
     max: null
   reflectivity:
     value: 0.35
-    unit: dimensionless
+    unit: ""
     confidence: 82
     description: Surface reflectivity for near-infrared laser wavelengths
     min: null
     max: null
   ablationThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 85
     description: Laser ablation threshold for nanosecond pulses at 1064 nm
     min: null
@@ -105,7 +104,7 @@ materialProperties:
     max: null
   surfaceRoughness:
     value: 0.8
-    unit: μm Ra
+    unit: "\u03BCm Ra"
     confidence: 84
     description: Average surface roughness of as-processed MMC surfaces
     min: null
@@ -128,11 +127,11 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-IR wavelength optimized for MMC material interaction
-    min: null
-    max: null
+    min: 355
+    max: 1080
   spotSize:
     value: 100
-    unit: μm
+    unit: "\u03BCm"
     confidence: 90
     description: Beam spot diameter for precise cleaning control on MMC surfaces
     min: 50
@@ -146,7 +145,7 @@ machineSettings:
     max: 100
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 88
     description: Threshold fluence for effective contaminant removal from MMC surfaces
     min: 1.8
@@ -181,10 +180,9 @@ machineSettings:
     max: 3
   energyDensity:
     value: 3.2
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 85
-    description: Optimal energy density for contaminant removal while preserving MMC
-      integrity
+    description: Optimal energy density for contaminant removal while preserving MMC integrity
     min: 2.0
     max: 4.5
 regulatoryStandards:
@@ -192,22 +190,12 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
-  title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Metal Matrix Composites Mmcs surface undergoing laser cleaning showing precise
-      contamination removal
+    alt: Metal Matrix Composites Mmcs surface undergoing laser cleaning showing precise contamination removal
     url: /images/metal-matrix-composites-mmcs-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Metal Matrix Composites Mmcs surface after laser cleaning
-      showing detailed surface structure
+    alt: Microscopic view of Metal Matrix Composites Mmcs surface after laser cleaning showing detailed surface structure
     url: /images/metal-matrix-composites-mmcs-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -234,7 +222,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 1
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -266,8 +254,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -305,9 +292,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -320,3 +307,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg

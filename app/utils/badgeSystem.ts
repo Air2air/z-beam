@@ -2,6 +2,7 @@
 // Unified Badge System - Consolidates badgeUtils.ts, badgeDataLoader.ts, badgeSymbolLoader.ts, materialBadgeUtils.ts
 // Follows GROK principles: minimal changes, preserves all functionality, maintains backward compatibility
 
+import 'server-only';
 import * as fs from 'fs';
 import * as path from 'path';
 const matter = require('gray-matter');

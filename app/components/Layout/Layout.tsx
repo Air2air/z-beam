@@ -4,18 +4,17 @@
 import React, { ReactNode } from 'react';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { ArticleMetadata, ComponentData, LayoutProps, BadgeSymbolData, BadgeVariant } from '@/types';
-import { CONTAINER_STYLES } from '../../utils/containerStyles';
+import { CONTAINER_STYLES } from '../../utils/styles';
 
 // Header components (previously in ArticleHeader)
 import { Hero } from "../Hero/Hero";
 import { Title } from "../Title/Title";
 import { Author } from "../Author/Author";
-import { extractSafeValue } from "../../utils/stringHelpers";
+import { extractSafeValue } from '../../utils/safeValueExtractor';
 
 // Article content components
 
 import { Table } from "../Table/Table";
-import { Settings } from "../Settings/Settings";
 
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
@@ -28,7 +27,6 @@ const ARTICLE_COMPONENT_ORDER = [
   'caption',
   'metricsmachinesettings',
   'metricsproperties',
-  'settings',
   'table',
   'tags'
 ] as const;
@@ -43,7 +41,7 @@ export function Layout(props: LayoutProps) {
   const { title, description, components, metadata, slug, hideHeader, fullWidth } = props;
 
   // Use full-width or contained layout based on prop
-  const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.standard);
+  const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.main);
 
   // If components are provided, render as article layout
   if (components) {
@@ -90,10 +88,8 @@ export function Layout(props: LayoutProps) {
             {/* Hero component for background image */}
             {(() => {
               // Extract material name for hero image (from subject or slug)
-              const materialName = extractSafeValue(metadata?.subject).toLowerCase() || 
-                (slug && extractSafeValue(slug).includes('-') ? extractSafeValue(slug).split('-')[0].toLowerCase() : extractSafeValue(slug || '').toLowerCase());
-              
-              return materialName && (
+              const materialName = extractSafeValue(metadata?.subject, 'subject', '').toLowerCase() ||
+                (slug && extractSafeValue({slug}, 'slug', '').includes('-') ? extractSafeValue({slug}, 'slug', '').split('-')[0].toLowerCase() : extractSafeValue({slug: slug || ''}, 'slug', '').toLowerCase());              return materialName && (
                 <Hero
                   frontmatter={metadata}
                   theme="dark"
@@ -118,24 +114,26 @@ export function Layout(props: LayoutProps) {
                 <MetricsGrid
                   metadata={metadata}
                   dataSource="materialProperties"
-                  title="Material Properties"
+                  titleFormat="comparison"
                   maxCards={8}
                   layout="auto"
                   showTitle={true}
+                  searchable={true}
                 />
               </section>
             )}
             
-            {/* Machine Settings from frontmatter - positioned after Author */}
+            {/* Machine Settings from frontmatter - positioned after Material Properties */}
             {metadata && metadata.machineSettings && (
               <section aria-labelledby="machine-settings-heading" className="my-8">
                 <MetricsGrid
                   metadata={metadata}
                   dataSource="machineSettings"
-                  title="Machine Settings"
+                  titleFormat="comparison"
                   maxCards={8}
                   layout="auto"
                   showTitle={true}
+                  searchable={true}
                 />
               </section>
             )}
@@ -163,6 +161,7 @@ export function Layout(props: LayoutProps) {
                       dataSource="machineSettings"
                       title={component.config.title as string}
                       className={component.config.className as string}
+                      searchable={true}
                     />
                   </section>
                 );
@@ -188,6 +187,7 @@ export function Layout(props: LayoutProps) {
                       dataSource="materialProperties"
                       title={component.config.title as string}
                       className={component.config.className as string}
+                      searchable={true}
                     />
                   </section>
                 );
@@ -223,12 +223,6 @@ export function Layout(props: LayoutProps) {
                     />
                   </section>
                 );
-              case 'settings':
-                return (
-                  <section key={type} aria-label="Machine settings and parameters">
-                    <Settings content={content} config={config} />
-                  </section>
-                );
               case 'table':
                 return (
                   <section key={type} aria-label="Data table">
@@ -242,7 +236,7 @@ export function Layout(props: LayoutProps) {
               case 'tags':
                 return (
                   <section key={type} aria-label="Tags and categories">
-                    <Tags content={content} config={config} />
+                    <Tags frontmatter={metadata} />
                   </section>
                 );
               default:

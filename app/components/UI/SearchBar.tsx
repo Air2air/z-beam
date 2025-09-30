@@ -2,17 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-interface SearchBarProps {
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  className?: string;
-  label?: string;
-  id?: string;
-  'aria-describedby'?: string;
-  onSubmit?: (value: string) => void;
-}
+import { SearchBarProps } from '@/types';
 
 export function SearchBar({
   value,

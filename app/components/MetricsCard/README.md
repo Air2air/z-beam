@@ -5,7 +5,7 @@ The `MetricsCard` component provides a standalone, flexible solution for display
 ## Key Features
 
 ### 🔧 Completely Standalone
-- **Zero dependencies on Card or StatCard components**
+- **Zero dependencies on other Card components**
 - **Self-contained styling and color schemes**
 - **Built-in data extraction from frontmatter and MD files**
 - **No external component requirements**
@@ -37,7 +37,7 @@ import { MetricsCard, PrimaryMetricsCard, CompactMetricsCard } from '@/component
 <MetricsCard 
   metadata={articleMetadata}
   dataSource="machineSettings" 
-  baseHref="/property/aluminum-6061"
+  baseHref="/materials/aluminum-6061"
 />
 
 // Material Properties from frontmatter - Display material properties

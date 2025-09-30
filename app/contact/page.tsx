@@ -3,6 +3,7 @@ import { Layout } from "../components/Layout/Layout";
 import { ContactForm } from "../components/Contact/ContactForm";
 import { ContactInfo } from "../components/Contact/ContactInfo";
 import { ComponentData, ArticleMetadata } from '@/types';
+import { stripLeadingSlash } from "../utils/pathUtils";
 import { CONTAINER_STYLES } from "../utils/containerStyles";
 import fs from 'fs/promises';
 import path from 'path';

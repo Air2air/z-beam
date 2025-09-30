@@ -38,7 +38,6 @@ This README is the single source of truth for building, maintaining, and extendi
 │   ├── thesaurus/          # Terminology
 │   └── components/         # Component-specific YAML files
 │       ├── caption/        # Before/after text content
-│       ├── settings/       # Machine parameter settings
 │       └── author/         # Author profile data
 ├── docs/                   # Documentation (archived)
 ├── package.json            # NPM scripts & dependencies
@@ -109,10 +108,10 @@ const tagStats = getTagStats();
 - `List` - Displays a list of articles
 - `AuthorArticles` - Shows articles by author
 - `TagDirectory` - Shows all tags with counts
-- `Settings` - Displays machine parameters and laser settings in organized tables
 - `Table` - Generic table component for structured data display
 - `Caption` - Before/after text content for laser cleaning descriptions
-- `DataMetrics` - **Unified metrics component** - Intelligently displays material properties, quality metrics, or statistical data in an optimized format
+- `MetricsCard` - **Individual metric card component** - Displays single metrics with progress bars and smart value positioning
+- `MetricsGrid` - **Metrics grid container** - Renders collections of MetricsCard components with title mapping
 
 ### Backwards Compatibility
 Legacy imports still work:
@@ -302,136 +301,80 @@ app/utils/contentAPI.ts           # YAML processing
 
 ---
 
-## 12. Settings Component Architecture
+## 12. Unified Metrics Component Architecture
 
-Z-Beam implements a modular Settings component architecture for machine parameter display, achieving complete separation from caption content.
-
-### Key Features
-- **Modular Design**: Settings component handles all machine parameters independently
-- **YAML-Based Configuration**: Settings data stored in structured YAML files
-- **Sectioned Display**: Parameters organized into logical sections (power, speed, etc.)
-- **Markdown Table Generation**: Automatic conversion of YAML data to formatted tables
-- **Clean Separation**: Caption components no longer contain embedded laser parameters
-
-### Settings System Structure
-```
-content/components/settings/        # Settings YAML files
-├── steel-laser-cleaning.yaml      # Machine parameters
-├── aluminum-laser-cleaning.yaml   # For specific materials
-└── [material]-laser-cleaning.yaml # Material-specific settings
-
-content/components/caption/         # Caption content (clean)
-├── steel-laser-cleaning.yaml      # Before/after text only
-└── [material]-laser-cleaning.yaml # No laser_parameters
-
-app/components/Settings/            # Settings component
-├── Settings.tsx                   # Main component
-├── styles.css                     # Component styling
-└── index.ts                       # Export configuration
-
-app/utils/contentAPI.ts            # Enhanced with settings processing
-```
-
-### YAML Structure
-Settings files use sectioned YAML structure:
-```yaml
-power_section:
-  power: "100-500W"
-  wavelength: "1064nm"
-  energy_density: "1.0-10 J/cm²"
-
-speed_section:
-  scanning_speed: "100-5000 mm/s"
-  frequency: "20-100kHz"
-  pulse_duration: "10-200ns"
-```
-
-### Component Integration
-```typescript
-// Settings component automatically processes YAML into tables
-import { Settings } from 'app/components/Settings';
-
-// Load settings data via contentAPI
-const settingsData = await loadComponent('settings', 'steel-laser-cleaning');
-
-// Render with sectioned display
-<Settings settingsData={settingsData} />
-```
-
-### Migration Status
-- ✅ **109 caption files cleaned**: All laser_parameters sections removed
-- ✅ **Settings component integrated**: Fully functional with Layout component
-- ✅ **ContentAPI enhanced**: Settings processing and markdown generation
-- ✅ **Test coverage**: Comprehensive test suite for new architecture
-- ✅ **Modular separation**: Complete independence between caption and settings components
-- ✅ **Global consistency**: Uniform author rendering across all pages
-
-## 13. Unified Metrics Component Architecture
-
-Z-Beam implements a consolidated DataMetrics component that intelligently handles all metrics display patterns with a single unified interface.
+Z-Beam implements a specialized MetricsCard system with progress bar visualization and intelligent value positioning for optimal data display.
 
 ### Key Features
-- **Intelligent Auto-Detection**: Automatically detects data type and selects optimal display format
-- **Three Display Modes**: `auto`, `grid`, `stats`, and `cards` for different data types
-- **Unified Component**: Single component replaces MetricsCard, DataMetrics, and StatCard
-- **Layout Integration**: One component call in Layout.tsx renders all metrics consistently
-- **Type-Safe Processing**: Handles quality metrics, statistical data, and metadata seamlessly
+- **Progress Bar Visualization**: Visual progress bars with percentage completion based on min/max ranges
+- **Dynamic Value Positioning**: Smart positioning prevents value overflow at progress bar edges
+- **Title Mapping System**: Custom abbreviated property names for better display
+- **Nested Data Support**: Handles complex YAML structures with {value, unit, min, max} properties
+- **Type-Safe Processing**: Full TypeScript support with comprehensive error handling
 
 ### Component Architecture
 ```typescript
-// Single unified component with intelligent mode detection
-<DataMetrics 
-  mode="auto"                    // Automatically detects best display format
+// MetricsGrid renders collections of MetricsCard components
+<MetricsGrid 
+  data={frontmatter}            // YAML frontmatter data
   title="Material Properties & Specifications"
-  maxCards={8}                   // Limit display for performance
-  layout="auto"                  // Responsive layout handling
-  showTitle={true}              // Optional title display
+  maxCards={8}                  // Limit display for performance
+/>
+
+// Individual MetricsCard with progress visualization
+<MetricsCard 
+  title="Surface Quality"
+  value={95}
+  unit="%"
+  min={0}
+  max={100}
 />
 ```
 
 ### Data Processing Intelligence
-The component automatically processes three data types:
+The system processes nested YAML data structures:
 
-1. **Quality Metrics** (Grid Mode)
-   - Surface quality measurements
-   - Contamination removal rates
-   - Process efficiency metrics
+1. **Material Properties**
+   - Nested objects with value/unit/min/max structure
+   - Progress bars calculated from value ranges
+   - Title mapping for abbreviated display names
 
-2. **Statistical Data** (Stats Mode)
-   - Trend analysis with change indicators
-   - Comparative performance data
-   - Historical metrics
+2. **Machine Settings**
+   - Technical parameters with units
+   - Visual progress indicators
+   - Smart value positioning at bar edges
 
-3. **Metadata Properties** (Cards Mode)
-   - Material specifications
-   - Technical parameters
-   - Property descriptions with confidence scores
+### Title Mapping System
+```typescript
+const TITLE_MAPPING = {
+  'surfaceQuality': 'Surface Quality',
+  'contaminationRemoval': 'Contamination',
+  'processEfficiency': 'Efficiency',
+  // Custom shortened names for better display
+};
+```
 
 ### Layout Integration
 ```typescript
-// Single component call in Layout.tsx
-const DataMetrics = await getDataMetrics();
-
-<DataMetrics 
-  mode="auto"
+// MetricsGrid integration in components
+<MetricsGrid 
+  data={frontmatter}
   title="Material Properties & Specifications"
   maxCards={8}
-  layout="auto"
 />
 ```
 
-### Consolidation Benefits
-- ✅ **Reduced Complexity**: 3 components → 1 unified interface
-- ✅ **Intelligent Display**: Automatic format selection based on data type
-- ✅ **Consistent Rendering**: Single component ensures uniform appearance
-- ✅ **Enhanced Performance**: Optimized data processing and display
-- ✅ **Simplified Maintenance**: One component to update and test
+### Component Benefits
+- ✅ **Visual Progress Bars**: Clear progress visualization with percentage completion
+- ✅ **Smart Positioning**: Dynamic value placement prevents UI overflow
+- ✅ **Custom Naming**: Abbreviated titles for better display density
+- ✅ **Nested Data Support**: Handles complex YAML structures seamlessly
+- ✅ **Performance Optimized**: Efficient rendering with card limits
 
-### Migration From Legacy Components
-Previous separate components are now handled by DataMetrics:
-- `MetricsCard` → `DataMetrics` with metadata
-- `DataMetricsGrid` → `DataMetrics` with quality metrics  
-- `StatCard` → `DataMetrics` with statistical data
+### Current Architecture
+The system uses specialized components for metrics display:
+- `MetricsCard` → Individual metric card with progress bar
+- `MetricsGrid` → Container component for multiple cards with title mapping
 
 The unified component maintains full backward compatibility while providing enhanced functionality.
 

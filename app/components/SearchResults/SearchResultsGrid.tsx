@@ -1,8 +1,8 @@
 // app/components/SearchResults/SearchResultsGrid.tsx
-// CONSOLIDATED: This now redirects to the unified ArticleGrid
+// CONSOLIDATED: This now redirects to the unified CardGrid
 
-export { ArticleGrid as SearchResultsGrid } from '../ArticleGrid/ArticleGrid';
+export { CardGrid as SearchResultsGrid } from '../CardGrid/CardGrid';
 
 // Migration guide:
 // OLD: <SearchResultsGrid items={items} columns={3} />
-// NEW: <ArticleGrid searchResults={items} columns={3} mode="search-results" />
+// NEW: <CardGrid searchResults={items} columns={3} mode="search-results" />

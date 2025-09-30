@@ -89,7 +89,7 @@ export function CaptionContent({ content, beforeText, afterText, materialName, f
     >
       <meta itemProp="description" content={seoData?.description || frontmatter?.description || "Laser cleaning surface analysis"} />
       {seoData?.keywords && <meta itemProp="keywords" content={seoData.keywords.join(', ')} />}
-      {seoData?.author && <meta itemProp="author" content={seoData.author} />}
+      {seoData?.author && <meta itemProp="author" content={typeof seoData.author === 'string' ? seoData.author : (seoData.author as any)?.name || 'Unknown Author'} />}
       <MarkdownRenderer content={content} />
     </article>
   );

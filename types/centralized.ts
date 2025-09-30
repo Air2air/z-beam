@@ -381,6 +381,23 @@ export interface QualityMetrics {
 }
 
 /**
+ * MetricsCard component props
+ */
+export interface MetricsCardProps {
+  key: string;
+  title: string;
+  value: string | number;
+  unit?: string;
+  color: string;
+  href?: string;
+  min?: number;
+  max?: number;
+  className?: string;
+  searchable?: boolean;
+  fullPropertyName?: string;
+}
+
+/**
  * MetricsGrid component props
  */
 export interface MetricsGridProps {
@@ -570,7 +587,6 @@ export interface PageData {
 // UI COMPONENT TYPES
 // ===============================
 
-export type ComponentVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'solid' | 'subtle';
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
 export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'settings' | 'table' | 'tags' | 'text';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
@@ -935,9 +951,9 @@ export interface BreadcrumbsProps {
 }
 
 /**
- * Article grid item interface
+ * Card grid item interface
  */
-export interface ArticleItem {
+export interface CardItem {
   slug: string;
   title?: string;
   description?: string;
@@ -958,10 +974,10 @@ export interface ArticleItem {
 }
 
 /**
- * Article grid component props
+ * Card grid component props
  */
-export interface ArticleGridProps {
-  items: ArticleItem[];
+export interface CardGridProps {
+  items: CardItem[];
   title?: string;
   heading?: string;
   columns?: 1 | 2 | 3 | 4;
@@ -1115,6 +1131,34 @@ export interface Article {
 export interface SearchableArticle extends Article {
   tags: string[];
   href: string;
+}
+
+/**
+ * Tags component interfaces
+ */
+export interface TagsData {
+  tags?: string[];
+  showAll?: boolean;
+  maxTags?: number;
+  material?: string;
+  count?: number;
+  categories?: Record<string, string[]>;
+  metadata?: {
+    format?: string;
+    version?: string;
+    generated?: string;
+    material?: string;
+  };
+}
+
+export interface TagsProps {
+  frontmatter?: ArticleMetadata;
+  content?: string | TagsData;
+  config?: Record<string, any>;
+  tags?: string[];
+  showAll?: boolean;
+  maxTags?: number;
+  className?: string;
 }
 
 /**
@@ -1417,18 +1461,6 @@ export interface FadeInWrapperProps {
   delay?: number;
   duration?: number;
   className?: string;
-}
-
-/**
- * Section card interface
- */
-export interface SectionCard {
-  id: string;
-  title: string;
-  description: string;
-  href: string;
-  icon?: React.ComponentType;
-  color?: string;
 }
 
 /**

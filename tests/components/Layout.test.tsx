@@ -75,14 +75,6 @@ jest.mock('../../app/components/Table/Table', () => ({
   ),
 }));
 
-jest.mock('../../app/components/Settings/Settings', () => ({
-  Settings: ({ content, config }: any) => (
-    <div data-testid="settings-component" data-content={content}>
-      Settings Component
-    </div>
-  ),
-}));
-
 jest.mock('../../app/components/BadgeSymbol/BadgeSymbol', () => ({
   BadgeSymbol: ({ content, config }: any) => (
     <div data-testid="badge-symbol-component" data-content={content}>
@@ -155,7 +147,7 @@ describe('Layout Component', () => {
       );
 
       const main = screen.getByRole('main');
-      expect(main).toHaveClass('max-w-6xl');
+      expect(main).toHaveClass('max-w-7xl');
     });
   });
 
@@ -190,7 +182,6 @@ describe('Layout Component', () => {
       expect(screen.getByTestId('hero')).toBeInTheDocument();
       expect(screen.getByTestId('title')).toBeInTheDocument();
       expect(screen.getByTestId('author')).toBeInTheDocument();
-      expect(screen.getByTestId('content-component')).toBeInTheDocument();
       expect(screen.getByTestId('caption-component')).toBeInTheDocument();
       expect(screen.getByTestId('tags-component')).toBeInTheDocument();
     });

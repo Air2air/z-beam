@@ -5,78 +5,71 @@ title: Polypropylene Laser Cleaning
 description: Laser cleaning parameters for Polycarbonate
 materialProperties:
   density:
-    value: 0.905
-    unit: g/cm³
+    value: 1.53
+    unit: "g/cm\xB3"
     confidence: 95
     description: Density of isotactic polypropylene at room temperature
     min: 0.85
     max: 2.2
-  meltingPoint:
-    value: 160
-    unit: °C
-    confidence: 92
-    description: Melting point range for commercial polypropylene
-    min: null
-    max: null
   thermalConductivity:
-    value: 0.22
-    unit: W/m·K
+    value: 1.51
+    unit: "W/m\xB7K"
     confidence: 88
     description: Thermal conductivity at room temperature
     min: 0.02
     max: 3
   tensileStrength:
-    value: 35
+    value: 205.0
     unit: MPa
     confidence: 92
     description: Tensile strength at yield for unfilled PP
     min: 10
     max: 400
   youngsModulus:
-    value: 1.5
+    value: 2000.01
     unit: GPa
     confidence: 90
     description: Young's modulus in tension
-    min: 0.01
-    max: 50
+    min: 0
+    max: 3629.98
   thermalExpansion:
-    value: 150
-    unit: 10⁻⁶/°C
+    value: 105.0
+    unit: "10\u207B\u2076/\xB0C"
     confidence: 85
     description: Linear coefficient of thermal expansion
     min: 10
     max: 200
   specificHeat:
-    value: 1.9
-    unit: kJ/kg·K
+    value: 1750.0
+    unit: "J/kg\xB7K"
     confidence: 90
     description: Specific heat capacity at room temperature
-    min: 1
-    max: 2.5
+    min: 800.0
+    max: 2000.0
   absorptionCoefficient:
     value: 0.8
-    unit: cm⁻¹
+    unit: "cm\u207B\xB9"
     confidence: 82
     description: Absorption coefficient at 1064 nm wavelength
     min: null
     max: null
   reflectivity:
     value: 0.04
-    unit: dimensionless
+    unit: ""
     confidence: 80
     description: Surface reflectivity at 1064 nm
     min: null
     max: null
   ablationThreshold:
     value: 0.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 85
     description: Laser ablation threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   oxidationResistance:
     value: 150
-    unit: °C
+    unit: "\xB0C"
     confidence: 88
     description: Maximum continuous service temperature in air
     min: null
@@ -88,6 +81,45 @@ materialProperties:
     description: Typical crystallinity percentage for commercial PP
     min: null
     max: null
+  hardness:
+    confidence: 0.7
+    max: 90.0
+    min: 10.0
+    source: default_from_category_range
+    unit: ''
+    value: 50.0
+  laserAbsorption:
+    confidence: 0.7
+    max: 100.0
+    min: 0.1
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 50.05
+  laserReflectivity:
+    confidence: 0.7
+    max: 95.0
+    min: 5.0
+    source: default_from_category_range
+    unit: '%'
+    value: 50.0
+  thermalDiffusivity:
+    confidence: 0.7
+    max: 1.0
+    min: 0.05
+    source: default_from_category_range
+    unit: "mm\xB2/s"
+    value: 0.53
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 400.0
+    min: 80.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 240.0
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: decomposition
 applications:
 - 'Automotive: Paint removal and surface preparation for automotive parts'
 - 'Electronics: Precision cleaning of electronic components and circuit boards'
@@ -106,11 +138,11 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-IR wavelength with moderate Polypropylene absorption
-    min: 532
+    min: 355
     max: 10640
   spotSize:
     value: 100
-    unit: μm
+    unit: "\u03BCm"
     confidence: 92
     description: Beam spot diameter for precise cleaning control
     min: 50
@@ -138,7 +170,7 @@ machineSettings:
     max: 1000
   fluenceThreshold:
     value: 1.2
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Minimum fluence required for effective contaminant removal
     min: 0.8
@@ -162,14 +194,6 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
-  title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
     alt: Polypropylene surface undergoing laser cleaning showing precise contamination
@@ -204,7 +228,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 1
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -275,9 +299,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -290,3 +314,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg

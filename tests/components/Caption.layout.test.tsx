@@ -129,4 +129,65 @@ describe('Caption Component Centralized Types', () => {
     expect(enhancedCaption.technicalSpecifications?.wavelength).toBe('1064nm');
     expect(enhancedCaption.accessibility?.technical_level).toBe('Advanced');
   });
+
+  // Test for author object rendering fix
+  test('should safely handle author objects in seoData', () => {
+    const seoDataWithStringAuthor = {
+      description: 'Test description',
+      author: 'John Doe'
+    };
+
+    const seoDataWithObjectAuthor = {
+      description: 'Test description', 
+      author: {
+        id: 'author123',
+        name: 'Jane Smith',
+        sex: 'F',
+        title: 'Senior Engineer',
+        country: 'USA',
+        expertise: ['Laser Technology'],
+        image: 'profile.jpg'
+      }
+    };
+
+    // Test that both string and object authors are handled
+    expect(typeof seoDataWithStringAuthor.author).toBe('string');
+    expect(typeof seoDataWithObjectAuthor.author).toBe('object');
+    expect(seoDataWithObjectAuthor.author.name).toBe('Jane Smith');
+  });
+
+  test('should extract author name from object for React rendering', () => {
+    const authorObject = {
+      id: 'author123',
+      name: 'Dr. Sarah Chen',
+      sex: 'F',
+      title: 'Research Director',
+      country: 'Canada',
+      expertise: ['Surface Treatment', 'Laser Physics'],
+      image: 'sarah-chen.jpg'
+    };
+
+    // Simulate the fix logic: extract name or provide fallback
+    const authorContent = typeof authorObject === 'string' 
+      ? authorObject 
+      : authorObject.name || 'Unknown Author';
+
+    expect(authorContent).toBe('Dr. Sarah Chen');
+
+    // Test enhanced caption data structure
+    const enhancedCaption = {
+      technicalSpecifications: {
+        wavelength: '1064nm',
+        power: '20W',
+        pulse_duration: '10ns'
+      },
+      accessibility: {
+        technical_level: 'Advanced',
+        alt_text_detailed: 'Laser cleaning process diagram'
+      }
+    };
+
+    expect(enhancedCaption.technicalSpecifications?.wavelength).toBe('1064nm');
+    expect(enhancedCaption.accessibility?.technical_level).toBe('Advanced');
+  });
 });

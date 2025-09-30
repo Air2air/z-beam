@@ -5,78 +5,71 @@ title: Shale Laser Cleaning
 description: Laser cleaning parameters for Alabaster
 materialProperties:
   density:
-    value: 2.4
-    unit: g/cm³
+    value: 2.45
+    unit: "g/cm\xB3"
     confidence: 95
     description: Average bulk density of shale formations
     min: 1.5
     max: 3.4
-  meltingPoint:
-    value: 1250
-    unit: °C
-    confidence: 85
-    description: Approximate melting point of shale clay minerals
-    min: null
-    max: null
   thermalConductivity:
-    value: 1.8
-    unit: W/m·K
+    value: 4.1
+    unit: "W/m\xB7K"
     confidence: 90
     description: Thermal conductivity perpendicular to bedding planes
-    min: 0.2
-    max: 5
+    min: 0.12
+    max: 8.28
   tensileStrength:
-    value: 5.2
+    value: 13.5
     unit: MPa
     confidence: 85
     description: Brazilian tensile strength parallel to bedding
-    min: 2
-    max: 25
+    min: 0.92
+    max: 52.28
   hardness:
-    value: 2.5
+    value: 4.0
     unit: Mohs
     confidence: 92
     description: Mohs hardness scale for typical shale
     min: 1
     max: 7
   youngsModulus:
-    value: 25
+    value: 55.0
     unit: GPa
     confidence: 90
     description: Static Young's modulus perpendicular to bedding
     min: 10
     max: 100
   thermalExpansion:
-    value: 8.2
-    unit: 10⁻⁶/°C
+    value: 14.0
+    unit: "10\u207B\u2076/\xB0C"
     confidence: 82
     description: Linear thermal expansion coefficient at room temperature
-    min: 3
-    max: 16
+    min: 3.5
+    max: 26.9
   specificHeat:
-    value: 0.85
-    unit: kJ/kg·K
+    value: 900.0
+    unit: "J/kg\xB7K"
     confidence: 88
-    description: Specific heat capacity at 25°C
-    min: 0.7
-    max: 1.2
+    description: "Specific heat capacity at 25\xB0C"
+    min: 705.5
+    max: 1119.5
   absorptionCoefficient:
     value: 850
-    unit: cm⁻¹
+    unit: "cm\u207B\xB9"
     confidence: 80
     description: Absorption coefficient at 1064 nm wavelength
     min: null
     max: null
   reflectivity:
     value: 0.15
-    unit: dimensionless
+    unit: ""
     confidence: 82
     description: Reflectivity at 1064 nm for dry shale surface
     min: null
     max: null
   ablationThreshold:
     value: 1.8
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 78
     description: Laser ablation threshold for 1064 nm nanosecond pulses
     min: null
@@ -90,18 +83,50 @@ materialProperties:
     max: null
   surfaceRoughness:
     value: 12.5
-    unit: μm Ra
+    unit: "\u03BCm Ra"
     confidence: 88
     description: Average surface roughness of natural shale surfaces
     min: null
     max: null
   chemicalStability:
     value: 0.75
-    unit: dimensionless
+    unit: ""
     confidence: 85
     description: Chemical stability index relative to quartz (1.0)
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 20.0
+    min: 0.1
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 10.05
+  laserReflectivity:
+    confidence: 0.7
+    max: 80.0
+    min: 5.0
+    source: default_from_category_range
+    unit: '%'
+    value: 42.5
+  thermalDiffusivity:
+    confidence: 0.7
+    max: 2.5
+    min: 0.2
+    source: default_from_category_range
+    unit: "mm\xB2/s"
+    value: 1.35
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 1700.0
+    min: 600.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 1150.0
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: thermal_shock
 applications:
 - 'Art Conservation: Delicate cleaning of artwork and cultural artifacts'
 - 'Jewelry: Precision cleaning and polishing of precious metal jewelry'
@@ -110,8 +135,7 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Shale surface cleaning without thermal
-      damage
+    description: Optimal average power for Shale surface cleaning without thermal damage
     min: 80
     max: 120
   wavelength:
@@ -119,11 +143,11 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-infrared wavelength optimized for Shale mineral absorption
-    min: 1030
-    max: 1080
+    min: 532
+    max: 10640
   spotSize:
     value: 100
-    unit: μm
+    unit: "\u03BCm"
     confidence: 90
     description: Beam spot diameter for precise cleaning control on Shale surfaces
     min: 50
@@ -139,8 +163,7 @@ machineSettings:
     value: 10
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for controlled ablation of Shale surface
-      contaminants
+    description: Nanosecond pulse duration for controlled ablation of Shale surface contaminants
     min: 5
     max: 20
   scanSpeed:
@@ -152,7 +175,7 @@ machineSettings:
     max: 1000
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Minimum fluence required for effective Shale surface cleaning
     min: 1.5
@@ -183,21 +206,12 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
     alt: Shale surface undergoing laser cleaning showing precise contamination removal
     url: /images/shale-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Shale surface after laser cleaning showing detailed surface
-      structure
+    alt: Microscopic view of Shale surface after laser cleaning showing detailed surface structure
     url: /images/shale-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -224,7 +238,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 2
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -256,8 +270,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -295,9 +308,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -310,3 +323,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg

@@ -7,29 +7,54 @@ import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { BadgeData, ArticleMetadata } from "@/types";
 
-// Global card configuration with a single variant
-const CARD_CONFIG = {
-  // Layout
-  padding: "p-2",
-  imageHeight: "aspect-[16/9] h-20", // Combine aspect ratio with min-height
+// Card variant configurations
+const CARD_VARIANTS = {
+  standard: {
+    // Layout
+    padding: "p-3",
+    imageHeight: "h-full", // Full height image
+    cardHeight: "h-full min-h-[12rem]", // Standard cards with reduced minimum height
+    
+    // Typography
+    titleClass: "text-base font-semibold text-white truncate",
+    descriptionClass: "text-gray-200 text-xs line-clamp-2",
+    
+    // Appearance
+    cardClass: "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700",
+    hoverEffect: "hover:shadow-lg hover:scale-[1.02]",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
+    
+    // Transitions - targeting specific properties for better performance
+    transitionClass: "transition-[transform,box-shadow] duration-300 ease-in-out",
+  },
+  featured: {
+    // Layout
+    padding: "p-4",
+    imageHeight: "h-full", // Full height image
+    cardHeight: "h-auto min-h-[18rem]", // Featured cards with reduced minimum height
+    
+    // Typography
+    titleClass: "text-xl font-bold text-white truncate",
+    descriptionClass: "text-gray-200 text-sm line-clamp-3",
+    
+    // Appearance
+    cardClass: "rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600",
+    hoverEffect: "hover:shadow-xl hover:scale-[1.02]",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
+    
+    // Transitions - targeting specific properties for better performance
+    transitionClass: "transition-[transform,box-shadow] duration-300 ease-in-out",
+  },
+} as const;
 
-  // Typography
-  titleClass:
-    "text-base font-semibold",
-  descriptionClass:
-    "text-gray-600 dark:text-gray-300 text-xs line-clamp-2",
-
-  // Appearance
-  cardClass:
-    "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:bg-gray-800 dark:border-gray-700",
-};
+type CardVariant = keyof typeof CARD_VARIANTS;
 
 export interface CardProps {
   frontmatter?: ArticleMetadata;
   href: string;
   badge?: BadgeData | null; // Allow null
   className?: string;
-  height?: string;
+  variant?: CardVariant; // Add variant prop
 }
 
 export function Card({
@@ -37,8 +62,11 @@ export function Card({
   href,
   badge, // Re-enabled for BadgeSymbol support
   className = "",
-  height,
+  variant = "standard", // Default to standard variant
 }: CardProps) {
+  // Get variant configuration
+  const config = CARD_VARIANTS[variant];
+  
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
   
@@ -47,40 +75,18 @@ export function Card({
   const subject = frontmatter?.subject || ''; // Use subject instead of name
   const imageAlt = frontmatter?.images?.hero?.alt || '';
   
-  // For frontmatter files, we need to handle the path correctly
-  // const isFrontmatterPath = (path: string | undefined) => {
-  //   return path && path.includes('content/components/frontmatter/');
-  // };
-  
-  // Determine material slug for image - use passed materialSlug, or extract from metadata.subject or slug
-  // const effectiveMaterialSlug = 
-  //   // If materialSlug is a frontmatter path, use it directly
-  //   (materialSlug && isFrontmatterPath(materialSlug)) ? materialSlug :
-  //   // Otherwise use the normal options
-  //   materialSlug || 
-  //   (metadata?.subject ? metadata.subject.toLowerCase() : null) || 
-  //   (slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase());
-  
   // Check if this is a featured card by examining the className
   return (
     <Link
       href={href}
       className={`
-        group block ${CARD_CONFIG.cardClass} h-full ${className} hover:shadow-lg transition-all duration-200
+        group block ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
       `}
-      style={height ? { height } : {}}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'scale(1.03)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'scale(1)';
-      }}
+      aria-label={`View details for ${subject || title}`}
     >
-      <article className="flex flex-col h-full">
-        {/* Image Container with dynamic height based on featured status */}
-        <div
-          className={`relative w-full ${CARD_CONFIG.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800 card-image-container`}
-        >
+      <article className="relative flex flex-col h-full" role="article">
+        {/* Full Height Image Container */}
+        <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`} aria-label="Material image">
           <Thumbnail
             alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
             frontmatter={frontmatter}
@@ -90,7 +96,7 @@ export function Card({
 
           {/* BadgeSymbol overlay for cards */}
           {badge && badge.symbol && (
-            <div className="absolute top-2 right-2 z-10">
+            <div className="absolute top-2 right-2 z-20">
               <BadgeSymbol
                 content=""
                 config={{
@@ -104,16 +110,35 @@ export function Card({
               />
             </div>
           )}
-        </div>
 
-        {/* Card Content */}
-        <div className={`${CARD_CONFIG.padding} flex-grow flex flex-col`}>
-          <h3 className={CARD_CONFIG.titleClass}>
-            {/* Prioritize subject over title */}
-            {subject || title}
-          </h3>
-
-        </div>
+          {/* Title Bar Overlay with 80% opacity */}
+          <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner">
+            <div className="flex items-center justify-between">
+              <h3 className={`${config.titleClass} flex-1 pr-2 min-w-0 overflow-hidden`} id={`card-title-${slug}`}>
+                {/* Prioritize subject over title */}
+                {subject || title}
+              </h3>
+              
+              {/* Arrow-right icon */}
+              <svg 
+                className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                role="img"
+                aria-label="Navigate to details"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M9 5l7 7-7 7" 
+                />
+              </svg>
+            </div>
+          </header>
+        </section>
       </article>
     </Link>
   );

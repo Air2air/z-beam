@@ -1,6 +1,5 @@
 // app/api/debug/route.ts
 import { NextResponse } from 'next/server';
-import { logger } from '../../utils/logger';
 import { debugTagSystem } from '../../utils/tagDebug';
 
 // This API serves debugging data for various system components
@@ -76,7 +75,7 @@ export async function GET(request: Request) {
     
     return NextResponse.json(debugData);
   } catch (error) {
-    logger.error('Debug API error', error);
+    console.error('Debug API error', error);
     return NextResponse.json(
       { error: 'Internal server error', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }

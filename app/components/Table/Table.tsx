@@ -172,7 +172,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
       return (
         <div className="enhanced-table-container">
           {sectionTitle && (
-            <h3 className="text-lg font-semibold text-white mb-4">
+            <h3 className="text-xl font-bold text-white mb-4">
               {sectionTitle}
             </h3>
           )}
@@ -188,7 +188,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
     return (
       <div className="enhanced-table-container">
         {sectionTitle && (
-          <h3 className="text-lg font-semibold text-white mb-4">
+          <h3 className="text-xl font-bold text-white mb-4">
             {sectionTitle}
           </h3>
         )}

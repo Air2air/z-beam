@@ -13,6 +13,7 @@ const customJestConfig = {
     "^@components/(.*)$": "<rootDir>/app/components/$1",
     "^@utils/(.*)$": "<rootDir>/app/utils/$1",
     "^marked$": "<rootDir>/tests/__mocks__/marked.js",
+    "^server-only$": "<rootDir>/tests/__mocks__/server-only.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy"
   },
   transformIgnorePatterns: [
@@ -26,9 +27,7 @@ const customJestConfig = {
     "!**/*.config.js",
     "!**/node_modules/**",
     "!app/debug/**",
-    "!app/pages/**",
-    "!app/tag/**",
-    "!app/property/**"
+    "!app/pages/**"
   ],
   coverageReporters: [
     "text",
@@ -80,6 +79,7 @@ const customJestConfig = {
         "^@components/(.*)$": "<rootDir>/app/components/$1",
         "^@utils/(.*)$": "<rootDir>/app/utils/$1",
         "^marked$": "<rootDir>/tests/__mocks__/marked.js",
+        "^server-only$": "<rootDir>/tests/__mocks__/server-only.js",
         "\\.(css|less|scss|sass)$": "identity-obj-proxy"
       },
     }

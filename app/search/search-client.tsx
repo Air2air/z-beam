@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { ArticleGrid } from "../components/ArticleGrid/client";
+import { CardGrid } from "../components/CardGrid/CardGrid";
 import { Article, MaterialType, SearchClientProps } from "@/types";
 import { extractSafeValue, safeIncludes } from "../utils/client-safe";
 
@@ -129,37 +129,8 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   const [articles] = useState<Article[]>(initialArticles);
   
-  // Debug logging when property search is active
+  // Property search logic
   const isPropertySearch = propertyName && propertyValue;
-  
-  if (isPropertySearch) {
-    console.log('Property search debug:', {
-      propertyName,
-      propertyValue,
-      articlesCount: articles.length,
-      sampleArticle: articles[0] ? {
-        title: articles[0].title,
-        metadataKeys: articles[0].metadata ? Object.keys(articles[0].metadata) : 'No metadata',
-        hasMaterialProperties: !!(articles[0].metadata && articles[0].metadata.materialProperties),
-        hasMachineSettings: !!(articles[0].metadata && articles[0].metadata.machineSettings)
-      } : 'No articles'
-    });
-    
-    // Test property extraction on first few articles
-    if (articles.length > 0) {
-      const testProps = parsePropertiesFromMetadata(articles[0].metadata);
-      console.log('Sample extracted properties from first article:', testProps.slice(0, 10));
-      
-      // Check specifically for absorptionCoefficient if that's what we're searching for
-      if (propertyName === 'absorptionCoefficient') {
-        const absorptionProps = testProps.filter(p => 
-          p.property.toLowerCase().includes('absorption') || 
-          p.property.includes('absorptionCoefficient')
-        );
-        console.log('Absorption-related properties found:', absorptionProps);
-      }
-    }
-  }
   
   // Filter articles based on search query and property filters
   const filteredArticles = articles.filter(article => {
@@ -169,19 +140,6 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
       const contentProperties = article.content ? parsePropertiesFromContent(article.content) : [];
       const metadataProperties = parsePropertiesFromMetadata(article.metadata);
       const allProperties = [...contentProperties, ...metadataProperties];
-      
-      // Debug logging for first few articles and specific problem cases
-      if (articles.indexOf(article) < 3 || article.title?.toLowerCase().includes('gold')) {
-        console.log(`Article ${article.title}:`, {
-          contentPropsCount: contentProperties.length,
-          metadataPropsCount: metadataProperties.length,
-          totalPropsCount: allProperties.length,
-          sampleProps: allProperties.slice(0, 5),
-          hasMetadata: !!article.metadata,
-          metadataKeys: article.metadata ? Object.keys(article.metadata) : [],
-          allPropertyNames: allProperties.map(p => p.property)
-        });
-      }
       
       // Check for matching property with exact property name matching
       const hasMatchingProperty = allProperties.some(prop => {
@@ -228,24 +186,6 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         // More restrictive value matching - prioritize exact matches
         const valueMatch = exactMatch || numericMatch; // Removed containsValueMatch for precision
         const isMatch = propNameMatch && valueMatch;
-        
-        // Debug matches for first few articles and specifically for tensileStrength searches
-        if ((articles.indexOf(article) < 2 || article.title?.toLowerCase().includes('gold')) && (propNameMatch || valueMatch)) {
-          console.log('Match attempt:', {
-            article: article.title,
-            property: prop.property,
-            value: prop.value,
-            searchProperty: propertyName,
-            searchValue: propertyValue,
-            exactPropertyMatch,
-            flexibleNameMatch,
-            propNameMatch,
-            valueMatch,
-            exactMatch,
-            numericMatch,
-            isMatch
-          });
-        }
         
         return isMatch;
       });
@@ -318,7 +258,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
           <p className="text-gray-700">No articles found matching your criteria.</p>
         </div>
       ) : (
-        <ArticleGrid
+        <CardGrid
           items={filteredArticles.map((article) => ({
             slug: article.slug || 'unknown',
             title: article.title || 'Untitled Article',

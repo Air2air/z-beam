@@ -4,14 +4,20 @@
  */
 
 import {
+  Article,
+  ArticleMetadata,
+  BadgeData,
+  ContactFormData,
+  QualityMetrics,
+  ComponentData,
+  LayoutProps,
   CaptionDataStructure,
   CaptionProps,
   FrontmatterType,
-  QualityMetrics,
-  MetricsGridProps,
   ParsedCaptionData,
+  MetricsGridProps,
   AuthorInfo,
-  ListProps,
+  MaterialType,
   TableProps
 } from '../../types/centralized';
 
@@ -159,21 +165,6 @@ describe('Centralized Types - MetricsGrid System', () => {
 });
 
 describe('Centralized Types - Component Props', () => {
-  test('ListProps should support list configuration', () => {
-    const listProps: ListProps = {
-      slugs: ['material-1', 'material-2'],
-      title: 'Materials List',
-      columns: 3,
-      filterBy: 'category',
-      className: 'materials-list',
-      showHeadings: true
-    };
-
-    expect(listProps.slugs).toHaveLength(2);
-    expect(listProps.columns).toBe(3);
-    expect(listProps.showHeadings).toBe(true);
-  });
-
   test('TableProps should support table configuration', () => {
     const tableProps: TableProps = {
       content: 'Table content',
@@ -259,7 +250,7 @@ describe('Centralized Types - Export Validation', () => {
         contamination_removal: '95%',
         surface_roughness_before: '10μm'
       },
-      author_object: {
+      author: {
         name: 'Expert Author',
         title: 'Research Lead',
         verification_level: 'expert'
@@ -270,7 +261,7 @@ describe('Centralized Types - Export Validation', () => {
       content: complexCaption,
       frontmatter: {
         title: 'Complex Test',
-        author: complexCaption.author_object
+        author: 'Test Author'
       }
     };
 

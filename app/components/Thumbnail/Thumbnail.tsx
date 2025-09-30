@@ -2,7 +2,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Article, ArticleMetadata } from "@/types";
 
 type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";

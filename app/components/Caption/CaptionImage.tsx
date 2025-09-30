@@ -128,7 +128,7 @@ export function CaptionImage({ imageSource, frontmatter, materialName, seoData }
           <meta itemProp="name" content={imageTitle} />
           <meta itemProp="caption" content={`${materialName} surface before and after laser cleaning analysis`} />
           <meta itemProp="keywords" content={`${materialName}, laser cleaning, surface analysis, topography, microscopic, materials science`} />
-          {seoData?.author && <meta itemProp="author" content={seoData.author} />}
+          {seoData?.author && <meta itemProp="author" content={typeof seoData.author === 'string' ? seoData.author : (seoData.author as any)?.name || 'Unknown Author'} />}
         </>
       ) : imageSource && !isInView ? (
         // Placeholder while not in view for performance

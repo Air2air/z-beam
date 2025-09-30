@@ -1,12 +1,14 @@
 // tests/utils/searchUtils.test.js
 const {
-  getMaterialColor,
   normalizeString,
   normalizeTag,
   getDisplayName,
   getBadgeFromItem,
   getChemicalProperties
 } = require('../../app/utils/searchUtils');
+
+// Import getMaterialColor from its canonical location
+const { getMaterialColor } = require('../../app/utils/badgeSystem');
 
 describe('Search Utils', () => {
   describe('getMaterialColor', () => {
@@ -19,7 +21,7 @@ describe('Search Utils', () => {
       expect(getMaterialColor('composite')).toBe('orange');
       expect(getMaterialColor('semiconductor')).toBe('red');
       expect(getMaterialColor('compound')).toBe('gray');
-      expect(getMaterialColor('other')).toBe('gray');
+      expect(getMaterialColor('other')).toBe('blue'); // Updated: canonical version returns 'blue' for 'other'
     });
 
     test('should handle case insensitive input', () => {

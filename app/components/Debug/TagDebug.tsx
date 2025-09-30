@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { logger } from '../../utils/logger';
 
 interface TagDebugData {
   totalArticles: number;
@@ -35,7 +34,7 @@ export function TagDebug() {
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : 'Unknown error';
         setError(errorMessage);
-        logger.error('TagDebug component error', err);
+        console.error('TagDebug component error', err);
       } finally {
         setLoading(false);
       }
@@ -111,7 +110,11 @@ export function TagDebug() {
                 <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                   <td className="px-3 py-2 text-sm text-gray-900">{item.title}</td>
                   <td className="px-3 py-2 text-sm text-gray-500">{item.slug}</td>
-                  <td className="px-3 py-2 text-sm text-gray-500">{item.author}</td>
+                  <td className="px-3 py-2 text-sm text-gray-500">
+                    {typeof item.author === 'object' 
+                      ? ((item.author as any)?.name || JSON.stringify(item.author))
+                      : item.author}
+                  </td>
                   <td className="px-3 py-2 text-sm text-gray-500">
                     <div className="flex flex-wrap gap-1">
                       {item.tags && item.tags.length > 0 ? 

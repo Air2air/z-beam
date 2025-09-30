@@ -12,14 +12,16 @@ jest.mock('../../app/utils/contentAPI', () => ({
 }));
 
 // Mock metadata utilities
+const mockCreateMetadata = jest.fn((data) => ({
+  title: data.title || 'Z-Beam',
+  description: data.description || 'Laser cleaning solutions',
+  keywords: data.keywords,
+  image: data.image,
+  slug: data.slug,
+}));
+
 jest.mock('../../app/utils/metadata', () => ({
-  createMetadata: jest.fn((data) => ({
-    title: data.title || 'Z-Beam',
-    description: data.description || 'Laser cleaning solutions',
-    keywords: data.keywords,
-    image: data.image,
-    slug: data.slug,
-  })),
+  createMetadata: mockCreateMetadata,
 }));
 
 // Mock components to prevent rendering issues in Node environment
@@ -31,31 +33,28 @@ jest.mock('../../app/components/Layout/Layout', () => ({
   Layout: ({ children }: any) => children,
 }));
 
-jest.mock('../../app/components/ArticleGrid/UnifiedArticleGridSSR', () => ({
-  UnifiedArticleGridSSR: () => null,
+jest.mock('../../app/components/CardGrid/CardGridSSR', () => ({
+  CardGridSSR: () => null,
 }));
 
-jest.mock('../../app/components/SectionCard/SectionCards', () => ({
-  sectionCards: [
+jest.mock('../../app/data/featuredSections', () => ({
+  featuredSections: [
     {
       slug: 'aluminum-cleaning',
       title: 'Aluminum Cleaning',
       description: 'Professional aluminum surface treatment',
       imageUrl: '/images/aluminum.jpg',
-      featured: true,
     },
     {
       slug: 'rust-removal',
       title: 'Rust Removal',
       description: 'Advanced rust removal techniques',
       imageUrl: '/images/rust.jpg',
-      featured: true,
     },
   ],
 }));
 
 const mockContentAPI = require('../../app/utils/contentAPI');
-const mockMetadata = require('../../app/utils/metadata');
 
 describe('HomePage App Router Tests', () => {
   beforeEach(() => {
@@ -173,7 +172,7 @@ describe('generateMetadata Function', () => {
     const { generateMetadata } = require('../../app/page');
     await generateMetadata();
 
-    expect(mockMetadata.createMetadata).toHaveBeenCalledWith({
+    expect(mockCreateMetadata).toHaveBeenCalledWith({
       title: 'Custom Home Title',
       description: 'Custom description',
       keywords: ['custom', 'keywords'],
@@ -189,7 +188,7 @@ describe('generateMetadata Function', () => {
     const { generateMetadata } = require('../../app/page');
     await generateMetadata();
 
-    expect(mockMetadata.createMetadata).toHaveBeenCalledWith({
+    expect(mockCreateMetadata).toHaveBeenCalledWith({
       title: 'Z-Beam Laser Cleaning Solutions',
       description: 'Advanced laser cleaning technology for industrial applications',
       keywords: undefined,
@@ -208,7 +207,7 @@ describe('generateMetadata Function', () => {
     const { generateMetadata } = require('../../app/page');
     await generateMetadata();
 
-    expect(mockMetadata.createMetadata).toHaveBeenCalledWith(
+    expect(mockCreateMetadata).toHaveBeenCalledWith(
       expect.objectContaining({
         keywords: ['single-keyword'],
       })
@@ -225,7 +224,7 @@ describe('generateMetadata Function', () => {
     const { generateMetadata } = require('../../app/page');
     await generateMetadata();
 
-    expect(mockMetadata.createMetadata).toHaveBeenCalledWith(
+    expect(mockCreateMetadata).toHaveBeenCalledWith(
       expect.objectContaining({
         keywords: ['keyword1', 'keyword2', 'keyword3'],
       })

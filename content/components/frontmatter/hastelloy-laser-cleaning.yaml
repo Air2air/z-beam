@@ -5,79 +5,71 @@ title: Hastelloy Laser Cleaning
 description: Laser cleaning parameters for Aluminum
 materialProperties:
   density:
-    value: 8.89
-    unit: g/cm³
+    value: 11.57
+    unit: "g/cm\xB3"
     confidence: 95
     description: Typical density for Hastelloy C-276 at room temperature
     min: 0.53
     max: 22.6
-  meltingPoint:
-    value: 1370
-    unit: °C
-    confidence: 90
-    description: Solidus temperature for Hastelloy C-276
-    min: null
-    max: null
   thermalConductivity:
-    value: 11.1
-    unit: W/m·K
+    value: 217.5
+    unit: "W/m\xB7K"
     confidence: 92
     description: Thermal conductivity at room temperature for Hastelloy C-276
     min: 6.0
     max: 429.0
   tensileStrength:
-    value: 790
+    value: 1501.5
     unit: MPa
     confidence: 94
     description: Room temperature ultimate tensile strength for annealed condition
-    min: 30.0
-    max: 3000.0
+    min: 0
+    max: 1363.6
   youngsModulus:
-    value: 205
+    value: 208.0
     unit: GPa
     confidence: 93
     description: Elastic modulus at room temperature
-    min: 70
-    max: 411
+    min: 0
+    max: 579.82
   thermalExpansion:
-    value: 11.2
-    unit: μm/m·°C
+    value: 14.8
+    unit: "\u03BCm/m\xB7\xB0C"
     confidence: 88
-    description: Coefficient of thermal expansion at 20-100°C for Hastelloy C-276
-    min: 0.5
-    max: 29.1
+    description: "Coefficient of thermal expansion at 20-100\xB0C for Hastelloy C-276"
+    min: 1.7
+    max: 34.9
   specificHeat:
-    value: 427
-    unit: J/kg·K
+    value: 500.0
+    unit: "J/kg\xB7K"
     confidence: 85
     description: Specific heat capacity at room temperature
-    min: 0.128
-    max: 0.904
+    min: 0
+    max: 1994.6
   absorptionCoefficient:
     value: 0.65
-    unit: dimensionless
+    unit: ""
     confidence: 80
     description: Estimated absorption coefficient for near-infrared lasers (1064 nm)
     min: null
     max: null
   reflectivity:
     value: 0.35
-    unit: dimensionless
+    unit: ""
     confidence: 82
-    description: Estimated reflectivity at common laser wavelengths (1-10 μm)
+    description: "Estimated reflectivity at common laser wavelengths (1-10 \u03BCm)"
     min: null
     max: null
   ablationThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 85
-    description: Estimated laser ablation threshold for nanosecond pulses at 1064
-      nm
+    description: Estimated laser ablation threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   oxidationResistance:
     value: 1200
-    unit: °C
+    unit: "\xB0C"
     confidence: 88
     description: Maximum continuous service temperature in oxidizing environments
     min: null
@@ -91,11 +83,50 @@ materialProperties:
     max: null
   electricalResistivity:
     value: 130
-    unit: μΩ·cm
+    unit: "\u03BC\u03A9\xB7cm"
     confidence: 90
     description: Electrical resistivity at room temperature
     min: null
     max: null
+  hardness:
+    confidence: 0.7
+    max: 3500.0
+    min: 0.5
+    source: default_from_category_range
+    unit: HV
+    value: 1750.25
+  laserAbsorption:
+    confidence: 0.7
+    max: 100.0
+    min: 0.02
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 50.01
+  laserReflectivity:
+    confidence: 0.7
+    max: 98.0
+    min: 5.0
+    source: default_from_category_range
+    unit: '%'
+    value: 51.5
+  thermalDiffusivity:
+    confidence: 0.7
+    max: 174.0
+    min: 0.2
+    source: default_from_category_range
+    unit: "mm\xB2/s"
+    value: 87.1
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 3422.0
+    min: -38.8
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 1691.6
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: melting
 applications:
 - 'Medical: Sterilization and cleaning of medical devices and instruments'
 - 'Nuclear: Decontamination and surface cleaning in nuclear facilities'
@@ -105,8 +136,7 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Hastelloy surface cleaning without substrate
-      damage
+    description: Optimal average power for Hastelloy surface cleaning without substrate damage
     min: 80
     max: 120
   wavelength:
@@ -114,11 +144,11 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-infrared wavelength optimized for Hastelloy absorption characteristics
-    min: 1030
-    max: 1070
+    min: 355
+    max: 10640
   spotSize:
     value: 50
-    unit: μm
+    unit: "\u03BCm"
     confidence: 87
     description: Beam spot diameter for precise cleaning with adequate energy density
     min: 30
@@ -127,16 +157,14 @@ machineSettings:
     value: 100
     unit: kHz
     confidence: 90
-    description: High repetition rate for efficient cleaning coverage while maintaining
-      thermal control
+    description: High repetition rate for efficient cleaning coverage while maintaining thermal control
     min: 50
     max: 200
   pulseWidth:
     value: 10
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for effective contaminant removal with
-      minimal HAZ
+    description: Nanosecond pulse duration for effective contaminant removal with minimal HAZ
     min: 5
     max: 20
   scanSpeed:
@@ -148,7 +176,7 @@ machineSettings:
     max: 2000
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Minimum fluence required for effective contaminant ablation on Hastelloy
     min: 1.5
@@ -157,8 +185,7 @@ machineSettings:
     value: 70
     unit: '%'
     confidence: 86
-    description: Optimal pulse overlap for uniform cleaning without excessive heat
-      accumulation
+    description: Optimal pulse overlap for uniform cleaning without excessive heat accumulation
     min: 50
     max: 85
   passCount:
@@ -180,22 +207,12 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 4
-  name: Todd Dunning
-  sex: m
-  title: MA
-  country: United States (California)
-  expertise: Optical Materials for Laser Systems
-  image: /images/author/todd-dunning.jpg
 images:
   hero:
-    alt: Hastelloy surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Hastelloy surface undergoing laser cleaning showing precise contamination removal
     url: /images/hastelloy-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Hastelloy surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Hastelloy surface after laser cleaning showing detailed surface structure
     url: /images/hastelloy-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -222,7 +239,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 4
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -254,8 +271,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -293,9 +309,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -308,3 +324,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 4
+  name: Todd Dunning
+  sex: m
+  title: MA
+  country: United States (California)
+  expertise: Optical Materials for Laser Systems
+  image: /images/author/todd-dunning.jpg

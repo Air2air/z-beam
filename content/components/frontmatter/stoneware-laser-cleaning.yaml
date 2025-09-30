@@ -5,47 +5,40 @@ title: Stoneware Laser Cleaning
 description: Laser cleaning parameters for Alumina
 materialProperties:
   density:
-    value: 2.3
-    unit: g/cm³
+    value: 10.75
+    unit: "g/cm\xB3"
     confidence: 95
     description: Typical density for fired stoneware ceramics
     min: 2.2
     max: 19.3
-  meltingPoint:
-    value: 1250
-    unit: °C
-    confidence: 90
-    description: Approximate melting/vitrification temperature
-    min: null
-    max: null
   thermalConductivity:
-    value: 1.5
-    unit: W/m·K
+    value: 1000.01
+    unit: "W/m\xB7K"
     confidence: 88
     description: Low thermal conductivity typical of ceramic materials
     min: 0.03
     max: 2000.0
   hardness:
-    value: 6.5
+    value: 5.5
     unit: Mohs
     confidence: 92
     description: Mohs hardness scale for fired stoneware
-    min: 3.0
-    max: 10.0
+    min: 0.2
+    max: 9.8
   thermalExpansion:
-    value: 5.5
-    unit: ×10⁻⁶/°C
+    value: 7.05
+    unit: "\xD710\u207B\u2076/\xB0C"
     confidence: 85
     description: Coefficient of thermal expansion at room temperature
     min: 0.1
     max: 14
   thermalDiffusivity:
-    value: 0.8
-    unit: mm²/s
+    value: 60.02
+    unit: "mm\xB2/s"
     confidence: 82
     description: Thermal diffusivity affecting heat propagation
-    min: 0.3
-    max: 120
+    min: 0
+    max: 9.012
   flexuralStrength:
     value: 45
     unit: MPa
@@ -55,21 +48,21 @@ materialProperties:
     max: null
   absorptionCoefficient:
     value: 0.85
-    unit: dimensionless
+    unit: ""
     confidence: 88
     description: Typical absorption coefficient for IR lasers (1064 nm)
     min: null
     max: null
   reflectivity:
     value: 0.12
-    unit: dimensionless
+    unit: ""
     confidence: 84
     description: Reflectivity at common laser wavelengths
     min: null
     max: null
   ablationThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 80
     description: Approximate laser ablation threshold for nanosecond pulses
     min: null
@@ -88,6 +81,52 @@ materialProperties:
     description: Resistance to common environmental chemicals and acids
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 50.0
+    min: 0.1
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 25.05
+  laserReflectivity:
+    confidence: 0.7
+    max: 90.0
+    min: 5.0
+    source: default_from_category_range
+    unit: '%'
+    value: 47.5
+  specificHeat:
+    confidence: 0.7
+    max: 1200.0
+    min: 200.0
+    source: default_from_category_range
+    unit: "J/kg\xB7K"
+    value: 700.0
+  tensileStrength:
+    confidence: 0.7
+    max: 1000.0
+    min: 50.0
+    source: default_from_category_range
+    unit: MPa
+    value: 525.0
+  youngsModulus:
+    confidence: 0.7
+    max: 800.0
+    min: 50.0
+    source: default_from_category_range
+    unit: GPa
+    value: 425.0
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 3827.0
+    min: 1000.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 2413.5
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: thermal_shock
 applications:
 - 'Jewelry: Precision cleaning and polishing of precious metal jewelry'
 machineSettings:
@@ -95,8 +134,7 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power range for Stoneware surface cleaning without
-      thermal damage
+    description: Optimal average power range for Stoneware surface cleaning without thermal damage
     min: 80
     max: 120
   wavelength:
@@ -104,11 +142,11 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-infrared wavelength optimal for Stoneware mineral absorption
-    min: null
-    max: null
+    min: 532
+    max: 10640
   spotSize:
     value: 100
-    unit: μm
+    unit: "\u03BCm"
     confidence: 90
     description: Beam spot diameter for precise cleaning control on Stoneware surfaces
     min: 50
@@ -136,10 +174,9 @@ machineSettings:
     max: 1000
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
-    description: Threshold fluence for effective contaminant removal without substrate
-      damage
+    description: Threshold fluence for effective contaminant removal without substrate damage
     min: 1.5
     max: 4.0
   overlapRatio:
@@ -158,7 +195,7 @@ machineSettings:
     max: 5
   energyDensity:
     value: 3.2
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 88
     description: Optimal energy density for Stoneware surface processing
     min: 2.0
@@ -171,22 +208,12 @@ regulatoryStandards:
 - EPA Clean Air Act Compliance
 - ASTM C848 - Standard Specification for High Alumina Refractory Brick
 - ISO 23146 - Technical Ceramics
-author_object:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Stoneware surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Stoneware surface undergoing laser cleaning showing precise contamination removal
     url: /images/stoneware-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Stoneware surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Stoneware surface after laser cleaning showing detailed surface structure
     url: /images/stoneware-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -213,7 +240,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 2
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -245,8 +272,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -284,9 +310,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -299,3 +325,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg

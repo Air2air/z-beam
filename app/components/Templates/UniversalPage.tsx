@@ -3,7 +3,6 @@
 
 import { UniversalLayout } from '../Layout/Layout';
 import { loadPageData } from '../../utils/contentAPI';
-import { logger } from '../../utils/logger';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
 import fs from 'fs/promises';
 import path from 'path';
@@ -66,7 +65,7 @@ async function UniversalPageComponent({
       />
     );
   } catch (error) {
-    logger.error(`Error loading ${slug} page`, error);
+    console.error(`Error loading ${slug} page`, error);
     
     return (
       <div className={CONTAINER_STYLES.standard}>

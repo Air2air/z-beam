@@ -6,7 +6,6 @@
 // CORE SYSTEMS (Essential infrastructure)
 // =============================================================================
 export * from './errorSystem';
-export * from './logger';
 export * from './performanceCache';
 export * from './startupValidation';
 export * from './apiWrapper';

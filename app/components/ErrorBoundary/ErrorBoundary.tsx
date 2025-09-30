@@ -2,7 +2,6 @@
 'use client';
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { logger } from '../../utils/logger';
 
 interface Props {
   children: ReactNode;
@@ -29,7 +28,7 @@ export class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     const { componentName, onError } = this.props;
     
-    logger.error(
+    console.error(
       `Error boundary caught error in ${componentName || 'unknown component'}`,
       error,
       { 
@@ -77,6 +76,6 @@ export class ErrorBoundary extends Component<Props, State> {
 // Hook-based error boundary for functional components
 export function useErrorHandler() {
   return (error: Error, errorInfo?: { componentStack?: string }) => {
-    logger.error('Component error caught by error handler', error, errorInfo);
+    console.error('Component error caught by error handler', error, errorInfo);
   };
 }

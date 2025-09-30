@@ -3,11 +3,15 @@
 
 import './styles.css';
 import { ReactNode, useState, useEffect, useRef } from 'react';
-import { HeroProps, ArticleMetadata } from '@/types';
+import { HeroProps, ArticleMetadata, VideoData } from '@/types';
 import Image from 'next/image';
 
 export function Hero({ 
   frontmatter,
+  video,
+  image,
+  ariaLabel,
+  alt,
   children,
   theme = 'dark',
   variant = 'default',
@@ -41,15 +45,19 @@ export function Hero({
     return () => observer.disconnect();
   }, []);
   
-  // Determine video source from frontmatter only
-  let videoSource = frontmatter?.video ? (
+  // Determine video source from direct prop or frontmatter
+  let videoSource = video ? (
+    typeof video === 'string' 
+      ? { vimeoId: video } 
+      : video as any
+  ) : frontmatter?.video ? (
     typeof frontmatter.video === 'string' 
       ? { vimeoId: frontmatter.video } 
       : frontmatter.video as any
   ) : null;
   
-  // Determine image source from frontmatter only
-  let imageSource = frontmatter?.images?.hero?.url || frontmatter?.image;
+  // Determine image source from direct prop or frontmatter
+  let imageSource = image || frontmatter?.images?.hero?.url || frontmatter?.image;
 
   // URL encode the image source for CSS background-image usage
   // This is crucial for handling special characters like parentheses in filenames
@@ -127,16 +135,19 @@ export function Hero({
     }
   }, [vimeoUrl, videoError]);
   
-  // Generate accessible alt text from frontmatter only
+  // Generate accessible alt text from direct prop, frontmatter, or fallback
   const getAccessibleAlt = (): string => {
-    // Use frontmatter images structure or generate from title
-    return frontmatter?.images?.hero?.alt || 
+    // Use direct alt prop first, then frontmatter, then generate from title
+    return alt || 
+           frontmatter?.images?.hero?.alt || 
            (frontmatter?.title ? `Hero image for ${frontmatter.title}` : 'Hero background image');
   };
 
-  // Generate accessible aria-label from frontmatter only
+  // Generate accessible aria-label from direct prop, frontmatter, or fallback
   const getSectionAriaLabel = (): string => {
-    return frontmatter?.title ? `Hero section for ${frontmatter.title}` : "Hero section";
+    // Use direct ariaLabel prop first, then generate from frontmatter title
+    return ariaLabel || 
+           (frontmatter?.title ? `Hero section for ${frontmatter.title}` : "Hero section");
   };  // Generate accessible video title from frontmatter
   const getVideoAriaLabel = (): string => {
     return frontmatter?.title ? `Video content for ${frontmatter.title}` : "Video content";

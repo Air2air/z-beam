@@ -4,7 +4,6 @@
 
 import { getArticlesWithTags, getAllTags, getTagCounts } from './tags';
 import { loadAllArticles } from './contentAPI';
-import { logger } from './logger';
 
 interface TagDebugData {
   totalArticles: number;
@@ -64,7 +63,7 @@ export async function debugTagSystem(): Promise<TagDebugData> {
       sampleAuthors
     };
   } catch (error) {
-    logger.error('Error in debugTagSystem', error);
+    console.error('Error in debugTagSystem', error);
     
     // Return fallback data
     return {
@@ -129,7 +128,7 @@ export async function debugTagCounts(): Promise<{
       unusedTags
     };
   } catch (error) {
-    logger.error('Error in debugTagCounts', error);
+    console.error('Error in debugTagCounts', error);
     return {
       totalTags: 0,
       topTags: [],
@@ -173,7 +172,7 @@ export async function debugTag(tagName: string): Promise<{
       matchingArticles
     };
   } catch (error) {
-    logger.error(`Error in debugTag for ${tagName}`, error);
+    console.error(`Error in debugTag for ${tagName}`, error);
     return {
       tag: tagName,
       matchCount: 0,

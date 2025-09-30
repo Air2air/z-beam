@@ -8,7 +8,6 @@ import path from 'path';
 import { cache } from 'react';
 import { Article } from '@/types';
 import { loadAllArticles } from './contentAPI';
-import { logger } from './logger';
 import { stripParenthesesFromSlug } from './formatting';
 import { extractSafeValue } from './stringHelpers';
 

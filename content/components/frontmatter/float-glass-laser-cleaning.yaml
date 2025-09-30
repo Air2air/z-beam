@@ -5,61 +5,54 @@ title: Float Glass Laser Cleaning
 description: Laser cleaning parameters for Borosilicate Glass
 materialProperties:
   density:
-    value: 2.5
-    unit: g/cm³
+    value: 4.4
+    unit: "g/cm\xB3"
     confidence: 98
     description: Typical density of soda-lime-silica float glass
     min: 1.2
     max: 7.6
-  meltingPoint:
-    value: 1000
-    unit: °C
-    confidence: 95
-    description: Approximate melting point for soda-lime glass composition
-    min: null
-    max: null
   thermalConductivity:
-    value: 1.0
-    unit: W/m·K
+    value: 20.01
+    unit: "W/m\xB7K"
     confidence: 92
     description: Low thermal conductivity characteristic of glass materials
-    min: 0.02
-    max: 4.2
+    min: 0
+    max: 38.422
   hardness:
-    value: 6.0
+    value: 6.75
     unit: Mohs
     confidence: 85
     description: Mohs hardness scale value
     min: 4.5
     max: 9
   youngsModulus:
-    value: 70
+    value: 205.0
     unit: GPa
     confidence: 95
     description: Elastic modulus of float glass
-    min: 10
-    max: 95
+    min: 31.5
+    max: 373.5
   thermalExpansion:
-    value: 8.5
-    unit: 10⁻⁶/°C
+    value: 7.55
+    unit: "10\u207B\u2076/\xB0C"
     confidence: 90
     description: Coefficient of thermal expansion for standard float glass
     min: 0.1
     max: 15
   thermalDiffusivity:
-    value: 0.5
-    unit: mm²/s
+    value: 7.5
+    unit: "mm\xB2/s"
     confidence: 88
     description: Thermal diffusivity at room temperature
-    min: 0.01
-    max: 1.8
+    min: 0
+    max: 13.7
   specificHeat:
-    value: 840
-    unit: J/kg·K
+    value: 700.0
+    unit: "J/kg\xB7K"
     confidence: 90
     description: Specific heat capacity of soda-lime glass
-    min: 0.5
-    max: 1
+    min: 653.0
+    max: 857.0
   flexuralStrength:
     value: 50
     unit: MPa
@@ -69,7 +62,7 @@ materialProperties:
     max: null
   refractiveIndex:
     value: 1.52
-    unit: dimensionless
+    unit: ""
     confidence: 98
     description: Refractive index at 589 nm wavelength
     min: null
@@ -83,21 +76,21 @@ materialProperties:
     max: null
   absorptionCoefficient:
     value: 0.1
-    unit: cm⁻¹
+    unit: "cm\u207B\xB9"
     confidence: 85
     description: Approximate absorption coefficient in visible spectrum
     min: null
     max: null
   ablationThreshold:
     value: 5.0
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 80
     description: Estimated laser ablation threshold for nanosecond pulses
     min: null
     max: null
   laserDamageThreshold:
     value: 10.0
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 82
     description: Typical damage threshold for pulsed laser systems
     min: null
@@ -116,6 +109,38 @@ materialProperties:
     description: Typical surface roughness of pristine float glass
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 10.0
+    min: 0.001
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 5.0
+  laserReflectivity:
+    confidence: 0.7
+    max: 92.0
+    min: 4.0
+    source: default_from_category_range
+    unit: '%'
+    value: 48.0
+  tensileStrength:
+    confidence: 0.7
+    max: 2000.0
+    min: 30.0
+    source: default_from_category_range
+    unit: MPa
+    value: 1015.0
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 1723.0
+    min: 500.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 1111.5
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: melting
 applications:
 - 'Semiconductor: Ultra-precise cleaning for semiconductor manufacturing'
 - 'Manufacturing: Industrial surface preparation and contamination removal'
@@ -134,10 +159,10 @@ machineSettings:
     confidence: 88
     description: Optimal wavelength for Float Glass processing with good absorption
     min: 532
-    max: 1064
+    max: 10640
   spotSize:
     value: 50
-    unit: μm
+    unit: "\u03BCm"
     confidence: 90
     description: Optimal spot size for precise cleaning resolution
     min: 30
@@ -165,7 +190,7 @@ machineSettings:
     max: 1000
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Threshold fluence for effective contaminant removal without glass
       damage
@@ -197,14 +222,6 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
-  title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
     alt: Float Glass surface undergoing laser cleaning showing precise contamination
@@ -239,7 +256,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 1
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -310,9 +327,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -325,3 +342,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg

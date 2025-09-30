@@ -4,7 +4,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { logger } from '../utils/logger';
 import { DebugLayout } from '../components/Layout/DebugLayout';
 import { TagDebug } from '../components/Debug/TagDebug';
 import { FrontmatterDebug } from '../components/Debug/FrontmatterDebug';
@@ -64,7 +63,7 @@ export default function DebugPage() {
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Unknown error';
       setError(errorMessage);
-      logger.error('Debug data loading error', err);
+      console.error('Debug data loading error', err);
     } finally {
       setLoading(false);
     }

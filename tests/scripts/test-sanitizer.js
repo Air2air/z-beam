@@ -5,11 +5,6 @@ const fs = require('fs');
 const sanitizerPath = './app/utils/yamlSanitizer.ts';
 const sanitizerCode = fs.readFileSync(sanitizerPath, 'utf8');
 
-// Mock the logger for testing
-const mockLogger = {
-  log: (message, level) => console.log(`[${level}] ${message}`)
-};
-
 // Execute sanitizer code with mocked dependencies
 const sanitizeYamlContent = function(content) {
   const yaml = require('js-yaml');

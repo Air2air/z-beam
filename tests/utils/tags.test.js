@@ -16,7 +16,7 @@ import path from 'path';
 jest.mock('fs/promises');
 jest.mock('fs');
 jest.mock('../../app/utils/contentAPI');
-jest.mock('../../app/utils/logger');
+
 
 const mockFs = fs;
 const mockExistsSync = existsSync;

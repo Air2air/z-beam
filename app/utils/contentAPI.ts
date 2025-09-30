@@ -3,26 +3,31 @@
 // Replaces: contentUtils.ts, frontmatterLoader.ts, and API route duplicates
 // Enhanced with GROK-compliant error handling and fail-fast validation
 
+import 'server-only';
+
 import { cache } from 'react';
 import fs from 'fs/promises';
 import { existsSync, readFileSync } from 'fs';
 import path from 'path';
 import { marked } from 'marked';
 import matter from 'gray-matter';
-import { logger, safeContentOperation } from './logger';
+
 import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './formatting';
 import { extractSafeValue } from './stringHelpers';
 import { validateSlug, validateFilePath, ValidationError, GenerationError, safeOperation } from './errorSystem';
 // Import centralized types instead of defining our own
-import { Article, ArticleMetadata, ContentItem, ComponentData, PageData } from '@/types';
+import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType, LoadedFrontmatter } from '@/types';
 
-// Additional interfaces for internal use only (not exported)
-interface LoadedFrontmatter {
-  data: Record<string, any>;
-  content: string;
-  excerpt?: string;
-}
+// Simple replacement for safeContentOperation
+const safeContentOperation = async (op: () => Promise<any>, fallback: any, name: string, slug?: string) => {
+  try {
+    return await op();
+  } catch (e) {
+    console.error(`${name} failed`, e);
+    return fallback;
+  }
+};
 
 // Content directories configuration
 const CONTENT_DIRS = {
@@ -31,7 +36,6 @@ const CONTENT_DIRS = {
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
-    settings: path.join(process.cwd(), 'content', 'components', 'settings'),
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
@@ -223,7 +227,7 @@ const loadSingleArticle = cache(async (slug: string): Promise<Article | null> =>
           break;
         }
       } catch (error) {
-        logger.error(`Error loading article for ${slug} in ${dir}`, error, { slug, dir });
+        console.error(`Error loading article for ${slug} in ${dir}`, error, { slug, dir });
       }
     }
     
@@ -317,7 +321,7 @@ export const loadComponent = cache(async (
   return safeContentOperation(async () => {
     const dir = CONTENT_DIRS.components[type as keyof typeof CONTENT_DIRS.components];
     if (!dir) {
-      logger.warn(`Unknown component type: ${type}`);
+      console.warn(`Unknown component type: ${type}`);
       return null;
     }
     
@@ -477,47 +481,6 @@ export const loadComponent = cache(async (
           return {
             content: processedContent,
             config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based tables
-          };
-        }
-      } else if (type === 'settings') {
-        // Handle YAML settings files - convert to markdown format expected by Settings component
-        const settingsData = yamlData;
-        
-        if (settingsData && settingsData.machineSettings && settingsData.machineSettings.settings) {
-          // Convert YAML structure to markdown format
-          let markdownContent = '';
-          
-          // Process the actual YAML structure: machineSettings.settings array
-          const settingsSections = settingsData.machineSettings.settings;
-          
-          settingsSections.forEach((section: any) => {
-            if (section.header) {
-              markdownContent += `${section.header}\n\n`;
-            }
-            
-            if (section.rows && Array.isArray(section.rows)) {
-              markdownContent += '| Parameter | Value | Range | Category |\n';
-              markdownContent += '| --- | --- | --- | --- |\n';
-              
-              section.rows.forEach((row: any) => {
-                const parameter = row.parameter || '-';
-                const value = row.value || '-';
-                const range = row.range || '-';
-                const category = row.category || '-';
-                markdownContent += `| ${parameter} | ${value} | ${range} | ${category} |\n`;
-              });
-              
-              markdownContent += '\n\n';
-            }
-          });
-          
-          const processedContent = options.convertMarkdown 
-            ? await marked(markdownContent)
-            : markdownContent;
-          
-          return {
-            content: processedContent,
-            config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based settings
           };
         }
       } else if (type === 'jsonld') {
@@ -814,14 +777,14 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
       ...frontmatterData,
       slug,
       // Ensure we have the author info accessible in both formats for compatibility
-      authorInfo: frontmatterData.author_object || frontmatterData.authorInfo
+      authorInfo: (typeof frontmatterData.author === 'object' ? frontmatterData.author : null) || frontmatterData.authorInfo
     };
 
     // Load all the standard article components that Layout expects
     const components: Record<string, ComponentData> = {};
     
     // Load standard components that Layout looks for
-    const componentTypes = ['text', 'caption', 'settings', 'table', 'tags', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
+    const componentTypes = ['text', 'caption', 'table', 'tags', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
     
     for (const type of componentTypes) {
       try {

@@ -1,10 +1,10 @@
 // app/components/Caption/Caption.tsx
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useCaptionParsing, CaptionData, ParsedCaptionData } from './useCaptionParsing';
-import { MetricsGrid } from './MetricsGrid';
 import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import './enhanced-seo-caption.css';
 
@@ -212,8 +212,8 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
       
       {/* Main Content */}
       <div className="mb-8">
-        <h3 className="text-lg font-semibold text-white mb-4">
-          {capitalizedMaterial} Surface Micrograph
+        <h3 className="text-xl font-bold text-white mb-4">
+          Material Properties
         </h3>
         <figure 
           className="caption-container" 
@@ -281,11 +281,27 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
                 aria-label="Quality metrics overlay"
                 tabIndex={0}
               >
-                <MetricsGrid 
-                  qualityMetrics={enhancedData.quality_metrics}
-                  maxCards={2}
-                  excludeMetrics={['substrate_integrity']}
-                />
+                {/* Quality metrics display - inline to remove Caption MetricsGrid dependency */}
+                {enhancedData.quality_metrics && Object.keys(enhancedData.quality_metrics).length > 0 && (
+                  <div className="grid grid-cols-2 gap-2 w-full min-w-0 overflow-hidden">
+                    {Object.entries(enhancedData.quality_metrics)
+                      .filter(([key]) => key !== 'substrate_integrity')
+                      .slice(0, 2)
+                      .map(([key, value]) => (
+                        <div key={key} className="flex justify-start items-start min-w-0 overflow-hidden">
+                          <div className="metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6">
+                            <dt className="text-xs font-medium text-gray-400 uppercase tracking-wider leading-tight truncate w-full">
+                              {key.replace(/_/g, ' ')}
+                            </dt>
+                            <dd className="text-lg font-bold text-gray-100 mt-1 leading-tight -tracking-wide truncate w-full">
+                              {String(value)}
+                            </dd>
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                )}
               </div>
             )}
           </div>

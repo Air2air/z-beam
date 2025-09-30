@@ -20,11 +20,7 @@ jest.mock('../../app/utils/contentAPI', () => ({
   loadPageData: jest.fn(),
 }));
 
-jest.mock('../../app/utils/logger', () => ({
-  logger: {
-    error: jest.fn(),
-  },
-}));
+
 
 jest.mock('fs/promises', () => ({
   readFile: jest.fn(),

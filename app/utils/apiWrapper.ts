@@ -1,12 +1,25 @@
 // app/utils/apiWrapper.ts
+// Simple performance logging
+const logPerformance = (operation: string, duration: number, context?: any) => {
+  if (duration > 1000) {
+    console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
+  } else {
+    console.debug(`⚡ Performance: ${operation} took ${duration}ms`, context);
+  }
+};
 // GROK-Compliant API Route Wrapper - Standardizes error handling across all API routes
 // Follows fail-fast principles with comprehensive error reporting
 
 import { NextRequest, NextResponse } from 'next/server';
-import { logger } from './logger';
 import { isZBeamError, getErrorDetails, ApiError } from './errorSystem';
+import { ApiConfig } from '@/types';
 
-interface ApiConfig {
+// Local interface for this specific API wrapper
+interface ApiWrapperConfig {
+  baseUrl?: string;
+  timeout?: number;
+  retries?: number;
+  headers?: Record<string, string>;
   requireAuth?: boolean;
   validateInput?: boolean;
   enableCaching?: boolean;
@@ -29,10 +42,10 @@ const requestTracker = new Map<string, { startTime: number; endpoint: string }>(
  * GROK-compliant API wrapper that standardizes error handling
  * No fallbacks, no silent failures - fail fast with clear messages
  */
-export function withApiWrapper<T = any>(
-  handler: (request: NextRequest, context?: any) => Promise<T>,
-  config: ApiConfig = {}
-) {
+export async function apiWrapper<T = any>(
+  handler: (req: NextRequest) => Promise<T>,
+  config: ApiWrapperConfig = {}
+): Promise<(request: NextRequest, context?: any) => Promise<NextResponse>> {
   return async (request: NextRequest, context?: any): Promise<NextResponse> => {
     const startTime = performance.now();
     const requestId = `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
@@ -69,11 +82,11 @@ export function withApiWrapper<T = any>(
       }
 
       // Execute handler
-      const result = await handler(request, context);
+      const result = await handler(request);
       const responseTime = performance.now() - startTime;
 
       // Log successful request
-      logger.performance(`API Success: ${endpoint}`, responseTime, {
+      logPerformance(`API Success: ${endpoint}`, responseTime, {
         requestId,
         method: request.method,
         statusCode: 200
@@ -111,7 +124,7 @@ export function withApiWrapper<T = any>(
       if (isZBeamError(error)) {
         const errorDetails = getErrorDetails(error);
         
-        logger.error(`API Error: ${endpoint}`, error, {
+        console.error(`API Error: ${endpoint}`, error, {
           requestId,
           method: request.method,
           responseTime,
@@ -145,7 +158,7 @@ export function withApiWrapper<T = any>(
 
       // Handle API-specific errors
       if (error instanceof ApiError) {
-        logger.error(`API Error: ${endpoint}`, error, {
+        console.error(`API Error: ${endpoint}`, error, {
           requestId,
           method: request.method,
           responseTime,
@@ -186,7 +199,7 @@ export function withApiWrapper<T = any>(
         }
       );
 
-      logger.error(`Unexpected API Error: ${endpoint}`, unexpectedError, {
+      console.error(`Unexpected API Error: ${endpoint}`, unexpectedError, {
         requestId,
         method: request.method,
         responseTime,

@@ -8,20 +8,20 @@
 
 ## 🎯 **Objective Achieved**
 
-**✅ COMPLETE**: All grids have been consolidated into ONE unified ArticleGrid component system.
+**✅ COMPLETE**: All grids have been consolidated into ONE unified CardGrid component system.
 
 ## 🚀 **What Was Consolidated**
 
 ### **Unified Components:**
-1. **`SearchResultsGrid.tsx`** → **Clean export redirect to ArticleGrid**
-2. ~~`UnifiedArticleGridClient.tsx`~~ → **Merged into ArticleGrid**  
-3. ~~`UnifiedArticleGridSSR.tsx`~~ → **Merged into ArticleGridSSR**
-4. ~~`CategoryGroupedGrid.tsx`~~ → **Mode in ArticleGrid**
-5. ~~`List.tsx` and `ListSimplified.tsx`~~ → **Aliased to ArticleGrid**
+1. **`SearchResultsGrid.tsx`** → **Clean export redirect to CardGrid**
+2. ~~`UnifiedCardGridClient.tsx`~~ → **Merged into CardGrid**  
+3. ~~`UnifiedCardGridSSR.tsx`~~ → **Merged into CardGridSSR**
+4. ~~`CategoryGroupedGrid.tsx`~~ → **Mode in CardGrid**
+5. ~~`List.tsx` and `ListSimplified.tsx`~~ → **Aliased to CardGrid**
 
 ### **Unified Components:**
-1. **`ArticleGrid.tsx`** - Main client component (all modes)
-2. **`ArticleGridSSR.tsx`** - Server-side rendering version
+1. **`CardGrid.tsx`** - Main client component (all modes)
+2. **`CardGridSSR.tsx`** - Server-side rendering version
 3. **`index.ts`** - Consolidated exports with backward compatibility
 4. **`client.ts`** - Client-only exports
 
@@ -40,9 +40,9 @@
 
 ## 🏗️ **Unified Architecture**
 
-### **Single ArticleGrid Component**
+### **Single CardGrid Component**
 ```typescript
-<ArticleGrid 
+<CardGrid 
   // Data sources (use one)
   items={[]}           // Direct items
   slugs={[]}           // Slug list
@@ -67,17 +67,17 @@
 ```typescript
 // All these still work:
 import { SearchResultsGrid } from '@/components/SearchResults/SearchResultsGrid';
-import { UnifiedArticleGrid } from '@/components/ArticleGrid';
-import { CategoryGroupedGrid } from '@/components/ArticleGrid';
-import { List, ListSimplified } from '@/components/ArticleGrid';
+import { UnifiedCardGrid } from '@/components/CardGrid';
+import { CategoryGroupedGrid } from '@/components/CardGrid';
+import { List, ListSimplified } from '@/components/CardGrid';
 
 // SearchResultsGrid is a clean redirect, others are aliased exports
-// All use the same underlying ArticleGrid component
+// All use the same underlying CardGrid component
 ```
 
 ## 🧪 **Testing Complete**
 
-**✅ Updated test file**: `tests/components/ArticleGrid.test.tsx`
+**✅ Updated test file**: `tests/components/CardGrid.test.tsx`
 - **All 17 tests passing** ✅
 - Tests SearchResultsGrid redirect from correct location
 - Tests all grid modes and variants
@@ -100,12 +100,12 @@ import { List, ListSimplified } from '@/components/ArticleGrid';
 ✓ renders badges when showBadgeSymbols is true
 ✓ hides badges when showBadgeSymbols is false
 ✓ works as SearchResultsGrid (from correct import path)
-✓ works as UnifiedArticleGrid
+✓ works as UnifiedCardGrid
 ✓ works as CategoryGroupedGrid
 ✓ handles empty items gracefully
 ✓ handles missing titles gracefully
 ✓ renders large lists efficiently
-✓ ArticleGridSSR export exists
+✓ CardGridSSR export exists
 ```
 
 **✅ Coverage**: Complete test coverage for unified grid system

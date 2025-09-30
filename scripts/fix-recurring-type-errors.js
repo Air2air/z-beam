@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * RECURRING TYPE ERROR FIXER
- * ===========================
+ * RECURRING TYPE ER];
+
+// Apply fixes to remaining files===========================
  * 
  * This script fixes specific TypeScript errors that recur after auto-fixes.
  * It ensures compatibility between utility functions and the type system.

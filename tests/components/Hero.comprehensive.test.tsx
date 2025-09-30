@@ -98,7 +98,7 @@ describe('Hero Component', () => {
 
   describe('Video Integration', () => {
     it('should render Vimeo video with correct URL', () => {
-      render(<Hero video={{ vimeoId: '123456', autoplay: true, muted: true, loop: true }} />);
+      render(<Hero frontmatter={{ video: { vimeoId: '123456', autoplay: true, muted: true, loop: true } }} />);
       
       const iframe = screen.getByTitle('Video content');
       expect(iframe).toBeInTheDocument();
@@ -109,7 +109,7 @@ describe('Hero Component', () => {
     });
 
     it('should render video with background mode', () => {
-      render(<Hero video={{ vimeoId: '123456', background: true }} />);
+      render(<Hero frontmatter={{ video: { vimeoId: '123456', background: true } }} />);
       
       const iframe = screen.getByTitle('Video content');
       expect(iframe).toHaveAttribute('src', expect.stringContaining('background=1'));

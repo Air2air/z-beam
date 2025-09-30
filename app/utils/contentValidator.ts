@@ -1,10 +1,18 @@
 // app/utils/contentValidator.ts
-// GROK-Compliant Content Validation System
-// Validates content integrity at build time with fail-fast principles
+// Simple performance logging
+const logPerformance = (operation: string, duration: number, context?: any) => {
+  if (duration > 1000) {
+    console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
+  } else {
+    console.debug(`⚡ Performance: ${operation} took ${duration}ms`, context);
+  }
+};
+// Content validation utilities for ensuring article integrity
+// Enhanced with fail-fast validation and detailed error reporting
 
+import 'server-only';
 import * as fs from 'fs';
 import * as path from 'path';
-import { logger } from './logger';
 import { ConfigurationError, ValidationError, safeOperation } from './errorSystem';
 
 interface ContentValidationResult {
@@ -90,7 +98,7 @@ class ContentValidator {
     let emptyFiles = 0;
 
     try {
-      logger.info('Starting comprehensive content validation');
+      console.info('Starting comprehensive content validation');
 
       // 1. Validate directory structure exists
       for (const [dirName, dirPath] of Object.entries(this.contentDirs)) {
@@ -168,7 +176,7 @@ class ContentValidator {
       };
 
       // Log validation results
-      logger.performance('Content validation completed', performance.now() - startTime, {
+      logPerformance('Content validation completed', performance.now() - startTime, {
         totalFiles,
         validFiles,
         errorCount: errors.length,

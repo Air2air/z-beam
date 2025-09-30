@@ -5,71 +5,63 @@ title: Concrete Laser Cleaning
 description: Laser cleaning parameters for Brick
 materialProperties:
   density:
-    value: 2.4
-    unit: g/cm³
+    value: 1.7
+    unit: "g/cm\xB3"
     confidence: 95
     description: Typical density of normal weight concrete
     min: 0.6
     max: 2.8
-  meltingPoint:
-    value: 1150
-    unit: °C
-    confidence: 85
-    description: Approximate melting/decomposition temperature of cementitious matrix
-    min: null
-    max: null
   thermalConductivity:
-    value: 1.4
-    unit: W/m·K
+    value: 1.29
+    unit: "W/m\xB7K"
     confidence: 90
     description: Thermal conductivity of standard concrete at room temperature
     min: 0.08
     max: 2.5
   tensileStrength:
-    value: 3.5
+    value: 8.0
     unit: MPa
     confidence: 90
     description: Direct tensile strength of standard concrete
     min: 1
     max: 15
   hardness:
-    value: 6
+    value: 4.0
     unit: Mohs
     confidence: 80
     description: Approximate hardness based on aggregate composition
     min: 2
     max: 6
   youngsModulus:
-    value: 30
+    value: 27.5
     unit: GPa
     confidence: 92
     description: Elastic modulus of normal strength concrete
-    min: 5
-    max: 50
+    min: 1.2
+    max: 32.6
   thermalExpansion:
-    value: 10
-    unit: μm/m·°C
+    value: 12.5
+    unit: "\u03BCm/m\xB7\xB0C"
     confidence: 88
     description: Coefficient of thermal expansion for typical concrete
-    min: 6
-    max: 12
+    min: 4.2
+    max: 19.8
   specificHeat:
-    value: 880
-    unit: J/kg·K
+    value: 900.0
+    unit: "J/kg\xB7K"
     confidence: 92
-    description: Specific heat capacity of concrete at 20°C
-    min: 0.8
-    max: 1.1
+    description: "Specific heat capacity of concrete at 20\xB0C"
+    min: 815.5
+    max: 1109.5
   thermalDiffusivity:
-    value: 0.67
-    unit: mm²/s
+    value: 0.55
+    unit: "mm\xB2/s"
     confidence: 85
-    description: Thermal diffusivity calculated from conductivity, density, and specific
-      heat
+    description: Thermal diffusivity calculated from conductivity, density, and specific heat
     min: 0.1
     max: 1
   compressiveStrength:
-    value: 35
+    value: 40
     unit: MPa
     confidence: 95
     description: Characteristic compressive strength of standard concrete
@@ -77,21 +69,21 @@ materialProperties:
     max: null
   absorptionCoefficient:
     value: 0.85
-    unit: dimensionless
+    unit: ""
     confidence: 82
     description: Estimated absorption coefficient for common laser wavelengths (1064nm)
     min: null
     max: null
   reflectivity:
     value: 0.15
-    unit: dimensionless
+    unit: ""
     confidence: 80
     description: Surface reflectivity for near-infrared laser wavelengths
     min: null
     max: null
   ablationThreshold:
     value: 1.2
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 78
     description: Estimated laser ablation threshold for concrete surface removal
     min: null
@@ -105,7 +97,7 @@ materialProperties:
     max: null
   surfaceRoughness:
     value: 25
-    unit: μm Ra
+    unit: "\u03BCm Ra"
     confidence: 85
     description: Average surface roughness of typical concrete finishes
     min: null
@@ -117,6 +109,31 @@ materialProperties:
     description: Relative chemical stability rating in normal environments
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 15.0
+    min: 0.5
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 7.75
+  laserReflectivity:
+    confidence: 0.7
+    max: 70.0
+    min: 10.0
+    source: default_from_category_range
+    unit: '%'
+    value: 40.0
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 1200.0
+    min: 500.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 850.0
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: spalling
 applications:
 - 'Construction: Surface preparation and cleaning for construction materials'
 - 'Restoration: Gentle cleaning for restoration and conservation applications'
@@ -125,8 +142,7 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power range for concrete surface cleaning without
-      thermal damage
+    description: Optimal average power range for concrete surface cleaning without thermal damage
     min: 80
     max: 120
   wavelength:
@@ -134,8 +150,8 @@ machineSettings:
     unit: nm
     confidence: 88
     description: Near-infrared wavelength optimal for concrete mineral absorption
-    min: 1030
-    max: 1070
+    min: 532
+    max: 10640
   spotSize:
     value: 0.2
     unit: mm
@@ -154,8 +170,7 @@ machineSettings:
     value: 10
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for effective contaminant removal with
-      minimal substrate damage
+    description: Nanosecond pulse duration for effective contaminant removal with minimal substrate damage
     min: 5
     max: 20
   scanSpeed:
@@ -167,7 +182,7 @@ machineSettings:
     max: 1000
   fluenceThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Minimum fluence required for effective concrete surface cleaning
     min: 1.5
@@ -198,22 +213,12 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 4
-  name: Todd Dunning
-  sex: m
-  title: MA
-  country: United States (California)
-  expertise: Optical Materials for Laser Systems
-  image: /images/author/todd-dunning.jpg
 images:
   hero:
-    alt: Concrete surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Concrete surface undergoing laser cleaning showing precise contamination removal
     url: /images/concrete-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Concrete surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Concrete surface after laser cleaning showing detailed surface structure
     url: /images/concrete-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -240,7 +245,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 4
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -272,8 +277,7 @@ applicationTypes:
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
@@ -311,9 +315,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -326,3 +330,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 4
+  name: Todd Dunning
+  sex: m
+  title: MA
+  country: United States (California)
+  expertise: Optical Materials for Laser Systems
+  image: /images/author/todd-dunning.jpg

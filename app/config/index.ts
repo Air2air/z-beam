@@ -1,9 +1,17 @@
 // app/config/index.ts
+// Simple performance logging
+const logPerformance = (operation: string, duration: number, context?: any) => {
+  if (duration > 1000) {
+    console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
+  } else {
+    console.debug(`⚡ Performance: ${operation} took ${duration}ms`, context);
+  }
+};
 // GROK-Compliant Centralized Configuration System
 // Single source of truth for all application settings with fail-fast validation
 
 import { ConfigurationError, validateEnvironment } from '../utils/errorSystem';
-import { logger } from '../utils/logger';
+import { SITE_CONFIG } from "../utils/constants";
 
 // Application configuration interface
 interface AppConfig {
@@ -120,7 +128,7 @@ class ConfigurationManager {
     const startTime = performance.now();
     
     try {
-      logger.info('Initializing configuration system');
+      console.info('Initializing configuration system');
 
       // 1. Load environment-specific overrides
       this.loadEnvironmentOverrides();
@@ -136,7 +144,7 @@ class ConfigurationManager {
 
       this.isValidated = true;
 
-      logger.performance('Configuration initialization completed', performance.now() - startTime, {
+      logPerformance('Configuration initialization completed', performance.now() - startTime, {
         environment: this.config.app.environment,
         configValidated: true
       });
@@ -361,7 +369,7 @@ class ConfigurationManager {
     // Re-validate after updates
     this.validateConfiguration();
     
-    logger.info(`Configuration section updated: ${section}`, { 
+    console.info(`Configuration section updated: ${section}`, { 
       section, 
       updates,
       timestamp: new Date().toISOString()

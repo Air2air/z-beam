@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { logger } from '../../utils/logger';
 
 interface FrontmatterItem {
   slug: string;
@@ -36,7 +35,7 @@ export function FrontmatterDebug() {
       } catch (err) {
         const errorMessage = err instanceof Error ? err.message : 'Unknown error';
         setError(errorMessage);
-        logger.error('FrontmatterDebug component error', err);
+        console.error('FrontmatterDebug component error', err);
       } finally {
         setLoading(false);
       }
@@ -117,7 +116,9 @@ export function FrontmatterDebug() {
               
               <div className="mb-2">
                 <span className="text-xs font-medium text-gray-500">AUTHOR</span>
-                <div>{selectedItem.author}</div>
+                <div>{typeof selectedItem.author === 'object' 
+                  ? JSON.stringify(selectedItem.author, null, 2) 
+                  : selectedItem.author}</div>
               </div>
               
               <div className="mt-4">

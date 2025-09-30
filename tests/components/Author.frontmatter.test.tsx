@@ -68,8 +68,9 @@ describe('Author Component with Frontmatter Data', () => {
       />
     );
 
-    // Should render nothing when no author data is provided
-    expect(container.firstChild).toBeNull();
+    // Should render fallback Z-Beam author when no author data is provided
+    expect(container.querySelector('.author-name')).toBeTruthy();
+    expect(container.textContent).toContain('Z-Beam');
   });
 
   test('should use frontmatter.authorInfo exclusively (no individual props)', () => {

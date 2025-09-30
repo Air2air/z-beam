@@ -1,7 +1,8 @@
 // MetricsCard Usage Examples
 import React from 'react';
-import { MetricsCard, PrimaryMetricsCard, CompactMetricsCard, MinimalMetricsCard } from './MetricsCard';
-import { ArticleMetadata } from '../../../types';
+import { MetricsCard } from './MetricsCard';
+import { MetricsGrid } from './MetricsGrid';
+import { ArticleMetadata } from '@/types';
 
 // Example metadata with machine settings
 const exampleMetadata: ArticleMetadata = {
@@ -44,7 +45,7 @@ const exampleMetadata: ArticleMetadata = {
 };
 
 export function MetricsCardExamples() {
-  const baseHref = "/property/aluminum-6061";
+  const baseHref = "/materials/aluminum-6061";
 
   return (
     <div className="space-y-12 max-w-6xl mx-auto p-6">
@@ -52,14 +53,13 @@ export function MetricsCardExamples() {
       {/* Full MetricsCard with all options */}
       <section>
         <h2 className="text-xl font-bold mb-4">Full MetricsCard</h2>
-        <MetricsCard
+        <MetricsGrid
           metadata={exampleMetadata}
           baseHref={baseHref}
           title="Machine Settings"
           description="Optimized laser parameters for aluminum 6061-T6 processing"
           layout="auto"
           maxCards={6}
-          priorityFilter={[1, 2]}
           showTitle={true}
           className="bg-white dark:bg-gray-900 p-6 rounded-lg border"
         />
@@ -71,9 +71,11 @@ export function MetricsCardExamples() {
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Shows only priority 1 settings (Power, Wavelength, Fluence)
         </p>
-        <PrimaryMetricsCard
+        <MetricsGrid
           metadata={exampleMetadata}
           baseHref={baseHref}
+          title="Primary Settings"
+          maxCards={3}
           className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg"
         />
       </section>
@@ -84,9 +86,12 @@ export function MetricsCardExamples() {
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Space-efficient 2-column layout for key parameters
         </p>
-        <CompactMetricsCard
+        <MetricsGrid
           metadata={exampleMetadata}
           baseHref={baseHref}
+          title="Primary Settings"
+          maxCards={4}
+          layout="grid-2"
           className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg"
         />
       </section>
@@ -97,9 +102,11 @@ export function MetricsCardExamples() {
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Clean display without section title, perfect for embedding
         </p>
-        <MinimalMetricsCard
+        <MetricsGrid
           metadata={exampleMetadata}
           baseHref={baseHref}
+          showTitle={false}
+          maxCards={3}
           className="border-2 border-dashed border-gray-300 dark:border-gray-600 p-4 rounded-lg"
         />
       </section>
@@ -112,13 +119,12 @@ export function MetricsCardExamples() {
           {/* Grid-2 layout */}
           <div>
             <h3 className="text-lg font-semibold mb-2">Grid-2 Layout</h3>
-            <MetricsCard
+            <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
               title="Key Parameters"
               layout="grid-2"
               maxCards={4}
-              priorityFilter={[1]}
               className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg"
             />
           </div>
@@ -126,13 +132,12 @@ export function MetricsCardExamples() {
           {/* Grid-3 layout */}
           <div>
             <h3 className="text-lg font-semibold mb-2">Grid-3 Layout</h3>
-            <MetricsCard
+            <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
               title="All Settings"
               layout="grid-3"
               maxCards={6}
-              priorityFilter={[1, 2]}
               showTitle={false}
               className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg"
             />
@@ -148,13 +153,12 @@ export function MetricsCardExamples() {
           {/* Priority 1 only */}
           <div>
             <h3 className="text-lg font-semibold mb-2">Priority 1 Only (Essential)</h3>
-            <MetricsCard
+            <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
               title="Essential Settings"
               description="Critical parameters for successful processing"
               layout="grid-3"
-              priorityFilter={[1]}
               className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg"
             />
           </div>
@@ -162,13 +166,12 @@ export function MetricsCardExamples() {
           {/* Priority 2 only */}
           <div>
             <h3 className="text-lg font-semibold mb-2">Priority 2 Only (Important)</h3>
-            <MetricsCard
+            <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
               title="Advanced Settings"
               description="Fine-tuning parameters for optimal results"
               layout="grid-3"
-              priorityFilter={[2]}
               className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg"
             />
           </div>
@@ -181,7 +184,7 @@ export function MetricsCardExamples() {
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Shows fallback message when no machine settings are available
         </p>
-        <MetricsCard
+        <MetricsGrid
           metadata={{ 
             ...exampleMetadata, 
             machineSettings: undefined 
@@ -197,7 +200,7 @@ export function MetricsCardExamples() {
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Shows message when settings exist but no matching cards are found
         </p>
-        <MetricsCard
+        <MetricsGrid
           metadata={{
             ...exampleMetadata,
             machineSettings: {

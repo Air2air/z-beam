@@ -1,12 +1,13 @@
 // app/page.tsx - Static optimized home page
 
-import { ArticleGridSSR } from "./components/ArticleGrid";
+import { CardGridSSR } from "./components/CardGrid";
 import { Hero } from "./components/Hero/Hero";
 import { Layout } from "./components/Layout/Layout";
 import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
 import { createMetadata } from "./utils/metadata";
 import { getAllArticleSlugs } from "./utils/contentAPI";
-import { sectionCards } from "./components/SectionCard/SectionCards";
+import { featuredSections } from "./data/featuredSections";
+import { featuredMaterialCategories } from "./data/featuredMaterialCategories";
 import { CONTAINER_STYLES } from "./utils/containerStyles";
 
 // Force static generation for home page
@@ -76,33 +77,41 @@ export default async function HomePage() {
 
       {/* Featured Solutions Section */}
       <section className={CONTAINER_STYLES.standard}>
-        <ArticleGridSSR
-          items={sectionCards
-            .filter(card => card.featured)
-            .map(card => ({
-              slug: card.slug,
-              title: card.title,
-              description: card.description,
-              href: `/${card.slug}`,
-              imageUrl: card.imageUrl,
-              imageAlt: card.title,
-              badge: undefined, // Featured items don't show badges
-            }))}
+        <CardGridSSR
+          items={featuredSections.map(section => ({
+            slug: section.slug,
+            title: section.title,
+            description: section.description,
+            href: `/${section.slug}`,
+            imageUrl: section.imageUrl,
+            imageAlt: section.title,
+            badge: undefined, // Featured items don't show badges
+          }))}
           columns={2}
           variant="featured"
-          title=""
+          title="Featured Solutions"
         />
       </section>
 
-      {/* All Solutions Grouped by Category */}
+      {/* Material Categories Section */}
       <section className={CONTAINER_STYLES.standard}>
-        <ArticleGridSSR
-          slugs={slugs}
-          title="Solutions by Category"
+        <CardGridSSR
+          items={featuredMaterialCategories.map(category => ({
+            slug: category.slug,
+            title: category.title,
+            description: category.description,
+            href: `/${category.slug}`,
+            imageUrl: category.imageUrl,
+            imageAlt: category.title,
+            badge: {
+              materialType: category.materialType as any, // Cast to satisfy type requirements
+              symbol: "",
+              formula: "",
+            },
+          }))}
           columns={3}
-          mode="category-grouped"
-          showBadgeSymbols={true}
-          loadBadgeSymbolData={true}
+          variant="default"
+          title="Material Categories"
         />
       </section>
     </Layout>

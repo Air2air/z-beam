@@ -5,61 +5,54 @@ title: Borosilicate Glass Laser Cleaning
 description: Laser cleaning parameters for Borosilicate Glass
 materialProperties:
   density:
-    value: 2.23
-    unit: g/cm³
+    value: 4.4
+    unit: "g/cm\xB3"
     confidence: 95
     description: Density of borosilicate glass at room temperature
     min: 1.2
     max: 7.6
-  meltingPoint:
-    value: 820
-    unit: °C
-    confidence: 90
-    description: Softening point temperature for borosilicate glass
-    min: null
-    max: null
   thermalConductivity:
-    value: 1.2
-    unit: W/m·K
+    value: 20.01
+    unit: "W/m\xB7K"
     confidence: 92
     description: Thermal conductivity at room temperature
-    min: 0.02
-    max: 4.2
+    min: 0
+    max: 38.422
   hardness:
-    value: 5.5
+    value: 6.75
     unit: Mohs
     confidence: 85
     description: Mohs hardness scale
     min: 4.5
     max: 9
   youngsModulus:
-    value: 64
+    value: 205.0
     unit: GPa
     confidence: 92
     description: Young's modulus of elasticity
-    min: 10
-    max: 95
+    min: 31.5
+    max: 373.5
   thermalExpansion:
-    value: 3.3
-    unit: ×10⁻⁶/K
+    value: 7.55
+    unit: "\xD710\u207B\u2076/K"
     confidence: 95
-    description: Coefficient of linear thermal expansion (20-300°C)
+    description: "Coefficient of linear thermal expansion (20-300\xB0C)"
     min: 0.1
     max: 15
   thermalDiffusivity:
-    value: 0.65
-    unit: mm²/s
+    value: 7.5
+    unit: "mm\xB2/s"
     confidence: 88
     description: Thermal diffusivity at room temperature
-    min: 0.01
-    max: 1.8
+    min: 0
+    max: 13.7
   specificHeat:
-    value: 830
-    unit: J/kg·K
+    value: 700.0
+    unit: "J/kg\xB7K"
     confidence: 90
     description: Specific heat capacity at room temperature
-    min: 0.5
-    max: 1
+    min: 653.0
+    max: 857.0
   flexuralStrength:
     value: 70
     unit: MPa
@@ -69,7 +62,7 @@ materialProperties:
     max: null
   refractiveIndex:
     value: 1.474
-    unit: dimensionless
+    unit: ""
     confidence: 95
     description: Refractive index at 589 nm wavelength
     min: null
@@ -83,18 +76,50 @@ materialProperties:
     max: null
   ablationThreshold:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 85
     description: Laser ablation threshold for 1064 nm wavelength
     min: null
     max: null
   chemicalStability:
     value: 1
-    unit: mg/cm²
+    unit: "mg/cm\xB2"
     confidence: 92
     description: Acid resistance weight loss in 6N HCl after 24h
     min: null
     max: null
+  laserAbsorption:
+    confidence: 0.7
+    max: 10.0
+    min: 0.001
+    source: default_from_category_range
+    unit: "cm\u207B\xB9"
+    value: 5.0
+  laserReflectivity:
+    confidence: 0.7
+    max: 92.0
+    min: 4.0
+    source: default_from_category_range
+    unit: '%'
+    value: 48.0
+  tensileStrength:
+    confidence: 0.7
+    max: 2000.0
+    min: 30.0
+    source: default_from_category_range
+    unit: MPa
+    value: 1015.0
+  thermalDestructionPoint:
+    confidence: 0.7
+    max: 1723.0
+    min: 500.0
+    source: default_from_category_range
+    unit: "\xB0C"
+    value: 1111.5
+  thermalDestructionType:
+    confidence: 0.8
+    source: category_default
+    value: melting
 applications:
 - 'Automotive: Paint removal and surface preparation for automotive parts'
 - 'Manufacturing: Industrial surface preparation and contamination removal'
@@ -113,11 +138,11 @@ machineSettings:
     confidence: 88
     description: Near-IR wavelength providing optimal absorption balance for Borosilicate
       Glass
-    min: 1030
-    max: 1080
+    min: 532
+    max: 10640
   spotSize:
     value: 50
-    unit: μm
+    unit: "\u03BCm"
     confidence: 82
     description: Beam spot diameter for precise cleaning with adequate energy density
     min: 30
@@ -147,7 +172,7 @@ machineSettings:
     max: 200
   fluence:
     value: 2.5
-    unit: J/cm²
+    unit: "J/cm\xB2"
     confidence: 89
     description: Energy density threshold for effective contaminant removal without
       glass damage
@@ -179,14 +204,6 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-author_object:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
-  title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
     alt: Borosilicate Glass surface undergoing laser cleaning showing precise contamination
@@ -221,7 +238,7 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-author_id: 1
+
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -292,9 +309,9 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units:
-  - m²/h
-  - cm²/min
-  - mm²/s
+  - "m\xB2/h"
+  - "cm\xB2/min"
+  - "mm\xB2/s"
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
@@ -307,3 +324,11 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
+author:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg

@@ -52,11 +52,8 @@ class ComponentAuditor {
       'app/[slug]',
       'app/about',
       'app/contact',
-      'app/property',
       'app/search',
       'app/services',
-      'app/tag',
-      'app/test-range',
       'pages',
       'components' // Legacy components
     ];

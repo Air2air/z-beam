@@ -3,7 +3,6 @@
 // Fails fast on configuration issues, validates dependencies upfront
 
 import { ConfigurationError, validateEnvironment } from './errorSystem';
-import { logger } from './logger';
 import { initializeConfig, getConfig } from '../config';
 import { contentValidator } from './contentValidator';
 
@@ -39,13 +38,13 @@ class StartupValidator {
     };
 
     try {
-      logger.info('Starting GROK-compliant system validation');
+      console.info('Starting GROK-compliant system validation');
 
       // 1. Initialize and validate configuration system (FAIL FAST)
       try {
         await initializeConfig();
         const config = getConfig();
-        logger.info('Configuration system initialized', { environment: config.app.environment });
+        console.info('Configuration system initialized', { environment: config.app.environment });
       } catch (error) {
         result.errors.push(`Configuration initialization failed: ${error}`);
         result.passed = false;
@@ -117,12 +116,12 @@ class StartupValidator {
 
       // Log validation results
       if (result.passed) {
-        logger.info('System validation completed successfully', {
+        console.info('System validation completed successfully', {
           duration: result.duration,
           warnings: result.warnings.length
         });
       } else {
-        logger.error('System validation failed', {
+        console.error('System validation failed', {
           errors: result.errors.length,
           warnings: result.warnings.length,
           duration: result.duration
