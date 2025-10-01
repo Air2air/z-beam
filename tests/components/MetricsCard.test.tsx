@@ -1,13 +1,26 @@
 /**
- * Test Suite: MetricsCard Component (Simple Version)
- * Tests for the unified simple MetricsCard with search functionality
+ * Test Suite: MetricsCard Component (Simplified Version)
+ * Tests for the simplified MetricsCard with extracted utilities and ProgressBar
+ * 
+ * SIMPLIFIED COMPONENT CHANGES:
+ * - Extracted cleanupFloat to @/app/utils/formatting
+ * - Extracted generateSearchUrl to @/app/utils/searchUtils
+ * - Extracted ProgressBar to @/app/components/ProgressBar/ProgressBar
+ * - MetricsCard is now ~220 lines (48% reduction from 424 lines)
  */
 
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MetricsCard, type MetricsCardProps } from '../../app/components/MetricsCard/MetricsCard';
-import { MetricsGrid, type MetricsGridProps } from '../../app/components/MetricsCard/MetricsGrid';
+import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
+import { MetricsGrid } from '../../app/components/MetricsCard/MetricsGrid';
+
+// NOTE: Utility functions (cleanupFloat, generateSearchUrl) are now in separate modules
+// with their own comprehensive test files:
+// - tests/utils/formatting.test.ts
+// - tests/utils/searchUtils.test.ts
+// ProgressBar component has its own test file:
+// - tests/components/ProgressBar.test.tsx
 
 describe('MetricsCard Simple Component', () => {
   afterEach(cleanup);
@@ -142,8 +155,8 @@ describe('MetricsCard Simple Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('cursor-pointer');
-      expect(link).toHaveClass('hover:shadow-lg');
-      expect(link).toHaveClass('hover:scale-105');
+      expect(link).toHaveClass('hover:shadow-xl'); // Updated from hover:shadow-lg in simplified component
+      expect(link).toHaveClass('hover:scale-[1.03]'); // Updated from hover:scale-105
     });
   });
 

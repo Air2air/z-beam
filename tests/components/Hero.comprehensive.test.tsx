@@ -1,6 +1,12 @@
 /**
- * Hero Component Tests
- * Tests the Hero component functionality including video, image, and accessibility features
+ * Hero Component Tests (Simplified)
+ * Tests the simplified Hero component functionality
+ * 
+ * CHANGES FROM ORIGINAL:
+ * - No manual image preloading (Next.js Image handles it)
+ * - Props are frontmatter-only (no direct image/video props)
+ * - Only 2 state variables (imageLoaded, isInView)
+ * - Video is simple string ID from frontmatter.video
  */
 
 import React from 'react';
@@ -37,16 +43,6 @@ mockIntersectionObserver.mockReturnValue({
   disconnect: jest.fn(),
 });
 window.IntersectionObserver = mockIntersectionObserver;
-
-// Mock window.Image for preloading
-const mockImage = jest.fn();
-Object.defineProperty(window, 'Image', {
-  value: mockImage.mockImplementation(() => ({
-    onload: null,
-    onerror: null,
-    src: '',
-  })),
-});
 
 describe('Hero Component', () => {
   beforeEach(() => {
@@ -97,25 +93,19 @@ describe('Hero Component', () => {
   });
 
   describe('Video Integration', () => {
-    it('should render Vimeo video with correct URL', () => {
-      render(<Hero frontmatter={{ video: { vimeoId: '123456', autoplay: true, muted: true, loop: true } }} />);
+    it('should render Vimeo video with standard parameters', () => {
+      render(<Hero frontmatter={{ video: '123456' }} />);
       
       const iframe = screen.getByTitle('Video content');
       expect(iframe).toBeInTheDocument();
       expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/123456'));
+      // Standard parameters are always included in simplified component
       expect(iframe).toHaveAttribute('src', expect.stringContaining('autoplay=1'));
       expect(iframe).toHaveAttribute('src', expect.stringContaining('muted=1'));
       expect(iframe).toHaveAttribute('src', expect.stringContaining('loop=1'));
     });
 
-    it('should render video with background mode', () => {
-      render(<Hero frontmatter={{ video: { vimeoId: '123456', background: true } }} />);
-      
-      const iframe = screen.getByTitle('Video content');
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('background=1'));
-    });
-
-    it('should handle video from frontmatter', () => {
+    it('should handle video from frontmatter string', () => {
       const frontmatter = { video: '789012' };
       render(<Hero frontmatter={frontmatter} />);
       
@@ -123,27 +113,17 @@ describe('Hero Component', () => {
       expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/789012'));
     });
 
-    it('should handle video object from frontmatter', () => {
-      const frontmatter = { video: { vimeoId: '345678', background: true } };
-      render(<Hero frontmatter={frontmatter} />);
+    it('should have lazy loading attribute', () => {
+      render(<Hero frontmatter={{ video: '123456' }} />);
       
       const iframe = screen.getByTitle('Video content');
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/345678'));
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('background=1'));
-    });
-
-    it('should handle video error state properly', async () => {
-      render(<Hero video={{ vimeoId: 'invalid-id' }} />);
-      
-      const iframe = screen.getByTitle('Video content');
-      expect(iframe).toBeInTheDocument();
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/invalid-id'));
+      expect(iframe).toHaveAttribute('loading', 'lazy');
     });
   });
 
   describe('Image Integration', () => {
-    it('should render image with Next.js Image component', async () => {
-      render(<Hero image="/test-hero.jpg" />);
+    it('should render image from frontmatter with Next.js Image component', async () => {
+      render(<Hero frontmatter={{ image: '/test-hero.jpg' }} />);
       
       await waitFor(() => {
         const image = screen.getByTestId('next-image');
@@ -151,14 +131,6 @@ describe('Hero Component', () => {
         expect(image).toHaveAttribute('src', '/test-hero.jpg');
         expect(image).toHaveAttribute('alt', 'Hero background image');
       });
-    });
-
-    it('should use image from frontmatter', () => {
-      const frontmatter = { image: '/frontmatter-hero.jpg' };
-      render(<Hero frontmatter={frontmatter} />);
-      
-      const image = screen.getByTestId('next-image');
-      expect(image).toHaveAttribute('src', '/frontmatter-hero.jpg');
     });
 
     it('should use structured image from frontmatter', () => {
@@ -171,12 +143,18 @@ describe('Hero Component', () => {
     });
 
     it('should show placeholder when not in view', () => {
-      render(<Hero image="/hero.jpg" />);
+      // Mock IntersectionObserver to not trigger
+      mockIntersectionObserver.mockImplementation((callback) => ({
+        observe: jest.fn(),
+        disconnect: jest.fn(),
+      }));
+
+      render(<Hero frontmatter={{ image: '/hero.jpg' }} />);
       
-      // Should show hero-background div while not in view (IntersectionObserver not triggered)
+      // Should show placeholder div with animate-pulse while not in view
       const section = screen.getByRole('region');
       expect(section).toBeInTheDocument();
-      expect(section.firstChild).toHaveClass('hero-background');
+      expect(section.firstChild).toHaveClass('animate-pulse');
     });
 
     it('should handle default logo when no image provided', () => {
@@ -196,14 +174,7 @@ describe('Hero Component', () => {
       expect(section).toHaveAttribute('aria-label', 'Hero section');
     });
 
-    it('should use custom aria-label when provided', () => {
-      render(<Hero ariaLabel="Custom hero section" />);
-      
-      const section = screen.getByRole('region');
-      expect(section).toHaveAttribute('aria-label', 'Custom hero section');
-    });
-
-    it('should generate contextual aria-labels from frontmatter', () => {
+    it('should generate contextual aria-labels from frontmatter title', () => {
       const frontmatter = { title: 'Industrial Cleaning' };
       render(<Hero frontmatter={frontmatter} />);
       
@@ -211,28 +182,28 @@ describe('Hero Component', () => {
       expect(section).toBeInTheDocument();
     });
 
-    it('should provide accessible video title and aria-label', () => {
-      const frontmatter = { title: 'Industrial Cleaning' };
-      render(<Hero video={{ vimeoId: '123456' }} frontmatter={frontmatter} />);
+    it('should provide accessible video title and aria-label from frontmatter', () => {
+      const frontmatter = { title: 'Industrial Cleaning', video: '123456' };
+      render(<Hero frontmatter={frontmatter} />);
       
       const iframe = screen.getByTitle('Video content for Industrial Cleaning');
       expect(iframe).toHaveAttribute('aria-label', 'Video content for Industrial Cleaning - Video player');
     });
 
-    it('should have accessible alt text for images', () => {
-      render(<Hero image="/hero.jpg" alt="Custom hero alt text" />);
+    it('should generate alt text from frontmatter for images', () => {
+      const frontmatter = { title: 'Industrial Cleaning', image: '/hero.jpg' };
+      render(<Hero frontmatter={frontmatter} />);
+      
+      const image = screen.getByTestId('next-image');
+      expect(image).toHaveAttribute('alt', 'Hero image for Industrial Cleaning');
+    });
+
+    it('should use custom alt text from frontmatter.images.hero.alt', () => {
+      const frontmatter = { images: { hero: { url: '/hero.jpg', alt: 'Custom hero alt text' } } };
+      render(<Hero frontmatter={frontmatter} />);
       
       const image = screen.getByTestId('next-image');
       expect(image).toHaveAttribute('alt', 'Custom hero alt text');
-    });
-
-    it('should provide screen reader announcements for loading states', () => {
-      render(<Hero image="/hero.jpg" />);
-      
-      // Should have proper aria structure
-      const section = screen.getByRole('region');
-      expect(section).toBeInTheDocument();
-      expect(section).toHaveAttribute('aria-label', 'Hero section');
     });
 
     it('should have accessible default logo', () => {
@@ -245,7 +216,7 @@ describe('Hero Component', () => {
 
   describe('Performance Optimization', () => {
     it('should set priority for fullwidth heroes', async () => {
-      render(<Hero variant="fullwidth" image="/hero.jpg" />);
+      render(<Hero variant="fullwidth" frontmatter={{ image: '/hero.jpg' }} />);
       
       await waitFor(() => {
         const image = screen.getByTestId('next-image');
@@ -254,7 +225,7 @@ describe('Hero Component', () => {
     });
 
     it('should not set priority for default heroes', async () => {
-      render(<Hero image="/hero.jpg" />);
+      render(<Hero frontmatter={{ image: '/hero.jpg' }} />);
       
       await waitFor(() => {
         const image = screen.getByTestId('next-image');
@@ -263,7 +234,7 @@ describe('Hero Component', () => {
     });
 
     it('should use Intersection Observer for lazy loading', () => {
-      render(<Hero image="/hero.jpg" />);
+      render(<Hero frontmatter={{ image: '/hero.jpg' }} />);
       
       expect(mockIntersectionObserver).toHaveBeenCalled();
     });
@@ -275,7 +246,7 @@ describe('Hero Component', () => {
         disconnect: jest.fn(),
       }));
 
-      render(<Hero image="/hero.jpg" />);
+      render(<Hero frontmatter={{ image: '/hero.jpg' }} />);
       
       // Should show animate-pulse div while not in view
       const section = screen.getByRole('region');
@@ -295,8 +266,10 @@ describe('Hero Component', () => {
     it('should prioritize video over image', () => {
       render(
         <Hero 
-          video={{ vimeoId: '123456' }}
-          image="/hero.jpg"
+          frontmatter={{
+            video: '123456',
+            image: '/hero.jpg'
+          }}
         />
       );
       
@@ -307,8 +280,10 @@ describe('Hero Component', () => {
     it('should show video when provided regardless of fallback image', async () => {
       render(
         <Hero 
-          video={{ vimeoId: 'valid-id' }}
-          image="/fallback.jpg"
+          frontmatter={{
+            video: 'valid-id',
+            image: '/fallback.jpg'
+          }}
         />
       );
       

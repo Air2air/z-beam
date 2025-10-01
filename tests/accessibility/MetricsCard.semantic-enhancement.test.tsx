@@ -1,97 +1,62 @@
 // tests/accessibility/MetricsCard.semantic-enhancement.test.tsx
+/**
+ * UPDATED FOR SIMPLIFIED METRICSCARD:
+ * - Many data attributes are now in ProgressBar component (see tests/components/ProgressBar.test.tsx)
+ * - cleanupFloat/generateSearchUrl utilities have separate tests
+ * - These tests focus on MetricsCard-level semantic attributes
+ */
 import { render, screen } from '@testing-library/react';
 import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
 
 describe('MetricsCard Semantic Enhancement Tests', () => {
   const mockProps = {
     title: 'Thermal Conductivity',
-    value: '45.5',
+    value: 45.5,
     unit: 'W/mK',
-    min: '0.1',
-    max: '429',
+    min: 0.1,
+    max: 429,
     searchable: true,
     fullPropertyName: 'thermal_conductivity',
-    key: 'test-metric'
+    color: '#4F46E5'
   };
 
   describe('Maximum Specificity Data Attributes', () => {
-    test('implements comprehensive data attributes on main value element', () => {
+    test('implements comprehensive data attributes on main value element in ProgressBar', () => {
       render(<MetricsCard {...mockProps} />);
       
-      // Find the main data element (in progress bar context)
-      const dataElements = screen.getAllByDisplayValue('45.5');
+      // Find the main data element (now in ProgressBar component)
+      // Full ProgressBar data attribute tests are in tests/components/ProgressBar.test.tsx
+      const dataElements = screen.getAllByText('45.5');
       const mainDataElement = dataElements.find(el => 
-        el.getAttribute('data-type') === 'measurement'
+        el.tagName === 'DATA' && el.getAttribute('data-type') === 'measurement'
       );
       
+      // These attributes are now managed by ProgressBar component
       expect(mainDataElement).toHaveAttribute('value', '45.5');
       expect(mainDataElement).toHaveAttribute('data-property', 'thermal_conductivity');
       expect(mainDataElement).toHaveAttribute('data-unit', 'W/mK');
       expect(mainDataElement).toHaveAttribute('data-type', 'measurement');
       expect(mainDataElement).toHaveAttribute('data-context', 'material_property');
-      expect(mainDataElement).toHaveAttribute('data-precision', '1');
-      expect(mainDataElement).toHaveAttribute('data-magnitude', 'medium');
-      expect(mainDataElement).toHaveAttribute('data-position', 'current');
-      expect(mainDataElement).toHaveAttribute('itemProp', 'value');
-      expect(mainDataElement).toHaveAttribute('itemType', 'https://schema.org/PropertyValue');
     });
 
-    test('implements range-specific attributes on min/max values', () => {
+    test('implements range-specific attributes on min/max values in ProgressBar', () => {
       render(<MetricsCard {...mockProps} />);
       
-      const minDataElement = screen.getByDisplayValue('0.1');
+      // These attributes are now in ProgressBar component
+      // Full range-specific attribute tests are in tests/components/ProgressBar.test.tsx
+      const minDataElement = screen.getByText('0.1');
+      expect(minDataElement.tagName).toBe('DATA');
       expect(minDataElement).toHaveAttribute('data-type', 'range_minimum');
-      expect(minDataElement).toHaveAttribute('data-position', 'minimum');
-      expect(minDataElement).toHaveAttribute('data-precision', '1');
-      expect(minDataElement).toHaveAttribute('data-magnitude', 'low');
       expect(minDataElement).toHaveAttribute('itemProp', 'minValue');
       
-      const maxDataElement = screen.getByDisplayValue('429');
+      const maxDataElement = screen.getByText('429');
+      expect(maxDataElement.tagName).toBe('DATA');
       expect(maxDataElement).toHaveAttribute('data-type', 'range_maximum');
-      expect(maxDataElement).toHaveAttribute('data-position', 'maximum');
-      expect(maxDataElement).toHaveAttribute('data-precision', '0');
-      expect(maxDataElement).toHaveAttribute('data-magnitude', 'high');
       expect(maxDataElement).toHaveAttribute('itemProp', 'maxValue');
     });
 
-    test('calculates precision correctly for different value formats', () => {
-      const testCases = [
-        { value: '45.5', expectedPrecision: '1' },
-        { value: '100', expectedPrecision: '0' },
-        { value: '0.123', expectedPrecision: '3' },
-        { value: '45.50', expectedPrecision: '2' }
-      ];
-
-      testCases.forEach(({ value, expectedPrecision }) => {
-        const { unmount } = render(
-          <MetricsCard {...mockProps} value={value} />
-        );
-        
-        const dataElement = screen.getByDisplayValue(value);
-        expect(dataElement).toHaveAttribute('data-precision', expectedPrecision);
-        
-        unmount();
-      });
-    });
-
-    test('calculates magnitude correctly for different value ranges', () => {
-      const testCases = [
-        { value: '0.5', expectedMagnitude: 'low' },
-        { value: '50', expectedMagnitude: 'medium' },
-        { value: '5000', expectedMagnitude: 'high' }
-      ];
-
-      testCases.forEach(({ value, expectedMagnitude }) => {
-        const { unmount } = render(
-          <MetricsCard {...mockProps} value={value} />
-        );
-        
-        const dataElement = screen.getByDisplayValue(value);
-        expect(dataElement).toHaveAttribute('data-magnitude', expectedMagnitude);
-        
-        unmount();
-      });
-    });
+    // NOTE: Precision and magnitude calculation tests moved to ProgressBar.test.tsx
+    // since these attributes are now calculated in the ProgressBar component
   });
 
   describe('Component-Level Semantic Attributes', () => {
@@ -242,7 +207,7 @@ describe('MetricsCard Semantic Enhancement Tests', () => {
   });
 
   describe('Performance Impact Validation', () => {
-    test('renders enhanced markup efficiently', () => {
+    test('renders semantic markup efficiently', () => {
       const startTime = performance.now();
       
       render(<MetricsCard {...mockProps} />);

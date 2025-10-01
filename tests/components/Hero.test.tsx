@@ -1,6 +1,13 @@
 /**
- * Test Suite: Hero Component
- * Testing hero section accessibility and performance optimizations
+ * Test Suite: Hero Component (Simplified)
+ * Testing simplified hero section accessibility and performance
+ * 
+ * SIMPLIFIED COMPONENT CHANGES:
+ * - Removed manual image preloading (Next.js Image handles it)
+ * - Reduced state from 6 to 2 variables (imageLoaded, isInView)
+ * - Props now frontmatter-only (no direct image/video/alt props)
+ * - Video is simple string ID from frontmatter.video
+ * - Removed complex error states (trusting Next.js Image)
  */
 
 import React from 'react';
@@ -13,12 +20,11 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
       // Test accessibility requirements are properly implemented
       const requiredFeatures = {
         semanticHTML: true, // Uses <section> with proper roles
-        altTextSupport: true, // Alt text for all images
+        altTextSupport: true, // Alt text generated from frontmatter
         ariaLabels: true, // ARIA labels for screen readers
         keyboardNavigation: true, // Proper focus management
         screenReaderSupport: true, // Screen reader announcements
-        errorHandling: true, // Accessible error states
-        loadingStates: true, // Accessible loading indicators
+        loadingPlaceholders: true, // Placeholders while not in view
       };
       
       Object.entries(requiredFeatures).forEach(([feature, implemented]) => {
@@ -26,28 +32,26 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
       });
     });
 
-    test('should provide comprehensive alt text options', () => {
-      // Alt text priority: props.alt > frontmatter.images.hero.alt > generated fallback
+    test('should provide alt text from frontmatter', () => {
+      // Alt text priority: frontmatter.images.hero.alt > generated from title > default fallback
       const altTextSources = [
-        'Custom alt prop',
-        'Frontmatter hero alt',
+        'Frontmatter hero alt (highest priority)',
         'Generated from title',
         'Default fallback'
       ];
       
       expect(altTextSources.length).toBeGreaterThan(0);
-      expect(altTextSources).toContain('Custom alt prop');
+      expect(altTextSources).toContain('Frontmatter hero alt (highest priority)');
     });
 
     test('should implement proper ARIA attributes', () => {
       const ariaAttributes = {
-        'aria-label': 'Contextual section description',
+        'aria-label': 'Contextual section description from frontmatter',
         'role': 'region or banner based on variant',
-        'aria-live': 'For loading and error states',
         'aria-hidden': 'For decorative elements'
       };
       
-      expect(Object.keys(ariaAttributes)).toHaveLength(4);
+      expect(Object.keys(ariaAttributes)).toHaveLength(3);
     });
   });
 
@@ -57,9 +61,10 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
         intersectionObserver: true, // Only load when in viewport
         nextImageOptimization: true, // Next.js Image component
         responsiveImages: true, // Proper sizing attributes
-        priorityLoading: true, // Priority for above-fold content
+        priorityLoading: true, // Priority for fullwidth variant
         blurPlaceholder: true, // Smooth loading experience
         modernImageFormats: true, // WebP/AVIF support via Next.js
+        noManualPreloading: true, // Trust Next.js Image (simplified)
       };
       
       Object.entries(performanceFeatures).forEach(([feature, implemented]) => {
@@ -72,6 +77,7 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
         lazyIframeLoading: true, // loading="lazy" on iframes
         properVideoTitles: true, // Accessibility titles
         vimeoIntegration: true, // Proper Vimeo URL building
+        simplifiedVideoHandling: true, // Just string ID from frontmatter
       };
       
       Object.entries(videoOptimizations).forEach(([feature, implemented]) => {
@@ -81,11 +87,14 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
   });
 
   describe('Component Interface', () => {
-    test('should have complete TypeScript interface', () => {
-      // HeroProps interface should include all accessibility props
+    test('should have simplified TypeScript interface', () => {
+      // HeroProps interface - simplified to frontmatter-based
       const expectedProps = [
-        'image', 'video', 'children', 'theme', 'variant',
-        'frontmatter', 'className', 'alt', 'ariaLabel', 'role'
+        'frontmatter', // Now the main source of all config
+        'children', 
+        'theme', 
+        'variant',
+        'className'
       ];
       
       expectedProps.forEach(prop => {
@@ -107,12 +116,10 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
   describe('Error Handling & Robustness', () => {
     test('should handle missing data gracefully', () => {
       const errorScenarios = [
-        'missing image',
-        'broken image URL',
-        'malformed frontmatter',
-        'missing video data',
-        'null children',
-        'undefined props'
+        'missing image (shows default logo)',
+        'missing frontmatter (renders empty)',
+        'null children (no content overlay)',
+        'undefined props (uses defaults)'
       ];
       
       errorScenarios.forEach(scenario => {
@@ -123,8 +130,8 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
     test('should provide fallback content', () => {
       const fallbackFeatures = {
         defaultLogo: true, // Z-Beam logo when no image
-        errorStates: true, // Proper error messaging
-        loadingPlaceholders: true, // Skeleton loading states
+        loadingPlaceholders: true, // Animated placeholder while not in view
+        trustNextJsImage: true, // No manual error handling (simplified)
         gracefulDegradation: true, // Works without JavaScript
       };
       
@@ -155,9 +162,10 @@ describe('Hero Component - Accessibility & Performance Standards', () => {
     test('should integrate with frontmatter system', () => {
       const integrationFeatures = {
         frontmatterCompatibility: true, // Works with ArticleMetadata
-        imagePathResolution: true, // Handles image URLs correctly
-        contentAPIIntegration: true, // Works with content loading
+        imagePathResolution: true, // Handles image URLs from frontmatter
+        videoIdResolution: true, // Handles video ID from frontmatter.video
         typeScriptSafety: true, // Fully typed interfaces
+        simplifiedProps: true, // Frontmatter-only prop structure
       };
       
       Object.entries(integrationFeatures).forEach(([feature, implemented]) => {
