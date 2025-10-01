@@ -80,7 +80,7 @@ export function Card({
     <Link
       href={href}
       className={`
-        group block card-hover-enhanced ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
+        group block card-hover-interactive ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
       `}
       aria-label={`View details for ${subject || title}`}
     >

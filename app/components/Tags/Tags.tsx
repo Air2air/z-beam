@@ -254,7 +254,7 @@ const parseTags = (content: string | TagsData): string[] => {
             .filter(([categoryName, categoryTags]) => categoryTags && categoryTags.length > 0) // Only show non-empty categories
             .map(([categoryName, categoryTags]) => (
               <div key={categoryName}>
-                <Header level="card" title={`${categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Tags`} className="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300" />
+                <Header level="card" title={categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} className="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300" />
                 <div className="flex flex-wrap gap-2">
                   {categoryTags!.map((tag, index) => (
                     onClick ? (

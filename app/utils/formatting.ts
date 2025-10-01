@@ -195,3 +195,36 @@ export function slugToDisplayName(slug: string): string {
   // Use capitalizeWords for general case
   return capitalizeWords(slug.replace(/-/g, ' '));
 }
+
+/**
+ * Clean up float values to 2 decimal places
+ * Removes unnecessary trailing zeros
+ * Extracted from MetricsCard component
+ * 
+ * @param value - Number or string to clean up
+ * @returns Cleaned string representation
+ */
+export function cleanupFloat(value: number | string): string {
+  const numericValue = typeof value === 'string' ? parseFloat(value) : value;
+  
+  // Return original value if not a valid number
+  if (isNaN(numericValue)) {
+    return String(value);
+  }
+  
+  // Round to 2 decimal places and remove unnecessary trailing zeros
+  const rounded = Math.round(numericValue * 100) / 100;
+  return rounded.toString();
+}
+
+/**
+ * Format number with unit
+ * 
+ * @param value - Number to format
+ * @param unit - Unit to append
+ * @returns Formatted string
+ */
+export function formatWithUnit(value: number | string, unit: string = ''): string {
+  const cleaned = cleanupFloat(value);
+  return unit ? `${cleaned} ${unit}` : cleaned;
+}

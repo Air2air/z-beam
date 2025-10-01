@@ -84,8 +84,8 @@ const encodedImageSource = imageSource ?
 
 ### Test Cases Validated
 1. **Ceramic Matrix Composites Image**:
-   - Input: `/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg`
-   - Output: `/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg`
+   - Input: `/images/material/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg`
+   - Output: `/images/material/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg`
 
 2. **Normal Images**: Unchanged
 3. **Multiple Parentheses**: All properly encoded

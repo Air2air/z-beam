@@ -13,12 +13,12 @@ export function enhanceTablesInHTML(htmlContent: string): string {
   const tableRegex = /<table[^>]*>[\s\S]*?<\/table>/gi;
   
   // Replace each table with enhanced wrapper
-  const enhancedContent = htmlContent.replace(tableRegex, (tableMatch) => {
+  const processedContent = htmlContent.replace(tableRegex, (tableMatch) => {
     // Extract the table HTML
     const tableHtml = tableMatch.trim();
     
     // Add enhanced classes to the table itself
-    const enhancedTable = tableHtml.replace(
+    const processedTable = tableHtml.replace(
       /<table([^>]*)>/i,
       '<table$1 class="table-enhanced">'
     );
@@ -26,12 +26,12 @@ export function enhanceTablesInHTML(htmlContent: string): string {
     // Wrap in enhanced containers
     return `<div class="table-enhanced-container">
   <div class="table-enhanced-inner">
-    ${enhancedTable}
+    ${processedTable}
   </div>
 </div>`;
   });
 
-  return enhancedContent;
+  return processedContent;
 }
 
 /**
@@ -44,19 +44,19 @@ export function enhanceTablesWithHeadings(htmlContent: string): string {
   }
 
   // First enhance the basic tables
-  let enhanced = enhanceTablesInHTML(htmlContent);
+  let processed = enhanceTablesInHTML(htmlContent);
   
   // Then handle spacing between consecutive table containers
-  enhanced = enhanced.replace(
+  processed = processed.replace(
     /(<\/div>\s*<\/div>)\s*(<div class="table-enhanced-container">)/g,
     '$1\n\n$2'
   );
   
   // Add spacing after headings that precede tables
-  enhanced = enhanced.replace(
+  processed = processed.replace(
     /((<h[1-6][^>]*>.*?<\/h[1-6]>)\s*)(<div class="table-enhanced-container">)/g,
     '$1\n$3'
   );
   
-  return enhanced;
+  return processed;
 }

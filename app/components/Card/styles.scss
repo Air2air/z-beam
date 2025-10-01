@@ -1,17 +1,17 @@
-/* Card component styles - enhanced hover transitions */
+/* Card component styles - interactive hover transitions */
 
 /* Ensure transitions work properly */
-.card-hover-enhanced {
+.card-hover-interactive {
   will-change: transform, box-shadow;
 }
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .card-hover-enhanced {
+  .card-hover-interactive {
     transition: none !important;
   }
   
-  .card-hover-enhanced:hover {
+  .card-hover-interactive:hover {
     transform: none !important;
   }
 }

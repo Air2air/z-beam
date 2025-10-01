@@ -26,14 +26,14 @@ class HeroImageEncodingTest {
     const testCases = [
       {
         name: 'Parentheses in filename',
-        input: '/images/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg',
-        expected: '/images/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg',
+        input: '/images/material/ceramic-matrix-composites-(cmcs)-laser-cleaning-hero.jpg',
+        expected: '/images/material/ceramic-matrix-composites-%28cmcs%29-laser-cleaning-hero.jpg',
         description: 'Should encode parentheses for CSS background-image'
       },
       {
         name: 'No special characters',
-        input: '/images/aluminum-laser-cleaning-hero.jpg',
-        expected: '/images/aluminum-laser-cleaning-hero.jpg',
+        input: '/images/material/aluminum-laser-cleaning-hero.jpg',
+        expected: '/images/material/aluminum-laser-cleaning-hero.jpg',
         description: 'Should leave normal filenames unchanged'
       },
       {
@@ -224,7 +224,7 @@ class HeroImageEncodingTest {
     // Test 1: Normal images without special characters still work
     console.log('📋 Testing: Normal image paths without special characters');
     try {
-      const normalPath = '/images/aluminum-laser-cleaning-hero.jpg';
+      const normalPath = '/images/material/aluminum-laser-cleaning-hero.jpg';
       const encoded = this.simulateHeroEncoding(normalPath);
       
       if (encoded === normalPath) {

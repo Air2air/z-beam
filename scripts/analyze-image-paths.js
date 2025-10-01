@@ -162,21 +162,21 @@ Use the structured format for consistency:
 images:
   micro:
     alt: "Descriptive alt text for microscopic analysis"
-    url: /images/{material-name}-laser-cleaning-micro.jpg
+    url: /images/material/{material-name}-laser-cleaning-micro.jpg
   hero:
     alt: "Descriptive alt text for hero image"
-    url: /images/{material-name}-laser-cleaning-hero.jpg
+    url: /images/material/{material-name}-laser-cleaning-hero.jpg
 
 seo_data:
-  og_image: "/images/{material-name}-laser-cleaning-micro-social.jpg"
+  og_image: "/images/material/{material-name}-laser-cleaning-micro-social.jpg"
 \`\`\`
 
 PYTHON GENERATOR PROMPT:
 "Generate frontmatter files with:
 - Filename: {material_name}-laser-cleaning.md (where material_name is kebab-case)
-- Micro image paths: /images/{material_name}-laser-cleaning-micro.jpg
-- Hero image paths: /images/{material_name}-laser-cleaning-hero.jpg
-- Social image paths: /images/{material_name}-laser-cleaning-micro-social.jpg
+- Micro image paths: /images/material/{material_name}-laser-cleaning-micro.jpg
+- Hero image paths: /images/material/{material_name}-laser-cleaning-hero.jpg
+- Social image paths: /images/material/{material_name}-laser-cleaning-micro-social.jpg
 - Structured YAML with images.hero.url and images.micro.url properties
 - Ensure material name consistency between filename and image paths
 - Use descriptive alt text for accessibility"

@@ -102,7 +102,7 @@ import { Hero } from '@/components/Hero/Hero';
     title: "Aluminum Surface Treatment",
     images: {
       hero: {
-        url: "/images/aluminum-laser-cleaning-hero.jpg",
+        url: "/images/material/aluminum-laser-cleaning-hero.jpg",
         alt: "Aluminum surface before and after laser cleaning comparison"
       }
     }

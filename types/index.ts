@@ -5,15 +5,35 @@
 // Re-export everything from centralized.ts (SINGLE SOURCE OF TRUTH)
 export * from './centralized';
 
-// Note: YAML component types are not re-exported to avoid conflicts
-// Import directly from './yaml-components' if needed
+// ============================================================================
+// YAML COMPONENT TYPES - Intentionally Separate
+// ============================================================================
+// YAML component types are NOT re-exported here to avoid naming conflicts
+// with the main type system. These types are specifically for YAML file 
+// parsing and component data structures.
+//
+// To use YAML types, import directly:
+//   import { MaterialData, JsonLdYamlData } from '@/types/yaml-components'
+//
+// Available YAML types:
+//   - MaterialData
+//   - JsonLdYamlData
+//   - SeoData
+//   - MetaTagsYamlData
+//   - TableYamlData
+//   - MetricsPropertiesYamlData
+//   - MetricsMachineSettingsYamlData
+// ============================================================================
 
-// Note: ALL IMPORTS SHOULD USE:
+// Standard Import Pattern:
 // import { TypeName } from '@/types'
 // 
 // This provides access to all centralized types including:
-// - Caption system types
-// - MetricsGrid types  
-// - Component props
-// - Article and content types
-// - Badge and UI types
+// - Caption system types (CaptionDataStructure, CaptionProps, ParsedCaptionData)
+// - MetricsGrid types (MetricsGridProps, MetricsCardProps, QualityMetrics)
+// - Component props (AuthorProps, TitleProps, LayoutProps, HeroProps, etc.)
+// - Article and content types (ArticleMetadata, MaterialMetadata, etc.)
+// - Badge and UI types (BadgeData, UIBadgeProps, ComponentSize, etc.)
+// - Material & Scientific types (MaterialProperties, ChemicalProperties, MachineSettings)
+// - API types (ApiResponse, SearchApiResponse, PaginationParams, etc.)
+// - Navigation types (NavItem, BreadcrumbItem, FooterNavItem, etc.)

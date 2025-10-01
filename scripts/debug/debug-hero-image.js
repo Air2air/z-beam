@@ -6,11 +6,11 @@ console.log('=== HERO IMAGE DEBUGGING ===');
 const testMetadata = {
   images: {
     hero: {
-      url: '/images/alumina-laser-cleaning-hero.jpg',
+      url: '/images/material/alumina-laser-cleaning-hero.jpg',
       alt: 'Alumina surface undergoing laser cleaning'
     }
   },
-  image: '/images/alumina-laser-cleaning-hero.jpg' // This might not exist
+  image: '/images/material/alumina-laser-cleaning-hero.jpg' // This might not exist
 };
 
 console.log('Test metadata structure:');

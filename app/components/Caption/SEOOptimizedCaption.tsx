@@ -16,6 +16,9 @@ interface SEOOptimizedCaptionProps {
   };
 }
 
+// Shorter alias for external use - Phase 1 (non-breaking)
+export type SEOCaptionProps = SEOOptimizedCaptionProps;
+
 export function SEOOptimizedCaption({ 
   materialName, 
   frontmatter, 

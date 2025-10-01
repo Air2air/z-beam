@@ -59,12 +59,23 @@ describe('Centralized Types - Caption System', () => {
     const captionProps: CaptionProps = {
       frontmatter: {
         caption: {
-          beforeText: 'Simple string content'
+          beforeText: 'Before text content',
+          afterText: 'After text content'
+        },
+        images: {
+          micro: {
+            url: 'test-image.jpg'
+          }
         }
+      },
+      config: {
+        showTechnicalDetails: true,
+        showMetadata: false
       }
     };
 
-    expect(captionProps.content).toBe('Simple string content');
+    expect(captionProps.frontmatter.caption?.beforeText).toBe('Before text content');
+    expect(captionProps.frontmatter.caption?.afterText).toBe('After text content');
     expect(captionProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
     expect(captionProps.config?.showTechnicalDetails).toBe(true);
   });
@@ -139,6 +150,10 @@ describe('Centralized Types - MetricsGrid System', () => {
 
   test('MetricsGridProps should configure grid display', () => {
     const gridProps: MetricsGridProps = {
+      metadata: {
+        title: 'Test Material',
+        slug: 'test-material'
+      },
       qualityMetrics: {
         contamination_removal: '95%',
         surface_roughness_after: '2μm'
@@ -181,6 +196,10 @@ describe('Centralized Types - Type Safety', () => {
     };
 
     const validProps: MetricsGridProps = {
+      metadata: {
+        title: 'Test',
+        slug: 'test'
+      },
       qualityMetrics: validMetrics,
       maxCards: 2 // Must be number
     };
@@ -195,12 +214,16 @@ describe('Centralized Types - Type Safety', () => {
     };
 
     const minimalProps: CaptionProps = {
-      content: 'Minimal content'
-      // Other properties are optional
+      frontmatter: {
+        caption: {
+          beforeText: 'Minimal content'
+        }
+      }
+      // Config is optional
     };
 
     expect(minimalCaption).toBeDefined();
-    expect(minimalProps.content).toBe('Minimal content');
+    expect(minimalProps.frontmatter.caption?.beforeText).toBe('Minimal content');
   });
 
   test('should maintain interface inheritance', () => {
@@ -222,9 +245,12 @@ describe('Centralized Types - Export Validation', () => {
     // This test ensures all types are properly exported from the centralized file
     // The fact that we can import and use these types without errors proves they're exported correctly
     const testCaption: CaptionDataStructure = {};
-    const testProps: CaptionProps = { content: 'test' };
+    const testProps: CaptionProps = { frontmatter: {} };
     const testMetrics: QualityMetrics = {};
-    const testGridProps: MetricsGridProps = { qualityMetrics: {} };
+    const testGridProps: MetricsGridProps = { 
+      metadata: { title: 'Test', slug: 'test' },
+      qualityMetrics: {} 
+    };
     
     expect(testCaption).toBeDefined();
     expect(testProps).toBeDefined();
@@ -234,13 +260,13 @@ describe('Centralized Types - Export Validation', () => {
 
   test('should support complex type combinations', () => {
     const complexCaption: CaptionDataStructure = {
-      before_text: 'Complex before text',
-      after_text: 'Complex after text',
+      beforeText: 'Complex before text',
+      afterText: 'Complex after text',
       quality_metrics: {
         contamination_removal: '95%',
         surface_roughness_before: '10μm'
       },
-      author: {
+      author_object: {
         name: 'Expert Author',
         title: 'Research Lead',
         verification_level: 'expert'
@@ -248,10 +274,10 @@ describe('Centralized Types - Export Validation', () => {
     };
 
     const complexProps: CaptionProps = {
-      content: complexCaption,
       frontmatter: {
         title: 'Complex Test',
-        author: 'Test Author'
+        author: 'Test Author',
+        caption: complexCaption
       }
     };
 

@@ -25,10 +25,6 @@ interface NavItem {
 
 // Define your navigation items
 const navItems: Record<string, NavItem> = {
-  "/": {
-    name: "Home",
-    href: "/",
-  },
   "/services": {
     name: "Services", 
     href: "/services",

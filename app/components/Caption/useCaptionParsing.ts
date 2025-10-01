@@ -20,7 +20,7 @@ interface CaptionYamlData {
   };
 }
 
-// Extended interface for enhanced YAML v2.0 data structure
+// Extended interface for YAML v2.0 data structure with quality metrics and metadata
 interface EnhancedCaptionYamlData extends CaptionYamlData {
   before_text?: string;
   after_text?: string;
@@ -91,7 +91,10 @@ import { ParsedCaptionData } from '@/types';
 // Union type for backward compatibility
 type CaptionData = CaptionYamlData | EnhancedCaptionYamlData;
 
-export type { CaptionYamlData, EnhancedCaptionYamlData, CaptionData };
+// Phase 2A: Cleaner alias removing "Enhanced" decoration
+type CaptionDataV2 = EnhancedCaptionYamlData;
+
+export type { CaptionYamlData, EnhancedCaptionYamlData, CaptionData, CaptionDataV2 };
 
 export function useCaptionParsing(content: string | CaptionData): ParsedCaptionData {
   // Handle string content (legacy markdown)
@@ -107,8 +110,8 @@ export function useCaptionParsing(content: string | CaptionData): ParsedCaptionD
     const yamlData = content as EnhancedCaptionYamlData;
     let renderedContent = '';
     
-    // Check if this is enhanced data (has new v2.0 fields)
-    const isEnhanced = !!(
+    // Check if this is v2.0 data (has new extended fields)
+    const hasV2Features = !!(
       yamlData.quality_metrics || 
       yamlData.technical_specifications || 
       yamlData.material_properties ||
@@ -163,7 +166,7 @@ export function useCaptionParsing(content: string | CaptionData): ParsedCaptionD
       laserParams: yamlData.laser_parameters,
       metadata: yamlData.metadata,
       material: yamlData.material,
-      isEnhanced,
+      isEnhanced: hasV2Features,
       qualityMetrics: yamlData.quality_metrics,
       authorObject: yamlData.author_object,
       technicalSpecs: yamlData.technical_specifications,

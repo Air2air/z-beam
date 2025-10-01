@@ -19,7 +19,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Metal Laser Cleaning Solutions | Z-Beam",
     description: "Professional laser cleaning for aluminum, steel, titanium, and precious metals. Aerospace and automotive applications with precision cleaning technology.",
     keywords: ["metal laser cleaning", "aluminum cleaning", "steel restoration", "titanium surface treatment", "aerospace metals"],
-    ogImage: "/images/aluminum-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/aluminum-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product",
       name: "Metal Laser Cleaning Services",
@@ -31,7 +31,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Ceramic Laser Cleaning Solutions | Z-Beam", 
     description: "Precision laser cleaning for alumina, silicon nitride, and technical ceramics. Semiconductor and industrial applications.",
     keywords: ["ceramic laser cleaning", "alumina cleaning", "silicon nitride", "technical ceramics", "semiconductor cleaning"],
-    ogImage: "/images/alumina-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/alumina-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product",
       name: "Ceramic Laser Cleaning Services",
@@ -43,7 +43,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Composite Material Laser Cleaning | Z-Beam",
     description: "Advanced laser cleaning for carbon fiber, GFRP, and polymer composites. Aerospace and marine industry applications.",
     keywords: ["composite laser cleaning", "carbon fiber cleaning", "GFRP cleaning", "polymer composites", "aerospace composites"],
-    ogImage: "/images/kevlar-reinforced-polymer-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/kevlar-reinforced-polymer-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product", 
       name: "Composite Material Laser Cleaning",
@@ -55,7 +55,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Semiconductor Laser Cleaning Solutions | Z-Beam",
     description: "Ultra-precision laser cleaning for silicon, gallium arsenide, and semiconductor materials. Microelectronics applications.",
     keywords: ["semiconductor cleaning", "silicon cleaning", "wafer cleaning", "microelectronics", "precision cleaning"],
-    ogImage: "/images/silicon-carbide-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/silicon-carbide-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product",
       name: "Semiconductor Laser Cleaning Services", 
@@ -67,7 +67,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Glass Laser Cleaning Solutions | Z-Beam",
     description: "Precision laser cleaning for optical glass, borosilicate, and technical glass materials. Laboratory and industrial applications.",
     keywords: ["glass laser cleaning", "optical glass", "borosilicate cleaning", "laboratory glass", "technical glass"],
-    ogImage: "/images/borosilicate-glass-laser-cleaning-hero.jpg", 
+    ogImage: "/images/material/borosilicate-glass-laser-cleaning-hero.jpg", 
     schema: {
       "@type": "Product",
       name: "Glass Laser Cleaning Services",
@@ -79,7 +79,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Stone Laser Cleaning & Restoration | Z-Beam",
     description: "Heritage restoration and cleaning of granite, marble, limestone, and natural stone. Architectural and conservation applications.",
     keywords: ["stone laser cleaning", "granite restoration", "marble cleaning", "heritage conservation", "stone restoration"],
-    ogImage: "/images/granite-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/granite-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product", 
       name: "Stone Laser Cleaning & Restoration",
@@ -91,7 +91,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Wood Laser Cleaning & Restoration | Z-Beam",
     description: "Gentle laser cleaning for hardwood and softwood restoration. Furniture conservation and heritage wood preservation.",
     keywords: ["wood laser cleaning", "furniture restoration", "heritage wood", "wood conservation", "antique restoration"],
-    ogImage: "/images/oak-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/oak-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product",
       name: "Wood Laser Cleaning & Restoration", 
@@ -103,7 +103,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Masonry Laser Cleaning Solutions | Z-Beam",
     description: "Professional brick, cement, and masonry restoration using gentle laser cleaning techniques. Building conservation.",
     keywords: ["masonry cleaning", "brick restoration", "cement cleaning", "building conservation", "architectural restoration"],
-    ogImage: "/images/brick-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/brick-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product",
       name: "Masonry Laser Cleaning Services",
@@ -115,7 +115,7 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
     title: "Plastic Laser Cleaning Solutions | Z-Beam", 
     description: "Specialized cleaning of thermoplastics and polymer materials for industrial and consumer applications.",
     keywords: ["plastic laser cleaning", "polymer cleaning", "thermoplastic restoration", "plastic surface treatment"],
-    ogImage: "/images/polyethyline-laser-cleaning-hero.jpg",
+    ogImage: "/images/material/polyethyline-laser-cleaning-hero.jpg",
     schema: {
       "@type": "Product",
       name: "Plastic Laser Cleaning Services",

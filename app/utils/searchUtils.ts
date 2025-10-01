@@ -230,3 +230,82 @@ export function getChemicalProperties(item: {
   return null;
 }
 
+/**
+ * Property keywords including abbreviated forms for search classification
+ * Extracted from MetricsCard component
+ */
+const PROPERTY_KEYWORDS = [
+  // Physical properties
+  'temperature', 'pressure', 'density', 'conductivity', 'strength', 'modulus', 'hardness', 'coefficient',
+  'thermal', 'therm', 'cond', 'exp', 'diff', 'tensile', 'ten', 'young', 'melting', 'point',
+  // Laser/machine properties
+  'power', 'range', 'wavelength', 'pulse', 'width', 'repetition', 'frequency', 'spot', 'size',
+  'fluence', 'threshold', 'overlap', 'scan', 'speed', 'energy',
+  // Material properties
+  'absorption', 'reflectivity', 'ablation', 'porosity', 'roughness', 'composition',
+  // Units that indicate properties
+  'mpa', 'gpa', 'nm', 'μm', 'micron', 'celsius', 'kelvin', 'watt', 'joule', 'gram', 'kg'
+];
+
+/**
+ * Property-like patterns (number + unit combinations)
+ */
+const PROPERTY_PATTERNS = /\b(g\/cm|w\/m|j\/cm|mpa|gpa|nm|μm)\b/i;
+
+/**
+ * Generate search URL based on metric title and value
+ * Extracted from MetricsCard component for reusability
+ * 
+ * @param title - Metric title
+ * @param value - Metric value
+ * @param fullPropertyName - Optional full property name for accurate search
+ * @returns Search URL
+ */
+export function generateSearchUrl(title: string, value: string | number, fullPropertyName?: string): string {
+  const searchValue = String(value).replace(/[^\w\s.-]/g, ''); // Clean the value
+  
+  // Use full property name if available, otherwise fall back to title-based detection
+  const propertyNameForSearch = fullPropertyName || title;
+  
+  if (fullPropertyName) {
+    // If we have the full property name, always use property-based search
+    return `/search?property=${encodeURIComponent(propertyNameForSearch)}&value=${encodeURIComponent(searchValue)}`;
+  }
+  
+  // Fallback: title-based detection
+  const searchTitle = title.toLowerCase().replace(/[^\w\s]/g, ''); // Clean the title
+  
+  // Check if title contains any property keywords or appears to be a material property
+  const isProperty = PROPERTY_KEYWORDS.some(keyword => searchTitle.includes(keyword)) ||
+                    PROPERTY_PATTERNS.test(searchTitle.toLowerCase());
+  
+  if (isProperty) {
+    // Use property-based search
+    return `/search?property=${encodeURIComponent(title)}&value=${encodeURIComponent(searchValue)}`;
+  } else {
+    // Use general search
+    return `/search?q=${encodeURIComponent(searchValue)}`;
+  }
+}
+
+/**
+ * Build search URL for material or process
+ * 
+ * @param query - Search query
+ * @returns Search URL
+ */
+export function buildSearchUrl(query: string): string {
+  return `/search?q=${encodeURIComponent(query)}`;
+}
+
+/**
+ * Build property search URL
+ * 
+ * @param property - Property name
+ * @param value - Property value
+ * @returns Search URL
+ */
+export function buildPropertySearchUrl(property: string, value: string | number): string {
+  return `/search?property=${encodeURIComponent(property)}&value=${encodeURIComponent(String(value))}`;
+}
+

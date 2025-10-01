@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { MetricsCard as SingleMetricsCard } from './MetricsCard';
-import { ArticleMetadata, PropertyWithUnits, MetricsCardProps } from '../../../types';
+import { ArticleMetadata, PropertyWithUnits, MetricsCardProps, MetricsGridProps } from '../../../types';
 import { extractMachineSettingsFromFrontmatter } from '../../utils/metricsCardHelpers';
 import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
 import { Header } from '../Header';
@@ -46,20 +46,7 @@ const GRID_LAYOUTS = {
   'grid-4': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
 } as const;
 
-// Interface for the grid container
-export interface MetricsGridProps {
-  metadata: ArticleMetadata;
-  dataSource?: 'materialProperties' | 'machineSettings';
-  title?: string;
-  description?: string;
-  titleFormat?: 'default' | 'comparison';
-  layout?: keyof typeof GRID_LAYOUTS;
-  maxCards?: number;
-  showTitle?: boolean;
-  className?: string;
-  baseHref?: string;
-  searchable?: boolean; // Enable search functionality for all cards
-}
+// Note: MetricsGridProps is now imported from '@/types' centralized types
 
 // Helper function to extract cards from frontmatter data
 function extractCardsFromFrontmatter(

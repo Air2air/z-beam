@@ -11,9 +11,9 @@ This document outlines the standardized image naming conventions for the Z-Beam 
 **Format**: `{material-name}-laser-cleaning-micro.jpg`
 
 **Examples**:
-- `/images/oak-laser-cleaning-micro.jpg`
-- `/images/aluminum-laser-cleaning-micro.jpg`
-- `/images/stainless-steel-laser-cleaning-micro.jpg`
+- `/images/material/oak-laser-cleaning-micro.jpg`
+- `/images/material/aluminum-laser-cleaning-micro.jpg`
+- `/images/material/stainless-steel-laser-cleaning-micro.jpg`
 
 **Usage**: Microscopic analysis images showing before/after laser cleaning results
 
@@ -22,9 +22,9 @@ This document outlines the standardized image naming conventions for the Z-Beam 
 **Format**: `{material-name}-laser-cleaning-hero.jpg`
 
 **Examples**:
-- `/images/oak-laser-cleaning-hero.jpg`
-- `/images/aluminum-laser-cleaning-hero.jpg`
-- `/images/stainless-steel-laser-cleaning-hero.jpg`
+- `/images/material/oak-laser-cleaning-hero.jpg`
+- `/images/material/aluminum-laser-cleaning-hero.jpg`
+- `/images/material/stainless-steel-laser-cleaning-hero.jpg`
 
 **Usage**: Main promotional/header images for material pages
 
@@ -33,8 +33,8 @@ This document outlines the standardized image naming conventions for the Z-Beam 
 **Format**: `{material-name}-laser-cleaning-micro-social.jpg`
 
 **Examples**:
-- `/images/oak-laser-cleaning-micro-social.jpg`
-- `/images/aluminum-laser-cleaning-micro-social.jpg`
+- `/images/material/oak-laser-cleaning-micro-social.jpg`
+- `/images/material/aluminum-laser-cleaning-micro-social.jpg`
 
 **Usage**: Optimized images for social media sharing (Open Graph, Twitter Cards)
 
@@ -63,16 +63,16 @@ This document outlines the standardized image naming conventions for the Z-Beam 
 ### TypeScript/JavaScript
 ```typescript
 // Correct implementation
-const imageUrl = `/images/${materialName}-laser-cleaning-micro.jpg`;
-const socialImage = `/images/${materialName}-laser-cleaning-micro-social.jpg`;
-const heroImage = `/images/${materialName}-laser-cleaning-hero.jpg`;
+const imageUrl = `/images/material/${materialName}-laser-cleaning-micro.jpg`;
+const socialImage = `/images/material/${materialName}-laser-cleaning-micro-social.jpg`;
+const heroImage = `/images/material/${materialName}-laser-cleaning-hero.jpg`;
 ```
 
 ### YAML Frontmatter
 ```yaml
 images:
   micro:
-    url: "/images/oak-laser-cleaning-micro.jpg"
+    url: "/images/material/oak-laser-cleaning-micro.jpg"
     alt: "Microscopic comparison of oak surface before and after laser cleaning"
     width: 800
     height: 450
@@ -82,7 +82,7 @@ images:
 ### SEO Metadata
 ```yaml
 seo_data:
-  og_image: "/images/oak-laser-cleaning-micro-social.jpg"
+  og_image: "/images/material/oak-laser-cleaning-micro-social.jpg"
   twitter_card: "summary_large_image"
 ```
 
@@ -112,9 +112,9 @@ When adding new material images:
 
 ### Example for New Material "Carbon Fiber"
 ```
-/images/carbon-fiber-laser-cleaning-hero.jpg
-/images/carbon-fiber-laser-cleaning-micro.jpg
-/images/carbon-fiber-laser-cleaning-micro-social.jpg
+/images/material/carbon-fiber-laser-cleaning-hero.jpg
+/images/material/carbon-fiber-laser-cleaning-micro.jpg
+/images/material/carbon-fiber-laser-cleaning-micro-social.jpg
 ```
 
 ## Other Image Categories (Not Affected)

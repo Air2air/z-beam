@@ -98,7 +98,7 @@ openGraph:
   type: "service"
   url: "https://www.z-beam.com/services/aluminum-laser-cleaning"
   image:
-    url: "/images/aluminum-laser-cleaning.jpg"
+    url: "/images/material/aluminum-laser-cleaning.jpg"
     alt: "Aluminum laser cleaning process"
     width: 1200
     height: 630
@@ -108,7 +108,7 @@ twitter:
   card: "summary_large_image"
   title: "Professional Aluminum Laser Cleaning"
   description: "Expert cleaning services for aluminum surfaces..."
-  image: "/images/aluminum-laser-cleaning-twitter.jpg"
+  image: "/images/material/aluminum-laser-cleaning-twitter.jpg"
 
 # Material-Specific Properties
 material:

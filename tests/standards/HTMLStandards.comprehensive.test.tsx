@@ -274,7 +274,7 @@ describe('HTML Standards Compliance - Modern Web Standards', () => {
   });
 
   describe('SEO and Structured Data Standards', () => {
-    test('should implement advanced SEO standards', () => {
+    test('should implement comprehensive SEO standards', () => {
       const seoStandards = {
         titleOptimization: true, // Unique, descriptive page titles
         metaDescriptions: true, // Compelling meta descriptions

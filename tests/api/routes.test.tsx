@@ -4,7 +4,32 @@
  * Updated: Removed references to deprecated content API route
  */
 
-import { NextRequest } from 'next/server';
+// Mock NextRequest and Response for testing environment
+class NextRequest {
+  url: string;
+  constructor(url: string) {
+    this.url = url;
+  }
+}
+
+// Mock Response for testing environment
+global.Response = class Response {
+  body: any;
+  init: any;
+  constructor(body: any, init?: any) {
+    this.body = body;
+    this.init = init;
+  }
+  async json() {
+    return JSON.parse(this.body);
+  }
+  get status() {
+    return this.init?.status || 200;
+  }
+  get headers() {
+    return this.init?.headers || {};
+  }
+} as any;
 
 jest.mock('../../app/api/search/route', () => ({
   GET: async (request: NextRequest) => {

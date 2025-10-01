@@ -407,13 +407,24 @@ export interface MetricsCardProps {
 }
 
 /**
- * MetricsGrid component props
+ * MetricsGrid component props - Enhanced version with full configuration
  */
 export interface MetricsGridProps {
-  qualityMetrics: QualityMetrics;
+  metadata: ArticleMetadata;
+  dataSource?: 'materialProperties' | 'machineSettings';
+  title?: string;
+  description?: string;
+  titleFormat?: 'default' | 'comparison';
+  layout?: 'auto' | 'grid-2' | 'grid-3' | 'grid-4';
   maxCards?: number;
-  excludeMetrics?: string[];
+  showTitle?: boolean;
   className?: string;
+  baseHref?: string;
+  searchable?: boolean; // Enable search functionality for all cards
+  
+  // Legacy compatibility (for older Caption system usage)
+  qualityMetrics?: QualityMetrics;
+  excludeMetrics?: string[];
 }
 
 /**
@@ -1531,3 +1542,57 @@ export interface FrontmatterItem {
   frontmatter: Record<string, any>;
   errors?: string[];
 }
+
+// ===============================
+// TYPE ALIASES - Phase 1 (Non-breaking)
+// Shorter names for commonly used types
+// Original names remain valid for backward compatibility
+// ===============================
+
+/**
+ * Shorter alias for BaseInteractiveProps
+ * Use for interactive components (buttons, links, etc.)
+ */
+export type InteractiveProps = BaseInteractiveProps;
+
+/**
+ * Shorter alias for MetricAutoDiscoveryConfig
+ * Use for metric configuration
+ */
+export type MetricDiscoveryConfig = MetricAutoDiscoveryConfig;
+
+/**
+ * Shorter alias for SearchResultsGridProps
+ * Use for search result grids
+ */
+export type SearchGridProps = SearchResultsGridProps;
+
+// ===============================
+// TYPE ALIASES - Phase 2A (Decoration Removal)
+// Remove decorative prefixes like "Generic", "Universal"
+// Original names remain valid for backward compatibility
+// ===============================
+
+/**
+ * Alias for GenericMetricConfig (removes "Generic" prefix)
+ * Use for metric configuration of any type
+ */
+export type MetricConfig = GenericMetricConfig;
+
+/**
+ * Alias for GenericMetricData (removes "Generic" prefix)
+ * Use for metric data of any type
+ */
+export type MetricData = GenericMetricData;
+
+/**
+ * Alias for UniversalPageProps (removes "Universal" decoration)
+ * Use for page template component props
+ */
+export type PageTemplateProps = UniversalPageProps;
+
+/**
+ * Even shorter alias for UniversalPageProps
+ * Use for template-based pages
+ */
+export type TemplateProps = UniversalPageProps;

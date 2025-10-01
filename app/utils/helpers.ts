@@ -164,3 +164,21 @@ export function getContrastRatio(hex1: string, hex2: string): number {
   
   return (brightest + 0.05) / (darkest + 0.05);
 }
+
+// ===============================
+// FUNCTION ALIASES - Phase 1 (Non-breaking)
+// Shorter names for commonly used functions
+// Original names remain valid for backward compatibility
+// ===============================
+
+/**
+ * Shorter alias for generateMaterialAltText
+ * @see generateMaterialAltText
+ */
+export const getMaterialAlt = generateMaterialAltText;
+
+/**
+ * Shorter alias for prefersReducedMotion
+ * @see prefersReducedMotion
+ */
+export const wantsReducedMotion = prefersReducedMotion;
