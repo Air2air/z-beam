@@ -5,6 +5,20 @@ import Link from 'next/link';
 import { MetricsCardProps } from '@/types';
 import './accessibility.css';
 
+// Utility function to clean up float values to 2 decimal places
+function cleanupFloat(value: number | string): string {
+  const numericValue = typeof value === 'string' ? parseFloat(value) : value;
+  
+  // Return original value if not a valid number
+  if (isNaN(numericValue)) {
+    return String(value);
+  }
+  
+  // Round to 2 decimal places and remove unnecessary trailing zeros
+  const rounded = Math.round(numericValue * 100) / 100;
+  return rounded.toString();
+}
+
 // Progress bar component for visualizing value within min-max range
 interface ProgressBarProps {
   min: number;
@@ -61,8 +75,13 @@ function generateSearchUrl(title: string, value: string | number, fullPropertyNa
 }
 
 function ProgressBar({ min, max, value, color = '#4F46E5', unit = '', title, id, propertyName }: ProgressBarProps) {
+  // Clean up numeric values to 2 decimal places
+  const cleanMin = parseFloat(cleanupFloat(min));
+  const cleanMax = parseFloat(cleanupFloat(max));
+  const cleanValue = parseFloat(cleanupFloat(value));
+  
   // Calculate percentage position (0-100)
-  const percentage = Math.min(Math.max((value - min) / (max - min) * 100, 0), 100);
+  const percentage = Math.min(Math.max((cleanValue - cleanMin) / (cleanMax - cleanMin) * 100, 0), 100);
   
   // Dynamic alignment based on position to prevent overflow
   const getAlignment = () => {
@@ -94,17 +113,17 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '', title, id,
       {/* Screen reader description */}
       <div id={descId} className="sr-only">
         Current value: <data 
-          value={value}
+          value={cleanValue}
           data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-unit={unit}
           data-type="measurement"
           data-context="material_property"
-          data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
-          data-magnitude={Math.abs(value) >= 1000 ? 'high' : Math.abs(value) >= 1 ? 'medium' : 'low'}
+          data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
+          data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
           itemProp="value"
           itemType="https://schema.org/PropertyValue"
-        >{value}</data> {unit}.
-        Range: {min} to {max} {unit}.
+        >{cleanValue}</data> {unit}.
+        Range: {cleanMin} to {cleanMax} {unit}.
         Progress: {Math.round(percentage)}% of maximum.
       </div>
       
@@ -120,17 +139,17 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '', title, id,
           }}
         >
           <data 
-            value={value}
+            value={cleanValue}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
             data-unit={unit}
             data-type="measurement"
             data-context="material_property"
-            data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
-            data-magnitude={Math.abs(value) >= 1000 ? 'high' : Math.abs(value) >= 1 ? 'medium' : 'low'}
+            data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
             data-position="current"
             itemProp="value"
             itemType="https://schema.org/PropertyValue"
-          >{value}</data>
+          >{cleanValue}</data>
         </div>
       </div>
       
@@ -139,9 +158,9 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '', title, id,
         <div 
           id={progressId}
           role="progressbar"
-          aria-valuenow={value}
-          aria-valuemin={min}
-          aria-valuemax={max}
+          aria-valuenow={cleanValue}
+          aria-valuemin={cleanMin}
+          aria-valuemax={cleanMax}
           aria-labelledby={labelId}
           aria-describedby={descId}
           tabIndex={0} // Make focusable
@@ -176,31 +195,31 @@ function ProgressBar({ min, max, value, color = '#4F46E5', unit = '', title, id,
       <div className="flex justify-between items-center" aria-hidden="true">
         <span className="text-xs font-medium text-white/50">
           <data 
-            value={min}
+            value={cleanMin}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
             data-unit={unit}
             data-type="range_minimum"
             data-context="material_property"
-            data-precision={String(min).includes('.') ? String(min).split('.')[1]?.length || 0 : 0}
-            data-magnitude={Math.abs(min) >= 1000 ? 'high' : Math.abs(min) >= 1 ? 'medium' : 'low'}
+            data-precision={String(cleanMin).includes('.') ? String(cleanMin).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(cleanMin) >= 1000 ? 'high' : Math.abs(cleanMin) >= 1 ? 'medium' : 'low'}
             data-position="minimum"
             itemProp="minValue"
             itemType="https://schema.org/PropertyValue"
-          >{min}</data>
+          >{cleanMin}</data>
         </span>
         <span className="text-xs font-medium text-white/50">
           <data 
-            value={max}
+            value={cleanMax}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
             data-unit={unit}
             data-type="range_maximum"
             data-context="material_property"
-            data-precision={String(max).includes('.') ? String(max).split('.')[1]?.length || 0 : 0}
-            data-magnitude={Math.abs(max) >= 1000 ? 'high' : Math.abs(max) >= 1 ? 'medium' : 'low'}
+            data-precision={String(cleanMax).includes('.') ? String(cleanMax).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(cleanMax) >= 1000 ? 'high' : Math.abs(cleanMax) >= 1 ? 'medium' : 'low'}
             data-position="maximum"
             itemProp="maxValue"
             itemType="https://schema.org/PropertyValue"
-          >{max}</data>
+          >{cleanMax}</data>
         </span>
       </div>
       
@@ -223,13 +242,16 @@ export function MetricsCard({
   ...rest // Capture other props including key
 }: MetricsCardProps) {
   
-  // Convert value to display format
-  const displayValue = String(value);
+  // Convert value to display format with cleanup
+  const cleanedValue = cleanupFloat(value);
+  const displayValue = cleanedValue;
   const displayUnit = unit || '';
   
-  // Extract numeric value for progress calculation
-  const numericValue = parseFloat(displayValue.replace(/[^\d.-]/g, ''));
-  const hasValidRange = min !== undefined && max !== undefined && !isNaN(numericValue) && min < max;
+  // Extract numeric value for progress calculation (already cleaned)
+  const numericValue = parseFloat(cleanedValue);
+  const cleanedMin = min !== undefined ? parseFloat(cleanupFloat(min)) : undefined;
+  const cleanedMax = max !== undefined ? parseFloat(cleanupFloat(max)) : undefined;
+  const hasValidRange = cleanedMin !== undefined && cleanedMax !== undefined && !isNaN(numericValue) && cleanedMin < cleanedMax;
   
   // Generate search URL if searchable is true and no href is provided
   const finalHref = href || (searchable ? generateSearchUrl(title, value, fullPropertyName) : undefined);
@@ -271,7 +293,7 @@ export function MetricsCard({
       {/* Hidden description for screen readers */}
       <div id={descId} className="sr-only">
         {hasValidRange 
-          ? `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}, ranging from ${min} to ${max} ${displayUnit}`
+          ? `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}, ranging from ${cleanedMin} to ${cleanedMax} ${displayUnit}`
           : `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}`
         }
         {isClickable && '. Press Enter or Space to search for this metric.'}
@@ -283,8 +305,8 @@ export function MetricsCard({
           <ProgressBar 
             id={componentKey}
             title={title}
-            min={min!}
-            max={max!}
+            min={cleanedMin!}
+            max={cleanedMax!}
             value={numericValue}
             color={color}
             unit={displayUnit}
