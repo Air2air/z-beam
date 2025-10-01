@@ -3,9 +3,9 @@
 
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
-import { FrontmatterType } from './Caption';
+import { FrontmatterType } from '@/types';
 
-interface CaptionImageProps {
+interface CaptionImageComponentProps {
   imageSource?: string;
   frontmatter?: FrontmatterType;
   materialName?: string;
@@ -18,7 +18,7 @@ interface CaptionImageProps {
   };
 }
 
-export function CaptionImage({ imageSource, frontmatter, materialName, seoData }: CaptionImageProps) {
+export function CaptionImage({ imageSource, frontmatter, materialName, seoData }: CaptionImageComponentProps) {
   const [imageLoading, setImageLoading] = useState(true);
   const [imageError, setImageError] = useState(false);
   const [isInView, setIsInView] = useState(false);

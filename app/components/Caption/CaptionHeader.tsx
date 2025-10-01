@@ -1,7 +1,8 @@
 // app/components/Caption/CaptionHeader.tsx
 "use client";
 
-import { FrontmatterType, ParsedCaptionData } from './Caption';
+import { FrontmatterType, ParsedCaptionData } from '@/types';
+import { Header } from '../Header';
 
 interface CaptionHeaderProps {
   materialName: string;
@@ -15,13 +16,12 @@ export function CaptionHeader({ materialName, frontmatter, captionData }: Captio
 
   return (
     <header className="caption-header mb-4">
-      <h3 
-        id="surface-analysis-heading"
+      <Header 
+        level="card"
+        title={`${capitalizedMaterial} Surface Topography`}
         className="caption-heading text-xl font-semibold mb-2 text-gray-100"
-        itemProp="headline"
-      >
-        {capitalizedMaterial} Surface Topography
-      </h3>
+        id="surface-analysis-heading"
+      />
       <p className="text-sm text-gray-400 mb-3" itemProp="description">
         Microscopic analysis of {materialType} surface before and after laser cleaning treatment
         {captionData?.laserParams?.wavelength && ` at ${captionData.laserParams.wavelength} nm`}

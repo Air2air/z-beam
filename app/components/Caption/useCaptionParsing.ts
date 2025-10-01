@@ -85,28 +85,13 @@ interface EnhancedCaptionYamlData extends CaptionYamlData {
   };
 }
 
+// Import centralized ParsedCaptionData type
+import { ParsedCaptionData } from '@/types';
+
 // Union type for backward compatibility
 type CaptionData = CaptionYamlData | EnhancedCaptionYamlData;
 
-interface ParsedCaptionData {
-  renderedContent: string;
-  beforeText?: string;
-  afterText?: string;
-  laserParams?: CaptionYamlData['laser_parameters'];
-  metadata?: CaptionYamlData['metadata'];
-  material?: string;
-  // Enhanced data fields
-  isEnhanced?: boolean;
-  qualityMetrics?: EnhancedCaptionYamlData['quality_metrics'];
-  authorObject?: EnhancedCaptionYamlData['author_object'];
-  technicalSpecs?: EnhancedCaptionYamlData['technical_specifications'];
-  materialProps?: EnhancedCaptionYamlData['material_properties'];
-  methodology?: EnhancedCaptionYamlData['analysis_methodology'];
-  seoMetadata?: EnhancedCaptionYamlData['seo_metadata'];
-  accessibility?: EnhancedCaptionYamlData['accessibility'];
-}
-
-export type { CaptionYamlData, EnhancedCaptionYamlData, CaptionData, ParsedCaptionData };
+export type { CaptionYamlData, EnhancedCaptionYamlData, CaptionData };
 
 export function useCaptionParsing(content: string | CaptionData): ParsedCaptionData {
   // Handle string content (legacy markdown)

@@ -3,7 +3,7 @@
 
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { useEffect, useRef } from 'react';
-import { FrontmatterType } from './Caption';
+import { FrontmatterType } from '@/types';
 
 interface CaptionContentProps {
   beforeText: string;

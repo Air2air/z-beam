@@ -2,9 +2,10 @@
 "use client";
 
 import React from 'react';
-import { ParsedCaptionData, FrontmatterType } from './Caption';
+import { ParsedCaptionData, FrontmatterType } from '@/types';
+import { Header } from '../Header';
 
-interface SEOCaptionProps {
+interface SEOOptimizedCaptionProps {
   materialName: string;
   frontmatter?: FrontmatterType;
   captionData?: ParsedCaptionData;
@@ -21,7 +22,7 @@ export function SEOOptimizedCaption({
   frontmatter, 
   captionData, 
   imageData 
-}: SEOCaptionProps) {
+}: SEOOptimizedCaptionProps) {
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
   const processId = `laser-cleaning-${materialName}-${Date.now()}`;
   
@@ -140,13 +141,12 @@ export function SEOOptimizedCaption({
       
       {/* Enhanced Semantic Header */}
       <header className="caption-header" itemProp="headline">
-        <h3 
-          id={`${processId}-heading`}
+        <Header 
+          level="section"
+          title={`${capitalizedMaterial} Laser Cleaning Process Analysis`}
           className="caption-title text-xl font-semibold mb-2"
-          itemProp="name"
-        >
-          {capitalizedMaterial} Laser Cleaning Process Analysis
-        </h3>
+          id={`${processId}-heading`}
+        />
         
         {/* Enhanced Meta Description for E-A-T */}
         <div className="expertise-indicators text-sm text-gray-600 mb-3">
@@ -205,9 +205,12 @@ export function SEOOptimizedCaption({
         itemType="https://schema.org/Material"
         aria-labelledby={`${processId}-material`}
       >
-        <h4 id={`${processId}-material`} className="font-semibold mb-2">
-          Material Characteristics
-        </h4>
+        <Header 
+          level="card"
+          title="Material Characteristics"
+          className="font-semibold mb-2"
+          id={`${processId}-material`}
+        />
         
         <div className="properties-grid grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
           {frontmatter?.chemicalProperties?.density && (

@@ -52,7 +52,14 @@ const customJestConfig = {
         "<rootDir>/tests/accessibility/**/*.test.{js,jsx,ts,tsx}",
         "<rootDir>/tests/integration/universal-templates-layout-integration*.test.tsx",
         "<rootDir>/tests/integration/OrganizationSchemaIntegration.test.tsx",
-        "<rootDir>/tests/alabaster-tags.test.js"
+        "<rootDir>/tests/alabaster-tags.test.js",
+        "<rootDir>/tests/standards/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/pages/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/app/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/api/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/image-naming-conventions.test.js",
+        "<rootDir>/tests/utils/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/types/**/*.test.{js,jsx,ts,tsx}"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
       moduleNameMapper: {
@@ -73,7 +80,14 @@ const customJestConfig = {
         "<rootDir>/tests/components/",
         "<rootDir>/tests/accessibility/",
         "<rootDir>/tests/integration/",
-        "<rootDir>/tests/alabaster-tags.test.js"
+        "<rootDir>/tests/alabaster-tags.test.js",
+        "<rootDir>/tests/standards/",
+        "<rootDir>/tests/pages/",
+        "<rootDir>/tests/app/",
+        "<rootDir>/tests/api/",
+        "<rootDir>/tests/image-naming-conventions.test.js",
+        "<rootDir>/tests/utils/",
+        "<rootDir>/tests/types/"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
       moduleNameMapper: {

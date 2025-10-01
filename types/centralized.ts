@@ -126,6 +126,9 @@ export interface ArticleMetadata {
   environmental_impact?: Record<string, PropertyWithUnits>;
   cost_analysis?: Record<string, PropertyWithUnits>;
   quality_metrics?: Record<string, PropertyWithUnits>;
+  
+  // Caption integration - frontmatter.caption support
+  caption?: CaptionDataStructure;
 }
 
 // ===============================
@@ -193,7 +196,7 @@ export interface ThesaurusMetadata extends ArticleMetadata {
   term: string;
   definition: string;
   relatedTerms?: string[];
-  category?: string; // e.g., "Laser Technology", "Materials", "Process Parameters"
+  category?: string; // e.g., "Technology", "Research", "Analysis", "Documentation"
   abbreviation?: string;
   technicalLevel?: "Beginner" | "Intermediate" | "Advanced" | "Expert";
 }
@@ -232,8 +235,8 @@ export interface BadgeData {
  * Enhanced Caption Data Structure - Complete interface for caption content
  */
 export interface CaptionDataStructure {
-  before_text?: string;
-  after_text?: string;
+  beforeText?: string;
+  afterText?: string;
   material?: string;
   title?: string;
   description?: string;
@@ -299,6 +302,10 @@ export interface CaptionDataStructure {
       caption?: string;
     };
   };
+  imageUrl?: {
+    url?: string;
+    alt?: string;
+  };
   accessibility?: {
     alt_text_detailed?: string;
     caption_language?: string;
@@ -352,14 +359,16 @@ export interface FrontmatterType {
     meltingPoint?: string;
     thermalConductivity?: string;
   };
+  
+  // Caption data from frontmatter.caption
+  caption?: CaptionDataStructure;
 }
 
 /**
  * Caption component props
  */
 export interface CaptionProps {
-  content: string | any; // CaptionData type from useCaptionParsing
-  frontmatter?: FrontmatterType;
+  frontmatter: FrontmatterType;
   config?: {
     className?: string;
     showTechnicalDetails?: boolean;
@@ -473,6 +482,7 @@ export interface LayoutProps {
   description?: string;
   className?: string;
   fullWidth?: boolean; // For pages that need full-width sections
+  showHero?: boolean; // Control Hero component visibility
 }
 
 /**
@@ -1472,6 +1482,45 @@ export interface TagDebugData {
   articles: string[];
   normalized: string;
   category?: string;
+}
+
+/**
+ * Header component props interface
+ */
+export interface HeaderProps {
+  title: string;
+  level?: 'page' | 'section' | 'card';
+  alignment?: 'left' | 'center' | 'right';
+  className?: string;
+  id?: string;
+  subtitle?: string;
+  
+  // WCAG & Accessibility Props
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  'aria-labelledby'?: string;
+  role?: string;
+  tabIndex?: number;
+  
+  // Search & SEO Props
+  searchKeywords?: string[];
+  category?: string;
+  priority?: 'high' | 'medium' | 'low';
+  
+  // Navigation Props
+  skipLink?: boolean;
+  landmark?: boolean;
+  nextHeaderId?: string;
+  prevHeaderId?: string;
+  
+  // Content Props
+  summary?: string;
+  context?: string;
+  
+  // Event Handlers for Enhanced Interaction
+  onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
 }
 
 /**

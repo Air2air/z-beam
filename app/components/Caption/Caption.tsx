@@ -4,13 +4,22 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { useCaptionParsing, CaptionData, ParsedCaptionData } from './useCaptionParsing';
-import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
+import { useCaptionParsing, CaptionData } from './useCaptionParsing';
+import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps, ParsedCaptionData } from '@/types';
+import { Header } from '../Header';
 import './enhanced-seo-caption.css';
 import './caption-accessibility.css';
 
-export function Caption({ content, frontmatter, config }: CaptionProps) {
-  const captionData = useCaptionParsing(content);
+export function Caption({ frontmatter, config }: CaptionProps) {
+  // Use caption data from frontmatter.caption exclusively
+  const captionContent = frontmatter?.caption;
+  
+  if (!captionContent) {
+    return null; // No caption data available
+  }
+  
+  
+  const captionData = useCaptionParsing(captionContent as any);
   const { className = '' } = config || {};
   
   // State management for image loading and accessibility
@@ -44,19 +53,19 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Simplified data processing - merge content with frontmatter
-  const enhancedData: CaptionDataStructure = typeof content === 'object' ? {
-    // Direct assignment from content
-    ...(content as CaptionDataStructure),
+  // Process caption data from frontmatter.caption only
+  const enhancedData: CaptionDataStructure = {
+    // Use frontmatter.caption as the primary data source
+    ...(captionContent as CaptionDataStructure),
     
-    // Fallback to frontmatter when needed
-    title: (content as CaptionDataStructure).title || frontmatter?.title,
-    description: (content as CaptionDataStructure).description || frontmatter?.description,
-    keywords: (content as CaptionDataStructure).keywords || frontmatter?.keywords,
-    material: content.material || frontmatter?.name,
+    // Fallback to general frontmatter when caption-specific data is not available
+    title: (captionContent as CaptionDataStructure).title || frontmatter?.title,
+    description: (captionContent as CaptionDataStructure).description || frontmatter?.description,
+    keywords: (captionContent as CaptionDataStructure).keywords || frontmatter?.keywords,
+    material: (captionContent as CaptionDataStructure).material || frontmatter?.name,
     
     // Author data handling
-    author_object: (content as CaptionDataStructure).author_object || 
+    author_object: (captionContent as CaptionDataStructure).author_object || 
       frontmatter?.author_object || 
       (typeof frontmatter?.author === 'object' ? frontmatter.author : 
        typeof frontmatter?.author === 'string' ? { name: frontmatter.author } : 
@@ -65,32 +74,16 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
     // Technical and chemical properties merging
     technicalSpecifications: {
       ...frontmatter?.technicalSpecifications,
-      ...(content as CaptionDataStructure).technicalSpecifications,
+      ...(captionContent as CaptionDataStructure).technicalSpecifications,
     },
     chemicalProperties: {
       ...frontmatter?.chemicalProperties,
-      ...(content as CaptionDataStructure).chemicalProperties,
+      ...(captionContent as CaptionDataStructure).chemicalProperties,
     },
     
     // Images handling
-    images: (content as CaptionDataStructure).images || 
+    images: (captionContent as CaptionDataStructure).images || 
       (frontmatter?.images ? { micro: frontmatter.images.micro } : undefined),
-    
-    // Use parsed text content
-    before_text: captionData.beforeText,
-    after_text: captionData.afterText,
-    
-  } : {
-    // Handle string content
-    title: frontmatter?.title || 'Material Analysis',
-    description: frontmatter?.description || 'Surface analysis results',
-    material: frontmatter?.name || 'material',
-    before_text: typeof content === 'string' ? content : undefined,
-    author_object: frontmatter?.author_object || 
-      (typeof frontmatter?.author === 'object' ? frontmatter.author : 
-       typeof frontmatter?.author === 'string' ? { name: frontmatter.author } : 
-       { name: 'Z-Beam Research Team' }),
-    images: frontmatter?.images ? { micro: frontmatter.images.micro } : undefined,
   };
 
   // Enhanced keyboard navigation for quality metrics
@@ -161,7 +154,7 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
   const liveRegionId = `caption-announcements-${analysisId}`;
 
   // Image source handling with fallbacks
-  const imageSource = enhancedData.images?.micro?.url;
+  const imageSource = enhancedData.images?.micro?.url || enhancedData.imageUrl?.url;
 
   // Reset loading states when image source changes
   useEffect(() => {
@@ -207,7 +200,7 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
   // Generate comprehensive accessibility description
   const getAccessibilityDescription = (): string => {
     const hasMetrics = enhancedData.quality_metrics && Object.keys(enhancedData.quality_metrics).length > 0;
-    const hasBeforeAfter = enhancedData.before_text && enhancedData.after_text;
+    const hasBeforeAfter = enhancedData.beforeText && enhancedData.afterText;
     
     let description = `Interactive ${capitalizedMaterial} laser cleaning analysis`;
     if (hasMetrics) description += ' with quality metrics overlay';
@@ -315,14 +308,11 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
       {/* Main Content */}
       <div className="mb-8">
         <header>
-          <h3 
-            id={titleId}
+          <Header 
+            level="section"
+            title={`Material Properties - ${capitalizedMaterial}`}
             className="text-xl font-bold text-white mb-4"
-            role="heading"
-            aria-level={3}
-          >
-            Material Properties - {capitalizedMaterial}
-          </h3>
+          />
         </header>
         <figure 
           className="caption-container" 
@@ -447,7 +437,7 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
                           >
                             <div 
                               id={metricId}
-                              className={`metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6 transition-all duration-200 ${
+                              className={`metric-card bg-gray-800 inline-flex flex-col justify-center items-center text-center backdrop-blur-lg p-2 rounded-lg shadow-lg min-w-0 max-w-full ml-6 transition-all duration-300 ease-out hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 ${
                                 isFocused ? 'ring-2 ring-blue-500 ring-opacity-50 scale-105' : ''
                               }`}
                               role="article"
@@ -521,13 +511,13 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
           role="group"
           aria-labelledby={titleId}
         >
-          {(enhancedData.before_text || enhancedData.after_text) ? (
+          {(enhancedData.beforeText || enhancedData.afterText) ? (
             <div 
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
               role="group"
               aria-label="Before and after treatment comparison"
             >
-              {enhancedData.before_text && (
+              {enhancedData.beforeText && (
                 <section 
                   className="px-2"
                   role="region"
@@ -550,12 +540,12 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
                     className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 md:mb-0"
                     aria-labelledby={beforeId}
                   >
-                    {enhancedData.before_text}
+                    {enhancedData.beforeText}
                   </p>
                 </section>
               )}
               
-              {enhancedData.after_text && (
+              {enhancedData.afterText && (
                 <section 
                   className="px-2"
                   role="region"
@@ -578,7 +568,7 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
                     className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed"
                     aria-labelledby={afterId}
                   >
-                    {enhancedData.after_text}
+                    {enhancedData.afterText}
                   </p>
                 </section>
               )}
@@ -598,5 +588,3 @@ export function Caption({ content, frontmatter, config }: CaptionProps) {
     </section>
   );
 }
-
-export type { CaptionDataStructure, FrontmatterType, CaptionProps, ParsedCaptionData };

@@ -15,14 +15,14 @@ describe('Caption Comprehensive Accessibility', () => {
       adhesion_strength: 12.3,
       hardness_hv: 95
     },
-    before_treatment: 'Surface shows oxidation, contamination, and roughness from manufacturing processes',
-    after_treatment: 'Clean, smooth surface with improved thermal and electrical properties for optimal performance',
+    beforeText: 'Surface shows oxidation, contamination, and roughness from manufacturing processes',
+    afterText: 'Clean, smooth surface with improved thermal and electrical properties for optimal performance',
     imageSource: '/analysis/aluminum-6061-t6-comparison.jpg'
   };
 
   describe('WCAG 2.1 AA Compliance', () => {
     test('implements complete semantic HTML structure', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Main container is semantic section with region role
       const mainSection = screen.getByRole('region');
@@ -47,7 +47,7 @@ describe('Caption Comprehensive Accessibility', () => {
     });
 
     test('implements comprehensive ARIA attributes', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Main section has complete ARIA labeling
       const mainSection = screen.getByRole('region');
@@ -74,7 +74,7 @@ describe('Caption Comprehensive Accessibility', () => {
     });
 
     test('provides comprehensive screen reader descriptions', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Main description covers all functionality
       const mainDescription = screen.getByText(/Surface analysis for Aluminum 6061-T6/);
@@ -100,7 +100,7 @@ describe('Caption Comprehensive Accessibility', () => {
   describe('Complex Keyboard Navigation', () => {
     test('implements complete arrow key navigation pattern', async () => {
       const user = userEvent.setup();
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       const mainSection = screen.getByRole('region');
       await user.tab();
@@ -147,7 +147,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
     test('implements Home and End key navigation', async () => {
       const user = userEvent.setup();
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       const mainSection = screen.getByRole('region');
       await user.tab();
@@ -170,7 +170,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
     test('implements Escape key to exit metrics overlay', async () => {
       const user = userEvent.setup();
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       const mainSection = screen.getByRole('region');
       await user.tab();
@@ -189,7 +189,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
     test('announces navigation changes via live region', async () => {
       const user = userEvent.setup();
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       const liveRegion = screen.getByRole('status');
       
@@ -216,7 +216,7 @@ describe('Caption Comprehensive Accessibility', () => {
   describe('Loading and Error States', () => {
     test('implements accessible loading state', () => {
       const loadingData = { ...mockData, isLoading: true };
-      render(<Caption data={loadingData} />);
+      render(<Caption frontmatter={{ caption: loadingData }} />);
       
       const progressbar = screen.getByRole('progressbar');
       expect(progressbar).toHaveAttribute('aria-label', 'Loading surface analysis image');
@@ -229,7 +229,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
     test('implements accessible error state', () => {
       const errorData = { ...mockData, hasError: true };
-      render(<Caption data={errorData} />);
+      render(<Caption frontmatter={{ caption: errorData }} />);
       
       const alert = screen.getByRole('alert');
       expect(alert).toHaveAttribute('aria-live', 'assertive');
@@ -243,10 +243,10 @@ describe('Caption Comprehensive Accessibility', () => {
     });
 
     test('handles image loading completion', async () => {
-      const { rerender } = render(<Caption data={mockData} />);
+      const { rerender } = render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Simulate image loaded
-      rerender(<Caption data={{ ...mockData, imageLoaded: true }} />);
+      rerender(<Caption frontmatter={{ caption: { ...mockData, imageLoaded: true } }} />);
       
       const liveRegion = screen.getByRole('status');
       await waitFor(() => {
@@ -257,7 +257,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
   describe('Before/After Treatment Sections', () => {
     test('implements semantic section structure', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Both sections should be semantic regions
       const sections = screen.getAllByRole('region');
@@ -280,7 +280,7 @@ describe('Caption Comprehensive Accessibility', () => {
     });
 
     test('uses presentation role for decorative indicators', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Color indicators should be marked as presentation
       const indicators = screen.getAllByRole('presentation');
@@ -294,7 +294,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
   describe('Quality Metrics Accessibility', () => {
     test('implements accessible data representation', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Each metric should use semantic data elements
       const dataElements = screen.getAllByDisplayValue(/\d+\.?\d*/);
@@ -307,7 +307,7 @@ describe('Caption Comprehensive Accessibility', () => {
     });
 
     test('provides individual metric descriptions', () => {
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       // Each metric should have screen reader description
       const metricDescriptions = screen.getAllByText(/Metric:.*Value:/);
@@ -320,7 +320,7 @@ describe('Caption Comprehensive Accessibility', () => {
 
     test('announces focused metric state', async () => {
       const user = userEvent.setup();
-      render(<Caption data={mockData} />);
+      render(<Caption frontmatter={{ caption: mockData }} />);
       
       const mainSection = screen.getByRole('region');
       await user.tab();
@@ -336,7 +336,7 @@ describe('Caption Comprehensive Accessibility', () => {
   describe('Progressive Enhancement', () => {
     test('works with minimal data', () => {
       const minimalData = { material: 'Test Material' };
-      render(<Caption data={minimalData} />);
+      render(<Caption frontmatter={{ caption: minimalData  }} />);
       
       // Should still provide accessible structure
       const mainSection = screen.getByRole('region');
@@ -349,10 +349,10 @@ describe('Caption Comprehensive Accessibility', () => {
     test('handles missing quality metrics gracefully', () => {
       const noMetricsData = { 
         material: 'Test',
-        before_treatment: 'Before',
-        after_treatment: 'After'
+        beforeText: 'Before',
+        afterText: 'After'
       };
-      render(<Caption data={noMetricsData} />);
+      render(<Caption frontmatter={{ caption: noMetricsData  }} />);
       
       // Should not break without metrics
       const mainSection = screen.getByRole('region');
@@ -368,7 +368,7 @@ describe('Caption Comprehensive Accessibility', () => {
         material: 'Test',
         quality_metrics: { test_metric: 1.0 }
       };
-      render(<Caption data={noTreatmentData} />);
+      render(<Caption frontmatter={{ caption: noTreatmentData  }} />);
       
       // Should still work with just metrics
       const mainSection = screen.getByRole('region');
@@ -389,7 +389,7 @@ describe('Caption Comprehensive Accessibility', () => {
       };
       
       const startTime = performance.now();
-      render(<Caption data={manyMetricsData} />);
+      render(<Caption frontmatter={{ caption: manyMetricsData  }} />);
       const endTime = performance.now();
       
       const renderTime = endTime - startTime;
@@ -412,7 +412,7 @@ describe('Caption Comprehensive Accessibility', () => {
       };
       
       const user = userEvent.setup();
-      render(<Caption data={manyMetricsData} />);
+      render(<Caption frontmatter={{ caption: manyMetricsData  }} />);
       
       const mainSection = screen.getByRole('region');
       await user.tab();

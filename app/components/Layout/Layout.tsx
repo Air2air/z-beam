@@ -3,12 +3,12 @@
 
 import React, { ReactNode } from 'react';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
-import { ArticleMetadata, ComponentData, LayoutProps, BadgeSymbolData, BadgeVariant } from '@/types';
+import { ArticleMetadata, ComponentData, LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/styles';
+import { Header } from '../Header';
 
 // Header components (previously in ArticleHeader)
 import { Hero } from "../Hero/Hero";
-import { Title } from "../Title/Title";
 import { Author } from "../Author/Author";
 import { extractSafeValue } from '../../utils/safeValueExtractor';
 
@@ -18,13 +18,10 @@ import { Table } from "../Table/Table";
 
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
-import { BadgeSymbol } from '../BadgeSymbol/BadgeSymbol';
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 
 // Component rendering order for articles
 const ARTICLE_COMPONENT_ORDER = [
-  'badgesymbol', 
-  'caption',
   'metricsmachinesettings',
   'metricsproperties',
   'table',
@@ -38,7 +35,7 @@ const ARTICLE_COMPONENT_ORDER = [
  * article content (with components) and regular page content (with children)
  */
 export function Layout(props: LayoutProps) {
-  const { title, description, components, metadata, slug, hideHeader, fullWidth } = props;
+  const { title, description, components, metadata, slug, hideHeader, fullWidth, showHero = true } = props;
 
   // Use full-width or contained layout based on prop
   const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.main);
@@ -51,9 +48,7 @@ export function Layout(props: LayoutProps) {
       return (
         <main className={containerClass} id="main-content" role="main">
           <div className="text-center py-12">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              {title || 'Content Not Available'}
-            </h1>
+            <Header level="page" title={title || 'Content Not Available'} />
             <p className="text-gray-600 dark:text-gray-400">
               This page is currently being prepared. Please check back later.
             </p>
@@ -86,7 +81,7 @@ export function Layout(props: LayoutProps) {
         {!hideHeader && (
           <div className="header-section mb-6">
             {/* Hero component for background image */}
-            {(() => {
+            {showHero && (() => {
               // Extract material name for hero image (from subject or slug)
               const materialName = extractSafeValue(metadata?.subject, 'subject', '').toLowerCase() ||
                 (slug && extractSafeValue({slug}, 'slug', '').includes('-') ? extractSafeValue({slug}, 'slug', '').split('-')[0].toLowerCase() : extractSafeValue({slug: slug || ''}, 'slug', '').toLowerCase());              return materialName && (
@@ -98,7 +93,7 @@ export function Layout(props: LayoutProps) {
             })()}
 
             {/* Title and Author components - simplified frontmatter-only */}
-            <Title frontmatter={metadata} title={title} />
+            <Header level="page" title={title || metadata?.title || 'Article'} />
             <Author 
               frontmatter={metadata}
               showAvatar={true}
@@ -134,6 +129,20 @@ export function Layout(props: LayoutProps) {
                   layout="auto"
                   showTitle={true}
                   searchable={true}
+                />
+              </section>
+            )}
+            
+            {/* Caption from frontmatter.caption - positioned after Machine Settings */}
+            {metadata && metadata.caption && (
+              <section aria-labelledby="caption-section" className="my-8">
+                <Caption 
+                  frontmatter={metadata as any}
+                  config={{
+                    className: "caption-section",
+                    showTechnicalDetails: true,
+                    showMetadata: true
+                  }}
                 />
               </section>
             )}
@@ -200,29 +209,6 @@ export function Layout(props: LayoutProps) {
             const { content, config } = component;
             
             switch(type) {
-              case 'badgesymbol':
-                return (
-                  <section key={type} aria-label="Material classification">
-                    <BadgeSymbol 
-                      content={content} 
-                      config={
-                        config && typeof config === 'object' && 'symbol' in config && typeof config.symbol === 'string'
-                          ? config as BadgeSymbolData & { variant?: BadgeVariant; className?: string }
-                          : undefined
-                      } 
-                    />
-                  </section>
-                );
-              case 'caption':
-                return (
-                  <section key={type} aria-label="Caption and metadata">
-                    <Caption 
-                      content={content} 
-                      frontmatter={metadata as any} 
-                      config={config} 
-                    />
-                  </section>
-                );
               case 'table':
                 return (
                   <section key={type} aria-label="Data table">
@@ -253,16 +239,9 @@ export function Layout(props: LayoutProps) {
     <main className={containerClass} id="main-content" role="main">
       {/* Page header - only show in contained layouts */}
       {title && !fullWidth && (
-        <header className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            {title}
-          </h1>
-          {description && (
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              {description}
-            </p>
-          )}
-        </header>
+        <div className="mb-8">
+          <Header level="page" title={title} />
+        </div>
       )}
       
       {/* Page content */}
