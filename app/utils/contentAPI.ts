@@ -17,7 +17,7 @@ import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './format
 import { extractSafeValue } from './stringHelpers';
 import { validateSlug, validateFilePath, ValidationError, GenerationError, safeOperation } from './errorSystem';
 // Import centralized types instead of defining our own
-import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType, LoadedFrontmatter } from '@/types';
+import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType } from '@/types';
 
 // Simple replacement for safeContentOperation
 const safeContentOperation = async (op: () => Promise<any>, fallback: any, name: string, slug?: string) => {
@@ -688,15 +688,44 @@ export const loadMetadata = cache(async (slug: string): Promise<Record<string, u
 
 /**
  * Load complete page data (metadata + all components)
+ * Now with support for content/pages/*.yaml files
  */
 export const loadPageData = cache(async (slug: string): Promise<PageData> => {
   return safeContentOperation(async () => {
+    // First, check for page-specific YAML file in content/pages/
+    const pagesDir = path.join(process.cwd(), 'content', 'pages');
+    const pageYamlPath = path.join(pagesDir, `${slug}.yaml`);
+    
+    let pageYamlData: Record<string, unknown> = {};
+    
+    if (existsSync(pageYamlPath)) {
+      try {
+        const fileContent = await fs.readFile(pageYamlPath, 'utf8');
+        const yaml = await import('yaml');
+        const documents = yaml.parseAllDocuments(fileContent);
+        const parsed = documents[0]?.toJS();
+        
+        if (parsed && typeof parsed === 'object') {
+          pageYamlData = parsed;
+        }
+      } catch (error) {
+        console.warn(`Failed to parse page YAML for ${slug}:`, error);
+      }
+    }
+    
+    // Load standard metadata and components as before
     const [metadata, components] = await Promise.all([
       loadMetadata(slug),
       loadAllComponents(slug),
     ]);
     
-    return { metadata, components };
+    // Merge page YAML data with standard metadata (page YAML takes precedence)
+    const mergedMetadata = {
+      ...metadata,
+      ...pageYamlData,
+    };
+    
+    return { metadata: mergedMetadata, components };
   }, { metadata: {}, components: {} }, 'loadPageData', slug);
 });
 

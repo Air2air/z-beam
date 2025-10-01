@@ -26,8 +26,7 @@ const customJestConfig = {
     "!app/api/**",
     "!**/*.config.js",
     "!**/node_modules/**",
-    "!app/debug/**",
-    "!app/pages/**"
+    "!app/debug/**"
   ],
   coverageReporters: [
     "text",

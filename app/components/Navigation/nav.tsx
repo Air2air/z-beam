@@ -94,6 +94,22 @@ export function Navbar() {
       
       {/* The main container for the entire header/navbar, spans full width */}
       <header className="w-full bg-white dark:bg-gray-800 shadow-md z-50 relative" role="banner">{/* Role for better screen reader support */}
+        {/* Van image superimposed over nav bar - clickable link to contact */}
+        <Link 
+          href="/contact" 
+          className="absolute left-1/2 -translate-x-1/2 top-3 z-10 hover:scale-105 transition-transform duration-300 ease-in-out w-[120px] md:w-[130px]"
+          aria-label="Contact us"
+        >
+          <Image
+            src="/images/site/van/van.png"
+            alt="Z-Beam service van"
+            width={130}
+            height={80}
+            className="w-full h-auto"
+            priority
+          />
+        </Link>
+        
         <div className={CONTAINER_STYLES.standard.replace('py-8', 'py-3') + ' flex justify-between items-center'}>
           {/* Logo on the left */}
           <div className="flex-shrink-0">

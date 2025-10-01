@@ -1,9 +1,3 @@
----
-title: "Z-Beam Laser Cleaning Services"
-description: "Comprehensive laser cleaning services for industrial applications, including surface preparation, oxide removal, coating removal, and customized cleaning solutions."
-keywords: ["laser cleaning services", "industrial cleaning", "surface preparation", "oxide removal", "coating removal"]
----
-
 # Z-Beam Laser Cleaning Services
 
 ## Our Services
