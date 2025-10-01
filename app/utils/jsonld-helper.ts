@@ -23,7 +23,8 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     const description = metadata.description || frontmatter.description || `Comprehensive laser cleaning guide for ${title}`;
     const category = metadata.category || frontmatter.category || 'material';
     const keywords = metadata.keywords || frontmatter.keywords || [];
-    const author = metadata.author || frontmatter.author || 'Z-Beam Technical Team';
+    const authorRaw = metadata.author || frontmatter.author || 'Z-Beam Technical Team';
+    const author = typeof authorRaw === 'string' ? authorRaw : (authorRaw?.name || 'Z-Beam Technical Team');
     
     // Material properties
     const materialName = title.replace(/\s*Laser Cleaning$/i, '').replace(/\s*Cleaning$/i, '');
