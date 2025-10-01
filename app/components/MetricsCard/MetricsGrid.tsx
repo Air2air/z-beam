@@ -5,6 +5,7 @@ import { MetricsCard as SingleMetricsCard } from './MetricsCard';
 import { ArticleMetadata, PropertyWithUnits, MetricsCardProps } from '../../../types';
 import { extractMachineSettingsFromFrontmatter } from '../../utils/metricsCardHelpers';
 import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
+import { Header } from '../Header';
 import './accessibility.css';
 
 // Enhanced color palette for cards with semantic meanings
@@ -271,16 +272,9 @@ export function MetricsGrid({
       
       {/* Enhanced header with proper semantic structure */}
       {showTitle && displayTitle && (
-        <header className="mb-6">
-          <h3 id={titleId} className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {displayTitle}
-          </h3>
-          {description && (
-            <p id={descId} className="text-gray-600 dark:text-gray-400">
-              {description}
-            </p>
-          )}
-        </header>
+        <div className="mb-6">
+          <Header level="section" title={displayTitle} />
+        </div>
       )}
       
       {/* Grid with comprehensive accessibility */}
@@ -332,7 +326,7 @@ export function MetricsGrid({
       >
         {limitedCards.map((card, index) => (
           <div 
-            key={card.key}
+            key={`${card.title}-${index}`}
             role="listitem"
             aria-setsize={limitedCards.length}
             aria-posinset={index + 1}

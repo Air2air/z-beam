@@ -58,27 +58,25 @@ export function getGridClasses({
 }
 
 /**
- * Standard section header classes
+ * Standard section header classes (legacy - now using Header component)
  */
 export const SECTION_HEADER_CLASSES = {
   title: "text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2",
   subtitle: "text-gray-600 dark:text-gray-400 mt-2",
-  accent: "w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded",
   container: "mb-8"
 } as const;
 
 /**
- * Category header classes for category-grouped displays
+ * Category header classes for category-grouped displays (legacy - now using Header component)
  */
 export const CATEGORY_HEADER_CLASSES = {
   title: "text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2",
   subtitle: "text-gray-600 dark:text-gray-400 mt-2", 
-  accent: "w-12 h-1 bg-blue-600 dark:bg-blue-400 rounded",
   container: "mb-6"
 } as const;
 
 /**
- * Generate section header JSX with consistent styling
+ * Generate section header JSX with consistent styling (legacy - now using Header component)
  */
 export function createSectionHeader(title: string, subtitle?: string) {
   return {
@@ -86,13 +84,12 @@ export function createSectionHeader(title: string, subtitle?: string) {
     subtitle,
     titleClass: SECTION_HEADER_CLASSES.title,
     subtitleClass: SECTION_HEADER_CLASSES.subtitle,
-    accentClass: SECTION_HEADER_CLASSES.accent,
     containerClass: SECTION_HEADER_CLASSES.container
   };
 }
 
 /**
- * Generate category header JSX with consistent styling
+ * Generate category header JSX with consistent styling (legacy - now using Header component)
  */
 export function createCategoryHeader(title: string, itemCount: number) {
   const subtitle = `${itemCount} ${itemCount === 1 ? 'article' : 'articles'}`;
@@ -101,7 +98,6 @@ export function createCategoryHeader(title: string, itemCount: number) {
     subtitle,
     titleClass: CATEGORY_HEADER_CLASSES.title,
     subtitleClass: CATEGORY_HEADER_CLASSES.subtitle, 
-    accentClass: CATEGORY_HEADER_CLASSES.accent,
     containerClass: CATEGORY_HEADER_CLASSES.container
   };
 }

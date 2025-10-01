@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { CardGrid } from "../components/CardGrid/CardGrid";
 import { Article, MaterialType, SearchClientProps } from "@/types";
 import { extractSafeValue, safeIncludes } from "../utils/client-safe";
+import { Header } from "../components/Header";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -244,12 +245,11 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   return (
     <div>
       <div className="mb-4">
-        <h2 className="text-xl font-semibold">
-          {propertyName && propertyValue ? 
+        <Header level="section" title={
+          propertyName && propertyValue ? 
             `Materials with ${propertyName}: "${propertyValue}"` :
             query ? `Search Results for "${query}"` : 'All Articles'
-          }
-        </h2>
+        } />
         <p className="text-gray-600">{filteredArticles.length} results found</p>
       </div>
       

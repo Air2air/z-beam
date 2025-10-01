@@ -1,7 +1,7 @@
 // app/components/Caption/MetadataDisplay.tsx
 "use client";
 
-import { FrontmatterType } from './Caption';
+import { FrontmatterType } from '@/types';
 
 interface MetadataType {
   generated?: string;

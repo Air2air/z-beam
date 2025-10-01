@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { Button } from './components/Button';
+import { Header } from './components/Header';
 
 export default function Error({
   error,
@@ -17,7 +18,7 @@ export default function Error({
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[400px] space-y-4">
-      <h2 className="text-2xl font-bold text-red-600">Something went wrong!</h2>
+      <Header level="section" title="Something went wrong!" />
       <p className="text-gray-600 text-center max-w-md">
         An error occurred while rendering this page. Please try again.
       </p>

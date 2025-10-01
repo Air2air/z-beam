@@ -58,7 +58,7 @@ export * from './metadata';
 export * from './thumbnailLoader';
 export * from './imageLoader';
 export * from './tableEnhancer';
-export * from './homeCardConverter';
+// export * from './homeCardConverter'; // File not found
 
 // =============================================================================
 // LEGACY/COMPATIBILITY (Maintained for backward compatibility)

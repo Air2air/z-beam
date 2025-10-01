@@ -1,7 +1,7 @@
 // app/components/Caption/TechnicalDetails.tsx
 "use client";
 
-import { FrontmatterType } from './Caption';
+import { FrontmatterType } from '@/types';
 
 interface TechnicalDetailsProps {
   laserParams?: {

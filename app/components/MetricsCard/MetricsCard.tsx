@@ -375,7 +375,7 @@ export function MetricsCard({
   // Enhanced styles with accessibility features
   const focusStyles = 'focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-offset-2';
   const clickableClasses = isClickable 
-    ? `cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 ${focusStyles}` 
+    ? `cursor-pointer hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out ${focusStyles}` 
     : '';
 
   // Ensure minimum touch target size (44px minimum)
@@ -388,7 +388,7 @@ export function MetricsCard({
       style={{ 
         backgroundColor: bgColor,
         '--hover-bg-color': hoverBgColor,
-        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.2s'
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
       } as React.CSSProperties & { '--hover-bg-color': string }}
       
       // Enhanced accessibility attributes
@@ -412,10 +412,10 @@ export function MetricsCard({
     </Link>
   ) : (
     <div 
-      className={`rounded-lg p-3 h-24 transition-all duration-200 ${minTouchTarget} ${className}`}
+      className={`rounded-lg p-3 h-24 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
-        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.2s'
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
       }}
       role="presentation"
     >

@@ -57,20 +57,10 @@ describe('Centralized Types - Caption System', () => {
 
   test('CaptionProps should support all component configurations', () => {
     const captionProps: CaptionProps = {
-      content: 'Simple string content',
       frontmatter: {
-        title: 'Test Title',
-        name: 'test-material',
-        images: {
-          micro: {
-            url: 'test-image.jpg'
-          }
+        caption: {
+          beforeText: 'Simple string content'
         }
-      },
-      config: {
-        className: 'custom-class',
-        showTechnicalDetails: true,
-        showMetadata: false
       }
     };
 

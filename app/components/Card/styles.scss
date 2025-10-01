@@ -1,1 +1,28 @@
-/* Card component styles - variants are now handled internally in the Card component */
+/* Card component styles - enhanced hover transitions */
+
+/* Ensure transitions work properly */
+.card-hover-enhanced {
+  will-change: transform, box-shadow;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card-hover-enhanced {
+    transition: none !important;
+  }
+  
+  .card-hover-enhanced:hover {
+    transform: none !important;
+  }
+}
+
+/* Additional hover effects for better visual feedback */
+.card-group:hover {
+  transition: all 0.3s ease-out;
+}
+
+/* Smooth hover for all card elements */
+.card-container {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}

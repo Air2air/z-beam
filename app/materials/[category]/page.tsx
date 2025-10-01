@@ -8,6 +8,7 @@ import { getAllArticleSlugs } from '@/app/utils/contentAPI';
 import { createMetadata } from '@/app/utils/metadata';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '../metadata';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
+import { Header } from '@/app/components/Header';
 
 // Static generation for all category pages
 export async function generateStaticParams() {
@@ -67,9 +68,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className={CONTAINER_STYLES.standard}>
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {categoryDisplayName} Laser Cleaning
-            </h1>
+            <Header level="page" title={`${categoryDisplayName} Laser Cleaning`} />
             <p className="text-xl md:text-2xl text-blue-100 mb-6">
               {categoryMetadata.description}
             </p>
@@ -104,9 +103,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {/* Category Information */}
       <section className={`${CONTAINER_STYLES.standard} mt-16`}>
         <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-          <h2 className="text-2xl font-bold mb-4">
-            About {categoryDisplayName} Laser Cleaning
-          </h2>
+          <Header level="section" title={`About ${categoryDisplayName} Laser Cleaning`} />
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-lg text-gray-700 dark:text-gray-300">
               {getCategoryDescription(category)}

@@ -2,7 +2,7 @@
 // Extracted header component for article pages
 
 import { Hero } from "../Hero/Hero";
-import { Title } from "../Title/Title";
+import { Header } from "../Header";
 import { Author } from "../Author/Author";
 import { extractSafeValue } from "../../utils/stringHelpers";
 import type { ArticleMetadata, ComponentData } from "@/types";
@@ -35,9 +35,7 @@ export function ArticleHeader({ metadata, slug, title, components }: ArticleHead
 
       {/* Title section */}
       {displayTitle && (
-        <Title subtitle={displaySubtitle}>
-          {String(displayTitle)}
-        </Title>
+        <Header level="page" title={String(displayTitle)} />
       )}
       
       {/* Author component - simplified direct usage */}

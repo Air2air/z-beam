@@ -6,14 +6,14 @@ description: Laser cleaning parameters for Aluminum
 materialProperties:
   density:
     value: 8.73
-    unit: "g/cm\xB3"
+    unit: g/cm³
     confidence: 95
     description: Typical density for tin bronze alloys (Cu-Sn)
     min: 0.53
     max: 22.6
   thermalConductivity:
     value: 42.0
-    unit: "W/m\xB7K"
+    unit: W/m·K
     confidence: 88
     description: Thermal conductivity of standard bronze alloys
     min: 6.0
@@ -41,42 +41,42 @@ materialProperties:
     max: 579.82
   thermalExpansion:
     value: 18.0
-    unit: "10\u207B\u2076/\xB0C"
+    unit: 10⁻⁶/°C
     confidence: 85
     description: Coefficient of thermal expansion at room temperature
     min: 1.7
     max: 34.9
   specificHeat:
     value: 380.0
-    unit: "J/kg\xB7K"
+    unit: J/kg·K
     confidence: 87
     description: Specific heat capacity at room temperature
     min: 0
     max: 1994.6
   thermalDiffusivity:
     value: 42.7
-    unit: "mm\xB2/s"
+    unit: mm²/s
     confidence: 82
     description: Thermal diffusivity calculated from thermal properties
     min: 0
     max: 191.376
   absorptionCoefficient:
     value: 0.65
-    unit: ''
+    unit: '
     confidence: 80
     description: Estimated absorption coefficient for IR lasers (1064 nm)
     min: null
     max: null
   reflectivity:
     value: 0.35
-    unit: ''
+    unit: '
     confidence: 82
     description: Reflectivity at common laser wavelengths (1064 nm)
     min: null
     max: null
   ablationThreshold:
     value: 1.2
-    unit: "J/cm\xB2"
+    unit: J/cm²
     confidence: 85
     description: Estimated laser ablation threshold for nanosecond pulses
     min: null
@@ -104,7 +104,7 @@ materialProperties:
     max: null
   surfaceRoughness:
     value: 0.8
-    unit: "\u03BCm Ra"
+    unit: μm Ra
     confidence: 85
     description: Typical surface roughness for machined bronze surfaces
     min: null
@@ -114,7 +114,7 @@ materialProperties:
     max: 100.0
     min: 0.02
     source: default_from_category_range
-    unit: "cm\u207B\xB9"
+    unit: cm⁻¹
     value: 38.5
   laserReflectivity:
     confidence: 0.7
@@ -128,7 +128,7 @@ materialProperties:
     max: 3422.0
     min: -38.8
     source: default_from_category_range
-    unit: "\xB0C"
+    unit: °C
     value: 1598.15
   thermalDestructionType:
     confidence: 0.8
@@ -142,8 +142,7 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Bronze oxide removal without substrate
-      damage
+    description: Optimal average power for Bronze oxide removal without substrate damage
     min: 80
     max: 120
   wavelength:
@@ -155,7 +154,7 @@ machineSettings:
     max: 10640
   spotSize:
     value: 100
-    unit: "\u03BCm"
+    unit: μm
     confidence: 84
     description: Beam spot diameter for optimal energy density on Bronze surface
     min: 50
@@ -192,13 +191,12 @@ machineSettings:
     value: 3
     unit: passes
     confidence: 83
-    description: Number of passes for complete contaminant removal without substrate
-      damage
+    description: Number of passes for complete contaminant removal without substrate damage
     min: 1
     max: 5
   energyDensity:
     value: 12.7
-    unit: "J/cm\xB2"
+    unit: J/cm²
     confidence: 89
     description: Fluence threshold for effective Bronze oxide removal
     min: 8
@@ -219,10 +217,6 @@ images:
   hero:
     alt: Bronze surface undergoing laser cleaning showing precise contamination removal
     url: /images/bronze-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Bronze surface after laser cleaning showing detailed
-      surface structure
-    url: /images/bronze-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -232,22 +226,22 @@ environmentalImpact:
   - Medical
   - Nuclear
   quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-  sustainabilityBenefit: ''
+  sustainabilityBenefit: '
 - benefit: Water Usage Reduction
   description: Dry process requires no water
   applicableIndustries: []
-  quantifiedBenefits: ''
+  quantifiedBenefits: '
   sustainabilityBenefit: Significant water conservation in industrial processes
 - benefit: Energy Efficiency
   description: Focused energy delivery with minimal waste heat
   applicableIndustries: []
-  quantifiedBenefits: ''
-  sustainabilityBenefit: ''
+  quantifiedBenefits: '
+  sustainabilityBenefit: '
 - benefit: Air Quality Improvement
   description: Eliminates volatile organic compounds from chemical cleaning
   applicableIndustries: []
-  quantifiedBenefits: ''
-  sustainabilityBenefit: ''
+  quantifiedBenefits: '
+  sustainabilityBenefit: '
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -273,21 +267,20 @@ applicationTypes:
   - Surface energy
   - Cleanliness level
   - Roughness profile
-  typicalTolerances: ''
+  typicalTolerances: '
   objectives:
   - Adhesion enhancement
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
   - Art Conservation
   - Historical Restoration
   qualityMetrics: []
-  typicalTolerances: ''
+  typicalTolerances: '
   objectives: []
 - type: Contamination Removal
   description: General removal of unwanted surface deposits and contaminants
@@ -297,7 +290,7 @@ applicationTypes:
   - Oil & Gas
   - Power Generation
   qualityMetrics: []
-  typicalTolerances: ''
+  typicalTolerances: '
   objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
@@ -315,22 +308,22 @@ outcomeMetrics:
 - metric: Processing Speed
   description: Rate of surface area processed per unit time
   measurementMethods: []
-  typicalRanges: ''
+  typicalRanges: '
   factorsAffecting: []
   units:
-  - "m\xB2/h"
-  - "cm\xB2/min"
-  - "mm\xB2/s"
+  - m²/h
+  - cm²/min
+  - mm²/s
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
-  typicalRanges: ''
+  typicalRanges: '
   factorsAffecting: []
   units: []
 - metric: Thermal Damage Avoidance
   description: Prevention of heat-related material alterations during cleaning
   measurementMethods: []
-  typicalRanges: ''
+  typicalRanges: '
   factorsAffecting: []
   units: []
 author:
@@ -341,3 +334,45 @@ author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
   image: /images/author/todd-dunning.jpg
+caption:
+  beforeText: 'At 500x magnification, the bronze surface is obscured by a complex contamination layer. A non-uniform crust
+    of copper corrosion products, primarily green basic copper sulfate (approx. 5-15 µm thick), forms a porous, scaly topography.
+    This layer is punctuated by darker patches of tenacious copper oxide (Cu₂O) and embedded with particulate matter.
+
+
+    Beneath this crust, the original metal surface is unidentifiable. The corrosion has created a rough, pitted interface
+    with the underlying bronze, significantly increasing the surface area. The texture is irregular, with micro-fissures running
+    through the corrosion layer, indicating where the degraded material is mechanically unsound and ready to spall.'
+  afterText: 'The transformation at 500x is dramatic. The thick, multi-layered crust of corrosion has been completely ablated,
+    revealing the intact, underlying bronze substrate. The surface now exhibits the characteristic features of a clean, FCC
+    crystalline metal structure, with clear grain boundaries and subtle machining marks from the original fabrication.
+
+
+    In direct contrast to the previous rough, porous texture, the surface is now uniformly clean with a micro-roughened appearance
+    from the laser's interaction. This slight texture, measured at approximately 0.8 µm Ra, is free of pits and micro-fissures,
+    indicating a non-aggressive cleaning process that preserved the base metal integrity while thoroughly stripping all contaminants.'
+  description: Microscopic analysis of bronze surface before and after laser cleaning treatment
+  alt: Microscopic view of bronze surface showing laser cleaning effects
+  technicalAnalysis:
+    focus: surface_analysis
+    uniqueCharacteristics:
+    - bronze_specific
+    contaminationProfile: bronze surface contamination
+  microscopy:
+    parameters: Microscopic analysis of bronze
+    qualityMetrics: Surface improvement analysis
+  generation:
+    method: frontmatter_integrated_generation
+    timestamp: '2025-09-30T19:15:04.155549Z'
+    generator: FrontmatterCaptionGenerator
+    componentType: ai_caption_frontmatter
+  author: Todd Dunning
+  materialProperties:
+    materialType: Metal
+    analysisMethod: ai_microscopy
+  imageUrl:
+    alt: Microscopic view of Bronze surface after laser cleaning showing detailed surface structure
+    url: /images/bronze-laser-cleaning-micro.jpg
+metadata:
+  lastUpdated: '2025-09-30T19:15:18.376980'
+  captionIntegrated: true

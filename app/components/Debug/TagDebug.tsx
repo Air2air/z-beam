@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Header } from '../Header';
 
-interface TagDebugData {
+interface TagData {
   totalArticles: number;
   articlesWithAuthor: number;
   articlesWithFrontmatterAuthor: number;

@@ -33,11 +33,6 @@ export function Title({
       <Tag className={combinedClasses}>
         {String(displayTitle)}
       </Tag>
-      {displaySubtitle && (
-        <p className="text-base text-gray-600 dark:text-gray-300 mt-2">
-          {String(displaySubtitle)}
-        </p>
-      )}
     </header>
   );
 }

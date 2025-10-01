@@ -145,6 +145,30 @@ input[type="email"] {
   text-wrap: balance;
 }
 
+/* Enhanced card transitions for consistent hover effects */
+.card-enhanced-hover {
+  transition: all 0.3s ease-out;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.card-enhanced-hover:hover {
+  transform: scale(1.03) translateY(-4px) translateZ(0);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .card-enhanced-hover {
+    transition: none !important;
+  }
+  
+  .card-enhanced-hover:hover {
+    transform: none !important;
+  }
+}
+
 .dark {
   --fallback-bg-color: #374151; /* Dark gray for dark mode */
 }

@@ -103,7 +103,7 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
     "rounded-md border border-red-800",
     "flex flex-col items-center justify-center",
     "shadow-sm hover:shadow-md hover:scale-105",
-    "transition-all duration-200",
+    "transition-all duration-300 ease-out",
     "badge-container", // Add our custom class for z-index
     className
   ].join(" ");

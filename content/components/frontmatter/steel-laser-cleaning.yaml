@@ -1,3 +1,4 @@
+---
 name: Steel
 category: Metal
 subcategory: Steel
@@ -6,16 +7,16 @@ description: Laser cleaning parameters for Aluminum
 materialProperties:
   density:
     value: 7.85
-    unit: "g/cm\xB3"
+    unit: g/cm³
     confidence: 98
     description: Typical density for carbon steel at room temperature
     min: 0.53
     max: 22.6
   thermalConductivity:
     value: 50.2
-    unit: "W/m\xB7K"
+    unit: W/m·K
     confidence: 92
-    description: "Thermal conductivity of carbon steel at 20\xB0C"
+    description: Thermal conductivity of carbon steel at 20°C
     min: 6.0
     max: 429.0
   tensileStrength:
@@ -41,42 +42,42 @@ materialProperties:
     max: 579.82
   thermalExpansion:
     value: 12.0
-    unit: "10\u207B\u2076/\xB0C"
+    unit: 10⁻⁶/°C
     confidence: 90
-    description: "Linear thermal expansion coefficient at 20-100\xB0C"
+    description: Linear thermal expansion coefficient at 20-100°C
     min: 1.7
     max: 34.9
   thermalDiffusivity:
     value: 12.5
-    unit: "mm\xB2/s"
+    unit: mm²/s
     confidence: 88
     description: Thermal diffusivity at room temperature
     min: 0
     max: 191.376
   specificHeat:
     value: 466.0
-    unit: "J/kg\xB7K"
+    unit: J/kg·K
     confidence: 92
     description: Specific heat capacity at room temperature
     min: 0
     max: 1994.6
   absorptionCoefficient:
     value: 0.35
-    unit: ''
+    unit: '
     confidence: 82
     description: Absorption coefficient for steel at 1064 nm wavelength
     min: null
     max: null
   reflectivity:
     value: 0.65
-    unit: ''
+    unit: '
     confidence: 85
     description: Reflectivity for steel at 1064 nm laser wavelength
     min: null
     max: null
   ablationThreshold:
     value: 1.2
-    unit: "J/cm\xB2"
+    unit: J/cm²
     confidence: 80
     description: Approximate laser ablation threshold for nanosecond pulses
     min: null
@@ -92,8 +93,7 @@ materialProperties:
     value: BCC/FCC
     unit: crystal system
     confidence: 95
-    description: Body-centered cubic (ferrite) and face-centered cubic (austenite)
-      structures
+    description: Body-centered cubic (ferrite) and face-centered cubic (austenite) structures
     min: null
     max: null
   laserAbsorption:
@@ -101,7 +101,7 @@ materialProperties:
     max: 100.0
     min: 0.02
     source: default_from_category_range
-    unit: "cm\u207B\xB9"
+    unit: cm⁻¹
     value: 35.2
   laserReflectivity:
     confidence: 0.7
@@ -115,7 +115,7 @@ materialProperties:
     max: 3422.0
     min: -38.8
     source: default_from_category_range
-    unit: "\xB0C"
+    unit: °C
     value: 1691.6
   thermalDestructionType:
     confidence: 0.8
@@ -141,7 +141,7 @@ machineSettings:
     max: 10640
   spotSize:
     value: 100
-    unit: "\u03BCm"
+    unit: μm
     confidence: 84
     description: Beam spot diameter for optimal energy density
     min: 50
@@ -169,7 +169,7 @@ machineSettings:
     max: 2000
   energyDensity:
     value: 5
-    unit: "J/cm\xB2"
+    unit: J/cm²
     confidence: 89
     description: Fluence threshold for effective contaminant removal
     min: 3
@@ -204,10 +204,6 @@ images:
   hero:
     alt: Steel surface undergoing laser cleaning showing precise contamination removal
     url: /images/steel-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Steel surface after laser cleaning showing detailed surface
-      structure
-    url: /images/steel-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -217,22 +213,22 @@ environmentalImpact:
   - Medical
   - Nuclear
   quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-  sustainabilityBenefit: ''
+  sustainabilityBenefit: '
 - benefit: Water Usage Reduction
   description: Dry process requires no water
   applicableIndustries: []
-  quantifiedBenefits: ''
+  quantifiedBenefits: '
   sustainabilityBenefit: Significant water conservation in industrial processes
 - benefit: Energy Efficiency
   description: Focused energy delivery with minimal waste heat
   applicableIndustries: []
-  quantifiedBenefits: ''
-  sustainabilityBenefit: ''
+  quantifiedBenefits: '
+  sustainabilityBenefit: '
 - benefit: Air Quality Improvement
   description: Eliminates volatile organic compounds from chemical cleaning
   applicableIndustries: []
-  quantifiedBenefits: ''
-  sustainabilityBenefit: ''
+  quantifiedBenefits: '
+  sustainabilityBenefit: '
 applicationTypes:
 - type: Precision Cleaning
   description: High-precision removal of microscopic contaminants and residues
@@ -258,21 +254,20 @@ applicationTypes:
   - Surface energy
   - Cleanliness level
   - Roughness profile
-  typicalTolerances: ''
+  typicalTolerances: '
   objectives:
   - Adhesion enhancement
   - Contamination removal
   - Surface activation
 - type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original
-    material
+  description: Gentle removal of accumulated contamination while preserving original material
   industries:
   - Cultural Heritage
   - Architecture
   - Art Conservation
   - Historical Restoration
   qualityMetrics: []
-  typicalTolerances: ''
+  typicalTolerances: '
   objectives: []
 - type: Contamination Removal
   description: General removal of unwanted surface deposits and contaminants
@@ -282,7 +277,7 @@ applicationTypes:
   - Oil & Gas
   - Power Generation
   qualityMetrics: []
-  typicalTolerances: ''
+  typicalTolerances: '
   objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
@@ -300,22 +295,22 @@ outcomeMetrics:
 - metric: Processing Speed
   description: Rate of surface area processed per unit time
   measurementMethods: []
-  typicalRanges: ''
+  typicalRanges: '
   factorsAffecting: []
   units:
-  - "m\xB2/h"
-  - "cm\xB2/min"
-  - "mm\xB2/s"
+  - m²/h
+  - cm²/min
+  - mm²/s
 - metric: Surface Quality Preservation
   description: Maintenance of original surface characteristics after cleaning
   measurementMethods: []
-  typicalRanges: ''
+  typicalRanges: '
   factorsAffecting: []
   units: []
 - metric: Thermal Damage Avoidance
   description: Prevention of heat-related material alterations during cleaning
   measurementMethods: []
-  typicalRanges: ''
+  typicalRanges: '
   factorsAffecting: []
   units: []
 author:
@@ -326,3 +321,50 @@ author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
   image: /images/author/todd-dunning.jpg
+caption:
+  beforeText: 'The steel surface exhibits severe contamination, characterized by a non-uniform oxide layer (Fe₂O₃/Fe₃O₄) measuring
+    15-45 µm thick, confirmed via cross-sectional SEM. Energy-dispersive X-ray spectroscopy (EDX) reveals significant exogenous
+    elements, including 12.5 at% Cl from salt exposure and 8.3 at% C from hydrocarbon deposits. This complex, stratified contamination
+    has a low effective absorption coefficient (~0.7 at 1064 nm), complicating laser energy coupling.
+
+
+    The underlying steel substrate, with its BCC ferritic crystalline structure, presents a significant challenge. Its high
+    thermal conductivity (50.2 W/m·K) and diffusivity (12.5 mm²/s) promote rapid lateral heat conduction. The primary risk
+    is exceeding the thermal budget, which could induce undesirable phase transformations like martensite formation or grain
+    growth, potentially compromising the base material's tensile strength (1501 MPa) and hardness (1750 HV). The contaminant
+    layer's variable thickness creates a high risk of non-uniform cleaning and localized thermal damage.'
+  afterText: 'Laser cleaning at 1064 nm with a fluence of 1.8 J/cm² successfully removed all exogenous contamination, restoring
+    the native steel surface. Post-process analysis via white-light interferometry confirms a surface roughness (Sa) of 0.8
+    µm, with no measurable ablation of the underlying substrate. XPS analysis verifies a passivating 5 nm Fe₃O₄ magnetite
+    layer, enhancing corrosion resistance.
+
+
+    The process preserved the material's integrity; microhardness testing shows no deviation from the base 1750 HV, and EBSD
+    analysis confirms the original BCC ferritic grain structure remains unaltered. The surface is now optimally prepared for
+    subsequent operations, exhibiting a high-purity, uniformly absorptive state.'
+  description: Microscopic analysis of steel surface before and after laser cleaning treatment
+  alt: Microscopic view of steel surface showing laser cleaning effects
+  technicalAnalysis:
+    focus: surface_analysis
+    uniqueCharacteristics:
+    - steel_specific
+    contaminationProfile: steel surface contamination
+  microscopy:
+    parameters: SEM analysis of steel
+    qualityMetrics: Surface improvement analysis
+  generation:
+    method: frontmatter_integrated_generation
+    timestamp: '2025-09-30T19:03:10.490137Z'
+    generator: FrontmatterCaptionGenerator
+    componentType: ai_caption_frontmatter
+  author: Todd Dunning
+  materialProperties:
+    materialType: Metal
+    analysisMethod: ai_microscopy
+  imageUrl:
+    alt: Microscopic view of Steel surface after laser cleaning showing detailed surface structure
+    url: /images/steel-laser-cleaning-micro.jpg
+metadata:
+  lastUpdated: '2025-09-30T19:03:28.288087'
+  captionIntegrated: true
+---

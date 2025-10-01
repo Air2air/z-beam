@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Header } from '../Header';
 
-interface FrontmatterItem {
+interface Document {
   slug: string;
   title: string;
   author: string;
@@ -62,7 +63,7 @@ export function FrontmatterDebug() {
   if (error) {
     return (
       <div className="p-4 bg-red-50 rounded border border-red-200">
-        <h3 className="font-semibold text-red-700">Frontmatter Debug Error</h3>
+        <Header level="card" title="Frontmatter Debug Error" className="font-semibold text-red-700" />
         <p className="text-red-600 mt-1">{error}</p>
       </div>
     );
@@ -71,7 +72,7 @@ export function FrontmatterDebug() {
   if (!data || data.length === 0) {
     return (
       <div className="p-4 bg-yellow-50 rounded border border-yellow-200">
-        <h3 className="font-semibold text-yellow-700">No Frontmatter Data</h3>
+        <Header level="card" title="No Frontmatter Data" className="font-semibold text-yellow-700" />
         <p className="text-yellow-600 mt-1">No frontmatter data available.</p>
       </div>
     );
@@ -79,7 +80,7 @@ export function FrontmatterDebug() {
 
   return (
     <div className="p-4 bg-white rounded border">
-      <h3 className="text-lg font-semibold mb-3">Frontmatter Debug</h3>
+      <Header level="card" title="Frontmatter Debug" className="text-lg font-semibold mb-3" />
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-1">

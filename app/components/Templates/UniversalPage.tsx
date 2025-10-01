@@ -4,6 +4,7 @@
 import { UniversalLayout } from '../Layout/Layout';
 import { loadPageData } from '../../utils/contentAPI';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
+import { Header } from '../Header';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -19,6 +20,7 @@ interface UniversalPageProps {
   errorMessage?: string;
   dynamic?: 'force-static' | 'force-dynamic' | 'auto';
   revalidate?: number | false;
+  showHero?: boolean; // Add Hero toggle control
 }
 
 /**
@@ -33,6 +35,7 @@ async function UniversalPageComponent({
   markdownPath,
   errorTitle = `Error Loading ${slug.charAt(0).toUpperCase() + slug.slice(1)} Page`,
   errorMessage = `We're sorry, but there was an error loading the ${slug} page.`,
+  showHero = true, // Default to showing Hero
 }: UniversalPageProps) {
   try {
     let pageData;
@@ -62,6 +65,7 @@ async function UniversalPageComponent({
         metadata={pageData.metadata}
         slug={slug}
         title={title || pageData.metadata?.title}
+        showHero={showHero}
       />
     );
   } catch (error) {
@@ -69,7 +73,7 @@ async function UniversalPageComponent({
     
     return (
       <div className={CONTAINER_STYLES.standard}>
-        <h1 className="text-3xl font-bold">{errorTitle}</h1>
+        <Header level="page" title={errorTitle} />
         <p className="mt-4">{errorMessage}</p>
       </div>
     );
@@ -98,6 +102,7 @@ export const pageConfigs = {
     title: 'About Z-Beam',
     description: 'Learn about Z-Beam\'s mission, team, and expertise in laser cleaning technology.',
     useContentAPI: true,
+    showHero: true, // Show Hero for about page
   },
   contact: {
     slug: 'contact',
@@ -105,6 +110,7 @@ export const pageConfigs = {
     description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
     useContentAPI: false,
     markdownPath: 'app/pages/_md/contact.md',
+    showHero: false, // Hide Hero for contact page
   },
   services: {
     slug: 'services',
@@ -114,6 +120,7 @@ export const pageConfigs = {
     markdownPath: 'app/pages/_md/services.md',
     dynamic: 'force-static' as const,
     revalidate: false,
+    showHero: false, // Hide Hero for services page
   }
 } as const;
 

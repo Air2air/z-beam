@@ -21,11 +21,11 @@ const CARD_VARIANTS = {
     
     // Appearance
     cardClass: "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700",
-    hoverEffect: "hover:shadow-lg hover:scale-[1.02]",
+    hoverEffect: "hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
     
-    // Transitions - targeting specific properties for better performance
-    transitionClass: "transition-[transform,box-shadow] duration-300 ease-in-out",
+    // Enhanced transitions - targeting multiple properties for smooth hover effects
+    transitionClass: "transition-all duration-300 ease-out",
   },
   featured: {
     // Layout
@@ -39,11 +39,11 @@ const CARD_VARIANTS = {
     
     // Appearance
     cardClass: "rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600",
-    hoverEffect: "hover:shadow-xl hover:scale-[1.02]",
+    hoverEffect: "hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-2",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
     
-    // Transitions - targeting specific properties for better performance
-    transitionClass: "transition-[transform,box-shadow] duration-300 ease-in-out",
+    // Enhanced transitions - targeting multiple properties for smooth hover effects
+    transitionClass: "transition-all duration-400 ease-out",
   },
 } as const;
 
@@ -80,11 +80,11 @@ export function Card({
     <Link
       href={href}
       className={`
-        group block ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
+        group block card-hover-enhanced ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
       `}
       aria-label={`View details for ${subject || title}`}
     >
-      <article className="relative flex flex-col h-full" role="article">
+      <article className="relative flex flex-col h-full card-container" role="article">
         {/* Full Height Image Container */}
         <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`} aria-label="Material image">
           <Thumbnail
@@ -121,7 +121,7 @@ export function Card({
               
               {/* Arrow-right icon */}
               <svg 
-                className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300" 
+                className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"

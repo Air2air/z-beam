@@ -7,6 +7,7 @@ import { Article, MaterialType, BadgeData, ArticleMetadata } from "@/types";
 import { getArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
+import { Header } from '../Header';
 
 // Unified item interface for SSR
 interface GridItemSSR {
@@ -246,10 +247,7 @@ export async function CardGridSSR({
         {/* Header */}
         {displayTitle && (
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-              {displayTitle}
-            </h2>
-            <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+            <Header level="section" title={title || heading || "Articles"} />
           </div>
         )}
 
@@ -269,10 +267,7 @@ export async function CardGridSSR({
                 {/* Category Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                      {category}
-                    </h3>
-                    <div className="w-12 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+                    <Header level="card" title={slugToDisplayName(category)} />
                     <p className="text-gray-600 dark:text-gray-400 mt-2">
                       {categoryItems.length} {categoryItems.length === 1 ? 'article' : 'articles'}
                     </p>
@@ -336,10 +331,7 @@ export async function CardGridSSR({
       {/* Header */}
       {displayTitle && (
         <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {displayTitle}
-          </h2>
-          <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+          <Header level="section" title={title || heading || "Articles"} />
         </div>
       )}
 
@@ -364,7 +356,7 @@ export async function CardGridSSR({
             } as ArticleMetadata}
             badge={showBadgeSymbols ? item.badge : undefined}
             variant={variant === 'featured' ? 'featured' : 'standard'}
-            className={`hover:shadow-lg transition-shadow duration-300`}
+            className={`hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out`}
           />
         ))}
       </div>

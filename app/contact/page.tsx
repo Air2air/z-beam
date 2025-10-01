@@ -2,6 +2,7 @@
 import { Layout } from "../components/Layout/Layout";
 import { ContactForm } from "../components/Contact/ContactForm";
 import { ContactInfo } from "../components/Contact/ContactInfo";
+import { Header } from "../components/Header";
 import { ComponentData, ArticleMetadata } from '@/types';
 import { stripLeadingSlash } from "../utils/pathUtils";
 import { CONTAINER_STYLES } from "../utils/containerStyles";
@@ -47,7 +48,7 @@ export default async function ContactPage() {
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">Send Us a Message</h2>
+            <Header level="section" title="Send Us a Message" />
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               Fill out the form below and our team will get back to you within 24 hours during business days. 
               Please provide as much detail as possible about your laser cleaning requirements.
@@ -66,7 +67,7 @@ export default async function ContactPage() {
     console.error('Error loading contact page:', error);
     return (
       <div className={CONTAINER_STYLES.standard}>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Contact Z-Beam</h1>
+        <Header level="page" title="Contact Z-Beam" />
         <p className="mt-4 text-gray-600 dark:text-gray-300">We're sorry, but there was an error loading the contact page.</p>
       </div>
     );

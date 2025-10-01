@@ -1,7 +1,6 @@
 // app/components/Caption/SEOOptimizedCaption.tsx
 "use client";
 
-import React from 'react';
 import { ParsedCaptionData, FrontmatterType } from '@/types';
 import { Header } from '../Header';
 

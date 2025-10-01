@@ -5,7 +5,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { useCaptionParsing, CaptionData } from './useCaptionParsing';
-import { AuthorInfo, CaptionDataStructure, FrontmatterType, CaptionProps, ParsedCaptionData } from '@/types';
+import { CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import { Header } from '../Header';
 import './enhanced-seo-caption.css';
 import './caption-accessibility.css';

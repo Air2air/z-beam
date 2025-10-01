@@ -7,7 +7,8 @@ import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
 import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
-import { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap } from "../../utils/gridConfig";
+import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
+import { Header } from '../Header';
 
 // Unified item interface that handles all data sources
 interface CardItem {
@@ -388,7 +389,7 @@ export function CardGrid({
                         } as ArticleMetadata}
                         href={item.href || `/${item.slug}`}
                         badge={showBadgeSymbols ? item.badge : undefined}
-                        className="h-full hover:shadow-lg transition-shadow duration-300"
+                        className="h-full hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out"
                       />
                     ))}
                   </div>
@@ -431,7 +432,7 @@ export function CardGrid({
                     } as ArticleMetadata}
                     href={item.href || `/${item.slug}`}
                     badge={showBadgeSymbols ? item.badge : undefined}
-                    className="h-full hover:shadow-lg transition-shadow duration-300"
+                    className="h-full hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out"
                   />
                 ))}
               </div>
@@ -460,9 +461,7 @@ export function CardGrid({
       {/* Header */}
       {displayTitle && (
         <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {displayTitle}
-          </h2>
+          <Header level="section" title={title || heading || "Articles"} />
           <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
         </div>
       )}
@@ -488,7 +487,7 @@ export function CardGrid({
             href={item.href || `/${item.slug}`}
             badge={showBadgeSymbols ? item.badge : undefined}
             variant={variant === 'featured' ? 'featured' : 'standard'}
-            className={`hover:shadow-lg transition-shadow duration-300`}
+            className={`hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out`}
           />
         ))}
       </div>

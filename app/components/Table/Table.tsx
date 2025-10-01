@@ -1,6 +1,7 @@
 // app/components/Table/Table.tsx
 import React from 'react';
 import { TableProps } from '@/types/centralized';
+import { Header } from '../Header';
 import './styles.css';
 
 interface FrontmatterTableData {
@@ -172,9 +173,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
       return (
         <div className="enhanced-table-container">
           {sectionTitle && (
-            <h3 className="text-xl font-bold text-white mb-4">
-              {sectionTitle}
-            </h3>
+            <Header level="card" title={`${sectionTitle} - Properties`} className="text-xl font-bold text-white mb-4" />
           )}
           <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <p className="text-gray-500 dark:text-gray-400 text-center">
@@ -188,9 +187,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
     return (
       <div className="enhanced-table-container">
         {sectionTitle && (
-          <h3 className="text-xl font-bold text-white mb-4">
-            {sectionTitle}
-          </h3>
+          <Header level="card" title={`${sectionTitle} - Properties`} className="text-xl font-bold text-white mb-4" />
         )}
         
         <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">

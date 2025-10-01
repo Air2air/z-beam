@@ -89,7 +89,6 @@ export default async function HomePage() {
           }))}
           columns={2}
           variant="featured"
-          title="Featured Solutions"
         />
       </section>
 
@@ -111,7 +110,6 @@ export default async function HomePage() {
           }))}
           columns={3}
           variant="default"
-          title="Material Categories"
         />
       </section>
     </Layout>
