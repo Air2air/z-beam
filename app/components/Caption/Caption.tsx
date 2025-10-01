@@ -65,7 +65,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     >
       {/* Header */}
       <div className="mb-8">
-        <Header 
+        <Title 
           title={captionData.title || `Material Properties - ${capitalizedMaterial}`}
           level="section"
           priority="medium"

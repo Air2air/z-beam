@@ -1,9 +1,10 @@
 // app/components/Article/ArticleHeader.tsx
 // Extracted header component for article pages
 
+import React from "react";
 import { Hero } from "../Hero/Hero";
-import { Header } from "../Header";
 import { Author } from "../Author/Author";
+import { Title } from "../Title";
 import { extractSafeValue } from "../../utils/stringHelpers";
 import type { ArticleMetadata, ComponentData } from "@/types";
 
@@ -35,7 +36,7 @@ export function ArticleHeader({ metadata, slug, title, components }: ArticleHead
 
       {/* Title section */}
       {displayTitle && (
-        <Header level="page" title={String(displayTitle)} />
+        <Title level="page" title={String(displayTitle)} />
       )}
       
       {/* Author component - simplified direct usage */}

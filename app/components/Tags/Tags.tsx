@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { capitalizeWords } from '../../utils/formatting';
 import { useRouter } from "next/navigation";
 import { TagsData, TagsProps } from '@/types';
-import { Header } from '../Header';
+import { Badge } from '../Badge/Badge';
+import { Title } from '../Title';
 
 export function Tags({ content, config }: TagsProps) {
   const router = useRouter();
@@ -213,7 +214,7 @@ const parseTags = (content: string | TagsData): string[] => {
   return (
     <div className={`tags-container ${className}`} data-testid="tags-container">
       {/* Title */}
-      {title && <Header level="card" title={title} />}      {/* Metadata display */}
+      {title && <Title level="card" title={title} />}      {/* Metadata display */}
       {config?.showMetadata && (metadata || count || categories || material) && (
         <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
           <div className="flex flex-wrap gap-4">
@@ -254,7 +255,7 @@ const parseTags = (content: string | TagsData): string[] => {
             .filter(([categoryName, categoryTags]) => categoryTags && categoryTags.length > 0) // Only show non-empty categories
             .map(([categoryName, categoryTags]) => (
               <div key={categoryName}>
-                <Header level="card" title={categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} className="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300" />
+                <Title level="card" title={categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} className="text-sm font-semibold mb-2 text-gray-700 dark:text-gray-300" />
                 <div className="flex flex-wrap gap-2">
                   {categoryTags!.map((tag, index) => (
                     onClick ? (

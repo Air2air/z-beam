@@ -5,7 +5,7 @@ import React, { ReactNode } from 'react';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { ArticleMetadata, ComponentData, LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/styles';
-import { Header } from '../Header';
+import { Title } from '../Title';
 
 // Header components (previously in ArticleHeader)
 import { Hero } from "../Hero/Hero";
@@ -48,7 +48,7 @@ export function Layout(props: LayoutProps) {
       return (
         <main className={containerClass} id="main-content" role="main">
           <div className="text-center py-12">
-            <Header level="page" title={title || 'Content Not Available'} />
+            <Title level="page" title={title || 'Content Not Available'} />
             <p className="text-gray-600 dark:text-gray-400">
               This page is currently being prepared. Please check back later.
             </p>
@@ -93,7 +93,7 @@ export function Layout(props: LayoutProps) {
             })()}
 
             {/* Title and Author components - simplified frontmatter-only */}
-            <Header level="page" title={title || metadata?.title || 'Article'} />
+            <Title level="page" title={title || metadata?.title || 'Article'} />
             <Author 
               frontmatter={metadata}
               showAvatar={true}
@@ -240,7 +240,7 @@ export function Layout(props: LayoutProps) {
       {/* Page header - only show in contained layouts */}
       {title && !fullWidth && (
         <div className="mb-8">
-          <Header level="page" title={title} />
+          <Title level="page" title={title} />
         </div>
       )}
       

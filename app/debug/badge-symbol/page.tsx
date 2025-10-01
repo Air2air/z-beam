@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { BadgeSymbol } from '../../components/BadgeSymbol/BadgeSymbol';
 import { DebugLayout } from '../../components/Layout/DebugLayout';
-import { Header } from '../../components/Header';
+import { Title } from '../../components/Title';
 
 export default function BadgeSymbolDebugPage() {
   const [materials, setMaterials] = useState<any[]>([]);
@@ -79,14 +79,14 @@ export default function BadgeSymbolDebugPage() {
 
   return (
     <DebugLayout>
-      <Header level="page" title="Badge Symbol Debug" />
+      <Title level="page" title="Badge Symbol Debug" />
       
       <div className="mb-8">
-        <Header level="section" title="Test Cases" />
+        <Title level="section" title="Test Cases" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testFrontmatter.map((fm, index) => (
             <div key={index} className="relative bg-gray-100 p-4 rounded-lg h-48">
-              <Header level="card" title={fm.name} />
+              <Title level="card" title={fm.name} />
               <p className="text-sm text-gray-600 mb-4">
                 Symbol: {fm.chemicalProperties.symbol}<br />
                 Formula: {fm.chemicalProperties.formula}<br />
@@ -110,14 +110,14 @@ export default function BadgeSymbolDebugPage() {
       </div>
       
       <div>
-        <Header level="section" title="Materials from API" />
+        <Title level="section" title="Materials from API" />
         {loading ? (
           <div className="animate-pulse bg-gray-200 h-40 rounded-lg"></div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {materials.map((material, index) => (
               <div key={index} className="relative bg-gray-100 p-4 rounded-lg h-48">
-                <Header level="card" title={material.name} />
+                <Title level="card" title={material.name} />
                 <p className="text-sm text-gray-600 mb-4">
                   Type: {material.type}<br />
                   Status: {material.status}

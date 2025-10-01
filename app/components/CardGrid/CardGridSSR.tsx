@@ -247,7 +247,7 @@ export async function CardGridSSR({
         {/* Header */}
         {displayTitle && (
           <div className="mb-8">
-            <Header level="section" title={title || heading || "Articles"} />
+            <Title level="section" title={title || heading || "Articles"} />
           </div>
         )}
 
@@ -267,7 +267,7 @@ export async function CardGridSSR({
                 {/* Category Header */}
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <Header level="card" title={slugToDisplayName(category)} />
+                    <Title level="card" title={slugToDisplayName(category)} />
                     <p className="text-gray-600 dark:text-gray-400 mt-2">
                       {categoryItems.length} {categoryItems.length === 1 ? 'article' : 'articles'}
                     </p>
@@ -331,7 +331,7 @@ export async function CardGridSSR({
       {/* Header */}
       {displayTitle && (
         <div className="mb-8">
-          <Header level="section" title={title || heading || "Articles"} />
+          <Title level="section" title={title || heading || "Articles"} />
         </div>
       )}
 

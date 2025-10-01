@@ -1,6 +1,6 @@
 'use client';
 
-import { Header } from './components/Header';
+import { Title } from './components/Title';
 
 import { Button } from './components/Button';
 
@@ -15,7 +15,7 @@ export default function GlobalError({
     <html>
       <body>
         <div className="flex flex-col items-center justify-center min-h-screen space-y-4 p-4">
-          <Header level="section" title="Application Error" />
+          <Title level="section" title="Application Error" />
           <p className="text-gray-600 text-center max-w-md">
             A critical error occurred. Please refresh the page or try again later.
           </p>

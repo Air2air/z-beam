@@ -68,7 +68,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
         <div className={CONTAINER_STYLES.standard}>
           <div className="max-w-4xl">
-            <Header level="page" title={`${categoryDisplayName} Laser Cleaning`} />
+            <Title level="page" title={`${categoryDisplayName} Laser Cleaning`} />
             <p className="text-xl md:text-2xl text-blue-100 mb-6">
               {categoryMetadata.description}
             </p>
@@ -103,7 +103,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       {/* Category Information */}
       <section className={`${CONTAINER_STYLES.standard} mt-16`}>
         <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-          <Header level="section" title={`About ${categoryDisplayName} Laser Cleaning`} />
+          <Title level="section" title={`About ${categoryDisplayName} Laser Cleaning`} />
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-lg text-gray-700 dark:text-gray-300">
               {getCategoryDescription(category)}

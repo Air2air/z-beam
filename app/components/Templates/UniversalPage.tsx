@@ -73,7 +73,7 @@ async function UniversalPageComponent({
     
     return (
       <div className={CONTAINER_STYLES.standard}>
-        <Header level="page" title={errorTitle} />
+        <Title level="page" title={errorTitle} />
         <p className="mt-4">{errorMessage}</p>
       </div>
     );

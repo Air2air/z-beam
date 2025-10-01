@@ -16,7 +16,7 @@ export function CaptionHeader({ materialName, frontmatter, captionData }: Captio
 
   return (
     <header className="caption-header mb-4">
-      <Header 
+      <Title 
         level="card"
         title={`${capitalizedMaterial} Surface Topography`}
         className="caption-heading text-xl font-semibold mb-2 text-gray-100"

@@ -6,12 +6,12 @@ import { Header } from '../Header';
 export function ContactInfo() {
   return (
     <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-      <Header level="section" title="Contact Information" />
+      <Title level="section" title="Contact Information" />
       
       <div className="space-y-6">
         {/* Email Section */}
         <div>
-          <Header level="card" title="General Inquiries" />
+          <Title level="card" title="General Inquiries" />
           <div className="space-y-2">
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Email:</strong>{' '}
@@ -36,7 +36,7 @@ export function ContactInfo() {
 
         {/* Sales Section */}
         <div>
-          <Header level="card" title="Sales & Consultations" />
+          <Title level="card" title="Sales & Consultations" />
           <div className="space-y-2">
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Sales Team:</strong>{' '}
@@ -61,7 +61,7 @@ export function ContactInfo() {
 
         {/* Support Section */}
         <div>
-          <Header level="card" title="Technical Support" />
+          <Title level="card" title="Technical Support" />
           <div className="space-y-2">
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Support Email:</strong>{' '}
@@ -86,7 +86,7 @@ export function ContactInfo() {
 
         {/* Address Section */}
         <div>
-          <Header level="card" title="Business Address" />
+          <Title level="card" title="Business Address" />
           <div className="text-gray-600 dark:text-gray-300">
             <p>Z-Beam Technologies</p>
             <p>123 Industrial Way</p>
@@ -97,7 +97,7 @@ export function ContactInfo() {
 
         {/* Hours Section */}
         <div>
-          <Header level="card" title="Office Hours" />
+          <Title level="card" title="Office Hours" />
           <div className="space-y-1 text-gray-600 dark:text-gray-300">
             <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM EST</p>
             <p><strong>Saturday:</strong> 9:00 AM - 2:00 PM EST</p>
@@ -110,7 +110,7 @@ export function ContactInfo() {
 
         {/* Response Time */}
         <div>
-          <Header level="card" title="Response Time" />
+          <Title level="card" title="Response Time" />
           <div className="space-y-1 text-gray-600 dark:text-gray-300">
             <p><strong>General Inquiries:</strong> Within 24 hours</p>
             <p><strong>Sales Questions:</strong> Within 4 hours (business days)</p>

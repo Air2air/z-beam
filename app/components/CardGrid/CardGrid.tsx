@@ -8,7 +8,9 @@ import { Card } from "../Card/Card";
 import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
-import { Header } from '../Header';
+import { Badge } from '../Badge/Badge';
+import { Skeleton } from '../Skeleton/Skeleton';
+import { Title } from '../Title';
 
 // Unified item interface that handles all data sources
 interface CardItem {
@@ -461,7 +463,7 @@ export function CardGrid({
       {/* Header */}
       {displayTitle && (
         <div className="mb-8">
-          <Header level="section" title={title || heading || "Articles"} />
+          <Title level="section" title={title || heading || "Articles"} />
           <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
         </div>
       )}

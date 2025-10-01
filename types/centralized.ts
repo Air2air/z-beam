@@ -471,12 +471,39 @@ export interface AuthorProps {
  * Title component props
  */
 export interface TitleProps {
-  children?: ReactNode;
-  frontmatter?: ArticleMetadata;
-  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  title: string;
+  level?: 'page' | 'section' | 'card';
+  alignment?: 'left' | 'center' | 'right';
   className?: string;
+  id?: string;
   subtitle?: string;
-  title?: string;
+  
+  // WCAG & Accessibility Props
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  'aria-labelledby'?: string;
+  role?: string;
+  tabIndex?: number;
+  
+  // Search & SEO Props
+  searchKeywords?: string[];
+  category?: string;
+  priority?: 'high' | 'medium' | 'low';
+  
+  // Navigation Props
+  skipLink?: boolean;
+  landmark?: boolean;
+  nextHeaderId?: string;
+  prevHeaderId?: string;
+  
+  // Content Props
+  summary?: string;
+  context?: string;
+  
+  // Event Handlers for Enhanced Interaction
+  onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
 }
 
 /**
@@ -1498,42 +1525,6 @@ export interface TagDebugData {
 /**
  * Header component props interface
  */
-export interface HeaderProps {
-  title: string;
-  level?: 'page' | 'section' | 'card';
-  alignment?: 'left' | 'center' | 'right';
-  className?: string;
-  id?: string;
-  subtitle?: string;
-  
-  // WCAG & Accessibility Props
-  'aria-label'?: string;
-  'aria-describedby'?: string;
-  'aria-labelledby'?: string;
-  role?: string;
-  tabIndex?: number;
-  
-  // Search & SEO Props
-  searchKeywords?: string[];
-  category?: string;
-  priority?: 'high' | 'medium' | 'low';
-  
-  // Navigation Props
-  skipLink?: boolean;
-  landmark?: boolean;
-  nextHeaderId?: string;
-  prevHeaderId?: string;
-  
-  // Content Props
-  summary?: string;
-  context?: string;
-  
-  // Event Handlers for Enhanced Interaction
-  onFocus?: (event: React.FocusEvent<HTMLElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLElement>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLElement>) => void;
-}
-
 /**
  * Frontmatter item interface
  */

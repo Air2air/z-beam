@@ -63,7 +63,7 @@ export function FrontmatterDebug() {
   if (error) {
     return (
       <div className="p-4 bg-red-50 rounded border border-red-200">
-        <Header level="card" title="Frontmatter Debug Error" className="font-semibold text-red-700" />
+        <Title level="card" title="Frontmatter Debug Error" className="font-semibold text-red-700" />
         <p className="text-red-600 mt-1">{error}</p>
       </div>
     );
@@ -72,7 +72,7 @@ export function FrontmatterDebug() {
   if (!data || data.length === 0) {
     return (
       <div className="p-4 bg-yellow-50 rounded border border-yellow-200">
-        <Header level="card" title="No Frontmatter Data" className="font-semibold text-yellow-700" />
+        <Title level="card" title="No Frontmatter Data" className="font-semibold text-yellow-700" />
         <p className="text-yellow-600 mt-1">No frontmatter data available.</p>
       </div>
     );
@@ -80,7 +80,7 @@ export function FrontmatterDebug() {
 
   return (
     <div className="p-4 bg-white rounded border">
-      <Header level="card" title="Frontmatter Debug" className="text-lg font-semibold mb-3" />
+      <Title level="card" title="Frontmatter Debug" className="text-lg font-semibold mb-3" />
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-1">

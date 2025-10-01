@@ -1,6 +1,6 @@
 // app/services/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { Header } from "../components/Header";
+import { Title } from "../components/Title";
 
 // Force static generation for services page
 export const dynamic = 'force-static';
@@ -21,7 +21,7 @@ export default async function ServicesPage() {
     >
       <div className="space-y-8">
         <section>
-          <Header level="section" title="Our Services" />
+          <Title level="section" title="Our Services" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
@@ -55,7 +55,7 @@ export default async function ServicesPage() {
         </section>
         
         <section>
-          <Header level="section" title="Industries We Serve" />
+          <Title level="section" title="Industries We Serve" />
           
           <ul className="mt-6 space-y-4">
             <li className="flex items-start">
@@ -78,7 +78,7 @@ export default async function ServicesPage() {
         </section>
         
         <section className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
-          <Header level="section" title="Contact Us" />
+          <Title level="section" title="Contact Us" />
           <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Ready to explore how Z-Beam laser cleaning can benefit your operations? Contact our team for a consultation.
           </p>

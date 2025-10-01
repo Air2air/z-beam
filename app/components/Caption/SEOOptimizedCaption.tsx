@@ -143,7 +143,7 @@ export function SEOOptimizedCaption({
       
       {/* Enhanced Semantic Header */}
       <header className="caption-header" itemProp="headline">
-        <Header 
+        <Title 
           level="section"
           title={`${capitalizedMaterial} Laser Cleaning Process Analysis`}
           className="caption-title text-xl font-semibold mb-2"
@@ -207,7 +207,7 @@ export function SEOOptimizedCaption({
         itemType="https://schema.org/Material"
         aria-labelledby={`${processId}-material`}
       >
-        <Header 
+        <Title 
           level="card"
           title="Material Characteristics"
           className="font-semibold mb-2"
