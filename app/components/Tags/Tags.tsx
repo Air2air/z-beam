@@ -9,10 +9,11 @@ import { TagsData, TagsProps } from '@/types';
 import { Badge } from '../Badge/Badge';
 import { Title } from '../Title';
 
-export function Tags({ content, config }: TagsProps) {
+export function Tags({ frontmatter, content, config }: TagsProps) {
   const router = useRouter();
   
-  if (!content) return null;
+  // Prioritize frontmatter.tags if available
+  if (!content && !frontmatter?.tags) return null;
   
   const { 
     className = "my-6", 
@@ -183,7 +184,8 @@ const parseTags = (content: string | TagsData): string[] => {
     parsedData = content;
   }
 
-  const allTags = parseTags(content);
+  // Prioritize frontmatter.tags over content-based tags
+  const allTags = frontmatter?.tags || (content ? parseTags(content) : []);
   const metadata = parsedData.metadata;
   const count = parsedData.count;
   const categories = parsedData.categories;
