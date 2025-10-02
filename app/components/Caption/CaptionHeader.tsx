@@ -2,7 +2,10 @@
 "use client";
 
 import { FrontmatterType, ParsedCaptionData } from '@/types';
-import { Header } from '../Header';
+import React from 'react';
+import { CaptionData } from './useCaptionParsing';
+import { capitalizeWords } from '../../utils/formatting';
+import { Title } from '../Title';
 
 interface CaptionHeaderProps {
   materialName: string;

@@ -2,7 +2,10 @@
 "use client";
 
 import { ParsedCaptionData, FrontmatterType } from '@/types';
-import { Header } from '../Header';
+import React from 'react';
+import Image from 'next/image';
+import { CaptionData } from './useCaptionParsing';
+import { Title } from '../Title';
 
 interface SEOOptimizedCaptionProps {
   materialName: string;

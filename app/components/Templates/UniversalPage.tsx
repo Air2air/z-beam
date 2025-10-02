@@ -4,7 +4,9 @@
 import { UniversalLayout } from '../Layout/Layout';
 import { loadPageData } from '../../utils/contentAPI';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
-import { Header } from '../Header';
+import { Layout } from '../Layout/Layout';
+import { Caption } from '../Caption/Caption';
+import { Title } from '../Title';
 import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';

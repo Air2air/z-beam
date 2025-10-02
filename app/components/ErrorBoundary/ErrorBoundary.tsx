@@ -1,8 +1,8 @@
 // app/components/ErrorBoundary/ErrorBoundary.tsx
 'use client';
 
-import React, { Component, ReactNode, ErrorInfo } from 'react';
-import { Header } from '../Header';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
+import { Title } from '../Title';
 
 interface Props {
   children: ReactNode;

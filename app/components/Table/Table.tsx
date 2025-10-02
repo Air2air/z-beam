@@ -1,7 +1,7 @@
 // app/components/Table/Table.tsx
 import React from 'react';
-import { TableProps } from '@/types/centralized';
-import { Header } from '../Header';
+import { TableProps, TableRow } from '@/types';
+import { Title } from '../Title';
 import './styles.css';
 
 interface FrontmatterTableData {

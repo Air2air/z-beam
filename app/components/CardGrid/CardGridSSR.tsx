@@ -6,8 +6,8 @@ import { Card } from "../Card/Card";
 import { Article, MaterialType, BadgeData, ArticleMetadata } from "@/types";
 import { getArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
-import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
-import { Header } from '../Header';
+import { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap } from "../../utils/gridConfig";
+import { Title } from '../Title';
 
 // Unified item interface for SSR
 interface GridItemSSR {
