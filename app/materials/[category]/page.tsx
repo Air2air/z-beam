@@ -8,7 +8,7 @@ import { getAllArticleSlugs } from '@/app/utils/contentAPI';
 import { createMetadata } from '@/app/utils/metadata';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '../metadata';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
-import { Header } from '@/app/components/Header';
+import { Title } from '@/app/components/Title';
 
 // Static generation for all category pages
 export async function generateStaticParams() {
