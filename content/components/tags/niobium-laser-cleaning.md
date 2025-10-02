@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: niobium, metal, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, hard-material, reflective-surface, todd-dunning
+Tags integrated into frontmatter: metal, aerospace, restoration, manufacturing, absorptive, dense, strong, rigid, todd-dunning

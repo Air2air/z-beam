@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: titanium-carbide, ceramic, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, laser-absorptive, thermal-resistant, alessandro-moretti
+Tags integrated into frontmatter: ceramic, aerospace, absorptive, strong, rigid, alessandro-moretti

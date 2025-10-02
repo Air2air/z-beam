@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: ash, wood, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, porous-material, thermal-sensitive, todd-dunning
+Tags integrated into frontmatter: wood, restoration, absorptive, insulating, soft, porous, lightweight, todd-dunning

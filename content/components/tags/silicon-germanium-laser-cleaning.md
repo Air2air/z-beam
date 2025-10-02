@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: silicon-germanium, semiconductor, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, hard-material, ikmanda-roswati
+Tags integrated into frontmatter: semiconductor, electronics, absorptive, insulating, durable, stable, strong, rigid, ikmanda-roswati

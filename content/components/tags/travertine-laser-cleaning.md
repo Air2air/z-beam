@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: travertine, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, porous-material, thermal-sensitive, alessandro-moretti
+Tags integrated into frontmatter: stone, restoration, manufacturing, jewelry, insulating, porous, brittle, absorptive, alessandro-moretti

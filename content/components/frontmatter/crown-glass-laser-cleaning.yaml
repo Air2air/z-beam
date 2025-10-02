@@ -18,6 +18,13 @@ materialProperties:
     description: Low thermal conductivity characteristic of glass materials
     min: 0
     max: 38.422
+  tensileStrength:
+    confidence: 0.7
+    max: 2000.0
+    min: 30.0
+    source: default_from_category_range
+    unit: MPa
+    value: 35.0
   hardness:
     value: 6.0
     unit: Mohs
@@ -123,13 +130,6 @@ materialProperties:
     source: default_from_category_range
     unit: '%'
     value: 4.2
-  tensileStrength:
-    confidence: 0.7
-    max: 2000.0
-    min: 30.0
-    source: default_from_category_range
-    unit: MPa
-    value: 35.0
   thermalDestructionPoint:
     confidence: 0.7
     max: 1723.0
@@ -156,7 +156,8 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength with good transmission through glass, absorbed by contaminants
+    description: Near-IR wavelength with good transmission through glass, absorbed
+      by contaminants
     min: 532
     max: 10640
   spotSize:
@@ -177,14 +178,16 @@ machineSettings:
     value: 0.8
     unit: J/cm²
     confidence: 88
-    description: Threshold fluence for contaminant ablation while preserving glass substrate
+    description: Threshold fluence for contaminant ablation while preserving glass
+      substrate
     min: 0.3
     max: 1.5
   pulseWidth:
     value: 10
     unit: ns
     confidence: 85
-    description: Optimal pulse duration for controlled ablation with minimal thermal diffusion
+    description: Optimal pulse duration for controlled ablation with minimal thermal
+      diffusion
     min: 5
     max: 20
   scanSpeed:
@@ -198,7 +201,8 @@ machineSettings:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal pulse overlap for uniform cleaning without excessive energy accumulation
+    description: Optimal pulse overlap for uniform cleaning without excessive energy
+      accumulation
     min: 30
     max: 70
   passCount:
@@ -220,10 +224,19 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+author:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Crown Glass surface undergoing laser cleaning showing precise contamination removal
-    url: /images/crown-glass-laser-cleaning-hero.jpg
+    alt: Crown Glass surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/material/crown-glass-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -249,56 +262,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -333,35 +296,35 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
-  title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
 caption:
-  beforeText: 'At 500x magnification, the crown glass surface is obscured by a non-uniform contamination layer, approximately
-    5-10 micrometers thick. This layer consists of particulate matter embedded in a thin, amorphous film, likely a mixture
-    of organic residues and atmospheric dust. The surface texture is highly irregular, with agglomerated particles creating
-    a topographical map of peaks and valleys that scatter light and disrupt the underlying glass''s clarity.
+  beforeText: 'At 500x magnification, the crown glass surface is obscured by a non-uniform
+    contamination layer, approximately 5-10 micrometers thick. This layer consists
+    of particulate matter embedded in a thin, amorphous film, likely a mixture of
+    organic residues and atmospheric dust. The surface texture is highly irregular,
+    with agglomerated particles creating a topographical map of peaks and valleys
+    that scatter light and disrupt the underlying glass''s clarity.
 
 
-    The contamination adheres to the glass, filling the native micro-roughness of the polished surface, which has a baseline
-    smoothness of 0.5 nm Ra. The particulates, ranging from 1 to 20 micrometers in diameter, are distributed in a patchy,
-    non-cohesive pattern. This layer significantly increases light scattering and masks the intrinsic optical properties of
-    the crown glass substrate, reducing light transmission and creating diffuse reflection points.'
-  afterText: 'Following laser cleaning, the surface transformation is evident. The contamination layer has been completely
-    removed, revealing the pristine, polished crown glass substrate. The surface now exhibits its inherent smoothness, with
-    a measured roughness of 0.5 nm Ra, and is free of particulate matter and film residues.
+    The contamination adheres to the glass, filling the native micro-roughness of
+    the polished surface, which has a baseline smoothness of 0.5 nm Ra. The particulates,
+    ranging from 1 to 20 micrometers in diameter, are distributed in a patchy, non-cohesive
+    pattern. This layer significantly increases light scattering and masks the intrinsic
+    optical properties of the crown glass substrate, reducing light transmission and
+    creating diffuse reflection points.'
+  afterText: 'Following laser cleaning, the surface transformation is evident. The
+    contamination layer has been completely removed, revealing the pristine, polished
+    crown glass substrate. The surface now exhibits its inherent smoothness, with
+    a measured roughness of 0.5 nm Ra, and is free of particulate matter and film
+    residues.
 
 
-    The laser process has restored optical clarity by eliminating the light-scattering contaminants. The surface is now continuous
-    and homogeneous, allowing for unimpeded light transmission. The cleaning has achieved its objective of contaminant ablation
-    without inducing micro-fractures or thermal damage to the underlying glass, as confirmed by the absence of new surface
-    defects at this magnification.'
-  description: Microscopic analysis of crown glass surface before and after laser cleaning treatment
+    The laser process has restored optical clarity by eliminating the light-scattering
+    contaminants. The surface is now continuous and homogeneous, allowing for unimpeded
+    light transmission. The cleaning has achieved its objective of contaminant ablation
+    without inducing micro-fractures or thermal damage to the underlying glass, as
+    confirmed by the absence of new surface defects at this magnification.'
+  description: Microscopic analysis of crown glass surface before and after laser
+    cleaning treatment
   alt: Microscopic view of crown glass surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -381,20 +344,17 @@ caption:
     materialType: Glass
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Crown Glass surface after laser cleaning showing detailed surface structure
-    url: /images/crown-glass-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:20:05.518073'
-  captionIntegrated: true
+    alt: Microscopic view of Crown Glass surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/crown-glass-laser-cleaning-micro.jpg
 tags:
-- crown-glass
 - glass
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- thermal-sensitive
-- reflective-surface
+- manufacturing
+- automotive
+- low-reflectivity
+- low-thermal-conductivity
+- low-absorption
+- medium-density
 - yi-chun-lin
+- laser-processing
+- laser-processing

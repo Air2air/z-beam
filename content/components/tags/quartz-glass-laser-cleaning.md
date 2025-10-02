@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: quartz-glass, glass, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, transparent, yi-chun-lin
+Tags integrated into frontmatter: glass, insulating, stable, smooth, yi-chun-lin

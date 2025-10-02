@@ -18,6 +18,13 @@ materialProperties:
     description: Low thermal conductivity typical of ceramic materials
     min: 0.03
     max: 2000.0
+  tensileStrength:
+    confidence: 0.7
+    max: 1000.0
+    min: 50.0
+    source: default_from_category_range
+    unit: MPa
+    value: 40.0
   hardness:
     value: 6.0
     unit: Mohs
@@ -25,6 +32,13 @@ materialProperties:
     description: Mohs hardness scale for fired stoneware
     min: 0.2
     max: 9.8
+  youngsModulus:
+    confidence: 0.7
+    max: 800.0
+    min: 50.0
+    source: default_from_category_range
+    unit: GPa
+    value: 70.0
   thermalExpansion:
     value: 7.05
     unit: ×10⁻⁶/°C
@@ -102,20 +116,6 @@ materialProperties:
     source: default_from_category_range
     unit: J/kg·K
     value: 800.0
-  tensileStrength:
-    confidence: 0.7
-    max: 1000.0
-    min: 50.0
-    source: default_from_category_range
-    unit: MPa
-    value: 40.0
-  youngsModulus:
-    confidence: 0.7
-    max: 800.0
-    min: 50.0
-    source: default_from_category_range
-    unit: GPa
-    value: 70.0
   thermalDestructionPoint:
     confidence: 0.7
     max: 3827.0
@@ -134,7 +134,8 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power range for Stoneware surface cleaning without thermal damage
+    description: Optimal average power range for Stoneware surface cleaning without
+      thermal damage
     min: 80
     max: 120
   wavelength:
@@ -176,7 +177,8 @@ machineSettings:
     value: 2.5
     unit: J/cm²
     confidence: 89
-    description: Threshold fluence for effective contaminant removal without substrate damage
+    description: Threshold fluence for effective contaminant removal without substrate
+      damage
     min: 1.5
     max: 4.0
   overlapRatio:
@@ -208,10 +210,19 @@ regulatoryStandards:
 - EPA Clean Air Act Compliance
 - ASTM C848 - Standard Specification for High Alumina Refractory Brick
 - ISO 23146 - Technical Ceramics
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Stoneware surface undergoing laser cleaning showing precise contamination removal
-    url: /images/stoneware-laser-cleaning-hero.jpg
+    alt: Stoneware surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/material/stoneware-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -237,56 +248,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -321,42 +282,44 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 caption:
-  beforeText: 'At 500x magnification, the stoneware surface is obscured by a continuous, non-uniform contamination layer measuring
-    5-15 micrometers thick. This layer exhibits a porous, particulate structure, with agglomerated particles firmly adhered
-    to the ceramic substrate and embedded within its micro-scale surface pores (approximately 3.5% porosity). The underlying
-    stoneware glaze texture is completely masked, presenting a topographically complex and optically matte appearance.
+  beforeText: 'At 500x magnification, the stoneware surface is obscured by a continuous,
+    non-uniform contamination layer measuring 5-15 micrometers thick. This layer exhibits
+    a porous, particulate structure, with agglomerated particles firmly adhered to
+    the ceramic substrate and embedded within its micro-scale surface pores (approximately
+    3.5% porosity). The underlying stoneware glaze texture is completely masked, presenting
+    a topographically complex and optically matte appearance.
 
 
-    Energy-dispersive X-ray spectroscopy (EDS) would likely detect foreign elements like carbon, sulfur, and calcium within
-    this layer, indicating organic residues and mineral deposits. The contamination creates significant light scattering,
-    reducing surface reflectivity to less than 15% at visible wavelengths. The irregular layer thickness creates shadowing
-    effects and completely conceals the native ceramic microstructure.'
-  afterText: 'Laser cleaning produces a definitive transformation, completely removing the contamination layer to reveal the
-    intrinsic stoneware surface. The previously obscured vitrified ceramic matrix is now fully exposed, displaying its characteristic
-    microcrystalline structure with clearly defined grain boundaries. Surface reflectivity has increased substantially, now
-    measuring approximately 42%, restoring the material''s inherent optical properties.
+    Energy-dispersive X-ray spectroscopy (EDS) would likely detect foreign elements
+    like carbon, sulfur, and calcium within this layer, indicating organic residues
+    and mineral deposits. The contamination creates significant light scattering,
+    reducing surface reflectivity to less than 15% at visible wavelengths. The irregular
+    layer thickness creates shadowing effects and completely conceals the native ceramic
+    microstructure.'
+  afterText: 'Laser cleaning produces a definitive transformation, completely removing
+    the contamination layer to reveal the intrinsic stoneware surface. The previously
+    obscured vitrified ceramic matrix is now fully exposed, displaying its characteristic
+    microcrystalline structure with clearly defined grain boundaries. Surface reflectivity
+    has increased substantially, now measuring approximately 42%, restoring the material''s
+    inherent optical properties.
 
 
-    The laser process has effectively cleared all surface pores without damaging the surrounding ceramic substrate, evidenced
-    by clean pore edges and the absence of micro-fractures. This precision results from controlled laser parameters maintained
-    below the stoneware''s ablation threshold of 2.5 J/cm². The surface now exhibits the original manufacturing texture with
-    sub-micrometer precision, including fine tooling marks and the natural micro-roughness of the fired clay body.
+    The laser process has effectively cleared all surface pores without damaging the
+    surrounding ceramic substrate, evidenced by clean pore edges and the absence of
+    micro-fractures. This precision results from controlled laser parameters maintained
+    below the stoneware''s ablation threshold of 2.5 J/cm². The surface now exhibits
+    the original manufacturing texture with sub-micrometer precision, including fine
+    tooling marks and the natural micro-roughness of the fired clay body.
 
 
-    Comparative analysis confirms complete contaminant removal while preserving the stoneware''s structural integrity. The
-    restored surface demonstrates the material''s native hardness of 6.0 Mohs and chemical stability, with no evidence of
-    thermal alteration or mechanical damage to the underlying ceramic network. The cleaning process has achieved its objective
-    of surface restoration without substrate compromise.'
-  description: Microscopic analysis of stoneware surface before and after laser cleaning treatment
+    Comparative analysis confirms complete contaminant removal while preserving the
+    stoneware''s structural integrity. The restored surface demonstrates the material''s
+    native hardness of 6.0 Mohs and chemical stability, with no evidence of thermal
+    alteration or mechanical damage to the underlying ceramic network. The cleaning
+    process has achieved its objective of surface restoration without substrate compromise.'
+  description: Microscopic analysis of stoneware surface before and after laser cleaning
+    treatment
   alt: Microscopic view of stoneware surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -376,20 +339,13 @@ caption:
     materialType: Ceramic
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Stoneware surface after laser cleaning showing detailed surface structure
-    url: /images/stoneware-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:35:26.405833'
-  captionIntegrated: true
+    alt: Microscopic view of Stoneware surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/stoneware-laser-cleaning-micro.jpg
 tags:
-- stoneware
 - ceramic
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- thermal-sensitive
-- laser-absorptive
+- jewelry
+- absorptive
+- insulating
+- corrosion-resistant
 - alessandro-moretti

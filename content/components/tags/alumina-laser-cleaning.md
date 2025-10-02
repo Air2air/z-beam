@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: alumina, ceramic, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, laser-absorptive, thermal-resistant, alessandro-moretti
+Tags integrated into frontmatter: ceramic, food-processing, nuclear, aerospace, low-reflectivity, hard-material, low-absorption, medium-density, high-melting-point, alessandro-moretti

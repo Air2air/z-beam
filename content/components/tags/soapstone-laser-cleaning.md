@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: soapstone, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, soft-material, alessandro-moretti
+Tags integrated into frontmatter: stone, jewelry, insulating, soft, brittle, corrosion-resistant, alessandro-moretti

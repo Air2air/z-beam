@@ -18,6 +18,13 @@ materialProperties:
     description: Room temperature thermal conductivity for high-purity Si3N4
     min: 0.03
     max: 2000.0
+  tensileStrength:
+    confidence: 0.7
+    max: 1000.0
+    min: 50.0
+    source: default_from_category_range
+    unit: MPa
+    value: 550.0
   hardness:
     value: 17.5
     unit: Mohs
@@ -116,13 +123,6 @@ materialProperties:
     source: default_from_category_range
     unit: '%'
     value: 42.3
-  tensileStrength:
-    confidence: 0.7
-    max: 1000.0
-    min: 50.0
-    source: default_from_category_range
-    unit: MPa
-    value: 550.0
   thermalDiffusivity:
     confidence: 0.7
     max: 120.0
@@ -151,14 +151,16 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Silicon Nitride surface cleaning without thermal damage
+    description: Optimal average power for Silicon Nitride surface cleaning without
+      thermal damage
     min: 80
     max: 120
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength providing good absorption in Silicon Nitride with minimal subsurface damage
+    description: Near-IR wavelength providing good absorption in Silicon Nitride with
+      minimal subsurface damage
     min: 532
     max: 10640
   spotSize:
@@ -172,7 +174,8 @@ machineSettings:
     value: 100
     unit: kHz
     confidence: 87
-    description: High repetition rate for efficient cleaning coverage while maintaining thermal control
+    description: High repetition rate for efficient cleaning coverage while maintaining
+      thermal control
     min: 50
     max: 200
   pulseWidth:
@@ -193,14 +196,16 @@ machineSettings:
     value: 2.5
     unit: J/cm²
     confidence: 89
-    description: Minimum fluence required for effective contaminant removal from Silicon Nitride
+    description: Minimum fluence required for effective contaminant removal from Silicon
+      Nitride
     min: 1.5
     max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal pulse overlap for uniform cleaning without excessive heat accumulation
+    description: Optimal pulse overlap for uniform cleaning without excessive heat
+      accumulation
     min: 30
     max: 70
   passCount:
@@ -218,10 +223,19 @@ regulatoryStandards:
 - EPA Clean Air Act Compliance
 - ASTM C848 - Standard Specification for High Alumina Refractory Brick
 - ISO 23146 - Technical Ceramics
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Silicon Nitride surface undergoing laser cleaning showing precise contamination removal
-    url: /images/silicon-nitride-laser-cleaning-hero.jpg
+    alt: Silicon Nitride surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/material/silicon-nitride-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -247,56 +261,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -331,38 +295,39 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 caption:
-  beforeText: 'At 500x magnification, the silicon nitride surface is obscured by a non-uniform contamination layer, approximately
-    2-5 micrometers thick. This layer appears as a discontinuous film of carbonaceous soot and particulate matter, characterized
-    by a matte, dark gray appearance that significantly reduces surface reflectivity. The contaminants form agglomerates ranging
-    from 5 to 20 micrometers in diameter, creating a textured, topographically complex landscape that masks the underlying
+  beforeText: 'At 500x magnification, the silicon nitride surface is obscured by a
+    non-uniform contamination layer, approximately 2-5 micrometers thick. This layer
+    appears as a discontinuous film of carbonaceous soot and particulate matter, characterized
+    by a matte, dark gray appearance that significantly reduces surface reflectivity.
+    The contaminants form agglomerates ranging from 5 to 20 micrometers in diameter,
+    creating a textured, topographically complex landscape that masks the underlying
     ceramic''s intrinsic microstructure.
 
 
-    The contamination adheres to the surface in a patchy, irregular pattern, with some areas showing thicker accumulation
-    in micro-cracks and surface pores. Fine particulate matter, likely sub-micrometer in size, is embedded within the larger
-    agglomerates, creating a multi-scale roughness. This layer completely conceals the native grain structure and surface
-    finish of the silicon nitride substrate, presenting a visually heterogeneous and occluded surface to the observer.'
-  afterText: 'Following laser cleaning, the surface transformation is immediately apparent at 500x magnification. The previously
-    opaque contamination layer has been completely removed, revealing the underlying silicon nitride''s fine-grained polycrystalline
-    structure. The surface now exhibits its characteristic light gray hue and a uniform, matte ceramic finish, with reflectivity
-    restored to its intrinsic level of approximately 42%.
+    The contamination adheres to the surface in a patchy, irregular pattern, with
+    some areas showing thicker accumulation in micro-cracks and surface pores. Fine
+    particulate matter, likely sub-micrometer in size, is embedded within the larger
+    agglomerates, creating a multi-scale roughness. This layer completely conceals
+    the native grain structure and surface finish of the silicon nitride substrate,
+    presenting a visually heterogeneous and occluded surface to the observer.'
+  afterText: 'Following laser cleaning, the surface transformation is immediately
+    apparent at 500x magnification. The previously opaque contamination layer has
+    been completely removed, revealing the underlying silicon nitride''s fine-grained
+    polycrystalline structure. The surface now exhibits its characteristic light gray
+    hue and a uniform, matte ceramic finish, with reflectivity restored to its intrinsic
+    level of approximately 42%.
 
 
-    The cleaning process has exposed the material''s native microstructure without inducing surface damage. The interlocking
-    beta-silicon nitride grains, typically 0.5-2.0 micrometers in size, are now clearly visible and well-defined. No thermal
-    cracking, melting, or ablation pits are observed, confirming the laser parameters remained below the material''s damage
-    threshold of 15 J/cm². The surface porosity appears clean and open, with no residual contamination visible within the
-    pore structures, resulting in a topographically consistent and homogenous surface.'
-  description: Microscopic analysis of silicon nitride surface before and after laser cleaning treatment
+    The cleaning process has exposed the material''s native microstructure without
+    inducing surface damage. The interlocking beta-silicon nitride grains, typically
+    0.5-2.0 micrometers in size, are now clearly visible and well-defined. No thermal
+    cracking, melting, or ablation pits are observed, confirming the laser parameters
+    remained below the material''s damage threshold of 15 J/cm². The surface porosity
+    appears clean and open, with no residual contamination visible within the pore
+    structures, resulting in a topographically consistent and homogenous surface.'
+  description: Microscopic analysis of silicon nitride surface before and after laser
+    cleaning treatment
   alt: Microscopic view of silicon nitride surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -382,20 +347,17 @@ caption:
     materialType: Ceramic
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Silicon Nitride surface after laser cleaning showing detailed surface structure
-    url: /images/silicon-nitride-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:33:53.930105'
-  captionIntegrated: true
+    alt: Microscopic view of Silicon Nitride surface after laser cleaning showing
+      detailed surface structure
+    url: /images/material/silicon-nitride-laser-cleaning-micro.jpg
 tags:
-- silicon-nitride
 - ceramic
+- electronics
 - semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- hard-material
-- laser-absorptive
+- art-conservation
+- jewelry
+- absorptive
+- durable
+- stable
+- strong
 - alessandro-moretti

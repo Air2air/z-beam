@@ -18,6 +18,13 @@ materialProperties:
     description: Thermal conductivity at room temperature
     min: 0.12
     max: 8.28
+  tensileStrength:
+    confidence: 0.7
+    max: 25.0
+    min: 2.0
+    source: default_from_category_range
+    unit: MPa
+    value: 15.2
   hardness:
     value: 3.5
     unit: Mohs
@@ -95,13 +102,6 @@ materialProperties:
     source: default_from_category_range
     unit: '%'
     value: 38.2
-  tensileStrength:
-    confidence: 0.7
-    max: 25.0
-    min: 2.0
-    source: default_from_category_range
-    unit: MPa
-    value: 15.2
   thermalDiffusivity:
     confidence: 0.7
     max: 2.5
@@ -135,7 +135,8 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 89
-    description: Optimal wavelength for Serpentine absorption and minimal substrate damage
+    description: Optimal wavelength for Serpentine absorption and minimal substrate
+      damage
     min: 532
     max: 10640
   spotSize:
@@ -199,10 +200,19 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Serpentine surface undergoing laser cleaning showing precise contamination removal
-    url: /images/serpentine-laser-cleaning-hero.jpg
+    alt: Serpentine surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/material/serpentine-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -228,56 +238,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -312,32 +272,33 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 caption:
-  beforeText: 'At 500x magnification, the serpentine surface is obscured by a non-uniform contamination layer, approximately
-    5-15 micrometers thick. This layer consists of particulate matter and a tenacious, dark biofilm that fills the stone''s
-    natural micro-fissures and surface porosity. The underlying crystalline structure of the serpentine is largely hidden.
+  beforeText: 'At 500x magnification, the serpentine surface is obscured by a non-uniform
+    contamination layer, approximately 5-15 micrometers thick. This layer consists
+    of particulate matter and a tenacious, dark biofilm that fills the stone''s natural
+    micro-fissures and surface porosity. The underlying crystalline structure of the
+    serpentine is largely hidden.
 
 
-    The contaminants form a discontinuous, crust-like morphology that adheres strongly to the substrate. The biofilm exhibits
-    a viscous, globular texture, while embedded particulates create a topographically complex and rough surface profile. This
-    layer significantly alters the stone''s inherent reflectivity and masks its true mineralogical features.'
-  afterText: 'Following laser cleaning, the 500x magnification reveals a complete removal of the contamination layer, restoring
-    the intrinsic surface morphology of the serpentine. The stone''s micro-texture, including grain boundaries and natural
-    porosity, is now fully exposed and clearly defined without any residual film or particulates.
+    The contaminants form a discontinuous, crust-like morphology that adheres strongly
+    to the substrate. The biofilm exhibits a viscous, globular texture, while embedded
+    particulates create a topographically complex and rough surface profile. This
+    layer significantly alters the stone''s inherent reflectivity and masks its true
+    mineralogical features.'
+  afterText: 'Following laser cleaning, the 500x magnification reveals a complete
+    removal of the contamination layer, restoring the intrinsic surface morphology
+    of the serpentine. The stone''s micro-texture, including grain boundaries and
+    natural porosity, is now fully exposed and clearly defined without any residual
+    film or particulates.
 
 
-    The surface exhibits a consistent and uniform appearance, with a marked reduction in micro-roughness. The laser process
-    has effectively ablated the contaminants located within the pores and fissures, re-establishing the stone''s original
-    reflectivity and revealing its characteristic mineral composition without inducing thermal damage to the substrate.'
-  description: Microscopic analysis of serpentine surface before and after laser cleaning treatment
+    The surface exhibits a consistent and uniform appearance, with a marked reduction
+    in micro-roughness. The laser process has effectively ablated the contaminants
+    located within the pores and fissures, re-establishing the stone''s original reflectivity
+    and revealing its characteristic mineral composition without inducing thermal
+    damage to the substrate.'
+  description: Microscopic analysis of serpentine surface before and after laser cleaning
+    treatment
   alt: Microscopic view of serpentine surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -357,20 +318,17 @@ caption:
     materialType: Stone
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Serpentine surface after laser cleaning showing detailed surface structure
-    url: /images/serpentine-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:32:44.723181'
-  captionIntegrated: true
+    alt: Microscopic view of Serpentine surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/serpentine-laser-cleaning-micro.jpg
 tags:
-- serpentine
 - stone
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- thermal-sensitive
-- laser-absorptive
+- jewelry
+- construction
+- low-reflectivity
+- low-thermal-conductivity
+- low-absorption
+- medium-density
 - alessandro-moretti
+- laser-processing
+- laser-processing

@@ -25,6 +25,13 @@ materialProperties:
     description: Tensile strength along fiber direction for E-glass composites
     min: 0
     max: 2748.5
+  hardness:
+    confidence: 0.7
+    max: 90.0
+    min: 20.0
+    source: default_from_category_range
+    unit: HRC
+    value: 45.0
   youngsModulus:
     value: 17.2
     unit: GPa
@@ -57,7 +64,8 @@ materialProperties:
     value: 0.65
     unit: ''
     confidence: 82
-    description: Absorption coefficient for near-infrared laser wavelengths (1064 nm)
+    description: Absorption coefficient for near-infrared laser wavelengths (1064
+      nm)
     min: null
     max: null
   reflectivity:
@@ -102,13 +110,6 @@ materialProperties:
     description: Thermal diffusivity at room temperature
     min: 0
     max: 71.493
-  hardness:
-    confidence: 0.7
-    max: 90.0
-    min: 20.0
-    source: default_from_category_range
-    unit: HRC
-    value: 45.0
   laserAbsorption:
     confidence: 0.7
     max: 200.0
@@ -207,10 +208,19 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+author:
+  id: 1
+  name: Yi-Chun Lin
+  sex: f
+  title: Ph.D.
+  country: Taiwan
+  expertise: Laser Materials Processing
+  image: /images/author/yi-chun-lin.jpg
 images:
   hero:
-    alt: Fiberglass surface undergoing laser cleaning showing precise contamination removal
-    url: /images/fiberglass-laser-cleaning-hero.jpg
+    alt: Fiberglass surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/material/fiberglass-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -236,56 +246,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -320,31 +280,30 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
-  title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
 caption:
-  beforeText: 'At 500x magnification, the contaminated fiberglass surface reveals a complex, non-uniform layer of foreign
-    material. This contamination layer, measuring between 5-15 micrometers thick, appears as a discontinuous film of organic
-    residues and embedded particulate matter. The underlying fiberglass weave pattern is partially obscured, with the contaminant
-    accumulating preferentially in the microscopic valleys of the 1.2 µm Ra surface texture.
+  beforeText: 'At 500x magnification, the contaminated fiberglass surface reveals
+    a complex, non-uniform layer of foreign material. This contamination layer, measuring
+    between 5-15 micrometers thick, appears as a discontinuous film of organic residues
+    and embedded particulate matter. The underlying fiberglass weave pattern is partially
+    obscured, with the contaminant accumulating preferentially in the microscopic
+    valleys of the 1.2 µm Ra surface texture.
 
 
-    The contamination exhibits a cracked, mudflat-like morphology, suggesting a dried polymer or composite substance. Particulates,
-    ranging from 2-10 µm in diameter, are firmly adhered within this matrix. The presence of this layer significantly alters
-    the surface''s optical properties, increasing light scattering and masking the characteristic glass fiber and resin microstructure.
-    This obscuration prevents accurate assessment of the substrate''s true condition.'
-  afterText: Laser cleaning has completely removed the contamination layer, restoring the original fiberglass substrate. The
-    surface now displays the distinct, undamaged weave pattern of the glass fibers and the surrounding polymer matrix with
-    high fidelity. The characteristic 1.2 µm Ra micro-roughness of the molded composite is fully exposed and uniform, with
-    no evidence of embedded particulate or residual film. This confirms the selective nature of the process, which ablated
-    the contaminant without exceeding the material's 1.8 J/cm² damage threshold.
-  description: Microscopic analysis of fiberglass surface before and after laser cleaning treatment
+    The contamination exhibits a cracked, mudflat-like morphology, suggesting a dried
+    polymer or composite substance. Particulates, ranging from 2-10 µm in diameter,
+    are firmly adhered within this matrix. The presence of this layer significantly
+    alters the surface''s optical properties, increasing light scattering and masking
+    the characteristic glass fiber and resin microstructure. This obscuration prevents
+    accurate assessment of the substrate''s true condition.'
+  afterText: Laser cleaning has completely removed the contamination layer, restoring
+    the original fiberglass substrate. The surface now displays the distinct, undamaged
+    weave pattern of the glass fibers and the surrounding polymer matrix with high
+    fidelity. The characteristic 1.2 µm Ra micro-roughness of the molded composite
+    is fully exposed and uniform, with no evidence of embedded particulate or residual
+    film. This confirms the selective nature of the process, which ablated the contaminant
+    without exceeding the material's 1.8 J/cm² damage threshold.
+  description: Microscopic analysis of fiberglass surface before and after laser cleaning
+    treatment
   alt: Microscopic view of fiberglass surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -364,20 +323,17 @@ caption:
     materialType: Composite
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Fiberglass surface after laser cleaning showing detailed surface structure
-    url: /images/fiberglass-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:20:36.346230'
-  captionIntegrated: true
+    alt: Microscopic view of Fiberglass surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/fiberglass-laser-cleaning-micro.jpg
 tags:
-- fiberglass
 - composite
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- hard-material
-- laser-absorptive
+- medical
+- aerospace
+- automotive
+- absorptive
+- conductive
+- durable
+- strong
+- corrosion-resistant
 - yi-chun-lin

@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: zirconium, metal, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, hard-material, laser-absorptive, todd-dunning
+Tags integrated into frontmatter: metal, nuclear, food-processing, absorptive, strong, smooth, todd-dunning

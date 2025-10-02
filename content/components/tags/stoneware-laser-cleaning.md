@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: stoneware, ceramic, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, laser-absorptive, alessandro-moretti
+Tags integrated into frontmatter: ceramic, jewelry, absorptive, insulating, corrosion-resistant, alessandro-moretti

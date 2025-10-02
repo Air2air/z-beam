@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: hickory, wood, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, porous-material, thermal-sensitive, todd-dunning
+Tags integrated into frontmatter: wood, marine, absorptive, insulating, durable, porous, lightweight, expansive, strong, todd-dunning

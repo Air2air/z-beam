@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: granite, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, laser-absorptive, alessandro-moretti
+Tags integrated into frontmatter: stone, construction, absorptive, insulating, strong, corrosion-resistant, alessandro-moretti

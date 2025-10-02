@@ -8,7 +8,8 @@ materialProperties:
     value: 2.72
     unit: g/cm³
     confidence: 92
-    description: Average density of schist based on mineral composition (mica, quartz, feldspar)
+    description: Average density of schist based on mineral composition (mica, quartz,
+      feldspar)
     min: 1.5
     max: 3.4
   thermalConductivity:
@@ -18,6 +19,13 @@ materialProperties:
     description: Thermal conductivity perpendicular to foliation planes
     min: 0.12
     max: 8.28
+  tensileStrength:
+    confidence: 0.7
+    max: 25.0
+    min: 2.0
+    source: default_from_category_range
+    unit: MPa
+    value: 8.2
   hardness:
     value: 3.5
     unit: Mohs
@@ -57,7 +65,8 @@ materialProperties:
     value: 0.45
     unit: ''
     confidence: 80
-    description: Optical absorption coefficient for near-infrared wavelengths (1064 nm)
+    description: Optical absorption coefficient for near-infrared wavelengths (1064
+      nm)
     min: null
     max: null
   reflectivity:
@@ -78,7 +87,8 @@ materialProperties:
     value: 1.42
     unit: mm²/s
     confidence: 84
-    description: Thermal diffusivity calculated from conductivity, density, and specific heat
+    description: Thermal diffusivity calculated from conductivity, density, and specific
+      heat
     min: 0.2
     max: 2.5
   laserAbsorption:
@@ -95,13 +105,6 @@ materialProperties:
     source: default_from_category_range
     unit: '%'
     value: 38.2
-  tensileStrength:
-    confidence: 0.7
-    max: 25.0
-    min: 2.0
-    source: default_from_category_range
-    unit: MPa
-    value: 8.2
   thermalDestructionPoint:
     confidence: 0.7
     max: 1700.0
@@ -120,7 +123,8 @@ machineSettings:
     value: 40
     unit: W
     confidence: 90
-    description: Optimal average power for Schist surface cleaning without thermal damage
+    description: Optimal average power for Schist surface cleaning without thermal
+      damage
     min: 20
     max: 60
   wavelength:
@@ -191,10 +195,18 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
     alt: Schist surface undergoing laser cleaning showing precise contamination removal
-    url: /images/schist-laser-cleaning-hero.jpg
+    url: /images/material/schist-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -220,56 +232,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -304,31 +266,29 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 caption:
-  beforeText: 'At 500x magnification, the schist surface is obscured by a discontinuous contamination layer, approximately
-    10-50 micrometers thick. This layer consists of particulate matter and carbonaceous deposits embedded within a matrix
-    of biological growth, which fills the natural micro-fissures and foliation planes characteristic of the stone. The original
-    crystalline texture of the mica and quartz minerals is largely hidden, with the contaminant forming a cohesive, dark film
-    that masks the substrate''s inherent granularity and reflective properties.
+  beforeText: 'At 500x magnification, the schist surface is obscured by a discontinuous
+    contamination layer, approximately 10-50 micrometers thick. This layer consists
+    of particulate matter and carbonaceous deposits embedded within a matrix of biological
+    growth, which fills the natural micro-fissures and foliation planes characteristic
+    of the stone. The original crystalline texture of the mica and quartz minerals
+    is largely hidden, with the contaminant forming a cohesive, dark film that masks
+    the substrate''s inherent granularity and reflective properties.
 
 
-    The surface topography is highly irregular due to the contaminant accumulation. The deposits create a non-uniform coverage
-    that varies in thickness, leading to a loss of surface definition. The underlying schist''s foliation—the parallel alignment
-    of mineral grains—is only partially visible in areas where the layer is thinnest, appearing as faint, sub-parallel lines
-    beneath the overlying film.'
-  afterText: Laser cleaning has effectively removed the contamination layer, revealing the pristine mineral microstructure.
-    The surface now exhibits clearly defined foliation planes and sharp grain boundaries between the constituent mica and
-    quartz. The original micro-fissures are open and free of deposits, restoring the stone's inherent porosity and natural
-    texture. The visual contrast and surface definition are significantly improved compared to the pre-cleaned state.
-  description: Microscopic analysis of schist surface before and after laser cleaning treatment
+    The surface topography is highly irregular due to the contaminant accumulation.
+    The deposits create a non-uniform coverage that varies in thickness, leading to
+    a loss of surface definition. The underlying schist''s foliation—the parallel
+    alignment of mineral grains—is only partially visible in areas where the layer
+    is thinnest, appearing as faint, sub-parallel lines beneath the overlying film.'
+  afterText: Laser cleaning has effectively removed the contamination layer, revealing
+    the pristine mineral microstructure. The surface now exhibits clearly defined
+    foliation planes and sharp grain boundaries between the constituent mica and quartz.
+    The original micro-fissures are open and free of deposits, restoring the stone's
+    inherent porosity and natural texture. The visual contrast and surface definition
+    are significantly improved compared to the pre-cleaned state.
+  description: Microscopic analysis of schist surface before and after laser cleaning
+    treatment
   alt: Microscopic view of schist surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -348,20 +308,13 @@ caption:
     materialType: Stone
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Schist surface after laser cleaning showing detailed surface structure
-    url: /images/schist-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:32:31.120003'
-  captionIntegrated: true
+    alt: Microscopic view of Schist surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/schist-laser-cleaning-micro.jpg
 tags:
-- schist
 - stone
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- thermal-sensitive
-- laser-absorptive
+- manufacturing
+- absorptive
+- insulating
+- brittle
 - alessandro-moretti

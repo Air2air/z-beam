@@ -18,6 +18,13 @@ materialProperties:
     description: Thermal conductivity at room temperature
     min: 0.03
     max: 2000.0
+  tensileStrength:
+    confidence: 0.7
+    max: 1000.0
+    min: 50.0
+    source: default_from_category_range
+    unit: MPa
+    value: 345.0
   hardness:
     value: 5.5
     unit: Mohs
@@ -109,13 +116,6 @@ materialProperties:
     source: default_from_category_range
     unit: '%'
     value: 52.3
-  tensileStrength:
-    confidence: 0.7
-    max: 1000.0
-    min: 50.0
-    source: default_from_category_range
-    unit: MPa
-    value: 345.0
   thermalDestructionPoint:
     confidence: 0.7
     max: 3827.0
@@ -131,10 +131,11 @@ materialProperties:
     value: 410.0
     unit: MPa
     confidence: 0.85
-    description: Titanium carbide (TiC) exhibits high compressive strength due to its strong covalent bonding, face-centered
-      cubic crystal structure, and high hardness (2800-3200 HV). The compressive strength is significantly higher than its
-      tensile strength, typical of brittle ceramic materials where failure occurs via shear under compression rather than
-      crack propagation.
+    description: Titanium carbide (TiC) exhibits high compressive strength due to
+      its strong covalent bonding, face-centered cubic crystal structure, and high
+      hardness (2800-3200 HV). The compressive strength is significantly higher than
+      its tensile strength, typical of brittle ceramic materials where failure occurs
+      via shear under compression rather than crack propagation.
     source: ai_research_from_mechanical_properties
     min: 200
     max: 600
@@ -145,7 +146,8 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Titanium Carbide surface cleaning without substrate damage
+    description: Optimal average power for Titanium Carbide surface cleaning without
+      substrate damage
     min: 80
     max: 120
   wavelength:
@@ -219,10 +221,19 @@ regulatoryStandards:
 - EPA Clean Air Act Compliance
 - ASTM C848 - Standard Specification for High Alumina Refractory Brick
 - ISO 23146 - Technical Ceramics
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
-    alt: Titanium Carbide surface undergoing laser cleaning showing precise contamination removal
-    url: /images/titanium-carbide-laser-cleaning-hero.jpg
+    alt: Titanium Carbide surface undergoing laser cleaning showing precise contamination
+      removal
+    url: /images/material/titanium-carbide-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -248,56 +259,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -332,35 +293,35 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 caption:
-  beforeText: 'At 500x magnification, the titanium carbide surface is obscured by a non-uniform contamination layer, approximately
-    5-10 micrometers thick. This layer appears as a matte, amorphous film with localized particulate deposits, disrupting
-    the underlying ceramic''s inherent microstructure. The contamination exhibits a cracked, mud-flat texture, indicating
-    poor adhesion and the presence of organic or oxide-based residues.
+  beforeText: 'At 500x magnification, the titanium carbide surface is obscured by
+    a non-uniform contamination layer, approximately 5-10 micrometers thick. This
+    layer appears as a matte, amorphous film with localized particulate deposits,
+    disrupting the underlying ceramic''s inherent microstructure. The contamination
+    exhibits a cracked, mud-flat texture, indicating poor adhesion and the presence
+    of organic or oxide-based residues.
 
 
-    Energy-dispersive X-ray spectroscopy (EDS) would likely detect foreign elements like carbon, oxygen, and silicon within
-    this layer, confirming it is not part of the base TiC material. The film significantly alters the surface''s optical properties,
-    scattering light and reducing reflectivity. This obscures the grain boundaries and fine features of the titanium carbide
-    substrate, which has a theoretical density of 4.93 g/cm³.'
-  afterText: 'Laser cleaning has completely removed the contamination layer, revealing the true titanium carbide substrate.
-    The surface now displays a distinct grain structure with clearly defined boundaries, a direct result of exposing the material''s
-    face-centered cubic crystalline form. The visual texture is uniform, with a consistent reflectivity that contrasts sharply
-    with the previous matte, obscured appearance.
+    Energy-dispersive X-ray spectroscopy (EDS) would likely detect foreign elements
+    like carbon, oxygen, and silicon within this layer, confirming it is not part
+    of the base TiC material. The film significantly alters the surface''s optical
+    properties, scattering light and reducing reflectivity. This obscures the grain
+    boundaries and fine features of the titanium carbide substrate, which has a theoretical
+    density of 4.93 g/cm³.'
+  afterText: 'Laser cleaning has completely removed the contamination layer, revealing
+    the true titanium carbide substrate. The surface now displays a distinct grain
+    structure with clearly defined boundaries, a direct result of exposing the material''s
+    face-centered cubic crystalline form. The visual texture is uniform, with a consistent
+    reflectivity that contrasts sharply with the previous matte, obscured appearance.
 
 
-    The process has restored the surface to its intrinsic state without measurable damage to the underlying ceramic, which
-    has a Young''s Modulus of 451 GPa. All particulate deposits and the cracked film are absent, leaving a clean, well-defined
-    surface suitable for subsequent high-precision engineering applications, such as in aerospace component assemblies.'
-  description: Microscopic analysis of titanium carbide surface before and after laser cleaning treatment
+    The process has restored the surface to its intrinsic state without measurable
+    damage to the underlying ceramic, which has a Young''s Modulus of 451 GPa. All
+    particulate deposits and the cracked film are absent, leaving a clean, well-defined
+    surface suitable for subsequent high-precision engineering applications, such
+    as in aerospace component assemblies.'
+  description: Microscopic analysis of titanium carbide surface before and after laser
+    cleaning treatment
   alt: Microscopic view of titanium carbide surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -380,20 +341,13 @@ caption:
     materialType: Ceramic
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Titanium Carbide surface after laser cleaning showing detailed surface structure
-    url: /images/titanium-carbide-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:37:20.580189'
-  captionIntegrated: true
+    alt: Microscopic view of Titanium Carbide surface after laser cleaning showing
+      detailed surface structure
+    url: /images/material/titanium-carbide-laser-cleaning-micro.jpg
 tags:
-- titanium-carbide
 - ceramic
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- laser-absorptive
-- thermal-resistant
+- aerospace
+- absorptive
+- strong
+- rigid
 - alessandro-moretti

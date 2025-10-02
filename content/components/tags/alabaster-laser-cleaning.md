@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: alabaster, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, porous-material, thermal-sensitive, alessandro-moretti
+Tags integrated into frontmatter: stone, art-conservation, absorptive, insulating, soft, porous, expansive, alessandro-moretti

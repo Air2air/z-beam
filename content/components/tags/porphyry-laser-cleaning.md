@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: porphyry, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, laser-absorptive, alessandro-moretti
+Tags integrated into frontmatter: stone, jewelry, absorptive, insulating, strong, alessandro-moretti

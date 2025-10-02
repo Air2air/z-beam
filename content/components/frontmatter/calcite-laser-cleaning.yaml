@@ -18,6 +18,13 @@ materialProperties:
     description: Thermal conductivity parallel to c-axis at 25°C
     min: 0.12
     max: 8.28
+  tensileStrength:
+    confidence: 0.7
+    max: 25.0
+    min: 2.0
+    source: default_from_category_range
+    unit: MPa
+    value: 6.0
   hardness:
     value: 3.0
     unit: Mohs
@@ -95,13 +102,6 @@ materialProperties:
     source: default_from_category_range
     unit: '%'
     value: 38.2
-  tensileStrength:
-    confidence: 0.7
-    max: 25.0
-    min: 2.0
-    source: default_from_category_range
-    unit: MPa
-    value: 6.0
   thermalDestructionPoint:
     confidence: 0.7
     max: 1700.0
@@ -148,7 +148,8 @@ machineSettings:
     value: 8
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for controlled ablation of Calcite surface contaminants
+    description: Nanosecond pulse duration for controlled ablation of Calcite surface
+      contaminants
     min: 5
     max: 15
   scanSpeed:
@@ -184,10 +185,18 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
+author:
+  id: 2
+  name: Alessandro Moretti
+  sex: m
+  title: Ph.D.
+  country: Italy
+  expertise: Laser-Based Additive Manufacturing
+  image: /images/author/alessandro-moretti.jpg
 images:
   hero:
     alt: Calcite surface undergoing laser cleaning showing precise contamination removal
-    url: /images/calcite-laser-cleaning-hero.jpg
+    url: /images/material/calcite-laser-cleaning-hero.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -213,56 +222,6 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-applicationTypes:
-- type: Precision Cleaning
-  description: High-precision removal of microscopic contaminants and residues
-  industries:
-  - Semiconductor
-  - MEMS
-  - Optics
-  - Medical Devices
-  qualityMetrics:
-  - Particle count reduction
-  - Surface roughness maintenance
-  - Chemical purity
-  typicalTolerances: Sub-micron accuracy with minimal substrate impact
-  objectives: []
-- type: Surface Preparation
-  description: Preparation of surfaces for bonding, coating, or further processing
-  industries:
-  - Aerospace
-  - Automotive
-  - Manufacturing
-  - Construction
-  qualityMetrics:
-  - Surface energy
-  - Cleanliness level
-  - Roughness profile
-  typicalTolerances: ''
-  objectives:
-  - Adhesion enhancement
-  - Contamination removal
-  - Surface activation
-- type: Restoration Cleaning
-  description: Gentle removal of accumulated contamination while preserving original material
-  industries:
-  - Cultural Heritage
-  - Architecture
-  - Art Conservation
-  - Historical Restoration
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
-- type: Contamination Removal
-  description: General removal of unwanted surface deposits and contaminants
-  industries:
-  - Manufacturing
-  - Marine
-  - Oil & Gas
-  - Power Generation
-  qualityMetrics: []
-  typicalTolerances: ''
-  objectives: []
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -297,26 +256,23 @@ outcomeMetrics:
   typicalRanges: ''
   factorsAffecting: []
   units: []
-author:
-  id: 2
-  name: Alessandro Moretti
-  sex: m
-  title: Ph.D.
-  country: Italy
-  expertise: Laser-Based Additive Manufacturing
-  image: /images/author/alessandro-moretti.jpg
 caption:
-  beforeText: At 500x magnification, the calcite surface is obscured by a non-uniform contamination layer approximately 5-15
-    micrometers thick. This layer consists of particulate matter and a dark, tenacious crust that fills the natural micro-fissures
-    and cleavage planes characteristic of the mineral. The surface texture is highly irregular, with the contaminants forming
-    a matte, occluding film that prevents observation of the underlying crystalline structure. The original surface morphology
+  beforeText: At 500x magnification, the calcite surface is obscured by a non-uniform
+    contamination layer approximately 5-15 micrometers thick. This layer consists
+    of particulate matter and a dark, tenacious crust that fills the natural micro-fissures
+    and cleavage planes characteristic of the mineral. The surface texture is highly
+    irregular, with the contaminants forming a matte, occluding film that prevents
+    observation of the underlying crystalline structure. The original surface morphology
     is no longer discernible.
-  afterText: Laser cleaning has restored the intrinsic surface morphology, revealing the calcite's characteristic rhombohedral
-    cleavage planes and micro-texture. The previously occluding contamination layer has been completely removed, with no residual
-    crust observed within the fissures. The surface now exhibits a consistent, clean substrate with clearly defined crystalline
-    features. This confirms the selective ablation process successfully targeted the contaminants while preserving the mineral's
+  afterText: Laser cleaning has restored the intrinsic surface morphology, revealing
+    the calcite's characteristic rhombohedral cleavage planes and micro-texture. The
+    previously occluding contamination layer has been completely removed, with no
+    residual crust observed within the fissures. The surface now exhibits a consistent,
+    clean substrate with clearly defined crystalline features. This confirms the selective
+    ablation process successfully targeted the contaminants while preserving the mineral's
     structural integrity.
-  description: Microscopic analysis of calcite surface before and after laser cleaning treatment
+  description: Microscopic analysis of calcite surface before and after laser cleaning
+    treatment
   alt: Microscopic view of calcite surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -336,20 +292,13 @@ caption:
     materialType: Stone
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Calcite surface after laser cleaning showing detailed surface structure
-    url: /images/calcite-laser-cleaning-micro.jpg
-metadata:
-  lastUpdated: '2025-09-30T20:18:44.513748'
-  captionIntegrated: true
+    alt: Microscopic view of Calcite surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/calcite-laser-cleaning-micro.jpg
 tags:
-- calcite
 - stone
-- semiconductor
-- mems
-- optics
-- precision-cleaning
-- surface-preparation
-- restoration-cleaning
-- thermal-sensitive
-- laser-absorptive
+- construction
+- insulating
+- expansive
+- brittle
 - alessandro-moretti

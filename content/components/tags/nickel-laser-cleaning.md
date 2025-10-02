@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: nickel, metal, semiconductor, mems, optics, precision-cleaning, surface-preparation, contamination-removal, hard-material, laser-absorptive, todd-dunning
+Tags integrated into frontmatter: metal, food-processing, semiconductor, jewelry, durable, dense, strong, rigid, todd-dunning

@@ -1,1 +1,1 @@
-Tags integrated into frontmatter: breccia, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, porous-material, thermal-sensitive, alessandro-moretti
+Tags integrated into frontmatter: stone, oil-and-gas, absorptive, insulating, porous, brittle, alessandro-moretti
