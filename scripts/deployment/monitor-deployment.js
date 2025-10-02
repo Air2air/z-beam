@@ -30,15 +30,39 @@ function log(message, color = colors.reset) {
 
 function getLatestDeployment() {
   try {
-    const output = execSync(`${VERCEL_CLI} ls --json`, { encoding: 'utf-8' });
-    const data = JSON.parse(output);
+    const output = execSync(`${VERCEL_CLI} ls 2>&1`, { encoding: 'utf-8' });
     
-    if (!data.deployments || data.deployments.length === 0) {
-      return null;
+    // Parse text output instead of JSON (vercel ls doesn't support --json)
+    const lines = output.split('\n');
+    
+    // Find the first deployment line (after headers)
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      // Look for lines with https:// and status indicators
+      if (line.includes('https://') && (line.includes('●') || line.includes('Building') || line.includes('Ready') || line.includes('Error'))) {
+        // Parse: Age  URL  Status  Environment  Duration
+        const urlMatch = line.match(/https:\/\/[^\s]+/);
+        const statusMatch = line.match(/●\s+(Building|Ready|Error|Queued|Initializing|Canceled)/);
+        const targetMatch = line.match(/(Production|Preview)/);
+        
+        if (urlMatch) {
+          const url = urlMatch[0];
+          const state = statusMatch ? statusMatch[1].toUpperCase() : 'UNKNOWN';
+          const target = targetMatch ? targetMatch[1].toLowerCase() : 'preview';
+          
+          return {
+            url: url.replace('https://', ''),
+            state,
+            readyState: state,
+            created: Date.now() - 10000, // Approximate, can't get exact from text output
+            target,
+            meta: {}
+          };
+        }
+      }
     }
     
-    // Get the most recent deployment
-    return data.deployments[0];
+    return null;
   } catch (error) {
     log(`Error fetching deployments: ${error.message}`, colors.red);
     return null;

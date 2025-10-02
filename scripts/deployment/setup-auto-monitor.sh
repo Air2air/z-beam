@@ -90,13 +90,11 @@ cat > "$POST_PUSH_HOOK" << 'HOOK_CONTENT'
 # Runs automatically after every git push
 # Monitors Vercel deployments to main branch
 
-# Get the remote branch being pushed to
-while read local_ref local_sha remote_ref remote_sha; do
-  # Extract branch name from remote ref (refs/heads/main -> main)
-  pushed_branch=$(echo "$remote_ref" | sed 's|refs/heads/||')
-  
-  # Only monitor pushes to main branch
-  if [ "$pushed_branch" = "main" ]; then
+# Get the current branch
+current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+
+# Only monitor pushes to main branch
+if [ "$current_branch" = "main" ]; then
     echo ""
     echo "🚀 Push to main detected - Starting automatic deployment monitor..."
     echo ""
@@ -126,8 +124,7 @@ while read local_ref local_sha remote_ref remote_sha; do
     fi
     
     echo ""
-  fi
-done
+fi
 
 exit 0
 HOOK_CONTENT
