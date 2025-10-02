@@ -6,6 +6,7 @@ import { CardGrid } from "../components/CardGrid/CardGrid";
 import { Article, MaterialType, SearchClientProps } from "@/types";
 import { extractSafeValue, safeIncludes } from "../utils/client-safe";
 import { Title } from "../components/Title";
+import { capitalizeWords } from "../utils/formatting";
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
@@ -127,6 +128,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   const query = searchParams?.get('q') || '';
   const propertyName = searchParams?.get('property') || '';
   const propertyValue = searchParams?.get('value') || '';
+  const propertyUnit = searchParams?.get('unit') || '';
   
   const [articles] = useState<Article[]>(initialArticles);
   
@@ -297,8 +299,8 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
       <div className="mb-4">
         <Title level="section" title={
           propertyName && propertyValue ? 
-            `Materials with ${propertyName}: "${propertyValue}"` :
-            query ? `Search Results for "${query}"` : 'All Articles'
+            `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}${propertyUnit ? ' ' + propertyUnit : ''}` :
+            query ? `Materials with "${query}"` : 'All Articles'
         } />
         <p className="text-gray-600">{filteredArticles.length} results found</p>
       </div>
@@ -311,11 +313,11 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         <CardGrid
           items={filteredArticles.map((article) => ({
             slug: article.slug || 'unknown',
-            title: article.title || 'Untitled Article',
+            title: article.name || article.title || 'Untitled Article',
             description: article.description || article.excerpt || '',
             href: `/${article.slug}`,
             imageUrl: article.image,
-            imageAlt: article.imageAlt || article.title || '',
+            imageAlt: article.imageAlt || article.name || article.title || '',
             badge: (article as any).badgeSymbolData || {
               symbol: (article.metadata as any)?.chemicalSymbol,
               formula: (article.metadata as any)?.chemicalFormula,

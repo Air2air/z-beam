@@ -259,9 +259,10 @@ const PROPERTY_PATTERNS = /\b(g\/cm|w\/m|j\/cm|mpa|gpa|nm|μm)\b/i;
  * @param title - Metric title
  * @param value - Metric value
  * @param fullPropertyName - Optional full property name for accurate search
+ * @param unit - Optional unit for display
  * @returns Search URL
  */
-export function generateSearchUrl(title: string, value: string | number, fullPropertyName?: string): string {
+export function generateSearchUrl(title: string, value: string | number, fullPropertyName?: string, unit?: string): string {
   const searchValue = String(value).replace(/[^\w\s.-]/g, ''); // Clean the value
   
   // Use full property name if available, otherwise fall back to title-based detection
@@ -269,7 +270,11 @@ export function generateSearchUrl(title: string, value: string | number, fullPro
   
   if (fullPropertyName) {
     // If we have the full property name, always use property-based search
-    return `/search?property=${encodeURIComponent(propertyNameForSearch)}&value=${encodeURIComponent(searchValue)}`;
+    let url = `/search?property=${encodeURIComponent(propertyNameForSearch)}&value=${encodeURIComponent(searchValue)}`;
+    if (unit) {
+      url += `&unit=${encodeURIComponent(unit)}`;
+    }
+    return url;
   }
   
   // Fallback: title-based detection
@@ -281,7 +286,11 @@ export function generateSearchUrl(title: string, value: string | number, fullPro
   
   if (isProperty) {
     // Use property-based search
-    return `/search?property=${encodeURIComponent(title)}&value=${encodeURIComponent(searchValue)}`;
+    let url = `/search?property=${encodeURIComponent(title)}&value=${encodeURIComponent(searchValue)}`;
+    if (unit) {
+      url += `&unit=${encodeURIComponent(unit)}`;
+    }
+    return url;
   } else {
     // Use general search
     return `/search?q=${encodeURIComponent(searchValue)}`;

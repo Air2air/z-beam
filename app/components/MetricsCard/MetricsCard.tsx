@@ -49,7 +49,7 @@ export function MetricsCard({
   const hasValidRange = cleanedMin !== undefined && cleanedMax !== undefined && !isNaN(numericValue) && cleanedMin < cleanedMax;
   
   // Generate search URL if searchable is true and no href is provided
-  const finalHref = href || (searchable ? generateSearchUrl(title, value, fullPropertyName) : undefined);
+  const finalHref = href || (searchable ? generateSearchUrl(title, value, fullPropertyName, unit) : undefined);
   const isClickable = Boolean(finalHref);
   
   // Generate unique IDs for accessibility
