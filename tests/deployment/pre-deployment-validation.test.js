@@ -35,20 +35,20 @@ describe('Pre-Deployment Error Prevention', () => {
   });
 
   describe('Build validation', () => {
-    test('Babel config should only be used for testing', () => {
-      const babelConfigPath = path.join(process.cwd(), '.babelrc.js');
+    test('No Babel config should exist (Next.js uses SWC)', () => {
+      // No Babel config files should exist - Next.js 14 uses SWC compiler
+      const babelFiles = [
+        '.babelrc',
+        '.babelrc.js', 
+        '.babelrc.json',
+        'babel.config.js',
+        'babel.config.json'
+      ];
       
-      // If .babelrc.js exists, it should only run during testing (NODE_ENV=test)
-      if (fs.existsSync(babelConfigPath)) {
-        const content = fs.readFileSync(babelConfigPath, 'utf-8');
-        // Should contain check for test environment
-        expect(content).toContain("process.env.NODE_ENV === 'test'");
-        expect(content).toContain('next/babel');
-      }
-      
-      // .babelrc should not exist (we use .babelrc.js for conditional logic)
-      const babelrcPath = path.join(process.cwd(), '.babelrc');
-      expect(fs.existsSync(babelrcPath)).toBe(false);
+      babelFiles.forEach(file => {
+        const filePath = path.join(process.cwd(), file);
+        expect(fs.existsSync(filePath)).toBe(false);
+      });
     });
 
     test('required directories exist', () => {
