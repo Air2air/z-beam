@@ -18,7 +18,7 @@ interface TagData {
 export function TagDebug() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState<TagDebugData | null>(null);
+  const [data, setData] = useState<TagData | null>(null);
 
   useEffect(() => {
     async function fetchTagDebugData() {

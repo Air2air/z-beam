@@ -13,8 +13,8 @@ interface Document {
 export function FrontmatterDebug() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [data, setData] = useState<FrontmatterItem[]>([]);
-  const [selectedItem, setSelectedItem] = useState<FrontmatterItem | null>(null);
+  const [data, setData] = useState<Document[]>([]);
+  const [selectedItem, setSelectedItem] = useState<Document | null>(null);
 
   useEffect(() => {
     async function fetchFrontmatterData() {
@@ -45,7 +45,7 @@ export function FrontmatterDebug() {
     fetchFrontmatterData();
   }, []);
 
-  const handleItemSelect = (item: FrontmatterItem) => {
+  const handleItemSelect = (item: Document) => {
     setSelectedItem(item);
   };
 
