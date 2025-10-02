@@ -235,10 +235,60 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
       return false;
     };
     
+    // Search in multiple fields
+    const titleMatch = article.title && safeIncludes(extractSafeValue(article.title), searchTerm);
+    const descriptionMatch = article.description && safeIncludes(extractSafeValue(article.description), searchTerm);
+    const authorMatch = checkAuthorMatch(article, searchTerm);
+    
+    // Search in tags
+    const tagsMatch = article.tags && Array.isArray(article.tags) && 
+      article.tags.some(tag => safeIncludes(extractSafeValue(tag), searchTerm));
+    
+    // Search in category/subcategory - use type-safe access
+    const metadata = article.metadata as any;
+    const categoryMatch = metadata?.category && 
+      safeIncludes(extractSafeValue(metadata.category), searchTerm);
+    const subcategoryMatch = metadata?.subcategory && 
+      safeIncludes(extractSafeValue(metadata.subcategory), searchTerm);
+    
+    // Search in keywords (from metadata/metatags)
+    let keywordsMatch = false;
+    if (metadata?.keywords) {
+      const keywords = metadata.keywords;
+      if (Array.isArray(keywords)) {
+        keywordsMatch = keywords.some((keyword: any) => safeIncludes(extractSafeValue(keyword), searchTerm));
+      }
+    }
+    
+    // Search in meta_tags keywords if present
+    let metaTagsKeywordsMatch = false;
+    if (metadata?.meta_tags && Array.isArray(metadata.meta_tags)) {
+      const keywordsTag = metadata.meta_tags.find(
+        (tag: any) => tag?.name === 'keywords' && tag?.content
+      );
+      if (keywordsTag?.content) {
+        const keywordsContent = keywordsTag.content;
+        if (Array.isArray(keywordsContent)) {
+          metaTagsKeywordsMatch = keywordsContent.some((keyword: any) => 
+            safeIncludes(extractSafeValue(keyword), searchTerm)
+          );
+        }
+      }
+    }
+    
+    // Search in name field (material name)
+    const nameMatch = article.name && safeIncludes(extractSafeValue(article.name), searchTerm);
+    
     return (
-      (article.title && safeIncludes(extractSafeValue(article.title), searchTerm)) ||
-      (article.description && safeIncludes(extractSafeValue(article.description), searchTerm)) ||
-      checkAuthorMatch(article, searchTerm)
+      titleMatch ||
+      descriptionMatch ||
+      authorMatch ||
+      tagsMatch ||
+      categoryMatch ||
+      subcategoryMatch ||
+      keywordsMatch ||
+      metaTagsKeywordsMatch ||
+      nameMatch
     );
   });
   

@@ -213,6 +213,11 @@ const parseTags = (content: string | TagsData): string[] => {
   
   return (
     <div className={`tags-container ${className}`} data-testid="tags-container">
+      {/* Title display */}
+      {title && config?.title && (
+        <h3 className="text-lg font-semibold mb-3">{config.title}</h3>
+      )}
+      
       {/* Metadata display */}
       {config?.showMetadata && (metadata || count || categories || material) && (
         <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
