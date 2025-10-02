@@ -300,8 +300,8 @@ export const getAllSlugs = cache(async (): Promise<string[]> => {
       if (existsSync(dir)) {
         const files = await fs.readdir(dir);
         files
-          .filter(file => file.endsWith('.md'))
-          .map(file => stripParenthesesFromSlug(file.replace('.md', '')))
+          .filter(file => file.endsWith('.yaml') || file.endsWith('.yml') || file.endsWith('.md'))
+          .map(file => stripParenthesesFromSlug(file.replace(/\.(yaml|yml|md)$/, '')))
           .forEach(slug => slugs.add(slug));
       }
     }
