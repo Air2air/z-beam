@@ -18,9 +18,10 @@ docs/
 
 ### For Developers
 1. **Setup**: [`development/developer-guide.md`](./development/DEVELOPER_GUIDE.md) - Complete development environment setup
-2. **Debugging**: [`development/debugging-system.md`](./development/debugging-system.md) - Debugging tools and techniques
-3. **Workflows**: [`development/automated-workflow.md`](./development/automated-workflow.md) - CI/CD and automated processes
-4. **Deployment**: [`development/deployment-workflow.md`](./development/DEPLOYMENT_WORKFLOW.md) - Production deployment guide
+2. **Deployment**: [`deployment/README.md`](./deployment/README.md) - **⭐ Complete deployment system guide (v2.1)**
+3. **Testing**: [`deployment/TESTING.md`](./deployment/TESTING.md) - Deployment test suite (46 tests)
+4. **Debugging**: [`development/debugging-system.md`](./development/debugging-system.md) - Debugging tools and techniques
+5. **Workflows**: [`development/automated-workflow.md`](./development/automated-workflow.md) - CI/CD and automated processes
 
 ### For System Architecture
 1. **Type System**: [`architecture/type-system.md`](./architecture/type-system.md) - Centralized TypeScript type architecture
@@ -41,9 +42,11 @@ docs/
 | Document | Purpose | Audience |
 |----------|---------|----------|
 | [`developer-guide.md`](./development/DEVELOPER_GUIDE.md) | Complete development setup and workflow | Developers |
+| **[`deployment/README.md`](./deployment/README.md)** | **Complete deployment system (v2.1)** | **Developers, DevOps** |
+| [`deployment/TESTING.md`](./deployment/TESTING.md) | Deployment test suite documentation | Developers |
+| [`DEPLOYMENT_TROUBLESHOOTING.md`](./DEPLOYMENT_TROUBLESHOOTING.md) | Deployment issues and solutions | Developers, DevOps |
 | [`debugging-system.md`](./development/debugging-system.md) | Debugging tools and troubleshooting | Developers |
 | [`automated-workflow.md`](./development/automated-workflow.md) | CI/CD and automation processes | DevOps, Developers |
-| [`deployment-workflow.md`](./development/DEPLOYMENT_WORKFLOW.md) | Production deployment procedures | DevOps |
 | [`monitoring-architecture-fixed.md`](./development/MONITORING_ARCHITECTURE_FIXED.md) | System monitoring and observability | DevOps |
 | [`simplified-scripts.md`](./development/SIMPLIFIED_SCRIPTS.md) | Development and build scripts | Developers |
 
@@ -72,19 +75,22 @@ docs/
 - **Architects**: Explore `architecture/` for system design documentation
 
 ### By Feature
+- **Deployment System**: `deployment/README.md` ⭐ **Start here for deployments**
+- **Deployment Testing**: `deployment/TESTING.md`
 - **Author System**: `guides/author-system.md`
 - **Type System**: `architecture/type-system.md`
 - **Contact Forms**: `guides/contact-form-readme.md`
 - **Email Services**: `guides/email-service-options.md`, `guides/resend-setup-guide.md`
 - **Accessibility**: `guides/accessibility-guide.md`
-- **Deployment**: `development/deployment-workflow.md`
 - **Monitoring**: `development/monitoring-architecture-fixed.md`
 
 ### By Task
 - **Setting up development environment**: `development/developer-guide.md`
+- **Deploying to production**: `deployment/README.md` ⭐
+- **Troubleshooting deployments**: `DEPLOYMENT_TROUBLESHOOTING.md`
+- **Testing deployment system**: `deployment/TESTING.md`
 - **Debugging issues**: `development/debugging-system.md`
 - **Configuring authors**: `guides/author-system.md`
-- **Deploying to production**: `development/deployment-workflow.md`
 - **Understanding TypeScript types**: `architecture/type-system.md`
 - **Setting up email**: `guides/email-service-options.md`
 
@@ -117,10 +123,10 @@ This documentation system follows these principles:
 
 ## 🆘 Need Help?
 
+- **Deployment Issues**: See `deployment/README.md` and `DEPLOYMENT_TROUBLESHOOTING.md` ⭐
 - **Development Issues**: Check `development/debugging-system.md`
 - **Author Problems**: See `guides/author-system.md`
 - **Type Errors**: Review `architecture/type-system.md`
-- **Deployment Issues**: Follow `development/deployment-workflow.md`
 - **Business Configuration**: Consult `guides/business-configuration-guide.md`
 
 For additional support, search the documentation using your IDE's search functionality or browse the appropriate folder for your needs.

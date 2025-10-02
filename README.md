@@ -183,35 +183,88 @@ npm run create:component   # Safely create new component (last resort)
 
 ---
 
-## 8. Build & Quality Assurance
+## 8. Deployment System (v2.1)
 
-### Quick Deployment
+### Production-Only Deployment
+
+Z-Beam uses automatic production deployment from the `main` branch with real-time monitoring.
+
+**Quick Deploy:**
 ```bash
-npm run deploy             # Full validation + production deployment
-npm run deploy:preview     # Full validation + preview deployment
+git push origin main   # Automatic production deployment + monitoring
 ```
 
-### Manual Deployment Steps
+That's it! The system automatically:
+- ✅ Triggers Vercel build
+- ✅ Monitors deployment status
+- ✅ Sends desktop notification
+- ✅ Logs deployment history
+- ✅ Analyzes errors if failure occurs
+
+### System Health Check
+
+Before deploying, verify your environment:
 ```bash
-npm run predeploy          # 1. Validate (TypeScript, ESLint, tests, build)
-vercel --prod             # 2. Deploy to production
+npm run deploy:health   # Validates Node, Git, Vercel CLI, hooks
 ```
 
-The deployment system follows GROK principles:
-- **Simple & Reliable**: Single working script, no complex monitoring
-- **Fail-fast Validation**: Catches issues before deployment
-- **Clear Error Reporting**: Shows exactly what needs fixing
-- **Minimal Complexity**: 102 lines of proven deployment logic
+### Build Configuration
 
-**Deployment Pipeline:**
-1. **Prerequisites Check** - Validates dependencies and environment
-2. **TypeScript Validation** - Type checking (warnings allowed)
-3. **ESLint Auto-fix** - Code quality with automatic corrections  
-4. **Test Execution** - Test suite (failures noted but don't block)
-5. **Production Build** - Optimized Next.js build
-6. **Vercel Deployment** - Platform deployment with debugging
+- **Compiler**: Next.js SWC (Babel removed for performance)
+- **TypeScript**: In devDependencies (v5.9.3)
+- **Package Install**: `npm ci --include=dev` (815+ packages)
+- **Build Command**: `next build`
+- **Region**: iad1 (Washington D.C.)
 
-For troubleshooting, see `DEPLOYMENT_CONSOLIDATION.md` for complete migration details.
+### Automatic Monitoring
+
+Deployment monitoring activates automatically via git hook:
+
+```
+📍 URL: z-beam-xyz.vercel.app
+🔨 Status: BUILDING → ✅ READY
+⏱️  Duration: 65 seconds
+🔔 Desktop notification sent
+```
+
+### Deployment Tools
+
+```bash
+# Monitoring
+npm run deploy:health     # System health check
+npm run deploy:history    # View deployment history
+npm run deploy:stats      # Success rate & analytics
+npm run deploy:analyze    # Analyze latest error
+
+# Manual
+vercel --prod            # Direct deployment (bypasses monitoring)
+vercel ls                # List recent deployments
+vercel logs --follow     # Stream logs
+```
+
+### Error Handling
+
+The system detects and provides fixes for 17 error types:
+- Missing modules/dependencies
+- TypeScript errors
+- File not found
+- Build failures
+- Memory limits
+- Environment variables
+- API routes
+- And more...
+
+Errors saved to: `.vercel-deployment-error.log`
+
+### Documentation
+
+- **[Complete Guide](./docs/deployment/README.md)** - Full deployment system documentation
+- **[Testing Guide](./docs/deployment/TESTING.md)** - Test suite (46 tests)
+- **[Troubleshooting](./docs/DEPLOYMENT_TROUBLESHOOTING.md)** - Common issues
+- **[Fixes Summary](./DEPLOYMENT_FIXES_SUMMARY.md)** - Recent v2.1 fixes
+- **[Changelog](./DEPLOYMENT_CHANGELOG.md)** - Version history
+
+**System Status**: ✅ Operational (100% success rate since v2.1)
 
 ---
 
