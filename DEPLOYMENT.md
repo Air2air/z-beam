@@ -91,6 +91,73 @@ vercel promote <deployment-url>
 
 ### Monitoring
 
+#### 🎯 Automatic Monitoring (Default)
+
+**Monitoring happens automatically!** Every push to main triggers automatic deployment monitoring via git hook.
+
+Just push and watch:
+```bash
+git push origin main
+# Monitoring starts automatically!
+```
+
+The git post-push hook:
+- ✅ Activates automatically after every push to main
+- ✅ Shows real-time deployment status
+- ✅ Updates every 5 seconds
+- ✅ Auto-exits when deployment completes
+- ✅ Works for all developers (installed via npm postinstall)
+
+**No manual steps required!**
+
+#### Additional Monitoring Options
+
+**1. VS Code Task (Alternative method)**
+```
+Terminal → Run Task → Monitor Vercel Deployment
+```
+This runs the automated monitor script that:
+- Checks deployment status every 5 seconds
+- Shows real-time progress with colored output
+- Reports success/failure automatically
+- Exits with appropriate status code
+
+**2. Combined Deploy and Monitor Task**
+```
+Terminal → Run Task → Deploy and Monitor
+```
+This task:
+- Pushes to main branch
+- Automatically starts monitoring
+- Reports when deployment is live
+
+**3. Standalone Monitor Script**
+```bash
+# Monitor with full output
+node scripts/deployment/monitor-deployment.js
+
+# Monitor and open in browser when ready
+node scripts/deployment/monitor-deployment.js --open
+
+# Quiet mode (only shows final result)
+node scripts/deployment/monitor-deployment.js --quiet
+```
+
+**4. GitHub Actions (Automatic)**
+
+Every push to main triggers a GitHub Actions workflow that:
+- Monitors the Vercel deployment automatically
+- Posts status updates to the commit
+- Fails the workflow if deployment fails
+- Provides links to deployment logs
+
+To set up (requires one-time configuration):
+1. Get Vercel token: https://vercel.com/account/tokens
+2. Add to GitHub Secrets as `VERCEL_TOKEN`
+3. Workflow runs automatically on every push to main
+
+#### Manual Monitoring
+
 ```bash
 # Follow deployment logs
 vercel logs --follow
@@ -100,6 +167,9 @@ vercel ls
 
 # View specific deployment details
 vercel inspect <deployment-url>
+
+# Monitor with JSON output
+vercel ls --json | jq '.deployments[0]'
 ```
 
 ### Best Practices

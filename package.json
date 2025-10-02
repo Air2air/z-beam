@@ -5,6 +5,7 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
+    "postinstall": "bash scripts/deployment/setup-auto-monitor.sh 2>/dev/null || true",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -35,7 +36,10 @@
     "test:content": "node tests/test-content-validation.js",
     "test:images": "jest tests/image-naming-conventions.test.js",
     "test:comprehensive": "npm run test:parsing && npm run test:content && npm run test:images && npm run test:ci",
+    "test:deployment": "jest --config jest.deployment.config.js",
+    "test:deployment:watch": "jest --config jest.deployment.config.js --watch",
     "validate:fast": "npm run type-check && npm run test:unit",
+    "validate:deployment": "npm run type-check && npm run test:deployment && npm run build",
     "precommit": "npm run validate:fast",
     "validate:grok": "node scripts/buildValidation.ts",
     "validate:grok:strict": "node scripts/buildValidation.ts --strict",
