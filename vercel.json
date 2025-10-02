@@ -1,10 +1,22 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "buildCommand": "node scripts/deployment/production-predeploy.js && next build",
   "framework": "nextjs",
   "installCommand": "npm ci --legacy-peer-deps || npm install",
   "outputDirectory": ".next",
   "regions": ["iad1"],
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "github": {
+    "enabled": true,
+    "autoAlias": false,
+    "silent": false,
+    "autoJobCancelation": true
+  },
   "env": {
     "NODE_ENV": "production",
     "NEXT_TELEMETRY_DISABLED": "1"
