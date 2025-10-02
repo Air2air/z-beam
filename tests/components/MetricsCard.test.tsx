@@ -76,7 +76,7 @@ describe('MetricsCard Simple Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute('href', '/search?property=Thermal%20Conductivity&value=150');
+      expect(link).toHaveAttribute('href', '/search?property=Thermal%20Conductivity&value=150&unit=W%2FmK');
       expect(link).toHaveAttribute('title', 'Search for Thermal Conductivity: 150W/mK');
     });
 
@@ -92,7 +92,7 @@ describe('MetricsCard Simple Component', () => {
       );
       
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/search?property=Melting%20Temperature&value=1200');
+      expect(link).toHaveAttribute('href', '/search?property=Melting%20Temperature&value=1200&unit=%C2%B0C');
     });
 
     it('should generate general search URL for non-property titles', () => {
