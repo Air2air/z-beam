@@ -7,7 +7,6 @@ import { MaterialType } from "@/types";
 import { CONTAINER_STYLES } from "../utils/containerStyles";
 import { Suspense } from "react";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 
 import { LoadingSpinner } from "../components/Loading/LoadingSpinner";
 import { Title } from "../components/Title";
