@@ -41,12 +41,31 @@ function checkPrerequisites() {
     throw new Error('package.json not found');
   }
   
+  // Check if critical directories exist
+  const criticalPaths = ['app', 'types', 'content'];
+  for (const path of criticalPaths) {
+    if (!fs.existsSync(path)) {
+      console.warn(`⚠️ Warning: ${path} directory not found`);
+    }
+  }
+  
+  // Check Node version
+  const nodeVersion = process.version;
+  const majorVersion = parseInt(nodeVersion.slice(1).split('.')[0]);
+  if (majorVersion < 20) {
+    throw new Error(`Node.js version ${nodeVersion} is too old. Requires >= 20.0.0`);
+  }
+  console.log(`✅ Node.js version: ${nodeVersion}`);
+  
   console.log('✅ Prerequisites satisfied');
 }
 
 async function main() {
   console.log('🚀 PRODUCTION PREDEPLOY SYSTEM');
   console.log('===============================');
+  console.log(`📍 Working directory: ${process.cwd()}`);
+  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'not set'}`);
+  console.log(`⚙️ Platform: ${process.platform}`);
   
   try {
     // Step 1: Prerequisites
@@ -58,10 +77,22 @@ async function main() {
     // Skip ESLint and tests in production environment
     console.log('⚠️ Skipping ESLint and tests in production environment');
     
+    // Verify critical files exist
+    const criticalFiles = ['next.config.js', 'tsconfig.json'];
+    for (const file of criticalFiles) {
+      if (fs.existsSync(file)) {
+        console.log(`✅ Found: ${file}`);
+      } else {
+        console.warn(`⚠️ Missing: ${file}`);
+      }
+    }
+    
     console.log('\n🎉 PRODUCTION PREDEPLOY COMPLETE - READY FOR BUILD');
+    console.log('═══════════════════════════════════════════════════\n');
     
   } catch (error) {
     console.error('\n❌ PRODUCTION PREDEPLOY FAILED:', error.message);
+    console.error('Stack:', error.stack);
     process.exit(1);
   }
 }
