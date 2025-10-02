@@ -12,6 +12,30 @@ npm run deploy:check  # If script exists
 
 ---
 
+## Recently Resolved Issues (October 2, 2025)
+
+### ✅ Build Failing: "Module not found" errors
+**Fixed**: This was caused by devDependencies not being installed. Solution implemented in `vercel.json`:
+```json
+"installCommand": "npm ci --legacy-peer-deps --include=dev || npm install"
+```
+
+### ✅ Build Failing: TypeScript not found
+**Fixed**: TypeScript moved to `devDependencies` and install command updated to include dev packages.
+
+### ✅ Build Failing: Resend API initialization error
+**Fixed**: API routes now use conditional initialization:
+```typescript
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+```
+
+### ✅ Babel disabling SWC compiler
+**Fixed**: Removed `.babelrc.js` to enable Next.js built-in SWC compiler (faster, better compatibility).
+
+See [DEPLOYMENT_FIXES_SUMMARY.md](../DEPLOYMENT_FIXES_SUMMARY.md) for full details.
+
+---
+
 ## Common Issues and Solutions
 
 ### 1. Git Hook Not Running

@@ -97,8 +97,9 @@ global.IntersectionObserver = jest.fn().mockImplementation(() => ({
   unobserve: jest.fn(),
 }));
 
-// Mock window.matchMedia
-Object.defineProperty(window, 'matchMedia', {
+// Mock window.matchMedia (only in jsdom environment)
+if (typeof window !== 'undefined') {
+  Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation(query => ({
     matches: query === '(prefers-reduced-motion: reduce)' ? false : false,
@@ -112,8 +113,8 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-// Mock window.navigator
-Object.defineProperty(window, 'navigator', {
+  // Mock window.navigator
+  Object.defineProperty(window, 'navigator', {
   writable: true,
   value: {
     userAgent: 'jest',
@@ -125,7 +126,8 @@ Object.defineProperty(window, 'navigator', {
       readText: jest.fn(),
     },
   },
-});
+  });
+}
 
 // Cleanup after each test
 afterEach(() => {

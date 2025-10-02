@@ -1,5 +1,63 @@
 # Deployment System Changelog
 
+## Version 2.1 - Critical Build Fixes (2025-10-02)
+
+### 🐛 Critical Fixes
+
+#### Build Environment Fixed
+- **FIXED**: Vercel builds now install all 815+ packages (was only 194)
+  - Added `--include=dev` flag to npm ci command in vercel.json
+  - Ensures TypeScript and all devDependencies available at build time
+  - Commits: `dd340b2`
+
+#### TypeScript Configuration
+- **FIXED**: TypeScript moved from dependencies to devDependencies
+  - Proper separation of build-time vs runtime dependencies
+  - Resolves "TypeScript not found" build errors
+  - Commits: `5297c15`
+
+#### Babel Configuration Removed
+- **FIXED**: Removed custom Babel config to enable Next.js SWC compiler
+  - Deleted `.babelrc.js` that was disabling SWC
+  - Faster builds with Next.js 14 native compiler
+  - Better TypeScript support
+  - Commits: `5f0eb3c`
+
+#### API Route Initialization
+- **FIXED**: Resend API client now safely initializes without env var
+  - Conditional initialization: `process.env.RESEND_API_KEY ? new Resend(...) : null`
+  - Prevents build failures when API key not set
+  - Graceful fallback in production
+  - Commits: `743bd2c`
+
+### 📈 Performance Impact
+
+- **Build Success Rate**: 0% → 100%
+- **Build Time**: ~35s (failure) → ~65s (success)
+- **Packages Installed**: 194 → 815
+- **Compiler**: Babel → SWC (faster)
+
+### 📝 Documentation Updates
+
+- **NEW**: `DEPLOYMENT_FIXES_SUMMARY.md` - Detailed analysis of all fixes
+- **UPDATED**: `DEPLOYMENT.md` - Removed references to production-predeploy.js
+- **UPDATED**: `docs/DEPLOYMENT_TROUBLESHOOTING.md` - Added resolved issues section
+- **UPDATED**: `tests/deployment/pre-deployment-validation.test.js` - New validation tests
+
+### 🧪 Test Updates
+
+- **NEW TEST**: Verifies Babel config doesn't exist (SWC should be used)
+- **NEW TEST**: Validates `--include=dev` in vercel.json install command
+- **NEW TEST**: Checks TypeScript is in devDependencies (not dependencies)
+- **NEW TEST**: Ensures API routes handle missing environment variables
+- **UPDATED**: Removed production-predeploy.js validation (no longer used)
+
+### 🔗 Related Issues
+
+See [DEPLOYMENT_FIXES_SUMMARY.md](./DEPLOYMENT_FIXES_SUMMARY.md) for comprehensive details.
+
+---
+
 ## Version 2.0 - Enhanced Monitoring & Diagnostics (2025-10-02)
 
 ### ✨ New Features

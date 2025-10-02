@@ -35,9 +35,13 @@ describe('Pre-Deployment Error Prevention', () => {
   });
 
   describe('Build validation', () => {
-    test('production-predeploy script validates environment', () => {
-      const predeployScript = path.join(process.cwd(), 'scripts/deployment/production-predeploy.js');
-      expect(fs.existsSync(predeployScript)).toBe(true);
+    test('Babel config should not exist (SWC should be used)', () => {
+      const babelConfigPath = path.join(process.cwd(), '.babelrc.js');
+      const babelrcPath = path.join(process.cwd(), '.babelrc');
+      
+      // Neither should exist - we want Next.js SWC compiler
+      expect(fs.existsSync(babelConfigPath)).toBe(false);
+      expect(fs.existsSync(babelrcPath)).toBe(false);
     });
 
     test('required directories exist', () => {
@@ -69,18 +73,15 @@ describe('Pre-Deployment Error Prevention', () => {
       const packageJsonPath = path.join(process.cwd(), 'package.json');
       const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
       
-      const criticalDeps = [
-        'next',
-        'react',
-        'react-dom',
-        'typescript'
-      ];
-      
-      criticalDeps.forEach(dep => {
-        expect(
-          packageJson.dependencies[dep] || packageJson.devDependencies[dep]
-        ).toBeDefined();
+      // Runtime dependencies
+      const runtimeDeps = ['next', 'react', 'react-dom'];
+      runtimeDeps.forEach(dep => {
+        expect(packageJson.dependencies[dep]).toBeDefined();
       });
+      
+      // TypeScript must be in devDependencies (not dependencies)
+      expect(packageJson.devDependencies['typescript']).toBeDefined();
+      expect(packageJson.dependencies['typescript']).toBeUndefined();
     });
 
     test('node version meets minimum requirements', () => {
@@ -140,20 +141,26 @@ describe('Pre-Deployment Error Prevention', () => {
   });
 
   describe('Build script validation', () => {
-    test('vercel.json build command is valid', () => {
+    test('vercel.json has correct install command with --include=dev', () => {
       const vercelConfigPath = path.join(process.cwd(), 'vercel.json');
       expect(fs.existsSync(vercelConfigPath)).toBe(true);
       
       const vercelConfig = JSON.parse(fs.readFileSync(vercelConfigPath, 'utf-8'));
       
+      // Must include devDependencies to get TypeScript and build tools
+      expect(vercelConfig.installCommand).toContain('--include=dev');
+      expect(vercelConfig.installCommand).toContain('npm ci');
+    });
+
+    test('vercel.json build command is valid', () => {
+      const vercelConfigPath = path.join(process.cwd(), 'vercel.json');
+      const vercelConfig = JSON.parse(fs.readFileSync(vercelConfigPath, 'utf-8'));
+      
       if (vercelConfig.buildCommand) {
         expect(vercelConfig.buildCommand).toContain('next build');
         
-        // Check if predeploy script exists
-        if (vercelConfig.buildCommand.includes('production-predeploy.js')) {
-          const predeployPath = path.join(process.cwd(), 'scripts/deployment/production-predeploy.js');
-          expect(fs.existsSync(predeployPath)).toBe(true);
-        }
+        // Should NOT include production-predeploy.js (removed to fix builds)
+        expect(vercelConfig.buildCommand).not.toContain('production-predeploy.js');
       }
     });
 
@@ -180,7 +187,7 @@ describe('Pre-Deployment Error Prevention', () => {
         if (fs.existsSync(hookPath)) {
           const hookContent = fs.readFileSync(hookPath, 'utf-8');
           expect(hookContent).toContain('monitor-deployment.js');
-          expect(hookContent).toContain('analyze-deployment-error.js');
+          // Note: analyze-deployment-error.js is called within monitor script, not directly from hook
         }
       }
     });
@@ -197,6 +204,21 @@ describe('Pre-Deployment Error Prevention', () => {
   });
 
   describe('Common error scenarios prevention', () => {
+    test('API routes handle missing environment variables gracefully', () => {
+      // Check contact route for safe Resend initialization
+      const contactRoutePath = path.join(process.cwd(), 'app/api/contact/route.ts');
+      
+      if (fs.existsSync(contactRoutePath)) {
+        const content = fs.readFileSync(contactRoutePath, 'utf-8');
+        
+        // Should use conditional initialization for Resend
+        expect(content).toContain('process.env.RESEND_API_KEY ? new Resend');
+        
+        // Should check for both API key and client before using
+        expect(content).toContain('!resend');
+      }
+    });
+
     test('environment variables are documented', () => {
       // Check for .env.example or documentation
       const envExamplePath = path.join(process.cwd(), '.env.example');
