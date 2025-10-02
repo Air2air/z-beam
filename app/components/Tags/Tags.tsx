@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { capitalizeWords } from '../../utils/formatting';
 import { useRouter } from "next/navigation";
 import { TagsData, TagsProps } from '@/types';
-import { Badge } from '../Badge/Badge';
 import { Title } from '../Title';
 
 export function Tags({ frontmatter, content, config }: TagsProps) {
@@ -216,7 +215,9 @@ const parseTags = (content: string | TagsData): string[] => {
   return (
     <div className={`tags-container ${className}`} data-testid="tags-container">
       {/* Title */}
-      {title && <Title level="card" title={title} />}      {/* Metadata display */}
+      {title && <Title level="card" title={title} />}
+      
+      {/* Metadata display */}
       {config?.showMetadata && (metadata || count || categories || material) && (
         <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
           <div className="flex flex-wrap gap-4">
