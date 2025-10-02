@@ -8,10 +8,27 @@
 
 const { execSync } = require('child_process');
 const { setTimeout } = require('timers/promises');
+const path = require('path');
 
 const CHECK_INTERVAL = 5000; // 5 seconds
 const MAX_WAIT_TIME = 600000; // 10 minutes
 const VERCEL_CLI = 'vercel';
+
+// Import notification system if available
+let notify = null;
+try {
+  notify = require('./notify.js');
+} catch (e) {
+  // Notifications are optional
+}
+
+// Import history tracker if available
+let history = null;
+try {
+  history = require('./deployment-history.js');
+} catch (e) {
+  // History tracking is optional
+}
 
 // ANSI color codes
 const colors = {
@@ -43,12 +60,12 @@ function getLatestDeployment() {
         // Parse: Age  URL  Status  Environment  Duration
         const urlMatch = line.match(/https:\/\/[^\s]+/);
         const statusMatch = line.match(/●\s+(Building|Ready|Error|Queued|Initializing|Canceled)/);
-        const targetMatch = line.match(/(Production|Preview)/);
+        const targetMatch = line.match(/(Production)/);
         
         if (urlMatch) {
           const url = urlMatch[0];
           const state = statusMatch ? statusMatch[1].toUpperCase() : 'UNKNOWN';
-          const target = targetMatch ? targetMatch[1].toLowerCase() : 'preview';
+          const target = targetMatch ? targetMatch[1].toLowerCase() : 'production';
           
           return {
             url: url.replace('https://', ''),
@@ -150,9 +167,28 @@ async function monitorDeployment(deploymentUrl = null) {
     
     // Check for terminal states
     if (currentState === 'READY') {
+      const totalDuration = formatDuration(Math.floor((Date.now() - startTime) / 1000));
+      
       log('\n✅ DEPLOYMENT SUCCESSFUL!', colors.bright + colors.green);
       log(`🌐 Live at: ${url}`, colors.green);
-      log(`⏱️  Total time: ${formatDuration(Math.floor((Date.now() - startTime) / 1000))}`, colors.green);
+      log(`⏱️  Total time: ${totalDuration}`, colors.green);
+      
+      // Send success notification
+      if (notify && !process.argv.includes('--no-notify')) {
+        notify.notifySuccess(url, totalDuration);
+      }
+      
+      // Log to history
+      if (history && !process.argv.includes('--no-history')) {
+        history.addDeployment({
+          timestamp: new Date().toISOString(),
+          status: 'success',
+          url,
+          duration: Math.floor((Date.now() - startTime) / 1000),
+          branch: meta.githubCommitRef || 'main',
+          commit: meta.githubCommitSha,
+        });
+      }
       
       // Open browser if requested
       if (process.argv.includes('--open')) {
@@ -190,8 +226,46 @@ async function monitorDeployment(deploymentUrl = null) {
         log(`\n💾 Error logs saved to: ${logFile}`, colors.cyan);
         log('💡 Show this file to Copilot to analyze and create fixes', colors.cyan);
         
+        // Extract error type for notification
+        let errorType = 'Build error';
+        if (logs.includes('Module not found')) errorType = 'Module not found';
+        else if (logs.includes('Type error')) errorType = 'TypeScript error';
+        else if (logs.includes('Syntax error')) errorType = 'Syntax error';
+        else if (logs.includes('ENOENT')) errorType = 'File not found';
+        
+        // Send failure notification
+        if (notify && !process.argv.includes('--no-notify')) {
+          notify.notifyFailure(url, errorType);
+        }
+        
+        // Log to history
+        if (history && !process.argv.includes('--no-history')) {
+          history.addDeployment({
+            timestamp: new Date().toISOString(),
+            status: 'failure',
+            url,
+            errorType,
+            branch: 'main',
+          });
+        }
+        
       } catch (logError) {
         log(`⚠️  Could not fetch logs: ${logError.message}`, colors.yellow);
+        // Send generic failure notification
+        if (notify && !process.argv.includes('--no-notify')) {
+          notify.notifyFailure(url, 'Build error');
+        }
+        
+        // Log to history
+        if (history && !process.argv.includes('--no-history')) {
+          history.addDeployment({
+            timestamp: new Date().toISOString(),
+            status: 'failure',
+            url,
+            errorType: 'Build error',
+            branch: 'main',
+          });
+        }
       }
       
       log('\n💡 Inspect deployment: vercel inspect ${url}', colors.yellow);

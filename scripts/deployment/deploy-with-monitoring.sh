@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Deploy with Smart Monitoring
-# Runs deployment and monitors logs only during the deployment process
+# Runs deployment and monitors log    "prod"|"production")
+        deploy_with_monitoring "production"
+        ;; during the deployment process
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -41,13 +43,9 @@ deploy_with_monitoring() {
     
     # Run the actual deployment
     case "$deploy_type" in
-        "production"|"prod")
-            log "📦 Deploying to production..."
-            npm run predeploy && vercel --prod --debug
-            ;;
-        "preview"|"staging")
-            log "🔍 Deploying preview..."
-            npm run predeploy && vercel --debug
+        "prod"|"production")
+            log "� Deploying to production..."
+            vercel --prod --yes
             ;;
         *)
             error "Unknown deployment type: $deploy_type"
@@ -79,9 +77,6 @@ case "${1:-prod}" in
     "production"|"prod")
         deploy_with_monitoring "prod"
         ;;
-    "preview"|"staging")
-        deploy_with_monitoring "preview"
-        ;;
     "help"|"--help"|"-h")
         echo "Deploy with Smart Monitoring"
         echo "============================"
@@ -90,12 +85,10 @@ case "${1:-prod}" in
         echo ""
         echo "Types:"
         echo "  prod, production  - Deploy to production (default)"
-        echo "  preview, staging  - Deploy to preview"
         echo ""
         echo "Examples:"
         echo "  $0                # Deploy to production"
         echo "  $0 prod           # Deploy to production"
-        echo "  $0 preview        # Deploy to preview"
         ;;
     *)
         deploy_with_monitoring "prod"

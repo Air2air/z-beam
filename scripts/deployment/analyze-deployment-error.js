@@ -151,6 +151,118 @@ const errorPatterns = [
       ]
     })
   },
+  {
+    pattern: /Missing environment variable[s]?: ['"]?([^'"]+)['"]?/i,
+    category: 'Environment Variable',
+    getSuggestion: (match) => ({
+      problem: `Missing environment variable: ${match[1]}`,
+      likelyCause: 'Required environment variable not set in Vercel',
+      fixes: [
+        `Add variable in Vercel dashboard: Settings > Environment Variables`,
+        `Or use Vercel CLI: vercel env add ${match[1]}`,
+        `Check .env.example for required variables`,
+        `Verify variable name spelling`,
+      ]
+    })
+  },
+  {
+    pattern: /process\.env\.(\w+) is undefined/i,
+    category: 'Environment Variable',
+    getSuggestion: (match) => ({
+      problem: `Undefined environment variable: ${match[1]}`,
+      likelyCause: 'Environment variable not configured',
+      fixes: [
+        `Add ${match[1]} to Vercel environment variables`,
+        `Check if variable is needed for build vs runtime`,
+        `Add NEXT_PUBLIC_ prefix if needed in client code`,
+        `Verify .env.local is not in .gitignore`,
+      ]
+    })
+  },
+  {
+    pattern: /API route \/api\/([^\s]+) (failed|error)/i,
+    category: 'API Route Error',
+    getSuggestion: (match) => ({
+      problem: `API route error: /api/${match[1]}`,
+      likelyCause: 'API route handler has an error',
+      fixes: [
+        `Check app/api/${match[1]}/route.ts for errors`,
+        `Verify API route exports correct HTTP methods`,
+        `Check for async/await issues`,
+        `Test API route locally: npm run dev`,
+      ]
+    })
+  },
+  {
+    pattern: /Middleware error/i,
+    category: 'Middleware Error',
+    getSuggestion: () => ({
+      problem: 'Error in Next.js middleware',
+      likelyCause: 'middleware.ts has an error or invalid matcher',
+      fixes: [
+        `Check middleware.ts syntax`,
+        `Verify matcher patterns are valid`,
+        `Test middleware logic locally`,
+        `Check for async/await issues in middleware`,
+      ]
+    })
+  },
+  {
+    pattern: /Edge Runtime/i,
+    category: 'Edge Runtime Error',
+    getSuggestion: () => ({
+      problem: 'Edge Runtime compatibility issue',
+      likelyCause: 'Using Node.js APIs not available in Edge Runtime',
+      fixes: [
+        `Remove Node.js-specific APIs (fs, path, etc.)`,
+        `Use edge-compatible alternatives`,
+        `Add "export const runtime = 'nodejs'" if needed`,
+        `Check Vercel Edge Runtime documentation`,
+      ]
+    })
+  },
+  {
+    pattern: /Invalid page config/i,
+    category: 'Page Configuration',
+    getSuggestion: () => ({
+      problem: 'Invalid page configuration',
+      likelyCause: 'Incorrect export in page file',
+      fixes: [
+        `Check page config exports`,
+        `Verify runtime config syntax`,
+        `Remove unsupported config options`,
+        `Test page locally: npm run dev`,
+      ]
+    })
+  },
+  {
+    pattern: /webpack|Webpack/,
+    category: 'Webpack Build Error',
+    getSuggestion: () => ({
+      problem: 'Webpack build error',
+      likelyCause: 'Issue with webpack configuration or module bundling',
+      fixes: [
+        `Check next.config.js webpack customizations`,
+        `Verify all imports are correct`,
+        `Clear .next folder and rebuild`,
+        `Check for circular dependencies`,
+      ]
+    })
+  },
+  {
+    pattern: /Image optimization error/i,
+    category: 'Image Optimization',
+    getSuggestion: () => ({
+      problem: 'Next.js Image optimization failed',
+      likelyCause: 'Issue with next/image or image source',
+      fixes: [
+        `Verify image sources are accessible`,
+        `Check next.config.js images configuration`,
+        `Ensure remote image domains are allowed`,
+        `Test image loading locally`,
+      ]
+    })
+  },
 ];
 
 function analyzeErrorLog(logContent) {
