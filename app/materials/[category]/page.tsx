@@ -64,39 +64,16 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <Layout>
-      {/* Category Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-        <div className={CONTAINER_STYLES.standard}>
-          <div className="max-w-4xl">
-            <Title level="page" title={`${categoryDisplayName} Laser Cleaning`} />
-            <p className="text-xl md:text-2xl text-blue-100 mb-6">
-              {categoryMetadata.description}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {categoryMetadata.keywords.slice(0, 5).map((keyword) => (
-                <span 
-                  key={keyword}
-                  className="bg-blue-500 bg-opacity-50 px-3 py-1 rounded-full text-sm"
-                >
-                  {keyword}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Materials Grid */}
       <section className={CONTAINER_STYLES.standard}>
         <CardGridSSR
           slugs={slugs}
-          title={`${categoryDisplayName} Materials`}
+          title={`${categoryDisplayName} Laser Cleaning`}
           columns={3}
           mode="simple"
           filterBy={categoryDisplayName}
           showBadgeSymbols={true}
           loadBadgeSymbolData={true}
-          className="mt-8"
         />
       </section>
 
