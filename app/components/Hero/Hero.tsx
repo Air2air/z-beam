@@ -58,17 +58,21 @@ export function Hero({
   // Get image source from frontmatter
   const imageSource = frontmatter?.images?.hero?.url || frontmatter?.image;
 
-  // Build YouTube URL with standard parameters
+  // Build YouTube URL with maximum branding removal
   const buildYouTubeUrl = (id: string) => {
     const params = new URLSearchParams({
       autoplay: '1',
       mute: '1',
       loop: '1',
       playlist: id, // Required for looping
-      controls: '0',
-      showinfo: '0',
-      rel: '0',
-      modestbranding: '1',
+      controls: '0', // Hide all controls
+      showinfo: '0', // Hide video title
+      rel: '0', // Don't show related videos
+      modestbranding: '1', // Minimal YouTube branding
+      iv_load_policy: '3', // Hide annotations
+      disablekb: '1', // Disable keyboard controls
+      fs: '0', // Hide fullscreen button
+      playsinline: '1', // Play inline on mobile
     });
     return `https://www.youtube.com/embed/${id}?${params.toString()}`;
   };
