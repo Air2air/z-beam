@@ -125,7 +125,7 @@ export function Hero({
     >
       {/* Video Background */}
       {videoUrl ? (
-        <div className={backgroundClasses}>
+        <div className={`${backgroundClasses} bg-gray-800`}>
           <iframe
             src={videoUrl}
             className={videoClasses}
