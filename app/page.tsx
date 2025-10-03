@@ -51,7 +51,8 @@ export default async function HomePage() {
     title: "Z-Beam Laser Cleaning",
     description: "Advanced surface treatment solutions for industrial applications", 
     slug: "home",
-    video: "1058778534" // Vimeo ID
+    video: "eGgMJdjRUJk", // YouTube ID
+    videoType: "youtube" // Specify YouTube
   };
 
   return (

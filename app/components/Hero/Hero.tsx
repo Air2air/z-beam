@@ -52,14 +52,15 @@ export function Hero({
     return () => observer.disconnect();
   }, []);
   
-  // Get video ID from frontmatter (simplified - just string ID)
-  const vimeoId = frontmatter?.video;
+  // Get video ID and type from frontmatter
+  const videoId = frontmatter?.video;
+  const videoType = frontmatter?.videoType || 'youtube'; // Default to YouTube
   
   // Get image source from frontmatter
   const imageSource = frontmatter?.images?.hero?.url || frontmatter?.image;
 
-  // Build Vimeo URL with standard parameters (simplified)
-  const buildVimeoUrl = (videoId: string) => {
+  // Build Vimeo URL with standard parameters
+  const buildVimeoUrl = (id: string) => {
     const params = new URLSearchParams({
       badge: '0',
       autopause: '0',
@@ -68,11 +69,27 @@ export function Hero({
       autoplay: '1',
       loop: '1',
     });
-    
-    return `https://player.vimeo.com/video/${videoId}?${params.toString()}`;
+    return `https://player.vimeo.com/video/${id}?${params.toString()}`;
   };
 
-  const vimeoUrl = vimeoId ? buildVimeoUrl(vimeoId) : null;
+  // Build YouTube URL with standard parameters
+  const buildYouTubeUrl = (id: string) => {
+    const params = new URLSearchParams({
+      autoplay: '1',
+      mute: '1',
+      loop: '1',
+      playlist: id, // Required for looping
+      controls: '0',
+      showinfo: '0',
+      rel: '0',
+      modestbranding: '1',
+    });
+    return `https://www.youtube.com/embed/${id}?${params.toString()}`;
+  };
+
+  const videoUrl = videoId 
+    ? (videoType === 'vimeo' ? buildVimeoUrl(videoId) : buildYouTubeUrl(videoId))
+    : null;
   
   // Simplified accessibility text generation - only from frontmatter
   const getAccessibleAlt = (): string => {
@@ -119,15 +136,15 @@ export function Hero({
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
       {/* Video Background */}
-      {vimeoUrl ? (
+      {videoUrl ? (
         <div className={backgroundClasses}>
           <iframe
-            src={vimeoUrl}
+            src={videoUrl}
             className={videoClasses}
             width="100%"
             height="100%"
             frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share; accelerometer; gyroscope"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
             title={getVideoAriaLabel()}
