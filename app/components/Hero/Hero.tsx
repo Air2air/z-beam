@@ -66,7 +66,6 @@ export function Hero({
       player_id: '0',
       app_id: '58479',
       autoplay: '1',
-      muted: '1',
       loop: '1',
     });
     
