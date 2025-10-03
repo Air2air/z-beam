@@ -5,44 +5,44 @@ title: Alumina Laser Cleaning
 description: Laser cleaning parameters for Alumina
 materialProperties:
   density:
-    value: 3.98
+    value: 3.97
     unit: g/cm³
-    confidence: 97
+    confidence: 98
     description: Theoretical density of pure alpha-alumina
     min: 2.2
     max: 19.3
   meltingPoint:
     value: 2072
     unit: °C
-    confidence: 95
+    confidence: 97
     description: Melting point of pure alumina
     min: null
     max: null
   thermalConductivity:
     value: 30
     unit: W/m·K
-    confidence: 90
-    description: Thermal conductivity at room temperature (99.5% purity)
+    confidence: 92
+    description: Thermal conductivity at room temperature for 99.5% alumina
     min: 0.03
     max: 2000.0
   hardness:
     value: 9
     unit: Mohs
-    confidence: 96
-    description: Mohs hardness scale (diamond reference method)
+    confidence: 98
+    description: Mohs hardness scale (diamond reference scale)
     min: 1.0
     max: 10.0
   youngsModulus:
     value: 370
     unit: GPa
-    confidence: 93
-    description: Young's modulus of elasticity
+    confidence: 96
+    description: Young's modulus for high-purity alumina
     min: 50
     max: 800
   thermalExpansion:
     value: 8.1
-    unit: ×10⁻⁶/°C
-    confidence: 92
+    unit: ×10⁻⁶/K
+    confidence: 94
     description: Coefficient of thermal expansion (20-1000°C)
     min: 0.1
     max: 14
@@ -56,127 +56,139 @@ materialProperties:
   specificHeat:
     value: 880
     unit: J/kg·K
-    confidence: 94
+    confidence: 95
     description: Specific heat capacity at 25°C
     min: 200
     max: 1200
   flexuralStrength:
-    value: 379
+    value: 380
     unit: MPa
-    confidence: 85
-    description: Flexural strength of 99.5% alumina
+    confidence: 90
+    description: Flexural strength for 99.5% alumina
     min: null
     max: null
   absorptionCoefficient:
     value: 0.85
     unit: dimensionless
-    confidence: 82
-    description: Typical absorption coefficient for 1064 nm laser wavelength
+    confidence: 85
+    description: Absorption coefficient for common laser wavelengths (1064 nm)
     min: null
     max: null
   reflectivity:
     value: 0.15
     unit: dimensionless
-    confidence: 80
+    confidence: 82
     description: Reflectivity at 1064 nm wavelength
     min: null
     max: null
   ablationThreshold:
-    value: 15
+    value: 12
     unit: J/cm²
-    confidence: 83
-    description: Approximate laser ablation threshold for nanosecond pulses at 1064 nm
+    confidence: 85
+    description: Approximate ablation threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   crystallineStructure:
     value: Hexagonal
     unit: none
-    confidence: 98
-    description: Alpha-alumina crystal structure (corundum structure)
+    confidence: 99
+    description: Alpha-alumina crystal structure (corundum)
     min: null
     max: null
   porosity:
     value: 0.5
     unit: '%'
-    confidence: 85
-    description: Typical porosity for high-purity sintered alumina
-    min: null
-    max: null
-  chemicalStability:
-    value: Excellent
-    unit: qualitative
-    confidence: 95
-    description: Highly resistant to most chemicals except strong acids and bases at elevated temperatures
+    confidence: 88
+    description: Typical porosity for high-density alumina ceramics
     min: null
     max: null
 applications:
-- 'Food Processing: Sanitary surface cleaning for food processing equipment'
-- 'Nuclear: Decontamination and surface cleaning in nuclear facilities'
-- 'Aerospace: Precision cleaning of aerospace components and assemblies'
+- Aerospace
+- Electronics
+- Medical Devices
+- Automotive
+- Energy Sector
+- Manufacturing
+- Marine
+- Cultural Heritage
+- Semiconductor Manufacturing
+- Research and Development
 machineSettings:
   powerRange:
-    value: 90
+    value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Alumina surface cleaning without thermal damage
-    min: 70
+    description: Optimal average power range for Alumina surface cleaning without
+      thermal damage
+    min: 80
     max: 120
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength optimized for Alumina absorption and minimal substrate damage
+    description: Near-IR wavelength providing optimal absorption in Alumina contaminants
     min: 532
     max: 1064
   spotSize:
-    value: 80
+    value: 50
     unit: μm
     confidence: 84
-    description: Beam spot diameter for effective cleaning resolution and energy density control
-    min: 50
-    max: 150
+    description: Beam spot diameter for precise cleaning with adequate energy density
+    min: 30
+    max: 100
   repetitionRate:
     value: 50
     unit: kHz
     confidence: 87
-    description: Optimal repetition rate for efficient cleaning throughput while maintaining thermal control
+    description: Optimal repetition rate balancing cleaning efficiency and thermal
+      management
     min: 20
     max: 100
   pulseWidth:
-    value: 12
+    value: 10
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for effective contaminant removal with controlled thermal effects
-    min: 8
+    description: Nanosecond pulse duration for efficient contaminant removal with
+      minimal substrate heating
+    min: 5
     max: 20
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 86
-    description: Optimal scanning speed for uniform cleaning coverage and process efficiency
-    min: 300
-    max: 800
+    description: Optimal scanning speed for uniform cleaning coverage
+    min: 200
+    max: 1000
   fluenceThreshold:
-    value: 4.5
+    value: 2.5
     unit: J/cm²
     confidence: 90
-    description: Minimum fluence required for effective contaminant removal from Alumina surface
-    min: 3.0
-    max: 6.5
+    description: Minimum fluence required for effective contaminant removal from Alumina
+      surface
+    min: 1.5
+    max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal beam overlap percentage for uniform cleaning without excessive thermal accumulation
+    description: Optimal beam overlap percentage for uniform cleaning without excessive
+      thermal buildup
     min: 40
     max: 70
   passCount:
-    value: 2
+    value: 3
     unit: passes
-    confidence: 85
-    description: Recommended number of cleaning passes for complete contaminant removal
+    confidence: 82
+    description: Recommended number of passes for complete contaminant removal
     min: 1
-    max: 4
+    max: 5
+  laserType:
+    value: Nd:YAG
+    unit: n/a
+    confidence: 89
+    description: Recommended laser type for Alumina cleaning applications
+    min: null
+    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -198,7 +210,8 @@ images:
     alt: Alumina surface undergoing laser cleaning showing precise contamination removal
     url: /images/material/alumina-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Alumina surface after laser cleaning showing detailed surface structure
+    alt: Microscopic view of Alumina surface after laser cleaning showing detailed
+      surface structure
     url: /images/material/alumina-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -260,23 +273,51 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  before_text: At 500x magnification, the alumina surface is obscured by a non-uniform contamination layer. This layer, ranging
-    from 5 to 20 micrometers in thickness, consists of carbonaceous deposits, embedded particulate, and potential metallic
-    oxides. The contaminants form a discontinuous, splotchy pattern that masks the underlying ceramic's intrinsic grain structure
-    and micro-crystalline texture. The surface appears topographically rough, with the foreign material accumulating preferentially
-    within the natural micro-porosity of the sintered alumina, creating a matte, light-absorbing finish.
-  after_text: Post-laser cleaning, the 500x view reveals the restored alpha-alumina microstructure. The contamination layer
-    has been completely removed via ablation, exposing the homogeneous, fine-grained polycrystalline structure. The surface
-    now exhibits the characteristic interlocking hexagonal crystals of the corundum phase, with a return to its inherent micro-hardness
-    of 9 Mohs. The cleaning process restores the substrate's original reflectivity and chemical stability, leaving a pristine,
-    contamination-free ceramic surface.
+  beforeText: At 500x magnification, the alumina surface is obscured by a non-uniform
+    contamination layer, typically 5-20 µm thick. This layer consists of amorphous
+    carbon deposits, embedded particulate, and surface-adherent oxides. The underlying
+    polycrystalline alumina structure, characterized by its interlocking grain boundaries,
+    is entirely masked. The contamination exhibits a mottled, textured appearance
+    that disrupts the substrate's intrinsic surface morphology and increases diffuse
+    light scattering.
+  afterText: Laser cleaning reveals the pristine, polycrystalline microstructure of
+    the alumina substrate. The contamination layer is completely removed, exposing
+    well-defined grain boundaries and the intrinsic surface texture. The surface now
+    exhibits minimal diffuse scattering, with a uniform appearance that confirms the
+    restoration of the base material's properties without mechanical alteration or
+    subsurface damage.
+  description: Microscopic analysis of alumina surface before and after laser cleaning
+    treatment
+  alt: Microscopic view of alumina surface showing laser cleaning effects
+  technicalAnalysis:
+    focus: surface_analysis
+    uniqueCharacteristics:
+    - alumina_specific
+    contaminationProfile: alumina surface contamination
+  microscopy:
+    parameters: Microscopic analysis of Alumina
+    qualityMetrics: Surface improvement analysis
+  generation:
+    method: frontmatter_integrated_generation
+    timestamp: '2025-10-02T00:00:00.000000Z'
+    generator: FrontmatterCaptionGenerator
+    componentType: template_caption
+  author: Alessandro Moretti
+  materialProperties:
+    materialType: Ceramic
+    analysisMethod: template_microscopy
+  imageUrl:
+    alt: Microscopic view of Alumina surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/alumina-laser-cleaning-micro.jpg
 tags:
 - ceramic
-- food-processing
-- nuclear
+- electronics
+- medical
 - aerospace
-- absorptive
-- durable
-- refractory
-- rigid
+- precision-cleaning
+- surface-preparation
+- restoration
+- thermal-resistant
+- hard-material
 - alessandro-moretti

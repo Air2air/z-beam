@@ -2,215 +2,186 @@ name: Titanium Carbide
 category: Ceramic
 subcategory: Titanium Carbide
 title: Titanium Carbide Laser Cleaning
-description: Laser cleaning parameters for Alumina
+description: Laser cleaning parameters for Titanium Carbide
 materialProperties:
   density:
     value: 4.93
     unit: g/cm³
-    confidence: 98
+    confidence: 95
     description: Theoretical density of TiC at room temperature
     min: 2.2
     max: 19.3
-  thermalConductivity:
-    value: 21.0
-    unit: W/m·K
+  meltingPoint:
+    value: 3140
+    unit: °C
     confidence: 90
+    description: Melting point of stoichiometric TiC
+    min: null
+    max: null
+  thermalConductivity:
+    value: 21
+    unit: W/m·K
+    confidence: 88
     description: Thermal conductivity at room temperature
     min: 0.03
     max: 2000.0
-  tensileStrength:
-    confidence: 0.7
-    max: 1000.0
-    min: 50.0
-    source: default_from_category_range
-    unit: MPa
-    value: 345.0
   hardness:
-    value: 5.5
-    unit: Mohs
-    confidence: 92
-    description: Mohs hardness (Mohs hardness) at room temperature
-    min: 0.2
-    max: 9.8
-  youngsModulus:
-    value: 451.0
+    value: 28
     unit: GPa
-    confidence: 95
-    description: Young's modulus of elasticity
-    min: 12.0
-    max: 708.0
+    confidence: 92
+    description: Vickers hardness at room temperature
+    min: 1.0
+    max: 10.0
+  youngsModulus:
+    value: 450
+    unit: GPa
+    confidence: 90
+    description: Elastic modulus of bulk TiC
+    min: 50
+    max: 800
   thermalExpansion:
     value: 7.4
-    unit: 10⁻⁶/K
-    confidence: 92
+    unit: ×10⁻⁶/K
+    confidence: 85
     description: Coefficient of thermal expansion (20-1000°C)
     min: 0.1
     max: 14
   thermalDiffusivity:
-    value: 7.2
+    value: 8.2
     unit: mm²/s
-    confidence: 85
+    confidence: 82
     description: Thermal diffusivity at room temperature
-    min: 0
-    max: 9.012
+    min: 0.05
+    max: 120
   specificHeat:
-    value: 568.0
+    value: 840
     unit: J/kg·K
-    confidence: 88
+    confidence: 85
     description: Specific heat capacity at room temperature
-    min: 134.0
-    max: 1166.0
+    min: 200
+    max: 1200
   flexuralStrength:
-    value: 480.0
+    value: 350
     unit: MPa
     confidence: 85
-    description: Flexural strength of sintered TiC
+    description: Room temperature flexural strength
     min: null
     max: null
   absorptionCoefficient:
     value: 0.85
-    unit: ''
+    unit: dimensionless
     confidence: 80
-    description: Optical absorption coefficient for near-IR lasers (1064 nm)
+    description: Estimated absorption coefficient for IR lasers
     min: null
     max: null
   reflectivity:
     value: 0.45
-    unit: ''
+    unit: dimensionless
     confidence: 82
     description: Reflectivity at 1064 nm wavelength
     min: null
     max: null
   ablationThreshold:
-    value: 2.5
+    value: 2.8
     unit: J/cm²
     confidence: 80
     description: Estimated laser ablation threshold for nanosecond pulses
     min: null
     max: null
-  crystallineStructure:
-    value: FCC
-    unit: crystal system
-    confidence: 98
-    description: Face-centered cubic (NaCl-type) structure
-    min: null
-    max: null
   oxidationResistance:
-    value: 1200
+    value: 1100
     unit: °C
-    confidence: 90
+    confidence: 88
     description: Maximum service temperature in oxidizing environments
     min: null
     max: null
-  laserAbsorption:
-    confidence: 0.7
-    max: 50.0
-    min: 0.1
-    source: default_from_category_range
-    unit: cm⁻¹
-    value: 32.7
-  laserReflectivity:
-    confidence: 0.7
-    max: 90.0
-    min: 5.0
-    source: default_from_category_range
+  crystallineStructure:
+    value: FCC
+    unit: crystal system
+    confidence: 95
+    description: Face-centered cubic (NaCl-type) structure
+    min: null
+    max: null
+  porosity:
+    value: 2.5
     unit: '%'
-    value: 52.3
-  thermalDestructionPoint:
-    confidence: 0.7
-    max: 3827.0
-    min: 1000.0
-    source: default_from_category_range
-    unit: °C
-    value: 2467.0
-  thermalDestructionType:
-    confidence: 0.8
-    source: category_default
-    value: 450.0
-  compressiveStrength:
-    value: 410.0
-    unit: MPa
-    confidence: 0.85
-    description: Titanium carbide (TiC) exhibits high compressive strength due to
-      its strong covalent bonding, face-centered cubic crystal structure, and high
-      hardness (2800-3200 HV). The compressive strength is significantly higher than
-      its tensile strength, typical of brittle ceramic materials where failure occurs
-      via shear under compression rather than crack propagation.
-    source: ai_research_from_mechanical_properties
-    min: 200
-    max: 600
+    confidence: 85
+    description: Typical porosity for sintered TiC
+    min: null
+    max: null
 applications:
-- 'Aerospace: Precision cleaning of aerospace components and assemblies'
+- Aerospace
+- Automotive
+- Medical Devices
+- Electronics Manufacturing
+- Tool and Die Manufacturing
+- Energy Sector
+- Marine Engineering
+- Cultural Heritage
+- Chemical Processing
+- Research and Development
 machineSettings:
   powerRange:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Titanium Carbide surface cleaning without
-      substrate damage
+    description: Optimal average power for TiC cleaning without substrate damage
     min: 80
     max: 120
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-infrared wavelength optimized for Titanium Carbide absorption
+    description: Near-IR wavelength optimized for TiC absorption characteristics
     min: 532
-    max: 10640
+    max: 1064
   spotSize:
     value: 50
     unit: μm
-    confidence: 90
-    description: Beam spot diameter for precise Titanium Carbide surface treatment
+    confidence: 84
+    description: Optimal beam diameter for precision cleaning
     min: 30
     max: 100
   repetitionRate:
     value: 100
     unit: kHz
-    confidence: 84
-    description: Optimal repetition rate for efficient cleaning with thermal management
+    confidence: 87
+    description: High repetition rate for efficient cleaning coverage
     min: 50
     max: 200
-  fluenceThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 88
-    description: Ablation threshold fluence for Titanium Carbide removal
-    min: 1.8
-    max: 3.5
-  energyDensity:
-    value: 3.2
-    unit: J/cm²
-    confidence: 85
-    description: Optimal energy density for efficient TiC contaminant removal
-    min: 2.5
-    max: 4.0
   pulseWidth:
     value: 10
     unit: ns
-    confidence: 87
-    description: Nanosecond pulse duration for controlled ablation of Titanium Carbide
+    confidence: 85
+    description: Nanosecond pulse duration for efficient TiC ablation
     min: 5
     max: 20
   scanSpeed:
     value: 500
     unit: mm/s
-    confidence: 82
-    description: Optimal scanning speed for uniform cleaning coverage
+    confidence: 86
+    description: Optimal scanning speed for uniform cleaning
     min: 300
     max: 800
+  fluenceThreshold:
+    value: 2.5
+    unit: J/cm²
+    confidence: 90
+    description: Minimum fluence required for TiC ablation
+    min: 1.8
+    max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
-    confidence: 85
-    description: Optimal pulse overlap for complete surface coverage
+    confidence: 83
+    description: Optimal overlap between adjacent scan lines
     min: 40
     max: 60
   passCount:
     value: 3
     unit: passes
-    confidence: 83
-    description: Recommended number of passes for thorough contaminant removal
+    confidence: 85
+    description: Recommended number of passes for complete cleaning
     min: 2
     max: 5
 regulatoryStandards:
@@ -218,9 +189,8 @@ regulatoryStandards:
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
-- EPA Clean Air Act Compliance
-- ASTM C848 - Standard Specification for High Alumina Refractory Brick
-- ISO 23146 - Technical Ceramics
+- ASTM C373 - Standard Test Method for Water Absorption of Fired Ceramic Materials
+- NSF/ANSI 51 - Food Equipment Materials
 author:
   id: 2
   name: Alessandro Moretti
@@ -234,6 +204,10 @@ images:
     alt: Titanium Carbide surface undergoing laser cleaning showing precise contamination
       removal
     url: /images/material/titanium-carbide-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Titanium Carbide surface after laser cleaning showing
+      detailed surface structure
+    url: /images/material/titanium-carbide-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -294,32 +268,22 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the titanium carbide surface is obscured by
-    a non-uniform contamination layer, approximately 5-10 micrometers thick. This
-    layer appears as a matte, amorphous film with localized particulate deposits,
-    disrupting the underlying ceramic''s inherent microstructure. The contamination
-    exhibits a cracked, mud-flat texture, indicating poor adhesion and the presence
-    of organic or oxide-based residues.
-
-
-    Energy-dispersive X-ray spectroscopy (EDS) would likely detect foreign elements
-    like carbon, oxygen, and silicon within this layer, confirming it is not part
-    of the base TiC material. The film significantly alters the surface''s optical
-    properties, scattering light and reducing reflectivity. This obscures the grain
-    boundaries and fine features of the titanium carbide substrate, which has a theoretical
-    density of 4.93 g/cm³.'
-  afterText: 'Laser cleaning has completely removed the contamination layer, revealing
-    the true titanium carbide substrate. The surface now displays a distinct grain
-    structure with clearly defined boundaries, a direct result of exposing the material''s
-    face-centered cubic crystalline form. The visual texture is uniform, with a consistent
-    reflectivity that contrasts sharply with the previous matte, obscured appearance.
-
-
-    The process has restored the surface to its intrinsic state without measurable
-    damage to the underlying ceramic, which has a Young''s Modulus of 451 GPa. All
-    particulate deposits and the cracked film are absent, leaving a clean, well-defined
-    surface suitable for subsequent high-precision engineering applications, such
-    as in aerospace component assemblies.'
+  beforeText: At 500x magnification, the titanium carbide surface is obscured by a
+    non-uniform contaminant layer, typically 5-20 micrometers thick. This layer, composed
+    of embedded oxides, carbonaceous soot, and metallic splatter, creates a matte,
+    textured topography that masks the underlying ceramic's grain structure. The contamination
+    adheres within surface pores and forms dendritic patterns, significantly increasing
+    surface roughness and scattering incident light.
+  afterText: Post-cleaning, the surface reveals a distinct transformation. The contaminant
+    layer is entirely removed, exposing the intrinsic, fine-grained microstructure
+    of the sintered TiC. The surface now exhibits a uniform, matte-grey appearance
+    with clearly defined grain boundaries and a consistent micro-texture from the
+    original sintering process. The primary improvement is the elimination of light-scattering
+    contaminants, resulting in a surface defined by its inherent 2.5% porosity and
+    grain morphology. This restoration to the base material's topography ensures optimal
+    surface energy and mechanical properties for subsequent coating or bonding processes,
+    with no observable thermal cracking or melting due to the controlled laser parameters
+    operating below the material's 2.8 J/cm² ablation threshold.
   description: Microscopic analysis of titanium carbide surface before and after laser
     cleaning treatment
   alt: Microscopic view of titanium carbide surface showing laser cleaning effects
@@ -329,25 +293,29 @@ caption:
     - titanium carbide_specific
     contaminationProfile: titanium carbide surface contamination
   microscopy:
-    parameters: Microscopic analysis of titanium carbide
+    parameters: Microscopic analysis of Titanium Carbide
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-09-30T20:37:05.731791Z'
+    timestamp: '2025-10-02T00:00:00.000000Z'
     generator: FrontmatterCaptionGenerator
-    componentType: ai_caption_frontmatter
+    componentType: template_caption
   author: Alessandro Moretti
   materialProperties:
     materialType: Ceramic
-    analysisMethod: ai_microscopy
+    analysisMethod: template_microscopy
   imageUrl:
     alt: Microscopic view of Titanium Carbide surface after laser cleaning showing
       detailed surface structure
     url: /images/material/titanium-carbide-laser-cleaning-micro.jpg
 tags:
 - ceramic
+- electronics
+- medical
 - aerospace
-- absorptive
-- strong
-- rigid
+- precision-cleaning
+- surface-preparation
+- restoration
+- thermal-resistant
+- hard-material
 - alessandro-moretti

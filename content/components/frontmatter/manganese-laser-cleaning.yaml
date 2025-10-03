@@ -2,7 +2,7 @@ name: Manganese
 category: Metal
 subcategory: Manganese
 title: Manganese Laser Cleaning
-description: Laser cleaning parameters for Aluminum
+description: Laser cleaning parameters for Manganese
 materialProperties:
   density:
     value: 7.21
@@ -11,186 +11,164 @@ materialProperties:
     description: Density of pure manganese at room temperature
     min: 0.53
     max: 22.6
+  meltingPoint:
+    value: 1246
+    unit: °C
+    confidence: 94
+    description: Melting point of pure manganese
+    min: null
+    max: null
   thermalConductivity:
-    value: 7.81
+    value: 7.8
     unit: W/m·K
-    confidence: 90
-    description: Thermal conductivity of pure manganese at 25°C
+    confidence: 88
+    description: Thermal conductivity at room temperature
     min: 6.0
     max: 429.0
-  tensileStrength:
-    value: 241.3
-    unit: MPa
-    confidence: 85
-    description: Ultimate tensile strength of pure manganese
-    min: 0
-    max: 1363.6
   hardness:
-    value: 210.0
-    unit: HV
-    confidence: 86
-    description: Vickers hardness of pure manganese
-    min: 0
-    max: 3772.91
-  youngsModulus:
-    value: 198.0
-    unit: GPa
-    confidence: 88
-    description: Young's modulus of polycrystalline manganese
-    min: 0
-    max: 579.82
-  thermalExpansion:
-    value: 22.1
-    unit: μm/m·K
-    confidence: 88
-    description: Coefficient of thermal expansion at 25°C
-    min: 1.7
-    max: 34.9
-  specificHeat:
-    value: 479.0
-    unit: J/kg·K
-    confidence: 92
-    description: Specific heat capacity at room temperature
-    min: 0
-    max: 1994.6
-  thermalDiffusivity:
-    value: 1.7
-    unit: mm²/s
+    value: 210
+    unit: HB
     confidence: 85
-    description: Thermal diffusivity at room temperature
-    min: 0
-    max: 191.376
+    description: Brinell hardness of pure manganese
+    min: 0.5
+    max: 3500
+  youngsModulus:
+    value: 198
+    unit: GPa
+    confidence: 82
+    description: Young's modulus of elasticity
+    min: 5
+    max: 411
+  thermalExpansion:
+    value: 21.7
+    unit: μm/m·K
+    confidence: 85
+    description: Coefficient of linear thermal expansion (25°C)
+    min: 0.5
+    max: 29.1
+  specificHeat:
+    value: 479
+    unit: J/kg·K
+    confidence: 90
+    description: Specific heat capacity at room temperature
+    min: 100
+    max: 900
   absorptionCoefficient:
     value: 0.65
-    unit: ''
-    confidence: 82
-    description: Estimated absorption coefficient for visible wavelengths (400-700
+    unit: dimensionless
+    confidence: 80
+    description: Estimated absorption coefficient for common laser wavelengths (1064
       nm)
     min: null
     max: null
   reflectivity:
     value: 0.35
-    unit: ''
+    unit: dimensionless
     confidence: 80
-    description: Estimated reflectivity for visible laser wavelengths
-    min: null
-    max: null
-  crystallineStructure:
-    value: α-Mn (complex cubic)
-    unit: crystal system
-    confidence: 96
-    description: Room temperature stable phase with complex cubic structure (58 atoms
-      per unit cell)
+    description: Estimated reflectivity for common laser wavelengths
     min: null
     max: null
   ablationThreshold:
     value: 1.2
     unit: J/cm²
     confidence: 82
-    description: Estimated laser ablation threshold for nanosecond pulses at 1064
-      nm
+    description: Estimated laser ablation threshold for nanosecond pulses
     min: null
     max: null
   oxidationResistance:
-    value: Poor
-    unit: qualitative
-    confidence: 90
-    description: Manganese oxidizes readily in air forming MnO, Mn3O4 surface layers
+    value: 0.45
+    unit: relative scale
+    confidence: 88
+    description: Relative oxidation resistance in air at elevated temperatures
     min: null
     max: null
-  laserAbsorption:
-    confidence: 0.7
-    max: 100.0
-    min: 0.02
-    source: default_from_category_range
-    unit: cm⁻¹
-    value: 62.3
-  laserReflectivity:
-    confidence: 0.7
-    max: 98.0
-    min: 5.0
-    source: default_from_category_range
-    unit: '%'
-    value: 52.0
-  thermalDestructionPoint:
-    confidence: 0.7
-    max: 3422.0
-    min: -38.8
-    source: default_from_category_range
-    unit: °C
-    value: 1519.0
-  thermalDestructionType:
-    confidence: 0.8
-    source: category_default
-    value: 1519.0
+  crystallineStructure:
+    value: α-Mn (complex cubic)
+    unit: crystal system
+    confidence: 92
+    description: Room temperature crystal structure with complex unit cell
+    min: null
+    max: null
 applications:
-- 'Nuclear: Decontamination and surface cleaning in nuclear facilities'
-- 'Jewelry: Precision cleaning and polishing of precious metal jewelry'
+- Steel Manufacturing
+- Battery Production
+- Welding and Fabrication
+- Marine Engineering
+- Aerospace Components
+- Electronics Manufacturing
+- Cultural Heritage Conservation
+- Medical Device Manufacturing
+- Railway Maintenance
+- Mining Equipment
 machineSettings:
   powerRange:
-    value: 100
+    value: 90
     unit: W
     confidence: 92
     description: Optimal average power for Manganese oxide removal without substrate
       damage
-    min: 80
-    max: 120
+    min: 70
+    max: 110
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength with good absorption in Manganese oxides
-    min: 355
-    max: 10640
+    description: Near-IR wavelength with good absorption in Manganese oxides and surface
+      contaminants
+    min: 532
+    max: 1064
   spotSize:
     value: 50
     unit: μm
     confidence: 84
-    description: Beam spot diameter for controlled energy density
+    description: Optimal spot size for balancing cleaning efficiency and processing
+      speed
     min: 30
     max: 100
   repetitionRate:
-    value: 100
+    value: 50
     unit: kHz
     confidence: 87
-    description: High repetition rate for efficient cleaning coverage
-    min: 50
-    max: 200
+    description: High repetition rate for efficient cleaning coverage while maintaining
+      thermal control
+    min: 20
+    max: 100
   pulseWidth:
-    value: 10
+    value: 8
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for efficient oxide ablation
+    description: Nanosecond pulse duration for efficient ablation of surface contaminants
     min: 5
-    max: 20
+    max: 15
   scanSpeed:
     value: 500
     unit: mm/s
-    confidence: 82
-    description: Optimal scanning speed for uniform cleaning
+    confidence: 86
+    description: Optimal scanning speed for uniform cleaning with adequate energy
+      deposition
     min: 200
     max: 1000
-  overlapRatio:
-    value: 70
-    unit: '%'
-    confidence: 86
-    description: Pulse overlap percentage for complete surface coverage
-    min: 50
-    max: 85
-  passCount:
-    value: 2
-    unit: passes
-    confidence: 83
-    description: Number of cleaning passes for complete oxide removal
-    min: 1
-    max: 4
-  energyDensity:
-    value: 5.1
+  fluenceThreshold:
+    value: 2.5
     unit: J/cm²
     confidence: 89
-    description: Fluence threshold for Manganese oxide ablation
-    min: 3.0
-    max: 8.0
+    description: Minimum fluence required for effective Manganese oxide removal
+    min: 1.5
+    max: 4.0
+  overlapRatio:
+    value: 50
+    unit: '%'
+    confidence: 83
+    description: Optimal overlap between adjacent laser tracks for uniform cleaning
+    min: 40
+    max: 70
+  passCount:
+    value: 3
+    unit: passes
+    confidence: 85
+    description: Recommended number of passes for complete contaminant removal
+    min: 2
+    max: 5
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -209,6 +187,10 @@ images:
     alt: Manganese surface undergoing laser cleaning showing precise contamination
       removal
     url: /images/material/manganese-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Manganese surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/manganese-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -269,25 +251,23 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the manganese surface shows a non-uniform oxide
-    layer approximately 5-10 micrometers thick. This layer appears as a dark, mottled
-    crust with a complex crystalline structure, composed primarily of manganese oxides
-    (MnO and Mn₃O₄). The surface texture is rough and porous, with visible micro-cracks
-    and granular deposits that obscure the underlying metal grain structure.
-
-
-    The contamination layer exhibits poor adhesion in localized areas, creating pockets
-    of delamination. Particulate contaminants, likely from environmental exposure,
-    are embedded within the oxide matrix, further increasing surface roughness. The
-    overall topography is highly irregular, with peak-to-valley variations exceeding
-    15 micrometers, which would negatively affect any subsequent coating or bonding
-    processes.'
-  afterText: Following laser cleaning, the surface is transformed to reveal the base
-    manganese microstructure. The dark oxide crust is entirely removed, exposing a
-    uniform metallic surface with clearly defined grain boundaries. The previous 5-10
-    micrometer contamination layer is eliminated, reducing the peak-to-valley surface
-    roughness to under 2 micrometers. The cleaned surface now presents a consistent,
-    oxide-free substrate suitable for further processing.
+  beforeText: At 500x magnification, the manganese surface is obscured by a non-uniform
+    contamination layer, typically 5-20 µm thick. This layer consists of a porous
+    matrix of oxide scale (primarily MnO and Mn3O4) and embedded particulate. The
+    texture is highly irregular, featuring micro-fissures and delamination sites where
+    the brittle oxide has cracked due to thermal stress. The underlying α-Mn crystalline
+    structure is entirely hidden. Contaminants are distributed in dendritic and island-like
+    patterns, creating a topographically complex and compromised surface that adversely
+    affects functional properties.
+  afterText: Laser cleaning reveals the pristine, underlying α-Mn crystalline grain
+    structure. The surface now exhibits a uniform, matte-grey metallic appearance
+    with a micro-roughened texture resulting from the selective ablation of contaminants.
+    At 500x, the grain boundaries are clearly defined, and the surface is free of
+    the previous oxide scale and fissures. This process reduces average surface roughness
+    (Sa) to the micrometer scale, characteristic of the base metal. The removal of
+    the insulating contamination layer restores the material's intrinsic surface properties,
+    including its thermal and electrical conductivity, providing an optimal substrate
+    for subsequent processes.
   description: Microscopic analysis of manganese surface before and after laser cleaning
     treatment
   alt: Microscopic view of manganese surface showing laser cleaning effects
@@ -297,29 +277,29 @@ caption:
     - manganese_specific
     contaminationProfile: manganese surface contamination
   microscopy:
-    parameters: Microscopic analysis of manganese
+    parameters: Microscopic analysis of Manganese
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-09-30T20:24:53.682199Z'
+    timestamp: '2025-10-02T00:00:00.000000Z'
     generator: FrontmatterCaptionGenerator
-    componentType: ai_caption_frontmatter
+    componentType: template_caption
   author: Todd Dunning
   materialProperties:
     materialType: Metal
-    analysisMethod: ai_microscopy
+    analysisMethod: template_microscopy
   imageUrl:
     alt: Microscopic view of Manganese surface after laser cleaning showing detailed
       surface structure
     url: /images/material/manganese-laser-cleaning-micro.jpg
 tags:
 - metal
-- nuclear
-- jewelry
-- absorptive
-- insulating
-- dense
-- expansive
-- strong
-- rigid
+- manufacturing
+- aerospace
+- automotive
+- decoating
+- oxide-removal
+- surface-preparation
+- thermal-sensitive
+- conductive
 - todd-dunning

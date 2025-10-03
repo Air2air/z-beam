@@ -57,8 +57,7 @@ materialProperties:
     value: 0.85
     unit: ''
     confidence: 82
-    description: Estimated absorption coefficient for near-infrared laser wavelengths
-      (1064 nm)
+    description: Estimated absorption coefficient for near-infrared laser wavelengths (1064 nm)
     min: null
     max: null
   reflectivity:
@@ -72,8 +71,7 @@ materialProperties:
     value: 0.8
     unit: J/cm²
     confidence: 85
-    description: Estimated laser ablation threshold for nanosecond pulses at 1064
-      nm
+    description: Estimated laser ablation threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   porosity:
@@ -130,23 +128,21 @@ materialProperties:
     source: category_default
     value: 573.0
 applications:
-- 'Construction: Surface preparation and cleaning for construction materials'
-- 'Restoration: Gentle cleaning for restoration and conservation applications'
+- Construction
+- Restoration
 machineSettings:
   powerRange:
     value: 25
     unit: W
     confidence: 90
-    description: Optimal average power for Cherry surface cleaning without thermal
-      damage
+    description: Optimal average power for Cherry surface cleaning without thermal damage
     min: 15
     max: 40
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength for moderate Cherry wood absorption with controlled
-      penetration
+    description: Near-IR wavelength for moderate Cherry wood absorption with controlled penetration
     min: 355
     max: 10640
   spotSize:
@@ -167,8 +163,7 @@ machineSettings:
     value: 100
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for efficient contaminant removal with
-      minimal substrate heating
+    description: Nanosecond pulse duration for efficient contaminant removal with minimal substrate heating
     min: 50
     max: 200
   scanSpeed:
@@ -182,16 +177,14 @@ machineSettings:
     value: 2.5
     unit: J/cm²
     confidence: 88
-    description: Threshold fluence for effective contaminant removal without wood
-      damage
+    description: Threshold fluence for effective contaminant removal without wood damage
     min: 1.5
     max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 85
-    description: Optimal beam overlap for uniform cleaning without excessive energy
-      deposition
+    description: Optimal beam overlap for uniform cleaning without excessive energy deposition
     min: 30
     max: 70
   passCount:
@@ -286,35 +279,27 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the cherry wood surface is obscured by a complex
-    contamination layer approximately 15-25 micrometers thick. This layer consists
-    of embedded particulate matter, primarily carbon-based soot and mineral dust,
-    trapped within the wood''s porous structure, which has a typical porosity of 55%.
-    The contaminants form a discontinuous, matte-black film that masks the underlying
-    cellular anatomy of the wood.
+  beforeText: 'At 500x magnification, the cherry wood surface is obscured by a complex contamination layer approximately 15-25
+    micrometers thick. This layer consists of embedded particulate matter, primarily carbon-based soot and mineral dust, trapped
+    within the wood''s porous structure, which has a typical porosity of 55%. The contaminants form a discontinuous, matte-black
+    film that masks the underlying cellular anatomy of the wood.
 
 
-    The surface texture is highly irregular, with agglomerated particles filling the
-    natural lumens and vessels of the wood cells. This debris creates a rough, fragmented
-    topography with an effective surface roughness exceeding 10 µm Ra, significantly
-    higher than the native cherry''s planed surface of 3.2 µm Ra. The contamination
-    layer exhibits poor adhesion in some areas, showing micro-fissures and delamination
-    from the substrate, indicating a brittle, composite structure of foreign material
+    The surface texture is highly irregular, with agglomerated particles filling the natural lumens and vessels of the wood
+    cells. This debris creates a rough, fragmented topography with an effective surface roughness exceeding 10 µm Ra, significantly
+    higher than the native cherry''s planed surface of 3.2 µm Ra. The contamination layer exhibits poor adhesion in some areas,
+    showing micro-fissures and delamination from the substrate, indicating a brittle, composite structure of foreign material
     and degraded wood fibers.'
-  afterText: 'Laser cleaning has effectively restored the surface to its native state.
-    The contamination layer is entirely removed, revealing the clean, open cellular
-    structure of the cherry wood. The characteristic pores and grain patterns are
-    now fully visible and unobstructed.
+  afterText: 'Laser cleaning has effectively restored the surface to its native state. The contamination layer is entirely
+    removed, revealing the clean, open cellular structure of the cherry wood. The characteristic pores and grain patterns
+    are now fully visible and unobstructed.
 
 
-    The surface roughness has been reduced to near-original levels, measured at approximately
-    3.5 µm Ra. This confirms the process''s selectivity, as the laser energy, tuned
-    precisely above the contamination''s ablation threshold of 0.8 J/cm² but below
-    the wood''s thermal destruction point of 427°C, vaporized the foreign material
-    without charting the underlying substrate. The result is a microscopically clean,
-    intact wood surface.'
-  description: Microscopic analysis of cherry surface before and after laser cleaning
-    treatment
+    The surface roughness has been reduced to near-original levels, measured at approximately 3.5 µm Ra. This confirms the
+    process''s selectivity, as the laser energy, tuned precisely above the contamination''s ablation threshold of 0.8 J/cm²
+    but below the wood''s thermal destruction point of 427°C, vaporized the foreign material without charting the underlying
+    substrate. The result is a microscopically clean, intact wood surface.'
+  description: Microscopic analysis of cherry surface before and after laser cleaning treatment
   alt: Microscopic view of cherry surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -334,8 +319,7 @@ caption:
     materialType: Wood
     analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Cherry surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Cherry surface after laser cleaning showing detailed surface structure
     url: /images/material/cherry-laser-cleaning-micro.jpg
 tags:
 - wood

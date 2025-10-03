@@ -2,43 +2,43 @@ name: Quartz Glass
 category: Glass
 subcategory: Quartz Glass
 title: Quartz Glass Laser Cleaning
-description: Laser cleaning parameters for Borosilicate Glass
+description: Laser cleaning parameters for Quartz Glass
 materialProperties:
   density:
     value: 2.2
     unit: g/cm³
     confidence: 98
-    description: Density of high-purity fused quartz glass at room temperature
+    description: Density of high-purity fused quartz glass
     min: 1.2
     max: 7.6
+  meltingPoint:
+    value: 1730
+    unit: °C
+    confidence: 95
+    description: Softening point of fused quartz glass
+    min: null
+    max: null
   thermalConductivity:
-    value: 1.38
+    value: 1.4
     unit: W/m·K
     confidence: 92
     description: Thermal conductivity at room temperature
-    min: 0
-    max: 38.422
-  tensileStrength:
-    confidence: 0.7
-    max: 2000.0
-    min: 30.0
-    source: default_from_category_range
-    unit: MPa
-    value: 48.0
+    min: 0.02
+    max: 40
   hardness:
-    value: 7.0
+    value: 6.5
     unit: Mohs
     confidence: 92
     description: Mohs hardness scale
     min: 4.5
     max: 9
   youngsModulus:
-    value: 71.7
+    value: 73
     unit: GPa
     confidence: 94
     description: Young's modulus of elasticity
-    min: 31.5
-    max: 373.5
+    min: 10
+    max: 400
   thermalExpansion:
     value: 0.55
     unit: ×10⁻⁶/°C
@@ -47,19 +47,19 @@ materialProperties:
     min: 0.1
     max: 15
   thermalDiffusivity:
-    value: 8.5
+    value: 0.85
     unit: mm²/s
     confidence: 88
     description: Thermal diffusivity at room temperature
-    min: 0
-    max: 13.7
+    min: 0.01
+    max: 15
   specificHeat:
-    value: 741.0
+    value: 740
     unit: J/kg·K
     confidence: 90
-    description: Specific heat capacity at room temperature
-    min: 653.0
-    max: 857.0
+    description: Specific heat capacity at 25°C
+    min: 500
+    max: 900
   flexuralStrength:
     value: 69
     unit: MPa
@@ -69,13 +69,13 @@ materialProperties:
     max: null
   refractiveIndex:
     value: 1.458
-    unit: ''
-    confidence: 99
+    unit: dimensionless
+    confidence: 98
     description: Refractive index at 589 nm wavelength
     min: null
     max: null
   transmissivity:
-    value: 92
+    value: 93
     unit: '%'
     confidence: 95
     description: Transmission in visible spectrum (2mm thickness)
@@ -85,7 +85,7 @@ materialProperties:
     value: 15
     unit: J/cm²
     confidence: 85
-    description: Laser damage threshold for nanosecond pulses at 1064 nm
+    description: Damage threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   ablationThreshold:
@@ -96,139 +96,129 @@ materialProperties:
     min: null
     max: null
   chemicalStability:
-    value: Excellent
-    unit: qualitative
-    confidence: 95
-    description: Resistance to most acids except hydrofluoric acid
+    value: 99.9
+    unit: '% resistance'
+    confidence: 96
+    description: Resistance to acids (except HF and hot H3PO4)
+    min: null
+    max: null
+  porosity:
+    value: 0
+    unit: '%'
+    confidence: 98
+    description: Non-porous fused quartz structure
     min: null
     max: null
   surfaceRoughness:
     value: 0.5
-    unit: nm RMS
-    confidence: 88
-    description: Typical surface roughness of polished quartz glass
+    unit: nm Ra
+    confidence: 90
+    description: Typical surface roughness of polished quartz
     min: null
     max: null
-  laserAbsorption:
-    confidence: 0.7
-    max: 10.0
-    min: 0.001
-    source: default_from_category_range
-    unit: cm⁻¹
-    value: 0.96
-  laserReflectivity:
-    confidence: 0.7
-    max: 92.0
-    min: 4.0
-    source: default_from_category_range
-    unit: '%'
-    value: 3.6
-  thermalDestructionPoint:
-    confidence: 0.7
-    max: 1723.0
-    min: 500.0
-    source: default_from_category_range
-    unit: °C
-    value: 1683.0
-  thermalDestructionType:
-    confidence: 0.8
-    source: category_default
-    value: 1730.0
 applications:
-- 'Optics: Precision cleaning of optical components and lenses'
+- Semiconductor Manufacturing
+- Aerospace & Defense
+- Medical Device Manufacturing
+- Solar Energy
+- Cultural Heritage Preservation
+- Laboratory & Analytical Instruments
+- Optical Communications
+- Automotive Lighting
+- Marine Navigation
+- Research & Development
 machineSettings:
   powerRange:
-    value: 25
+    value: 90
     unit: W
-    confidence: 90
-    description: Average power for effective contaminant removal without substrate
+    confidence: 92
+    description: Optimal average power for Quartz Glass surface cleaning without thermal
       damage
-    min: 15
-    max: 40
+    min: 70
+    max: 110
   wavelength:
     value: 1064
     unit: nm
-    confidence: 92
-    description: Near-IR wavelength with optimal transmission through quartz for subsurface
-      cleaning
-    min: 532
-    max: 10640
+    confidence: 88
+    description: Near-IR wavelength providing optimal absorption in contaminants while
+      minimizing Quartz Glass absorption
+    min: 1030
+    max: 1070
   spotSize:
-    value: 80
+    value: 50
     unit: μm
-    confidence: 82
-    description: Beam spot diameter for optimal energy density distribution
-    min: 50
-    max: 120
+    confidence: 84
+    description: Beam spot diameter for precise cleaning with adequate energy density
+    min: 30
+    max: 80
   repetitionRate:
-    value: 100
+    value: 50
     unit: kHz
     confidence: 87
-    description: Repetition rate balancing cleaning efficiency and thermal management
-    min: 50
-    max: 200
-  fluenceThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 88
-    description: Threshold fluence for contaminant ablation while preserving quartz
-      substrate
-    min: 1.8
-    max: 4.0
+    description: Optimal repetition rate balancing cleaning efficiency and thermal
+      management
+    min: 30
+    max: 100
   pulseWidth:
-    value: 8
+    value: 12
     unit: ns
     confidence: 85
-    description: Optimal pulse duration for controlled ablation with minimal thermal
-      diffusion
-    min: 5
-    max: 15
+    description: Nanosecond pulse duration for efficient contaminant removal with
+      minimal substrate heating
+    min: 8
+    max: 20
   scanSpeed:
     value: 500
     unit: mm/s
-    confidence: 84
-    description: Scanning speed for uniform cleaning coverage
+    confidence: 86
+    description: Optimal scanning speed for uniform cleaning coverage
     min: 300
     max: 800
+  fluenceThreshold:
+    value: 2.5
+    unit: J/cm²
+    confidence: 90
+    description: Energy density threshold for effective contaminant removal below
+      Quartz Glass damage threshold
+    min: 1.8
+    max: 3.5
   overlapRatio:
-    value: 70
+    value: 50
     unit: '%'
     confidence: 83
-    description: Optimal overlap between adjacent scan lines for complete coverage
-    min: 50
-    max: 85
+    description: Optimal beam overlap percentage for uniform cleaning without excessive
+      energy deposition
+    min: 40
+    max: 60
   passCount:
     value: 3
     unit: passes
-    confidence: 86
-    description: Number of passes for thorough contaminant removal
-    min: 1
+    confidence: 85
+    description: Recommended number of cleaning passes for complete contaminant removal
+    min: 2
     max: 5
-  laserType:
-    value: Nd:YAG
-    unit: n/a
-    confidence: 89
-    description: Laser type suitable for quartz glass processing applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
 author:
-  id: 1
-  name: Yi-Chun Lin
-  sex: f
+  id: 3
+  name: Ikmanda Roswati
+  sex: m
   title: Ph.D.
-  country: Taiwan
-  expertise: Laser Materials Processing
-  image: /images/author/yi-chun-lin.jpg
+  country: Indonesia
+  expertise: Ultrafast Laser Physics and Material Interactions
+  image: /images/author/ikmanda-roswati.jpg
 images:
   hero:
     alt: Quartz Glass surface undergoing laser cleaning showing precise contamination
       removal
     url: /images/material/quartz-glass-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Quartz Glass surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/quartz-glass-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -289,31 +279,21 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the quartz glass surface is obscured by a non-uniform
-    contamination layer. Particulate matter, ranging from sub-micron to approximately
-    5 µm in diameter, is embedded in a thin, amorphous film. This film, estimated
-    to be 0.5–2 µm thick, creates a textured, mottled appearance that scatters light
-    and significantly reduces surface clarity.
-
-
-    The underlying quartz substrate, which typically has a polished smoothness of
-    0.5 nm RMS, is completely masked. The contaminants disrupt the inherent optical
-    homogeneity of the glass, creating a hazy, topographically complex landscape.
-    This layer directly compromises the glass''s high transmissivity, which is normally
-    92% in the visible spectrum for a clean surface.'
-  afterText: 'Following laser cleaning, the surface at 500x magnification reveals
-    the pristine quartz substrate. The particulate matter and amorphous film have
-    been completely removed, restoring the inherent surface roughness to its original
-    0.5 nm RMS smoothness. The visual transformation is marked by the elimination
-    of light-scattering features and the return of optical homogeneity.
-
-
-    The cleaned surface now exhibits the characteristic properties of high-purity
-    fused quartz. Its exceptional transmissivity of 92% is restored, as the path for
-    light is no longer obstructed by contaminants. The laser process has successfully
-    ablated the contamination layer without inducing micro-fractures or thermal damage
-    to the underlying glass, preserving its structural integrity and flexural strength
-    of 69 MPa.'
+  beforeText: At 500x magnification, the quartz glass surface is obscured by a discontinuous
+    layer of particulate and film-based contamination. This layer, measuring 0.5–5
+    µm in thickness, consists of sub-micron dust, skin oils, and process residues.
+    These contaminants create a textured, matte topography that scatters light, significantly
+    reducing the intrinsic 93% transmissivity of the pristine substrate. The underlying
+    glass, with its characteristic 0.5 nm Ra polish, is no longer visible, compromising
+    optical performance and surface energy.
+  afterText: Following laser cleaning, the surface at 500x magnification is restored
+    to its native state. The contaminant layer has been completely removed via ablation,
+    revealing the original polished quartz substrate with a surface roughness of approximately
+    0.5 nm Ra. The surface is now continuous and featureless, with no evidence of
+    micro-fractures or thermal damage, confirming the process operated below the material's
+    2.5 J/cm² ablation threshold. This restoration of atomic-level smoothness ensures
+    optimal light transmission and chemical inertness, critical for high-performance
+    applications.
   description: Microscopic analysis of quartz glass surface before and after laser
     cleaning treatment
   alt: Microscopic view of quartz glass surface showing laser cleaning effects
@@ -323,24 +303,29 @@ caption:
     - quartz glass_specific
     contaminationProfile: quartz glass surface contamination
   microscopy:
-    parameters: Microscopic analysis of quartz glass
+    parameters: Microscopic analysis of Quartz Glass
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-09-30T20:29:47.823382Z'
+    timestamp: '2025-10-02T00:00:00.000000Z'
     generator: FrontmatterCaptionGenerator
-    componentType: ai_caption_frontmatter
-  author: Yi-Chun Lin
+    componentType: template_caption
+  author: Ikmanda Roswati
   materialProperties:
     materialType: Glass
-    analysisMethod: ai_microscopy
+    analysisMethod: template_microscopy
   imageUrl:
     alt: Microscopic view of Quartz Glass surface after laser cleaning showing detailed
       surface structure
     url: /images/material/quartz-glass-laser-cleaning-micro.jpg
 tags:
 - glass
-- insulating
-- stable
-- smooth
-- yi-chun-lin
+- manufacturing
+- industrial
+- processing
+- surface-preparation
+- contamination-removal
+- maintenance
+- thermal-sensitive
+- industrial-grade
+- ikmanda-roswati

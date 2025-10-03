@@ -2,61 +2,61 @@ name: Lead Crystal
 category: Glass
 subcategory: Lead Crystal
 title: Lead Crystal Laser Cleaning
-description: Laser cleaning parameters for Borosilicate Glass
+description: Laser cleaning parameters for Lead Crystal
 materialProperties:
   density:
-    value: 3.05
+    value: 3.1
     unit: g/cm³
     confidence: 95
-    description: Typical density for 24-32% lead oxide content crystal glass
+    description: Typical density for 24-30% lead oxide crystal glass
     min: 1.2
     max: 7.6
+  meltingPoint:
+    value: 880
+    unit: °C
+    confidence: 90
+    description: Softening/melting point for high-lead crystal glass
+    min: null
+    max: null
   thermalConductivity:
     value: 0.78
     unit: W/m·K
     confidence: 88
-    description: Low thermal conductivity typical of glass materials
-    min: 0
-    max: 38.422
-  tensileStrength:
-    confidence: 0.7
-    max: 2000.0
-    min: 30.0
-    source: default_from_category_range
-    unit: MPa
-    value: 35.0
+    description: Low thermal conductivity typical of lead glass compositions
+    min: 0.02
+    max: 40
   hardness:
-    value: 4.5
-    unit: Mohs
-    confidence: 86
-    description: Vickers hardness of lead crystal
+    value: 420
+    unit: HV
+    confidence: 88
+    description: Vickers hardness of lead crystal glass
     min: 4.5
     max: 9
   youngsModulus:
-    value: 67.5
+    value: 60
     unit: GPa
-    confidence: 89
+    confidence: 90
     description: Elastic modulus of lead crystal glass
-    min: 31.5
-    max: 373.5
+    min: 10
+    max: 400
   thermalExpansion:
-    value: 9.1
+    value: 9.2
     unit: 10⁻⁶/K
-    confidence: 85
+    confidence: 92
     description: Coefficient of thermal expansion at room temperature
     min: 0.1
     max: 15
   specificHeat:
-    value: 780.0
-    unit: J/kg·K
-    confidence: 87
+    value: 0.67
+    unit: J/g·K
+    confidence: 85
     description: Specific heat capacity at room temperature
-    min: 653.0
-    max: 857.0
+    min: 500
+    max: 900
   refractiveIndex:
     value: 1.56
-    unit: ''
-    confidence: 96
+    unit: dimensionless
+    confidence: 95
     description: Refractive index for typical lead crystal (24% PbO)
     min: null
     max: null
@@ -64,140 +64,111 @@ materialProperties:
     value: 0.15
     unit: cm⁻¹
     confidence: 82
-    description: Optical absorption coefficient at 1064 nm wavelength
+    description: Absorption coefficient at 1064 nm wavelength
     min: null
     max: null
-  ablationThreshold:
-    value: 2.8
+  laserDamageThreshold:
+    value: 15
     unit: J/cm²
     confidence: 80
-    description: Laser ablation threshold for nanosecond pulses at 1064 nm
+    description: Approximate laser damage threshold for nanosecond pulses at 1064
+      nm
     min: null
     max: null
   chemicalStability:
     value: 85
     unit: '% resistance'
+    confidence: 90
+    description: Chemical resistance to water and mild acids
+    min: null
+    max: null
+  surfaceRoughness:
+    value: 0.02
+    unit: μm Ra
     confidence: 88
-    description: Chemical durability against mild acids and water
+    description: Typical surface roughness of polished lead crystal
     min: null
     max: null
-  transmissivity:
-    value: 92
-    unit: '%'
-    confidence: 94
-    description: Visible light transmission for clear lead crystal
-    min: null
-    max: null
-  laserAbsorption:
-    confidence: 0.7
-    max: 10.0
-    min: 0.001
-    source: default_from_category_range
-    unit: cm⁻¹
-    value: 7.2
-  laserReflectivity:
-    confidence: 0.7
-    max: 92.0
-    min: 4.0
-    source: default_from_category_range
-    unit: '%'
-    value: 52.3
-  thermalDiffusivity:
-    confidence: 0.7
-    max: 15.0
-    min: 0.01
-    source: default_from_category_range
-    unit: mm²/s
-    value: 0.45
-  thermalDestructionPoint:
-    confidence: 0.7
-    max: 1723.0
-    min: 500.0
-    source: default_from_category_range
-    unit: °C
-    value: 1083.15
-  thermalDestructionType:
-    confidence: 0.8
-    source: category_default
-    value: 450.0
 applications:
-- 'Manufacturing: Industrial surface preparation and contamination removal'
-- 'Aerospace: Precision cleaning of aerospace components and assemblies'
-- 'Semiconductor: Ultra-precise cleaning for semiconductor manufacturing'
+- Cultural Heritage
+- Aerospace
+- Medical Devices
+- Electronics Manufacturing
+- Automotive
+- Energy Sector
+- Marine Applications
+- Manufacturing Quality Control
+- Research and Laboratory
+- Art and Luxury Goods
 machineSettings:
   powerRange:
-    value: 15
+    value: 8
     unit: W
     confidence: 90
     description: Optimal average power for Lead Crystal surface cleaning without thermal
       damage
-    min: 8
-    max: 25
+    min: 5
+    max: 12
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength for optimal absorption in Lead Crystal with minimal
-      transmission
+    description: Near-IR wavelength providing optimal absorption in Lead Crystal contaminants
+      while minimizing substrate damage
     min: 532
-    max: 10640
+    max: 1064
   spotSize:
-    value: 100
+    value: 80
     unit: μm
-    confidence: 89
+    confidence: 86
     description: Beam spot diameter for precise cleaning control on Lead Crystal surfaces
     min: 50
-    max: 200
+    max: 120
   repetitionRate:
-    value: 20
+    value: 30
     unit: kHz
     confidence: 87
-    description: Optimal repetition rate for efficient cleaning with thermal management
-    min: 10
+    description: Optimal repetition rate balancing cleaning efficiency and thermal
+      management
+    min: 20
     max: 50
   pulseWidth:
-    value: 100
+    value: 15
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for controlled ablation of surface contaminants
-    min: 50
-    max: 200
+    description: Nanosecond pulse duration for effective contaminant removal with
+      controlled thermal penetration
+    min: 10
+    max: 30
   scanSpeed:
     value: 500
     unit: mm/s
-    confidence: 86
+    confidence: 84
     description: Optimal scanning speed for uniform cleaning coverage
-    min: 200
-    max: 1000
-  fluenceThreshold:
-    value: 2.5
+    min: 300
+    max: 800
+  energyDensity:
+    value: 1.6
     unit: J/cm²
-    confidence: 91
+    confidence: 89
     description: Fluence threshold for effective contaminant removal without damaging
       Lead Crystal substrate
-    min: 1.5
-    max: 4.0
+    min: 1.2
+    max: 2.0
   overlapRatio:
     value: 50
     unit: '%'
-    confidence: 84
-    description: Optimal beam overlap for uniform cleaning coverage
-    min: 30
-    max: 70
+    confidence: 83
+    description: Optimal beam overlap percentage for uniform cleaning pattern
+    min: 40
+    max: 60
   passCount:
     value: 2
     unit: passes
     confidence: 88
-    description: Recommended number of passes for complete contaminant removal
+    description: Recommended number of cleaning passes for complete contaminant removal
     min: 1
-    max: 4
-  laserType:
-    value: Nd:YAG
-    unit: n/a
-    confidence: 92
-    description: Recommended laser type for Lead Crystal cleaning applications
-    min: null
-    max: null
+    max: 3
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -216,6 +187,10 @@ images:
     alt: Lead Crystal surface undergoing laser cleaning showing precise contamination
       removal
     url: /images/material/lead-crystal-laser-cleaning-hero.jpg
+  micro:
+    alt: Microscopic view of Lead Crystal surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/lead-crystal-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -276,32 +251,19 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the lead crystal surface is obscured by a non-uniform
-    contamination layer approximately 5-10 micrometers thick. This layer consists
-    of particulate matter embedded in a thin, amorphous film that significantly alters
-    the surface topography. The particulates, ranging from 2 to 15 micrometers in
-    diameter, create a textured, irregular landscape that scatters light and obscures
-    the substrate''s inherent clarity.
-
-
-    The underlying crystal surface is no longer visible as a distinct plane. The contaminant
-    film exhibits a mud-cracked pattern, suggesting a dried liquid residue, with agglomerated
-    particles concentrated in the fissures. This composite layer adheres to the substrate,
-    filling the natural micro-texture of the glass and presenting a matte, occluded
-    appearance that fundamentally compromises the material''s optical transmissivity
-    and surface integrity.'
-  afterText: 'Laser cleaning has restored the surface to its native state, revealing
-    the pristine lead crystal substrate. The contamination layer has been completely
-    removed, eliminating the light-scattering particulates and the amorphous film.
-    The surface now exhibits the characteristic micro-texture of polished glass, with
-    only occasional, sub-micrometer polishing marks visible.
-
-
-    The most significant transformation is the restoration of optical clarity at the
-    microscopic level. The mud-cracked patterning is entirely absent, and the interface
-    is now sharply defined. This exposes the true surface, which demonstrates the
-    high transmissivity expected of lead crystal, with no residual deposits to impede
-    light transmission or interact with the surface chemically.'
+  beforeText: At 500x magnification, the lead crystal surface is obscured by a complex
+    contamination layer. A particulate matrix, 5-15 µm thick, composed of environmental
+    soot, dust, and organic residues, adheres to the substrate. This layer exhibits
+    a high degree of micro-roughness, scattering light and masking the crystal's inherent
+    refractive properties. The contaminants form a discontinuous, agglomerated crust,
+    with localized penetration into micro-fissures, creating a visibly occluded and
+    texturally heterogeneous surface that compromises optical clarity.
+  afterText: Post-cleaning, the surface reveals the pristine, homogeneous structure
+    of the lead crystal. The 5-15 µm contamination layer has been entirely removed,
+    restoring the substrate's native 0.02 µm Ra surface roughness. The interface is
+    now optically transparent, with no evidence of micro-fracturing or subsurface
+    damage. This restoration of the original surface geometry allows for unimpeded
+    light transmission and brilliance.
   description: Microscopic analysis of lead crystal surface before and after laser
     cleaning treatment
   alt: Microscopic view of lead crystal surface showing laser cleaning effects
@@ -311,17 +273,17 @@ caption:
     - lead crystal_specific
     contaminationProfile: lead crystal surface contamination
   microscopy:
-    parameters: Microscopic analysis of lead crystal
+    parameters: Microscopic analysis of Lead Crystal
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-09-30T20:24:19.967693Z'
+    timestamp: '2025-10-02T00:00:00.000000Z'
     generator: FrontmatterCaptionGenerator
-    componentType: ai_caption_frontmatter
+    componentType: template_caption
   author: Yi-Chun Lin
   materialProperties:
     materialType: Glass
-    analysisMethod: ai_microscopy
+    analysisMethod: template_microscopy
   imageUrl:
     alt: Microscopic view of Lead Crystal surface after laser cleaning showing detailed
       surface structure
@@ -329,11 +291,11 @@ caption:
 tags:
 - glass
 - manufacturing
-- aerospace
-- semiconductor
-- low-thermal-conductivity
-- low-absorption
-- medium-density
+- industrial
+- processing
+- surface-preparation
+- contamination-removal
+- maintenance
+- thermal-sensitive
+- industrial-grade
 - yi-chun-lin
-- laser-processing
-- laser-processing
