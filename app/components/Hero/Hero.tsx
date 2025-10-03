@@ -52,25 +52,11 @@ export function Hero({
     return () => observer.disconnect();
   }, []);
   
-  // Get video ID and type from frontmatter
+  // Get video ID from frontmatter
   const videoId = frontmatter?.video;
-  const videoType = frontmatter?.videoType || 'youtube'; // Default to YouTube
   
   // Get image source from frontmatter
   const imageSource = frontmatter?.images?.hero?.url || frontmatter?.image;
-
-  // Build Vimeo URL with standard parameters
-  const buildVimeoUrl = (id: string) => {
-    const params = new URLSearchParams({
-      badge: '0',
-      autopause: '0',
-      player_id: '0',
-      app_id: '58479',
-      autoplay: '1',
-      loop: '1',
-    });
-    return `https://player.vimeo.com/video/${id}?${params.toString()}`;
-  };
 
   // Build YouTube URL with standard parameters
   const buildYouTubeUrl = (id: string) => {
@@ -87,9 +73,7 @@ export function Hero({
     return `https://www.youtube.com/embed/${id}?${params.toString()}`;
   };
 
-  const videoUrl = videoId 
-    ? (videoType === 'vimeo' ? buildVimeoUrl(videoId) : buildYouTubeUrl(videoId))
-    : null;
+  const videoUrl = videoId ? buildYouTubeUrl(videoId) : null;
   
   // Simplified accessibility text generation - only from frontmatter
   const getAccessibleAlt = (): string => {

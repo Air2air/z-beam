@@ -111,8 +111,7 @@ export interface ArticleMetadata {
   
   // Legacy compatibility fields
   subject?: string; // Legacy field for older components
-  video?: string; // For video metadata (YouTube ID or Vimeo ID)
-  videoType?: 'youtube' | 'vimeo'; // Video platform type
+  video?: string; // For video metadata (YouTube ID)
   chemicalSymbol?: string;
   chemicalFormula?: string;
   atomicNumber?: number;
