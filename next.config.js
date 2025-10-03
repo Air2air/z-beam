@@ -52,6 +52,7 @@ const nextConfig = {
               "img-src 'self' data: blob: https:",
               "media-src 'self' data: blob:",
               "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com",
+              "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
               "frame-ancestors 'none'",
               "form-action 'self'",
               "base-uri 'self'",
