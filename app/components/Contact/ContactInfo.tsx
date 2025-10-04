@@ -88,8 +88,8 @@ export function ContactInfo() {
         <div>
           <Title level="card" title="Business Address" />
           <div className="text-gray-600 dark:text-gray-300">
-            <p>{SITE_CONFIG.address.company}</p>
-            <p>{SITE_CONFIG.address.street}</p>
+            {/* <p>{SITE_CONFIG.address.company}</p>
+            <p>{SITE_CONFIG.address.street}</p> */}
             <p>{SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.zipCode}</p>
             <p>{SITE_CONFIG.address.country}</p>
           </div>

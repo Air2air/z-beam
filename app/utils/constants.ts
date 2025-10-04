@@ -18,14 +18,14 @@ export const SITE_CONFIG = {
       phoneHref: 'tel:+16502418510'
     },
     sales: {
-      email: 'sales@z-beam.com',
-      phone: '(650) 241-8511',
-      phoneHref: 'tel:+16502418511'
+      email: 'info@z-beam.com',
+      phone: '(650) 241-8510',
+      phoneHref: 'tel:+16502418510'
     },
     support: {
-      email: 'support@z-beam.com',
-      phone: '(650) 241-8512',
-      phoneHref: 'tel:+16502418512',
+      email: 'info@z-beam.com',
+      phone: '(650) 241-8510',
+      phoneHref: 'tel:+16502418510',
       emergency: '24/7 for existing customers'
     }
   },
@@ -35,7 +35,7 @@ export const SITE_CONFIG = {
   phone: '(650) 241-8510',
   
   address: {
-    company: 'Z-Beam Technologies',
+    company: 'Z-Beam LLC',
     street: '1002 Misty Lane',
     city: 'Belmont',
     state: 'CA',
@@ -98,8 +98,8 @@ export const SITE_CONFIG = {
   
   // Email Configuration
   emailConfig: {
-    fromAddress: 'Z-Beam Contact <onboarding@resend.dev>',
-    toAddresses: ['todd@dunningmarketing.com'], // Production: use sales/support emails
+    fromAddress: 'Z-Beam Contact <info@z-beam.com>',
+    toAddresses: ['info@z-beam.com'], // Production: use sales/support emails
     brandColor: '#1e40af',
     replyToMessage: 'This email was sent from the Z-Beam website contact form.'
   },
