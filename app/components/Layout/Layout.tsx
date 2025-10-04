@@ -1,50 +1,117 @@
 // app/components/Layout/Layout.tsx
 // Single, simplified layout system for maximum reusability and responsiveness
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
-import { ArticleMetadata, ComponentData, LayoutProps } from '@/types';
+import { LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/styles';
 import { Title } from '../Title';
-
-// Header components (previously in ArticleHeader)
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import { extractSafeValue } from '../../utils/safeValueExtractor';
-
-// Article content components
-
 import { Table } from "../Table/Table";
-
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 
-// Component rendering order for articles
-const ARTICLE_COMPONENT_ORDER = [
-  'metricsmachinesettings',
-  'metricsproperties',
-  'table',
-  'tags'
-] as const;
+const ARTICLE_COMPONENT_ORDER = ['metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
+const SPACER_CLASSES = "h-[15vh] sm:h-[22vh] md:h-[22vh] lg:h-[32vh] xl:h-[35vh]";
 
-/**
- * Layout System - Single component for all layout needs
- * 
- * Simplified to use article layout by default with support for both
- * article content (with components) and regular page content (with children)
- */
+// Helper: Extract material name from metadata or slug
+const getMaterialName = (metadata: any, slug?: string) => {
+  return extractSafeValue(metadata?.subject, 'subject', '').toLowerCase() ||
+    (slug?.includes('-') ? slug.split('-')[0].toLowerCase() : slug?.toLowerCase() || '');
+};
+
+// Helper: Render article header section
+const ArticleHeader = ({ title, metadata, showHero, slug }: any) => {
+  const materialName = getMaterialName(metadata, slug);
+  
+  return (
+    <div className="header-section mb-6">
+      {showHero && materialName ? (
+        <Hero frontmatter={metadata} theme="dark" />
+      ) : (
+        <div className={SPACER_CLASSES} aria-hidden="true" />
+      )}
+
+      <Title level="page" title={title || metadata?.title || 'Article'} />
+      <Author 
+        frontmatter={metadata}
+        showAvatar showCredentials showCountry showSpecialties
+        className="mt-2 mb-4"
+      />
+
+      {metadata?.materialProperties && (
+        <section aria-labelledby="material-properties-heading" className="my-8">
+          <MetricsGrid metadata={metadata} dataSource="materialProperties" titleFormat="comparison" 
+            maxCards={8} layout="auto" showTitle searchable />
+        </section>
+      )}
+
+      {metadata?.machineSettings && (
+        <section aria-labelledby="machine-settings-heading" className="my-8">
+          <MetricsGrid metadata={metadata} dataSource="machineSettings" titleFormat="comparison"
+            maxCards={8} layout="auto" showTitle searchable />
+        </section>
+      )}
+
+      {metadata?.caption && (
+        <section aria-labelledby="caption-section" className="my-8">
+          <Caption frontmatter={metadata} config={{ className: "caption-section", showTechnicalDetails: true, showMetadata: true }} />
+        </section>
+      )}
+    </div>
+  );
+};
+
+// Helper: Render article component
+const renderComponent = (type: string, component: any, metadata: any) => {
+  if (!component) return null;
+
+  if (type === 'metricsmachinesettings' && component.config) {
+    const metricsMetadata = { slug: metadata?.slug || '', title: component.config.title || '', 
+      description: component.config.description || '', machineSettings: component.config.machineSettings || {} };
+    return (
+      <section key={type} aria-label="Machine settings visualization">
+        <MetricsGrid metadata={metricsMetadata} dataSource="machineSettings" 
+          title={component.config.title} className={component.config.className} searchable />
+      </section>
+    );
+  }
+
+  if (type === 'metricsproperties' && component.config) {
+    const propertiesMetadata = { slug: metadata?.slug || '', title: component.config.title || '',
+      description: component.config.description || '', materialProperties: component.config.properties || {} };
+    return (
+      <section key={type} aria-label="Material properties visualization">
+        <MetricsGrid metadata={propertiesMetadata} dataSource="materialProperties"
+          title={component.config.title} className={component.config.className} searchable />
+      </section>
+    );
+  }
+
+  const { content, config } = component;
+  
+  if (type === 'table') {
+    return <section key={type} aria-label="Data table"><Table content={content} config={config} frontmatterData={metadata} /></section>;
+  }
+  
+  if (type === 'tags') {
+    return <section key={type} aria-label="Tags and categories"><Tags frontmatter={metadata} /></section>;
+  }
+  
+  return null;
+};
+
 export function Layout(props: LayoutProps) {
-  const { title, description, components, metadata, slug, hideHeader, fullWidth, showHero = true } = props;
-
-  // Use full-width or contained layout based on prop
+  const { title, components, metadata, slug, hideHeader, fullWidth, showHero = true } = props;
   const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.main);
 
-  // If components are provided, render as article layout
+  // Article layout with components
   if (components) {
-    
     // Handle empty content
-    if (!components || Object.keys(components).length === 0) {
+    if (Object.keys(components).length === 0) {
       return (
         <main className={containerClass} id="main-content" role="main">
           <div className="text-center py-12">
@@ -74,187 +141,27 @@ export function Layout(props: LayoutProps) {
 
     return (
       <main className={containerClass} id="main-content" role="main">
-        {/* Structured data */}
         {jsonLdData && <JsonLD data={jsonLdData} />}
+        {!hideHeader && <ArticleHeader title={title} metadata={metadata} showHero={showHero} slug={slug} />}
         
-        {/* Article header components - previously in ArticleHeader */}
-        {!hideHeader && (
-          <div className="header-section mb-6">
-            {/* Hero component for background image */}
-            {showHero && (() => {
-              // Extract material name for hero image (from subject or slug)
-              const materialName = extractSafeValue(metadata?.subject, 'subject', '').toLowerCase() ||
-                (slug && extractSafeValue({slug}, 'slug', '').includes('-') ? extractSafeValue({slug}, 'slug', '').split('-')[0].toLowerCase() : extractSafeValue({slug: slug || ''}, 'slug', '').toLowerCase());              return materialName && (
-                <Hero
-                  frontmatter={metadata}
-                  theme="dark"
-                />
-              );
-            })()}
-            
-            {/* Spacer when Hero is not shown to maintain consistent spacing */}
-            {!showHero && (
-              <div className="h-[15vh] sm:h-[22vh] md:h-[22vh] lg:h-[32vh] xl:h-[35vh]" aria-hidden="true" />
-            )}
-
-            {/* Title and Author components - simplified frontmatter-only */}
-            <Title level="page" title={title || metadata?.title || 'Article'} />
-            <Author 
-              frontmatter={metadata}
-              showAvatar={true}
-              showCredentials={true}
-              showCountry={true}
-              showSpecialties={true}
-              className="mt-2 mb-4"
-            />
-
-            {/* Material Properties from frontmatter - positioned after Author */}
-            {metadata && metadata.materialProperties && (
-              <section aria-labelledby="material-properties-heading" className="my-8">
-                <MetricsGrid
-                  metadata={metadata}
-                  dataSource="materialProperties"
-                  titleFormat="comparison"
-                  maxCards={8}
-                  layout="auto"
-                  showTitle={true}
-                  searchable={true}
-                />
-              </section>
-            )}
-            
-            {/* Machine Settings from frontmatter - positioned after Material Properties */}
-            {metadata && metadata.machineSettings && (
-              <section aria-labelledby="machine-settings-heading" className="my-8">
-                <MetricsGrid
-                  metadata={metadata}
-                  dataSource="machineSettings"
-                  titleFormat="comparison"
-                  maxCards={8}
-                  layout="auto"
-                  showTitle={true}
-                  searchable={true}
-                />
-              </section>
-            )}
-            
-            {/* Caption from frontmatter.caption - positioned after Machine Settings */}
-            {metadata && metadata.caption && (
-              <section aria-labelledby="caption-section" className="my-8">
-                <Caption 
-                  frontmatter={metadata as any}
-                  config={{
-                    className: "caption-section",
-                    showTechnicalDetails: true,
-                    showMetadata: true
-                  }}
-                />
-              </section>
-            )}
-          </div>
-        )}        {/* Article content */}
         <article role="article" className="space-y-8">
-          {ARTICLE_COMPONENT_ORDER.map(type => {
-            const component = components[type];
-            
-            // Special handling for metricsmachinesettings - use YAML component data
-            if (type === 'metricsmachinesettings') {
-              if (component?.config) {
-                // Create metadata object from YAML config
-                const metricsMetadata = {
-                  slug: metadata?.slug || '',
-                  title: component.config.title || '',
-                  description: component.config.description || '',
-                  machineSettings: component.config.machineSettings || {}
-                };
-                
-                return (
-                  <section key={type} aria-label="Machine settings visualization">
-                    <MetricsGrid 
-                      metadata={metricsMetadata as any}
-                      dataSource="machineSettings"
-                      title={component.config.title as string}
-                      className={component.config.className as string}
-                      searchable={true}
-                    />
-                  </section>
-                );
-              }
-              return null;
-            }
-
-            // Special handling for metricsproperties - use MD component data
-            if (type === 'metricsproperties') {
-              if (component?.config) {
-                // Create metadata object from MD config
-                const propertiesMetadata = {
-                  slug: metadata?.slug || '',
-                  title: component.config.title || '',
-                  description: component.config.description || '',
-                  materialProperties: component.config.properties || {}
-                };
-                
-                return (
-                  <section key={type} aria-label="Material properties visualization">
-                    <MetricsGrid 
-                      metadata={propertiesMetadata as any}
-                      dataSource="materialProperties"
-                      title={component.config.title as string}
-                      className={component.config.className as string}
-                      searchable={true}
-                    />
-                  </section>
-                );
-              }
-              return null;
-            }
-            
-            if (!component) return null;
-            
-            const { content, config } = component;
-            
-            switch(type) {
-              case 'table':
-                return (
-                  <section key={type} aria-label="Data table">
-                    <Table 
-                      content={content} 
-                      config={config} 
-                      frontmatterData={metadata}
-                    />
-                  </section>
-                );
-              case 'tags':
-                return (
-                  <section key={type} aria-label="Tags and categories">
-                    <Tags frontmatter={metadata} />
-                  </section>
-                );
-              default:
-                return null;
-            }
-          })}
+          {ARTICLE_COMPONENT_ORDER.map(type => renderComponent(type, components[type], metadata))}
         </article>
       </main>
     );
   }
 
-  // Default layout for regular page content
+  // Regular page layout
   return (
     <main className={containerClass} id="main-content" role="main">
-      {/* Spacer when Hero is not shown to maintain consistent spacing */}
-      {!showHero && !fullWidth && (
-        <div className="h-[30vh] sm:h-[45vh] md:h-[44vh] lg:h-[65vh] xl:h-[70vh]" aria-hidden="true" />
-      )}
+      {!showHero && !fullWidth && <div className={SPACER_CLASSES} aria-hidden="true" />}
       
-      {/* Page header - only show in contained layouts */}
       {title && !fullWidth && (
         <div className="mb-8">
           <Title level="page" title={title} />
         </div>
       )}
       
-      {/* Page content */}
       <div className={fullWidth ? "space-y-0" : "space-y-6"}>
         {props.children}
       </div>
