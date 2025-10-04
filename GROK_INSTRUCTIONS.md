@@ -281,6 +281,60 @@ git revert <commit>  # Revert to known working state
 
 ---
 
+## � Deployment & Monitoring Protocol
+
+### 🚨 MANDATORY: Always Monitor Deployments
+
+**WHEN PUSHING TO MAIN:**
+1. **Push changes** to GitHub
+2. **IMMEDIATELY start deployment monitoring** - NO EXCEPTIONS
+3. **Wait for completion** - Don't move to next task until deployment finishes
+4. **Report status** to user (success/failure, deployment time, URL)
+
+### �📋 Deployment Monitoring Methods
+
+**Option 1: Smart Deploy Script (PREFERRED)**
+```bash
+cd scripts/deployment
+./smart-deploy.sh monitor
+```
+
+**Option 2: Node Monitor (RECOMMENDED)**
+```bash
+node scripts/deployment/monitor-deployment.js
+```
+
+**Option 3: VS Code Task**
+- Press `Cmd+Shift+P` → "Tasks: Run Task" → "Monitor Vercel Deployment"
+
+### ✅ What Monitoring Provides
+
+- **Real-time build status** (Building, Queued, Ready, Error)
+- **Deployment URL** and environment
+- **Total deployment time**
+- **Automatic failure detection** with logs
+- **Exit codes** for success/failure validation
+
+### 🚫 NEVER Skip Monitoring
+
+**Reasons monitoring is MANDATORY:**
+- Catches build failures immediately
+- Detects configuration issues
+- Verifies production deployment success
+- Provides deployment URL for verification
+- Alerts on timeout issues (max 10 minutes)
+
+**VIOLATION:** Pushing code and not monitoring = incomplete task
+
+### 📚 Full Documentation
+
+See `scripts/deployment/README.md` for:
+- Complete setup instructions
+- GitHub Actions integration
+- NPM scripts
+- Git hooks
+- Troubleshooting guide
+
 ## 📋 Summary Checklist for Every Task
 
 **Before I start:**
@@ -306,3 +360,12 @@ git revert <commit>  # Revert to known working state
 - [ ] No working functionality was broken
 - [ ] The solution is complete and secure
 - [ ] I haven't expanded beyond the requested scope
+
+**For deployments to main:**
+- [ ] Code is pushed to GitHub
+- [ ] 🚨 **DEPLOYMENT MONITORING IS RUNNING** 🚨
+- [ ] Monitoring shows final status (Ready/Error)
+- [ ] User is informed of deployment result
+- [ ] Deployment URL is provided if successful
+
+````
