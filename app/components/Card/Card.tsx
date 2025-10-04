@@ -11,9 +11,9 @@ import { BadgeData, ArticleMetadata } from "@/types";
 const CARD_VARIANTS = {
   standard: {
     // Layout
-    padding: "p-3",
+    padding: "p-2 md:p-3",
     imageHeight: "h-full", // Full height image
-    cardHeight: "h-full min-h-[12rem]", // Standard cards with reduced minimum height
+    cardHeight: "h-full min-h-[9rem] md:min-h-[11rem] lg:min-h-[12rem]", // Responsive card height - smaller on mobile
     
     // Typography
     titleClass: "text-base font-semibold text-white truncate",
@@ -29,9 +29,9 @@ const CARD_VARIANTS = {
   },
   featured: {
     // Layout
-    padding: "p-4",
+    padding: "p-3 md:p-4",
     imageHeight: "h-full", // Full height image
-    cardHeight: "h-auto min-h-[18rem]", // Featured cards with reduced minimum height
+    cardHeight: "h-full min-h-[16rem]", // Fixed min-height across all breakpoints - not responsive
     
     // Typography
     titleClass: "text-xl font-bold text-white truncate",
