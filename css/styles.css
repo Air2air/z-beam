@@ -8,12 +8,23 @@
 
 .dark .list-title {
   color: #f1f5f9;
-}/*# sourceMappingURL=styles.css.map */ove others */
 }
 
-/* Adjust image height for featured cards */
+/* Adjust image height for featured cards - responsive */
 .featured-item .card-image-container {
-  height: 12rem !important; /* Force taller image for featured cards */
+  height: 10rem !important; /* Smaller on mobile */
+}
+
+@media (min-width: 768px) {
+  .featured-item .card-image-container {
+    height: 11rem !important; /* Medium on tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .featured-item .card-image-container {
+    height: 12rem !important; /* Full height on desktop */
+  }
 }
 
 /* Larger title for featured cards */

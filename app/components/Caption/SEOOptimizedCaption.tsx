@@ -150,13 +150,13 @@ export function SEOOptimizedCaption({
         <Title 
           level="section"
           title={`${capitalizedMaterial} Laser Cleaning Process Analysis`}
-          className="caption-title text-xl font-semibold mb-2"
+          className="caption-title text-sm font-semibold mb-2"
           id={`${processId}-heading`}
         />
         
         {/* Enhanced Meta Description for E-A-T */}
         <div className="expertise-indicators text-sm text-gray-600 mb-3">
-          <span className="authority-badge">
+          <span className="authority-badge text-sm">
             ✓ Professional Analysis • ✓ Technical Verification • ✓ Industry Standards
           </span>
         </div>
@@ -175,29 +175,29 @@ export function SEOOptimizedCaption({
         
         <div className="process-parameters grid grid-cols-2 gap-4 p-3 bg-gray-50 rounded">
           <div className="parameter-group">
-            <dt className="font-medium text-gray-700">Laser Wavelength</dt>
-            <dd className="text-gray-900" itemProp="wavelength">
+            <dt className="font-medium text-sm text-gray-700">Laser Wavelength</dt>
+            <dd className="text-sm text-gray-900" itemProp="wavelength">
               {captionData?.laserParams?.wavelength} nm
             </dd>
           </div>
           
           <div className="parameter-group">
-            <dt className="font-medium text-gray-700">Power Output</dt>
-            <dd className="text-gray-900" itemProp="power">
+            <dt className="font-medium text-sm text-gray-700">Power Output</dt>
+            <dd className="text-sm text-gray-900" itemProp="power">
               {captionData?.laserParams?.power} W
             </dd>
           </div>
           
           <div className="parameter-group">
-            <dt className="font-medium text-gray-700">Pulse Duration</dt>
-            <dd className="text-gray-900" itemProp="pulseDuration">
+            <dt className="font-medium text-sm text-gray-700">Pulse Duration</dt>
+            <dd className="text-sm text-gray-900" itemProp="pulseDuration">
               {captionData?.laserParams?.pulse_duration} ns
             </dd>
           </div>
           
           <div className="parameter-group">
-            <dt className="font-medium text-gray-700">Spot Size</dt>
-            <dd className="text-gray-900" itemProp="spotSize">
+            <dt className="font-medium text-sm text-gray-700">Spot Size</dt>
+            <dd className="text-sm text-gray-900" itemProp="spotSize">
               {captionData?.laserParams?.spot_size} µm
             </dd>
           </div>
@@ -259,15 +259,15 @@ export function SEOOptimizedCaption({
         
         <div className="before-after-analysis">
           <div className="analysis-before mb-3">
-            <h5 className="font-medium text-gray-800 mb-1">Before Treatment</h5>
-            <p className="text-gray-700" itemProp="beforeDescription">
+            <h5 className="font-medium text-sm text-gray-800 mb-1">Before Treatment</h5>
+            <p className="text-sm text-gray-700" itemProp="beforeDescription">
               {captionData?.beforeText}
             </p>
           </div>
           
           <div className="analysis-after">
-            <h5 className="font-medium text-gray-800 mb-1">After Treatment</h5>
-            <p className="text-gray-700" itemProp="afterDescription">
+            <h5 className="font-medium text-sm text-gray-800 mb-1">After Treatment</h5>
+            <p className="text-sm text-gray-700" itemProp="afterDescription">
               {captionData?.afterText}
             </p>
           </div>

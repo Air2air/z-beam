@@ -267,7 +267,7 @@ export function MetricsGrid({
       {/* Grid with comprehensive accessibility */}
       <div 
         id={gridId}
-        className={`grid gap-4 ${GRID_LAYOUTS[layout]}`}
+        className={`grid gap-2 md:gap-4 lg:gap-6 ${GRID_LAYOUTS[layout]}`}
         role="list"
         aria-label={`${displayTitle || 'Metrics'} grid containing ${limitedCards.length} metric${limitedCards.length !== 1 ? 's' : ''}`}
         

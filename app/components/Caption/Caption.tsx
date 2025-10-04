@@ -101,7 +101,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                       <dt className="text-xs text-gray-400 uppercase mb-1">
                         {key.replace(/_/g, ' ')}
                       </dt>
-                      <dd className="text-lg font-bold text-white">
+                      <dd className="text-sm font-bold text-white">
                         <data 
                           value={value}
                           data-property={key}
@@ -129,14 +129,14 @@ export function Caption({ frontmatter, config }: CaptionProps) {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2 text-gray-200">Before Treatment</h3>
-              <p className="text-gray-300">{captionData.beforeText}</p>
+              <h3 className="text-sm font-semibold mb-2 text-gray-200">Before Treatment</h3>
+              <p className="text-sm text-gray-300">{captionData.beforeText}</p>
             </div>
           )}
           {captionData.afterText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-lg font-semibold mb-2 text-gray-200">After Treatment</h3>
-              <p className="text-gray-300">{captionData.afterText}</p>
+              <h3 className="text-sm font-semibold mb-2 text-gray-200">After Treatment</h3>
+              <p className="text-sm text-gray-300">{captionData.afterText}</p>
             </div>
           )}
         </div>
@@ -145,7 +145,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       {/* Description */}
       {captionData.description && (
         <div className="mb-6">
-          <p className="text-gray-300 leading-relaxed">{captionData.description}</p>
+          <p className="text-sm text-gray-300 leading-relaxed">{captionData.description}</p>
         </div>
       )}
     </section>
