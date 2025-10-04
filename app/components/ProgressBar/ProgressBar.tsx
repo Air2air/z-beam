@@ -85,9 +85,9 @@ export function ProgressBar({
       </div>
       
       {/* Current value positioned above the bar at pointer position */}
-      <div className="relative w-full mb-1 h-4">
+      <div className="relative w-full mb-0.5 md:mb-1 h-3 md:h-4">
         <div 
-          className="absolute text-lg font-bold text-white/90 z-10"
+          className="absolute text-base md:text-lg font-bold text-white/90 z-10"
           aria-hidden="true" // Hide from screen readers (described above)
           style={{ 
             left: alignmentStyle.left,
@@ -111,7 +111,7 @@ export function ProgressBar({
       </div>
       
       {/* WCAG compliant progress bar */}
-      <div className="relative w-full mb-1">
+      <div className="relative w-full mb-0.5 md:mb-1">
         <div 
           id={progressId}
           role="progressbar"
@@ -129,13 +129,13 @@ export function ProgressBar({
         >
           {/* Background track */}
           <div 
-            className="h-full opacity-30 rounded-full"
+            className="h-full opacity-25 rounded-full"
             style={{ backgroundColor: color, width: '100%' }}
             aria-hidden="true"
           />
           {/* Progress fill */}
           <div 
-            className="absolute top-0 left-0 h-full opacity-90 rounded-l-full transition-all duration-300"
+            className="absolute top-0 left-0 h-full opacity-100 rounded-l-full transition-all duration-300"
             style={{ backgroundColor: color, width: `${percentage}%` }}
             aria-hidden="true"
           />

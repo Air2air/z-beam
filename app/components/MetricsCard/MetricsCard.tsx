@@ -180,7 +180,7 @@ export function MetricsCard({
   return finalHref ? (
     <Link
       href={finalHref}
-      className={`rounded-lg p-2 md:p-3 block h-20 md:h-24 ${clickableClasses} ${minTouchTarget} ${className}`}
+      className={`rounded-lg pt-3 pb-2 px-2 md:p-3 block h-20 md:h-24 ${clickableClasses} ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         '--hover-bg-color': hoverBgColor,
@@ -208,7 +208,7 @@ export function MetricsCard({
     </Link>
   ) : (
     <div 
-      className={`rounded-lg p-2 md:p-3 h-20 md:h-24 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
+      className={`rounded-lg pt-3 pb-2 px-2 md:p-3 h-20 md:h-24 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
