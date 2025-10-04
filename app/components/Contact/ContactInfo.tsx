@@ -16,19 +16,19 @@ export function ContactInfo() {
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Email:</strong>{' '}
               <a 
-                href="mailto:info@z-beam.com" 
+                href={`mailto:${SITE_CONFIG.contact.general.email}`}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                info@z-beam.com
+                {SITE_CONFIG.contact.general.email}
               </a>
             </p>
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Phone:</strong>{' '}
               <a 
-                href="tel:+1-555-0123" 
+                href={SITE_CONFIG.contact.general.phoneHref}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                +1 (555) 012-3456
+                {SITE_CONFIG.contact.general.phone}
               </a>
             </p>
           </div>
@@ -41,19 +41,19 @@ export function ContactInfo() {
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Sales Team:</strong>{' '}
               <a 
-                href="mailto:sales@z-beam.com" 
+                href={`mailto:${SITE_CONFIG.contact.sales.email}`}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                sales@z-beam.com
+                {SITE_CONFIG.contact.sales.email}
               </a>
             </p>
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Direct Line:</strong>{' '}
               <a 
-                href="tel:+1-555-0124" 
+                href={SITE_CONFIG.contact.sales.phoneHref}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                +1 (555) 012-3457
+                {SITE_CONFIG.contact.sales.phone}
               </a>
             </p>
           </div>
@@ -66,19 +66,19 @@ export function ContactInfo() {
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Support Email:</strong>{' '}
               <a 
-                href="mailto:support@z-beam.com" 
+                href={`mailto:${SITE_CONFIG.contact.support.email}`}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                support@z-beam.com
+                {SITE_CONFIG.contact.support.email}
               </a>
             </p>
             <p className="text-gray-600 dark:text-gray-300">
               <strong>Support Hotline:</strong>{' '}
               <a 
-                href="tel:+1-555-0125" 
+                href={SITE_CONFIG.contact.support.phoneHref}
                 className="text-blue-600 dark:text-blue-400 hover:underline"
               >
-                +1 (555) 012-3458
+                {SITE_CONFIG.contact.support.phone}
               </a>
             </p>
           </div>
@@ -88,10 +88,10 @@ export function ContactInfo() {
         <div>
           <Title level="card" title="Business Address" />
           <div className="text-gray-600 dark:text-gray-300">
-            <p>Z-Beam Technologies</p>
-            <p>123 Industrial Way</p>
-            <p>Tech City, TC 12345</p>
-            <p>United States</p>
+            <p>{SITE_CONFIG.address.company}</p>
+            <p>{SITE_CONFIG.address.street}</p>
+            <p>{SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.zipCode}</p>
+            <p>{SITE_CONFIG.address.country}</p>
           </div>
         </div>
 
@@ -99,11 +99,11 @@ export function ContactInfo() {
         <div>
           <Title level="card" title="Office Hours" />
           <div className="space-y-1 text-gray-600 dark:text-gray-300">
-            <p><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM EST</p>
-            <p><strong>Saturday:</strong> 9:00 AM - 2:00 PM EST</p>
-            <p><strong>Sunday:</strong> Closed</p>
+            <p>{SITE_CONFIG.hours.weekday}</p>
+            <p>{SITE_CONFIG.hours.saturday}</p>
+            <p>{SITE_CONFIG.hours.sunday}</p>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-              Emergency support available 24/7 for existing customers
+              Emergency support available {SITE_CONFIG.contact.support.emergency}
             </p>
           </div>
         </div>
@@ -112,10 +112,10 @@ export function ContactInfo() {
         <div>
           <Title level="card" title="Response Time" />
           <div className="space-y-1 text-gray-600 dark:text-gray-300">
-            <p><strong>General Inquiries:</strong> Within 24 hours</p>
-            <p><strong>Sales Questions:</strong> Within 4 hours (business days)</p>
-            <p><strong>Technical Support:</strong> Within 2 hours (business days)</p>
-            <p><strong>Emergency Support:</strong> Within 1 hour (24/7)</p>
+            <p><strong>General Inquiries:</strong> {SITE_CONFIG.responseTime.general}</p>
+            <p><strong>Sales Questions:</strong> {SITE_CONFIG.responseTime.sales}</p>
+            <p><strong>Technical Support:</strong> {SITE_CONFIG.responseTime.support}</p>
+            <p><strong>Emergency Support:</strong> {SITE_CONFIG.responseTime.emergency}</p>
           </div>
         </div>
       </div>

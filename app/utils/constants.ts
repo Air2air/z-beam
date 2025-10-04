@@ -9,15 +9,53 @@ export const SITE_CONFIG = {
     ? 'https://z-beam.com' 
     : 'http://localhost:3000',
   author: 'Z-Beam',
+  
+  // Contact Information
+  contact: {
+    general: {
+      email: 'info@z-beam.com',
+      phone: '(650) 241-8510',
+      phoneHref: 'tel:+16502418510'
+    },
+    sales: {
+      email: 'sales@z-beam.com',
+      phone: '(650) 241-8511',
+      phoneHref: 'tel:+16502418511'
+    },
+    support: {
+      email: 'support@z-beam.com',
+      phone: '(650) 241-8512',
+      phoneHref: 'tel:+16502418512',
+      emergency: '24/7 for existing customers'
+    }
+  },
+  
+  // Legacy fields (for backward compatibility)
   email: 'info@z-beam.com',
   phone: '(650) 241-8510',
+  
   address: {
+    company: 'Z-Beam Technologies',
     street: '1002 Misty Lane',
     city: 'Belmont',
     state: 'CA',
     zipCode: '94002',
     country: 'United States'
   },
+  
+  hours: {
+    weekday: 'Monday - Friday: 8:00 AM - 6:00 PM PST',
+    saturday: 'Saturday: 9:00 AM - 2:00 PM PST',
+    sunday: 'Sunday: Closed'
+  },
+  
+  responseTime: {
+    general: 'Within 24 hours',
+    sales: 'Within 4 hours (business days)',
+    support: 'Within 2 hours (business days)',
+    emergency: 'Within 1 hour (24/7)'
+  },
+  
   social: {
     twitter: '@ZBeamLaser',
     facebook: 'facebook.com/profile.php?id=61573280533272',
