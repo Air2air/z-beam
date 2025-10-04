@@ -70,7 +70,7 @@ export function Thumbnail({
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-600">
           <Image
-            src="/images/Site/Logo/logo_.png"
+            src="/images/site/logo/logo_.png"
             alt="No image available"
             width={60}
             height={60}

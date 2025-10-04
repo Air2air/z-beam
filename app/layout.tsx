@@ -117,7 +117,7 @@ export default function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/images/Site/Favicon/favicon_350.png" type="image/png" />
+        <link rel="icon" href="/images/site/Favicon/favicon_350.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Global Organization Schema */}

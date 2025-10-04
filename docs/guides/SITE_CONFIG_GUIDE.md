@@ -284,7 +284,7 @@ import { SITE_CONFIG } from '../../utils/constants';
 
 **Before (Hardcoded):**
 ```typescript
-<Image src="/images/Site/Logo/logo_.png" alt="Z-Beam logo" />
+<Image src="/images/site/logo/logo_.png" alt="Z-Beam logo" />
 ```
 
 **After (Centralized):**

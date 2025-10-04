@@ -210,7 +210,7 @@ export const pageConfigs = {
 ### 1. Add to Markdown
 ```yaml
 ---
-heroImage: /images/Site/Logo/logo_.png
+heroImage: /images/site/logo/logo_.png
 ---
 ```
 

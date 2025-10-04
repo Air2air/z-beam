@@ -86,13 +86,13 @@ export const SITE_CONFIG = {
       }
     },
     logo: {
-      default: '/images/Site/Logo/logo_.png',
+      default: '/images/site/logo/logo_.png',
       width: 200,
       height: 120
     },
     favicon: {
       ico: '/favicon.ico',
-      png: '/images/Site/Favicon/favicon_350.png'
+      png: '/images/site/Favicon/favicon_350.png'
     }
   },
   

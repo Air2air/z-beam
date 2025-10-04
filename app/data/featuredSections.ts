@@ -13,12 +13,12 @@ export const featuredSections: FeaturedSection[] = [
     slug: "services", 
     title: "Services",
     description: "Restoring vintage and modern automotive components using non-abrasive laser technology.",
-    imageUrl: "/images/Site/Netalux/photo_pro.jpg",
+    imageUrl: "/images/site/Netalux/photo_pro.jpg",
   },
   {
     slug: "rental",
     title: "Equipment Rental",
     description: "Preparing industrial surfaces for coating, painting, and bonding with laser cleaning.",
-    imageUrl: "/images/Site/Netalux/netalux_group.png",
+    imageUrl: "/images/site/Netalux/netalux_group.png",
   },
 ];

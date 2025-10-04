@@ -163,7 +163,7 @@ describe('Hero Component', () => {
       
       const logo = screen.getByAltText(`${SITE_CONFIG.shortName} company logo`);
       expect(logo).toBeInTheDocument();
-      expect(logo).toHaveAttribute('src', '/images/Site/Logo/logo_.png');
+      expect(logo).toHaveAttribute('src', '/images/site/logo/logo_.png');
     });
   });
 
@@ -261,7 +261,7 @@ describe('Hero Component', () => {
       
       const logo = screen.getByAltText(`${SITE_CONFIG.shortName} company logo`);
       expect(logo).toBeInTheDocument();
-      expect(logo).toHaveAttribute('src', '/images/Site/Logo/logo_.png');
+      expect(logo).toHaveAttribute('src', '/images/site/logo/logo_.png');
     });
 
     it('should prioritize video over image', () => {
