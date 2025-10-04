@@ -123,6 +123,16 @@ export const pageConfigs = {
     dynamic: 'force-static' as const,
     revalidate: false,
     showHero: false, // Hide Hero for services page
+  },
+  rental: {
+    slug: 'rental',
+    title: 'Equipment Rental | Z-Beam',
+    description: 'Rent professional laser cleaning equipment from Z-Beam. Flexible rental options for your industrial cleaning needs.',
+    useContentAPI: false,
+    markdownPath: 'app/pages/_md/rental.md',
+    dynamic: 'force-static' as const,
+    revalidate: false,
+    showHero: true, // Show Hero for rental page
   }
 } as const;
 

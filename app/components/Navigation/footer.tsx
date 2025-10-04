@@ -5,10 +5,13 @@ import Link from "next/link";
 import { FooterNavItem, SocialLink } from "@/types";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "../../utils/constants";
-import { FOOTER_QUICK_LINKS } from "../../config/navigation";
+import { MAIN_NAV_ITEMS } from "../../config/navigation";
 
-// Use centralized navigation config
-const footerNav: FooterNavItem[] = FOOTER_QUICK_LINKS;
+// Use centralized navigation config - convert NavItem[] to FooterNavItem[]
+const footerNav: FooterNavItem[] = MAIN_NAV_ITEMS.map(item => ({
+  name: item.name,
+  href: item.href
+}));
 
 // Social links - using SITE_CONFIG
 const socialLinks: SocialLink[] = [
@@ -89,7 +92,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <nav 
-          className="flex flex-col items-center gap-4 md:flex-row md:gap-4"
+          className="flex flex-row items-center justify-center gap-4 flex-wrap"
           role="navigation"
           aria-label="Footer navigation"
         >
@@ -99,7 +102,7 @@ export default function Footer() {
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-gray-700 dark:text-gray-300 focus:outline-none rounded-md px-2 py-1"
+              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white focus:outline-none rounded-md px-2 py-1 transition-colors"
             >
               {item.name}
               {item.external && (

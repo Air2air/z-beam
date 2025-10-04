@@ -16,9 +16,9 @@ export const featuredSections: FeaturedSection[] = [
     imageUrl: "/images/Site/Netalux/photo_pro.jpg",
   },
   {
-    slug: "about",
-    title: "About Z-Beam",
+    slug: "rental",
+    title: "Equipment Rental",
     description: "Preparing industrial surfaces for coating, painting, and bonding with laser cleaning.",
-    imageUrl: "/images/Site/Netalux/photo_pro.jpg",
+    imageUrl: "/images/Site/Netalux/netalux_group.png",
   },
 ];

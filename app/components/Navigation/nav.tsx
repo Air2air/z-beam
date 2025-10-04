@@ -7,10 +7,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "../../utils/constants";
-import { MAIN_NAV_ITEMS_RECORD } from "../../config/navigation";
+import { MAIN_NAV_ITEMS } from "../../config/navigation";
 
 // Use centralized navigation config
-const navItems = MAIN_NAV_ITEMS_RECORD;
+const navItems = MAIN_NAV_ITEMS;
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -160,14 +160,14 @@ export function Navbar() {
             onKeyDown={handleKeyDown}
           >
             <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8" role="menubar">
-              {Object.entries(navItems).map(([path, { name }]) => {
-                const isActive = pathname === path;
-                const isExternal = path.startsWith("http");
+              {navItems.map((item) => {
+                const isActive = pathname === item.href;
+                const isExternal = item.href.startsWith("http");
 
                 return (
-                  <li key={path} role="none">
+                  <li key={item.href} role="none">
                     <Link
-                      href={path}
+                      href={item.href}
                       target={isExternal ? "_blank" : "_self"}
                       rel={isExternal ? "noopener noreferrer" : undefined}
                       onClick={closeMenu} // Close menu on link click
@@ -188,7 +188,7 @@ export function Navbar() {
                       role="menuitem"
                       aria-current={isActive ? "page" : undefined}
                     >
-                      {name}
+                      {item.name}
                       {isExternal && (
                         <span className="sr-only"> (opens in new window)</span>
                       )}

@@ -1,5 +1,6 @@
 // app/config/navigation.ts
-// Centralized navigation configuration for header nav and footer
+// Single source of truth for site navigation
+// Used by: header nav and footer
 
 export interface NavItem {
   name: string;
@@ -10,17 +11,18 @@ export interface NavItem {
   description?: string; // For accessibility and SEO
 }
 
-export interface NavSection {
-  title: string;
-  items: NavItem[];
-}
-
-// Main navigation items (appears in header)
+// MAIN_NAV_ITEMS - Single source of truth for primary navigation
+// Used by both header and footer
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
     name: "Services",
     href: "/services",
     description: "Explore our laser cleaning services"
+  },
+  {
+    name: "Rental",
+    href: "/rental",
+    description: "Rent professional laser cleaning equipment"
   },
   {
     name: "About",
@@ -33,68 +35,3 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
     description: "Get in touch with our team"
   },
 ];
-
-// Footer navigation sections
-export const FOOTER_NAV_SECTIONS: NavSection[] = [
-  {
-    title: "Company",
-    items: [
-      {
-        name: "Home",
-        href: "/",
-        description: "Return to homepage"
-      },
-      {
-        name: "About",
-        href: "/about",
-        description: "Learn about Z-Beam"
-      },
-      {
-        name: "Services",
-        href: "/services",
-        description: "Our laser cleaning services"
-      },
-      {
-        name: "Contact",
-        href: "/contact",
-        description: "Get in touch"
-      },
-    ]
-  },
-  {
-    title: "Resources",
-    items: [
-      {
-        name: "Articles",
-        href: "/articles",
-        description: "Browse our knowledge base"
-      },
-      {
-        name: "Materials",
-        href: "/materials",
-        description: "Material-specific information"
-      },
-    ]
-  },
-];
-
-// Quick links for footer
-export const FOOTER_QUICK_LINKS: NavItem[] = [
-  {
-    name: "Home",
-    href: "/"
-  },
-  {
-    name: "Articles",
-    href: "/articles"
-  },
-];
-
-// Convert to Record format for backwards compatibility with nav.tsx
-export const MAIN_NAV_ITEMS_RECORD: Record<string, NavItem> = MAIN_NAV_ITEMS.reduce(
-  (acc, item) => ({
-    ...acc,
-    [item.href]: item
-  }),
-  {}
-);
