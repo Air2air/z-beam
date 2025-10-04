@@ -59,7 +59,7 @@ export const metadata = {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Z-Beam - Professional Laser Cleaning Services',
+        alt: `${SITE_CONFIG.shortName} - Professional Laser Cleaning Services`,
       }
     ],
   },

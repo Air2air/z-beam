@@ -9,12 +9,22 @@ const customJestConfig = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/app/$1",
+    "^@/(.*)$": "<rootDir>/$1",
     "^@components/(.*)$": "<rootDir>/app/components/$1",
     "^@utils/(.*)$": "<rootDir>/app/utils/$1",
     "^marked$": "<rootDir>/tests/__mocks__/marked.js",
     "^server-only$": "<rootDir>/tests/__mocks__/server-only.js",
     "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+  },
+  transform: {
+    '^.+\\.(js|jsx)$': ['babel-jest', { presets: ['next/babel'] }],
+    '^.+\\.(ts|tsx)$': ['ts-jest', {
+      tsconfig: {
+        jsx: 'react-jsx',
+        esModuleInterop: true,
+        allowSyntheticDefaultImports: true,
+      },
+    }],
   },
   transformIgnorePatterns: [
     "node_modules/(?!(marked)/)"
@@ -61,8 +71,18 @@ const customJestConfig = {
         "<rootDir>/tests/types/**/*.test.{js,jsx,ts,tsx}"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+      transform: {
+        '^.+\\.(js|jsx)$': ['babel-jest', { presets: ['next/babel'] }],
+        '^.+\\.(ts|tsx)$': ['ts-jest', {
+          tsconfig: {
+            jsx: 'react-jsx',
+            esModuleInterop: true,
+            allowSyntheticDefaultImports: true,
+          },
+        }],
+      },
       moduleNameMapper: {
-        "^@/(.*)$": "<rootDir>/app/$1",
+        "^@/(.*)$": "<rootDir>/$1",
         "^@components/(.*)$": "<rootDir>/app/components/$1",
         "^@utils/(.*)$": "<rootDir>/app/utils/$1",
         "^marked$": "<rootDir>/tests/__mocks__/marked.js",
@@ -89,8 +109,18 @@ const customJestConfig = {
         "<rootDir>/tests/types/"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+      transform: {
+        '^.+\\.(js|jsx)$': ['babel-jest', { presets: ['next/babel'] }],
+        '^.+\\.(ts|tsx)$': ['ts-jest', {
+          tsconfig: {
+            jsx: 'react-jsx',
+            esModuleInterop: true,
+            allowSyntheticDefaultImports: true,
+          },
+        }],
+      },
       moduleNameMapper: {
-        "^@/(.*)$": "<rootDir>/app/$1",
+        "^@/(.*)$": "<rootDir>/$1",
         "^@components/(.*)$": "<rootDir>/app/components/$1",
         "^@utils/(.*)$": "<rootDir>/app/utils/$1",
         "^marked$": "<rootDir>/tests/__mocks__/marked.js",

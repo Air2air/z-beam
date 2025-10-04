@@ -4,6 +4,7 @@
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { useEffect, useRef } from 'react';
 import { FrontmatterType } from '@/types';
+import { SITE_CONFIG } from '../../utils/constants';
 
 interface CaptionContentProps {
   beforeText: string;
@@ -83,7 +84,7 @@ export function CaptionContent({ content, beforeText, afterText, materialName, f
     <article 
       ref={captionTextRef} 
       itemScope 
-      itemType="https://schema.org/TechnicalArticle"
+      itemType={`${SITE_CONFIG.schema.context}/TechnicalArticle`}
       role="article"
       aria-labelledby="caption-content"
     >

@@ -47,10 +47,11 @@ interface UniversalPageProps {
 **Example:** `app/about/page.tsx`
 ```typescript
 import { UniversalPage, pageConfigs } from '../components/Templates/UniversalPage';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 export const metadata = {
-  title: 'About Z-Beam',
-  description: 'Learn about Z-Beam...'
+  title: `About ${SITE_CONFIG.shortName}`,
+  description: `Learn about ${SITE_CONFIG.shortName}...`
 };
 
 export default async function AboutPage() {
@@ -68,13 +69,14 @@ export default async function AboutPage() {
 **Example:** `app/services/page.tsx`
 ```typescript
 import { UniversalPage, pageConfigs } from "../components/Templates/UniversalPage";
+import { SITE_CONFIG } from "@/app/utils/constants";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata = {
-  title: 'Services | Z-Beam',
-  description: 'Explore Z-Beam\'s services...'
+  title: `Services | ${SITE_CONFIG.shortName}`,
+  description: `Explore ${SITE_CONFIG.shortName}'s services...`
 };
 
 export default async function ServicesPage() {
@@ -148,10 +150,11 @@ export default async function ContactPage() {
 ```typescript
 // app/contact/page.tsx (14 lines)
 import { UniversalPage, pageConfigs } from '../components/Templates/UniversalPage';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 export const metadata = {
-  title: 'Contact Z-Beam',
-  description: 'Get in touch with Z-Beam\'s team...'
+  title: `Contact ${SITE_CONFIG.shortName}`,
+  description: `Get in touch with ${SITE_CONFIG.shortName}'s team...`
 };
 
 export default async function ContactPage() {
@@ -204,8 +207,8 @@ export const pageConfigs = {
   // NEW PAGE EXAMPLE
   privacy: {
     slug: 'privacy',
-    title: 'Privacy Policy | Z-Beam',
-    description: 'Z-Beam\'s privacy policy and data protection practices.',
+    title: `Privacy Policy | ${SITE_CONFIG.shortName}`,
+    description: `${SITE_CONFIG.shortName}'s privacy policy and data protection practices.`,
     useContentAPI: false,
     markdownPath: 'app/pages/_md/privacy.md',
     showHero: false,
@@ -215,8 +218,8 @@ export const pageConfigs = {
   
   terms: {
     slug: 'terms',
-    title: 'Terms of Service | Z-Beam',
-    description: 'Terms and conditions for using Z-Beam services.',
+    title: `Terms of Service | ${SITE_CONFIG.shortName}`,
+    description: `Terms and conditions for using ${SITE_CONFIG.shortName} services.`,
     useContentAPI: false,
     markdownPath: 'app/pages/_md/terms.md',
     showHero: false,
@@ -233,14 +236,14 @@ export const pageConfigs = {
 ```markdown
 ---
 title: Privacy Policy
-description: Your privacy matters to Z-Beam
-author: Z-Beam Legal Team
+description: Your privacy matters to ${SITE_CONFIG.shortName}
+author: ${SITE_CONFIG.author}
 ---
 
 # Privacy Policy
 
 ## Introduction
-At Z-Beam, we take your privacy seriously...
+At ${SITE_CONFIG.shortName}, we take your privacy seriously...
 
 ## Data Collection
 We collect the following information...
@@ -423,7 +426,7 @@ export const metadata = {
 
 // OR define inline if different
 export const metadata = {
-  title: 'Privacy Policy | Z-Beam',  // Can differ from config
+  title: `Privacy Policy | ${SITE_CONFIG.shortName}`,  // Can differ from config
   description: pageConfigs.privacy.description,
 };
 ```

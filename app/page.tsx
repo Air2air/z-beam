@@ -9,6 +9,7 @@ import { getAllArticleSlugs } from "./utils/contentAPI";
 import { featuredSections } from "./data/featuredSections";
 import { featuredMaterialCategories } from "./data/featuredMaterialCategories";
 import { CONTAINER_STYLES } from "./utils/containerStyles";
+import { SITE_CONFIG } from "./utils/constants";
 
 // Force static generation for home page
 export const dynamic = 'force-static';
@@ -29,9 +30,9 @@ export async function generateMetadata() {
   const homeArticle = await getArticle("home");
 
   return createMetadata({
-    title: (homeMetaTags?.config?.title as string) || "Z-Beam Laser Cleaning Solutions",
+    title: (homeMetaTags?.config?.title as string) || SITE_CONFIG.name,
     description: (homeMetaTags?.config?.description as string) || 
-      "Advanced laser cleaning technology for industrial applications",
+      SITE_CONFIG.description,
     keywords: Array.isArray(homeMetaTags?.config?.keywords) 
       ? homeMetaTags.config.keywords 
       : typeof homeMetaTags?.config?.keywords === 'string' 
@@ -48,7 +49,7 @@ export default async function HomePage() {
 
   // Create frontmatter object for Hero component
   const heroFrontmatter = {
-    title: "Z-Beam Laser Cleaning",
+    title: SITE_CONFIG.name,
     description: "Advanced surface treatment solutions for industrial applications", 
     slug: "home",
     video: "eGgMJdjRUJk" // YouTube ID

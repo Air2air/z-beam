@@ -4,6 +4,8 @@
  * Tests critical app router functionality and metadata generation
  */
 
+import { SITE_CONFIG } from '../../app/utils/constants';
+
 // Mock contentAPI
 jest.mock('../../app/utils/contentAPI', () => ({
   getArticle: jest.fn(),
@@ -13,8 +15,8 @@ jest.mock('../../app/utils/contentAPI', () => ({
 
 // Mock metadata utilities
 const mockCreateMetadata = jest.fn((data) => ({
-  title: data.title || 'Z-Beam',
-  description: data.description || 'Laser cleaning solutions',
+  title: data.title || SITE_CONFIG.shortName,
+  description: data.description || SITE_CONFIG.description,
   keywords: data.keywords,
   image: data.image,
   slug: data.slug,
@@ -69,9 +71,9 @@ describe('HomePage App Router Tests', () => {
     
     mockContentAPI.loadComponentData.mockResolvedValue({
       config: {
-        title: 'Z-Beam Laser Cleaning Solutions',
-        description: 'Advanced laser cleaning technology',
-        keywords: ['laser', 'cleaning', 'industrial'],
+        title: SITE_CONFIG.name,
+        description: SITE_CONFIG.description,
+        keywords: SITE_CONFIG.keywords.slice(0, 3),
         ogImage: '/images/home-og.jpg',
       },
     });
@@ -189,8 +191,8 @@ describe('generateMetadata Function', () => {
     await generateMetadata();
 
     expect(mockCreateMetadata).toHaveBeenCalledWith({
-      title: 'Z-Beam Laser Cleaning Solutions',
-      description: 'Advanced laser cleaning technology for industrial applications',
+      title: SITE_CONFIG.name,
+      description: SITE_CONFIG.description,
       keywords: undefined,
       image: '/images/home-og.jpg',
       slug: 'home',

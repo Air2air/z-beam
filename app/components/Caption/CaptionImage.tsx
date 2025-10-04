@@ -3,6 +3,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { SITE_CONFIG } from '../../utils/constants';
 
 interface CaptionImageProps {
   imageSource?: string;
@@ -28,7 +29,7 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
       <div className="flex items-center justify-center bg-gray-600 h-[450px] rounded-lg">
         <Image
           src="/images/Site/Logo/logo_.png"
-          alt="Z-Beam logo"
+          alt={`${SITE_CONFIG.shortName} logo`}
           width={60}
           height={60}
           className="opacity-50"

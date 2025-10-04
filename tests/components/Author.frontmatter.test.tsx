@@ -3,6 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Author } from '../../app/components/Author/Author';
 import { ArticleMetadata } from '../../types/centralized';
+import { SITE_CONFIG } from '../../app/utils/constants';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
@@ -68,9 +69,9 @@ describe('Author Component with Frontmatter Data', () => {
       />
     );
 
-    // Should render fallback Z-Beam author when no author data is provided
+    // Should render fallback author from SITE_CONFIG when no author data is provided
     expect(container.querySelector('.author-name')).toBeTruthy();
-    expect(container.textContent).toContain('Z-Beam');
+    expect(container.textContent).toContain(SITE_CONFIG.author);
   });
 
   test('should use frontmatter.authorInfo exclusively (no individual props)', () => {

@@ -1,21 +1,22 @@
 // app/services/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { Title } from "../components/Title";
+import { SITE_CONFIG } from "../utils/constants";
 
 // Force static generation for services page
 export const dynamic = 'force-static';
 export const revalidate = false; // Never revalidate in production
 
 export const metadata = {
-  title: 'Services | Z-Beam Laser Cleaning Solutions',
-  description: 'Explore Z-Beam\'s comprehensive laser cleaning services, including surface preparation, oxide removal, coating removal, and customized industrial cleaning solutions.'
+  title: `Services | ${SITE_CONFIG.name}`,
+  description: `Explore ${SITE_CONFIG.shortName}'s comprehensive laser cleaning services, including surface preparation, oxide removal, coating removal, and customized industrial cleaning solutions.`
 };
 
 // Default export - the page component using standard Layout pattern
 export default async function ServicesPage() {
   return (
     <Layout
-      title="Z-Beam Laser Cleaning Services"
+      title={`${SITE_CONFIG.shortName} Laser Cleaning Services`}
       description="Comprehensive laser cleaning services for industrial applications, including surface preparation, oxide removal, coating removal, and customized cleaning solutions."
       showHero={false}
     >
@@ -80,7 +81,7 @@ export default async function ServicesPage() {
         <section className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
           <Title level="section" title="Contact Us" />
           <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Ready to explore how Z-Beam laser cleaning can benefit your operations? Contact our team for a consultation.
+            Ready to explore how {SITE_CONFIG.shortName} laser cleaning can benefit your operations? Contact our team for a consultation.
           </p>
         </section>
       </div>

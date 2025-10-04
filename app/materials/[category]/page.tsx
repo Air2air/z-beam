@@ -9,6 +9,7 @@ import { createMetadata } from '@/app/utils/metadata';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '../metadata';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { Title } from '@/app/components/Title';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 // Static generation for all category pages
 export async function generateStaticParams() {
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: { params: { category: string 
   
   if (!VALID_CATEGORIES.includes(category)) {
     return {
-      title: 'Category Not Found | Z-Beam',
+      title: `Category Not Found | ${SITE_CONFIG.shortName}`,
       description: 'The requested material category was not found.',
     };
   }

@@ -1,3 +1,5 @@
+import { SITE_CONFIG } from './constants';
+
 interface MaterialData {
   title: string;
   description?: string;
@@ -21,12 +23,12 @@ interface MaterialData {
  * Follows EEAT principles (Expertise, Experience, Authoritativeness, Trustworthiness)
  */
 export function createMaterialJsonLd(data: MaterialData, slug: string) {
-  const baseUrl = 'https://z-beam.com';
+  const baseUrl = SITE_CONFIG.url;
   const pageUrl = `${baseUrl}/${slug}`;
   
   // Main material schema
   const materialSchema = {
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'Product',
     name: data.title,
     description: data.description || `Laser cleaning parameters and applications for ${data.title}`,
@@ -37,14 +39,14 @@ export function createMaterialJsonLd(data: MaterialData, slug: string) {
     // Brand/Publisher info (Trustworthiness)
     brand: {
       '@type': 'Brand',
-      name: 'Z-Beam',
+      name: SITE_CONFIG.shortName,
       url: baseUrl
     },
     
     // Author expertise (EEAT)
     author: {
       '@type': 'Person',
-      name: data.author || 'Z-Beam Technical Team',
+      name: data.author || SITE_CONFIG.author,
       description: 'Industrial laser cleaning specialists with expertise in material science and precision manufacturing'
     },
     
@@ -68,7 +70,7 @@ export function createMaterialJsonLd(data: MaterialData, slug: string) {
     // Publisher (Authoritativeness)
     publisher: {
       '@type': 'Organization',
-      name: 'Z-Beam',
+      name: SITE_CONFIG.shortName,
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
@@ -106,7 +108,7 @@ export function createMaterialJsonLd(data: MaterialData, slug: string) {
   // Add HowTo schema for laser cleaning process (Experience + Expertise)
   if (data.category) {
     const howToSchema: any = {
-      '@context': 'https://schema.org',
+      '@context': SITE_CONFIG.schema.context,
       '@type': 'HowTo',
       name: `How to Clean ${data.title} with Laser Technology`,
       description: `Professional laser cleaning process for ${data.title} materials`,
@@ -167,26 +169,26 @@ export function createJsonLdScript(data: MaterialData, slug: string) {
  */
 export function createBreadcrumbJsonLd(title: string, slug: string) {
   return {
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'BreadcrumbList',
     itemListElement: [
       {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://z-beam.com'
+        item: SITE_CONFIG.url
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Materials',
-        item: 'https://z-beam.com/materials'
+        item: `${SITE_CONFIG.url}/materials`
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: title,
-        item: `https://z-beam.com/${slug}`
+        item: `${SITE_CONFIG.url}/${slug}`
       }
     ]
   };

@@ -6,6 +6,7 @@ import { getTagsContentWithMatchCounts } from "../utils/tags";
 import { getAllArticleSlugs } from "../utils/contentAPI";
 import { createJsonLdForArticle } from "../utils/jsonld-helper";
 import { PageProps } from "../../types";
+import { SITE_CONFIG } from "../utils/constants";
 
 // Force static generation for all article pages
 export const dynamic = 'force-static';
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: PageProps) {
   
   if (!slug) {
     return {
-      title: `Page Not Found | Z-Beam`,
+      title: `Page Not Found | ${SITE_CONFIG.shortName}`,
       description: 'The requested page could not be found.'
     };
   }
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: PageProps) {
     
     if (!article) {
       return {
-        title: `Page Not Found | Z-Beam`,
+        title: `Page Not Found | ${SITE_CONFIG.shortName}`,
         description: 'The requested page could not be found.'
       };
     }
@@ -59,12 +60,12 @@ export async function generateMetadata({ params }: PageProps) {
     // Use createMetadata with the existing metadata from the markdown file
     return createMetadata({
       ...article.metadata,
-      canonical: (article.metadata.canonical as string) || `https://z-beam.com/${slug}`
+      canonical: (article.metadata.canonical as string) || `${SITE_CONFIG.url}/${slug}`
     } as unknown as ArticleMetadata);
   } catch (error) {
     console.error(`Error generating metadata for ${slug}:`, error);
     return {
-      title: 'Z-Beam',
+      title: SITE_CONFIG.shortName,
       description: 'Technical information about industrial lasers.'
     };
   }

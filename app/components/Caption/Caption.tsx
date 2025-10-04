@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useCaptionParsing, CaptionData } from './useCaptionParsing';
 import { CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import { Title } from '../Title';
+import { SITE_CONFIG } from '../../utils/constants';
 import './seo-caption.css';
 import './caption-accessibility.css';
 
@@ -60,7 +61,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       ref={captionRef}
       className={`seo-caption ${className}`}
       itemScope 
-      itemType="https://schema.org/TechArticle"
+      itemType={`${SITE_CONFIG.schema.context}/TechArticle`}
       role="region"
     >
       {/* Header */}
@@ -110,7 +111,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                           data-precision={String(value).includes('.') ? String(value).split('.')[1]?.length || 0 : 0}
                           data-magnitude={Math.abs(Number(value)) >= 100 ? 'high' : Math.abs(Number(value)) >= 1 ? 'medium' : 'low'}
                           itemProp="value"
-                          itemType="https://schema.org/PropertyValue"
+                          itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
                         >
                           {String(value)}
                         </data>

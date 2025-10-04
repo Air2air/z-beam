@@ -5,19 +5,10 @@ import Link from "next/link";
 import { FooterNavItem, SocialLink } from "@/types";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "../../utils/constants";
+import { FOOTER_QUICK_LINKS } from "../../config/navigation";
 
-// Navigation items for the footer
-const footerNav: FooterNavItem[] = [
-  { name: "Home", href: "/" },
-  { name: "Articles", href: "/articles" },
-  { 
-    name: "Deploy", 
-    href: "https://vercel.com/templates/next.js/portfolio-starter-kit", 
-    external: true,
-    target: "_blank",
-    rel: "noopener noreferrer"
-  },
-];
+// Use centralized navigation config
+const footerNav: FooterNavItem[] = FOOTER_QUICK_LINKS;
 
 // Social links - using SITE_CONFIG
 const socialLinks: SocialLink[] = [

@@ -6,6 +6,7 @@ import React from 'react';
 import Image from 'next/image';
 import { CaptionData } from './useCaptionParsing';
 import { Title } from '../Title';
+import { SITE_CONFIG } from '../../utils/constants';
 
 interface SEOOptimizedCaptionProps {
   materialName: string;
@@ -33,23 +34,23 @@ export function SEOOptimizedCaption({
   
   // Generate comprehensive JSON-LD structured data
   const structuredData = {
-    "@context": "https://schema.org",
+    "@context": SITE_CONFIG.schema.context,
     "@type": "TechArticle",
     "@id": `#${processId}`,
     "headline": `${capitalizedMaterial} Laser Cleaning Process Analysis`,
     "description": `Professional laser cleaning demonstration on ${materialName} showing before and after results with technical specifications`,
     "author": {
       "@type": "Organization",
-      "name": "Z-Beam Technologies",
-      "url": "https://z-beam.com",
+      "name": SITE_CONFIG.name,
+      "url": SITE_CONFIG.url,
       "expertise": ["Laser Cleaning", "Surface Treatment", "Industrial Processing"]
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Z-Beam Technologies",
+      "name": SITE_CONFIG.name,
       "logo": {
         "@type": "ImageObject",
-        "url": "https://z-beam.com/logo.png"
+        "url": `${SITE_CONFIG.url}/logo.png`
       }
     },
     "datePublished": captionData?.metadata?.generated || new Date().toISOString(),
@@ -133,7 +134,7 @@ export function SEOOptimizedCaption({
     <article 
       className="seo-caption-container"
       itemScope 
-      itemType="https://schema.org/TechArticle"
+      itemType={`${SITE_CONFIG.schema.context}/TechArticle`}
       role="img"
       aria-labelledby={`${processId}-heading`}
       aria-describedby={`${processId}-description`}
@@ -165,7 +166,7 @@ export function SEOOptimizedCaption({
       <section 
         className="technical-specifications mb-4"
         itemScope
-        itemType="https://schema.org/TechnicalSpecification"
+        itemType={`${SITE_CONFIG.schema.context}/TechnicalSpecification`}
         aria-labelledby={`${processId}-specs`}
       >
         <h4 id={`${processId}-specs`} className="sr-only">
@@ -207,7 +208,7 @@ export function SEOOptimizedCaption({
       <section 
         className="material-properties mb-4"
         itemScope
-        itemType="https://schema.org/Material"
+        itemType={`${SITE_CONFIG.schema.context}/Material`}
         aria-labelledby={`${processId}-material`}
       >
         <Title 

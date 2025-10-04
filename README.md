@@ -123,9 +123,49 @@ const articles = getList();
 
 ---
 
-## 4. TypeScript Type System
+## 4. Centralized Architecture
 
-### Centralized Architecture
+### Site Configuration (SITE_CONFIG)
+The Z-Beam project uses a **centralized configuration system** for all site-wide settings:
+
+- **Single Source of Truth**: `app/utils/constants.ts` contains `SITE_CONFIG` with all site configuration
+- **Complete Coverage**: Company info, contact details, URLs, social media, schema.org settings
+- **Easy Rebranding**: Change company name, URLs, or contact info in one place
+- **Type Safe**: TypeScript ensures correct usage throughout the application
+- **Author Preservation**: Article authors are preserved; SITE_CONFIG.author used only as fallback
+
+**Key SITE_CONFIG Sections:**
+- Identity & Branding (name, shortName, author, description)
+- Contact Information (email, phone for general/sales/support)
+- Address & Business Hours
+- Social Media URLs (Twitter, Facebook, LinkedIn, YouTube)
+- Media Assets (logos, favicons, YouTube config)
+- Email Configuration
+- Schema.org structured data contexts
+- SEO keywords and metadata
+
+📖 **Full Documentation**: [SITE_CONFIG Guide](docs/guides/SITE_CONFIG_GUIDE.md)
+
+**Usage Example:**
+```typescript
+import { SITE_CONFIG } from '@/app/utils/constants';
+
+// Page metadata
+export const metadata = {
+  title: `Contact ${SITE_CONFIG.shortName}`,
+  description: `Get in touch with ${SITE_CONFIG.shortName}'s team...`
+};
+
+// Schema.org structured data
+const schema = {
+  '@context': SITE_CONFIG.schema.context,
+  '@type': SITE_CONFIG.schema.organizationType,
+  name: SITE_CONFIG.shortName,
+  url: SITE_CONFIG.url
+};
+```
+
+### TypeScript Type System
 The Z-Beam project uses a **centralized type system** for consistency and maintainability:
 
 - **Single Source of Truth**: `types/centralized.ts` contains all core type definitions

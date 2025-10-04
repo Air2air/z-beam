@@ -5,40 +5,12 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { /* BaseImageProps, */ } from "../../../types";
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
+import { SITE_CONFIG } from "../../utils/constants";
+import { MAIN_NAV_ITEMS_RECORD } from "../../config/navigation";
 
-// Navigation item interface
-interface NavItem {
-  name: string;
-  href: string;
-  external?: boolean;
-  target?: "_blank" | "_self";
-  rel?: string;
-}
-
-// Logo component props extending BaseImageProps
-// interface LogoProps extends BaseImageProps {
-//   width: number;
-//   height: number;
-// }
-
-// Define your navigation items
-const navItems: Record<string, NavItem> = {
-  "/services": {
-    name: "Services", 
-    href: "/services",
-  },
-  "/about": {
-    name: "About", 
-    href: "/about",
-  },
-  "/contact": {
-    name: "Contact", 
-    href: "/contact",
-  },
-
-};
+// Use centralized navigation config
+const navItems = MAIN_NAV_ITEMS_RECORD;
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -102,7 +74,7 @@ export function Navbar() {
         >
           <Image
             src="/images/site/van/van.png"
-            alt="Z-Beam service van"
+            alt={`${SITE_CONFIG.shortName} service van`}
             width={130}
             height={80}
             className="w-full h-auto"
@@ -115,19 +87,15 @@ export function Navbar() {
           <div className="flex-shrink-0">
             <Link
               href="/"
-              aria-label="Z-Beam home page"
-              // Remove the text-2xl font-bold classes as they are for text, not image
-              // You might add specific padding or margin to the Link if needed for alignment with image
+              aria-label={`${SITE_CONFIG.name} home page`}
             >
-              {/* Replace "MyLogo" with the Image component */}
               <Image
-                src="/images/Site/Logo/logo_.png" // Using the correct file name without quotes
-                alt="Z-Beam Logo" // Always include descriptive alt text for accessibility
-                width={120} // Set the intrinsic width of your logo image in pixels
-                height={40} // Set the intrinsic height of your logo image in pixels
-                // You can add Tailwind classes directly to the Image component
-                className="h-auto max-h-10 w-auto" // Adjust max-h based on your desired height
-                priority // Use priority for logos as they are above the fold
+                src={SITE_CONFIG.media.logo.default}
+                alt={`${SITE_CONFIG.shortName} Logo`}
+                width={120}
+                height={40}
+                className="h-auto max-h-10 w-auto"
+                priority
               />
             </Link>
           </div>

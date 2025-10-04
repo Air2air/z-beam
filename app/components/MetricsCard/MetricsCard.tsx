@@ -131,7 +131,7 @@ export function MetricsCard({
               data-position="primary"
               data-has-range={hasValidRange ? 'true' : 'false'}
               itemProp="value"
-              itemType="https://schema.org/PropertyValue"
+              itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
             >
               {displayValue}
             </data>

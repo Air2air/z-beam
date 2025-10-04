@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AuthorProps } from "@/types";
+import { SITE_CONFIG } from "../../utils/constants";
 
 export function Author({
   frontmatter,
@@ -16,7 +17,7 @@ export function Author({
   const authorString = typeof frontmatter?.author === 'string' ? frontmatter.author : null;
   
   // Use object data if available, otherwise fall back to string or defaults
-  const authorName = authorInfo?.name || authorString || 'Z-Beam';
+  const authorName = authorInfo?.name || authorString || SITE_CONFIG.author;
   const authorImage = authorInfo?.image || '';
   const credentials = authorInfo?.title || '';
   const country = authorInfo?.country || '';

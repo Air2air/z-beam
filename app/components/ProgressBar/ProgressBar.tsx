@@ -9,6 +9,7 @@
 
 import React from 'react';
 import { cleanupFloat } from '../../utils/formatting';
+import { SITE_CONFIG } from '../../utils/constants';
 
 export interface ProgressBarProps {
   min: number;
@@ -77,7 +78,7 @@ export function ProgressBar({
           data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
           data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
           itemProp="value"
-          itemType="https://schema.org/PropertyValue"
+          itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
         >{cleanValue}</data> {unit}.
         Range: {cleanMin} to {cleanMax} {unit}.
         Progress: {Math.round(percentage)}% of maximum.
@@ -104,7 +105,7 @@ export function ProgressBar({
             data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
             data-position="current"
             itemProp="value"
-            itemType="https://schema.org/PropertyValue"
+            itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanValue}</data>
         </div>
       </div>
@@ -160,7 +161,7 @@ export function ProgressBar({
             data-magnitude={Math.abs(cleanMin) >= 1000 ? 'high' : Math.abs(cleanMin) >= 1 ? 'medium' : 'low'}
             data-position="minimum"
             itemProp="minValue"
-            itemType="https://schema.org/PropertyValue"
+            itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanMin}</data>
         </span>
         <span className="text-xs font-medium text-white/50">
@@ -174,7 +175,7 @@ export function ProgressBar({
             data-magnitude={Math.abs(cleanMax) >= 1000 ? 'high' : Math.abs(cleanMax) >= 1 ? 'medium' : 'low'}
             data-position="maximum"
             itemProp="maxValue"
-            itemType="https://schema.org/PropertyValue"
+            itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanMax}</data>
         </span>
       </div>

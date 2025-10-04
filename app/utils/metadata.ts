@@ -4,6 +4,7 @@ type NextMetadata = any;
 
 import { ArticleMetadata, AuthorInfo } from '@/types';
 import { extractSafeValue, safeIncludes } from './stringHelpers';
+import { SITE_CONFIG } from './constants';
 
 // Re-export centralized types
 export type { ArticleMetadata, AuthorInfo };
@@ -35,9 +36,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Use title directly
   const actualTitle = title || '';
   
-  const formattedTitle = actualTitle && !safeIncludes(actualTitle, 'Z-Beam') 
-    ? `${actualTitle} | Z-Beam` 
-    : actualTitle || 'Z-Beam';
+  const formattedTitle = actualTitle && !safeIncludes(actualTitle, SITE_CONFIG.shortName) 
+    ? `${actualTitle} | ${SITE_CONFIG.shortName}` 
+    : actualTitle || SITE_CONFIG.shortName;
   
   const authorName = getAuthorName(metadata.authorInfo);
   

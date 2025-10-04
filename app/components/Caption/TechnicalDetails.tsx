@@ -2,6 +2,7 @@
 "use client";
 
 import { FrontmatterType } from '@/types';
+import { SITE_CONFIG } from '../../utils/constants';
 
 interface TechnicalDetailsProps {
   laserParams?: {
@@ -23,7 +24,7 @@ export function TechnicalDetails({ laserParams, show, frontmatter }: TechnicalDe
     <div 
       className="text-xs text-gray-400 border-l-2 border-gray-600 pl-3 mt-2"
       itemScope
-      itemType="https://schema.org/TechnicalSpecification"
+      itemType={`${SITE_CONFIG.schema.context}/TechnicalSpecification`}
       role="complementary"
       aria-label="Technical laser parameters"
     >

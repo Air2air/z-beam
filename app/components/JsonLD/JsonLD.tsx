@@ -1,5 +1,6 @@
 // app/components/JsonLD/JsonLD.tsx
 import React from 'react';
+import { SITE_CONFIG } from '../../utils/constants';
 
 export interface JsonLdProps {
   data: Record<string, unknown>;
@@ -72,13 +73,13 @@ export function JsonLD({ data }: JsonLdProps) {
  */
 export const schemas = {
   person: (data: PersonSchema) => ({
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'Person',
     ...data
   }),
   
   article: (data: ArticleSchema) => ({
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'Article',
     headline: data.headline,
     description: data.description,
@@ -100,7 +101,7 @@ export const schemas = {
   
   // Keep the listing schema (renamed to blogPosting for clarity)
   blogPosting: (data: ListingSchema) => ({
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'BlogPosting',
     headline: data.headline,
     description: data.description,
@@ -118,7 +119,7 @@ export const schemas = {
   }),
 
   website: (data: WebsiteSchema) => ({
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'WebSite',
     name: data.name,
     description: data.description,
@@ -132,7 +133,7 @@ export const schemas = {
   }),
 
   breadcrumbList: (items: BreadcrumbItem[]) => ({
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
@@ -144,7 +145,7 @@ export const schemas = {
   
   // Add new schema for technical article which is more appropriate for your content
   technicalArticle: (data: ArticleSchema) => ({
-    '@context': 'https://schema.org',
+    '@context': SITE_CONFIG.schema.context,
     '@type': 'TechnicalArticle',
     headline: data.headline,
     description: data.description,

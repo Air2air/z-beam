@@ -12,6 +12,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { Hero } from '../../app/components/Hero/Hero';
+import { SITE_CONFIG } from '../../app/utils/constants';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
@@ -93,15 +94,15 @@ describe('Hero Component', () => {
   });
 
   describe('Video Integration', () => {
-    it('should render Vimeo video with standard parameters', () => {
+    it('should render YouTube video with standard parameters', () => {
       render(<Hero frontmatter={{ video: '123456' }} />);
       
       const iframe = screen.getByTitle('Video content');
       expect(iframe).toBeInTheDocument();
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/123456'));
+      expect(iframe).toHaveAttribute('src', expect.stringContaining('youtube.com/embed/123456'));
       // Standard parameters are always included in simplified component
       expect(iframe).toHaveAttribute('src', expect.stringContaining('autoplay=1'));
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('muted=1'));
+      expect(iframe).toHaveAttribute('src', expect.stringContaining('mute=1'));
       expect(iframe).toHaveAttribute('src', expect.stringContaining('loop=1'));
     });
 
@@ -110,7 +111,7 @@ describe('Hero Component', () => {
       render(<Hero frontmatter={frontmatter} />);
       
       const iframe = screen.getByTitle('Video content');
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/789012'));
+      expect(iframe).toHaveAttribute('src', expect.stringContaining('youtube.com/embed/789012'));
     });
 
     it('should have lazy loading attribute', () => {
@@ -160,7 +161,7 @@ describe('Hero Component', () => {
     it('should handle default logo when no image provided', () => {
       render(<Hero />);
       
-      const logo = screen.getByAltText('Z-Beam company logo');
+      const logo = screen.getByAltText(`${SITE_CONFIG.shortName} company logo`);
       expect(logo).toBeInTheDocument();
       expect(logo).toHaveAttribute('src', '/images/Site/Logo/logo_.png');
     });
@@ -209,7 +210,7 @@ describe('Hero Component', () => {
     it('should have accessible default logo', () => {
       render(<Hero />);
       
-      const logo = screen.getByAltText('Z-Beam company logo');
+      const logo = screen.getByAltText(`${SITE_CONFIG.shortName} company logo`);
       expect(logo).toBeInTheDocument();
     });
   });
@@ -258,7 +259,7 @@ describe('Hero Component', () => {
     it('should show default logo when no media provided', () => {
       render(<Hero />);
       
-      const logo = screen.getByAltText('Z-Beam company logo');
+      const logo = screen.getByAltText(`${SITE_CONFIG.shortName} company logo`);
       expect(logo).toBeInTheDocument();
       expect(logo).toHaveAttribute('src', '/images/Site/Logo/logo_.png');
     });
@@ -290,7 +291,7 @@ describe('Hero Component', () => {
       // Should show video, not image
       const iframe = screen.getByTitle(/Video content/);
       expect(iframe).toBeInTheDocument();
-      expect(iframe).toHaveAttribute('src', expect.stringContaining('player.vimeo.com/video/valid-id'));
+      expect(iframe).toHaveAttribute('src', expect.stringContaining('youtube.com/embed/valid-id'));
       expect(screen.queryByTestId('next-image')).not.toBeInTheDocument();
     });
   });

@@ -2,6 +2,7 @@
 "use client";
 
 import { FrontmatterType } from '@/types';
+import { SITE_CONFIG } from '../../utils/constants';
 
 interface MetadataType {
   generated?: string;
@@ -23,7 +24,7 @@ export function MetadataDisplay({ metadata, material, show, frontmatter }: Metad
     <div 
       className="mt-3 pt-3 border-t border-gray-700 text-xs text-gray-500"
       itemScope
-      itemType="https://schema.org/DataCatalog"
+      itemType={`${SITE_CONFIG.schema.context}/DataCatalog`}
       role="complementary"
       aria-label="Analysis metadata"
     >
