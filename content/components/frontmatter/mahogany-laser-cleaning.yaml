@@ -2,20 +2,22 @@ name: Mahogany
 category: Wood
 subcategory: Mahogany
 title: Mahogany Laser Cleaning
-description: Laser cleaning parameters for Ash
+description: Laser cleaning parameters for Mahogany
 materialProperties:
   density:
     value: 0.64
     unit: g/cm³
     confidence: 95
-    description: Average density of genuine mahogany (Swietenia genus) at 12% moisture content
+    description: Average density of genuine mahogany (Swietenia genus) at 12% moisture
+      content
     min: 0.12
     max: 1.25
   meltingPoint:
     value: 380
     unit: °C
     confidence: 85
-    description: Pyrolysis/charring temperature where cellulose decomposition begins
+    description: Approximate thermal decomposition temperature where cellulose/lignin
+      breakdown begins
     min: null
     max: null
   thermalConductivity:
@@ -28,29 +30,29 @@ materialProperties:
   tensileStrength:
     value: 85
     unit: MPa
-    confidence: 88
+    confidence: 90
     description: Tensile strength parallel to grain direction
     min: 20
     max: 200
   hardness:
     value: 4.2
     unit: kN
-    confidence: 92
-    description: Janka hardness test value for genuine mahogany
+    confidence: 88
+    description: Janka hardness test value for side grain
     min: 20
     max: 5000
   youngsModulus:
     value: 9.7
     unit: GPa
-    confidence: 90
-    description: Modulus of elasticity parallel to grain
+    confidence: 92
+    description: Modulus of elasticity parallel to grain direction
     min: 5
     max: 25
   thermalExpansion:
     value: 4.2
     unit: 10^-6/°C
     confidence: 82
-    description: Coefficient of thermal expansion perpendicular to grain
+    description: Coefficient of thermal expansion perpendicular to grain direction
     min: 3.0
     max: 60
   specificHeat:
@@ -64,54 +66,65 @@ materialProperties:
     value: 0.75
     unit: dimensionless
     confidence: 82
-    description: Estimated absorption coefficient for near-infrared wavelengths (1064 nm)
+    description: Estimated absorption coefficient for near-infrared wavelengths (1064
+      nm)
+    min: null
+    max: null
+  reflectivity:
+    value: 0.25
+    unit: dimensionless
+    confidence: 80
+    description: Estimated reflectivity at common laser cleaning wavelengths
     min: null
     max: null
   ablationThreshold:
     value: 1.2
     unit: J/cm²
-    confidence: 80
-    description: Estimated laser ablation threshold for nanosecond pulses at 1064 nm
+    confidence: 85
+    description: Estimated laser ablation threshold for 1064 nm wavelength
     min: null
     max: null
   porosity:
-    value: 55
+    value: 45
     unit: '%'
-    confidence: 88
+    confidence: 90
     description: Typical porosity percentage in mahogany wood structure
     min: null
     max: null
-  surfaceRoughness:
-    value: 3.2
-    unit: μm Ra
-    confidence: 85
-    description: Average surface roughness for planed mahogany surfaces
-    min: null
-    max: null
 applications:
-- Construction
+- Cultural Heritage
+- Marine
+- Aerospace
+- Automotive
+- Electronics Manufacturing
+- Musical Instruments
+- Architectural Restoration
+- Furniture Manufacturing
+- Energy Sector
+- Medical Equipment
 machineSettings:
   powerRange:
-    value: 45
+    value: 25
     unit: W
     confidence: 90
     description: Optimal average power for Mahogany surface cleaning without charring
-    min: 30
-    max: 60
+    min: 15
+    max: 40
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-infrared wavelength optimal for Mahogany absorption and minimal penetration
+    description: Near-IR wavelength for optimal absorption in Mahogany cellulose and
+      lignin
     min: 532
     max: 1064
   spotSize:
-    value: 80
+    value: 100
     unit: μm
     confidence: 89
-    description: Beam spot diameter for precise cleaning resolution
+    description: Beam spot diameter for precise cleaning control
     min: 50
-    max: 120
+    max: 200
   repetitionRate:
     value: 20
     unit: kHz
@@ -123,7 +136,7 @@ machineSettings:
     value: 100
     unit: ns
     confidence: 85
-    description: Pulse duration for controlled ablation of surface contaminants
+    description: Nanosecond pulse duration for controlled material removal
     min: 50
     max: 200
   scanSpeed:
@@ -131,42 +144,44 @@ machineSettings:
     unit: mm/s
     confidence: 86
     description: Optimal scanning speed for uniform cleaning coverage
-    min: 300
-    max: 800
-  fluenceThreshold:
-    value: 2.5
+    min: 200
+    max: 1000
+  energyDensity:
+    value: 3.2
     unit: J/cm²
     confidence: 91
-    description: Fluence threshold for effective contaminant removal without wood damage
+    description: Fluence threshold for effective contaminant removal without wood
+      damage
     min: 1.5
-    max: 4.0
+    max: 5.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 84
     description: Optimal beam overlap for uniform cleaning pattern
-    min: 40
+    min: 30
     max: 70
   passCount:
     value: 2
     unit: passes
     confidence: 88
-    description: Recommended number of passes for complete surface cleaning
+    description: Recommended number of passes for complete cleaning
     min: 1
     max: 4
-  laserType:
-    value: Fiber Laser
-    unit: N/A
-    confidence: 92
-    description: Recommended laser type for Mahogany cleaning applications
-    min: null
-    max: null
+  dwellTime:
+    value: 0.1
+    unit: ms
+    confidence: 83
+    description: Optimal dwell time per processing point
+    min: 0.05
+    max: 0.3
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
 - IEC 60825 - Safety of Laser Products
 - OSHA 29 CFR 1926.95 - Personal Protective Equipment
 - EPA Clean Air Act Compliance
+- CITES Regulations for Sustainable Mahogany Use
 author:
   id: 4
   name: Todd Dunning
@@ -177,10 +192,12 @@ author:
   image: /images/author/todd-dunning.jpg
 images:
   hero:
-    alt: Mahogany surface undergoing laser cleaning showing precise contamination removal
+    alt: Mahogany surface undergoing laser cleaning showing precise contamination
+      removal
     url: /images/material/mahogany-laser-cleaning-hero.jpg
   micro:
-    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed surface structure
+    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed
+      surface structure
     url: /images/material/mahogany-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
@@ -242,22 +259,50 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the mahogany surface is obscured by a stratified contamination layer approximately 50-200
-    µm thick. This layer consists of embedded particulate matter, such as silica and carbon, within a matrix of degraded organic
-    films and oxidized finishes. The underlying wood cellular structure is partially occluded, with contaminants filling the
-    porous lumen of vessels and fibers. The surface texture is highly irregular, with contamination adhering more densely
-    within the grain's recesses, creating a topographically complex and uneven profile that masks the wood's intrinsic anatomy.
-  afterText: Laser cleaning has restored the surface to its native state. The contamination layer is entirely removed, revealing
-    the clean, open cellular structure of the mahogany. The surface topography is now defined by the wood's natural grain,
-    with a significantly reduced roughness and clearly defined vessel elements.
+  beforeText: At 500x magnification, the mahogany surface is obscured by a dense,
+    stratified contamination layer approximately 50-200 µm thick. This layer, composed
+    of embedded soot, oxidized varnish, and particulate matter, fills the wood's porous
+    structure, increasing its effective porosity. The original grain texture is masked,
+    presenting a fractured, amorphous topography with poor definition between the
+    wood's cellular structure and the overlying deposits.
+  afterText: Post-cleaning, the 500x view reveals the restored, open cellular structure
+    of the mahogany. The contamination layer has been entirely removed, exposing the
+    clean lumen of the longitudinal tracheids and ray parenchyma. The surface topography
+    is now defined by the wood's natural porosity and grain pattern, with minimal
+    residual carbonization. The underlying substrate is intact, confirming a sub-ablative
+    cleaning process.
+  description: Microscopic analysis of mahogany surface before and after laser cleaning
+    treatment
+  alt: Microscopic view of mahogany surface showing laser cleaning effects
+  technicalAnalysis:
+    focus: surface_analysis
+    uniqueCharacteristics:
+    - mahogany_specific
+    contaminationProfile: mahogany surface contamination
+  microscopy:
+    parameters: Microscopic analysis of Mahogany
+    qualityMetrics: Surface improvement analysis
+  generation:
+    method: frontmatter_integrated_generation
+    timestamp: '2025-10-02T00:00:00.000000Z'
+    generator: FrontmatterCaptionGenerator
+    componentType: template_caption
+  author: Todd Dunning
+  materialProperties:
+    materialType: Wood
+    analysisMethod: template_microscopy
+  imageUrl:
+    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed
+      surface structure
+    url: /images/material/mahogany-laser-cleaning-micro.jpg
 tags:
 - wood
-- construction
-- insulating
-- porous
-- lightweight
-- stable
-- fusible
-- flexible
-- absorptive
+- manufacturing
+- industrial
+- processing
+- surface-preparation
+- contamination-removal
+- maintenance
+- thermal-sensitive
+- industrial-grade
 - todd-dunning

@@ -8,99 +8,97 @@ materialProperties:
     value: 2.65
     unit: g/cm³
     confidence: 85
-    description: Average density of typical sedimentary breccia composed of mixed
-      rock fragments
+    description: Average density of consolidated breccia rock formations
     min: 1.5
     max: 3.4
   meltingPoint:
     value: 1250
     unit: °C
     confidence: 82
-    description: Approximate melting point range for common breccia compositions
+    description: Approximate melting point for silicate-based breccia compositions
     min: null
     max: null
   thermalConductivity:
     value: 2.5
     unit: W/m·K
-    confidence: 80
-    description: Thermal conductivity of consolidated sedimentary breccia
+    confidence: 83
+    description: Thermal conductivity of typical breccia rock material
     min: 0.2
     max: 8
   hardness:
-    value: 5.5
+    value: 6.5
     unit: Mohs
-    confidence: 84
-    description: Average Mohs hardness for typical breccia composition
+    confidence: 86
+    description: Mohs hardness scale for consolidated breccia
     min: 1
     max: 7
   youngsModulus:
-    value: 45
+    value: 65
     unit: GPa
-    confidence: 81
-    description: Elastic modulus for consolidated breccia material
+    confidence: 82
+    description: Elastic modulus of breccia rock formations
     min: 10
     max: 100
   thermalExpansion:
     value: 8.5
-    unit: μm/m·°C
-    confidence: 82
-    description: Coefficient of thermal expansion for mixed rock fragment breccia
+    unit: 10⁻⁶/K
+    confidence: 81
+    description: Coefficient of thermal expansion for mixed mineral breccia
     min: 3
     max: 25
   specificHeat:
-    value: 850
-    unit: J/kg·K
-    confidence: 83
+    value: 0.84
+    unit: kJ/kg·K
+    confidence: 84
     description: Specific heat capacity at room temperature
     min: 600
     max: 1200
+  compressiveStrength:
+    value: 180
+    unit: MPa
+    confidence: 83
+    description: Uniaxial compressive strength of consolidated breccia
+    min: null
+    max: null
   absorptionCoefficient:
     value: 0.75
     unit: dimensionless
-    confidence: 85
-    description: Optical absorption coefficient for common laser wavelengths (1064
-      nm)
+    confidence: 81
+    description: Optical absorption coefficient for common laser wavelengths
     min: null
     max: null
   reflectivity:
-    value: 0.25
+    value: 0.22
     unit: dimensionless
-    confidence: 83
-    description: Surface reflectivity for near-infrared laser radiation
+    confidence: 82
+    description: Surface reflectivity at 1064 nm wavelength
     min: null
     max: null
   ablationThreshold:
     value: 2.8
     unit: J/cm²
-    confidence: 82
-    description: Laser ablation threshold for typical breccia at 1064 nm wavelength
+    confidence: 80
+    description: Laser ablation threshold for typical breccia at 1064 nm
     min: null
     max: null
   porosity:
-    value: 12
+    value: 8.2
     unit: '%'
-    confidence: 86
-    description: Average porosity percentage in consolidated breccia formations
-    min: null
-    max: null
-  chemicalStability:
-    value: 85
-    unit: '% resistance'
-    confidence: 84
-    description: Chemical stability rating against common environmental weathering
+    confidence: 85
+    description: Average porosity percentage in consolidated breccia
     min: null
     max: null
 applications:
 - Cultural Heritage
 - Construction Restoration
 - Museum Conservation
+- Architectural Stone
 - Geological Research
-- Monument Preservation
-- Architectural Salvage
-- Lapidary Arts
-- Geotechnical Engineering
-- Historical Archaeology
+- Luxury Interior Design
+- Historical Monument Preservation
 - Stone Fabrication
+- Archaeological Excavation
+- Art Gallery Conservation
 machineSettings:
   powerRange:
     value: 90
@@ -114,16 +112,16 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 85
-    description: Near-IR wavelength for effective absorption in mineral components
+    description: Near-IR wavelength for effective absorption in Breccia mineral components
     min: 532
     max: 1064
   spotSize:
-    value: 80
+    value: 100
     unit: μm
     confidence: 86
-    description: Beam spot diameter for precise cleaning of Breccia surface features
+    description: Beam spot diameter for precise cleaning control
     min: 50
-    max: 120
+    max: 200
   repetitionRate:
     value: 50
     unit: kHz
@@ -135,8 +133,7 @@ machineSettings:
     value: 15
     unit: ns
     confidence: 82
-    description: Short pulse duration for efficient contaminant removal with minimal
-      substrate interaction
+    description: Short pulse duration for efficient ablation of surface contaminants
     min: 8
     max: 25
   scanSpeed:
@@ -144,28 +141,28 @@ machineSettings:
     unit: mm/s
     confidence: 83
     description: Optimal scanning speed for efficient area coverage
-    min: 300
+    min: 200
     max: 800
-  fluenceThreshold:
-    value: 2.5
+  energyDensity:
+    value: 4.5
     unit: J/cm²
     confidence: 87
-    description: Minimum fluence required for effective contaminant removal from Breccia
-    min: 1.8
-    max: 3.5
+    description: Fluence threshold for effective contaminant removal
+    min: 2.5
+    max: 6.5
   overlapRatio:
     value: 40
     unit: '%'
-    confidence: 85
-    description: Optimal beam overlap for uniform cleaning coverage
+    confidence: 81
+    description: Optimal beam overlap for uniform cleaning results
     min: 30
     max: 60
   passCount:
     value: 3
     unit: passes
-    confidence: 82
-    description: Recommended number of passes for complete surface cleaning
-    min: 2
+    confidence: 85
+    description: Recommended number of passes for complete cleaning
+    min: 1
     max: 5
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
@@ -248,17 +245,30 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the breccia surface is obscured by a stratified
-    contamination layer, approximately 50-200 µm thick. This layer, composed of particulate
-    matter, black crusts, and biological growth, fills the natural porosity and fractures.
-    It forms a discontinuous, opaque film that masks the stone's inherent texture
-    and mineralogical composition, creating a topographical map of decay rather than
-    geology.
-  afterText: Post-cleaning, the 500x view reveals the restored breccia substrate.
-    The heterogeneous assemblage of angular clasts and the interstitial cementitious
-    matrix are now fully exposed. Surface porosity is cleared of occluding deposits,
-    and the original micro-fracture network is visible, restoring the stone's authentic
-    lithological character without thermal alteration.
+  beforeText: 'At 500x magnification, the breccia surface is obscured by a complex,
+    stratified contamination layer. A dark, carbonaceous crust, approximately 50-200
+    micrometers thick, adheres tenaciously to the stone matrix. This crust infiltrates
+    the surface porosity (8.2%), filling micro-fractures and cementing the angular
+    clasts.
+
+
+    Beneath this crust, a sub-layer of sulfate and nitrate efflorescence crystallizes
+    within the pore network. The original breccia texture—defined by the sharp boundaries
+    and varied mineralogy of its clasts—is masked. The contaminants create a continuous,
+    obscuring film that alters the surface''s intrinsic reflectivity of 0.22 and compromises
+    the visual and structural integrity of the stone.'
+  afterText: 'Following laser cleaning, microscopic analysis at 500x reveals the restored
+    breccia substrate. The contamination crust has been entirely removed via ablation,
+    with the process precisely controlled below the stone''s damage threshold of 2.8
+    J/cm². The intrinsic porosity and micro-texture of the consolidated rock are now
+    fully exposed.
+
+
+    The sharp, geometric boundaries between the constituent clasts are clearly defined,
+    restoring the material''s heterogeneous character. The surface exhibits no thermal
+    damage, such as melting or micro-fracturing, confirming the procedure''s selectivity.
+    The original stone matrix, with its variable reflectivity and mineral-specific
+    details, is visually and physically accessible.'
   description: Microscopic analysis of breccia surface before and after laser cleaning
     treatment
   alt: Microscopic view of breccia surface showing laser cleaning effects

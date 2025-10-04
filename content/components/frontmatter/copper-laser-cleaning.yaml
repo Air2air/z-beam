@@ -8,7 +8,7 @@ materialProperties:
     value: 8.96
     unit: g/cm³
     confidence: 98
-    description: Density of pure copper at 20°C
+    description: Pure copper density at room temperature
     min: 0.53
     max: 22.6
   meltingPoint:
@@ -21,22 +21,22 @@ materialProperties:
   thermalConductivity:
     value: 401
     unit: W/m·K
-    confidence: 95
-    description: Thermal conductivity at 20°C
+    confidence: 96
+    description: Thermal conductivity of pure copper at 20°C
     min: 6.0
     max: 429.0
   tensileStrength:
     value: 210
     unit: MPa
     confidence: 88
-    description: Tensile strength of annealed copper
+    description: Typical tensile strength for annealed copper
     min: 3.0
     max: 3000.0
   hardness:
     value: 45
     unit: HV
     confidence: 85
-    description: Vickers hardness of annealed copper
+    description: Vickers hardness for annealed copper
     min: 0.5
     max: 3500
   youngsModulus:
@@ -46,13 +46,41 @@ materialProperties:
     description: Young's modulus of elasticity
     min: 5
     max: 411
-  thermalExpansion:
-    value: 16.5
-    unit: μm/m·K
-    confidence: 92
-    description: Coefficient of linear thermal expansion at 20°C
-    min: 0.5
-    max: 29.1
+  laserAbsorption:
+    value: 2.3
+    unit: '%'
+    confidence: 95
+    description: laserAbsorption from Materials.yaml
+    min: 0.02
+    max: 100
+  laserReflectivity:
+    value: 98.6
+    unit: '%'
+    confidence: 95
+    description: laserReflectivity from Materials.yaml
+    min: 5
+    max: 98
+  specificHeat:
+    value: 385
+    unit: J/kg·K
+    confidence: 94
+    description: Specific heat capacity at 20°C
+    min: 100
+    max: 900
+  thermalDestructionPoint:
+    value: 1357.77
+    unit: K
+    confidence: 98
+    description: thermalDestructionPoint from Materials.yaml
+    min: -38.8
+    max: 3422
+  thermalDestructionType:
+    value: 1357.77
+    unit: K
+    confidence: 98
+    description: thermalDestructionType from Materials.yaml
+    min: null
+    max: null
   thermalDiffusivity:
     value: 117
     unit: mm²/s
@@ -60,13 +88,13 @@ materialProperties:
     description: Thermal diffusivity at room temperature
     min: 0.2
     max: 174
-  specificHeat:
-    value: 385
-    unit: J/kg·K
-    confidence: 93
-    description: Specific heat capacity at 20°C
-    min: 100
-    max: 900
+  thermalExpansion:
+    value: 16.5
+    unit: μm/m·K
+    confidence: 92
+    description: Coefficient of thermal expansion at 20°C
+    min: 0.5
+    max: 29.1
   reflectivity:
     value: 98
     unit: '%'
@@ -75,7 +103,7 @@ materialProperties:
     min: null
     max: null
   absorptionCoefficient:
-    value: 1.1
+    value: 1.2
     unit: ×10⁷ m⁻¹
     confidence: 85
     description: Absorption coefficient at 1064 nm
@@ -85,14 +113,15 @@ materialProperties:
     value: 0.8
     unit: J/cm²
     confidence: 82
-    description: Laser ablation threshold for nanosecond pulses at 1064 nm
+    description: Approximate laser ablation threshold for nanosecond pulses
     min: null
     max: null
   oxidationResistance:
-    value: 3
-    unit: rating (1-10)
+    value: Moderate
+    unit: qualitative
     confidence: 88
-    description: Relative oxidation resistance in air at elevated temperatures
+    description: Forms protective oxide layer but susceptible to oxidation at elevated
+      temperatures
     min: null
     max: null
   crystallineStructure:
@@ -105,21 +134,19 @@ materialProperties:
   electricalConductivity:
     value: 5.96
     unit: ×10⁷ S/m
-    confidence: 96
+    confidence: 97
     description: Electrical conductivity at 20°C
     min: null
     max: null
 applications:
+- Architecture
 - Electronics Manufacturing
-- Aerospace
-- Cultural Heritage
-- Power Generation
-- Marine
-- Medical Equipment
-- Automotive
 - HVAC Systems
-- Telecommunications
+- Marine
+- Plumbing
+- Power Generation
 - Renewable Energy
+- Telecommunications
 machineSettings:
   powerRange:
     value: 100
@@ -140,52 +167,50 @@ machineSettings:
     value: 50
     unit: μm
     confidence: 84
-    description: Optimal spot diameter for balancing cleaning efficiency and processing
-      speed
+    description: Optimal spot size for precision cleaning of Copper surfaces
     min: 30
     max: 100
   repetitionRate:
     value: 100
     unit: kHz
     confidence: 87
-    description: High repetition rate for efficient cleaning coverage while maintaining
-      pulse energy
+    description: High repetition rate for efficient surface coverage
     min: 50
     max: 200
   pulseWidth:
     value: 10
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for effective contaminant removal with
-      minimal thermal diffusion
+    description: Nanosecond pulse duration for effective oxide layer removal
     min: 5
     max: 20
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 86
-    description: Optimal scanning speed for uniform cleaning without excessive overlap
+    description: Scan speed for efficient area coverage while maintaining cleaning
+      quality
     min: 200
     max: 1000
   fluenceThreshold:
     value: 2.5
     unit: J/cm²
-    confidence: 89
-    description: Minimum fluence required for effective Copper oxide removal
+    confidence: 90
+    description: Fluence required for effective Copper oxide removal
     min: 1.5
     max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal pulse overlap for complete coverage without excessive processing
+    description: Optimal overlap between adjacent scan lines for uniform cleaning
     min: 40
     max: 70
   passCount:
     value: 3
     unit: passes
     confidence: 85
-    description: Recommended number of passes for thorough contaminant removal
+    description: Number of passes for complete oxide layer removal
     min: 1
     max: 5
 regulatoryStandards:
@@ -269,21 +294,23 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the copper surface is obscured by a non-uniform
-    contamination layer. This layer, ranging from 5 to 50 micrometers in thickness,
-    consists of a complex matrix of copper oxides (Cu₂O and CuO), sulfides, and adsorbed
-    atmospheric carbon. The topography is highly irregular, featuring powdery, dendritic
-    oxide growths and localized pitting. The underlying metallic substrate is largely
-    invisible, its high reflectivity attenuated by this porous, light-absorbing crust.
-    The contamination follows grain boundaries, creating a network of darker, recessed
-    lines across the surface.
-  afterText: Following laser cleaning, the surface at 500x magnification reveals the
-    pristine, polycrystalline copper substrate. The contamination layer has been completely
-    removed via ablation, exposing the characteristic twinning lines and grain boundaries
-    of the face-centered cubic metal. The surface texture is now defined by the material's
-    native metallurgy rather than foreign deposits. The high reflectivity of pure
-    copper is restored, resulting in a bright, specular surface with minimal micro-scale
-    pitting or thermal distortion from the process.
+  beforeText: At 500x magnification, the copper surface is obscured by a complex contamination
+    layer. A discontinuous oxide scale, primarily cuprous oxide (Cu₂O), appears as
+    dark, crystalline patches ranging from 2 to 15 micrometers in thickness. This
+    brittle, non-uniform layer is overlaid with particulate matter and carbonaceous
+    deposits that fill the original machining grooves and grain boundaries. The surface
+    texture is highly irregular, with contamination forming peaks and valleys that
+    scatter light and mask the underlying metal's microstructure. The native copper
+    substrate is largely invisible, its high reflectivity and characteristic color
+    neutralized by this optically thick, adherent film of corrosion and grime.
+  afterText: Laser cleaning restores the surface to its intrinsic state, revealing
+    the pristine copper microstructure at 500x magnification. The tenacious oxide
+    and particulate layers have been completely ablated, exposing the original grain
+    boundaries and machining marks with high fidelity. The surface now exhibits a
+    uniform, clean metallic texture with a significant restoration of its characteristic
+    reflectivity. The process successfully removed the contamination without inducing
+    measurable surface melting or ablation of the underlying copper substrate, preserving
+    the material's dimensional integrity and functional properties.
   description: Microscopic analysis of copper surface before and after laser cleaning
     treatment
   alt: Microscopic view of copper surface showing laser cleaning effects
