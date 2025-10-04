@@ -92,7 +92,7 @@ export const SITE_CONFIG = {
     },
     favicon: {
       ico: '/favicon.ico',
-      png: '/images/site/Favicon/favicon_350.png'
+      png: '/images/site/favicon/favicon_350.png'
     }
   },
   
