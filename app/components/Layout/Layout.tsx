@@ -5,6 +5,7 @@ import React from 'react';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/styles';
+import { SITE_CONFIG } from '../../utils/constants';
 import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
@@ -131,10 +132,10 @@ export function Layout(props: LayoutProps) {
         description: metadata.description,
         author: typeof metadata.authorInfo === 'string' 
           ? metadata.authorInfo 
-          : metadata.authorInfo?.name || 'Z-Beam',
+          : metadata.authorInfo?.name || SITE_CONFIG.author,
         datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
         dateModified: metadata.lastModified,
-        url: `https://z-beam.com/${slug}`,
+        url: `${SITE_CONFIG.url}/${slug}`,
         image: metadata.image,
         keywords: metadata.keywords
       }) : null;

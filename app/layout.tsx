@@ -28,21 +28,10 @@ export const metadata = {
     default: SITE_CONFIG.name,
   },
   description: SITE_CONFIG.description,
-  keywords: [
-    'laser cleaning',
-    'industrial cleaning', 
-    'rust removal',
-    'surface preparation',
-    'metal restoration',
-    'paint removal',
-    'coating removal',
-    'corrosion treatment',
-    'heritage restoration',
-    'precision cleaning'
-  ],
-  authors: [{ name: 'Z-Beam' }],
-  creator: 'Z-Beam',
-  publisher: 'Z-Beam',
+  keywords: SITE_CONFIG.keywords,
+  authors: [{ name: SITE_CONFIG.author }],
+  creator: SITE_CONFIG.author,
+  publisher: SITE_CONFIG.author,
   formatDetection: {
     email: false,
     address: false,
@@ -50,8 +39,8 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/images/Site/Favicon/favicon_350.png', type: 'image/png' },
+      { url: SITE_CONFIG.media.favicon.ico },
+      { url: SITE_CONFIG.media.favicon.png, type: 'image/png' },
     ],
     apple: [
       { url: '/images/icons/apple-touch-icon.png' },
@@ -96,12 +85,12 @@ export const metadata = {
 
 // Website schema
 const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
+  "@context": SITE_CONFIG.schema.context,
+  "@type": SITE_CONFIG.schema.websiteType,
   "@id": `${SITE_CONFIG.url}#website`,
   "url": SITE_CONFIG.url,
-  "name": "Z-Beam Laser Cleaning",
-  "description": "Professional laser cleaning services for industrial surface preparation and restoration",
+  "name": SITE_CONFIG.name,
+  "description": SITE_CONFIG.description,
   "publisher": {
     "@id": `${SITE_CONFIG.url}#organization`
   },

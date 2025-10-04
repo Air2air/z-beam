@@ -3,6 +3,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
+import { SITE_CONFIG } from '../../utils/constants';
 import './styles.css';
 
 /**
@@ -187,7 +188,7 @@ export function Title({
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify({
-        '@context': 'https://schema.org',
+        '@context': SITE_CONFIG.schema.context,
         ...structuredData
       });
       script.id = `structured-data-${titleId}`;

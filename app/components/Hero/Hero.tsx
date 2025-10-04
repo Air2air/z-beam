@@ -5,6 +5,7 @@ import './styles.css';
 import { useState, useEffect, useRef } from 'react';
 import { HeroProps } from '@/types';
 import Image from 'next/image';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 /**
  * SIMPLIFIED Hero Component
@@ -61,20 +62,10 @@ export function Hero({
   // Build YouTube URL with maximum branding removal
   const buildYouTubeUrl = (id: string) => {
     const params = new URLSearchParams({
-      autoplay: '1',
-      mute: '1',
-      loop: '1',
+      ...SITE_CONFIG.media.youtube.defaultParams,
       playlist: id, // Required for looping
-      controls: '0', // Hide all controls
-      showinfo: '0', // Hide video title
-      rel: '0', // Don't show related videos
-      modestbranding: '1', // Minimal YouTube branding
-      iv_load_policy: '3', // Hide annotations
-      disablekb: '1', // Disable keyboard controls
-      fs: '0', // Hide fullscreen button
-      playsinline: '1', // Play inline on mobile
     });
-    return `https://www.youtube.com/embed/${id}?${params.toString()}`;
+    return `${SITE_CONFIG.media.youtube.baseUrl}${id}?${params.toString()}`;
   };
 
   const videoUrl = videoId ? buildYouTubeUrl(videoId) : null;
@@ -169,10 +160,10 @@ export function Hero({
           aria-label="Default hero background with logo"
         >
           <Image
-            src="/images/Site/Logo/logo_.png"
-            alt="Z-Beam company logo"
-            width={200}
-            height={120}
+            src={SITE_CONFIG.media.logo.default}
+            alt={`${SITE_CONFIG.shortName} company logo`}
+            width={SITE_CONFIG.media.logo.width}
+            height={SITE_CONFIG.media.logo.height}
             className="opacity-30 object-contain"
             priority={false}
           />

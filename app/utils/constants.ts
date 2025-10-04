@@ -58,10 +58,77 @@ export const SITE_CONFIG = {
   
   social: {
     twitter: '@ZBeamLaser',
+    twitterUrl: 'https://twitter.com/ZBeamLaser',
     facebook: 'facebook.com/profile.php?id=61573280533272',
+    facebookUrl: 'https://facebook.com/profile.php?id=61573280533272',
     linkedin: 'linkedin.com/company/z-beam/',
-    youtube: 'youtube.com/@Z-Beam'
+    linkedinUrl: 'https://linkedin.com/company/z-beam/',
+    youtube: 'youtube.com/@Z-Beam',
+    youtubeUrl: 'https://youtube.com/@Z-Beam'
   },
+  
+  // Media Configuration
+  media: {
+    youtube: {
+      baseUrl: 'https://www.youtube.com/embed/',
+      defaultParams: {
+        autoplay: '1',
+        mute: '1',
+        loop: '1',
+        controls: '0',
+        showinfo: '0',
+        rel: '0',
+        modestbranding: '1',
+        iv_load_policy: '3',
+        disablekb: '1',
+        fs: '0',
+        playsinline: '1'
+      }
+    },
+    logo: {
+      default: '/images/Site/Logo/logo_.png',
+      width: 200,
+      height: 120
+    },
+    favicon: {
+      ico: '/favicon.ico',
+      png: '/images/Site/Favicon/favicon_350.png'
+    }
+  },
+  
+  // Email Configuration
+  emailConfig: {
+    fromAddress: 'Z-Beam Contact <onboarding@resend.dev>',
+    toAddresses: ['todd@dunningmarketing.com'], // Production: use sales/support emails
+    brandColor: '#1e40af',
+    replyToMessage: 'This email was sent from the Z-Beam website contact form.'
+  },
+  
+  // Validation Patterns
+  validation: {
+    emailRegex: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    phoneRegex: /^[\d\s\-\+\(\)]+$/
+  },
+  
+  // User Messages
+  messages: {
+    contactSuccess: 'Your message has been sent successfully. We will get back to you within 24 hours.',
+    contactError: 'Failed to send email. Please try again later.',
+    contactValidationError: 'Please fill in all required fields correctly.',
+    formMissingFields: 'Missing required fields',
+    invalidEmail: 'Invalid email format',
+    responseRequired: 'Please respond to this inquiry within 24 hours during business days.'
+  },
+  
+  // Schema.org Configuration
+  schema: {
+    context: 'https://schema.org',
+    organizationType: 'Organization',
+    websiteType: 'WebSite',
+    articleType: 'TechnicalArticle',
+    propertyValueType: 'PropertyValue'
+  },
+  
   keywords: [
     'laser cleaning',
     'industrial cleaning', 

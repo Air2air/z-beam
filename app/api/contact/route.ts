@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ContactFormData } from '@/types';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 // Initialize Resend only if API key is available
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -15,16 +16,15 @@ export async function POST(request: NextRequest) {
     
     if (!name || !email || !subject || !message || !inquiryType) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: SITE_CONFIG.messages.formMissingFields },
         { status: 400 }
       );
     }
     
     // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!SITE_CONFIG.validation.emailRegex.test(email)) {
       return NextResponse.json(
-        { error: 'Invalid email format' },
+        { error: SITE_CONFIG.messages.invalidEmail },
         { status: 400 }
       );
     }
@@ -34,19 +34,19 @@ export async function POST(request: NextRequest) {
       console.log('Resend API key not configured. Form submission:', body);
       return NextResponse.json({
         success: true,
-        message: 'Your message has been received. We will get back to you within 24 hours.'
+        message: SITE_CONFIG.messages.contactSuccess
       });
     }
     
     // Send email using Resend
     try {
       const { data, error } = await resend.emails.send({
-        from: 'Z-Beam Contact <onboarding@resend.dev>',
-        to: ['todd@dunningmarketing.com'], // Temporary: using verified email for testing
+        from: SITE_CONFIG.emailConfig.fromAddress,
+        to: [...SITE_CONFIG.emailConfig.toAddresses],
         subject: `New Contact: ${subject}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #1e40af; border-bottom: 2px solid #1e40af; padding-bottom: 10px;">
+            <h2 style="color: ${SITE_CONFIG.emailConfig.brandColor}; border-bottom: 2px solid ${SITE_CONFIG.emailConfig.brandColor}; padding-bottom: 10px;">
               New Contact Form Submission
             </h2>
             
@@ -54,14 +54,14 @@ export async function POST(request: NextRequest) {
               <h3 style="margin-top: 0; color: #374151;">Contact Details</h3>
               <p><strong>Inquiry Type:</strong> <span style="background-color: #dbeafe; padding: 2px 8px; border-radius: 4px;">${inquiryType.charAt(0).toUpperCase() + inquiryType.slice(1)}</span></p>
               <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> <a href="mailto:${email}" style="color: #1e40af;">${email}</a></p>
+              <p><strong>Email:</strong> <a href="mailto:${email}" style="color: ${SITE_CONFIG.emailConfig.brandColor};">${email}</a></p>
               ${body.company ? `<p><strong>Company:</strong> ${body.company}</p>` : ''}
-              ${body.phone ? `<p><strong>Phone:</strong> <a href="tel:${body.phone}" style="color: #1e40af;">${body.phone}</a></p>` : ''}
+              ${body.phone ? `<p><strong>Phone:</strong> <a href="tel:${body.phone}" style="color: ${SITE_CONFIG.emailConfig.brandColor};">${body.phone}</a></p>` : ''}
             </div>
             
             <div style="margin: 20px 0;">
               <h3 style="color: #374151;">Subject</h3>
-              <p style="background-color: #f1f5f9; padding: 15px; border-radius: 6px; border-left: 4px solid #1e40af;">
+              <p style="background-color: #f1f5f9; padding: 15px; border-radius: 6px; border-left: 4px solid ${SITE_CONFIG.emailConfig.brandColor};">
                 ${subject}
               </p>
             </div>
@@ -75,14 +75,14 @@ ${message}
             
             <div style="margin-top: 30px; padding: 15px; background-color: #fef3c7; border-radius: 6px; border-left: 4px solid #f59e0b;">
               <p style="margin: 0; color: #92400e;">
-                <strong>Response Required:</strong> Please respond to this inquiry within 24 hours during business days.
+                <strong>Response Required:</strong> ${SITE_CONFIG.messages.responseRequired}
               </p>
             </div>
             
             <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
             <p style="font-size: 12px; color: #6b7280; text-align: center;">
-              This email was sent from the Z-Beam website contact form.<br>
-              Visit <a href="https://z-beam.com" style="color: #1e40af;">z-beam.com</a> for more information.
+              ${SITE_CONFIG.emailConfig.replyToMessage}<br>
+              Visit <a href="${SITE_CONFIG.url}" style="color: ${SITE_CONFIG.emailConfig.brandColor};">${SITE_CONFIG.url.replace('https://', '')}</a> for more information.
             </p>
           </div>
         `,
@@ -92,7 +92,7 @@ ${message}
       if (error) {
         console.error('Resend error:', error);
         return NextResponse.json(
-          { error: 'Failed to send email. Please try again.' },
+          { error: SITE_CONFIG.messages.contactError },
           { status: 500 }
         );
       }
@@ -101,13 +101,13 @@ ${message}
       
       return NextResponse.json({
         success: true,
-        message: 'Your message has been sent successfully. We will get back to you within 24 hours.'
+        message: SITE_CONFIG.messages.contactSuccess
       });
 
     } catch (emailError) {
       console.error('Email sending failed:', emailError);
       return NextResponse.json(
-        { error: 'Failed to send email. Please try again later.' },
+        { error: SITE_CONFIG.messages.contactError },
         { status: 500 }
       );
     }

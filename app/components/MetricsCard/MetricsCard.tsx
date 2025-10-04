@@ -20,6 +20,7 @@ import { MetricsCardProps } from '@/types';
 import { cleanupFloat } from '../../utils/formatting';
 import { generateSearchUrl } from '../../utils/searchUtils';
 import { ProgressBar } from '../ProgressBar/ProgressBar';
+import { SITE_CONFIG } from '../../utils/constants';
 import './accessibility.css';
 
 // Single MetricsCard component - represents one metric with progress bar
@@ -74,7 +75,7 @@ export function MetricsCard({
       data-unit={displayUnit}
       data-value={displayValue}
       itemScope
-      itemType="https://schema.org/PropertyValue"
+      itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
       onKeyDown={(e) => {
         if (isClickable && (e.key === 'Enter' || e.key === ' ')) {
           e.preventDefault();
