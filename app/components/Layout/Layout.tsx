@@ -94,7 +94,7 @@ export function Layout(props: LayoutProps) {
             
             {/* Spacer when Hero is not shown to maintain consistent spacing */}
             {!showHero && (
-              <div className="h-[30vh] sm:h-[45vh] md:h-[44vh] lg:h-[65vh] xl:h-[70vh]" aria-hidden="true" />
+              <div className="h-[15vh] sm:h-[22vh] md:h-[22vh] lg:h-[32vh] xl:h-[35vh]" aria-hidden="true" />
             )}
 
             {/* Title and Author components - simplified frontmatter-only */}
@@ -242,6 +242,11 @@ export function Layout(props: LayoutProps) {
   // Default layout for regular page content
   return (
     <main className={containerClass} id="main-content" role="main">
+      {/* Spacer when Hero is not shown to maintain consistent spacing */}
+      {!showHero && !fullWidth && (
+        <div className="h-[30vh] sm:h-[45vh] md:h-[44vh] lg:h-[65vh] xl:h-[70vh]" aria-hidden="true" />
+      )}
+      
       {/* Page header - only show in contained layouts */}
       {title && !fullWidth && (
         <div className="mb-8">
