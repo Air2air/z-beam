@@ -28,9 +28,12 @@ const getMaterialName = (metadata: any, slug?: string) => {
 const ArticleHeader = ({ title, metadata, showHero, slug }: any) => {
   const materialName = getMaterialName(metadata, slug);
   
+  // Check if we have hero image/video from markdown or material-based hero
+  const hasHeroContent = showHero && (metadata?.image || metadata?.video || materialName);
+  
   return (
     <div className="header-section mb-6">
-      {showHero && materialName ? (
+      {hasHeroContent ? (
         <Hero frontmatter={metadata} theme="dark" />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />

@@ -3,6 +3,9 @@ title: Equipment Rental
 description: Professional laser cleaning equipment rental for industrial applications
 author: Z-Beam Team
 date: 2025-10-03
+heroImage: /images/site/hero/rental-equipment.jpg
+heroVideo: 
+heroAlt: Professional laser cleaning equipment available for rental
 ---
 
 # Laser Cleaning Equipment Rental

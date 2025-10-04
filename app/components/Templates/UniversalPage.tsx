@@ -54,7 +54,20 @@ async function UniversalPageComponent({
       const htmlContent = await marked(content);
       
       pageData = {
-        metadata: { ...data, title: title || data.title, description: description || data.description },
+        metadata: { 
+          ...data, 
+          title: title || data.title, 
+          description: description || data.description,
+          // Pass hero fields from frontmatter
+          image: data.heroImage || data.image,
+          video: data.heroVideo || data.video,
+          images: data.heroImage ? {
+            hero: {
+              url: data.heroImage,
+              alt: data.heroAlt || `Hero image for ${data.title || title}`
+            }
+          } : data.images
+        },
         components: { content: { content: htmlContent } }
       };
     } else {
@@ -111,7 +124,7 @@ export const pageConfigs = {
     title: 'Contact Z-Beam',
     description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
     useContentAPI: false,
-    markdownPath: 'app/pages/_md/contact.md',
+    markdownPath: 'app/pages/contact.md',
     showHero: false, // Hide Hero for contact page
   },
   services: {
@@ -119,7 +132,7 @@ export const pageConfigs = {
     title: 'Services | Z-Beam Laser Cleaning Solutions',
     description: 'Explore Z-Beam\'s comprehensive laser cleaning services, including surface preparation, oxide removal, coating removal, and customized industrial cleaning solutions.',
     useContentAPI: false,
-    markdownPath: 'app/pages/_md/services.md',
+    markdownPath: 'app/pages/services.md',
     dynamic: 'force-static' as const,
     revalidate: false,
     showHero: false, // Hide Hero for services page
@@ -129,7 +142,7 @@ export const pageConfigs = {
     title: 'Equipment Rental | Z-Beam',
     description: 'Rent professional laser cleaning equipment from Z-Beam. Flexible rental options for your industrial cleaning needs.',
     useContentAPI: false,
-    markdownPath: 'app/pages/_md/rental.md',
+    markdownPath: 'app/pages/rental.md',
     dynamic: 'force-static' as const,
     revalidate: false,
     showHero: true, // Show Hero for rental page
