@@ -15,7 +15,7 @@ import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 
-const ARTICLE_COMPONENT_ORDER = ['metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
+const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
 const SPACER_CLASSES = "h-[15vh] sm:h-[22vh] md:h-[22vh] lg:h-[32vh] xl:h-[35vh]";
 
 // Helper: Extract material name from metadata or slug
@@ -93,6 +93,14 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   }
 
   const { content, config } = component;
+  
+  if (type === 'content' && content) {
+    return (
+      <section key={type} aria-label="Main content" className="prose prose-invert max-w-none">
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </section>
+    );
+  }
   
   if (type === 'table') {
     return <section key={type} aria-label="Data table"><Table content={content} config={config} frontmatterData={metadata} /></section>;
