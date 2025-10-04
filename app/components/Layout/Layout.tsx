@@ -91,6 +91,11 @@ export function Layout(props: LayoutProps) {
                 />
               );
             })()}
+            
+            {/* Spacer when Hero is not shown to maintain consistent spacing */}
+            {!showHero && (
+              <div className="h-[30vh] sm:h-[45vh] md:h-[44vh] lg:h-[65vh] xl:h-[70vh]" aria-hidden="true" />
+            )}
 
             {/* Title and Author components - simplified frontmatter-only */}
             <Title level="page" title={title || metadata?.title || 'Article'} />
