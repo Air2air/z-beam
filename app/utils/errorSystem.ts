@@ -149,6 +149,7 @@ export class ApiError extends ZBeamError {
 
 /**
  * Validates slug parameter with security checks
+ * Auto-normalizes slugs with spaces by converting them to hyphens
  * Throws SecurityError for unsafe patterns, ValidationError for invalid format
  */
 export function validateSlug(slug: unknown, context = 'slug validation'): string {
@@ -168,23 +169,43 @@ export function validateSlug(slug: unknown, context = 'slug validation'): string
     );
   }
   
-  // Format validation
-  if (!/^[a-zA-Z0-9-_]+$/.test(slug)) {
+  // Auto-normalize if slug contains spaces or invalid characters
+  // This prevents ValidationError for slugs that just need normalization
+  let normalizedSlug = slug;
+  if (/[\s]/.test(slug) || !/^[a-zA-Z0-9-_]+$/.test(slug)) {
+    // Inline slugify to avoid circular dependency
+    normalizedSlug = slug
+      .toString()
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/&/g, '-and-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-');
+    
+    // If we normalized it, log a warning for debugging
+    if (normalizedSlug !== slug) {
+      console.warn(`[validateSlug] Auto-normalized slug "${slug}" to "${normalizedSlug}" in ${context}`);
+    }
+  }
+  
+  // Format validation on normalized slug
+  if (!/^[a-zA-Z0-9-_]+$/.test(normalizedSlug)) {
     throw new ValidationError(
       `Invalid slug format: ${slug}. Only alphanumeric, hyphens, and underscores allowed`,
-      { slug, context }
+      { slug, normalizedSlug, context }
     );
   }
   
   // Length validation
-  if (slug.length > 100) {
+  if (normalizedSlug.length > 100) {
     throw new ValidationError(
-      `Slug too long: ${slug.length} characters (max: 100)`,
-      { slug: slug.substring(0, 20) + '...', length: slug.length, context }
+      `Slug too long: ${normalizedSlug.length} characters (max: 100)`,
+      { slug: normalizedSlug.substring(0, 20) + '...', length: normalizedSlug.length, context }
     );
   }
   
-  return slug;
+  return normalizedSlug;
 }
 
 /**

@@ -25,11 +25,6 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
     description: "Rent professional laser cleaning equipment"
   },
   {
-    name: "About",
-    href: "/about",
-    description: "Learn about Z-Beam and our mission"
-  },
-  {
     name: "Contact",
     href: "/contact",
     description: "Get in touch with our team"

@@ -108,6 +108,19 @@ export function formatFileSize(bytes: number): string {
 }
 
 /**
+ * Normalize a string to a valid slug format
+ * Converts spaces to hyphens, lowercases, and removes invalid characters
+ * This is the PRIMARY function to use when converting any name/title to a slug
+ * 
+ * @param str - The string to normalize (can contain spaces, special chars, etc.)
+ * @returns A valid slug with only lowercase, numbers, and hyphens
+ */
+export function normalizeSlug(str: string): string {
+  if (!str) return '';
+  return slugify(str);
+}
+
+/**
  * Strip parentheses from slugs for clean URLs
  * Converts "material-(acronym)-process" to "material-acronym-process"
  */

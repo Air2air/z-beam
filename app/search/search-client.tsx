@@ -296,13 +296,13 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   return (
     <div>
-      <div className="mb-4">
+      <div className="mb-4 flex items-center justify-between gap-4">
         <Title level="section" title={
           propertyName && propertyValue ? 
             `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}${propertyUnit ? ' ' + propertyUnit : ''}` :
             query ? `Materials with "${query}"` : 'All Articles'
         } />
-        <p className="text-gray-600">{filteredArticles.length} results found</p>
+        <p className="text-gray-400 text-sm whitespace-nowrap">{filteredArticles.length} results found</p>
       </div>
       
       {filteredArticles.length === 0 ? (
