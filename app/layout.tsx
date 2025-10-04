@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navigation/nav";
 // import { Analytics } from "@vercel/analytics/react";
 // import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/Navigation/footer";
+import { ConditionalCTA } from "./components/CTA";
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { generateOrganizationSchema } from "./utils/business-config";
@@ -143,6 +144,7 @@ export default function RootLayout({
               {children}
             </ErrorBoundary>
           </main>
+          <ConditionalCTA />
           <Footer />
         </ErrorBoundary>
         {/* <Analytics /> */}

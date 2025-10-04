@@ -64,7 +64,7 @@ const socialLinks: SocialLink[] = [
 export default function Footer() {
   return (
     <footer 
-      className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-12"
+      className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-0"
       role="contentinfo"
       aria-label="Site footer"
     >

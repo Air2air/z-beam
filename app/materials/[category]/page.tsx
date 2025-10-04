@@ -77,43 +77,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           loadBadgeSymbolData={true}
         />
       </section>
-
-      {/* Category Information */}
-      <section className={`${CONTAINER_STYLES.standard} mt-16`}>
-        <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-          <Title level="section" title={`About ${categoryDisplayName} Laser Cleaning`} />
-          <div className="prose dark:prose-invert max-w-none">
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              {getCategoryDescription(category)}
-            </p>
-          </div>
-        </div>
-      </section>
     </Layout>
   );
-}
-
-// Helper function for detailed category descriptions
-function getCategoryDescription(category: string): string {
-  const descriptions: Record<string, string> = {
-    metal: "Metal laser cleaning represents the most widely adopted application of laser surface treatment technology. Our systems excel at removing oxidation, corrosion, paint, and contaminants from aluminum, steel, titanium, and precious metals without damaging the underlying substrate. This non-contact, environmentally friendly process is essential for aerospace component refurbishment, automotive restoration, and precision manufacturing.",
-    
-    ceramic: "Ceramic materials demand the highest precision in laser cleaning due to their brittleness and thermal sensitivity. Our specialized parameters ensure safe removal of contaminants from alumina, silicon nitride, and technical ceramics used in semiconductor manufacturing, aerospace components, and industrial applications. The process maintains the integrity of these critical materials while achieving superior cleanliness standards.",
-    
-    composite: "Composite materials present unique challenges requiring carefully controlled laser parameters to avoid delamination or matrix damage. Our expertise covers carbon fiber reinforced polymers (CFRP), glass fiber reinforced plastics (GFRP), and advanced composite structures used in aerospace, automotive, and marine applications. The selective removal process preserves fiber integrity while eliminating surface contaminants.",
-    
-    semiconductor: "Semiconductor cleaning demands the ultimate in precision and contamination control. Our ultra-clean laser systems safely process silicon wafers, gallium arsenide substrates, and other semiconductor materials without introducing particles or chemical residues. This critical process enables advanced microelectronics manufacturing and photovoltaic applications.",
-    
-    glass: "Glass laser cleaning requires precise energy control to avoid thermal stress and cracking. Our systems safely clean optical glass, laboratory glassware, architectural glass, and technical glass components. The process removes organic contaminants, oxidation, and deposits while maintaining optical clarity and surface quality.",
-    
-    stone: "Natural stone restoration combines traditional conservation principles with modern laser technology. Our heritage-approved methods safely clean granite, marble, limestone, and other architectural stones without causing surface damage or chemical alteration. This approach is essential for monument conservation, building restoration, and artistic preservation.",
-    
-    wood: "Wood laser cleaning offers a revolutionary approach to furniture restoration and heritage conservation. Our gentle parameters safely remove finishes, stains, and contaminants from hardwoods and softwoods without mechanical abrasion or chemical solvents. This process reveals original wood surfaces while preserving historical authenticity.",
-    
-    masonry: "Masonry restoration using laser technology provides unparalleled control over cleaning depth and selectivity. Our systems effectively remove pollution, biological growth, and protective coatings from brick, cement, and stone structures while preserving original surface textures. This method is ideal for architectural conservation and building maintenance.",
-    
-    plastic: "Plastic and polymer cleaning requires careful parameter optimization to avoid thermal damage or surface modification. Our systems safely process thermoplastics, engineering polymers, and composite materials used in automotive, electronics, and consumer applications. The process removes contaminants while maintaining material properties and surface finish."
-  };
-  
-  return descriptions[category] || "";
 }
