@@ -153,6 +153,13 @@ export const pageConfigs = {
     dynamic: 'force-static' as const,
     revalidate: false,
     showHero: true, // Show Hero for rental page
+  },
+  partners: {
+    slug: 'partners',
+    title: 'Z-Beam Partners',
+    description: 'Trusted partners providing laser cleaning equipment, services, and training across North America and Europe.',
+    useContentAPI: true,
+    showHero: false, // Partners page doesn't need hero
   }
 } as const;
 
