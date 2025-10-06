@@ -14,9 +14,8 @@ import { Table } from "../Table/Table";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
-import { marked } from 'marked';
 
-const ARTICLE_COMPONENT_ORDER = ['text', 'content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
+const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
 const SPACER_CLASSES = "h-[15vh] sm:h-[22vh] md:h-[22vh] lg:h-[32vh] xl:h-[35vh]";
 
 // Helper: Extract material name from metadata or slug
@@ -97,17 +96,6 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   }
 
   const { content, config } = component;
-  
-  if (type === 'text' && content) {
-    // Text components are raw markdown - convert to HTML
-    const htmlContent = typeof content === 'string' ? marked.parse(content) : content;
-    
-    return (
-      <section key={type} aria-label="Page content" className="prose prose-lg max-w-none dark:prose-invert">
-        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-      </section>
-    );
-  }
   
   if (type === 'content' && content) {
     return (

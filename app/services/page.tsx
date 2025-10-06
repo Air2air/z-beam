@@ -1,8 +1,9 @@
 // app/services/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { loadPageData } from "../utils/contentAPI";
-import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from "@/app/utils/constants";
+import fs from 'fs/promises';
+import path from 'path';
+import { marked } from 'marked';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -13,14 +14,20 @@ export const metadata = {
 };
 
 export default async function ServicesPage() {
-  const { metadata: pageMetadata, components } = await loadPageData('services');
+  // Load markdown file
+  const filePath = path.join(process.cwd(), 'content/components/text/services.md');
+  const markdownContent = await fs.readFile(filePath, 'utf8');
+  
+  // Convert to HTML
+  const htmlContent = marked(markdownContent);
   
   return (
     <Layout
-      components={components}
-      metadata={pageMetadata as unknown as ArticleMetadata}
-      slug="services"
-      showHero={true}
-    />
+      title="Z-Beam Laser Cleaning Services"
+      description={metadata.description}
+      showHero={false}
+    >
+      <div className="prose prose-lg max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: htmlContent }} />
+    </Layout>
   );
 }
