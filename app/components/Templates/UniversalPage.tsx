@@ -58,9 +58,9 @@ async function UniversalPageComponent({
           ...data, 
           title: title || data.title, 
           description: description || data.description,
-          // Pass hero fields from frontmatter
-          image: data.heroImage || data.image,
-          video: data.heroVideo || data.video,
+          // Pass hero fields from frontmatter - ensure empty strings are treated as undefined
+          image: data.heroImage || data.image || undefined,
+          video: (data.heroVideo && data.heroVideo.trim() !== '') ? data.heroVideo : (data.video && data.video.trim() !== '' ? data.video : undefined),
           images: data.heroImage ? {
             hero: {
               url: data.heroImage,
@@ -84,12 +84,19 @@ async function UniversalPageComponent({
       />
     );
   } catch (error) {
-    console.error(`Error loading ${slug} page`, error);
+    console.error(`Error loading ${slug} page:`, error);
+    const errorDetails = error instanceof Error ? error.message : String(error);
     
     return (
       <div className={CONTAINER_STYLES.standard}>
         <Title level="page" title={errorTitle} />
         <p className="mt-4">{errorMessage}</p>
+        {process.env.NODE_ENV === 'development' && (
+          <details className="mt-4 p-4 bg-red-900/20 border border-red-700 rounded">
+            <summary className="cursor-pointer font-semibold text-red-400">Error Details (Development Only)</summary>
+            <pre className="mt-2 text-xs text-red-300 overflow-auto">{errorDetails}</pre>
+          </details>
+        )}
       </div>
     );
   }
