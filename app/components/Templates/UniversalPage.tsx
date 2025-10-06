@@ -35,8 +35,8 @@ async function UniversalPageComponent({
   description,
   useContentAPI = true,
   markdownPath,
-  errorTitle = `Error Loading ${slug.charAt(0).toUpperCase() + slug.slice(1)} Page`,
-  errorMessage = `We're sorry, but there was an error loading the ${slug} page.`,
+  errorTitle = slug ? `Error Loading ${slug.charAt(0).toUpperCase() + slug.slice(1)} Page` : 'Error Loading Page',
+  errorMessage = slug ? `We're sorry, but there was an error loading the ${slug} page.` : 'We\'re sorry, but there was an error loading this page.',
   showHero = true, // Default to showing Hero
 }: UniversalPageProps) {
   try {
