@@ -75,13 +75,13 @@ export function Caption({ frontmatter, config }: CaptionProps) {
 
       {/* Image Section */}
       {imageSource && isInView && (
-        <figure className="relative mb-6">
+        <figure className="relative mb-6 aspect-[16/9] overflow-hidden rounded-lg">
           <Image
             src={imageSource}
             alt={`${capitalizedMaterial} surface analysis`}
             width={800}
             height={450}
-            className="w-full h-[300px] md:h-[400px] object-cover rounded-lg"
+            className="w-full h-full object-cover"
             priority={false}
             quality={85}
             onLoad={() => setImageLoaded(true)}

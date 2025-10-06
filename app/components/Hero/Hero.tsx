@@ -84,16 +84,10 @@ export function Hero({
     return frontmatter?.title ? `Video content for ${frontmatter.title}` : "Video content";
   };
   
-  // Responsive classes
+  // Responsive classes with 16:9 aspect ratio
   const containerClasses = variant === 'fullwidth' 
-    ? `w-full 
-    h-[30vh] max-h-[50vh] 
-    sm:h-[45vh] sm:max-h-[45vh] 
-    md:h-[44vh] md:max-h-[44vh] 
-    lg:h-[65vh] lg:max-h-[65vh] 
-    xl:h-[70vh] xl:max-h-[70vh] 
-    relative overflow-hidden bg-gray-900 ${themeClass}`
-    : `hero-section bg-gray-900 ${themeClass}`;
+    ? `w-full aspect-[16/9] relative overflow-hidden bg-gray-900 ${themeClass}`
+    : `hero-section aspect-[16/9] bg-gray-900 ${themeClass}`;
 
   const backgroundClasses = variant === 'fullwidth'
     ? "absolute inset-0 w-full h-full"
