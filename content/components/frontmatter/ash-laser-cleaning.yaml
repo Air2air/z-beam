@@ -1,14 +1,14 @@
 name: Ash
 category: Wood
-subcategory: Ash
+subcategory: hardwood
 title: Ash Laser Cleaning
 description: Laser cleaning parameters for Ash
 materialProperties:
   density:
-    value: 0.45
+    value: 0.65
     unit: g/cm³
     confidence: 85
-    description: Bulk density of wood ash particles
+    description: Bulk density of wood ash particles at ambient conditions
     min: 0.12
     max: 1.25
   meltingPoint:
@@ -25,19 +25,40 @@ materialProperties:
     description: Low thermal conductivity typical of porous mineral materials
     min: 0.04
     max: 0.4
+  tensileStrength:
+    value: 125.0
+    unit: MPa
+    confidence: 95
+    description: tensileStrength from Materials.yaml
+    min: 20
+    max: 200
   hardness:
-    value: 3.5
+    value: 2.5
     unit: Mohs
     confidence: 83
-    description: Mohs hardness scale for ash mineral particles
+    description: Mohs hardness of ash mineral components
     min: 20
     max: 5000
-  thermalExpansion:
-    value: 8.5
-    unit: μm/m·°C
-    confidence: 82
-    description: Coefficient of thermal expansion for ash mineral content
-    min: 3.0
+  youngsModulus:
+    value: 3.0
+    unit: GPa
+    confidence: 90
+    description: youngsModulus from Materials.yaml
+    min: 5
+    max: 25
+  laserAbsorption:
+    value: 32.7
+    unit: '%'
+    confidence: 92
+    description: laserAbsorption from Materials.yaml
+    min: 1
+    max: 50
+  laserReflectivity:
+    value: 32.7
+    unit: '%'
+    confidence: 92
+    description: laserReflectivity from Materials.yaml
+    min: 10
     max: 60
   specificHeat:
     value: 850
@@ -46,46 +67,74 @@ materialProperties:
     description: Specific heat capacity of ash at room temperature
     min: 800
     max: 2500
+  thermalDestructionPoint:
+    value: 400.0
+    unit: °C
+    confidence: 92
+    description: thermalDestructionPoint from Materials.yaml
+    min: 200
+    max: 500
+  thermalDestructionType:
+    value: 573.0
+    unit: K
+    confidence: 92
+    description: thermalDestructionType from Materials.yaml
+    min: null
+    max: null
+  thermalDiffusivity:
+    value: 0.16
+    unit: mm²/s
+    confidence: 92
+    description: thermalDiffusivity from Materials.yaml
+    min: 0.0001
+    max: 0.4
+  thermalExpansion:
+    value: 8.5
+    unit: μm/m·°C
+    confidence: 82
+    description: Coefficient of thermal expansion for ash mineral content
+    min: 3.0
+    max: 60
   absorptionCoefficient:
     value: 0.75
     unit: dimensionless
     confidence: 88
-    description: High absorption coefficient for common laser wavelengths (1064nm)
+    description: High optical absorption coefficient for common laser wavelengths
     min: null
     max: null
   reflectivity:
     value: 0.25
     unit: dimensionless
-    confidence: 87
-    description: Low reflectivity at common laser cleaning wavelengths
+    confidence: 86
+    description: Low reflectivity due to porous, irregular surface structure
     min: null
     max: null
   ablationThreshold:
     value: 0.8
     unit: J/cm²
-    confidence: 85
-    description: Laser ablation threshold for nanosecond pulses at 1064nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 1.2
-    unit: J/cm²
-    confidence: 82
-    description: Damage threshold for ash contamination layers
+    confidence: 84
+    description: Laser ablation threshold for typical Nd:YAG wavelengths
     min: null
     max: null
   porosity:
-    value: 65
+    value: 45
     unit: '%'
-    confidence: 88
+    confidence: 90
     description: High porosity characteristic of ash particulate matter
     min: null
     max: null
   chemicalStability:
-    value: Moderate
+    value: moderate
     unit: qualitative
+    confidence: 87
+    description: Moderate chemical stability with alkaline characteristics
+    min: null
+    max: null
+  surfaceRoughness:
+    value: 12.5
+    unit: μm Ra
     confidence: 85
-    description: Generally stable but can react with moisture and acids
+    description: Typical surface roughness of ash deposits on substrates
     min: null
     max: null
 applications:
@@ -114,58 +163,57 @@ machineSettings:
     confidence: 88
     description: Near-IR wavelength providing good absorption in carbon-rich ash particles
     min: 532
-    max: 10640
+    max: 1064
   spotSize:
     value: 80
     unit: μm
     confidence: 84
-    description: Optimal beam diameter for balancing cleaning efficiency and processing
-      speed
+    description: Optimal beam diameter for balancing cleaning efficiency and coverage
+      area
     min: 50
-    max: 150
+    max: 120
   repetitionRate:
     value: 50
     unit: kHz
     confidence: 87
-    description: High repetition rate for efficient area coverage while maintaining
-      cleaning quality
+    description: High repetition rate for efficient cleaning coverage of ash surfaces
     min: 20
     max: 100
   pulseWidth:
     value: 12
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for effective ash ablation with minimal
-      thermal diffusion
+    description: Nanosecond pulse duration for effective thermal ablation of ash deposits
     min: 8
     max: 20
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 86
-    description: Scanning speed providing good throughput while maintaining cleaning
-      effectiveness
-    min: 200
-    max: 1000
+    description: Scanning speed providing effective ash removal with good process
+      efficiency
+    min: 300
+    max: 800
   fluenceThreshold:
-    value: 1.8
+    value: 2.5
     unit: J/cm²
     confidence: 89
-    description: Minimum fluence required for effective ash particle removal
-    min: 1.2
-    max: 3.0
+    description: Minimum fluence required for effective ash ablation while preserving
+      substrate
+    min: 1.8
+    max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal beam overlap for uniform cleaning coverage
-    min: 30
+    description: Optimal pulse overlap for uniform cleaning of ash deposits
+    min: 40
     max: 70
   passCount:
     value: 2
     unit: passes
-    confidence: 85
-    description: Number of cleaning passes for complete ash removal
+    confidence: 88
+    description: Recommended number of passes for complete ash removal
     min: 1
     max: 4
 regulatoryStandards:
@@ -250,30 +298,30 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the ash surface is a porous, granular layer approximately
-    50-200 µm thick. This matrix of fine, sintered particles exhibits high surface
-    roughness, with agglomerated deposits filling the natural porosity. Contaminants,
-    appearing as dark, carbonaceous films and crystalline salts, are distributed non-uniformly
-    across the surface, creating a textured, occluded topography that obscures the
-    underlying substrate.
-  afterText: 'Laser cleaning transforms the surface by selectively ablating the contamination
-    layer. The previously occluded, porous structure of the ash is now fully revealed,
-    with a measured surface roughness reduction of over 60%. The dark carbon films
-    and crystalline deposits have been entirely removed via sublimation and mechanical
-    spallation.
+  beforeText: At 500x magnification, the ash surface is characterized by a porous,
+    irregular layer of particulate matter, typically 50-200 µm thick. This layer exhibits
+    a high degree of surface roughness (approximately 12.5 µm Ra), creating a complex
+    topography that traps and obscures the underlying substrate. Contaminants, including
+    embedded soot and unburned carbonaceous particles, are distributed non-uniformly
+    within the porous matrix, forming dark, occluded regions that significantly reduce
+    surface reflectivity.
+  afterText: 'Laser cleaning produces a distinct visual transformation. The superficial,
+    porous layer of ash and embedded contaminants has been entirely removed via selective
+    laser ablation. The process, operating at energy densities above the 0.8 J/cm²
+    ablation threshold, efficiently disintegrates the low-density (0.65 g/cm³) particulate
+    matter without thermal damage to the underlying material.
 
 
-    This process leverages the high laser absorption (0.75 at 1064nm) and low thermal
-    conductivity (0.15 W/m·K) of the ash. The laser energy is efficiently coupled
-    into the contaminants, which are ablated at their specific threshold (0.8 J/cm²),
-    while the underlying material remains undamaged below its higher damage threshold
-    (1.2 J/cm²).
+    The resulting surface reveals the substrate''s original topography with high fidelity.
+    The characteristic porosity of the ash deposit is eliminated, leaving a clean
+    interface. This restoration significantly increases surface reflectivity and eliminates
+    the shadowing effect previously caused by occluded contaminants.
 
 
-    The result is a clean, open-pore structure with minimal residual particulate matter.
-    The surface chemistry is stabilized, eliminating reactive sites and restoring
-    the material''s original mineral composition and visual homogeneity for subsequent
-    processing or coating.'
+    The cleaning mechanism leverages the material''s high optical absorption and low
+    thermal conductivity (0.15 W/m·K), ensuring energy is confined to the contaminant
+    layer. This precise removal prevents substrate heating beyond its thermal destruction
+    point, preserving its structural and surface integrity.'
   description: Microscopic analysis of ash surface before and after laser cleaning
     treatment
   alt: Microscopic view of ash surface showing laser cleaning effects

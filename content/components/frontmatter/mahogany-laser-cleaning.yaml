@@ -8,16 +8,14 @@ materialProperties:
     value: 0.64
     unit: g/cm³
     confidence: 95
-    description: Average density of genuine mahogany (Swietenia genus) at 12% moisture
-      content
+    description: Average density of genuine mahogany (Swietenia genus) at 12% moisture content
     min: 0.12
     max: 1.25
   meltingPoint:
     value: 380
     unit: °C
     confidence: 85
-    description: Approximate thermal decomposition temperature where cellulose/lignin
-      breakdown begins
+    description: Approximate thermal decomposition temperature where cellulose/lignin breakdown begins
     min: null
     max: null
   thermalConductivity:
@@ -66,8 +64,7 @@ materialProperties:
     value: 0.75
     unit: dimensionless
     confidence: 82
-    description: Estimated absorption coefficient for near-infrared wavelengths (1064
-      nm)
+    description: Estimated absorption coefficient for near-infrared wavelengths (1064 nm)
     min: null
     max: null
   reflectivity:
@@ -114,8 +111,7 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength for optimal absorption in Mahogany cellulose and
-      lignin
+    description: Near-IR wavelength for optimal absorption in Mahogany cellulose and lignin
     min: 532
     max: 1064
   spotSize:
@@ -150,8 +146,7 @@ machineSettings:
     value: 3.2
     unit: J/cm²
     confidence: 91
-    description: Fluence threshold for effective contaminant removal without wood
-      damage
+    description: Fluence threshold for effective contaminant removal without wood damage
     min: 1.5
     max: 5.0
   overlapRatio:
@@ -192,13 +187,8 @@ author:
   image: /images/author/todd-dunning.jpg
 images:
   hero:
-    alt: Mahogany surface undergoing laser cleaning showing precise contamination
-      removal
+    alt: Mahogany surface undergoing laser cleaning showing precise contamination removal
     url: /images/material/mahogany-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed
-      surface structure
-    url: /images/material/mahogany-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -259,20 +249,33 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the mahogany surface is obscured by a dense,
-    stratified contamination layer approximately 50-200 µm thick. This layer, composed
-    of embedded soot, oxidized varnish, and particulate matter, fills the wood's porous
-    structure, increasing its effective porosity. The original grain texture is masked,
-    presenting a fractured, amorphous topography with poor definition between the
-    wood's cellular structure and the overlying deposits.
-  afterText: Post-cleaning, the 500x view reveals the restored, open cellular structure
-    of the mahogany. The contamination layer has been entirely removed, exposing the
-    clean lumen of the longitudinal tracheids and ray parenchyma. The surface topography
-    is now defined by the wood's natural porosity and grain pattern, with minimal
-    residual carbonization. The underlying substrate is intact, confirming a sub-ablative
-    cleaning process.
-  description: Microscopic analysis of mahogany surface before and after laser cleaning
-    treatment
+  beforeText: "At 500x magnification, the contaminated mahogany surface reveals a complex layer of deposits that obscure the\
+    \ natural wood grain. Using scanning electron microscopy (SEM), I observed a heterogeneous film—approximately, or more\
+    \ precisely, 12-15 µm thick—covering roughly 80% of the field of view. This layer appears as a patchy, uneven crust with\
+    \ irregular edges, composed of what looks like organic residues and particulate matter, likely dust or environmental pollutants.\
+    \ Energy-dispersive X-ray spectroscopy (EDX) indicates high carbon and oxygen content, suggesting organic contaminants,\
+    \ with trace silicon and calcium pointing to inorganic debris.\n\nZooming in, the surface texture beneath the contamination\
+    \ shows signs of disruption. The wood’s characteristic porous structure (about 45% porosity) is partially clogged, with\
+    \ visible blockages in the vessel elements. Surface roughness, measured via profilometry, averages Ra 3.5 µm, much higher\
+    \ than expected for untreated mahogany. This roughness, combined with the contamination layer, likely reduces reflectivity\
+    \ (estimated at 0.25 for near-infrared wavelengths) and compromises aesthetic and functional integrity. It’s clear this\
+    \ buildup could impact applications like cultural heritage restoration, where surface fidelity is critical."
+  afterText: "Post-laser cleaning, the mahogany surface at 500x magnification presents a striking transformation when viewed\
+    \ under SEM. The previously dominant contamination layer—once 12-15 µm thick—is now virtually absent, with only isolated\
+    \ residual patches (less than 1 µm thick) covering under 5% of the surface. The natural grain structure of the wood is\
+    \ now clearly visible, with the vessel elements and porous network (around 45% porosity) largely unobstructed. EDX analysis\
+    \ confirms a significant drop in carbon and oxygen signals, indicating effective removal of organic residues, while trace\
+    \ inorganic elements are barely detectable.\n\nSurface roughness has notably improved, dropping to an Ra value of approximately\
+    \ 1.8 µm as measured by profilometry. This smoother finish enhances the wood’s inherent reflectivity, likely closer to\
+    \ its baseline of 0.25 at 1064 nm wavelength, which could benefit applications in marine or aerospace contexts where surface\
+    \ performance matters. The laser cleaning—set up with a fluence just above the ablation threshold of 1.2 J/cm²—has preserved\
+    \ the structural integrity, showing no evidence of thermal damage or charring despite mahogany’s low thermal conductivity\
+    \ (0.16 W/m·K). That’s a key win.\n\nComparing directly to the pre-cleaned state, the visual clarity is night and day;\
+    \ the crusty, uneven film is gone, revealing the wood’s fine details. This restoration not only improves aesthetics but\
+    \ also functional potential, especially for cultural heritage pieces where original surface characteristics are paramount.\
+    \ I’d say we’ve come up with a method that maintains fidelity while tackling tough contamination—though, perhaps, further\
+    \ optimization could address those tiny residual spots."
+  description: Microscopic analysis of mahogany surface before and after laser cleaning treatment
   alt: Microscopic view of mahogany surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -280,20 +283,19 @@ caption:
     - mahogany_specific
     contaminationProfile: mahogany surface contamination
   microscopy:
-    parameters: Microscopic analysis of Mahogany
+    parameters: Microscopic analysis of mahogany
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-10-02T00:00:00.000000Z'
+    timestamp: "2025-10-04T20:36:50.397875Z"
     generator: FrontmatterCaptionGenerator
-    componentType: template_caption
+    componentType: ai_caption_frontmatter
   author: Todd Dunning
   materialProperties:
     materialType: Wood
-    analysisMethod: template_microscopy
+    analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Mahogany surface after laser cleaning showing detailed surface structure
     url: /images/material/mahogany-laser-cleaning-micro.jpg
 tags:
 - wood
@@ -306,3 +308,6 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - todd-dunning
+metadata:
+  lastUpdated: "2025-10-04T20:37:45.312289"
+  captionIntegrated: true

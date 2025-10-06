@@ -1,6 +1,6 @@
 name: Bamboo
 category: Wood
-subcategory: Bamboo
+subcategory: exotic
 title: Bamboo Laser Cleaning
 description: Laser cleaning parameters for Bamboo
 materialProperties:
@@ -15,7 +15,7 @@ materialProperties:
     value: 280
     unit: °C
     confidence: 85
-    description: Decomposition temperature where cellulose/lignin begin thermal degradation
+    description: Thermal decomposition onset temperature for bamboo cellulose
     min: null
     max: null
   thermalConductivity:
@@ -34,9 +34,9 @@ materialProperties:
     max: 200
   hardness:
     value: 3.2
-    unit: GPa
+    unit: HB
     confidence: 84
-    description: Nanoindentation hardness of bamboo fiber bundles
+    description: Brinell hardness of bamboo outer surface
     min: 20
     max: 5000
   youngsModulus:
@@ -46,12 +46,19 @@ materialProperties:
     description: Elastic modulus in longitudinal direction
     min: 5
     max: 25
-  thermalExpansion:
-    value: 3.5
-    unit: μm/m·°C
-    confidence: 82
-    description: Linear thermal expansion coefficient in longitudinal direction
-    min: 3.0
+  laserAbsorption:
+    value: 32.7
+    unit: '%'
+    confidence: 92
+    description: laserAbsorption from Materials.yaml
+    min: 1
+    max: 50
+  laserReflectivity:
+    value: 42.5
+    unit: '%'
+    confidence: 92
+    description: laserReflectivity from Materials.yaml
+    min: 10
     max: 60
   specificHeat:
     value: 1600
@@ -60,11 +67,39 @@ materialProperties:
     description: Specific heat capacity at room temperature
     min: 800
     max: 2500
+  thermalDestructionPoint:
+    value: 204.0
+    unit: °C
+    confidence: 92
+    description: thermalDestructionPoint from Materials.yaml
+    min: 200
+    max: 500
+  thermalDestructionType:
+    value: 280.0
+    unit: °C
+    confidence: 92
+    description: thermalDestructionType from Materials.yaml
+    min: null
+    max: null
+  thermalDiffusivity:
+    value: 0.17
+    unit: mm²/s
+    confidence: 92
+    description: thermalDiffusivity from Materials.yaml
+    min: 0.0001
+    max: 0.4
+  thermalExpansion:
+    value: 3.2
+    unit: μm/m·°C
+    confidence: 82
+    description: Linear thermal expansion coefficient in longitudinal direction
+    min: 3.0
+    max: 60
   absorptionCoefficient:
     value: 0.85
     unit: dimensionless
     confidence: 86
-    description: Optical absorption coefficient for near-infrared lasers (1064 nm)
+    description: Optical absorption coefficient at 1064 nm wavelength
     min: null
     max: null
   reflectivity:
@@ -75,14 +110,14 @@ materialProperties:
     min: null
     max: null
   ablationThreshold:
-    value: 1.2
+    value: 1.8
     unit: J/cm²
     confidence: 82
-    description: Minimum fluence required for material removal with nanosecond pulses
+    description: Minimum fluence required for material removal at 1064 nm
     min: null
     max: null
   porosity:
-    value: 45
+    value: 35
     unit: '%'
     confidence: 88
     description: Average porosity percentage in bamboo microstructure
@@ -92,14 +127,7 @@ materialProperties:
     value: 8.5
     unit: μm Ra
     confidence: 85
-    description: Natural surface roughness of bamboo culm exterior
-    min: null
-    max: null
-  chemicalStability:
-    value: 65
-    unit: '% mass retention'
-    confidence: 87
-    description: Mass retention after 24h water immersion indicating moisture resistance
+    description: Average surface roughness of untreated bamboo culm
     min: null
     max: null
 applications:
@@ -109,83 +137,83 @@ applications:
 - Electronics Manufacturing
 - Marine Applications
 - Automotive Interiors
-- Renewable Energy
 - Furniture Manufacturing
 - Construction and Architecture
 - Food Processing Equipment
+- Musical Instruments
 machineSettings:
   powerRange:
     value: 90
     unit: W
     confidence: 92
-    description: Optimal average power for bamboo surface cleaning without carbonization
+    description: Optimal average power for bamboo surface cleaning without charring
     min: 70
-    max: 120
+    max: 110
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-infrared wavelength for optimal absorption in bamboo cellulose
-      and lignin
+    description: Near-IR wavelength for optimal absorption in bamboo lignin and contaminants
     min: 532
     max: 1064
   spotSize:
     value: 80
     unit: μm
     confidence: 84
-    description: Beam spot diameter for precise cleaning resolution
+    description: Beam spot diameter for precise cleaning of bamboo surface features
     min: 50
     max: 120
   repetitionRate:
     value: 50
     unit: kHz
     confidence: 87
-    description: Optimal repetition rate for efficient cleaning with thermal management
+    description: High repetition rate for efficient cleaning with minimal thermal
+      damage
     min: 20
     max: 100
   pulseWidth:
-    value: 15
+    value: 12
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for controlled ablation of contaminants
+    description: Nanosecond pulse duration for controlled ablation of surface contaminants
     min: 8
-    max: 25
+    max: 20
   scanSpeed:
     value: 800
     unit: mm/s
     confidence: 86
-    description: Optimal scanning speed for uniform cleaning coverage
+    description: Optimal scanning speed for efficient coverage without excessive overlap
     min: 500
-    max: 1500
+    max: 1200
   energyDensity:
-    value: 3.5
+    value: 2.5
     unit: J/cm²
     confidence: 89
     description: Fluence threshold for effective contaminant removal without substrate
       damage
-    min: 2.0
-    max: 5.0
+    min: 1.5
+    max: 4.0
   overlapRatio:
-    value: 40
+    value: 30
     unit: '%'
     confidence: 83
-    description: Optimal beam overlap for uniform cleaning pattern
-    min: 30
-    max: 60
+    description: Optimal beam overlap for uniform cleaning coverage
+    min: 20
+    max: 40
   passCount:
     value: 2
     unit: passes
-    confidence: 88
-    description: Recommended number of passes for complete contaminant removal
+    confidence: 85
+    description: Number of cleaning passes for complete contaminant removal
     min: 1
-    max: 4
-  dwellTime:
-    value: 120
-    unit: μs
-    confidence: 82
-    description: Effective dwell time per cleaning spot
-    min: 80
-    max: 200
+    max: 3
+  laserType:
+    value: Fiber Laser
+    unit: n/a
+    confidence: 90
+    description: Recommended laser type for bamboo cleaning applications
+    min: null
+    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -269,27 +297,30 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the bamboo surface is obscured by a continuous
-    contamination layer approximately 15-25 µm thick. This layer, composed of embedded
-    soot, fungal hyphae, and particulate matter, fills the natural micro-pores and
-    valleys of the substrate. The underlying fiber structure is largely hidden, with
-    only the peaks of the native 8.5 µm Ra roughness visible through the disorganized,
-    matte-textured coating.
-  afterText: 'Laser cleaning removes the amorphous contamination layer, fully revealing
-    the intricate, anisotropic microstructure of the bamboo. The longitudinal orientation
-    of the vascular bundles and sclerenchyma fibers is now distinctly visible, with
-    their natural hardness of 3.2 GPa contributing to the cleaned surface''s resilience.
-    The process restores the material''s inherent porosity of 45%, evident as a network
-    of open micro-pores no longer clogged with foreign material.
+  beforeText: At 500x magnification, the bamboo surface is obscured by a dense, amorphous
+    contamination layer approximately 15-25 µm thick. This layer, composed of organic
+    residues and embedded particulate, masks the underlying fiber structure. The surface
+    texture is irregular and clogged, with contaminants filling the natural micro-pores
+    of the bamboo, creating a discontinuous film that compromises the substrate's
+    integrity.
+  afterText: 'Laser cleaning removes the contamination layer entirely, revealing the
+    intricate, ordered microstructure of the bamboo culm. The previously obscured
+    longitudinal cellulose fibers and vascular bundles are now distinctly visible,
+    presenting a clean, well-defined topography. The surface roughness is measured
+    at 8.5 µm Ra, consistent with the natural, untreated state of the material.
 
 
-    The surface texture is transformed from a matte, occluded film to the original
-    fibrous topography with a measured roughness of approximately 8.5 µm Ra. This
-    precise ablation, achieved by operating below the 280°C decomposition threshold,
-    selectively removed contaminants while preserving the structural integrity of
-    the cellulose-lignin matrix. The cleaned surface exhibits the bamboo''s intrinsic
-    optical properties, including an absorption coefficient of 0.85, which is critical
-    for applications requiring predictable material behavior.'
+    The process selectively ablates contaminants at their bond interfaces without
+    damaging the primary cell wall structure, which has a thermal destruction threshold
+    of 204°C. This precision is achieved by leveraging the material''s 32.7% laser
+    absorption and an ablation threshold of 1.8 J/cm², ensuring energy delivery vaporizes
+    only the foreign layer.
+
+
+    The resulting surface is characterized by open micro-pores and a clear contrast
+    between the dense fiber bundles and the softer parenchyma tissue. This restoration
+    of the native surface morphology enhances adhesion properties and provides an
+    optimal, contaminant-free substrate for subsequent treatments or analysis.'
   description: Microscopic analysis of bamboo surface before and after laser cleaning
     treatment
   alt: Microscopic view of bamboo surface showing laser cleaning effects

@@ -1,6 +1,6 @@
 name: Onyx
 category: Stone
-subcategory: Onyx
+subcategory: mineral
 title: Onyx Laser Cleaning
 description: Laser cleaning parameters for Onyx
 materialProperties:
@@ -8,97 +8,139 @@ materialProperties:
     value: 2.65
     unit: g/cm³
     confidence: 95
-    description: Typical density of natural onyx (silicon dioxide mineral)
+    description: Average density of natural onyx (silicon dioxide mineral)
     min: 1.5
     max: 3.4
   meltingPoint:
-    value: 1723
+    value: 1700
     unit: °C
-    confidence: 92
-    description: Melting point of silicon dioxide (quartz family)
+    confidence: 90
+    description: Melting point of silicon dioxide-based mineral
     min: null
     max: null
   thermalConductivity:
-    value: 1.4
+    value: 1.38
     unit: W/m·K
     confidence: 88
-    description: Thermal conductivity of chalcedony/silica minerals
+    description: Thermal conductivity at room temperature
     min: 0.2
     max: 8
+  tensileStrength:
+    value: 15.2
+    unit: MPa
+    confidence: 92
+    description: tensileStrength from Materials.yaml
+    min: 2
+    max: 25
   hardness:
-    value: 6.5
+    value: 7.0
     unit: Mohs
-    confidence: 94
-    description: Mohs hardness scale for chalcedony minerals
+    confidence: 95
+    description: Mohs hardness scale (quartz family)
     min: 1
     max: 7
   youngsModulus:
     value: 95
     unit: GPa
     confidence: 82
-    description: Elastic modulus of silica-based minerals
+    description: Elastic modulus of crystalline silica
     min: 10
     max: 100
-  thermalExpansion:
-    value: 7.5
-    unit: ×10⁻⁶/K
-    confidence: 85
-    description: Coefficient of thermal expansion for silica minerals
-    min: 3
-    max: 25
+  laserAbsorption:
+    value: 8.7
+    unit: '%'
+    confidence: 92
+    description: laserAbsorption from Materials.yaml
+    min: 0.1
+    max: 20
+  laserReflectivity:
+    value: 38.2
+    unit: '%'
+    confidence: 92
+    description: laserReflectivity from Materials.yaml
+    min: 5
+    max: 80
   specificHeat:
-    value: 740
+    value: 840
     unit: J/kg·K
     confidence: 87
-    description: Specific heat capacity at room temperature
+    description: Specific heat capacity at constant pressure
     min: 600
     max: 1200
+  thermalDestructionPoint:
+    value: 1073.15
+    unit: K
+    confidence: 92
+    description: thermalDestructionPoint from Materials.yaml
+    min: 600
+    max: 1700
+  thermalDestructionType:
+    value: 2.8
+    unit: MW/m²
+    confidence: 92
+    description: thermalDestructionType from Materials.yaml
+    min: null
+    max: null
+  thermalDiffusivity:
+    value: 1.32
+    unit: mm²/s
+    confidence: 95
+    description: thermalDiffusivity from Materials.yaml
+    min: 0.2
+    max: 2.5
+  thermalExpansion:
+    value: 8.0
+    unit: ×10⁻⁶/K
+    confidence: 85
+    description: Coefficient of thermal expansion
+    min: 3
+    max: 25
   absorptionCoefficient:
     value: 0.85
-    unit: cm⁻¹
-    confidence: 83
-    description: Optical absorption coefficient at 1064 nm wavelength
+    unit: dimensionless
+    confidence: 85
+    description: Optical absorption coefficient for common laser wavelengths
     min: null
     max: null
   reflectivity:
     value: 0.12
     unit: dimensionless
-    confidence: 85
-    description: Surface reflectivity at common laser wavelengths
+    confidence: 83
+    description: Surface reflectivity at 1064 nm wavelength
     min: null
     max: null
   ablationThreshold:
-    value: 3.2
+    value: 2.5
     unit: J/cm²
     confidence: 80
-    description: Minimum fluence required for material removal at 1064 nm
+    description: Minimum fluence for material removal at 1064 nm
     min: null
     max: null
   laserDamageThreshold:
-    value: 15
+    value: 15.0
     unit: J/cm²
     confidence: 82
-    description: Damage threshold for structural integrity compromise
+    description: Maximum fluence before catastrophic damage
     min: null
     max: null
   chemicalStability:
-    value: 9.2
-    unit: pH resistance scale
+    value: 95
+    unit: '% resistance'
     confidence: 90
-    description: Resistance to chemical attack (1-10 scale, 10=highest)
+    description: Resistance to common chemical agents
     min: null
     max: null
 applications:
 - Cultural Heritage
-- Architecture and Interior Design
-- Jewelry and Gemstone Manufacturing
-- Museum and Art Conservation
-- Luxury Automotive
-- Electronics Manufacturing
-- Aerospace Components
-- Medical Device Manufacturing
-- High-End Watchmaking
-- Art Gallery and Exhibition
+- Architecture and Construction
+- Luxury Goods Manufacturing
+- Interior Design
+- Art and Sculpture
+- Religious Artifacts
+- Museum Conservation
+- Monument Restoration
+- Lapidary and Gemstone Processing
+- Historical Furniture Restoration
 machineSettings:
   powerRange:
     value: 90
@@ -111,22 +153,23 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength optimized for Onyx absorption and minimal scattering
-    min: 1030
-    max: 1070
+    description: Near-IR wavelength optimized for Onyx absorption and minimal subsurface
+      damage
+    min: 532
+    max: 10640
   spotSize:
     value: 80
     unit: μm
     confidence: 84
     description: Beam spot diameter for precise cleaning resolution
     min: 50
-    max: 120
+    max: 150
   repetitionRate:
     value: 50
     unit: kHz
     confidence: 87
     description: Optimal repetition rate for efficient cleaning with thermal management
-    min: 30
+    min: 20
     max: 100
   pulseWidth:
     value: 12
@@ -142,28 +185,36 @@ machineSettings:
     description: Optimal scanning speed for uniform cleaning coverage
     min: 300
     max: 800
-  fluenceThreshold:
-    value: 2.5
+  energyDensity:
+    value: 3.5
     unit: J/cm²
     confidence: 89
     description: Fluence threshold for effective contaminant removal without substrate
       damage
-    min: 1.8
-    max: 3.5
+    min: 2.0
+    max: 5.0
   overlapRatio:
-    value: 50
+    value: 40
     unit: '%'
     confidence: 83
-    description: Optimal beam overlap for uniform cleaning pattern
-    min: 40
-    max: 70
+    description: Optimal beam overlap for uniform cleaning without excessive thermal
+      buildup
+    min: 30
+    max: 60
   passCount:
-    value: 2
+    value: 3
     unit: passes
-    confidence: 88
-    description: Recommended number of passes for complete cleaning
-    min: 1
-    max: 4
+    confidence: 85
+    description: Recommended number of passes for complete contaminant removal
+    min: 2
+    max: 5
+  dwellTime:
+    value: 120
+    unit: μs
+    confidence: 82
+    description: Effective dwell time per spot for contaminant ablation
+    min: 80
+    max: 200
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -246,18 +297,21 @@ outcomeMetrics:
   units: []
 caption:
   beforeText: At 500x magnification, the onyx surface is obscured by a complex contamination
-    layer, typically 5-20 µm thick. This layer consists of particulate matter, soot,
-    and organic films that have bonded to the stone's micro-texture. The contaminants
-    fill the natural micro-fissures and pores of the onyx, creating an uneven, matte
-    topography that masks the stone's inherent translucency and crystalline structure.
-    The surface appears occluded, with a loss of subsurface light scattering due to
-    the scattering and absorption of light by the foreign deposits.
-  afterText: Laser cleaning has restored the pristine onyx surface. The contamination
-    layer is entirely removed, revealing the intact, polycrystalline microstructure
-    of the stone. The surface now exhibits its natural micro-relief and translucency,
-    with no evidence of thermal damage or ablation to the underlying substrate. The
-    result is a surface that allows for unimpeded light transmission and characteristic
-    depth of appearance.
+    layer. A discontinuous film, measuring 5-15 micrometers thick, adheres to the
+    substrate. This layer consists of particulate matter, including carbonaceous soot
+    and mineral dust, embedded within a matrix of hygroscopic salts and organic residues.
+    The contaminants fill the natural micro-fissures and pores of the stone, creating
+    a topographically uneven surface that masks the underlying crystalline structure.
+    This layer significantly increases light scattering, reducing the stone's inherent
+    translucency and creating a dull, matte appearance.
+  afterText: Following laser cleaning, microscopic analysis reveals the complete restoration
+    of the pristine onyx substrate. The contamination layer has been entirely removed
+    via selective laser ablation, exposing the intact, polycrystalline surface. The
+    characteristic interlocking quartz crystals, with a hardness of 7.0 Mohs, are
+    now clearly visible, displaying sharp boundaries and minimal subsurface damage.
+    The removal of light-scattering contaminants restores the stone's optical clarity
+    and natural translucency at a microscopic scale, resulting in a surface that is
+    both chemically and physically stable.
   description: Microscopic analysis of onyx surface before and after laser cleaning
     treatment
   alt: Microscopic view of onyx surface showing laser cleaning effects

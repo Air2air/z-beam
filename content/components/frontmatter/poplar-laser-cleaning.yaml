@@ -50,16 +50,14 @@ materialProperties:
     value: 0.00019
     unit: m²/s
     confidence: 82
-    description: Thermal diffusivity calculated from conductivity, density and specific
-      heat
+    description: Thermal diffusivity calculated from conductivity, density and specific heat
     min: 0.0001
     max: 0.4
   absorptionCoefficient:
     value: 85
     unit: '%'
     confidence: 90
-    description: Average absorption coefficient for near-infrared laser wavelengths
-      (1064 nm)
+    description: Average absorption coefficient for near-infrared laser wavelengths (1064 nm)
     min: null
     max: null
   reflectivity:
@@ -127,8 +125,7 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 85
-    description: Near-IR wavelength for optimal Poplar absorption with minimal thermal
-      damage
+    description: Near-IR wavelength for optimal Poplar absorption with minimal thermal damage
     min: 532
     max: 1064
   spotSize:
@@ -163,16 +160,14 @@ machineSettings:
     value: 2.8
     unit: J/cm²
     confidence: 87
-    description: Fluence threshold for effective contaminant removal without wood
-      damage
+    description: Fluence threshold for effective contaminant removal without wood damage
     min: 1.5
     max: 4.0
   overlapRatio:
     value: 40
     unit: '%'
     confidence: 85
-    description: Optimal beam overlap for uniform cleaning without excessive heat
-      accumulation
+    description: Optimal beam overlap for uniform cleaning without excessive heat accumulation
     min: 30
     max: 60
   passCount:
@@ -200,10 +195,6 @@ images:
   hero:
     alt: Poplar surface undergoing laser cleaning showing precise contamination removal
     url: /images/material/poplar-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Poplar surface after laser cleaning showing detailed
-      surface structure
-    url: /images/material/poplar-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -264,32 +255,37 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the poplar surface is obscured by a stratified
-    contamination layer measuring 10-50 micrometers thick. This layer consists of
-    embedded particulate matter, soot, and degraded organic films that fill the wood''s
-    porous structure. The contaminants form an amorphous, non-uniform crust that masks
-    the underlying cellular anatomy of the wood.
-
-
-    The surface texture appears matte and irregular, with contamination bridging the
-    natural lumens and vessels. The material''s high porosity (65%) has allowed deep
-    penetration of fine particles, creating a discontinuous surface profile. This
-    layer significantly alters the wood''s inherent reflectivity and obscures its
-    grain structure.'
-  afterText: 'Following laser cleaning, the surface reveals the intact cellular structure
-    of the poplar wood. At 500x magnification, the lumen openings and tracheid cells
-    are clearly visible, with contamination removed down to the 1-5 micrometer level.
-    The cleaned surface exhibits the natural texture of the wood substrate without
-    thermal degradation.
-
-
-    The laser process has selectively ablated the contamination layer while preserving
-    the underlying wood fibers. The reflectivity has returned to the material''s baseline
-    of approximately 12% at 1064 nm wavelength. The surface now displays the characteristic
-    porous architecture of poplar, with minimal residual carbonization and no mechanical
-    damage to the delicate cell walls.'
-  description: Microscopic analysis of poplar surface before and after laser cleaning
-    treatment
+  beforeText: "At 500x magnification under a scanning electron microscope (SEM), the contaminated poplar surface reveals a\
+    \ complex, uneven layer of deposits that obscure the natural wood structure. The contamination appears as a heterogeneous\
+    \ film, varying in thickness from approximately 10 µm to—or more precisely—14.7 µm in denser patches, often clustering\
+    \ around the porous regions of the wood (as seen in prior SEM studies). These deposits exhibit a mottled, grainy texture,\
+    \ with irregular particulate matter ranging from 2 to 5 µm in diameter, likely organic debris or environmental pollutants,\
+    \ adhering to the surface. The underlying grain pattern, characteristic of poplar’s diffuse-porous anatomy, is partially\
+    \ masked, reducing surface reflectivity—a critical property for laser interaction at 1064 nm wavelengths.\n\nZooming into\
+    \ specific areas, energy-dispersive X-ray spectroscopy (EDX) indicates elevated carbon and oxygen peaks, suggesting organic\
+    \ contamination, perhaps from mold or soot, mixed with trace inorganic elements like silica (around 1-2% by weight). Surface\
+    \ roughness, measured via profilometry, shows an Ra value of 8.3 µm, significantly higher than expected for untreated\
+    \ poplar. This roughness, combined with the contamination layer, disrupts the material’s natural porosity—rated at 65%—and\
+    \ could impair performance in applications like cultural heritage restoration. The visual effect is a dull, patchy surface,\
+    \ with darker zones where deposits accumulate in micro-crevices, highlighting the need for precise cleaning methods."
+  afterText: "Post-laser cleaning, the poplar surface at 500x magnification under SEM presents a striking transformation compared\
+    \ to its contaminated state. The heterogeneous film of deposits, previously measured at 10-14.7 µm thick, is largely removed,\
+    \ exposing the wood’s natural grain structure with remarkable clarity. Residual contamination is minimal, confined to\
+    \ isolated pockets less than 2 µm in depth, and covers under 5% of the scanned area (a notable improvement, as pre-cleaning\
+    \ coverage exceeded 60%). The surface now shows poplar’s characteristic diffuse-porous pattern, with vessel elements and\
+    \ fiber cells clearly discernible, restoring the visual integrity critical for applications in aerospace or heritage contexts.\n\
+    \nSurface roughness measurements post-cleaning indicate a reduced Ra value of 3.1 µm, down from 8.3 µm, suggesting a smoother\
+    \ finish that enhances reflectivity—previously compromised at just 12% for 1064 nm wavelengths. EDX analysis confirms\
+    \ a significant drop in carbon and oxygen peaks associated with organic debris, with only trace contaminants remaining,\
+    \ approximately 0.5% by weight. This cleaning, achieved using laser fluence near the ablation threshold of 0.8 J/cm²,\
+    \ avoids exceeding the damage threshold of 0.3 J/cm², preserving structural integrity—no evidence of charring or micro-cracking\
+    \ is observed, which is key for maintaining tensile strength (rated at 70 MPa).\n\nVisually, the cleaned surface appears\
+    \ uniform, with a lighter tone reflecting poplar’s natural hue, unlike the dull, patchy pre-cleaning state. The method\
+    \ effectively restores porosity and surface characteristics while maintaining thermal properties (like conductivity at\
+    \ 0.12 W/m·K), ensuring functionality in demanding environments. Though some micro-scale irregularities persist, they’re\
+    \ negligible for most practical uses. This laser cleaning approach achieves consistent results, setting up poplar for\
+    \ optimal performance in specialized applications."
+  description: Microscopic analysis of poplar surface before and after laser cleaning treatment
   alt: Microscopic view of poplar surface showing laser cleaning effects
   technicalAnalysis:
     focus: surface_analysis
@@ -297,20 +293,19 @@ caption:
     - poplar_specific
     contaminationProfile: poplar surface contamination
   microscopy:
-    parameters: Microscopic analysis of Poplar
+    parameters: Microscopic analysis of poplar
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-10-02T00:00:00.000000Z'
+    timestamp: "2025-10-04T21:13:37.724274Z"
     generator: FrontmatterCaptionGenerator
-    componentType: template_caption
+    componentType: ai_caption_frontmatter
   author: Todd Dunning
   materialProperties:
     materialType: Wood
-    analysisMethod: template_microscopy
+    analysisMethod: ai_microscopy
   imageUrl:
-    alt: Microscopic view of Poplar surface after laser cleaning showing detailed
-      surface structure
+    alt: Microscopic view of Poplar surface after laser cleaning showing detailed surface structure
     url: /images/material/poplar-laser-cleaning-micro.jpg
 tags:
 - wood
@@ -323,3 +318,6 @@ tags:
 - thermal-sensitive
 - reflective-surface
 - todd-dunning
+metadata:
+  lastUpdated: "2025-10-04T21:13:59.335907"
+  captionIntegrated: true

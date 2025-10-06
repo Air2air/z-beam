@@ -1,6 +1,6 @@
 name: Calcite
 category: Stone
-subcategory: Calcite
+subcategory: mineral
 title: Calcite Laser Cleaning
 description: Laser cleaning parameters for Calcite
 materialProperties:
@@ -15,7 +15,7 @@ materialProperties:
     value: 1339
     unit: °C
     confidence: 95
-    description: Melting point of calcite with decomposition to CaO and CO₂
+    description: Melting point of calcite (decomposes to CaO and CO₂)
     min: null
     max: null
   thermalConductivity:
@@ -26,47 +26,75 @@ materialProperties:
     min: 0.2
     max: 8
   tensileStrength:
-    value: 10.0
+    value: 6.0
     unit: MPa
-    confidence: 82
-    description: Approximate tensile strength along cleavage planes
+    confidence: 95
+    description: tensileStrength from Materials.yaml
     min: 2
     max: 25
   hardness:
-    value: 3.0
+    value: 3
     unit: Mohs
     confidence: 98
     description: Mohs hardness scale value
     min: 1
     max: 7
   youngsModulus:
-    value: 74.0
+    value: 74
     unit: GPa
     confidence: 90
     description: Young's modulus for single crystal calcite
     min: 10
     max: 100
-  thermalExpansion:
-    value: 25.0
-    unit: ×10⁻⁶/°C
-    confidence: 88
-    description: Coefficient of thermal expansion parallel to c-axis
-    min: 3
-    max: 25
+  laserAbsorption:
+    value: 8.7
+    unit: '%'
+    confidence: 92
+    description: laserAbsorption from Materials.yaml
+    min: 0.1
+    max: 20
+  laserReflectivity:
+    value: 38.2
+    unit: '%'
+    confidence: 92
+    description: laserReflectivity from Materials.yaml
+    min: 5
+    max: 80
+  specificHeat:
+    value: 0.82
+    unit: J/g·K
+    confidence: 92
+    description: Specific heat capacity at 25°C
+    min: 600
+    max: 1200
+  thermalDestructionPoint:
+    value: 898.0
+    unit: °C
+    confidence: 95
+    description: thermalDestructionPoint from Materials.yaml
+    min: 600
+    max: 1700
+  thermalDestructionType:
+    value: 1.8
+    unit: MW/m²
+    confidence: 92
+    description: thermalDestructionType from Materials.yaml
+    min: null
+    max: null
   thermalDiffusivity:
-    value: 1.42
+    value: 1.45
     unit: mm²/s
     confidence: 85
     description: Thermal diffusivity at room temperature
     min: 0.2
     max: 2.5
-  specificHeat:
-    value: 0.82
-    unit: J/g·K
-    confidence: 92
-    description: Specific heat capacity at constant pressure
-    min: 600
-    max: 1200
+  thermalExpansion:
+    value: 25
+    unit: ×10⁻⁶/°C
+    confidence: 88
+    description: Coefficient of thermal expansion parallel to c-axis
+    min: 3
+    max: 25
   absorptionCoefficient:
     value: 0.15
     unit: cm⁻¹
@@ -75,7 +103,7 @@ materialProperties:
     min: null
     max: null
   reflectivity:
-    value: 0.06
+    value: 0.04
     unit: dimensionless
     confidence: 88
     description: Reflectivity at normal incidence for 1064 nm laser
@@ -96,10 +124,10 @@ materialProperties:
     min: null
     max: null
   laserDamageThreshold:
-    value: 4.2
+    value: 3.2
     unit: J/cm²
     confidence: 80
-    description: Damage threshold for 1064 nm laser radiation
+    description: Damage threshold for pulsed laser irradiation
     min: null
     max: null
   chemicalStability:
@@ -124,23 +152,30 @@ materialProperties:
     min: null
     max: null
   flexuralStrength:
-    value: 15.0
+    value: 15
     unit: MPa
-    confidence: 80
-    description: Flexural strength for calcite specimens
+    confidence: 82
+    description: Flexural strength of calcite specimens
+    min: null
+    max: null
+  thermalShockResistance:
+    value: Low
+    unit: qualitative
+    confidence: 90
+    description: Poor resistance to rapid temperature changes due to anisotropy
     min: null
     max: null
 applications:
 - Cultural Heritage
-- Geological Research
+- Geology and Mining
 - Electronics Manufacturing
-- Aerospace
-- Medical Devices
-- Marine Archaeology
-- Energy Sector
+- Construction and Architecture
+- Medical Device Manufacturing
+- Optics and Photonics
 - Museum Conservation
-- Optical Manufacturing
-- Construction Restoration
+- Research and Academia
+- Jewelry and Lapidary
+- Energy Sector
 machineSettings:
   powerRange:
     value: 25
@@ -188,19 +223,18 @@ machineSettings:
     min: 200
     max: 1000
   fluenceThreshold:
-    value: 2.5
+    value: 1.2
     unit: J/cm²
     confidence: 91
-    description: Fluence threshold for effective contaminant removal without damaging
-      Calcite substrate
-    min: 1.5
-    max: 4.0
+    description: Minimum fluence required for effective contaminant removal from Calcite
+    min: 0.8
+    max: 2.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 84
-    description: Optimal beam overlap for uniform cleaning without excessive thermal
-      accumulation
+    description: Optimal beam overlap for uniform cleaning without excessive energy
+      deposition
     min: 30
     max: 70
   passCount:
@@ -291,23 +325,20 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the calcite surface is obscured by a complex
-    contamination layer. A discontinuous, amorphous film, measuring 5-15 µm thick,
-    adheres to the crystalline substrate. This layer exhibits a cracked, mud-cake
-    morphology, with embedded particulate matter creating a topographically rough
-    and irregular surface. The underlying calcite's characteristic rhombohedral cleavage
-    planes and vitreous luster are entirely masked. The contaminant's dark, opaque
-    nature significantly reduces light transmission and obscures the material's intrinsic
-    optical properties.
-  afterText: Laser cleaning has restored the surface to its intrinsic state, revealing
-    the fundamental microstructure of calcite. The amorphous contamination layer has
-    been completely removed, exposing the pristine, planar faces of rhombohedral cleavage
-    planes. At 500x, the surface now displays a uniform, vitreous texture with sharp,
-    well-defined geometric boundaries between crystal facets. The removal of the opaque
-    film restores high light transmissivity, allowing the crystal's birefringence
-    to be clearly observed. The process has achieved selective ablation of the contaminant,
-    with no observable thermal damage, micro-fracturing, or alteration to the calcite's
-    crystal lattice, preserving the material's original mechanical and optical integrity.
+  beforeText: At 500x magnification, the calcite surface is obscured by a discontinuous
+    contamination layer, measuring 5-15 µm in thickness. This layer exhibits a complex
+    morphology of particulate matter, soot agglomerates, and amorphous organic deposits,
+    which mask the underlying crystal structure. The contaminants have infiltrated
+    surface micro-fractures and adhere to cleavage planes, creating a mottled, high-relief
+    texture that significantly increases light scattering and reduces surface clarity.
+    The original rhombohedral crystal faces are no longer discernible.
+  afterText: Laser cleaning has restored the intrinsic calcite surface, revealing
+    the distinct rhombohedral cleavage and sharp crystal edges at 500x magnification.
+    The contamination layer has been completely removed, eliminating light-scattering
+    particulates and exposing the original, planar microstructure. The surface now
+    exhibits low topographic relief and high reflectivity, with sub-micron laser ablation
+    tracks visible as fine, parallel striations that do not compromise the structural
+    integrity of the substrate.
   description: Microscopic analysis of calcite surface before and after laser cleaning
     treatment
   alt: Microscopic view of calcite surface showing laser cleaning effects

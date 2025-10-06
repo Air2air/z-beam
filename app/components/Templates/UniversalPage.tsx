@@ -132,7 +132,7 @@ export const pageConfigs = {
     description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
     useContentAPI: false,
     markdownPath: 'app/pages/contact.md',
-    showHero: false, // Hide Hero for contact page
+    showHero: true, // Show Hero for contact page
   },
   services: {
     slug: 'services',
@@ -142,7 +142,7 @@ export const pageConfigs = {
     markdownPath: 'app/pages/services.md',
     dynamic: 'force-static' as const,
     revalidate: false,
-    showHero: false, // Hide Hero for services page
+    showHero: true, // Show Hero for services page
   },
   rental: {
     slug: 'rental',

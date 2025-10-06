@@ -1,6 +1,6 @@
 name: Copper
 category: Metal
-subcategory: Copper
+subcategory: non_ferrous
 title: Copper Laser Cleaning
 description: Laser cleaning parameters for Copper
 materialProperties:
@@ -42,12 +42,12 @@ materialProperties:
   youngsModulus:
     value: 110
     unit: GPa
-    confidence: 92
+    confidence: 95
     description: Young's modulus of elasticity
     min: 5
     max: 411
   laserAbsorption:
-    value: 2.3
+    value: 3.5
     unit: '%'
     confidence: 95
     description: laserAbsorption from Materials.yaml
@@ -113,20 +113,19 @@ materialProperties:
     value: 0.8
     unit: J/cm²
     confidence: 82
-    description: Approximate laser ablation threshold for nanosecond pulses
+    description: Approximate ablation threshold for nanosecond pulses at 1064 nm
     min: null
     max: null
   oxidationResistance:
-    value: Moderate
-    unit: qualitative
+    value: 200
+    unit: °C
     confidence: 88
-    description: Forms protective oxide layer but susceptible to oxidation at elevated
-      temperatures
+    description: Temperature limit for significant oxidation in air
     min: null
     max: null
   crystallineStructure:
     value: FCC
-    unit: crystal system
+    unit: none
     confidence: 98
     description: Face-centered cubic crystal structure
     min: null
@@ -152,7 +151,7 @@ machineSettings:
     value: 100
     unit: W
     confidence: 92
-    description: Optimal average power for Copper oxide removal without substrate
+    description: Optimal average power range for Copper oxide removal without substrate
       damage
     min: 80
     max: 120
@@ -160,59 +159,66 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength with good Copper absorption for surface cleaning
+    description: Optimal wavelength considering Copper's high reflectivity and oxide
+      absorption
     min: 532
     max: 1064
   spotSize:
     value: 50
     unit: μm
     confidence: 84
-    description: Optimal spot size for precision cleaning of Copper surfaces
+    description: Optimal beam diameter for precision cleaning of Copper surfaces
     min: 30
     max: 100
   repetitionRate:
     value: 100
     unit: kHz
     confidence: 87
-    description: High repetition rate for efficient surface coverage
+    description: Optimal repetition rate for efficient cleaning with thermal management
     min: 50
     max: 200
+  fluenceThreshold:
+    value: 0.8
+    unit: J/cm²
+    confidence: 88
+    description: Minimum fluence required for effective Copper oxide ablation
+    min: 0.5
+    max: 1.2
   pulseWidth:
     value: 10
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for effective oxide layer removal
+    description: Optimal pulse duration for thermal confinement in Copper
     min: 5
     max: 20
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 86
-    description: Scan speed for efficient area coverage while maintaining cleaning
-      quality
+    description: Optimal scanning speed for uniform oxide removal
     min: 200
     max: 1000
-  fluenceThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 90
-    description: Fluence required for effective Copper oxide removal
-    min: 1.5
-    max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal overlap between adjacent scan lines for uniform cleaning
+    description: Optimal pulse overlap for complete coverage without excessive heating
     min: 40
     max: 70
   passCount:
     value: 3
     unit: passes
     confidence: 85
-    description: Number of passes for complete oxide layer removal
+    description: Recommended number of passes for thorough oxide removal
     min: 1
     max: 5
+  laserType:
+    value: Nd:YAG
+    unit: n/a
+    confidence: 90
+    description: Recommended laser type for Copper cleaning applications
+    min: null
+    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -294,23 +300,18 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the copper surface is obscured by a complex contamination
-    layer. A discontinuous oxide scale, primarily cuprous oxide (Cu₂O), appears as
-    dark, crystalline patches ranging from 2 to 15 micrometers in thickness. This
-    brittle, non-uniform layer is overlaid with particulate matter and carbonaceous
-    deposits that fill the original machining grooves and grain boundaries. The surface
-    texture is highly irregular, with contamination forming peaks and valleys that
-    scatter light and mask the underlying metal's microstructure. The native copper
-    substrate is largely invisible, its high reflectivity and characteristic color
-    neutralized by this optically thick, adherent film of corrosion and grime.
-  afterText: Laser cleaning restores the surface to its intrinsic state, revealing
-    the pristine copper microstructure at 500x magnification. The tenacious oxide
-    and particulate layers have been completely ablated, exposing the original grain
-    boundaries and machining marks with high fidelity. The surface now exhibits a
-    uniform, clean metallic texture with a significant restoration of its characteristic
-    reflectivity. The process successfully removed the contamination without inducing
-    measurable surface melting or ablation of the underlying copper substrate, preserving
-    the material's dimensional integrity and functional properties.
+  beforeText: At 500x magnification, the copper surface is obscured by a non-uniform
+    contamination layer, typically 5-20 µm thick. This layer consists of porous, amorphous
+    oxides (Cu₂O, CuO) and adsorbed atmospheric carbon, creating a matte, topographically
+    complex texture. The underlying metal's crystalline FCC structure is entirely
+    hidden by this insulating, low-reflectivity crust, which exhibits micro-cracking
+    and granular particulate matter.
+  afterText: Laser cleaning reveals the pristine, polycrystalline FCC structure of
+    the base copper. The surface now exhibits a uniform, micro-rough texture with
+    clearly defined grain boundaries, free of oxide layers and particulate matter.
+    This restoration results in a significant increase in surface reflectivity, approaching
+    the material's intrinsic 98% value, and exposes the pure, thermally conductive
+    metal substrate.
   description: Microscopic analysis of copper surface before and after laser cleaning
     treatment
   alt: Microscopic view of copper surface showing laser cleaning effects
