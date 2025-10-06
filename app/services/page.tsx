@@ -1,5 +1,7 @@
 // app/services/page.tsx
-import { UniversalPage, pageConfigs } from "../components/Templates/UniversalPage";
+import { Layout } from "../components/Layout/Layout";
+import { loadPageData } from "../utils/contentAPI";
+import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from "@/app/utils/constants";
 
 export const dynamic = 'force-static';
@@ -11,5 +13,14 @@ export const metadata = {
 };
 
 export default async function ServicesPage() {
-  return <UniversalPage {...pageConfigs.services} />;
+  const { metadata: pageMetadata, components } = await loadPageData('services');
+  
+  return (
+    <Layout
+      components={components}
+      metadata={pageMetadata as unknown as ArticleMetadata}
+      slug="services"
+      showHero={true}
+    />
+  );
 }
