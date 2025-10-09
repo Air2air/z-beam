@@ -1,13 +1,10 @@
 // app/search/page.tsx
-import SearchClient from "./search-client";
+import SearchWrapper from "./search-wrapper";
 import { loadAllArticles } from "../utils/contentAPI";
 import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
-import { CONTAINER_STYLES } from "../utils/containerStyles";
 import { Suspense } from "react";
-
-import { Layout } from "../components/Layout/Layout";
 
 export const dynamic = 'force-dynamic';
 
@@ -125,19 +122,9 @@ export default async function SearchPage() {
       })
     );
     
-    return (
-      <Layout title="Search">
-        <SearchClient initialArticles={articlesWithBadgeData as any} />
-      </Layout>
-    );
+    return <SearchWrapper initialArticles={articlesWithBadgeData as any} />;
   } catch (error) {
     console.error("Error loading search page:", error);
-    return (
-      <Layout title="Search">
-        <div className="bg-red-100 p-4 rounded text-red-700">
-          Failed to load content. Please try again later.
-        </div>
-      </Layout>
-    );
+    return <SearchWrapper initialArticles={[]} />;
   }
 }

@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { CardGrid } from "../components/CardGrid/CardGrid";
 import { Article, MaterialType, SearchClientProps } from "@/types";
 import { extractSafeValue, safeIncludes } from "../utils/client-safe";
-import { Title } from "../components/Title";
 import { capitalizeWords } from "../utils/formatting";
 
 // Helper function to safely cast material types
@@ -294,17 +293,32 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     );
   });
   
+  // Build subtitle based on search parameters
+  const getSubtitle = () => {
+    if (propertyName && propertyValue) {
+      return `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}${propertyUnit ? ' ' + propertyUnit : ''}`;
+    }
+    if (query) {
+      return `Search results for "${query}"`;
+    }
+    return 'Browse all available materials and articles';
+  };
+  
+  // Expose result count to parent via custom event
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const event = new CustomEvent('searchResultsUpdated', { 
+        detail: { 
+          count: filteredArticles.length,
+          subtitle: getSubtitle()
+        } 
+      });
+      window.dispatchEvent(event);
+    }
+  }, [filteredArticles.length, query, propertyName, propertyValue, propertyUnit]);
+  
   return (
-    <div>
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <Title level="section" title={
-          propertyName && propertyValue ? 
-            `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}${propertyUnit ? ' ' + propertyUnit : ''}` :
-            query ? `Materials with "${query}"` : 'All Articles'
-        } />
-        <p className="text-gray-400 text-sm whitespace-nowrap">{filteredArticles.length} results found</p>
-      </div>
-      
+    <>
       {filteredArticles.length === 0 ? (
         <div className="p-6 bg-gray-100 rounded-lg">
           <p className="text-gray-700">No articles found matching your criteria.</p>
@@ -334,6 +348,6 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
           variant="default"
         />
       )}
-    </div>
+    </>
   );
 }
