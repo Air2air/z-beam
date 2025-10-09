@@ -49,7 +49,7 @@ export function Callout({
   const variantClasses = {
     default: {
       container: currentTheme.container,
-      outer: 'p-4 md:p-6 my-6 shadow-lg rounded-lg',
+      outer: 'p-4 md:p-6 my-6 rounded-lg',
       inner: '',
     },
     inline: {

@@ -55,7 +55,7 @@ export function WorkflowSection({
           return (
             <div 
               key={index} 
-              className={`workflow-card p-4 md:p-6 ${currentTheme.container} rounded-lg shadow-lg`}
+              className={`workflow-card p-4 md:p-6 ${currentTheme.container} rounded-lg`}
             >
               {/* Header - Spans full width across top */}
               <div className="flex items-center gap-4 mb-6">
