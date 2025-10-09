@@ -106,10 +106,12 @@ export async function StaticPage({
       {/* Unified content cards - renders all callouts, workflow items, and benefits */}
       {contentCardsToRender.length > 0 && <ContentSection items={contentCardsToRender} />}
       
-      {/* Main markdown content */}
-      <div className="prose prose-lg max-w-none dark:prose-invert" 
-           dangerouslySetInnerHTML={{ __html: htmlContent }} 
-      />
+      {/* Main markdown content - optional */}
+      {htmlContent && (
+        <div className="prose prose-lg max-w-none dark:prose-invert" 
+             dangerouslySetInnerHTML={{ __html: htmlContent }} 
+        />
+      )}
       
       {/* Other structured content sections - automatically render based on YAML data */}
       {/* Benefits are now handled via contentCards, but keep for backward compatibility */}
