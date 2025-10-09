@@ -1,118 +1,121 @@
 // app/page.tsx - Static optimized home page
 
 import { CardGridSSR } from "./components/CardGrid";
-import { Hero } from "./components/Hero/Hero";
 import { Layout } from "./components/Layout/Layout";
-import { getArticle, loadComponentData } from "./utils/contentAPI"; // Updated to use contentAPI
+import { loadComponentData } from "./utils/contentAPI";
 import { createMetadata } from "./utils/metadata";
-import { getAllArticleSlugs } from "./utils/contentAPI";
-import { featuredSections } from "./data/featuredSections";
-import { featuredMaterialCategories } from "./data/featuredMaterialCategories";
 import { CONTAINER_STYLES } from "./utils/containerStyles";
 import { SITE_CONFIG } from "./utils/constants";
+import fs from 'fs/promises';
+import path from 'path';
+import yaml from 'js-yaml';
+import type { ArticleMetadata } from '@/types';
 
 // Force static generation for home page
 export const dynamic = 'force-static';
 export const revalidate = false; // Never revalidate in production
 
-// Remove this static declaration
-// export const metadata: Metadata = {
-//   title: "Home | Z-Beam",
-//   description:
-//     "Welcome to Z-Beam's portfolio showcasing laser cleaning solutions for industrial applications.",
-// };
-
-// Keep only the dynamic generateMetadata function
+// Generate metadata from home.yaml
 export async function generateMetadata() {
-  // Try to get the home-specific metatags component
-  const homeMetaTags = await loadComponentData('metatags', 'home');
-  // Also get the home article for any additional metadata
-  const homeArticle = await getArticle("home");
+  try {
+    // Load home.yaml configuration
+    const yamlPath = path.join(process.cwd(), 'content/pages', 'home.yaml');
+    const yamlContent = await fs.readFile(yamlPath, 'utf8');
+    const homeConfig = yaml.load(yamlContent) as ArticleMetadata;
 
-  return createMetadata({
-    title: (homeMetaTags?.config?.title as string) || SITE_CONFIG.name,
-    description: (homeMetaTags?.config?.description as string) || 
-      SITE_CONFIG.description,
-    keywords: Array.isArray(homeMetaTags?.config?.keywords) 
-      ? homeMetaTags.config.keywords 
-      : typeof homeMetaTags?.config?.keywords === 'string' 
-        ? [homeMetaTags.config.keywords] 
-        : undefined,
-    image: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
-    slug: "home",
-  });
+    // Try to get the home-specific metatags component
+    const homeMetaTags = await loadComponentData('metatags', 'home');
+
+    return createMetadata({
+      title: (homeMetaTags?.config?.title as string) || homeConfig?.title || SITE_CONFIG.name,
+      description: (homeMetaTags?.config?.description as string) || 
+        homeConfig?.description ||
+        SITE_CONFIG.description,
+      keywords: homeConfig?.keywords || 
+        (Array.isArray(homeMetaTags?.config?.keywords) 
+          ? homeMetaTags.config.keywords 
+          : typeof homeMetaTags?.config?.keywords === 'string' 
+            ? [homeMetaTags.config.keywords] 
+            : undefined),
+      image: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
+      slug: "home",
+    });
+  } catch (error) {
+    console.error('Error loading home metadata:', error);
+    return createMetadata({
+      title: SITE_CONFIG.name,
+      description: SITE_CONFIG.description,
+      slug: "home",
+    });
+  }
 }
 
 export default async function HomePage() {
-  // Only fetch slugs once
-  const slugs = await getAllArticleSlugs();
+  // Load home.yaml configuration
+  const yamlPath = path.join(process.cwd(), 'content/pages', 'home.yaml');
+  const yamlContent = await fs.readFile(yamlPath, 'utf8');
+  const homeConfig = yaml.load(yamlContent) as any;
 
-  // Create frontmatter object for Hero component
+  // Create frontmatter object for Hero component (loaded from Layout)
   const heroFrontmatter = {
-    title: SITE_CONFIG.name,
-    description: "Advanced surface treatment solutions for industrial applications", 
-    slug: "home",
-    video: "eGgMJdjRUJk" // YouTube ID
+    title: homeConfig.title || SITE_CONFIG.name,
+    description: homeConfig.description || "Advanced surface treatment solutions for industrial applications", 
+    slug: homeConfig.slug || "home",
+    video: homeConfig.video, // YouTube ID from YAML
+    showHero: homeConfig.showHero !== false,
   };
 
-  return (
-    <Layout fullWidth>
-      {/* Hero section with Vimeo video background */}
-      <Hero 
-        frontmatter={heroFrontmatter}
-        variant="fullwidth"
-        theme="dark"
-      >
-        {/* Commented out overlay text to resolve CSS issues */}
-        {/* 
-        <div className="flex flex-col items-center justify-center text-center text-white px-4 h-full">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Z-Beam Laser Cleaning
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl">
-            Advanced surface treatment solutions for industrial applications
-          </p>
-        </div>
-        */}
-      </Hero>
+  // Extract featured sections and materials from YAML
+  const featuredSections = homeConfig.featuredSections || [];
+  const featuredMaterials = homeConfig.featuredMaterials || [];
 
+  return (
+    <Layout 
+      fullWidth
+      metadata={heroFrontmatter}
+      showHero={heroFrontmatter.showHero}
+    >
       {/* Featured Solutions Section */}
-      <section className={CONTAINER_STYLES.standard}>
-        <CardGridSSR
-          items={featuredSections.map(section => ({
-            slug: section.slug,
-            title: section.title,
-            description: section.description,
-            href: `/${section.slug}`,
-            imageUrl: section.imageUrl,
-            imageAlt: section.title,
-            badge: undefined, // Featured items don't show badges
-          }))}
-          columns={2}
-          variant="featured"
-        />
-      </section>
+      {featuredSections.length > 0 && (
+        <section className={CONTAINER_STYLES.standard}>
+          <CardGridSSR
+            items={featuredSections.map((section: any) => ({
+              slug: section.slug,
+              title: section.title,
+              description: section.description,
+              href: `/${section.slug}`,
+              imageUrl: section.imageUrl,
+              imageAlt: section.title,
+              badge: undefined,
+            }))}
+            columns={2}
+            variant="featured"
+          />
+        </section>
+      )}
 
       {/* Material Categories Section */}
-      <section className={CONTAINER_STYLES.standard}>
-        <CardGridSSR
-          items={featuredMaterialCategories.map(category => ({
-            slug: category.slug,
-            title: category.title,
-            description: category.description,
-            href: `/${category.slug}`,
-            imageUrl: category.imageUrl,
-            imageAlt: category.title,
-            badge: {
-              materialType: category.materialType as any, // Cast to satisfy type requirements
-              symbol: "",
-              formula: "",
-            },
-          }))}
-          columns={3}
-          variant="default"
-        />
-      </section>
+      {featuredMaterials.length > 0 && (
+        <section className={CONTAINER_STYLES.standard}>
+          <CardGridSSR
+            items={featuredMaterials.map((category: any) => ({
+              slug: category.slug,
+              title: category.title,
+              description: category.description,
+              href: `/${category.slug}`,
+              imageUrl: category.imageUrl,
+              imageAlt: category.title,
+              badge: {
+                materialType: category.materialType as any,
+                symbol: "",
+                formula: "",
+              },
+            }))}
+            columns={3}
+            variant="default"
+          />
+        </section>
+      )}
     </Layout>
   );
 }
