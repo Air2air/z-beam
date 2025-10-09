@@ -20,43 +20,12 @@ images:
     width: 1920
     height: 1080
 
-# Unified content cards - combines callouts and workflow steps
-# Items without 'order' render as callouts, items with 'order' render as workflow steps
 contentCards:
-  # Callouts (no order = renders as simple callout)
-  - heading: "Surface metrology report"
-    text: "First, we'll quantify and map pre-existing defects and contamination (like scratches or pitting) to inform laser settings. Second, we provide post-cleaning reports by precisely measuring surface roughness (e.g., Ra and Sa) to ensure it meets specifications. You receive lab-grade quality assurance directly on the factory floor or in the field."
-    imagePosition: "right"
-    theme: "navbar"
-    variant: "inline"
-    image:
-      url: "/images/pages/metrology.jpg"
-      alt: "Professional laser cleaning in action"
-
-  - heading: "Surface metrology report"
-    text: "First, we'll quantify and map pre-existing defects and contamination (like scratches or pitting) to inform laser settings. Second, we provide post-cleaning reports by precisely measuring surface roughness (e.g., Ra and Sa) to ensure it meets specifications. You receive lab-grade quality assurance directly on the factory floor or in the field."
-    imagePosition: "left"
-    theme: "navbar"
-    variant: "default"
-    image:
-      url: "/images/pages/laser.jpg"
-      alt: "Professional laser cleaning in action"
-
-  - heading: "Netalux Group"
-    text: "First, we'll quantify and map pre-existing defects and contamination (like scratches or pitting) to inform laser settings. Second, we provide post-cleaning reports by precisely measuring surface roughness (e.g., Ra and Sa) to ensure it meets specifications. You receive lab-grade quality assurance directly on the factory floor or in the field."
-    imagePosition: "left"
-    theme: "navbar"
-    variant: "default"
-    image:
-      url: "/images/netalux/netalux_group.jpg?v=2"
-      alt: "Professional laser cleaning in action"
-
-  # Workflow steps (order number = renders as workflow step with numbered badge)
   - order: 1
     heading: "Consultation & Assessment"
     text: "We start by understanding your specific cleaning objectives, materials involved, types of contamination, and project requirements. Our technical team conducts a thorough assessment to ensure we deliver optimal results."
     image:
-      url: "/images/pages/operator.jpg?v=2"
+      url: "/images/pages/gelsight.jpg?v=2"
       alt: "Professional consultation and surface assessment"
     imagePosition: "right"
     details:
@@ -68,36 +37,6 @@ contentCards:
       - "Timeline and budget parameters"
 
   - order: 2
-    heading: "Custom Proposal & Pricing"
-    text: "Based on our assessment, we develop a detailed proposal that outlines the project scope, methodology, timeline, and transparent pricing. We offer flexible options to meet your specific needs and budget."
-    image:
-      url: "/images/pages/metrology.jpg?v=2"
-      alt: "Detailed project planning and documentation"
-    imagePosition: "left"
-    details:
-      - "Comprehensive scope of work"
-      - "Detailed methodology and approach"
-      - "Equipment specifications"
-      - "Timeline and milestones"
-      - "Flexible pricing options (per square foot, hourly, or project-based)"
-      - "Expected outcomes and quality metrics"
-
-  - order: 3
-    heading: "Project Planning & Preparation"
-    text: "Before starting work, we develop a detailed project plan that includes site-specific safety protocols, optimal laser parameters for your materials, and logistics coordination to minimize disruption to your operations."
-    image:
-      url: "/images/netalux/netalux_all.jpg?v=2"
-      alt: "Professional laser cleaning equipment setup"
-    imagePosition: "right"
-    details:
-      - "Site-specific safety plan"
-      - "Laser parameter optimization"
-      - "Equipment setup and testing"
-      - "Logistics and scheduling"
-      - "Quality control procedures"
-      - "Documentation requirements"
-
-  - order: 4
     heading: "Expert Execution"
     text: "Our trained technicians use state-of-the-art Netalux laser cleaning equipment to execute your project with precision and efficiency. We provide continuous monitoring and quality checks throughout the process."
     image:
@@ -112,7 +51,22 @@ contentCards:
       - "Minimal downtime"
       - "Environmental responsibility"
 
-  - order: 5
+  - order: 3
+    heading: "Surface Metrology Report"
+    text: "First, we'll quantify and map pre-existing defects and contamination (like scratches or pitting) to inform laser settings. Second, we provide post-cleaning reports by precisely measuring surface roughness (e.g., Ra and Sa) to ensure it meets specifications. You receive lab-grade quality assurance directly on the factory floor or in the field."
+    image:
+      url: "/images/pages/metrology.jpg?v=2"
+      alt: "Surface metrology and quality documentation"
+    imagePosition: "left"
+    details:
+      - "Pre-cleaning surface mapping"
+      - "Contamination quantification"
+      - "Post-cleaning roughness measurement (Ra, Sa)"
+      - "Lab-grade quality assurance"
+      - "On-site or field measurement capabilities"
+      - "Specification compliance verification"
+
+  - order: 4
     heading: "Completion & Reporting"
     text: "Upon project completion, we provide comprehensive documentation including before/after analysis, quality metrics, and detailed reporting. We ensure you have all the information needed for your records and quality assurance."
     image:
