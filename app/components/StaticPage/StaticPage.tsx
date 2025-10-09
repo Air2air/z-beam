@@ -36,8 +36,7 @@
  */
 // app/components/StaticPage/StaticPage.tsx
 import { Layout } from "../Layout/Layout";
-import { Callout } from "../Callout/Callout";
-import { WorkflowSection } from "../WorkflowSection/WorkflowSection";
+import { ContentCard, ContentSection } from "../ContentCard";
 import { BenefitsSection } from "../BenefitsSection/BenefitsSection";
 import { EquipmentSection } from "../EquipmentSection/EquipmentSection";
 import fs from 'fs/promises';
@@ -95,7 +94,7 @@ export async function StaticPage({
     >
       {/* Optional Callout section(s) - renders before main content if configured */}
       {calloutsToRender.length > 0 && calloutsToRender.map((callout, index) => (
-        <Callout
+        <ContentCard
           key={`callout-${index}`}
           heading={callout.heading}
           text={callout.text}
@@ -112,7 +111,7 @@ export async function StaticPage({
       />
       
       {/* Structured content sections - automatically render based on YAML data */}
-      {pageConfig.workflow && <WorkflowSection workflow={pageConfig.workflow} />}
+      {pageConfig.workflow && <ContentSection title="Our Process" items={pageConfig.workflow} />}
       {pageConfig.benefits && <BenefitsSection benefits={pageConfig.benefits} />}
       {pageConfig.equipment && <EquipmentSection equipment={pageConfig.equipment} />}
     </Layout>
