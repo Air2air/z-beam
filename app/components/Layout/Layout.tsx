@@ -122,7 +122,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
 };
 
 export function Layout(props: LayoutProps) {
-  const { title, components, metadata, slug, hideHeader, fullWidth } = props;
+  const { title, components, metadata, slug, fullWidth } = props;
   const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.main);
 
   // Article layout with components
@@ -159,7 +159,7 @@ export function Layout(props: LayoutProps) {
     return (
       <main className={containerClass} id="main-content" role="main">
         {jsonLdData && <JsonLD data={jsonLdData} />}
-        {!hideHeader && <ArticleHeader title={title} metadata={metadata} slug={slug} />}
+        <ArticleHeader title={title} metadata={metadata} slug={slug} />
         
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => renderComponent(type, components[type], metadata))}

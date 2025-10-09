@@ -46,7 +46,6 @@ export function Title({
   prevHeaderId,
   
   // Content Props
-  summary,
   context,
   
   // Event Handlers
@@ -95,7 +94,6 @@ export function Title({
   // Generate IDs for related elements
   const subtitleId = subtitle ? `${titleId}-subtitle` : undefined;
   const skipLinkId = skipLink ? `${titleId}-skip` : undefined;
-  const summaryId = summary ? `${titleId}-summary` : undefined;
   
   // Base classes for all titles with enhanced accessibility
   const baseClasses = 'font-semibold text-white transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900';
@@ -166,7 +164,7 @@ export function Title({
     '@type': 'WebPageElement',
     '@id': `#${titleId}`,
     'name': title,
-    'description': subtitle || summary,
+    'description': subtitle,
     'headline': level === 'page' ? title : undefined,
     'about': context,
     'keywords': searchKeywords.join(', '),
@@ -234,7 +232,7 @@ export function Title({
           role={role || config.role}
           aria-level={config.ariaLevel}
           aria-label={ariaLabel}
-          aria-describedby={[ariaDescribedby, subtitleId, summaryId].filter(Boolean).join(' ') || undefined}
+          aria-describedby={[ariaDescribedby, subtitleId].filter(Boolean).join(' ') || undefined}
           aria-labelledby={ariaLabelledby}
           tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
           onFocus={onFocus}
@@ -256,18 +254,6 @@ export function Title({
           >
             {subtitle}
           </p>
-        )}
-        
-        {/* Hidden summary for screen readers and search engines */}
-        {summary && (
-          <div 
-            id={summaryId}
-            className="sr-only"
-            role="note"
-            aria-label={`Summary: ${summary}`}
-          >
-            {summary}
-          </div>
         )}
         
         {/* Navigation hints for screen readers */}

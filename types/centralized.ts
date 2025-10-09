@@ -119,6 +119,8 @@ export interface WorkflowItem {
 
 /**
  * Benefit item for static pages
+ * @deprecated Prefer ContentCardItem with category field for benefits
+ * @note Field naming: 'title' (BenefitItem) maps to 'heading' (ContentCardItem) in ContentSection
  */
 export interface BenefitItem {
   category: string;
@@ -617,7 +619,6 @@ export interface TitleProps {
   prevHeaderId?: string;
   
   // Content Props
-  summary?: string;
   context?: string;
   
   // Event Handlers for Enhanced Interaction
@@ -633,8 +634,6 @@ export interface LayoutProps {
   components?: Record<string, ComponentData>;
   metadata?: ArticleMetadata;
   slug?: string;
-  hideHeader?: boolean;
-  hideFooter?: boolean;
   children?: ReactNode;
   title?: string;
   subtitle?: string;
