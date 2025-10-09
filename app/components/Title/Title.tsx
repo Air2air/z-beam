@@ -62,21 +62,21 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-2xl font-bold mb-6 text-white',
+      classes: 'text-3xl md:text-4xl font-bold mb-6 text-white',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'text-xl font-bold mb-4 text-gray-100',
+      classes: 'text-2xl md:text-3xl font-bold mb-4 text-gray-100',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'
     },
     'card': {
       tag: 'h3' as const,
-      classes: 'text-sm font-semibold mb-2 text-gray-200',
+      classes: 'text-base md:text-lg font-semibold mb-2 text-gray-200',
       ariaLevel: 3,
       role: 'heading',
       landmark: null
