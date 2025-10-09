@@ -235,30 +235,35 @@ import { WorkflowSection } from '../ContentCard';
 
 ## YAML Configuration
 
-The component works seamlessly with existing YAML structures:
+### Unified contentCards Structure (Recommended)
 
-### Callouts in YAML
+The new unified structure combines callouts and workflow into a single `contentCards` array:
 
 ```yaml
-callouts:
+contentCards:
+  # Simple callout (no order property)
   - heading: "Important Feature"
     text: "Description of the feature"
     imagePosition: "right"
     theme: "navbar"
-    variant: "default"
+    variant: "inline"
     image:
       url: "/images/feature.jpg"
       alt: "Feature image"
-```
-
-### Workflow in YAML
-
-```yaml
-workflow:
-  - stage: "Step 1"
-    order: 1
-    name: "Initial Consultation"
-    description: "We begin by understanding your needs..."
+  
+  # Another callout
+  - heading: "Another Feature"
+    text: "More information"
+    imagePosition: "left"
+    variant: "default"
+    image:
+      url: "/images/feature2.jpg"
+      alt: "Feature 2"
+  
+  # Workflow step (has order property = renders with numbered badge)
+  - order: 1
+    heading: "Initial Consultation"
+    text: "We begin by understanding your needs..."
     details:
       - "Material assessment"
       - "Budget planning"
@@ -267,7 +272,45 @@ workflow:
       url: "/images/consultation.jpg"
       alt: "Consultation meeting"
     imagePosition: "right"
+  
+  - order: 2
+    heading: "Proposal Development"
+    text: "We create a detailed proposal..."
+    details:
+      - "Scope definition"
+      - "Timeline planning"
+    imagePosition: "left"
 ```
+
+**Key Points:**
+- Items **without** `order` property render as simple callouts
+- Items **with** `order` property render as workflow steps with numbered badges
+- Automatic sorting: Items with order numbers appear first (sorted by order), then callouts in YAML order
+- All items in one array = simpler structure, easier to maintain
+
+### Legacy YAML Structures (Backward Compatible)
+
+Old YAML files still work:
+
+**Legacy Callouts:**
+```yaml
+callouts:
+  - heading: "Important Feature"
+    text: "Description"
+    # ... other props
+```
+
+**Legacy Workflow:**
+```yaml
+workflow:
+  - stage: "Step 1"
+    order: 1
+    name: "Initial Consultation"
+    description: "Description"
+    details: [...]
+```
+
+These are automatically combined and processed by StaticPage component.
 
 ## Benefits of Consolidation
 
@@ -309,6 +352,7 @@ app/components/ContentCard/
 
 ## Implementation Status
 
+### Component System
 - ✅ ContentCard component created
 - ✅ ContentSection wrapper created
 - ✅ Backward compatibility exports added
@@ -316,18 +360,31 @@ app/components/ContentCard/
 - ✅ All TypeScript types defined
 - ✅ Gradient backgrounds implemented
 - ✅ Shadow-free styling applied
-- ⏳ Old Callout component (can be deprecated)
-- ⏳ Old WorkflowSection component (can be deprecated)
+
+### YAML Consolidation
+- ✅ ContentCardItem type created (unified interface)
+- ✅ contentCards field added to ArticleMetadata
+- ✅ StaticPage auto-detects contentCards vs legacy fields
+- ✅ ContentSection normalizes all item types
+- ✅ services.yaml migrated to contentCards
+- ✅ rental.yaml migrated to contentCards
+- ✅ Backward compatibility maintained for legacy YAML
+
+### To Deprecate (Optional)
+- ⏳ Old Callout component file (aliased in ContentCard/index.ts)
+- ⏳ Old WorkflowSection component file (aliased in ContentCard/index.ts)
+- ⏳ Legacy callout/callouts/workflow YAML fields (still supported)
 
 ## Next Steps
 
-1. Update all direct component imports to use ContentCard
-2. Test all pages using the components (services, rental, etc.)
-3. Deprecate old Callout and WorkflowSection components
-4. Update tests to use new components
-5. Update documentation references
+1. ✅ ~~Update all direct component imports to use ContentCard~~ (Backward compatible)
+2. ✅ ~~Test all pages using the components~~ (services, rental tested)
+3. Consider migrating remaining pages to contentCards structure
+4. Update tests to use new components and types
+5. Optionally remove deprecated component files after migration period
 
 ---
 
-**Created**: October 9, 2025
-**Status**: Implemented and Active
+**Created**: October 9, 2025  
+**Last Updated**: October 9, 2025  
+**Status**: ✅ Fully Implemented and Active
