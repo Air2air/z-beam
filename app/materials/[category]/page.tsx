@@ -64,8 +64,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
-    <Layout showHero={false}>
-      {/* Materials Grid */}
+    <Layout>
+      {/* Materials Grid - no hero content in metadata, so Hero won't render */}
       <section className={CONTAINER_STYLES.standard}>
         <CardGridSSR
           slugs={slugs}

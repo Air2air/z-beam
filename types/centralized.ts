@@ -641,7 +641,6 @@ export interface LayoutProps {
   description?: string;
   className?: string;
   fullWidth?: boolean; // For pages that need full-width sections
-  showHero?: boolean; // Control Hero component visibility
 }
 
 /**

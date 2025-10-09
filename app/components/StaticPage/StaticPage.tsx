@@ -77,7 +77,7 @@ export async function StaticPage({
   // Load YAML configuration
   const yamlPath = path.join(process.cwd(), 'content/pages', `${slug}.yaml`);
   const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { showHero?: boolean; content?: string };
+  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { content?: string };
   
   // Convert markdown content from YAML to HTML
   const htmlContent = pageConfig.content ? marked(pageConfig.content) : '';
@@ -101,7 +101,6 @@ export async function StaticPage({
       title={pageConfig.title || fallbackTitle || slug}
       subtitle={pageConfig.subtitle}
       description={pageConfig.description || fallbackDescription}
-      showHero={pageConfig.showHero ?? false}
       metadata={pageConfig}
     >
       {/* Unified content cards - renders all callouts, workflow items, and benefits */}

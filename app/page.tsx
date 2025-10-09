@@ -61,8 +61,7 @@ export default async function HomePage() {
     title: homeConfig.title || SITE_CONFIG.name,
     description: homeConfig.description || "Advanced surface treatment solutions for industrial applications", 
     slug: homeConfig.slug || "home",
-    video: homeConfig.video, // YouTube ID from YAML
-    showHero: homeConfig.showHero !== false,
+    video: homeConfig.video, // YouTube ID from YAML - Hero will render if video exists
   };
 
   // Extract featured sections and materials from YAML
@@ -73,7 +72,6 @@ export default async function HomePage() {
     <Layout 
       fullWidth
       metadata={heroFrontmatter}
-      showHero={heroFrontmatter.showHero}
     >
       {/* Featured Solutions Section */}
       {featuredSections.length > 0 && (
