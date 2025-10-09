@@ -22,7 +22,6 @@ interface UniversalPageProps {
   errorMessage?: string;
   dynamic?: 'force-static' | 'force-dynamic' | 'auto';
   revalidate?: number | false;
-  showHero?: boolean; // Add Hero toggle control
 }
 
 /**
@@ -37,7 +36,6 @@ async function UniversalPageComponent({
   markdownPath,
   errorTitle = slug ? `Error Loading ${slug.charAt(0).toUpperCase() + slug.slice(1)} Page` : 'Error Loading Page',
   errorMessage = slug ? `We're sorry, but there was an error loading the ${slug} page.` : 'We\'re sorry, but there was an error loading this page.',
-  showHero = true, // Default to showing Hero
 }: UniversalPageProps) {
   try {
     let pageData;
@@ -80,7 +78,6 @@ async function UniversalPageComponent({
         metadata={pageData.metadata}
         slug={slug}
         title={title || pageData.metadata?.title}
-        showHero={showHero}
       />
     );
   } catch (error) {
@@ -124,7 +121,6 @@ export const pageConfigs = {
     title: 'About Z-Beam',
     description: 'Learn about Z-Beam\'s mission, team, and expertise in laser cleaning technology.',
     useContentAPI: true,
-    showHero: true, // Show Hero for about page
   },
   contact: {
     slug: 'contact',
@@ -132,7 +128,6 @@ export const pageConfigs = {
     description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
     useContentAPI: false,
     markdownPath: 'app/pages/contact.md',
-    showHero: true, // Show Hero for contact page
   },
   services: {
     slug: 'services',
@@ -142,7 +137,6 @@ export const pageConfigs = {
     markdownPath: 'app/pages/services.md',
     dynamic: 'force-static' as const,
     revalidate: false,
-    showHero: true, // Show Hero for services page
   },
   rental: {
     slug: 'rental',
@@ -152,14 +146,12 @@ export const pageConfigs = {
     markdownPath: 'app/pages/rental.md',
     dynamic: 'force-static' as const,
     revalidate: false,
-    showHero: true, // Show Hero for rental page
   },
   partners: {
     slug: 'partners',
     title: 'Z-Beam Partners',
     description: 'Trusted partners providing laser cleaning equipment, services, and training across North America and Europe.',
     useContentAPI: true,
-    showHero: false, // Partners page doesn't need hero
   }
 } as const;
 

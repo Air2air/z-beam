@@ -21,7 +21,6 @@ describe('Static Pages Rendering Integration', () => {
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
           slug="services"
-          showHero={true}
         />
       );
 
@@ -58,7 +57,6 @@ describe('Static Pages Rendering Integration', () => {
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
           slug="services"
-          showHero={true}
         />
       );
 
@@ -78,7 +76,6 @@ describe('Static Pages Rendering Integration', () => {
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
           slug="rental"
-          showHero={true}
         />
       );
 
@@ -112,7 +109,6 @@ describe('Static Pages Rendering Integration', () => {
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
           slug="rental"
-          showHero={true}
         />
       );
 
@@ -135,7 +131,6 @@ describe('Static Pages Rendering Integration', () => {
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
           slug="partners"
-          showHero={true}
         />
       );
 
@@ -211,7 +206,6 @@ describe('Static Pages Rendering Integration', () => {
           components={components}
           metadata={metadata as unknown as ArticleMetadata}
           slug="services"
-          showHero={true}
         />
       );
 

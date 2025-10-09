@@ -18,7 +18,6 @@ export default async function AboutPage() {
       components={components}
       metadata={pageMetadata as unknown as ArticleMetadata}
       slug="about"
-      showHero={true}
     />
   );
 }
