@@ -23,7 +23,7 @@ export function ContentSection({
   items,
   theme = 'navbar'
 }: ContentSectionProps) {
-  // Sort items if they have order property
+  // Sort items: those with order property first (by order), others maintain YAML order
   const sortedItems = [...items].sort((a, b) => {
     const orderA = 'order' in a ? a.order || 999 : 999;
     const orderB = 'order' in b ? b.order || 999 : 999;
@@ -39,11 +39,13 @@ export function ContentSection({
       )}
       <div className="space-y-8">
         {sortedItems.map((item, index) => {
-          // Normalize item to ContentCard props with proper type checking
-          const heading = ('name' in item && item.name) || ('heading' in item && item.heading) || 'Untitled';
-          const text = ('description' in item && item.description) || ('text' in item && item.text) || '';
+          // Support both ContentCardItem (heading/text) and legacy WorkflowItem (name/description)
+          const heading = ('heading' in item && item.heading) || ('name' in item && item.name) || 'Untitled';
+          const text = ('text' in item && item.text) || ('description' in item && item.description) || '';
           const order = 'order' in item ? item.order : undefined;
           const details = 'details' in item ? item.details : undefined;
+          const itemTheme = ('theme' in item ? item.theme : undefined) || theme;
+          const variant = 'variant' in item ? item.variant : undefined;
           
           return (
             <ContentCard
@@ -54,8 +56,8 @@ export function ContentSection({
               details={details}
               image={item.image}
               imagePosition={item.imagePosition}
-              theme={('theme' in item ? item.theme : undefined) || theme}
-              variant={'variant' in item ? item.variant : undefined}
+              theme={itemTheme}
+              variant={variant}
             />
           );
         })}

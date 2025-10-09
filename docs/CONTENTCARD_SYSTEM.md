@@ -282,6 +282,11 @@ contentCards:
     imagePosition: "left"
 ```
 
+**Naming Convention:**
+- Always use `heading` and `text` (not `name` and `description`)
+- This provides consistency across all content cards
+- Legacy `name`/`description` still supported for backward compatibility
+
 **Key Points:**
 - Items **without** `order` property render as simple callouts
 - Items **with** `order` property render as workflow steps with numbered badges

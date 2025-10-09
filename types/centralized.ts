@@ -84,12 +84,9 @@ export interface ContentCardItem {
   heading: string;
   text: string;
   
-  // Workflow-specific (optional)
-  order?: number;
-  name?: string;        // Alternative to heading for workflow items
-  description?: string; // Alternative to text for workflow items
-  stage?: string;       // Legacy workflow identifier
-  details?: string[];
+  // Optional workflow features
+  order?: number;        // If provided, renders as numbered workflow step
+  details?: string[];    // Bullet list of additional details
   
   // Visual options
   image?: {
