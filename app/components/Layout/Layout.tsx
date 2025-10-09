@@ -16,7 +16,7 @@ import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
-const SPACER_CLASSES = "h-[15vh] sm:h-[22vh] md:h-[22vh] lg:h-[32vh] xl:h-[35vh]";
+const SPACER_CLASSES = "h-20 sm:h-24 md:h-28"; // Reduced from vh-based heights for better spacing
 
 // Helper: Extract material name from metadata or slug
 const getMaterialName = (metadata: any, slug?: string) => {
