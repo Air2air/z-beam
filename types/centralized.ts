@@ -75,17 +75,19 @@ export interface AuthorInfo {
  * Workflow/process step item for static pages
  */
 /**
- * Unified content card item - supports both callouts and workflow steps
- * If order is provided, renders as workflow step with numbered badge
- * If order is omitted, renders as simple callout
+ * Unified content card item - supports callouts, workflow steps, and benefits
+ * - If order is provided, renders as workflow step with numbered badge
+ * - If category is provided, renders as benefit with category label
+ * - Otherwise renders as simple callout
  */
 export interface ContentCardItem {
   // Core content (required)
   heading: string;
   text: string;
   
-  // Optional workflow features
+  // Optional features
   order?: number;        // If provided, renders as numbered workflow step
+  category?: string;     // If provided, renders category label above heading
   details?: string[];    // Bullet list of additional details
   
   // Visual options

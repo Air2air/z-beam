@@ -260,6 +260,16 @@ contentCards:
       url: "/images/feature2.jpg"
       alt: "Feature 2"
   
+  # Benefit (has category = renders with category label)
+  - category: "Cost Efficiency"
+    heading: "Lower Operating Costs"
+    text: "Reduce operational expenses by up to 30%..."
+    variant: "default"
+  
+  - category: "Productivity"
+    heading: "Faster Project Completion"
+    text: "Complete projects 40% faster..."
+  
   # Workflow step (has order property = renders with numbered badge)
   - order: 1
     heading: "Initial Consultation"
@@ -283,9 +293,14 @@ contentCards:
 ```
 
 **Naming Convention:**
-- Always use `heading` and `text` (not `name` and `description`)
+- Always use `heading` and `text` (not `name`/`description` or `title`/`description`)
 - This provides consistency across all content cards
-- Legacy `name`/`description` still supported for backward compatibility
+- Legacy field names still supported for backward compatibility
+
+**Content Card Types:**
+- **Simple Callout**: No `order` or `category` - renders as basic highlighted content
+- **Benefit**: Has `category` - renders with category label above heading
+- **Workflow Step**: Has `order` - renders with numbered badge
 
 **Key Points:**
 - Items **without** `order` property render as simple callouts

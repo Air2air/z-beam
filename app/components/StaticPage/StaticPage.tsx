@@ -89,10 +89,11 @@ export async function StaticPage({
     // Use unified contentCards field
     contentCardsToRender = pageConfig.contentCards;
   } else {
-    // Fallback to legacy callouts and workflow for backward compatibility
+    // Fallback to legacy fields for backward compatibility
     const legacyCallouts = pageConfig.callouts || (pageConfig.callout ? [pageConfig.callout] : []);
     const legacyWorkflow = pageConfig.workflow || [];
-    contentCardsToRender = [...legacyCallouts, ...legacyWorkflow];
+    const legacyBenefits = pageConfig.benefits || [];
+    contentCardsToRender = [...legacyCallouts, ...legacyWorkflow, ...legacyBenefits];
   }
 
   return (
@@ -102,7 +103,7 @@ export async function StaticPage({
       showHero={pageConfig.showHero ?? false}
       metadata={pageConfig}
     >
-      {/* Unified content cards - renders all callouts and workflow items */}
+      {/* Unified content cards - renders all callouts, workflow items, and benefits */}
       {contentCardsToRender.length > 0 && <ContentSection items={contentCardsToRender} />}
       
       {/* Main markdown content */}
@@ -111,7 +112,8 @@ export async function StaticPage({
       />
       
       {/* Other structured content sections - automatically render based on YAML data */}
-      {pageConfig.benefits && <BenefitsSection benefits={pageConfig.benefits} />}
+      {/* Benefits are now handled via contentCards, but keep for backward compatibility */}
+      {!pageConfig.contentCards && pageConfig.benefits && <BenefitsSection benefits={pageConfig.benefits} />}
       {pageConfig.equipment && <EquipmentSection equipment={pageConfig.equipment} />}
     </Layout>
   );

@@ -35,9 +35,10 @@ export interface ContentCardProps {
   heading: string;
   text: string;
   
-  // Optional workflow features
-  order?: number;
-  details?: string[];
+  // Optional features
+  order?: number;        // Workflow step number
+  category?: string;     // Benefit category label
+  details?: string[];    // Detail list
   
   // Visual options
   image?: {
@@ -53,6 +54,7 @@ export function ContentCard({
   heading,
   text,
   order,
+  category,
   details,
   image,
   imagePosition = 'right',
@@ -108,6 +110,13 @@ export function ContentCard({
               {heading}
             </h3>
           </div>
+        </div>
+      )}
+      
+      {/* Optional Category Label (for benefits) */}
+      {category && !hasOrder && (
+        <div className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+          {category}
         </div>
       )}
 

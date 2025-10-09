@@ -10,11 +10,11 @@
  */
 import React from 'react';
 import { ContentCard } from './ContentCard';
-import type { ContentCardItem, WorkflowItem, CalloutProps } from '@/types';
+import type { ContentCardItem, WorkflowItem, CalloutProps, BenefitItem } from '@/types';
 
 export interface ContentSectionProps {
   title?: string;
-  items: (ContentCardItem | WorkflowItem | CalloutProps)[];
+  items: (ContentCardItem | WorkflowItem | CalloutProps | BenefitItem)[];
   theme?: 'body' | 'navbar';
 }
 
@@ -39,11 +39,22 @@ export function ContentSection({
       )}
       <div className="space-y-8">
         {sortedItems.map((item, index) => {
-          // Support both ContentCardItem (heading/text) and legacy WorkflowItem (name/description)
-          const heading = ('heading' in item && item.heading) || ('name' in item && item.name) || 'Untitled';
-          const text = ('text' in item && item.text) || ('description' in item && item.description) || '';
+          // Support ContentCardItem (heading/text), legacy WorkflowItem (name/description), and BenefitItem (title/description)
+          let heading = 'Untitled';
+          let text = '';
+          
+          if ('heading' in item && item.heading) heading = item.heading;
+          else if ('name' in item && item.name) heading = item.name;
+          else if ('title' in item && item.title) heading = item.title;
+          
+          if ('text' in item && item.text) text = item.text;
+          else if ('description' in item && item.description) text = item.description;
+          
           const order = 'order' in item ? item.order : undefined;
+          const category = 'category' in item ? item.category : undefined;
           const details = 'details' in item ? item.details : undefined;
+          const image = 'image' in item ? item.image : undefined;
+          const imagePosition = 'imagePosition' in item ? item.imagePosition : undefined;
           const itemTheme = ('theme' in item ? item.theme : undefined) || theme;
           const variant = 'variant' in item ? item.variant : undefined;
           
@@ -51,11 +62,12 @@ export function ContentSection({
             <ContentCard
               key={index}
               order={order}
+              category={category}
               heading={heading}
               text={text}
               details={details}
-              image={item.image}
-              imagePosition={item.imagePosition}
+              image={image}
+              imagePosition={imagePosition}
               theme={itemTheme}
               variant={variant}
             />
