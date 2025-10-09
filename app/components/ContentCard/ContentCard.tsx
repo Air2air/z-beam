@@ -30,6 +30,7 @@
  */
 import React, { useMemo } from 'react';
 import Image from 'next/image';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 export interface ContentCardProps {
   // Core content
@@ -147,15 +148,11 @@ export function ContentCard({
           
           {/* Title */}
           <div className="flex-1">
-            <h3 
+            <SectionTitle 
+              title={heading}
               id={titleId}
-              className={`text-xl md:text-2xl font-bold ${currentTheme.heading}`}
-              role="heading"
-              aria-level={3}
-              itemProp="headline"
-            >
-              {heading}
-            </h3>
+              className="text-xl md:text-2xl"
+            />
           </div>
         </header>
       )}
@@ -211,15 +208,11 @@ export function ContentCard({
         >
           {/* Heading - Only show here if no order number */}
           {!hasOrder && (
-            <h2
+            <SectionTitle 
+              title={heading}
               id={titleId}
-              className={`text-xl md:text-2xl font-bold mb-2 ${currentTheme.heading}`}
-              role="heading"
-              aria-level={2}
-              itemProp="headline"
-            >
-              {heading}
-            </h2>
+              className="text-xl md:text-2xl mb-2"
+            />
           )}
           
           {/* Text/Description */}
