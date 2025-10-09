@@ -5,7 +5,7 @@ import { MetricsCard as SingleMetricsCard } from './MetricsCard';
 import { ArticleMetadata, PropertyWithUnits, MetricsCardProps, MetricsGridProps } from '../../../types';
 import { extractMachineSettingsFromFrontmatter } from '../../utils/metricsCardHelpers';
 import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
-import { Title } from '../Title';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import './accessibility.css';
 
 // Enhanced color palette for cards with semantic meanings
@@ -260,7 +260,7 @@ export function MetricsGrid({
       {/* Enhanced header with proper semantic structure */}
       {showTitle && displayTitle && (
         <div className="mb-6">
-          <Title level="section" title={displayTitle} />
+          <SectionTitle title={displayTitle} />
         </div>
       )}
       

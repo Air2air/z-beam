@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import SearchClient from "./search-client";
-import { Title } from "../components/Title";
+import { Layout } from "../components/Layout/Layout";
 import { Article } from "@/types";
 import { capitalizeWords } from "../utils/formatting";
 
@@ -46,28 +46,20 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   }, []);
   
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
-      {/* Title with subtitle and result count wrapper */}
-      <div className="mb-8">
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <Title 
-              title="Search"
-              level="page"
-              subtitle={getSubtitle()}
-            />
-          </div>
-          {(query || propertyName) && (
-            <div className="pt-2">
-              <p className="text-gray-400 text-sm whitespace-nowrap">
-                {resultCount} {resultCount === 1 ? 'result' : 'results'} found
-              </p>
-            </div>
-          )}
+    <Layout 
+      title="Search"
+      subtitle={getSubtitle()}
+    >
+      {/* Result count display */}
+      {(query || propertyName) && (
+        <div className="mb-6 text-right">
+          <p className="text-gray-400 text-sm whitespace-nowrap">
+            {resultCount} {resultCount === 1 ? 'result' : 'results'} found
+          </p>
         </div>
-      </div>
+      )}
       
       <SearchClient initialArticles={initialArticles} />
-    </div>
+    </Layout>
   );
 }
