@@ -72,6 +72,35 @@ export interface AuthorInfo {
 }
 
 /**
+ * Workflow/process step item for static pages
+ */
+export interface WorkflowItem {
+  stage: string;
+  order: number;
+  name: string;
+  description: string;
+  details: string[];
+}
+
+/**
+ * Benefit item for static pages
+ */
+export interface BenefitItem {
+  category: string;
+  title: string;
+  description: string;
+}
+
+/**
+ * Equipment item for static pages
+ */
+export interface EquipmentItem {
+  name: string;
+  type: string;
+  description: string;
+}
+
+/**
  * Article metadata (base for all content types) - enhanced version
  */
 export interface ArticleMetadata {
@@ -143,6 +172,11 @@ export interface ArticleMetadata {
   // Supports single callout (object) or multiple callouts (array)
   callout?: CalloutConfig;
   callouts?: CalloutConfig[];
+  
+  // Structured content sections for static pages
+  workflow?: WorkflowItem[];
+  benefits?: BenefitItem[];
+  equipment?: EquipmentItem[];
 }
 
 // ===============================

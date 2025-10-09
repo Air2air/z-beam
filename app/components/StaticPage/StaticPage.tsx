@@ -2,8 +2,9 @@
  * @component StaticPage
  * @purpose Reusable page component for simple static content pages
  * @dependencies @/types (ArticleMetadata), Layout, marked, js-yaml
- * @aiContext Use this for any static page that loads from content/pages/*.yaml + content/components/text/*.md
- *           Automatically handles YAML config, markdown content, and hero images
+ * @aiContext Use this for any static page that loads from content/pages/*.yaml with embedded markdown
+ *           Automatically handles YAML config, markdown content (in content field), hero images, 
+ *           and structured sections (workflow, benefits, equipment)
  * 
  * @usage
  * // In app/[pagename]/page.tsx:
@@ -13,8 +14,22 @@
  *   return <StaticPage slug="mypage" fallbackTitle="My Page" />;
  * }
  * 
+ * // In content/pages/mypage.yaml:
+ * title: "My Page"
+ * content: |
+ *   # Markdown content here
+ *   This is the page content.
+ * workflow:
+ *   - stage: "Step 1"
+ *     order: 1
+ *     name: "First Step"
+ *     description: "Description"
+ *     details: ["Detail 1", "Detail 2"]
+ * 
  * @when_to_use
- * ✅ Simple pages with YAML config + markdown content (services, rental)
+ * ✅ Simple pages with YAML config + embedded markdown content (services, rental)
+ * ✅ Pages with structured sections (workflow, benefits, equipment)
+ * ✅ Pages with callouts and hero images
  * ❌ Pages with custom React components (contact form, interactive widgets)
  * ❌ Pages using loadPageData with component arrays (about, materials)
  * ❌ Dynamic routes with parameters ([slug], [category])
@@ -22,6 +37,9 @@
 // app/components/StaticPage/StaticPage.tsx
 import { Layout } from "../Layout/Layout";
 import { Callout } from "../Callout/Callout";
+import { WorkflowSection } from "../WorkflowSection/WorkflowSection";
+import { BenefitsSection } from "../BenefitsSection/BenefitsSection";
+import { EquipmentSection } from "../EquipmentSection/EquipmentSection";
 import fs from 'fs/promises';
 import path from 'path';
 import { marked } from 'marked';
@@ -48,8 +66,9 @@ export interface StaticPageProps {
 
 /**
  * Reusable static page component
- * Loads configuration from content/pages/{slug}.yaml
- * Loads content from content/components/text/{slug}.md
+ * Loads all configuration and content from content/pages/{slug}.yaml
+ * Markdown content is embedded in the 'content' field of the YAML file
+ * Automatically renders structured sections (workflow, benefits, equipment) when present
  */
 export async function StaticPage({ 
   slug, 
@@ -59,14 +78,10 @@ export async function StaticPage({
   // Load YAML configuration
   const yamlPath = path.join(process.cwd(), 'content/pages', `${slug}.yaml`);
   const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { showHero?: boolean };
+  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { showHero?: boolean; content?: string };
   
-  // Load markdown content
-  const mdPath = path.join(process.cwd(), 'content/components/text', `${slug}.md`);
-  const markdownContent = await fs.readFile(mdPath, 'utf8');
-  
-  // Convert to HTML
-  const htmlContent = marked(markdownContent);
+  // Convert markdown content from YAML to HTML
+  const htmlContent = pageConfig.content ? marked(pageConfig.content) : '';
   
   // Determine which callout configuration to use
   const calloutsToRender = pageConfig.callouts || (pageConfig.callout ? [pageConfig.callout] : []);
@@ -95,6 +110,11 @@ export async function StaticPage({
       <div className="prose prose-lg max-w-none dark:prose-invert" 
            dangerouslySetInnerHTML={{ __html: htmlContent }} 
       />
+      
+      {/* Structured content sections - automatically render based on YAML data */}
+      {pageConfig.workflow && <WorkflowSection workflow={pageConfig.workflow} />}
+      {pageConfig.benefits && <BenefitsSection benefits={pageConfig.benefits} />}
+      {pageConfig.equipment && <EquipmentSection equipment={pageConfig.equipment} />}
     </Layout>
   );
 }
