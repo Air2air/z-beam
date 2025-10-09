@@ -4,6 +4,7 @@ import { SITE_CONFIG } from '../utils/constants';
 
 export interface CategoryMetadata {
   title: string;
+  subtitle?: string; // Optional subtitle for page display
   description: string;
   keywords: string[];
   ogImage: string;
@@ -18,6 +19,7 @@ export interface CategoryMetadata {
 export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   metal: {
     title: `Metal Laser Cleaning Solutions | ${SITE_CONFIG.shortName}`,
+    subtitle: "Precision cleaning for aluminum, steel, titanium, and precious metals",
     description: "Professional laser cleaning for aluminum, steel, titanium, and precious metals. Aerospace and automotive applications with precision cleaning technology.",
     keywords: ["metal laser cleaning", "aluminum cleaning", "steel restoration", "titanium surface treatment", "aerospace metals"],
     ogImage: "/images/material/aluminum-laser-cleaning-hero.jpg",

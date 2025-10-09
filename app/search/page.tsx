@@ -7,7 +7,7 @@ import { MaterialType } from "@/types";
 import { CONTAINER_STYLES } from "../utils/containerStyles";
 import { Suspense } from "react";
 
-import { Title } from "../components/Title";
+import { Layout } from "../components/Layout/Layout";
 
 export const dynamic = 'force-dynamic';
 
@@ -126,21 +126,18 @@ export default async function SearchPage() {
     );
     
     return (
-      <div className={CONTAINER_STYLES.standard}>
-        <Title level="page" title="Search" />
-        
+      <Layout title="Search">
         <SearchClient initialArticles={articlesWithBadgeData as any} />
-      </div>
+      </Layout>
     );
   } catch (error) {
     console.error("Error loading search page:", error);
     return (
-      <div className={CONTAINER_STYLES.standard}>
-        <Title level="page" title="Search" />
+      <Layout title="Search">
         <div className="bg-red-100 p-4 rounded text-red-700">
           Failed to load content. Please try again later.
         </div>
-      </div>
+      </Layout>
     );
   }
 }
