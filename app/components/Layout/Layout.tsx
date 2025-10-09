@@ -44,7 +44,7 @@ const ArticleHeader = ({ title, metadata, showHero, slug }: any) => {
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
 
-      <Title level="page" title={title || metadata?.title || 'Article'} />
+      <Title level="page" title={title || metadata?.title || 'Article'} subtitle={metadata?.subtitle} />
       <Author 
         frontmatter={metadata}
         showAvatar showCredentials showCountry showSpecialties
@@ -180,7 +180,7 @@ export function Layout(props: LayoutProps) {
       
       {title && !fullWidth && (
         <div className="mb-8">
-          <Title level="page" title={title} />
+          <Title level="page" title={title} subtitle={props.subtitle} />
         </div>
       )}
       

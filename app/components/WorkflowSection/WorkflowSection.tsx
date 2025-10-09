@@ -1,7 +1,7 @@
 /**
  * @component WorkflowSection
  * @purpose Renders workflow/process steps from YAML data with optional images
- * @dependencies @/types (WorkflowItem), Next.js Image
+ * @dependencies @/types (WorkflowItem), Next.js Image, SectionTitle
  * @aiContext Use this to display step-by-step process workflows from YAML config
  *           Automatically renders ordered stages with descriptions, detail lists, and optional images
  *           Uses same styling as Callout component for consistency
@@ -11,6 +11,7 @@
  */
 import React from 'react';
 import Image from 'next/image';
+import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
 import type { WorkflowItem } from '@/types';
 
 export interface WorkflowSectionProps {
@@ -45,9 +46,7 @@ export function WorkflowSection({
 
   return (
     <section className="workflow-section py-12">
-      <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">
-        {title}
-      </h2>
+      <SectionTitle title={title} />
       <div className="space-y-8">
         {sortedWorkflow.map((item, index) => {
           const isImageLeft = item.imagePosition === 'left';

@@ -141,6 +141,7 @@ export interface EquipmentItem {
 export interface ArticleMetadata {
   id?: string;
   title: string;
+  subtitle?: string;
   description?: string;
   slug: string;
   category?: string;
@@ -636,6 +637,7 @@ export interface LayoutProps {
   hideFooter?: boolean;
   children?: ReactNode;
   title?: string;
+  subtitle?: string;
   description?: string;
   className?: string;
   fullWidth?: boolean; // For pages that need full-width sections

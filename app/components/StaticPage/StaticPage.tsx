@@ -99,6 +99,7 @@ export async function StaticPage({
   return (
     <Layout
       title={pageConfig.title || fallbackTitle || slug}
+      subtitle={pageConfig.subtitle}
       description={pageConfig.description || fallbackDescription}
       showHero={pageConfig.showHero ?? false}
       metadata={pageConfig}

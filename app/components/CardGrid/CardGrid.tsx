@@ -18,6 +18,7 @@ import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata, Ca
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 // Unified item interface that handles all data sources - now imported from @/types
 
@@ -198,9 +199,7 @@ export function CardGrid({
         {/* Header */}
         {displayTitle && (
           <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-              {displayTitle}
-            </h2>
+            <SectionTitle title={displayTitle} />
             <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
           </div>
         )}
