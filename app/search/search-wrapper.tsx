@@ -49,7 +49,7 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
     <Layout title="Search">
       {/* Subtitle and result count on same horizontal line */}
       <div className="mb-8 flex items-center justify-between gap-4">
-        <p className="text-gray-400 text-base">
+        <p className="text-gray-400 text-lg">
           {getSubtitle()}
         </p>
         {(query || propertyName) && (
