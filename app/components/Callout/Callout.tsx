@@ -26,17 +26,17 @@ export function Callout({
   theme = 'navbar',
   variant = 'default',
 }: CalloutProps) {
-  // Theme-based styling matching existing site colors
+  // Theme-based styling with gradient backgrounds (navbar to body)
   const themeClasses = {
     body: {
-      // Matches main body background: bg-gray-700
+      // Solid body background
       container: 'bg-gray-700',
       heading: 'text-white',
       text: 'text-gray-100',
     },
     navbar: {
-      // Matches navbar background: bg-white dark:bg-gray-800
-      container: 'bg-white dark:bg-gray-800',
+      // Gradient from navbar (white/gray-800) to body (gray-700)
+      container: 'bg-gradient-to-b from-white to-gray-700 dark:from-gray-800 dark:to-gray-700',
       heading: 'text-gray-900 dark:text-white',
       text: 'text-gray-700 dark:text-gray-300',
     },

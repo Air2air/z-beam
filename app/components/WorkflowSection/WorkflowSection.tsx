@@ -27,15 +27,15 @@ export function WorkflowSection({
   // Sort by order to ensure correct sequence
   const sortedWorkflow = [...workflow].sort((a, b) => a.order - b.order);
 
-  // Theme-based styling matching Callout component
+  // Theme-based styling matching Callout component with gradient backgrounds
   const themeClasses = {
     body: {
-      container: 'bg-gray-700',
+      container: 'bg-gradient-to-b from-gray-700 to-gray-700',
       heading: 'text-white',
       text: 'text-gray-100',
     },
     navbar: {
-      container: 'bg-white dark:bg-gray-800',
+      container: 'bg-gradient-to-b from-white to-gray-700 dark:from-gray-800 dark:to-gray-700',
       heading: 'text-gray-900 dark:text-white',
       text: 'text-gray-700 dark:text-gray-300',
     },
