@@ -120,9 +120,8 @@ describe('Static Pages Rendering Integration', () => {
   });
 
   describe('Partners Page Rendering', () => {
-    // NOTE: Partners page uses UniversalPage template with complex structured data
-    // This is a different architecture than the simplified services/rental pages
-    // Partners page test is skipped as it requires different testing approach
+    // NOTE: Partners page now uses StaticPage architecture like services/rental
+    // Partners page test is skipped pending content/pages/partners.yaml configuration
     it.skip('should render partners page without "being prepared" message', async () => {
       const { metadata, components } = await loadPageData('partners');
       

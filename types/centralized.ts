@@ -1655,16 +1655,6 @@ export interface TableRow {
 }
 
 /**
- * Universal page props
- */
-export interface UniversalPageProps {
-  params: {
-    slug: string;
-  };
-  searchParams?: Record<string, string | string[] | undefined>;
-}
-
-/**
  * Layout props interface
  */
 export interface ComponentLayoutProps {
@@ -1821,18 +1811,6 @@ export type MetricConfig = GenericMetricConfig;
  * Use for metric data of any type
  */
 export type MetricData = GenericMetricData;
-
-/**
- * Alias for UniversalPageProps (removes "Universal" decoration)
- * Use for page template component props
- */
-export type PageTemplateProps = UniversalPageProps;
-
-/**
- * Even shorter alias for UniversalPageProps
- * Use for template-based pages
- */
-export type TemplateProps = UniversalPageProps;
 
 // ===============================
 // JSON-LD SCHEMA TYPES

@@ -62,14 +62,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   
   // Capitalize category name for display
   const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
+  const pageTitle = `${categoryDisplayName} Laser Cleaning`;
 
   return (
-    <Layout>
+    <Layout title={pageTitle}>
       {/* Materials Grid - no hero content in metadata, so Hero won't render */}
       <section className={CONTAINER_STYLES.standard}>
         <CardGridSSR
           slugs={slugs}
-          title={`${categoryDisplayName} Laser Cleaning`}
           columns={3}
           mode="simple"
           filterBy={categoryDisplayName}

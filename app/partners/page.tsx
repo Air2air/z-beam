@@ -1,5 +1,5 @@
 // app/partners/page.tsx
-import { UniversalPage, pageConfigs } from "../components/Templates/UniversalPage";
+import { StaticPage } from "../components/StaticPage/StaticPage";
 import { SITE_CONFIG } from "@/app/utils/constants";
 
 export const dynamic = 'force-static';
@@ -11,5 +11,11 @@ export const metadata = {
 };
 
 export default async function PartnersPage() {
-  return <UniversalPage {...pageConfigs.partners} />;
+  return (
+    <StaticPage 
+      slug="partners" 
+      fallbackTitle="Partners"
+      fallbackDescription={metadata.description}
+    />
+  );
 }
