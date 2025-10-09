@@ -20,8 +20,10 @@ images:
     width: 1920
     height: 1080
 
-# Optional callout section - appears before main content
-callouts:
+# Unified content cards - combines callouts and workflow steps
+# Items without 'order' render as callouts, items with 'order' render as workflow steps
+contentCards:
+  # Callouts (no order = renders as simple callout)
   - heading: "Surface metrology report"
     text: "First, we'll quantify and map pre-existing defects and contamination (like scratches or pitting) to inform laser settings. Second, we provide post-cleaning reports by precisely measuring surface roughness (e.g., Ra and Sa) to ensure it meets specifications. You receive lab-grade quality assurance directly on the factory floor or in the field."
     imagePosition: "right"
@@ -40,7 +42,6 @@ callouts:
       url: "/images/pages/laser.jpg"
       alt: "Professional laser cleaning in action"
 
-
   - heading: "Netalux Group"
     text: "First, we'll quantify and map pre-existing defects and contamination (like scratches or pitting) to inform laser settings. Second, we provide post-cleaning reports by precisely measuring surface roughness (e.g., Ra and Sa) to ensure it meets specifications. You receive lab-grade quality assurance directly on the factory floor or in the field."
     imagePosition: "left"
@@ -50,8 +51,7 @@ callouts:
       url: "/images/netalux/netalux_group.jpg?v=2"
       alt: "Professional laser cleaning in action"
 
-# Service workflow stages (consolidated from pros page)
-workflow:
+  # Workflow steps (order number = renders as workflow step with numbered badge)
   - stage: "Consultation & Assessment"
     order: 1
     name: "Consultation & Assessment"

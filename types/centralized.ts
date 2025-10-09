@@ -74,12 +74,48 @@ export interface AuthorInfo {
 /**
  * Workflow/process step item for static pages
  */
+/**
+ * Unified content card item - supports both callouts and workflow steps
+ * If order is provided, renders as workflow step with numbered badge
+ * If order is omitted, renders as simple callout
+ */
+export interface ContentCardItem {
+  // Core content (required)
+  heading: string;
+  text: string;
+  
+  // Workflow-specific (optional)
+  order?: number;
+  name?: string;        // Alternative to heading for workflow items
+  description?: string; // Alternative to text for workflow items
+  stage?: string;       // Legacy workflow identifier
+  details?: string[];
+  
+  // Visual options
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  imagePosition?: 'left' | 'right';
+  theme?: 'body' | 'navbar';
+  variant?: 'default' | 'inline';
+}
+
+/**
+ * @deprecated Use ContentCardItem instead
+ * Legacy WorkflowItem type for backward compatibility
+ */
 export interface WorkflowItem {
   stage: string;
   order: number;
   name: string;
   description: string;
   details: string[];
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  imagePosition?: 'left' | 'right';
 }
 
 /**
@@ -168,13 +204,15 @@ export interface ArticleMetadata {
   // Caption integration - frontmatter.caption support
   caption?: CaptionDataStructure;
   
-  // Callout configuration - optional highlighted content section(s)
-  // Supports single callout (object) or multiple callouts (array)
+  // Unified content cards - replaces callouts and workflow
+  contentCards?: ContentCardItem[];
+  
+  // Legacy fields for backward compatibility
   callout?: CalloutConfig;
   callouts?: CalloutConfig[];
-  
-  // Structured content sections for static pages
   workflow?: WorkflowItem[];
+  
+  // Other structured content sections for static pages
   benefits?: BenefitItem[];
   equipment?: EquipmentItem[];
 }

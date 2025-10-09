@@ -6,16 +6,15 @@
  *           Perfect for workflow sections, multiple callouts, or any grouped content
  * 
  * @usage
- * <ContentSection title="Our Process" items={workflowItems} />
+ * <ContentSection title="Our Process" items={contentCards} />
  */
 import React from 'react';
 import { ContentCard } from './ContentCard';
-import type { WorkflowItem } from '@/types';
-import type { CalloutProps } from '@/types';
+import type { ContentCardItem, WorkflowItem, CalloutProps } from '@/types';
 
 export interface ContentSectionProps {
   title?: string;
-  items: (WorkflowItem | CalloutProps)[];
+  items: (ContentCardItem | WorkflowItem | CalloutProps)[];
   theme?: 'body' | 'navbar';
 }
 
@@ -26,8 +25,8 @@ export function ContentSection({
 }: ContentSectionProps) {
   // Sort items if they have order property
   const sortedItems = [...items].sort((a, b) => {
-    const orderA = 'order' in a ? a.order : 0;
-    const orderB = 'order' in b ? b.order : 0;
+    const orderA = 'order' in a ? a.order || 999 : 999;
+    const orderB = 'order' in b ? b.order || 999 : 999;
     return orderA - orderB;
   });
 
@@ -40,32 +39,23 @@ export function ContentSection({
       )}
       <div className="space-y-8">
         {sortedItems.map((item, index) => {
-          // Handle WorkflowItem
-          if ('order' in item && 'name' in item) {
-            return (
-              <ContentCard
-                key={index}
-                order={item.order}
-                heading={item.name}
-                text={item.description}
-                details={item.details}
-                image={item.image}
-                imagePosition={item.imagePosition}
-                theme={theme}
-              />
-            );
-          }
+          // Normalize item to ContentCard props with proper type checking
+          const heading = ('name' in item && item.name) || ('heading' in item && item.heading) || 'Untitled';
+          const text = ('description' in item && item.description) || ('text' in item && item.text) || '';
+          const order = 'order' in item ? item.order : undefined;
+          const details = 'details' in item ? item.details : undefined;
           
-          // Handle CalloutProps
           return (
             <ContentCard
               key={index}
-              heading={item.heading}
-              text={item.text}
+              order={order}
+              heading={heading}
+              text={text}
+              details={details}
               image={item.image}
               imagePosition={item.imagePosition}
-              theme={item.theme || theme}
-              variant={item.variant}
+              theme={('theme' in item ? item.theme : undefined) || theme}
+              variant={'variant' in item ? item.variant : undefined}
             />
           );
         })}

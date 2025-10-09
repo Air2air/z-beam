@@ -82,8 +82,18 @@ export async function StaticPage({
   // Convert markdown content from YAML to HTML
   const htmlContent = pageConfig.content ? marked(pageConfig.content) : '';
   
-  // Determine which callout configuration to use
-  const calloutsToRender = pageConfig.callouts || (pageConfig.callout ? [pageConfig.callout] : []);
+  // Determine which content cards to render (unified or legacy)
+  let contentCardsToRender: any[] = [];
+  
+  if (pageConfig.contentCards) {
+    // Use unified contentCards field
+    contentCardsToRender = pageConfig.contentCards;
+  } else {
+    // Fallback to legacy callouts and workflow for backward compatibility
+    const legacyCallouts = pageConfig.callouts || (pageConfig.callout ? [pageConfig.callout] : []);
+    const legacyWorkflow = pageConfig.workflow || [];
+    contentCardsToRender = [...legacyCallouts, ...legacyWorkflow];
+  }
 
   return (
     <Layout
@@ -92,26 +102,15 @@ export async function StaticPage({
       showHero={pageConfig.showHero ?? false}
       metadata={pageConfig}
     >
-      {/* Optional Callout section(s) - renders before main content if configured */}
-      {calloutsToRender.length > 0 && calloutsToRender.map((callout, index) => (
-        <ContentCard
-          key={`callout-${index}`}
-          heading={callout.heading}
-          text={callout.text}
-          image={callout.image}
-          imagePosition={callout.imagePosition}
-          theme={callout.theme}
-          variant={callout.variant}
-        />
-      ))}
+      {/* Unified content cards - renders all callouts and workflow items */}
+      {contentCardsToRender.length > 0 && <ContentSection items={contentCardsToRender} />}
       
       {/* Main markdown content */}
       <div className="prose prose-lg max-w-none dark:prose-invert" 
            dangerouslySetInnerHTML={{ __html: htmlContent }} 
       />
       
-      {/* Structured content sections - automatically render based on YAML data */}
-      {pageConfig.workflow && <ContentSection title="Our Process" items={pageConfig.workflow} />}
+      {/* Other structured content sections - automatically render based on YAML data */}
       {pageConfig.benefits && <BenefitsSection benefits={pageConfig.benefits} />}
       {pageConfig.equipment && <EquipmentSection equipment={pageConfig.equipment} />}
     </Layout>
