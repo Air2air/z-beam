@@ -216,7 +216,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
       }
       
       // Check author_object structure
-      const authorObj = article.metadata?.author_object || article.metadata?.authorInfo;
+      const authorObj = article.metadata?.author_object || article.metadata?.author;
       if (authorObj) {
         if (authorObj.name && safeIncludes(extractSafeValue(authorObj.name), searchTerm)) {
           return true;

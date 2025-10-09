@@ -108,7 +108,7 @@ className="py-12 md:py-16" // Vertical padding
 
 - **Phone Number**: `SITE_CONFIG.contact.general.phone`
 - **Phone Link**: `SITE_CONFIG.contact.general.phoneHref`
-- **Van Image**: `/images/site/van/van.png`
+- **Van Image**: `/images/van/van.png`
 - **Company Name**: `SITE_CONFIG.shortName`
 
 ## Accessibility

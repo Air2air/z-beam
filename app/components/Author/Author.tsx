@@ -13,7 +13,7 @@ export function Author({
   className = "",
 }: AuthorProps) {
   // Get author data from frontmatter - check for object types first, fall back to string
-  const authorInfo = frontmatter?.authorInfo || (typeof frontmatter?.author === 'object' ? frontmatter.author : null);
+  const authorInfo = frontmatter?.author && typeof frontmatter.author === 'object' ? frontmatter.author : null;
   const authorString = typeof frontmatter?.author === 'string' ? frontmatter.author : null;
   
   // Use object data if available, otherwise fall back to string or defaults

@@ -3,10 +3,10 @@ echo "=== VERIFYING IMAGE PATHS ==="
 echo ""
 
 paths=(
-  "public/images/site/favicon/favicon_350.png"
-  "public/images/site/netalux/photo_pro.jpg"
-  "public/images/site/netalux/netalux_group.png"
-  "public/images/site/van/van.png"
+  "public/images/favicon/favicon_350.png"
+  "public/images/netalux/photo_pro.jpg"
+  "public/images/netalux/netalux_group.png"
+  "public/images/van/van.png"
 )
 
 for path in "${paths[@]}"; do

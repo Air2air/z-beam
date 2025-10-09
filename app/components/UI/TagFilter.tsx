@@ -2,15 +2,7 @@
 "use client";
 
 import Link from "next/link";
-
-interface TagFilterProps {
-  tags: string[];
-  selectedTag: string;
-  onSelectTag?: (tag: string) => void; // Optional callback
-  linkPrefix?: string;
-  className?: string;
-  tagItemCounts?: Record<string, number>; // Add counts for each tag
-}
+import type { TagFilterProps } from '@/types';
 
 export function TagFilter({
   tags,

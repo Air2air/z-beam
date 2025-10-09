@@ -68,9 +68,9 @@ export default function Footer() {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className={CONTAINER_STYLES.standard.replace('py-8', 'py-10') + ' flex flex-col md:flex-row md:items-center md:justify-between gap-8'}>
+      <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-12 md:py-20') + ' flex flex-col md:flex-row md:items-center md:justify-between gap-12'}>
         {/* Logo and Copyright */}
-        <div className="flex flex-col items-center md:items-start gap-4">
+        <div className="flex flex-col items-center md:items-start gap-6">
           <Link 
             href="/" 
             className="block focus:outline-none rounded-md"
@@ -92,7 +92,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <nav 
-          className="flex flex-row items-center justify-center gap-4 flex-wrap"
+          className="flex flex-row items-center justify-center gap-6 flex-wrap"
           role="navigation"
           aria-label="Footer navigation"
         >
@@ -114,7 +114,7 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div 
-          className="flex items-center justify-center gap-4"
+          className="flex items-center justify-center gap-6"
           role="navigation"
           aria-label="Social media links"
         >

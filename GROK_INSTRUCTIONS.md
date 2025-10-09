@@ -4,6 +4,9 @@
 You are working on a **laser cleaning content generation system** with strict fail-fast architecture. Your role is to make **minimal, targeted fixes** while preserving all working functionality.
 
 ## ⚡ Quick Reference Card
+
+**📘 FIRST: Read [docs/AI_QUICK_REFERENCE.md](./docs/AI_QUICK_REFERENCE.md) for coding patterns**
+
 **BEFORE ANY CHANGE:**
 1. ✅ Read the request precisely
 2. ✅ Explore existing architecture

@@ -16,7 +16,7 @@ title: Equipment Rental
 description: Professional laser cleaning equipment rental
 author: Z-Beam Team
 date: 2025-10-03
-heroImage: /images/site/hero/rental-equipment.jpg  # Path to hero image
+heroImage: /images/hero/rental-equipment.jpg  # Path to hero image
 heroVideo: dQw4w9WgXcQ                             # YouTube video ID (optional)
 heroAlt: Professional laser cleaning equipment      # Alt text for accessibility
 ---
@@ -159,7 +159,7 @@ title: Privacy Policy
 ### Image Paths
 All images must be relative to the `/public` directory:
 ```yaml
-✅ heroImage: /images/site/hero/rental.jpg
+✅ heroImage: /images/hero/rental.jpg
 ✅ heroImage: /images/equipment/system.png
 ❌ heroImage: images/rental.jpg  # Missing leading slash
 ❌ heroImage: public/images/rental.jpg  # Don't include 'public'
@@ -210,7 +210,7 @@ export const pageConfigs = {
 ### 1. Add to Markdown
 ```yaml
 ---
-heroImage: /images/site/logo/logo_.png
+heroImage: /images/logo/logo_.png
 ---
 ```
 

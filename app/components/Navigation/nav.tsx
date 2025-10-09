@@ -73,7 +73,7 @@ export function Navbar() {
           aria-label="Contact us"
         >
           <Image
-            src="/images/site/van/van.png"
+            src="/images/van/van.png"
             alt={`${SITE_CONFIG.shortName} service van`}
             width={130}
             height={80}

@@ -1,0 +1,46 @@
+# AI Assistant Rules for Z-Beam Project
+
+## 📘 REQUIRED READING
+Before making ANY changes, read: `docs/AI_QUICK_REFERENCE.md`
+
+## 🚨 CRITICAL RULES
+
+### Type System
+- ✅ ALWAYS import types from `@/types` 
+- ❌ NEVER create local interfaces in components
+- ✅ Check `types/centralized.ts` before creating new types
+
+### Utilities
+- ✅ Use `extractSafeValue()` from `@/utils/stringHelpers` for string processing
+- ✅ Use `cleanupFloat()` from `@/utils/formatting` for numbers
+- ✅ Import constants from `SITE_CONFIG` in `@/utils/constants`
+- ❌ Never hardcode paths or magic numbers
+
+### Component Patterns
+- ✅ Follow templates in `docs/AI_QUICK_REFERENCE.md`
+- ✅ Add JSDoc headers with `@component`, `@purpose`, `@dependencies`
+- ✅ Check `docs/COMPONENT_MAP.md` for relationships before creating
+
+### Import Order
+```typescript
+import React from 'react';              // React first
+import type { Props } from '@/types';   // Types from centralized
+import { utility } from '@/utils';       // Utils second
+import { SITE_CONFIG } from '@/utils/constants';
+import './styles.scss';                 // Styles last
+```
+
+## 📚 Documentation Files
+- `docs/AI_QUICK_REFERENCE.md` - **START HERE**
+- `docs/COMPONENT_MAP.md` - Component relationships
+- `docs/AI_OPTIMIZATION_RECOMMENDATIONS.md` - Full guide
+- `GROK_INSTRUCTIONS.md` - Development workflow
+- `README.md` - Project overview
+
+## 🎯 Success Criteria
+Generated code should:
+1. Use centralized types from `@/types`
+2. Follow established import patterns
+3. Use existing utility functions
+4. Include proper JSDoc documentation
+5. Match existing component structure

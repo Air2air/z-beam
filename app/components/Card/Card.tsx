@@ -1,3 +1,12 @@
+/**
+ * @component Card
+ * @purpose Individual article card with thumbnail, badge, and metadata display
+ * @dependencies @/types (CardProps, ArticleMetadata, BadgeData), Thumbnail, BadgeSymbol
+ * @related CardGrid.tsx, Thumbnail/Thumbnail.tsx, BadgeSymbol/BadgeSymbol.tsx
+ * @complexity Low (140 lines, 4 variants: standard, compact, featured, preview)
+ * @aiContext Import CardProps from @/types. Use variant prop for styling. Badge is optional.
+ *           frontmatter contains article metadata. href is required for navigation.
+ */
 // app/components/Card/Card.tsx
 "use client";
 
@@ -5,7 +14,7 @@ import "./styles.scss";
 import Link from "next/link";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
-import { BadgeData, ArticleMetadata } from "@/types";
+import { BadgeData, ArticleMetadata, CardProps } from "@/types";
 
 // Card variant configurations
 const CARD_VARIANTS = {
@@ -48,14 +57,6 @@ const CARD_VARIANTS = {
 } as const;
 
 type CardVariant = keyof typeof CARD_VARIANTS;
-
-export interface CardProps {
-  frontmatter?: ArticleMetadata;
-  href: string;
-  badge?: BadgeData | null; // Allow null
-  className?: string;
-  variant?: CardVariant; // Add variant prop
-}
 
 export function Card({
   frontmatter,

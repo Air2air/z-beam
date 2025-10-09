@@ -3,19 +3,9 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Article, ArticleMetadata } from "@/types";
+import { Article, ArticleMetadata, ThumbnailProps } from "@/types";
 
-type ObjectFit = "fill" | "contain" | "cover" | "none" | "scale-down";
-
-interface ThumbnailProps {
-  alt: string;
-  className?: string;
-  priority?: boolean;
-  objectFit?: ObjectFit;
-  width?: number;
-  height?: number;
-  frontmatter?: ArticleMetadata; // Use standardized type
-}
+// ThumbnailProps now imported from centralized types
 
 export function Thumbnail({
   alt,
@@ -70,7 +60,7 @@ export function Thumbnail({
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-600">
           <Image
-            src="/images/site/logo/logo_.png"
+            src="/images/logo/logo_.png"
             alt="No image available"
             width={60}
             height={60}

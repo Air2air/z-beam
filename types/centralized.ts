@@ -1,3 +1,12 @@
+/**
+ * @file types/centralized.ts
+ * @purpose SINGLE SOURCE OF TRUTH for all Z-Beam types - 1,830+ consolidated type definitions
+ * @aiContext ALWAYS import types from '@/types' - never create local interfaces in components
+ *           Key types: ArticleMetadata, CardProps, CaptionProps, AuthorInfo, CardGridProps
+ * @usage import type { TypeName } from '@/types'
+ * @warning Never create duplicate interfaces - add new types to this file
+ * @exports 100+ interfaces covering all component props, data structures, and utilities
+ */
 // types/centralized.ts
 // SINGLE SOURCE OF TRUTH for all Z-Beam types
 // This file will replace all scattered type definitions
@@ -72,7 +81,7 @@ export interface ArticleMetadata {
   slug: string;
   category?: string;
   tags?: string[];
-  authorInfo?: AuthorInfo;
+  author?: AuthorInfo | string; // Support both object and string formats
   lastModified?: string;
   datePublished?: string;
   image?: string;
@@ -129,6 +138,45 @@ export interface ArticleMetadata {
   
   // Caption integration - frontmatter.caption support
   caption?: CaptionDataStructure;
+  
+  // Callout configuration - optional highlighted content section(s)
+  // Supports single callout (object) or multiple callouts (array)
+  callout?: CalloutConfig;
+  callouts?: CalloutConfig[];
+}
+
+// ===============================
+// CALLOUT TYPES
+// ===============================
+
+/**
+ * Configuration for Callout component in YAML frontmatter
+ */
+export interface CalloutConfig {
+  heading: string;
+  text: string;
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  imagePosition?: 'left' | 'right';
+  theme?: 'body' | 'navbar';
+  variant?: 'default' | 'inline';
+}
+
+/**
+ * Props for Callout component
+ */
+export interface CalloutProps {
+  heading: string;
+  text: string;
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  imagePosition?: 'left' | 'right';
+  theme?: 'body' | 'navbar';
+  variant?: 'default' | 'inline';
 }
 
 // ===============================
@@ -650,6 +698,21 @@ export type MaterialType =
   | 'semiconductor'
   | 'other';
 
+// Grid system types
+export type GridColumns = 1 | 2 | 3 | 4;
+export type GridGap = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type GridContainer = 'standard' | 'flexible' | 'stretch';
+
+/**
+ * Standard grid component props
+ */
+export interface StandardGridProps {
+  columns?: GridColumns;
+  gap?: GridGap;
+  container?: GridContainer;
+  className?: string;
+}
+
 /**
  * Markdown metadata interface
  */
@@ -710,6 +773,58 @@ export interface SocialLink {
 }
 
 /**
+ * Search bar component props
+ */
+export interface SearchBarProps {
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  className?: string;
+  label?: string;
+  id?: string;
+  'aria-describedby'?: string;
+  onSubmit?: () => void;
+}
+
+/**
+ * API configuration interface
+ */
+export interface ApiConfig {
+  baseUrl?: string;
+  timeout?: number;
+  retries?: number;
+  apiKey?: string;
+  headers?: Record<string, string>;
+}
+
+/**
+ * Cache entry interface for performance caching
+ */
+export interface CacheEntry<T = any> {
+  data: T;
+  timestamp: number;
+  ttl?: number;
+  key?: string;
+  accessCount?: number;
+  lastAccessed?: number;
+}
+
+/**
+ * Cache metrics interface for performance monitoring
+ */
+export interface CacheMetrics {
+  hits: number;
+  misses: number;
+  size?: number;
+  maxSize?: number;
+  hitRate?: number;
+  evictions?: number;
+  totalRequests?: number;
+  avgResponseTime?: number;
+  memoryUsage?: number;
+}
+
+/**
  * Base image component props
  */
 export interface BaseImageProps {
@@ -717,6 +832,105 @@ export interface BaseImageProps {
   alt: string;
   priority?: boolean;
   className?: string;
+}
+
+// ===============================
+// COMPONENT PROPS INTERFACES
+// ===============================
+
+/**
+ * Card item interface for grid displays
+ */
+export interface CardItem {
+  slug: string;
+  title?: string;
+  description?: string;
+  href?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  image?: string;
+  badge?: BadgeData;
+  tags?: string[];
+  category?: string;
+  metadata?: Record<string, unknown>;
+  article?: Article | null;
+}
+
+/**
+ * Card grid component props - unified grid system
+ */
+export interface CardGridProps {
+  // Data sources - flexible input types
+  items?: CardItem[];
+  slugs?: string[];
+  searchResults?: SearchResultItem[];
+  
+  // Display configuration
+  title?: string;
+  heading?: string;
+  columns?: GridColumns;
+  gap?: GridGap;
+  
+  // Layout modes
+  mode?: 'simple' | 'category-grouped' | 'search-results';
+  variant?: 'default' | 'compact' | 'featured';
+  
+  // Category grouping options (for mode: 'category-grouped')
+  showSearch?: boolean;
+  showCategoryFilter?: boolean;
+  maxItemsPerCategory?: number;
+  categoryOrder?: string[];
+  
+  // Filtering
+  filterBy?: string;
+  
+  // Badge handling
+  showBadgeSymbols?: boolean;
+  loadBadgeSymbolData?: boolean;
+  
+  // Styling
+  className?: string;
+}
+
+
+
+/**
+ * Button component props
+ */
+export interface ButtonProps {
+  children: ReactNode;
+  onClick?: () => void;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+/**
+ * Content component props
+ */
+export interface ContentProps {
+  content: string;
+  className?: string;
+  config?: {
+    wrapHeadings?: boolean;
+    maxWidth?: string;
+    enhanceTables?: boolean;
+  };
+}
+
+/**
+ * Thumbnail component props
+ */
+export interface ThumbnailProps {
+  alt: string;
+  className?: string;
+  priority?: boolean;
+  objectFit?: "fill" | "contain" | "cover" | "none" | "scale-down";
+  width?: number;
+  height?: number;
+  frontmatter?: ArticleMetadata;
 }
 
 // ===============================
@@ -996,43 +1210,6 @@ export interface BadgeSymbolData extends BadgeData {
 export interface BreadcrumbsProps {
   items: BreadcrumbItem[];
   className?: string;
-}
-
-/**
- * Card grid item interface
- */
-export interface CardItem {
-  slug: string;
-  title?: string;
-  description?: string;
-  href?: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  badge?: any; // Using any for now to avoid type conflicts
-  tags?: string[];
-  featured?: boolean;
-  metadata?: Record<string, unknown>;
-  height?: string;
-  name?: string;
-  image?: string;
-  article?: {
-    metadata?: Record<string, unknown>;
-    components?: Record<string, ComponentData>;
-  } | null;
-}
-
-/**
- * Card grid component props
- */
-export interface CardGridProps {
-  items: CardItem[];
-  title?: string;
-  heading?: string;
-  columns?: 1 | 2 | 3 | 4;
-  className?: string;
-  showBadgeSymbols?: boolean;
-  loadBadgeSymbolData?: boolean;
-  variant?: 'standard' | 'featured';
 }
 
 /**
@@ -1402,6 +1579,8 @@ export interface TableRow {
   min?: string;
   max?: string;
   percentile?: number;
+  description?: string;
+  confidence?: number;
 }
 
 /**
@@ -1428,14 +1607,10 @@ export interface ComponentLayoutProps {
  */
 export interface ArticleHeaderProps {
   metadata: ArticleMetadata;
+  slug?: string;
+  title?: string;
+  components?: Record<string, ComponentData>;
   showBreadcrumbs?: boolean;
-}
-
-/**
- * Content props interface
- */
-export interface ContentProps {
-  children: React.ReactNode;
 }
 
 /**
@@ -1587,3 +1762,116 @@ export type PageTemplateProps = UniversalPageProps;
  * Use for template-based pages
  */
 export type TemplateProps = UniversalPageProps;
+
+// ===============================
+// JSON-LD SCHEMA TYPES
+// ===============================
+
+/**
+ * JSON-LD component props
+ */
+export interface JsonLdProps {
+  data: Record<string, unknown>;
+}
+
+/**
+ * Person schema for JSON-LD
+ */
+export interface PersonSchema {
+  name: string;
+  url?: string;
+  image?: string;
+  description?: string;
+  jobTitle?: string;
+  worksFor?: string;
+  title?: string;
+  country?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Listing/BlogPosting schema for JSON-LD
+ */
+export interface ListingSchema {
+  headline: string;
+  description: string;
+  author: string | { name: string; [key: string]: unknown };
+  datePublished: string;
+  dateModified?: string;
+  url: string;
+  image?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Website schema for JSON-LD
+ */
+export interface WebsiteSchema {
+  name: string;
+  description: string;
+  url: string;
+  author?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Article schema for JSON-LD
+ */
+export interface ArticleSchema {
+  headline: string;
+  description: string;
+  author: string | PersonSchema;
+  datePublished: string;
+  dateModified?: string;
+  url: string;
+  image?: string;
+  articleBody?: string;
+  keywords?: string[];
+  articleSection?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Breadcrumb item for JSON-LD breadcrumb lists
+ */
+export interface JsonLdBreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+/**
+ * Progress bar component props
+ */
+export interface ProgressBarProps {
+  min: number;
+  max: number;
+  value: number;
+  color?: string;
+  unit?: string;
+  title: string;
+  id: string;
+  propertyName?: string;
+}
+
+/**
+ * Card component props
+ */
+export interface CardProps {
+  frontmatter?: ArticleMetadata;
+  href: string;
+  badge?: BadgeData | null;
+  className?: string;
+  variant?: 'standard' | 'compact' | 'featured' | 'preview';
+}
+
+/**
+ * Tag filter component props
+ */
+export interface TagFilterProps {
+  tags: string[];
+  selectedTag: string;
+  onSelectTag?: (tag: string) => void;
+  linkPrefix?: string;
+  className?: string;
+  tagItemCounts?: Record<string, number>;
+}

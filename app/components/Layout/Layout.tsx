@@ -29,7 +29,12 @@ const ArticleHeader = ({ title, metadata, showHero, slug }: any) => {
   const materialName = getMaterialName(metadata, slug);
   
   // Check if we have hero image/video from markdown or material-based hero
-  const hasHeroContent = showHero && (metadata?.image || metadata?.video || materialName);
+  const hasHeroContent = showHero && (
+    metadata?.image || 
+    metadata?.images?.hero?.url || 
+    metadata?.video || 
+    materialName
+  );
   
   return (
     <div className="header-section mb-6">
@@ -141,9 +146,9 @@ export function Layout(props: LayoutProps) {
       schemas.technicalArticle({
         headline: metadata.title,
         description: metadata.description,
-        author: typeof metadata.authorInfo === 'string' 
-          ? metadata.authorInfo 
-          : metadata.authorInfo?.name || SITE_CONFIG.author,
+        author: typeof metadata.author === 'string' 
+          ? metadata.author 
+          : metadata.author?.name || SITE_CONFIG.author,
         datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
         dateModified: metadata.lastModified,
         url: `${SITE_CONFIG.url}/${slug}`,
@@ -166,7 +171,12 @@ export function Layout(props: LayoutProps) {
   // Regular page layout
   return (
     <main className={containerClass} id="main-content" role="main">
-      {!showHero && !fullWidth && <div className={SPACER_CLASSES} aria-hidden="true" />}
+      {/* Hero or spacer */}
+      {showHero ? (
+        <Hero frontmatter={metadata} theme="dark" />
+      ) : (
+        !fullWidth && <div className={SPACER_CLASSES} aria-hidden="true" />
+      )}
       
       {title && !fullWidth && (
         <div className="mb-8">

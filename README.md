@@ -519,7 +519,25 @@ For detailed documentation, see `yaml-processor/README.md`.
 
 ---
 
-## 12. Quick Start
+## 12. AI Assistant Guidelines
+
+**📘 For AI Assistants working on this codebase:**
+
+Read **[docs/AI_QUICK_REFERENCE.md](./docs/AI_QUICK_REFERENCE.md)** first - it contains critical rules for:
+- ✅ Type system usage (always use `@/types`)
+- ✅ Component patterns and templates
+- ✅ Utility function reference
+- ✅ Common anti-patterns to avoid
+
+**Additional AI Resources:**
+- **[docs/COMPONENT_MAP.md](./docs/COMPONENT_MAP.md)** - Component relationships and dependencies
+- **[docs/AI_OPTIMIZATION_RECOMMENDATIONS.md](./docs/AI_OPTIMIZATION_RECOMMENDATIONS.md)** - Full optimization guide
+
+**Key Rule:** Never create local interfaces - always import from `@/types`.
+
+---
+
+## 13. Quick Start
 
 ```bash
 # Fix any YAML issues first

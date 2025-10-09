@@ -28,19 +28,17 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const slug = extractSafeValue(rawSlug);
   
   // Simplified helper function to safely extract author name
-  const getAuthorName = (author: AuthorInfo | undefined): string | undefined => {
-    if (!author) return undefined;
-    return author.name; // Standardized field name
-  };
-  
-  // Use title directly
+  const getAuthorName = (author: AuthorInfo | string | undefined): string | undefined => {
+    if (typeof author === 'string') return author;
+    return author?.name;
+  };  // Use title directly
   const actualTitle = title || '';
   
   const formattedTitle = actualTitle && !safeIncludes(actualTitle, SITE_CONFIG.shortName) 
     ? `${actualTitle} | ${SITE_CONFIG.shortName}` 
     : actualTitle || SITE_CONFIG.shortName;
   
-  const authorName = getAuthorName(metadata.authorInfo);
+  const authorName = getAuthorName(metadata.author);
   
   const result: NextMetadata = {
     title: formattedTitle,

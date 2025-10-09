@@ -6,9 +6,7 @@ import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
 import { CONTAINER_STYLES } from "../utils/containerStyles";
 import { Suspense } from "react";
-import { Metadata } from "next";
 
-import { LoadingSpinner } from "../components/Loading/LoadingSpinner";
 import { Title } from "../components/Title";
 
 export const dynamic = 'force-dynamic';

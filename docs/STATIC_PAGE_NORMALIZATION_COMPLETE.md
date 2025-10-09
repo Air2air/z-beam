@@ -49,7 +49,7 @@ title: [Page Title]
 description: [SEO description 150-160 chars]
 author: Z-Beam Team
 date: YYYY-MM-DD
-heroImage: /images/site/netalux/netalux_group.jpg
+heroImage: /images/netalux/netalux_group.jpg
 heroVideo: [empty string or video path]
 heroAlt: [Descriptive alt text]
 keywords:

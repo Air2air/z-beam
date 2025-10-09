@@ -26,7 +26,7 @@ export default function CallToAction() {
           <div className="flex items-center justify-center">
             <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 -my-8 sm:-my-10 md:-my-12 lg:-my-16">
               <Image
-                src="/images/site/van/van.png"
+                src="/images/van/van.png"
                 alt={`${SITE_CONFIG.shortName} service van`}
                 fill
                 className="object-contain drop-shadow-2xl"

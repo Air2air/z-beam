@@ -9,7 +9,7 @@ echo "=== IMAGE FILES IN /public/images ==="
 echo "Material images: $(ls -1 public/images/material/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
 echo "Application images: $(ls -1 public/images/application/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
 echo "Author images: $(ls -1 public/images/author/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
-echo "Site images: $(ls -1 public/images/site/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
+echo "Site images: $(ls -1 public/images/*.jpg 2>/dev/null | wc -l | tr -d ' ')"
 echo ""
 
 # Check for image types in material folder

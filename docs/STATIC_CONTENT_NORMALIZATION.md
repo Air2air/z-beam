@@ -28,7 +28,7 @@ title: Equipment Rental
 description: Professional laser cleaning equipment rental for industrial applications
 author: Z-Beam Team
 date: 2025-10-03
-heroImage: /images/site/netalux/netalux_group.jpg
+heroImage: /images/netalux/netalux_group.jpg
 heroVideo: 
 heroAlt: Professional laser cleaning equipment available for rental
 keywords:

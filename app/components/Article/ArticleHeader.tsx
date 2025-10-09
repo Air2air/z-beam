@@ -6,14 +6,9 @@ import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import { Title } from "../Title";
 import { extractSafeValue } from "../../utils/stringHelpers";
-import type { ArticleMetadata, ComponentData } from "@/types";
+import type { ArticleMetadata, ComponentData, ArticleHeaderProps } from "@/types";
 
-interface ArticleHeaderProps {
-  metadata?: ArticleMetadata;
-  slug?: string;
-  title?: string;
-  components?: Record<string, ComponentData>;
-}
+// ArticleHeaderProps now imported from centralized types
 
 export function ArticleHeader({ metadata, slug, title, components }: ArticleHeaderProps) {
   // Extract material name for hero image (from subject or slug)
@@ -40,7 +35,7 @@ export function ArticleHeader({ metadata, slug, title, components }: ArticleHead
       )}
       
       {/* Author component - simplified direct usage */}
-      {metadata?.authorInfo && (
+      {metadata?.author && (
         <Author 
           frontmatter={metadata}
           showAvatar={true}

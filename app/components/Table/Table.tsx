@@ -8,13 +8,7 @@ interface FrontmatterTableData {
   [key: string]: any;
 }
 
-interface TableRow {
-  property: string;
-  value: string;
-  unit?: string;
-  description?: string;
-  confidence?: number;
-}
+// TableRow interface now comes from centralized types
 
 /**
  * Frontmatter-focused Table component for displaying structured frontmatter data

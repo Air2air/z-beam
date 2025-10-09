@@ -187,7 +187,7 @@ process:
     "name": "Z-Beam Laser Cleaning",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.z-beam.com/images/site/logo_.png"
+      "url": "https://www.z-beam.com/images/logo_.png"
     }
   },
   "datePublished": "2024-01-15T10:00:00Z",
@@ -339,7 +339,7 @@ export const BUSINESS_CONFIG = {
   "url": "https://www.z-beam.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://www.z-beam.com/images/site/logo_.png",
+    "url": "https://www.z-beam.com/images/logo_.png",
     "width": 400,
     "height": 100
   },

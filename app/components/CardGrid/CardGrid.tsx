@@ -1,3 +1,12 @@
+/**
+ * @component CardGrid
+ * @purpose Unified grid component for displaying articles with multiple layout modes
+ * @dependencies @/types (CardGridProps, CardItem), @/utils/formatting, TagFilter, Card
+ * @related CardGridSSR.tsx, Card/Card.tsx, UI/TagFilter.tsx
+ * @complexity Medium (448 lines, 3 display modes: simple, category-grouped, search-results)
+ * @aiContext Always import CardGridProps from @/types. Use mode prop to control display type.
+ *           For category grouping, articles must have frontmatter.category. Search mode handles filtering.
+ */
 // app/components/CardGrid/CardGrid.tsx
 // Single unified grid component for all card display needs
 
@@ -5,62 +14,12 @@
 
 import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
-import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata } from "@/types";
+import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata, CardItem, CardGridProps, GridColumns, GridGap } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
-import { getGridClasses, type GridColumns, type GridGap } from "../../utils/gridConfig";
-import { Badge } from '../Badge/Badge';
-import { Skeleton } from '../Skeleton/Skeleton';
+import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
 
-// Unified item interface that handles all data sources
-interface CardItem {
-  slug: string;
-  title?: string;
-  description?: string;
-  href?: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  image?: string;
-  badge?: BadgeData;
-  tags?: string[];
-  category?: string;
-  metadata?: Record<string, unknown>;
-  article?: Article | null;
-}
-
-// Comprehensive props interface supporting all use cases
-interface CardGridProps {
-    // Data sources - flexible input types
-  items?: CardItem[];
-  slugs?: string[];
-  searchResults?: SearchResultItem[];
-  
-  // Display configuration
-  title?: string;
-  heading?: string;
-  columns?: GridColumns;
-  gap?: GridGap;
-  
-  // Layout modes
-  mode?: 'simple' | 'category-grouped' | 'search-results';
-  variant?: 'default' | 'compact' | 'featured';
-  
-  // Category grouping options (for mode: 'category-grouped')
-  showSearch?: boolean;
-  showCategoryFilter?: boolean;
-  maxItemsPerCategory?: number;
-  categoryOrder?: string[];
-  
-  // Filtering
-  filterBy?: string;
-  
-  // Badge handling
-  showBadgeSymbols?: boolean;
-  loadBadgeSymbolData?: boolean;
-  
-  // Styling
-  className?: string;
-}
+// Unified item interface that handles all data sources - now imported from @/types
 
 // Default category ordering
 const DEFAULT_CATEGORY_ORDER = [

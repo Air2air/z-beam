@@ -123,7 +123,7 @@ The following image categories maintain their existing naming patterns:
 
 - **Author images**: `/images/author/{author-name}.jpg`
 - **Product images**: `/images/products/{product-name}.jpg`
-- **Site images**: `/images/home-og.jpg`, `/images/site/Favicon/*`
+- **Site images**: `/images/home-og.jpg`, `/images/Favicon/*`
 - **Logo images**: `/images/logo-*.png`
 
 ## Quality Assurance

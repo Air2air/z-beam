@@ -10,17 +10,7 @@
 import React from 'react';
 import { cleanupFloat } from '../../utils/formatting';
 import { SITE_CONFIG } from '../../utils/constants';
-
-export interface ProgressBarProps {
-  min: number;
-  max: number;
-  value: number;
-  color?: string;
-  unit?: string;
-  title: string;
-  id: string;
-  propertyName?: string;
-}
+import type { ProgressBarProps } from '@/types';
 
 export function ProgressBar({ 
   min, 

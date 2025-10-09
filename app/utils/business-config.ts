@@ -197,7 +197,7 @@ export const BUSINESS_CONFIG = {
   // === BRAND ASSETS ===
   assets: {
     logo: {
-      primary: "https://z-beam.com/images/site/logo_.png", // Company brand logo
+      primary: "https://z-beam.com/images/logo_.png", // Company brand logo
       width: 400,
       height: 100
     },

@@ -1,15 +1,9 @@
 // app/components/Content/Content.tsx
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import { ContentProps } from '@/types';
 import './styles.css';
 
-interface ContentProps {
-  content: string;
-  config?: {
-    wrapHeadings?: boolean;
-    maxWidth?: string;
-    enhanceTables?: boolean;
-  };
-}
+// ContentProps now imported from centralized types - enhanced with config
 
 export function Content({ content, config }: ContentProps) {
   if (!content) return null;

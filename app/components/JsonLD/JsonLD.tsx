@@ -1,60 +1,14 @@
 // app/components/JsonLD/JsonLD.tsx
 import React from 'react';
 import { SITE_CONFIG } from '../../utils/constants';
-
-export interface JsonLdProps {
-  data: Record<string, unknown>;
-}
-
-export interface PersonSchema {
-  name: string;
-  url?: string;
-  image?: string;
-  description?: string;
-  jobTitle?: string;
-  worksFor?: string;
-  title?: string;
-  country?: string;
-  [key: string]: unknown;
-}
-
-export interface ListingSchema {
-  headline: string;
-  description: string;
-  author: string | { name: string; [key: string]: unknown };
-  datePublished: string;
-  dateModified?: string;
-  url: string;
-  image?: string;
-  [key: string]: unknown;
-}
-
-export interface WebsiteSchema {
-  name: string;
-  description: string;
-  url: string;
-  author?: string;
-  [key: string]: unknown;
-}
-
-export interface BreadcrumbItem {
-  name: string;
-  url: string;
-}
-
-export interface ArticleSchema {
-  headline: string;
-  description: string;
-  author: string | PersonSchema;
-  datePublished: string;
-  dateModified?: string;
-  url: string;
-  image?: string;
-  articleBody?: string;
-  keywords?: string[];
-  articleSection?: string;
-  [key: string]: unknown;
-}
+import type { 
+  JsonLdProps, 
+  PersonSchema, 
+  ListingSchema, 
+  WebsiteSchema, 
+  ArticleSchema, 
+  JsonLdBreadcrumbItem 
+} from '@/types';
 
 /**
  * Component to render JSON-LD structured data
@@ -132,7 +86,7 @@ export const schemas = {
     })
   }),
 
-  breadcrumbList: (items: BreadcrumbItem[]) => ({
+  breadcrumbList: (items: JsonLdBreadcrumbItem[]) => ({
     '@context': SITE_CONFIG.schema.context,
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({

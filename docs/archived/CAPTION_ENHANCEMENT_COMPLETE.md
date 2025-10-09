@@ -174,7 +174,7 @@ useEffect(() => {
 {/* Fallback content when no image */}
 <div aria-label="No surface analysis image available">
   <Image
-    src="/images/site/logo/logo_.png"
+    src="/images/logo/logo_.png"
     alt="Z-Beam company logo"
     width={120}
     height={72}

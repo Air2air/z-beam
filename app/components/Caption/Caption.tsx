@@ -1,3 +1,12 @@
+/**
+ * @component Caption
+ * @purpose Displays material images with technical metadata and machine settings
+ * @dependencies @/types (CaptionProps, FrontmatterType), useCaptionParsing, MetricsCard
+ * @related MetricsCard/MetricsCard.tsx, CaptionImage.tsx, CaptionContent.tsx
+ * @complexity Medium (154 lines, handles image loading and metadata parsing)
+ * @aiContext Use CaptionProps from @/types. Pass frontmatter.caption data structure.
+ *           Component auto-parses different caption formats (YAML, object, string).
+ */
 // app/components/Caption/Caption.tsx
 "use client";
 

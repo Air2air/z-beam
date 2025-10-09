@@ -35,7 +35,7 @@ export function SearchBar({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (onSubmit) {
-      onSubmit(inputValue);
+      onSubmit();
     }
   };
 
