@@ -61,7 +61,7 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-3xl md:text-4xl font-bold mb-6 text-green-600 dark:text-green-400',
+      classes: 'text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
