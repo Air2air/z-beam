@@ -64,7 +64,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
-    <Layout>
+    <Layout showHero={false}>
       {/* Materials Grid */}
       <section className={CONTAINER_STYLES.standard}>
         <CardGridSSR
