@@ -15,6 +15,7 @@ import Image from 'next/image';
 import { useCaptionParsing, CaptionData } from './useCaptionParsing';
 import { CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import { Title } from '../Title';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { SITE_CONFIG } from '../../utils/constants';
 import './seo-caption.css';
 import './caption-accessibility.css';
@@ -138,13 +139,13 @@ export function Caption({ frontmatter, config }: CaptionProps) {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-sm font-semibold mb-2 text-gray-200">Before Treatment</h3>
+              <SectionTitle title="Before Treatment" className="text-sm mb-2" />
               <p className="text-sm text-gray-300">{captionData.beforeText}</p>
             </div>
           )}
           {captionData.afterText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-sm font-semibold mb-2 text-gray-200">After Treatment</h3>
+              <SectionTitle title="After Treatment" className="text-sm mb-2" />
               <p className="text-sm text-gray-300">{captionData.afterText}</p>
             </div>
           )}

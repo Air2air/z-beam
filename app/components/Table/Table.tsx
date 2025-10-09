@@ -1,7 +1,7 @@
 // app/components/Table/Table.tsx
 import React from 'react';
 import { TableProps, TableRow } from '@/types';
-import { Title } from '../Title';
+import { SectionTitle } from '../SectionTitle/SectionTitle';
 import './styles.css';
 
 interface FrontmatterTableData {
@@ -167,7 +167,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
       return (
         <div className="enhanced-table-container">
           {sectionTitle && (
-            <Title level="card" title={`${sectionTitle} - Properties`} className="text-xl font-bold text-white mb-4" />
+            <SectionTitle title={`${sectionTitle} - Properties`} className="mb-4" />
           )}
           <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <p className="text-gray-500 dark:text-gray-400 text-center">
@@ -181,7 +181,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
     return (
       <div className="enhanced-table-container">
         {sectionTitle && (
-          <Title level="card" title={`${sectionTitle} - Properties`} className="text-xl font-bold text-white mb-4" />
+          <SectionTitle title={`${sectionTitle} - Properties`} className="mb-4" />
         )}
         
         <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
