@@ -18,7 +18,7 @@ describe('Author Component with Frontmatter Data', () => {
     title: 'Float Glass Laser Cleaning',
     description: 'Laser cleaning parameters for Float Glass',
     slug: 'float-glass-laser-cleaning',
-    authorInfo: {
+    author: {
       id: 1,
       name: 'Yi-Chun Lin',
       title: 'Ph.D.',
@@ -74,7 +74,7 @@ describe('Author Component with Frontmatter Data', () => {
     expect(container.textContent).toContain(SITE_CONFIG.author);
   });
 
-  test('should use frontmatter.authorInfo exclusively (no individual props)', () => {
+  test('should use frontmatter.author exclusively (no individual props)', () => {
     render(
       <Author
         frontmatter={mockFrontmatter}
@@ -85,7 +85,7 @@ describe('Author Component with Frontmatter Data', () => {
       />
     );
 
-    // Verify data comes from frontmatter.authorInfo
+    // Verify data comes from frontmatter.author
     expect(screen.getByText('Yi-Chun Lin')).toBeInTheDocument();
     expect(screen.getByText('Ph.D.')).toBeInTheDocument();
     expect(screen.getByText(/Taiwan/)).toBeInTheDocument();
@@ -118,14 +118,13 @@ describe('Author Component with Frontmatter Data', () => {
       className: 'test-class'
     };
 
-    // Should not have any individual author props
-    expect(props).not.toHaveProperty('author');
+    // Should not have any individual author props at the top level
     expect(props).not.toHaveProperty('name');
     expect(props).not.toHaveProperty('title');
     expect(props).not.toHaveProperty('image');
     
-    // Should have frontmatter data
-    expect(props.frontmatter?.authorInfo).toBeDefined();
-    expect(props.frontmatter?.authorInfo?.name).toBe('Yi-Chun Lin');
+    // Should have frontmatter data with author field
+    expect(props.frontmatter?.author).toBeDefined();
+    expect(typeof props.frontmatter?.author === 'object' && props.frontmatter?.author?.name).toBe('Yi-Chun Lin');
   });
 });
