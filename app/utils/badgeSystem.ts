@@ -50,7 +50,10 @@ const ELEMENTS: Record<string, number> = {
 /**
  * Maps material types to colors for badges
  * Consolidated from badgeUtils.ts - Now with performance caching
+ * Server-side version with caching support
  */
+import { getMaterialColor as getBaseColor } from './badgeColors';
+
 export function getMaterialColor(materialType?: string): BadgeColor {
   if (!materialType) return "blue";
 
@@ -59,19 +62,8 @@ export function getMaterialColor(materialType?: string): BadgeColor {
   const cachedColor = colorCache.get(cacheKey);
   if (cachedColor) return cachedColor as BadgeColor;
 
-  const typeMap: Record<string, BadgeColor> = {
-    metal: "blue",
-    ceramic: "green", 
-    polymer: "purple",
-    composite: "orange",
-    semiconductor: "red",
-    compound: "gray",
-    element: "blue",
-    alloy: "blue",
-    other: "blue",
-  };
-
-  const color = typeMap[materialType.toLowerCase()] || "blue";
+  // Use the base implementation
+  const color = getBaseColor(materialType);
   
   // Cache the result for future use
   colorCache.set(cacheKey, color);

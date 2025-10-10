@@ -1,24 +1,10 @@
 // app/utils/searchUtils.ts
 import { MaterialType, BadgeData, BadgeColor, ChemicalProperties } from '@/types';
 import { capitalizeWords } from './formatting';
+import { getMaterialColor } from './badgeColors';
 
-export function getMaterialColor(materialType?: string | MaterialType): BadgeColor {
-  if (!materialType) return "blue";
-  
-  const typeMap: Record<string, BadgeColor> = {
-    'metal': 'blue',
-    'alloy': 'blue',
-    'element': 'blue', 
-    'ceramic': 'green',
-    'polymer': 'purple',
-    'composite': 'orange',
-    'semiconductor': 'red',
-    'compound': 'gray',
-    'other': 'gray'
-  };
-  
-  return typeMap[materialType.toLowerCase()] || "blue";
-}
+// Re-export getMaterialColor from badgeColors (client-safe version)
+export { getMaterialColor };
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {

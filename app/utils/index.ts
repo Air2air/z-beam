@@ -10,6 +10,7 @@ export * from './performanceCache';
 export * from './startupValidation';
 export * from './apiWrapper';
 export * from './contentValidator';
+export * from './logger';
 
 // Export configuration system
 export { configManager, initializeConfig, getConfig, getConfigSection, Config } from '../config';

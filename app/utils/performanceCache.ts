@@ -79,35 +79,46 @@ class PerformanceCache<T> {
   // Get cache entry with freshness check
   get(key: string): T | null {
     const startTime = performance.now();
-    this.metrics.totalRequests++;
+    if (this.metrics?.totalRequests !== undefined) {
+      this.metrics.totalRequests++;
+    }
     
     try {
       const entry = this.cache.get(key);
       
       if (!entry) {
-        this.metrics.misses++;
+        if (this.metrics?.misses !== undefined) {
+          this.metrics.misses++;
+        }
         this.updateMetrics('miss', performance.now() - startTime);
         return null;
       }
 
       // Check TTL freshness
       const now = Date.now();
-      if (now - entry.timestamp > entry.ttl) {
+      const ttl = entry.ttl ?? this.defaultTTL;
+      if (now - entry.timestamp > ttl) {
         this.cache.delete(key);
-        this.metrics.evictions++;
+        if (this.metrics?.evictions !== undefined) {
+          this.metrics.evictions++;
+        }
         this.updateMetrics('expired', performance.now() - startTime);
         
         logPerformance(`Cache EXPIRED: ${this.name}/${key}`, now - entry.timestamp, {
           age: now - entry.timestamp,
-          ttl: entry.ttl
+          ttl: ttl
         });
         return null;
       }
 
       // Update access tracking
-      entry.accessCount++;
+      if (entry.accessCount !== undefined) {
+        entry.accessCount++;
+      }
       entry.lastAccessed = now;
-      this.metrics.hits++;
+      if (this.metrics?.hits !== undefined) {
+        this.metrics.hits++;
+      }
       this.updateMetrics('hit', performance.now() - startTime);
       
       return entry.data;
@@ -131,7 +142,8 @@ class PerformanceCache<T> {
     // Convert iterator to array for compatibility
     const entries = Array.from(this.cache.entries());
     for (const [key, entry] of entries) {
-      if (now - entry.timestamp > entry.ttl) {
+      const ttl = entry.ttl ?? this.defaultTTL;
+      if (now - entry.timestamp > ttl) {
         this.cache.delete(key);
         cleaned++;
       }
@@ -156,15 +168,18 @@ class PerformanceCache<T> {
     // Convert iterator to array for compatibility
     const entries = Array.from(this.cache.entries());
     for (const [key, entry] of entries) {
-      if (entry.lastAccessed < oldestTime) {
-        oldestTime = entry.lastAccessed;
+      const lastAccessed = entry.lastAccessed ?? entry.timestamp;
+      if (lastAccessed < oldestTime) {
+        oldestTime = lastAccessed;
         oldestKey = key;
       }
     }
 
     if (oldestKey) {
       this.cache.delete(oldestKey);
-      this.metrics.evictions++;
+      if (this.metrics?.evictions !== undefined) {
+        this.metrics.evictions++;
+      }
       
       logPerformance(`Cache LRU EVICT: ${this.name}/${oldestKey}`, Date.now() - oldestTime, {
         age: Date.now() - oldestTime,
@@ -175,17 +190,22 @@ class PerformanceCache<T> {
 
   // Update performance metrics
   private updateMetrics(operation: string, responseTime: number): void {
-    this.metrics.avgResponseTime = 
-      (this.metrics.avgResponseTime * (this.metrics.totalRequests - 1) + responseTime) / 
-      this.metrics.totalRequests;
+    if (this.metrics?.avgResponseTime !== undefined && this.metrics?.totalRequests !== undefined && this.metrics.totalRequests > 0) {
+      this.metrics.avgResponseTime = 
+        (this.metrics.avgResponseTime * (this.metrics.totalRequests - 1) + responseTime) / 
+        this.metrics.totalRequests;
+    }
     
-    this.metrics.memoryUsage = this.cache.size;
+    if (this.metrics?.memoryUsage !== undefined) {
+      this.metrics.memoryUsage = this.cache.size;
+    }
   }
 
   // Get cache statistics
   getMetrics(): CacheMetrics & { hitRate: number; name: string } {
-    const hitRate = this.metrics.totalRequests > 0 ? 
-      (this.metrics.hits / this.metrics.totalRequests) * 100 : 0;
+    const totalRequests = this.metrics?.totalRequests ?? 0;
+    const hits = this.metrics?.hits ?? 0;
+    const hitRate = totalRequests > 0 ? (hits / totalRequests) * 100 : 0;
     
     return {
       ...this.metrics,
@@ -329,11 +349,14 @@ class CacheMonitor {
       if (metrics.hitRate < 50) {
         recommendations.push(`${metrics.name} cache hit rate is low (${metrics.hitRate.toFixed(1)}%) - consider preloading or increasing TTL`);
       }
-      if (metrics.evictions > metrics.hits * 0.1) {
+      const evictions = metrics.evictions ?? 0;
+      const hits = metrics.hits ?? 0;
+      if (evictions > hits * 0.1) {
         recommendations.push(`${metrics.name} cache has high eviction rate - consider increasing max entries`);
       }
-      if (metrics.avgResponseTime > 10) {
-        recommendations.push(`${metrics.name} cache response time is high (${metrics.avgResponseTime.toFixed(2)}ms) - check for memory pressure`);
+      const avgResponseTime = metrics.avgResponseTime ?? 0;
+      if (avgResponseTime > 10) {
+        recommendations.push(`${metrics.name} cache response time is high (${avgResponseTime.toFixed(2)}ms) - check for memory pressure`);
       }
     });
     
