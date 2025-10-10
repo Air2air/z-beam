@@ -1,6 +1,6 @@
 // app/partners/page.tsx
 import { StaticPage } from "../components/StaticPage/StaticPage";
-import { SITE_CONFIG } from "@/app/utils/constants";
+import { SITE_CONFIG } from "@/app/config";
 
 export const dynamic = 'force-static';
 export const revalidate = false;

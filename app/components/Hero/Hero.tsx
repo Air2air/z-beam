@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { HeroProps } from '@/types';
 import Image from 'next/image';
-import { SITE_CONFIG } from '@/app/utils/constants';
+import { SITE_CONFIG } from '@/app/config';
 
 /**
  * SIMPLIFIED Hero Component
