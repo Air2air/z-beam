@@ -62,6 +62,23 @@ ProgressBar.tsx (app/components/ProgressBar/)
 └── AI Note: Auto-calculates percentages, handles min/max ranges
 ```
 
+### **Typography Components** ⭐ NEW - Phase 3
+```
+Typography.tsx (app/components/Typography/) ⭐ CORE SYSTEM
+├── Exports: H1, H2, H3, H4, H5, H6, P, A, Strong, Em, UL, OL, LI, Code, Pre, Blockquote
+├── Uses: Tailwind CSS exclusively (no CSS files)
+├── Purpose: Consistent, type-safe typography with proper styling
+├── Integration: Used by MarkdownRenderer for markdown content
+└── AI Note: ALWAYS use these over raw HTML tags in markdown contexts
+
+MarkdownRenderer.tsx (app/components/Base/)
+├── Uses: react-markdown, Typography components
+├── Purpose: Convert markdown strings to React components
+├── Props: content (string), convertMarkdown (boolean)
+├── Replaces: dangerouslySetInnerHTML pattern (security improvement)
+└── AI Note: Automatically maps markdown elements to Typography components
+```
+
 ---
 
 ## 🔄 **Common Usage Patterns**
@@ -82,6 +99,41 @@ ProgressBar.tsx (app/components/ProgressBar/)
 // Technical content pattern
 <Caption frontmatter={frontmatter} />
 // Caption automatically renders MetricsCard if technical data exists
+```
+
+### **Typography Usage Pattern** ⭐ NEW
+```tsx
+// ✅ Use Typography components for markdown content
+import { MarkdownRenderer } from '@/components/Base/MarkdownRenderer';
+<MarkdownRenderer content={markdownString} convertMarkdown={true} />
+
+// ✅ Use Typography components directly
+import { H1, P, A } from '@/components/Typography';
+<H1>Page Title</H1>
+<P>Content paragraph with <A href="/link">link</A></P>
+
+// ❌ Don't use dangerouslySetInnerHTML
+<div dangerouslySetInnerHTML={{ __html: content }} />  // Security risk
+
+// ❌ Don't use raw HTML in content components
+<h1>Title</h1>  // Use Typography.H1 instead
+```
+
+### **Tailwind-First Styling Pattern** ⭐ NEW
+```tsx
+// ✅ Use inline Tailwind utilities
+<div className="absolute top-2 right-2 z-[100] bg-brand-orange text-white rounded-lg">
+
+// ✅ Use brand colors from tailwind.config.js
+<div className="bg-brand-orange text-brand-orange">
+
+// ❌ Don't create CSS files for simple styles
+.my-component { position: absolute; top: 8px; }  // Use Tailwind instead
+
+// ✅ CSS files only for complex cases
+// - Table component (100+ material variants)
+// - Custom accessibility features beyond Tailwind
+// - Third-party library overrides (rare)
 ```
 
 ### **Type Import Pattern**
@@ -201,6 +253,11 @@ With these patterns:
 
 ---
 
-**Last Updated:** October 6, 2025  
-**Status:** ✅ Core patterns documented  
-**Next:** Add headers to remaining components
+**Last Updated:** October 10, 2025  
+**Status:** ✅ Core patterns documented + Typography system + Tailwind migration complete  
+**Recent Changes:**
+- Added Typography component system documentation
+- Added MarkdownRenderer pattern (replaces dangerouslySetInnerHTML)
+- Added Tailwind-first styling guidelines
+- Documented CSS file usage policy
+- Phase 1-4 architectural improvements complete

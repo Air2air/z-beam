@@ -16,14 +16,25 @@ interface MyComponentProps {
   title: string;
 }
 
-// ❌ NEVER hardcode paths
+// ❌ NEVER hardcode paths or colors
 const imageSrc = "/images/default.jpg";
+const color = "#ff6811";  // Use bg-brand-orange instead
 
 // ❌ NEVER manual string checking  
 const title = data.title || "";
 
 // ❌ NEVER import from relative paths for types
 import { SomeType } from "./localTypes";
+
+// ❌ NEVER use dangerouslySetInnerHTML (security risk)
+<div dangerouslySetInnerHTML={{ __html: content }} />
+
+// ❌ NEVER create CSS files for simple styling
+// styles.css: .my-class { position: absolute; }  // Use Tailwind!
+
+// ❌ NEVER use raw HTML tags in content components
+<h1>Title</h1>  // Use Typography.H1
+<p>Content</p>  // Use Typography.P
 ```
 
 ---
@@ -57,6 +68,26 @@ import type { ComponentProps } from '@/types';
 import { utilityFunction } from '@/utils/specificUtil';
 ```
 
+```tsx
+// ✅ Use Typography components for content
+import { H1, H2, P, A } from '@/components/Typography';
+<H1>Page Title</H1>
+<P>Content with <A href="/link">link</A></P>
+
+// ✅ Use MarkdownRenderer for markdown strings
+import { MarkdownRenderer } from '@/components/Base/MarkdownRenderer';
+<MarkdownRenderer content={markdownString} convertMarkdown={true} />
+
+// ✅ Use Tailwind for styling (inline utilities)
+<div className="absolute top-2 right-2 z-[100] bg-brand-orange text-white rounded-lg">
+
+// ✅ Use brand colors from Tailwind config
+<div className="bg-brand-orange text-brand-orange border-brand-orange">
+
+// ✅ Use optional chaining for type safety
+const value = metrics?.totalRequests ?? 0;
+```
+
 ---
 
 ## 🎯 **KEY COMPONENTS & THEIR TYPES**
@@ -65,9 +96,14 @@ import { utilityFunction } from '@/utils/specificUtil';
 |-----------|------------|-----------|-------|
 | `CardGrid` | `CardGridProps` | `articles`, `mode`, `columns` | Mode: simple/category-grouped/search-results |
 | `Card` | `CardProps` | `frontmatter`, `href`, `variant` | Variant: standard/compact/featured/preview |
-| `Caption` | `CaptionProps` | `frontmatter` | Auto-parses caption data formats |
+| `HeroCard` | `HeroCardProps` | `image`, `title`, `items?` | Hero image section with badge list |
+| `Caption` | `CaptionProps` | `text` | Subtitle/eyebrow text |
+| `ContentCard` | `ContentCardProps` | `image?`, `alt?`, `title`, `children` | Flexible content display |
 | `MetricsCard` | `MetricsCardProps` | `title`, `data`, `mode` | Displays technical metrics |
 | `ProgressBar` | `ProgressBarProps` | `min`, `max`, `value`, `title` | Auto-calculates percentages |
+| `H1` - `H6` | `TypographyProps` | `className?`, `children` | Semantic heading components |
+| `P`, `A`, `Strong`, `Em` | `TypographyProps` | `className?`, `children`, `href?` | Semantic text components |
+| `MarkdownRenderer` | `MarkdownRendererProps` | `content`, `convertMarkdown?` | Markdown to component rendering |
 
 ---
 
@@ -79,6 +115,8 @@ import { utilityFunction } from '@/utils/specificUtil';
 | `cleanupFloat()` | `@/utils/formatting` | Displaying numbers |
 | `capitalizeWords()` | `@/utils/formatting` | Formatting display text |
 | `slugToDisplayName()` | `@/utils/formatting` | Converting slugs to readable text |
+| `getMaterialColor()` | `@/utils/badgeColors` | Client-safe material color mapping |
+| `logger` | `@/utils/logger` | Script logging (debug/info/warn/error) |
 
 ---
 

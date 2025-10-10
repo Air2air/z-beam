@@ -49,21 +49,25 @@ export const P: React.FC<{ children: React.ReactNode; className?: string }> = ({
 );
 
 export const A: React.FC<{ 
-  href: string; 
+  href?: string; 
   children: React.ReactNode; 
   className?: string;
   target?: string;
   rel?: string;
-}> = ({ href, children, className = '', target, rel }) => (
-  <a 
-    href={href}
-    className={`underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 ${className}`}
-    target={target || (href.startsWith('http') ? '_blank' : undefined)}
-    rel={rel || (href.startsWith('http') ? 'noopener noreferrer' : undefined)}
-  >
-    {children}
-  </a>
-);
+}> = ({ href = '#', children, className = '', target, rel }) => {
+  const isExternal = href?.startsWith('http') ?? false;
+  
+  return (
+    <a 
+      href={href}
+      className={`underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 ${className}`}
+      target={target || (isExternal ? '_blank' : undefined)}
+      rel={rel || (isExternal ? 'noopener noreferrer' : undefined)}
+    >
+      {children}
+    </a>
+  );
+};
 
 export const Strong: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
   <strong className={`font-medium ${className}`}>{children}</strong>

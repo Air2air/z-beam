@@ -289,46 +289,52 @@ describe('Helper utilities', () => {
   });
 
   describe('isBrowser', () => {
-    test('should return false in Node.js environment', () => {
-      // In Jest/Node environment, window is undefined
-      expect(isBrowser()).toBe(false);
+    test('should return true in jsdom environment', () => {
+      // Jest/jsdom provides window by default
+      expect(isBrowser()).toBe(true);
     });
 
-    test('should return true when window is defined', () => {
-      // Mock window object
-      global.window = {};
+    test('should work with typeof window check', () => {
+      // The function checks typeof window !== 'undefined'
+      // In jsdom this should be true
+      expect(typeof window !== 'undefined').toBe(true);
       expect(isBrowser()).toBe(true);
-      
-      // Cleanup
-      delete global.window;
     });
   });
 
   describe('prefersReducedMotion', () => {
     test('should return false when not in browser', () => {
+      // Save original window
+      const originalWindow = global.window;
+      
+      // Temporarily remove window
+      delete global.window;
       expect(prefersReducedMotion()).toBe(false);
+      
+      // Restore window
+      global.window = originalWindow;
     });
 
     test('should return true when user prefers reduced motion', () => {
-      global.window = {
-        matchMedia: jest.fn(() => mockMatchMedia(true))
-      };
+      // Mock matchMedia to return true
+      const originalMatchMedia = window.matchMedia;
+      window.matchMedia = jest.fn(() => mockMatchMedia(true));
       
       expect(prefersReducedMotion()).toBe(true);
       
-      // Cleanup
-      delete global.window;
+      // Restore
+      window.matchMedia = originalMatchMedia;
     });
 
     test('should return false when user does not prefer reduced motion', () => {
-      global.window = {
-        matchMedia: jest.fn(() => mockMatchMedia(false))
-      };
+      // Mock matchMedia to return false
+      const originalMatchMedia = window.matchMedia;
+      window.matchMedia = jest.fn(() => mockMatchMedia(false));
       
       expect(prefersReducedMotion()).toBe(false);
       
-      // Cleanup
-      delete global.window;
+      // Restore
+      window.matchMedia = originalMatchMedia;
     });
   });
 
