@@ -14,7 +14,6 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useCaptionParsing, CaptionData } from './useCaptionParsing';
 import { CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
-import { Title } from '../Title';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { SITE_CONFIG } from '../../utils/constants';
 import './seo-caption.css';
@@ -74,14 +73,10 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       itemType={`${SITE_CONFIG.schema.context}/TechArticle`}
       role="region"
     >
-      {/* Header */}
-      <div className="mb-8">
-        <Title 
-          title={captionData.title || `Material Properties - ${capitalizedMaterial}`}
-          level="section"
-          priority="medium"
-        />
-      </div>
+      {/* Header - Using SectionTitle for consistency */}
+      <SectionTitle 
+        title={captionData.title || `Material Properties - ${capitalizedMaterial}`}
+      />
 
       {/* Image Section */}
       {imageSource && isInView && (
@@ -139,13 +134,17 @@ export function Caption({ frontmatter, config }: CaptionProps) {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <SectionTitle title="Before Treatment" className="text-sm mb-2" />
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-yellow-600 dark:text-yellow-400">
+                Before Treatment
+              </h3>
               <p className="text-sm text-gray-300">{captionData.beforeText}</p>
             </div>
           )}
           {captionData.afterText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <SectionTitle title="After Treatment" className="text-sm mb-2" />
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-yellow-600 dark:text-yellow-400">
+                After Treatment
+              </h3>
               <p className="text-sm text-gray-300">{captionData.afterText}</p>
             </div>
           )}

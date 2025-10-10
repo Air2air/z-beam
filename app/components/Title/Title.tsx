@@ -61,14 +61,14 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400',
+      classes: 'text-2xl md:text-3xl lg:text-4xl font-bold text-green-600 dark:text-green-400',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'text-2xl md:text-3xl font-bold mb-4 text-gray-100',
+      classes: 'text-xl md:text-2xl font-bold mb-4 text-gray-100',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'
@@ -248,7 +248,7 @@ export function Title({
         {subtitle && (
           <p 
             id={subtitleId}
-            className="text-sm text-gray-400 mt-1 leading-relaxed"
+            className="text-base md:text-lg text-gray-400 mt-3 leading-relaxed"
             role="doc-subtitle"
             aria-label={`Subtitle: ${subtitle}`}
           >
