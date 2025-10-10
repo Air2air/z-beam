@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getArticlesWithTags } from '../../utils/tags';
+import { logger } from '../../utils/logger';
 
 export async function GET() {
   try {
@@ -9,7 +10,7 @@ export async function GET() {
     // Return the articles
     return NextResponse.json({ articles });
   } catch (error) {
-    console.error('Error fetching articles:', error);
+    logger.error('Error fetching articles', { error });
     return NextResponse.json(
       { error: 'Failed to fetch articles' },
       { status: 500 }

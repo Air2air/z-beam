@@ -4,6 +4,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { logger } from '../../utils/logger';
 
 export async function GET(request: NextRequest) {
   try {
@@ -46,7 +47,7 @@ export async function GET(request: NextRequest) {
       query
     });
   } catch (error) {
-    console.error('Search API error:', error);
+    logger.error('Search API error', { error });
     return NextResponse.json(
       { error: 'Search service error' },
       { status: 500 }

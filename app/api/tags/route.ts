@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAllTags } from '../../utils/tags';
+import { logger } from '../../utils/logger';
 
 export async function GET() {
   try {
@@ -13,7 +14,7 @@ export async function GET() {
     // Return the tags
     return NextResponse.json({ tags });
   } catch (error) {
-    console.error('Error fetching tags:', error);
+    logger.error('Error fetching tags', { error });
     return NextResponse.json(
       { error: 'Failed to fetch tags' },
       { status: 500 }

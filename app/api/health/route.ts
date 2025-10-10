@@ -1,15 +1,8 @@
 // app/api/health/route.ts
-// Simple performance logging
-const logPerformance = (operation: string, duration: number, context?: any) => {
-  if (duration > 1000) {
-    console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
-  } else {
-    console.debug(`⚡ Performance: ${operation} took ${duration}ms`, context);
-  }
-};
 // Health check endpoint with GROK-compliant error handling demonstration
 import { NextRequest, NextResponse } from 'next/server';
 import { validateEnvironment, ConfigurationError, isZBeamError, getErrorDetails } from '../../utils/errorSystem';
+import { logger } from '../../utils/logger';
 
 export async function GET(request: NextRequest) {
   const startTime = Date.now();
@@ -48,7 +41,7 @@ export async function GET(request: NextRequest) {
     }
     
     const duration = Date.now() - startTime;
-    logPerformance('health-check', duration, { status: healthStatus.status });
+    logger.performance('health-check', duration, { status: healthStatus.status });
     
     return NextResponse.json(healthStatus);
     
@@ -58,7 +51,7 @@ export async function GET(request: NextRequest) {
     // Demonstrate enhanced error handling
     if (isZBeamError(error)) {
       const errorDetails = getErrorDetails(error);
-      console.error('Health check failed', error, { duration });
+      logger.error('Health check failed', { error, duration });
       
       return NextResponse.json(
         {
@@ -76,7 +69,7 @@ export async function GET(request: NextRequest) {
     }
     
     // Fallback for unexpected errors
-    console.error('Unexpected health check error', error, { duration });
+    logger.error('Unexpected health check error', { error, duration });
     return NextResponse.json(
       {
         status: 'unhealthy',

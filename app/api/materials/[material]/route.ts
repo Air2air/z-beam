@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
 import { safeMatterParse } from '../../../utils/yamlSanitizer';
+import { logger } from '../../../utils/logger';
 
 export async function GET(
   request: NextRequest,
@@ -41,7 +42,7 @@ export async function GET(
 
     return NextResponse.json(frontmatter);
   } catch (error) {
-    console.error('Error loading material frontmatter', error, { material: materialName });
+    logger.error('Error loading material frontmatter', { error, material: materialName });
     return NextResponse.json(
       { error: 'Failed to load material data' },
       { status: 500 }

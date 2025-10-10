@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { ContactFormData } from '@/types';
 import { SITE_CONFIG } from '@/app/config';
+import { logger } from '@/app/utils/logger';
 
 // Initialize Resend only if API key is available
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
@@ -31,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     // Check if Resend API key is configured
     if (!process.env.RESEND_API_KEY || !resend) {
-      console.log('Resend API key not configured. Form submission:', body);
+      logger.info('Resend API key not configured. Form submission received', { body });
       return NextResponse.json({
         success: true,
         message: SITE_CONFIG.messages.contactSuccess
@@ -90,14 +91,14 @@ ${message}
       });
 
       if (error) {
-        console.error('Resend error:', error);
+        logger.error('Resend error', { error });
         return NextResponse.json(
           { error: SITE_CONFIG.messages.contactError },
           { status: 500 }
         );
       }
 
-      console.log('Email sent successfully:', data);
+      logger.info('Email sent successfully', { data });
       
       return NextResponse.json({
         success: true,
@@ -105,7 +106,7 @@ ${message}
       });
 
     } catch (emailError) {
-      console.error('Email sending failed:', emailError);
+      logger.error('Email sending failed', { error: emailError });
       return NextResponse.json(
         { error: SITE_CONFIG.messages.contactError },
         { status: 500 }
@@ -113,7 +114,7 @@ ${message}
     }
     
   } catch (error) {
-    console.error('Contact form error:', error);
+    logger.error('Contact form error', { error });
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

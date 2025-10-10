@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { logger } from '../../utils/logger';
 
 // Mark this route as dynamic to allow request-specific data
 export const dynamic = 'force-dynamic';
@@ -95,7 +96,7 @@ export async function GET(request: NextRequest) {
     });
     
   } catch (error) {
-    console.error('Error loading component data:', error);
+    logger.error('Error loading component data', { error });
     return NextResponse.json(
       { error: 'Error loading component data' },
       { status: 500 }

@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { loadBadgeData } from '../../../utils/badgeSystem';
 import { validateSlug, ValidationError, SecurityError, GenerationError, isZBeamError, getErrorDetails } from '../../../utils/errorSystem';
+import { logger } from '../../../utils/logger';
 
 export async function GET(
   request: NextRequest,
@@ -65,7 +66,7 @@ export async function GET(
     }
     
     // Fallback for unexpected errors
-    console.error('Unexpected error in badgesymbol API:', error);
+    logger.error('Unexpected error in badgesymbol API', { error });
     return NextResponse.json(
       { 
         error: 'Internal server error',
