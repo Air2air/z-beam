@@ -26,6 +26,7 @@ export function Hero({
   theme = 'dark',
   variant = 'default',
   className = '',
+  customOverlay = false,
 }: HeroProps) {
   // Minimal state - only what's essential
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -164,9 +165,43 @@ export function Hero({
         </div>
       )}
 
+      {/* Custom homepage overlay - left side, 40% width, gray-900 background at 65% opacity, text at 100% */}
+      {customOverlay && (
+        <div 
+          className="absolute left-0 top-0 h-full w-[40%] flex flex-col items-center justify-center"
+          style={{ 
+            zIndex: 2,
+            containerType: 'inline-size'
+          }}
+        >
+          {/* Background layer with reduced opacity */}
+          <div 
+            className="absolute inset-0 bg-gray-900"
+            style={{ 
+              backgroundColor: 'rgb(17, 24, 39)', // gray-900
+              opacity: 0.65
+            }}
+            aria-hidden="true"
+          />
+          
+          {/* Text content at full opacity */}
+          <div className="relative z-10 w-full flex flex-col items-center justify-center">
+            <p className="text-white font-bold w-full text-center uppercase" style={{ fontSize: 'clamp(1.5rem, 11cqw, 12rem)' }}>
+              THE BAY AREA IS
+            </p>
+            <div className="text-white font-light w-full text-center py-2" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
+              LASER
+            </div>
+            <div className="text-white font-light w-full text-center py-2" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
+              CLEAN
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Content overlay */}
       {children && (
-        <div className={contentClasses} style={{ zIndex: 2 }}>
+        <div className={contentClasses} style={{ zIndex: 3 }}>
           {children}
         </div>
       )}

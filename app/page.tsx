@@ -78,6 +78,7 @@ export default async function HomePage() {
       subtitle={pageSubtitle}
       fullWidth
       metadata={heroFrontmatter}
+      customHeroOverlay={true}
     >
       {/* Featured Solutions Section */}
       {featuredSections.length > 0 && (

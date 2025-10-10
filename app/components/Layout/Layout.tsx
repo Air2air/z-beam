@@ -25,7 +25,7 @@ const getMaterialName = (metadata: any, slug?: string) => {
 };
 
 // Helper: Render article header section
-const ArticleHeader = ({ title, metadata, slug }: any) => {
+const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
   const materialName = getMaterialName(metadata, slug);
   
   // Check if we have hero image/video from markdown or material-based hero
@@ -39,7 +39,7 @@ const ArticleHeader = ({ title, metadata, slug }: any) => {
   return (
     <div className="header-section mb-6">
       {hasHeroContent ? (
-        <Hero frontmatter={metadata} theme="dark" />
+        <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
@@ -122,7 +122,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
 };
 
 export function Layout(props: LayoutProps) {
-  const { title, components, metadata, slug, fullWidth } = props;
+  const { title, components, metadata, slug, fullWidth, customHeroOverlay } = props;
   const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.main);
 
   // Article layout with components
@@ -159,7 +159,7 @@ export function Layout(props: LayoutProps) {
     return (
       <main className={containerClass} id="main-content" role="main">
         {jsonLdData && <JsonLD data={jsonLdData} />}
-        <ArticleHeader title={title} metadata={metadata} slug={slug} />
+        <ArticleHeader title={title} metadata={metadata} slug={slug} customHeroOverlay={customHeroOverlay} />
         
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => renderComponent(type, components[type], metadata))}
@@ -179,7 +179,7 @@ export function Layout(props: LayoutProps) {
     <main className={containerClass} id="main-content" role="main">
       {/* Hero renders if content exists, otherwise spacer maintains consistent vertical rhythm */}
       {hasHeroContent ? (
-        <Hero frontmatter={metadata} theme="dark" />
+        <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}

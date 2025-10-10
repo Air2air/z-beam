@@ -640,6 +640,7 @@ export interface LayoutProps {
   description?: string;
   className?: string;
   fullWidth?: boolean; // For pages that need full-width sections
+  customHeroOverlay?: boolean; // Enable custom overlay on Hero (homepage only)
 }
 
 /**
@@ -731,6 +732,7 @@ export interface HeroProps {
   variant?: 'default' | 'fullwidth';
   children?: React.ReactNode;
   className?: string;
+  customOverlay?: boolean; // Enable custom left-side overlay (homepage only)
 }
 
 /**
