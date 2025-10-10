@@ -39,6 +39,7 @@ import { Layout } from "../Layout/Layout";
 import { ContentCard, ContentSection } from "../ContentCard";
 import { BenefitsSection } from "../BenefitsSection/BenefitsSection";
 import { EquipmentSection } from "../EquipmentSection/EquipmentSection";
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import fs from 'fs/promises';
 import path from 'path';
 import { marked } from 'marked';
@@ -80,7 +81,7 @@ export async function StaticPage({
   const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { content?: string };
   
   // Convert markdown content from YAML to HTML
-  const htmlContent = pageConfig.content ? marked(pageConfig.content) : '';
+  const htmlContent = pageConfig.content ? await marked(pageConfig.content) : '';
   
   // Determine which content cards to render (unified or legacy)
   let contentCardsToRender: any[] = [];
@@ -108,9 +109,9 @@ export async function StaticPage({
       
       {/* Main markdown content - optional */}
       {htmlContent && (
-        <div className="prose prose-lg max-w-none dark:prose-invert" 
-             dangerouslySetInnerHTML={{ __html: htmlContent }} 
-        />
+        <div className="max-w-none">
+          <MarkdownRenderer content={htmlContent} convertMarkdown={false} />
+        </div>
       )}
       
       {/* Other structured content sections - automatically render based on YAML data */}

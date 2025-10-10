@@ -17,15 +17,15 @@ export function enhanceTablesInHTML(htmlContent: string): string {
     // Extract the table HTML
     const tableHtml = tableMatch.trim();
     
-    // Add enhanced classes to the table itself
+    // Add Tailwind classes to the table itself
     const processedTable = tableHtml.replace(
       /<table([^>]*)>/i,
-      '<table$1 class="table-enhanced">'
+      '<table$1 class="w-full border-collapse m-0">'
     );
     
-    // Wrap in enhanced containers
-    return `<div class="table-enhanced-container">
-  <div class="table-enhanced-inner">
+    // Wrap in enhanced containers with Tailwind classes
+    return `<div class="my-8 w-full">
+  <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden overflow-x-auto">
     ${processedTable}
   </div>
 </div>`;
@@ -48,13 +48,13 @@ export function enhanceTablesWithHeadings(htmlContent: string): string {
   
   // Then handle spacing between consecutive table containers
   processed = processed.replace(
-    /(<\/div>\s*<\/div>)\s*(<div class="table-enhanced-container">)/g,
+    /(<\/div>\s*<\/div>)\s*(<div class="my-8 w-full">)/g,
     '$1\n\n$2'
   );
   
   // Add spacing after headings that precede tables
   processed = processed.replace(
-    /((<h[1-6][^>]*>.*?<\/h[1-6]>)\s*)(<div class="table-enhanced-container">)/g,
+    /((<h[1-6][^>]*>.*?<\/h[1-6]>)\s*)(<div class="my-8 w-full">)/g,
     '$1\n$3'
   );
   

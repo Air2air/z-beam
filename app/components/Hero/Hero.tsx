@@ -1,7 +1,6 @@
 // app/components/Hero/Hero.tsx
 'use client';
 
-import './styles.css';
 import { useState, useEffect, useRef } from 'react';
 import { HeroProps } from '@/types';
 import Image from 'next/image';
@@ -85,22 +84,13 @@ export function Hero({
     return frontmatter?.title ? `Video content for ${frontmatter.title}` : "Video content";
   };
   
-  // Responsive classes with 16:9 aspect ratio
-  const containerClasses = variant === 'fullwidth' 
-    ? `w-full max-w-full aspect-[16/9] relative overflow-hidden bg-gray-900 ${themeClass}`
-    : `hero-section aspect-[16/9] bg-gray-900 ${themeClass}`;
-
-  const backgroundClasses = variant === 'fullwidth'
-    ? "absolute inset-0 w-full h-full"
-    : "hero-background";
-
-  const videoClasses = variant === 'fullwidth'
-    ? "w-full h-full object-cover"
-    : "hero-video";
-
+  // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
+  const containerClasses = `relative w-full max-w-6xl mx-auto aspect-[16/9] mb-8 rounded-lg overflow-hidden bg-gray-900 ${themeClass}`;
+  const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
+  const videoClasses = "absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-[1]";
   const contentClasses = variant === 'fullwidth'
-    ? "relative z-10 flex items-center justify-center h-full bg-black bg-opacity-30"
-    : "hero-content";
+    ? "relative z-10 p-8 w-full h-full flex flex-col justify-center bg-black bg-opacity-30"
+    : "relative z-[2] p-8 w-full h-full flex flex-col justify-center";
 
   return (
     <section 

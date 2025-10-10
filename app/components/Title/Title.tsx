@@ -4,7 +4,6 @@
 import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
 import { SITE_CONFIG } from '../../utils/constants';
-import './styles.css';
 
 /**
  * WCAG 2.1 AAA Compliant Title Component with Enhanced Accessibility
@@ -61,21 +60,21 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-xl md:text-3xl lg:text-4xl font-bold text-white',
+      classes: 'text-xl md:text-3xl lg:text-4xl font-extralight tracking-tight text-white',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'text-lg md:text-2xl font-bold mb-4 text-gray-100',
+      classes: 'text-lg md:text-2xl font-extralight tracking-tight mb-4 text-gray-100',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'
     },
     'card': {
       tag: 'h3' as const,
-      classes: 'text-base md:text-lg font-semibold mb-2 text-gray-200',
+      classes: 'text-base md:text-lg font-bold tracking-tight mb-2 text-gray-200',
       ariaLevel: 3,
       role: 'heading',
       landmark: null
@@ -246,14 +245,14 @@ export function Title({
         
         {/* Subtitle with proper accessibility */}
         {subtitle && (
-          <p 
+          <h3 
             id={subtitleId}
-            className="text-base md:text-lg text-gray-400 mt-3 leading-relaxed"
+            className="text-base md:text-lg text-gray-400 mt-3 leading-relaxed font-extralight tracking-tight"
             role="doc-subtitle"
             aria-label={`Subtitle: ${subtitle}`}
           >
             {subtitle}
-          </p>
+          </h3>
         )}
         
         {/* Navigation hints for screen readers */}

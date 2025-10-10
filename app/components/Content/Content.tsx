@@ -1,7 +1,6 @@
 // app/components/Content/Content.tsx
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { ContentProps } from '@/types';
-import './styles.css';
 
 // ContentProps now imported from centralized types - enhanced with config
 
@@ -14,8 +13,8 @@ export function Content({ content, config }: ContentProps) {
   } = config || {};
   
   return (
-    <div className={`content-section ${maxWidth}`}>
-      <div className={`content-container prose dark:prose-invert ${wrapHeadings ? 'wrap-headings' : ''}`}>
+    <div className={`${maxWidth}`}>
+      <div className={wrapHeadings ? 'wrap-headings' : ''}>
         <MarkdownRenderer 
           content={content}
           convertMarkdown={true}

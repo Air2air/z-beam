@@ -2,7 +2,6 @@
 "use client";
 
 import React from "react";
-import "./styles.css"; // Import the styles
 import { BadgeSymbolData, BadgeVariant } from "@/types";
 
 interface BadgeSymbolProps {
@@ -98,28 +97,30 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
 
   // Build className parts separately for better maintainability
   const containerClasses = [
+    "absolute top-2 right-2 z-[100]", // Position and z-index (replaces badge-symbol)
+    "relative opacity-100", // Relative positioning for content (replaces badge-container)
     sizes.container,
     "bg-red-900", // Red background for visibility
     "rounded-md border border-red-800",
     "flex flex-col items-center justify-center",
     "shadow-sm hover:shadow-md hover:scale-105",
     "transition-all duration-300 ease-out",
-    "badge-container", // Add our custom class for z-index
+    "pointer-events-auto",
     className
   ].join(" ");
 
   return (
-    <div className={`badge-symbol ${containerClasses}`}>
+    <div className={containerClasses}>
       {/* Atomic number if available */}
       {atomicNumber && (
-        <span className={`${sizes.number} ${textColorConfig.number} badge-content`}>
+        <span className={`${sizes.number} ${textColorConfig.number} relative z-[100] opacity-100 text-white`}>
           {atomicNumber}
         </span>
       )}
 
       {/* Symbol or Formula - Use subscripts for numbers in formulas */}
       <span
-        className={`${sizes.symbol} ${textColorConfig.default} leading-tight badge-content`}
+        className={`${sizes.symbol} ${textColorConfig.default} leading-tight relative z-[100] opacity-100 text-white`}
       >
         {isComplexFormula ? (
           <span

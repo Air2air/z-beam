@@ -79,9 +79,9 @@ export default function Footer() {
             <Image
               src={SITE_CONFIG.media.logo.default}
               alt={`${SITE_CONFIG.shortName} Logo`}
-              width={120}
-              height={40}
-              className="h-auto max-h-6 sm:max-h-10 w-auto"
+              width={150}
+              height={50}
+              className="h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto"
               priority
             />
           </Link>

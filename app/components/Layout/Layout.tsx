@@ -14,6 +14,7 @@ import { Table } from "../Table/Table";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
 const SPACER_CLASSES = "h-20 sm:h-24 md:h-28"; // Reduced from vh-based heights for better spacing
@@ -147,8 +148,8 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   
   if (type === 'content' && content) {
     return (
-      <section key={type} aria-label="Main content" className="prose prose-invert max-w-none">
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+      <section key={type} aria-label="Main content" className="max-w-none">
+        <MarkdownRenderer content={content} convertMarkdown={false} />
       </section>
     );
   }
