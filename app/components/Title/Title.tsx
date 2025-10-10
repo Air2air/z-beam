@@ -60,21 +60,21 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-xl md:text-3xl lg:text-4xl font-extralight tracking-tight text-white',
+      classes: 'text-xl md:text-3xl lg:text-4xl font-light tracking-tight text-white',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'text-lg md:text-2xl font-extralight tracking-tight mb-4 text-gray-100',
+      classes: 'text-lg md:text-2xl font-normal tracking-tight text-gray-100',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'
     },
     'card': {
       tag: 'h3' as const,
-      classes: 'text-base md:text-lg font-bold tracking-tight mb-2 text-gray-200',
+      classes: 'text-base md:text-lg font-black tracking-tight text-gray-200',
       ariaLevel: 3,
       role: 'heading',
       landmark: null
@@ -216,7 +216,7 @@ export function Title({
       )}
       
       <header 
-        className={`title-wrapper w-full ${landmark ? 'landmark-title' : ''}`}
+        className={`title-wrapper w-full mb-8 ${landmark ? 'landmark-title' : ''}`}
         role={landmark ? config.landmark || undefined : undefined}
         aria-labelledby={titleId}
         data-title-level={level}
