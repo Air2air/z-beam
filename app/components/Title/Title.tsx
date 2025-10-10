@@ -61,14 +61,14 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-2xl md:text-3xl lg:text-4xl font-bold text-white',
+      classes: 'text-xl md:text-3xl lg:text-4xl font-bold text-white',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'text-xl md:text-2xl font-bold mb-4 text-gray-100',
+      classes: 'text-lg md:text-2xl font-bold mb-4 text-gray-100',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'

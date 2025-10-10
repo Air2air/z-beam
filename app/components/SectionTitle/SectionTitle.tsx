@@ -71,7 +71,7 @@ export function SectionTitle({
     <div className={`section-title-wrapper mb-8 ${alignmentClasses[alignment]} ${className}`}>
       <h2
         id={headingId}
-        className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-white"
+        className="text-lg md:text-2xl font-bold mb-4 text-gray-900 dark:text-white"
         aria-label={ariaLabel}
         aria-describedby={subtitleId || ariaDescribedby}
       >
