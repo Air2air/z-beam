@@ -16,7 +16,16 @@ export const CONTAINER_STYLES = {
   // Standard container - optimal reading width for all content
   standard: "max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-6 md:py-8",
   
-  // Full width - for hero sections, full-bleed content (legacy support)
+  // Main container - used by Layout component (wider max-width)
+  main: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+  
+  // Article container - optimized for long-form content
+  article: "max-w-4xl mx-auto px-4 sm:px-6",
+  
+  // Centered container - narrow for focused content
+  centered: "max-w-2xl mx-auto px-4 sm:px-6",
+  
+  // Full width - for hero sections, full-bleed content
   fullWidth: "w-full px-3 sm:px-6 lg:px-8 py-6 md:py-8",
   
   // Content only - no vertical padding (for nested layouts)
@@ -52,4 +61,23 @@ export const GRID_STYLES = {
   twoColumn: "grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-8",
   threeColumn: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6",
   fourColumn: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6",
+} as const;
+
+/**
+ * Grid column classes (legacy from styles.ts - prefer GRID_STYLES above)
+ */
+export const GRID_CLASSES = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 sm:grid-cols-2',
+  3: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+  4: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+} as const;
+
+/**
+ * Gap size classes (legacy from styles.ts - prefer responsive gaps in GRID_STYLES)
+ */
+export const GAP_CLASSES = {
+  sm: 'gap-3',
+  md: 'gap-4',
+  lg: 'gap-6'
 } as const;

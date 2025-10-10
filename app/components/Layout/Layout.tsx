@@ -4,7 +4,7 @@
 import React from 'react';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { LayoutProps } from '@/types';
-import { CONTAINER_STYLES } from '../../utils/styles';
+import { CONTAINER_STYLES } from '../../utils/containerStyles';
 import { SITE_CONFIG } from '../../utils/constants';
 import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
@@ -177,11 +177,11 @@ export function Layout(props: LayoutProps) {
 
   return (
     <main className={containerClass} id="main-content" role="main">
-      {/* Hero renders automatically if content exists, otherwise spacer for non-fullWidth pages */}
+      {/* Hero renders if content exists, otherwise spacer maintains consistent vertical rhythm */}
       {hasHeroContent ? (
         <Hero frontmatter={metadata} theme="dark" />
       ) : (
-        !fullWidth && <div className={SPACER_CLASSES} aria-hidden="true" />
+        <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
       
       {title && !fullWidth && (

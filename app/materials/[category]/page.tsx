@@ -66,9 +66,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const pageSubtitle = categoryMetadata.subtitle;
 
   return (
-    <Layout title={pageTitle} subtitle={pageSubtitle}>
+    <Layout fullWidth>
       {/* Materials Grid - no hero content in metadata, so Hero won't render */}
       <section className={CONTAINER_STYLES.standard}>
+        <div className="mb-8">
+          <Title level="page" title={pageTitle} subtitle={pageSubtitle} />
+        </div>
         <CardGridSSR
           slugs={slugs}
           columns={3}
