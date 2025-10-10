@@ -1,32 +1,17 @@
 // app/config/navigation.ts
-// Single source of truth for site navigation
-// Used by: header nav and footer
+// Site navigation configuration
+// 
+// ⚠️ DEPRECATED: Import from @/config instead
+// This file now re-exports from app/config/site.ts for backward compatibility
+// New code should import from @/config or @/config/site
+//
+// Migration Guide:
+// OLD: import { MAIN_NAV_ITEMS } from '@/config/navigation'
+// NEW: import { MAIN_NAV_ITEMS } from '@/config'
 
-export interface NavItem {
-  name: string;
-  href: string;
-  external?: boolean;
-  target?: "_blank" | "_self";
-  rel?: string;
-  description?: string; // For accessibility and SEO
-}
+export { MAIN_NAV_ITEMS, type NavItem } from './site';
 
-// MAIN_NAV_ITEMS - Single source of truth for primary navigation
-// Used by both header and footer
-export const MAIN_NAV_ITEMS: NavItem[] = [
-  {
-    name: "Services",
-    href: "/services",
-    description: "Explore our laser cleaning services"
-  },
-  {
-    name: "Rental",
-    href: "/rental",
-    description: "Rent professional laser cleaning equipment"
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-    description: "Get in touch with our team"
-  },
-];
+/**
+ * @deprecated Use imports from @/config instead
+ * All configuration has been consolidated into app/config/site.ts
+ */

@@ -1,7 +1,23 @@
-// Z-Beam Business Configuration Template
-// UPDATE ALL VALUES WITH YOUR ACTUAL BUSINESS INFORMATION
+// Z-Beam Business Configuration
+// 
+// ⚠️ DEPRECATED: Import from @/config instead
+// This file now re-exports from app/config/site.ts for backward compatibility
+// New code should import from @/config or @/config/site
+//
+// Migration Guide:
+// OLD: import { BUSINESS_CONFIG } from '@/utils/business-config'
+// NEW: import { BUSINESS_CONFIG } from '@/config'
 
-export const BUSINESS_CONFIG = {
+export { BUSINESS_CONFIG, generateOrganizationSchema } from '../config/site';
+
+/**
+ * @deprecated Use imports from @/config instead
+ * All configuration has been consolidated into app/config/site.ts
+ */
+
+// Original content below (commented out for reference):
+/*
+const BUSINESS_CONFIG_OLD = {
   // === BASIC BUSINESS INFORMATION ===
   legal: {
     name: "Z-Beam", // UPDATE: Your legal business name
@@ -338,5 +354,6 @@ export function generateOrganizationSchema() {
     })
   };
 }
+*/
 
-export default BUSINESS_CONFIG;
+// All exports now come from app/config/site.ts
