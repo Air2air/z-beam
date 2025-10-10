@@ -68,7 +68,7 @@ export default function Footer() {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-12 md:py-20') + ' flex flex-col md:flex-row md:items-center md:justify-between gap-12'}>
+      <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-6 md:py-12 lg:py-20') + ' flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12'}>
         {/* Logo and Copyright */}
         <div className="flex flex-col items-center md:items-start gap-6">
           <Link 
@@ -81,7 +81,7 @@ export default function Footer() {
               alt={`${SITE_CONFIG.shortName} Logo`}
               width={120}
               height={40}
-              className="h-auto max-h-10 w-auto"
+              className="h-auto max-h-6 sm:max-h-10 w-auto"
               priority
             />
           </Link>

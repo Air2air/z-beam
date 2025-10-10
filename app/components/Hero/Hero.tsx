@@ -87,7 +87,7 @@ export function Hero({
   
   // Responsive classes with 16:9 aspect ratio
   const containerClasses = variant === 'fullwidth' 
-    ? `w-full aspect-[16/9] relative overflow-hidden bg-gray-900 ${themeClass}`
+    ? `w-full max-w-full aspect-[16/9] relative overflow-hidden bg-gray-900 ${themeClass}`
     : `hero-section aspect-[16/9] bg-gray-900 ${themeClass}`;
 
   const backgroundClasses = variant === 'fullwidth'
@@ -186,7 +186,7 @@ export function Hero({
           
           {/* Text content at full opacity */}
           <div className="relative z-10 w-full flex flex-col items-center justify-center">
-            <p className="text-white font-bold w-full text-center uppercase" style={{ fontSize: 'clamp(0.75rem, 11cqw, 12rem)' }}>
+            <p className="text-white font-bold w-full text-center uppercase" style={{ fontSize: 'clamp(0.5rem, 11cqw, 12rem)' }}>
               THE BAY AREA IS
             </p>
             <div className="text-white font-light w-full text-center py-2" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>

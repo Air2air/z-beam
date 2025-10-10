@@ -15,7 +15,7 @@ export default function CallToAction() {
           <div className="flex items-center justify-center">
             <a
               href={SITE_CONFIG.contact.general.phoneHref}
-              className="text-sm sm:text-base md:text-xl lg:text-2xl font-bold text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation"
+              className="text-xs sm:text-base md:text-xl lg:text-2xl font-bold text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation"
               aria-label={`Call ${SITE_CONFIG.contact.general.phone}`}
             >
               {SITE_CONFIG.contact.general.phone}
@@ -44,7 +44,7 @@ export default function CallToAction() {
             >
               Contact Us
               <svg
-                className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
+                className="hidden sm:block ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -53,8 +53,8 @@ export default function CallToAction() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  strokeWidth={3}
+                  d="M9 5l7 7-7 7"
                 />
               </svg>
             </Link>
