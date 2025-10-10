@@ -31,7 +31,7 @@ export function Author({
   return (
     <Link
       href={`/search?q=${encodedAuthorName}`}
-      className="block rounded-lg px-4 py-1 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+      className="block rounded-lg px-2 py-0.5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
     >
       <div className={`author-component mt-2 mb-4 ${className}`}>
         <table className="w-full">
