@@ -67,9 +67,15 @@ export default async function HomePage() {
   // Extract featured sections and materials from YAML
   const featuredSections = homeConfig.featuredSections || [];
   const featuredMaterials = homeConfig.featuredMaterials || [];
+  
+  // Page title and subtitle for consistent Title component display
+  const pageTitle = homeConfig.title || SITE_CONFIG.name;
+  const pageSubtitle = homeConfig.subtitle || "Advanced laser surface treatment solutions for industrial applications";
 
   return (
     <Layout 
+      title={pageTitle}
+      subtitle={pageSubtitle}
       fullWidth
       metadata={heroFrontmatter}
     >

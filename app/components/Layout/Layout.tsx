@@ -184,9 +184,12 @@ export function Layout(props: LayoutProps) {
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
       
-      {title && !fullWidth && (
-        <div className="mb-8">
-          <Title level="page" title={title} subtitle={props.subtitle} />
+      {/* Title renders consistently for all pages - fullWidth pages need container */}
+      {title && (
+        <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
+          <div className="mb-8">
+            <Title level="page" title={title} subtitle={props.subtitle} />
+          </div>
         </div>
       )}
       

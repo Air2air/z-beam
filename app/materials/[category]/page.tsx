@@ -8,7 +8,6 @@ import { getAllArticleSlugs } from '@/app/utils/contentAPI';
 import { createMetadata } from '@/app/utils/metadata';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '../metadata';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
-import { Title } from '@/app/components/Title';
 import { SITE_CONFIG } from '@/app/utils/constants';
 
 // Static generation for all category pages
@@ -66,12 +65,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const pageSubtitle = categoryMetadata.subtitle;
 
   return (
-    <Layout fullWidth>
+    <Layout title={pageTitle} subtitle={pageSubtitle} fullWidth>
       {/* Materials Grid - no hero content in metadata, so Hero won't render */}
       <section className={CONTAINER_STYLES.standard}>
-        <div className="mb-8">
-          <Title level="page" title={pageTitle} subtitle={pageSubtitle} />
-        </div>
         <CardGridSSR
           slugs={slugs}
           columns={3}
