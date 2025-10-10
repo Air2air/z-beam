@@ -187,7 +187,7 @@ export function Layout(props: LayoutProps) {
       {/* Title renders consistently for all pages - fullWidth pages need container */}
       {title && (
         <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
-          <div className="mb-8">
+          <div className="w-full">
             <Title level="page" title={title} subtitle={props.subtitle} />
           </div>
         </div>

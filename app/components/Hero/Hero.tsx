@@ -179,7 +179,7 @@ export function Hero({
             className="absolute inset-0 bg-gray-900"
             style={{ 
               backgroundColor: 'rgb(17, 24, 39)', // gray-900
-              opacity: 0.65
+              opacity: 0.5
             }}
             aria-hidden="true"
           />
