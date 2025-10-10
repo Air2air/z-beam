@@ -209,34 +209,42 @@ export function CardGrid({
           <div className="mb-8 space-y-4">
             {/* Search Input */}
             {showSearch && (
-              <div className="relative max-w-md">
-                <input
-                  type="text"
-                  placeholder="Search articles..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg 
-                             bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
-                             focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                  aria-label="Search articles"
-                />
-                {searchTerm && (
-                  <button
-                    onClick={() => setSearchTerm('')}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 
-                               text-gray-500 text-xl leading-none"
-                    aria-label="Clear search"
-                  >
-                    ×
-                  </button>
-                )}
-              </div>
+              <search role="search" className="relative max-w-md">
+                <form role="search" onSubmit={(e) => e.preventDefault()}>
+                  <label htmlFor="article-search" className="sr-only">
+                    Search articles
+                  </label>
+                  <input
+                    id="article-search"
+                    type="search"
+                    placeholder="Search articles..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full px-4 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg 
+                               bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+                               focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    aria-label="Search articles"
+                  />
+                  {searchTerm && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchTerm('')}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 
+                                 text-gray-500 text-xl leading-none"
+                      aria-label="Clear search"
+                    >
+                      ×
+                    </button>
+                  )}
+                </form>
+              </search>
             )}
 
             {/* Category Filter Buttons */}
             {showCategoryFilter && (
               <div className="flex flex-wrap gap-2">
                 <button
+                  type="button"
                   onClick={() => setSelectedCategory('all')}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors
                     ${selectedCategory === 'all' 
@@ -248,6 +256,7 @@ export function CardGrid({
                 </button>
                 {categories.map(category => (
                   <button
+                    type="button"
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium
@@ -277,6 +286,7 @@ export function CardGrid({
                   </span>
                 )}
                 <button
+                  type="button"
                   onClick={clearFilters}
                   className="text-blue-600 dark:text-blue-400 hover:text-blue-700 font-medium"
                 >
@@ -296,14 +306,27 @@ export function CardGrid({
               const displayItems = isExpanded ? categoryItems : categoryItems.slice(0, maxItemsPerCategory);
               const hasMore = categoryItems.length > maxItemsPerCategory;
 
+              const categoryId = `category-${category.toLowerCase().replace(/\s+/g, '-')}`;
+              
               return (
-                <section key={category} className="category-section">
+                <section 
+                  key={category} 
+                  className="category-section"
+                  aria-labelledby={categoryId}
+                  itemScope
+                  itemType="https://schema.org/CollectionPage"
+                >
                   {/* Category Header */}
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      <h3 
+                        id={categoryId}
+                        className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+                        itemProp="name"
+                      >
                         {category}
                       </h3>
+                      <meta itemProp="numberOfItems" content={String(categoryItems.length)} />
                       <div className="w-12 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
                       <p className="text-gray-600 dark:text-gray-400 mt-2">
                         {categoryItems.length} {categoryItems.length === 1 ? 'article' : 'articles'}
@@ -312,6 +335,7 @@ export function CardGrid({
                     
                     {hasMore && (
                       <button
+                        type="button"
                         onClick={() => toggleCategoryExpansion(category)}
                         className="flex items-center gap-2 px-4 py-2 text-blue-600 dark:text-blue-400 
                                    hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg transition-colors"
@@ -402,6 +426,7 @@ export function CardGrid({
                   No articles found {searchTerm ? `for "${searchTerm}"` : 'in this category'}.
                 </div>
                 <button
+                  type="button"
                   onClick={clearFilters}
                   className="text-blue-600 dark:text-blue-400 hover:text-blue-700 font-medium"
                 >

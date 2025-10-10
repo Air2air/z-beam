@@ -82,10 +82,30 @@ export function Card({
       href={href}
       className={`
         group block card-hover-interactive ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
       `}
       aria-label={`View details for ${subject || title}`}
     >
-      <article className="relative flex flex-col h-full card-container" role="article">
+      <article 
+        className="relative flex flex-col h-full card-container" 
+        role="article"
+        itemScope
+        itemType="https://schema.org/Article"
+      >
+        {/* Schema.org metadata */}
+        <meta itemProp="url" content={href} />
+        <meta itemProp="headline" content={subject || title} />
+        {frontmatter?.description && (
+          <meta itemProp="description" content={frontmatter.description} />
+        )}
+        {/* Date metadata */}
+        {frontmatter?.datePublished && (
+          <meta itemProp="datePublished" content={frontmatter.datePublished} />
+        )}
+        {frontmatter?.lastModified && (
+          <meta itemProp="dateModified" content={frontmatter.lastModified} />
+        )}
+        
         {/* Full Height Image Container */}
         <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`} aria-label="Material image">
           <Thumbnail
@@ -115,20 +135,52 @@ export function Card({
           {/* Title Bar Overlay with 80% opacity */}
           <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner">
             <div className="flex items-center justify-between">
-              <h3 className={`${config.titleClass} flex-1 pr-2 min-w-0 overflow-hidden`} id={`card-title-${slug}`}>
-                {/* Prioritize subject over title */}
-                {subject || title}
-              </h3>
+              <div className="flex-1 pr-2 min-w-0 overflow-hidden">
+                <h3 
+                  className={`${config.titleClass}`} 
+                  id={`card-title-${slug}`}
+                  itemProp="name"
+                >
+                  {/* Prioritize subject over title */}
+                  {subject || title}
+                </h3>
+                
+                {/* Display dates with time elements if available */}
+                {(frontmatter?.datePublished || frontmatter?.lastModified) && (
+                  <div className="text-xs text-gray-300 mt-1">
+                    {frontmatter?.datePublished && (
+                      <time dateTime={frontmatter.datePublished}>
+                        {new Date(frontmatter.datePublished).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'short', 
+                          day: 'numeric' 
+                        })}
+                      </time>
+                    )}
+                    {frontmatter?.lastModified && frontmatter.lastModified !== frontmatter.datePublished && (
+                      <>
+                        <span className="mx-1">•</span>
+                        <time dateTime={frontmatter.lastModified} title="Last updated">
+                          Updated {new Date(frontmatter.lastModified).toLocaleDateString('en-US', { 
+                            month: 'short', 
+                            day: 'numeric' 
+                          })}
+                        </time>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
               
               {/* Arrow-right icon */}
               <svg 
-                className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out" 
+                className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out flex-shrink-0" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                role="img"
-                aria-label="Navigate to details"
+                role="presentation"
+                focusable="false"
               >
                 <path 
                   strokeLinecap="round" 

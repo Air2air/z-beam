@@ -136,7 +136,7 @@ describe('Organization Schema Integration', () => {
       });
       
       // Verify business address
-      expect(schema.address.streetAddress).toBe('1002 Misty Lane');
+      expect(schema.address.streetAddress).toBe(''); // Street address private
       expect(schema.address.addressLocality).toBe('Belmont');
       expect(schema.address.addressRegion).toBe('CA');
       expect(schema.address.postalCode).toBe('94002');

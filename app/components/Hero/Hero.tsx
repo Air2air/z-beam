@@ -111,38 +111,111 @@ export function Hero({
     >
       {/* Video Background */}
       {videoUrl ? (
-        <div className={`${backgroundClasses} bg-gray-800`}>
-          <iframe
-            src={videoUrl}
-            className={videoClasses}
-            width="100%"
-            height="100%"
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share; accelerometer; gyroscope"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-            title={getVideoAriaLabel()}
-            aria-label={`${getVideoAriaLabel()} - Video player`}
-            loading="lazy"
+        <>
+          <div className={`${backgroundClasses} bg-gray-800`}>
+            <iframe
+              src={videoUrl}
+              className={videoClasses}
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share; accelerometer; gyroscope"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              title={getVideoAriaLabel()}
+              aria-label={`${getVideoAriaLabel()} - Video player`}
+              loading="lazy"
+            />
+          </div>
+          {/* VideoObject Schema for YouTube embeds */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                "name": frontmatter?.title || `${SITE_CONFIG.shortName} Video`,
+                "description": frontmatter?.description || `Professional laser cleaning demonstration`,
+                "thumbnailUrl": `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+                "uploadDate": frontmatter?.datePublished || new Date().toISOString(),
+                "contentUrl": `https://www.youtube.com/watch?v=${videoId}`,
+                "embedUrl": `https://www.youtube.com/embed/${videoId}`,
+                "publisher": {
+                  "@type": "Organization",
+                  "name": SITE_CONFIG.shortName,
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": `${SITE_CONFIG.url}${SITE_CONFIG.media.logo.default}`
+                  }
+                }
+              }, null, 2)
+            }}
           />
-        </div>
+        </>
       ) : imageSource && isInView ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
-        <div className={backgroundClasses}>
-          <Image
-            src={imageSource}
-            alt={getAccessibleAlt()}
-            fill
-            className="object-cover"
-            style={{ zIndex: 1 }}
-            priority={variant === 'fullwidth'}
-            quality={85}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-            onLoad={() => setImageLoaded(true)}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
+        <>
+          <div 
+            className={backgroundClasses}
+            itemScope
+            itemType="https://schema.org/ImageObject"
+          >
+            <meta itemProp="contentUrl" content={imageSource} />
+            <meta itemProp="url" content={imageSource} />
+            <meta itemProp="description" content={getAccessibleAlt()} />
+            <meta itemProp="author" content={typeof frontmatter?.author === 'string' ? frontmatter.author : (frontmatter?.author?.name || SITE_CONFIG.author)} />
+            <meta itemProp="encodingFormat" content="image/jpeg" />
+            {frontmatter?.datePublished && (
+              <meta itemProp="uploadDate" content={frontmatter.datePublished} />
+            )}
+            
+            <Image
+              src={imageSource}
+              alt={getAccessibleAlt()}
+              fill
+              className="object-cover"
+              style={{ zIndex: 1 }}
+              priority={variant === 'fullwidth'}
+              quality={85}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              onLoad={() => setImageLoaded(true)}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
+              itemProp="thumbnail"
+            />
+          </div>
+          
+          {/* JSON-LD for enhanced image search support */}
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "ImageObject",
+                "contentUrl": imageSource,
+                "url": imageSource,
+                "description": getAccessibleAlt(),
+                "author": {
+                  "@type": "Person",
+                  "name": typeof frontmatter?.author === 'string' ? frontmatter.author : (frontmatter?.author?.name || SITE_CONFIG.author)
+                },
+                "publisher": {
+                  "@type": "Organization",
+                  "name": SITE_CONFIG.shortName,
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": `${SITE_CONFIG.url}${SITE_CONFIG.media.logo.default}`
+                  }
+                },
+                "copyrightHolder": {
+                  "@type": "Organization",
+                  "name": SITE_CONFIG.name
+                },
+                "uploadDate": frontmatter?.datePublished || new Date().toISOString()
+              }, null, 2)
+            }}
           />
-        </div>
+        </>
       ) : imageSource && !isInView ? (
         /* Placeholder while not in view */
         <div className={`${backgroundClasses} bg-gray-800 animate-pulse`} aria-hidden="true">

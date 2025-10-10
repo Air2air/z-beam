@@ -113,6 +113,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      dir="ltr"
       className="dark scroll-smooth"
     >
       <head>

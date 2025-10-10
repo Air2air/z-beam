@@ -40,7 +40,11 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
   }
 
   return (
-    <div className="relative">
+    <div 
+      className="relative"
+      itemScope
+      itemType="https://schema.org/ImageObject"
+    >
       {/* Loading indicator */}
       {imageLoading && !imageError && (
         <div 
@@ -62,7 +66,7 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
         </div>
       )}
 
-      {/* Image */}
+      {/* Image with ImageObject schema */}
       <Image
         src={imageSource}
         alt={optimizedAlt}
@@ -79,8 +83,10 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
         }}
       />
       
-      {/* SEO metadata */}
+      {/* ImageObject schema metadata */}
+      <meta itemProp="url" content={imageSource} />
       <meta itemProp="description" content={optimizedAlt} />
+      <meta itemProp="encodingFormat" content="image/jpeg" />
       {materialName && <meta itemProp="name" content={`${materialName} Surface Analysis`} />}
       {seoData?.author && (
         <meta 
@@ -88,6 +94,7 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
           content={typeof seoData.author === 'string' ? seoData.author : seoData.author.name} 
         />
       )}
+      <meta itemProp="publisher" content={SITE_CONFIG.shortName} />
     </div>
   );
 }

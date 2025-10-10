@@ -14,9 +14,9 @@ export const BUSINESS_CONFIG = {
 
   // === CONTACT INFORMATION ===
   contact: {
-    // UPDATE: Your business address
+    // Business address - street private for security
     address: {
-      street: "1002 Misty Lane", // UPDATE: Your street address
+      street: "", // Physical address private - contact for service location
       city: "Belmont", // UPDATE: Your city
       state: "CA", // UPDATE: Your state/region
       zipCode: "94002", // UPDATE: Your postal code

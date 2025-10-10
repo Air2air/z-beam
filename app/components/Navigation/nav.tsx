@@ -103,7 +103,7 @@ export function Navbar() {
           {/* Mobile Hamburger Button */}
           <button
             ref={menuButtonRef}
-            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none rounded-md p-1"
+            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-2 min-w-[44px] min-h-[44px]"
             onClick={toggleMenu}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {

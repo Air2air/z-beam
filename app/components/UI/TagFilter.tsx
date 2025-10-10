@@ -49,6 +49,7 @@ export function TagFilter({
         if (onSelectTag) {
           return (
             <button
+              type="button"
               key={tag}
               onClick={() => onSelectTag(isSelected ? "" : tag)}
               className={`${tagClass} px-3 py-1 rounded-full text-sm transition-colors flex items-center`}

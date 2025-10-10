@@ -102,6 +102,7 @@ export function FrontmatterNameChecker() {
               className="flex-1 rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
             />
             <button
+              type="button"
               onClick={handleCheckName}
               className="px-4 py-2 bg-blue-600 text-white rounded"
             >
@@ -142,6 +143,7 @@ export function FrontmatterNameChecker() {
                         {validationResult.suggestion}
                       </code>
                       <button
+                        type="button"
                         onClick={handleUseSuggestion}
                         className="ml-2 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded"
                       >

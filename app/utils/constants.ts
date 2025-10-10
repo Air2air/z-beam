@@ -36,7 +36,7 @@ export const SITE_CONFIG = {
   
   address: {
     company: 'Z-Beam LLC',
-    street: '1002 Misty Lane',
+    street: '', // Physical address private - contact for service location
     city: 'Belmont',
     state: 'CA',
     zipCode: '94002',

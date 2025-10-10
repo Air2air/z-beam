@@ -263,6 +263,7 @@ const parseTags = (content: string | TagsData): string[] => {
                   {categoryTags!.map((tag, index) => (
                     onClick ? (
                       <button
+                        type="button"
                         key={index}
                         onClick={() => handleTagClick(tag)}
                         className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
@@ -298,6 +299,7 @@ const parseTags = (content: string | TagsData): string[] => {
             onClick ? (
               // Interactive button for in-page filtering
               <button
+                type="button"
                 key={index}
                 onClick={() => handleTagClick(tag)}
                 className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
