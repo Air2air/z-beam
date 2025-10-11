@@ -510,11 +510,6 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
     href: "/rental",
     description: "Rent professional laser cleaning equipment"
   },
-  {
-    name: "Contact",
-    href: "/contact",
-    description: "Get in touch with our team"
-  },
 ];
 
 /**

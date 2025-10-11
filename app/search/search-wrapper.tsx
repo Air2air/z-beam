@@ -20,6 +20,14 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   
   const [resultCount, setResultCount] = useState<number>(initialArticles.length);
   
+  // Build title with result count
+  const getTitle = () => {
+    if (query || propertyName) {
+      return `Search (${resultCount} ${resultCount === 1 ? 'result' : 'results'})`;
+    }
+    return 'Search';
+  };
+  
   // Build subtitle based on search parameters
   const getSubtitle = () => {
     if (propertyName && propertyValue) {
@@ -47,13 +55,8 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   
   return (
     <Layout 
-      title="Search"
+      title={getTitle()}
       subtitle={getSubtitle()}
-      rightContent={(query || propertyName) ? (
-        <p className="text-base md:text-lg text-gray-400 whitespace-nowrap">
-          {resultCount} {resultCount === 1 ? 'result' : 'results'} found
-        </p>
-      ) : undefined}
     >
       <SearchClient initialArticles={initialArticles} />
     </Layout>
