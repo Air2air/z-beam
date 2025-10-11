@@ -15,9 +15,27 @@ import Image from 'next/image';
 import { useCaptionParsing, CaptionData } from './useCaptionParsing';
 import { CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { SITE_CONFIG } from '../../utils/constants';
 import './seo-caption.css';
 import './caption-accessibility.css';
+
+// Utility function to wrap first sentence in markdown bold syntax
+function emphasizeFirstSentence(text: string): string {
+  if (!text) return text;
+  
+  // Find the first period followed by a space or end of string
+  const firstSentenceMatch = text.match(/^([^.]+\.)(\s|$)/);
+  
+  if (firstSentenceMatch) {
+    const firstSentence = firstSentenceMatch[1];
+    const remainingText = text.slice(firstSentence.length);
+    // Wrap first sentence in markdown bold syntax
+    return `**${firstSentence}**${remainingText}`;
+  }
+  
+  return text;
+}
 
 export function Caption({ frontmatter, config }: CaptionProps) {
   const captionContent = frontmatter?.caption;
@@ -75,12 +93,12 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     >
       {/* Header - Using SectionTitle for consistency */}
       <SectionTitle 
-        title={captionData.title || `Material Properties - ${capitalizedMaterial}`}
+        title={`${capitalizedMaterial} surface magnification`}
       />
 
       {/* Image Section */}
       {imageSource && isInView && (
-        <figure className="relative mb-6 aspect-[16/9] overflow-hidden rounded-lg">
+        <figure className="relative aspect-[16/9] overflow-hidden rounded-lg">
           <Image
             src={imageSource}
             alt={`${capitalizedMaterial} surface analysis`}
@@ -129,32 +147,36 @@ export function Caption({ frontmatter, config }: CaptionProps) {
         </figure>
       )}
 
+      {/* Description */}
+      {captionData.description && (
+        <div className="my-2 py-1 text-center">
+          <p className="text-sm text-gray-300 leading-relaxed italic">{captionData.description}</p>
+        </div>
+      )}
+
       {/* Before/After Content */}
       {(captionData.beforeText || captionData.afterText) && (
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="mb-3 text-yellow-600 dark:text-yellow-400">
+              <h3 className="mb-3">
                 Before Treatment
               </h3>
-              <p className="text-sm text-gray-300">{captionData.beforeText}</p>
+              <div className="text-gray-300">
+                <MarkdownRenderer content={emphasizeFirstSentence(captionData.beforeText)} />
+              </div>
             </div>
           )}
           {captionData.afterText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="mb-3 text-yellow-600 dark:text-yellow-400">
+              <h3 className="mb-3">
                 After Treatment
               </h3>
-              <p className="text-sm text-gray-300">{captionData.afterText}</p>
+              <div className="text-gray-300">
+                <MarkdownRenderer content={emphasizeFirstSentence(captionData.afterText)} />
+              </div>
             </div>
           )}
-        </div>
-      )}
-
-      {/* Description */}
-      {captionData.description && (
-        <div className="mb-6">
-          <p className="text-sm text-gray-300 leading-relaxed">{captionData.description}</p>
         </div>
       )}
     </section>

@@ -25,6 +25,13 @@ module.exports = {
   theme: {
     extend: {
       // ============================================
+      // BASE FONT SIZE CONFIGURATION
+      // ============================================
+      // Override default base font size (16px -> 15px)
+      fontSize: {
+        base: '15px',
+      },
+      // ============================================
       // CENTRALIZED FONT FAMILY CONFIGURATION
       // ============================================
       // Font is loaded via app/config/fonts.ts

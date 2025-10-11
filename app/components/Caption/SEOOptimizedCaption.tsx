@@ -149,7 +149,7 @@ export function SEOOptimizedCaption({
       <header className="caption-header" itemProp="headline">
         <Title 
           level="section"
-          title={`${capitalizedMaterial} Laser Cleaning Process Analysis`}
+          title={`${capitalizedMaterial} surface magnification`}
           className="caption-title text-sm mb-2"
           id={`${processId}-heading`}
         />
