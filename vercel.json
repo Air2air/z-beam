@@ -1,7 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-  "buildCommand": "next build",
   "framework": "nextjs",
   "installCommand": "npm ci --legacy-peer-deps --include=dev || npm install",
   "outputDirectory": ".next",
@@ -12,6 +11,7 @@
     }
   },
   "ignoreCommand": "bash -c 'if [ \"$VERCEL_GIT_COMMIT_REF\" != \"main\" ]; then exit 1; else exit 0; fi'",
+  "buildCommand": "if [ \"$VERCEL_ENV\" != \"production\" ]; then echo 'Skipping preview build' && exit 1; fi && next build",
   "github": {
     "enabled": true,
     "autoAlias": false,
@@ -81,6 +81,5 @@
     }
   ],
   "trailingSlash": false,
-  "cleanUrls": true,
-  "public": true
+  "cleanUrls": true
 }
