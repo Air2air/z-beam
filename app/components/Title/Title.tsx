@@ -62,7 +62,7 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'tracking-tight text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl',
+      classes: 'tracking-tight text-white text-2xl sm:text-3xl md:text-4xl lg:text-4xl',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
@@ -218,17 +218,11 @@ export function Title({
       )}
       
       <header 
-        className={`title-wrapper w-full mb-4 py-4 ${landmark ? 'landmark-title' : ''}`}
+        className={`w-full mt-4 mb-4 py-4 ${landmark ? 'landmark-title' : ''}`}
         role={landmark ? config.landmark || undefined : undefined}
         aria-labelledby={titleId}
-        data-title-level={level}
-        data-priority={priority}
-        data-category={category}
-        data-search-keywords={searchKeywords.join(',')}
       >
-        {/* Flex container with button spanning full height */}
         <div className="flex items-center justify-between gap-4">
-          {/* Left side: Title and optional subtitle stacked */}
           <div className="flex-1">
             <Tag
               ref={titleRef}
@@ -237,49 +231,35 @@ export function Title({
               role={role || config.role}
               aria-level={config.ariaLevel}
               aria-label={ariaLabel}
-              aria-describedby={[ariaDescribedby, subtitleId].filter(Boolean).join(' ') || undefined}
+              aria-describedby={subtitle ? subtitleId : ariaDescribedby}
               aria-labelledby={ariaLabelledby}
               tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
               onFocus={onFocus}
               onBlur={onBlur}
               onKeyDown={handleKeyDown}
-              data-testid={`title-${level}`}
               {...rest}
             >
               {title}
             </Tag>
             
-            {/* Subtitle below title */}
             {subtitle && (
               <h3 
                 id={subtitleId}
                 className="text-gray-400 tracking-tight mt-3 text-sm sm:text-base md:text-lg lg:text-xl"
-                role="doc-subtitle"
-                aria-label={`Subtitle: ${subtitle}`}
               >
                 {subtitle}
               </h3>
             )}
           </div>
           
-          {/* Right side: Contact button vertically centered */}
           {(rightContent !== undefined ? rightContent : level === 'page') && (
             <div className="flex-shrink-0">
               {rightContent !== undefined ? rightContent : (
-                <ContactButton variant="inverted" size="md" />
+                <ContactButton variant="inverted" size="md" href="/contact" />
               )}
             </div>
           )}
         </div>
-        
-        {/* Navigation hints for screen readers */}
-        {(nextHeaderId || prevHeaderId) && (
-          <div className="sr-only" role="navigation" aria-label="Title navigation">
-            {prevHeaderId && <span>Previous section: Press Up arrow or K</span>}
-            {nextHeaderId && <span>Next section: Press Down arrow or J</span>}
-            <span>Home: Go to first title, End: Go to last title</span>
-          </div>
-        )}
       </header>
     </>
   );

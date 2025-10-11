@@ -3,6 +3,9 @@ import { NextResponse } from 'next/server';
 import { debugTagSystem } from '../../utils/tagDebug';
 import { logger } from '../../utils/logger';
 
+// Force dynamic rendering for this route
+export const dynamic = 'force-dynamic';
+
 // This API serves debugging data for various system components
 export async function GET(request: Request) {
   try {

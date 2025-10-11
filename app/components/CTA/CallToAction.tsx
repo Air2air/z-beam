@@ -45,6 +45,7 @@ export default function CallToAction() {
             <ContactButton 
               variant="primary" 
               size="lg"
+              href="/contact"
               className="mx-auto"
             />
           </div>

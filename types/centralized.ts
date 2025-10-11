@@ -1480,11 +1480,8 @@ export interface TagsProps {
 export interface ContactFormData {
   name: string;
   email: string;
-  company?: string;
   phone?: string;
-  subject: string;
   message: string;
-  inquiryType: 'general' | 'quote' | 'technical' | 'sales';
 }
 
 /**

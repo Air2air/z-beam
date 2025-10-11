@@ -3,16 +3,14 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { ContactFormData, FormErrors } from '@/types';
+import { Button } from '../ContactButton';
 
 export function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
-    company: '',
     phone: '',
-    subject: '',
     message: '',
-    inquiryType: 'general'
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -36,10 +34,6 @@ export function ContactForm() {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
     }
 
     if (!formData.message.trim()) {
@@ -99,11 +93,8 @@ export function ContactForm() {
         setFormData({
           name: '',
           email: '',
-          company: '',
           phone: '',
-          subject: '',
           message: '',
-          inquiryType: 'general'
         });
         
         // Focus success message for accessibility
@@ -125,13 +116,6 @@ export function ContactForm() {
       setIsSubmitting(false);
     }
   };
-
-  const inquiryTypes = [
-    { value: 'general', label: 'General Inquiry' },
-    { value: 'quote', label: 'Request Quote' },
-    { value: 'technical', label: 'Technical Support' },
-    { value: 'sales', label: 'Sales Consultation' }
-  ];
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6" noValidate>
@@ -159,27 +143,7 @@ export function ContactForm() {
         </div>
       )}
       
-      {/* Inquiry Type */}
-      <div>
-        <label htmlFor="inquiryType" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-          Type of Inquiry *
-        </label>
-        <select
-          id="inquiryType"
-          name="inquiryType"
-          value={formData.inquiryType}
-          onChange={handleInputChange}
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        >
-          {inquiryTypes.map(type => (
-            <option key={type.value} value={type.value}>
-              {type.label}
-            </option>
-            ))}
-          </select>
-        </div>
-
-        {/* Name and Email Row */}
+      {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
@@ -234,65 +198,21 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Company and Phone Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="company" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-              Company
-            </label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              autoComplete="organization"
-              value={formData.company}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Your company name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="phone" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              autoComplete="tel"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="(650) 241-8510"
-            />
-          </div>
-        </div>
-
-        {/* Subject */}
+        {/* Phone Number */}
         <div>
-          <label htmlFor="subject" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-            Subject <span aria-label="required">*</span>
+          <label htmlFor="phone" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
+            Phone Number
           </label>
           <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
+            type="tel"
+            id="phone"
+            name="phone"
+            autoComplete="tel"
+            value={formData.phone}
             onChange={handleInputChange}
-            aria-required="true"
-            aria-invalid={errors.subject ? 'true' : 'false'}
-            aria-describedby={errors.subject ? 'subject-error' : undefined}
-            className={`w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none ${
-              errors.subject ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'
-            }`}
-            placeholder="Brief description of your inquiry"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            placeholder="(650) 241-8510"
           />
-          {errors.subject && (
-            <p id="subject-error" role="alert" className="mt-1 text-sm text-red-600 dark:text-red-400">
-              {errors.subject}
-            </p>
-          )}
         </div>
 
         {/* Message */}
@@ -344,26 +264,17 @@ export function ContactForm() {
 
         {/* Submit Button */}
         <div>
-          <button
+          <Button
             type="submit"
             disabled={isSubmitting}
-            aria-busy={isSubmitting}
-            aria-disabled={isSubmitting}
-            className={`w-full py-3 px-6 rounded-lg transition-colors focus:outline-none ${
-              isSubmitting
-                ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed opacity-60'
-                : 'bg-blue-600 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800'
-            } text-white`}
+            variant="secondary"
+            size="lg"
+            fullWidth
+            showIcon={false}
+            aria-label={isSubmitting ? "Submitting form, please wait" : "Send message"}
           >
-            {isSubmitting ? (
-              <>
-                <span className="sr-only">Submitting form, please wait</span>
-                <span aria-hidden="true">Sending...</span>
-              </>
-            ) : (
-              'Send Message'
-            )}
-          </button>
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </Button>
         </div>
 
         <p className="text-sm text-gray-600 dark:text-gray-400 text-center">

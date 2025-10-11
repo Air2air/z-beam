@@ -13,16 +13,12 @@ export const metadata = {
 export default async function ContactPage() {
   return (
     <Layout
-      title="Contact Z-Beam"
-      description="Ready to explore how Z-Beam laser cleaning technology can transform your operations? Our team of experts is here to help you find the perfect laser cleaning solution for your specific needs."
+      title="Send Us a Message"
+      subtitle="Fill out the form below and our team will get back to you within 24 hours during business days. Please provide as much detail as possible about your laser cleaning requirements."
+      rightContent={null}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
         <div>
-          <Title level="section" title="Send Us a Message" />
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Fill out the form below and our team will get back to you within 24 hours during business days.
-            Please provide as much detail as possible about your laser cleaning requirements.
-          </p>
           <ContactForm />
         </div>
         
