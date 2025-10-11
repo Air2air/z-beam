@@ -8,18 +8,18 @@ import { ContactButton } from '../ContactButton';
 export default function CallToAction() {
   return (
     <section 
-      className="w-full py-3 md:py-0.5 overflow-visible mb-0 mt-10 bg-brand-orange fixed md:relative bottom-0 left-0 right-0 z-40" 
+      className="w-full min-h-[80px] md:min-h-[80px] overflow-visible bg-brand-orange fixed md:relative bottom-0 left-0 right-0 z-40" 
       aria-label="Contact call-to-action"
       role="region"
     >
-      <div className="w-full px-4 md:px-6">
+      <div className="w-full h-full flex items-center">
         <div className="grid grid-cols-3 gap-4 w-full">
           
           {/* Left column: Phone number */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center h-[80px]">
             <a
               href={SITE_CONFIG.contact.general.phoneHref}
-              className="text-xs sm:text-base md:text-xl lg:text-2xl text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation
+              className="text-sm sm:text-base md:text-xl lg:text-2xl text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation
                          focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-orange rounded-md px-2 py-1"
               aria-label={`Call us at ${SITE_CONFIG.contact.general.phone} for immediate assistance`}
             >
@@ -28,8 +28,8 @@ export default function CallToAction() {
           </div>
 
           {/* Center column: Van image - overflowing */}
-          <div className="flex items-center justify-center">
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 -my-8 sm:-my-10 md:-my-12 lg:-my-16">
+          <div className="flex items-center justify-center relative h-[80px]">
+            <div className="absolute top-1/2 -translate-y-[calc(50%+10px)] sm:-translate-y-1/2 md:-translate-y-1/2 lg:-translate-y-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-36 md:h-36 lg:w-44 lg:h-44">
               <Image
                 src="/images/van/van.png"
                 alt={`${SITE_CONFIG.shortName} service van`}
@@ -41,7 +41,7 @@ export default function CallToAction() {
           </div>
 
           {/* Right column: Contact button */}
-          <div className="flex items-center justify-center w-full">
+          <div className="flex items-center justify-center w-full h-[80px]">
             <ContactButton 
               variant="primary" 
               size="lg"
