@@ -9,14 +9,14 @@ import { ContactButtonProps } from '@/types';
 /**
  * ContactButton - Reusable button for navigating to contact page
  * 
- * @param variant - Visual style: 'primary' (white on orange), 'secondary' (blue), 'minimal' (simple)
+ * @param variant - Visual style: 'primary' (CTA style - white on orange), 'secondary' (blue), 'minimal' (simple)
  * @param size - Button size: 'sm', 'md', 'lg'
  * @param showIcon - Whether to display the arrow icon
  * @param className - Additional CSS classes
  * @param fullWidth - Whether button should take full width
  */
 export function ContactButton({
-  variant = 'secondary',
+  variant = 'primary',
   size = 'md',
   showIcon = true,
   className = '',
@@ -25,7 +25,7 @@ export function ContactButton({
   'aria-label': ariaLabel = 'Go to contact form page',
 }: ContactButtonProps) {
   
-  // Variant styles
+  // Variant styles - primary matches exact CTA button styling
   const variantClasses = {
     primary: 'bg-white text-brand-orange hover:bg-gray-100 focus:ring-white focus:ring-offset-brand-orange shadow-lg hover:shadow-xl transform hover:scale-105',
     secondary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-gray-900',

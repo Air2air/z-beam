@@ -262,7 +262,7 @@ export function Title({
             {(rightContent !== undefined ? rightContent : level === 'page') && (
               <div className="flex-shrink-0 text-right">
                 {rightContent !== undefined ? rightContent : (
-                  <ContactButton variant="secondary" size="md" />
+                  <ContactButton variant="primary" size="md" />
                 )}
               </div>
             )}
