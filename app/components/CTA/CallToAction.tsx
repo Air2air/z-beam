@@ -46,9 +46,7 @@ export default function CallToAction() {
               variant="primary" 
               size="lg"
               className="mx-auto"
-            >
-              Contact Us
-            </ContactButton>
+            />
           </div>
         </div>
       </div>

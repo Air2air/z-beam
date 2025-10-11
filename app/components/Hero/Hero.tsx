@@ -85,7 +85,7 @@ export function Hero({
   };
   
   // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
-  const containerClasses = `relative w-full max-w-6xl mx-auto aspect-[16/9] mb-8 rounded-lg overflow-hidden bg-gray-900 ${themeClass}`;
+  const containerClasses = `relative w-full max-w-6xl mx-auto aspect-[16/9] rounded-lg overflow-hidden bg-gray-900 ${themeClass}`;
   const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
   const videoClasses = "absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-[1]";
   const contentClasses = variant === 'fullwidth'

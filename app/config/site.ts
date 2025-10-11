@@ -125,6 +125,11 @@ export const SITE_CONFIG = {
     responseRequired: 'Please respond to this inquiry within 24 hours during business days.'
   },
   
+  // Call to Action
+  cta: {
+    buttonText: "Let's talk"
+  },
+  
   // Schema.org Configuration
   schema: {
     context: 'https://schema.org',

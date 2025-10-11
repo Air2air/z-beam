@@ -218,7 +218,7 @@ export function Title({
       )}
       
       <header 
-        className={`title-wrapper w-full mb-4 ${landmark ? 'landmark-title' : ''}`}
+        className={`title-wrapper w-full mb-4 bg-red-600 py-4 ${landmark ? 'landmark-title' : ''}`}
         role={landmark ? config.landmark || undefined : undefined}
         aria-labelledby={titleId}
         data-title-level={level}
@@ -226,48 +226,51 @@ export function Title({
         data-category={category}
         data-search-keywords={searchKeywords.join(',')}
       >
-        <Tag
-          ref={titleRef}
-          id={titleId}
-          className={combinedClasses}
-          role={role || config.role}
-          aria-level={config.ariaLevel}
-          aria-label={ariaLabel}
-          aria-describedby={[ariaDescribedby, subtitleId].filter(Boolean).join(' ') || undefined}
-          aria-labelledby={ariaLabelledby}
-          tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          onKeyDown={handleKeyDown}
-          data-testid={`title-${level}`}
-          {...rest}
-        >
-          {title}
-        </Tag>
-        
-        {/* Subtitle with proper accessibility and optional right content */}
-        {(subtitle || rightContent || level === 'page') && (
-          <div className="flex items-baseline justify-between gap-4 mt-3">
+        {/* Flex container with button spanning full height */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Left side: Title and optional subtitle stacked */}
+          <div className="flex-1">
+            <Tag
+              ref={titleRef}
+              id={titleId}
+              className={combinedClasses}
+              role={role || config.role}
+              aria-level={config.ariaLevel}
+              aria-label={ariaLabel}
+              aria-describedby={[ariaDescribedby, subtitleId].filter(Boolean).join(' ') || undefined}
+              aria-labelledby={ariaLabelledby}
+              tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
+              onFocus={onFocus}
+              onBlur={onBlur}
+              onKeyDown={handleKeyDown}
+              data-testid={`title-${level}`}
+              {...rest}
+            >
+              {title}
+            </Tag>
+            
+            {/* Subtitle below title */}
             {subtitle && (
               <h3 
                 id={subtitleId}
-                className="text-gray-400 tracking-tight flex-1"
+                className="text-gray-400 tracking-tight mt-3"
                 role="doc-subtitle"
                 aria-label={`Subtitle: ${subtitle}`}
               >
                 {subtitle}
               </h3>
             )}
-            {!subtitle && level === 'page' && <div className="flex-1" />}
-            {(rightContent !== undefined ? rightContent : level === 'page') && (
-              <div className="flex-shrink-0 text-right">
-                {rightContent !== undefined ? rightContent : (
-                  <ContactButton variant="primary" size="md" />
-                )}
-              </div>
-            )}
           </div>
-        )}
+          
+          {/* Right side: Contact button vertically centered */}
+          {(rightContent !== undefined ? rightContent : level === 'page') && (
+            <div className="flex-shrink-0">
+              {rightContent !== undefined ? rightContent : (
+                <ContactButton variant="inverted" size="md" />
+              )}
+            </div>
+          )}
+        </div>
         
         {/* Navigation hints for screen readers */}
         {(nextHeaderId || prevHeaderId) && (

@@ -986,7 +986,7 @@ export interface ButtonProps {
  * ContactButton component props
  */
 export interface ContactButtonProps {
-  variant?: 'primary' | 'secondary' | 'minimal';
+  variant?: 'primary' | 'inverted' | 'secondary' | 'minimal';
   size?: 'sm' | 'md' | 'lg';
   showIcon?: boolean;
   className?: string;
