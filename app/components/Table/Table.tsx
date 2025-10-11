@@ -189,14 +189,14 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
             <table className="w-full">
               <thead className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th className="table-header px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Property
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                  <th className="table-header px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                     Value
                   </th>
                   {variant !== 'compact' && (
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                    <th className="table-header px-6 py-3 text-left text-xs text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                       Description
                     </th>
                   )}
@@ -205,12 +205,12 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
               <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
                 {rows.map((row, index) => (
                   <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
                       {row.property}
                     </td>
-                    <td className="px-6 py-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
+                    <td className="px-6 py-4 text-sm text-blue-600 dark:text-blue-400">
                       <div className="max-w-xs overflow-hidden text-ellipsis">
-                        {row.value}
+                        <strong>{row.value}</strong>
                       </div>
                       {row.unit && (
                         <span className="text-xs text-gray-500 dark:text-gray-400 ml-1">
@@ -246,7 +246,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
       <div className="enhanced-table-container">
         <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
           <div className="text-gray-500 dark:text-gray-400">
-            <p className="mb-2 font-medium">Legacy Table Content:</p>
+            <p className="mb-2">Legacy Table Content:</p>
             <pre className="text-xs bg-gray-100 dark:bg-gray-800 p-4 rounded overflow-x-auto">
               {content.substring(0, 500)}...
             </pre>
@@ -261,7 +261,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
     return (
       <div className={`frontmatter-table-section ${className}`}>
         {caption && (
-          <div className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+          <div className="mb-4 text-lg text-gray-900 dark:text-white">
             {caption}
           </div>
         )}
@@ -275,7 +275,7 @@ export function Table({ content, config, frontmatterData }: TableProps & { front
     return (
       <div className={`table-section ${className}`}>
         {caption && (
-          <div className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+          <div className="mb-4 text-lg text-gray-900 dark:text-white">
             {caption}
           </div>
         )}

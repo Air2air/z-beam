@@ -118,7 +118,7 @@ export function MetricsCard({
         
         {/* Value display (when no progress bar) */}
         {!hasValidRange && (
-          <div className="text-base md:text-lg font-bold text-white/90 mb-1">
+          <div className="metric-value text-base md:text-lg text-white/90 mb-1">
             <data 
               id={valueId} 
               value={numericValue || displayValue}
@@ -146,14 +146,14 @@ export function MetricsCard({
         {/* Metric title with proper heading level */}
         <h4 
           id={titleId} 
-          className="font-bold text-xs text-white/90"
+          className="metric-label text-xs text-white/90"
           data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-component="metric-title"
           itemProp="name"
         >
-          {title}
+          <strong>{title}</strong>
           {displayUnit && hasValidRange && (
-            <span title={displayUnit} className="font-normal ml-1">
+            <span title={displayUnit} className="ml-1">
               {displayUnit}
             </span>
           )}

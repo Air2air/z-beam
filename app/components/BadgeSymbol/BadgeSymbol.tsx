@@ -84,8 +84,8 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
 
   // Default text colors - consistent styling
   const textColorConfig = {
-    default: "text-gray-100 font-semibold", // Light text for red background
-    number: "text-gray-200 font-bold"
+    default: "text-gray-100", // Light text for red background
+    number: "text-gray-200"
   };
 
   // Utility function to format chemical formula with subscripts

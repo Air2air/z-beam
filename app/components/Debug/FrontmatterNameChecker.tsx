@@ -82,14 +82,14 @@ export function FrontmatterNameChecker() {
   
   return (
     <div className="p-4 bg-white rounded border">
-      <h3 className="text-lg font-semibold mb-3">Frontmatter Name Checker</h3>
+      <h3 className="text-lg mb-3">Frontmatter Name Checker</h3>
       <p className="text-sm text-gray-600 mb-4">
         Check if a name follows the kebab-case convention used for slugs and filenames.
       </p>
       
       <div className="flex flex-col space-y-4">
         <div>
-          <label htmlFor="nameInput" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="nameInput" className="block text-sm text-gray-700 mb-1">
             Name to check
           </label>
           <div className="flex space-x-2">
@@ -126,7 +126,7 @@ export function FrontmatterNameChecker() {
                 )}
               </div>
               <div className="ml-3">
-                <h3 className={`text-sm font-medium ${validationResult.isValid ? 'text-green-800' : 'text-red-800'}`}>
+                <h3 className={`text-sm ${validationResult.isValid ? 'text-green-800' : 'text-red-800'}`}>
                   {validationResult.isValid ? 'Valid name' : 'Invalid name'}
                 </h3>
                 {!validationResult.isValid && validationResult.reason && (
@@ -159,7 +159,7 @@ export function FrontmatterNameChecker() {
       </div>
       
       <div className="mt-6 border-t pt-4">
-        <h4 className="font-medium text-gray-700 mb-2">Naming Guidelines</h4>
+        <h4 className="text-gray-700 mb-2">Naming Guidelines</h4>
         <ul className="list-disc pl-5 space-y-1 text-sm text-gray-600">
           <li>Use lowercase letters, numbers, and hyphens only</li>
           <li>Start and end with a letter or number, not a hyphen</li>

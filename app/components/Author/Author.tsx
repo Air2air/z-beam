@@ -52,10 +52,10 @@ export function Author({
               </td>
               <td className="align-top">
                 <div className="author-info">
-                  <div className="author-name font-medium text-gray-900 dark:text-white block">
+                  <div className="author-name text-gray-900 dark:text-white block">
                     {authorName}
                     {showCredentials && credentials && (
-                      <span className="ml-1 author-appellation font-medium text-gray-600 dark:text-gray-400">
+                      <span className="ml-1 author-appellation text-gray-600 dark:text-gray-400">
                         {credentials}
                       </span>
                     )}

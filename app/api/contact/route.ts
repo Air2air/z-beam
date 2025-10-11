@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
         to: [...SITE_CONFIG.emailConfig.toAddresses],
         subject: `New Contact: ${subject}`,
         html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="max-width: 600px; margin: 0 auto;">
             <h2 style="color: ${SITE_CONFIG.emailConfig.brandColor}; border-bottom: 2px solid ${SITE_CONFIG.emailConfig.brandColor}; padding-bottom: 10px;">
               New Contact Form Submission
             </h2>

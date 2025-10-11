@@ -232,7 +232,7 @@ export function Layout(props: LayoutProps) {
       {title && (
         <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
           <div className="w-full">
-            <Title level="page" title={title} subtitle={props.subtitle} />
+            <Title level="page" title={title} subtitle={props.subtitle} rightContent={props.rightContent} />
           </div>
         </div>
       )}

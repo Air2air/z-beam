@@ -215,7 +215,7 @@ const parseTags = (content: string | TagsData): string[] => {
     <div className={`tags-container ${className}`} data-testid="tags-container">
       {/* Title display */}
       {title && config?.title && (
-        <h3 className="text-lg font-semibold mb-3">{config.title}</h3>
+        <h3 className="text-lg mb-3">{config.title}</h3>
       )}
       
       {/* Metadata display */}
@@ -223,29 +223,27 @@ const parseTags = (content: string | TagsData): string[] => {
         <div className="mb-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm">
           <div className="flex flex-wrap gap-4">
             {material && (
-              <span className="font-medium">
-                Material: <span className="font-normal">{capitalizeWords(material)}</span>
+              <span>
+                <strong>Material:</strong> {capitalizeWords(material)}
               </span>
             )}
             {count && (
-              <span className="font-medium">
-                Tags: <span className="font-normal">{count}</span>
+              <span>
+                <strong>Tags:</strong> {count}
               </span>
             )}
             {categories && Object.keys(categories).length > 0 && (
-              <span className="font-medium">
-                Categories: <span className="font-normal">
-                  {Object.entries(categories)
+              <span>
+                <strong>Categories:</strong> {Object.entries(categories)
                     .filter(([key, value]) => value && value.length > 0) // Filter out empty categories
                     .map(([key, value]) => capitalizeWords(key))
                     .join(', ')
                   }
-                </span>
               </span>
             )}
             {metadata?.format && (
-              <span className="font-medium">
-                Format: <span className="font-normal">{metadata.format} v{metadata.version || '1.0'}</span>
+              <span>
+                <strong>Format:</strong> {metadata.format} v{metadata.version || '1.0'}
               </span>
             )}
           </div>
@@ -266,7 +264,7 @@ const parseTags = (content: string | TagsData): string[] => {
                         type="button"
                         key={index}
                         onClick={() => handleTagClick(tag)}
-                        className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                        className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
                         aria-label={`Filter by ${tag} tag`}
                         title={`Filter by ${tag} tag`}
                       >
@@ -279,7 +277,7 @@ const parseTags = (content: string | TagsData): string[] => {
                         legacyBehavior
                       >
                         <a
-                          className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer flex items-center`}
+                          className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer flex items-center`}
                           aria-label={`View all articles tagged with ${tag}`}
                           title={`View all articles tagged with ${tag}`}
                         >
@@ -302,7 +300,7 @@ const parseTags = (content: string | TagsData): string[] => {
                 type="button"
                 key={index}
                 onClick={() => handleTagClick(tag)}
-                className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
                 aria-label={`Filter by ${tag} tag`}
                 title={`Filter by ${tag} tag`}
               >
@@ -316,7 +314,7 @@ const parseTags = (content: string | TagsData): string[] => {
                 legacyBehavior
               >
                 <a
-                  className={`inline-block px-3 py-2 rounded-full text-sm font-medium ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
+                  className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
                   aria-label={`View all articles tagged with ${tag}`}
                   title={`View all articles tagged with ${tag}`}
                 >

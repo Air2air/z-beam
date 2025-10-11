@@ -19,11 +19,11 @@ export default function CallToAction() {
           <div className="flex items-center justify-center">
             <a
               href={SITE_CONFIG.contact.general.phoneHref}
-              className="text-xs sm:text-base md:text-xl lg:text-2xl font-bold text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation
+              className="text-xs sm:text-base md:text-xl lg:text-2xl text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation
                          focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-orange rounded-md px-2 py-1"
               aria-label={`Call us at ${SITE_CONFIG.contact.general.phone} for immediate assistance`}
             >
-              {SITE_CONFIG.contact.general.phone}
+              <strong>{SITE_CONFIG.contact.general.phone}</strong>
             </a>
           </div>
 
@@ -44,7 +44,7 @@ export default function CallToAction() {
           <div className="flex items-center justify-center w-full">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-3 text-xs sm:text-sm md:text-base lg:text-lg font-semibold bg-white text-brand-orange rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 mx-auto
+              className="btn inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-3 text-xs sm:text-sm md:text-base lg:text-lg bg-white text-brand-orange rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 mx-auto
                          focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-orange
                          min-h-[44px]"
               aria-label="Go to contact form page"

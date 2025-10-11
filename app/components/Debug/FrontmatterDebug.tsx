@@ -63,7 +63,7 @@ export function FrontmatterDebug() {
   if (error) {
     return (
       <div className="p-4 bg-red-50 rounded border border-red-200">
-        <Title level="card" title="Frontmatter Debug Error" className="font-semibold text-red-700" />
+        <Title level="card" title="Frontmatter Debug Error" className="text-red-700" />
         <p className="text-red-600 mt-1">{error}</p>
       </div>
     );
@@ -72,7 +72,7 @@ export function FrontmatterDebug() {
   if (!data || data.length === 0) {
     return (
       <div className="p-4 bg-yellow-50 rounded border border-yellow-200">
-        <Title level="card" title="No Frontmatter Data" className="font-semibold text-yellow-700" />
+        <Title level="card" title="No Frontmatter Data" className="text-yellow-700" />
         <p className="text-yellow-600 mt-1">No frontmatter data available.</p>
       </div>
     );
@@ -80,11 +80,11 @@ export function FrontmatterDebug() {
 
   return (
     <div className="p-4 bg-white rounded border">
-      <Title level="card" title="Frontmatter Debug" className="text-lg font-semibold mb-3" />
+      <Title level="card" title="Frontmatter Debug" className="text-lg mb-3" />
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="col-span-1">
-          <h4 className="font-medium text-gray-700 mb-2">Available Documents</h4>
+          <h4 className="text-gray-700 mb-2">Available Documents</h4>
           <div className="border rounded overflow-hidden">
             <ul className="divide-y divide-gray-200 max-h-64 overflow-y-auto">
               {data.map((item, index) => (
@@ -93,7 +93,7 @@ export function FrontmatterDebug() {
                   className={`px-3 py-2 cursor-pointer ${selectedItem?.slug === item.slug ? 'bg-blue-50' : ''}`}
                   onClick={() => handleItemSelect(item)}
                 >
-                  <div className="font-medium text-sm">{item.title}</div>
+                  <div className="text-sm">{item.title}</div>
                   <div className="text-xs text-gray-500">{item.slug}</div>
                 </li>
               ))}
@@ -102,28 +102,28 @@ export function FrontmatterDebug() {
         </div>
         
         <div className="col-span-2">
-          <h4 className="font-medium text-gray-700 mb-2">Frontmatter Preview</h4>
+          <h4 className="text-gray-700 mb-2">Frontmatter Preview</h4>
           {selectedItem ? (
             <div className="border rounded p-3 bg-gray-50">
               <div className="mb-2">
-                <span className="text-xs font-medium text-gray-500">TITLE</span>
-                <div className="font-medium">{selectedItem.title}</div>
+                <span className="text-xs text-gray-500">TITLE</span>
+                <strong>{selectedItem.title}</strong>
               </div>
               
               <div className="mb-2">
-                <span className="text-xs font-medium text-gray-500">SLUG</span>
+                <span className="text-xs text-gray-500">SLUG</span>
                 <div className="font-mono text-sm">{selectedItem.slug}</div>
               </div>
               
               <div className="mb-2">
-                <span className="text-xs font-medium text-gray-500">AUTHOR</span>
+                <span className="text-xs text-gray-500">AUTHOR</span>
                 <div>{typeof selectedItem.author === 'object' 
                   ? JSON.stringify(selectedItem.author, null, 2) 
                   : selectedItem.author}</div>
               </div>
               
               <div className="mt-4">
-                <span className="text-xs font-medium text-gray-500">FULL STRUCTURE</span>
+                <span className="text-xs text-gray-500">FULL STRUCTURE</span>
                 <pre className="mt-1 text-xs bg-gray-100 p-2 rounded overflow-auto max-h-40">
                   {JSON.stringify(selectedItem, null, 2)}
                 </pre>

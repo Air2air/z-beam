@@ -7,37 +7,37 @@ import React from 'react';
  */
 
 export const H1: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h1 className={`text-4xl tracking-tight mt-6 mb-2 text-neutral-900 dark:text-neutral-100 ${className}`}>
+  <h1 className={`tracking-tight mt-6 mb-2 text-neutral-900 dark:text-neutral-100 ${className}`}>
     {children}
   </h1>
 );
 
 export const H2: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h2 className={`text-xl tracking-tight mt-6 mb-2 ${className}`}>
+  <h2 className={`tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h2>
 );
 
 export const H3: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h3 className={`text-xl tracking-tight mt-6 mb-2 ${className}`}>
+  <h3 className={`tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h3>
 );
 
 export const H4: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h4 className={`text-lg font-medium tracking-tight mt-6 mb-2 ${className}`}>
+  <h4 className={`text-lg tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h4>
 );
 
 export const H5: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h5 className={`text-base font-medium tracking-tight mt-6 mb-2 ${className}`}>
+  <h5 className={`text-base tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h5>
 );
 
 export const H6: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h6 className={`text-sm font-medium tracking-tight mt-6 mb-2 ${className}`}>
+  <h6 className={`text-sm tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h6>
 );
@@ -70,7 +70,7 @@ export const A: React.FC<{
 };
 
 export const Strong: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <strong className={`font-medium ${className}`}>{children}</strong>
+  <strong className={`${className}`}>{children}</strong>
 );
 
 export const Em: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (

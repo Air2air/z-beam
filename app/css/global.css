@@ -1,18 +1,137 @@
+/**
+ * ============================================
+ * FONT SYSTEM CONFIGURATION
+ * ============================================
+ * 
+ * Centralized font management for Z-Beam application
+ * 
+ * FONT LOADING:
+ * - Primary font: Roboto (Google Fonts via next/font/google)
+ * - Configuration: app/config/fonts.ts
+ * - Applied globally: app/layout.tsx via roboto.className on body
+ * - Self-hosted: Fonts are automatically optimized and self-hosted by Next.js
+ * - Font display: swap (zero layout shift)
+ * 
+ * AVAILABLE WEIGHTS:
+ * - 100 (font-thin)       - Ultra-light, decorative use only
+ * - 300 (font-light)      - Large headings, hero text
+ * - 400 (font-normal)     - Body text, paragraphs (DEFAULT)
+ * - 500 (font-medium)     - Subheadings, buttons, emphasis
+ * - 600 (font-semibold)   - Strong subheadings, card titles
+ * - 700 (font-bold)       - Emphasis, strong elements, metrics
+ * - 900 (font-black)      - Extra strong emphasis (use sparingly)
+ * 
+ * TYPOGRAPHY SCALE:
+ * - h1: 36px (text-4xl) - font-light (300)    - Main page titles
+ * - h2: 30px (text-3xl) - font-light (300)    - Section headers
+ * - h3: 24px (text-2xl) - font-medium (500)   - Subsection headers
+ * - h4: 20px (text-xl)  - font-medium (500)   - Card titles
+ * - h5: 18px (text-lg)  - font-medium (500)   - Small headings
+ * - h6: 16px (text-base)- font-medium (500)   - Smallest headings
+ * 
+ * DESIGN PRINCIPLES:
+ * 1. NO inline font-* classes in components
+ * 2. Use semantic HTML (<h1-h6>, <strong>, <b>)
+ * 3. Use component classes (.btn, .card-title, etc.)
+ * 4. All font styling comes from this file or semantic defaults
+ * 
+ * USAGE EXAMPLES:
+ * ✅ Good: <h1>Title</h1>                    (uses configured weight)
+ * ✅ Good: <strong>Bold text</strong>        (semantic HTML)
+ * ✅ Good: <button className="btn">Click</button> (component class)
+ * ❌ Bad:  <h1 className="font-bold">Title</h1> (inline override)
+ * ❌ Bad:  <div className="font-medium">Text</div> (inline override)
+ * 
+ * MODIFICATION GUIDE:
+ * - To change heading weights: Edit @layer base section below
+ * - To add component patterns: Edit @layer components section below
+ * - To change font family: Edit app/config/fonts.ts
+ * 
+ * RELATED FILES:
+ * - app/config/fonts.ts        - Font loading configuration
+ * - app/layout.tsx             - Global font application
+ * - docs/FONT_CONFIGURATION.md - Complete documentation
+ * 
+ * ============================================
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Headings - Semantic font weights and colors */
   h1 {
-    @apply text-4xl font-thin;
+    @apply text-4xl font-normal text-white;
   }
   
   h2 {
-    @apply text-3xl font-extralight;
+    @apply text-3xl font-normal text-gray-100;
   }
   
   h3 {
-    @apply text-2xl font-extrabold;
+    @apply text-2xl font-normal text-gray-200;
+  }
+  
+  h4 {
+    @apply text-xl font-medium text-gray-200;
+  }
+  
+  h5 {
+    @apply text-lg font-medium text-gray-300;
+  }
+  
+  h6 {
+    @apply text-base font-medium text-gray-300;
+  }
+  
+  /* Semantic elements */
+  strong, b {
+    @apply font-bold text-white;
+  }
+  
+  /* Body text - normal weight and color by default */
+  body, p {
+    @apply font-normal text-gray-300;
+  }
+}
+
+@layer components {
+  /* Button font weight */
+  .btn,
+  button {
+    @apply font-medium;
+  }
+  
+  /* Card elements */
+  .card-title {
+    @apply font-semibold;
+  }
+  
+  /* Table elements */
+  .table-header,
+  thead th {
+    @apply font-medium;
+  }
+  
+  /* Metrics and statistics */
+  .metric-value,
+  .stat-value {
+    @apply font-bold;
+  }
+  
+  .metric-label,
+  .stat-label {
+    @apply font-normal;
+  }
+  
+  /* Badge symbol styling */
+  .badge-symbol {
+    @apply font-semibold;
+  }
+  
+  .badge-number {
+    @apply font-bold;
   }
 }
 

@@ -59,13 +59,13 @@ export function WorkflowSection({
               {/* Header - Spans full width across top */}
               <div className="flex items-center gap-4 mb-6">
                 {/* Stage Number */}
-                <div className="workflow-number flex-shrink-0 w-16 h-16 flex items-center justify-center text-3xl font-bold text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full">
-                  {item.order}
+                <div className="workflow-number flex-shrink-0 w-16 h-16 flex items-center justify-center text-3xl text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full">
+                  <strong>{item.order}</strong>
                 </div>
                 
                 {/* Title */}
                 <div className="flex-1">
-                  <h3 className={`text-xl md:text-2xl font-bold ${currentTheme.heading}`}>
+                  <h3 className={`text-xl md:text-2xl ${currentTheme.heading}`}>
                     {item.name}
                   </h3>
                 </div>

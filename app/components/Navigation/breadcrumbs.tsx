@@ -17,7 +17,7 @@ export function Breadcrumbs() {
           <li className="inline-flex items-center">
             <Link
               href="/"
-              className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white"
+              className="ml-1 text-sm text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white"
             >
               Home
             </Link>
@@ -101,7 +101,7 @@ export function Breadcrumbs() {
             {index === allBreadcrumbs.length - 1 ? (
               // Last item is the current page, not a link
               <span 
-                className="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400"
+                className="ml-1 text-sm text-gray-500 dark:text-gray-400"
                 aria-current="page"
               >
                 {crumb.label}
@@ -110,14 +110,14 @@ export function Breadcrumbs() {
               // Other items are links (only if href exists)
               <Link
                 href={crumb.href}
-                className="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white
+                className="ml-1 text-sm text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white
                            focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm"
               >
                 {crumb.label}
               </Link>
             ) : (
               // Item without href (default to span)
-              <span className="ml-1 text-sm font-medium text-gray-500 dark:text-gray-400">
+              <span className="ml-1 text-sm text-gray-500 dark:text-gray-400">
                 {crumb.label}
               </span>
             )}

@@ -84,7 +84,7 @@ export function Callout({
         {/* Content Section */}
         <div className={image ? '' : 'text-center max-w-4xl mx-auto'}>
           <h2
-            className={`text-xl md:text-2xl font-bold mb-2 ${currentTheme.heading}`}
+            className={`text-xl md:text-2xl mb-2 ${currentTheme.heading}`}
           >
             {heading}
           </h2>

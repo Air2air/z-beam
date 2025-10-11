@@ -150,7 +150,7 @@ export function SEOOptimizedCaption({
         <Title 
           level="section"
           title={`${capitalizedMaterial} Laser Cleaning Process Analysis`}
-          className="caption-title text-sm font-semibold mb-2"
+          className="caption-title text-sm mb-2"
           id={`${processId}-heading`}
         />
         
@@ -175,28 +175,28 @@ export function SEOOptimizedCaption({
         
         <div className="process-parameters grid grid-cols-2 gap-4 p-3 bg-gray-50 rounded">
           <div className="parameter-group">
-            <dt className="font-medium text-sm text-gray-700">Laser Wavelength</dt>
+            <dt className="text-sm text-gray-700">Laser Wavelength</dt>
             <dd className="text-sm text-gray-900" itemProp="wavelength">
               {captionData?.laserParams?.wavelength} nm
             </dd>
           </div>
           
           <div className="parameter-group">
-            <dt className="font-medium text-sm text-gray-700">Power Output</dt>
+            <dt className="text-sm text-gray-700">Power Output</dt>
             <dd className="text-sm text-gray-900" itemProp="power">
               {captionData?.laserParams?.power} W
             </dd>
           </div>
           
           <div className="parameter-group">
-            <dt className="font-medium text-sm text-gray-700">Pulse Duration</dt>
+            <dt className="text-sm text-gray-700">Pulse Duration</dt>
             <dd className="text-sm text-gray-900" itemProp="pulseDuration">
               {captionData?.laserParams?.pulse_duration} ns
             </dd>
           </div>
           
           <div className="parameter-group">
-            <dt className="font-medium text-sm text-gray-700">Spot Size</dt>
+            <dt className="text-sm text-gray-700">Spot Size</dt>
             <dd className="text-sm text-gray-900" itemProp="spotSize">
               {captionData?.laserParams?.spot_size} µm
             </dd>
@@ -214,14 +214,14 @@ export function SEOOptimizedCaption({
         <Title 
           level="card"
           title="Material Characteristics"
-          className="font-semibold mb-2"
+          className="mb-2"
           id={`${processId}-material`}
         />
         
         <div className="properties-grid grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
           {frontmatter?.chemicalProperties?.density && (
             <div className="property-item">
-              <span className="property-label font-medium">Density:</span>
+              <span className="property-label">Density:</span>
               <span className="property-value ml-1" itemProp="density">
                 {frontmatter.chemicalProperties.density}
               </span>
@@ -230,7 +230,7 @@ export function SEOOptimizedCaption({
           
           {frontmatter?.chemicalProperties?.meltingPoint && (
             <div className="property-item">
-              <span className="property-label font-medium">Melting Point:</span>
+              <span className="property-label">Melting Point:</span>
               <span className="property-value ml-1" itemProp="meltingPoint">
                 {frontmatter.chemicalProperties.meltingPoint}
               </span>
@@ -239,7 +239,7 @@ export function SEOOptimizedCaption({
           
           {frontmatter?.chemicalProperties?.thermalConductivity && (
             <div className="property-item">
-              <span className="property-label font-medium">Thermal Conductivity:</span>
+              <span className="property-label">Thermal Conductivity:</span>
               <span className="property-value ml-1" itemProp="thermalConductivity">
                 {frontmatter.chemicalProperties.thermalConductivity}
               </span>
@@ -259,14 +259,14 @@ export function SEOOptimizedCaption({
         
         <div className="before-after-analysis">
           <div className="analysis-before mb-3">
-            <h5 className="font-medium text-sm text-gray-800 mb-1">Before Treatment</h5>
+            <h5 className="text-sm text-gray-800 mb-1">Before Treatment</h5>
             <p className="text-sm text-gray-700" itemProp="beforeDescription">
               {captionData?.beforeText}
             </p>
           </div>
           
           <div className="analysis-after">
-            <h5 className="font-medium text-sm text-gray-800 mb-1">After Treatment</h5>
+            <h5 className="text-sm text-gray-800 mb-1">After Treatment</h5>
             <p className="text-sm text-gray-700" itemProp="afterDescription">
               {captionData?.afterText}
             </p>

@@ -28,7 +28,7 @@ export function TechnicalDetails({ laserParams, show, frontmatter }: TechnicalDe
       role="complementary"
       aria-label="Technical laser parameters"
     >
-      <div className="font-medium mb-1" itemProp="name">Laser Parameters:</div>
+      <div className="mb-1" itemProp="name">Laser Parameters:</div>
       <div className="space-y-1">
         {laserParams.wavelength && (
           <div itemProp="wavelength">

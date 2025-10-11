@@ -246,7 +246,7 @@ export function CardGrid({
                 <button
                   type="button"
                   onClick={() => setSelectedCategory('all')}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                  className={`px-4 py-2 rounded-lg text-sm transition-colors
                     ${selectedCategory === 'all' 
                       ? 'bg-blue-600 text-white shadow-md' 
                       : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -259,7 +259,7 @@ export function CardGrid({
                     type="button"
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium
+                    className={`px-4 py-2 rounded-lg text-sm
                       ${selectedCategory === category 
                         ? 'bg-blue-600 text-white shadow-md' 
                         : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
@@ -288,7 +288,7 @@ export function CardGrid({
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 font-medium"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700"
                 >
                   Clear all
                 </button>
@@ -321,10 +321,10 @@ export function CardGrid({
                     <div>
                       <h3 
                         id={categoryId}
-                        className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+                        className="text-2xl text-gray-900 dark:text-gray-100 mb-2"
                         itemProp="name"
                       >
-                        {category}
+                        <strong>{category}</strong>
                       </h3>
                       <meta itemProp="numberOfItems" content={String(categoryItems.length)} />
                       <div className="w-12 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
@@ -385,7 +385,7 @@ export function CardGrid({
           // Filtered results display
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+              <h3 className="text-xl text-gray-900 dark:text-gray-100">
                 {searchTerm 
                   ? `Search Results for "${searchTerm}"` 
                   : `${selectedCategory} Articles`
@@ -428,7 +428,7 @@ export function CardGrid({
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 font-medium"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700"
                 >
                   Clear filters and view all articles
                 </button>

@@ -139,7 +139,7 @@ export function ContentCard({
         <header className="flex items-center gap-4 mb-6" role="banner">
           {/* Order Number Badge */}
           <div 
-            className="flex-shrink-0 w-16 h-16 flex items-center justify-center text-3xl font-bold text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full"
+            className="flex-shrink-0 w-16 h-16 flex items-center justify-center text-3xl text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full"
             role="status"
             aria-label={`Step ${order}`}
           >
@@ -161,7 +161,7 @@ export function ContentCard({
       {category && !hasOrder && (
         <div 
           id={categoryId}
-          className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2"
+          className="text-sm text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2"
           role="doc-subtitle"
           itemProp="category"
         >

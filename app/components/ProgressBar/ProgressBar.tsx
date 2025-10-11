@@ -77,7 +77,7 @@ export function ProgressBar({
       {/* Current value positioned above the bar at pointer position */}
       <div className="relative w-full mb-0.5 md:mb-1 h-3 md:h-4">
         <div 
-          className="absolute text-base md:text-lg font-bold text-white/90 z-10"
+          className="metric-value absolute text-base md:text-lg text-white/90 z-10"
           aria-hidden="true" // Hide from screen readers (described above)
           style={{ 
             left: alignmentStyle.left,
@@ -140,7 +140,7 @@ export function ProgressBar({
       
       {/* Min and Max values positioned under the bar */}
       <div className="flex justify-between items-center" aria-hidden="true">
-        <span className="text-xs font-medium text-white/50">
+        <span className="text-xs text-white/50">
           <data 
             value={cleanMin}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
@@ -154,7 +154,7 @@ export function ProgressBar({
             itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanMin}</data>
         </span>
-        <span className="text-xs font-medium text-white/50">
+        <span className="text-xs text-white/50">
           <data 
             value={cleanMax}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}

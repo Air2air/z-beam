@@ -25,6 +25,7 @@ export function Title({
   className = '',
   id,
   subtitle,
+  rightContent,
   
   // WCAG & Accessibility Props
   'aria-label': ariaLabel,
@@ -60,21 +61,21 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'text-xl md:text-3xl lg:text-4xl tracking-tight text-white',
+      classes: 'tracking-tight text-white',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'text-lg md:text-2xl tracking-tight text-gray-100',
+      classes: 'tracking-tight text-gray-100',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'
     },
     'card': {
       tag: 'h3' as const,
-      classes: 'text-base md:text-lg tracking-tight text-gray-200',
+      classes: 'tracking-tight text-gray-200',
       ariaLevel: 3,
       role: 'heading',
       landmark: null
@@ -95,7 +96,7 @@ export function Title({
   const skipLinkId = skipLink ? `${titleId}-skip` : undefined;
   
   // Base classes for all titles with enhanced accessibility
-  const baseClasses = 'font-semibold text-white transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900';
+  const baseClasses = 'text-white transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900';
   
   // Alignment classes
   const alignmentClasses = {
@@ -243,16 +244,25 @@ export function Title({
           {title}
         </Tag>
         
-        {/* Subtitle with proper accessibility */}
-        {subtitle && (
-          <h3 
-            id={subtitleId}
-            className="text-base md:text-lg text-gray-400 mt-3 leading-relaxed font-extralight tracking-tight"
-            role="doc-subtitle"
-            aria-label={`Subtitle: ${subtitle}`}
-          >
-            {subtitle}
-          </h3>
+        {/* Subtitle with proper accessibility and optional right content */}
+        {(subtitle || rightContent) && (
+          <div className="flex items-baseline justify-between gap-4 mt-3">
+            {subtitle && (
+              <h3 
+                id={subtitleId}
+                className="text-base md:text-lg text-gray-400 leading-relaxed tracking-tight flex-1"
+                role="doc-subtitle"
+                aria-label={`Subtitle: ${subtitle}`}
+              >
+                {subtitle}
+              </h3>
+            )}
+            {rightContent && (
+              <div className="flex-shrink-0 text-right">
+                {rightContent}
+              </div>
+            )}
+          </div>
         )}
         
         {/* Navigation hints for screen readers */}

@@ -49,16 +49,12 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
     <Layout 
       title="Search"
       subtitle={getSubtitle()}
+      rightContent={(query || propertyName) ? (
+        <p className="text-base md:text-lg text-gray-400 whitespace-nowrap">
+          {resultCount} {resultCount === 1 ? 'result' : 'results'} found
+        </p>
+      ) : undefined}
     >
-      {/* Result count display */}
-      {(query || propertyName) && (
-        <div className="mb-6 text-right">
-          <p className="text-gray-400 text-sm whitespace-nowrap">
-            {resultCount} {resultCount === 1 ? 'result' : 'results'} found
-          </p>
-        </div>
-      )}
-      
       <SearchClient initialArticles={initialArticles} />
     </Layout>
   );

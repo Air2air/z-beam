@@ -181,7 +181,7 @@ export function Navbar() {
                         focus:outline-none transition-colors duration-200
                         ${
                           isActive
-                            ? "font-bold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20" // Active link style with background
+                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20" // Active link style with background
                             : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400" // Inactive link style with hover
                         }
                       `}

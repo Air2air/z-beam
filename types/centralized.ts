@@ -599,6 +599,7 @@ export interface TitleProps {
   className?: string;
   id?: string;
   subtitle?: string;
+  rightContent?: React.ReactNode;
   
   // WCAG & Accessibility Props
   'aria-label'?: string;
@@ -637,6 +638,7 @@ export interface LayoutProps {
   children?: ReactNode;
   title?: string;
   subtitle?: string;
+  rightContent?: React.ReactNode;
   description?: string;
   className?: string;
   fullWidth?: boolean; // For pages that need full-width sections

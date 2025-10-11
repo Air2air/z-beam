@@ -85,7 +85,7 @@ export function DebugLayout({
       <header className="bg-white shadow-sm">
         <div className={CONTAINER_STYLES.standard}>
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-bold text-gray-900 flex items-center">
+            <h1 className="text-xl text-gray-900 flex items-center">
               <span className="mr-2">🛠️</span> Z-Beam Debug Console
             </h1>
             
@@ -162,7 +162,7 @@ export function DebugLayout({
         <div className="flex flex-col md:flex-row">
           <div className="hidden md:block w-full md:w-64 flex-shrink-0 mr-6">
             <div className="bg-white rounded-lg shadow-sm p-4">
-              <h2 className="font-medium text-gray-700 mb-3">Debug Tools</h2>
+              <h2 className="text-gray-700 mb-3">Debug Tools</h2>
               
               <nav>
                 <ul className="space-y-1">
@@ -185,7 +185,7 @@ export function DebugLayout({
               </nav>
               
               <div className="mt-6 pt-4 border-t border-gray-100">
-                <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                <h3 className="text-xs text-gray-500 uppercase tracking-wider mb-2">
                   Actions
                 </h3>
                 
@@ -224,7 +224,7 @@ export function DebugLayout({
               
               <div className="mt-6 pt-4 border-t border-gray-100">
                 <div className="bg-gray-50 rounded p-3 text-xs text-gray-500">
-                  <p className="font-medium mb-1">Environment</p>
+                  <p className="mb-1">Environment</p>
                   <p>Mode: {process.env.NODE_ENV || 'development'}</p>
                   <p>Time: {new Date().toLocaleString()}</p>
                 </div>
@@ -239,7 +239,7 @@ export function DebugLayout({
                 if (section.id === currentSection) {
                   return (
                     <div key={section.id}>
-                      <h2 className="text-xl font-bold text-gray-900 flex items-center">
+                      <h2 className="text-xl text-gray-900 flex items-center">
                         <span className="mr-2">{section.icon}</span> {section.title}
                       </h2>
                       <p className="mt-1 text-gray-600">{section.description}</p>

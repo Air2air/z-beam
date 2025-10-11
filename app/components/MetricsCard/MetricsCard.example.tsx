@@ -52,7 +52,7 @@ export function MetricsCardExamples() {
       
       {/* Full MetricsCard with all options */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Full MetricsCard</h2>
+        <h2 className="text-xl mb-4">Full MetricsCard</h2>
         <MetricsGrid
           metadata={exampleMetadata}
           baseHref={baseHref}
@@ -67,7 +67,7 @@ export function MetricsCardExamples() {
 
       {/* Primary MetricsCard - Essential settings only */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Primary MetricsCard</h2>
+        <h2 className="text-xl mb-4">Primary MetricsCard</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Shows only priority 1 settings (Power, Wavelength, Fluence)
         </p>
@@ -82,7 +82,7 @@ export function MetricsCardExamples() {
 
       {/* Compact MetricsCard - 2x2 grid */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Compact MetricsCard</h2>
+        <h2 className="text-xl mb-4">Compact MetricsCard</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Space-efficient 2-column layout for key parameters
         </p>
@@ -98,7 +98,7 @@ export function MetricsCardExamples() {
 
       {/* Minimal MetricsCard - No title */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Minimal MetricsCard</h2>
+        <h2 className="text-xl mb-4">Minimal MetricsCard</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Clean display without section title, perfect for embedding
         </p>
@@ -113,12 +113,12 @@ export function MetricsCardExamples() {
 
       {/* Custom configuration examples */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Custom Configurations</h2>
+        <h2 className="text-xl mb-4">Custom Configurations</h2>
         
         <div className="grid gap-8 lg:grid-cols-2">
           {/* Grid-2 layout */}
           <div>
-            <h3 className="text-lg font-semibold mb-2">Grid-2 Layout</h3>
+            <h3 className="text-lg mb-2">Grid-2 Layout</h3>
             <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
@@ -131,7 +131,7 @@ export function MetricsCardExamples() {
           
           {/* Grid-3 layout */}
           <div>
-            <h3 className="text-lg font-semibold mb-2">Grid-3 Layout</h3>
+            <h3 className="text-lg mb-2">Grid-3 Layout</h3>
             <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
@@ -147,12 +147,12 @@ export function MetricsCardExamples() {
 
       {/* Priority filtering examples */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Priority Filtering</h2>
+        <h2 className="text-xl mb-4">Priority Filtering</h2>
         
         <div className="space-y-6">
           {/* Priority 1 only */}
           <div>
-            <h3 className="text-lg font-semibold mb-2">Priority 1 Only (Essential)</h3>
+            <h3 className="text-lg mb-2">Priority 1 Only (Essential)</h3>
             <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
@@ -165,7 +165,7 @@ export function MetricsCardExamples() {
           
           {/* Priority 2 only */}
           <div>
-            <h3 className="text-lg font-semibold mb-2">Priority 2 Only (Important)</h3>
+            <h3 className="text-lg mb-2">Priority 2 Only (Important)</h3>
             <MetricsGrid
               metadata={exampleMetadata}
               baseHref={baseHref}
@@ -180,7 +180,7 @@ export function MetricsCardExamples() {
 
       {/* Error handling example */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Error Handling</h2>
+        <h2 className="text-xl mb-4">Error Handling</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Shows fallback message when no machine settings are available
         </p>
@@ -196,7 +196,7 @@ export function MetricsCardExamples() {
 
       {/* Empty settings example */}
       <section>
-        <h2 className="text-xl font-bold mb-4">Empty Settings Handling</h2>
+        <h2 className="text-xl mb-4">Empty Settings Handling</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
           Shows message when settings exist but no matching cards are found
         </p>
@@ -222,7 +222,7 @@ export function ExamplePage() {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto py-12">
-        <h1 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-gray-100">
+        <h1 className="text-3xl text-center mb-12 text-gray-900 dark:text-gray-100">
           MetricsCard Component Examples
         </h1>
         <MetricsCardExamples />

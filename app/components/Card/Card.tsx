@@ -25,7 +25,7 @@ const CARD_VARIANTS = {
     cardHeight: "h-full min-h-[9rem] md:min-h-[11rem] lg:min-h-[12rem]", // Responsive card height - smaller on mobile
     
     // Typography
-    titleClass: "text-base font-semibold text-white truncate",
+    titleClass: "text-base text-white truncate",
     descriptionClass: "text-gray-200 text-xs line-clamp-2",
     
     // Appearance
@@ -43,7 +43,7 @@ const CARD_VARIANTS = {
     cardHeight: "h-full min-h-[16rem]", // Fixed min-height across all breakpoints - not responsive
     
     // Typography
-    titleClass: "text-xl font-bold text-white truncate",
+    titleClass: "text-xl text-white truncate",
     descriptionClass: "text-gray-200 text-sm line-clamp-3",
     
     // Appearance

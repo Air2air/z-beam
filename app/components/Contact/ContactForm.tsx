@@ -144,7 +144,7 @@ export function ContactForm() {
           aria-labelledby="error-summary-title"
           className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
         >
-          <h3 id="error-summary-title" className="font-semibold text-red-800 dark:text-red-300 mb-2">
+          <h3 id="error-summary-title" className="text-red-800 dark:text-red-300 mb-2">
             Please correct the following errors:
           </h3>
           <ul className="list-disc list-inside space-y-1 text-sm text-red-700 dark:text-red-400">
@@ -161,7 +161,7 @@ export function ContactForm() {
       
       {/* Inquiry Type */}
       <div>
-        <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+        <label htmlFor="inquiryType" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
           Type of Inquiry *
         </label>
         <select
@@ -182,7 +182,7 @@ export function ContactForm() {
         {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="name" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
               Full Name <span aria-label="required">*</span>
             </label>
             <input
@@ -208,7 +208,7 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
               Email Address <span aria-label="required">*</span>
             </label>
             <input
@@ -237,7 +237,7 @@ export function ContactForm() {
         {/* Company and Phone Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="company" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
               Company
             </label>
             <input
@@ -253,7 +253,7 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="phone" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
               Phone Number
             </label>
             <input
@@ -271,7 +271,7 @@ export function ContactForm() {
 
         {/* Subject */}
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="subject" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
             Subject <span aria-label="required">*</span>
           </label>
           <input
@@ -297,7 +297,7 @@ export function ContactForm() {
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="message" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
             Message <span aria-label="required">*</span>
           </label>
           <textarea
@@ -349,7 +349,7 @@ export function ContactForm() {
             disabled={isSubmitting}
             aria-busy={isSubmitting}
             aria-disabled={isSubmitting}
-            className={`w-full py-3 px-6 rounded-lg font-medium transition-colors focus:outline-none ${
+            className={`w-full py-3 px-6 rounded-lg transition-colors focus:outline-none ${
               isSubmitting
                 ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed opacity-60'
                 : 'bg-blue-600 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800'

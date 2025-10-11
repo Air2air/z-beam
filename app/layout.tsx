@@ -1,7 +1,6 @@
 // app/layout.tsx
 import "./css/global.css";
-// Using a generic type since Metadata isn't exported correctly from next
-// import { GeistSans, GeistMono } from "geist/font";
+import { roboto } from "./config/fonts";
 import { Navbar } from "./components/Navigation/nav";
 // import { Analytics } from "@vercel/analytics/react";
 // import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -137,7 +136,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100 overflow-x-hidden">
+      <body className={`${roboto.className} antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100 overflow-x-hidden`}>
         <ErrorBoundary componentName="Layout">
           <Navbar />
           <main className="flex-grow w-full max-w-full py-0 overflow-x-hidden" id="main-content">

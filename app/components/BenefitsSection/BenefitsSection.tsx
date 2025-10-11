@@ -50,12 +50,12 @@ export function BenefitsSection({
             className={`benefit-card p-4 md:p-6 ${currentTheme.container} rounded-lg shadow-lg hover:shadow-xl transition-shadow`}
           >
             {/* Category Label */}
-            <div className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
-              {benefit.category}
+            <div className="text-sm text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2">
+              <strong>{benefit.category}</strong>
             </div>
             
             {/* Title */}
-            <h3 className={`text-xl md:text-2xl font-bold mb-2 ${currentTheme.heading}`}>
+            <h3 className={`text-xl md:text-2xl mb-2 ${currentTheme.heading}`}>
               {benefit.title}
             </h3>
             
