@@ -1,13 +1,38 @@
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
+
+// Import font configuration for centralized font management
+// This allows easy font switching in one place (app/config/fonts.ts)
+const fontConfig = {
+  cssVariable: '--font-primary',
+  fallbacks: [
+    'system-ui',
+    '-apple-system', 
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif'
+  ]
+};
+
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}', // Adjust these paths based on where your components/pages are
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
+      // ============================================
+      // CENTRALIZED FONT FAMILY CONFIGURATION
+      // ============================================
+      // Font is loaded via app/config/fonts.ts
+      // To change fonts, update app/config/fonts.ts only
+      // This automatically updates everywhere
+      fontFamily: {
+        sans: [`var(${fontConfig.cssVariable})`, ...fontConfig.fallbacks],
+      },
       colors: {
         brand: {
           orange: '#ff6811',

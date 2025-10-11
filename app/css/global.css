@@ -3,14 +3,22 @@
  * FONT SYSTEM CONFIGURATION
  * ============================================
  * 
- * Centralized font management for Z-Beam application
+ * SINGLE SOURCE OF TRUTH: app/config/fonts.ts
+ * All font changes happen in ONE place for maximum flexibility.
  * 
- * FONT LOADING:
- * - Primary font: Roboto (Google Fonts via next/font/google)
- * - Configuration: app/config/fonts.ts
- * - Applied globally: app/layout.tsx via roboto.className on body
- * - Self-hosted: Fonts are automatically optimized and self-hosted by Next.js
+ * CURRENT FONT:
+ * - Check app/config/fonts.ts for active font
+ * - Configuration: app/config/fonts.ts (CHANGE FONTS HERE)
+ * - Applied globally: app/layout.tsx via primaryFont.className
+ * - Self-hosted: Automatically optimized by Next.js
  * - Font display: swap (zero layout shift)
+ * 
+ * TO CHANGE FONTS:
+ * 1. Edit app/config/fonts.ts
+ * 2. Uncomment desired font import
+ * 3. Update FONT_CONFIG object
+ * 4. Restart: npm run dev
+ * That's it! No other files need changes.
  * 
  * AVAILABLE WEIGHTS:
  * - 100 (font-thin)       - Ultra-light, decorative use only
@@ -22,7 +30,7 @@
  * - 900 (font-black)      - Extra strong emphasis (use sparingly)
  * 
  * TYPOGRAPHY SCALE:
- * - h1: 36px (text-4xl) - font-light (300)    - Main page titles
+ * - h1: 36px (text-4xl) - font-normal (400)   - Main page titles
  * - h2: 30px (text-3xl) - font-light (300)    - Section headers
  * - h3: 24px (text-2xl) - font-medium (500)   - Subsection headers
  * - h4: 20px (text-xl)  - font-medium (500)   - Card titles
@@ -34,22 +42,24 @@
  * 2. Use semantic HTML (<h1-h6>, <strong>, <b>)
  * 3. Use component classes (.btn, .card-title, etc.)
  * 4. All font styling comes from this file or semantic defaults
+ * 5. Font changes happen in app/config/fonts.ts ONLY
  * 
  * USAGE EXAMPLES:
- * ✅ Good: <h1>Title</h1>                    (uses configured weight)
- * ✅ Good: <strong>Bold text</strong>        (semantic HTML)
+ * ✅ Good: <h1>Title</h1>                         (uses configured weight)
+ * ✅ Good: <strong>Bold text</strong>             (semantic HTML)
  * ✅ Good: <button className="btn">Click</button> (component class)
- * ❌ Bad:  <h1 className="font-bold">Title</h1> (inline override)
+ * ❌ Bad:  <h1 className="font-bold">Title</h1>   (inline override)
  * ❌ Bad:  <div className="font-medium">Text</div> (inline override)
  * 
  * MODIFICATION GUIDE:
+ * - To CHANGE FONT FAMILY: Edit app/config/fonts.ts (uncomment desired font)
  * - To change heading weights: Edit @layer base section below
  * - To add component patterns: Edit @layer components section below
- * - To change font family: Edit app/config/fonts.ts
  * 
  * RELATED FILES:
- * - app/config/fonts.ts        - Font loading configuration
+ * - app/config/fonts.ts        - ⭐ CHANGE FONTS HERE (single source)
  * - app/layout.tsx             - Global font application
+ * - tailwind.config.js         - Font family configuration
  * - docs/FONT_CONFIGURATION.md - Complete documentation
  * 
  * ============================================
