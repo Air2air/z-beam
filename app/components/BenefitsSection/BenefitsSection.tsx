@@ -55,12 +55,12 @@ export function BenefitsSection({
             </div>
             
             {/* Title */}
-            <h3 className={`text-xl md:text-2xl mb-2 ${currentTheme.heading}`}>
+            <h3 className={`mb-2 ${currentTheme.heading}`}>
               {benefit.title}
             </h3>
             
             {/* Description */}
-            <p className={`text-base md:text-lg leading-normal ${currentTheme.text}`}>
+            <p className={`leading-normal ${currentTheme.text}`}>
               {benefit.description}
             </p>
           </div>

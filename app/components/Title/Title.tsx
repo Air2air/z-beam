@@ -250,7 +250,7 @@ export function Title({
             {subtitle && (
               <h3 
                 id={subtitleId}
-                className="text-base md:text-lg text-gray-400 leading-relaxed tracking-tight flex-1"
+                className="text-gray-400 tracking-tight flex-1"
                 role="doc-subtitle"
                 aria-label={`Subtitle: ${subtitle}`}
               >

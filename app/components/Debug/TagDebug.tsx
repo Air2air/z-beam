@@ -75,7 +75,7 @@ export function TagDebug() {
 
   return (
     <div className="p-4 bg-white rounded border">
-      <h3 className="text-lg mb-3">Tag System Debug</h3>
+      <h3 className="mb-3">Tag System Debug</h3>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
         <div className="bg-blue-50 p-3 rounded">

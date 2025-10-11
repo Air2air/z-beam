@@ -65,7 +65,7 @@ export function WorkflowSection({
                 
                 {/* Title */}
                 <div className="flex-1">
-                  <h3 className={`text-xl md:text-2xl ${currentTheme.heading}`}>
+                  <h3 className={currentTheme.heading}>
                     {item.name}
                   </h3>
                 </div>

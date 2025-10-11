@@ -82,7 +82,7 @@ export function FrontmatterNameChecker() {
   
   return (
     <div className="p-4 bg-white rounded border">
-      <h3 className="text-lg mb-3">Frontmatter Name Checker</h3>
+      <h3 className="mb-3">Frontmatter Name Checker</h3>
       <p className="text-sm text-gray-600 mb-4">
         Check if a name follows the kebab-case convention used for slugs and filenames.
       </p>
@@ -126,7 +126,7 @@ export function FrontmatterNameChecker() {
                 )}
               </div>
               <div className="ml-3">
-                <h3 className={`text-sm ${validationResult.isValid ? 'text-green-800' : 'text-red-800'}`}>
+                <h3 className={validationResult.isValid ? 'text-green-800' : 'text-red-800'}>
                   {validationResult.isValid ? 'Valid name' : 'Invalid name'}
                 </h3>
                 {!validationResult.isValid && validationResult.reason && (

@@ -215,7 +215,7 @@ const parseTags = (content: string | TagsData): string[] => {
     <div className={`tags-container ${className}`} data-testid="tags-container">
       {/* Title display */}
       {title && config?.title && (
-        <h3 className="text-lg mb-3">{config.title}</h3>
+        <h3 className="mb-3">{config.title}</h3>
       )}
       
       {/* Metadata display */}

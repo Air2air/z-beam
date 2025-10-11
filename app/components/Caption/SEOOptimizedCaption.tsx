@@ -259,14 +259,14 @@ export function SEOOptimizedCaption({
         
         <div className="before-after-analysis">
           <div className="analysis-before mb-3">
-            <h5 className="text-sm text-gray-800 mb-1">Before Treatment</h5>
+            <h5 className="text-gray-800 mb-1">Before Treatment</h5>
             <p className="text-sm text-gray-700" itemProp="beforeDescription">
               {captionData?.beforeText}
             </p>
           </div>
           
           <div className="analysis-after">
-            <h5 className="text-sm text-gray-800 mb-1">After Treatment</h5>
+            <h5 className="text-gray-800 mb-1">After Treatment</h5>
             <p className="text-sm text-gray-700" itemProp="afterDescription">
               {captionData?.afterText}
             </p>

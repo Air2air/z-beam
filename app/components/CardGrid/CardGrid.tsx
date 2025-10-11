@@ -195,7 +195,7 @@ export function CardGrid({
   // Render based on mode
   if (mode === 'category-grouped') {
     return (
-      <div className={`article-grid article-grid--category-grouped ${className}`}>
+      <div className={`article-grid article-grid--category-grouped mb-10 ${className}`}>
         {/* Header */}
         {displayTitle && (
           <div className="mb-8">
@@ -321,7 +321,7 @@ export function CardGrid({
                     <div>
                       <h3 
                         id={categoryId}
-                        className="text-2xl text-gray-900 dark:text-gray-100 mb-2"
+                        className="text-gray-900 dark:text-gray-100 mb-2"
                         itemProp="name"
                       >
                         <strong>{category}</strong>
@@ -385,7 +385,7 @@ export function CardGrid({
           // Filtered results display
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl text-gray-900 dark:text-gray-100">
+              <h3 className="text-gray-900 dark:text-gray-100">
                 {searchTerm 
                   ? `Search Results for "${searchTerm}"` 
                   : `${selectedCategory} Articles`
@@ -442,7 +442,7 @@ export function CardGrid({
 
   // Simple grid mode (default)
   return (
-    <div className={`article-grid article-grid--simple ${className}`}>
+    <div className={`article-grid article-grid--simple mb-10 ${className}`}>
       {/* Header */}
       {displayTitle && (
         <div className="mb-8">

@@ -134,7 +134,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-base md:text-lg mb-3 text-yellow-600 dark:text-yellow-400">
+              <h3 className="mb-3 text-yellow-600 dark:text-yellow-400">
                 Before Treatment
               </h3>
               <p className="text-sm text-gray-300">{captionData.beforeText}</p>
@@ -142,7 +142,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
           )}
           {captionData.afterText && (
             <div className="p-4 bg-gray-800 rounded-lg">
-              <h3 className="text-base md:text-lg mb-3 text-yellow-600 dark:text-yellow-400">
+              <h3 className="mb-3 text-yellow-600 dark:text-yellow-400">
                 After Treatment
               </h3>
               <p className="text-sm text-gray-300">{captionData.afterText}</p>

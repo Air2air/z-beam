@@ -30,12 +30,12 @@
  * - 900 (font-black)      - Extra strong emphasis (use sparingly)
  * 
  * TYPOGRAPHY SCALE:
- * - h1: 36px (text-4xl) - font-normal (400)   - Main page titles
- * - h2: 30px (text-3xl) - font-light (300)    - Section headers
- * - h3: 24px (text-2xl) - font-medium (500)   - Subsection headers
- * - h4: 20px (text-xl)  - font-medium (500)   - Card titles
- * - h5: 18px (text-lg)  - font-medium (500)   - Small headings
- * - h6: 16px (text-base)- font-medium (500)   - Smallest headings
+ * - h1: 36px (text-4xl) - font-normal (400)   - leading-tight (1.25) - tracking-normal (0em)    - Main page titles
+ * - h2: 30px (text-3xl) - font-normal (400)   - leading-tight (1.25) - tracking-normal (0em)    - Section headers
+ * - h3: 24px (text-2xl) - font-semibold (600) - leading-tight (1.25) - tracking-normal (0em)    - Subsection headers
+ * - h4: 20px (text-xl)  - font-medium (500)   - leading-tight (1.25) - tracking-normal (0em)    - Card titles
+ * - h5: 18px (text-lg)  - font-medium (500)   - leading-tight (1.25) - tracking-normal (0em)    - Small headings
+ * - h6: 16px (text-base)- font-medium (500)   - leading-tight (1.25) - tracking-normal (0em)    - Smallest headings
  * 
  * DESIGN PRINCIPLES:
  * 1. NO inline font-* classes in components
@@ -72,15 +72,15 @@
 @layer base {
   /* Headings - Semantic font weights and colors */
   h1 {
-    @apply text-4xl font-normal text-white;
+    @apply text-3xl font-normal text-white;
   }
   
   h2 {
-    @apply text-3xl font-normal text-gray-100;
+    @apply text-2xl font-normal text-gray-100;
   }
   
   h3 {
-    @apply text-2xl font-normal text-gray-200;
+    @apply text-xl font-medium text-gray-300 leading-snug;
   }
   
   h4 {

@@ -102,11 +102,11 @@ export function ContentCard({
   const variantClasses = {
     default: {
       container: currentTheme.container,
-      outer: 'p-4 md:p-6 my-6 rounded-lg',
+      outer: 'p-4 md:p-6 mb-6 rounded-lg',
     },
     inline: {
       container: '',
-      outer: 'py-6 md:py-8 my-6',
+      outer: 'py-6 md:py-8 mb-6',
     },
   };
 
@@ -139,7 +139,7 @@ export function ContentCard({
         <header className="flex items-center gap-4 mb-6" role="banner">
           {/* Order Number Badge */}
           <div 
-            className="flex-shrink-0 w-16 h-16 flex items-center justify-center text-3xl text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full"
+            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full"
             role="status"
             aria-label={`Step ${order}`}
           >
@@ -147,11 +147,11 @@ export function ContentCard({
           </div>
           
           {/* Title */}
-          <div className="flex-1">
+          <div className="flex-1 flex items-center">
             <SectionTitle 
               title={heading}
               id={titleId}
-              className="text-xl md:text-2xl"
+              className="!mb-0"
             />
           </div>
         </header>
@@ -211,7 +211,7 @@ export function ContentCard({
             <SectionTitle 
               title={heading}
               id={titleId}
-              className="text-xl md:text-2xl mb-2"
+              className="mb-2"
             />
           )}
           

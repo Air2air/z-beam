@@ -32,7 +32,7 @@ export function ContentSection({
   });
 
   return (
-    <section className="content-section py-12">
+    <section className="content-section">
       {title && <SectionTitle title={title} />}
       <div className="space-y-8">
         {sortedItems.map((item, index) => {

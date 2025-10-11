@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/app/config';
 export default function CallToAction() {
   return (
     <section 
-      className="w-full py-3 md:py-0.5 overflow-visible relative mb-0 mt-8 bg-brand-orange" 
+      className="w-full py-3 md:py-0.5 overflow-visible relative mb-0 mt-10 bg-brand-orange" 
       aria-label="Contact call-to-action"
       role="region"
     >

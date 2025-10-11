@@ -25,19 +25,19 @@ export const H3: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 export const H4: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h4 className={`text-lg tracking-tight mt-6 mb-2 ${className}`}>
+  <h4 className={`tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h4>
 );
 
 export const H5: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h5 className={`text-base tracking-tight mt-6 mb-2 ${className}`}>
+  <h5 className={`tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h5>
 );
 
 export const H6: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h6 className={`text-sm tracking-tight mt-6 mb-2 ${className}`}>
+  <h6 className={`tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h6>
 );

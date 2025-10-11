@@ -24,7 +24,7 @@ export default function ContentDebugPage() {
       case 'validator':
         return (
           <div className="p-4 bg-white rounded border">
-            <h3 className="text-lg font-semibold mb-3">YAML Validator</h3>
+            <h3 className="mb-3">YAML Validator</h3>
             <p className="text-gray-600 mb-4">
               This tool helps validate YAML structure in markdown files without modifying them.
             </p>

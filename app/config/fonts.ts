@@ -29,18 +29,18 @@
 // Uncomment ONE of the options below, or add your own:
 
 // Option A: Roboto (Classic, widely used)
-import { Roboto } from 'next/font/google';
-const fontLoader = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-primary',
-  preload: true,
-});
+// import { Roboto } from 'next/font/google';
+// const fontLoader = Roboto({
+//   weight: ['100', '300', '400', '500', '700', '900'],
+//   subsets: ['latin'],
+//   display: 'swap',
+//   variable: '--font-primary',
+//   preload: true,
+// });
 
 // Option B: Geist (Modern, Vercel's font)
-// import { GeistSans } from 'geist/font/sans';
-// const fontLoader = GeistSans;
+import { GeistSans } from 'geist/font/sans';
+const fontLoader = GeistSans;
 
 // Option C: Inter (Popular, excellent readability)
 // import { Inter } from 'next/font/google';
@@ -76,7 +76,7 @@ const fontLoader = Roboto({
 // ============================================
 export const FONT_CONFIG = {
   // Font name (for documentation and debugging)
-  name: 'Roboto',
+  name: 'Geist',
   
   // CSS variable name (must match 'variable' in fontLoader above)
   cssVariable: '--font-primary',

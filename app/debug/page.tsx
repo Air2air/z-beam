@@ -86,7 +86,7 @@ export default function DebugPage() {
     if (error) {
       return (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-          <h3 className="text-red-800 font-semibold">Error</h3>
+          <h3 className="text-red-800">Error</h3>
           <p className="text-red-600">{error}</p>
           <button 
             onClick={() => loadDebugData(activeTab)}
@@ -117,14 +117,14 @@ export default function DebugPage() {
     if (activeTab === 'badge-symbol') {
       return (
         <div className="space-y-4">
-          <h3 className="text-lg font-semibold">Badge Symbol Debug</h3>
+          <h3>Badge Symbol Debug</h3>
           <p className="text-sm text-gray-700">
             This debug tool helps you test chemical badge symbols for materials.
             Visit the <Link href="/debug/badge-symbol" className="text-blue-600 underline">dedicated Badge Symbol debug page</Link> for more detailed testing.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative bg-gray-100 p-4 rounded-lg h-48">
-              <h3 className="text-lg font-medium mb-2">Aluminum (Al)</h3>
+              <h3 className="mb-2">Aluminum (Al)</h3>
               <div className="w-full h-full">
                 <BadgeSymbol 
                   content=""
@@ -146,7 +146,7 @@ export default function DebugPage() {
       case 'thumbnails':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Thumbnail Testing</h3>
+            <h3>Thumbnail Testing</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {debugData?.thumbnails.map((thumb, index) => (
                 <div key={index} className="border rounded-lg p-4">
@@ -162,7 +162,7 @@ export default function DebugPage() {
       case 'images':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Image Testing</h3>
+            <h3>Image Testing</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {debugData?.images.map((img, index) => (
                 <div key={index} className="border rounded-lg p-4">
@@ -179,7 +179,7 @@ export default function DebugPage() {
       case 'materials':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Material Fallback Testing</h3>
+            <h3>Material Fallback Testing</h3>
             <div className="space-y-2">
               {debugData?.materials.map((material, index) => (
                 <div key={index} className="flex items-center justify-between p-3 border rounded">
@@ -199,11 +199,11 @@ export default function DebugPage() {
       case 'cards':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Card Debugging</h3>
+            <h3>Card Debugging</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {debugData?.cards.map((card, index) => (
                 <div key={index} className="border rounded-lg p-4">
-                  <h4 className="font-semibold">{card.title}</h4>
+                  <h4>{card.title}</h4>
                   <p className="text-sm text-gray-600">Type: {card.type}</p>
                   <span className={`inline-block mt-2 px-2 py-1 rounded text-xs ${
                     card.status === 'rendered' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
@@ -222,9 +222,9 @@ export default function DebugPage() {
       case 'borosilicate':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Borosilicate Testing</h3>
+            <h3>Borosilicate Testing</h3>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="font-semibold text-blue-800">Material Properties</h4>
+              <h4 className="text-blue-800">Material Properties</h4>
               <div className="mt-2 space-y-1 text-sm text-blue-700">
                 <p><span className="font-medium">Chemical Formula:</span> B₂O₃·SiO₂</p>
                 <p><span className="font-medium">Melting Point:</span> 1,648°C (3,000°F)</p>
@@ -238,7 +238,7 @@ export default function DebugPage() {
       case 'category':
         return (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Category Fallback Testing</h3>
+            <h3>Category Fallback Testing</h3>
             <div className="space-y-2">
               {['materials', 'services', 'applications', 'regions'].map((category, index) => (
                 <div key={index} className="flex items-center justify-between p-3 border rounded">
@@ -257,17 +257,17 @@ export default function DebugPage() {
         return (
           <div className="space-y-4">
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h3 className="font-semibold text-yellow-800">Debug Selection</h3>
+              <h3 className="text-yellow-800">Debug Selection</h3>
               <p className="mt-2 text-yellow-700">Select a debug category from the tabs above to view diagnostic information.</p>
             </div>
             
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-              <h3 className="font-semibold text-blue-800">Debug Tools Overview</h3>
+              <h3 className="text-blue-800">Debug Tools Overview</h3>
               <p className="mt-2 text-blue-700">This debug console provides tools for testing and diagnosing different aspects of the Z-Beam system.</p>
               
               <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="border border-blue-100 bg-white p-3 rounded">
-                  <h4 className="font-medium text-blue-800">Content Tools</h4>
+                  <h4 className="text-blue-800">Content Tools</h4>
                   <ul className="mt-2 space-y-1 text-sm">
                     <li>• Frontmatter validation</li>
                     <li>• Tag system diagnostics</li>
@@ -276,7 +276,7 @@ export default function DebugPage() {
                 </div>
                 
                 <div className="border border-blue-100 bg-white p-3 rounded">
-                  <h4 className="font-medium text-blue-800">Media Tools</h4>
+                  <h4 className="text-blue-800">Media Tools</h4>
                   <ul className="mt-2 space-y-1 text-sm">
                     <li>• Thumbnail previews</li>
                     <li>• Image loading tests</li>
@@ -321,7 +321,7 @@ export default function DebugPage() {
 
       {/* Quick Actions */}
       <div className="mt-8 bg-white rounded-lg p-6">
-        <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+        <h3 className="mb-4">Quick Actions</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <button 
             onClick={() => loadDebugData(activeTab)}
