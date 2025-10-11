@@ -1,8 +1,54 @@
-# Vercel Deployment Monitoring
+# Vercel Deployment Tools
 
-This directory contains tools for automated Vercel deployment monitoring.
+This directory contains tools for deploying to production and monitoring Vercel deployments.
 
-## Quick Start
+## 🚀 NEW: Production Deployment Tool
+
+**Easy-to-use script for production deployments with validation and monitoring**
+
+### Quick Deploy to Production
+
+```bash
+# Using npm script (recommended)
+npm run deploy:prod
+
+# Or fast deploy (skip checks)
+npm run deploy:prod:fast
+
+# Or run directly
+./scripts/deployment/prod-deploy.sh
+```
+
+**Features:**
+- ✅ Pre-deployment validation (git status, type checking)
+- ✅ Interactive confirmation prompts
+- ✅ Automatic deployment monitoring
+- ✅ Beautiful colored output with progress
+- ✅ Production URL display on completion
+
+See section below for full documentation.
+
+---
+
+## 🧹 NEW: Preview Cleanup Tool
+
+**Manage and clean up preview deployments**
+
+```bash
+# Delete old preview deployments (keep 5 most recent)
+./scripts/deployment/cleanup-previews.sh old 5 --yes
+
+# Show deployment statistics
+./scripts/deployment/cleanup-previews.sh stats
+```
+
+See section below for full documentation.
+
+---
+
+## Deployment Monitoring
+
+### Quick Start
 
 ### Option 1: VS Code Task (Easiest)
 
@@ -213,3 +259,50 @@ Issues with monitoring:
 - Ensure you're logged in: `vercel whoami`
 - Verify internet connection
 - Check Vercel status: https://www.vercel-status.com/
+
+---
+
+## 📋 Production Deployment Script (`prod-deploy.sh`)
+
+**npm scripts**: `npm run deploy:prod` or `npm run deploy:prod:fast`
+
+### Features
+- ✅ Prerequisites validation (Vercel CLI, git)
+- ✅ Git status checks (branch, uncommitted changes)
+- ✅ Pre-deployment validation (type checking)
+- ✅ Interactive confirmation prompts
+- ✅ Automatic deployment monitoring
+- ✅ Production URL display
+
+### Usage
+```bash
+# Full deployment with checks
+npm run deploy:prod
+
+# Fast deploy (skip checks)
+npm run deploy:prod:fast
+
+# Direct usage with options
+./scripts/deployment/prod-deploy.sh --skip-checks
+./scripts/deployment/prod-deploy.sh --no-monitor
+```
+
+---
+
+## 🗑️ Preview Cleanup Script (`cleanup-previews.sh`)
+
+### Commands
+```bash
+# Show statistics
+./scripts/deployment/cleanup-previews.sh stats
+
+# Delete all previews
+./scripts/deployment/cleanup-previews.sh all --yes
+
+# Keep 5 most recent, delete rest
+./scripts/deployment/cleanup-previews.sh old 5 --yes
+```
+
+---
+
+**Updated**: October 11, 2025 | **Vercel CLI**: 48.2.9
