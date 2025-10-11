@@ -218,7 +218,7 @@ export function Title({
       )}
       
       <header 
-        className={`title-wrapper w-full mb-4 bg-red-600 py-4 ${landmark ? 'landmark-title' : ''}`}
+        className={`title-wrapper w-full mb-4 py-4 ${landmark ? 'landmark-title' : ''}`}
         role={landmark ? config.landmark || undefined : undefined}
         aria-labelledby={titleId}
         data-title-level={level}
