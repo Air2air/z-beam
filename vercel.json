@@ -11,13 +11,14 @@
     }
   },
   "ignoreCommand": "bash -c 'if [ \"$VERCEL_GIT_COMMIT_REF\" != \"main\" ]; then exit 1; else exit 0; fi'",
-  "buildCommand": "if [ \"$VERCEL_ENV\" != \"production\" ]; then echo 'Skipping preview build' && exit 1; fi && next build",
+  "buildCommand": "next build",
   "github": {
     "enabled": true,
     "autoAlias": false,
     "silent": false,
     "autoJobCancelation": true
   },
+  "scope": "air2airs-projects",
   "env": {
     "NODE_ENV": "production",
     "NEXT_TELEMETRY_DISABLED": "1"
