@@ -7,19 +7,19 @@ import React from 'react';
  */
 
 export const H1: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h1 className={`text-4xl font-light tracking-tight mt-6 mb-2 text-neutral-900 dark:text-neutral-100 ${className}`}>
+  <h1 className={`text-4xl tracking-tight mt-6 mb-2 text-neutral-900 dark:text-neutral-100 ${className}`}>
     {children}
   </h1>
 );
 
 export const H2: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h2 className={`text-xl font-normal tracking-tight mt-6 mb-2 ${className}`}>
+  <h2 className={`text-xl tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h2>
 );
 
 export const H3: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h3 className={`text-xl font-black tracking-tight mt-6 mb-2 ${className}`}>
+  <h3 className={`text-xl tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h3>
 );
