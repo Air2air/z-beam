@@ -1,9 +1,9 @@
 // app/components/CTA/CallToAction.tsx
 // Full-width Call-to-Action component with contact button, phone number, and van image
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/app/config';
+import { ContactButton } from '../ContactButton';
 
 export default function CallToAction() {
   return (
@@ -42,32 +42,13 @@ export default function CallToAction() {
 
           {/* Right column: Contact button */}
           <div className="flex items-center justify-center w-full">
-            <Link
-              href="/contact"
-              className="btn inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-3 text-xs sm:text-sm md:text-base lg:text-lg bg-white text-brand-orange rounded-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 mx-auto
-                         focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-orange
-                         min-h-[44px]"
-              aria-label="Go to contact form page"
+            <ContactButton 
+              variant="primary" 
+              size="lg"
+              className="mx-auto"
             >
               Contact Us
-              <svg
-                aria-hidden="true"
-                role="presentation"
-                focusable="false"
-                className="hidden sm:block ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={3}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
+            </ContactButton>
           </div>
         </div>
       </div>

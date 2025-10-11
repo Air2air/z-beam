@@ -983,6 +983,19 @@ export interface ButtonProps {
 }
 
 /**
+ * ContactButton component props
+ */
+export interface ContactButtonProps {
+  variant?: 'primary' | 'secondary' | 'minimal';
+  size?: 'sm' | 'md' | 'lg';
+  showIcon?: boolean;
+  className?: string;
+  fullWidth?: boolean;
+  children?: ReactNode;
+  'aria-label'?: string;
+}
+
+/**
  * Content component props
  */
 export interface ContentProps {

@@ -45,7 +45,11 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
 
-      <Title level="page" title={title || metadata?.title || 'Article'} subtitle={metadata?.subtitle} />
+      <Title 
+        level="page" 
+        title={title || metadata?.title || 'Article'} 
+        subtitle={metadata?.subtitle}
+      />
       <Author 
         frontmatter={metadata}
         showAvatar showCredentials showCountry showSpecialties
@@ -232,7 +236,12 @@ export function Layout(props: LayoutProps) {
       {title && (
         <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
           <div className="w-full">
-            <Title level="page" title={title} subtitle={props.subtitle} rightContent={props.rightContent} />
+            <Title 
+              level="page" 
+              title={title} 
+              subtitle={props.subtitle} 
+              rightContent={props.rightContent}
+            />
           </div>
         </div>
       )}

@@ -4,6 +4,7 @@
 import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
 import { SITE_CONFIG } from '../../utils/constants';
+import { ContactButton } from '../ContactButton';
 
 /**
  * WCAG 2.1 AAA Compliant Title Component with Enhanced Accessibility
@@ -245,7 +246,7 @@ export function Title({
         </Tag>
         
         {/* Subtitle with proper accessibility and optional right content */}
-        {(subtitle || rightContent) && (
+        {(subtitle || rightContent || level === 'page') && (
           <div className="flex items-baseline justify-between gap-4 mt-3">
             {subtitle && (
               <h3 
@@ -257,9 +258,12 @@ export function Title({
                 {subtitle}
               </h3>
             )}
-            {rightContent && (
+            {!subtitle && level === 'page' && <div className="flex-1" />}
+            {(rightContent !== undefined ? rightContent : level === 'page') && (
               <div className="flex-shrink-0 text-right">
-                {rightContent}
+                {rightContent !== undefined ? rightContent : (
+                  <ContactButton variant="secondary" size="md" />
+                )}
               </div>
             )}
           </div>
