@@ -1,4 +1,13 @@
+````markdown
 # MetricsCard Mobile Sizing Analysis & Refinements
+
+> **⚠️ SUPERSEDED:** This document describes the OLD horizontal layout. The MetricsCard system has been redesigned to a vertical layout as of October 15, 2025.
+>
+> **See:** `METRICSCARD_VERTICAL_REDESIGN.md` for current implementation details.
+>
+> This document is kept for historical reference only.
+
+---
 
 ## Current State Analysis
 

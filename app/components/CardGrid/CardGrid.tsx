@@ -127,12 +127,12 @@ export function CardGrid({
   const filteredItems = useMemo(() => {
     let filtered = processedItems;
 
-    // Apply filterBy if specified
+    // Apply filterBy if specified (case-insensitive)
     if (filterBy && filterBy !== 'all') {
       filtered = filtered.filter(item => 
-        item.category === filterBy ||
-        item.metadata?.articleType === filterBy ||
-        item.metadata?.category === filterBy
+        item.category?.toLowerCase() === filterBy.toLowerCase() ||
+        item.metadata?.articleType?.toLowerCase() === filterBy.toLowerCase() ||
+        (typeof item.metadata?.category === 'string' && item.metadata.category.toLowerCase() === filterBy.toLowerCase())
       );
     }
 

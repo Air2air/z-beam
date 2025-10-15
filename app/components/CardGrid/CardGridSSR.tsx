@@ -198,13 +198,13 @@ export async function CardGridSSR({
     );
   }
 
-  // Apply filtering
+  // Apply filtering (case-insensitive)
   const filteredItems = filterBy === "all" 
     ? processedItems
     : processedItems.filter((item) => 
-        item.category === filterBy ||
-        item.metadata?.articleType === filterBy ||
-        item.metadata?.category === filterBy
+        item.category?.toLowerCase() === filterBy.toLowerCase() ||
+        item.metadata?.articleType?.toLowerCase() === filterBy.toLowerCase() ||
+        item.metadata?.category?.toLowerCase() === filterBy.toLowerCase()
       );
 
   if (!filteredItems.length) {

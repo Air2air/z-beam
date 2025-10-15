@@ -54,7 +54,7 @@ describe('MetricsCard Simple Component', () => {
       );
       
       expect(screen.getByText('Power')).toBeInTheDocument();
-      expect(screen.getByText('%')).toBeInTheDocument();
+      expect(screen.getByText(/\(%\)/)).toBeInTheDocument(); // Unit in parentheses
       // With semantic enhancement, value appears multiple times (progress bar, data elements, etc.)
       expect(screen.getAllByText('80')).toHaveLength(2); // Current value in progress bar and main data element
       expect(screen.getByText('0')).toBeInTheDocument();
@@ -166,6 +166,21 @@ describe('MetricsCard Simple Component', () => {
       slug: 'test-material',
       title: 'Test Material',
       description: 'Test description',
+      materialProperties: {
+        thermal: {
+          label: 'Thermal Properties',
+          properties: {
+            thermalConductivity: {
+              value: 237,
+              unit: 'W/m·K'
+            },
+            thermalExpansion: {
+              value: 23.1,
+              unit: 'μm/m·°C'
+            }
+          }
+        }
+      },
       machineSettings: {
         powerRange: {
           numeric: 80,
@@ -184,7 +199,7 @@ describe('MetricsCard Simple Component', () => {
       render(
         <MetricsGrid
           metadata={mockMetadata as any}
-          dataSource="machineSettings"
+          dataSource="materialProperties"
           title="Test Grid"
           searchable={true}
         />
@@ -200,7 +215,7 @@ describe('MetricsCard Simple Component', () => {
       render(
         <MetricsGrid
           metadata={mockMetadata as any}
-          dataSource="machineSettings"
+          dataSource="materialProperties"
           title="Test Grid"
           searchable={false}
         />
@@ -215,7 +230,7 @@ describe('MetricsCard Simple Component', () => {
       render(
         <MetricsGrid
           metadata={mockMetadata as any}
-          dataSource="machineSettings"
+          dataSource="materialProperties"
           title="Test Grid"
         />
       );

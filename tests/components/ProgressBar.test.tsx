@@ -220,30 +220,31 @@ describe('ProgressBar Component', () => {
   });
 
   describe('Visual Positioning', () => {
-    it('positions value at correct percentage', () => {
+    it('positions fill at correct percentage (vertical)', () => {
       const { container } = render(<ProgressBar {...defaultProps} value={750} />);
-      const valueDisplay = container.querySelector('[style*="left"]');
-      expect(valueDisplay).toBeInTheDocument();
-      // Should be positioned at 75%
-      expect(valueDisplay?.getAttribute('style')).toContain('75%');
+      const fill = container.querySelector('[style*="height: 75%"]');
+      expect(fill).toBeInTheDocument();
     });
 
-    it('aligns value at left edge (0-15%)', () => {
+    it('shows value at top of vertical bar', () => {
       const { container } = render(<ProgressBar {...defaultProps} value={100} />);
-      const valueDisplay = container.querySelector('[style*="transform: none"]');
-      expect(valueDisplay).toBeInTheDocument();
+      const progressBar = container.querySelector('[role="progressbar"]');
+      expect(progressBar).toBeInTheDocument();
+      // Value display is separate from bar positioning in vertical layout
+      const valueElements = screen.getAllByText('100');
+      expect(valueElements.length).toBeGreaterThan(0);
     });
 
-    it('centers value in middle (15-85%)', () => {
+    it('positions indicator at correct height', () => {
       const { container } = render(<ProgressBar {...defaultProps} value={500} />);
-      const valueDisplay = container.querySelector('[style*="translateX(-50%)"]');
-      expect(valueDisplay).toBeInTheDocument();
+      const indicator = container.querySelector('[style*="bottom: 50%"]');
+      expect(indicator).toBeInTheDocument();
     });
 
-    it('aligns value at right edge (85-100%)', () => {
+    it('handles high percentage values', () => {
       const { container } = render(<ProgressBar {...defaultProps} value={900} />);
-      const valueDisplay = container.querySelector('[style*="translateX(-100%)"]');
-      expect(valueDisplay).toBeInTheDocument();
+      const fill = container.querySelector('[style*="height: 90%"]');
+      expect(fill).toBeInTheDocument();
     });
   });
 
@@ -314,7 +315,7 @@ describe('ProgressBar Component', () => {
     it('applies correct container classes', () => {
       const { container } = render(<ProgressBar {...defaultProps} />);
       const figure = container.querySelector('figure');
-      expect(figure).toHaveClass('w-full');
+      expect(figure).toHaveClass('h-full', 'flex', 'items-stretch');
     });
 
     it('applies focus styles to progress bar', () => {

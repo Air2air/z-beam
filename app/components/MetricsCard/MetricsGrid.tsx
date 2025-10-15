@@ -17,45 +17,165 @@ const CATEGORY_CONFIG = {
 
 // Grid layout configurations
 const GRID_LAYOUTS = {
-  'auto': 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5',
-  'grid-2': 'grid-cols-2 sm:grid-cols-3',
-  'grid-3': 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4',
-  'grid-4': 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
+  'auto': 'grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6',
+  'grid-2': 'grid-cols-3 sm:grid-cols-4',
+  'grid-3': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5',
+  'grid-4': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
 } as const;
 
-// Property title abbreviations for display
+// Property title mappings for display
 const TITLE_MAPPING: Record<string, string> = {
-  'thermalConductivity': 'Therm. Cond.',
-  'thermalExpansion': 'Therm. Exp.',
-  'thermalDiffusivity': 'Therm. Diff.',
-  'thermalDestructionPoint': 'Thermal Deg. Pt',
-  'meltingPoint': 'Melting Pt',
-  'boilingPoint': 'Boiling Pt',
-  'specificHeat': 'Spec. Heat',
-  'tensileStrength': 'Ten. Strength',
-  'youngsModulus': 'Y. Modulus',
-  'compressiveStrength': 'Comp. Strength',
-  'flexuralStrength': 'Flex. Strength',
-  'laserAbsorption': 'Laser Abs.',
-  'laserReflectivity': 'Laser Refl.',
-  'ablationThreshold': 'Ablation Th.',
-  'laserDamageThreshold': 'Damage Th.',
-  'absorptionCoefficient': 'Absorption',
-  'refractiveIndex': 'Refr. Index',
-  'crystallineStructure': 'Crystal',
-  'oxidationResistance': 'Ox. Resist.',
-  'chemicalStability': 'Chem. Stable',
-  'electricalConductivity': 'Elec. Cond.',
-  'electricalResistivity': 'Elec. Resist.',
-  'dielectricConstant': 'Dielec. Const.',
-  'surfaceRoughness': 'Surf. Rough.',
-  'surfaceEnergy': 'Surf. Energy',
-  'moistureContent': 'Moisture',
-  'waterSolubility': 'Water Sol.',
-  'weatherResistance': 'Weather Res.',
-  'celluloseContent': 'Cellulose',
-  'grainSize': 'Grain Size'
+  'thermalConductivity': 'Thermal Conductivity',
+  'thermalExpansion': 'Thermal Expansion',
+  'thermalDiffusivity': 'Thermal Diffusivity',
+  'thermalDestructionPoint': 'Thermal Destruction Point',
+  'thermalDestruction': 'Thermal Destruction',
+  'meltingPoint': 'Melting Point',
+  'boilingPoint': 'Boiling Point',
+  'specificHeat': 'Specific Heat',
+  'tensileStrength': 'Tensile Strength',
+  'youngsModulus': 'Youngs Modulus',
+  'compressiveStrength': 'Compressive Strength',
+  'flexuralStrength': 'Flexural Strength',
+  'laserAbsorption': 'Laser Absorption',
+  'laserReflectivity': 'Laser Reflectivity',
+  'ablationThreshold': 'Ablation Threshold',
+  'laserDamageThreshold': 'Laser Damage Threshold',
+  'absorptionCoefficient': 'Absorption Coefficient',
+  'refractiveIndex': 'Refractive Index',
+  'crystallineStructure': 'Crystalline Structure',
+  'oxidationResistance': 'Oxidation Resistance',
+  'chemicalStability': 'Chemical Stability',
+  'electricalConductivity': 'Electrical Conductivity',
+  'electricalResistivity': 'Electrical Resistivity',
+  'dielectricConstant': 'Dielectric Constant',
+  'surfaceRoughness': 'Surface Roughness',
+  'surfaceEnergy': 'Surface Energy',
+  'moistureContent': 'Moisture Content',
+  'waterSolubility': 'Water Solubility',
+  'weatherResistance': 'Weather Resistance',
+  'celluloseContent': 'Cellulose Content',
+  'grainSize': 'Grain Size',
+  'reflectivity': 'Reflectivity',
+  // Machine Settings fields
+  'laserType': 'Laser Type',
+  'fluenceThreshold': 'Fluence Threshold',
+  'laserWavelength': 'Laser Wavelength',
+  'pulseWidth': 'Pulse Width',
+  'repetitionRate': 'Repetition Rate',
+  'scanSpeed': 'Scan Speed',
+  'spotSize': 'Spot Size',
+  'fluence': 'Fluence',
+  'powerDensity': 'Power Density'
 };
+
+// Complex property nested key mappings
+const NESTED_KEY_LABELS: Record<string, string> = {
+  'at_1064nm': '@ 1064nm',
+  'at_532nm': '@ 532nm',
+  'at_355nm': '@ 355nm',
+  'at_10640nm': '@ 10.6μm',
+  'nanosecond': '(ns)',
+  'picosecond': '(ps)',
+  'femtosecond': '(fs)',
+  'point': ''
+};
+
+// Helper: Check if property is a complex nested structure
+function isComplexProperty(propertyValue: any): boolean {
+  // Complex if it has nested objects but no top-level 'value'
+  if (!propertyValue.value && typeof propertyValue === 'object') {
+    // Check if it has nested properties with value/min/max
+    const nestedKeys = Object.keys(propertyValue).filter(key => 
+      !['source', 'confidence', 'measurement_context', 'notes', 'type'].includes(key)
+    );
+    
+    return nestedKeys.some(key => {
+      const nested = propertyValue[key];
+      return typeof nested === 'object' && 
+             (nested.value !== undefined || 
+              nested.min !== undefined || 
+              nested.max !== undefined);
+    });
+  }
+  return false;
+}
+
+// Helper: Extract cards from complex nested property
+function extractComplexPropertyCards(
+  propertyName: string,
+  propertyValue: any,
+  categoryColor: string,
+  categoryId: string,
+  categoryLabel: string
+): MetricsCardProps[] {
+  const cards: MetricsCardProps[] = [];
+  const baseTitle = TITLE_MAPPING[propertyName] || 
+    propertyName.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+  
+  // Get metadata fields
+  const confidence = propertyValue.confidence;
+  const source = propertyValue.source;
+  
+  // Process each nested property
+  Object.entries(propertyValue).forEach(([nestedKey, nestedValue]: [string, any]) => {
+    // Skip metadata fields
+    if (['source', 'confidence', 'measurement_context', 'notes', 'type'].includes(nestedKey)) {
+      return;
+    }
+    
+    if (!nestedValue || typeof nestedValue !== 'object') return;
+    
+    // Extract value from nested structure
+    let displayValue: number | string;
+    let unit = nestedValue.unit || '';
+    let min = nestedValue.min;
+    let max = nestedValue.max;
+    let description = nestedValue.description || '';
+    
+    // Handle special case: thermalDestruction.point
+    if (propertyName === 'thermalDestruction' && nestedKey === 'point') {
+      displayValue = nestedValue.value;
+      // Add destruction type to description if available
+      if (propertyValue.type) {
+        description = `Thermal destruction point (${propertyValue.type})`;
+      }
+    }
+    // Calculate midpoint for range-only values
+    else if (nestedValue.value !== undefined) {
+      displayValue = nestedValue.value;
+    } else if (min !== undefined && max !== undefined) {
+      displayValue = (parseFloat(String(min)) + parseFloat(String(max))) / 2;
+    } else {
+      return; // Skip if no valid value
+    }
+    
+    // Format title with nested key label
+    const nestedLabel = NESTED_KEY_LABELS[nestedKey] || nestedKey;
+    const fullTitle = nestedLabel ? `${baseTitle} ${nestedLabel}` : baseTitle;
+    
+    // Convert to numeric if possible
+    const numericValue = typeof displayValue === 'number' 
+      ? displayValue 
+      : parseFloat(String(displayValue));
+    
+    cards.push({
+      title: fullTitle,
+      value: !isNaN(numericValue) ? numericValue : displayValue,
+      unit,
+      min,
+      max,
+      color: categoryColor,
+      confidence: nestedValue.confidence || confidence,
+      description: description || `${fullTitle} measurement`,
+      fullPropertyName: `${propertyName}.${nestedKey}`,
+      categoryId,
+      categoryLabel
+    } as MetricsCardProps);
+  });
+  
+  return cards;
+}
 
 // Extract cards from NEW categorized structure
 function extractCardsFromCategorizedProperties(
@@ -90,6 +210,20 @@ function extractCardsFromCategorizedProperties(
     Object.entries(category.properties).forEach(([propertyName, propertyValue]) => {
       if (!propertyValue || typeof propertyValue !== 'object') return;
       
+      // Check if this is a complex nested property
+      if (isComplexProperty(propertyValue)) {
+        const complexCards = extractComplexPropertyCards(
+          propertyName,
+          propertyValue,
+          categoryColor,
+          categoryId,
+          category.label
+        );
+        cards.push(...complexCards);
+        return;
+      }
+      
+      // Handle simple properties (original logic)
       // Skip if value is null/undefined
       if (propertyValue.value === null || propertyValue.value === undefined) return;
       
@@ -135,6 +269,9 @@ function extractCardsFromMachineSettings(
   Object.entries(machineSettings).forEach(([key, value]) => {
     if (!value || typeof value !== 'object') return;
     
+    // Skip if no value present
+    if (value.value === null || value.value === undefined) return;
+    
     // Extract value and unit
     const numericValue = typeof value.value === 'number' 
       ? value.value 
@@ -144,9 +281,12 @@ function extractCardsFromMachineSettings(
     const title = TITLE_MAPPING[key] || 
       key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
     
+    // Determine final value (keep as string if non-numeric, like laserType)
+    const finalValue = !isNaN(numericValue) ? numericValue : value.value;
+    
     cards.push({
       title,
-      value: !isNaN(numericValue) ? numericValue : value.value,
+      value: finalValue,
       unit: value.unit || '',
       min: value.min,
       max: value.max,

@@ -1,4 +1,11 @@
+````markdown
 # MetricsCard Component
+
+> **📢 UPDATED:** Vertical layout redesign completed October 15, 2025. See [`docs/METRICSCARD_VERTICAL_REDESIGN.md`](../../../docs/METRICSCARD_VERTICAL_REDESIGN.md) for details.
+>
+> **Key changes:** Vertical orientation, taller cards (128-160px), full property names, +1 grid column.
+
+---
 
 The `MetricsCard` component provides a standalone, flexible solution for displaying frontmatter data in a visually appealing grid format. It can extract and display either machine settings or material properties from article metadata, making it perfect for technical documentation and material processing guides.
 

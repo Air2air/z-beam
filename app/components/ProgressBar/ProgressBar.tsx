@@ -27,30 +27,15 @@ export function ProgressBar({
   const cleanMax = parseFloat(cleanupFloat(max));
   const cleanValue = parseFloat(cleanupFloat(value));
   
-  // Calculate percentage position (0-100)
+  // Calculate percentage position (0-100) - inverted for vertical (bottom to top)
   const percentage = Math.min(Math.max((cleanValue - cleanMin) / (cleanMax - cleanMin) * 100, 0), 100);
   
-  // Dynamic alignment based on position to prevent overflow
-  const getAlignment = () => {
-    if (percentage <= 15) {
-      // Near left edge: align left (no transform)
-      return { transform: 'none', left: `${percentage}%` };
-    } else if (percentage >= 85) {
-      // Near right edge: align right (translate full width)
-      return { transform: 'translateX(-100%)', left: `${percentage}%` };
-    } else {
-      // Middle: center align (translate half width)
-      return { transform: 'translateX(-50%)', left: `${percentage}%` };
-    }
-  };
-  
-  const alignmentStyle = getAlignment();
   const progressId = `progress-${id}`;
   const labelId = `progress-label-${id}`;
   const descId = `progress-desc-${id}`;
   
   return (
-    <figure className="w-full" role="img" aria-labelledby={labelId} aria-describedby={descId}>
+    <figure className="h-full flex items-stretch" role="img" aria-labelledby={labelId} aria-describedby={descId}>
       
       {/* Screen reader accessible label */}
       <figcaption id={labelId} className="sr-only">
@@ -74,17 +59,9 @@ export function ProgressBar({
         Progress: {Math.round(percentage)}% of maximum.
       </div>
       
-      {/* Current value positioned above the bar at pointer position */}
-      <div className="relative w-full mb-0.5 md:mb-1 h-3 md:h-4">
-        <div 
-          className="metric-value absolute text-base md:text-lg text-white/90 z-10"
-          aria-hidden="true" // Hide from screen readers (described above)
-          style={{ 
-            left: alignmentStyle.left,
-            transform: alignmentStyle.transform,
-            top: '-8px' 
-          }}
-        >
+      {/* Main value on the left */}
+      <div className="flex flex-col justify-center pr-2 min-w-[60px]">
+        <div className="metric-value text-lg md:text-xl text-white/90 font-semibold text-right">
           <data 
             value={cleanValue}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
@@ -100,8 +77,8 @@ export function ProgressBar({
         </div>
       </div>
       
-      {/* WCAG compliant progress bar */}
-      <div className="relative w-full mb-0.5 md:mb-1">
+      {/* WCAG compliant vertical progress bar */}
+      <div className="relative flex-shrink-0 w-3 md:w-4">
         <div 
           id={progressId}
           role="progressbar"
@@ -110,8 +87,8 @@ export function ProgressBar({
           aria-valuemax={cleanMax}
           aria-labelledby={labelId}
           aria-describedby={descId}
-          tabIndex={0} // Make focusable
-          className="w-full h-3 bg-white/20 dark:bg-white/10 rounded-full overflow-hidden focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          tabIndex={0}
+          className="h-full w-full bg-white/20 dark:bg-white/10 overflow-hidden focus:ring-2 focus:ring-blue-500 focus:outline-none"
           data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-percentage={Math.round(percentage)}
           data-component="progress-bar"
@@ -119,42 +96,28 @@ export function ProgressBar({
         >
           {/* Background track */}
           <div 
-            className="h-full opacity-25 rounded-full"
-            style={{ backgroundColor: color, width: '100%' }}
+            className="w-full h-full opacity-25"
+            style={{ backgroundColor: color }}
             aria-hidden="true"
           />
-          {/* Progress fill */}
+          {/* Progress fill - from bottom */}
           <div 
-            className="absolute top-0 left-0 h-full opacity-100 rounded-l-full transition-all duration-300"
-            style={{ backgroundColor: color, width: `${percentage}%` }}
+            className="absolute bottom-0 left-0 w-full opacity-100 transition-all duration-300"
+            style={{ backgroundColor: color, height: `${percentage}%` }}
             aria-hidden="true"
           />
         </div>
         {/* Current value indicator */}
         <div 
-          className="absolute top-0 h-3 w-0.5 bg-white dark:bg-white/90 transform -translate-x-0.25 shadow-md rounded-full"
-          style={{ left: `${percentage}%` }}
+          className="absolute left-0 w-full h-0.5 bg-white dark:bg-white/90 shadow-md"
+          style={{ bottom: `${percentage}%`, transform: 'translateY(50%)' }}
           aria-hidden="true"
         />
       </div>
       
-      {/* Min and Max values positioned under the bar */}
-      <div className="flex justify-between items-center" aria-hidden="true">
-        <span className="text-xs text-white/50">
-          <data 
-            value={cleanMin}
-            data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
-            data-unit={unit}
-            data-type="range_minimum"
-            data-context="material_property"
-            data-precision={String(cleanMin).includes('.') ? String(cleanMin).split('.')[1]?.length || 0 : 0}
-            data-magnitude={Math.abs(cleanMin) >= 1000 ? 'high' : Math.abs(cleanMin) >= 1 ? 'medium' : 'low'}
-            data-position="minimum"
-            itemProp="minValue"
-            itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
-          >{cleanMin}</data>
-        </span>
-        <span className="text-xs text-white/50">
+      {/* Range values on the right */}
+      <div className="flex flex-col justify-between items-start pl-2 py-1 min-w-[50px]" aria-hidden="true">
+        <span className="text-xs text-white/50 leading-none">
           <data 
             value={cleanMax}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
@@ -167,6 +130,20 @@ export function ProgressBar({
             itemProp="maxValue"
             itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanMax}</data>
+        </span>
+        <span className="text-xs text-white/50 leading-none">
+          <data 
+            value={cleanMin}
+            data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+            data-unit={unit}
+            data-type="range_minimum"
+            data-context="material_property"
+            data-precision={String(cleanMin).includes('.') ? String(cleanMin).split('.')[1]?.length || 0 : 0}
+            data-magnitude={Math.abs(cleanMin) >= 1000 ? 'high' : Math.abs(cleanMin) >= 1 ? 'medium' : 'low'}
+            data-position="minimum"
+            itemProp="minValue"
+            itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
+          >{cleanMin}</data>
         </span>
       </div>
       

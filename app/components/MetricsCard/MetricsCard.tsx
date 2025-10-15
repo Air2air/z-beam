@@ -95,9 +95,27 @@ export function MetricsCard({
         {isClickable && '. Press Enter or Space to search for this metric.'}
       </div>
       
-      {/* Progress bar section */}
+      {/* Metric title at top */}
+      <header className="mb-2">
+        <h4 
+          id={titleId} 
+          className="metric-label text-xs md:text-sm text-white/90 font-medium"
+          data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+          data-component="metric-title"
+          itemProp="name"
+        >
+          {title}
+          {displayUnit && (
+            <span title={displayUnit} className="text-white/70 ml-1">
+              ({displayUnit})
+            </span>
+          )}
+        </h4>
+      </header>
+      
+      {/* Progress bar section (vertical) or value display */}
       {hasValidRange ? (
-        <section className="mb-1" aria-label="Metric visualization">
+        <section className="flex-1 min-h-0" aria-label="Metric visualization">
           <ProgressBar 
             id={componentKey}
             title={title}
@@ -110,15 +128,8 @@ export function MetricsCard({
           />
         </section>
       ) : (
-        <div className="h-2 mb-1" aria-hidden="true"></div>
-      )}
-      
-      {/* Value and Title section */}
-      <section className="flex-1 flex flex-col justify-center text-center">
-        
-        {/* Value display (when no progress bar) */}
-        {!hasValidRange && (
-          <div className="metric-value text-base md:text-lg text-white/90 mb-1">
+        <section className="flex-1 flex items-center justify-center">
+          <div className="metric-value text-2xl md:text-3xl text-white/90 font-semibold">
             <data 
               id={valueId} 
               value={numericValue || displayValue}
@@ -136,30 +147,13 @@ export function MetricsCard({
               {displayValue}
             </data>
             {displayUnit && (
-              <span title={displayUnit} className="text-sm text-white/70 ml-1">
+              <span title={displayUnit} className="text-base md:text-lg text-white/70 ml-1">
                 {displayUnit}
               </span>
             )}
           </div>
-        )}
-        
-        {/* Metric title with proper heading level */}
-        <h4 
-          id={titleId} 
-          className="metric-label text-xs text-white/90"
-          data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
-          data-component="metric-title"
-          itemProp="name"
-        >
-          <strong>{title}</strong>
-          {displayUnit && hasValidRange && (
-            <span title={displayUnit} className="ml-1">
-              {displayUnit}
-            </span>
-          )}
-        </h4>
-        
-      </section>
+        </section>
+      )}
       
     </article>
   );
@@ -180,7 +174,7 @@ export function MetricsCard({
   return finalHref ? (
     <Link
       href={finalHref}
-      className={`rounded-lg pt-3 pb-2 px-2 md:p-3 block h-20 md:h-24 ${clickableClasses} ${minTouchTarget} ${className}`}
+      className={`rounded-lg p-3 md:p-4 block h-32 md:h-40 ${clickableClasses} ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         '--hover-bg-color': hoverBgColor,
@@ -208,7 +202,7 @@ export function MetricsCard({
     </Link>
   ) : (
     <div 
-      className={`rounded-lg pt-3 pb-2 px-2 md:p-3 h-20 md:h-24 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
+      className={`rounded-lg p-3 md:p-4 h-32 md:h-40 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'

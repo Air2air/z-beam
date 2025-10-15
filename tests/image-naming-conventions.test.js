@@ -226,7 +226,10 @@ describe('Image Naming Conventions', () => {
       testPaths.forEach(path => {
         expect(path).toMatch(pattern);
       });
-    });  describe('Documentation Compliance', () => {
+    });
+  });
+
+  describe('Documentation Compliance', () => {
     test('should have image naming conventions documentation', () => {
       const docsPath = path.join(process.cwd(), 'docs/reference/IMAGE_NAMING_CONVENTIONS.md');
       expect(fs.existsSync(docsPath)).toBe(true);
