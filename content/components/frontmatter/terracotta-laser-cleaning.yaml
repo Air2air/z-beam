@@ -1,227 +1,254 @@
 name: Terracotta
-category: Masonry
-subcategory: Terracotta
+category: masonry
+subcategory: terracotta
 title: Terracotta Laser Cleaning
 description: Laser cleaning parameters for Terracotta
 materialProperties:
-  density:
-    value: 1.8
-    unit: g/cm³
-    confidence: 92
-    description: Bulk density accounting for porosity in fired clay
-    min: 0.6
-    max: 2.8
-  meltingPoint:
-    value: 1150
-    unit: °C
-    confidence: 88
-    description: Approximate vitrification temperature for clay bodies
-    min: null
-    max: null
-  thermalConductivity:
-    value: 1.2
-    unit: W/m·K
-    confidence: 85
-    description: Low thermal conductivity typical of porous ceramics
-    min: 0.08
-    max: 2.5
-  tensileStrength:
-    value: 3.2
-    unit: MPa
-    confidence: 92
-    description: tensileStrength from Materials.yaml
-    min: 1
-    max: 15
-  hardness:
-    value: 4
-    unit: Mohs
-    confidence: 88
-    description: Mohs hardness scale for fired clay ceramics
-    min: 2
-    max: 6
-  youngsModulus:
-    value: 22.0
-    unit: GPa
-    confidence: 92
-    description: youngsModulus from Materials.yaml
-    min: 5
-    max: 50
-  compressiveStrength:
-    value: 45.0
-    unit: MPa
-    confidence: 92
-    description: compressiveStrength from Materials.yaml
-    min: null
-    max: null
-  laserAbsorption:
-    value: 8.2
-    unit: 1/cm
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.5
-    max: 15
-  laserReflectivity:
-    value: 36.2
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 10
-    max: 70
-  specificHeat:
-    value: 880
-    unit: J/kg·K
-    confidence: 86
-    description: Heat capacity at room temperature
-    min: 700
-    max: 1100
-  thermalDestructionPoint:
-    value: 870.0
-    unit: °C
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: 500
-    max: 1200
-  thermalDestructionType:
-    value: 2.8
-    unit: J/mm²
-    confidence: 92
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.52
-    unit: mm²/s
-    confidence: 92
-    description: thermalDiffusivity from Materials.yaml
-    min: 0.1
-    max: 1
-  thermalExpansion:
-    value: 5.5
-    unit: ×10⁻⁶/°C
-    confidence: 82
-    description: Coefficient of thermal expansion for fired clay
-    min: 5
-    max: 20
-  porosity:
-    value: 15
-    unit: '%'
-    confidence: 90
-    description: Typical open porosity in terracotta bodies
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 0.85
-    unit: dimensionless
-    confidence: 84
-    description: High absorption coefficient for IR wavelengths (1064 nm)
-    min: null
-    max: null
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    confidence: 83
-    description: Low reflectivity at common laser wavelengths
-    min: null
-    max: null
-  ablationThreshold:
-    value: 1.8
-    unit: J/cm²
-    confidence: 80
-    description: Threshold fluence for nanosecond pulses at 1064 nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 82
-    description: Damage threshold accounting for surface irregularities
-    min: null
-    max: null
-  flexuralStrength:
-    value: 15
-    unit: MPa
-    confidence: 85
-    description: Modulus of rupture for typical terracotta
-    min: null
-    max: null
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      compressiveStrength:
+        value: 45.0
+        unit: MPa
+        confidence: 92
+        description: compressiveStrength from Materials.yaml
+        min: null
+        max: null
+      hardness:
+        value: 4
+        unit: Mohs
+        confidence: 90
+        description: Surface hardness on Mohs scale
+        min: 2
+        max: 6
+      tensileStrength:
+        value: 3.2
+        unit: MPa
+        confidence: 92
+        description: tensileStrength from Materials.yaml
+        min: 1
+        max: 15
+      youngsModulus:
+        value: 12
+        unit: GPa
+        confidence: 82
+        description: Elastic modulus in compression
+        min: 5
+        max: 50
+      flexuralStrength:
+        value: 15
+        unit: MPa
+        confidence: 84
+        description: Modulus of rupture for typical terracotta composition
+        min: null
+        max: null
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 1.8
+        unit: g/cm³
+        confidence: 92
+        description: Bulk density accounting for porosity in fired clay
+        min: 0.6
+        max: 2.8
+      porosity:
+        value: 15
+        unit: '%'
+        confidence: 90
+        description: Open porosity percentage affecting laser absorption
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 8.2
+        unit: 1/cm
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.5
+        max: 15
+      laserReflectivity:
+        value: 36.2
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 10
+        max: 70
+      reflectivity:
+        value: 0.12
+        unit: dimensionless
+        confidence: 85
+        description: Surface reflectivity at common laser wavelengths
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 82
+        description: Minimum fluence required for material removal at 1064 nm
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 1.8
+        unit: J/cm²
+        confidence: 80
+        description: Fluence causing permanent surface modification
+        min: null
+        max: null
+      specificHeat:
+        value: 880
+        unit: J/kg·K
+        confidence: 86
+        description: Heat capacity at constant pressure
+        min: 700
+        max: 1100
+      thermalConductivity:
+        value: 1.2
+        unit: W/m·K
+        confidence: 85
+        description: Low thermal conductivity typical of porous ceramics
+        min: 0.08
+        max: 2.5
+      thermalDiffusivity:
+        value: 0.75
+        unit: mm²/s
+        confidence: 80
+        description: Calculated from thermal conductivity, density, and specific heat
+        min: 0.1
+        max: 1
+      thermalExpansion:
+        value: 5.5
+        unit: ×10⁻⁶/°C
+        confidence: 82
+        description: Coefficient of thermal expansion at room temperature
+        min: 5
+        max: 20
+      thermalDestruction:
+        point:
+          value: 870.0
+          unit: °C
+          min: 500
+          max: 1200
+          confidence: 92
+          description: Thermal destruction point
+        type: spalling
+      thermalDegradationPoint:
+        value: 870.0
+        unit: °C
+        confidence: 92
+        description: Temperature where structural integrity fails
+        min: null
+        max: null
+      absorptionCoefficient:
+        value: 0.85
+        unit: dimensionless
+        confidence: 88
+        description: Optical absorption coefficient at 1064 nm wavelength
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Cultural Heritage
-- Aerospace
-- Architectural Restoration
+- Architecture and Construction
 - Manufacturing
-- Electronics
-- Medical Devices
-- Marine
-- Energy
-- Automotive
-- Food Processing
+- Archaeology
+- Museum Conservation
+- Art Restoration
+- Industrial Maintenance
+- Historic Preservation
+- Ceramics Production
+- Research and Analysis
 machineSettings:
   powerRange:
-    value: 45
+    value: 90
     unit: W
     confidence: 92
     description: Optimal average power for Terracotta surface cleaning without thermal
       damage
-    min: 30
-    max: 60
+    min: 70
+    max: 110
   wavelength:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength optimized for Terracotta absorption and minimal
-      substrate damage
+    description: Near-IR wavelength optimized for Terracotta mineral absorption
     min: 532
     max: 1064
   spotSize:
-    value: 100
+    value: 80
     unit: μm
     confidence: 84
     description: Beam spot diameter for precise cleaning control
     min: 50
-    max: 200
+    max: 120
   repetitionRate:
-    value: 20
+    value: 50
     unit: kHz
     confidence: 87
     description: Optimal repetition rate for efficient cleaning with thermal management
-    min: 10
-    max: 50
+    min: 20
+    max: 100
   pulseWidth:
-    value: 100
+    value: 12
     unit: ns
     confidence: 85
     description: Nanosecond pulse duration for controlled ablation of contaminants
-    min: 50
-    max: 200
+    min: 8
+    max: 20
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 86
     description: Optimal scanning speed for uniform cleaning coverage
-    min: 200
-    max: 1000
+    min: 300
+    max: 800
+  fluence:
+    value: 3.0
+    unit: J/cm²
+    confidence: 85
+    description: Energy density threshold for effective Terracotta cleaning - Energy
+      density threshold for effective cleaning of porous masonry materials
+    min: 1.5
+    max: 6.0
   energyDensity:
-    value: 2.5
+    value: 1.8
     unit: J/cm²
     confidence: 89
     description: Fluence threshold for effective contaminant removal without substrate
       damage
-    min: 1.5
-    max: 4.0
+    min: 1.2
+    max: 2.5
   overlapRatio:
-    value: 50
+    value: 30
     unit: '%'
     confidence: 83
     description: Optimal beam overlap for uniform cleaning pattern
-    min: 30
-    max: 70
+    min: 20
+    max: 40
   passCount:
-    value: 3
+    value: 2
     unit: passes
     confidence: 85
-    description: Recommended number of passes for complete cleaning
+    description: Recommended number of cleaning passes for complete contaminant removal
     min: 1
-    max: 5
+    max: 4
+  laserType:
+    value: Nd:YAG
+    unit: n/a
+    confidence: 90
+    description: Recommended laser type for Terracotta cleaning applications
+    min: null
+    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers
@@ -265,6 +292,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
+subtitle: Terracotta is a porous, low-fired clay with a delicate, often uneven surface
+  glaze. This requires careful laser calibration to clean effectively without damaging
+  the underlying material or its finish.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -300,52 +330,16 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'I am Yi-Chun Lin, Ph.D., from Taiwan, reporting on microscopic analysis
-    of contaminated terracotta surface. First, when examining at 500x magnification
-    using SEM (Scanning Electron Microscopy), this surface, it reveals a very uneven
-    texture with a distinct contamination layer. Thickness of this layer, it measures
-    approximately—or more precisely—14.8 µm in most areas, though some regions show
-    up to 20 µm. Deposits appear as a patchy, irregular film, with darker zones indicating
-    organic residues, perhaps soot or biological growth, mixed with inorganic particles
-    that look like fine dust or silica grains (common in urban exposure).
-
-
-    Next, surface roughness, it stands out with Ra value (average roughness) of about
-    3.2 µm, much higher than expected for clean terracotta. This roughness, it creates
-    a dull, matte appearance under the microscope, with micro-cracks visible—some
-    as wide as 5 µm—likely from environmental stress. EDX (Energy-Dispersive X-ray
-    Spectroscopy) analysis on contamination shows high carbon and sulfur peaks, suggesting
-    pollutants from industrial sources. These layers, they scatter light, reducing
-    reflectivity to maybe 10-12% compared to material’s natural 15% (as per baseline
-    data). So, this impacts aesthetic quality and functional integrity, especially
-    for cultural heritage applications.
-
-
-    Finally, zooming into specific areas, contamination, it forms clusters around
-    natural porosity of terracotta—pores that measure 10-15% of surface by volume.
-    These clusters, they trap moisture, seen as slightly darker halos around pores,
-    increasing risk of further degradation. This observation, it aligns with known
-    material properties like high absorption coefficient (0.85), making surface very
-    prone to holding contaminants. Overall, condition before cleaning, it shows urgent
-    need for intervention to restore surface performance and prevent deeper damage
-    (as noted in prior studies on masonry decay).'
-  afterText: 'Now, after laser cleaning of terracotta surface, I observe significant
-    transformation at 500x magnification. This cleaned surface, it looks much smoother
-    compared to before, with contamination layer mostly removed. Thickness of residual
-    deposits, it drops to less than 2 µm in most areas—very clear improvement. SEM
-    imaging shows original terracotta texture emerging, with natural grain boundaries
-    visible again, no longer hidden by that patchy film of soot and dust.
-
-
-    Surface roughness, it also improves, now measuring Ra of approximately 1.1 µm,
-    a sharp contrast to earlier 3.2 µm. Micro-cracks, they appear less pronounced,
-    though some remain at 3-4 µm width, suggesting laser process (using 1064 nm wavelength,
-    below damage threshold of 2.5 J/cm²) preserves structural integrity. Reflectivity,
-    it seems to rise closer to material’s baseline of 15%, enhancing visual quality
-    for restoration purposes. EDX confirms reduction in carbon and sulfur signals,
-    indicating effective removal of pollutants. So, this surface, it now supports
-    better performance, especially in cultural heritage or architectural applications
-    where appearance matters (as practical needs often dictate).'
+  beforeText: At 500x magnification, the terracotta surface is obscured by a stratified
+    contamination layer approximately 50-200 µm thick. A porous crust of gypsum and
+    carbon particulates is anchored within the material's inherent 15% porosity. This
+    layer exhibits micro-fracturing and conceals the original fired-clay microstructure,
+    including fine-grained mineral inclusions and the subtle, vitrified surface texture.
+  afterText: Laser cleaning has selectively removed the contamination crust, revealing
+    the intact terracotta substrate. The original surface texture, characterized by
+    a fine-grained, vitrified matrix and distinct mineral inclusions, is now fully
+    exposed. The process has cleared the material's micro-porosity without inducing
+    micro-fractures or thermal alteration to the underlying clay body.
   description: Microscopic analysis of terracotta surface before and after laser cleaning
     treatment
   alt: Microscopic view of terracotta surface showing laser cleaning effects
@@ -355,17 +349,17 @@ caption:
     - terracotta_specific
     contaminationProfile: terracotta surface contamination
   microscopy:
-    parameters: Microscopic analysis of terracotta
+    parameters: Microscopic analysis of Terracotta
     qualityMetrics: Surface improvement analysis
   generation:
     method: frontmatter_integrated_generation
-    timestamp: '2025-10-04T21:16:47.637704Z'
+    timestamp: '2025-10-02T00:00:00.000000Z'
     generator: FrontmatterCaptionGenerator
-    componentType: ai_caption_frontmatter
+    componentType: template_caption
   author: Yi-Chun Lin
   materialProperties:
     materialType: Masonry
-    analysisMethod: ai_microscopy
+    analysisMethod: template_microscopy
   imageUrl:
     alt: Microscopic view of Terracotta surface after laser cleaning showing detailed
       surface structure
@@ -379,11 +373,5 @@ tags:
 - contamination-removal
 - maintenance
 - thermal-sensitive
-- industrial-grade
+- reflective-surface
 - yi-chun-lin
-metadata:
-  lastUpdated: '2025-10-04T21:17:38.764452'
-  captionIntegrated: true
-subtitle: Terracotta often presents a puzzle during laser treatment due to its porous
-  nature. Adjust your power levels carefully below 50 watts to safeguard the delicate
-  surface while effectively lifting stubborn contaminants.

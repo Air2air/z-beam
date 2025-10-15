@@ -101,15 +101,22 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
 
       {metadata?.materialProperties && (
         <section aria-labelledby="material-properties-heading" className="my-8">
-          <MetricsGrid metadata={metadata} dataSource="materialProperties" titleFormat="comparison" 
-            maxCards={8} layout="auto" showTitle searchable />
+          <MetricsGrid 
+            metadata={metadata} 
+            dataSource="materialProperties" 
+            titleFormat="comparison" 
+            layout="auto" 
+            showTitle 
+            searchable
+            defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+          />
         </section>
       )}
 
       {metadata?.machineSettings && (
         <section aria-labelledby="machine-settings-heading" className="my-8">
           <MetricsGrid metadata={metadata} dataSource="machineSettings" titleFormat="comparison"
-            maxCards={8} layout="auto" showTitle searchable />
+            layout="auto" showTitle searchable />
         </section>
       )}
 
@@ -142,8 +149,14 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       description: component.config.description || '', materialProperties: component.config.properties || {} };
     return (
       <section key={type} aria-label="Material properties visualization">
-        <MetricsGrid metadata={propertiesMetadata} dataSource="materialProperties"
-          title={component.config.title} className={component.config.className} searchable />
+        <MetricsGrid 
+          metadata={propertiesMetadata} 
+          dataSource="materialProperties"
+          title={component.config.title} 
+          className={component.config.className} 
+          searchable
+          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+        />
       </section>
     );
   }

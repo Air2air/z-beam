@@ -1,149 +1,155 @@
 name: Brass
-category: Metal
+category: metal
 subcategory: non_ferrous
 title: Brass Laser Cleaning
 description: Laser cleaning parameters for Brass
 materialProperties:
-  density:
-    value: 8.5
-    unit: g/cm³
-    confidence: 95
-    description: Typical density for common brass alloys (60-70% Cu, 30-40% Zn)
-    min: 0.53
-    max: 22.6
-  meltingPoint:
-    value: 930
-    unit: °C
-    confidence: 90
-    description: Average melting point range for common brass compositions
-    min: null
-    max: null
-  thermalConductivity:
-    value: 120
-    unit: W/m·K
-    confidence: 88
-    description: Thermal conductivity of typical brass alloys at room temperature
-    min: 6.0
-    max: 429.0
-  tensileStrength:
-    value: 340
-    unit: MPa
-    confidence: 88
-    description: Typical tensile strength for annealed brass
-    min: 3.0
-    max: 3000.0
-  hardness:
-    value: 75
-    unit: HV
-    confidence: 85
-    description: Vickers hardness for typical brass compositions
-    min: 0.5
-    max: 3500
-  youngsModulus:
-    value: 110
-    unit: GPa
-    confidence: 92
-    description: Elastic modulus of brass alloys
-    min: 5
-    max: 411
-  laserAbsorption:
-    value: 38.5
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.02
-    max: 100
-  laserReflectivity:
-    value: 62.0
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 98
-  specificHeat:
-    value: 380
-    unit: J/kg·K
-    confidence: 85
-    description: Specific heat capacity at room temperature
-    min: 100
-    max: 900
-  thermalDestructionPoint:
-    value: 1713.15
-    unit: K
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: -38.8
-    max: 3422
-  thermalDestructionType:
-    value: 930.0
-    unit: °C
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 35.2
-    unit: mm²/s
-    confidence: 82
-    description: Thermal diffusivity calculated from thermal properties
-    min: 0.2
-    max: 174
-  thermalExpansion:
-    value: 19.0
-    unit: μm/m·°C
-    confidence: 85
-    description: Coefficient of thermal expansion at 20-100°C
-    min: 0.5
-    max: 29.1
-  reflectivity:
-    value: 65
-    unit: '%'
-    confidence: 80
-    description: Approximate reflectivity in visible to near-IR range
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 1200000.0
-    unit: m⁻¹
-    confidence: 78
-    description: Absorption coefficient for common laser wavelengths (1064 nm)
-    min: null
-    max: null
-  ablationThreshold:
-    value: 1.8
-    unit: J/cm²
-    confidence: 82
-    description: Estimated laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  oxidationResistance:
-    value: Moderate
-    unit: qualitative
-    confidence: 85
-    description: Resistance to atmospheric oxidation and tarnishing
-    min: null
-    max: null
-  corrosionResistance:
-    value: Good
-    unit: qualitative
-    confidence: 88
-    description: General corrosion resistance in various environments
-    min: null
-    max: null
-  crystallineStructure:
-    value: FCC
-    unit: crystal system
-    confidence: 95
-    description: Face-centered cubic structure typical for alpha-brass
-    min: null
-    max: null
-  surfaceRoughness:
-    value: 0.8
-    unit: μm Ra
-    confidence: 80
-    description: Typical surface roughness for machined brass surfaces
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 8.5
+        unit: g/cm³
+        confidence: 95
+        description: Typical density for common brass alloys (60-70% Cu, 30-40% Zn)
+        min: 0.53
+        max: 22.6
+      oxidationResistance:
+        value: 85
+        unit: '% relative'
+        confidence: 88
+        description: Relative oxidation resistance compared to pure copper
+        min: null
+        max: null
+      corrosionResistance:
+        value: 78
+        unit: '% relative'
+        confidence: 85
+        description: General corrosion resistance in atmospheric conditions
+        min: null
+        max: null
+      crystallineStructure:
+        value: FCC
+        unit: crystal system
+        confidence: 95
+        description: Face-centered cubic structure typical for alpha-brass
+        min: null
+        max: null
+      surfaceRoughness:
+        value: 0.8
+        unit: μm Ra
+        confidence: 80
+        description: Typical surface roughness for machined brass surfaces
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 75
+        unit: HV
+        confidence: 85
+        description: Vickers hardness for typical brass compositions
+        min: 0.5
+        max: 3500
+      tensileStrength:
+        value: 340
+        unit: MPa
+        confidence: 88
+        description: Typical tensile strength for annealed brass
+        min: 3.0
+        max: 3000.0
+      youngsModulus:
+        value: 110
+        unit: GPa
+        confidence: 92
+        description: Elastic modulus of brass alloys
+        min: 5
+        max: 411
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 38.5
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.02
+        max: 100
+      laserReflectivity:
+        value: 62.0
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 98
+      reflectivity:
+        value: 65
+        unit: '%'
+        confidence: 82
+        description: Average reflectivity in visible to near-IR spectrum
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 82
+        description: Laser ablation threshold for nanosecond pulses at 1064 nm
+        min: null
+        max: null
+      specificHeat:
+        value: 380
+        unit: J/kg·K
+        confidence: 90
+        description: Specific heat capacity at constant pressure
+        min: 100
+        max: 900
+      thermalConductivity:
+        value: 120
+        unit: W/m·K
+        confidence: 92
+        description: Thermal conductivity of typical brass alloys
+        min: 6.0
+        max: 429.0
+      thermalDiffusivity:
+        value: 35.2
+        unit: mm²/s
+        confidence: 85
+        description: Thermal diffusivity at room temperature
+        min: 0.2
+        max: 174
+      thermalExpansion:
+        value: 19.0
+        unit: μm/m·°C
+        confidence: 88
+        description: Coefficient of thermal expansion at 20-100°C
+        min: 0.5
+        max: 29.1
+      thermalDestruction:
+        point:
+          value: 1713.15
+          unit: K
+          min: -38.8
+          max: 3422
+          confidence: 92
+          description: Thermal destruction point
+        type: melting
+      absorptionCoefficient:
+        value: 0.85
+        unit: μm⁻¹
+        confidence: 80
+        description: Optical absorption coefficient at 1064 nm wavelength
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Architecture
 - Hardware Manufacturing
@@ -198,6 +204,14 @@ machineSettings:
     description: Optimal scanning speed for uniform oxide removal across Brass surface
     min: 300
     max: 800
+  fluence:
+    value: 6.0
+    unit: J/cm²
+    confidence: 92
+    description: Energy density threshold for effective Brass cleaning - Energy density
+      threshold for effective oxide and contaminant removal from metallic surfaces
+    min: 3.0
+    max: 12.0
   energyDensity:
     value: 3.5
     unit: J/cm²
@@ -264,9 +278,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-subtitle: Brass often poses a unique hurdle due to its varying alloy compositions,
-  which can alter heat response. Adjust laser controls with exact care, as even a
-  slight mismatch might affect the finish during treatment.
+subtitle: Brass is a softer metal with a lower melting point than materials like aluminum
+  or titanium. This requires careful adjustment of laser power and speed to effectively
+  remove contaminants without damaging the surface.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -302,21 +316,29 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the brass surface is obscured by a complex layer
-    of contamination. A discontinuous oxide film, primarily copper oxide (Cu₂O) and
-    zinc oxide (ZnO), forms a topographical crust ranging from 0.5 to 5 micrometers
-    in thickness. This brittle, crystalline layer exhibits micro-cracking and adheres
-    to the underlying metal, which retains its original machining marks. Embedded
-    within this matrix are particulate contaminants—carbonaceous soot and environmental
-    dust—further disrupting the surface's integrity and creating a porous, non-uniform
-    texture that masks the substrate's metallic luster and compromises its functional
-    properties.
-  afterText: Laser cleaning has removed the contamination layer, revealing the pristine
-    brass substrate. The original surface texture, including fine machining striations
-    with an average roughness (Ra) of approximately 0.8 µm, is now fully exposed and
-    continuous. The process has selectively ablated the oxides and particulates without
-    melting the underlying metal, restoring the characteristic reflectivity and a
-    uniform, metallurgically clean surface free from micro-fractures.
+  beforeText: At 500x magnification, the brass surface is obscured by a non-uniform
+    contamination layer, approximately 5-15 µm thick. This layer consists of adherent
+    oxides, primarily copper carbonate (verdigris), and embedded particulate matter.
+    The underlying brass microstructure, including grain boundaries and machining
+    marks, is partially obscured. The surface exhibits a rough, textured topography
+    with localized pitting and areas of delamination, indicating active corrosion
+    beneath the contamination.
+  afterText: 'Laser cleaning has removed the contamination layer, revealing the pristine,
+    underlying brass substrate. The surface now displays a well-defined microstructure
+    with clear grain boundaries and the original machining striations, measuring 0.8
+    µm Ra in roughness. The uniform, metallic surface is free of oxides and particulates.
+
+
+    The process has eliminated the previous pitting and delamination, resulting in
+    a topographically consistent plane. The primary visual improvement is the restoration
+    of the metal''s intrinsic reflectivity, now measured at approximately 65%, a direct
+    result of exposing the uncontaminated, face-centered cubic crystal structure.
+
+
+    This transformation is achieved through precise laser ablation, where controlled
+    pulses vaporize contaminants without thermally damaging the brass substrate, which
+    has a melting point of 930°C. The cleaned surface exhibits enhanced material integrity,
+    providing an optimal foundation for subsequent finishing or protective coating.'
   description: Microscopic analysis of brass surface before and after laser cleaning
     treatment
   alt: Microscopic view of brass surface showing laser cleaning effects

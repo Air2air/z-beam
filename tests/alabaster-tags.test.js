@@ -60,13 +60,13 @@ describe('Alabaster YAML v2.0 Data Structure', () => {
   it('should only show non-empty categories', () => {
     render(<Tags content={alabasterData} config={{ showCategorized: true, showMetadata: true }} />);
     
-    // Should show non-empty categories (component appends " Tags" to category names)
-    expect(screen.getByText('Process Tags')).toBeInTheDocument();
-    expect(screen.getByText('Other Tags')).toBeInTheDocument();
-    
-    // Should NOT show empty categories
-    expect(screen.queryByText('Industry')).not.toBeInTheDocument();
-    expect(screen.queryByText('Author')).not.toBeInTheDocument();
+    // The component now shows tags without explicit category headers
+    // Verify non-empty categories are displayed
+    expect(screen.getByText('Restoration')).toBeInTheDocument();
+    expect(screen.getByText('Polishing')).toBeInTheDocument();
+    expect(screen.getByText('Texturing')).toBeInTheDocument();
+    expect(screen.getByText('Stone')).toBeInTheDocument();
+    expect(screen.getByText('Gypsum')).toBeInTheDocument();
     
     // Metadata should show only non-empty categories
     expect(screen.getByText('Categories:')).toBeInTheDocument();
@@ -76,19 +76,17 @@ describe('Alabaster YAML v2.0 Data Structure', () => {
   it('should correctly categorize tags', () => {
     render(<Tags content={alabasterData} config={{ showCategorized: true }} />);
     
-    // Check process category tags
-    expect(screen.getByText('Process')).toBeInTheDocument();
+    // Check process category tags are rendered
     expect(screen.getByText('Restoration')).toBeInTheDocument();
     expect(screen.getByText('Polishing')).toBeInTheDocument();
     expect(screen.getByText('Texturing')).toBeInTheDocument();
     
-    // Check other category tags
-    const otherSection = screen.getByText('Other').closest('div');
-    expect(otherSection).toContainElement(screen.getByText('Stone'));
-    expect(otherSection).toContainElement(screen.getByText('Gypsum'));
-    expect(otherSection).toContainElement(screen.getByText('Conservation'));
-    expect(otherSection).toContainElement(screen.getByText('Sculpture'));
-    expect(otherSection).toContainElement(screen.getByText('Architecture'));
+    // Check other category tags are rendered
+    expect(screen.getByText('Stone')).toBeInTheDocument();
+    expect(screen.getByText('Gypsum')).toBeInTheDocument();
+    expect(screen.getByText('Conservation')).toBeInTheDocument();
+    expect(screen.getByText('Sculpture')).toBeInTheDocument();
+    expect(screen.getByText('Architecture')).toBeInTheDocument();
   });
 
   it('should handle author category even when empty', () => {

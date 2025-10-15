@@ -27,7 +27,7 @@ const customJestConfig = {
     }],
   },
   transformIgnorePatterns: [
-    "node_modules/(?!(marked)/)"
+    "node_modules/(?!(marked|react-markdown|unist-.*|unified|bail|is-plain-obj|trough|vfile|vfile-message|mdast-.*|micromark.*|decode-named-character-reference|character-entities|property-information|hast-util-whitespace|hast-util-.*|space-separated-tokens|comma-separated-tokens|remark-.*|ccount|escape-string-regexp|markdown-table|devlop|trim-lines|zwitch|longest-streak)/)"
   ],
   collectCoverageFrom: [
     "app/**/*.{js,jsx,ts,tsx}",
@@ -86,8 +86,12 @@ const customJestConfig = {
         "^@components/(.*)$": "<rootDir>/app/components/$1",
         "^@utils/(.*)$": "<rootDir>/app/utils/$1",
         "^marked$": "<rootDir>/tests/__mocks__/marked.js",
+        "^react-markdown$": "<rootDir>/tests/__mocks__/react-markdown.js",
         "\\.(css|less|scss|sass)$": "identity-obj-proxy"
       },
+      transformIgnorePatterns: [
+        "node_modules/(?!(marked|react-markdown|unist-.*|unified|bail|is-plain-obj|trough|vfile|vfile-message|mdast-.*|micromark.*|decode-named-character-reference|character-entities|property-information|hast-util-whitespace|hast-util-.*|space-separated-tokens|comma-separated-tokens|remark-.*|ccount|escape-string-regexp|markdown-table|devlop|trim-lines|zwitch|longest-streak)/)"
+      ],
     },
     {
       displayName: "node",
@@ -127,6 +131,9 @@ const customJestConfig = {
         "^server-only$": "<rootDir>/tests/__mocks__/server-only.js",
         "\\.(css|less|scss|sass)$": "identity-obj-proxy"
       },
+      transformIgnorePatterns: [
+        "node_modules/(?!(marked|react-markdown|unist-.*|unified|bail|is-plain-obj|trough|vfile|vfile-message|mdast-.*|micromark.*|decode-named-character-reference|character-entities|property-information|hast-util-whitespace|hast-util-.*|space-separated-tokens|comma-separated-tokens|remark-.*|ccount|escape-string-regexp|markdown-table|devlop|trim-lines|zwitch|longest-streak)/)"
+      ],
     }
   ],
   collectCoverage: true,

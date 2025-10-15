@@ -1,136 +1,162 @@
 name: Kevlar-Reinforced Polymer
-category: Composite
-subcategory: Kevlar-Reinforced Polymer
+category: composite
+subcategory: kevlar-reinforced polymer
 title: Kevlar-Reinforced Polymer Laser Cleaning
 description: Laser cleaning parameters for Kevlar-Reinforced Polymer
 materialProperties:
-  density:
-    value: 1.44
-    unit: g/cm³
-    confidence: 95
-    description: Typical density of Kevlar-reinforced epoxy composite
-    min: 0.5
-    max: 8
-  meltingPoint:
-    value: 427
-    unit: °C
-    confidence: 88
-    description: Decomposition temperature of Kevlar fibers, polymer matrix degrades
-      earlier
-    min: null
-    max: null
-  thermalConductivity:
-    value: 0.52
-    unit: W/m·K
-    confidence: 90
-    description: Through-thickness thermal conductivity of Kevlar-epoxy composite
-    min: 0.1
-    max: 400
-  tensileStrength:
-    value: 1240
-    unit: MPa
-    confidence: 94
-    description: Tensile strength along fiber direction for 60% fiber volume fraction
-    min: 50
-    max: 6000
-  hardness:
-    value: 85
-    unit: Shore D
-    confidence: 82
-    description: Surface hardness of Kevlar-reinforced epoxy composite
-    min: 20
-    max: 90
-  youngsModulus:
-    value: 83
-    unit: GPa
-    confidence: 96
-    description: Elastic modulus in fiber direction
-    min: 0.001
-    max: 500
-  laserAbsorption:
-    value: 92.7
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.05
-    max: 200
-  laserReflectivity:
-    value: 38.5
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 2
-    max: 80
-  specificHeat:
-    value: 1420
-    unit: J/kg·K
-    confidence: 92
-    description: Specific heat capacity at room temperature
-    min: 500
-    max: 1500
-  thermalDestructionPoint:
-    value: 723.0
-    unit: K
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: 150
-    max: 2000
-  thermalDestructionType:
-    value: 623.0
-    unit: K
-    confidence: 92
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.85
-    unit: mm²/s
-    confidence: 92
-    description: thermalDiffusivity from Materials.yaml
-    min: 0.1
-    max: 180
-  thermalExpansion:
-    value: 2.7
-    unit: 10^-6/°C
-    confidence: 85
-    description: Coefficient of thermal expansion in fiber direction
-    min: -1
-    max: 250
-  absorptionCoefficient:
-    value: 0.78
-    unit: dimensionless
-    confidence: 85
-    description: Absorption coefficient for 1064 nm wavelength laser
-    min: null
-    max: null
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    confidence: 83
-    description: Reflectivity at 1064 nm wavelength
-    min: null
-    max: null
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-    confidence: 80
-    description: Laser ablation threshold for nanosecond pulses at 1064 nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 4.2
-    unit: J/cm²
-    confidence: 82
-    description: Damage threshold for continuous wave laser exposure
-    min: null
-    max: null
-  oxidationResistance:
-    value: 320
-    unit: °C
-    confidence: 88
-    description: Maximum continuous service temperature in air before oxidative degradation
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 1.44
+        unit: g/cm³
+        confidence: 95
+        description: Typical density of Kevlar-reinforced epoxy composite
+        min: 0.5
+        max: 8
+      oxidationResistance:
+        value: 300
+        unit: °C
+        confidence: 88
+        description: Maximum continuous service temperature in air
+        min: null
+        max: null
+      porosity:
+        value: 1.5
+        unit: '%'
+        confidence: 85
+        description: Typical void content in properly manufactured composite
+        min: null
+        max: null
+      surfaceRoughness:
+        value: 1.2
+        unit: μm Ra
+        confidence: 83
+        description: Average surface roughness of molded composite surface
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 85
+        unit: Shore D
+        confidence: 85
+        description: Surface hardness of cured composite
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 1240
+        unit: MPa
+        confidence: 92
+        description: Tensile strength along fiber direction
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 83
+        unit: GPa
+        confidence: 94
+        description: Elastic modulus in fiber direction
+        min: 0.001
+        max: 500
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 92.7
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.05
+        max: 200
+      laserReflectivity:
+        value: 38.5
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 2
+        max: 80
+      reflectivity:
+        value: 0.15
+        unit: dimensionless
+        confidence: 80
+        description: Reflectivity at 1064 nm for typical surface finish
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.8
+        unit: J/cm²
+        confidence: 85
+        description: Laser ablation threshold for nanosecond pulses at 1064 nm
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 1.2
+        unit: J/cm²
+        confidence: 82
+        description: Damage threshold for surface modification without ablation
+        min: null
+        max: null
+      specificHeat:
+        value: 1420
+        unit: J/kg·K
+        confidence: 90
+        description: Specific heat capacity at room temperature
+        min: 500
+        max: 1500
+      thermalConductivity:
+        value: 0.52
+        unit: W/m·K
+        confidence: 88
+        description: Through-thickness thermal conductivity of Kevlar-epoxy composite
+        min: 0.1
+        max: 400
+      thermalDiffusivity:
+        value: 0.85
+        unit: mm²/s
+        confidence: 92
+        description: thermalDiffusivity from Materials.yaml
+        min: 0.1
+        max: 180
+      thermalExpansion:
+        value: 4.0
+        unit: 10^-6/°C
+        confidence: 82
+        description: Coefficient of thermal expansion in fiber direction
+        min: -1
+        max: 250
+      thermalDestruction:
+        point:
+          value: 723.0
+          unit: K
+          min: 150
+          max: 2000
+          confidence: 92
+          description: Thermal destruction point
+        type: decomposition
+      degradationPoint:
+        value: 723.0
+        unit: K
+        confidence: 92
+        description: Temperature where polymer matrix decomposes
+        min: null
+        max: null
+      absorptionCoefficient:
+        value: 0.78
+        unit: dimensionless
+        confidence: 82
+        description: Absorption coefficient at 1064 nm wavelength
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Automotive Racing
@@ -191,6 +217,15 @@ machineSettings:
       damage
     min: 300
     max: 800
+  fluence:
+    value: 3.0
+    unit: J/cm²
+    confidence: 86
+    description: Energy density threshold for effective Kevlar-Reinforced Polymer
+      cleaning - Energy density threshold for composite material cleaning considering
+      matrix and reinforcement properties
+    min: 1.5
+    max: 6.0
   energyDensity:
     value: 4.5
     unit: J/cm²

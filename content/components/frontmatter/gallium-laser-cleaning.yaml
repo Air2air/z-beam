@@ -1,153 +1,159 @@
 name: Gallium
-category: Metal
+category: metal
 subcategory: specialty
 title: Gallium Laser Cleaning
 description: Laser cleaning parameters for Gallium
 materialProperties:
-  density:
-    value: 5.91
-    unit: g/cm³
-    confidence: 97
-    description: Density of solid gallium at 20°C
-    min: 0.53
-    max: 22.6
-  meltingPoint:
-    value: 29.76
-    unit: °C
-    confidence: 98
-    description: Melting point of pure gallium, unusually low for a metal
-    min: null
-    max: null
-  thermalConductivity:
-    value: 40.6
-    unit: W/m·K
-    confidence: 92
-    description: Thermal conductivity at 27°C
-    min: 6.0
-    max: 429.0
-  tensileStrength:
-    value: 8.3
-    unit: MPa
-    confidence: 95
-    description: tensileStrength from Materials.yaml
-    min: 3.0
-    max: 3000.0
-  hardness:
-    value: 1.5
-    unit: Mohs
-    confidence: 84
-    description: Mohs hardness of solid gallium
-    min: 0.5
-    max: 3500
-  youngsModulus:
-    value: 9.8
-    unit: GPa
-    confidence: 86
-    description: Young's modulus of solid gallium
-    min: 5
-    max: 411
-  laserAbsorption:
-    value: 61.8
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.02
-    max: 100
-  laserReflectivity:
-    value: 71.2
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 98
-  specificHeat:
-    value: 371
-    unit: J/kg·K
-    confidence: 90
-    description: Specific heat capacity at 25°C
-    min: 100
-    max: 900
-  thermalDestructionPoint:
-    value: 2477.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: -38.8
-    max: 3422
-  thermalDestructionType:
-    value: 302.91
-    unit: K
-    confidence: 98
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 22.5
-    unit: mm²/s
-    confidence: 85
-    description: Thermal diffusivity at room temperature
-    min: 0.2
-    max: 174
-  thermalExpansion:
-    value: 18
-    unit: μm/m·K
-    confidence: 88
-    description: Coefficient of linear thermal expansion
-    min: 0.5
-    max: 29.1
-  absorptionCoefficient:
-    value: 1200000.0
-    unit: cm⁻¹
-    confidence: 82
-    description: Approximate absorption coefficient for visible light
-    min: null
-    max: null
-  reflectivity:
-    value: 75
-    unit: '%'
-    confidence: 85
-    description: Average reflectivity in visible spectrum
-    min: null
-    max: null
-  ablationThreshold:
-    value: 0.15
-    unit: J/cm²
-    confidence: 80
-    description: Estimated laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  oxidationResistance:
-    value: 45
-    unit: rating (0-100)
-    confidence: 88
-    description: Relative oxidation resistance in air at room temperature
-    min: null
-    max: null
-  crystallineStructure:
-    value: Orthorhombic
-    unit: crystal system
-    confidence: 95
-    description: Crystalline structure of solid gallium
-    min: null
-    max: null
-  vaporizationTemperature:
-    value: 2204
-    unit: °C
-    confidence: 92
-    description: Boiling point of gallium
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 5.91
+        unit: g/cm³
+        confidence: 97
+        description: Density of solid gallium at 20°C
+        min: 0.53
+        max: 22.6
+      oxidationResistance:
+        value: 45
+        unit: score (0-100)
+        confidence: 88
+        description: Relative oxidation resistance in air at room temperature
+        min: null
+        max: null
+      crystallineStructure:
+        value: Orthorhombic
+        unit: crystal system
+        confidence: 98
+        description: Crystalline structure of solid gallium
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 1.5
+        unit: Mohs
+        confidence: 90
+        description: Mohs hardness scale
+        min: 0.5
+        max: 3500
+      tensileStrength:
+        value: 8.3
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 3.0
+        max: 3000.0
+      youngsModulus:
+        value: 9.8
+        unit: GPa
+        confidence: 86
+        description: Young's modulus of solid gallium
+        min: 5
+        max: 411
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 61.8
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.02
+        max: 100
+      laserReflectivity:
+        value: 71.2
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 98
+      reflectivity:
+        value: 75
+        unit: '%'
+        confidence: 85
+        description: Optical reflectivity in visible spectrum
+        min: null
+        max: null
+      ablationThreshold:
+        value: 0.15
+        unit: J/cm²
+        confidence: 80
+        description: Estimated laser ablation threshold for nanosecond pulses
+        min: null
+        max: null
+      specificHeat:
+        value: 371
+        unit: J/kg·K
+        confidence: 94
+        description: Specific heat capacity at 25°C
+        min: 100
+        max: 900
+      thermalConductivity:
+        value: 40.6
+        unit: W/m·K
+        confidence: 92
+        description: Thermal conductivity at 300K
+        min: 6.0
+        max: 429.0
+      thermalDiffusivity:
+        value: 18.4
+        unit: mm²/s
+        confidence: 85
+        description: Thermal diffusivity at room temperature
+        min: 0.2
+        max: 174
+      thermalExpansion:
+        value: 18
+        unit: μm/m·K
+        confidence: 88
+        description: Coefficient of linear thermal expansion
+        min: 0.5
+        max: 29.1
+      thermalDestruction:
+        point:
+          value: 2477.0
+          unit: K
+          min: -38.8
+          max: 3422
+          confidence: 95
+          description: Thermal destruction point
+        type: melting
+      absorptionCoefficient:
+        value: 1200000.0
+        unit: cm⁻¹
+        confidence: 82
+        description: Approximate absorption coefficient for visible light
+        min: null
+        max: null
+      surfaceTension:
+        value: 708
+        unit: mN/m
+        confidence: 91
+        description: Surface tension of liquid gallium at 30°C
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Semiconductor Manufacturing
 - Aerospace Components
 - Medical Device Manufacturing
 - Research Laboratory Equipment
-- Electronics Assembly
+- Electronics Recycling
 - Optical Component Manufacturing
-- Nuclear Medicine
+- Nuclear Technology
+- Automotive Electronics
 - Cultural Heritage Preservation
 - Renewable Energy Systems
-- Advanced Materials Research
 machineSettings:
   powerRange:
     value: 15
@@ -160,63 +166,71 @@ machineSettings:
     value: 532
     unit: nm
     confidence: 88
-    description: Green wavelength for enhanced absorption in Gallium oxide layers
+    description: Green wavelength for enhanced absorption by Gallium oxide layer
     min: 355
     max: 1064
   spotSize:
     value: 50
     unit: μm
     confidence: 86
-    description: Optimal spot size for precision cleaning of Gallium surfaces
+    description: Beam spot diameter for precise oxide removal control
     min: 30
-    max: 100
+    max: 80
   repetitionRate:
-    value: 50
+    value: 30
     unit: kHz
     confidence: 87
-    description: Optimal repetition rate for efficient cleaning with controlled heat
-      input
+    description: Optimal repetition rate for efficient cleaning with thermal management
     min: 20
-    max: 100
+    max: 50
   pulseWidth:
     value: 8
     unit: ns
     confidence: 85
-    description: Short pulse duration for precise oxide removal with minimal thermal
-      diffusion
+    description: Nanosecond pulses for controlled oxide ablation with minimal thermal
+      damage
     min: 5
     max: 15
-  fluenceThreshold:
-    value: 0.8
-    unit: J/cm²
-    confidence: 92
-    description: Minimum fluence required for effective Gallium oxide removal
-    min: 0.5
-    max: 1.5
   scanSpeed:
-    value: 500
+    value: 200
     unit: mm/s
     confidence: 84
     description: Optimal scanning speed for uniform oxide removal
-    min: 200
-    max: 1000
+    min: 100
+    max: 400
+  fluence:
+    value: 6.0
+    unit: J/cm²
+    confidence: 92
+    description: Energy density threshold for effective Gallium cleaning - Energy
+      density threshold for effective oxide and contaminant removal from metallic
+      surfaces
+    min: 3.0
+    max: 12.0
+  fluenceThreshold:
+    value: 1.2
+    unit: J/cm²
+    confidence: 89
+    description: Minimum fluence required for Gallium oxide ablation
+    min: 0.8
+    max: 2.0
   overlapRatio:
-    value: 40
+    value: 50
     unit: '%'
     confidence: 83
-    description: Optimal pulse overlap for complete coverage without excessive heating
-    min: 30
-    max: 60
+    description: Optimal beam overlap for uniform cleaning coverage
+    min: 40
+    max: 70
   passCount:
     value: 2
     unit: passes
-    confidence: 89
+    confidence: 88
     description: Recommended number of passes for complete oxide removal
     min: 1
-    max: 4
+    max: 3
   laserType:
     value: Nd:YAG
-    unit: type
+    unit: n/a
     confidence: 85
     description: Recommended laser type for Gallium cleaning applications
     min: null
@@ -238,10 +252,6 @@ images:
   hero:
     alt: Gallium surface undergoing laser cleaning showing precise contamination removal
     url: /images/material/gallium-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Gallium surface after laser cleaning showing detailed
-      surface structure
-    url: /images/material/gallium-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -267,6 +277,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
+subtitle: Gallium has a uniquely low melting point and soft texture compared to other
+  specialty metals. These traits demand careful control of laser power to avoid surface
+  melting during cleaning.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -302,20 +315,31 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the gallium surface is obscured by a non-uniform
-    contamination layer, measuring 2-5 micrometers thick. This layer consists of amorphous
-    oxide patches (Ga₂O₃) and embedded particulate matter, creating a topographically
-    complex and irregular surface. The underlying crystalline structure of the gallium
-    is entirely masked. The contaminant film exhibits low adhesion to the soft metal
-    substrate, resulting in a cracked, island-like pattern across the field of view,
-    which significantly increases light scattering and reduces surface reflectivity.
-  afterText: Laser cleaning produces a visually distinct surface, revealing the underlying
-    orthorhombic crystalline structure of the gallium. The previous 2-5 µm contamination
-    layer has been completely removed via selective laser ablation. The surface now
-    appears smooth and highly reflective, with sub-micrometer roughness. The process
-    successfully eliminated the oxide patches and particulate matter without inducing
-    surface melting or altering the gallium's microstructure, restoring the metal's
-    intrinsic metallic luster and topological integrity.
+  beforeText: 'At 500x magnification, the gallium surface is obscured by a complex
+    contamination layer. A discontinuous film, measuring 5-15 µm thick, adheres to
+    the substrate. This layer consists of amorphous carbonaceous deposits and fine,
+    embedded particulate matter, creating a topographically varied and irregular surface
+    texture. The underlying gallium''s metallic luster is entirely absent, replaced
+    by a matte, dark appearance.
+
+
+    The contamination does not form a uniform coat but exhibits island-like growth
+    patterns and dendritic spreading. These features suggest the contaminants migrated
+    across the surface while the gallium was in its liquid phase, solidifying into
+    a mechanically bonded, non-uniform crust. This layer significantly disrupts the
+    native surface morphology and compromises the material''s functional properties.'
+  afterText: 'Following laser cleaning, the surface at 500x magnification reveals
+    a complete transformation. The contamination layer has been entirely removed via
+    selective laser ablation, exposing the pristine gallium substrate. The surface
+    now exhibits a uniform, clean metallic luster with clearly defined grain boundaries.
+    Minor, sub-micrometer laser texturing is visible, resulting from the precise vaporization
+    of contaminants without damaging the underlying metal.
+
+
+    The process has restored the surface to its native state, eliminating the previous
+    non-uniform crust. The reflectivity and surface energy are now consistent with
+    pure gallium, providing an optimal base for subsequent manufacturing steps. The
+    cleaning has achieved a visually and functionally homogeneous surface.'
   description: Microscopic analysis of gallium surface before and after laser cleaning
     treatment
   alt: Microscopic view of gallium surface showing laser cleaning effects
@@ -351,6 +375,3 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
-subtitle: Gallium poses unique hurdles in laser treatment due to its low melting point
-  of just 29.76°C. Handle it with tightly controlled power levels to prevent unintended
-  melting during the operation.

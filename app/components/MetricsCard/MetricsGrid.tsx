@@ -1,208 +1,185 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { MetricsCard as SingleMetricsCard } from './MetricsCard';
-import { ArticleMetadata, PropertyWithUnits, MetricsCardProps, MetricsGridProps } from '../../../types';
-import { extractMachineSettingsFromFrontmatter } from '../../utils/metricsCardHelpers';
+import { ArticleMetadata, PropertyCategory, MetricsCardProps, MetricsGridProps } from '../../../types';
 import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import './accessibility.css';
 
-// Enhanced color palette for cards with semantic meanings
-const DEFAULT_COLORS = [
-  '#4F46E5', // Indigo - Primary
-  '#059669', // Emerald - Success/Good
-  '#DC2626', // Red - Critical/High
-  '#7C3AED', // Violet - Premium
-  '#0891B2', // Cyan - Info/Cool
-  '#CA8A04', // Yellow - Warning/Attention
-  '#EC4899', // Pink - Special
-  '#6B7280'  // Gray - Neutral
-];
-
-// Color mapping for specific metric types (optional enhancement)
-const METRIC_COLOR_MAP: Record<string, string> = {
-  // Material Properties
-  'density': '#4F46E5',
-  'meltingPoint': '#DC2626', 
-  'thermalConductivity': '#0891B2',
-  'tensileStrength': '#059669',
-  'hardness': '#7C3AED',
-  
-  // Machine Settings  
-  'powerRange': '#DC2626',
-  'wavelength': '#4F46E5',
-  'pulseDuration': '#CA8A04',
-  'spotSize': '#059669',
-  'repetitionRate': '#0891B2',
-  'fluenceRange': '#7C3AED'
-};
-
-// Grid layout configurations (added +1 column to each responsive size)
-const GRID_LAYOUTS = {
-  'auto': 'grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8',
-  'grid-2': 'grid-cols-3 sm:grid-cols-4',
-  'grid-3': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5',
-  'grid-4': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
+// Category configuration for visual distinction
+// Standardized to 3 categories used in frontmatter files
+const CATEGORY_CONFIG = {
+  material_properties: { icon: '📊', color: '#A8DADC', label: 'Material Properties', order: 1 },
+  structural_response: { icon: '⚙️', color: '#4ECDC4', label: 'Structural Response', order: 2 },
+  energy_coupling: { icon: '💡', color: '#FFE66D', label: 'Energy Coupling', order: 3 }
 } as const;
 
-// Note: MetricsGridProps is now imported from '@/types' centralized types
+// Grid layout configurations
+const GRID_LAYOUTS = {
+  'auto': 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5',
+  'grid-2': 'grid-cols-2 sm:grid-cols-3',
+  'grid-3': 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4',
+  'grid-4': 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
+} as const;
 
-// Helper function to extract cards from frontmatter data
-function extractCardsFromFrontmatter(
-  metadata: ArticleMetadata, 
-  dataSource: 'materialProperties' | 'machineSettings' = 'machineSettings'
+// Property title abbreviations for display
+const TITLE_MAPPING: Record<string, string> = {
+  'thermalConductivity': 'Therm. Cond.',
+  'thermalExpansion': 'Therm. Exp.',
+  'thermalDiffusivity': 'Therm. Diff.',
+  'thermalDestructionPoint': 'Thermal Deg. Pt',
+  'meltingPoint': 'Melting Pt',
+  'boilingPoint': 'Boiling Pt',
+  'specificHeat': 'Spec. Heat',
+  'tensileStrength': 'Ten. Strength',
+  'youngsModulus': 'Y. Modulus',
+  'compressiveStrength': 'Comp. Strength',
+  'flexuralStrength': 'Flex. Strength',
+  'laserAbsorption': 'Laser Abs.',
+  'laserReflectivity': 'Laser Refl.',
+  'ablationThreshold': 'Ablation Th.',
+  'laserDamageThreshold': 'Damage Th.',
+  'absorptionCoefficient': 'Absorption',
+  'refractiveIndex': 'Refr. Index',
+  'crystallineStructure': 'Crystal',
+  'oxidationResistance': 'Ox. Resist.',
+  'chemicalStability': 'Chem. Stable',
+  'electricalConductivity': 'Elec. Cond.',
+  'electricalResistivity': 'Elec. Resist.',
+  'dielectricConstant': 'Dielec. Const.',
+  'surfaceRoughness': 'Surf. Rough.',
+  'surfaceEnergy': 'Surf. Energy',
+  'moistureContent': 'Moisture',
+  'waterSolubility': 'Water Sol.',
+  'weatherResistance': 'Weather Res.',
+  'celluloseContent': 'Cellulose',
+  'grainSize': 'Grain Size'
+};
+
+// Extract cards from NEW categorized structure
+function extractCardsFromCategorizedProperties(
+  materialProperties: Record<string, PropertyCategory>,
+  categoryFilter?: string[]
+): { categoryId: string; category: PropertyCategory; cards: MetricsCardProps[] }[] {
+  const categorizedCards: { categoryId: string; category: PropertyCategory; cards: MetricsCardProps[] }[] = [];
+  
+  // Get category entries and sort by percentage (importance)
+  const categoryEntries = Object.entries(materialProperties)
+    .filter(([categoryId, category]) => {
+      // Validate category structure
+      if (!category || typeof category !== 'object') return false;
+      if (!('label' in category) || !('properties' in category)) return false;
+      
+      // Apply category filter if provided
+      if (categoryFilter && categoryFilter.length > 0) {
+        return categoryFilter.includes(categoryId);
+      }
+      
+      return true;
+    })
+    .sort(([, a], [, b]) => (b.percentage || 0) - (a.percentage || 0));
+  
+  // Extract cards for each category
+  categoryEntries.forEach(([categoryId, category]) => {
+    const cards: MetricsCardProps[] = [];
+    const categoryConfig = CATEGORY_CONFIG[categoryId as keyof typeof CATEGORY_CONFIG];
+    const categoryColor = categoryConfig?.color || '#6B7280';
+    
+    // Extract cards from properties with category color
+    Object.entries(category.properties).forEach(([propertyName, propertyValue]) => {
+      if (!propertyValue || typeof propertyValue !== 'object') return;
+      
+      // Skip if value is null/undefined
+      if (propertyValue.value === null || propertyValue.value === undefined) return;
+      
+      // Format title using mapping or convert camelCase
+      const title = TITLE_MAPPING[propertyName] || 
+        propertyName.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
+      
+      // Extract numeric value
+      const numericValue = typeof propertyValue.value === 'number' 
+        ? propertyValue.value 
+        : parseFloat(String(propertyValue.value));
+      
+      cards.push({
+        title,
+        value: !isNaN(numericValue) ? numericValue : propertyValue.value,
+        unit: propertyValue.unit || '',
+        min: propertyValue.min,
+        max: propertyValue.max,
+        color: categoryColor, // Category color applied to each card
+        confidence: propertyValue.confidence,
+        description: propertyValue.description,
+        fullPropertyName: propertyName,
+        categoryId,
+        categoryLabel: category.label
+      } as MetricsCardProps);
+    });
+    
+    if (cards.length > 0) {
+      categorizedCards.push({ categoryId, category, cards });
+    }
+  });
+  
+  return categorizedCards;
+}
+
+// Extract cards from machine settings (flat structure)
+function extractCardsFromMachineSettings(
+  machineSettings: Record<string, any>
 ): MetricsCardProps[] {
   const cards: MetricsCardProps[] = [];
-
-  let sourceData: Record<string, any> = {};
+  const defaultColor = '#4F46E5';
   
-  if (dataSource === 'materialProperties' && metadata.materialProperties) {
-    sourceData = metadata.materialProperties;
-  } else if (dataSource === 'machineSettings' && metadata.machineSettings) {
-    sourceData = metadata.machineSettings;
-  }
-
-  // Extract cards from the source data
-  let colorIndex = 0;
-  Object.entries(sourceData).forEach(([key, value]) => {
-    if (!value) return;
+  Object.entries(machineSettings).forEach(([key, value]) => {
+    if (!value || typeof value !== 'object') return;
     
-    // Skip min/max specific fields as they're handled separately
-    if (key.includes('Min') || key.includes('Max') || key.includes('Unit')) return;
+    // Extract value and unit
+    const numericValue = typeof value.value === 'number' 
+      ? value.value 
+      : parseFloat(String(value.value));
     
-    // Use semantic color mapping if available, otherwise use sequential colors
-    const color = METRIC_COLOR_MAP[key] || DEFAULT_COLORS[colorIndex % DEFAULT_COLORS.length];
-    colorIndex++;
-
-    // Name mapping for custom display titles
-    const TITLE_MAPPING: Record<string, string> = {
-      'fluenceThreshold': 'Fluence',
-      'thermalConductivity': 'Therm. Cond.',
-      'thermalExpansion': 'Therm. Exp.',
-      'thermalDiffusivity': 'Therm. Diff.',
-      'tensileStrength': 'Ten. Strength',
-      'youngsModulus': 'Y. Modulus',
-      'overlapRatio': 'Overlap',
-      'meltingPoint': 'Melting Point',
-      'powerRange': 'Power Range',
-      'pulseWidth': 'Pulse Width',
-      'repetitionRate': 'Repetition',
-      'scanSpeed': 'Scan'
-    };
-    
-    // Format title using mapping or convert camelCase to readable
-    const title = TITLE_MAPPING[key] || key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
-    
-    // Extract value, unit, min, max from nested object structure or fallback to flat structure
-    let displayValue: string;
-    let numericValue: number | undefined;
-    let unit = '';
-    
-    if (typeof value === 'object' && value !== null) {
-      if (Array.isArray(value)) {
-        displayValue = value.join(', ');
-        // Try to extract numeric value from first element
-        numericValue = value.length > 0 ? Number(value[0]) : undefined;
-      } else if (value.numeric !== undefined) {
-        // Standard structure: { numeric: 80, units: '%', min: 60, max: 100 }
-        displayValue = String(value.numeric);
-        numericValue = Number(value.numeric);
-        unit = value.units || value.unit || '';
-      } else if (value.value !== undefined) {
-        // Alternative structure: { value: 7.85, unit: 'g/cm³', min: 0.53, max: 22.6 }
-        displayValue = String(value.value);
-        numericValue = Number(value.value);
-        unit = value.unit || value.units || '';
-      } else if (value.current !== undefined) {
-        displayValue = String(value.current);
-        numericValue = Number(value.current);
-        unit = value.unit || value.units || '';
-      } else {
-        // For complex objects, try to convert to string
-        displayValue = value.toString && typeof value.toString === 'function' ? value.toString() : JSON.stringify(value);
-        numericValue = undefined;
-      }
-    } else {
-      // Simple value
-      displayValue = String(value);
-      numericValue = Number(value);
-    }
-    
-    // Fallback: try separate unit key approach if no unit found in object
-    if (!unit) {
-      const unitKey = `${key}Unit`;
-      unit = sourceData[unitKey] || '';
-    }
-    
-    // Extract min/max values from nested object structure or fallback to flat structure
-    let min: number | undefined;
-    let max: number | undefined;
-    
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      // Extract from standard structure (numeric/units/min/max)
-      min = value.min !== null && value.min !== undefined ? Number(value.min) : undefined;
-      max = value.max !== null && value.max !== undefined ? Number(value.max) : undefined;
-      
-      // Handle range arrays if present
-      if (value.range && Array.isArray(value.range) && value.range.length === 2) {
-        min = Number(value.range[0]);
-        max = Number(value.range[1]);
-      }
-    }
-    
-    // Fallback: try separate min/max keys if not found in object
-    if (min === undefined || max === undefined) {
-      const minKey = `${key}Min`;
-      const maxKey = `${key}Max`;
-      min = min ?? (sourceData[minKey] ? Number(sourceData[minKey]) : undefined);
-      max = max ?? (sourceData[maxKey] ? Number(sourceData[maxKey]) : undefined);
-    }
-    
-    // Add fallback min/max values for common metrics if still not found
-    if (min === undefined || max === undefined) {
-      const fallbackRanges: Record<string, [number, number]> = {
-        'density': [0.8, 8.0],
-        'powerRange': [50, 500],
-        'temperature': [20, 300],
-        'pressure': [0, 100],
-        'speed': [0, 1000],
-        'thickness': [0.1, 10],
-        'width': [1, 100],
-        'length': [1, 1000]
-      };
-      
-      if (fallbackRanges[key] && numericValue !== undefined && !isNaN(numericValue)) {
-        min = min ?? fallbackRanges[key][0];
-        max = max ?? fallbackRanges[key][1];
-      }
-    }
-    
-    // If we couldn't extract a numeric value but have min/max, try parsing the display value
-    if (isNaN(numericValue || 0) && min !== undefined && max !== undefined) {
-      const parsed = parseFloat(displayValue.replace(/[^\d.-]/g, ''));
-      if (!isNaN(parsed)) {
-        numericValue = parsed;
-      }
-    }
+    // Format title
+    const title = TITLE_MAPPING[key] || 
+      key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase());
     
     cards.push({
-      key,
       title,
-      value: numericValue !== undefined && !isNaN(numericValue) ? numericValue : displayValue,
-      unit,
-      min,
-      max,
-      color,
-      href: undefined, // Can add search link logic here if needed
-      fullPropertyName: key // Store the original property name for search
+      value: !isNaN(numericValue) ? numericValue : value.value,
+      unit: value.unit || '',
+      min: value.min,
+      max: value.max,
+      color: defaultColor,
+      confidence: value.confidence,
+      description: value.description,
+      fullPropertyName: key
     } as MetricsCardProps);
   });
-
+  
   return cards;
 }
 
-// MetricsGrid component - renders a grid of MetricsCard components
+// Category Header Component
+interface CategoryHeaderProps {
+  categoryId: string;
+  category: PropertyCategory;
+  cardCount: number;
+}
+
+function CategoryHeader({ categoryId, category, cardCount }: CategoryHeaderProps) {
+  const config = CATEGORY_CONFIG[categoryId as keyof typeof CATEGORY_CONFIG];
+  
+  return (
+    <div className="mb-4">
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+        {category.label}
+      </h3>
+    </div>
+  );
+}
+
+// MetricsGrid component - NEW CATEGORIZED VERSION
 export function MetricsGrid({
   metadata,
   dataSource = 'machineSettings',
@@ -210,131 +187,155 @@ export function MetricsGrid({
   description,
   titleFormat = 'default',
   layout = 'auto',
-  maxCards = 8,
   showTitle = true,
   className = '',
   baseHref,
-  searchable = true // Default to true for clickable cards
+  searchable = true,
+  categoryFilter,
+  defaultExpandedCategories = ['thermal', 'mechanical', 'optical_laser']
 }: MetricsGridProps) {
   
-  // Extract cards from frontmatter
-  const cards = extractCardsFromFrontmatter(metadata, dataSource);
-  
-  // Generate intelligent title using centralized section header mapping
+  // Generate intelligent title
   const displayTitle = titleFormat === 'comparison' && !title
     ? getIntelligentSectionHeader(dataSource, 'comparison', metadata)
     : title;
   
-  // Limit cards if maxCards is specified
-  const limitedCards = maxCards ? cards.slice(0, maxCards) : cards;
-  
   // Generate unique IDs for accessibility
   const sectionId = `metrics-section-${dataSource}`;
   const titleId = `metrics-title-${dataSource}`;
-  const descId = `metrics-desc-${dataSource}`;
-  const gridId = `metrics-grid-${dataSource}`;
   
-  // If no cards, show accessible empty state
-  if (limitedCards.length === 0) {
+  // Handle material properties with NEW categorized structure
+  if (dataSource === 'materialProperties' && metadata.materialProperties) {
+    const categorizedData = extractCardsFromCategorizedProperties(
+      metadata.materialProperties as Record<string, PropertyCategory>,
+      categoryFilter
+    );
+    
+    if (categorizedData.length === 0) {
+      return (
+        <section 
+          id={sectionId}
+          className="text-center py-8 text-gray-500 dark:text-gray-400"
+          role="status"
+          aria-live="polite"
+        >
+          <p>No material properties available</p>
+        </section>
+      );
+    }
+    
     return (
       <section 
         id={sectionId}
-        className="text-center py-8 text-gray-500 dark:text-gray-400"
-        role="status"
-        aria-live="polite"
+        className={`metrics-grid-container ${className}`}
+        role="region"
+        aria-labelledby={showTitle && displayTitle ? titleId : undefined}
       >
-        <p>No {dataSource === 'materialProperties' ? 'material properties' : 'machine settings'} available</p>
+        {/* Header */}
+        {showTitle && displayTitle && (
+          <div className="mb-6">
+            <SectionTitle title={displayTitle} />
+          </div>
+        )}
+        
+        {/* Categorized Property Groups */}
+        <div className="space-y-8">
+          {categorizedData.map(({ categoryId, category, cards }) => {
+            return (
+              <div key={categoryId} className="category-section">
+                <CategoryHeader
+                  categoryId={categoryId}
+                  category={category}
+                  cardCount={cards.length}
+                />
+                
+                <div 
+                  className={`grid gap-2 ${GRID_LAYOUTS[layout]}`}
+                  role="list"
+                  aria-label={`${category.label} properties`}
+                >
+                  {cards.map((card, index) => (
+                    <div 
+                      key={`${card.title}-${index}`}
+                      role="listitem"
+                    >
+                      <SingleMetricsCard
+                        {...card}
+                        searchable={searchable}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </section>
     );
   }
-
+  
+  // Handle machine settings (flat structure)
+  if (dataSource === 'machineSettings' && metadata.machineSettings) {
+    const cards = extractCardsFromMachineSettings(metadata.machineSettings);
+    
+    if (cards.length === 0) {
+      return (
+        <section 
+          id={sectionId}
+          className="text-center py-8 text-gray-500 dark:text-gray-400"
+          role="status"
+          aria-live="polite"
+        >
+          <p>No machine settings available</p>
+        </section>
+      );
+    }
+    
+    return (
+      <section 
+        id={sectionId}
+        className={`metrics-grid-container ${className}`}
+        role="region"
+        aria-labelledby={showTitle && displayTitle ? titleId : undefined}
+      >
+        {/* Header */}
+        {showTitle && displayTitle && (
+          <div className="mb-6">
+            <SectionTitle title={displayTitle} />
+          </div>
+        )}
+        
+        {/* Grid */}
+        <div 
+          className={`grid gap-2 ${GRID_LAYOUTS[layout]}`}
+          role="list"
+          aria-label={`${displayTitle || 'Machine Settings'} grid containing ${cards.length} settings`}
+        >
+          {cards.map((card, index) => (
+            <div 
+              key={`${card.title}-${index}`}
+              role="listitem"
+            >
+              <SingleMetricsCard
+                {...card}
+                searchable={searchable}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+  
+  // No data available
   return (
     <section 
       id={sectionId}
-      className={`metrics-grid-container ${className}`}
-      role="region"
-      aria-labelledby={showTitle && displayTitle ? titleId : undefined}
-      aria-describedby={description ? descId : undefined}
+      className="text-center py-8 text-gray-500 dark:text-gray-400"
+      role="status"
+      aria-live="polite"
     >
-      
-      {/* Enhanced header with proper semantic structure */}
-      {showTitle && displayTitle && (
-        <div className="mb-6">
-          <SectionTitle title={displayTitle} />
-        </div>
-      )}
-      
-      {/* Grid with comprehensive accessibility */}
-      <div 
-        id={gridId}
-        className={`grid gap-2 md:gap-4 lg:gap-6 ${GRID_LAYOUTS[layout]}`}
-        role="list"
-        aria-label={`${displayTitle || 'Metrics'} grid containing ${limitedCards.length} metric${limitedCards.length !== 1 ? 's' : ''}`}
-        
-        // Keyboard navigation support
-        onKeyDown={(e) => {
-          const cards = Array.from(e.currentTarget.querySelectorAll('[role="listitem"] article'));
-          const currentIndex = cards.findIndex(card => card.contains(document.activeElement));
-          
-          let nextIndex = currentIndex;
-          
-          switch (e.key) {
-            case 'ArrowRight':
-              nextIndex = Math.min(currentIndex + 1, cards.length - 1);
-              break;
-            case 'ArrowLeft':
-              nextIndex = Math.max(currentIndex - 1, 0);
-              break;
-            case 'ArrowDown':
-              // Move down one row (approximate)
-              const colsPerRow = Math.floor(e.currentTarget.offsetWidth / 200); // Estimate
-              nextIndex = Math.min(currentIndex + colsPerRow, cards.length - 1);
-              break;
-            case 'ArrowUp':
-              // Move up one row (approximate)
-              const colsPerRowUp = Math.floor(e.currentTarget.offsetWidth / 200);
-              nextIndex = Math.max(currentIndex - colsPerRowUp, 0);
-              break;
-            case 'Home':
-              nextIndex = 0;
-              break;
-            case 'End':
-              nextIndex = cards.length - 1;
-              break;
-            default:
-              return; // Don't prevent default for other keys
-          }
-          
-          if (nextIndex !== currentIndex) {
-            e.preventDefault();
-            (cards[nextIndex] as HTMLElement)?.focus();
-          }
-        }}
-      >
-        {limitedCards.map((card, index) => (
-          <div 
-            key={`${card.title}-${index}`}
-            role="listitem"
-            aria-setsize={limitedCards.length}
-            aria-posinset={index + 1}
-          >
-            <SingleMetricsCard
-              {...card}
-              searchable={searchable}
-            />
-          </div>
-        ))}
-      </div>
-      
-      {/* Skip to next section link */}
-      {limitedCards.length > 0 && (
-        <div className="sr-only">
-          <a href="#next-section" className="focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 rounded">
-            Skip metrics grid
-          </a>
-        </div>
-      )}
-      
+      <p>No data available</p>
     </section>
   );
 }

@@ -178,37 +178,28 @@ describe('Tags Component', () => {
     });
   });
 
-  describe('Categorized Display', () => {
-    const categorizedData = {
+    describe('Categorized Display', () => {
+    const yamlWithCategories = {
+      tags: ['electronics', 'aerospace', 'passivation'],
       categories: {
         industry: ['electronics', 'aerospace'],
-        process: ['passivation', 'polishing'],
-        other: ['expert']
+        process: ['passivation'],
       }
     };
 
     it('should show categorized view when showCategorized is enabled', () => {
-      render(
-        <Tags 
-          content={categorizedData} 
-          config={{ showCategorized: true }} 
-        />
-      );
+      render(<Tags content={yamlWithCategories} showCategorized={true} />);
       
-      // Component appends " Tags" to category names
-      expect(screen.getByText('Industry Tags')).toBeInTheDocument();
-      expect(screen.getByText('Process Tags')).toBeInTheDocument();
-      expect(screen.getByText('Other Tags')).toBeInTheDocument();
-      
+      // Tags are rendered without explicit category section headers
       expect(screen.getByText('Electronics')).toBeInTheDocument();
+      expect(screen.getByText('Aerospace')).toBeInTheDocument();
       expect(screen.getByText('Passivation')).toBeInTheDocument();
-      expect(screen.getByText('Expert')).toBeInTheDocument();
     });
 
     it('should show flat view when showCategorized is disabled', () => {
       render(
         <Tags 
-          content={categorizedData} 
+          content={yamlWithCategories} 
           config={{ showCategorized: false }} 
         />
       );

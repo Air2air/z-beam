@@ -4,137 +4,143 @@ subcategory: Polytetrafluoroethylene (PTFE)
 title: PTFE Laser Cleaning
 description: Laser cleaning parameters for Polytetrafluoroethylene (PTFE)
 materialProperties:
-  density:
-    value: 2.2
-    unit: g/cm³
-    confidence: 95
-    description: Density of virgin PTFE at room temperature
-    min: 0.85
-    max: 2.2
-  meltingPoint:
-    value: 327
-    unit: °C
-    confidence: 96
-    description: First-order transition temperature of PTFE
-    min: null
-    max: null
-  thermalConductivity:
-    value: 0.25
-    unit: W/m·K
-    confidence: 92
-    description: Thermal conductivity at room temperature
-    min: 0.02
-    max: 3
-  tensileStrength:
-    value: 25
-    unit: MPa
-    confidence: 85
-    description: Tensile strength of virgin PTFE
-    min: 10
-    max: 400
-  hardness:
-    value: 55
-    unit: Shore D
-    confidence: 84
-    description: Hardness on Shore D scale
-    min: Shore A 10
-    max: Shore D 90
-  youngsModulus:
-    value: 500
-    unit: MPa
-    confidence: 87
-    description: Young's modulus at room temperature
-    min: 0.01
-    max: 5
-  laserAbsorption:
-    value: 4.2
-    unit: '%'
-    confidence: 95
-    description: laserAbsorption from Materials.yaml
-    min: 0.1
-    max: 100
-  laserReflectivity:
-    value: 95.2
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 95
-  specificHeat:
-    value: 1050
-    unit: J/kg·K
-    confidence: 90
-    description: Specific heat capacity at room temperature
-    min: 1000
-    max: 2500
-  thermalDestructionPoint:
-    value: 327.0
-    unit: °C
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: 80
-    max: 400
-  thermalDestructionType:
-    value: 621.0
-    unit: °C
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.124
-    unit: mm²/s
-    confidence: 95
-    description: thermalDiffusivity from Materials.yaml
-    min: 0.05
-    max: 1
-  thermalExpansion:
-    value: 135
-    unit: ×10⁻⁶/°C
-    confidence: 88
-    description: Linear thermal expansion coefficient (20-100°C)
-    min: 10
-    max: 200
-  absorptionCoefficient:
-    value: 0.85
-    unit: cm⁻¹
-    confidence: 82
-    description: Absorption coefficient at 1064 nm wavelength
-    min: null
-    max: null
-  reflectivity:
-    value: 0.12
-    unit: dimensionless
-    confidence: 81
-    description: Reflectivity at 1064 nm wavelength
-    min: null
-    max: null
-  ablationThreshold:
-    value: 0.8
-    unit: J/cm²
-    confidence: 80
-    description: Laser ablation threshold for 1064 nm Nd:YAG laser
-    min: null
-    max: null
-  chemicalStability:
-    value: 99
-    unit: '% resistance'
-    confidence: 98
-    description: Chemical resistance to most industrial chemicals
-    min: null
-    max: null
-  crystallineStructure:
-    value: 95
-    unit: '% crystallinity'
-    confidence: 91
-    description: Typical crystallinity percentage in virgin PTFE
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 2.2
+        unit: g/cm³
+        confidence: 95
+        description: Density of virgin PTFE at room temperature
+        min: 0.85
+        max: 2.2
+      chemicalStability:
+        value: 99
+        unit: '% resistance'
+        confidence: 95
+        description: Chemical resistance rating against common solvents
+        min: null
+        max: null
+      crystallineStructure:
+        value: 95
+        unit: '% crystallinity'
+        confidence: 90
+        description: Typical crystallinity percentage in processed PTFE
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 55
+        unit: Shore D
+        confidence: 85
+        description: Hardness on Shore D scale
+        min: Shore A 10
+        max: Shore D 90
+      tensileStrength:
+        value: 25
+        unit: MPa
+        confidence: 90
+        description: Tensile strength of unfilled PTFE
+        min: 10
+        max: 400
+      youngsModulus:
+        value: 500
+        unit: MPa
+        confidence: 88
+        description: Young's modulus at room temperature
+        min: 0.01
+        max: 5
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 4.2
+        unit: '%'
+        confidence: 95
+        description: laserAbsorption from Materials.yaml
+        min: 0.1
+        max: 100
+      laserReflectivity:
+        value: 95.2
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 95
+      reflectivity:
+        value: 0.08
+        unit: dimensionless
+        confidence: 80
+        description: Reflectivity at 1064 nm wavelength
+        min: null
+        max: null
+      ablationThreshold:
+        value: 0.8
+        unit: J/cm²
+        confidence: 82
+        description: Ablation threshold for nanosecond pulses at 1064 nm
+        min: null
+        max: null
+      specificHeat:
+        value: 1050
+        unit: J/kg·K
+        confidence: 85
+        description: Specific heat capacity at room temperature
+        min: 1000
+        max: 2500
+      thermalConductivity:
+        value: 0.25
+        unit: W/m·K
+        confidence: 90
+        description: Thermal conductivity at room temperature
+        min: 0.02
+        max: 3
+      thermalDiffusivity:
+        value: 0.124
+        unit: mm²/s
+        confidence: 95
+        description: thermalDiffusivity from Materials.yaml
+        min: 0.05
+        max: 1
+      thermalExpansion:
+        value: 135
+        unit: ×10⁻⁶/°C
+        confidence: 88
+        description: Linear thermal expansion coefficient (20-100°C)
+        min: 10
+        max: 200
+      thermalDestruction:
+        point:
+          value: 327.0
+          unit: °C
+          confidence: 95
+          description: Thermal destruction point
+          min: 80
+          max: 400
+        type: decomposition
+      absorptionCoefficient:
+        value: 0.85
+        unit: cm⁻¹
+        confidence: 82
+        description: Absorption coefficient at 1064 nm wavelength
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
-- Medical Device Manufacturing
-- Chemical Processing
+- Medical Devices
 - Electronics Manufacturing
+- Chemical Processing
 - Food Processing
 - Automotive
 - Semiconductor Manufacturing
@@ -157,31 +163,31 @@ machineSettings:
     min: 532
     max: 10640
   spotSize:
-    value: 100
+    value: 50
     unit: μm
     confidence: 86
-    description: Beam spot diameter for precision cleaning
-    min: 50
-    max: 200
+    description: Beam spot diameter for precise PTFE cleaning
+    min: 30
+    max: 100
   repetitionRate:
     value: 20
     unit: kHz
     confidence: 87
-    description: Optimal repetition rate for efficient cleaning
+    description: Optimal repetition rate for efficient PTFE removal
     min: 10
     max: 50
   pulseWidth:
     value: 100
     unit: ns
     confidence: 85
-    description: Nanosecond pulse duration for controlled ablation
+    description: Nanosecond pulse duration for controlled ablation of PTFE
     min: 50
     max: 200
   scanSpeed:
     value: 500
     unit: mm/s
     confidence: 84
-    description: Optimal scanning speed for uniform cleaning
+    description: Optimal scanning speed for uniform PTFE removal
     min: 200
     max: 1000
   fluenceThreshold:
@@ -195,14 +201,14 @@ machineSettings:
     value: 50
     unit: '%'
     confidence: 83
-    description: Optimal beam overlap for uniform coverage
+    description: Optimal beam overlap for uniform PTFE cleaning
     min: 30
     max: 70
   passCount:
     value: 3
     unit: passes
     confidence: 85
-    description: Recommended number of passes for complete cleaning
+    description: Recommended number of passes for complete PTFE removal
     min: 1
     max: 5
 regulatoryStandards:
@@ -223,10 +229,6 @@ images:
     alt: Polytetrafluoroethylene surface undergoing laser cleaning showing precise
       contamination removal
     url: /images/material/polytetrafluoroethylene-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Polytetrafluoroethylene surface after laser cleaning
-      showing detailed surface structure
-    url: /images/material/polytetrafluoroethylene-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -252,6 +254,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
+subtitle: The biggest challenge with PTFE is its variable reaction to heat, so you
+  must use very specific power levels. This ensures the material's integrity remains
+  good-good throughout the cleaning process.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -287,17 +292,21 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the PTFE surface is obscured by a non-uniform
-    contaminant layer, typically 5-20 µm thick. This layer, composed of organic residues
-    and embedded particulates, disrupts the material's inherent micro-texture. The
-    contaminants form isolated islands and a discontinuous film, creating a topographically
-    complex and irregular surface profile that masks the underlying polymer morphology.
-    This layer significantly increases surface roughness and reduces the material's
-    functional performance.
-  afterText: Laser cleaning has fully restored the native PTFE surface. The contaminant
-    layer is completely removed, revealing the characteristic, low-roughness microstructure
-    of the polymer. The surface is now uniform and continuous, with the original,
-    finely textured morphology clearly visible and unobstructed.
+  beforeText: At 500x magnification, the polytetrafluoroethylene surface is obscured
+    by a discontinuous layer of amorphous carbonaceous contamination. This layer,
+    measuring 5-15 micrometers thick, adheres to the native PTFE microstructure, masking
+    its characteristic node-and-fibril texture. Particulate matter, including sub-10
+    micrometer silicate spheres, is embedded within this matrix. The contamination
+    creates a topographically varied surface with visible cracking and delamination
+    at the interface with the underlying polymer, indicating poor adhesion and compromised
+    surface integrity.
+  afterText: Laser cleaning effectively ablates the contamination layer, restoring
+    the intrinsic PTFE morphology. The underlying node-and-fibril structure, with
+    features on the order of 1-5 micrometers, is now fully exposed and undamaged.
+    The surface exhibits a uniform, micro-porous texture, free of residual carbonaceous
+    film or embedded particulates. This process eliminates the previous interfacial
+    cracking, resulting in a clean substrate with restored chemical and topographical
+    properties.
   description: Microscopic analysis of polytetrafluoroethylene surface before and
     after laser cleaning treatment
   alt: Microscopic view of polytetrafluoroethylene surface showing laser cleaning
@@ -331,9 +340,6 @@ tags:
 - surface-preparation
 - contamination-removal
 - maintenance
-- thermal-sensitive
 - industrial-grade
+- processed
 - ikmanda-roswati
-subtitle: Polytetrafluoroethylene can be very-very tricky to handle in laser operations.
-  Pay close attention to power adjustments, as even a slight overstep beyond 50 watts
-  might alter its smooth coating during treatment.

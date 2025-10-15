@@ -1,149 +1,162 @@
 name: Fused Silica
-category: Glass
-subcategory: Fused Silica
+category: glass
+subcategory: fused silica
 title: Fused Silica Laser Cleaning
 description: Laser cleaning parameters for Fused Silica
 materialProperties:
-  density:
-    value: 2.2
-    unit: g/cm³
-    confidence: 98
-    description: Density of high-purity fused silica at room temperature
-    min: 1.2
-    max: 7.6
-  meltingPoint:
-    value: 1713
-    unit: °C
-    confidence: 95
-    description: Softening point of fused silica
-    min: null
-    max: null
-  thermalConductivity:
-    value: 1.38
-    unit: W/m·K
-    confidence: 92
-    description: Thermal conductivity at room temperature
-    min: 0.02
-    max: 40
-  tensileStrength:
-    value: 50.0
-    unit: MPa
-    confidence: 95
-    description: tensileStrength from Materials.yaml
-    min: 30
-    max: 2000
-  hardness:
-    value: 6.5
-    unit: Mohs
-    confidence: 92
-    description: Mohs hardness scale
-    min: 4.5
-    max: 9
-  youngsModulus:
-    value: 73
-    unit: GPa
-    confidence: 94
-    description: Young's modulus of elasticity
-    min: 10
-    max: 400
-  laserAbsorption:
-    value: 0.91
-    unit: cm⁻¹
-    confidence: 95
-    description: laserAbsorption from Materials.yaml
-    min: 0.001
-    max: 10
-  laserReflectivity:
-    value: 3.6
-    unit: '%'
-    confidence: 95
-    description: laserReflectivity from Materials.yaml
-    min: 4
-    max: 92
-  specificHeat:
-    value: 740
-    unit: J/kg·K
-    confidence: 90
-    description: Specific heat capacity at room temperature
-    min: 500
-    max: 900
-  thermalDestructionPoint:
-    value: 1683.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: 500
-    max: 1723
-  thermalDestructionType:
-    value: 1973.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.85
-    unit: mm²/s
-    confidence: 88
-    description: Thermal diffusivity at room temperature
-    min: 0.01
-    max: 15
-  thermalExpansion:
-    value: 0.55
-    unit: ×10⁻⁶/°C
-    confidence: 96
-    description: Coefficient of thermal expansion (20-300°C)
-    min: 0.1
-    max: 15
-  flexuralStrength:
-    value: 50
-    unit: MPa
-    confidence: 85
-    description: Flexural strength of pristine material
-    min: null
-    max: null
-  refractiveIndex:
-    value: 1.458
-    unit: dimensionless
-    confidence: 98
-    description: Refractive index at 587.6 nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 40
-    unit: J/cm²
-    confidence: 85
-    description: Laser damage threshold for nanosecond pulses at 1064 nm
-    min: null
-    max: null
-  ablationThreshold:
-    value: 15
-    unit: J/cm²
-    confidence: 82
-    description: Ablation threshold for typical laser cleaning applications
-    min: null
-    max: null
-  chemicalStability:
-    value: 95
-    unit: '% resistance'
-    confidence: 90
-    description: Chemical resistance to acids and solvents
-    min: null
-    max: null
-  porosity:
-    value: 0
-    unit: '%'
-    confidence: 95
-    description: Non-porous amorphous structure
-    min: null
-    max: null
-  surfaceRoughness:
-    value: 0.5
-    unit: nm Ra
-    confidence: 88
-    description: Typical surface roughness for polished fused silica
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 2.2
+        unit: g/cm³
+        confidence: 98
+        description: Density of high-purity fused silica at room temperature
+        min: 1.2
+        max: 7.6
+      chemicalStability:
+        value: 99.5
+        unit: '% resistance'
+        confidence: 96
+        description: Chemical resistance to acids and solvents
+        min: null
+        max: null
+      porosity:
+        value: 0.1
+        unit: '%'
+        confidence: 88
+        description: Typical porosity in high-quality fused silica
+        min: null
+        max: null
+      surfaceRoughness:
+        value: 0.5
+        unit: nm Ra
+        confidence: 85
+        description: Typical surface roughness for polished fused silica
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 6.5
+        unit: Mohs
+        confidence: 92
+        description: Mohs hardness scale
+        min: 4.5
+        max: 9
+      tensileStrength:
+        value: 50.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 30
+        max: 2000
+      youngsModulus:
+        value: 73
+        unit: GPa
+        confidence: 94
+        description: Young's modulus of elasticity
+        min: 10
+        max: 400
+      flexuralStrength:
+        value: 50
+        unit: MPa
+        confidence: 88
+        description: Flexural strength of pristine material
+        min: null
+        max: null
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 0.91
+        unit: cm⁻¹
+        confidence: 95
+        description: laserAbsorption from Materials.yaml
+        min: 0.001
+        max: 10
+      laserReflectivity:
+        value: 3.6
+        unit: '%'
+        confidence: 95
+        description: laserReflectivity from Materials.yaml
+        min: 4
+        max: 92
+      refractiveIndex:
+        value: 1.458
+        unit: dimensionless
+        confidence: 99
+        description: Refractive index at 587.6 nm (nd)
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 15
+        unit: J/cm²
+        confidence: 85
+        description: Laser damage threshold for 1064 nm, 10 ns pulses
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 82
+        description: Ablation threshold for UV lasers (248 nm)
+        min: null
+        max: null
+      specificHeat:
+        value: 740
+        unit: J/kg·K
+        confidence: 90
+        description: Specific heat capacity at room temperature
+        min: 500
+        max: 900
+      thermalConductivity:
+        value: 1.38
+        unit: W/m·K
+        confidence: 92
+        description: Thermal conductivity at room temperature
+        min: 0.02
+        max: 40
+      thermalDiffusivity:
+        value: 0.85
+        unit: mm²/s
+        confidence: 89
+        description: Thermal diffusivity at room temperature
+        min: 0.01
+        max: 15
+      thermalExpansion:
+        value: 0.55
+        unit: ×10⁻⁶/°C
+        confidence: 96
+        description: Coefficient of thermal expansion (20-300°C)
+        min: 0.1
+        max: 15
+      thermalDestruction:
+        point:
+          value: 1683.0
+          unit: K
+          min: 500
+          max: 1723
+          confidence: 95
+          description: Thermal destruction point
+        type: melting
+      softeningPoint:
+        value: 1683.0
+        unit: K
+        confidence: 95
+        description: Temperature where glass transitions from rigid to pliable state
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Semiconductor Manufacturing
@@ -209,6 +222,15 @@ machineSettings:
       pulse overlap
     min: 200
     max: 1000
+  fluence:
+    value: 2.5
+    unit: J/cm²
+    confidence: 90
+    description: Energy density threshold for effective Fused Silica cleaning - Energy
+      density threshold for surface cleaning without inducing optical damage or stress
+      fractures
+    min: 1.0
+    max: 5.0
   overlapRatio:
     value: 50
     unit: '%'

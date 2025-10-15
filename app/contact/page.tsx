@@ -13,8 +13,8 @@ export const metadata = {
 export default async function ContactPage() {
   return (
     <Layout
-      title="Send Us a Message"
-      subtitle="Fill out the form below and our team will get back to you within 24 hours during business days. Please provide as much detail as possible about your laser cleaning requirements."
+      title="Let's talk!"
+      subtitle=""
       rightContent={null}
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">

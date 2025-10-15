@@ -23,6 +23,55 @@ interface SEOOptimizedCaptionProps {
 // Shorter alias for external use - Phase 1 (non-breaking)
 export type SEOCaptionProps = SEOOptimizedCaptionProps;
 
+/**
+ * Determines the appropriate thermal property label based on material type
+ * Materials that don't melt use different terminology for their thermal destruction point
+ */
+function getThermalPropertyLabel(materialName: string): { label: string; property: string } {
+  const material = materialName.toLowerCase();
+  
+  // Woods - decompose/pyrolyze
+  const woods = ['ash', 'bamboo', 'beech', 'birch', 'cedar', 'cherry', 'fir', 'hickory', 
+                 'mahogany', 'maple', 'mdf', 'oak', 'pine', 'plywood', 'poplar', 'redwood', 
+                 'rosewood', 'teak', 'walnut', 'willow'];
+  if (woods.some(wood => material.includes(wood))) {
+    return { label: 'Decomposition Point', property: 'decompositionTemperature' };
+  }
+  
+  // Ceramics and stones - sinter or decompose
+  const ceramicsAndStones = ['alumina', 'brick', 'calcite', 'cement', 'ceramic', 'concrete', 
+                              'marble', 'mortar', 'plaster', 'porcelain', 'stoneware', 'stucco', 
+                              'terracotta', 'zirconia'];
+  if (ceramicsAndStones.some(mat => material.includes(mat))) {
+    return { label: 'Sintering/Decomposition Point', property: 'sinteringTemperature' };
+  }
+  
+  // Rocks - no melting, just structural breakdown at high temps
+  const rocks = ['alabaster', 'basalt', 'bluestone', 'breccia', 'granite', 'limestone', 
+                 'porphyry', 'quartzite', 'sandstone', 'schist', 'serpentine', 'shale', 
+                 'slate', 'soapstone', 'travertine'];
+  if (rocks.some(rock => material.includes(rock))) {
+    return { label: 'Thermal Degradation Point', property: 'thermalDegradation' };
+  }
+  
+  // Composites and polymers - decompose, degrade, or pyrolyze
+  const polymers = ['carbon-fiber', 'epoxy', 'fiber-reinforced', 'fiberglass', 'gfrp', 'kevlar', 
+                    'phenolic', 'polyester', 'rubber', 'thermoplastic', 'urethane'];
+  if (polymers.some(poly => material.includes(poly))) {
+    return { label: 'Degradation Point', property: 'degradationTemperature' };
+  }
+  
+  // Glasses - soften before melting
+  const glasses = ['borosilicate', 'float-glass', 'fused-silica', 'lead-crystal', 'pyrex', 
+                   'quartz-glass', 'soda-lime', 'tempered-glass'];
+  if (glasses.some(glass => material.includes(glass))) {
+    return { label: 'Softening/Melting Point', property: 'softeningPoint' };
+  }
+  
+  // Default for metals and other materials that actually melt
+  return { label: 'Melting Point', property: 'meltingPoint' };
+}
+
 export function SEOOptimizedCaption({ 
   materialName, 
   frontmatter, 
@@ -31,6 +80,7 @@ export function SEOOptimizedCaption({
 }: SEOOptimizedCaptionProps) {
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
   const processId = `laser-cleaning-${materialName}-${Date.now()}`;
+  const thermalProperty = getThermalPropertyLabel(materialName);
   
   // Generate comprehensive JSON-LD structured data
   const structuredData = {
@@ -228,11 +278,28 @@ export function SEOOptimizedCaption({
             </div>
           )}
           
-          {frontmatter?.chemicalProperties?.meltingPoint && (
+          {(frontmatter?.materialProperties?.thermalDestructionPoint?.value || frontmatter?.chemicalProperties?.meltingPoint) && (
             <div className="property-item">
-              <span className="property-label">Melting Point:</span>
-              <span className="property-value ml-1" itemProp="meltingPoint">
-                {frontmatter.chemicalProperties.meltingPoint}
+              <span className="property-label">
+                {(() => {
+                  // Convert thermalDestructionType to proper display label
+                  const type = frontmatter?.materialProperties?.thermalDestructionType;
+                  if (type) {
+                    const normalized = type.toLowerCase();
+                    if (normalized.includes('melt')) return 'Melting Point';
+                    if (normalized.includes('sinter')) return 'Sintering Point';
+                    if (normalized.includes('decompos')) return 'Decomposition Point';
+                    if (normalized.includes('degrad')) return 'Degradation Point';
+                    if (normalized.includes('soften')) return 'Softening Point';
+                    if (normalized.includes('structural')) return 'Thermal Degradation Point';
+                  }
+                  return thermalProperty.label;
+                })()}:
+              </span>
+              <span className="property-value ml-1" itemProp={thermalProperty.property}>
+                {frontmatter?.materialProperties?.thermalDestructionPoint?.value 
+                  ? `${frontmatter.materialProperties.thermalDestructionPoint.value}${frontmatter.materialProperties.thermalDestructionPoint.unit || '°C'}`
+                  : frontmatter?.chemicalProperties?.meltingPoint}
               </span>
             </div>
           )}

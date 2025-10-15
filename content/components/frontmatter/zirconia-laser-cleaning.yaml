@@ -1,170 +1,176 @@
 name: Zirconia
-category: Ceramic
-subcategory: Zirconia
+category: ceramic
+subcategory: zirconia
 title: Zirconia Laser Cleaning
 description: Laser cleaning parameters for Zirconia
 materialProperties:
-  density:
-    value: 6.0
-    unit: g/cm³
-    confidence: 95
-    description: Density of yttria-stabilized zirconia (YSZ) at room temperature
-    min: 2.2
-    max: 19.3
-  meltingPoint:
-    value: 2715
-    unit: °C
-    confidence: 90
-    description: Melting point of pure zirconia (ZrO₂)
-    min: null
-    max: null
-  thermalConductivity:
-    value: 2.7
-    unit: W/m·K
-    confidence: 88
-    description: Thermal conductivity of YSZ at room temperature
-    min: 0.03
-    max: 2000.0
-  tensileStrength:
-    value: 500.0
-    unit: MPa
-    confidence: 95
-    description: tensileStrength from Materials.yaml
-    min: 50
-    max: 1000
-  hardness:
-    value: 12.5
-    unit: GPa
-    confidence: 92
-    description: Vickers hardness of sintered YSZ
-    min: 1.0
-    max: 10.0
-  youngsModulus:
-    value: 200
-    unit: GPa
-    confidence: 94
-    description: Young's modulus of fully dense YSZ
-    min: 50
-    max: 800
-  laserAbsorption:
-    value: 32.7
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.1
-    max: 50
-  laserReflectivity:
-    value: 52.3
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 90
-  specificHeat:
-    value: 455
-    unit: J/kg·K
-    confidence: 90
-    description: Specific heat capacity of zirconia at 25°C
-    min: 200
-    max: 1200
-  thermalDestructionPoint:
-    value: 2680.0
-    unit: °C
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: 1000
-    max: 3827
-  thermalDestructionType:
-    value: 200.0
-    unit: °C
-    confidence: 92
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.008
-    unit: cm²/s
-    confidence: 85
-    description: Thermal diffusivity of zirconia at room temperature
-    min: 0.05
-    max: 120
-  thermalExpansion:
-    value: 10.5
-    unit: ×10⁻⁶/K
-    confidence: 92
-    description: Coefficient of thermal expansion for YSZ (20-1000°C)
-    min: 0.1
-    max: 14
-  flexuralStrength:
-    value: 900
-    unit: MPa
-    confidence: 88
-    description: Flexural strength of high-purity YSZ
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 8500
-    unit: cm⁻¹
-    confidence: 82
-    description: Absorption coefficient at 1064 nm wavelength
-    min: null
-    max: null
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    confidence: 85
-    description: Reflectivity at 1064 nm for polished surface
-    min: null
-    max: null
-  refractiveIndex:
-    value: 2.2
-    unit: dimensionless
-    confidence: 90
-    description: Refractive index at visible wavelengths
-    min: null
-    max: null
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-    confidence: 80
-    description: Laser ablation threshold for nanosecond pulses at 1064 nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 15
-    unit: J/cm²
-    confidence: 82
-    description: Laser-induced damage threshold for femtosecond pulses
-    min: null
-    max: null
-  oxidationResistance:
-    value: Excellent
-    unit: qualitative
-    confidence: 95
-    description: Inherent oxidation resistance as oxide ceramic
-    min: null
-    max: null
-  chemicalStability:
-    value: High
-    unit: qualitative
-    confidence: 92
-    description: Chemical stability in most environments except strong acids
-    min: null
-    max: null
-  crystallineStructure:
-    value: Tetragonal
-    unit: crystal system
-    confidence: 94
-    description: Room temperature crystal structure of YSZ
-    min: null
-    max: null
-  porosity:
-    value: 2.5
-    unit: '%'
-    confidence: 88
-    description: Typical porosity for sintered technical zirconia
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 6.0
+        unit: g/cm³
+        confidence: 95
+        description: Density of yttria-stabilized zirconia (YSZ) at room temperature
+        min: 2.2
+        max: 19.3
+      oxidationResistance:
+        value: 95
+        unit: '%'
+        confidence: 95
+        description: Oxidation resistance rating in high-temperature environments
+        min: null
+        max: null
+      chemicalStability:
+        value: 90
+        unit: '%'
+        confidence: 92
+        description: Chemical stability in various environments
+        min: null
+        max: null
+      crystallineStructure:
+        value: Tetragonal
+        unit: n/a
+        confidence: 90
+        description: Primary crystalline phase in yttria-stabilized zirconia
+        min: null
+        max: null
+      porosity:
+        value: 2.0
+        unit: '%'
+        confidence: 85
+        description: Typical porosity in fully sintered zirconia
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 12.5
+        unit: GPa
+        confidence: 90
+        description: Vickers hardness of fully dense zirconia
+        min: 1.0
+        max: 10.0
+      tensileStrength:
+        value: 500.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 1000
+      youngsModulus:
+        value: 200
+        unit: GPa
+        confidence: 92
+        description: Young's modulus of elasticity for dense zirconia
+        min: 50
+        max: 800
+      flexuralStrength:
+        value: 900
+        unit: MPa
+        confidence: 88
+        description: Flexural strength of transformation-toughened zirconia
+        min: null
+        max: null
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 32.7
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.1
+        max: 50
+      laserReflectivity:
+        value: 52.3
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 90
+      reflectivity:
+        value: 0.15
+        unit: dimensionless
+        confidence: 82
+        description: Reflectivity at 1064 nm laser wavelength
+        min: null
+        max: null
+      refractiveIndex:
+        value: 2.2
+        unit: dimensionless
+        confidence: 90
+        description: Refractive index in visible spectrum
+        min: null
+        max: null
+      ablationThreshold:
+        value: 3.5
+        unit: J/cm²
+        confidence: 85
+        description: Laser ablation threshold for nanosecond pulses at 1064 nm
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 15.0
+        unit: J/cm²
+        confidence: 82
+        description: Damage threshold for short pulse lasers
+        min: null
+        max: null
+      specificHeat:
+        value: 455
+        unit: J/kg·K
+        confidence: 90
+        description: Specific heat capacity at room temperature
+        min: 200
+        max: 1200
+      thermalConductivity:
+        value: 2.7
+        unit: W/m·K
+        confidence: 90
+        description: Thermal conductivity of YSZ at room temperature
+        min: 0.03
+        max: 2000.0
+      thermalDiffusivity:
+        value: 0.008
+        unit: cm²/s
+        confidence: 85
+        description: Thermal diffusivity at room temperature
+        min: 0.05
+        max: 120
+      thermalExpansion:
+        value: 10.5
+        unit: ×10⁻⁶/K
+        confidence: 88
+        description: Coefficient of thermal expansion for stabilized zirconia
+        min: 0.1
+        max: 14
+      thermalDestruction:
+        point:
+          value: 2680.0
+          unit: °C
+          min: 1000
+          max: 3827
+          confidence: 95
+          description: Thermal destruction point
+        type: thermal_shock
+      absorptionCoefficient:
+        value: 0.85
+        unit: dimensionless
+        confidence: 85
+        description: Absorption coefficient for near-infrared wavelengths (1064 nm)
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Medical Devices
@@ -224,6 +230,14 @@ machineSettings:
       efficiency
     min: 300
     max: 1000
+  fluence:
+    value: 4.0
+    unit: J/cm²
+    confidence: 88
+    description: Energy density threshold for effective Zirconia cleaning - Energy
+      density threshold for effective contaminant removal from ceramic surfaces
+    min: 2.0
+    max: 8.0
   energyDensity:
     value: 5.1
     unit: J/cm²

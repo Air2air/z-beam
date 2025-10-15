@@ -1,171 +1,170 @@
 name: Phenolic Resin Composites
-category: Composite
-subcategory: Phenolic Resin Composites
+category: composite
+subcategory: phenolic resin composites
 title: Phenolic Resin Composites Laser Cleaning
 description: Laser cleaning parameters for Phenolic Resin Composites
 materialProperties:
-  density:
-    value: 1.35
-    unit: g/cm³
-    confidence: 92
-    description: Typical density for carbon-filled phenolic composites
-    min: 0.5
-    max: 8
-  meltingPoint:
-    value: N/A
-    unit: °C
-    confidence: 85
-    description: Phenolic resins decompose rather than melt; decomposition begins
-      around 300°C
-    min: null
-    max: null
-  thermalConductivity:
-    value: 0.35
-    unit: W/m·K
-    confidence: 88
-    description: Thermal conductivity of standard phenolic composite at room temperature
-    min: 0.1
-    max: 400
-  tensileStrength:
-    value: 60
-    unit: MPa
-    confidence: 90
-    description: Typical tensile strength for reinforced phenolic composites
-    min: 50
-    max: 6000
-  hardness:
-    value: 85
-    unit: Rockwell M
-    confidence: 84
-    description: Hardness measurement on Rockwell M scale
-    min: 20
-    max: 90
-  youngsModulus:
-    value: 8.5
-    unit: GPa
-    confidence: 88
-    description: Elastic modulus of phenolic composite materials
-    min: 0.001
-    max: 500
-  laserAbsorption:
-    value: 92.7
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.05
-    max: 200
-  laserReflectivity:
-    value: 38.5
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 2
-    max: 80
-  specificHeat:
-    value: 1450
-    unit: J/kg·K
-    confidence: 85
-    description: Specific heat capacity at room temperature
-    min: 500
-    max: 1500
-  thermalDestructionPoint:
-    value: 1073.15
-    unit: K
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: 150
-    max: 2000
-  thermalDestructionType:
-    value: 623.15
-    unit: K
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.18
-    unit: mm²/s
-    confidence: 82
-    description: Thermal diffusivity at room temperature
-    min: 0.1
-    max: 180
-  thermalExpansion:
-    value: 25
-    unit: μm/m·°C
-    confidence: 86
-    description: Coefficient of thermal expansion for phenolic composites
-    min: -1
-    max: 250
-  absorptionCoefficient:
-    value: 8500
-    unit: cm⁻¹
-    confidence: 82
-    description: Absorption coefficient at 1064 nm wavelength
-    min: null
-    max: null
-  reflectivity:
-    value: 0.12
-    unit: dimensionless
-    confidence: 80
-    description: Reflectivity at 1064 nm for typical phenolic composites
-    min: null
-    max: null
-  ablationThreshold:
-    value: 1.8
-    unit: J/cm²
-    confidence: 85
-    description: Laser ablation threshold for nanosecond pulses at 1064 nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 83
-    description: Damage threshold for continuous wave laser exposure
-    min: null
-    max: null
-  oxidationResistance:
-    value: High
-    unit: qualitative
-    confidence: 90
-    description: Excellent oxidation resistance up to 300°C
-    min: null
-    max: null
-  chemicalStability:
-    value: Excellent
-    unit: qualitative
-    confidence: 92
-    description: Resistant to most solvents, acids, and alkalis
-    min: null
-    max: null
-  porosity:
-    value: 2.5
-    unit: '%'
-    confidence: 81
-    description: Typical porosity percentage in molded phenolic composites
-    min: null
-    max: null
-  surfaceRoughness:
-    value: 0.8
-    unit: μm Ra
-    confidence: 84
-    description: Average surface roughness for molded phenolic surfaces
-    min: null
-    max: null
-  decompositionTemperature:
-    value: 300
-    unit: °C
-    confidence: 89
-    description: Onset temperature for thermal decomposition
-    min: null
-    max: null
-  charYield:
-    value: 55
-    unit: '%'
-    confidence: 87
-    description: Char yield at 800°C in inert atmosphere
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 1.35
+        unit: g/cm³
+        confidence: 92
+        description: Typical density for carbon-filled phenolic composites
+        min: 0.5
+        max: 8
+      porosity:
+        value: 3.5
+        unit: '%'
+        confidence: 85
+        description: Typical porosity in molded phenolic composites
+        min: null
+        max: null
+      surfaceRoughness:
+        value: 1.2
+        unit: μm Ra
+        confidence: 84
+        description: Average surface roughness for as-molded surfaces
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 85
+        unit: Shore D
+        confidence: 87
+        description: Hardness on Shore D scale for cured phenolic composites
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 70
+        unit: MPa
+        confidence: 90
+        description: Tensile strength for carbon fiber reinforced phenolic composites
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 15
+        unit: GPa
+        confidence: 89
+        description: Elastic modulus in tension for typical phenolic composites
+        min: 0.001
+        max: 500
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 92.7
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.05
+        max: 200
+      laserReflectivity:
+        value: 38.5
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 2
+        max: 80
+      reflectivity:
+        value: 0.12
+        unit: dimensionless
+        confidence: 81
+        description: Reflectivity at 1064 nm for typical carbon-filled phenolic
+        min: null
+        max: null
+      ablationThreshold:
+        value: 1.2
+        unit: J/cm²
+        confidence: 83
+        description: Laser ablation threshold for nanosecond pulses at 1064 nm
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 0.8
+        unit: J/cm²
+        confidence: 80
+        description: Damage threshold for continuous wave laser exposure
+        min: null
+        max: null
+      specificHeat:
+        value: 1200
+        unit: J/kg·K
+        confidence: 84
+        description: Specific heat capacity at room temperature
+        min: 500
+        max: 1500
+      thermalConductivity:
+        value: 0.25
+        unit: W/m·K
+        confidence: 88
+        description: Thermal conductivity of standard phenolic composite perpendicular
+          to fiber direction
+        min: 0.1
+        max: 400
+      thermalDiffusivity:
+        value: 0.18
+        unit: mm²/s
+        confidence: 92
+        description: thermalDiffusivity from Materials.yaml
+        min: 0.1
+        max: 180
+      thermalExpansion:
+        value: 25
+        unit: μm/m·°C
+        confidence: 86
+        description: Coefficient of thermal expansion at room temperature
+        min: -1
+        max: 250
+      decompositionTemperature:
+        value: 300
+        unit: °C
+        confidence: 91
+        description: Onset temperature for thermal decomposition
+        min: null
+        max: null
+      thermalDestruction:
+        point:
+          value: 1073.15
+          unit: K
+          min: 150
+          max: 2000
+          confidence: 92
+          description: Thermal destruction point
+        type: decomposition
+      degradationPoint:
+        value: 1073.15
+        unit: K
+        confidence: 92
+        description: Temperature where polymer matrix decomposes
+        min: null
+        max: null
+      absorptionCoefficient:
+        value: 8500
+        unit: cm⁻¹
+        confidence: 82
+        description: Absorption coefficient at 1064 nm wavelength
+        min: null
+        max: null
+      charYield:
+        value: 65
+        unit: '%'
+        confidence: 89
+        description: Char yield at 800°C under nitrogen atmosphere
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Automotive
@@ -221,6 +220,15 @@ machineSettings:
     description: Optimal scanning speed for uniform cleaning coverage
     min: 200
     max: 1000
+  fluence:
+    value: 3.0
+    unit: J/cm²
+    confidence: 86
+    description: Energy density threshold for effective Phenolic Resin Composites
+      cleaning - Energy density threshold for composite material cleaning considering
+      matrix and reinforcement properties
+    min: 1.5
+    max: 6.0
   fluenceThreshold:
     value: 2.5
     unit: J/cm²

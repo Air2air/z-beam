@@ -146,7 +146,7 @@ export function Navbar() {
 
           {/* Desktop: Contact Button on the right */}
           <div className="hidden md:block flex-shrink-0">
-            <ContactButton variant="inverted" size="md" />
+            <ContactButton variant="inverted" size="md" href="/contact" />
           </div>
           
           {/* Mobile: Hamburger on the right */}

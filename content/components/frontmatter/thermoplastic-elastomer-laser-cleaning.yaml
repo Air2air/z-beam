@@ -1,142 +1,155 @@
 name: Thermoplastic Elastomer
-category: Composite
-subcategory: Thermoplastic Elastomer
+category: composite
+subcategory: thermoplastic elastomer
 title: Thermoplastic Elastomer Laser Cleaning
 description: Laser cleaning parameters for Thermoplastic Elastomer
 materialProperties:
-  density:
-    value: 0.95
-    unit: g/cm³
-    confidence: 92
-    description: Typical density range for common TPE formulations
-    min: 0.5
-    max: 8
-  meltingPoint:
-    value: 180
-    unit: °C
-    confidence: 88
-    description: Average melting temperature for TPE materials
-    min: null
-    max: null
-  thermalConductivity:
-    value: 0.25
-    unit: W/m·K
-    confidence: 85
-    description: Low thermal conductivity typical of polymer materials
-    min: 0.1
-    max: 400
-  tensileStrength:
-    value: 25
-    unit: MPa
-    confidence: 91
-    description: Typical tensile strength for standard TPE grades
-    min: 50
-    max: 6000
-  hardness:
-    value: 75
-    unit: Shore A
-    confidence: 94
-    description: Typical hardness on Shore A scale for flexible TPE
-    min: 20
-    max: 90
-  youngsModulus:
-    value: 150
-    unit: MPa
-    confidence: 89
-    description: Elastic modulus showing flexible characteristics
-    min: 0.001
-    max: 500
-  laserAbsorption:
-    value: 92.5
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.05
-    max: 200
-  laserReflectivity:
-    value: 38.5
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 2
-    max: 80
-  specificHeat:
-    value: 1800
-    unit: J/kg·K
-    confidence: 87
-    description: Specific heat capacity at room temperature
-    min: 500
-    max: 1500
-  thermalDestructionPoint:
-    value: 473.15
-    unit: K
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: 150
-    max: 2000
-  thermalDestructionType:
-    value: 623.0
-    unit: K
-    confidence: 92
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.12
-    unit: mm²/s
-    confidence: 92
-    description: thermalDiffusivity from Materials.yaml
-    min: 0.1
-    max: 180
-  thermalExpansion:
-    value: 150
-    unit: ×10⁻⁶/°C
-    confidence: 90
-    description: Coefficient of linear thermal expansion
-    min: -1
-    max: 250
-  absorptionCoefficient:
-    value: 8500
-    unit: cm⁻¹
-    confidence: 82
-    description: Absorption coefficient at common laser wavelengths (1064 nm)
-    min: null
-    max: null
-  reflectivity:
-    value: 0.08
-    unit: dimensionless
-    confidence: 80
-    description: Low reflectivity at infrared laser wavelengths
-    min: null
-    max: null
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-    confidence: 85
-    description: Laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 0.8
-    unit: J/cm²
-    confidence: 83
-    description: Damage threshold for continuous wave laser exposure
-    min: null
-    max: null
-  oxidationResistance:
-    value: 85
-    unit: '% retention'
-    confidence: 88
-    description: Property retention after oxidative aging
-    min: null
-    max: null
-  surfaceRoughness:
-    value: 1.2
-    unit: μm Ra
-    confidence: 90
-    description: Typical surface roughness for molded TPE surfaces
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 0.95
+        unit: g/cm³
+        confidence: 92
+        description: Typical density range for common TPE formulations
+        min: 0.5
+        max: 8
+      oxidationResistance:
+        value: 85
+        unit: relative scale 0-100
+        confidence: 86
+        description: Good resistance to oxidative degradation under normal conditions
+        min: null
+        max: null
+      surfaceRoughness:
+        value: 1.2
+        unit: μm Ra
+        confidence: 88
+        description: Typical surface roughness for molded TPE components
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 75
+        unit: Shore A
+        confidence: 91
+        description: Typical hardness range for flexible TPE applications
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 25
+        unit: MPa
+        confidence: 90
+        description: Typical tensile strength for medium-hardness TPE
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 150
+        unit: MPa
+        confidence: 89
+        description: Elastic modulus showing flexible rubber-like behavior
+        min: 0.001
+        max: 500
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 92.5
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.05
+        max: 200
+      laserReflectivity:
+        value: 38.5
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 2
+        max: 80
+      reflectivity:
+        value: 0.12
+        unit: dimensionless
+        confidence: 83
+        description: Low reflectivity at common laser cleaning wavelengths (1064 nm)
+        min: null
+        max: null
+      ablationThreshold:
+        value: 1.2
+        unit: J/cm²
+        confidence: 80
+        description: Laser fluence threshold for material ablation at 1064 nm
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 0.8
+        unit: J/cm²
+        confidence: 81
+        description: Damage threshold for surface modification without ablation
+        min: null
+        max: null
+      specificHeat:
+        value: 1800
+        unit: J/kg·K
+        confidence: 84
+        description: Specific heat capacity at room temperature
+        min: 500
+        max: 1500
+      thermalConductivity:
+        value: 0.22
+        unit: W/m·K
+        confidence: 85
+        description: Low thermal conductivity typical of polymeric materials
+        min: 0.1
+        max: 400
+      thermalDiffusivity:
+        value: 0.12
+        unit: mm²/s
+        confidence: 92
+        description: thermalDiffusivity from Materials.yaml
+        min: 0.1
+        max: 180
+      thermalExpansion:
+        value: 150
+        unit: ×10⁻⁶/°C
+        confidence: 87
+        description: Coefficient of linear thermal expansion for TPE materials
+        min: -1
+        max: 250
+      thermalDestruction:
+        point:
+          value: 473.15
+          unit: K
+          min: 150
+          max: 2000
+          confidence: 92
+          description: Thermal destruction point
+        type: decomposition
+      degradationPoint:
+        value: 473.15
+        unit: K
+        confidence: 92
+        description: Temperature where polymer matrix decomposes
+        min: null
+        max: null
+      absorptionCoefficient:
+        value: 0.85
+        unit: dimensionless
+        confidence: 82
+        description: High absorption coefficient for near-infrared laser wavelengths
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Automotive
@@ -198,6 +211,15 @@ machineSettings:
     description: Optimal scanning speed for TPE cleaning efficiency
     min: 300
     max: 800
+  fluence:
+    value: 3.0
+    unit: J/cm²
+    confidence: 86
+    description: Energy density threshold for effective Thermoplastic Elastomer cleaning
+      - Energy density threshold for composite material cleaning considering matrix
+      and reinforcement properties
+    min: 1.5
+    max: 6.0
   energyDensity:
     value: 1.8
     unit: J/cm²

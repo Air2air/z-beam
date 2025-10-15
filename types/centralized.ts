@@ -482,6 +482,28 @@ export interface FrontmatterType {
     thermalConductivity?: string;
   };
   
+  // Material properties from YAML frontmatter
+  materialProperties?: {
+    [key: string]: {
+      value?: number | string;
+      unit?: string;
+      confidence?: number;
+      description?: string;
+      min?: number | null;
+      max?: number | null;
+    };
+  } & {
+    thermalDestructionPoint?: {
+      value?: number;
+      unit?: string;
+      confidence?: number;
+      description?: string;
+      min?: number | null;
+      max?: number | null;
+    };
+    thermalDestructionType?: string; // Label for thermal destruction type
+  };
+  
   // Caption data from frontmatter.caption
   caption?: CaptionDataStructure;
 }
@@ -526,10 +548,16 @@ export interface MetricsCardProps {
   className?: string;
   searchable?: boolean;
   fullPropertyName?: string;
+  
+  // NEW: Category context for categorized properties
+  categoryId?: string;
+  categoryLabel?: string;
+  confidence?: number;
+  description?: string;
 }
 
 /**
- * MetricsGrid component props - Enhanced version with full configuration
+ * MetricsGrid component props - Enhanced version with categorization support
  */
 export interface MetricsGridProps {
   metadata: ArticleMetadata;
@@ -538,11 +566,14 @@ export interface MetricsGridProps {
   description?: string;
   titleFormat?: 'default' | 'comparison';
   layout?: 'auto' | 'grid-2' | 'grid-3' | 'grid-4';
-  maxCards?: number;
   showTitle?: boolean;
   className?: string;
   baseHref?: string;
   searchable?: boolean; // Enable search functionality for all cards
+  
+  // NEW: Category filtering and expansion controls
+  categoryFilter?: string[]; // Filter to specific categories (e.g., ['thermal', 'mechanical'])
+  defaultExpandedCategories?: string[]; // Categories expanded by default
   
   // Legacy compatibility (for older Caption system usage)
   qualityMetrics?: QualityMetrics;
@@ -1110,22 +1141,67 @@ export interface SearchResultItem {
 // ===============================
 
 /**
- * Material properties - enhanced to support dual value system
+ * Property value structure for categorized frontmatter
+ * Individual property with value, unit, confidence, and range
+ */
+export interface PropertyValue {
+  value: number | string;
+  unit: string;
+  confidence: number;
+  description: string;
+  min?: number;
+  max?: number;
+  source?: string;
+}
+
+/**
+ * Property category structure for categorized frontmatter
+ * Groups related properties by scientific domain
+ */
+export interface PropertyCategory {
+  label: string;
+  description: string;
+  percentage: number;
+  properties: {
+    [propertyName: string]: PropertyValue;
+  };
+}
+
+/**
+ * Material properties - NEW CATEGORIZED STRUCTURE
+ * Properties organized by scientific domain (thermal, mechanical, optical, etc.)
+ * Supports both new categorized structure and legacy flat structure for backward compatibility
  */
 export interface MaterialProperties {
+  // NEW: Categorized structure (9 scientific categories)
+  thermal?: PropertyCategory;
+  mechanical?: PropertyCategory;
+  optical_laser?: PropertyCategory;
+  surface?: PropertyCategory;
+  electrical?: PropertyCategory;
+  chemical?: PropertyCategory;
+  environmental?: PropertyCategory;
+  compositional?: PropertyCategory;
+  physical_structural?: PropertyCategory;
+  other?: PropertyCategory;
+  
+  // LEGACY: Flat structure (deprecated but supported for backward compatibility)
   chemicalFormula?: string;
   materialType?: string;
   density?: string | PropertyWithUnits;
+  thermalDestructionPoint?: string | PropertyWithUnits;
+  thermalDestructionType?: string;
   meltingPoint?: string | PropertyWithUnits;
   thermalConductivity?: string | PropertyWithUnits;
   laserType?: string;
   wavelength?: string | PropertyWithUnits;
   fluenceRange?: string | PropertyWithUnits;
-  [key: string]: string | number | PropertyWithUnits | undefined;
+  [key: string]: string | number | PropertyWithUnits | PropertyCategory | undefined;
 }
 
 /**
  * Property with dual value system (text + numeric + units)
+ * @deprecated Legacy format - use PropertyValue for new categorized structure
  */
 export interface PropertyWithUnits {
   text?: string;

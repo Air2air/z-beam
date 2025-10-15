@@ -1,136 +1,155 @@
 name: Brick
-category: Masonry
-subcategory: Brick
+category: masonry
+subcategory: brick
 title: Brick Laser Cleaning
 description: Laser cleaning parameters for Brick
 materialProperties:
-  density:
-    value: 1.8
-    unit: g/cm³
-    confidence: 92
-    description: Typical density of fired clay brick
-    min: 0.6
-    max: 2.8
-  meltingPoint:
-    value: 1450
-    unit: °C
-    confidence: 88
-    description: Approximate melting point of brick clay composition
-    min: null
-    max: null
-  thermalConductivity:
-    value: 0.72
-    unit: W/m·K
-    confidence: 85
-    description: Thermal conductivity of standard clay brick
-    min: 0.08
-    max: 2.5
-  tensileStrength:
-    value: 3.4
-    unit: MPa
-    confidence: 95
-    description: tensileStrength from Materials.yaml
-    min: 1
-    max: 15
-  hardness:
-    value: 4.5
-    unit: Mohs
-    confidence: 82
-    description: Mohs hardness scale for fired clay brick
-    min: 2
-    max: 6
-  youngsModulus:
-    value: 16.7
-    unit: GPa
-    confidence: 92
-    description: youngsModulus from Materials.yaml
-    min: 5
-    max: 50
-  compressiveStrength:
-    value: 35
-    unit: MPa
-    confidence: 88
-    description: Average compressive strength of structural brick
-    min: null
-    max: null
-  laserAbsorption:
-    value: 8.2
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.5
-    max: 15
-  laserReflectivity:
-    value: 36.2
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 10
-    max: 70
-  specificHeat:
-    value: 840
-    unit: J/kg·K
-    confidence: 84
-    description: Specific heat capacity at room temperature
-    min: 700
-    max: 1100
-  thermalDestructionPoint:
-    value: 950.0
-    unit: °C
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: 500
-    max: 1200
-  thermalDestructionType:
-    value: 573.0
-    unit: °C
-    confidence: 92
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.48
-    unit: mm²/s
-    confidence: 82
-    description: Thermal diffusivity calculated from thermal properties
-    min: 0.1
-    max: 1
-  thermalExpansion:
-    value: 5.5
-    unit: ×10⁻⁶/°C
-    confidence: 82
-    description: Coefficient of thermal expansion for fired clay brick
-    min: 5
-    max: 20
-  porosity:
-    value: 25
-    unit: '%'
-    confidence: 90
-    description: Typical porosity percentage in fired clay bricks
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 0.85
-    unit: dimensionless
-    confidence: 85
-    description: Optical absorption coefficient for common laser wavelengths (1064
-      nm)
-    min: null
-    max: null
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    confidence: 83
-    description: Surface reflectivity at typical laser cleaning wavelengths
-    min: null
-    max: null
-  ablationThreshold:
-    value: 1.2
-    unit: J/cm²
-    confidence: 80
-    description: Approximate laser ablation threshold for ns-pulse lasers
-    min: null
-    max: null
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      compressiveStrength:
+        value: 35
+        unit: MPa
+        confidence: 93
+        description: Average compressive strength of structural brick
+        min: null
+        max: null
+      hardness:
+        value: 4.5
+        unit: Mohs
+        confidence: 90
+        description: Mohs hardness scale for fired clay brick
+        min: 2
+        max: 6
+      tensileStrength:
+        value: 3.5
+        unit: MPa
+        confidence: 87
+        description: Direct tensile strength of brick material
+        min: 1
+        max: 15
+      youngsModulus:
+        value: 20
+        unit: GPa
+        confidence: 88
+        description: Elastic modulus of fired clay brick
+        min: 5
+        max: 50
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 1.8
+        unit: g/cm³
+        confidence: 92
+        description: Average bulk density of fired clay brick
+        min: 0.6
+        max: 2.8
+      porosity:
+        value: 25
+        unit: '%'
+        confidence: 91
+        description: Typical porosity percentage in fired clay brick
+        min: null
+        max: null
+      chemicalStability:
+        value: 8
+        unit: 1-10 scale
+        confidence: 92
+        description: Chemical stability rating in atmospheric conditions
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 8.2
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.5
+        max: 15
+      laserReflectivity:
+        value: 36.2
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 10
+        max: 70
+      reflectivity:
+        value: 0.15
+        unit: dimensionless
+        confidence: 82
+        description: Surface reflectivity at typical laser cleaning wavelengths
+        min: null
+        max: null
+      ablationThreshold:
+        value: 1.2
+        unit: J/cm²
+        confidence: 83
+        description: Approximate laser ablation threshold for ns-pulse lasers
+        min: null
+        max: null
+      specificHeat:
+        value: 840
+        unit: J/kg·K
+        confidence: 89
+        description: Specific heat capacity at room temperature
+        min: 700
+        max: 1100
+      thermalConductivity:
+        value: 0.72
+        unit: W/m·K
+        confidence: 90
+        description: Thermal conductivity of common fired clay brick
+        min: 0.08
+        max: 2.5
+      thermalDiffusivity:
+        value: 0.48
+        unit: mm²/s
+        confidence: 86
+        description: Thermal diffusivity calculated from thermal properties
+        min: 0.1
+        max: 1
+      thermalExpansion:
+        value: 5.5
+        unit: 10⁻⁶/K
+        confidence: 85
+        description: Coefficient of thermal expansion for clay brick
+        min: 5
+        max: 20
+      thermalDestruction:
+        point:
+          value: 950.0
+          unit: °C
+          min: 500
+          max: 1200
+          confidence: 92
+          description: Thermal destruction point
+        type: spalling
+      thermalDegradationPoint:
+        value: 950.0
+        unit: °C
+        confidence: 92
+        description: Temperature where structural integrity fails
+        min: null
+        max: null
+      absorptionCoefficient:
+        value: 0.85
+        unit: dimensionless
+        confidence: 84
+        description: Optical absorption coefficient for common laser wavelengths
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Cultural Heritage
 - Construction and Restoration
@@ -191,6 +210,14 @@ machineSettings:
       surface
     min: 200
     max: 1000
+  fluence:
+    value: 3.0
+    unit: J/cm²
+    confidence: 85
+    description: Energy density threshold for effective Brick cleaning - Energy density
+      threshold for effective cleaning of porous masonry materials
+    min: 1.5
+    max: 6.0
   energyDensity:
     value: 12.7
     unit: J/cm²

@@ -298,11 +298,19 @@ Errors saved to: `.vercel-deployment-error.log`
 
 ### Documentation
 
+**Deployment:**
 - **[Complete Guide](./docs/deployment/README.md)** - Full deployment system documentation
 - **[Testing Guide](./docs/deployment/TESTING.md)** - Test suite (46 tests)
 - **[Troubleshooting](./docs/DEPLOYMENT_TROUBLESHOOTING.md)** - Common issues
 - **[Fixes Summary](./DEPLOYMENT_FIXES_SUMMARY.md)** - Recent v2.1 fixes
 - **[Changelog](./DEPLOYMENT_CHANGELOG.md)** - Version history
+
+**Categorized Material Properties (NEW ⭐):**
+- **[Quick Start](./docs/CATEGORIZED_PROPERTIES_README.md)** - Overview and getting started
+- **[Frontend Implementation](./docs/CATEGORIZED_PROPERTIES_FRONTEND_IMPLEMENTATION.md)** - Technical details
+- **[Migration Guide](./docs/MIGRATION_CATEGORIZED_PROPERTIES.md)** - Flat to categorized migration
+- **[Testing Guide](./docs/METRICSCARD_CATEGORIZED_TESTING.md)** - Test suite and strategies
+- **[Sample File](./content/components/frontmatter/aluminum-test-categorized.yaml)** - Complete example
 
 **System Status**: ✅ Operational (100% success rate since v2.1)
 

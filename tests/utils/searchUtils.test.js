@@ -21,7 +21,7 @@ describe('Search Utils', () => {
       expect(getMaterialColor('composite')).toBe('orange');
       expect(getMaterialColor('semiconductor')).toBe('red');
       expect(getMaterialColor('compound')).toBe('gray');
-      expect(getMaterialColor('other')).toBe('blue'); // Updated: canonical version returns 'blue' for 'other'
+      expect(getMaterialColor('other')).toBe('gray'); // badgeColors.ts returns 'gray' for 'other'
     });
 
     test('should handle case insensitive input', () => {

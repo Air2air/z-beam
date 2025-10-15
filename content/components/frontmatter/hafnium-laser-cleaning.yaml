@@ -1,146 +1,153 @@
 name: Hafnium
-category: Metal
+category: metal
 subcategory: refractory
 title: Hafnium Laser Cleaning
 description: Laser cleaning parameters for Hafnium
 materialProperties:
-  density:
-    value: 13.31
-    unit: g/cm³
-    confidence: 98
-    description: Density of pure hafnium at room temperature
-    min: 0.53
-    max: 22.6
-  meltingPoint:
-    value: 2233
-    unit: °C
-    confidence: 97
-    description: Melting point of pure hafnium
-    min: null
-    max: null
-  thermalConductivity:
-    value: 23.0
-    unit: W/m·K
-    confidence: 92
-    description: Thermal conductivity at room temperature
-    min: 6.0
-    max: 429.0
-  tensileStrength:
-    value: 380
-    unit: MPa
-    confidence: 88
-    description: Tensile strength of annealed hafnium
-    min: 3.0
-    max: 3000.0
-  hardness:
-    value: 170
-    unit: HV
-    confidence: 90
-    description: Vickers hardness of annealed hafnium
-    min: 0.5
-    max: 3500
-  youngsModulus:
-    value: 78
-    unit: GPa
-    confidence: 92
-    description: Young's modulus of elasticity
-    min: 5
-    max: 411
-  laserAbsorption:
-    value: 42.7
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.02
-    max: 100
-  laserReflectivity:
-    value: 48.2
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 98
-  specificHeat:
-    value: 144
-    unit: J/kg·K
-    confidence: 88
-    description: Specific heat capacity at room temperature
-    min: 100
-    max: 900
-  thermalDestructionPoint:
-    value: 2222.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: -38.8
-    max: 3422
-  thermalDestructionType:
-    value: 2503.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 12.0
-    unit: mm²/s
-    confidence: 85
-    description: Thermal diffusivity at room temperature
-    min: 0.2
-    max: 174
-  thermalExpansion:
-    value: 5.9
-    unit: μm/m·K
-    confidence: 90
-    description: Coefficient of thermal expansion (20-100°C)
-    min: 0.5
-    max: 29.1
-  reflectivity:
-    value: 45
-    unit: '%'
-    confidence: 82
-    description: Approximate reflectivity at common laser wavelengths (1-10μm)
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 1200000.0
-    unit: m⁻¹
-    confidence: 80
-    description: Estimated absorption coefficient for IR lasers
-    min: null
-    max: null
-  ablationThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 85
-    description: Estimated laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  oxidationResistance:
-    value: Moderate
-    unit: qualitative
-    confidence: 88
-    description: Forms protective oxide layer but oxidizes above 400°C
-    min: null
-    max: null
-  crystallineStructure:
-    value: HCP
-    unit: crystal system
-    confidence: 95
-    description: Hexagonal close-packed structure at room temperature
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 13.31
+        unit: g/cm³
+        confidence: 98
+        description: Density of pure hafnium at room temperature
+        min: 0.53
+        max: 22.6
+      crystallineStructure:
+        value: HCP
+        unit: crystal system
+        confidence: 95
+        description: Hexagonal close-packed structure at room temperature
+        min: null
+        max: null
+      oxidationResistance:
+        value: High
+        unit: qualitative
+        confidence: 85
+        description: Forms protective oxide layer, good oxidation resistance
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 170
+        unit: HV
+        confidence: 90
+        description: Vickers hardness of annealed hafnium
+        min: 0.5
+        max: 3500
+      tensileStrength:
+        value: 380
+        unit: MPa
+        confidence: 88
+        description: Ultimate tensile strength of annealed hafnium
+        min: 3.0
+        max: 3000.0
+      youngsModulus:
+        value: 78
+        unit: GPa
+        confidence: 92
+        description: Young's modulus of elasticity
+        min: 5
+        max: 411
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 42.7
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.02
+        max: 100
+      laserReflectivity:
+        value: 48.2
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 98
+      reflectivity:
+        value: 0.45
+        unit: dimensionless
+        confidence: 80
+        description: Estimated reflectivity at common laser wavelengths
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 82
+        description: Estimated laser ablation threshold for nanosecond pulses
+        min: null
+        max: null
+      specificHeat:
+        value: 144
+        unit: J/kg·K
+        confidence: 88
+        description: Specific heat capacity at room temperature
+        min: 100
+        max: 900
+      thermalConductivity:
+        value: 23.0
+        unit: W/m·K
+        confidence: 92
+        description: Thermal conductivity at room temperature
+        min: 6.0
+        max: 429.0
+      thermalDiffusivity:
+        value: 12.0
+        unit: mm²/s
+        confidence: 85
+        description: Thermal diffusivity at room temperature
+        min: 0.2
+        max: 174
+      thermalExpansion:
+        value: 5.9
+        unit: μm/m·K
+        confidence: 90
+        description: Coefficient of linear thermal expansion (20-100°C)
+        min: 0.5
+        max: 29.1
+      thermalDestruction:
+        point:
+          value: 2222.0
+          unit: K
+          min: -38.8
+          max: 3422
+          confidence: 95
+          description: Thermal destruction point
+        type: melting
+      absorptionCoefficient:
+        value: 0.65
+        unit: dimensionless
+        confidence: 82
+        description: Estimated absorption coefficient for common laser wavelengths
+          (1.06 μm)
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
-- Aerospace
-- Nuclear Energy
-- Medical Device Manufacturing
-- Chemical Processing
+- Nuclear Reactor Components
+- Aerospace Turbine Components
+- Chemical Processing Equipment
+- Medical Implant Manufacturing
 - Electronics and Semiconductors
-- Marine and Offshore
-- Research and Laboratory
+- Marine Propulsion Systems
+- Research Laboratory Equipment
 - Additive Manufacturing
-- Defense and Military
-- Cultural Heritage Preservation
+- Cultural Heritage Conservation
+- Energy Storage Systems
 machineSettings:
   powerRange:
     value: 90
@@ -153,14 +160,14 @@ machineSettings:
     value: 1064
     unit: nm
     confidence: 88
-    description: Near-IR wavelength for efficient Hafnium processing with good absorption
-    min: 1030
-    max: 1070
+    description: Near-IR wavelength optimized for Hafnium's absorption characteristics
+    min: 532
+    max: 1064
   spotSize:
     value: 80
     unit: μm
     confidence: 84
-    description: Beam spot diameter for precise cleaning with adequate coverage
+    description: Beam spot diameter for precise cleaning control
     min: 50
     max: 120
   repetitionRate:
@@ -180,29 +187,38 @@ machineSettings:
   scanSpeed:
     value: 500
     unit: mm/s
-    confidence: 83
-    description: Optimal scanning speed for uniform cleaning efficiency
+    confidence: 86
+    description: Optimal scanning speed for uniform surface treatment
     min: 300
     max: 800
+  fluence:
+    value: 6.0
+    unit: J/cm²
+    confidence: 92
+    description: Energy density threshold for effective Hafnium cleaning - Energy
+      density threshold for effective oxide and contaminant removal from metallic
+      surfaces
+    min: 3.0
+    max: 12.0
   fluenceThreshold:
     value: 2.5
     unit: J/cm²
     confidence: 89
-    description: Minimum fluence required for effective Hafnium oxide removal
+    description: Minimum fluence required for effective Hafnium surface cleaning
     min: 1.8
     max: 4.0
   overlapRatio:
     value: 50
     unit: '%'
-    confidence: 86
-    description: Optimal beam overlap for uniform cleaning coverage
+    confidence: 83
+    description: Optimal beam overlap for complete surface coverage
     min: 40
     max: 70
   passCount:
     value: 3
     unit: passes
-    confidence: 82
-    description: Recommended number of passes for complete surface cleaning
+    confidence: 85
+    description: Recommended number of passes for thorough cleaning
     min: 2
     max: 5
 regulatoryStandards:
@@ -222,10 +238,6 @@ images:
   hero:
     alt: Hafnium surface undergoing laser cleaning showing precise contamination removal
     url: /images/material/hafnium-laser-cleaning-hero.jpg
-  micro:
-    alt: Microscopic view of Hafnium surface after laser cleaning showing detailed
-      surface structure
-    url: /images/material/hafnium-laser-cleaning-micro.jpg
 environmentalImpact:
 - benefit: Chemical Waste Elimination
   description: Eliminates hazardous chemical waste streams
@@ -251,6 +263,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
+subtitle: Hafnium's unique reactivity and variable oxide layer demand careful attention.
+  This requires tailored laser settings to effectively remove contaminants without
+  damaging the underlying material.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -288,21 +303,19 @@ outcomeMetrics:
 caption:
   beforeText: At 500x magnification, the hafnium surface is obscured by a non-uniform
     contamination layer. This layer, ranging from 5 to 20 micrometers in thickness,
-    consists of embedded carbonaceous particulates and a discontinuous oxide scale.
-    The underlying metal's HCP crystalline structure is entirely concealed. The topography
-    is irregular, with contamination accumulating in the micro-valleys of the mechanically
-    finished surface, creating a textured, matte appearance that significantly increases
-    light scattering and reduces the native metallic luster. This layer compromises
-    the material's surface-dependent properties.
-  afterText: Following laser cleaning, the 500x view reveals a dramatic transformation
-    to the pristine hafnium substrate. The contamination layer has been completely
-    removed via ablation, exposing the native, fine-grained metallic surface. The
-    topography now shows the original machining marks and grain boundaries with high
-    clarity, free from particulate inclusions. The surface reflectivity has increased
-    significantly, measured by a reduction in diffuse light scattering, which is a
-    direct result of restoring the metal's inherent 45% reflectivity. This process
-    achieves a clean, oxide-controlled surface without mechanical deformation or media
-    residue, restoring the material's baseline performance characteristics.
+    consists of embedded particulates and a discontinuous oxide scale. The underlying
+    metal's HCP crystalline structure is entirely hidden. The topography is irregular,
+    with contamination accumulating in the micro-valleys of the machined surface texture,
+    creating a matte, dark appearance that significantly increases light absorption
+    and scattering. This layer compromises the material's inherent properties and
+    provides initiation sites for further corrosion.
+  afterText: Following laser cleaning, the surface at 500x magnification reveals the
+    native hafnium microstructure. The contamination layer has been completely removed
+    via ablation, exposing the fine, uniform grain boundaries of the HCP lattice.
+    The surface texture is now defined by the metal's intrinsic micro-topography,
+    with a consistent, light-grey metallic lustre. The reflectivity has increased
+    to the material's inherent 45-48%, and the surface is free of embedded oxides
+    and particulates, restoring the substrate's baseline mechanical and chemical properties.
   description: Microscopic analysis of hafnium surface before and after laser cleaning
     treatment
   alt: Microscopic view of hafnium surface showing laser cleaning effects
@@ -338,6 +351,3 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
-subtitle: Hafnium’s high melting point often throws a curveball during laser treatment.
-  Adjust your power levels below 150 watts initially, then ramp up slowly to protect
-  the metal’s dense, refractory finish from uneven heating.

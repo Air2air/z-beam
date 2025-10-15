@@ -1,142 +1,162 @@
 name: Titanium
-category: Metal
+category: metal
 subcategory: specialty
 title: Titanium Laser Cleaning
 description: Laser cleaning parameters for Titanium
 materialProperties:
-  density:
-    value: 4.51
-    unit: g/cm³
-    confidence: 98
-    description: Density of pure titanium at room temperature
-    min: 0.53
-    max: 22.6
-  meltingPoint:
-    value: 1668
-    unit: °C
-    confidence: 97
-    description: Melting point of pure titanium
-    min: null
-    max: null
-  thermalConductivity:
-    value: 21.9
-    unit: W/m·K
-    confidence: 92
-    description: Thermal conductivity of pure titanium at 25°C
-    min: 6.0
-    max: 429.0
-  tensileStrength:
-    value: 240
-    unit: MPa
-    confidence: 85
-    description: Ultimate tensile strength of commercially pure titanium
-    min: 3.0
-    max: 3000.0
-  hardness:
-    value: 150
-    unit: HV
-    confidence: 87
-    description: Vickers hardness of pure titanium
-    min: 0.5
-    max: 3500
-  youngsModulus:
-    value: 116
-    unit: GPa
-    confidence: 94
-    description: Young's modulus of elasticity
-    min: 5
-    max: 411
-  laserAbsorption:
-    value: 47.5
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.02
-    max: 100
-  laserReflectivity:
-    value: 52.5
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 98
-  specificHeat:
-    value: 522
-    unit: J/kg·K
-    confidence: 91
-    description: Specific heat capacity at 25°C
-    min: 100
-    max: 900
-  thermalExpansion:
-    value: 8.6
-    unit: μm/m·°C
-    confidence: 90
-    description: Coefficient of thermal expansion (20-100°C)
-    min: 0.5
-    max: 29.1
-  electricalResistivity:
-    value: 48.0
-    unit: μΩ·cm
-    confidence: 96
-    description: electricalResistivity from Materials.yaml
-    min: null
-    max: null
-  corrosionResistance:
-    value: 9.3
-    unit: rating_0_10
-    confidence: 98
-    description: corrosionResistance from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 7.2
-    unit: mm²/s
-    confidence: 88
-    description: Thermal diffusivity at room temperature
-    min: 0.2
-    max: 174
-  reflectivity:
-    value: 65
-    unit: '%'
-    confidence: 82
-    description: Approximate reflectivity at common laser wavelengths (500-1100 nm)
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 1200000.0
-    unit: m⁻¹
-    confidence: 80
-    description: Absorption coefficient for near-infrared lasers
-    min: null
-    max: null
-  ablationThreshold:
-    value: 0.8
-    unit: J/cm²
-    confidence: 83
-    description: Approximate laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  oxidationResistance:
-    value: High
-    unit: qualitative
-    confidence: 95
-    description: Excellent oxidation resistance due to protective oxide layer formation
-    min: null
-    max: null
-  crystallineStructure:
-    value: HCP
-    unit: crystal system
-    confidence: 98
-    description: Hexagonal close-packed structure at room temperature (alpha phase)
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 1.5
-    unit: J/cm²
-    confidence: 81
-    description: Laser-induced damage threshold for short pulses
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 4.51
+        unit: g/cm³
+        confidence: 98
+        description: Density of commercially pure titanium at room temperature
+        min: 0.53
+        max: 22.6
+      electricalResistivity:
+        value: 48.0
+        unit: μΩ·cm
+        confidence: 96
+        description: electricalResistivity from Materials.yaml
+        min: null
+        max: null
+      corrosionResistance:
+        value: 9.3
+        unit: rating_0_10
+        confidence: 98
+        description: corrosionResistance from Materials.yaml
+        min: null
+        max: null
+      oxidationResistance:
+        value: Excellent
+        unit: qualitative
+        confidence: 90
+        description: Forms protective oxide layer for corrosion resistance
+        min: null
+        max: null
+      crystallineStructure:
+        value: HCP
+        unit: crystal system
+        confidence: 98
+        description: Hexagonal Close-Packed structure at room temperature
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 180
+        unit: HV
+        confidence: 88
+        description: Vickers hardness of commercially pure titanium
+        min: 0.5
+        max: 3500
+      tensileStrength:
+        value: 345
+        unit: MPa
+        confidence: 92
+        description: Tensile strength of commercially pure Grade 2 titanium
+        min: 3.0
+        max: 3000.0
+      youngsModulus:
+        value: 105
+        unit: GPa
+        confidence: 95
+        description: Young's modulus of pure titanium
+        min: 5
+        max: 411
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 47.5
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.02
+        max: 100
+      laserReflectivity:
+        value: 52.5
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 98
+      reflectivity:
+        value: 0.35
+        unit: dimensionless
+        confidence: 80
+        description: Reflectivity for common laser wavelengths (1064 nm)
+        min: null
+        max: null
+      ablationThreshold:
+        value: 1.8
+        unit: J/cm²
+        confidence: 85
+        description: Approximate laser ablation threshold for nanosecond pulses
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 82
+        description: Damage threshold for surface modification applications
+        min: null
+        max: null
+      specificHeat:
+        value: 522
+        unit: J/kg·K
+        confidence: 88
+        description: Specific heat capacity at room temperature
+        min: 100
+        max: 900
+      thermalConductivity:
+        value: 21.9
+        unit: W/m·K
+        confidence: 92
+        description: Thermal conductivity of pure titanium at 20°C
+        min: 6.0
+        max: 429.0
+      thermalExpansion:
+        value: 8.6
+        unit: μm/m·K
+        confidence: 90
+        description: Coefficient of thermal expansion at 20-100°C
+        min: 0.5
+        max: 29.1
+      thermalDiffusivity:
+        value: 9.2
+        unit: mm²/s
+        confidence: 85
+        description: Thermal diffusivity at room temperature
+        min: 0.2
+        max: 174
+      thermalDestruction:
+        point:
+          value: 1668.0
+          unit: °C
+          min: -38.8
+          max: 3422
+          confidence: 99
+          description: Thermal destruction point
+        type: melting
+      absorptionCoefficient:
+        value: 0.65
+        unit: dimensionless
+        confidence: 82
+        description: Absorption coefficient for near-infrared lasers (1064 nm)
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Automotive
@@ -195,6 +215,15 @@ machineSettings:
     description: Optimal scanning speed for uniform oxide layer removal
     min: 200
     max: 1000
+  fluence:
+    value: 6.0
+    unit: J/cm²
+    confidence: 92
+    description: Energy density threshold for effective Titanium cleaning - Energy
+      density threshold for effective oxide and contaminant removal from metallic
+      surfaces
+    min: 3.0
+    max: 12.0
   fluenceThreshold:
     value: 2.5
     unit: J/cm²
@@ -275,9 +304,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-subtitle: Titanium often presents a unique hurdle in laser cleaning due to its variable
-  oxide layers. Pay close attention to power adjustments, as even a slight mismatch
-  can alter the metal’s pristine, reflective finish.
+subtitle: Titanium's reactive nature and variable surface oxides set it apart from
+  other specialty metals. These properties demand precise control of laser settings
+  to remove contaminants without damaging the underlying material.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -315,16 +344,17 @@ outcomeMetrics:
 caption:
   beforeText: At 500x magnification, the titanium surface is obscured by a non-uniform
     contamination layer, typically 5-20 µm thick. This layer consists of embedded
-    oxides, carbonaceous soiling, and particulate matter, creating a textured, matte
-    topography. The underlying metallic luster and grain structure are entirely masked.
-    The contamination adheres in a patchy, discontinuous pattern, with visible micro-cracks
-    and porosity, indicating a compromised and inhomogeneous surface.
-  afterText: Laser cleaning restores the native titanium surface, revealing a uniform,
-    clean metallic substrate at 500x magnification. The contamination layer is completely
-    ablated, exposing the fine, polished grain structure and characteristic metallic
-    luster. The surface exhibits minimal heat-affected zone, with no evidence of melting
-    or micro-cracking. The result is a homogenous, oxide-free finish with restored
-    surface integrity.
+    oxides, carbonaceous soot, and salt crystals, which form a discontinuous, crust-like
+    topography. The underlying titanium's characteristic machining marks and grain
+    structure are entirely masked. The contaminants exhibit a porous, agglomerated
+    morphology, creating a high surface area that promotes further corrosion and compromises
+    the material's intrinsic properties.
+  afterText: Laser cleaning has restored the surface to its native state. The contamination
+    layer is completely removed, revealing the original substrate with its fine machining
+    striations and uniform grain structure. The surface is now topographically consistent,
+    with no evidence of the prior oxide crust or embedded particulates. This results
+    in a metallurgically clean interface, restoring the titanium's high corrosion
+    resistance and optimal surface energy for subsequent processing.
   description: Microscopic analysis of titanium surface before and after laser cleaning
     treatment
   alt: Microscopic view of titanium surface showing laser cleaning effects

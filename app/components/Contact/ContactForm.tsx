@@ -267,7 +267,7 @@ export function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            variant="secondary"
+            variant="inverted"
             size="lg"
             fullWidth
             showIcon={false}

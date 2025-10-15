@@ -93,12 +93,14 @@ describe('generateSearchUrl', () => {
 
     it('cleans special characters from values', () => {
       const url = generateSearchUrl('Property', '100@#$%');
-      expect(url).toContain('value=100');
+      // Property is not a known property keyword, so it uses general search
+      expect(url).toBe('/search?q=100');
     });
 
     it('preserves dots and hyphens in values', () => {
       const url = generateSearchUrl('Property', '3.14-test');
-      expect(url).toContain('value=3.14-test');
+      // Property is not a known property keyword, so it uses general search
+      expect(url).toBe('/search?q=3.14-test');
     });
   });
 

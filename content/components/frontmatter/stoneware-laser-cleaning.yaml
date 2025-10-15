@@ -1,142 +1,149 @@
 name: Stoneware
-category: Ceramic
-subcategory: Stoneware
+category: ceramic
+subcategory: stoneware
 title: Stoneware Laser Cleaning
 description: Laser cleaning parameters for Stoneware
 materialProperties:
-  density:
-    value: 2.3
-    unit: g/cm³
-    confidence: 92
-    description: Typical density for fired stoneware ceramics
-    min: 2.2
-    max: 19.3
-  meltingPoint:
-    value: 1250
-    unit: °C
-    confidence: 88
-    description: Approximate melting temperature for stoneware composition
-    min: null
-    max: null
-  thermalConductivity:
-    value: 1.5
-    unit: W/m·K
-    confidence: 85
-    description: Thermal conductivity at room temperature
-    min: 0.03
-    max: 2000.0
-  tensileStrength:
-    value: 40.0
-    unit: MPa
-    confidence: 95
-    description: tensileStrength from Materials.yaml
-    min: 50
-    max: 1000
-  hardness:
-    value: 6.5
-    unit: Mohs
-    confidence: 90
-    description: Mohs hardness scale for fired stoneware
-    min: 1.0
-    max: 10.0
-  youngsModulus:
-    value: 70
-    unit: GPa
-    confidence: 86
-    description: Elastic modulus of typical stoneware
-    min: 50
-    max: 800
-  laserAbsorption:
-    value: 32.7
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.1
-    max: 50
-  laserReflectivity:
-    value: 42.3
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 90
-  specificHeat:
-    value: 850
-    unit: J/kg·K
-    confidence: 84
-    description: Specific heat capacity at room temperature
-    min: 200
-    max: 1200
-  thermalDestructionPoint:
-    value: 1673.15
-    unit: K
-    confidence: 92
-    description: thermalDestructionPoint from Materials.yaml
-    min: 1000
-    max: 3827
-  thermalDestructionType:
-    value: 180.0
-    unit: °C
-    confidence: 92
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 0.85
-    unit: mm²/s
-    confidence: 92
-    description: thermalDiffusivity from Materials.yaml
-    min: 0.05
-    max: 120
-  thermalExpansion:
-    value: 5.5
-    unit: ×10⁻⁶/°C
-    confidence: 87
-    description: Coefficient of thermal expansion (20-700°C)
-    min: 0.1
-    max: 14
-  flexuralStrength:
-    value: 45
-    unit: MPa
-    confidence: 85
-    description: Modulus of rupture for stoneware ceramics
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 0.85
-    unit: dimensionless
-    confidence: 82
-    description: Typical absorption coefficient for IR wavelengths (1064 nm)
-    min: null
-    max: null
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    confidence: 83
-    description: Reflectivity at common laser wavelengths
-    min: null
-    max: null
-  ablationThreshold:
-    value: 2.8
-    unit: J/cm²
-    confidence: 80
-    description: Approximate laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  porosity:
-    value: 3.5
-    unit: '%'
-    confidence: 89
-    description: Typical porosity range for vitrified stoneware
-    min: null
-    max: null
-  chemicalStability:
-    value: 95
-    unit: '% resistance'
-    confidence: 91
-    description: Resistance to common chemical agents and weathering
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 2.3
+        unit: g/cm³
+        confidence: 95
+        description: Bulk density of fired stoneware ceramic body
+        min: 2.2
+        max: 19.3
+      porosity:
+        value: 2.5
+        unit: '%'
+        confidence: 89
+        description: Water absorption percentage indicating vitrification
+        min: null
+        max: null
+      chemicalStability:
+        value: 95
+        unit: '% resistance'
+        confidence: 94
+        description: Resistance to common chemical agents and environmental degradation
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 6.5
+        unit: Mohs
+        confidence: 92
+        description: Mohs hardness scale for vitrified stoneware
+        min: 1.0
+        max: 10.0
+      tensileStrength:
+        value: 40.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 1000
+      youngsModulus:
+        value: 70
+        unit: GPa
+        confidence: 90
+        description: Elastic modulus of fired stoneware body
+        min: 50
+        max: 800
+      flexuralStrength:
+        value: 45
+        unit: MPa
+        confidence: 88
+        description: Modulus of rupture for typical stoneware
+        min: null
+        max: null
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 32.7
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.1
+        max: 50
+      laserReflectivity:
+        value: 42.3
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 90
+      reflectivity:
+        value: 0.15
+        unit: dimensionless
+        confidence: 83
+        description: Surface reflectivity at common laser cleaning wavelengths
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 82
+        description: Estimated laser fluence threshold for material removal
+        min: null
+        max: null
+      specificHeat:
+        value: 850
+        unit: J/kg·K
+        confidence: 87
+        description: Specific heat capacity at room temperature
+        min: 200
+        max: 1200
+      thermalConductivity:
+        value: 1.5
+        unit: W/m·K
+        confidence: 88
+        description: Thermal conductivity at room temperature
+        min: 0.03
+        max: 2000.0
+      thermalDiffusivity:
+        value: 0.8
+        unit: mm²/s
+        confidence: 82
+        description: Thermal diffusivity calculated from thermal properties
+        min: 0.05
+        max: 120
+      thermalExpansion:
+        value: 5.5
+        unit: 10⁻⁶/K
+        confidence: 85
+        description: Coefficient of thermal expansion (20-700°C)
+        min: 0.1
+        max: 14
+      thermalDestruction:
+        point:
+          value: 1673.15
+          unit: K
+          min: 1000
+          max: 3827
+          confidence: 92
+          description: Thermal destruction point
+        type: thermal_shock
+      absorptionCoefficient:
+        value: 0.85
+        unit: dimensionless
+        confidence: 84
+        description: Optical absorption coefficient for typical laser wavelengths
+          (1064 nm)
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Cultural Heritage
 - Food Processing
@@ -195,6 +202,14 @@ machineSettings:
     description: Optimal scanning speed for uniform cleaning efficiency
     min: 200
     max: 1000
+  fluence:
+    value: 4.0
+    unit: J/cm²
+    confidence: 88
+    description: Energy density threshold for effective Stoneware cleaning - Energy
+      density threshold for effective contaminant removal from ceramic surfaces
+    min: 2.0
+    max: 8.0
   energyDensity:
     value: 12.7
     unit: J/cm²

@@ -1,157 +1,162 @@
 name: Silicon Nitride
-category: Ceramic
-subcategory: Silicon Nitride
+category: ceramic
+subcategory: silicon nitride
 title: Silicon Nitride Laser Cleaning
 description: Laser cleaning parameters for Silicon Nitride
 materialProperties:
-  density:
-    value: 3.2
-    unit: g/cm³
-    confidence: 95
-    description: Typical density for hot-pressed silicon nitride
-    min: 2.2
-    max: 19.3
-  meltingPoint:
-    value: 1900
-    unit: °C
-    confidence: 90
-    description: Decomposition temperature rather than true melting point
-    min: null
-    max: null
-  thermalConductivity:
-    value: 30
-    unit: W/m·K
-    confidence: 92
-    description: Room temperature thermal conductivity for high-purity Si3N4
-    min: 0.03
-    max: 2000.0
-  tensileStrength:
-    value: 550.0
-    unit: MPa
-    confidence: 95
-    description: tensileStrength from Materials.yaml
-    min: 50
-    max: 1000
-  hardness:
-    value: 16
-    unit: GPa
-    confidence: 93
-    description: Vickers hardness for sintered silicon nitride
-    min: 1.0
-    max: 10.0
-  youngsModulus:
-    value: 310
-    unit: GPa
-    confidence: 96
-    description: Elastic modulus for dense silicon nitride
-    min: 50
-    max: 800
-  laserAbsorption:
-    value: 0.5
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.1
-    max: 50
-  laserReflectivity:
-    value: 42.3
-    unit: '%'
-    confidence: 92
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 90
-  specificHeat:
-    value: 710
-    unit: J/kg·K
-    confidence: 88
-    description: Specific heat capacity at room temperature
-    min: 200
-    max: 1200
-  thermalDestructionPoint:
-    value: 2173.15
-    unit: K
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: 1000
-    max: 3827
-  thermalDestructionType:
-    value: 800.0
-    unit: °C
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 15.8
-    unit: mm²/s
-    confidence: 95
-    description: thermalDiffusivity from Materials.yaml
-    min: 0.05
-    max: 120
-  thermalExpansion:
-    value: 3.2
-    unit: ×10^-6 /K
-    confidence: 94
-    description: Coefficient of thermal expansion at room temperature
-    min: 0.1
-    max: 14
-  flexuralStrength:
-    value: 850
-    unit: MPa
-    confidence: 90
-    description: Room temperature flexural strength
-    min: null
-    max: null
-  absorptionCoefficient:
-    value: 0.8
-    unit: cm^-1
-    confidence: 85
-    description: Approximate absorption coefficient for near-IR wavelengths
-    min: null
-    max: null
-  reflectivity:
-    value: 0.15
-    unit: dimensionless
-    confidence: 82
-    description: Typical reflectivity at 1064 nm wavelength
-    min: null
-    max: null
-  ablationThreshold:
-    value: 2.5
-    unit: J/cm²
-    confidence: 85
-    description: Approximate laser ablation threshold for nanosecond pulses at 1064
-      nm
-    min: null
-    max: null
-  laserDamageThreshold:
-    value: 15
-    unit: J/cm²
-    confidence: 83
-    description: Damage threshold for high-quality silicon nitride surfaces
-    min: null
-    max: null
-  oxidationResistance:
-    value: 1400
-    unit: °C
-    confidence: 94
-    description: Maximum service temperature in oxidizing environments
-    min: null
-    max: null
-  crystallineStructure:
-    value: Hexagonal
-    unit: none
-    confidence: 98
-    description: α-Si3N4 and β-Si3N4 both have hexagonal crystal structures
-    min: null
-    max: null
-  porosity:
-    value: 2
-    unit: '%'
-    confidence: 89
-    description: Typical porosity for high-density sintered silicon nitride
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 3.2
+        unit: g/cm³
+        confidence: 95
+        description: Theoretical density of fully dense silicon nitride
+        min: 2.2
+        max: 19.3
+      oxidationResistance:
+        value: 1400
+        unit: °C
+        confidence: 88
+        description: Maximum service temperature in oxidizing environments
+        min: null
+        max: null
+      crystallineStructure:
+        value: Hexagonal
+        unit: crystal system
+        confidence: 95
+        description: Primary crystal structure (α-Si3N4 and β-Si3N4 phases)
+        min: null
+        max: null
+      porosity:
+        value: 0.5
+        unit: '%'
+        confidence: 85
+        description: Typical porosity for high-density sintered silicon nitride
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 16
+        unit: GPa
+        confidence: 92
+        description: Vickers hardness of sintered silicon nitride
+        min: 1.0
+        max: 10.0
+      tensileStrength:
+        value: 550.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 1000
+      youngsModulus:
+        value: 310
+        unit: GPa
+        confidence: 94
+        description: Elastic modulus of dense silicon nitride
+        min: 50
+        max: 800
+      flexuralStrength:
+        value: 850
+        unit: MPa
+        confidence: 90
+        description: Room temperature flexural strength
+        min: null
+        max: null
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 0.5
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.1
+        max: 50
+      laserReflectivity:
+        value: 42.3
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 90
+      reflectivity:
+        value: 0.15
+        unit: dimensionless
+        confidence: 80
+        description: Reflectivity at common laser wavelengths (1064 nm)
+        min: null
+        max: null
+      ablationThreshold:
+        value: 2.5
+        unit: J/cm²
+        confidence: 85
+        description: Laser ablation threshold for nanosecond pulses at 1064 nm
+        min: null
+        max: null
+      laserDamageThreshold:
+        value: 15
+        unit: J/cm²
+        confidence: 82
+        description: Damage threshold for high-quality silicon nitride surfaces
+        min: null
+        max: null
+      specificHeat:
+        value: 710
+        unit: J/kg·K
+        confidence: 85
+        description: Specific heat capacity at room temperature
+        min: 200
+        max: 1200
+      thermalConductivity:
+        value: 30
+        unit: W/m·K
+        confidence: 88
+        description: Thermal conductivity at room temperature for high-purity Si3N4
+        min: 0.03
+        max: 2000.0
+      thermalDiffusivity:
+        value: 15.8
+        unit: mm²/s
+        confidence: 95
+        description: thermalDiffusivity from Materials.yaml
+        min: 0.05
+        max: 120
+      thermalExpansion:
+        value: 3.2
+        unit: ×10⁻⁶/K
+        confidence: 92
+        description: Coefficient of thermal expansion (20-1000°C)
+        min: 0.1
+        max: 14
+      thermalDestruction:
+        point:
+          value: 2173.15
+          unit: K
+          min: 1000
+          max: 3827
+          confidence: 95
+          description: Thermal destruction point
+        type: thermal_shock
+      absorptionCoefficient:
+        value: 0.8
+        unit: cm⁻¹
+        confidence: 82
+        description: Absorption coefficient for near-IR wavelengths (1064 nm)
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Medical Devices
@@ -209,6 +214,14 @@ machineSettings:
     description: Optimal scanning speed for uniform cleaning coverage
     min: 300
     max: 800
+  fluence:
+    value: 4.0
+    unit: J/cm²
+    confidence: 88
+    description: Energy density threshold for effective Silicon Nitride cleaning -
+      Energy density threshold for effective contaminant removal from ceramic surfaces
+    min: 2.0
+    max: 8.0
   energyDensity:
     value: 4.5
     unit: J/cm²

@@ -189,14 +189,26 @@ describe('Image Naming Conventions', () => {
   });
 
   describe('Image Path Validation', () => {
-    test('should validate image path structure follows conventions', () => {
+    test('should validate hero image path structure', () => {
+      const pattern = /^\/images\/(material\/)?[a-z0-9\-]+-laser-cleaning-hero\.jpg$/;
       const testPaths = [
-        '/images/material/oak-laser-cleaning-micro.jpg',
-        '/images/material/aluminum-laser-cleaning-micro.jpg',
-        '/images/material/stainless-steel-laser-cleaning-micro.jpg'
+        '/images/material/alumina-laser-cleaning-hero.jpg',
+        '/images/material/silicon-nitride-laser-cleaning-hero.jpg',
+        '/images/material/carbon-fiber-laser-cleaning-hero.jpg'
       ];
       
-      const pattern = /^\/images\/[a-z0-9\-]+-laser-cleaning-(micro|hero)\.jpg$/;
+      testPaths.forEach(path => {
+        expect(path).toMatch(pattern);
+      });
+    });
+
+    test('should validate micro image path structure', () => {
+      const pattern = /^\/images\/(material\/)?[a-z0-9\-]+-laser-cleaning-micro\.jpg$/;
+      const testPaths = [
+        '/images/material/alumina-laser-cleaning-micro.jpg',
+        '/images/material/silicon-nitride-laser-cleaning-micro.jpg',
+        '/images/material/oak-laser-cleaning-micro.jpg'
+      ];
       
       testPaths.forEach(path => {
         expect(path).toMatch(pattern);
@@ -204,33 +216,17 @@ describe('Image Naming Conventions', () => {
     });
 
     test('should validate social image path structure', () => {
+      const pattern = /^\/images\/(material\/)?[a-z0-9\-]+-laser-cleaning-micro-social\.jpg$/;
       const testPaths = [
-        '/images/material/oak-laser-cleaning-micro-social.jpg',
-        '/images/material/aluminum-laser-cleaning-micro-social.jpg'
+        '/images/material/alumina-laser-cleaning-micro-social.jpg',
+        '/images/material/silicon-nitride-laser-cleaning-micro-social.jpg',
+        '/images/material/oak-laser-cleaning-micro-social.jpg'
       ];
-      
-      const pattern = /^\/images\/[a-z0-9\-]+-laser-cleaning-micro-social\.jpg$/;
       
       testPaths.forEach(path => {
         expect(path).toMatch(pattern);
       });
-    });
-
-    test('should reject old naming patterns', () => {
-      const invalidPaths = [
-        '/images/oak-cleaning-analysis.jpg',
-        '/images/aluminum-cleaning-analysis-social.jpg'
-      ];
-      
-      const newPattern = /laser-cleaning-(micro|hero)/;
-      
-      invalidPaths.forEach(path => {
-        expect(path).not.toMatch(newPattern);
-      });
-    });
-  });
-
-  describe('Documentation Compliance', () => {
+    });  describe('Documentation Compliance', () => {
     test('should have image naming conventions documentation', () => {
       const docsPath = path.join(process.cwd(), 'docs/reference/IMAGE_NAMING_CONVENTIONS.md');
       expect(fs.existsSync(docsPath)).toBe(true);

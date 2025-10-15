@@ -1,142 +1,150 @@
 name: Stainless Steel
-category: Metal
+category: metal
 subcategory: ferrous
 title: Stainless Steel Laser Cleaning
 description: Laser cleaning parameters for Stainless Steel
 materialProperties:
-  density:
-    value: 7.9
-    unit: g/cm³
-    confidence: 95
-    description: Typical density for austenitic stainless steel (304/316 grades)
-    min: 0.53
-    max: 22.6
-  meltingPoint:
-    value: 1400
-    unit: °C
-    confidence: 92
-    description: Average melting point for common stainless steel alloys
-    min: null
-    max: null
-  thermalConductivity:
-    value: 15
-    unit: W/m·K
-    confidence: 90
-    description: Thermal conductivity at room temperature for 304 stainless steel
-    min: 6.0
-    max: 429.0
-  tensileStrength:
-    value: 515
-    unit: MPa
-    confidence: 90
-    description: Typical tensile strength for annealed 304 stainless steel
-    min: 3.0
-    max: 3000.0
-  hardness:
-    value: 201
-    unit: HV
-    confidence: 88
-    description: Vickers hardness for annealed 304 stainless steel
-    min: 0.5
-    max: 3500
-  youngsModulus:
-    value: 193
-    unit: GPa
-    confidence: 92
-    description: Elastic modulus at room temperature
-    min: 5
-    max: 411
-  laserAbsorption:
-    value: 35.2
-    unit: '%'
-    confidence: 92
-    description: laserAbsorption from Materials.yaml
-    min: 0.02
-    max: 100
-  laserReflectivity:
-    value: 65.2
-    unit: '%'
-    confidence: 94
-    description: laserReflectivity from Materials.yaml
-    min: 5
-    max: 98
-  specificHeat:
-    value: 500
-    unit: J/kg·K
-    confidence: 85
-    description: Specific heat capacity at room temperature
-    min: 100
-    max: 900
-  thermalDestructionPoint:
-    value: 1670.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionPoint from Materials.yaml
-    min: -38.8
-    max: 3422
-  thermalDestructionType:
-    value: 1673.0
-    unit: K
-    confidence: 95
-    description: thermalDestructionType from Materials.yaml
-    min: null
-    max: null
-  thermalDiffusivity:
-    value: 3.8
-    unit: mm²/s
-    confidence: 82
-    description: Thermal diffusivity calculated from thermal properties
-    min: 0.2
-    max: 174
-  thermalExpansion:
-    value: 17.3
-    unit: μm/m·°C
-    confidence: 88
-    description: Coefficient of thermal expansion (20-100°C) for 304 stainless
-    min: 0.5
-    max: 29.1
-  absorptionCoefficient:
-    value: 0.35
-    unit: dimensionless
-    confidence: 80
-    description: Estimated absorption coefficient for near-IR lasers (1064 nm)
-    min: null
-    max: null
-  reflectivity:
-    value: 0.65
-    unit: dimensionless
-    confidence: 82
-    description: Approximate reflectivity for stainless steel at common laser wavelengths
-    min: null
-    max: null
-  ablationThreshold:
-    value: 0.8
-    unit: J/cm²
-    confidence: 85
-    description: Estimated laser ablation threshold for nanosecond pulses
-    min: null
-    max: null
-  oxidationResistance:
-    value: 925
-    unit: °C
-    confidence: 90
-    description: Continuous service temperature in air without excessive oxidation
-    min: null
-    max: null
-  crystallineStructure:
-    value: FCC
-    unit: crystal system
-    confidence: 95
-    description: Face-centered cubic structure for austenitic stainless steels
-    min: null
-    max: null
-  surfaceRoughness:
-    value: 0.8
-    unit: μm Ra
-    confidence: 85
-    description: Typical surface roughness for mill-finished stainless steel
-    min: null
-    max: null
+  material_properties:
+    label: Material Properties
+    properties:
+      density:
+        value: 7.9
+        unit: g/cm³
+        confidence: 95
+        description: Typical density for austenitic stainless steel (304/316 grades)
+        min: 0.53
+        max: 22.6
+      oxidationResistance:
+        value: 925
+        unit: °C
+        confidence: 90
+        description: Maximum continuous service temperature in air without excessive
+          scaling
+        min: null
+        max: null
+      crystallineStructure:
+        value: FCC
+        unit: none
+        confidence: 95
+        description: Face-centered cubic structure for austenitic stainless steels
+        min: null
+        max: null
+      surfaceRoughness:
+        value: 0.8
+        unit: μm Ra
+        confidence: 82
+        description: Typical as-received surface roughness for industrial stainless
+          steel
+        min: null
+        max: null
+    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
+      finish, contaminant adhesion, and process efficiency'
+    percentage: 40.0
+  structural_response:
+    label: Structural Response Properties
+    properties:
+      hardness:
+        value: 201
+        unit: HV
+        confidence: 88
+        description: Vickers hardness for annealed 304 stainless steel
+        min: 0.5
+        max: 3500
+      tensileStrength:
+        value: 515
+        unit: MPa
+        confidence: 90
+        description: Typical tensile strength for annealed 304 stainless steel
+        min: 3.0
+        max: 3000.0
+      youngsModulus:
+        value: 193
+        unit: GPa
+        confidence: 92
+        description: Elastic modulus at room temperature
+        min: 5
+        max: 411
+    description: 'Physical reaction to thermal stress: how material responds structurally
+      to rapid heating'
+    percentage: 18.2
+  energy_coupling:
+    label: Energy Coupling Properties
+    properties:
+      laserAbsorption:
+        value: 35.2
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.02
+        max: 100
+      laserReflectivity:
+        value: 65.2
+        unit: '%'
+        confidence: 94
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 98
+      reflectivity:
+        value: 60
+        unit: '%'
+        confidence: 82
+        description: Approximate reflectivity at common laser wavelengths (1μm range)
+        min: null
+        max: null
+      ablationThreshold:
+        value: 0.8
+        unit: J/cm²
+        confidence: 85
+        description: Approximate laser ablation threshold for nanosecond pulses
+        min: null
+        max: null
+      specificHeat:
+        value: 500
+        unit: J/kg·K
+        confidence: 85
+        description: Specific heat capacity at room temperature
+        min: 100
+        max: 900
+      thermalConductivity:
+        value: 15
+        unit: W/m·K
+        confidence: 90
+        description: Thermal conductivity at room temperature for 304 stainless steel
+        min: 6.0
+        max: 429.0
+      thermalDiffusivity:
+        value: 4.2
+        unit: mm²/s
+        confidence: 95
+        description: thermalDiffusivity from Materials.yaml
+        min: 0.2
+        max: 174
+      thermalExpansion:
+        value: 17.3
+        unit: μm/m·°C
+        confidence: 88
+        description: Coefficient of thermal expansion (20-100°C) for 304 stainless
+        min: 0.5
+        max: 29.1
+      thermalDestruction:
+        point:
+          value: 1670.0
+          unit: K
+          min: -38.8
+          max: 3422
+          confidence: 95
+          description: Thermal destruction point
+        type: melting
+      absorptionCoefficient:
+        value: 0.35
+        unit: 1/μm
+        confidence: 80
+        description: Estimated absorption coefficient for IR lasers (1064nm)
+        min: null
+        max: null
+    description: 'First-order photon coupling: how laser energy enters the material
+      vs. reflects away'
+    percentage: 16.4
 applications:
 - Aerospace
 - Architecture
@@ -191,6 +199,15 @@ machineSettings:
     description: Optimal scanning speed for uniform cleaning results
     min: 200
     max: 1000
+  fluence:
+    value: 6.0
+    unit: J/cm²
+    confidence: 92
+    description: Energy density threshold for effective Stainless Steel cleaning -
+      Energy density threshold for effective oxide and contaminant removal from metallic
+      surfaces
+    min: 3.0
+    max: 12.0
   energyDensity:
     value: 5.1
     unit: J/cm²
@@ -263,9 +280,9 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-subtitle: Observe how stainless steel reveals subtle discoloration along its finish
-  when laser treatment begins. With a thermal threshold often around 300°C, it’s crucial
-  to monitor power adjustments closely to preserve the material’s integrity.
+subtitle: Stainless steel's chromium content creates a protective oxide layer that
+  resists rust. This layer requires specific laser settings to remove contaminants
+  without damaging the underlying surface.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -302,16 +319,29 @@ outcomeMetrics:
   units: []
 caption:
   beforeText: At 500x magnification, the stainless steel surface is obscured by a
-    non-uniform contamination layer, approximately 5-15 µm thick. This layer consists
-    of embedded carbonaceous soot, oxide scale, and particulate matter, which mask
-    the underlying metallic grain structure. The contaminants create a rough, irregular
-    texture, disrupting the substrate's inherent topography and increasing light scattering.
-  afterText: Laser cleaning has completely removed the contamination layer, revealing
-    the pristine, underlying austenitic grain structure. The surface now exhibits
-    the characteristic features of mill-finished stainless steel, with a consistent
-    micro-texture of approximately 0.8 µm Ra. The removal of light-scattering contaminants
-    results in a uniform, highly reflective surface, restoring the material's intrinsic
-    metallurgical appearance and optimal surface energy for subsequent processing.
+    discontinuous contamination layer, typically 5-20 µm thick. This layer consists
+    of embedded carbonaceous soot, oxide scale from thermal exposure, and particulate
+    matter. The underlying metal's fine grinding marks are partially visible beneath
+    this porous, textured crust, which disrupts the substrate's natural reflectivity
+    and creates a matte, non-uniform appearance.
+  afterText: 'Following laser cleaning, the surface reveals the unaltered, homogeneous
+    austenitic grain structure of the stainless steel substrate. The process has completely
+    removed the contamination layer without mechanical abrasion, preserving the original
+    mill-finish topography characterized by shallow, parallel grooves with an average
+    roughness (Ra) of approximately 0.8 µm.
+
+
+    The primary visual transformation is the restoration of the metal''s inherent
+    reflectivity, as the high laser reflectivity (≈65%) of the base material prevented
+    significant energy absorption and subsequent melting. This results in a surface
+    free of heat-affected zones or oxide discoloration.
+
+
+    The cleaning mechanism relied on the selective ablation of contaminants, which
+    have a significantly lower vaporization threshold than the steel''s melting point
+    of 1400°C. The surface now exhibits a clean, metallurgically intact profile, restoring
+    its corrosion-resistant properties and providing an optimal foundation for subsequent
+    finishing or coating processes.'
   description: Microscopic analysis of stainless steel surface before and after laser
     cleaning treatment
   alt: Microscopic view of stainless steel surface showing laser cleaning effects

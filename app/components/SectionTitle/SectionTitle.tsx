@@ -68,7 +68,7 @@ export function SectionTitle({
   const subtitleId = subtitle ? `${headingId}-subtitle` : undefined;
 
   return (
-    <div className={`section-title-wrapper mb-8 ${alignmentClasses[alignment]} ${className}`}>
+    <div className={`section-title-wrapper mb-4 ${alignmentClasses[alignment]} ${className}`}>
       <h2
         id={headingId}
         className="text-gray-900 dark:text-white"

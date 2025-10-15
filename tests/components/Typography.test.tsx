@@ -33,7 +33,7 @@ describe('Typography Components', () => {
       expect(element).toHaveClass('custom-class');
       // Should also have default Tailwind classes
       expect(element?.className).toContain('text-');
-      expect(element?.className).toContain('font-');
+      expect(element?.className).toContain('tracking-tight');
     });
 
     it('handles empty children gracefully', () => {
