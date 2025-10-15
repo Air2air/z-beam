@@ -63,7 +63,7 @@ export function MetricsCard({
   const cardContent = (
     <article 
       id={cardId}
-      className="h-full flex flex-col"
+      className="metric-card-article h-full flex flex-col"
       role="article"
       aria-labelledby={titleId}
       aria-describedby={descId}
@@ -87,7 +87,7 @@ export function MetricsCard({
     >
       
       {/* Hidden description for screen readers */}
-      <div id={descId} className="sr-only">
+      <div id={descId} className="metric-card-description sr-only">
         {hasValidRange 
           ? `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}, ranging from ${cleanedMin} to ${cleanedMax} ${displayUnit}`
           : `Metric showing ${fullPropertyName || title} with value ${displayValue} ${displayUnit}`
@@ -96,7 +96,7 @@ export function MetricsCard({
       </div>
       
       {/* Metric title at top */}
-      <header className="mb-2">
+      <header className="metric-card-header mb-2 text-center">
         <h4 
           id={titleId} 
           className="metric-label text-xs md:text-sm text-white/90 font-medium"
@@ -105,17 +105,12 @@ export function MetricsCard({
           itemProp="name"
         >
           {title}
-          {displayUnit && (
-            <span title={displayUnit} className="text-white/70 ml-1">
-              ({displayUnit})
-            </span>
-          )}
         </h4>
       </header>
       
       {/* Progress bar section (vertical) or value display */}
       {hasValidRange ? (
-        <section className="flex-1 min-h-0" aria-label="Metric visualization">
+        <section className="metric-card-content flex-1 min-h-0" aria-label="Metric visualization">
           <ProgressBar 
             id={componentKey}
             title={title}
@@ -128,8 +123,8 @@ export function MetricsCard({
           />
         </section>
       ) : (
-        <section className="flex-1 flex items-center justify-center">
-          <div className="metric-value text-2xl md:text-3xl text-white/90 font-semibold">
+        <section className="metric-card-content flex-1 flex items-center justify-center">
+          <div className="metric-value-container text-2xl md:text-3xl text-white/90 font-semibold text-center">
             <data 
               id={valueId} 
               value={numericValue || displayValue}
@@ -143,11 +138,12 @@ export function MetricsCard({
               data-has-range={hasValidRange ? 'true' : 'false'}
               itemProp="value"
               itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
+              className="metric-value-data"
             >
               {displayValue}
             </data>
             {displayUnit && (
-              <span title={displayUnit} className="text-base md:text-lg text-white/70 ml-1">
+              <span title={displayUnit} className="metric-unit text-sm md:text-base text-white/70 ml-1">
                 {displayUnit}
               </span>
             )}
@@ -174,7 +170,7 @@ export function MetricsCard({
   return finalHref ? (
     <Link
       href={finalHref}
-      className={`rounded-lg p-3 md:p-4 block h-32 md:h-40 ${clickableClasses} ${minTouchTarget} ${className}`}
+      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-32 md:h-40 ${clickableClasses} ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         '--hover-bg-color': hoverBgColor,
@@ -202,7 +198,7 @@ export function MetricsCard({
     </Link>
   ) : (
     <div 
-      className={`rounded-lg p-3 md:p-4 h-32 md:h-40 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
+      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-32 md:h-40 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'

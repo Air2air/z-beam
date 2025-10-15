@@ -17,10 +17,10 @@ const CATEGORY_CONFIG = {
 
 // Grid layout configurations
 const GRID_LAYOUTS = {
-  'auto': 'grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6',
-  'grid-2': 'grid-cols-3 sm:grid-cols-4',
-  'grid-3': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5',
-  'grid-4': 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6'
+  'auto': 'grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7',
+  'grid-2': 'grid-cols-4 sm:grid-cols-5',
+  'grid-3': 'grid-cols-4 sm:grid-cols-5 lg:grid-cols-6',
+  'grid-4': 'grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7'
 } as const;
 
 // Property title mappings for display

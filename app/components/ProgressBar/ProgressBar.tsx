@@ -30,6 +30,11 @@ export function ProgressBar({
   // Calculate percentage position (0-100) - inverted for vertical (bottom to top)
   const percentage = Math.min(Math.max((cleanValue - cleanMin) / (cleanMax - cleanMin) * 100, 0), 100);
   
+  // Calculate constrained position for the value wrapper
+  // Ensure the wrapper stays within bounds by clamping between 15% and 85%
+  // This accounts for the wrapper's height to prevent overflow
+  const clampedPercentage = Math.min(Math.max(percentage, 15), 85);
+  
   const progressId = `progress-${id}`;
   const labelId = `progress-label-${id}`;
   const descId = `progress-desc-${id}`;
@@ -59,21 +64,55 @@ export function ProgressBar({
         Progress: {Math.round(percentage)}% of maximum.
       </div>
       
-      {/* Main value on the left */}
-      <div className="flex flex-col justify-center pr-2 min-w-[60px]">
-        <div className="metric-value text-lg md:text-xl text-white/90 font-semibold text-right">
-          <data 
-            value={cleanValue}
-            data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
-            data-unit={unit}
-            data-type="measurement"
-            data-context="material_property"
-            data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
-            data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
-            data-position="current"
-            itemProp="value"
-            itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
-          >{cleanValue}</data>
+      {/* Main value on the left - positioned at indicator */}
+      <div className="progress-value-container relative pr-2 min-w-[60px] h-full overflow-visible">
+        {/* Value wrapper - clamped within container bounds */}
+        <div 
+          className={`progress-value-wrapper absolute right-2 flex flex-col items-center bg-black/20 p-1 min-w-[50px] ${
+            percentage <= 10 ? 'rounded-tl rounded-tr rounded-bl' : 
+            percentage >= 90 ? 'rounded-tl rounded-bl rounded-br' : 
+            'rounded'
+          }`}
+          style={{ bottom: `${clampedPercentage}%`, transform: 'translateY(50%)' }}
+        >
+          <div className="progress-value-inner flex flex-col items-center">
+            <div className="progress-metric-value metric-value text-sm md:text-base text-white/90 font-semibold text-center leading-none">
+              <data 
+                value={cleanValue}
+                data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+                data-unit={unit}
+                data-type="measurement"
+                data-context="material_property"
+                data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
+                data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
+                data-position="current"
+                itemProp="value"
+                itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
+              >{cleanValue}</data>
+            </div>
+            {unit && (
+              <span className="progress-unit text-[10px] text-white/70 mt-0 leading-none text-center">
+                {unit}
+              </span>
+            )}
+          </div>
+        </div>
+        
+        {/* Arrow pointer - always aligned with actual indicator bar position */}
+        <div
+          className="absolute right-2 w-0 h-0"
+          style={{ bottom: `${percentage}%`, transform: 'translateY(50%)' }}
+        >
+          {percentage <= 10 ? (
+            // Bottom arrow with flat bottom
+            <div className="border-l-[8px] border-t-[8px] border-l-black/20 border-t-transparent" style={{ transform: 'translateY(-100%)' }}></div>
+          ) : percentage >= 90 ? (
+            // Top arrow with flat top
+            <div className="border-l-[8px] border-b-[8px] border-l-black/20 border-b-transparent" style={{ transform: 'translateY(0)' }}></div>
+          ) : (
+            // Middle arrow (standard triangle pointing right)
+            <div className="border-[8px] border-transparent border-l-black/20" style={{ transform: 'translateY(-50%)' }}></div>
+          )}
         </div>
       </div>
       
