@@ -1,485 +1,211 @@
-# Z-Beam Deployment System
+# Deployment Documentation
 
-**Version 2.1** | Last Updated: October 2, 2025
+Complete guide to deploying and managing the Z-Beam application on Vercel.
 
-## Overview
+## 📚 Quick Links
 
-Z-Beam uses a **production-only deployment strategy** with automatic monitoring. Every push to `main` triggers a production build on Vercel with real-time status tracking.
+### Getting Started
+- [Quick Test Guide](QUICK_TEST_GUIDE.md) - Fast deployment testing
+- [Environment Setup](VERCEL_ENV_SETUP.md) - Environment variables configuration
+- [Email Configuration](EMAIL_SETUP_GUIDE.md) - Setting up email for z-beam.com
 
-### Key Features
+### Operations
+- [Monitoring Setup](MONITORING_SETUP.md) - Deployment monitoring and alerts
+- [Troubleshooting](troubleshooting/) - Common issues and solutions
 
-- ✅ **Automatic Deployment** - Push to main → Production deployment
-- ✅ **Real-time Monitoring** - Git hook tracks deployment status
-- ✅ **Desktop Notifications** - Success/failure alerts
-- ✅ **Deployment History** - Track all deployments with analytics
-- ✅ **Error Analysis** - Intelligent error detection and suggestions
-- ✅ **Health Checks** - System validation before deployment
-
----
-
-## Quick Start
-
-### Deploy to Production
-
-```bash
-# 1. Make your changes
-git add .
-git commit -m "your changes"
-
-# 2. Push to main (monitoring starts automatically)
-git push origin main
-
-# Watch the automatic monitoring output
-# Desktop notification when complete
-```
-
-That's it! The system handles:
-- Vercel build initiation
-- Status monitoring (every 5 seconds)
-- Error detection and analysis
-- History logging
-- Desktop notifications
-
-### Check System Health
-
-```bash
-npm run deploy:health
-```
-
-Validates:
-- Node.js version (>= 20.0.0)
-- Git configuration
-- Vercel CLI authentication
-- Git hooks installed
-- Required scripts present
+### Archives
+- [Historical Deployment Docs](../archived/deployment/) - Past deployment guides and completion reports
 
 ---
 
-## Architecture
+## Production-Only Deployment Strategy
 
-### Build Configuration
+This project is configured to **only deploy to production** from the `main` branch. Preview deployments are disabled.
 
-#### vercel.json
+### Configuration
+
+**vercel.json** is configured with:
 ```json
-{
-  "buildCommand": "next build",
-  "installCommand": "npm ci --legacy-peer-deps --include=dev || npm install",
-  "framework": "nextjs",
-  "regions": ["iad1"]
-}
-```
-
-**Key Points:**
-- **No Babel**: Uses Next.js SWC compiler (faster)
-- **DevDependencies Included**: TypeScript and build tools available
-- **Region**: iad1 (Washington D.C.) for consistent performance
-
-#### package.json
-```json
-{
-  "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
-  },
-  "scripts": {
-    "postinstall": "bash scripts/deployment/setup-auto-monitor.sh",
-    "build": "next build",
-    "deploy": "./deploy-with-monitoring.sh prod"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3"
+"git": {
+  "deploymentEnabled": {
+    "main": true
   }
 }
 ```
 
-**Key Points:**
-- **TypeScript in devDependencies**: Build-time dependency
-- **Postinstall Hook**: Automatically sets up git monitoring
-- **Node 20+**: Required for optimal performance
+This means:
+- ✅ **Pushes to `main` branch** → Automatic production deployment
+- ❌ **All other branches** → No deployment
+- ❌ **Pull requests** → No preview deployments
+- ❌ **Commits to other branches** → Ignored by Vercel
 
-### Monitoring System
+### Why Production-Only?
 
-#### Components
+1. **Simplified workflow** - No need to manage multiple environments
+2. **Cost efficiency** - Reduced build minutes and bandwidth usage
+3. **Clearer intent** - Every merge to main is a production release
+4. **Resource conservation** - No unnecessary preview builds
 
-1. **Git Hook** (`.git/hooks/post-push`)
-   - Triggers after `git push`
-   - Runs `monitor-deployment.js`
-   - Installed automatically via `npm install`
+### Deployment Process
 
-2. **Monitor Script** (`scripts/deployment/monitor-deployment.js`)
-   - Polls Vercel API every 5 seconds
-   - Tracks deployment status
-   - Fetches error logs on failure
-   - Sends desktop notifications
-   - Logs to deployment history
-
-3. **Error Analyzer** (`scripts/deployment/analyze-deployment-error.js`)
-   - Detects 17 error patterns
-   - Provides specific solutions
-   - Generates actionable fixes
-
-4. **History Tracker** (`scripts/deployment/deployment-history.js`)
-   - Records all deployments
-   - Calculates success rate
-   - Tracks average duration
-   - Exports to JSON/CSV
-
-5. **Notification System** (`scripts/deployment/notify.js`)
-   - Cross-platform (macOS, Linux, Windows)
-   - Success with duration
-   - Failure with error type
-
-### Deployment Flow
-
-```
-┌─────────────────┐
-│  git push main  │
-└────────┬────────┘
-         │
-         ├─► GitHub receives push
-         │
-         ├─► Vercel build starts
-         │    ├─ npm ci --include=dev (815 packages)
-         │    ├─ next build (SWC compiler)
-         │    └─ Deploy to production
-         │
-         └─► Git hook triggers
-              ├─ monitor-deployment.js
-              │   ├─ Poll status every 5s
-              │   ├─ Display progress
-              │   └─ On failure: fetch error logs
-              │
-              ├─ analyze-deployment-error.js
-              │   ├─ Pattern matching (17 types)
-              │   └─ Generate solutions
-              │
-              ├─ notify.js
-              │   └─ Desktop notification
-              │
-              └─ deployment-history.js
-                  └─ Log deployment record
-```
-
----
-
-## Error Handling
-
-### Automatic Error Detection
-
-The system detects and provides fixes for:
-
-| Error Type | Detection Pattern | Solution |
-|------------|------------------|----------|
-| **Missing Module** | `Cannot find module` | Install package, check imports |
-| **TypeScript** | `TS[0-9]+:` | Fix type errors, check tsconfig |
-| **File Not Found** | `ENOENT.*no such file` | Verify file paths, check gitignore |
-| **Build Failure** | `Failed to compile` | Check syntax, dependencies |
-| **Memory Limit** | `heap out of memory` | Increase function memory |
-| **Syntax Error** | `SyntaxError` | Fix JavaScript/TypeScript syntax |
-| **Environment Variable** | `Missing environment variable` | Set in Vercel dashboard |
-| **API Route Error** | `API route.*failed` | Check route handlers |
-| **Middleware Error** | `middleware.*failed` | Verify middleware config |
-| **Edge Runtime** | `edge runtime.*not compatible` | Use Node.js runtime |
-| **Page Config** | `Invalid page config` | Fix Next.js page configuration |
-| **Webpack** | `webpack.*build.*failed` | Check webpack config |
-| **Image Optimization** | `Error optimizing image` | Verify image format/size |
-| **Dependency Conflict** | `conflicting peer dependency` | Use --legacy-peer-deps |
-| **Import Error** | `Cannot resolve module` | Check path aliases |
-| **Network** | `ETIMEDOUT\|ECONNREFUSED` | Retry, check network |
-| **Vercel Timeout** | `FUNCTION_INVOCATION_TIMEOUT` | Increase timeout setting |
-
-### Error Log Location
-
-Failed deployments save logs to:
-```
-.vercel-deployment-error.log
-```
-
-View with:
+#### Automatic Deployment
 ```bash
-cat .vercel-deployment-error.log
-```
-
-Or analyze automatically:
-```bash
-npm run deploy:analyze
-```
-
----
-
-## Commands Reference
-
-### Deployment Commands
-
-```bash
-# Main deployment (via git)
+# Merge to main triggers automatic production deployment
+git checkout main
+git merge feature-branch
 git push origin main
-
-# Health check before deploying
-npm run deploy:health
-
-# Manual deployment (bypasses monitoring)
-vercel --prod
 ```
 
-### Monitoring Commands
+#### Manual Deployment
+```bash
+# Deploy current state to production
+vercel --prod
+
+# Check deployment status
+vercel ls
+```
+
+### Pre-deployment Checks
+
+Automated checks ensure successful builds:
+- ✅ TypeScript in devDependencies (required for build)
+- ✅ All packages installed via `npm ci --include=dev` (815+ packages)
+- ✅ Next.js SWC compiler enabled (no Babel config)
+- ✅ API routes handle missing environment variables gracefully
+- ✅ Node.js version >= 20.0.0
+- ✅ All critical directories exist (`app`, `types`, `content`)
+
+**Note**: The `production-predeploy.js` script has been removed to ensure builds succeed in Vercel environment. Pre-deployment validation is now handled by the test suite and CI/CD pipeline.
+
+### Deployment Settings
+
+| Setting | Value | Purpose |
+|---------|-------|---------|
+| **Region** | iad1 (Washington, D.C.) | Consistent deployment location |
+| **Function Memory** | 1024MB | Better API performance |
+| **Function Timeout** | 30s | Adequate time for complex operations |
+| **Build Command** | `next build` | Next.js SWC compiler (fast, optimized) |
+| **Install Command** | `npm ci --legacy-peer-deps --include=dev \|\| npm install` | Ensures devDependencies installed |
+| **Compiler** | Next.js SWC | Native compiler (Babel disabled) |
+
+### Excluded from Deployment
+
+Via `.vercelignore`:
+- Test files and coverage reports
+- Development documentation
+- Editor configuration
+- Debug scripts
+- Archive folders
+- YAML processor tools
+
+### Emergency Rollback
 
 ```bash
-# Monitor latest deployment
+# List recent deployments
+vercel ls
+
+# Promote a previous deployment to production
+vercel promote <deployment-url>
+
+# Or rollback via Vercel dashboard
+# https://vercel.com/air2airs-projects/z-beam
+```
+
+### Monitoring
+
+#### 🎯 Automatic Monitoring (Default)
+
+**Monitoring happens automatically!** Every push to main triggers automatic deployment monitoring via git hook.
+
+Just push and watch:
+```bash
+git push origin main
+# Monitoring starts automatically!
+```
+
+The git post-push hook:
+- ✅ Activates automatically after every push to main
+- ✅ Shows real-time deployment status
+- ✅ Updates every 5 seconds
+- ✅ Auto-exits when deployment completes
+- ✅ Works for all developers (installed via npm postinstall)
+
+**No manual steps required!**
+
+#### Additional Monitoring Options
+
+**1. VS Code Task (Alternative method)**
+```
+Terminal → Run Task → Monitor Vercel Deployment
+```
+This runs the automated monitor script that:
+- Checks deployment status every 5 seconds
+- Shows real-time progress with colored output
+- Reports success/failure automatically
+- Exits with appropriate status code
+
+**2. Combined Deploy and Monitor Task**
+```
+Terminal → Run Task → Deploy and Monitor
+```
+This task:
+- Pushes to main branch
+- Automatically starts monitoring
+- Reports when deployment is live
+
+**3. Standalone Monitor Script**
+```bash
+# Monitor with full output
 node scripts/deployment/monitor-deployment.js
 
-# Monitor with browser auto-open
+# Monitor and open in browser when ready
 node scripts/deployment/monitor-deployment.js --open
 
-# Quiet mode (only final result)
+# Quiet mode (only shows final result)
 node scripts/deployment/monitor-deployment.js --quiet
 ```
 
-### History Commands
+**4. GitHub Actions (Automatic)**
+
+Every push to main triggers a GitHub Actions workflow that:
+- Monitors the Vercel deployment automatically
+- Posts status updates to the commit
+- Fails the workflow if deployment fails
+- Provides links to deployment logs
+
+To set up (requires one-time configuration):
+1. Get Vercel token: https://vercel.com/account/tokens
+2. Add to GitHub Secrets as `VERCEL_TOKEN`
+3. Workflow runs automatically on every push to main
+
+#### Manual Monitoring
 
 ```bash
-# List recent deployments
-npm run deploy:history
-
-# View deployment statistics
-npm run deploy:stats
-
-# Export history to CSV
-npm run deploy:history export deployments.csv
-```
-
-### Troubleshooting Commands
-
-```bash
-# Analyze latest error
-npm run deploy:analyze
-
-# Check system health
-npm run deploy:health
-
-# View Vercel logs
+# Follow deployment logs
 vercel logs --follow
 
-# List deployments
+# Check recent deployments
 vercel ls
 
-# Inspect specific deployment
+# View specific deployment details
 vercel inspect <deployment-url>
+
+# Monitor with JSON output
+vercel ls --json | jq '.deployments[0]'
 ```
 
----
+### Best Practices
 
-## Configuration
+1. ✅ **Always test locally** before pushing to main
+2. ✅ **Run full test suite** (`npm test`) before deployment
+3. ✅ **Verify build succeeds** locally (`npm run build`)
+4. ✅ **Check deployment logs** after pushing to main
+5. ✅ **Monitor production** site after deployment completes
 
-### Required Environment Variables
-
-None required for build! The system gracefully handles missing variables:
-
-- **RESEND_API_KEY** (optional): Contact form email sending
-  - Missing: Form submissions logged but not emailed
-  - Set in Vercel Dashboard: Settings → Environment Variables
-
-### Vercel Project Settings
-
-**Production Branch**: `main`
-
-**Build Settings**:
-- Framework Preset: `Next.js`
-- Build Command: `next build`
-- Install Command: `npm ci --legacy-peer-deps --include=dev || npm install`
-- Output Directory: `.next`
-
-**Environment Variables** (if needed):
-- Add in Vercel Dashboard: Settings → Environment Variables
-- Automatically available during build and runtime
-
-### Git Configuration
-
-**Branch Protection** (recommended):
-```bash
-# In GitHub repository settings
-# Settings → Branches → Add branch protection rule
-# Branch name pattern: main
-# ✓ Require status checks to pass before merging
-# ✓ Require branches to be up to date before merging
-```
-
----
-
-## Best Practices
-
-### Before Deploying
-
-✅ **Run tests locally**
-```bash
-npm test
-```
-
-✅ **Build successfully locally**
-```bash
-npm run build
-```
-
-✅ **Check for type errors**
-```bash
-npm run type-check
-```
-
-✅ **Check system health**
-```bash
-npm run deploy:health
-```
-
-### During Deployment
-
-✅ **Watch monitoring output** - Don't interrupt the monitor script
-
-✅ **Check notifications** - Desktop alert when complete
-
-✅ **Verify success** - Visit the deployment URL
-
-### After Deployment
-
-✅ **Test production site** - Verify functionality
-
-✅ **Check deployment history** - Review statistics
-```bash
-npm run deploy:stats
-```
-
-✅ **Monitor for errors** - Check Vercel dashboard
-
-### Rollback if Needed
-
-```bash
-# List recent deployments
-vercel ls
-
-# Promote previous deployment to production
-vercel promote <previous-deployment-url>
-```
-
----
-
-## Troubleshooting
-
-### Common Issues
-
-#### 1. Deployment Fails with Module Not Found
-
-**Symptoms**: Build fails with "Cannot find module '@/...'"
-
-**Solution**: Already fixed in v2.1
-- Ensure `vercel.json` has `--include=dev` in install command
-- Verify TypeScript in devDependencies
-- Check jsconfig.json has path aliases
-
-#### 2. Monitoring Not Starting
-
-**Symptoms**: Push to main but no monitoring output
-
-**Solutions**:
-```bash
-# Reinstall git hook
-npm run setup:hooks
-
-# Or manually
-bash scripts/deployment/setup-auto-monitor.sh
-
-# Verify hook is executable
-chmod +x .git/hooks/post-push
-```
-
-#### 3. Build Fails with TypeScript Errors
-
-**Solution**: TypeScript must be in devDependencies (already configured)
-
-#### 4. API Route Fails During Build
-
-**Solution**: Already fixed in v2.1 - API routes handle missing environment variables gracefully
-
-### Getting Help
-
-1. **Check logs**:
-   ```bash
-   cat .vercel-deployment-error.log
-   ```
-
-2. **Run health check**:
-   ```bash
-   npm run deploy:health
-   ```
-
-3. **Analyze error**:
-   ```bash
-   npm run deploy:analyze
-   ```
-
-4. **View deployment details**:
-   ```bash
-   vercel inspect <deployment-url>
-   ```
-
-5. **Consult documentation**:
-   - [Troubleshooting Guide](../DEPLOYMENT_TROUBLESHOOTING.md)
-   - [Fixes Summary](../../DEPLOYMENT_FIXES_SUMMARY.md)
-   - [Changelog](../../DEPLOYMENT_CHANGELOG.md)
-
----
-
-## Version History
-
-### v2.1 (October 2, 2025)
-- ✅ Fixed: Babel removed, SWC compiler enabled
-- ✅ Fixed: TypeScript moved to devDependencies
-- ✅ Fixed: `--include=dev` ensures all packages installed
-- ✅ Fixed: API routes handle missing environment variables
-- ✅ 100% build success rate
-- ✅ All 20 deployment validation tests passing
-
-### v2.0 (October 2, 2025)
-- ✅ Health check system
-- ✅ Desktop notifications
-- ✅ Deployment history tracking
-- ✅ Enhanced error detection (17 patterns)
-- ✅ Comprehensive troubleshooting guide
-
-### v1.0
-- ✅ Basic deployment monitoring
-- ✅ Error log fetching
-- ✅ Production-only workflow
-
----
-
-## Related Documentation
-
-- **[Troubleshooting Guide](../DEPLOYMENT_TROUBLESHOOTING.md)** - Common issues and solutions
-- **[Fixes Summary](../../DEPLOYMENT_FIXES_SUMMARY.md)** - Detailed analysis of v2.1 fixes
-- **[Changelog](../../DEPLOYMENT_CHANGELOG.md)** - Complete version history
-- **[Monitoring Setup](../../MONITORING_SETUP.md)** - Detailed monitoring configuration
-- **[Main README](../../README.md)** - Project overview
-
----
-
-## System Requirements
-
-- **Node.js**: >= 20.0.0
-- **npm**: >= 10.0.0
-- **Git**: Any recent version
-- **Vercel CLI**: 46.1.1+ (installed globally)
-- **OS**: macOS, Linux, or Windows (with bash)
-
-## Support
+### Support
 
 For deployment issues:
-- Review the [Troubleshooting Guide](../DEPLOYMENT_TROUBLESHOOTING.md)
-- Check Vercel Dashboard: https://vercel.com/air2airs-projects/z-beam
-- Run health check: `npm run deploy:health`
-- View error logs: `cat .vercel-deployment-error.log`
-- Analyze errors: `npm run deploy:analyze`
-
----
-
-**Last Updated**: October 2, 2025  
-**System Status**: ✅ Operational (100% success rate)  
-**Latest Deployment**: https://z-beam-2icdlzenh-air2airs-projects.vercel.app
+- Check build logs at: https://vercel.com/air2airs-projects/z-beam
+- Review `production-predeploy.js` script output
+- Verify environment variables are set correctly
+- Ensure all dependencies are in `package.json`

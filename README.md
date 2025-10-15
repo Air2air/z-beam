@@ -558,5 +558,33 @@ npm run build
 npm run start
 ```
 
+---
+
+## 📚 Documentation Structure
+
+### Essential Documentation
+- **This README** - Project overview, architecture, and getting started
+- **[Deployment Guide](docs/deployment/)** - Complete deployment documentation and operations
+- **[Full Documentation Index](docs/README.md)** - Master index of all documentation
+- **[AI Guidelines](GROK_INSTRUCTIONS.md)** - Development guidelines for AI assistants
+- **[Deployment Changelog](DEPLOYMENT_CHANGELOG.md)** - Version history and changes
+
+### Documentation Organization
+- **[Components](docs/components/)** - Component documentation and usage guides
+- **[Features](docs/features/)** - Feature-specific documentation
+- **[Architecture](docs/architecture/)** - System architecture and design decisions
+- **[Systems](docs/systems/)** - Core systems (fonts, semantic HTML, etc.)
+- **[Guides](docs/guides/)** - How-to guides and best practices
+- **[Testing](docs/testing/)** - Test documentation and strategies
+- **[Archives](docs/archived/)** - Historical documentation and completion reports
+
+### Quick Access
+- [MetricsCard Documentation](docs/components/MetricsCard/docs/)
+- [Accessibility Guides](docs/guides/accessibility/)
+- [Deployment Troubleshooting](docs/deployment/troubleshooting/)
+- [Categorized Properties](docs/features/categorized-properties/)
+
+---
+
 For detailed workflow and component usage, see [PROJECT_GUIDE.md](./PROJECT_GUIDE.md).
 <!-- Deploy triggered at Fri Sep 19 16:28:49 PDT 2025 -->
