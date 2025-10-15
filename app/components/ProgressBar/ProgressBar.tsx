@@ -20,7 +20,8 @@ export function ProgressBar({
   unit = '', 
   title, 
   id, 
-  propertyName 
+  propertyName,
+  valueTextColor = 'text-gray-900/70'
 }: ProgressBarProps) {
   // Clean up numeric values to 2 decimal places
   const cleanMin = parseFloat(cleanupFloat(min));
@@ -68,15 +69,15 @@ export function ProgressBar({
       <div className="progress-value-container relative pr-2 min-w-[60px] h-full overflow-visible">
         {/* Value wrapper - clamped within container bounds */}
         <div 
-          className={`progress-value-wrapper absolute right-2 flex flex-col items-center bg-black/20 p-1 min-w-[50px] ${
-            percentage <= 10 ? 'rounded-tl rounded-tr rounded-bl' : 
-            percentage >= 90 ? 'rounded-tl rounded-bl rounded-br' : 
-            'rounded'
+          className={`progress-value-wrapper absolute right-2 flex flex-col items-center p-1 min-w-[50px] ${
+            percentage <= 10 ? 'rounded-tl-sm rounded-tr-sm rounded-bl-sm' : 
+            percentage >= 90 ? 'rounded-tl-sm rounded-bl-sm rounded-br-sm' : 
+            'rounded-sm'
           }`}
-          style={{ bottom: `${clampedPercentage}%`, transform: 'translateY(50%)' }}
+          style={{ bottom: `${clampedPercentage}%`, transform: 'translateY(50%)', backgroundColor: color }}
         >
           <div className="progress-value-inner flex flex-col items-center">
-            <div className="progress-metric-value metric-value text-sm md:text-base text-white/90 font-semibold text-center leading-none">
+            <div className={`progress-metric-value metric-value text-sm md:text-base ${valueTextColor} font-semibold text-center leading-none`}>
               <data 
                 value={cleanValue}
                 data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
@@ -91,7 +92,7 @@ export function ProgressBar({
               >{cleanValue}</data>
             </div>
             {unit && (
-              <span className="progress-unit text-[10px] text-white/70 mt-0 leading-none text-center">
+              <span className={`progress-unit text-[10px] ${valueTextColor} mt-0 leading-none text-center`}>
                 {unit}
               </span>
             )}
@@ -105,19 +106,19 @@ export function ProgressBar({
         >
           {percentage <= 10 ? (
             // Bottom arrow with flat bottom
-            <div className="border-l-[8px] border-t-[8px] border-l-black/20 border-t-transparent" style={{ transform: 'translateY(-100%)' }}></div>
+            <div className="border-l-[8px] border-t-[8px] border-t-transparent" style={{ transform: 'translateY(-100%)', borderLeftColor: color }}></div>
           ) : percentage >= 90 ? (
             // Top arrow with flat top
-            <div className="border-l-[8px] border-b-[8px] border-l-black/20 border-b-transparent" style={{ transform: 'translateY(0)' }}></div>
+            <div className="border-l-[8px] border-b-[8px] border-b-transparent" style={{ transform: 'translateY(0)', borderLeftColor: color }}></div>
           ) : (
             // Middle arrow (standard triangle pointing right)
-            <div className="border-[8px] border-transparent border-l-black/20" style={{ transform: 'translateY(-50%)' }}></div>
+            <div className="border-[8px] border-transparent" style={{ transform: 'translateY(-50%)', borderLeftColor: color }}></div>
           )}
         </div>
       </div>
       
       {/* WCAG compliant vertical progress bar */}
-      <div className="relative flex-shrink-0 w-3 md:w-4">
+      <div className="progress-bar-container relative flex-shrink-0 w-3 md:w-4">
         <div 
           id={progressId}
           role="progressbar"
@@ -127,7 +128,7 @@ export function ProgressBar({
           aria-labelledby={labelId}
           aria-describedby={descId}
           tabIndex={0}
-          className="h-full w-full bg-white/20 dark:bg-white/10 overflow-hidden focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="progress-bar-track h-full w-full bg-white/20 dark:bg-white/10 overflow-hidden focus:ring-2 focus:ring-blue-500 focus:outline-none"
           data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-percentage={Math.round(percentage)}
           data-component="progress-bar"
@@ -135,28 +136,28 @@ export function ProgressBar({
         >
           {/* Background track */}
           <div 
-            className="w-full h-full opacity-25"
+            className="progress-bar-background w-full h-full opacity-25"
             style={{ backgroundColor: color }}
             aria-hidden="true"
           />
           {/* Progress fill - from bottom */}
           <div 
-            className="absolute bottom-0 left-0 w-full opacity-100 transition-all duration-300"
+            className="progress-bar-fill absolute bottom-0 left-0 w-full opacity-100 transition-all duration-300"
             style={{ backgroundColor: color, height: `${percentage}%` }}
             aria-hidden="true"
           />
         </div>
         {/* Current value indicator */}
         <div 
-          className="absolute left-0 w-full h-0.5 bg-white dark:bg-white/90 shadow-md"
+          className="progress-bar-indicator absolute left-0 w-full h-0.5 bg-white dark:bg-white/90 shadow-md"
           style={{ bottom: `${percentage}%`, transform: 'translateY(50%)' }}
           aria-hidden="true"
         />
       </div>
       
       {/* Range values on the right */}
-      <div className="flex flex-col justify-between items-start pl-2 py-1 min-w-[50px]" aria-hidden="true">
-        <span className="text-xs text-white/50 leading-none">
+      <div className="progress-range-container flex flex-col justify-between items-start pl-2 py-1 min-w-[50px]" aria-hidden="true" style={{ color }}>
+        <span className="progress-range-max text-xs leading-none">
           <data 
             value={cleanMax}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
@@ -170,7 +171,7 @@ export function ProgressBar({
             itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanMax}</data>
         </span>
-        <span className="text-xs text-white/50 leading-none">
+        <span className="progress-range-min text-xs leading-none">
           <data 
             value={cleanMin}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}

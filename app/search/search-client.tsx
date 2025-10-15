@@ -76,25 +76,42 @@ function parsePropertiesFromMetadata(metadata: any): Array<{property: string, va
   
   const properties: Array<{property: string, value: string}> = [];
   
-  // Helper function to extract property data
-  const extractProperty = (key: string, data: any, propertyName?: string) => {
+  // Helper function to extract property data (handles nested properties)
+  const extractProperty = (key: string, data: any, parentKey?: string) => {
     if (!data) return;
     
-    // Use original key as property name unless override provided
-    const displayName = propertyName || key;
-    
     if (typeof data === 'object' && data !== null) {
-      // Handle nested objects with value/unit structure
-      if (data.value !== undefined) {
-        const value = data.unit ? `${data.value} ${data.unit}` : String(data.value);
-        properties.push({ property: displayName, value });
-      } else if (data.numeric !== undefined) {
-        const value = data.units ? `${data.numeric} ${data.units}` : String(data.numeric);
-        properties.push({ property: displayName, value });
+      // Check if this is a leaf node with a value
+      if (data.value !== undefined || data.numeric !== undefined) {
+        // This is a property with a value - use the current key as property name
+        const propertyName = parentKey ? `${parentKey}.${key}` : key;
+        const value = data.value !== undefined
+          ? (data.unit ? `${data.value} ${data.unit}` : String(data.value))
+          : (data.units ? `${data.numeric} ${data.units}` : String(data.numeric));
+        properties.push({ property: propertyName, value });
+      } else {
+        // This is a grouping object - skip organizational/metadata keys
+        // Grouping keys are structural containers, not part of property names
+        const groupingKeys = ['properties', 'label', 'description', 'percentage', 
+                             'material_properties', 'structural_response', 'energy_coupling',
+                             'optical_properties', 'chemical_properties'];
+        const isGrouping = groupingKeys.includes(key);
+        
+        Object.entries(data).forEach(([nestedKey, nestedValue]) => {
+          if (isGrouping) {
+            // Don't include grouping key in path
+            extractProperty(nestedKey, nestedValue, parentKey);
+          } else {
+            // Include this key in the path (for nested properties like thermalDestruction.point)
+            const newParentKey = parentKey ? `${parentKey}.${key}` : key;
+            extractProperty(nestedKey, nestedValue, newParentKey);
+          }
+        });
       }
     } else if (data !== null && data !== undefined) {
       // Handle primitive values
-      properties.push({ property: displayName, value: String(data) });
+      const propertyName = parentKey ? `${parentKey}.${key}` : key;
+      properties.push({ property: propertyName, value: String(data) });
     }
   };
   
@@ -127,12 +144,18 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   const query = searchParams?.get('q') || '';
   const propertyName = searchParams?.get('property') || '';
   const propertyValue = searchParams?.get('value') || '';
-  const propertyUnit = searchParams?.get('unit') || '';
   
   const [articles] = useState<Article[]>(initialArticles);
   
   // Property search logic
   const isPropertySearch = propertyName && propertyValue;
+  
+  // Normalize property name for comparison (remove spaces, convert to lowercase)
+  const normalizePropertyName = (name: string): string => {
+    return name.toLowerCase().replace(/[^\w]/g, '');
+  };
+  
+  const normalizedSearchProperty = propertyName ? normalizePropertyName(propertyName) : '';
   
   // Filter articles based on search query and property filters
   const filteredArticles = articles.filter(article => {
@@ -143,18 +166,11 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
       const metadataProperties = parsePropertiesFromMetadata(article.metadata);
       const allProperties = [...contentProperties, ...metadataProperties];
       
-      // Check for matching property with exact property name matching
+      // Check for matching property with normalized property name matching
       const hasMatchingProperty = allProperties.some(prop => {
-        // Direct exact property name matching (most reliable)
-        const exactPropertyMatch = prop.property === propertyName;
-        
-        // More restrictive flexible matching - only if exact match fails
-        const searchPropLower = propertyName.toLowerCase().replace(/[^\w]/g, '');
-        const actualPropLower = prop.property.toLowerCase().replace(/[^\w]/g, '');
-        const flexibleNameMatch = !exactPropertyMatch && actualPropLower === searchPropLower;
-        
-        // Only allow exact matches or very close flexible matches
-        const propNameMatch = exactPropertyMatch || flexibleNameMatch;
+        // Normalize both property names for comparison (handles tensileStrength vs "Tensile Strength")
+        const normalizedPropName = normalizePropertyName(prop.property);
+        const propNameMatch = normalizedPropName === normalizedSearchProperty;
         
         // Early exit if property name doesn't match
         if (!propNameMatch) {
@@ -165,31 +181,37 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         const searchVal = String(propertyValue).toLowerCase().trim();
         const actualVal = String(prop.value).toLowerCase().trim();
         
-        // Clean values for numeric comparison (remove units and extra formatting)
-        const cleanPropValue = prop.value.replace(/[^\d.-]/g, '');
-        const cleanSearchValue = propertyValue.replace(/[^\d.-]/g, '');
-        
         // Try multiple value matching strategies
         const exactMatch = actualVal === searchVal;
-        const containsValueMatch = actualVal.includes(searchVal) || searchVal.includes(actualVal);
         
-        // Numeric matching with tighter tolerance
+        // Numeric matching with reasonable tolerance
         let numericMatch = false;
-        if (cleanPropValue && cleanSearchValue) {
-          const propNum = parseFloat(cleanPropValue);
-          const searchNum = parseFloat(cleanSearchValue);
-          if (!isNaN(propNum) && !isNaN(searchNum)) {
-            // Tighter tolerance: 5% for better precision (reduced from 10%)
-            const tolerance = Math.max(Math.abs(searchNum * 0.05), 0.1);
-            numericMatch = Math.abs(propNum - searchNum) <= tolerance;
+        const searchNum = parseFloat(String(propertyValue).replace(/[^\d.-]/g, ''));
+        
+        if (!isNaN(searchNum)) {
+          // Check if value is a range (e.g., "400-600" or "400–600")
+          const rangeMatch = String(prop.value).match(/(\d+\.?\d*)\s*[-–]\s*(\d+\.?\d*)/);
+          
+          if (rangeMatch) {
+            // Value is a range - check if search value falls within it
+            const rangeMin = parseFloat(rangeMatch[1]);
+            const rangeMax = parseFloat(rangeMatch[2]);
+            numericMatch = searchNum >= rangeMin && searchNum <= rangeMax;
+          } else {
+            // Single numeric value - check with tolerance
+            const propNum = parseFloat(String(prop.value).replace(/[^\d.-]/g, ''));
+            if (!isNaN(propNum)) {
+              // 10% tolerance for numeric comparison
+              const tolerance = Math.max(Math.abs(searchNum * 0.1), 1);
+              numericMatch = Math.abs(propNum - searchNum) <= tolerance;
+            }
           }
         }
         
-        // More restrictive value matching - prioritize exact matches
-        const valueMatch = exactMatch || numericMatch; // Removed containsValueMatch for precision
-        const isMatch = propNameMatch && valueMatch;
+        // Value matching - exact or numeric within tolerance/range
+        const valueMatch = exactMatch || numericMatch;
         
-        return isMatch;
+        return valueMatch;
       });
       
       if (!hasMatchingProperty) {
@@ -296,7 +318,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   // Build subtitle based on search parameters
   const getSubtitle = () => {
     if (propertyName && propertyValue) {
-      return `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}${propertyUnit ? ' ' + propertyUnit : ''}`;
+      return `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}`;
     }
     if (query) {
       return `Search results for "${query}"`;
@@ -315,7 +337,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
       });
       window.dispatchEvent(event);
     }
-  }, [filteredArticles.length, query, propertyName, propertyValue, propertyUnit]);
+  }, [filteredArticles.length, query, propertyName, propertyValue]);
   
   return (
     <>

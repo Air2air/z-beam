@@ -264,7 +264,7 @@ function extractCardsFromMachineSettings(
   machineSettings: Record<string, any>
 ): MetricsCardProps[] {
   const cards: MetricsCardProps[] = [];
-  const defaultColor = '#4F46E5';
+  const defaultColor = '#EF4444';
   
   Object.entries(machineSettings).forEach(([key, value]) => {
     if (!value || typeof value !== 'object') return;

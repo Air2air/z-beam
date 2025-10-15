@@ -23,6 +23,34 @@ import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { SITE_CONFIG } from '../../utils/constants';
 import './accessibility.css';
 
+// Color theme configuration
+const COLOR_THEMES = {
+  // Red theme - title: light, values: light
+  '#EF4444': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  '#DC2626': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  '#B91C1C': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  
+  // Yellow theme - title: light, values: dark
+  '#FFE66D': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' },
+  '#FBBF24': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' },
+  '#F59E0B': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' },
+  
+  // Blue theme - title: light, values: light
+  '#4F46E5': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  '#3B82F6': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  '#2563EB': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  
+  // Additional colors
+  '#A8DADC': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' }, // Light blue
+  '#4ECDC4': { titleColor: 'text-white/90', valueColor: 'text-white/90' }, // Teal
+  '#6B7280': { titleColor: 'text-white/90', valueColor: 'text-white/90' }, // Gray
+};
+
+// Get theme for a color, default to light text
+const getColorTheme = (color: string) => {
+  return COLOR_THEMES[color as keyof typeof COLOR_THEMES] || { titleColor: 'text-white/90', valueColor: 'text-white/90' };
+};
+
 // Single MetricsCard component - represents one metric with progress bar
 export function MetricsCard({ 
   title, 
@@ -42,6 +70,9 @@ export function MetricsCard({
   const cleanedValue = cleanupFloat(value);
   const displayValue = cleanedValue;
   const displayUnit = unit || '';
+  
+  // Get theme based on color
+  const theme = getColorTheme(color);
   
   // Extract numeric value for progress calculation (already cleaned)
   const numericValue = parseFloat(cleanedValue);
@@ -96,10 +127,10 @@ export function MetricsCard({
       </div>
       
       {/* Metric title at top */}
-      <header className="metric-card-header mb-2 text-center">
+      <header className="metric-card-header h-[40px] flex items-center justify-center text-center mb-3">
         <h4 
           id={titleId} 
-          className="metric-label text-xs md:text-sm text-white/90 font-medium"
+          className={`metric-label text-xs md:text-sm ${theme.titleColor} font-medium leading-none`}
           data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-component="metric-title"
           itemProp="name"
@@ -110,7 +141,7 @@ export function MetricsCard({
       
       {/* Progress bar section (vertical) or value display */}
       {hasValidRange ? (
-        <section className="metric-card-content flex-1 min-h-0" aria-label="Metric visualization">
+        <section className="metric-card-content h-[95px] min-h-0" aria-label="Metric visualization">
           <ProgressBar 
             id={componentKey}
             title={title}
@@ -120,11 +151,12 @@ export function MetricsCard({
             color={color}
             unit={displayUnit}
             propertyName={fullPropertyName}
+            valueTextColor={theme.valueColor}
           />
         </section>
       ) : (
-        <section className="metric-card-content flex-1 flex items-center justify-center">
-          <div className="metric-value-container text-2xl md:text-3xl text-white/90 font-semibold text-center">
+        <section className="metric-card-content h-[95px] flex items-center justify-center">
+          <div className={`metric-value-container text-2xl md:text-3xl ${theme.valueColor} font-semibold text-center`}>
             <data 
               id={valueId} 
               value={numericValue || displayValue}
@@ -143,7 +175,7 @@ export function MetricsCard({
               {displayValue}
             </data>
             {displayUnit && (
-              <span title={displayUnit} className="metric-unit text-sm md:text-base text-white/70 ml-1">
+              <span title={displayUnit} className={`metric-unit text-sm md:text-base ${theme.valueColor} ml-1`}>
                 {displayUnit}
               </span>
             )}
@@ -170,7 +202,7 @@ export function MetricsCard({
   return finalHref ? (
     <Link
       href={finalHref}
-      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-32 md:h-40 ${clickableClasses} ${minTouchTarget} ${className}`}
+      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] ${clickableClasses} ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         '--hover-bg-color': hoverBgColor,
@@ -198,7 +230,7 @@ export function MetricsCard({
     </Link>
   ) : (
     <div 
-      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-32 md:h-40 transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
+      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[160px] transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
       style={{ 
         backgroundColor: bgColor,
         transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'

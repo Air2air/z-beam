@@ -1990,6 +1990,7 @@ export interface ProgressBarProps {
   title: string;
   id: string;
   propertyName?: string;
+  valueTextColor?: string;
 }
 
 /**

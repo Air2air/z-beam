@@ -256,11 +256,7 @@ export function generateSearchUrl(title: string, value: string | number, fullPro
   
   if (fullPropertyName) {
     // If we have the full property name, always use property-based search
-    let url = `/search?property=${encodeURIComponent(propertyNameForSearch)}&value=${encodeURIComponent(searchValue)}`;
-    if (unit) {
-      url += `&unit=${encodeURIComponent(unit)}`;
-    }
-    return url;
+    return `/search?property=${encodeURIComponent(propertyNameForSearch)}&value=${encodeURIComponent(searchValue)}`;
   }
   
   // Fallback: title-based detection
@@ -272,11 +268,7 @@ export function generateSearchUrl(title: string, value: string | number, fullPro
   
   if (isProperty) {
     // Use property-based search
-    let url = `/search?property=${encodeURIComponent(title)}&value=${encodeURIComponent(searchValue)}`;
-    if (unit) {
-      url += `&unit=${encodeURIComponent(unit)}`;
-    }
-    return url;
+    return `/search?property=${encodeURIComponent(title)}&value=${encodeURIComponent(searchValue)}`;
   } else {
     // Use general search
     return `/search?q=${encodeURIComponent(searchValue)}`;
