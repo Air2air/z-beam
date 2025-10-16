@@ -15,7 +15,7 @@ materialProperties:
         min: 0.02
         max: 100
       laserReflectivity:
-        value: 51.2
+        value: 62.0
         unit: '%'
         confidence: 95
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
+        metadata:
+          last_verified: '2025-10-16T13:39:15.904835'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 38.0 = 62.0'
+          previous_value: 51.2
       specificHeat:
         value: 388.3
         unit: J/(kg·K)
@@ -88,15 +93,22 @@ materialProperties:
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
       electricalConductivity:
-        value: 16.6
-        unit: '% IACS'
+        value: 16.9
+        unit: MS/m
         confidence: 92
-        description: Electrical conductivity relative to copper standard
+        description: Electrical conductivity at 20°C (29% IACS)
         min: 4.8
+        metadata:
+          last_verified: '2025-10-16T13:42:00.000000'
+          verification_source: automatic_fix
+          fix_reason: 'Unit conversion: 29% IACS ≈ 16.9 MS/m (using 58.1 MS/m for
+            100% IACS)'
+          previous_value: 16.6
+          previous_unit: '% IACS'
         max: 63.0
       hardness:
         value: 37.5
-        unit: HB
+        unit: Brinell
         confidence: 85
         description: Hardness on Mohs scale
         min: 0.5

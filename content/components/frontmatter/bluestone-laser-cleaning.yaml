@@ -15,7 +15,7 @@ materialProperties:
         min: 0.1
         max: 100
       laserReflectivity:
-        value: 38.2
+        value: 91.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Geological Survey Optical Properties Database
         notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
           composition
+        metadata:
+          last_verified: '2025-10-16T13:39:12.397166'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 8.7 = 91.3'
+          previous_value: 38.2
       specificHeat:
         value: 1000.0
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity of sandstone
         min: 400

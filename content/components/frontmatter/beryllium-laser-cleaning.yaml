@@ -15,7 +15,7 @@ materialProperties:
         min: 0.02
         max: 100
       laserReflectivity:
-        value: 54.2
+        value: 61.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
+        metadata:
+          last_verified: '2025-10-16T13:39:12.328991'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 38.7 = 61.3'
+          previous_value: 54.2
       specificHeat:
         value: 1925
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 93
         description: Specific heat capacity at room temperature
         min: 100
@@ -41,12 +46,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 70000.0
+        value: 56.5
         unit: mm²/s
         confidence: 90
         description: Thermal diffusivity at room temperature
         min: 0.06
         max: 174
+        metadata:
+          last_verified: '2025-10-16T13:42:35.702174'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 201.0 / (1.848 × 1925.0) = 56.5 mm²/s'
+          previous_value: 70000.0
       thermalExpansion:
         value: 11.3
         unit: 10⁻⁶/K
@@ -54,14 +64,6 @@ materialProperties:
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
         max: 33
-      thermalShockResistance:
-        value: High
-        unit: qualitative
-        confidence: 88
-        description: Good thermal shock resistance due to high thermal conductivity
-          and moderate expansion
-        min: 350.0
-        max: 380.0
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -76,18 +78,18 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: Low
+        value: 250.0
         unit: °C
-        confidence: 80
+        confidence: 70
         description: Forms protective oxide layer but can oxidize rapidly at high
           temperatures
         min: 200
         max: 1200
         source: ASM Metals Handbook - Corrosion
-        notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        notes: Converted from qualitative 'Low' to estimated numeric value
       hardness:
         value: 150.0
-        unit: HB
+        unit: Brinell
         confidence: 85
         description: Vickers hardness of pure beryllium
         min: 0.5

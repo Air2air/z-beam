@@ -15,7 +15,7 @@ materialProperties:
         min: 0.02
         max: 100
       laserReflectivity:
-        value: 64.2
+        value: 39.5
         unit: '%'
         confidence: 95
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
+        metadata:
+          last_verified: '2025-10-16T13:39:12.719538'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 60.5 = 39.5'
+          previous_value: 64.2
       specificHeat:
         value: 449.0
         unit: J/(kg·K)
@@ -41,12 +46,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 23.1
+        value: 29.09
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.06
         max: 174
+        metadata:
+          last_verified: '2025-10-16T13:42:36.098519'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 93.9 / (7.19 × 449.0) = 29.09 mm²/s'
+          previous_value: 23.1
       thermalExpansion:
         value: 4.9
         unit: 10⁻⁶/K
@@ -68,14 +78,14 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: Excellent
+        value: 1000.0
         unit: °C
-        confidence: 80
+        confidence: 70
         description: Forms protective oxide layer preventing further oxidation
         min: 200
         max: 1200
         source: ASM Metals Handbook - Corrosion
-        notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        notes: Converted from qualitative 'Excellent' to estimated numeric value
       electricalResistivity:
         value: 1.25e-07
         unit: Ω·m

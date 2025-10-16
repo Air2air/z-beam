@@ -40,7 +40,7 @@ materialProperties:
         max: 15.0
       specificHeat:
         value: 761.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 120
@@ -55,12 +55,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
-        value: 13.0
+        value: 8.91
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.01
         max: 15
+        metadata:
+          last_verified: '2025-10-16T13:42:38.408091'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 27.0 / (3.98 × 761.0) = 8.91 mm²/s'
+          previous_value: 13.0
       thermalExpansion:
         value: 5.3
         unit: 10⁻⁶/K

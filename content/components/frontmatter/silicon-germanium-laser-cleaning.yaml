@@ -40,7 +40,7 @@ materialProperties:
         max: 15.0
       specificHeat:
         value: 320.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 88
         description: Specific heat capacity at constant pressure
         min: 300
@@ -59,12 +59,17 @@ materialProperties:
         source: Semiconductor Material and Device Characterization (Schroder)
         notes: Si ~156 W/m·K, GaAs ~55, GaN ~130, temperature and doping dependent
       thermalDiffusivity:
-        value: 34.2
+        value: 6.49
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity at room temperature
         min: 0.1
         max: 90
+        metadata:
+          last_verified: '2025-10-16T13:42:38.603753'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 8.7 / (4.19 × 320.0) = 6.49 mm²/s'
+          previous_value: 34.2
       thermalExpansion:
         value: 3.9
         unit: 10⁻⁶/K
@@ -94,7 +99,7 @@ materialProperties:
         max: 7.13
       oxidationResistance:
         value: 700.0
-        unit: qualitative
+        unit: °C
         confidence: 85
         description: Forms stable oxide layer but slower than pure silicon
         min: 600.0

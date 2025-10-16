@@ -15,7 +15,7 @@ materialProperties:
         min: 0.05
         max: 200
       laserReflectivity:
-        value: 38.5
+        value: 7.5
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
+        metadata:
+          last_verified: '2025-10-16T13:39:15.536105'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 92.5 = 7.5'
+          previous_value: 38.5
       laserDamageThreshold:
         value: 0.8
         unit: J/cm²
@@ -33,7 +38,7 @@ materialProperties:
         max: 15.5
       specificHeat:
         value: 1800
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 84
         description: Specific heat capacity at room temperature
         min: 500
@@ -83,12 +88,13 @@ materialProperties:
         min: 0.5
         max: 8
       oxidationResistance:
-        value: 12126
+        value: 121.0
         unit: °C
-        confidence: 86
+        confidence: 75
         description: Good resistance to oxidative degradation under normal conditions
         min: 80.0
         max: 1650.0
+        notes: Corrected from 12126°C (magnitude error)
       hardness:
         value: 55.0
         unit: Shore A

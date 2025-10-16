@@ -15,7 +15,7 @@ materialProperties:
         min: 1
         max: 50
       laserReflectivity:
-        value: 28.5
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
+        metadata:
+          last_verified: '2025-10-16T13:39:13.277382'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 28.5
       specificHeat:
         value: 1630.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 800
@@ -46,12 +51,17 @@ materialProperties:
         notes: Across grain 0.04-0.2 W/m·K, along grain can be 2-3x higher; moisture
           content affects values
       thermalDiffusivity:
-        value: 1650.0
+        value: 0.13
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity across grain direction
         min: 0.0001
         max: 0.4
+        metadata:
+          last_verified: '2025-10-16T13:42:36.817346'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.155 / (0.72 × 1630.0) = 0.13 mm²/s'
+          previous_value: 1650.0
       thermalExpansion:
         value: 3.7
         unit: 10⁻⁶/K
@@ -81,7 +91,7 @@ materialProperties:
         max: 12.0
       hardness:
         value: 7.08
-        unit: N/mm²
+        unit: MPa
         confidence: 94
         description: Janka hardness test value
         min: 1

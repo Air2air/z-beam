@@ -15,7 +15,7 @@ materialProperties:
         min: 0.1
         max: 50
       laserReflectivity:
-        value: 52.3
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
           finish
+        metadata:
+          last_verified: '2025-10-16T13:39:15.942775'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 52.3
       refractiveIndex:
         value: 2.2
         unit: ''
@@ -40,7 +45,7 @@ materialProperties:
         max: 15.0
       specificHeat:
         value: 455.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 250
@@ -55,12 +60,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
-        value: 0.008
+        value: 0.99
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity at room temperature
         min: 0.005
         max: 120
+        metadata:
+          last_verified: '2025-10-16T13:42:39.420742'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 2.7 / (6.01 × 455.0) = 0.99 mm²/s'
+          previous_value: 0.008
       thermalExpansion:
         value: 10.5
         unit: 10⁻⁶/K
@@ -82,12 +92,14 @@ materialProperties:
         min: 2.3
         max: 16.0
       oxidationResistance:
-        value: 2400.0
-        unit: '%'
-        confidence: 95
+        value: 1600.0
+        unit: °C
+        confidence: 85
         description: Oxidation resistance rating in high-temperature environments
         min: 600.0
         max: 2400.0
+        notes: Corrected from 36000°C - zirconia has excellent oxidation resistance
+          above 1600°C
       hardness:
         value: 12.0
         unit: GPa

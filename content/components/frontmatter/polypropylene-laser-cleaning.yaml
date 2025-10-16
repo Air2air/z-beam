@@ -15,7 +15,7 @@ materialProperties:
         min: 0.1
         max: 100
       laserReflectivity:
-        value: 94.5
+        value: 57.3
         unit: '%'
         confidence: 95
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Polymer Optical Properties Database
         notes: Highly variable with color, additives, and surface finish; translucent
           materials lower reflectivity
+        metadata:
+          last_verified: '2025-10-16T13:39:14.400415'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 42.7 = 57.3'
+          previous_value: 94.5
       specificHeat:
         value: 1880.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 1.0
@@ -42,12 +47,17 @@ materialProperties:
         notes: Wide range includes specialty filled polymers (0.02-3 W/m·K); typical
           unfilled polymers 0.15-0.35 W/m·K
       thermalDiffusivity:
-        value: 0.096
+        value: 0.13
         unit: mm²/s
         confidence: 95
         description: thermalDiffusivity from Materials.yaml
         min: 0.08
         max: 1
+        metadata:
+          last_verified: '2025-10-16T13:42:37.796628'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.22 / (0.905 × 1880.0) = 0.13 mm²/s'
+          previous_value: 0.096
       thermalExpansion:
         value: 100.0
         unit: 10⁻⁶/K
@@ -91,7 +101,7 @@ materialProperties:
         max: 2.2
       oxidationResistance:
         value: 100.0
-        unit: qualitative
+        unit: °C
         confidence: 88
         description: Resistance to oxidative degradation at moderate temperatures
         min: 60.0

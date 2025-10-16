@@ -9,11 +9,12 @@ materialProperties:
     properties:
       laserAbsorption:
         value: 8.2
-        unit: 1/cm
+        unit: '%'
         confidence: 92
         description: laserAbsorption from Materials.yaml
         min: 0.5
         max: 15
+        notes: ' [VALIDATION: converted from absorption coefficient, verify value]'
       laserReflectivity:
         value: 36.2
         unit: '%'
@@ -32,7 +33,7 @@ materialProperties:
         max: 1.8
       specificHeat:
         value: 880.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 86
         description: Heat capacity at constant pressure
         min: 700
@@ -48,12 +49,17 @@ materialProperties:
         notes: Concrete ~1.0, brick ~0.6, lightweight concrete 0.1-0.5, varies with
           density and moisture
       thermalDiffusivity:
-        value: 0.52
+        value: 0.81
         unit: mm²/s
         confidence: 80
         description: Calculated from thermal conductivity, density, and specific heat
         min: 0.1
         max: 1
+        metadata:
+          last_verified: '2025-10-16T13:42:39.052849'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 1.28 / (1.8 × 880.0) = 0.81 mm²/s'
+          previous_value: 0.52
       thermalExpansion:
         value: 5.5
         unit: 10⁻⁶/K

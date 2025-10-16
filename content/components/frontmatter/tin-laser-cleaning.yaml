@@ -15,7 +15,7 @@ materialProperties:
         min: 0.02
         max: 100
       laserReflectivity:
-        value: 52.3
+        value: 62.8
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
+        metadata:
+          last_verified: '2025-10-16T13:39:15.570771'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 37.2 = 62.8'
+          previous_value: 52.3
       specificHeat:
         value: 226.5
         unit: J/(kg·K)

@@ -56,12 +56,17 @@ materialProperties:
         notes: Wide range includes specialty filled polymers (0.02-3 W/m·K); typical
           unfilled polymers 0.15-0.35 W/m·K
       thermalDiffusivity:
-        value: 0.53
+        value: 0.1
         unit: mm²/s
         confidence: 95
         description: thermalDiffusivity from Materials.yaml
         min: 0.08
         max: 1
+        metadata:
+          last_verified: '2025-10-16T13:42:37.836466'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.142 / (1.05 × 1300.0) = 0.1 mm²/s'
+          previous_value: 0.53
       thermalExpansion:
         value: 70.0
         unit: 10⁻⁶/K

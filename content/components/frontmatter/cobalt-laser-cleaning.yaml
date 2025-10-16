@@ -26,7 +26,7 @@ materialProperties:
           surface condition'
       specificHeat:
         value: 421.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 100
@@ -41,12 +41,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 18.7
+        value: 26.81
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.06
         max: 174
+        metadata:
+          last_verified: '2025-10-16T13:42:36.139302'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100.0 / (8.86 × 421.0) = 26.81 mm²/s'
+          previous_value: 18.7
       thermalExpansion:
         value: 13.0
         unit: 10⁻⁶/K
@@ -68,14 +73,14 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: moderate
+        value: 500.0
         unit: °C
-        confidence: 80
+        confidence: 70
         description: Forms protective oxide layer but oxidizes at high temperatures
         min: 200
         max: 1200
         source: ASM Metals Handbook - Corrosion
-        notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        notes: Converted from qualitative 'moderate' to estimated numeric value
       corrosionResistance:
         value: good
         unit: qualitative

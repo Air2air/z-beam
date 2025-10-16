@@ -15,7 +15,7 @@ materialProperties:
         min: 0.02
         max: 100
       laserReflectivity:
-        value: 52.0
+        value: 37.7
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
+        metadata:
+          last_verified: '2025-10-16T13:39:13.781580'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 62.3 = 37.7'
+          previous_value: 52.0
       specificHeat:
         value: 479.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 100
@@ -41,12 +46,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 1.7
+        value: 2.26
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
         min: 0.06
         max: 174
+        metadata:
+          last_verified: '2025-10-16T13:42:37.166205'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 7.81 / (7.21 × 479.0) = 2.26 mm²/s'
+          previous_value: 1.7
       thermalExpansion:
         value: 21.7
         unit: 10⁻⁶/K
@@ -96,7 +106,7 @@ materialProperties:
         max: 1.5e-06
       hardness:
         value: 210.0
-        unit: HB
+        unit: Brinell
         confidence: 88
         description: Vickers hardness of pure manganese
         min: 0.5

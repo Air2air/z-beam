@@ -9,11 +9,12 @@ materialProperties:
     properties:
       laserAbsorption:
         value: 0.91
-        unit: cm⁻¹
+        unit: '%'
         confidence: 95
         description: laserAbsorption from Materials.yaml
         min: 0.001
         max: 10
+        notes: ' [VALIDATION: converted from absorption coefficient, verify value]'
       laserReflectivity:
         value: 3.6
         unit: '%'
@@ -40,7 +41,7 @@ materialProperties:
         max: 15.0
       specificHeat:
         value: 741.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 120
@@ -55,12 +56,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
-        value: 8.6
+        value: 0.85
         unit: mm²/s
         confidence: 89
         description: Thermal diffusivity at room temperature
         min: 0.01
         max: 15
+        metadata:
+          last_verified: '2025-10-16T13:42:36.506698'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 1.38 / (2.202 × 741.0) = 0.85 mm²/s'
+          previous_value: 8.6
       thermalExpansion:
         value: 0.55
         unit: 10⁻⁶/K

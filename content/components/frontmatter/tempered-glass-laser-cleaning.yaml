@@ -55,12 +55,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
-        value: 0.84
+        value: 0.47
         unit: mm²/s
         confidence: 95
         description: thermalDiffusivity from Materials.yaml
         min: 0.01
         max: 15
+        metadata:
+          last_verified: '2025-10-16T13:42:39.013996'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 1.0 / (2.52 × 840.0) = 0.47 mm²/s'
+          previous_value: 0.84
       thermalExpansion:
         value: 8.5
         unit: 10⁻⁶/K

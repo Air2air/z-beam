@@ -15,7 +15,7 @@ materialProperties:
         min: 1
         max: 50
       laserReflectivity:
-        value: 42.7
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
+        metadata:
+          last_verified: '2025-10-16T13:39:12.363845'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 42.7
       specificHeat:
         value: 1250.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at 20°C and 12% moisture content
         min: 800

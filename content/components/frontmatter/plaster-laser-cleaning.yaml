@@ -41,12 +41,17 @@ materialProperties:
         notes: Concrete ~1.0, brick ~0.6, lightweight concrete 0.1-0.5, varies with
           density and moisture
       thermalDiffusivity:
-        value: 0.48
+        value: 0.26
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
         min: 0.1
         max: 1
+        metadata:
+          last_verified: '2025-10-16T13:42:37.608417'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.43 / (1.5 × 1090.0) = 0.26 mm²/s'
+          previous_value: 0.48
       thermalExpansion:
         value: 18.0
         unit: 10⁻⁶/K

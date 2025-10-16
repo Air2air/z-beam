@@ -15,7 +15,7 @@ materialProperties:
         min: 0.1
         max: 50
       laserReflectivity:
-        value: 42.3
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
           finish
+        metadata:
+          last_verified: '2025-10-16T13:39:14.551230'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 42.3
       specificHeat:
         value: 1085.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 87
         description: Specific heat capacity at room temperature
         min: 250
@@ -41,15 +46,20 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
-        value: 0.85
+        value: 0.58
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
         min: 0.005
         max: 120
+        metadata:
+          last_verified: '2025-10-16T13:42:37.972525'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 1.5 / (2.4 × 1085.0) = 0.58 mm²/s'
+          previous_value: 0.85
       thermalExpansion:
         value: 6.0
-        unit: 10^-6 /K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion (20-700°C)
         min: 0.1

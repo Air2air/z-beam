@@ -15,7 +15,7 @@ materialProperties:
         min: 1
         max: 50
       laserReflectivity:
-        value: 32.7
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
+        metadata:
+          last_verified: '2025-10-16T13:39:15.835784'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 32.7
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -33,7 +38,7 @@ materialProperties:
         max: 1.2
       specificHeat:
         value: 1400.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 86
         description: Specific heat capacity at room temperature
         min: 800
@@ -53,12 +58,17 @@ materialProperties:
         notes: Across grain 0.04-0.2 W/m·K, along grain can be 2-3x higher; moisture
           content affects values
       thermalDiffusivity:
-        value: 1650.0
+        value: 0.16
         unit: mm²/s
         confidence: 84
         description: Thermal diffusivity calculated from thermal properties
         min: 0.0001
         max: 0.4
+        metadata:
+          last_verified: '2025-10-16T13:42:39.331777'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.14 / (0.64 × 1400.0) = 0.16 mm²/s'
+          previous_value: 1650.0
       thermalExpansion:
         value: 5.0
         unit: 10⁻⁶/K
@@ -98,12 +108,17 @@ materialProperties:
         min: 20
         max: 200
       youngsModulus:
-        value: 2502.5
+        value: 25.0
         unit: GPa
         confidence: 91
         description: Modulus of elasticity parallel to grain
         min: 5
         max: 20000
+        metadata:
+          last_verified: '2025-10-16T13:47:32.962634'
+          verification_source: automatic_fix
+          fix_reason: 'Wood E was 100x too high: 2502.5 → 25.0 GPa'
+          previous_value: 2502.5
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

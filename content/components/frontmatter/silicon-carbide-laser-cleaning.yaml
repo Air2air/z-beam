@@ -41,12 +41,17 @@ materialProperties:
         source: Semiconductor Material and Device Characterization (Schroder)
         notes: Si ~156 W/m·K, GaAs ~55, GaN ~130, temperature and doping dependent
       thermalDiffusivity:
-        value: 90.0
+        value: 49.84
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.1
         max: 90
+        metadata:
+          last_verified: '2025-10-16T13:42:38.562912'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 120.0 / (3.21 × 750.0) = 49.84 mm²/s'
+          previous_value: 90.0
       thermalExpansion:
         value: 4.0
         unit: 10⁻⁶/K
@@ -76,7 +81,7 @@ materialProperties:
         max: 1600.0
       hardness:
         value: 2500.0
-        unit: kgf/mm²
+        unit: HV
         confidence: 92
         description: Knoop hardness of silicon carbide
         min: 2

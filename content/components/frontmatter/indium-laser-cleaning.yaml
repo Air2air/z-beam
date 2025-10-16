@@ -15,7 +15,7 @@ materialProperties:
         min: 0.02
         max: 100
       laserReflectivity:
-        value: 51.5
+        value: 41.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
+        metadata:
+          last_verified: '2025-10-16T13:39:13.345475'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 58.7 = 41.3'
+          previous_value: 51.5
       specificHeat:
         value: 233.0
         unit: J/(kg·K)
@@ -41,12 +46,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 86.7
+        value: 48.03
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity at room temperature
         min: 0.06
         max: 174
+        metadata:
+          last_verified: '2025-10-16T13:42:36.882241'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 81.8 / (7.31 × 233.0) = 48.03 mm²/s'
+          previous_value: 86.7
       thermalExpansion:
         value: 32.1
         unit: 10⁻⁶/K

@@ -25,7 +25,7 @@ materialProperties:
         notes: Concrete 20-40%, brick 20-50%, varies with color and surface texture
       specificHeat:
         value: 880
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity
         min: 700
@@ -41,12 +41,17 @@ materialProperties:
         notes: Concrete ~1.0, brick ~0.6, lightweight concrete 0.1-0.5, varies with
           density and moisture
       thermalDiffusivity:
-        value: 0.47
+        value: 0.66
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity at room temperature
         min: 0.1
         max: 1
+        metadata:
+          last_verified: '2025-10-16T13:42:36.184239'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 1.4 / (2.4 × 880.0) = 0.66 mm²/s'
+          previous_value: 0.47
       thermalExpansion:
         value: 10
         unit: 10⁻⁶/K

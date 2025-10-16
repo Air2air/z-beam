@@ -9,13 +9,14 @@ materialProperties:
     properties:
       laserAbsorption:
         value: 8.82
-        unit: cm⁻¹
+        unit: '%'
         confidence: 92
         description: laserAbsorption from Materials.yaml
         min: 1
         max: 50
+        notes: ' [VALIDATION: converted from absorption coefficient, verify value]'
       laserReflectivity:
-        value: 32.7
+        value: 91.2
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +25,11 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
+        metadata:
+          last_verified: '2025-10-16T13:39:12.943562'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 8.82 = 91.2'
+          previous_value: 32.7
       specificHeat:
         value: 1630.0
         unit: J/(kg·K)

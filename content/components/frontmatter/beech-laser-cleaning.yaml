@@ -15,7 +15,7 @@ materialProperties:
         min: 1
         max: 50
       laserReflectivity:
-        value: 42.7
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,9 +24,14 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
+        metadata:
+          last_verified: '2025-10-16T13:39:12.297433'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 42.7
       specificHeat:
         value: 1630.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 92
         description: Specific heat capacity at room temperature
         min: 800
@@ -74,7 +79,7 @@ materialProperties:
           fix_reason: 'Beech density fix: 720.0 → 0.72'
       hardness:
         value: 1300.0
-        unit: N/mm²
+        unit: MPa
         confidence: 88
         description: Brinell hardness perpendicular to grain
         min: 1
@@ -87,12 +92,17 @@ materialProperties:
         min: 20
         max: 200
       youngsModulus:
-        value: 2502.5
+        value: 25.0
         unit: GPa
         confidence: 92
         description: Modulus of elasticity parallel to grain
         min: 5
         max: 20000
+        metadata:
+          last_verified: '2025-10-16T13:47:30.647466'
+          verification_source: automatic_fix
+          fix_reason: 'Wood E was 100x too high: 2502.5 → 25.0 GPa'
+          previous_value: 2502.5
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

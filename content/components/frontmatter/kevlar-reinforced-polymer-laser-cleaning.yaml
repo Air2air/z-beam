@@ -15,7 +15,7 @@ materialProperties:
         min: 0.05
         max: 200
       laserReflectivity:
-        value: 38.5
+        value: 7.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
+        metadata:
+          last_verified: '2025-10-16T13:39:13.548207'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 92.7 = 7.3'
+          previous_value: 38.5
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -33,7 +38,7 @@ materialProperties:
         max: 15.5
       specificHeat:
         value: 1400.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 500
@@ -49,12 +54,17 @@ materialProperties:
         notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10,
           metal matrix 50-400'
       thermalDiffusivity:
-        value: 0.85
+        value: 0.26
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
         min: 0.08
         max: 180
+        metadata:
+          last_verified: '2025-10-16T13:42:36.982904'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.52 / (1.44 × 1400.0) = 0.26 mm²/s'
+          previous_value: 0.85
       thermalExpansion:
         value: 2.0
         unit: 10⁻⁶/K

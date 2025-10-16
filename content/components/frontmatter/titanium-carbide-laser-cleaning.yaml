@@ -15,7 +15,7 @@ materialProperties:
         min: 0.1
         max: 50
       laserReflectivity:
-        value: 52.3
+        value: 67.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,6 +24,11 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
           finish
+        metadata:
+          last_verified: '2025-10-16T13:39:15.608163'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 32.7 = 67.3'
+          previous_value: 52.3
       specificHeat:
         value: 568.0
         unit: J/(kg·K)

@@ -9,7 +9,7 @@ materialProperties:
     properties:
       laserAbsorption:
         value: 0.9
-        unit: unitless
+        unit: '%'
         confidence: 92
         description: laserAbsorption from Materials.yaml
         min: 0.05
@@ -26,14 +26,14 @@ materialProperties:
           matrix composites 40-80%'
       specificHeat:
         value: 1100
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature for epoxy-based GFRP
         min: 500
         max: 1500
       thermalConductivity:
         value: 0.3
-        unit: W/m·K
+        unit: W/(m·K)
         confidence: 92
         description: Low thermal conductivity typical for polymer composites, anisotropic
           depending on fiber orientation
@@ -43,12 +43,17 @@ materialProperties:
         notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10,
           metal matrix 50-400'
       thermalDiffusivity:
-        value: 90.05
+        value: 0.15
         unit: mm²/s
         confidence: 90
         description: thermalDiffusivity from Materials.yaml
         min: 0.1
         max: 180
+        metadata:
+          last_verified: '2025-10-16T13:42:36.623052'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.3 / (1.8 × 1100.0) = 0.15 mm²/s'
+          previous_value: 90.05
       thermalExpansion:
         value: 20
         unit: 10⁻⁶/K
@@ -78,7 +83,7 @@ materialProperties:
         max: 8
       hardness:
         value: 80
-        unit: Barcol
+        unit: Shore D
         confidence: 85
         description: Typical Barcol hardness for cured GFRP composites
         min: 20

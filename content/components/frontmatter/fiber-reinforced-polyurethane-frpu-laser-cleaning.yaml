@@ -15,7 +15,7 @@ materialProperties:
         min: 0.05
         max: 200
       laserReflectivity:
-        value: 38.5
+        value: 7.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,16 +24,21 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
+        metadata:
+          last_verified: '2025-10-16T13:39:12.877260'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 92.7 = 7.3'
+          previous_value: 38.5
       specificHeat:
         value: 1450
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 84
         description: Specific heat capacity at room temperature
         min: 500
         max: 1500
       thermalConductivity:
         value: 0.28
-        unit: W/m·K
+        unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity of fiber-reinforced polyurethane composite
         min: 0.1

@@ -15,7 +15,7 @@ materialProperties:
         min: 0.05
         max: 200
       laserReflectivity:
-        value: 38.5
+        value: 14.8
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
@@ -24,16 +24,21 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
+        metadata:
+          last_verified: '2025-10-16T13:39:12.651335'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 85.2 = 14.8'
+          previous_value: 38.5
       specificHeat:
         value: 750
-        unit: J/kg·K
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 500
         max: 1500
       thermalConductivity:
         value: 18
-        unit: W/m·K
+        unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature for C/SiC composites
         min: 0.1

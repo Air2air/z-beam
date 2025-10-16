@@ -15,15 +15,20 @@ materialProperties:
         min: 0.05
         max: 200
       laserReflectivity:
-        value: 38.5
+        value: 7.3
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
         min: 2
         max: 80
+        metadata:
+          last_verified: '2025-10-16T13:39:12.838683'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 100 - 92.7 = 7.3'
+          previous_value: 38.5
       specificHeat:
         value: 1000.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 500
@@ -36,12 +41,17 @@ materialProperties:
         min: 0.03
         max: 400
       thermalDiffusivity:
-        value: 0.12
+        value: 0.16
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
         min: 0.08
         max: 180
+        metadata:
+          last_verified: '2025-10-16T13:42:36.279338'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 0.2 / (1.25 × 1000.0) = 0.16 mm²/s'
+          previous_value: 0.12
       thermalExpansion:
         value: 30.0
         unit: 10⁻⁶/K

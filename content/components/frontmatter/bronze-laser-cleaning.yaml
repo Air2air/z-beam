@@ -26,7 +26,7 @@ materialProperties:
           surface condition'
       specificHeat:
         value: 380.0
-        unit: J·kg⁻¹·K⁻¹
+        unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 100
@@ -41,12 +41,17 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 42.7
+        value: 12.56
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
         min: 0.06
         max: 174
+        metadata:
+          last_verified: '2025-10-16T13:42:35.901172'
+          verification_source: automatic_fix
+          fix_reason: 'Recalculated: 42.0 / (8.8 × 380.0) = 12.56 mm²/s'
+          previous_value: 42.7
       thermalExpansion:
         value: 18.0
         unit: 10⁻⁶/K
@@ -68,17 +73,17 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: High
+        value: 800.0
         unit: °C
-        confidence: 80
+        confidence: 70
         description: Excellent oxidation resistance due to protective oxide layer
           formation
         min: 200
         max: 1200
         source: ASM Metals Handbook - Corrosion
-        notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        notes: Converted from qualitative 'High' to estimated numeric value
       corrosionResistance:
-        value: Excellent
+        value: excellent
         unit: qualitative
         confidence: 92
         description: Superior corrosion resistance in marine and chemical environments
@@ -86,7 +91,7 @@ materialProperties:
         max: 10
       hardness:
         value: 70.0
-        unit: HB
+        unit: Brinell
         confidence: 88
         description: Brinell hardness for standard bronze
         min: 0.5
