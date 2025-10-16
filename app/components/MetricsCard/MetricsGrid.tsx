@@ -26,10 +26,10 @@ const GRID_LAYOUTS = {
 // Property title mappings for display
 const TITLE_MAPPING: Record<string, string> = {
   // Thermal Properties
-  'thermalConductivity': 'Thermal Conductivity',
+  'thermalConductivity': 'Therm. Conductivity',
   'thermalExpansion': 'Thermal Expansion',
   'thermalDiffusivity': 'Thermal Diffusivity',
-  'thermalDegradationPoint': 'Thermal Degradation Point',
+  'thermalDegradationPoint': 'Thermal Degradation',
   'thermalDestructionPoint': 'Thermal Destruction',
   'thermalDestruction': 'Thermal Destruction',
   'specificHeat': 'Specific Heat',
@@ -46,7 +46,7 @@ const TITLE_MAPPING: Record<string, string> = {
   // Mechanical Properties
   'tensileStrength': 'Tensile Strength',
   'youngsModulus': 'Young\'s Modulus',
-  'compressiveStrength': 'Compressive Strength',
+  'compressiveStrength': 'Comp. Strength',
   'flexuralStrength': 'Flexural Strength',
   'fractureToughness': 'Fracture Toughness',
   'hardness': 'Hardness',
@@ -57,7 +57,7 @@ const TITLE_MAPPING: Record<string, string> = {
   'laserAbsorption': 'Laser Absorption',
   'laserReflectivity': 'Laser Reflectivity',
   'ablationThreshold': 'Ablation Threshold',
-  'laserDamageThreshold': 'Laser Damage Threshold',
+  'laserDamageThreshold': 'Damage Threshold',
   'absorptionCoefficient': 'Absorption Coefficient',
   'refractiveIndex': 'Refractive Index',
   'transmissivity': 'Transmissivity',
@@ -74,9 +74,9 @@ const TITLE_MAPPING: Record<string, string> = {
   'ligninContent': 'Lignin Content',
   'charYield': 'Char Yield',
   
-  // Electrical Properties
-  'electricalConductivity': 'Electrical Conductivity',
-  'electricalResistivity': 'Electrical Resistivity',
+  // Elect. Properties
+  'electricalConductivity': 'Elect. Conductivity',
+  'electricalResistivity': 'Elect. Resistivity',
   'dielectricConstant': 'Dielectric Constant',
   'bandGap': 'Band Gap',
   
