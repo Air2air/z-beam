@@ -25,47 +25,83 @@ const GRID_LAYOUTS = {
 
 // Property title mappings for display
 const TITLE_MAPPING: Record<string, string> = {
+  // Thermal Properties
   'thermalConductivity': 'Thermal Conductivity',
   'thermalExpansion': 'Thermal Expansion',
   'thermalDiffusivity': 'Thermal Diffusivity',
+  'thermalDegradationPoint': 'Thermal Degradation Point',
   'thermalDestructionPoint': 'Thermal Destruction',
   'thermalDestruction': 'Thermal Destruction',
+  'specificHeat': 'Specific Heat',
   'meltingPoint': 'Melting Point',
   'boilingPoint': 'Boiling Point',
-  'specificHeat': 'Specific Heat',
+  'softeningPoint': 'Softening Point',
+  'glassTransition': 'Glass Transition',
+  'decompositionTemperature': 'Decomposition Temperature',
+  'degradationTemperature': 'Degradation Temperature',
+  'degradationPoint': 'Degradation Point',
+  'ignitionTemperature': 'Ignition Temperature',
+  'vaporizationPoint': 'Vaporization Point',
+  
+  // Mechanical Properties
   'tensileStrength': 'Tensile Strength',
-  'youngsModulus': 'Youngs Modulus',
+  'youngsModulus': 'Young\'s Modulus',
   'compressiveStrength': 'Compressive Strength',
   'flexuralStrength': 'Flexural Strength',
+  'fractureToughness': 'Fracture Toughness',
+  'hardness': 'Hardness',
+  'vickersHardness': 'Vickers Hardness',
+  'density': 'Density',
+  
+  // Optical/Laser Properties
   'laserAbsorption': 'Laser Absorption',
   'laserReflectivity': 'Laser Reflectivity',
   'ablationThreshold': 'Ablation Threshold',
   'laserDamageThreshold': 'Laser Damage Threshold',
   'absorptionCoefficient': 'Absorption Coefficient',
   'refractiveIndex': 'Refractive Index',
-  'crystallineStructure': 'Crystalline Structure',
+  'transmissivity': 'Transmissivity',
+  'reflectivity': 'Reflectivity',
+  
+  // Chemical/Material Properties
   'oxidationResistance': 'Oxidation Resistance',
+  'corrosionResistance': 'Corrosion Resistance',
   'chemicalStability': 'Chemical Stability',
+  'waterSolubility': 'Water Solubility',
+  'moistureContent': 'Moisture Content',
+  'weatherResistance': 'Weather Resistance',
+  'celluloseContent': 'Cellulose Content',
+  'ligninContent': 'Lignin Content',
+  'charYield': 'Char Yield',
+  
+  // Electrical Properties
   'electricalConductivity': 'Electrical Conductivity',
   'electricalResistivity': 'Electrical Resistivity',
   'dielectricConstant': 'Dielectric Constant',
+  'bandGap': 'Band Gap',
+  
+  // Surface Properties
   'surfaceRoughness': 'Surface Roughness',
   'surfaceEnergy': 'Surface Energy',
-  'moistureContent': 'Moisture Content',
-  'waterSolubility': 'Water Solubility',
-  'weatherResistance': 'Weather Resistance',
-  'celluloseContent': 'Cellulose Content',
+  'surfaceTension': 'Surface Tension',
   'grainSize': 'Grain Size',
-  'reflectivity': 'Reflectivity',
-  // Machine Settings fields
+  
+  // Structural Properties
+  'crystallineStructure': 'Crystalline Structure',
+  
+  // Machine Settings
+  'powerRange': 'Power Range',
+  'wavelength': 'Wavelength',
+  'spotSize': 'Spot Size',
+  'repetitionRate': 'Repetition Rate',
+  'pulseWidth': 'Pulse Width',
+  'scanSpeed': 'Scan Speed',
+  'fluence': 'Fluence',
+  'overlapRatio': 'Overlap Ratio',
+  'passCount': 'Pass Count',
   'laserType': 'Laser Type',
   'fluenceThreshold': 'Fluence Threshold',
   'laserWavelength': 'Laser Wavelength',
-  'pulseWidth': 'Pulse Width',
-  'repetitionRate': 'Repetition Rate',
-  'scanSpeed': 'Scan Speed',
-  'spotSize': 'Spot Size',
-  'fluence': 'Fluence',
   'powerDensity': 'Power Density'
 };
 
