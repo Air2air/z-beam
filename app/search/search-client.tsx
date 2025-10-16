@@ -90,16 +90,20 @@ function parsePropertiesFromMetadata(metadata: any): Array<{property: string, va
           : (data.units ? `${data.numeric} ${data.units}` : String(data.numeric));
         properties.push({ property: propertyName, value });
       } else {
-        // This is a grouping object - skip organizational/metadata keys
-        // Grouping keys are structural containers, not part of property names
-        const groupingKeys = ['properties', 'label', 'description', 'percentage', 
-                             'material_properties', 'structural_response', 'energy_coupling',
-                             'optical_properties', 'chemical_properties'];
-        const isGrouping = groupingKeys.includes(key);
+        // This is a grouping object - determine if it's a category container
+        // Categories have 'label', 'properties', 'description', and 'percentage' keys
+        const hasCategoryStructure = 
+          data.hasOwnProperty('label') && 
+          data.hasOwnProperty('properties') && 
+          typeof data.properties === 'object';
+        
+        // Known non-property metadata keys to skip
+        const metadataKeys = ['label', 'description', 'percentage'];
+        const isMetadataKey = metadataKeys.includes(key);
         
         Object.entries(data).forEach(([nestedKey, nestedValue]) => {
-          if (isGrouping) {
-            // Don't include grouping key in path
+          if (hasCategoryStructure || isMetadataKey) {
+            // This is a category container or metadata - don't include in property path
             extractProperty(nestedKey, nestedValue, parentKey);
           } else {
             // Include this key in the path (for nested properties like thermalDestruction.point)
