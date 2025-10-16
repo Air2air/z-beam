@@ -9,10 +9,11 @@ import './accessibility.css';
 
 // Category configuration for visual distinction
 // Standardized to 3 categories used in frontmatter files
+// Using new vibrant palette that complements bg-gray-700
 const CATEGORY_CONFIG = {
-  material_properties: { icon: '📊', color: '#A8DADC', label: 'Material Properties', order: 1 },
-  structural_response: { icon: '⚙️', color: '#4ECDC4', label: 'Structural Response', order: 2 },
-  energy_coupling: { icon: '💡', color: '#FFE66D', label: 'Energy Coupling', order: 3 }
+  material_properties: { icon: '📊', color: '#6C5CE7', label: 'Material Properties', order: 1 }, // Rich purple-blue
+  structural_response: { icon: '⚙️', color: '#00D9A3', label: 'Structural Response', order: 2 }, // Teal-emerald
+  energy_coupling: { icon: '💡', color: '#FFD93D', label: 'Energy Coupling', order: 3 } // Bright yellow
 } as const;
 
 // Grid layout configurations
@@ -264,7 +265,7 @@ function extractCardsFromMachineSettings(
   machineSettings: Record<string, any>
 ): MetricsCardProps[] {
   const cards: MetricsCardProps[] = [];
-  const defaultColor = '#EF4444';
+  const defaultColor = '#FF6B6B'; // Coral red from new palette
   
   Object.entries(machineSettings).forEach(([key, value]) => {
     if (!value || typeof value !== 'object') return;

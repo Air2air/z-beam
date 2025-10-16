@@ -23,27 +23,41 @@ import { ProgressBar } from '../ProgressBar/ProgressBar';
 import { SITE_CONFIG } from '../../utils/constants';
 import './accessibility.css';
 
-// Color theme configuration
+// Color theme configuration - New vibrant palette complementing bg-gray-700
 const COLOR_THEMES = {
-  // Red theme - title: light, values: light
-  '#EF4444': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
-  '#DC2626': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
-  '#B91C1C': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  // Coral Red - warm and energetic
+  '#FF6B6B': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#EF4444': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#DC2626': { titleColor: 'text-white', valueColor: 'text-white/95' },
   
-  // Yellow theme - title: light, values: dark
-  '#FFE66D': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' },
-  '#FBBF24': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' },
-  '#F59E0B': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' },
+  // Bright Yellow - optimistic and clear
+  '#FFD93D': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#FFE66D': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#FBBF24': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
   
-  // Blue theme - title: light, values: light
-  '#4F46E5': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
-  '#3B82F6': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
-  '#2563EB': { titleColor: 'text-white/90', valueColor: 'text-white/90' },
+  // Rich Purple-Blue - professional and modern
+  '#6C5CE7': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#4F46E5': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#3B82F6': { titleColor: 'text-white', valueColor: 'text-white/95' },
   
-  // Additional colors
-  '#A8DADC': { titleColor: 'text-white/90', valueColor: 'text-gray-900/90' }, // Light blue
-  '#4ECDC4': { titleColor: 'text-white/90', valueColor: 'text-white/90' }, // Teal
-  '#6B7280': { titleColor: 'text-white/90', valueColor: 'text-white/90' }, // Gray
+  // Teal-Emerald - fresh and technical
+  '#00D9A3': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#10B981': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  
+  // Vibrant Violet - creative and distinctive
+  '#A855F7': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#8B5CF6': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  
+  // Warm Orange - energetic complement
+  '#FF8C42': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#F59E0B': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  
+  // Bright Cyan - clean and technical
+  '#4ECDC4': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#A8DADC': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  
+  // Gray fallback
+  '#6B7280': { titleColor: 'text-white', valueColor: 'text-white/95' },
 };
 
 // Get theme for a color, default to light text
@@ -127,7 +141,7 @@ export function MetricsCard({
       </div>
       
       {/* Metric title at top */}
-      <header className="metric-card-header h-[40px] flex items-center justify-center text-center mb-3">
+      <header className="metric-card-header h-[32px] flex items-center justify-center text-center mb-3">
         <h4 
           id={titleId} 
           className={`metric-label text-xs md:text-sm ${theme.titleColor} font-medium leading-none`}
@@ -186,9 +200,11 @@ export function MetricsCard({
     </article>
   );
 
-  // Create background colors with different opacities for normal and hover states
-  const bgColor = `${color}40`; // 40 = ~25% opacity in hex for normal state
-  const hoverBgColor = `${color}80`; // 80 = ~50% opacity in hex for hover state
+  // Create opacity gradient using opacity values from CSS variables
+  // Note: CSS variables can't be concatenated in inline styles, so we use fixed opacity values
+  // These match the values defined in colors.css - subtle gradient for smoother appearance
+  const bgGradient = `linear-gradient(to bottom, ${color}70, ${color}68, ${color}60, ${color}58, ${color}50)`;
+  const hoverBgGradient = `linear-gradient(to bottom, ${color}80, ${color}78, ${color}70, ${color}68, ${color}60)`;
   
   // Enhanced styles with accessibility features
   const focusStyles = 'focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-offset-2';
@@ -204,10 +220,10 @@ export function MetricsCard({
       href={finalHref}
       className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] ${clickableClasses} ${minTouchTarget} ${className}`}
       style={{ 
-        backgroundColor: bgColor,
-        '--hover-bg-color': hoverBgColor,
+        backgroundImage: bgGradient,
+        '--hover-bg-gradient': hoverBgGradient,
         transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
-      } as React.CSSProperties & { '--hover-bg-color': string }}
+      } as React.CSSProperties & { '--hover-bg-gradient': string }}
       
       // Enhanced accessibility attributes
       aria-label={`Navigate to search results for ${fullPropertyName || title}: ${displayValue}${displayUnit}`}
@@ -217,12 +233,12 @@ export function MetricsCard({
       // Reduced motion and hover support
       onMouseEnter={(e) => {
         if (isClickable) {
-          (e.currentTarget as HTMLElement).style.backgroundColor = hoverBgColor;
+          (e.currentTarget as HTMLElement).style.backgroundImage = hoverBgGradient;
         }
       }}
       onMouseLeave={(e) => {
         if (isClickable) {
-          (e.currentTarget as HTMLElement).style.backgroundColor = bgColor;
+          (e.currentTarget as HTMLElement).style.backgroundImage = bgGradient;
         }
       }}
     >
@@ -232,7 +248,7 @@ export function MetricsCard({
     <div 
       className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[160px] transition-all duration-300 ease-out ${minTouchTarget} ${className}`}
       style={{ 
-        backgroundColor: bgColor,
+        backgroundImage: bgGradient,
         transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
       }}
       role="presentation"

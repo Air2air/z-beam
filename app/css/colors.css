@@ -1,0 +1,68 @@
+/**
+ * ============================================
+ * COLOR PALETTE SYSTEM
+ * ============================================
+ * 
+ * BACKGROUND HIERARCHY:
+ * - Primary:   #0F172A (slate-900) - Main body background
+ * - Secondary: #1E293B (slate-800) - Card backgrounds, sections
+ * - Tertiary:  #334155 (slate-700) - Elevated elements, hover states
+ * 
+ * TEXT HIERARCHY:
+ * - Primary:   #F8FAFC (slate-50)  - Main headings, important text
+ * - Secondary: #E2E8F0 (slate-200) - Body text, descriptions
+ * - Tertiary:  #CBD5E1 (slate-300) - Supporting text, captions
+ * - Muted:     #94A3B8 (slate-400) - Disabled, placeholder text
+ * 
+ * ACCENT COLORS (for MetricsCards):
+ * - Red:       #EF4444 (red-500)    - High values, thermal properties
+ * - Yellow:    #FFE66D (custom)     - Medium values, caution
+ * - Blue:      #4F46E5 (indigo-600) - Low values, standard properties
+ * - Emerald:   #10B981 (emerald-500)- Success, growth indicators
+ * - Violet:    #8B5CF6 (violet-500) - Special properties
+ * 
+ * DESIGN PRINCIPLES:
+ * - Dark slate background provides excellent contrast for colored cards
+ * - Gradient cards blend naturally with background using opacity
+ * - Text colors maintain WCAG AA compliance (4.5:1 contrast minimum)
+ * - Accent colors are vibrant but not overwhelming against dark bg
+ * 
+ * ============================================
+ */
+
+:root {
+  /* Background colors */
+  --bg-primary: #0F172A;    /* slate-900 */
+  --bg-secondary: #1E293B;  /* slate-800 */
+  --bg-tertiary: #334155;   /* slate-700 */
+  
+  /* Text colors */
+  --text-primary: #F8FAFC;   /* slate-50 */
+  --text-secondary: #E2E8F0; /* slate-200 */
+  --text-tertiary: #CBD5E1;  /* slate-300 */
+  --text-muted: #94A3B8;     /* slate-400 */
+  
+  /* Accent colors for MetricsCards - Vibrant palette complementing gray-700 (#374151) */
+  --accent-red: #FF6B6B;      /* Coral red - warm and energetic */
+  --accent-yellow: #FFD93D;   /* Bright yellow - optimistic and clear */
+  --accent-blue: #6C5CE7;     /* Rich purple-blue - professional and modern */
+  --accent-emerald: #00D9A3;  /* Teal-emerald - fresh and technical */
+  --accent-violet: #A855F7;   /* Vibrant violet - creative and distinctive */
+  --accent-orange: #FF8C42;   /* Warm orange - energetic complement */
+  --accent-cyan: #4ECDC4;     /* Bright cyan - clean and technical */
+  
+  /* Gradient opacity stops for MetricsCards (hex opacity values) */
+  /* Subtle gradient for smoother appearance */
+  --gradient-top: 70;        /* 44% opacity */
+  --gradient-mid-top: 68;    /* 41% opacity */
+  --gradient-mid: 60;        /* 38% opacity */
+  --gradient-mid-bottom: 58; /* 35% opacity */
+  --gradient-bottom: 50;     /* 31% opacity */
+  
+  /* Hover gradient opacity stops */
+  --gradient-hover-top: 80;      /* 50% opacity */
+  --gradient-hover-mid-top: 78;  /* 47% opacity */
+  --gradient-hover-mid: 70;      /* 44% opacity */
+  --gradient-hover-mid-bottom: 68; /* 41% opacity */
+  --gradient-hover-bottom: 60;   /* 38% opacity */
+}
