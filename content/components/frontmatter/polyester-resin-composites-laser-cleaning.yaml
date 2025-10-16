@@ -37,14 +37,14 @@ materialProperties:
         confidence: 84
         description: Specific heat capacity at room temperature
         min: 500
-        max: 1500
+        max: 2500.0
       thermalConductivity:
         value: 0.17
         unit: W/(m·K)
         confidence: 88
         description: Low thermal conductivity typical of polymer composites with glass
           fiber reinforcement
-        min: 0.1
+        min: 0.03
         max: 400
         source: ASM Handbook - Composites
         notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10,
@@ -54,11 +54,11 @@ materialProperties:
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity calculated from thermal properties
-        min: 0.1
+        min: 0.08
         max: 180
       thermalExpansion:
         value: 55.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 86
         description: Coefficient of linear thermal expansion for polyester-glass composites
         min: -1
@@ -70,14 +70,6 @@ materialProperties:
         description: Temperature where polymer matrix decomposes
         min: 473.15
         max: 1073.15
-      absorptionCoefficient:
-        value: 0.75
-        unit: cm⁻¹
-        confidence: 82
-        description: Optical absorption coefficient for near-infrared wavelengths
-          (1064 nm)
-        min: 0.75
-        max: 8500.0
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -92,42 +84,35 @@ materialProperties:
           with glass fiber reinforcement
         min: 0.5
         max: 8
-      chemicalStability:
-        value: 7
-        unit: rating (1-10)
-        confidence: 86
-        description: Resistance to common solvents and chemicals (higher = better)
-        min: 7.0
-        max: 8.2
       hardness:
         value: 42.0
         unit: Shore D
         confidence: 87
         description: Barcol hardness scale typical for cured polyester composites
-        min: 20
-        max: 90
+        min: 5.0
+        max: 120
       tensileStrength:
         value: 85
         unit: MPa
         confidence: 90
         description: Typical tensile strength for glass fiber reinforced polyester
           composites
-        min: 50
+        min: 20
         max: 6000
       youngsModulus:
-        value: 2800.0
-        unit: MPa
+        value: 2.8
+        unit: GPa
         confidence: 89
         description: Elastic modulus in tension for standard polyester composites
         min: 0.001
-        max: 500
+        max: 3000
       flexuralStrength:
         value: 120.0
         unit: MPa
         confidence: 88
         description: Bending strength for glass fiber reinforced polyester composites
-        min: null
-        max: null
+        min: 100
+        max: 2000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

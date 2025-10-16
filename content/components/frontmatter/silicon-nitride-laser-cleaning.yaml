@@ -36,15 +36,15 @@ materialProperties:
         unit: J·kg⁻¹·K⁻¹
         confidence: 85
         description: Specific heat capacity at room temperature
-        min: 200
-        max: 1200
+        min: 250
+        max: 2500.0
       thermalConductivity:
         value: 30
         unit: W/(m·K)
         confidence: 80
         description: Thermal conductivity at room temperature for high-purity Si3N4
-        min: 1
-        max: 150
+        min: 0.8
+        max: 120
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
@@ -52,7 +52,7 @@ materialProperties:
         unit: mm²/s
         confidence: 95
         description: thermalDiffusivity from Materials.yaml
-        min: 0.05
+        min: 0.005
         max: 120
       thermalExpansion:
         value: 3.3
@@ -61,13 +61,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-1000°C)
         min: 0.1
         max: 14
-      absorptionCoefficient:
-        value: 0.8
-        unit: cm⁻¹
-        confidence: 82
-        description: Absorption coefficient for near-IR wavelengths (1064 nm)
-        min: 0.8
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -79,50 +72,43 @@ materialProperties:
         unit: g/cm³
         confidence: 95
         description: Theoretical density of fully dense silicon nitride
-        min: 2.2
-        max: 19.3
+        min: 2.3
+        max: 16.0
       oxidationResistance:
         value: 1200.0
         unit: °C
         confidence: 88
         description: Maximum service temperature in oxidizing environments
-        min: 95.0
-        max: 1400.0
-      crystallineStructure:
-        value: Hexagonal
-        unit: crystal system
-        confidence: 95
-        description: Primary crystal structure (α-Si3N4 and β-Si3N4 phases)
-        min: null
-        max: null
+        min: 600.0
+        max: 2400.0
       hardness:
         value: 17.0
         unit: GPa
         confidence: 92
         description: Vickers hardness of sintered silicon nitride
-        min: 1.0
-        max: 10.0
+        min: 6.0
+        max: 2500
       tensileStrength:
         value: 550.0
         unit: MPa
         confidence: 95
         description: tensileStrength from Materials.yaml
-        min: 50
-        max: 1000
+        min: 5.0
+        max: 600
       youngsModulus:
         value: 310
         unit: GPa
         confidence: 94
         description: Elastic modulus of dense silicon nitride
-        min: 50
-        max: 800
+        min: 5.0
+        max: 600.0
       flexuralStrength:
         value: 800.0
         unit: MPa
         confidence: 90
         description: Room temperature flexural strength
-        min: 45.0
-        max: 3500.0
+        min: 50
+        max: 2500
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

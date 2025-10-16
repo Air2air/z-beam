@@ -50,19 +50,11 @@ materialProperties:
         max: 0.4
       thermalExpansion:
         value: 27.5
-        unit: μm/m·K
+        unit: 10⁻⁶/K
         confidence: 82
         description: Longitudinal coefficient of thermal expansion
         min: 3.0
         max: 60
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 86
-        description: Optical absorption coefficient for near-infrared laser wavelengths
-          (1064 nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -75,20 +67,13 @@ materialProperties:
         confidence: 92
         description: Average density of mature bamboo culm material
         min: 0.12
-        max: 1.25
-      chemicalStability:
-        value: 65
-        unit: '% resistance'
-        confidence: 81
-        description: Resistance to common environmental degradation factors
-        min: null
-        max: null
+        max: 1.5
       hardness:
         value: 1580.0
         unit: MPa
         confidence: 84
         description: Brinell hardness of bamboo outer surface
-        min: 20
+        min: 1
         max: 5000
         metadata:
           last_verified: '2025-10-15T15:23:16.050893'
@@ -107,7 +92,7 @@ materialProperties:
         confidence: 89
         description: Elastic modulus in longitudinal direction
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

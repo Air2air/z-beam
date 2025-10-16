@@ -29,8 +29,8 @@ materialProperties:
         unit: J/kg·K
         confidence: 85
         description: Specific heat capacity at room temperature
-        min: 200
-        max: 1200
+        min: 250
+        max: 2500.0
         metadata:
           last_verified: '2025-10-15T15:43:05.917820'
           verification_source: automatic_fix
@@ -40,8 +40,8 @@ materialProperties:
         unit: W/(m·K)
         confidence: 80
         description: Thermal conductivity for WC-6%Co composition at room temperature
-        min: 1
-        max: 150
+        min: 0.8
+        max: 120
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
@@ -49,11 +49,11 @@ materialProperties:
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity at room temperature for typical WC-Co
-        min: 0.05
+        min: 0.005
         max: 120
       thermalExpansion:
         value: 5.4
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion for WC-6%Co at 20-400°C
         min: 0.1
@@ -63,16 +63,8 @@ materialProperties:
         unit: MPa·m¹/²
         confidence: 95
         description: fractureToughness from Materials.yaml
-        min: null
-        max: null
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 80
-        description: Estimated absorption coefficient for near-IR wavelengths (1064
-          nm)
-        min: 0.8
-        max: 0.85
+        min: 2
+        max: 10
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -84,57 +76,50 @@ materialProperties:
         unit: MPa
         confidence: 95
         description: compressiveStrength from Materials.yaml
-        min: 410.0
-        max: 6700.0
+        min: 100
+        max: 7000
       flexuralStrength:
         value: 2300.0
         unit: MPa
         confidence: 88
         description: Transverse rupture strength for WC-6%Co
-        min: 45.0
-        max: 3500.0
+        min: 50
+        max: 2500
       hardness:
         value: 1600.0
         unit: Mohs
         confidence: 92
         description: Vickers hardness for WC-6%Co composition
-        min: 1.0
-        max: 10.0
+        min: 6.0
+        max: 2500
       tensileStrength:
         value: 344.7
         unit: MPa
         confidence: 92
         description: tensileStrength from Materials.yaml
-        min: 50
-        max: 1000
+        min: 5.0
+        max: 600
       youngsModulus:
         value: 600.0
         unit: GPa
         confidence: 90
         description: Young's modulus for WC-6%Co composition
-        min: 50
-        max: 800
+        min: 5.0
+        max: 600.0
       density:
         value: 15.63
         unit: g/cm³
         confidence: 95
         description: High density due to tungsten content in WC-Co compositions
-        min: 2.2
-        max: 19.3
+        min: 2.3
+        max: 16.0
       oxidationResistance:
         value: 600.0
         unit: °C
         confidence: 85
         description: Maximum temperature for oxidation resistance in air
-        min: 95.0
-        max: 1400.0
-      crystallineStructure:
-        value: Hexagonal
-        unit: crystal system
-        confidence: 95
-        description: WC crystallizes in hexagonal crystal structure
-        min: null
-        max: null
+        min: 600.0
+        max: 2400.0
       grainSize:
         value: 1.5
         unit: μm

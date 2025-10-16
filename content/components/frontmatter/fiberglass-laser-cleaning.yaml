@@ -27,7 +27,7 @@ materialProperties:
         confidence: 90
         description: Specific heat capacity of fiberglass composite at room temperature
         min: 500
-        max: 1500
+        max: 2500.0
       thermalConductivity:
         value: 0.036
         unit: W/(m·K)
@@ -41,22 +41,15 @@ materialProperties:
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
-        min: 0.1
+        min: 0.08
         max: 180
       thermalExpansion:
         value: 8.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion along fiber direction for E-glass
         min: -1
         max: 250
-      absorptionCoefficient:
-        value: 0.85
-        unit: dimensionless
-        confidence: 82
-        description: Absorption coefficient for typical fiberglass at 1064 nm wavelength
-        min: null
-        max: null
       laserDamageThreshold:
         value: 4.5
         unit: J/cm²
@@ -99,7 +92,7 @@ materialProperties:
         unit: Mohs
         confidence: 88
         description: Mohs hardness scale value for glass fibers
-        min: 20
+        min: 5.0
         max: 120
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity

@@ -13,7 +13,7 @@ materialProperties:
         confidence: 92
         description: laserAbsorption from Materials.yaml
         min: 0.1
-        max: 20
+        max: 100
       laserReflectivity:
         value: 38.2
         unit: '%'
@@ -36,7 +36,7 @@ materialProperties:
         unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature
-        min: 600
+        min: 400
         max: 1200
         metadata:
           last_verified: '2025-10-15T15:43:04.412680'
@@ -60,11 +60,11 @@ materialProperties:
         max: 2.5
       thermalExpansion:
         value: 8.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 88
         description: Coefficient of thermal expansion (20-100°C)
         min: 3
-        max: 25
+        max: 30
       thermalDegradationPoint:
         value: 1073.15
         unit: K
@@ -72,13 +72,6 @@ materialProperties:
         description: Temperature where mineral structure breaks down
         min: 573.0
         max: 1470.0
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 82
-        description: Average absorption coefficient for IR lasers (1064 nm)
-        min: 0.15
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -91,14 +84,7 @@ materialProperties:
         confidence: 95
         description: Average density of natural onyx (silicon dioxide mineral)
         min: 1.5
-        max: 3.4
-      chemicalStability:
-        value: 9.2
-        unit: pH resistance scale
-        confidence: 90
-        description: Resistance to chemical attack (1-10 scale, 10=highest)
-        min: 8.0
-        max: 95.0
+        max: 6.0
       hardness:
         value: 3.0
         unit: Mohs

@@ -19,7 +19,7 @@ materialProperties:
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
-        min: 4
+        min: 0.1
         max: 92
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical glasses 4-8% at normal incidence, varies with composition and
@@ -44,15 +44,15 @@ materialProperties:
         unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature
-        min: 500
+        min: 120
         max: 900
       thermalConductivity:
         value: 1.1
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity of Gorilla Glass at room temperature
-        min: 0.8
-        max: 1.4
+        min: 0.7
+        max: 30
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
@@ -96,20 +96,13 @@ materialProperties:
         description: Density of Gorilla Glass 6 at room temperature
         min: 1.2
         max: 7.6
-      chemicalStability:
-        value: 95
-        unit: '% weight retention'
-        confidence: 88
-        description: Chemical durability in acidic environments after 24h exposure
-        min: 0.7
-        max: 99.5
       hardness:
         value: 6.75
         unit: GPa
         confidence: 92
         description: Hardness on Mohs scale for Gorilla Glass 6
-        min: 4.5
-        max: 9
+        min: 3.5
+        max: 9.5
       tensileStrength:
         value: 900.0
         unit: MPa
@@ -129,8 +122,8 @@ materialProperties:
         unit: MPa
         confidence: 90
         description: Flexural strength after chemical strengthening
-        min: 50.0
-        max: 690.0
+        min: 50
+        max: 750.0
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

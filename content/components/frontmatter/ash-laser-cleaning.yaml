@@ -50,19 +50,11 @@ materialProperties:
         max: 0.4
       thermalExpansion:
         value: 8.5
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 82
         description: Coefficient of thermal expansion for ash mineral content
         min: 3.0
         max: 60
-      absorptionCoefficient:
-        value: 0.75
-        unit: cm⁻¹
-        confidence: 88
-        description: Optical absorption coefficient for typical laser wavelengths
-          (1064 nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -75,20 +67,13 @@ materialProperties:
         confidence: 85
         description: Bulk density of wood ash at room temperature
         min: 0.12
-        max: 1.25
-      chemicalStability:
-        value: Moderate
-        unit: qualitative
-        confidence: 85
-        description: Chemical stability of ash in ambient conditions
-        min: null
-        max: null
+        max: 1.5
       hardness:
         value: 1320.0
         unit: MPa
         confidence: 84
         description: Mohs hardness scale for ash mineral components
-        min: 20
+        min: 1
         max: 5000
         metadata:
           last_verified: '2025-10-15T15:23:16.006971'
@@ -107,7 +92,7 @@ materialProperties:
         confidence: 90
         description: youngsModulus from Materials.yaml
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

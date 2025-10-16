@@ -53,15 +53,15 @@ materialProperties:
         notes: Across grain 0.04-0.2 W/m·K, along grain can be 2-3x higher; moisture
           content affects values
       thermalDiffusivity:
-        value: 0.00017
-        unit: m²/s
+        value: 170.0
+        unit: mm²/s
         confidence: 82
         description: Thermal diffusivity across grain direction
         min: 0.0001
         max: 0.4
       thermalExpansion:
         value: 4.5
-        unit: μm/m·°C
+        unit: 10⁻⁶/K
         confidence: 92
         description: thermalExpansion from Materials.yaml
         min: 3.0
@@ -73,14 +73,6 @@ materialProperties:
         description: Minimum temperature for sustained combustion
         min: null
         max: null
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 90
-        description: Optical absorption coefficient for near-infrared wavelengths
-          (1064 nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -93,7 +85,7 @@ materialProperties:
         confidence: 92
         description: Average density of dry poplar wood at 12% moisture content
         min: 0.12
-        max: 1.25
+        max: 1.5
       moistureContent:
         value: 12
         unit: '%'
@@ -106,7 +98,7 @@ materialProperties:
         unit: N/mm²
         confidence: 87
         description: Janka hardness test value
-        min: 20
+        min: 1
         max: 5000
         metadata:
           last_verified: '2025-10-15T15:23:17.997892'
@@ -125,7 +117,7 @@ materialProperties:
         confidence: 91
         description: Modulus of elasticity parallel to grain
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

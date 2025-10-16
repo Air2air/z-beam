@@ -19,7 +19,7 @@ materialProperties:
         unit: '%'
         confidence: 92
         description: laserReflectivity from Materials.yaml
-        min: 5
+        min: 4.0
         max: 95
         source: Polymer Optical Properties Database
         notes: Highly variable with color, additives, and surface finish; translucent
@@ -43,7 +43,7 @@ materialProperties:
         unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature
-        min: 1000
+        min: 1.0
         max: 2500
       thermalConductivity:
         value: 0.142
@@ -60,11 +60,11 @@ materialProperties:
         unit: mm²/s
         confidence: 95
         description: thermalDiffusivity from Materials.yaml
-        min: 0.05
+        min: 0.08
         max: 1
       thermalExpansion:
         value: 70.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 88
         description: Coefficient of linear thermal expansion
         min: 10
@@ -76,13 +76,6 @@ materialProperties:
         description: Temperature where polymer chains break down
         min: 270.0
         max: 385.0
-      absorptionCoefficient:
-        value: 0.12
-        unit: cm⁻¹
-        confidence: 82
-        description: Absorption coefficient at 1064 nm wavelength
-        min: 0.12
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -96,13 +89,6 @@ materialProperties:
         description: Density of general purpose polystyrene at room temperature
         min: 0.85
         max: 2.2
-      chemicalStability:
-        value: 70
-        unit: '% resistance'
-        confidence: 88
-        description: Resistance to weak acids and bases
-        min: null
-        max: null
       hardness:
         value: 80.0
         unit: MPa
@@ -118,12 +104,12 @@ materialProperties:
         min: 10
         max: 400
       youngsModulus:
-        value: 3200.0
-        unit: MPa
+        value: 3.2
+        unit: GPa
         confidence: 92
         description: Elastic modulus in tension
         min: 0.01
-        max: 5
+        max: 5000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

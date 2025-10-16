@@ -13,7 +13,7 @@ materialProperties:
         confidence: 92
         description: laserAbsorption from Materials.yaml
         min: 0.1
-        max: 20
+        max: 100
       laserReflectivity:
         value: 38.2
         unit: '%'
@@ -36,7 +36,7 @@ materialProperties:
         unit: J/kg·K
         confidence: 92
         description: Specific heat capacity at room temperature
-        min: 600
+        min: 400
         max: 1200
         metadata:
           last_verified: '2025-10-15T15:45:17.801632'
@@ -60,11 +60,11 @@ materialProperties:
         max: 2.5
       thermalExpansion:
         value: 8.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Linear thermal expansion coefficient (20-100°C)
         min: 3
-        max: 25
+        max: 30
       thermalDegradationPoint:
         value: 825.0
         unit: °C
@@ -72,13 +72,6 @@ materialProperties:
         description: Temperature where mineral structure breaks down
         min: 573.0
         max: 1470.0
-      absorptionCoefficient:
-        value: 0.65
-        unit: cm⁻¹
-        confidence: 82
-        description: Optical absorption coefficient at 1064 nm wavelength
-        min: 0.15
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -91,14 +84,7 @@ materialProperties:
         confidence: 95
         description: Bulk density of typical travertine with natural porosity
         min: 1.5
-        max: 3.4
-      chemicalStability:
-        value: low
-        unit: qualitative
-        confidence: 96
-        description: Susceptible to acid attack and chemical weathering
-        min: 8.0
-        max: 95.0
+        max: 6.0
       hardness:
         value: 3.0
         unit: Mohs
@@ -125,8 +111,8 @@ materialProperties:
         unit: MPa
         confidence: 89
         description: Uniaxial compressive strength perpendicular to bedding
-        min: 45.0
-        max: 250.0
+        min: 20
+        max: 500
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

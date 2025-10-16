@@ -51,7 +51,7 @@ function getThermalPropertyLabel(materialName: string): { label: string; propert
                  'porphyry', 'quartzite', 'sandstone', 'schist', 'serpentine', 'shale', 
                  'slate', 'soapstone', 'travertine'];
   if (rocks.some(rock => material.includes(rock))) {
-    return { label: 'Thermal Degradation Point', property: 'thermalDegradation' };
+    return { label: 'Thermal Degradation', property: 'thermalDegradation' };
   }
   
   // Composites and polymers - decompose, degrade, or pyrolyze
@@ -291,7 +291,7 @@ export function SEOOptimizedCaption({
                     if (normalized.includes('decompos')) return 'Decomposition Point';
                     if (normalized.includes('degrad')) return 'Degradation Point';
                     if (normalized.includes('soften')) return 'Softening Point';
-                    if (normalized.includes('structural')) return 'Thermal Degradation Point';
+                    if (normalized.includes('structural')) return 'Thermal Degradation';
                   }
                   return thermalProperty.label;
                 })()}:

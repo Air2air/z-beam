@@ -67,18 +67,11 @@ materialProperties:
         max: 90
       thermalExpansion:
         value: 3.9
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion at 300K
         min: 2.6
         max: 10
-      absorptionCoefficient:
-        value: 8500
-        unit: cm⁻¹
-        confidence: 92
-        description: Absorption coefficient at 532nm wavelength
-        min: 1.0
-        max: 8500.0
       bandGap:
         value: 1.03
         unit: eV
@@ -97,29 +90,22 @@ materialProperties:
         unit: g/cm³
         confidence: 95
         description: Density for Si0.7Ge0.3 alloy at room temperature
-        min: 2.33
+        min: 2.3
         max: 7.13
       oxidationResistance:
         value: 700.0
         unit: qualitative
         confidence: 85
         description: Forms stable oxide layer but slower than pure silicon
-        min: null
-        max: null
-      crystallineStructure:
-        value: Diamond cubic
-        unit: crystal system
-        confidence: 95
-        description: Maintains diamond cubic structure like silicon
-        min: null
-        max: null
+        min: 600.0
+        max: 1600.0
       hardness:
         value: 10.5
         unit: GPa
         confidence: 85
         description: Vickers hardness for Si0.7Ge0.3
         min: 2
-        max: 9.5
+        max: 2600
       tensileStrength:
         value: 1200.0
         unit: MPa
@@ -133,7 +119,7 @@ materialProperties:
         confidence: 90
         description: Young's modulus for SiGe alloy
         min: 5
-        max: 190
+        max: 450
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

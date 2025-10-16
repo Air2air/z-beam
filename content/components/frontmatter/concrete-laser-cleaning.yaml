@@ -49,7 +49,7 @@ materialProperties:
         max: 1
       thermalExpansion:
         value: 10
-        unit: μm/m·°C
+        unit: 10⁻⁶/K
         confidence: 88
         description: Coefficient of thermal expansion
         min: 5
@@ -61,13 +61,6 @@ materialProperties:
         description: Temperature where structural integrity fails
         min: 450.0
         max: 1073.15
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 80
-        description: Optical absorption coefficient for common laser wavelengths
-        min: 0.65
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -79,14 +72,14 @@ materialProperties:
         unit: MPa
         confidence: 96
         description: Characteristic compressive strength
-        min: 12.4
-        max: 45.0
+        min: 5
+        max: 100
       hardness:
         value: 5.0
         unit: Mohs
         confidence: 85
         description: Mohs hardness scale
-        min: 2
+        min: 1
         max: 6
       tensileStrength:
         value: 3.5
@@ -100,7 +93,7 @@ materialProperties:
         unit: GPa
         confidence: 94
         description: Elastic modulus of standard concrete
-        min: 5
+        min: 3.0
         max: 50
       density:
         value: 2.4
@@ -108,14 +101,7 @@ materialProperties:
         confidence: 95
         description: Average density of standard concrete mix
         min: 0.6
-        max: 2.8
-      chemicalStability:
-        value: 8
-        unit: rating 1-10
-        confidence: 90
-        description: Chemical stability rating in normal environments
-        min: 7.0
-        max: 8.0
+        max: 3.2
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

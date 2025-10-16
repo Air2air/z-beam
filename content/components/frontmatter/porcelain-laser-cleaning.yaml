@@ -29,15 +29,15 @@ materialProperties:
         unit: J·kg⁻¹·K⁻¹
         confidence: 87
         description: Specific heat capacity at room temperature
-        min: 200
-        max: 1200
+        min: 250
+        max: 2500.0
       thermalConductivity:
         value: 1.5
         unit: W/(m·K)
         confidence: 80
         description: Thermal conductivity at room temperature
-        min: 1
-        max: 150
+        min: 0.8
+        max: 120
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
@@ -45,7 +45,7 @@ materialProperties:
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
-        min: 0.05
+        min: 0.005
         max: 120
       thermalExpansion:
         value: 6.0
@@ -54,13 +54,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-700°C)
         min: 0.1
         max: 14
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 82
-        description: Optical absorption coefficient for common laser wavelengths
-        min: 0.8
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -72,43 +65,36 @@ materialProperties:
         unit: g/cm³
         confidence: 95
         description: Typical density of vitrified porcelain ceramic
-        min: 2.2
-        max: 19.3
-      chemicalStability:
-        value: 95
-        unit: '% resistance'
-        confidence: 93
-        description: Chemical resistance to common solvents and mild acids
-        min: 90.0
-        max: 95.0
+        min: 2.3
+        max: 16.0
       hardness:
         value: 7.0
         unit: Mohs
         confidence: 94
         description: Mohs hardness scale for porcelain
-        min: 1.0
-        max: 10.0
+        min: 6.0
+        max: 2500
       tensileStrength:
         value: 50.0
         unit: MPa
         confidence: 95
         description: tensileStrength from Materials.yaml
-        min: 50
-        max: 1000
+        min: 5.0
+        max: 600
       youngsModulus:
         value: 70.3
         unit: GPa
         confidence: 92
         description: Elastic modulus of porcelain material
-        min: 50
-        max: 800
+        min: 5.0
+        max: 600.0
       flexuralStrength:
         value: 50
         unit: MPa
         confidence: 89
         description: Three-point bending strength
-        min: 45.0
-        max: 3500.0
+        min: 50
+        max: 2500
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

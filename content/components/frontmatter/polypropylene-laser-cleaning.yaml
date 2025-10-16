@@ -19,7 +19,7 @@ materialProperties:
         unit: '%'
         confidence: 95
         description: laserReflectivity from Materials.yaml
-        min: 5
+        min: 4.0
         max: 95
         source: Polymer Optical Properties Database
         notes: Highly variable with color, additives, and surface finish; translucent
@@ -29,7 +29,7 @@ materialProperties:
         unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
-        min: 1000
+        min: 1.0
         max: 2500
       thermalConductivity:
         value: 0.22
@@ -46,11 +46,11 @@ materialProperties:
         unit: mm²/s
         confidence: 95
         description: thermalDiffusivity from Materials.yaml
-        min: 0.05
+        min: 0.08
         max: 1
       thermalExpansion:
         value: 100.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Linear coefficient of thermal expansion
         min: 10
@@ -62,13 +62,6 @@ materialProperties:
         description: Temperature where polymer chains break down
         min: 270.0
         max: 385.0
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm^-1 @ 1064nm
-        confidence: 82
-        description: Absorption coefficient for near-infrared laser wavelengths
-        min: 0.12
-        max: 0.85
       glassTransition:
         value: -10
         unit: °C
@@ -101,15 +94,8 @@ materialProperties:
         unit: qualitative
         confidence: 88
         description: Resistance to oxidative degradation at moderate temperatures
-        min: null
-        max: null
-      crystallineStructure:
-        value: Monoclinic
-        unit: crystal system
-        confidence: 95
-        description: α-form monoclinic crystal structure for isotactic PP
-        min: null
-        max: null
+        min: 60.0
+        max: 260.0
       hardness:
         value: 75.0
         unit: MPa
@@ -125,12 +111,12 @@ materialProperties:
         min: 10
         max: 400
       youngsModulus:
-        value: 1300.0
-        unit: MPa
+        value: 1.3
+        unit: GPa
         confidence: 90
         description: Young's modulus in tension
         min: 0.01
-        max: 5
+        max: 5000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

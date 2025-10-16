@@ -28,7 +28,7 @@ const TITLE_MAPPING: Record<string, string> = {
   'thermalConductivity': 'Thermal Conductivity',
   'thermalExpansion': 'Thermal Expansion',
   'thermalDiffusivity': 'Thermal Diffusivity',
-  'thermalDestructionPoint': 'Thermal Destruction Point',
+  'thermalDestructionPoint': 'Thermal Destruction',
   'thermalDestruction': 'Thermal Destruction',
   'meltingPoint': 'Melting Point',
   'boilingPoint': 'Boiling Point',

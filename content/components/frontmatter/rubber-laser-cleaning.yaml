@@ -30,13 +30,13 @@ materialProperties:
         confidence: 87
         description: Specific heat capacity at room temperature
         min: 500
-        max: 1500
+        max: 2500.0
       thermalConductivity:
         value: 0.13
         unit: W/(m·K)
         confidence: 88
         description: Low thermal conductivity typical of rubber materials
-        min: 0.1
+        min: 0.03
         max: 400
         source: ASM Handbook - Composites
         notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10,
@@ -46,11 +46,11 @@ materialProperties:
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
-        min: 0.1
+        min: 0.08
         max: 180
       thermalExpansion:
         value: 81.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: High coefficient of thermal expansion characteristic of elastomers
         min: -1
@@ -62,13 +62,6 @@ materialProperties:
         description: Temperature where polymer matrix decomposes
         min: 473.15
         max: 1073.15
-      absorptionCoefficient:
-        value: 8500
-        unit: cm⁻¹
-        confidence: 82
-        description: Absorption coefficient at 1064 nm wavelength
-        min: 0.75
-        max: 8500.0
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -83,33 +76,33 @@ materialProperties:
         min: 0.5
         max: 8
       oxidationResistance:
-        value: 100.0
-        unit: relative scale 0-100
+        value: 9011
+        unit: °C
         confidence: 88
         description: Moderate oxidation resistance, susceptible to ozone and UV degradation
-        min: 65.0
-        max: 300.0
+        min: 80.0
+        max: 1650.0
       hardness:
         value: 60.0
         unit: Shore A
         confidence: 88
         description: Typical hardness on Shore A scale for natural rubber
-        min: 20
-        max: 90
+        min: 5.0
+        max: 120
       tensileStrength:
         value: 25
         unit: MPa
         confidence: 90
         description: Typical tensile strength for natural rubber
-        min: 50
+        min: 20
         max: 6000
       youngsModulus:
-        value: 5.0
-        unit: MPa
+        value: 0.005
+        unit: GPa
         confidence: 92
         description: Low Young's modulus reflecting high elasticity
         min: 0.001
-        max: 500
+        max: 3000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

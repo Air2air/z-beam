@@ -27,7 +27,7 @@ materialProperties:
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 500
-        max: 1500
+        max: 2500.0
       thermalConductivity:
         value: 0.2
         unit: W/(m·K)
@@ -40,22 +40,15 @@ materialProperties:
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
-        min: 0.1
+        min: 0.08
         max: 180
       thermalExpansion:
         value: 30.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion in transverse direction
         min: -1
         max: 250
-      absorptionCoefficient:
-        value: 8500
-        unit: cm⁻¹
-        confidence: 82
-        description: Absorption coefficient at 1064 nm wavelength
-        min: null
-        max: null
       decompositionTemperature:
         value: 350
         unit: °C
@@ -81,7 +74,7 @@ materialProperties:
         unit: Shore D
         confidence: 88
         description: Hardness on Shore D scale for cured epoxy
-        min: 20
+        min: 5.0
         max: 120
       tensileStrength:
         value: 3100.0

@@ -20,7 +20,7 @@ materialProperties:
         confidence: 92
         description: laserReflectivity from Materials.yaml
         min: 5
-        max: 98
+        max: 99.9
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
@@ -30,14 +30,14 @@ materialProperties:
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 100
-        max: 900
+        max: 2000
       thermalConductivity:
         value: 35.3
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
-        min: 15
-        max: 400
+        min: 7.0
+        max: 430
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
@@ -45,15 +45,15 @@ materialProperties:
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
-        min: 0.2
+        min: 0.06
         max: 174
       thermalExpansion:
         value: 28.9
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 90
         description: Linear thermal expansion coefficient at 20°C
         min: 0.5
-        max: 29.1
+        max: 33
       boilingPoint:
         value: 1749
         unit: °C
@@ -61,13 +61,6 @@ materialProperties:
         description: Boiling point of pure lead
         min: 1749.0
         max: 4150.0
-      absorptionCoefficient:
-        value: 12000000.0
-        unit: m⁻¹
-        confidence: 80
-        description: Approximate absorption coefficient for IR lasers
-        min: 0.03
-        max: 12000000.0
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -90,13 +83,6 @@ materialProperties:
         max: 1200
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
-      crystallineStructure:
-        value: FCC
-        unit: crystal system
-        confidence: 98
-        description: Face-centered cubic crystal structure
-        min: null
-        max: null
       electricalConductivity:
         value: 4.8
         unit: MS/m
@@ -124,7 +110,7 @@ materialProperties:
         confidence: 89
         description: Young's modulus of elasticity
         min: 5
-        max: 411
+        max: 600
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

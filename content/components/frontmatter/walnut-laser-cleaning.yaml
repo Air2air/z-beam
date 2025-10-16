@@ -53,26 +53,19 @@ materialProperties:
         notes: Across grain 0.04-0.2 W/m·K, along grain can be 2-3x higher; moisture
           content affects values
       thermalDiffusivity:
-        value: 0.00165
-        unit: m²/s
+        value: 1650.0
+        unit: mm²/s
         confidence: 84
         description: Thermal diffusivity calculated from thermal properties
         min: 0.0001
         max: 0.4
       thermalExpansion:
         value: 5.0
-        unit: μm/m·°C
+        unit: 10⁻⁶/K
         confidence: 82
         description: Coefficient of thermal expansion perpendicular to grain direction
         min: 3.0
         max: 60
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 90
-        description: Optical absorption coefficient for common laser wavelengths (1064nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -85,20 +78,13 @@ materialProperties:
         confidence: 92
         description: Average density of walnut wood at 12% moisture content
         min: 0.12
-        max: 1.25
-      chemicalStability:
-        value: Moderate
-        unit: qualitative
-        confidence: 88
-        description: Resistance to chemical degradation and environmental factors
-        min: null
-        max: null
+        max: 1.5
       hardness:
         value: 4.9
         unit: MPa
         confidence: 87
         description: Janka hardness test value
-        min: 20
+        min: 1
         max: 5000
         metadata:
           last_verified: '2025-10-15T15:23:19.089961'
@@ -117,7 +103,7 @@ materialProperties:
         confidence: 91
         description: Modulus of elasticity parallel to grain
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

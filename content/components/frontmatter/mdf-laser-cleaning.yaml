@@ -50,18 +50,11 @@ materialProperties:
         max: 0.4
       thermalExpansion:
         value: 35.0
-        unit: μm/m·K
+        unit: 10⁻⁶/K
         confidence: 82
         description: Linear thermal expansion coefficient perpendicular to grain
         min: 3.0
         max: 60
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 90
-        description: High absorption coefficient for common laser wavelengths (1064nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -74,13 +67,13 @@ materialProperties:
         confidence: 92
         description: Medium density fiberboard typical density range
         min: 0.12
-        max: 1.25
+        max: 1.5
       hardness:
         value: 65.2
         unit: N/mm²
         confidence: 83
         description: Brinell hardness on surface
-        min: 20
+        min: 1
         max: 5000
       tensileStrength:
         value: 40.0
@@ -90,12 +83,12 @@ materialProperties:
         min: 20
         max: 200
       youngsModulus:
-        value: 4000.0
-        unit: MPa
+        value: 4.0
+        unit: GPa
         confidence: 85
         description: Elastic modulus in bending
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

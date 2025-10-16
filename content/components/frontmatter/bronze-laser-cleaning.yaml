@@ -20,7 +20,7 @@ materialProperties:
         confidence: 92
         description: laserReflectivity from Materials.yaml
         min: 5
-        max: 98
+        max: 99.9
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
@@ -30,14 +30,14 @@ materialProperties:
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 100
-        max: 900
+        max: 2000
       thermalConductivity:
         value: 42.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity of standard bronze alloys
-        min: 15
-        max: 400
+        min: 7.0
+        max: 430
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
@@ -45,22 +45,15 @@ materialProperties:
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
-        min: 0.2
+        min: 0.06
         max: 174
       thermalExpansion:
         value: 18.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 88
         description: Coefficient of thermal expansion at 20-100°C
         min: 0.5
-        max: 29.1
-      absorptionCoefficient:
-        value: 4.2
-        unit: ×10⁵ m⁻¹
-        confidence: 80
-        description: Optical absorption coefficient at 1064 nm wavelength
-        min: 0.03
-        max: 12000000.0
+        max: 33
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -89,15 +82,8 @@ materialProperties:
         unit: qualitative
         confidence: 92
         description: Superior corrosion resistance in marine and chemical environments
-        min: 9.3
-        max: 78.0
-      crystallineStructure:
-        value: α-phase FCC
-        unit: crystal system
-        confidence: 95
-        description: Face-centered cubic structure typical of copper-rich bronze alloys
-        min: null
-        max: null
+        min: 1
+        max: 10
       hardness:
         value: 70.0
         unit: HB
@@ -118,7 +104,7 @@ materialProperties:
         confidence: 92
         description: Elastic modulus of bronze alloys
         min: 5
-        max: 411
+        max: 600
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

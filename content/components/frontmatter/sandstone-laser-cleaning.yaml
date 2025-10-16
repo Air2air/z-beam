@@ -13,7 +13,7 @@ materialProperties:
         confidence: 92
         description: laserAbsorption from Materials.yaml
         min: 0.1
-        max: 20
+        max: 100
       laserReflectivity:
         value: 38.2
         unit: '%'
@@ -36,7 +36,7 @@ materialProperties:
         unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at constant pressure
-        min: 600
+        min: 400
         max: 1200
       thermalConductivity:
         value: 2.0
@@ -57,11 +57,11 @@ materialProperties:
         max: 2.5
       thermalExpansion:
         value: 12.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 82
         description: Coefficient of thermal expansion for quartz-rich sandstone
         min: 3
-        max: 25
+        max: 30
       thermalDegradationPoint:
         value: 573.0
         unit: °C
@@ -69,14 +69,6 @@ materialProperties:
         description: Temperature where mineral structure breaks down
         min: 573.0
         max: 1470.0
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 82
-        description: Optical absorption coefficient for near-infrared wavelengths
-          (1064 nm)
-        min: 0.15
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -88,8 +80,8 @@ materialProperties:
         unit: MPa
         confidence: 95
         description: compressiveStrength from Materials.yaml
-        min: 45.0
-        max: 250.0
+        min: 20
+        max: 500
       hardness:
         value: 6.5
         unit: Mohs
@@ -117,14 +109,7 @@ materialProperties:
         confidence: 95
         description: Bulk density of typical sandstone with moderate porosity
         min: 1.5
-        max: 3.4
-      chemicalStability:
-        value: 8.2
-        unit: pH resistance scale
-        confidence: 89
-        description: Resistance to chemical degradation on 1-10 scale (10=most stable)
-        min: 8.0
-        max: 95.0
+        max: 6.0
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

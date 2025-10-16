@@ -19,7 +19,7 @@ materialProperties:
         unit: '%'
         confidence: 95
         description: laserReflectivity from Materials.yaml
-        min: 4
+        min: 0.1
         max: 92
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical glasses 4-8% at normal incidence, varies with composition and
@@ -43,15 +43,15 @@ materialProperties:
         unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
-        min: 500
+        min: 120
         max: 900
       thermalConductivity:
         value: 1.0
         unit: W/(m·K)
         confidence: 85
         description: Low thermal conductivity typical of silicate glasses
-        min: 0.8
-        max: 1.4
+        min: 0.7
+        max: 30
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
@@ -63,7 +63,7 @@ materialProperties:
         max: 15
       thermalExpansion:
         value: 9.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 88
         description: Coefficient of thermal expansion at room temperature
         min: 0.1
@@ -75,13 +75,6 @@ materialProperties:
         description: Temperature where glass transitions from rigid to pliable state
         min: 820.0
         max: 2040.0
-      absorptionCoefficient:
-        value: 0.02
-        unit: cm⁻¹
-        confidence: 88
-        description: Absorption coefficient for visible wavelengths
-        min: 0.001
-        max: 0.15
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -95,20 +88,13 @@ materialProperties:
         description: Typical density for borosilicate crown glass compositions
         min: 1.2
         max: 7.6
-      chemicalStability:
-        value: 8
-        unit: scale 1-10
-        confidence: 90
-        description: Resistance to chemical attack and environmental degradation
-        min: 0.7
-        max: 99.5
       hardness:
         value: 5.5
         unit: Mohs
         confidence: 92
         description: Mohs hardness scale value
-        min: 4.5
-        max: 9
+        min: 3.5
+        max: 9.5
       tensileStrength:
         value: 35.0
         unit: MPa
@@ -128,8 +114,8 @@ materialProperties:
         unit: MPa
         confidence: 85
         description: Bending strength of pristine glass surfaces
-        min: 50.0
-        max: 690.0
+        min: 50
+        max: 750.0
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

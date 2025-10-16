@@ -20,7 +20,7 @@ materialProperties:
         confidence: 92
         description: laserReflectivity from Materials.yaml
         min: 5
-        max: 98
+        max: 99.9
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
@@ -30,14 +30,14 @@ materialProperties:
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 100
-        max: 900
+        max: 2000
       thermalConductivity:
         value: 7.81
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
-        min: 15
-        max: 400
+        min: 7.0
+        max: 430
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
@@ -45,15 +45,15 @@ materialProperties:
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
-        min: 0.2
+        min: 0.06
         max: 174
       thermalExpansion:
         value: 21.7
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of linear thermal expansion (25°C)
         min: 0.5
-        max: 29.1
+        max: 33
       boilingPoint:
         value: 2061
         unit: °C
@@ -61,14 +61,6 @@ materialProperties:
         description: Boiling point of pure manganese
         min: 1749.0
         max: 4150.0
-      absorptionCoefficient:
-        value: 0.65
-        unit: cm⁻¹
-        confidence: 80
-        description: Estimated absorption coefficient for common laser wavelengths
-          (1064 nm)
-        min: 0.03
-        max: 12000000.0
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -95,20 +87,13 @@ materialProperties:
           last_verified: '2025-10-15T15:23:17.317081'
           verification_source: automatic_fix
           fix_reason: 'Decimal error: 3.0 → 300.0'
-      crystallineStructure:
-        value: Complex cubic
-        unit: crystal system
-        confidence: 92
-        description: Alpha-Mn has complex cubic structure with 58 atoms per unit cell
-        min: null
-        max: null
       electricalResistivity:
         value: 1.44e-06
         unit: Ω·m
         confidence: 90
         description: Electrical resistivity at 20°C
-        min: 0.197
-        max: 48.0
+        min: 1.0e-08
+        max: 1.5e-06
       hardness:
         value: 210.0
         unit: HB
@@ -129,7 +114,7 @@ materialProperties:
         confidence: 85
         description: Young's modulus of elasticity
         min: 5
-        max: 411
+        max: 600
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

@@ -42,26 +42,19 @@ materialProperties:
         notes: Across grain 0.04-0.2 W/m·K, along grain can be 2-3x higher; moisture
           content affects values
       thermalDiffusivity:
-        value: 0.00145
-        unit: m²/s
+        value: 1450.0
+        unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
         min: 0.0001
         max: 0.4
       thermalExpansion:
         value: 30.0
-        unit: μm/m·K
+        unit: 10⁻⁶/K
         confidence: 82
         description: Linear thermal expansion coefficient in longitudinal direction
         min: 3.0
         max: 60
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 88
-        description: Optical absorption coefficient for common laser wavelengths (1064nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -74,13 +67,13 @@ materialProperties:
         confidence: 92
         description: Average density of standard plywood with moisture content 8-12%
         min: 0.12
-        max: 1.25
+        max: 1.5
       hardness:
         value: 1813.0
         unit: MPa
         confidence: 80
         description: Brinell hardness perpendicular to surface
-        min: 20
+        min: 1
         max: 5000
         metadata:
           last_verified: '2025-10-15T15:23:17.782306'
@@ -94,12 +87,12 @@ materialProperties:
         min: 20
         max: 200
       youngsModulus:
-        value: 9000.0
-        unit: MPa
+        value: 9.0
+        unit: GPa
         confidence: 87
         description: Modulus of elasticity in bending
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

@@ -56,19 +56,11 @@ materialProperties:
         max: 0.4
       thermalExpansion:
         value: 45.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 84
         description: Coefficient of thermal expansion perpendicular to grain direction
         min: 3.0
         max: 60
-      absorptionCoefficient:
-        value: 0.75
-        unit: cm⁻¹
-        confidence: 82
-        description: Estimated absorption coefficient for near-infrared laser wavelengths
-          (1064 nm)
-        min: 0.75
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -82,7 +74,7 @@ materialProperties:
         description: Average density of genuine mahogany (Swietenia genus) at 12%
           moisture content
         min: 0.12
-        max: 1.25
+        max: 1.5
       moistureContent:
         value: 12
         unit: '%'
@@ -96,7 +88,7 @@ materialProperties:
         unit: N/mm²
         confidence: 90
         description: Janka hardness test value for side hardness
-        min: 20
+        min: 1
         max: 5000
         metadata:
           last_verified: '2025-10-15T15:23:17.274709'
@@ -110,12 +102,12 @@ materialProperties:
         min: 20
         max: 200
       youngsModulus:
-        value: 9800.0
-        unit: MPa
+        value: 9.8
+        unit: GPa
         confidence: 89
         description: Modulus of elasticity in bending
         min: 5
-        max: 25
+        max: 20000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

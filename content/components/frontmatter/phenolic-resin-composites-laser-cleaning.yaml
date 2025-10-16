@@ -37,14 +37,14 @@ materialProperties:
         confidence: 84
         description: Specific heat capacity at room temperature
         min: 500
-        max: 1500
+        max: 2500.0
       thermalConductivity:
         value: 0.15
         unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity of standard phenolic composite perpendicular
           to fiber direction
-        min: 0.1
+        min: 0.03
         max: 400
         source: ASM Handbook - Composites
         notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10,
@@ -54,11 +54,11 @@ materialProperties:
         unit: mm²/s
         confidence: 92
         description: thermalDiffusivity from Materials.yaml
-        min: 0.1
+        min: 0.08
         max: 180
       thermalExpansion:
         value: 25.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 86
         description: Coefficient of thermal expansion at room temperature
         min: -1
@@ -77,13 +77,6 @@ materialProperties:
         description: Temperature where polymer matrix decomposes
         min: 473.15
         max: 1073.15
-      absorptionCoefficient:
-        value: 8500
-        unit: cm⁻¹
-        confidence: 82
-        description: Absorption coefficient at 1064 nm wavelength
-        min: 0.75
-        max: 8500.0
       charYield:
         value: 65
         unit: '%'
@@ -109,22 +102,22 @@ materialProperties:
         unit: HRM
         confidence: 87
         description: Hardness on Shore D scale for cured phenolic composites
-        min: 20
-        max: 90
+        min: 5.0
+        max: 120
       tensileStrength:
         value: 41.0
         unit: MPa
         confidence: 90
         description: Tensile strength for carbon fiber reinforced phenolic composites
-        min: 50
+        min: 20
         max: 6000
       youngsModulus:
-        value: 2500.0
-        unit: MPa
+        value: 2.5
+        unit: GPa
         confidence: 89
         description: Elastic modulus in tension for typical phenolic composites
         min: 0.001
-        max: 500
+        max: 3000
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

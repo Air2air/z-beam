@@ -20,7 +20,7 @@ materialProperties:
         confidence: 92
         description: laserReflectivity from Materials.yaml
         min: 5
-        max: 98
+        max: 99.9
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
@@ -37,37 +37,30 @@ materialProperties:
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 100
-        max: 900
+        max: 2000
       thermalConductivity:
         value: 21.9
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity of pure titanium at 20°C
-        min: 15
-        max: 400
+        min: 7.0
+        max: 430
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalExpansion:
         value: 8.6
-        unit: μm·m⁻¹·K⁻¹
+        unit: 10⁻⁶/K
         confidence: 90
         description: Coefficient of thermal expansion at 20-100°C
         min: 0.5
-        max: 29.1
+        max: 33
       thermalDiffusivity:
         value: 9.7
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity at room temperature
-        min: 0.2
+        min: 0.06
         max: 174
-      absorptionCoefficient:
-        value: 0.65
-        unit: cm⁻¹
-        confidence: 82
-        description: Absorption coefficient for near-infrared lasers (1064 nm)
-        min: 0.03
-        max: 12000000.0
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -86,15 +79,15 @@ materialProperties:
         unit: Ω·m
         confidence: 96
         description: electricalResistivity from Materials.yaml
-        min: 0.197
-        max: 48.0
+        min: 1.0e-08
+        max: 1.5e-06
       corrosionResistance:
         value: 9.3
         unit: rating_0_10
         confidence: 98
         description: corrosionResistance from Materials.yaml
-        min: 9.3
-        max: 78.0
+        min: 1
+        max: 10
       oxidationResistance:
         value: 600.0
         unit: °C
@@ -104,13 +97,6 @@ materialProperties:
         max: 1200
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
-      crystallineStructure:
-        value: HCP
-        unit: crystal system
-        confidence: 98
-        description: Hexagonal Close-Packed structure at room temperature
-        min: null
-        max: null
       hardness:
         value: 340.0
         unit: MPa
@@ -131,7 +117,7 @@ materialProperties:
         confidence: 95
         description: Young's modulus of pure titanium
         min: 5
-        max: 411
+        max: 600
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

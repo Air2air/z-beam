@@ -19,7 +19,7 @@ materialProperties:
         unit: '%'
         confidence: 95
         description: laserReflectivity from Materials.yaml
-        min: 4
+        min: 0.1
         max: 92
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical glasses 4-8% at normal incidence, varies with composition and
@@ -43,15 +43,15 @@ materialProperties:
         unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
-        min: 500
+        min: 120
         max: 900
       thermalConductivity:
         value: 1.38
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
-        min: 0.8
-        max: 1.4
+        min: 0.7
+        max: 30
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
@@ -88,20 +88,13 @@ materialProperties:
         description: Density of high-purity fused silica at room temperature
         min: 1.2
         max: 7.6
-      chemicalStability:
-        value: 99.5
-        unit: '% resistance'
-        confidence: 96
-        description: Chemical resistance to acids and solvents
-        min: 0.7
-        max: 99.5
       hardness:
         value: 9.1
         unit: GPa
         confidence: 92
         description: Mohs hardness scale
-        min: 4.5
-        max: 9
+        min: 3.5
+        max: 9.5
       tensileStrength:
         value: 50.0
         unit: MPa
@@ -121,8 +114,8 @@ materialProperties:
         unit: MPa
         confidence: 88
         description: Flexural strength of pristine material
-        min: 50.0
-        max: 690.0
+        min: 50
+        max: 750.0
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

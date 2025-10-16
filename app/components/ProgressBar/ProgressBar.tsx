@@ -92,7 +92,7 @@ export function ProgressBar({
               >{cleanValue}</data>
             </div>
             {unit && (
-              <span className={`progress-unit text-[10px] ${valueTextColor} mt-0 leading-none text-center`}>
+              <span className="progress-unit text-[10px] text-white/70 mt-0 leading-none text-center">
                 {unit}
               </span>
             )}
@@ -156,7 +156,7 @@ export function ProgressBar({
       
       {/* Range values on the right */}
       <div className="progress-range-container flex flex-col justify-between items-start pl-2 py-1 min-w-[50px]" aria-hidden="true">
-        <span className="progress-range-max text-xs leading-none text-white/50">
+        <span className="progress-range-max text-xs leading-none text-white/70">
           <data 
             value={cleanMax}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
@@ -170,7 +170,7 @@ export function ProgressBar({
             itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
           >{cleanMax}</data>
         </span>
-        <span className="progress-range-min text-xs leading-none text-white/50">
+        <span className="progress-range-min text-xs leading-none text-white/70">
           <data 
             value={cleanMin}
             data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}

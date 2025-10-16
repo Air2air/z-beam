@@ -53,7 +53,7 @@ materialProperties:
         max: 1
       thermalExpansion:
         value: 10.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion for cement mortar
         min: 5
@@ -65,13 +65,6 @@ materialProperties:
         description: Temperature where structural integrity fails
         min: 450.0
         max: 1073.15
-      absorptionCoefficient:
-        value: 0.75
-        unit: cm⁻¹
-        confidence: 82
-        description: Optical absorption coefficient for common laser wavelengths
-        min: 0.65
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -83,14 +76,14 @@ materialProperties:
         unit: MPa
         confidence: 95
         description: compressiveStrength from Materials.yaml
-        min: 12.4
-        max: 45.0
+        min: 5
+        max: 100
       hardness:
         value: 3.5
         unit: Mohs
         confidence: 84
         description: Hardness on Mohs scale for cement mortar
-        min: 2
+        min: 1
         max: 6
       tensileStrength:
         value: 2.8
@@ -104,7 +97,7 @@ materialProperties:
         unit: GPa
         confidence: 88
         description: Elastic modulus of standard cement mortar
-        min: 5
+        min: 3.0
         max: 50
       density:
         value: 2.3
@@ -112,7 +105,7 @@ materialProperties:
         confidence: 92
         description: Typical bulk density of hardened cement mortar
         min: 0.6
-        max: 2.8
+        max: 3.2
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

@@ -20,7 +20,7 @@ materialProperties:
         confidence: 92
         description: laserReflectivity from Materials.yaml
         min: 5
-        max: 98
+        max: 99.9
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
@@ -30,14 +30,14 @@ materialProperties:
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 100
-        max: 900
+        max: 2000
       thermalConductivity:
         value: 100
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
-        min: 15
-        max: 400
+        min: 7.0
+        max: 430
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
@@ -45,23 +45,15 @@ materialProperties:
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
-        min: 0.2
+        min: 0.06
         max: 174
       thermalExpansion:
         value: 13.0
-        unit: 10^-6/K
+        unit: 10⁻⁶/K
         confidence: 90
         description: Coefficient of thermal expansion (20-100°C)
         min: 0.5
-        max: 29.1
-      absorptionCoefficient:
-        value: 0.65
-        unit: cm⁻¹
-        confidence: 82
-        description: Approximate absorption coefficient for common laser wavelengths
-          (1.06 μm)
-        min: 0.03
-        max: 12000000.0
+        max: 33
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -75,13 +67,6 @@ materialProperties:
         description: Density of pure cobalt at room temperature
         min: 0.53
         max: 22.6
-      crystallineStructure:
-        value: HCP
-        unit: crystal system
-        confidence: 95
-        description: Hexagonal close-packed structure at room temperature
-        min: null
-        max: null
       oxidationResistance:
         value: moderate
         unit: °C
@@ -96,8 +81,8 @@ materialProperties:
         unit: qualitative
         confidence: 86
         description: Good resistance to atmospheric corrosion and many chemicals
-        min: 9.3
-        max: 78.0
+        min: 1
+        max: 10
       hardness:
         value: 104.0
         unit: HV
@@ -118,7 +103,7 @@ materialProperties:
         confidence: 93
         description: Young's modulus of elasticity
         min: 5
-        max: 411
+        max: 600
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7

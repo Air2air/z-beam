@@ -56,7 +56,7 @@ materialProperties:
         max: 1
       thermalExpansion:
         value: 10.0
-        unit: µm/m·°C
+        unit: 10⁻⁶/K
         confidence: 85
         description: Coefficient of thermal expansion
         min: 5
@@ -68,13 +68,6 @@ materialProperties:
         description: Temperature where structural integrity fails
         min: 450.0
         max: 1073.15
-      absorptionCoefficient:
-        value: 0.65
-        unit: cm⁻¹
-        confidence: 82
-        description: Average absorption coefficient for common laser wavelengths (1064nm)
-        min: 0.65
-        max: 0.85
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
     percentage: 47.3
@@ -86,14 +79,14 @@ materialProperties:
         unit: MPa
         confidence: 89
         description: Compressive strength of hardened stucco
-        min: 12.4
-        max: 45.0
+        min: 5
+        max: 100
       hardness:
         value: 2.0
         unit: Mohs
         confidence: 88
         description: Mohs hardness scale
-        min: 2
+        min: 1
         max: 6
       tensileStrength:
         value: 1.4
@@ -107,7 +100,7 @@ materialProperties:
         unit: GPa
         confidence: 84
         description: Elastic modulus in compression
-        min: 5
+        min: 3.0
         max: 50
       density:
         value: 1.5
@@ -115,14 +108,7 @@ materialProperties:
         confidence: 92
         description: Bulk density of cured stucco material
         min: 0.6
-        max: 2.8
-      chemicalStability:
-        value: 8
-        unit: rating 1-10
-        confidence: 90
-        description: Chemical stability rating in atmospheric conditions
-        min: 7.0
-        max: 8.0
+        max: 3.2
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     percentage: 52.7
