@@ -68,6 +68,8 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 2
         max: 80
+        source: Composite Materials Handbook (MIL-HDBK-17)
+        notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal matrix composites 40-80%'
       specificHeat:
         value: 850
         unit: J/kg·K
@@ -82,6 +84,8 @@ materialProperties:
         description: Thermal conductivity of Al-SiC MMCs at room temperature
         min: 0.1
         max: 400
+        source: ASM Handbook - Composites
+        notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10, metal matrix 50-400'
       thermalDiffusivity:
         value: 45.2
         unit: mm²/s
@@ -243,7 +247,8 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-subtitle: The biggest challenge with MMCs is their unpredictable composition. You'll need very specific power adjustments to remove contaminants without affecting that underlying metal matrix.
+subtitle: The biggest challenge with MMCs is their unpredictable composition. You'll need very specific power adjustments
+  to remove contaminants without affecting that underlying metal matrix.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -279,8 +284,15 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: At 500x magnification, the MMC surface is obscured by a non-uniform contamination layer, typically measuring 5-20 micrometers thick. This layer consists of amorphous carbonaceous soot, oxide particulates, and residual coolant oils, which form a discontinuous, splattered pattern. The underlying composite structure, including the metallic matrix and reinforcing ceramic fibers or particles, is partially masked. The surface texture appears matte and irregular, with the contamination filling the micro-valleys between reinforcement phases, compromising the true substrate topography.
-  afterText: Laser cleaning removes the contamination layer, revealing the true MMC microstructure. The metallic matrix and distinct reinforcement phases (e.g., SiC particles, Al₂O₃ fibers) are now fully exposed and clearly defined at their original boundaries. The surface texture transitions from a matte, occluded finish to a clean, topographically precise state, restoring the substrate's inherent properties.
+  beforeText: At 500x magnification, the MMC surface is obscured by a non-uniform contamination layer, typically measuring
+    5-20 micrometers thick. This layer consists of amorphous carbonaceous soot, oxide particulates, and residual coolant oils,
+    which form a discontinuous, splattered pattern. The underlying composite structure, including the metallic matrix and
+    reinforcing ceramic fibers or particles, is partially masked. The surface texture appears matte and irregular, with the
+    contamination filling the micro-valleys between reinforcement phases, compromising the true substrate topography.
+  afterText: Laser cleaning removes the contamination layer, revealing the true MMC microstructure. The metallic matrix and
+    distinct reinforcement phases (e.g., SiC particles, Al₂O₃ fibers) are now fully exposed and clearly defined at their original
+    boundaries. The surface texture transitions from a matte, occluded finish to a clean, topographically precise state, restoring
+    the substrate's inherent properties.
   description: Microscopic analysis of metal matrix composites mmcs surface before and after laser cleaning treatment
   alt: Microscopic view of metal matrix composites mmcs surface showing laser cleaning effects
   technicalAnalysis:
@@ -314,3 +326,7 @@ tags:
 - industrial-grade
 - processed
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.777315'
+  sources_added: 2

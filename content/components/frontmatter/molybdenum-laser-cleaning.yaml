@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 5.34
-        unit: μΩ·cm
+        value: 5.34e-08
+        unit: Ω·m
         confidence: 94
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -44,14 +44,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 153
-        unit: HV
+        value: 1500.0
+        unit: MPa
         confidence: 90
         description: Vickers hardness of annealed molybdenum
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 345
+        value: 550.0
         unit: MPa
         confidence: 88
         description: Typical tensile strength of annealed molybdenum
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,13 +125,19 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 0.251
-        unit: J/g·K
+        value: 251.0
+        unit: J/(kg·K)
         confidence: 92
         description: Specific heat capacity at room temperature
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:04.256578'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.251 → 251.0'
       thermalConductivity:
         value: 138
         unit: W/(m·K)
@@ -137,7 +148,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 54.2
+        value: 54.3
         unit: mm²/s
         confidence: 90
         description: Thermal diffusivity at room temperature
@@ -145,7 +156,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 4.8
-        unit: ×10⁻⁶/K
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of thermal expansion (20-100°C)
         min: 0.5
@@ -161,7 +172,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.45
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 85
         description: Typical absorption coefficient for Nd:YAG lasers (1064 nm)
         min: 0.03
@@ -403,3 +414,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.847136'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:45:17.592578Z'
+  sync_source: Materials.yaml

@@ -29,7 +29,7 @@ materialProperties:
         min: 2
         max: 25
       youngsModulus:
-        value: 70
+        value: 55.0
         unit: GPa
         confidence: 88
         description: Elastic modulus of marble
@@ -42,14 +42,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.7
+        value: 2.71
         unit: g/cm³
         confidence: 95
         description: Average density of calcite-based marble
         min: 1.5
         max: 3.4
       porosity:
-        value: 0.7
+        value: null
         unit: '%'
         confidence: 75
         description: Typical porosity range for high-quality marble
@@ -84,13 +84,16 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 80
+        source: Geological Survey Optical Properties Database
+        notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
+          composition
       reflectivity:
         value: 0.15
-        unit: dimensionless
+        unit: '%'
         confidence: 80
         description: Reflectivity at common laser wavelengths (1064 nm)
-        min: 0.04
-        max: 0.35
+        min: 5
+        max: 80
       ablationThreshold:
         value: 2.5
         unit: J/cm²
@@ -99,29 +102,31 @@ materialProperties:
         min: 1.2
         max: 12.5
       specificHeat:
-        value: 880
-        unit: J/kg·K
+        value: 880.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 600
         max: 1200
       thermalConductivity:
         value: 2.8
-        unit: W/m·K
+        unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity at room temperature
         min: 0.2
         max: 8
+        source: Engineering ToolBox - Building Materials
+        notes: Most stones 1-4 W/m·K, granite ~2.8, limestone ~1.3, marble ~2.5
       thermalDiffusivity:
-        value: 1.2
+        value: 1.27
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity calculated from thermal properties
         min: 0.2
         max: 2.5
       thermalExpansion:
-        value: 8.0
-        unit: 10⁻⁶/°C
+        value: 12.0
+        unit: 10^-6/K
         confidence: 85
         description: Coefficient of thermal expansion
         min: 3
@@ -144,7 +149,7 @@ materialProperties:
         max: 1470.0
       absorptionCoefficient:
         value: 0.85
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Average absorption coefficient for visible to IR wavelengths
         min: 0.15
@@ -379,3 +384,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.660279'
+  sources_added: 2
+processing:
+  last_sync: '2025-10-15T19:39:34.852679Z'
+  sync_source: Materials.yaml

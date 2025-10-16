@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 6.0
+        value: 6.01
         unit: g/cm³
         confidence: 95
         description: Density of yttria-stabilized zirconia (YSZ) at room temperature
@@ -36,7 +36,7 @@ materialProperties:
         min: null
         max: null
       porosity:
-        value: 2.0
+        value: null
         unit: '%'
         confidence: 80
         description: Typical porosity in fully sintered zirconia
@@ -51,7 +51,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 12.5
+        value: 12.0
         unit: GPa
         confidence: 90
         description: Vickers hardness of fully dense zirconia
@@ -98,22 +98,25 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 90
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
+          finish
       reflectivity:
         value: 0.15
-        unit: dimensionless
+        unit: '%'
         confidence: 82
         description: Reflectivity at 1064 nm laser wavelength
-        min: 0.12
-        max: 0.45
+        min: 5
+        max: 90
       refractiveIndex:
         value: 2.2
-        unit: dimensionless
+        unit: ''
         confidence: 90
         description: Refractive index in visible spectrum
-        min: null
-        max: null
+        min: 1.0
+        max: 4.0
       ablationThreshold:
-        value: 3.5
+        value: null
         unit: J/cm²
         confidence: 75
         description: Laser ablation threshold for nanosecond pulses at 1064 nm
@@ -129,8 +132,8 @@ materialProperties:
         min: 15.0
         max: 15.0
       specificHeat:
-        value: 455
-        unit: J/kg·K
+        value: 455.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 200
@@ -146,14 +149,14 @@ materialProperties:
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
         value: 0.008
-        unit: cm²/s
+        unit: mm²/s
         confidence: 85
         description: Thermal diffusivity at room temperature
         min: 0.05
         max: 120
       thermalExpansion:
         value: 10.5
-        unit: ×10⁻⁶/K
+        unit: 10^-6/K
         confidence: 88
         description: Coefficient of thermal expansion for stabilized zirconia
         min: 0.1
@@ -169,7 +172,7 @@ materialProperties:
         type: thermal_shock
       absorptionCoefficient:
         value: 0.85
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 85
         description: Absorption coefficient for near-infrared wavelengths (1064 nm)
         min: 0.8
@@ -404,3 +407,10 @@ tags:
 - thermal-sensitive
 - thermal-resistant
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:23.116891'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:37.832500Z'
+  sync_source: Materials.yaml

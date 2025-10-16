@@ -15,15 +15,15 @@ materialProperties:
         min: 410.0
         max: 6700.0
       flexuralStrength:
-        value: 350
+        value: 480.0
         unit: MPa
         confidence: 85
         description: Room temperature flexural strength
         min: 45.0
         max: 3500.0
       hardness:
-        value: 28
-        unit: GPa
+        value: 9.0
+        unit: Mohs
         confidence: 94
         description: Vickers hardness (HV) at room temperature
         min: 1.0
@@ -70,7 +70,7 @@ materialProperties:
         min: null
         max: null
       porosity:
-        value: 2.5
+        value: null
         unit: '%'
         confidence: 80
         description: Typical porosity in sintered TiC ceramics
@@ -98,15 +98,18 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 90
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
+          finish
       reflectivity:
         value: 0.45
-        unit: dimensionless
+        unit: '%'
         confidence: 85
         description: Reflectivity at 1064 nm wavelength
-        min: 0.12
-        max: 0.45
+        min: 5
+        max: 90
       ablationThreshold:
-        value: 2.8
+        value: null
         unit: J/cm²
         confidence: 75
         description: Laser ablation threshold for nanosecond pulses at 1064 nm
@@ -115,8 +118,8 @@ materialProperties:
         source: RP Photonics Encyclopedia, Oxide Ceramics
         notes: Alumina, zirconia, silicon carbide - nanosecond pulses
       specificHeat:
-        value: 840
-        unit: J/kg·K
+        value: 568.0
+        unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 200
@@ -131,7 +134,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
-        value: 5.1
+        value: 7.2
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity at room temperature
@@ -139,7 +142,7 @@ materialProperties:
         max: 120
       thermalExpansion:
         value: 7.4
-        unit: ×10⁻⁶/K
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of thermal expansion (20-1000°C)
         min: 0.1
@@ -155,7 +158,7 @@ materialProperties:
         type: thermal_shock
       absorptionCoefficient:
         value: 0.85
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 88
         description: Optical absorption coefficient for visible light
         min: 0.8
@@ -379,3 +382,10 @@ tags:
 - thermal-resistant
 - hard-material
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.481292'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:37.376851Z'
+  sync_source: Materials.yaml

@@ -32,8 +32,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 0.197
-        unit: μΩ·m
+        value: 1.97e-07
+        unit: Ω·m
         confidence: 95
         description: Electrical resistivity at room temperature
         min: 0.197
@@ -45,21 +45,21 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 264
-        unit: HV
+        value: 628.0
+        unit: MPa
         confidence: 90
         description: Vickers hardness of annealed vanadium
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 345
+        value: 462.0
         unit: MPa
         confidence: 89
         description: Ultimate tensile strength of pure vanadium
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 128
+        value: 127.6
         unit: GPa
         confidence: 93
         description: Young's modulus of elasticity
@@ -85,6 +85,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -105,6 +108,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -121,9 +126,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 489
-        unit: J/kg·K
+        value: 489.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 94
         description: Specific heat capacity at room temperature
         min: 100
@@ -145,8 +152,8 @@ materialProperties:
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 8.4
-        unit: μm/m·K
+        value: 8.3
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of linear thermal expansion (20-100°C)
         min: 0.5
@@ -390,3 +397,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.870016'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:48:54.738596Z'
+  sync_source: Materials.yaml

@@ -52,7 +52,7 @@ materialProperties:
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 125
+        value: 170.0
         unit: MPa
         confidence: 88
         description: Tensile strength of annealed pure silver
@@ -85,6 +85,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -105,6 +108,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -121,13 +126,19 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 0.235
-        unit: J/g·K
+        value: 235.0
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at 20°C
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:05.433905'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.235 → 235.0'
       thermalConductivity:
         value: 429
         unit: W/(m·K)
@@ -138,7 +149,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 174
+        value: 165.63
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
@@ -146,7 +157,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 18.9
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of linear thermal expansion at 20°C
         min: 0.5
@@ -384,3 +395,10 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.520280'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.736780Z'
+  sync_source: Materials.yaml

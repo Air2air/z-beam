@@ -44,8 +44,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 5
-        unit: HB
+        value: 5.0
+        unit: MPa
         confidence: 88
         description: Brinell hardness of pure tin
         min: 0.5
@@ -58,7 +58,7 @@ materialProperties:
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 50
+        value: 49.9
         unit: GPa
         confidence: 90
         description: Young's modulus of elasticity
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,9 +125,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 228
-        unit: J/kg·K
+        value: 226.5
+        unit: J/(kg·K)
         confidence: 94
         description: Specific heat capacity at 25°C
         min: 100
@@ -137,15 +144,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 40.1
+        value: 40.0
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 22.0
-        unit: μm/m·K
+        value: 23.1
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of linear thermal expansion at 25°C
         min: 0.5
@@ -388,3 +395,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.412299'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:37.332465Z'
+  sync_source: Materials.yaml

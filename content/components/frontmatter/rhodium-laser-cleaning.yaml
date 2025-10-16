@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 4.3
-        unit: μΩ·cm
+        value: 4.33e-08
+        unit: Ω·m
         confidence: 94
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -44,7 +44,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 800
+        value: 1100.0
         unit: HV
         confidence: 89
         description: Vickers hardness of annealed rhodium
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,13 +125,19 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 0.242
-        unit: J/g·K
+        value: 243.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 91
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:05.053199'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.242 → 242.0'
       thermalConductivity:
         value: 150
         unit: W/(m·K)
@@ -137,15 +148,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 0.247
-        unit: cm²/s
+        value: 24.9
+        unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 8.2
-        unit: μm/m·K
+        value: 8.3
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of linear thermal expansion (20-100°C)
         min: 0.5
@@ -380,3 +391,10 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.615616'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:47:09.377877Z'
+  sync_source: Materials.yaml

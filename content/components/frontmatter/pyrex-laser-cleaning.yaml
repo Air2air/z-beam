@@ -35,7 +35,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.5
+        value: 6.0
         unit: Mohs
         confidence: 85
         description: Mohs hardness scale value
@@ -49,7 +49,7 @@ materialProperties:
         min: 30
         max: 2000
       youngsModulus:
-        value: 64
+        value: 62.0
         unit: GPa
         confidence: 93
         description: Young's modulus of elasticity
@@ -82,9 +82,12 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.474
-        unit: dimensionless
+        unit: ''
         confidence: 96
         description: Refractive index at 589 nm wavelength
         min: 1.458
@@ -98,12 +101,16 @@ materialProperties:
         min: 2.5
         max: 15.0
       specificHeat:
-        value: 0.75
-        unit: J/g·K
+        value: 753.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 500
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:04.876310'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.75 → 750.0'
       thermalConductivity:
         value: 1.13
         unit: W/(m·K)
@@ -114,7 +121,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
-        value: 0.65
+        value: 0.67
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
@@ -122,7 +129,7 @@ materialProperties:
         max: 15
       thermalExpansion:
         value: 3.25
-        unit: ×10⁻⁶/°C
+        unit: 10^-6/K
         confidence: 94
         description: Coefficient of linear thermal expansion (20-300°C)
         min: 0.1
@@ -371,3 +378,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.251967'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:35.912992Z'
+  sync_source: Materials.yaml

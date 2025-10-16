@@ -37,14 +37,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 37.3
-        unit: HV
+        value: 400.0
+        unit: MPa
         confidence: 89
         description: Vickers hardness of annealed palladium
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 180
+        value: 172.4
         unit: MPa
         confidence: 87
         description: Tensile strength of annealed palladium
@@ -77,6 +77,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -97,6 +100,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -113,13 +118,19 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 0.244
-        unit: J/g·K
+        value: 244.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 91
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:04.450868'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.244 → 244.0'
       thermalConductivity:
         value: 71.8
         unit: W/(m·K)
@@ -130,7 +141,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 25.7
+        value: 25.9
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
@@ -138,7 +149,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 11.8
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 90
         description: Linear thermal expansion coefficient at 25°C
         min: 0.5
@@ -367,3 +378,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:19.224481'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:35.241876Z'
+  sync_source: Materials.yaml

@@ -15,7 +15,7 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: 3
+        value: 300.0
         unit: °C
         confidence: 80
         description: Relative oxidation resistance scale for carbon steel
@@ -23,6 +23,10 @@ materialProperties:
         max: 1200
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        metadata:
+          last_verified: '2025-10-15T15:23:18.652201'
+          verification_source: automatic_fix
+          fix_reason: 'Decimal error: 3.0 → 300.0'
       crystallineStructure:
         value: BCC
         unit: crystal system
@@ -31,8 +35,8 @@ materialProperties:
         min: null
         max: null
       surfaceRoughness:
-        value: 0.8
-        unit: μm Ra
+        value: null
+        unit: μm
         confidence: 85
         description: Typical surface roughness for industrial steel surfaces
         min: 0.4
@@ -46,14 +50,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 150
+        value: 1750.0
         unit: HV
         confidence: 88
         description: Vickers hardness for annealed carbon steel
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 420
+        value: 1501.5
         unit: MPa
         confidence: 90
         description: Typical tensile strength for mild carbon steel
@@ -86,6 +90,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -106,6 +113,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -122,15 +131,17 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 490
-        unit: J/kg·K
+        value: 486.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 100
         max: 900
       thermalConductivity:
-        value: 52
+        value: 50.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity of carbon steel at room temperature
@@ -139,15 +150,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 13.5
+        value: 12.5
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity calculated from thermal properties
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 12.0
-        unit: μm/m·°C
+        value: 11.7
+        unit: 10^-6/K
         confidence: 90
         description: Linear thermal expansion coefficient at 20-100°C
         min: 0.5
@@ -392,3 +403,10 @@ tags:
 - reflective-surface
 - conductive
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.872013'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.966091Z'
+  sync_source: Materials.yaml

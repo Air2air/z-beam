@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 12.5
-        unit: nΩ·m
+        value: 1.25e-07
+        unit: Ω·m
         confidence: 93
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -44,8 +44,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 8.5
-        unit: Mohs
+        value: 1060.0
+        unit: MPa
         confidence: 92
         description: Mohs hardness scale
         min: 0.5
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,9 +125,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 449
-        unit: J/kg·K
+        value: 449.0
+        unit: J/(kg·K)
         confidence: 94
         description: Specific heat capacity at 25°C
         min: 100
@@ -137,7 +144,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 22.3
+        value: 23.1
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
@@ -145,7 +152,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 4.9
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of linear thermal expansion (25°C)
         min: 0.5
@@ -161,7 +168,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.45
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 85
         description: Average absorption coefficient for common laser wavelengths (500-1100
           nm)
@@ -397,3 +404,10 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:16.557691'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:45:16.711699Z'
+  sync_source: Materials.yaml

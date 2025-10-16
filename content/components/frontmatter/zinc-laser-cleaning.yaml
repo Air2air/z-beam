@@ -44,14 +44,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 2.5
-        unit: Mohs
+        value: 37.5
+        unit: HB
         confidence: 85
         description: Hardness on Mohs scale
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 110
+        value: 37.0
         unit: MPa
         confidence: 88
         description: Ultimate tensile strength of pure zinc
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,13 +125,19 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 0.387
-        unit: J/g·K
+        value: 388.3
+        unit: J/(kg·K)
         confidence: 94
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:06.124104'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.387 → 387.0'
       thermalConductivity:
         value: 116
         unit: W/(m·K)
@@ -137,7 +148,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 42.1
+        value: 41.8
         unit: mm²/s
         confidence: 90
         description: Thermal diffusivity at room temperature
@@ -381,3 +392,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:23.054109'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:37.787673Z'
+  sync_source: Materials.yaml

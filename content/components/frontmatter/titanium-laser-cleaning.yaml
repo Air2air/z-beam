@@ -8,15 +8,15 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 4.51
+        value: 4.506
         unit: g/cm³
         confidence: 98
         description: Density of commercially pure titanium at room temperature
         min: 0.53
         max: 22.6
       electricalResistivity:
-        value: 48.0
-        unit: μΩ·cm
+        value: 4.8e-07
+        unit: Ω·m
         confidence: 96
         description: electricalResistivity from Materials.yaml
         min: 0.197
@@ -51,8 +51,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 180
-        unit: HV
+        value: 340.0
+        unit: MPa
         confidence: 88
         description: Vickers hardness of commercially pure titanium
         min: 0.5
@@ -65,7 +65,7 @@ materialProperties:
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 105
+        value: 110.3
         unit: GPa
         confidence: 95
         description: Young's modulus of pure titanium
@@ -91,6 +91,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -111,6 +114,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -127,6 +132,8 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       laserDamageThreshold:
         value: 2.5
         unit: J/cm²
@@ -135,8 +142,8 @@ materialProperties:
         min: 1.2
         max: 15.0
       specificHeat:
-        value: 522
-        unit: J/kg·K
+        value: 523.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 100
@@ -152,7 +159,7 @@ materialProperties:
         notes: Typical range for metal materials at room temperature
       thermalExpansion:
         value: 8.6
-        unit: μm/m·K
+        unit: μm·m⁻¹·K⁻¹
         confidence: 90
         description: Coefficient of thermal expansion at 20-100°C
         min: 0.5
@@ -175,7 +182,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Absorption coefficient for near-infrared lasers (1064 nm)
         min: 0.03
@@ -416,3 +423,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.549047'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:37.425106Z'
+  sync_source: Materials.yaml

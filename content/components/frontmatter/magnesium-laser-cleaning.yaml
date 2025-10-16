@@ -8,14 +8,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 1.74
+        value: 1.738
         unit: g/cm³
         confidence: 98
         description: Pure magnesium density at room temperature
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: 0.15
+        value: 650.0
         unit: °C
         confidence: 80
         description: Oxidation rate in air at room temperature
@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       surfaceRoughness:
-        value: 0.8
-        unit: μm Ra
+        value: null
+        unit: μm
         confidence: 85
         description: Typical as-polished surface roughness
         min: 0.4
@@ -46,8 +46,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 45
-        unit: HV
+        value: 44.0
+        unit: MPa
         confidence: 85
         description: Vickers hardness of pure magnesium
         min: 0.5
@@ -60,7 +60,7 @@ materialProperties:
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 45
+        value: 44.7
         unit: GPa
         confidence: 92
         description: Young's modulus of elasticity
@@ -86,6 +86,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -106,6 +109,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -122,6 +127,8 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -130,8 +137,8 @@ materialProperties:
         min: 1.2
         max: 15.0
       specificHeat:
-        value: 1020
-        unit: J/kg·K
+        value: 1025.0
+        unit: J/(kg·K)
         confidence: 94
         description: Specific heat capacity at room temperature
         min: 100
@@ -146,7 +153,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 8.8
+        value: 88.6
         unit: mm²/s
         confidence: 90
         description: Thermal diffusivity at room temperature
@@ -154,7 +161,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 25.2
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
@@ -400,3 +407,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.412238'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:34.674171Z'
+  sync_source: Materials.yaml

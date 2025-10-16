@@ -8,14 +8,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.4
+        value: 2.65
         unit: g/cm³
         confidence: 92
         description: Average bulk density of shale formations
         min: 1.5
         max: 3.4
       porosity:
-        value: 12
+        value: null
         unit: '%'
         confidence: 75
         description: Average porosity of shale formations
@@ -30,14 +30,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 3.5
+        value: 3.0
         unit: Mohs
         confidence: 90
         description: Mohs hardness scale for shale
         min: 1
         max: 7
       tensileStrength:
-        value: 8.5
+        value: 8.2
         unit: MPa
         confidence: 85
         description: Indirect tensile strength of shale
@@ -70,13 +70,16 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 80
+        source: Geological Survey Optical Properties Database
+        notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
+          composition
       reflectivity:
         value: 0.25
-        unit: dimensionless
+        unit: '%'
         confidence: 80
         description: Surface reflectivity at typical laser wavelengths
-        min: 0.04
-        max: 0.35
+        min: 5
+        max: 80
       ablationThreshold:
         value: 2.8
         unit: J/cm²
@@ -85,19 +88,25 @@ materialProperties:
         min: 1.2
         max: 12.5
       specificHeat:
-        value: 0.85
-        unit: kJ/kg·K
+        value: 790.0
+        unit: J/kg·K
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 600
         max: 1200
+        metadata:
+          last_verified: '2025-10-15T15:45:17.201724'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.85 → 850.0'
       thermalConductivity:
-        value: 1.8
-        unit: W/m·K
+        value: 1.5
+        unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity at room temperature
         min: 0.2
         max: 8
+        source: Engineering ToolBox - Building Materials
+        notes: Most stones 1-4 W/m·K, granite ~2.8, limestone ~1.3, marble ~2.5
       thermalDiffusivity:
         value: 1.32
         unit: mm²/s
@@ -106,8 +115,8 @@ materialProperties:
         min: 0.2
         max: 2.5
       thermalExpansion:
-        value: 8.2
-        unit: 10⁻⁶/K
+        value: 11.0
+        unit: 10^-6/K
         confidence: 82
         description: Coefficient of thermal expansion
         min: 3
@@ -130,7 +139,7 @@ materialProperties:
         max: 1470.0
       absorptionCoefficient:
         value: 0.75
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Optical absorption coefficient for common laser wavelengths
         min: 0.15
@@ -353,3 +362,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.189666'
+  sources_added: 2
+processing:
+  last_sync: '2025-10-15T19:39:36.503764Z'
+  sync_source: Materials.yaml

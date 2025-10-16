@@ -8,14 +8,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.4
+        value: 2.68
         unit: g/cm³
         confidence: 95
         description: Bulk density of typical travertine with natural porosity
         min: 1.5
         max: 3.4
       porosity:
-        value: 12
+        value: null
         unit: '%'
         confidence: 75
         description: Total porosity including micro and macro pores
@@ -37,7 +37,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 4.0
+        value: 3.0
         unit: Mohs
         confidence: 94
         description: Mohs hardness scale for calcite-based travertine
@@ -51,7 +51,7 @@ materialProperties:
         min: 2
         max: 25
       youngsModulus:
-        value: 45
+        value: 48.0
         unit: GPa
         confidence: 87
         description: Elastic modulus in compression
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 80
+        source: Geological Survey Optical Properties Database
+        notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
+          composition
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -92,21 +95,27 @@ materialProperties:
         min: 1.2
         max: 15.0
       specificHeat:
-        value: 0.84
-        unit: kJ/kg·K
+        value: 921.0
+        unit: J/kg·K
         confidence: 92
         description: Specific heat capacity at room temperature
         min: 600
         max: 1200
+        metadata:
+          last_verified: '2025-10-15T15:45:17.801632'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.84 → 840.0'
       thermalConductivity:
-        value: 2.8
-        unit: W/m·K
+        value: 2.3
+        unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity at room temperature, perpendicular to bedding
         min: 0.2
         max: 8
+        source: Engineering ToolBox - Building Materials
+        notes: Most stones 1-4 W/m·K, granite ~2.8, limestone ~1.3, marble ~2.5
       thermalDiffusivity:
-        value: 1.4
+        value: 1.32
         unit: mm²/s
         confidence: 86
         description: Thermal diffusivity calculated from thermal properties
@@ -114,7 +123,7 @@ materialProperties:
         max: 2.5
       thermalExpansion:
         value: 8.0
-        unit: 10⁻⁶/°C
+        unit: 10^-6/K
         confidence: 85
         description: Linear thermal expansion coefficient (20-100°C)
         min: 3
@@ -137,7 +146,7 @@ materialProperties:
         max: 1470.0
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Optical absorption coefficient at 1064 nm wavelength
         min: 0.15
@@ -371,3 +380,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.611824'
+  sources_added: 2
+processing:
+  last_sync: '2025-10-15T19:39:37.471261Z'
+  sync_source: Materials.yaml

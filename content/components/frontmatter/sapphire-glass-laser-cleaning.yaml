@@ -89,9 +89,12 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.76
-        unit: dimensionless
+        unit: ''
         confidence: 96
         description: Refractive index at 589 nm wavelength
         min: 1.458
@@ -104,7 +107,7 @@ materialProperties:
         min: 2.5
         max: 15.0
       ablationThreshold:
-        value: 2.5
+        value: null
         unit: J/cm²
         confidence: 80
         description: Ablation threshold for femtosecond laser pulses
@@ -113,14 +116,14 @@ materialProperties:
         source: Laser-Induced Damage in Optical Materials (NIST)
         notes: Silica, borosilicate - nanosecond pulses at 1064nm
       specificHeat:
-        value: 750
-        unit: J/kg·K
+        value: 761.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 500
         max: 900
       thermalConductivity:
-        value: 35
+        value: 27.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature along c-axis
@@ -129,7 +132,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
-        value: 12.5
+        value: 13.0
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
@@ -137,7 +140,7 @@ materialProperties:
         max: 15
       thermalExpansion:
         value: 5.3
-        unit: ×10⁻⁶/K
+        unit: 10⁻⁶/K
         confidence: 90
         description: Coefficient of thermal expansion parallel to c-axis at 20°C
         min: 0.1
@@ -394,3 +397,10 @@ tags:
 - reflective-surface
 - industrial-grade
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.988086'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.368909Z'
+  sync_source: Materials.yaml

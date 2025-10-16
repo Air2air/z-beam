@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 5.6
-        unit: μΩ·cm
+        value: 5.6e-08
+        unit: Ω·m
         confidence: 93
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -51,7 +51,7 @@ materialProperties:
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 980
+        value: 1510.0
         unit: MPa
         confidence: 85
         description: Ultimate tensile strength of annealed tungsten
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,13 +125,19 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 0.132
-        unit: J/g·K
+        value: 132.0
+        unit: J/(kg·K)
         confidence: 91
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:05.960922'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.132 → 132.0'
       thermalConductivity:
         value: 173
         unit: W/(m·K)
@@ -137,15 +148,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 0.68
-        unit: cm²/s
+        value: 67.8
+        unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
         value: 4.5
-        unit: μm/m·K
+        unit: 10⁻⁶/K
         confidence: 90
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
@@ -161,7 +172,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Absorption coefficient for 1064 nm laser wavelength
         min: 0.03
@@ -389,3 +400,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.743686'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:48:54.672648Z'
+  sync_source: Materials.yaml

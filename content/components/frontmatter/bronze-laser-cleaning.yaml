@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 8.7
+        value: 8.8
         unit: g/cm³
         confidence: 95
         description: Typical density for tin bronze alloys (88% Cu, 12% Sn)
@@ -39,8 +39,8 @@ materialProperties:
         min: null
         max: null
       surfaceRoughness:
-        value: 0.8
-        unit: μm Ra
+        value: null
+        unit: μm
         confidence: 85
         description: Typical as-cast surface roughness before laser treatment
         min: 0.4
@@ -54,14 +54,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 75
+        value: 70.0
         unit: HB
         confidence: 88
         description: Brinell hardness for standard bronze
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 350
+        value: 379.0
         unit: MPa
         confidence: 90
         description: Typical tensile strength for cast bronze
@@ -94,6 +94,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -110,15 +113,17 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 380
-        unit: J/kg·K
+        value: 380.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 100
         max: 900
       thermalConductivity:
-        value: 75
+        value: 42.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity of standard bronze alloys
@@ -127,15 +132,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 22.7
+        value: 42.7
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 18.5
-        unit: μm/m·°C
+        value: 18.0
+        unit: 10^-6/K
         confidence: 88
         description: Coefficient of thermal expansion at 20-100°C
         min: 0.5
@@ -378,3 +383,10 @@ tags:
 - reflective-surface
 - conductive
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:16.069273'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:33.189460Z'
+  sync_source: Materials.yaml

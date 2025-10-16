@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 10.6
-        unit: μΩ·cm
+        value: 1.06e-07
+        unit: Ω·m
         confidence: 95
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -44,7 +44,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 40
+        value: 41.0
         unit: HV
         confidence: 92
         description: Vickers hardness of annealed platinum
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,9 +125,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 133
-        unit: J/kg·K
+        value: 133.0
+        unit: J/(kg·K)
         confidence: 93
         description: Specific heat capacity at 25°C
         min: 100
@@ -137,7 +144,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 24.9
+        value: 25.9
         unit: mm²/s
         confidence: 90
         description: Thermal diffusivity at room temperature
@@ -145,7 +152,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 8.8
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of linear thermal expansion (20-100°C)
         min: 0.5
@@ -394,3 +401,10 @@ tags:
 - reflective-surface
 - conductive
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:19.470055'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:45:17.873521Z'
+  sync_source: Materials.yaml

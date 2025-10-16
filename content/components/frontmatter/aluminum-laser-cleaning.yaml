@@ -15,7 +15,7 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: 2.5
+        value: 250.0
         unit: °C
         confidence: 80
         description: Natural oxide layer growth rate in air at room temperature
@@ -23,6 +23,10 @@ materialProperties:
         max: 1200
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        metadata:
+          last_verified: '2025-10-15T15:23:15.964387'
+          verification_source: automatic_fix
+          fix_reason: 'Decimal error: 2.5 → 250.0'
       crystallineStructure:
         value: FCC
         unit: none
@@ -51,21 +55,21 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 25
-        unit: HV
+        value: 245.0
+        unit: MPa
         confidence: 85
         description: Vickers hardness of pure aluminum
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 90
+        value: 310.0
         unit: MPa
         confidence: 88
         description: Ultimate tensile strength of pure aluminum
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 69
+        value: 70.0
         unit: GPa
         confidence: 92
         description: Young's modulus of pure aluminum
@@ -91,6 +95,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -111,6 +118,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -127,9 +136,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 900
-        unit: J/kg·K
+        value: 897.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 100
@@ -152,7 +163,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 23.1
-        unit: μm/m·°C
+        unit: μm/m·K
         confidence: 90
         description: Linear thermal expansion coefficient at 20°C
         min: 0.5
@@ -389,3 +400,10 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:15.327491'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:32.665674Z'
+  sync_source: Materials.yaml

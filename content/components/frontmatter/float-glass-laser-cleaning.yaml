@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.5
+        value: 2.52
         unit: g/cm³
         confidence: 95
         description: Typical density of soda-lime-silica float glass
@@ -35,7 +35,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.0
+        value: 5.5
         unit: Mohs
         confidence: 85
         description: Mohs hardness scale value
@@ -49,7 +49,7 @@ materialProperties:
         min: 30
         max: 2000
       youngsModulus:
-        value: 70
+        value: 72.0
         unit: GPa
         confidence: 96
         description: Elastic modulus of float glass
@@ -82,9 +82,12 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.52
-        unit: dimensionless
+        unit: ''
         confidence: 98
         description: Refractive index at 589 nm wavelength
         min: 1.458
@@ -97,8 +100,8 @@ materialProperties:
         min: 2.5
         max: 15.0
       specificHeat:
-        value: 840
-        unit: J/kg·K
+        value: 840.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 500
@@ -121,7 +124,7 @@ materialProperties:
         max: 15
       thermalExpansion:
         value: 8.5
-        unit: ×10⁻⁶/°C
+        unit: 10^-6/K
         confidence: 94
         description: Coefficient of linear thermal expansion for soda-lime glass
         min: 0.1
@@ -382,3 +385,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:17.194483'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:33.832261Z'
+  sync_source: Materials.yaml

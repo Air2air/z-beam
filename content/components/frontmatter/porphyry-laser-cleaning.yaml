@@ -8,14 +8,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.65
+        value: 2.66
         unit: g/cm³
         confidence: 95
         description: Bulk density of porphyry rock with typical mineral composition
         min: 1.5
         max: 3.4
       porosity:
-        value: 1.2
+        value: null
         unit: '%'
         confidence: 75
         description: Typical porosity range for dense porphyry
@@ -30,7 +30,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.5
+        value: 6.0
         unit: Mohs
         confidence: 92
         description: Mohs hardness scale for porphyry with quartz and feldspar
@@ -44,7 +44,7 @@ materialProperties:
         min: 2
         max: 25
       youngsModulus:
-        value: 55
+        value: 68.2
         unit: GPa
         confidence: 85
         description: Elastic modulus for porphyritic rock
@@ -77,6 +77,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 80
+        source: Geological Survey Optical Properties Database
+        notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
+          composition
       ablationThreshold:
         value: 2.8
         unit: J/cm²
@@ -85,29 +88,35 @@ materialProperties:
         min: 1.2
         max: 12.5
       specificHeat:
-        value: 0.79
-        unit: kJ/kg·K
+        value: 850.0
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at 20°C
         min: 600
         max: 1200
+        metadata:
+          last_verified: '2025-10-15T15:45:16.807708'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.79 → 790.0'
       thermalConductivity:
         value: 2.9
-        unit: W/m·K
+        unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity at room temperature for typical porphyry
         min: 0.2
         max: 8
+        source: Engineering ToolBox - Building Materials
+        notes: Most stones 1-4 W/m·K, granite ~2.8, limestone ~1.3, marble ~2.5
       thermalDiffusivity:
-        value: 1.4
+        value: 1.32
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity calculated from thermal properties
         min: 0.2
         max: 2.5
       thermalExpansion:
-        value: 8.2
-        unit: 10⁻⁶/K
+        value: 6.5
+        unit: 10^-6/K
         confidence: 82
         description: Coefficient of thermal expansion for porphyritic granite
         min: 3
@@ -130,7 +139,7 @@ materialProperties:
         max: 1470.0
       absorptionCoefficient:
         value: 0.75
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Optical absorption coefficient for near-IR laser wavelengths
         min: 0.15
@@ -363,3 +372,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.180421'
+  sources_added: 2
+processing:
+  last_sync: '2025-10-15T19:39:35.870269Z'
+  sync_source: Materials.yaml

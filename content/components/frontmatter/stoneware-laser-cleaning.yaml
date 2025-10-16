@@ -8,14 +8,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.3
+        value: 2.4
         unit: g/cm³
         confidence: 95
         description: Bulk density of fired stoneware ceramic body
         min: 2.2
         max: 19.3
       porosity:
-        value: 2.5
+        value: null
         unit: '%'
         confidence: 80
         description: Water absorption percentage indicating vitrification
@@ -37,7 +37,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.5
+        value: 7.0
         unit: Mohs
         confidence: 92
         description: Mohs hardness scale for vitrified stoneware
@@ -51,14 +51,14 @@ materialProperties:
         min: 50
         max: 1000
       youngsModulus:
-        value: 70
+        value: 65.0
         unit: GPa
         confidence: 90
         description: Elastic modulus of fired stoneware body
         min: 50
         max: 800
       flexuralStrength:
-        value: 45
+        value: 52.0
         unit: MPa
         confidence: 88
         description: Modulus of rupture for typical stoneware
@@ -84,15 +84,18 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 90
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
+          finish
       reflectivity:
         value: 0.15
-        unit: dimensionless
+        unit: '%'
         confidence: 83
         description: Surface reflectivity at common laser cleaning wavelengths
-        min: 0.12
-        max: 0.45
+        min: 5
+        max: 90
       ablationThreshold:
-        value: 2.5
+        value: null
         unit: J/cm²
         confidence: 75
         description: Estimated laser fluence threshold for material removal
@@ -101,14 +104,14 @@ materialProperties:
         source: RP Photonics Encyclopedia, Oxide Ceramics
         notes: Alumina, zirconia, silicon carbide - nanosecond pulses
       specificHeat:
-        value: 850
-        unit: J/kg·K
+        value: 1000.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 87
         description: Specific heat capacity at room temperature
         min: 200
         max: 1200
       thermalConductivity:
-        value: 1.5
+        value: 1.0
         unit: W/(m·K)
         confidence: 80
         description: Thermal conductivity at room temperature
@@ -117,7 +120,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for ceramic materials at room temperature
       thermalDiffusivity:
-        value: 0.8
+        value: 0.85
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
@@ -125,7 +128,7 @@ materialProperties:
         max: 120
       thermalExpansion:
         value: 5.5
-        unit: 10⁻⁶/K
+        unit: 10^-6/K
         confidence: 85
         description: Coefficient of thermal expansion (20-700°C)
         min: 0.1
@@ -141,7 +144,7 @@ materialProperties:
         type: thermal_shock
       absorptionCoefficient:
         value: 0.85
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 84
         description: Optical absorption coefficient for typical laser wavelengths
           (1064 nm)
@@ -382,3 +385,10 @@ tags:
 - thermal-sensitive
 - thermal-resistant
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.941725'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:47:09.985706Z'
+  sync_source: Materials.yaml

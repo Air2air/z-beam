@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 8.908
+        value: 8.9
         unit: g/cm³
         confidence: 98
         description: Density of pure nickel at 20°C
@@ -31,8 +31,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 6.9
-        unit: μΩ·cm
+        value: 6.93e-08
+        unit: Ω·m
         confidence: 94
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -44,14 +44,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 80
-        unit: HV
+        value: 638.0
+        unit: MPa
         confidence: 85
         description: Vickers hardness of annealed pure nickel
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 317
+        value: 345.0
         unit: MPa
         confidence: 88
         description: Ultimate tensile strength of annealed pure nickel
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,6 +125,8 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       laserDamageThreshold:
         value: 3.5
         unit: J/cm²
@@ -128,14 +135,14 @@ materialProperties:
         min: 1.2
         max: 15.0
       specificHeat:
-        value: 444
-        unit: J/kg·K
+        value: 444.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 93
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
       thermalConductivity:
-        value: 90.9
+        value: 90.7
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
@@ -144,15 +151,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 23.1
+        value: 23.0
         unit: mm²/s
         confidence: 90
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 13.4
-        unit: μm/m·K
+        value: 13.3
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of linear thermal expansion (20-100°C)
         min: 0.5
@@ -377,3 +384,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.972618'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:45:17.655306Z'
+  sync_source: Materials.yaml

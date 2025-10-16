@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 7.9
+        value: 7.93
         unit: g/cm³
         confidence: 95
         description: Typical density for austenitic stainless steel (304/316 grades)
@@ -32,8 +32,8 @@ materialProperties:
         min: null
         max: null
       surfaceRoughness:
-        value: 0.8
-        unit: μm Ra
+        value: null
+        unit: μm
         confidence: 85
         description: Typical as-received surface roughness for industrial stainless
           steel
@@ -48,8 +48,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 201
-        unit: HV
+        value: 1750.0
+        unit: MPa
         confidence: 88
         description: Vickers hardness for annealed 304 stainless steel
         min: 0.5
@@ -62,7 +62,7 @@ materialProperties:
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 193
+        value: 200.0
         unit: GPa
         confidence: 92
         description: Elastic modulus at room temperature
@@ -88,6 +88,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -108,6 +111,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -124,9 +129,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 500
-        unit: J/kg·K
+        value: 500.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 100
@@ -405,3 +412,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.801886'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.920482Z'
+  sync_source: Materials.yaml

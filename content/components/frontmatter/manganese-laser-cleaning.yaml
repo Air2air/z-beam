@@ -15,7 +15,7 @@ materialProperties:
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: 3
+        value: 300.0
         unit: °C
         confidence: 80
         description: Poor oxidation resistance, forms oxide layers rapidly
@@ -23,6 +23,10 @@ materialProperties:
         max: 1200
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+        metadata:
+          last_verified: '2025-10-15T15:23:17.317081'
+          verification_source: automatic_fix
+          fix_reason: 'Decimal error: 3.0 → 300.0'
       crystallineStructure:
         value: Complex cubic
         unit: crystal system
@@ -31,8 +35,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 1.44
-        unit: μΩ·m
+        value: 1.44e-06
+        unit: Ω·m
         confidence: 90
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -44,14 +48,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 210
-        unit: HV
+        value: 210.0
+        unit: HB
         confidence: 88
         description: Vickers hardness of pure manganese
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 276
+        value: 241.3
         unit: MPa
         confidence: 82
         description: Ultimate tensile strength
@@ -84,6 +88,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +111,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,9 +129,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 479
-        unit: J/kg·K
+        value: 479.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 100
@@ -137,7 +148,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 2.26
+        value: 1.7
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity calculated from thermal properties
@@ -145,7 +156,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 21.7
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 85
         description: Coefficient of linear thermal expansion (25°C)
         min: 0.5
@@ -168,7 +179,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 80
         description: Estimated absorption coefficient for common laser wavelengths
           (1064 nm)
@@ -382,3 +393,10 @@ tags:
 - thermal-sensitive
 - conductive
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.538197'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:45:17.461986Z'
+  sync_source: Materials.yaml

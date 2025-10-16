@@ -38,13 +38,13 @@ materialProperties:
     properties:
       hardness:
         value: 0.9
-        unit: Mohs
+        unit: MPa
         confidence: 87
         description: Mohs hardness scale
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 2.5
+        value: 4.0
         unit: MPa
         confidence: 84
         description: Ultimate tensile strength
@@ -77,6 +77,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -97,6 +100,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -113,9 +118,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 233
-        unit: J/kg·K
+        value: 233.0
+        unit: J/(kg·K)
         confidence: 88
         description: Specific heat capacity at 25°C
         min: 100
@@ -130,7 +137,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 4.8
+        value: 86.7
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity at room temperature
@@ -138,7 +145,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 32.1
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 90
         description: Linear thermal expansion coefficient at 25°C
         min: 0.5
@@ -375,3 +382,10 @@ tags:
 - reflective-surface
 - conductive
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:17.965104'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:34.354419Z'
+  sync_source: Materials.yaml

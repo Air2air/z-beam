@@ -45,14 +45,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 95
-        unit: HRB
+        value: 200.0
+        unit: HV
         confidence: 88
         description: Rockwell B hardness for annealed condition
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 790
+        value: 758.0
         unit: MPa
         confidence: 92
         description: Room temperature tensile strength for annealed Hastelloy C-276
@@ -85,6 +85,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -105,6 +108,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -121,15 +126,17 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 427
-        unit: J/kg·K
+        value: 427.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 100
         max: 900
       thermalConductivity:
-        value: 11.2
+        value: 12.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature for Hastelloy C-276
@@ -145,8 +152,8 @@ materialProperties:
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 11.2
-        unit: μm/m·°C
+        value: 12.3
+        unit: 10^-6/K
         confidence: 88
         description: Coefficient of thermal expansion (20-100°C) for Hastelloy C-276
         min: 0.5
@@ -162,7 +169,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Estimated absorption coefficient for near-infrared lasers (1064
           nm)
@@ -384,3 +391,10 @@ tags:
 - conductive
 - reflective-surface
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:17.775939'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:34.219515Z'
+  sync_source: Materials.yaml

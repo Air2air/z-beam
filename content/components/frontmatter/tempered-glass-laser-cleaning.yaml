@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.5
+        value: 2.52
         unit: g/cm³
         confidence: 95
         description: Typical density of soda-lime tempered glass
@@ -35,21 +35,21 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.0
+        value: 5.5
         unit: Mohs
         confidence: 88
         description: Mohs hardness scale for tempered glass
         min: 4.5
         max: 9
       tensileStrength:
-        value: 120
+        value: 165.0
         unit: MPa
         confidence: 90
         description: Surface compressive strength due to tempering process
         min: 30
         max: 2000
       youngsModulus:
-        value: 70
+        value: 73.0
         unit: GPa
         confidence: 95
         description: Elastic modulus of soda-lime glass
@@ -82,22 +82,25 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       reflectivity:
         value: 0.04
-        unit: dimensionless
+        unit: '%'
         confidence: 90
         description: Surface reflectivity at normal incidence
-        min: 0.04
-        max: 4.2
+        min: 4
+        max: 92
       refractiveIndex:
         value: 1.52
-        unit: dimensionless
+        unit: ''
         confidence: 95
         description: Refractive index at 589 nm wavelength
         min: 1.458
         max: 1.76
       ablationThreshold:
-        value: 5.0
+        value: null
         unit: J/cm²
         confidence: 80
         description: Approximate laser ablation threshold for nanosecond pulses
@@ -113,8 +116,8 @@ materialProperties:
         min: 2.5
         max: 15.0
       specificHeat:
-        value: 840
-        unit: J/kg·K
+        value: 840.0
+        unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 500
@@ -136,8 +139,8 @@ materialProperties:
         min: 0.01
         max: 15
       thermalExpansion:
-        value: 9.0
-        unit: 10⁻⁶/°C
+        value: 8.5
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of thermal expansion for soda-lime glass
         min: 0.1
@@ -397,3 +400,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.202557'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:37.192884Z'
+  sync_source: Materials.yaml

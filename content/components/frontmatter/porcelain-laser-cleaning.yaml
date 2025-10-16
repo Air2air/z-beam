@@ -15,7 +15,7 @@ materialProperties:
         min: 2.2
         max: 19.3
       porosity:
-        value: 2.0
+        value: null
         unit: '%'
         confidence: 80
         description: Typical porosity of vitrified porcelain
@@ -51,7 +51,7 @@ materialProperties:
         min: 50
         max: 1000
       youngsModulus:
-        value: 70
+        value: 70.3
         unit: GPa
         confidence: 92
         description: Elastic modulus of porcelain material
@@ -84,15 +84,18 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 90
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
+          finish
       reflectivity:
         value: 0.12
-        unit: dimensionless
+        unit: '%'
         confidence: 83
         description: Surface reflectivity at 1064 nm wavelength
-        min: 0.12
-        max: 0.45
+        min: 5
+        max: 90
       ablationThreshold:
-        value: 2.5
+        value: null
         unit: J/cm²
         confidence: 75
         description: Laser ablation threshold for nanosecond pulses at 1064 nm
@@ -101,8 +104,8 @@ materialProperties:
         source: RP Photonics Encyclopedia, Oxide Ceramics
         notes: Alumina, zirconia, silicon carbide - nanosecond pulses
       specificHeat:
-        value: 1080
-        unit: J/kg·K
+        value: 1085.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 87
         description: Specific heat capacity at room temperature
         min: 200
@@ -125,7 +128,7 @@ materialProperties:
         max: 120
       thermalExpansion:
         value: 6.0
-        unit: ×10⁻⁶/K
+        unit: 10^-6 /K
         confidence: 85
         description: Coefficient of thermal expansion (20-700°C)
         min: 0.1
@@ -141,7 +144,7 @@ materialProperties:
         type: thermal_shock
       absorptionCoefficient:
         value: 0.85
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Optical absorption coefficient for common laser wavelengths
         min: 0.8
@@ -377,3 +380,10 @@ tags:
 - thermal-sensitive
 - thermal-resistant
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.116653'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:35.826728Z'
+  sync_source: Materials.yaml

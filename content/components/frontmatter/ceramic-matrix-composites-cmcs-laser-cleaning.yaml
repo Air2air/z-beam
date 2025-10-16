@@ -82,6 +82,8 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 2
         max: 80
+        source: Composite Materials Handbook (MIL-HDBK-17)
+        notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal matrix composites 40-80%'
       specificHeat:
         value: 750
         unit: J/kg·K
@@ -96,6 +98,8 @@ materialProperties:
         description: Thermal conductivity at room temperature for C/SiC composites
         min: 0.1
         max: 400
+        source: ASM Handbook - Composites
+        notes: 'Wide range (0.1-400 W/m·K): polymer matrix ~0.2, carbon fiber ~10, metal matrix 50-400'
       thermalDiffusivity:
         value: 8.5
         unit: mm²/s
@@ -128,11 +132,11 @@ materialProperties:
         max: 8500.0
       reflectivity:
         value: 0.45
-        unit: dimensionless
+        unit: '%'
         confidence: 82
         description: Surface reflectivity at common laser wavelengths (1-10 μm)
-        min: 0.12
-        max: 85.0
+        min: 2
+        max: 80
       ablationThreshold:
         value: 2.8
         unit: J/cm²
@@ -264,7 +268,8 @@ environmentalImpact:
   applicableIndustries: []
   quantifiedBenefits: ''
   sustainabilityBenefit: ''
-subtitle: The biggest challenge with CMCs is their inconsistent fiber density, which can create hot spots. You'll want to maintain a consistent standoff distance to ensure uniform energy distribution.
+subtitle: The biggest challenge with CMCs is their inconsistent fiber density, which can create hot spots. You'll want to
+  maintain a consistent standoff distance to ensure uniform energy distribution.
 outcomeMetrics:
 - metric: Contaminant Removal Efficiency
   description: Percentage of target contaminants successfully removed from surface
@@ -300,14 +305,24 @@ outcomeMetrics:
   factorsAffecting: []
   units: []
 caption:
-  beforeText: 'At 500x magnification, the CMC surface is obscured by a non-uniform contamination layer, typically measuring 10-50 micrometers thick. This layer consists of embedded carbonaceous soot, silicate-rich dust particulates, and potential oxide scales from high-temperature service. The contaminants form an amorphous, crust-like blanket that adheres to the fiber-matrix architecture.
+  beforeText: 'At 500x magnification, the CMC surface is obscured by a non-uniform contamination layer, typically measuring
+    10-50 micrometers thick. This layer consists of embedded carbonaceous soot, silicate-rich dust particulates, and potential
+    oxide scales from high-temperature service. The contaminants form an amorphous, crust-like blanket that adheres to the
+    fiber-matrix architecture.
 
 
-    The underlying SiC/SiC or C/SiC composite structure is largely hidden. The contamination creates a highly irregular surface texture, masking the characteristic woven fiber bundles and the ceramic matrix. Pores and micro-cracks within the composite are filled with fine particulate matter, which can act as initiation points for further degradation under thermal cycling.'
-  afterText: 'Following laser cleaning, the 500x view reveals the restoration of the intrinsic CMC microstructure. The contaminant layer has been completely removed via ablation, exposing the clean, woven pattern of the ceramic fibers and the surrounding matrix. The surface texture is now defined by the material''s own topography rather than foreign deposits.
+    The underlying SiC/SiC or C/SiC composite structure is largely hidden. The contamination creates a highly irregular surface
+    texture, masking the characteristic woven fiber bundles and the ceramic matrix. Pores and micro-cracks within the composite
+    are filled with fine particulate matter, which can act as initiation points for further degradation under thermal cycling.'
+  afterText: 'Following laser cleaning, the 500x view reveals the restoration of the intrinsic CMC microstructure. The contaminant
+    layer has been completely removed via ablation, exposing the clean, woven pattern of the ceramic fibers and the surrounding
+    matrix. The surface texture is now defined by the material''s own topography rather than foreign deposits.
 
 
-    The interface between fibers and matrix is clearly visible, with minimal residual particulate matter. The process successfully clears micro-cracks and pores, reducing potential stress concentration points. The laser parameters are tuned to achieve this selective removal while avoiding measurable ablation damage to the underlying SiC matrix, preserving the composite''s structural integrity.'
+    The interface between fibers and matrix is clearly visible, with minimal residual particulate matter. The process successfully
+    clears micro-cracks and pores, reducing potential stress concentration points. The laser parameters are tuned to achieve
+    this selective removal while avoiding measurable ablation damage to the underlying SiC matrix, preserving the composite''s
+    structural integrity.'
   description: Microscopic analysis of ceramic matrix composites cmcs surface before and after laser cleaning treatment
   alt: Microscopic view of ceramic matrix composites cmcs surface showing laser cleaning effects
   technicalAnalysis:
@@ -341,3 +356,7 @@ tags:
 - industrial-grade
 - processed
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:16.417697'
+  sources_added: 2

@@ -44,21 +44,21 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 38
-        unit: HV
+        value: 38.0
+        unit: MPa
         confidence: 85
         description: Vickers hardness of pure lead
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 18
+        value: 12.0
         unit: MPa
         confidence: 86
         description: Ultimate tensile strength
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 16
+        value: 14.0
         unit: GPa
         confidence: 89
         description: Young's modulus of elasticity
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,9 +125,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 129
-        unit: J/kg·K
+        value: 129.7
+        unit: J/(kg·K)
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 100
@@ -137,15 +144,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 24.1
+        value: 24.8
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 29.1
-        unit: μm/m·K
+        value: 28.9
+        unit: 10^-6/K
         confidence: 90
         description: Linear thermal expansion coefficient at 20°C
         min: 0.5
@@ -398,3 +405,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.286087'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:34.580152Z'
+  sync_source: Materials.yaml

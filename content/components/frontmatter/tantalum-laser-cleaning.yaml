@@ -32,8 +32,8 @@ materialProperties:
         min: null
         max: null
       electricalResistivity:
-        value: 13.5
-        unit: μΩ·cm
+        value: 1.35e-07
+        unit: Ω·m
         confidence: 93
         description: Electrical resistivity at 20°C
         min: 0.197
@@ -45,7 +45,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 120
+        value: 343.0
         unit: HV
         confidence: 87
         description: Vickers hardness for annealed tantalum
@@ -59,7 +59,7 @@ materialProperties:
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 186
+        value: 185.7
         unit: GPa
         confidence: 94
         description: Elastic modulus at room temperature
@@ -85,6 +85,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -105,6 +108,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -121,6 +126,8 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       laserDamageThreshold:
         value: 15
         unit: J/cm²
@@ -129,8 +136,8 @@ materialProperties:
         min: 1.2
         max: 15.0
       specificHeat:
-        value: 140
-        unit: J/kg·K
+        value: 140.0
+        unit: J/(kg·K)
         confidence: 91
         description: Specific heat capacity at 25°C
         min: 100
@@ -145,15 +152,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 24.7
+        value: 24.1
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 6.3
-        unit: ×10⁻⁶/K
+        value: 6.53
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
@@ -169,7 +176,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.45
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 85
         description: Typical absorption coefficient for 1064 nm laser wavelength
         min: 0.03
@@ -389,3 +396,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:22.071361'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:47:10.049896Z'
+  sync_source: Materials.yaml

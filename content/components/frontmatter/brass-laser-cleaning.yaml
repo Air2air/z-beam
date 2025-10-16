@@ -8,14 +8,14 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 8.5
+        value: 8.47
         unit: g/cm³
         confidence: 95
         description: Typical density for common brass alloys (60-70% Cu, 30-40% Zn)
         min: 0.53
         max: 22.6
       oxidationResistance:
-        value: 85
+        value: 300.0
         unit: °C
         confidence: 80
         description: Relative oxidation resistance compared to pure copper
@@ -24,8 +24,8 @@ materialProperties:
         source: ASM Metals Handbook - Corrosion
         notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
       corrosionResistance:
-        value: 78
-        unit: '% relative'
+        value: 7.8
+        unit: rating
         confidence: 85
         description: General corrosion resistance in atmospheric conditions
         min: 9.3
@@ -38,8 +38,8 @@ materialProperties:
         min: null
         max: null
       surfaceRoughness:
-        value: 0.8
-        unit: μm Ra
+        value: null
+        unit: μm
         confidence: 85
         description: Typical surface roughness for machined brass surfaces
         min: 0.4
@@ -53,14 +53,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 75
+        value: 155.0
         unit: HV
         confidence: 85
         description: Vickers hardness for typical brass compositions
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 340
+        value: 338.0
         unit: MPa
         confidence: 88
         description: Typical tensile strength for annealed brass
@@ -93,6 +93,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -113,6 +116,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -129,15 +134,17 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 380
-        unit: J/kg·K
+        value: 375.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at constant pressure
         min: 100
         max: 900
       thermalConductivity:
-        value: 120
+        value: 109.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity of typical brass alloys
@@ -146,15 +153,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 35.2
+        value: 34.2
         unit: mm²/s
         confidence: 85
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 19.0
-        unit: μm/m·°C
+        value: 18.7
+        unit: 10^-6/K
         confidence: 88
         description: Coefficient of thermal expansion at 20-100°C
         min: 0.5
@@ -402,3 +409,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:15.878530'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:45:16.454362Z'
+  sync_source: Materials.yaml

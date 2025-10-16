@@ -42,7 +42,7 @@ materialProperties:
         min: 30
         max: 2000
       youngsModulus:
-        value: 64
+        value: 63.0
         unit: GPa
         confidence: 92
         description: Young's modulus of elasticity
@@ -75,9 +75,12 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.474
-        unit: dimensionless
+        unit: ''
         confidence: 95
         description: Refractive index at 589 nm wavelength
         min: 1.458
@@ -90,8 +93,8 @@ materialProperties:
         min: 2.5
         max: 15.0
       specificHeat:
-        value: 830
-        unit: J/kg·K
+        value: 830.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 500
@@ -113,7 +116,7 @@ materialProperties:
         min: 0.01
         max: 15
       thermalExpansion:
-        value: 3.3
+        value: 3.25
         unit: 10⁻⁶/K
         confidence: 95
         description: Coefficient of linear thermal expansion (20-300°C)
@@ -383,3 +386,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:15.811038'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:33.008492Z'
+  sync_source: Materials.yaml

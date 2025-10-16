@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 1.85
+        value: 1.848
         unit: g/cm³
         confidence: 98
         description: Density of pure beryllium at room temperature
@@ -38,21 +38,21 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 150
-        unit: HV
+        value: 150.0
+        unit: HB
         confidence: 85
         description: Vickers hardness of pure beryllium
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 370
+        value: 448.0
         unit: MPa
         confidence: 88
         description: Typical tensile strength for wrought beryllium
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 303
+        value: 287.0
         unit: GPa
         confidence: 96
         description: Young's modulus of elasticity
@@ -78,6 +78,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -98,6 +101,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -114,6 +119,8 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
         value: 1925
         unit: J/kg·K
@@ -122,7 +129,7 @@ materialProperties:
         min: 100
         max: 900
       thermalConductivity:
-        value: 216
+        value: 201.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
@@ -139,7 +146,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 11.3
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 92
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
@@ -155,7 +162,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Typical absorption coefficient for visible to near-IR wavelengths
         min: 0.03
@@ -390,3 +397,10 @@ tags:
 - reflective-surface
 - conductive
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:15.631643'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:32.877975Z'
+  sync_source: Materials.yaml

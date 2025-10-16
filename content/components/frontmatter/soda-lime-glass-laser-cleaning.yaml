@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 2.5
+        value: 2.52
         unit: g/cm³
         confidence: 98
         description: Typical density of commercial soda-lime glass at room temperature
@@ -28,7 +28,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.0
+        value: 5.5
         unit: Mohs
         confidence: 85
         description: Mohs hardness scale value
@@ -75,15 +75,18 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.52
-        unit: dimensionless
+        unit: ''
         confidence: 98
         description: Refractive index at 589 nm wavelength
         min: 1.458
         max: 1.76
       ablationThreshold:
-        value: 2.5
+        value: null
         unit: J/cm²
         confidence: 80
         description: Estimated laser ablation threshold for nanosecond pulses at 1064
@@ -93,8 +96,8 @@ materialProperties:
         source: Laser-Induced Damage in Optical Materials (NIST)
         notes: Silica, borosilicate - nanosecond pulses at 1064nm
       specificHeat:
-        value: 840
-        unit: J/kg·K
+        value: 840.0
+        unit: J/(kg·K)
         confidence: 88
         description: Specific heat capacity at room temperature
         min: 500
@@ -116,8 +119,8 @@ materialProperties:
         min: 0.01
         max: 15
       thermalExpansion:
-        value: 9.0
-        unit: 10⁻⁶/K
+        value: 8.5
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of linear thermal expansion (20-300°C)
         min: 0.1
@@ -378,3 +381,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.735266'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.872865Z'
+  sync_source: Materials.yaml

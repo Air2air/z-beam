@@ -37,14 +37,14 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 245
+        value: 1700.0
         unit: HV
         confidence: 90
         description: Vickers hardness of annealed rhenium
         min: 0.5
         max: 3500
       tensileStrength:
-        value: 1070
+        value: 1170.0
         unit: MPa
         confidence: 88
         description: Ultimate tensile strength of annealed rhenium
@@ -77,6 +77,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -97,6 +100,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -113,15 +118,17 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 137
-        unit: J/kg·K
+        value: 137.0
+        unit: J/(kg·K)
         confidence: 85
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
       thermalConductivity:
-        value: 71.2
+        value: 71.0
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at 20°C
@@ -130,15 +137,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 24.7
+        value: 63.2
         unit: mm²/s
         confidence: 82
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
-        value: 6.2
-        unit: ×10⁻⁶/K
+        value: 6.6
+        unit: 10^-6/K
         confidence: 88
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
@@ -373,3 +380,10 @@ tags:
 - reflective-surface
 - conductive
 - alessandro-moretti
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.536208'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.094991Z'
+  sync_source: Materials.yaml

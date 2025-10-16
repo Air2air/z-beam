@@ -42,7 +42,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 6.5
+        value: 7.0
         unit: Mohs
         confidence: 92
         description: Mohs hardness scale
@@ -56,7 +56,7 @@ materialProperties:
         min: 30
         max: 2000
       youngsModulus:
-        value: 73
+        value: 72.0
         unit: GPa
         confidence: 94
         description: Young's modulus of elasticity
@@ -89,9 +89,12 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.458
-        unit: dimensionless
+        unit: ''
         confidence: 98
         description: Refractive index at 589 nm wavelength
         min: 1.458
@@ -104,7 +107,7 @@ materialProperties:
         min: 2.5
         max: 15.0
       ablationThreshold:
-        value: 2.5
+        value: null
         unit: J/cm²
         confidence: 80
         description: Ablation threshold for femtosecond pulses at 800 nm
@@ -113,14 +116,14 @@ materialProperties:
         source: Laser-Induced Damage in Optical Materials (NIST)
         notes: Silica, borosilicate - nanosecond pulses at 1064nm
       specificHeat:
-        value: 750
-        unit: J/kg·K
+        value: 741.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 90
         description: Specific heat capacity at room temperature
         min: 500
         max: 900
       thermalConductivity:
-        value: 1.4
+        value: 1.38
         unit: W/(m·K)
         confidence: 85
         description: Thermal conductivity at room temperature
@@ -129,7 +132,7 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for glass materials at room temperature
       thermalDiffusivity:
-        value: 0.85
+        value: 8.5
         unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
@@ -137,7 +140,7 @@ materialProperties:
         max: 15
       thermalExpansion:
         value: 0.55
-        unit: ×10⁻⁶/°C
+        unit: 10⁻⁶/K
         confidence: 96
         description: Coefficient of thermal expansion (20-300°C)
         min: 0.1
@@ -408,3 +411,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.320143'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:35.959855Z'
+  sync_source: Materials.yaml

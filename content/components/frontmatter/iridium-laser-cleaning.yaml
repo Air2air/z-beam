@@ -37,8 +37,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 1760
-        unit: MPa
+        value: 1760.0
+        unit: HV
         confidence: 89
         description: Vickers hardness of annealed iridium
         min: 0.5
@@ -77,6 +77,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -97,6 +100,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -113,6 +118,8 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       laserDamageThreshold:
         value: 4.2
         unit: J/cm²
@@ -121,12 +128,16 @@ materialProperties:
         min: 1.2
         max: 15.0
       specificHeat:
-        value: 0.131
-        unit: J/g·K
+        value: 131.0
+        unit: J/(kg·K)
         confidence: 91
         description: Specific heat capacity at 25°C
         min: 100
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:03.869468'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.131 → 131.0'
       thermalConductivity:
         value: 147
         unit: W/(m·K)
@@ -137,15 +148,15 @@ materialProperties:
         source: MatWeb Materials Database
         notes: Typical range for metal materials at room temperature
       thermalDiffusivity:
-        value: 0.32
-        unit: cm²/s
+        value: 31.5
+        unit: mm²/s
         confidence: 88
         description: Thermal diffusivity at room temperature
         min: 0.2
         max: 174
       thermalExpansion:
         value: 6.4
-        unit: ×10⁻⁶/K
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of linear thermal expansion at 25°C
         min: 0.5
@@ -380,3 +391,10 @@ tags:
 - reflective-surface
 - conductive
 - todd-dunning
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.028031'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:34.396286Z'
+  sync_source: Materials.yaml

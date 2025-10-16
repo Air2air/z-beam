@@ -8,7 +8,7 @@ materialProperties:
     label: Material Properties
     properties:
       density:
-        value: 8.9
+        value: 8.86
         unit: g/cm³
         confidence: 98
         description: Density of pure cobalt at room temperature
@@ -44,7 +44,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 125
+        value: 104.0
         unit: HV
         confidence: 89
         description: Vickers hardness of annealed cobalt
@@ -58,7 +58,7 @@ materialProperties:
         min: 3.0
         max: 3000.0
       youngsModulus:
-        value: 209
+        value: 211.0
         unit: GPa
         confidence: 93
         description: Young's modulus of elasticity
@@ -84,6 +84,9 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 98
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
+          surface condition'
       reflectivity:
         at_1064nm:
           min: 85
@@ -104,6 +107,8 @@ materialProperties:
         source: Handbook of Optical Constants (Palik)
         confidence: 85
         measurement_context: Varies by laser wavelength
+        value: null
+        unit: '%'
       ablationThreshold:
         nanosecond:
           min: 2.0
@@ -120,9 +125,11 @@ materialProperties:
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
         measurement_context: Varies by pulse duration (ns/ps/fs)
+        value: null
+        unit: J/cm²
       specificHeat:
-        value: 421
-        unit: J/kg·K
+        value: 421.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 91
         description: Specific heat capacity at room temperature
         min: 100
@@ -145,7 +152,7 @@ materialProperties:
         max: 174
       thermalExpansion:
         value: 13.0
-        unit: μm/m·K
+        unit: 10^-6/K
         confidence: 90
         description: Coefficient of thermal expansion (20-100°C)
         min: 0.5
@@ -161,7 +168,7 @@ materialProperties:
         type: melting
       absorptionCoefficient:
         value: 0.65
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Approximate absorption coefficient for common laser wavelengths
           (1.06 μm)
@@ -384,3 +391,10 @@ tags:
 - conductive
 - reflective-surface
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:16.633577'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:33.505686Z'
+  sync_source: Materials.yaml

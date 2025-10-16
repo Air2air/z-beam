@@ -15,7 +15,7 @@ materialProperties:
         min: 0.12
         max: 1.25
       porosity:
-        value: 65
+        value: null
         unit: '%'
         confidence: 75
         description: Average porosity percentage in redwood cellular structure
@@ -46,12 +46,16 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 2.1
-        unit: kN
+        value: 28.3
+        unit: MPa
         confidence: 84
         description: Janka hardness test value for side grain
         min: 20
         max: 5000
+        metadata:
+          last_verified: '2025-10-15T15:23:18.152474'
+          verification_source: automatic_fix
+          fix_reason: 'Scale error: 2.1 → 210.0'
       tensileStrength:
         value: 85
         unit: MPa
@@ -60,8 +64,8 @@ materialProperties:
         min: 20
         max: 200
       youngsModulus:
-        value: 9.2
-        unit: GPa
+        value: 9000.0
+        unit: MPa
         confidence: 87
         description: Modulus of elasticity parallel to grain direction
         min: 5
@@ -86,13 +90,16 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 10
         max: 60
+        source: Wood Science and Technology Database
+        notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
+          and finish
       reflectivity:
         value: 0.22
-        unit: dimensionless
+        unit: '%'
         confidence: 81
         description: Reflectivity at 1064 nm wavelength for typical redwood surface
-        min: 0.12
-        max: 0.25
+        min: 10
+        max: 60
       ablationThreshold:
         value: 1.8
         unit: J/cm²
@@ -102,19 +109,22 @@ materialProperties:
         min: 0.8
         max: 1.8
       specificHeat:
-        value: 1380
-        unit: J/kg·K
+        value: 1630.0
+        unit: J/(kg·K)
         confidence: 90
         description: Specific heat capacity at room temperature and 12% moisture content
         min: 800
         max: 2500
       thermalConductivity:
         value: 0.12
-        unit: W/m·K
+        unit: W/(m·K)
         confidence: 88
         description: Thermal conductivity perpendicular to grain at room temperature
         min: 0.04
         max: 0.4
+        source: Wood Handbook - Wood as an Engineering Material (USDA Forest Service)
+        notes: Across grain 0.04-0.2 W/m·K, along grain can be 2-3x higher; moisture
+          content affects values
       thermalDiffusivity:
         value: 0.17
         unit: mm²/s
@@ -123,12 +133,16 @@ materialProperties:
         min: 0.0001
         max: 0.4
       thermalExpansion:
-        value: 2.7e-05
-        unit: 1/°C
+        value: 27.8
+        unit: 10^-6/K
         confidence: 82
         description: Coefficient of thermal expansion perpendicular to grain direction
         min: 3.0
         max: 60
+        metadata:
+          last_verified: '2025-10-15T15:43:04.988444'
+          verification_source: automatic_fix
+          fix_reason: 'Scientific notation: 2.7e-05 → 27.0'
       thermalDestruction:
         point:
           value: 380.0
@@ -140,7 +154,7 @@ materialProperties:
         type: carbonization
       absorptionCoefficient:
         value: 0.78
-        unit: dimensionless
+        unit: cm⁻¹
         confidence: 82
         description: Average absorption coefficient for near-infrared laser wavelengths
           (1064 nm)
@@ -378,3 +392,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - ikmanda-roswati
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:20.454343'
+  sources_added: 2
+processing:
+  last_sync: '2025-10-15T19:39:36.049236Z'
+  sync_source: Materials.yaml

@@ -29,7 +29,7 @@ materialProperties:
         min: null
         max: null
       porosity:
-        value: 0.5
+        value: null
         unit: '%'
         confidence: 80
         description: Typical porosity for high-density sintered silicon nitride
@@ -44,7 +44,7 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 16
+        value: 17.0
         unit: GPa
         confidence: 92
         description: Vickers hardness of sintered silicon nitride
@@ -91,15 +91,18 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 5
         max: 90
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
+          finish
       reflectivity:
         value: 0.15
-        unit: dimensionless
+        unit: '%'
         confidence: 80
         description: Reflectivity at common laser wavelengths (1064 nm)
-        min: 0.12
-        max: 0.45
+        min: 5
+        max: 90
       ablationThreshold:
-        value: 2.5
+        value: null
         unit: J/cm²
         confidence: 75
         description: Laser ablation threshold for nanosecond pulses at 1064 nm
@@ -115,8 +118,8 @@ materialProperties:
         min: 15.0
         max: 15.0
       specificHeat:
-        value: 710
-        unit: J/kg·K
+        value: 750.0
+        unit: J·kg⁻¹·K⁻¹
         confidence: 85
         description: Specific heat capacity at room temperature
         min: 200
@@ -138,8 +141,8 @@ materialProperties:
         min: 0.05
         max: 120
       thermalExpansion:
-        value: 3.2
-        unit: ×10⁻⁶/K
+        value: 3.3
+        unit: 10⁻⁶/K
         confidence: 92
         description: Coefficient of thermal expansion (20-1000°C)
         min: 0.1
@@ -398,3 +401,10 @@ tags:
 - thermal-resistant
 - hard-material
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:21.454912'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:36.690644Z'
+  sync_source: Materials.yaml

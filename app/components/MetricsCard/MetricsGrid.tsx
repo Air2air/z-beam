@@ -84,7 +84,7 @@ const NESTED_KEY_LABELS: Record<string, string> = {
 // Helper: Check if property is a complex nested structure
 function isComplexProperty(propertyValue: any): boolean {
   // Complex if it has nested objects but no top-level 'value'
-  if (!propertyValue.value && typeof propertyValue === 'object') {
+  if (!propertyValue.value && typeof propertyValue === 'object' && propertyValue !== null) {
     // Check if it has nested properties with value/min/max
     const nestedKeys = Object.keys(propertyValue).filter(key => 
       !['source', 'confidence', 'measurement_context', 'notes', 'type'].includes(key)
@@ -92,7 +92,7 @@ function isComplexProperty(propertyValue: any): boolean {
     
     return nestedKeys.some(key => {
       const nested = propertyValue[key];
-      return typeof nested === 'object' && 
+      return typeof nested === 'object' && nested !== null &&
              (nested.value !== undefined || 
               nested.min !== undefined || 
               nested.max !== undefined);

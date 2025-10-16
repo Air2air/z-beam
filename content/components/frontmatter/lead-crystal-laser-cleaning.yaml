@@ -35,8 +35,8 @@ materialProperties:
     label: Structural Response Properties
     properties:
       hardness:
-        value: 380
-        unit: HV
+        value: 3.8
+        unit: Mohs
         confidence: 88
         description: Vickers hardness - softer than ordinary glass
         min: 4.5
@@ -49,7 +49,7 @@ materialProperties:
         min: 30
         max: 2000
       youngsModulus:
-        value: 60
+        value: 67.0
         unit: GPa
         confidence: 90
         description: Elastic modulus - lower than ordinary glass
@@ -75,9 +75,12 @@ materialProperties:
         description: laserReflectivity from Materials.yaml
         min: 4
         max: 92
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical glasses 4-8% at normal incidence, varies with composition and
+          wavelength
       refractiveIndex:
         value: 1.56
-        unit: dimensionless
+        unit: ''
         confidence: 95
         description: High refractive index providing brilliance
         min: 1.458
@@ -90,12 +93,16 @@ materialProperties:
         min: 2.5
         max: 15.0
       specificHeat:
-        value: 0.67
-        unit: J/g·K
+        value: 130.0
+        unit: J/(kg·K)
         confidence: 82
         description: Heat capacity at room temperature
         min: 500
         max: 900
+        metadata:
+          last_verified: '2025-10-15T15:43:03.970155'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.67 → 670.0'
       thermalConductivity:
         value: 0.78
         unit: W/(m·K)
@@ -113,8 +120,8 @@ materialProperties:
         min: 0.01
         max: 15
       thermalExpansion:
-        value: 9.2
-        unit: 10⁻⁶/K
+        value: 9.0
+        unit: 10^-6/K
         confidence: 85
         description: Coefficient of linear thermal expansion
         min: 0.1
@@ -367,3 +374,10 @@ tags:
 - thermal-sensitive
 - industrial-grade
 - yi-chun-lin
+metadata:
+  source_enhancement_applied: true
+  source_enhancement_date: '2025-10-15T14:27:18.222966'
+  sources_added: 1
+processing:
+  last_sync: '2025-10-15T19:39:34.533275Z'
+  sync_source: Materials.yaml
