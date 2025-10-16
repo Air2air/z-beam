@@ -4,62 +4,8 @@ subcategory: soda-lime glass
 title: Soda-Lime Glass Laser Cleaning
 description: Laser cleaning parameters for Soda-Lime Glass
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.52
-        unit: g/cm³
-        confidence: 98
-        description: Typical density of commercial soda-lime glass at room temperature
-        min: 1.2
-        max: 7.6
-      chemicalStability:
-        value: 8
-        unit: scale 1-10
-        confidence: 90
-        description: Chemical stability rating against common solvents and mild acids
-        min: 0.7
-        max: 99.5
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 5.5
-        unit: Mohs
-        confidence: 85
-        description: Mohs hardness scale value
-        min: 4.5
-        max: 9
-      tensileStrength:
-        value: 50.0
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 30
-        max: 2000
-      youngsModulus:
-        value: 70
-        unit: GPa
-        confidence: 95
-        description: Elastic modulus of soda-lime glass
-        min: 10
-        max: 400
-      flexuralStrength:
-        value: 50
-        unit: MPa
-        confidence: 82
-        description: Typical flexural/bending strength
-        min: 50.0
-        max: 690.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 4.0
@@ -85,16 +31,6 @@ materialProperties:
         description: Refractive index at 589 nm wavelength
         min: 1.458
         max: 1.76
-      ablationThreshold:
-        value: null
-        unit: J/cm²
-        confidence: 80
-        description: Estimated laser ablation threshold for nanosecond pulses at 1064
-          nm
-        min: 2.0
-        max: 6.0
-        source: Laser-Induced Damage in Optical Materials (NIST)
-        notes: Silica, borosilicate - nanosecond pulses at 1064nm
       specificHeat:
         value: 840.0
         unit: J/(kg·K)
@@ -125,15 +61,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion (20-300°C)
         min: 0.1
         max: 15
-      thermalDestruction:
-        point:
-          value: 1083.15
-          unit: K
-          min: 500
-          max: 1723
-          confidence: 95
-          description: Thermal destruction point
-        type: melting
       softeningPoint:
         value: 1083.15
         unit: K
@@ -148,9 +75,57 @@ materialProperties:
         description: Approximate absorption coefficient for visible light
         min: 0.001
         max: 0.15
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.52
+        unit: g/cm³
+        confidence: 98
+        description: Typical density of commercial soda-lime glass at room temperature
+        min: 1.2
+        max: 7.6
+      chemicalStability:
+        value: 8
+        unit: scale 1-10
+        confidence: 90
+        description: Chemical stability rating against common solvents and mild acids
+        min: 0.7
+        max: 99.5
+      hardness:
+        value: 5.5
+        unit: Mohs
+        confidence: 85
+        description: Mohs hardness scale value
+        min: 4.5
+        max: 9
+      tensileStrength:
+        value: 50.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 30
+        max: 2000
+      youngsModulus:
+        value: 70
+        unit: GPa
+        confidence: 95
+        description: Elastic modulus of soda-lime glass
+        min: 10
+        max: 400
+      flexuralStrength:
+        value: 50
+        unit: MPa
+        confidence: 82
+        description: Typical flexural/bending strength
+        min: 50.0
+        max: 690.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive
@@ -242,13 +217,6 @@ machineSettings:
     description: Recommended number of cleaning passes for complete contaminant removal
     min: 1
     max: 4
-  laserType:
-    value: Nd:YAG
-    unit: n/a
-    confidence: 90
-    description: Recommended laser type for Soda-Lime Glass cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

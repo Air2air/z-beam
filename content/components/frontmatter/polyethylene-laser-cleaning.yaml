@@ -4,63 +4,8 @@ subcategory: polyethylene
 title: Polyethylene Laser Cleaning
 description: Laser cleaning parameters for Polyethylene
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 0.93
-        unit: g/cm³
-        confidence: 95
-        description: Density of high-density polyethylene at room temperature
-        min: 0.85
-        max: 2.2
-      oxidationResistance:
-        value: Good
-        unit: qualitative
-        confidence: 88
-        description: Resistance to oxidative degradation at moderate temperatures
-        min: null
-        max: null
-      crystallineStructure:
-        value: Semi-crystalline
-        unit: qualitative
-        confidence: 95
-        description: Polyethylene exhibits semi-crystalline morphology with amorphous
-          regions
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 63.5
-        unit: Shore D
-        confidence: 85
-        description: Hardness on Shore D scale for HDPE
-        min: Shore A 10
-        max: Shore D 90
-      tensileStrength:
-        value: 22.1
-        unit: MPa
-        confidence: 92
-        description: Tensile strength of high-density polyethylene
-        min: 10
-        max: 400
-      youngsModulus:
-        value: 1000.0
-        unit: MPa
-        confidence: 90
-        description: Elastic modulus in tension for HDPE
-        min: 0.01
-        max: 5
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 65.2
@@ -79,21 +24,6 @@ materialProperties:
         source: Polymer Optical Properties Database
         notes: Highly variable with color, additives, and surface finish; translucent
           materials lower reflectivity
-      reflectivity:
-        value: 0.12
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at common laser wavelengths (IR region)
-        min: 5
-        max: 95
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 82
-        description: Estimated laser ablation threshold for nanosecond pulses at 1064
-          nm
-        min: 0.8
-        max: 0.8
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -132,15 +62,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion for HDPE
         min: 10
         max: 200
-      thermalDestruction:
-        point:
-          value: 385.0
-          unit: °C
-          min: 80
-          max: 400
-          confidence: 95
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 385.0
         unit: °C
@@ -155,9 +76,58 @@ materialProperties:
         description: Estimated absorption coefficient for IR wavelengths (1064 nm)
         min: 0.12
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 0.93
+        unit: g/cm³
+        confidence: 95
+        description: Density of high-density polyethylene at room temperature
+        min: 0.85
+        max: 2.2
+      oxidationResistance:
+        value: 80.0
+        unit: qualitative
+        confidence: 88
+        description: Resistance to oxidative degradation at moderate temperatures
+        min: null
+        max: null
+      crystallineStructure:
+        value: Semi-crystalline
+        unit: qualitative
+        confidence: 95
+        description: Polyethylene exhibits semi-crystalline morphology with amorphous
+          regions
+        min: null
+        max: null
+      hardness:
+        value: 63.5
+        unit: Shore D
+        confidence: 85
+        description: Hardness on Shore D scale for HDPE
+        min: Shore A 10
+        max: Shore D 90
+      tensileStrength:
+        value: 22.1
+        unit: MPa
+        confidence: 92
+        description: Tensile strength of high-density polyethylene
+        min: 10
+        max: 400
+      youngsModulus:
+        value: 1000.0
+        unit: MPa
+        confidence: 90
+        description: Elastic modulus in tension for HDPE
+        min: 0.01
+        max: 5
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Medical Device Manufacturing
 - Food Packaging

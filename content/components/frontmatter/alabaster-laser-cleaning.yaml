@@ -4,71 +4,8 @@ subcategory: mineral
 title: Alabaster Laser Cleaning
 description: Laser cleaning parameters for Alabaster
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.32
-        unit: g/cm³
-        confidence: 95
-        description: Average density of alabaster (gypsum variety)
-        min: 1.5
-        max: 3.4
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Average porosity of natural alabaster
-        min: 0.5
-        max: 25
-        source: Geological Survey Professional Papers
-        notes: Granite/marble 0.5-3%, sandstone 5-25%
-      waterSolubility:
-        value: 2.41
-        unit: g/L
-        confidence: 95
-        description: Solubility in water at 20°C
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 2.0
-        unit: Mohs
-        confidence: 98
-        description: Mohs hardness scale for gypsum alabaster
-        min: 1
-        max: 7
-      tensileStrength:
-        value: 3.5
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 2
-        max: 25
-      youngsModulus:
-        value: 31.0
-        unit: GPa
-        confidence: 85
-        description: Elastic modulus in compression
-        min: 10
-        max: 100
-      compressiveStrength:
-        value: 45
-        unit: MPa
-        confidence: 88
-        description: Uniaxial compressive strength
-        min: 45.0
-        max: 250.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 85.0
@@ -91,20 +28,6 @@ materialProperties:
         source: Geological Survey Optical Properties Database
         notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
           composition
-      reflectivity:
-        value: 0.12
-        unit: '%'
-        confidence: 85
-        description: Surface reflectivity at 1064 nm wavelength
-        min: 5
-        max: 80
-      ablationThreshold:
-        value: 1.8
-        unit: J/cm²
-        confidence: 80
-        description: Laser ablation threshold for Nd:YAG lasers
-        min: 1.2
-        max: 12.5
       specificHeat:
         value: 830.0
         unit: J·kg⁻¹·K⁻¹
@@ -135,15 +58,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion
         min: 3
         max: 25
-      thermalDestruction:
-        point:
-          value: 1073.15
-          unit: K
-          min: 600
-          max: 1700
-          confidence: 92
-          description: Thermal destruction point
-        type: thermal_shock
       thermalDegradationPoint:
         value: 1073.15
         unit: K
@@ -158,9 +72,57 @@ materialProperties:
         description: Optical absorption coefficient for visible wavelengths
         min: 0.15
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.32
+        unit: g/cm³
+        confidence: 95
+        description: Average density of alabaster (gypsum variety)
+        min: 1.5
+        max: 3.4
+      waterSolubility:
+        value: 2.41
+        unit: g/L
+        confidence: 95
+        description: Solubility in water at 20°C
+        min: null
+        max: null
+      hardness:
+        value: 2.0
+        unit: Mohs
+        confidence: 98
+        description: Mohs hardness scale for gypsum alabaster
+        min: 1
+        max: 7
+      tensileStrength:
+        value: 3.5
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 2
+        max: 25
+      youngsModulus:
+        value: 31.0
+        unit: GPa
+        confidence: 85
+        description: Elastic modulus in compression
+        min: 10
+        max: 100
+      compressiveStrength:
+        value: 45
+        unit: MPa
+        confidence: 88
+        description: Uniaxial compressive strength
+        min: 45.0
+        max: 250.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Museum Conservation

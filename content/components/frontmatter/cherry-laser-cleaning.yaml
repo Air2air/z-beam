@@ -4,57 +4,8 @@ subcategory: hardwood
 title: Cherry Laser Cleaning
 description: Laser cleaning parameters for Cherry
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 0.62
-        unit: g/cm³
-        confidence: 92
-        description: Average density of cherry wood at 12% moisture content
-        min: 0.12
-        max: 1.25
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Average porosity of cherry wood structure
-        min: 12
-        max: 65
-        source: Wood Science and Technology Database
-        notes: Hardwoods 12-45%, softwoods 30-65%
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 84.3
-        unit: N/mm²
-        confidence: 85
-        description: Janka hardness test value
-        min: 20
-        max: 5000
-      tensileStrength:
-        value: 95.0
-        unit: MPa
-        confidence: 84
-        description: Tensile strength parallel to grain
-        min: 20
-        max: 200
-      youngsModulus:
-        value: 10.0
-        unit: GPa
-        confidence: 87
-        description: Modulus of elasticity parallel to grain
-        min: 5
-        max: 25
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 30.0
@@ -73,20 +24,6 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
-      reflectivity:
-        value: 0.25
-        unit: '%'
-        confidence: 80
-        description: Surface reflectivity for near-infrared laser wavelengths
-        min: 10
-        max: 60
-      ablationThreshold:
-        value: 1.2
-        unit: J/cm²
-        confidence: 81
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 0.8
-        max: 1.8
       specificHeat:
         value: 1600.0
         unit: J·kg⁻¹·K⁻¹
@@ -122,15 +59,6 @@ materialProperties:
           last_verified: '2025-10-15T15:43:03.194799'
           verification_source: automatic_fix
           fix_reason: 'Scientific notation: 4.5e-05 → 45.0'
-      thermalDestruction:
-        point:
-          value: 427.0
-          unit: °C
-          min: 200
-          max: 500
-          confidence: 92
-          description: Thermal destruction point
-        type: carbonization
       absorptionCoefficient:
         value: 0.75
         unit: cm⁻¹
@@ -139,9 +67,43 @@ materialProperties:
           nm)
         min: 0.75
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 0.62
+        unit: g/cm³
+        confidence: 92
+        description: Average density of cherry wood at 12% moisture content
+        min: 0.12
+        max: 1.25
+      hardness:
+        value: 84.3
+        unit: N/mm²
+        confidence: 85
+        description: Janka hardness test value
+        min: 20
+        max: 5000
+      tensileStrength:
+        value: 95.0
+        unit: MPa
+        confidence: 84
+        description: Tensile strength parallel to grain
+        min: 20
+        max: 200
+      youngsModulus:
+        value: 10.0
+        unit: GPa
+        confidence: 87
+        description: Modulus of elasticity parallel to grain
+        min: 5
+        max: 25
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Furniture Manufacturing
 - Musical Instrument Manufacturing

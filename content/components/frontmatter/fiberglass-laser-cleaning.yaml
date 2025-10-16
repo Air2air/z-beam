@@ -4,25 +4,8 @@ subcategory: fiberglass
 title: Fiberglass Laser Cleaning
 description: Laser cleaning parameters for Fiberglass
 materialProperties:
-  material_properties:
-    label: Material Properties
-    description: Intrinsic material characteristics affecting process efficiency and
-      cleaning outcomes
-    percentage: 34.5
-    properties:
-      density:
-        value: 2.55
-        unit: g/cm³
-        confidence: 95
-        description: Density of E-glass fibers, most common type used in fiberglass
-          composites
-        min: 0.5
-        max: 8
-  energy_coupling:
-    label: Energy Coupling Properties
-    description: 'How laser energy enters material and propagates as heat: absorption,
-      reflection, and thermal dissipation'
-    percentage: 47.3
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 0.92
@@ -67,34 +50,11 @@ materialProperties:
         description: Coefficient of thermal expansion along fiber direction for E-glass
         min: -1
         max: 250
-      thermalDestruction:
-        point:
-          value: 823.0
-          unit: K
-          confidence: 92
-          description: Thermal destruction point
-          min: 150
-          max: 2000
-        type: decomposition
       absorptionCoefficient:
         value: 0.85
         unit: dimensionless
         confidence: 82
         description: Absorption coefficient for typical fiberglass at 1064 nm wavelength
-        min: null
-        max: null
-      reflectivity:
-        value: 0.12
-        unit: dimensionless
-        confidence: 85
-        description: Reflectivity of fiberglass surface at 1064 nm laser wavelength
-        min: null
-        max: null
-      ablationThreshold:
-        value: 2.8
-        unit: J/cm²
-        confidence: 80
-        description: Minimum fluence required for ablation of fiberglass at 1064 nm
         min: null
         max: null
       laserDamageThreshold:
@@ -105,12 +65,20 @@ materialProperties:
           irradiation
         min: null
         max: null
-  structural_response:
-    label: Structural Response Properties
-    description: 'How material responds physically to thermal stress: strength, elasticity,
-      and deformation characteristics'
-    percentage: 18.2
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
     properties:
+      density:
+        value: 2.55
+        unit: g/cm³
+        confidence: 95
+        description: Density of E-glass fibers, most common type used in fiberglass
+          composites
+        min: 0.5
+        max: 8
       tensileStrength:
         value: 3447.0
         unit: MPa
@@ -127,12 +95,15 @@ materialProperties:
         min: 0.001
         max: 3000
       hardness:
-        value: 6.5
+        value: 150.0
         unit: Mohs
         confidence: 88
         description: Mohs hardness scale value for glass fibers
         min: 20
         max: 120
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Marine

@@ -4,78 +4,8 @@ subcategory: mineral
 title: Calcite Laser Cleaning
 description: Laser cleaning parameters for Calcite
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.71
-        unit: g/cm³
-        confidence: 97
-        description: Density of pure calcite at room temperature
-        min: 1.5
-        max: 3.4
-      chemicalStability:
-        value: Low
-        unit: qualitative
-        confidence: 94
-        description: Reacts with acids, susceptible to dissolution in water
-        min: 8.0
-        max: 95.0
-      crystallineStructure:
-        value: Rhombohedral
-        unit: crystal system
-        confidence: 98
-        description: Trigonal crystal system, space group R3̄c
-        min: null
-        max: null
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Typical porosity for high-purity calcite crystals
-        min: 0.5
-        max: 25
-        source: Geological Survey Professional Papers
-        notes: Granite/marble 0.5-3%, sandstone 5-25%
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 3
-        unit: Mohs
-        confidence: 98
-        description: Mohs hardness scale value
-        min: 1
-        max: 7
-      tensileStrength:
-        value: 6.0
-        unit: MPa
-        confidence: 83
-        description: Tensile strength along cleavage planes
-        min: 2
-        max: 25
-      youngsModulus:
-        value: 70.0
-        unit: GPa
-        confidence: 85
-        description: Young's modulus for single crystal calcite
-        min: 10
-        max: 100
-      flexuralStrength:
-        value: 25
-        unit: MPa
-        confidence: 81
-        description: Flexural strength for calcite specimens
-        min: 25.0
-        max: 45.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 8.7
@@ -94,13 +24,6 @@ materialProperties:
         source: Geological Survey Optical Properties Database
         notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
           composition
-      reflectivity:
-        value: 0.04
-        unit: '%'
-        confidence: 86
-        description: Reflectivity at normal incidence for 1064 nm laser
-        min: 5
-        max: 80
       refractiveIndex:
         value: 1.66
         unit: ''
@@ -108,13 +31,6 @@ materialProperties:
         description: Ordinary refractive index at 589 nm
         min: 1.0
         max: 4.0
-      ablationThreshold:
-        value: 2.8
-        unit: J/cm²
-        confidence: 82
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 1.2
-        max: 12.5
       laserDamageThreshold:
         value: 4.2
         unit: J/cm²
@@ -156,15 +72,6 @@ materialProperties:
         description: Coefficient of thermal expansion parallel to c-axis
         min: 3
         max: 25
-      thermalDestruction:
-        point:
-          value: 898.0
-          unit: °C
-          min: 600
-          max: 1700
-          confidence: 95
-          description: Thermal destruction point
-        type: thermal_shock
       thermalDegradationPoint:
         value: 898.0
         unit: °C
@@ -179,9 +86,64 @@ materialProperties:
         description: Absorption coefficient at 1064 nm wavelength
         min: 0.15
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.71
+        unit: g/cm³
+        confidence: 97
+        description: Density of pure calcite at room temperature
+        min: 1.5
+        max: 3.4
+      chemicalStability:
+        value: Low
+        unit: qualitative
+        confidence: 94
+        description: Reacts with acids, susceptible to dissolution in water
+        min: 8.0
+        max: 95.0
+      crystallineStructure:
+        value: Rhombohedral
+        unit: crystal system
+        confidence: 98
+        description: Trigonal crystal system, space group R3̄c
+        min: null
+        max: null
+      hardness:
+        value: 3
+        unit: Mohs
+        confidence: 98
+        description: Mohs hardness scale value
+        min: 1
+        max: 7
+      tensileStrength:
+        value: 6.0
+        unit: MPa
+        confidence: 83
+        description: Tensile strength along cleavage planes
+        min: 2
+        max: 25
+      youngsModulus:
+        value: 70.0
+        unit: GPa
+        confidence: 85
+        description: Young's modulus for single crystal calcite
+        min: 10
+        max: 100
+      flexuralStrength:
+        value: 25
+        unit: MPa
+        confidence: 81
+        description: Flexural strength for calcite specimens
+        min: 25.0
+        max: 45.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Geology and Mineralogy

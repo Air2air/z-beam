@@ -4,62 +4,8 @@ subcategory: silicon germanium
 title: Silicon Germanium Laser Cleaning
 description: Laser cleaning parameters for Silicon Germanium
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 4.19
-        unit: g/cm³
-        confidence: 95
-        description: Density for Si0.7Ge0.3 alloy at room temperature
-        min: 2.33
-        max: 7.13
-      oxidationResistance:
-        value: Moderate
-        unit: qualitative
-        confidence: 85
-        description: Forms stable oxide layer but slower than pure silicon
-        min: null
-        max: null
-      crystallineStructure:
-        value: Diamond cubic
-        unit: crystal system
-        confidence: 95
-        description: Maintains diamond cubic structure like silicon
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 10.5
-        unit: GPa
-        confidence: 85
-        description: Vickers hardness for Si0.7Ge0.3
-        min: 2
-        max: 9.5
-      tensileStrength:
-        value: 1200.0
-        unit: MPa
-        confidence: 92
-        description: tensileStrength from Materials.yaml
-        min: 50
-        max: 7000
-      youngsModulus:
-        value: 156.7
-        unit: GPa
-        confidence: 90
-        description: Young's modulus for SiGe alloy
-        min: 5
-        max: 190
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 67.4
@@ -78,13 +24,6 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Wavelength dependent: Si 30-60%, GaAs 30-50%, varies with doping and
           surface oxidation'
-      reflectivity:
-        value: 0.42
-        unit: '%'
-        confidence: 90
-        description: Reflectivity at 1064nm laser wavelength
-        min: 10
-        max: 70
       refractiveIndex:
         value: 4.1
         unit: ''
@@ -92,13 +31,6 @@ materialProperties:
         description: Refractive index at 1064nm wavelength
         min: 3.4
         max: 4.1
-      ablationThreshold:
-        value: 0.85
-        unit: J/cm²
-        confidence: 85
-        description: Laser ablation threshold for nanosecond pulses at 1064nm
-        min: 0.8
-        max: 2.8
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -140,15 +72,6 @@ materialProperties:
         description: Coefficient of thermal expansion at 300K
         min: 2.6
         max: 10
-      thermalDestruction:
-        point:
-          value: 723.0
-          unit: K
-          min: 100
-          max: 1414
-          confidence: 92
-          description: Thermal destruction point
-        type: melting
       absorptionCoefficient:
         value: 8500
         unit: cm⁻¹
@@ -163,9 +86,57 @@ materialProperties:
         description: Band gap energy for Si0.7Ge0.3 at 300K
         min: 1.03
         max: 1.424
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 4.19
+        unit: g/cm³
+        confidence: 95
+        description: Density for Si0.7Ge0.3 alloy at room temperature
+        min: 2.33
+        max: 7.13
+      oxidationResistance:
+        value: 700.0
+        unit: qualitative
+        confidence: 85
+        description: Forms stable oxide layer but slower than pure silicon
+        min: null
+        max: null
+      crystallineStructure:
+        value: Diamond cubic
+        unit: crystal system
+        confidence: 95
+        description: Maintains diamond cubic structure like silicon
+        min: null
+        max: null
+      hardness:
+        value: 10.5
+        unit: GPa
+        confidence: 85
+        description: Vickers hardness for Si0.7Ge0.3
+        min: 2
+        max: 9.5
+      tensileStrength:
+        value: 1200.0
+        unit: MPa
+        confidence: 92
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 7000
+      youngsModulus:
+        value: 156.7
+        unit: GPa
+        confidence: 90
+        description: Young's modulus for SiGe alloy
+        min: 5
+        max: 190
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Electronics Manufacturing
@@ -254,13 +225,6 @@ machineSettings:
     description: Recommended number of passes for thorough contaminant removal
     min: 1
     max: 4
-  laserType:
-    value: Nd:YAG
-    unit: laser_type
-    confidence: 90
-    description: Recommended laser type for SiGe cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

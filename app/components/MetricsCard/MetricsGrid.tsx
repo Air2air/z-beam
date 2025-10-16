@@ -8,12 +8,11 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 import './accessibility.css';
 
 // Category configuration for visual distinction
-// Standardized to 3 categories used in frontmatter files
+// Standardized to 2 categories used in frontmatter files
 // Using new vibrant palette that complements bg-gray-700
 const CATEGORY_CONFIG = {
-  material_properties: { icon: '📊', color: '#6C5CE7', label: 'Material Properties', order: 1 }, // Rich purple-blue
-  structural_response: { icon: '⚙️', color: '#00D9A3', label: 'Structural Response', order: 2 }, // Teal-emerald
-  energy_coupling: { icon: '💡', color: '#FFD93D', label: 'Energy Coupling', order: 3 } // Bright yellow
+  laser_material_interaction: { icon: '�', color: '#6C5CE7', label: 'Laser-Material Interaction', order: 1 }, // Rich purple-blue - optical/thermal
+  material_characteristics: { icon: '📊', color: '#00D9A3', label: 'Material Characteristics', order: 2 } // Teal-emerald - physical/mechanical
 } as const;
 
 // Grid layout configurations

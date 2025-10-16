@@ -4,71 +4,8 @@ subcategory: metamorphic
 title: Quartzite Laser Cleaning
 description: Laser cleaning parameters for Quartzite
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.65
-        unit: g/cm³
-        confidence: 95
-        description: Density of quartzite dominated by quartz mineral content
-        min: 1.5
-        max: 3.4
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Typical porosity range for dense quartzite
-        min: 0.5
-        max: 25
-        source: Geological Survey Professional Papers
-        notes: Granite/marble 0.5-3%, sandstone 5-25%
-      chemicalStability:
-        value: 95
-        unit: '% resistance'
-        confidence: 90
-        description: Resistance to chemical weathering and acid attack
-        min: 8.0
-        max: 95.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 7.0
-        unit: Mohs
-        confidence: 95
-        description: Mohs hardness scale, equivalent to quartz
-        min: 1
-        max: 7
-      tensileStrength:
-        value: 8.3
-        unit: MPa
-        confidence: 92
-        description: tensileStrength from Materials.yaml
-        min: 2
-        max: 25
-      youngsModulus:
-        value: 69.0
-        unit: GPa
-        confidence: 82
-        description: Elastic modulus of quartzite rock
-        min: 10
-        max: 100
-      compressiveStrength:
-        value: 250
-        unit: MPa
-        confidence: 85
-        description: Uniaxial compressive strength
-        min: 45.0
-        max: 250.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 8.2
@@ -87,20 +24,6 @@ materialProperties:
         source: Geological Survey Optical Properties Database
         notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
           composition
-      reflectivity:
-        value: 0.04
-        unit: '%'
-        confidence: 82
-        description: Surface reflectivity at 1064 nm wavelength
-        min: 5
-        max: 80
-      ablationThreshold:
-        value: 12.5
-        unit: J/cm²
-        confidence: 80
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 1.2
-        max: 12.5
       specificHeat:
         value: 1100.0
         unit: J/kg·K
@@ -135,15 +58,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-100°C)
         min: 3
         max: 25
-      thermalDestruction:
-        point:
-          value: 1470.0
-          unit: °C
-          min: 600
-          max: 1700
-          confidence: 95
-          description: Thermal destruction point
-        type: thermal_shock
       thermalDegradationPoint:
         value: 1470.0
         unit: °C
@@ -158,9 +72,57 @@ materialProperties:
         description: Optical absorption coefficient at 1064 nm wavelength
         min: 0.15
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.65
+        unit: g/cm³
+        confidence: 95
+        description: Density of quartzite dominated by quartz mineral content
+        min: 1.5
+        max: 3.4
+      chemicalStability:
+        value: 95
+        unit: '% resistance'
+        confidence: 90
+        description: Resistance to chemical weathering and acid attack
+        min: 8.0
+        max: 95.0
+      hardness:
+        value: 7.0
+        unit: Mohs
+        confidence: 95
+        description: Mohs hardness scale, equivalent to quartz
+        min: 1
+        max: 7
+      tensileStrength:
+        value: 8.3
+        unit: MPa
+        confidence: 92
+        description: tensileStrength from Materials.yaml
+        min: 2
+        max: 25
+      youngsModulus:
+        value: 69.0
+        unit: GPa
+        confidence: 82
+        description: Elastic modulus of quartzite rock
+        min: 10
+        max: 100
+      compressiveStrength:
+        value: 200.0
+        unit: MPa
+        confidence: 85
+        description: Uniaxial compressive strength
+        min: 45.0
+        max: 250.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Architectural Restoration

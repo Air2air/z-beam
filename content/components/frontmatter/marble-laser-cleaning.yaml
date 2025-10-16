@@ -4,71 +4,8 @@ subcategory: metamorphic
 title: Marble Laser Cleaning
 description: Laser cleaning parameters for Marble
 materialProperties:
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      compressiveStrength:
-        value: 115
-        unit: MPa
-        confidence: 85
-        description: Uniaxial compressive strength
-        min: 45.0
-        max: 250.0
-      hardness:
-        value: 3
-        unit: Mohs
-        confidence: 95
-        description: Mohs hardness scale (calcite-based)
-        min: 1
-        max: 7
-      tensileStrength:
-        value: 8.5
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 2
-        max: 25
-      youngsModulus:
-        value: 55.0
-        unit: GPa
-        confidence: 88
-        description: Elastic modulus of marble
-        min: 10
-        max: 100
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.71
-        unit: g/cm³
-        confidence: 95
-        description: Average density of calcite-based marble
-        min: 1.5
-        max: 3.4
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Typical porosity range for high-quality marble
-        min: 0.5
-        max: 25
-        source: Geological Survey Professional Papers
-        notes: Granite/marble 0.5-3%, sandstone 5-25%
-      chemicalStability:
-        value: Low
-        unit: qualitative
-        confidence: 90
-        description: Susceptible to acid attack and weathering
-        min: 8.0
-        max: 95.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 0.5
@@ -87,20 +24,6 @@ materialProperties:
         source: Geological Survey Optical Properties Database
         notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
           composition
-      reflectivity:
-        value: 0.15
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at common laser wavelengths (1064 nm)
-        min: 5
-        max: 80
-      ablationThreshold:
-        value: 2.5
-        unit: J/cm²
-        confidence: 82
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 1.2
-        max: 12.5
       specificHeat:
         value: 880.0
         unit: J·kg⁻¹·K⁻¹
@@ -131,15 +54,6 @@ materialProperties:
         description: Coefficient of thermal expansion
         min: 3
         max: 25
-      thermalDestruction:
-        point:
-          value: 825.0
-          unit: °C
-          min: 600
-          max: 1700
-          confidence: 92
-          description: Thermal destruction point
-        type: thermal_shock
       thermalDegradationPoint:
         value: 825.0
         unit: °C
@@ -154,9 +68,57 @@ materialProperties:
         description: Average absorption coefficient for visible to IR wavelengths
         min: 0.15
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      compressiveStrength:
+        value: 115
+        unit: MPa
+        confidence: 85
+        description: Uniaxial compressive strength
+        min: 45.0
+        max: 250.0
+      hardness:
+        value: 3
+        unit: Mohs
+        confidence: 95
+        description: Mohs hardness scale (calcite-based)
+        min: 1
+        max: 7
+      tensileStrength:
+        value: 8.5
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 2
+        max: 25
+      youngsModulus:
+        value: 55.0
+        unit: GPa
+        confidence: 88
+        description: Elastic modulus of marble
+        min: 10
+        max: 100
+      density:
+        value: 2.71
+        unit: g/cm³
+        confidence: 95
+        description: Average density of calcite-based marble
+        min: 1.5
+        max: 3.4
+      chemicalStability:
+        value: Low
+        unit: qualitative
+        confidence: 90
+        description: Susceptible to acid attack and weathering
+        min: 8.0
+        max: 95.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Construction and Architecture
@@ -242,13 +204,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 1
     max: 5
-  laserType:
-    value: Nd:YAG
-    unit: laser_type
-    confidence: 90
-    description: Recommended laser type for Marble cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

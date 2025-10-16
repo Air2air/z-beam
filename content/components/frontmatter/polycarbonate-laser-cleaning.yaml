@@ -4,78 +4,8 @@ subcategory: polycarbonate
 title: Polycarbonate Laser Cleaning
 description: Laser cleaning parameters for Polycarbonate
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.2
-        unit: g/cm³
-        confidence: 95
-        description: Density of amorphous polycarbonate at room temperature
-        min: 0.85
-        max: 2.2
-      oxidationResistance:
-        value: Good
-        unit: qualitative
-        confidence: 85
-        description: Resistance to oxidative degradation at moderate temperatures
-        min: null
-        max: null
-      chemicalStability:
-        value: Poor to alkalis
-        unit: qualitative
-        confidence: 90
-        description: Good chemical resistance to acids and alcohols, poor resistance
-          to strong bases and some solvents
-        min: null
-        max: null
-      crystallineStructure:
-        value: Amorphous
-        unit: qualitative
-        confidence: 98
-        description: Polycarbonate is typically amorphous with no long-range crystalline
-          order
-        min: null
-        max: null
-      surfaceRoughness:
-        value: 0.01
-        unit: μm Ra
-        confidence: 85
-        description: Typical surface roughness for injection molded polycarbonate
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 85.0
-        unit: MPa
-        confidence: 88
-        description: Rockwell M scale hardness
-        min: Shore A 10
-        max: Shore D 90
-      tensileStrength:
-        value: 65
-        unit: MPa
-        confidence: 92
-        description: Ultimate tensile strength
-        min: 10
-        max: 400
-      youngsModulus:
-        value: 2350.0
-        unit: MPa
-        confidence: 94
-        description: Elastic modulus in tension
-        min: 0.01
-        max: 5
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 65.2
@@ -101,14 +31,6 @@ materialProperties:
         description: Refractive index at 589 nm
         min: 1.585
         max: 1.59
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 80
-        description: Approximate laser ablation threshold for nanosecond pulses at
-          1064 nm
-        min: 0.8
-        max: 0.8
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -147,15 +69,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion
         min: 10
         max: 200
-      thermalDestruction:
-        point:
-          value: 270.0
-          unit: °C
-          min: 80
-          max: 400
-          confidence: 95
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 270.0
         unit: °C
@@ -170,9 +83,66 @@ materialProperties:
         description: Absorption coefficient for near-infrared laser wavelengths
         min: 0.12
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.2
+        unit: g/cm³
+        confidence: 95
+        description: Density of amorphous polycarbonate at room temperature
+        min: 0.85
+        max: 2.2
+      oxidationResistance:
+        value: 125.0
+        unit: qualitative
+        confidence: 85
+        description: Resistance to oxidative degradation at moderate temperatures
+        min: null
+        max: null
+      chemicalStability:
+        value: Poor to alkalis
+        unit: qualitative
+        confidence: 90
+        description: Good chemical resistance to acids and alcohols, poor resistance
+          to strong bases and some solvents
+        min: null
+        max: null
+      crystallineStructure:
+        value: Amorphous
+        unit: qualitative
+        confidence: 98
+        description: Polycarbonate is typically amorphous with no long-range crystalline
+          order
+        min: null
+        max: null
+      hardness:
+        value: 85.0
+        unit: MPa
+        confidence: 88
+        description: Rockwell M scale hardness
+        min: Shore A 10
+        max: Shore D 90
+      tensileStrength:
+        value: 65
+        unit: MPa
+        confidence: 92
+        description: Ultimate tensile strength
+        min: 10
+        max: 400
+      youngsModulus:
+        value: 2350.0
+        unit: MPa
+        confidence: 94
+        description: Elastic modulus in tension
+        min: 0.01
+        max: 5
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive
@@ -265,13 +235,6 @@ machineSettings:
       process control
     min: 1
     max: 4
-  laserType:
-    value: Fiber Laser
-    unit: N/A
-    confidence: 89
-    description: Recommended laser type for Polycarbonate cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

@@ -4,69 +4,8 @@ subcategory: crown glass
 title: Crown Glass Laser Cleaning
 description: Laser cleaning parameters for Crown Glass
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.52
-        unit: g/cm³
-        confidence: 95
-        description: Typical density for borosilicate crown glass compositions
-        min: 1.2
-        max: 7.6
-      chemicalStability:
-        value: 8
-        unit: scale 1-10
-        confidence: 90
-        description: Resistance to chemical attack and environmental degradation
-        min: 0.7
-        max: 99.5
-      surfaceRoughness:
-        value: 0.5
-        unit: nm Ra
-        confidence: 88
-        description: Typical surface roughness for polished crown glass
-        min: 0.005
-        max: 0.5
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 5.5
-        unit: Mohs
-        confidence: 92
-        description: Mohs hardness scale value
-        min: 4.5
-        max: 9
-      tensileStrength:
-        value: 35.0
-        unit: MPa
-        confidence: 92
-        description: tensileStrength from Materials.yaml
-        min: 30
-        max: 2000
-      youngsModulus:
-        value: 72
-        unit: GPa
-        confidence: 94
-        description: Elastic modulus for standard crown glass
-        min: 10
-        max: 400
-      flexuralStrength:
-        value: 70
-        unit: MPa
-        confidence: 85
-        description: Bending strength of pristine glass surfaces
-        min: 50.0
-        max: 690.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 4.0
@@ -92,22 +31,6 @@ materialProperties:
         description: Standard refractive index at 589 nm wavelength
         min: 1.458
         max: 1.76
-      reflectivity:
-        value: 4.2
-        unit: '%'
-        confidence: 90
-        description: Surface reflectivity at normal incidence for visible light
-        min: 0.04
-        max: 4.2
-      ablationThreshold:
-        value: null
-        unit: J/cm²
-        confidence: 80
-        description: Approximate laser ablation threshold for nanosecond pulses
-        min: 2.0
-        max: 6.0
-        source: Laser-Induced Damage in Optical Materials (NIST)
-        notes: Silica, borosilicate - nanosecond pulses at 1064nm
       laserDamageThreshold:
         value: 15
         unit: J/cm²
@@ -145,15 +68,6 @@ materialProperties:
         description: Coefficient of thermal expansion at room temperature
         min: 0.1
         max: 15
-      thermalDestruction:
-        point:
-          value: 1123.15
-          unit: K
-          min: 500
-          max: 1723
-          confidence: 92
-          description: Thermal destruction point
-        type: melting
       softeningPoint:
         value: 1123.15
         unit: K
@@ -168,9 +82,57 @@ materialProperties:
         description: Absorption coefficient for visible wavelengths
         min: 0.001
         max: 0.15
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.52
+        unit: g/cm³
+        confidence: 95
+        description: Typical density for borosilicate crown glass compositions
+        min: 1.2
+        max: 7.6
+      chemicalStability:
+        value: 8
+        unit: scale 1-10
+        confidence: 90
+        description: Resistance to chemical attack and environmental degradation
+        min: 0.7
+        max: 99.5
+      hardness:
+        value: 5.5
+        unit: Mohs
+        confidence: 92
+        description: Mohs hardness scale value
+        min: 4.5
+        max: 9
+      tensileStrength:
+        value: 35.0
+        unit: MPa
+        confidence: 92
+        description: tensileStrength from Materials.yaml
+        min: 30
+        max: 2000
+      youngsModulus:
+        value: 72
+        unit: GPa
+        confidence: 94
+        description: Elastic modulus for standard crown glass
+        min: 10
+        max: 400
+      flexuralStrength:
+        value: 70
+        unit: MPa
+        confidence: 85
+        description: Bending strength of pristine glass surfaces
+        min: 50.0
+        max: 690.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Medical Devices

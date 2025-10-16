@@ -4,77 +4,8 @@ subcategory: softwood
 title: Redwood Laser Cleaning
 description: Laser cleaning parameters for Redwood
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 0.42
-        unit: g/cm³
-        confidence: 92
-        description: Average density of redwood at 12% moisture content
-        min: 0.12
-        max: 1.25
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Average porosity percentage in redwood cellular structure
-        min: 12
-        max: 65
-        source: Wood Science and Technology Database
-        notes: Hardwoods 12-45%, softwoods 30-65%
-      moistureContent:
-        value: 12
-        unit: '%'
-        confidence: 95
-        description: Equilibrium moisture content at standard conditions (20°C, 65%
-          RH)
-        min: 8.0
-        max: 12.0
-      celluloseContent:
-        value: 42
-        unit: '%'
-        confidence: 91
-        description: Average cellulose content affecting laser interaction and thermal
-          properties
-        min: 42.0
-        max: 43.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 28.3
-        unit: MPa
-        confidence: 84
-        description: Janka hardness test value for side grain
-        min: 20
-        max: 5000
-        metadata:
-          last_verified: '2025-10-15T15:23:18.152474'
-          verification_source: automatic_fix
-          fix_reason: 'Scale error: 2.1 → 210.0'
-      tensileStrength:
-        value: 85
-        unit: MPa
-        confidence: 86
-        description: Tensile strength parallel to grain direction
-        min: 20
-        max: 200
-      youngsModulus:
-        value: 9000.0
-        unit: MPa
-        confidence: 87
-        description: Modulus of elasticity parallel to grain direction
-        min: 5
-        max: 25
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 32.7
@@ -93,21 +24,6 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
-      reflectivity:
-        value: 0.22
-        unit: '%'
-        confidence: 81
-        description: Reflectivity at 1064 nm wavelength for typical redwood surface
-        min: 10
-        max: 60
-      ablationThreshold:
-        value: 1.8
-        unit: J/cm²
-        confidence: 80
-        description: Minimum fluence required for material removal using nanosecond
-          pulses at 1064 nm
-        min: 0.8
-        max: 1.8
       specificHeat:
         value: 1630.0
         unit: J/(kg·K)
@@ -143,15 +59,6 @@ materialProperties:
           last_verified: '2025-10-15T15:43:04.988444'
           verification_source: automatic_fix
           fix_reason: 'Scientific notation: 2.7e-05 → 27.0'
-      thermalDestruction:
-        point:
-          value: 380.0
-          unit: °C
-          min: 200
-          max: 500
-          confidence: 92
-          description: Thermal destruction point
-        type: carbonization
       absorptionCoefficient:
         value: 0.78
         unit: cm⁻¹
@@ -167,9 +74,63 @@ materialProperties:
         description: Lignin percentage influencing char formation and thermal degradation
         min: 28.0
         max: 29.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 0.42
+        unit: g/cm³
+        confidence: 92
+        description: Average density of redwood at 12% moisture content
+        min: 0.12
+        max: 1.25
+      moistureContent:
+        value: 12
+        unit: '%'
+        confidence: 95
+        description: Equilibrium moisture content at standard conditions (20°C, 65%
+          RH)
+        min: 8.0
+        max: 12.0
+      celluloseContent:
+        value: 42
+        unit: '%'
+        confidence: 91
+        description: Average cellulose content affecting laser interaction and thermal
+          properties
+        min: 42.0
+        max: 43.0
+      hardness:
+        value: 28.3
+        unit: MPa
+        confidence: 84
+        description: Janka hardness test value for side grain
+        min: 20
+        max: 5000
+        metadata:
+          last_verified: '2025-10-15T15:23:18.152474'
+          verification_source: automatic_fix
+          fix_reason: 'Scale error: 2.1 → 210.0'
+      tensileStrength:
+        value: 85
+        unit: MPa
+        confidence: 86
+        description: Tensile strength parallel to grain direction
+        min: 20
+        max: 200
+      youngsModulus:
+        value: 9000.0
+        unit: MPa
+        confidence: 87
+        description: Modulus of elasticity parallel to grain direction
+        min: 5
+        max: 25
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Marine

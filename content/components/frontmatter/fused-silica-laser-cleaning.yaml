@@ -4,76 +4,8 @@ subcategory: fused silica
 title: Fused Silica Laser Cleaning
 description: Laser cleaning parameters for Fused Silica
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.202
-        unit: g/cm³
-        confidence: 98
-        description: Density of high-purity fused silica at room temperature
-        min: 1.2
-        max: 7.6
-      chemicalStability:
-        value: 99.5
-        unit: '% resistance'
-        confidence: 96
-        description: Chemical resistance to acids and solvents
-        min: 0.7
-        max: 99.5
-      porosity:
-        value: 0.1
-        unit: '%'
-        confidence: 88
-        description: Typical porosity in high-quality fused silica
-        min: 0.0
-        max: 0.1
-      surfaceRoughness:
-        value: 0.5
-        unit: nm Ra
-        confidence: 85
-        description: Typical surface roughness for polished fused silica
-        min: 0.005
-        max: 0.5
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 9.1
-        unit: GPa
-        confidence: 92
-        description: Mohs hardness scale
-        min: 4.5
-        max: 9
-      tensileStrength:
-        value: 50.0
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 30
-        max: 2000
-      youngsModulus:
-        value: 73
-        unit: GPa
-        confidence: 94
-        description: Young's modulus of elasticity
-        min: 10
-        max: 400
-      flexuralStrength:
-        value: 50
-        unit: MPa
-        confidence: 88
-        description: Flexural strength of pristine material
-        min: 50.0
-        max: 690.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 0.91
@@ -106,15 +38,6 @@ materialProperties:
         description: Laser damage threshold for 1064 nm, 10 ns pulses
         min: 2.5
         max: 15.0
-      ablationThreshold:
-        value: null
-        unit: J/cm²
-        confidence: 80
-        description: Ablation threshold for UV lasers (248 nm)
-        min: 2.0
-        max: 6.0
-        source: Laser-Induced Damage in Optical Materials (NIST)
-        notes: Silica, borosilicate - nanosecond pulses at 1064nm
       specificHeat:
         value: 741.0
         unit: J·kg⁻¹·K⁻¹
@@ -145,15 +68,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-300°C)
         min: 0.1
         max: 15
-      thermalDestruction:
-        point:
-          value: 1683.0
-          unit: K
-          min: 500
-          max: 1723
-          confidence: 95
-          description: Thermal destruction point
-        type: melting
       softeningPoint:
         value: 1683.0
         unit: K
@@ -161,9 +75,57 @@ materialProperties:
         description: Temperature where glass transitions from rigid to pliable state
         min: 820.0
         max: 2040.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.202
+        unit: g/cm³
+        confidence: 98
+        description: Density of high-purity fused silica at room temperature
+        min: 1.2
+        max: 7.6
+      chemicalStability:
+        value: 99.5
+        unit: '% resistance'
+        confidence: 96
+        description: Chemical resistance to acids and solvents
+        min: 0.7
+        max: 99.5
+      hardness:
+        value: 9.1
+        unit: GPa
+        confidence: 92
+        description: Mohs hardness scale
+        min: 4.5
+        max: 9
+      tensileStrength:
+        value: 50.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 30
+        max: 2000
+      youngsModulus:
+        value: 73
+        unit: GPa
+        confidence: 94
+        description: Young's modulus of elasticity
+        min: 10
+        max: 400
+      flexuralStrength:
+        value: 67.0
+        unit: MPa
+        confidence: 88
+        description: Flexural strength of pristine material
+        min: 50.0
+        max: 690.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Semiconductor Manufacturing
@@ -253,13 +215,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 1
     max: 5
-  laserType:
-    value: Nd:YAG
-    unit: laser_type
-    confidence: 90
-    description: Recommended laser type for Fused Silica cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

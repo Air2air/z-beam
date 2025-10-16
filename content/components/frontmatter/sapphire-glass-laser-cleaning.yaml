@@ -4,76 +4,8 @@ subcategory: sapphire glass
 title: Sapphire Glass Laser Cleaning
 description: Laser cleaning parameters for Sapphire Glass
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 3.98
-        unit: g/cm³
-        confidence: 98
-        description: Density of single crystal sapphire at room temperature
-        min: 1.2
-        max: 7.6
-      chemicalStability:
-        value: 95
-        unit: '% resistance'
-        confidence: 94
-        description: Chemical resistance to acids and alkalis at room temperature
-        min: 0.7
-        max: 99.5
-      crystallineStructure:
-        value: Rhombohedral
-        unit: crystal system
-        confidence: 99
-        description: Hexagonal crystal structure (corundum structure)
-        min: null
-        max: null
-      surfaceRoughness:
-        value: 0.5
-        unit: nm Ra
-        confidence: 88
-        description: Typical surface roughness for polished sapphire
-        min: 0.005
-        max: 0.5
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 9
-        unit: Mohs
-        confidence: 98
-        description: Mohs hardness scale (second only to diamond)
-        min: 4.5
-        max: 9
-      tensileStrength:
-        value: 400.0
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 30
-        max: 2000
-      youngsModulus:
-        value: 345
-        unit: GPa
-        confidence: 95
-        description: Young's modulus along c-axis direction
-        min: 10
-        max: 400
-      flexuralStrength:
-        value: 690
-        unit: MPa
-        confidence: 85
-        description: Flexural strength of polished sapphire
-        min: 50.0
-        max: 690.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 8.2
@@ -106,15 +38,6 @@ materialProperties:
         description: Laser damage threshold for nanosecond pulses at 1064 nm
         min: 2.5
         max: 15.0
-      ablationThreshold:
-        value: null
-        unit: J/cm²
-        confidence: 80
-        description: Ablation threshold for femtosecond laser pulses
-        min: 2.0
-        max: 6.0
-        source: Laser-Induced Damage in Optical Materials (NIST)
-        notes: Silica, borosilicate - nanosecond pulses at 1064nm
       specificHeat:
         value: 761.0
         unit: J·kg⁻¹·K⁻¹
@@ -145,15 +68,6 @@ materialProperties:
         description: Coefficient of thermal expansion parallel to c-axis at 20°C
         min: 0.1
         max: 15
-      thermalDestruction:
-        point:
-          value: 2040.0
-          unit: K
-          min: 500
-          max: 1723
-          confidence: 95
-          description: Thermal destruction point
-        type: melting
       softeningPoint:
         value: 2040.0
         unit: K
@@ -168,9 +82,64 @@ materialProperties:
         description: Transmission in visible spectrum for 1mm thickness
         min: 85.0
         max: 93.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 3.98
+        unit: g/cm³
+        confidence: 98
+        description: Density of single crystal sapphire at room temperature
+        min: 1.2
+        max: 7.6
+      chemicalStability:
+        value: 95
+        unit: '% resistance'
+        confidence: 94
+        description: Chemical resistance to acids and alkalis at room temperature
+        min: 0.7
+        max: 99.5
+      crystallineStructure:
+        value: Rhombohedral
+        unit: crystal system
+        confidence: 99
+        description: Hexagonal crystal structure (corundum structure)
+        min: null
+        max: null
+      hardness:
+        value: 9
+        unit: Mohs
+        confidence: 98
+        description: Mohs hardness scale (second only to diamond)
+        min: 4.5
+        max: 9
+      tensileStrength:
+        value: 400.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 30
+        max: 2000
+      youngsModulus:
+        value: 345
+        unit: GPa
+        confidence: 95
+        description: Young's modulus along c-axis direction
+        min: 10
+        max: 400
+      flexuralStrength:
+        value: 690
+        unit: MPa
+        confidence: 85
+        description: Flexural strength of polished sapphire
+        min: 50.0
+        max: 690.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Medical Devices
@@ -261,13 +230,6 @@ machineSettings:
     description: Number of cleaning passes for complete contaminant removal
     min: 1
     max: 5
-  laserType:
-    value: Nd:YAG (3rd harmonic)
-    unit: laser_type
-    confidence: 89
-    description: UV nanosecond pulsed laser optimized for sapphire glass cleaning
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

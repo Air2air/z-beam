@@ -4,62 +4,8 @@ subcategory: thermoplastic elastomer
 title: Thermoplastic Elastomer Laser Cleaning
 description: Laser cleaning parameters for Thermoplastic Elastomer
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.1
-        unit: g/cm³
-        confidence: 92
-        description: Typical density range for common TPE formulations
-        min: 0.5
-        max: 8
-      oxidationResistance:
-        value: 85
-        unit: relative scale 0-100
-        confidence: 86
-        description: Good resistance to oxidative degradation under normal conditions
-        min: 65.0
-        max: 300.0
-      surfaceRoughness:
-        value: 1.2
-        unit: μm Ra
-        confidence: 88
-        description: Typical surface roughness for molded TPE components
-        min: 1.2
-        max: 1.8
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 55.0
-        unit: Shore A
-        confidence: 91
-        description: Typical hardness range for flexible TPE applications
-        min: 20
-        max: 90
-      tensileStrength:
-        value: 25
-        unit: MPa
-        confidence: 90
-        description: Typical tensile strength for medium-hardness TPE
-        min: 50
-        max: 6000
-      youngsModulus:
-        value: 10.0
-        unit: MPa
-        confidence: 89
-        description: Elastic modulus showing flexible rubber-like behavior
-        min: 0.001
-        max: 500
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 92.5
@@ -78,20 +24,6 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
-      reflectivity:
-        value: 0.12
-        unit: '%'
-        confidence: 83
-        description: Low reflectivity at common laser cleaning wavelengths (1064 nm)
-        min: 2
-        max: 80
-      ablationThreshold:
-        value: 1.2
-        unit: J/cm²
-        confidence: 80
-        description: Laser fluence threshold for material ablation at 1064 nm
-        min: 0.8
-        max: 2.8
       laserDamageThreshold:
         value: 0.8
         unit: J/cm²
@@ -130,15 +62,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion for TPE materials
         min: -1
         max: 250
-      thermalDestruction:
-        point:
-          value: 473.15
-          unit: K
-          min: 150
-          max: 2000
-          confidence: 92
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 473.15
         unit: K
@@ -153,9 +76,50 @@ materialProperties:
         description: High absorption coefficient for near-infrared laser wavelengths
         min: 0.75
         max: 8500.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.1
+        unit: g/cm³
+        confidence: 92
+        description: Typical density range for common TPE formulations
+        min: 0.5
+        max: 8
+      oxidationResistance:
+        value: 135.0
+        unit: relative scale 0-100
+        confidence: 86
+        description: Good resistance to oxidative degradation under normal conditions
+        min: 65.0
+        max: 300.0
+      hardness:
+        value: 55.0
+        unit: Shore A
+        confidence: 91
+        description: Typical hardness range for flexible TPE applications
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 25
+        unit: MPa
+        confidence: 90
+        description: Typical tensile strength for medium-hardness TPE
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 10.0
+        unit: MPa
+        confidence: 89
+        description: Elastic modulus showing flexible rubber-like behavior
+        min: 0.001
+        max: 500
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive
@@ -196,13 +160,6 @@ machineSettings:
     description: Optimal repetition rate for efficient TPE cleaning
     min: 20
     max: 100
-  laserType:
-    value: Fiber Laser
-    unit: n/a
-    confidence: 90
-    description: Recommended laser type for TPE cleaning applications
-    min: null
-    max: null
   pulseWidth:
     value: 15
     unit: ns

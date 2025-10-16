@@ -4,69 +4,8 @@ subcategory: stucco
 title: Stucco Laser Cleaning
 description: Laser cleaning parameters for Stucco
 materialProperties:
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      compressiveStrength:
-        value: 24.1
-        unit: MPa
-        confidence: 89
-        description: Compressive strength of hardened stucco
-        min: 12.4
-        max: 45.0
-      hardness:
-        value: 2.0
-        unit: Mohs
-        confidence: 88
-        description: Mohs hardness scale
-        min: 2
-        max: 6
-      tensileStrength:
-        value: 1.4
-        unit: MPa
-        confidence: 86
-        description: Direct tensile strength
-        min: 1
-        max: 15
-      youngsModulus:
-        value: 20.7
-        unit: GPa
-        confidence: 84
-        description: Elastic modulus in compression
-        min: 5
-        max: 50
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.5
-        unit: g/cm³
-        confidence: 92
-        description: Bulk density of cured stucco material
-        min: 0.6
-        max: 2.8
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 91
-        description: Typical porosity of cured stucco material
-        min: 12.0
-        max: 45.0
-      chemicalStability:
-        value: 8
-        unit: rating 1-10
-        confidence: 90
-        description: Chemical stability rating in atmospheric conditions
-        min: 7.0
-        max: 8.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 8.2
@@ -84,21 +23,6 @@ materialProperties:
         max: 70
         source: Building Materials Optical Properties Database
         notes: Concrete 20-40%, brick 20-50%, varies with color and surface texture
-      reflectivity:
-        value: 0.35
-        unit: '%'
-        confidence: 84
-        description: Reflectivity at 1064nm wavelength
-        min: 10
-        max: 70
-      ablationThreshold:
-        value: 1.2
-        unit: J/cm²
-        confidence: 80
-        description: Minimum fluence required for material removal with nanosecond
-          pulses
-        min: 1.2
-        max: 2.5
       laserDamageThreshold:
         value: 0.8
         unit: J/cm²
@@ -137,15 +61,6 @@ materialProperties:
         description: Coefficient of thermal expansion
         min: 5
         max: 20
-      thermalDestruction:
-        point:
-          value: 750.0
-          unit: °C
-          min: 500
-          max: 1200
-          confidence: 92
-          description: Thermal destruction point
-        type: spalling
       thermalDegradationPoint:
         value: 750.0
         unit: °C
@@ -160,9 +75,57 @@ materialProperties:
         description: Average absorption coefficient for common laser wavelengths (1064nm)
         min: 0.65
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      compressiveStrength:
+        value: 24.1
+        unit: MPa
+        confidence: 89
+        description: Compressive strength of hardened stucco
+        min: 12.4
+        max: 45.0
+      hardness:
+        value: 2.0
+        unit: Mohs
+        confidence: 88
+        description: Mohs hardness scale
+        min: 2
+        max: 6
+      tensileStrength:
+        value: 1.4
+        unit: MPa
+        confidence: 86
+        description: Direct tensile strength
+        min: 1
+        max: 15
+      youngsModulus:
+        value: 20.7
+        unit: GPa
+        confidence: 84
+        description: Elastic modulus in compression
+        min: 5
+        max: 50
+      density:
+        value: 1.5
+        unit: g/cm³
+        confidence: 92
+        description: Bulk density of cured stucco material
+        min: 0.6
+        max: 2.8
+      chemicalStability:
+        value: 8
+        unit: rating 1-10
+        confidence: 90
+        description: Chemical stability rating in atmospheric conditions
+        min: 7.0
+        max: 8.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Aerospace
@@ -252,13 +215,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 1
     max: 4
-  laserType:
-    value: Fiber Laser
-    unit: n/a
-    confidence: 90
-    description: Recommended laser type for Stucco cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

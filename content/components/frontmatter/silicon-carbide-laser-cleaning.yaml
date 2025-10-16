@@ -4,76 +4,8 @@ subcategory: silicon carbide
 title: Silicon Carbide Laser Cleaning
 description: Laser cleaning parameters for Silicon Carbide
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 3.21
-        unit: g/cm³
-        confidence: 98
-        description: Theoretical density of pure silicon carbide
-        min: 2.33
-        max: 7.13
-      oxidationResistance:
-        value: 1600
-        unit: °C
-        confidence: 88
-        description: Maximum service temperature in oxidizing atmosphere
-        min: null
-        max: null
-      crystallineStructure:
-        value: Hexagonal
-        unit: n/a
-        confidence: 95
-        description: Most common polytype is 6H-SiC (alpha silicon carbide)
-        min: null
-        max: null
-      porosity:
-        value: 0.5
-        unit: '%'
-        confidence: 85
-        description: Typical porosity for high-density sintered SiC
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 2500.0
-        unit: kgf/mm²
-        confidence: 92
-        description: Knoop hardness of silicon carbide
-        min: 2
-        max: 9.5
-      tensileStrength:
-        value: 350.0
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 50
-        max: 7000
-      youngsModulus:
-        value: 410
-        unit: GPa
-        confidence: 95
-        description: Elastic modulus of sintered silicon carbide
-        min: 5
-        max: 190
-      flexuralStrength:
-        value: 450
-        unit: MPa
-        confidence: 90
-        description: Room temperature flexural strength
-        min: null
-        max: null
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 68.5
@@ -92,20 +24,6 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Wavelength dependent: Si 30-60%, GaAs 30-50%, varies with doping and
           surface oxidation'
-      reflectivity:
-        value: 0.21
-        unit: '%'
-        confidence: 82
-        description: Reflectivity at 1064 nm laser wavelength
-        min: 10
-        max: 70
-      ablationThreshold:
-        value: 2.8
-        unit: J/cm²
-        confidence: 80
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 0.8
-        max: 2.8
       specificHeat:
         value: 750.0
         unit: J/(kg·K)
@@ -136,15 +54,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-1000°C)
         min: 2.6
         max: 10
-      thermalDestruction:
-        point:
-          value: 1800.0
-          unit: K
-          min: 100
-          max: 1414
-          confidence: 95
-          description: Thermal destruction point
-        type: melting
       absorptionCoefficient:
         value: 8500
         unit: cm⁻¹
@@ -152,9 +61,64 @@ materialProperties:
         description: Absorption coefficient at 1064 nm wavelength
         min: 1.0
         max: 8500.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 3.21
+        unit: g/cm³
+        confidence: 98
+        description: Theoretical density of pure silicon carbide
+        min: 2.33
+        max: 7.13
+      oxidationResistance:
+        value: 1600
+        unit: °C
+        confidence: 88
+        description: Maximum service temperature in oxidizing atmosphere
+        min: null
+        max: null
+      crystallineStructure:
+        value: Hexagonal
+        unit: n/a
+        confidence: 95
+        description: Most common polytype is 6H-SiC (alpha silicon carbide)
+        min: null
+        max: null
+      hardness:
+        value: 2500.0
+        unit: kgf/mm²
+        confidence: 92
+        description: Knoop hardness of silicon carbide
+        min: 2
+        max: 9.5
+      tensileStrength:
+        value: 350.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 7000
+      youngsModulus:
+        value: 410
+        unit: GPa
+        confidence: 95
+        description: Elastic modulus of sintered silicon carbide
+        min: 5
+        max: 190
+      flexuralStrength:
+        value: 410.0
+        unit: MPa
+        confidence: 90
+        description: Room temperature flexural strength
+        min: null
+        max: null
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Semiconductor Manufacturing
 - Aerospace
@@ -243,13 +207,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 2
     max: 5
-  laserType:
-    value: Nd:YAG
-    unit: laser_type
-    confidence: 90
-    description: Recommended laser type for SiC cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

@@ -4,69 +4,8 @@ subcategory: kevlar-reinforced polymer
 title: Kevlar-Reinforced Polymer Laser Cleaning
 description: Laser cleaning parameters for Kevlar-Reinforced Polymer
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.44
-        unit: g/cm³
-        confidence: 95
-        description: Typical density of Kevlar-reinforced epoxy composite
-        min: 0.5
-        max: 8
-      oxidationResistance:
-        value: 300
-        unit: °C
-        confidence: 88
-        description: Maximum continuous service temperature in air
-        min: 65.0
-        max: 300.0
-      porosity:
-        value: 1.5
-        unit: '%'
-        confidence: 85
-        description: Typical void content in properly manufactured composite
-        min: 1.5
-        max: 3.5
-      surfaceRoughness:
-        value: 1.2
-        unit: μm Ra
-        confidence: 83
-        description: Average surface roughness of molded composite surface
-        min: 1.2
-        max: 1.8
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 62.5
-        unit: Shore D
-        confidence: 85
-        description: Surface hardness of cured composite
-        min: 20
-        max: 90
-      tensileStrength:
-        value: 3100.0
-        unit: MPa
-        confidence: 92
-        description: Tensile strength along fiber direction
-        min: 50
-        max: 6000
-      youngsModulus:
-        value: 830.0
-        unit: GPa
-        confidence: 94
-        description: Elastic modulus in fiber direction
-        min: 0.001
-        max: 500
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 92.7
@@ -85,20 +24,6 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
-      reflectivity:
-        value: 0.15
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at 1064 nm for typical surface finish
-        min: 2
-        max: 80
-      ablationThreshold:
-        value: 2.8
-        unit: J/cm²
-        confidence: 85
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 0.8
-        max: 2.8
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -137,15 +62,6 @@ materialProperties:
         description: Coefficient of thermal expansion in fiber direction
         min: -1
         max: 250
-      thermalDestruction:
-        point:
-          value: 723.0
-          unit: K
-          min: 150
-          max: 2000
-          confidence: 92
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 723.0
         unit: K
@@ -160,9 +76,50 @@ materialProperties:
         description: Absorption coefficient at 1064 nm wavelength
         min: 0.75
         max: 8500.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.44
+        unit: g/cm³
+        confidence: 95
+        description: Typical density of Kevlar-reinforced epoxy composite
+        min: 0.5
+        max: 8
+      oxidationResistance:
+        value: 177.0
+        unit: °C
+        confidence: 88
+        description: Maximum continuous service temperature in air
+        min: 65.0
+        max: 300.0
+      hardness:
+        value: 62.5
+        unit: Shore D
+        confidence: 85
+        description: Surface hardness of cured composite
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 3100.0
+        unit: MPa
+        confidence: 92
+        description: Tensile strength along fiber direction
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 830.0
+        unit: GPa
+        confidence: 94
+        description: Elastic modulus in fiber direction
+        min: 0.001
+        max: 500
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive Racing
@@ -256,13 +213,6 @@ machineSettings:
       Kevlar composite
     min: 1
     max: 4
-  laserType:
-    value: Fiber Laser
-    unit: N/A
-    confidence: 90
-    description: Recommended laser type for Kevlar-Reinforced Polymer cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

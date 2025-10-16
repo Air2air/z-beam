@@ -4,70 +4,8 @@ subcategory: plaster
 title: Plaster Laser Cleaning
 description: Laser cleaning parameters for Plaster
 materialProperties:
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      compressiveStrength:
-        value: 12.4
-        unit: MPa
-        confidence: 92
-        description: compressiveStrength from Materials.yaml
-        min: 12.4
-        max: 45.0
-      hardness:
-        value: 2.0
-        unit: Mohs
-        confidence: 90
-        description: Mohs hardness scale for gypsum-based plaster
-        min: 2
-        max: 6
-      tensileStrength:
-        value: 2.0
-        unit: MPa
-        confidence: 82
-        description: Direct tensile strength of cured plaster
-        min: 1
-        max: 15
-      youngsModulus:
-        value: 3.0
-        unit: GPa
-        confidence: 84
-        description: Elastic modulus in compression for standard plaster
-        min: 5
-        max: 50
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.5
-        unit: g/cm³
-        confidence: 95
-        description: Bulk density of set plaster after hydration
-        min: 0.6
-        max: 2.8
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 90
-        description: Typical porosity of standard plaster after setting
-        min: 12.0
-        max: 45.0
-      chemicalStability:
-        value: Moderate
-        unit: qualitative
-        confidence: 88
-        description: Stable in dry conditions, decomposes in strong acids and prolonged
-          moisture
-        min: 7.0
-        max: 8.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 8.2
@@ -85,20 +23,6 @@ materialProperties:
         max: 70
         source: Building Materials Optical Properties Database
         notes: Concrete 20-40%, brick 20-50%, varies with color and surface texture
-      reflectivity:
-        value: 0.15
-        unit: '%'
-        confidence: 85
-        description: Surface reflectivity at 1064 nm wavelength
-        min: 10
-        max: 70
-      ablationThreshold:
-        value: 1.2
-        unit: J/cm²
-        confidence: 82
-        description: Laser ablation threshold for Nd:YAG 1064 nm
-        min: 1.2
-        max: 2.5
       specificHeat:
         value: 1090.0
         unit: J/(kg·K)
@@ -130,15 +54,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-100°C range)
         min: 5
         max: 20
-      thermalDestruction:
-        point:
-          value: 1073.15
-          unit: K
-          min: 500
-          max: 1200
-          confidence: 92
-          description: Thermal destruction point
-        type: spalling
       thermalDegradationPoint:
         value: 1073.15
         unit: K
@@ -154,9 +69,58 @@ materialProperties:
           nm)
         min: 0.65
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      compressiveStrength:
+        value: 12.4
+        unit: MPa
+        confidence: 92
+        description: compressiveStrength from Materials.yaml
+        min: 12.4
+        max: 45.0
+      hardness:
+        value: 2.0
+        unit: Mohs
+        confidence: 90
+        description: Mohs hardness scale for gypsum-based plaster
+        min: 2
+        max: 6
+      tensileStrength:
+        value: 2.0
+        unit: MPa
+        confidence: 82
+        description: Direct tensile strength of cured plaster
+        min: 1
+        max: 15
+      youngsModulus:
+        value: 3.0
+        unit: GPa
+        confidence: 84
+        description: Elastic modulus in compression for standard plaster
+        min: 5
+        max: 50
+      density:
+        value: 1.5
+        unit: g/cm³
+        confidence: 95
+        description: Bulk density of set plaster after hydration
+        min: 0.6
+        max: 2.8
+      chemicalStability:
+        value: Moderate
+        unit: qualitative
+        confidence: 88
+        description: Stable in dry conditions, decomposes in strong acids and prolonged
+          moisture
+        min: 7.0
+        max: 8.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Healthcare Facilities

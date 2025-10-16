@@ -4,70 +4,8 @@ subcategory: urethane composites
 title: Urethane Composites Laser Cleaning
 description: Laser cleaning parameters for Urethane Composites
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.25
-        unit: g/cm³
-        confidence: 92
-        description: Typical density range for filled urethane composites at room
-          temperature
-        min: 0.5
-        max: 8
-      oxidationResistance:
-        value: 150
-        unit: °C
-        confidence: 86
-        description: Maximum continuous service temperature before oxidative degradation
-        min: 65.0
-        max: 300.0
-      porosity:
-        value: 2.5
-        unit: '%'
-        confidence: 88
-        description: Typical porosity percentage in molded urethane composites
-        min: 1.5
-        max: 3.5
-      surfaceRoughness:
-        value: 1.8
-        unit: μm Ra
-        confidence: 90
-        description: Average surface roughness of as-molded urethane composite surfaces
-        min: 1.2
-        max: 1.8
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 62.5
-        unit: Shore D
-        confidence: 94
-        description: Typical hardness for industrial urethane composites
-        min: 20
-        max: 90
-      tensileStrength:
-        value: 450.0
-        unit: MPa
-        confidence: 91
-        description: Ultimate tensile strength of reinforced urethane composites
-        min: 50
-        max: 6000
-      youngsModulus:
-        value: 700.0
-        unit: MPa
-        confidence: 89
-        description: Elastic modulus under tensile loading
-        min: 0.001
-        max: 500
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 92.7
@@ -86,20 +24,6 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
-      reflectivity:
-        value: 12
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at 1064 nm for typical filled urethane composites
-        min: 0.08
-        max: 12.0
-      ablationThreshold:
-        value: 1.8
-        unit: J/cm²
-        confidence: 83
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 0.8
-        max: 2.8
       laserDamageThreshold:
         value: 2.2
         unit: J/cm²
@@ -138,15 +62,6 @@ materialProperties:
         description: Coefficient of thermal expansion for urethane composites
         min: -1
         max: 250
-      thermalDestruction:
-        point:
-          value: 623.0
-          unit: K
-          min: 150
-          max: 2000
-          confidence: 92
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 623.0
         unit: K
@@ -161,9 +76,51 @@ materialProperties:
         description: Absorption coefficient at 1064 nm wavelength
         min: 0.75
         max: 8500.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.25
+        unit: g/cm³
+        confidence: 92
+        description: Typical density range for filled urethane composites at room
+          temperature
+        min: 0.5
+        max: 8
+      oxidationResistance:
+        value: 80.0
+        unit: °C
+        confidence: 86
+        description: Maximum continuous service temperature before oxidative degradation
+        min: 65.0
+        max: 300.0
+      hardness:
+        value: 62.5
+        unit: Shore D
+        confidence: 94
+        description: Typical hardness for industrial urethane composites
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 450.0
+        unit: MPa
+        confidence: 91
+        description: Ultimate tensile strength of reinforced urethane composites
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 700.0
+        unit: MPa
+        confidence: 89
+        description: Elastic modulus under tensile loading
+        min: 0.001
+        max: 500
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive

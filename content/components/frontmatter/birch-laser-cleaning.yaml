@@ -4,61 +4,8 @@ subcategory: hardwood
 title: Birch Laser Cleaning
 description: Laser cleaning parameters for Birch
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 0.67
-        unit: g/cm³
-        confidence: 92
-        description: Average density of European birch wood at 12% moisture content
-        min: 0.12
-        max: 1.25
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Average porosity percentage in birch wood structure
-        min: 12
-        max: 65
-        source: Wood Science and Technology Database
-        notes: Hardwoods 12-45%, softwoods 30-65%
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 1260.0
-        unit: MPa
-        confidence: 84
-        description: Janka hardness test value for side hardness
-        min: 20
-        max: 5000
-        metadata:
-          last_verified: '2025-10-15T15:23:16.171114'
-          verification_source: automatic_fix
-          fix_reason: 'Scale error: 3.5 → 350.0'
-      tensileStrength:
-        value: 121.0
-        unit: MPa
-        confidence: 85
-        description: Tensile strength parallel to grain direction
-        min: 20
-        max: 200
-      youngsModulus:
-        value: 11.9
-        unit: GPa
-        confidence: 88
-        description: Modulus of elasticity parallel to grain direction
-        min: 5
-        max: 25
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 32.7
@@ -77,21 +24,6 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
-      reflectivity:
-        value: 0.22
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at 1064 nm wavelength for laser cleaning applications
-        min: 10
-        max: 60
-      ablationThreshold:
-        value: 1.2
-        unit: J/cm²
-        confidence: 81
-        description: Minimum fluence required for material removal with nanosecond
-          pulses at 1064 nm
-        min: 0.8
-        max: 1.8
       specificHeat:
         value: 1250.0
         unit: J·kg⁻¹·K⁻¹
@@ -127,15 +59,6 @@ materialProperties:
         description: Coefficient of thermal expansion perpendicular to grain direction
         min: 3.0
         max: 60
-      thermalDestruction:
-        point:
-          value: 380.0
-          unit: °C
-          min: 200
-          max: 500
-          confidence: 92
-          description: Thermal destruction point
-        type: carbonization
       absorptionCoefficient:
         value: 0.78
         unit: cm⁻¹
@@ -144,9 +67,47 @@ materialProperties:
           (1064 nm)
         min: 0.75
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 0.67
+        unit: g/cm³
+        confidence: 92
+        description: Average density of European birch wood at 12% moisture content
+        min: 0.12
+        max: 1.25
+      hardness:
+        value: 1260.0
+        unit: MPa
+        confidence: 84
+        description: Janka hardness test value for side hardness
+        min: 20
+        max: 5000
+        metadata:
+          last_verified: '2025-10-15T15:23:16.171114'
+          verification_source: automatic_fix
+          fix_reason: 'Scale error: 3.5 → 350.0'
+      tensileStrength:
+        value: 121.0
+        unit: MPa
+        confidence: 85
+        description: Tensile strength parallel to grain direction
+        min: 20
+        max: 200
+      youngsModulus:
+        value: 11.9
+        unit: GPa
+        confidence: 88
+        description: Modulus of elasticity parallel to grain direction
+        min: 5
+        max: 25
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive

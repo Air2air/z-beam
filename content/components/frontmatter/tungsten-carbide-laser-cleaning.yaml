@@ -4,8 +4,80 @@ subcategory: tungsten carbide
 title: Tungsten Carbide Laser Cleaning
 description: Laser cleaning parameters for Tungsten Carbide
 materialProperties:
-  structural_response:
-    label: Structural Response Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
+    properties:
+      laserAbsorption:
+        value: 32.7
+        unit: '%'
+        confidence: 92
+        description: laserAbsorption from Materials.yaml
+        min: 0.1
+        max: 50
+      laserReflectivity:
+        value: 52.3
+        unit: '%'
+        confidence: 92
+        description: laserReflectivity from Materials.yaml
+        min: 5
+        max: 90
+        source: Handbook of Optical Constants of Solids (Palik, 1998)
+        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
+          finish
+      specificHeat:
+        value: 292.0
+        unit: J/kg·K
+        confidence: 85
+        description: Specific heat capacity at room temperature
+        min: 200
+        max: 1200
+        metadata:
+          last_verified: '2025-10-15T15:43:05.917820'
+          verification_source: automatic_fix
+          fix_reason: 'kJ→J conversion: 0.22 → 220.0'
+      thermalConductivity:
+        value: 110
+        unit: W/(m·K)
+        confidence: 80
+        description: Thermal conductivity for WC-6%Co composition at room temperature
+        min: 1
+        max: 150
+        source: MatWeb Materials Database
+        notes: Typical range for ceramic materials at room temperature
+      thermalDiffusivity:
+        value: 22.5
+        unit: mm²/s
+        confidence: 82
+        description: Thermal diffusivity at room temperature for typical WC-Co
+        min: 0.05
+        max: 120
+      thermalExpansion:
+        value: 5.4
+        unit: 10^-6/K
+        confidence: 85
+        description: Coefficient of thermal expansion for WC-6%Co at 20-400°C
+        min: 0.1
+        max: 14
+      fractureToughness:
+        value: 9.5
+        unit: MPa·m¹/²
+        confidence: 95
+        description: fractureToughness from Materials.yaml
+        min: null
+        max: null
+      absorptionCoefficient:
+        value: 0.85
+        unit: cm⁻¹
+        confidence: 80
+        description: Estimated absorption coefficient for near-IR wavelengths (1064
+          nm)
+        min: 0.8
+        max: 0.85
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
     properties:
       compressiveStrength:
         value: 6700.0
@@ -42,12 +114,6 @@ materialProperties:
         description: Young's modulus for WC-6%Co composition
         min: 50
         max: 800
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  material_properties:
-    label: Material Properties
-    properties:
       density:
         value: 15.63
         unit: g/cm³
@@ -56,7 +122,7 @@ materialProperties:
         min: 2.2
         max: 19.3
       oxidationResistance:
-        value: 500
+        value: 600.0
         unit: °C
         confidence: 85
         description: Maximum temperature for oxidation resistance in air
@@ -76,106 +142,9 @@ materialProperties:
         description: Typical grain size for commercial WC-Co grades
         min: null
         max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  energy_coupling:
-    label: Energy Coupling Properties
-    properties:
-      laserAbsorption:
-        value: 32.7
-        unit: '%'
-        confidence: 92
-        description: laserAbsorption from Materials.yaml
-        min: 0.1
-        max: 50
-      laserReflectivity:
-        value: 52.3
-        unit: '%'
-        confidence: 92
-        description: laserReflectivity from Materials.yaml
-        min: 5
-        max: 90
-        source: Handbook of Optical Constants of Solids (Palik, 1998)
-        notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
-          finish
-      reflectivity:
-        value: 0.45
-        unit: '%'
-        confidence: 80
-        description: Estimated reflectivity at 1064 nm laser wavelength
-        min: 5
-        max: 90
-      ablationThreshold:
-        value: null
-        unit: J/cm²
-        confidence: 75
-        description: Estimated ablation threshold for nanosecond pulses at 1064 nm
-        min: 1.5
-        max: 5.0
-        source: RP Photonics Encyclopedia, Oxide Ceramics
-        notes: Alumina, zirconia, silicon carbide - nanosecond pulses
-      specificHeat:
-        value: 292.0
-        unit: J/kg·K
-        confidence: 85
-        description: Specific heat capacity at room temperature
-        min: 200
-        max: 1200
-        metadata:
-          last_verified: '2025-10-15T15:43:05.917820'
-          verification_source: automatic_fix
-          fix_reason: 'kJ→J conversion: 0.22 → 220.0'
-      thermalConductivity:
-        value: 110
-        unit: W/(m·K)
-        confidence: 80
-        description: Thermal conductivity for WC-6%Co composition at room temperature
-        min: 1
-        max: 150
-        source: MatWeb Materials Database
-        notes: Typical range for ceramic materials at room temperature
-      thermalDiffusivity:
-        value: 22.5
-        unit: mm²/s
-        confidence: 82
-        description: Thermal diffusivity at room temperature for typical WC-Co
-        min: 0.05
-        max: 120
-      thermalExpansion:
-        value: 5.4
-        unit: 10^-6/K
-        confidence: 85
-        description: Coefficient of thermal expansion for WC-6%Co at 20-400°C
-        min: 0.1
-        max: 14
-      thermalDestruction:
-        point:
-          value: 2870.0
-          unit: K
-          min: 1000
-          max: 3827
-          confidence: 95
-          description: Thermal destruction point
-        type: thermal_shock
-      fractureToughness:
-        value: 9.5
-        unit: MPa·m¹/²
-        confidence: 95
-        description: fractureToughness from Materials.yaml
-        min: null
-        max: null
-      absorptionCoefficient:
-        value: 0.85
-        unit: cm⁻¹
-        confidence: 80
-        description: Estimated absorption coefficient for near-IR wavelengths (1064
-          nm)
-        min: 0.8
-        max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive
@@ -267,13 +236,6 @@ machineSettings:
       control
     min: 1
     max: 5
-  laserType:
-    value: Nd:YAG
-    unit: laser_type
-    confidence: 90
-    description: Recommended laser type for Tungsten Carbide processing applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

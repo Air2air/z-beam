@@ -4,65 +4,8 @@ subcategory: specialty
 title: Beryllium Laser Cleaning
 description: Laser cleaning parameters for Beryllium
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.848
-        unit: g/cm³
-        confidence: 98
-        description: Density of pure beryllium at room temperature
-        min: 0.53
-        max: 22.6
-      oxidationResistance:
-        value: Low
-        unit: °C
-        confidence: 80
-        description: Forms protective oxide layer but can oxidize rapidly at high
-          temperatures
-        min: 200
-        max: 1200
-        source: ASM Metals Handbook - Corrosion
-        notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
-      crystallineStructure:
-        value: HCP
-        unit: crystal system
-        confidence: 99
-        description: Hexagonal Close-Packed crystal structure
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 150.0
-        unit: HB
-        confidence: 85
-        description: Vickers hardness of pure beryllium
-        min: 0.5
-        max: 3500
-      tensileStrength:
-        value: 448.0
-        unit: MPa
-        confidence: 88
-        description: Typical tensile strength for wrought beryllium
-        min: 3.0
-        max: 3000.0
-      youngsModulus:
-        value: 287.0
-        unit: GPa
-        confidence: 96
-        description: Young's modulus of elasticity
-        min: 5
-        max: 411
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 38.7
@@ -81,46 +24,6 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: 'Highly polished metals: Cu/Ag/Au 90-98%, Steel 50-70%, varies with
           surface condition'
-      reflectivity:
-        at_1064nm:
-          min: 85
-          max: 98
-          unit: '%'
-        at_532nm:
-          min: 70
-          max: 95
-          unit: '%'
-        at_355nm:
-          min: 55
-          max: 85
-          unit: '%'
-        at_10640nm:
-          min: 95
-          max: 99
-          unit: '%'
-        source: Handbook of Optical Constants (Palik)
-        confidence: 85
-        measurement_context: Varies by laser wavelength
-        value: null
-        unit: '%'
-      ablationThreshold:
-        nanosecond:
-          min: 2.0
-          max: 8.0
-          unit: J/cm²
-        picosecond:
-          min: 0.1
-          max: 2.0
-          unit: J/cm²
-        femtosecond:
-          min: 0.14
-          max: 1.7
-          unit: J/cm²
-        source: Marks et al. 2022, Precision Engineering
-        confidence: 90
-        measurement_context: Varies by pulse duration (ns/ps/fs)
-        value: null
-        unit: J/cm²
       specificHeat:
         value: 1925
         unit: J/kg·K
@@ -151,15 +54,6 @@ materialProperties:
         description: Coefficient of thermal expansion at 20°C
         min: 0.5
         max: 29.1
-      thermalDestruction:
-        point:
-          value: 1560.0
-          unit: K
-          min: -38.8
-          max: 3422
-          confidence: 95
-          description: Thermal destruction point
-        type: melting
       absorptionCoefficient:
         value: 0.65
         unit: cm⁻¹
@@ -175,9 +69,60 @@ materialProperties:
           and moderate expansion
         min: 350.0
         max: 380.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.848
+        unit: g/cm³
+        confidence: 98
+        description: Density of pure beryllium at room temperature
+        min: 0.53
+        max: 22.6
+      oxidationResistance:
+        value: Low
+        unit: °C
+        confidence: 80
+        description: Forms protective oxide layer but can oxidize rapidly at high
+          temperatures
+        min: 200
+        max: 1200
+        source: ASM Metals Handbook - Corrosion
+        notes: 'Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys 800-1200°C'
+      crystallineStructure:
+        value: HCP
+        unit: crystal system
+        confidence: 99
+        description: Hexagonal Close-Packed crystal structure
+        min: null
+        max: null
+      hardness:
+        value: 150.0
+        unit: HB
+        confidence: 85
+        description: Vickers hardness of pure beryllium
+        min: 0.5
+        max: 3500
+      tensileStrength:
+        value: 448.0
+        unit: MPa
+        confidence: 88
+        description: Typical tensile strength for wrought beryllium
+        min: 3.0
+        max: 3000.0
+      youngsModulus:
+        value: 287.0
+        unit: GPa
+        confidence: 96
+        description: Young's modulus of elasticity
+        min: 5
+        max: 411
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace and Defense
 - Nuclear Technology

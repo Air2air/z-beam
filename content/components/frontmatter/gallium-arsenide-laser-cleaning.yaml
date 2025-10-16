@@ -4,58 +4,8 @@ subcategory: gallium arsenide
 title: Gallium Arsenide Laser Cleaning
 description: Laser cleaning parameters for Gallium Arsenide
 materialProperties:
-  material_properties:
-    label: Material Properties
-    description: Intrinsic material characteristics affecting process efficiency and
-      cleaning outcomes
-    percentage: 34.5
-    properties:
-      density:
-        value: 5.3176
-        unit: g/cm³
-        confidence: 98
-        description: Density of single crystal GaAs at room temperature
-        min: 2.3
-        max: 7.13
-      crystallineStructure:
-        value: Zinc Blende
-        unit: crystal system
-        confidence: 98
-        description: Face-centered cubic structure with space group F-43m
-        min: null
-        max: null
-  structural_response:
-    label: Structural Response Properties
-    description: 'How material responds physically to thermal stress: strength, elasticity,
-      and deformation characteristics'
-    percentage: 18.2
-    properties:
-      hardness:
-        value: 7.0
-        unit: GPa
-        confidence: 90
-        description: Knoop hardness at room temperature
-        min: 2
-        max: 2600
-      tensileStrength:
-        value: 55.0
-        unit: MPa
-        confidence: 92
-        description: tensileStrength from Materials.yaml
-        min: 50
-        max: 7000
-      youngsModulus:
-        value: 85.3
-        unit: GPa
-        confidence: 92
-        description: Young's modulus along <100> crystal direction
-        min: 5
-        max: 450
-  energy_coupling:
-    label: Energy Coupling Properties
-    description: 'How laser energy enters material and propagates as heat: absorption,
-      reflection, and thermal dissipation'
-    percentage: 47.3
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 67.5
@@ -99,27 +49,11 @@ materialProperties:
         description: Linear thermal expansion coefficient at 300K
         min: 2.6
         max: 10
-      thermalDestruction:
-        point:
-          value: 1238.0
-          unit: K
-          confidence: 95
-          description: Thermal destruction point
-          min: 100
-          max: 1414
-        type: melting
       absorptionCoefficient:
         value: 1.0
         unit: ×10⁴ cm⁻¹
         confidence: 94
         description: Absorption coefficient at 532 nm wavelength
-        min: null
-        max: null
-      reflectivity:
-        value: 0.35
-        unit: dimensionless
-        confidence: 91
-        description: Reflectivity at 1064 nm wavelength
         min: null
         max: null
       refractiveIndex:
@@ -129,13 +63,6 @@ materialProperties:
         description: Refractive index at 1064 nm wavelength
         min: null
         max: null
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 85
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: null
-        max: null
       laserDamageThreshold:
         value: 2.5
         unit: J/cm²
@@ -143,25 +70,50 @@ materialProperties:
         description: Surface damage threshold for femtosecond pulses
         min: null
         max: null
-  other:
-    label: Other Properties
-    description: Additional material-specific properties
-    percentage: 0
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
     properties:
-      bandGap:
-        value: 1.424
-        unit: eV
-        confidence: 97
-        description: Direct bandgap energy at 300K
+      density:
+        value: 5.3176
+        unit: g/cm³
+        confidence: 98
+        description: Density of single crystal GaAs at room temperature
+        min: 2.3
+        max: 7.13
+      crystallineStructure:
+        value: Zinc Blende
+        unit: crystal system
+        confidence: 98
+        description: Face-centered cubic structure with space group F-43m
         min: null
         max: null
-      fractureToughness:
-        value: 0.44
-        unit: MPa·m¹/²
-        confidence: 86
-        description: Fracture toughness for brittle fracture behavior
-        min: null
-        max: null
+      hardness:
+        value: 7.0
+        unit: GPa
+        confidence: 90
+        description: Knoop hardness at room temperature
+        min: 2
+        max: 2600
+      tensileStrength:
+        value: 55.0
+        unit: MPa
+        confidence: 92
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 7000
+      youngsModulus:
+        value: 85.3
+        unit: GPa
+        confidence: 92
+        description: Young's modulus along <100> crystal direction
+        min: 5
+        max: 450
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Electronics Manufacturing

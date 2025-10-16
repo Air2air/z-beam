@@ -4,71 +4,8 @@ subcategory: stoneware
 title: Stoneware Laser Cleaning
 description: Laser cleaning parameters for Stoneware
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.4
-        unit: g/cm³
-        confidence: 95
-        description: Bulk density of fired stoneware ceramic body
-        min: 2.2
-        max: 19.3
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 80
-        description: Water absorption percentage indicating vitrification
-        min: 0
-        max: 30
-        source: ASM Handbook - Ceramics and Glasses
-        notes: Dense ceramics 0-5%, porous ceramics 10-30%
-      chemicalStability:
-        value: 95
-        unit: '% resistance'
-        confidence: 94
-        description: Resistance to common chemical agents and environmental degradation
-        min: 90.0
-        max: 95.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 7.0
-        unit: Mohs
-        confidence: 92
-        description: Mohs hardness scale for vitrified stoneware
-        min: 1.0
-        max: 10.0
-      tensileStrength:
-        value: 40.0
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 50
-        max: 1000
-      youngsModulus:
-        value: 65.0
-        unit: GPa
-        confidence: 90
-        description: Elastic modulus of fired stoneware body
-        min: 50
-        max: 800
-      flexuralStrength:
-        value: 52.0
-        unit: MPa
-        confidence: 88
-        description: Modulus of rupture for typical stoneware
-        min: 45.0
-        max: 3500.0
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 32.7
@@ -87,22 +24,6 @@ materialProperties:
         source: Handbook of Optical Constants of Solids (Palik, 1998)
         notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface
           finish
-      reflectivity:
-        value: 0.15
-        unit: '%'
-        confidence: 83
-        description: Surface reflectivity at common laser cleaning wavelengths
-        min: 5
-        max: 90
-      ablationThreshold:
-        value: null
-        unit: J/cm²
-        confidence: 75
-        description: Estimated laser fluence threshold for material removal
-        min: 1.5
-        max: 5.0
-        source: RP Photonics Encyclopedia, Oxide Ceramics
-        notes: Alumina, zirconia, silicon carbide - nanosecond pulses
       specificHeat:
         value: 1000.0
         unit: J·kg⁻¹·K⁻¹
@@ -133,15 +54,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-700°C)
         min: 0.1
         max: 14
-      thermalDestruction:
-        point:
-          value: 1673.15
-          unit: K
-          min: 1000
-          max: 3827
-          confidence: 92
-          description: Thermal destruction point
-        type: thermal_shock
       absorptionCoefficient:
         value: 0.85
         unit: cm⁻¹
@@ -150,9 +62,57 @@ materialProperties:
           (1064 nm)
         min: 0.8
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.4
+        unit: g/cm³
+        confidence: 95
+        description: Bulk density of fired stoneware ceramic body
+        min: 2.2
+        max: 19.3
+      chemicalStability:
+        value: 95
+        unit: '% resistance'
+        confidence: 94
+        description: Resistance to common chemical agents and environmental degradation
+        min: 90.0
+        max: 95.0
+      hardness:
+        value: 7.0
+        unit: Mohs
+        confidence: 92
+        description: Mohs hardness scale for vitrified stoneware
+        min: 1.0
+        max: 10.0
+      tensileStrength:
+        value: 40.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 50
+        max: 1000
+      youngsModulus:
+        value: 65.0
+        unit: GPa
+        confidence: 90
+        description: Elastic modulus of fired stoneware body
+        min: 50
+        max: 800
+      flexuralStrength:
+        value: 52.0
+        unit: MPa
+        confidence: 88
+        description: Modulus of rupture for typical stoneware
+        min: 45.0
+        max: 3500.0
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Food Processing
@@ -241,13 +201,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 1
     max: 5
-  laserType:
-    value: Nd:YAG
-    unit: 'null'
-    confidence: 90
-    description: Recommended laser type for Stoneware cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

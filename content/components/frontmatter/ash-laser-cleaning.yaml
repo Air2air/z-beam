@@ -4,75 +4,8 @@ subcategory: hardwood
 title: Ash Laser Cleaning
 description: Laser cleaning parameters for Ash
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 0.68
-        unit: g/cm³
-        confidence: 85
-        description: Bulk density of wood ash at room temperature
-        min: 0.12
-        max: 1.25
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Typical porosity of ash deposits and layers
-        min: 12
-        max: 65
-        source: Wood Science and Technology Database
-        notes: Hardwoods 12-45%, softwoods 30-65%
-      surfaceRoughness:
-        value: 12.5
-        unit: μm Ra
-        confidence: 82
-        description: Typical surface roughness of ash deposits on substrates
-        min: 3.2
-        max: 12.5
-      chemicalStability:
-        value: Moderate
-        unit: qualitative
-        confidence: 85
-        description: Chemical stability of ash in ambient conditions
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 1320.0
-        unit: MPa
-        confidence: 84
-        description: Mohs hardness scale for ash mineral components
-        min: 20
-        max: 5000
-        metadata:
-          last_verified: '2025-10-15T15:23:16.006971'
-          verification_source: automatic_fix
-          fix_reason: 'Scale error: 2.5 → 250.0'
-      tensileStrength:
-        value: 125.0
-        unit: MPa
-        confidence: 95
-        description: tensileStrength from Materials.yaml
-        min: 20
-        max: 200
-      youngsModulus:
-        value: 12.0
-        unit: GPa
-        confidence: 90
-        description: youngsModulus from Materials.yaml
-        min: 5
-        max: 25
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 32.7
@@ -91,20 +24,6 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
-      reflectivity:
-        value: 0.25
-        unit: '%'
-        confidence: 86
-        description: Surface reflectivity for common laser cleaning wavelengths
-        min: 10
-        max: 60
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 83
-        description: Minimum fluence required for ash removal via laser ablation
-        min: 0.8
-        max: 1.8
       specificHeat:
         value: 800.0
         unit: J/(kg·K)
@@ -136,15 +55,6 @@ materialProperties:
         description: Coefficient of thermal expansion for ash mineral content
         min: 3.0
         max: 60
-      thermalDestruction:
-        point:
-          value: 400.0
-          unit: °C
-          min: 200
-          max: 500
-          confidence: 92
-          description: Thermal destruction point
-        type: carbonization
       absorptionCoefficient:
         value: 0.75
         unit: cm⁻¹
@@ -153,9 +63,54 @@ materialProperties:
           (1064 nm)
         min: 0.75
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 0.68
+        unit: g/cm³
+        confidence: 85
+        description: Bulk density of wood ash at room temperature
+        min: 0.12
+        max: 1.25
+      chemicalStability:
+        value: Moderate
+        unit: qualitative
+        confidence: 85
+        description: Chemical stability of ash in ambient conditions
+        min: null
+        max: null
+      hardness:
+        value: 1320.0
+        unit: MPa
+        confidence: 84
+        description: Mohs hardness scale for ash mineral components
+        min: 20
+        max: 5000
+        metadata:
+          last_verified: '2025-10-15T15:23:16.006971'
+          verification_source: automatic_fix
+          fix_reason: 'Scale error: 2.5 → 250.0'
+      tensileStrength:
+        value: 125.0
+        unit: MPa
+        confidence: 95
+        description: tensileStrength from Materials.yaml
+        min: 20
+        max: 200
+      youngsModulus:
+        value: 12.0
+        unit: GPa
+        confidence: 90
+        description: youngsModulus from Materials.yaml
+        min: 5
+        max: 25
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage Restoration
 - Aerospace Component Manufacturing
@@ -243,13 +198,6 @@ machineSettings:
     description: Number of cleaning passes for complete ash removal
     min: 1
     max: 4
-  laserType:
-    value: Nd:YAG
-    unit: n/a
-    confidence: 90
-    description: Fiber laser preferred for ash cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

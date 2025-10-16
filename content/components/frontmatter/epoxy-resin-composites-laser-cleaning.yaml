@@ -4,51 +4,8 @@ subcategory: epoxy resin composites
 title: Epoxy Resin Composites Laser Cleaning
 description: Laser cleaning parameters for Epoxy Resin Composites
 materialProperties:
-  material_properties:
-    label: Material Properties
-    description: Intrinsic material characteristics affecting process efficiency and
-      cleaning outcomes
-    percentage: 34.5
-    properties:
-      density:
-        value: 1.25
-        unit: g/cm³
-        confidence: 95
-        description: Typical density for epoxy resin composites with fiber reinforcement
-        min: 0.5
-        max: 8
-  structural_response:
-    label: Structural Response Properties
-    description: 'How material responds physically to thermal stress: strength, elasticity,
-      and deformation characteristics'
-    percentage: 18.2
-    properties:
-      hardness:
-        value: 85
-        unit: Shore D
-        confidence: 88
-        description: Hardness on Shore D scale for cured epoxy
-        min: 20
-        max: 120
-      tensileStrength:
-        value: 3100.0
-        unit: MPa
-        confidence: 92
-        description: Tensile strength parallel to fiber direction
-        min: 20
-        max: 6000
-      youngsModulus:
-        value: 3.2
-        unit: GPa
-        confidence: 94
-        description: Elastic modulus in fiber direction
-        min: 0.001
-        max: 3000
-  energy_coupling:
-    label: Energy Coupling Properties
-    description: 'How laser energy enters material and propagates as heat: absorption,
-      reflection, and thermal dissipation'
-    percentage: 47.3
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 92.7
@@ -92,34 +49,11 @@ materialProperties:
         description: Coefficient of thermal expansion in transverse direction
         min: -1
         max: 250
-      thermalDestruction:
-        point:
-          value: 623.0
-          unit: K
-          confidence: 92
-          description: Thermal destruction point
-          min: 150
-          max: 2000
-        type: decomposition
       absorptionCoefficient:
         value: 8500
         unit: cm⁻¹
         confidence: 82
         description: Absorption coefficient at 1064 nm wavelength
-        min: null
-        max: null
-      reflectivity:
-        value: 0.08
-        unit: dimensionless
-        confidence: 80
-        description: Reflectivity at 1064 nm for typical epoxy surface
-        min: null
-        max: null
-      ablationThreshold:
-        value: 1.2
-        unit: J/cm²
-        confidence: 85
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
         min: null
         max: null
       decompositionTemperature:
@@ -129,18 +63,43 @@ materialProperties:
         description: Onset temperature for thermal decomposition
         min: null
         max: null
-  other:
-    label: Other Properties
-    description: Additional material-specific properties
-    percentage: 0
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
     properties:
-      glassTransitionTemperature:
-        value: 120
-        unit: °C
-        confidence: 90
-        description: Glass transition temperature for cured epoxy composites
-        min: null
-        max: null
+      density:
+        value: 1.25
+        unit: g/cm³
+        confidence: 95
+        description: Typical density for epoxy resin composites with fiber reinforcement
+        min: 0.5
+        max: 8
+      hardness:
+        value: 85
+        unit: Shore D
+        confidence: 88
+        description: Hardness on Shore D scale for cured epoxy
+        min: 20
+        max: 120
+      tensileStrength:
+        value: 3100.0
+        unit: MPa
+        confidence: 92
+        description: Tensile strength parallel to fiber direction
+        min: 20
+        max: 6000
+      youngsModulus:
+        value: 3.2
+        unit: GPa
+        confidence: 94
+        description: Elastic modulus in fiber direction
+        min: 0.001
+        max: 3000
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive

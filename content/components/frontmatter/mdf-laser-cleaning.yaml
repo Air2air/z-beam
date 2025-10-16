@@ -4,64 +4,8 @@ subcategory: engineered
 title: MDF Laser Cleaning
 description: Laser cleaning parameters for MDF (MDF)
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 0.75
-        unit: g/cm³
-        confidence: 92
-        description: Medium density fiberboard typical density range
-        min: 0.12
-        max: 1.25
-      porosity:
-        value: null
-        unit: '%'
-        confidence: 75
-        description: Typical porosity affecting laser interaction depth
-        min: 12
-        max: 65
-        source: Wood Science and Technology Database
-        notes: Hardwoods 12-45%, softwoods 30-65%
-      surfaceRoughness:
-        value: 3.2
-        unit: μm Ra
-        confidence: 86
-        description: Average surface roughness of standard MDF
-        min: 3.2
-        max: 12.5
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 65.2
-        unit: N/mm²
-        confidence: 83
-        description: Brinell hardness on surface
-        min: 20
-        max: 5000
-      tensileStrength:
-        value: 40.0
-        unit: MPa
-        confidence: 84
-        description: Tensile strength perpendicular to surface
-        min: 20
-        max: 200
-      youngsModulus:
-        value: 4000.0
-        unit: MPa
-        confidence: 85
-        description: Elastic modulus in bending
-        min: 5
-        max: 25
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 32.7
@@ -80,20 +24,6 @@ materialProperties:
         source: Wood Science and Technology Database
         notes: Light woods 40-60%, dark woods 10-25%, highly dependent on species
           and finish
-      reflectivity:
-        value: 0.15
-        unit: '%'
-        confidence: 88
-        description: Low reflectivity at common laser cleaning wavelengths
-        min: 10
-        max: 60
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 82
-        description: Minimum fluence required for material removal at 1064nm
-        min: 0.8
-        max: 1.8
       specificHeat:
         value: 1200.0
         unit: J·kg⁻¹·K⁻¹
@@ -125,15 +55,6 @@ materialProperties:
         description: Linear thermal expansion coefficient perpendicular to grain
         min: 3.0
         max: 60
-      thermalDestruction:
-        point:
-          value: 302.0
-          unit: °C
-          min: 200
-          max: 500
-          confidence: 92
-          description: Thermal destruction point
-        type: carbonization
       absorptionCoefficient:
         value: 0.85
         unit: cm⁻¹
@@ -141,9 +62,43 @@ materialProperties:
         description: High absorption coefficient for common laser wavelengths (1064nm)
         min: 0.75
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 0.75
+        unit: g/cm³
+        confidence: 92
+        description: Medium density fiberboard typical density range
+        min: 0.12
+        max: 1.25
+      hardness:
+        value: 65.2
+        unit: N/mm²
+        confidence: 83
+        description: Brinell hardness on surface
+        min: 20
+        max: 5000
+      tensileStrength:
+        value: 40.0
+        unit: MPa
+        confidence: 84
+        description: Tensile strength perpendicular to surface
+        min: 20
+        max: 200
+      youngsModulus:
+        value: 4000.0
+        unit: MPa
+        confidence: 85
+        description: Elastic modulus in bending
+        min: 5
+        max: 25
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Furniture Manufacturing
 - Automotive Interior Components
@@ -231,13 +186,6 @@ machineSettings:
     description: Number of cleaning passes for complete contaminant removal
     min: 1
     max: 4
-  laserType:
-    value: Fiber Laser
-    unit: n/a
-    confidence: 90
-    description: Recommended laser type for MDF cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

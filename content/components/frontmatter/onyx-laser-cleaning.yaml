@@ -4,55 +4,8 @@ subcategory: mineral
 title: Onyx Laser Cleaning
 description: Laser cleaning parameters for Onyx
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.65
-        unit: g/cm³
-        confidence: 95
-        description: Average density of natural onyx (silicon dioxide mineral)
-        min: 1.5
-        max: 3.4
-      chemicalStability:
-        value: 9.2
-        unit: pH resistance scale
-        confidence: 90
-        description: Resistance to chemical attack (1-10 scale, 10=highest)
-        min: 8.0
-        max: 95.0
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 3.0
-        unit: Mohs
-        confidence: 95
-        description: Mohs hardness scale (quartz mineral family)
-        min: 1
-        max: 7
-      tensileStrength:
-        value: 15.2
-        unit: MPa
-        confidence: 92
-        description: tensileStrength from Materials.yaml
-        min: 2
-        max: 25
-      youngsModulus:
-        value: 68.3
-        unit: GPa
-        confidence: 85
-        description: Elastic modulus of crystalline silica
-        min: 10
-        max: 100
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 8.7
@@ -71,20 +24,6 @@ materialProperties:
         source: Geological Survey Optical Properties Database
         notes: Light colored stones 40-80%, dark stones 5-20%, varies with mineral
           composition
-      reflectivity:
-        value: 0.12
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at 1064 nm wavelength
-        min: 5
-        max: 80
-      ablationThreshold:
-        value: 2.8
-        unit: J/cm²
-        confidence: 82
-        description: Laser ablation threshold for nanosecond pulses
-        min: 1.2
-        max: 12.5
       laserDamageThreshold:
         value: 15
         unit: J/cm²
@@ -126,15 +65,6 @@ materialProperties:
         description: Coefficient of thermal expansion (20-100°C)
         min: 3
         max: 25
-      thermalDestruction:
-        point:
-          value: 1073.15
-          unit: K
-          min: 600
-          max: 1700
-          confidence: 92
-          description: Thermal destruction point
-        type: thermal_shock
       thermalDegradationPoint:
         value: 1073.15
         unit: K
@@ -149,9 +79,50 @@ materialProperties:
         description: Average absorption coefficient for IR lasers (1064 nm)
         min: 0.15
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.65
+        unit: g/cm³
+        confidence: 95
+        description: Average density of natural onyx (silicon dioxide mineral)
+        min: 1.5
+        max: 3.4
+      chemicalStability:
+        value: 9.2
+        unit: pH resistance scale
+        confidence: 90
+        description: Resistance to chemical attack (1-10 scale, 10=highest)
+        min: 8.0
+        max: 95.0
+      hardness:
+        value: 3.0
+        unit: Mohs
+        confidence: 95
+        description: Mohs hardness scale (quartz mineral family)
+        min: 1
+        max: 7
+      tensileStrength:
+        value: 15.2
+        unit: MPa
+        confidence: 92
+        description: tensileStrength from Materials.yaml
+        min: 2
+        max: 25
+      youngsModulus:
+        value: 68.3
+        unit: GPa
+        confidence: 85
+        description: Elastic modulus of crystalline silica
+        min: 10
+        max: 100
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Cultural Heritage
 - Architecture and Construction
@@ -239,13 +210,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 1
     max: 4
-  laserType:
-    value: Nd:YAG
-    unit: n/a
-    confidence: 90
-    description: Recommended laser type for Onyx cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

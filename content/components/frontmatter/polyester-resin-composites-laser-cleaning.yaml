@@ -4,64 +4,8 @@ subcategory: polyester resin composites
 title: Polyester Resin Composites Laser Cleaning
 description: Laser cleaning parameters for Polyester Resin Composites
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.38
-        unit: g/cm³
-        confidence: 92
-        description: Typical density range for unsaturated polyester resin composites
-          with glass fiber reinforcement
-        min: 0.5
-        max: 8
-      chemicalStability:
-        value: 7
-        unit: rating (1-10)
-        confidence: 86
-        description: Resistance to common solvents and chemicals (higher = better)
-        min: 7.0
-        max: 8.2
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 42.0
-        unit: Shore D
-        confidence: 87
-        description: Barcol hardness scale typical for cured polyester composites
-        min: 20
-        max: 90
-      tensileStrength:
-        value: 85
-        unit: MPa
-        confidence: 90
-        description: Typical tensile strength for glass fiber reinforced polyester
-          composites
-        min: 50
-        max: 6000
-      youngsModulus:
-        value: 2800.0
-        unit: MPa
-        confidence: 89
-        description: Elastic modulus in tension for standard polyester composites
-        min: 0.001
-        max: 500
-      flexuralStrength:
-        value: 140
-        unit: MPa
-        confidence: 88
-        description: Bending strength for glass fiber reinforced polyester composites
-        min: null
-        max: null
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 85.2
@@ -80,20 +24,6 @@ materialProperties:
         source: Composite Materials Handbook (MIL-HDBK-17)
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal
           matrix composites 40-80%'
-      reflectivity:
-        value: 0.25
-        unit: '%'
-        confidence: 81
-        description: Surface reflectivity at common laser wavelengths (1064 nm)
-        min: 2
-        max: 80
-      ablationThreshold:
-        value: 1.8
-        unit: J/cm²
-        confidence: 83
-        description: Minimum fluence required for material removal at 1064 nm wavelength
-        min: 0.8
-        max: 2.8
       laserDamageThreshold:
         value: 2.5
         unit: J/cm²
@@ -133,15 +63,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion for polyester-glass composites
         min: -1
         max: 250
-      thermalDestruction:
-        point:
-          value: 623.0
-          unit: K
-          min: 150
-          max: 2000
-          confidence: 92
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 623.0
         unit: K
@@ -157,9 +78,59 @@ materialProperties:
           (1064 nm)
         min: 0.75
         max: 8500.0
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.38
+        unit: g/cm³
+        confidence: 92
+        description: Typical density range for unsaturated polyester resin composites
+          with glass fiber reinforcement
+        min: 0.5
+        max: 8
+      chemicalStability:
+        value: 7
+        unit: rating (1-10)
+        confidence: 86
+        description: Resistance to common solvents and chemicals (higher = better)
+        min: 7.0
+        max: 8.2
+      hardness:
+        value: 42.0
+        unit: Shore D
+        confidence: 87
+        description: Barcol hardness scale typical for cured polyester composites
+        min: 20
+        max: 90
+      tensileStrength:
+        value: 85
+        unit: MPa
+        confidence: 90
+        description: Typical tensile strength for glass fiber reinforced polyester
+          composites
+        min: 50
+        max: 6000
+      youngsModulus:
+        value: 2800.0
+        unit: MPa
+        confidence: 89
+        description: Elastic modulus in tension for standard polyester composites
+        min: 0.001
+        max: 500
+      flexuralStrength:
+        value: 120.0
+        unit: MPa
+        confidence: 88
+        description: Bending strength for glass fiber reinforced polyester composites
+        min: null
+        max: null
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Automotive
@@ -246,13 +217,6 @@ machineSettings:
     description: Recommended number of passes for complete contaminant removal
     min: 1
     max: 5
-  laserType:
-    value: Fiber Laser
-    unit: N/A
-    confidence: 90
-    description: Recommended laser type for polyester resin composite cleaning applications
-    min: null
-    max: null
 regulatoryStandards:
 - FDA 21 CFR 1040.10 - Laser Product Performance Standards
 - ANSI Z136.1 - Safe Use of Lasers

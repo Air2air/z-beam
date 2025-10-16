@@ -4,62 +4,8 @@ subcategory: polystyrene
 title: Polystyrene Laser Cleaning
 description: Laser cleaning parameters for Polystyrene
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 1.05
-        unit: g/cm³
-        confidence: 95
-        description: Density of general purpose polystyrene at room temperature
-        min: 0.85
-        max: 2.2
-      chemicalStability:
-        value: 70
-        unit: '% resistance'
-        confidence: 88
-        description: Resistance to weak acids and bases
-        min: null
-        max: null
-      porosity:
-        value: 0.5
-        unit: '%'
-        confidence: 80
-        description: Typical porosity in solid polystyrene
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 80.0
-        unit: MPa
-        confidence: 85
-        description: Rockwell M scale hardness
-        min: Shore A 10
-        max: Shore D 90
-      tensileStrength:
-        value: 45
-        unit: MPa
-        confidence: 90
-        description: Ultimate tensile strength
-        min: 10
-        max: 400
-      youngsModulus:
-        value: 3200.0
-        unit: MPa
-        confidence: 92
-        description: Elastic modulus in tension
-        min: 0.01
-        max: 5
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 65.2
@@ -78,13 +24,6 @@ materialProperties:
         source: Polymer Optical Properties Database
         notes: Highly variable with color, additives, and surface finish; translucent
           materials lower reflectivity
-      reflectivity:
-        value: 0.04
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at 1064 nm wavelength
-        min: 5
-        max: 95
       refractiveIndex:
         value: 1.59
         unit: ''
@@ -92,13 +31,6 @@ materialProperties:
         description: Refractive index at 589 nm wavelength
         min: 1.585
         max: 1.59
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 85
-        description: Laser ablation threshold for nanosecond pulses at 1064 nm
-        min: 0.8
-        max: 0.8
       laserDamageThreshold:
         value: 1.2
         unit: J/cm²
@@ -137,15 +69,6 @@ materialProperties:
         description: Coefficient of linear thermal expansion
         min: 10
         max: 200
-      thermalDestruction:
-        point:
-          value: 270.0
-          unit: °C
-          min: 80
-          max: 400
-          confidence: 95
-          description: Thermal destruction point
-        type: decomposition
       degradationPoint:
         value: 270.0
         unit: °C
@@ -160,9 +83,50 @@ materialProperties:
         description: Absorption coefficient at 1064 nm wavelength
         min: 0.12
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 1.05
+        unit: g/cm³
+        confidence: 95
+        description: Density of general purpose polystyrene at room temperature
+        min: 0.85
+        max: 2.2
+      chemicalStability:
+        value: 70
+        unit: '% resistance'
+        confidence: 88
+        description: Resistance to weak acids and bases
+        min: null
+        max: null
+      hardness:
+        value: 80.0
+        unit: MPa
+        confidence: 85
+        description: Rockwell M scale hardness
+        min: Shore A 10
+        max: Shore D 90
+      tensileStrength:
+        value: 45
+        unit: MPa
+        confidence: 90
+        description: Ultimate tensile strength
+        min: 10
+        max: 400
+      youngsModulus:
+        value: 3200.0
+        unit: MPa
+        confidence: 92
+        description: Elastic modulus in tension
+        min: 0.01
+        max: 5
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Electronics Manufacturing
 - Medical Device Manufacturing
@@ -204,13 +168,6 @@ machineSettings:
     description: Optimal repetition rate for efficient cleaning with thermal management
     min: 10
     max: 50
-  laserType:
-    value: Fiber Laser
-    unit: n/a
-    confidence: 85
-    description: Recommended laser type for Polystyrene cleaning applications
-    min: null
-    max: null
   pulseWidth:
     value: 100
     unit: ns

@@ -4,62 +4,8 @@ subcategory: Polytetrafluoroethylene (PTFE)
 title: PTFE Laser Cleaning
 description: Laser cleaning parameters for Polytetrafluoroethylene (PTFE)
 materialProperties:
-  material_properties:
-    label: Material Properties
-    properties:
-      density:
-        value: 2.2
-        unit: g/cm³
-        confidence: 95
-        description: Density of virgin PTFE at room temperature
-        min: 0.85
-        max: 2.2
-      chemicalStability:
-        value: 99
-        unit: '% resistance'
-        confidence: 95
-        description: Chemical resistance rating against common solvents
-        min: null
-        max: null
-      crystallineStructure:
-        value: 95
-        unit: '% crystallinity'
-        confidence: 90
-        description: Typical crystallinity percentage in processed PTFE
-        min: null
-        max: null
-    description: 'Intrinsic properties affecting secondary cleaning outcomes: surface
-      finish, contaminant adhesion, and process efficiency'
-    percentage: 40.0
-  structural_response:
-    label: Structural Response Properties
-    properties:
-      hardness:
-        value: 55
-        unit: Shore D
-        confidence: 85
-        description: Hardness on Shore D scale
-        min: Shore A 10
-        max: Shore D 90
-      tensileStrength:
-        value: 25
-        unit: MPa
-        confidence: 90
-        description: Tensile strength of unfilled PTFE
-        min: 10
-        max: 400
-      youngsModulus:
-        value: 500
-        unit: MPa
-        confidence: 88
-        description: Young's modulus at room temperature
-        min: 0.01
-        max: 5
-    description: 'Physical reaction to thermal stress: how material responds structurally
-      to rapid heating'
-    percentage: 18.2
-  energy_coupling:
-    label: Energy Coupling Properties
+  laser_material_interaction:
+    label: Laser-Material Interaction
     properties:
       laserAbsorption:
         value: 4.2
@@ -78,20 +24,6 @@ materialProperties:
         source: Polymer Optical Properties Database
         notes: Highly variable with color, additives, and surface finish; translucent
           materials lower reflectivity
-      reflectivity:
-        value: 0.08
-        unit: '%'
-        confidence: 80
-        description: Reflectivity at 1064 nm wavelength
-        min: 5
-        max: 95
-      ablationThreshold:
-        value: 0.8
-        unit: J/cm²
-        confidence: 82
-        description: Ablation threshold for nanosecond pulses at 1064 nm
-        min: 0.8
-        max: 0.8
       specificHeat:
         value: 1050
         unit: J/kg·K
@@ -123,15 +55,6 @@ materialProperties:
         description: Linear thermal expansion coefficient (20-100°C)
         min: 10
         max: 200
-      thermalDestruction:
-        point:
-          value: 327.0
-          unit: °C
-          confidence: 95
-          description: Thermal destruction point
-          min: 80
-          max: 400
-        type: decomposition
       absorptionCoefficient:
         value: 0.85
         unit: cm⁻¹
@@ -139,9 +62,57 @@ materialProperties:
         description: Absorption coefficient at 1064 nm wavelength
         min: 0.85
         max: 0.85
-    description: 'First-order photon coupling: how laser energy enters the material
-      vs. reflects away'
-    percentage: 16.4
+    description: Optical and thermal properties governing laser energy absorption,
+      reflection, propagation, and ablation thresholds
+    percentage: 47.3
+  material_characteristics:
+    label: Material Characteristics
+    properties:
+      density:
+        value: 2.2
+        unit: g/cm³
+        confidence: 95
+        description: Density of virgin PTFE at room temperature
+        min: 0.85
+        max: 2.2
+      chemicalStability:
+        value: 99
+        unit: '% resistance'
+        confidence: 95
+        description: Chemical resistance rating against common solvents
+        min: null
+        max: null
+      crystallineStructure:
+        value: 95
+        unit: '% crystallinity'
+        confidence: 90
+        description: Typical crystallinity percentage in processed PTFE
+        min: null
+        max: null
+      hardness:
+        value: 55
+        unit: Shore D
+        confidence: 85
+        description: Hardness on Shore D scale
+        min: Shore A 10
+        max: Shore D 90
+      tensileStrength:
+        value: 25
+        unit: MPa
+        confidence: 90
+        description: Tensile strength of unfilled PTFE
+        min: 10
+        max: 400
+      youngsModulus:
+        value: 500
+        unit: MPa
+        confidence: 88
+        description: Young's modulus at room temperature
+        min: 0.01
+        max: 5
+    description: Intrinsic physical, mechanical, chemical, and structural properties
+      affecting cleaning outcomes and material integrity
+    percentage: 52.7
 applications:
 - Aerospace
 - Medical Devices
