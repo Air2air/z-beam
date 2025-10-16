@@ -172,7 +172,7 @@ export function getThermalProperty(
   if (chemicalProperties.thermalDegradationPoint) {
     return {
       value: chemicalProperties.thermalDegradationPoint,
-      label: 'Thermal Degradation Point',
+      label: 'Thermal Degradation',
       schemaProperty: 'thermalDegradation',
       type: 'degradation'
     };

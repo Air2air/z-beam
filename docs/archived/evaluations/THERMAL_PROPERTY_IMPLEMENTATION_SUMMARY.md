@@ -30,7 +30,7 @@ Modified the `SEOOptimizedCaption` component to dynamically display scientifical
 **Why:** Ceramics sinter (particle fusion) or decompose chemically  
 **Temp Range:** 600-1400°C
 
-### 🪨 Rocks (Thermal Degradation Point)
+### 🪨 Rocks (Thermal Degradation)
 **Count:** ~15 materials  
 **Examples:** granite, marble, limestone, slate, basalt  
 **Why:** Rocks undergo structural breakdown, not melting at accessible temperatures  
@@ -120,7 +120,7 @@ Test various material pages to verify correct labels:
 /materials/ceramic/porcelain-laser-cleaning
 /materials/ceramic/brick-laser-cleaning
 
-# Rocks → "Thermal Degradation Point"
+# Rocks → "Thermal Degradation"
 /materials/stone/granite-laser-cleaning
 /materials/stone/marble-laser-cleaning
 

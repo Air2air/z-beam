@@ -132,7 +132,7 @@ const TITLE_MAPPING: Record<string, string> = {
           if (normalized.includes('decompos')) return 'Decomposition Point';
           if (normalized.includes('degrad')) return 'Degradation Point';
           if (normalized.includes('soften')) return 'Softening Point';
-          if (normalized.includes('structural')) return 'Thermal Degradation Point';
+          if (normalized.includes('structural')) return 'Thermal Degradation';
         }
         return thermalProperty.label; // Fallback to getThermalPropertyLabel()
       })()}:
@@ -149,7 +149,7 @@ const TITLE_MAPPING: Record<string, string> = {
 **Smart Label Conversion**: Inline function converts YAML thermal types to proper display labels:
 - `"Melting"` → "Melting Point"
 - `"Sintering"` → "Sintering Point"
-- `"Structural breakdown"` → "Thermal Degradation Point"
+- `"Structural breakdown"` → "Thermal Degradation"
 - `"Matrix degradation"` → "Degradation Point"
 - `"Softening"` → "Softening Point"
 - `"Decomposition"` → "Decomposition Point"
@@ -306,9 +306,9 @@ materialProperties:
   thermalDestructionPoint:
     value: 1215
     unit: °C
-  thermalDestructionType: Structural breakdown  # System converts to "Thermal Degradation Point"
+  thermalDestructionType: Structural breakdown  # System converts to "Thermal Degradation"
 ```
-**Displays**: "Thermal Degradation Point: 1215°C"
+**Displays**: "Thermal Degradation: 1215°C"
 
 ### Polycarbonate (Polymer)
 ```yaml

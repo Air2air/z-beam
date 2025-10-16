@@ -175,7 +175,7 @@ The system should convert `thermalDestructionType` values to proper display labe
 | `Melting` | "Melting Pt" / "Melting Point" | ✅ |
 | `Sintering` | "Sintering Pt" / "Sintering Point" | ✅ |
 | `Decomposition` | "Decomp. Pt" / "Decomposition Point" | ✅ |
-| `Structural breakdown` | "Thermal Deg. Pt" / "Thermal Degradation Point" | ✅ |
+| `Structural breakdown` | "Thermal Deg. Pt" / "Thermal Degradation" | ✅ |
 | `Matrix degradation` | "Degradation Pt" / "Degradation Point" | ✅ |
 | `Degradation` | "Degradation Pt" / "Degradation Point" | ✅ |
 | `Softening` | "Softening Pt" / "Softening Point" | ✅ |

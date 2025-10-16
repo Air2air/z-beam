@@ -61,7 +61,7 @@ Function: `getThermalPropertyLabel(materialName: string)`
 
 ---
 
-### 4. **Thermal Degradation Point**
+### 4. **Thermal Degradation**
 **Used for:** Natural stone that structurally breaks down at extreme temperatures
 
 **Materials:**
@@ -162,7 +162,7 @@ The component also updates the semantic property name:
 | Melting Point | `meltingPoint` |
 | Decomposition Point | `decompositionTemperature` |
 | Sintering/Decomposition Point | `sinteringTemperature` |
-| Thermal Degradation Point | `thermalDegradation` |
+| Thermal Degradation | `thermalDegradation` |
 | Degradation Point | `degradationTemperature` |
 | Softening/Melting Point | `softeningPoint` |
 
@@ -212,7 +212,7 @@ Test with various materials to verify correct labels:
 - porcelain-laser-cleaning
 - brick-laser-cleaning
 
-# Rocks should show "Thermal Degradation Point"
+# Rocks should show "Thermal Degradation"
 - granite-laser-cleaning
 - marble-laser-cleaning
 

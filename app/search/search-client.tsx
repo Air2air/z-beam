@@ -190,11 +190,15 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         
         // Numeric matching with reasonable tolerance
         let numericMatch = false;
-        const searchNum = parseFloat(String(propertyValue).replace(/[^\d.-]/g, ''));
         
-        if (!isNaN(searchNum)) {
-          // Check if value is a range (e.g., "400-600" or "400–600")
-          const rangeMatch = String(prop.value).match(/(\d+\.?\d*)\s*[-–]\s*(\d+\.?\d*)/);
+        // Extract numeric values more carefully, preserving decimals
+        const searchNum = parseFloat(searchVal.match(/[\d.]+/)?.[0] || searchVal);
+        const propValString = actualVal.match(/[\d.]+/)?.[0] || actualVal;
+        const propNum = parseFloat(propValString);
+        
+        if (!isNaN(searchNum) && !isNaN(propNum)) {
+          // Check if property value is a range (e.g., "400-600" or "400–600")
+          const rangeMatch = actualVal.match(/([\d.]+)\s*[-–]\s*([\d.]+)/);
           
           if (rangeMatch) {
             // Value is a range - check if search value falls within it
@@ -202,13 +206,9 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
             const rangeMax = parseFloat(rangeMatch[2]);
             numericMatch = searchNum >= rangeMin && searchNum <= rangeMax;
           } else {
-            // Single numeric value - check with tolerance
-            const propNum = parseFloat(String(prop.value).replace(/[^\d.-]/g, ''));
-            if (!isNaN(propNum)) {
-              // 10% tolerance for numeric comparison
-              const tolerance = Math.max(Math.abs(searchNum * 0.1), 1);
-              numericMatch = Math.abs(propNum - searchNum) <= tolerance;
-            }
+            // Single numeric value - check with 10% tolerance
+            const tolerance = Math.max(Math.abs(searchNum * 0.1), 0.1);
+            numericMatch = Math.abs(propNum - searchNum) <= tolerance;
           }
         }
         
