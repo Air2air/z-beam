@@ -9,10 +9,10 @@ import './accessibility.css';
 
 // Category configuration for visual distinction
 // Standardized to 2 categories used in frontmatter files
-// Using new vibrant palette that complements bg-gray-700
+// Using new color scheme: burgundy for material characteristics, gold for laser interaction
 const CATEGORY_CONFIG = {
-  laser_material_interaction: { icon: '�', color: '#6C5CE7', label: 'Laser-Material Interaction', order: 1 }, // Rich purple-blue - optical/thermal
-  material_characteristics: { icon: '📊', color: '#00D9A3', label: 'Material Characteristics', order: 2 } // Teal-emerald - physical/mechanical
+  laser_material_interaction: { icon: '💡', color: '#ca963f', label: 'Laser-Material Interaction', order: 1 }, // Gold - optical/thermal
+  material_characteristics: { icon: '📊', color: '#80343e', label: 'Material Characteristics', order: 2 } // Burgundy - physical/mechanical
 } as const;
 
 // Grid layout configurations
@@ -264,7 +264,7 @@ function extractCardsFromMachineSettings(
   machineSettings: Record<string, any>
 ): MetricsCardProps[] {
   const cards: MetricsCardProps[] = [];
-  const defaultColor = '#FF6B6B'; // Coral red from new palette
+  const defaultColor = '#27739d'; // Blue for machine settings
   
   Object.entries(machineSettings).forEach(([key, value]) => {
     if (!value || typeof value !== 'object') return;

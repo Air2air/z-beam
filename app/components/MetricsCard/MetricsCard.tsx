@@ -26,43 +26,48 @@ import './accessibility.css';
 // Color theme configuration - New vibrant palette complementing bg-gray-700
 const COLOR_THEMES = {
   // Coral Red - warm and energetic
-  '#FF6B6B': { titleColor: 'text-white', valueColor: 'text-white/95' },
-  '#EF4444': { titleColor: 'text-white', valueColor: 'text-white/95' },
-  '#DC2626': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#FF6B6B': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#EF4444': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#DC2626': { titleColor: 'text-white', valueColor: 'text-white' },
   
   // Bright Yellow - optimistic and clear
-  '#FFD93D': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
-  '#FFE66D': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
-  '#FBBF24': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#FFD93D': { titleColor: 'text-white', valueColor: 'text-gray-900' },
+  '#FFE66D': { titleColor: 'text-white', valueColor: 'text-gray-900' },
+  '#FBBF24': { titleColor: 'text-white', valueColor: 'text-gray-900' },
   
   // Rich Purple-Blue - professional and modern
-  '#6C5CE7': { titleColor: 'text-white', valueColor: 'text-white/95' },
-  '#4F46E5': { titleColor: 'text-white', valueColor: 'text-white/95' },
-  '#3B82F6': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#6C5CE7': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#4F46E5': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#3B82F6': { titleColor: 'text-white', valueColor: 'text-white' },
   
   // Teal-Emerald - fresh and technical
-  '#00D9A3': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
-  '#10B981': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#00D9A3': { titleColor: 'text-white', valueColor: 'text-gray-900' },
+  '#10B981': { titleColor: 'text-white', valueColor: 'text-gray-900' },
   
   // Vibrant Violet - creative and distinctive
-  '#A855F7': { titleColor: 'text-white', valueColor: 'text-white/95' },
-  '#8B5CF6': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#A855F7': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#8B5CF6': { titleColor: 'text-white', valueColor: 'text-white' },
   
   // Warm Orange - energetic complement
-  '#FF8C42': { titleColor: 'text-white', valueColor: 'text-white/95' },
-  '#F59E0B': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#FF8C42': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#F59E0B': { titleColor: 'text-white', valueColor: 'text-gray-900' },
   
   // Bright Cyan - clean and technical
-  '#4ECDC4': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
-  '#A8DADC': { titleColor: 'text-white', valueColor: 'text-gray-900/95' },
+  '#4ECDC4': { titleColor: 'text-white', valueColor: 'text-gray-900' },
+  '#A8DADC': { titleColor: 'text-white', valueColor: 'text-gray-900' },
+  
+  // New color scheme colors
+  '#80343e': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#ca963f': { titleColor: 'text-white', valueColor: 'text-white' },
+  '#27739d': { titleColor: 'text-white', valueColor: 'text-white' },
   
   // Gray fallback
-  '#6B7280': { titleColor: 'text-white', valueColor: 'text-white/95' },
+  '#6B7280': { titleColor: 'text-white', valueColor: 'text-white' },
 };
 
 // Get theme for a color, default to light text
 const getColorTheme = (color: string) => {
-  return COLOR_THEMES[color as keyof typeof COLOR_THEMES] || { titleColor: 'text-white/90', valueColor: 'text-white/90' };
+  return COLOR_THEMES[color as keyof typeof COLOR_THEMES] || { titleColor: 'text-white', valueColor: 'text-white' };
 };
 
 // Single MetricsCard component - represents one metric with progress bar
@@ -202,9 +207,9 @@ export function MetricsCard({
 
   // Create opacity gradient using opacity values from CSS variables
   // Note: CSS variables can't be concatenated in inline styles, so we use fixed opacity values
-  // These match the values defined in colors.css - subtle gradient for smoother appearance
-  const bgGradient = `linear-gradient(to bottom, ${color}70, ${color}68, ${color}60, ${color}58, ${color}50)`;
-  const hoverBgGradient = `linear-gradient(to bottom, ${color}80, ${color}78, ${color}70, ${color}68, ${color}60)`;
+  // Increased opacity values for more vibrant, saturated appearance
+  const bgGradient = `linear-gradient(to bottom, ${color}85, ${color}82, ${color}78, ${color}75, ${color}70)`;
+  const hoverBgGradient = `linear-gradient(to bottom, ${color}95, ${color}92, ${color}88, ${color}85, ${color}80)`;
   
   // Enhanced styles with accessibility features
   const focusStyles = 'focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-offset-2';
