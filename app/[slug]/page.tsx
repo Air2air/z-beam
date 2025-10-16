@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { getArticle } from "../utils/contentAPI"; // Updated to use contentAPI
 import { Layout } from "../components/Layout/Layout";
+import { MaterialJsonLD } from "../components/JsonLD/JsonLD";
 import { createMetadata, ArticleMetadata } from "../utils/metadata";
 import { getTagsContentWithMatchCounts } from "../utils/tags";
 import { getAllArticleSlugs } from "../utils/contentAPI";
-import { createJsonLdForArticle } from "../utils/jsonld-helper";
 import { PageProps } from "../../types";
 import { SITE_CONFIG } from "../utils/constants";
 
@@ -96,9 +96,6 @@ export default async function ArticlePage({ params }: PageProps) {
     // Load tags content with match counts for this article
     const { content: tagsContent, counts: tagCounts } = await getTagsContentWithMatchCounts(slug);
     
-    // Create JSON-LD schemas for this article
-    const jsonLdSchema = createJsonLdForArticle(article, slug);
-    
     // Prepare the components object with tags content and counts
     const components = article.components || {};
     
@@ -114,18 +111,23 @@ export default async function ArticlePage({ params }: PageProps) {
       };
     }
     
-    // Return the article layout with JSON-LD schema
+    // Return the article layout with comprehensive E-E-A-T optimized JSON-LD
     return (
       <>
-        {/* Comprehensive JSON-LD Structured Data */}
-        {jsonLdSchema && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(jsonLdSchema, null, 2)
-            }}
-          />
-        )}
+        {/* 
+          Comprehensive JSON-LD Structured Data with E-E-A-T Optimization
+          Automatically generates 8 schema types from frontmatter:
+          - TechnicalArticle, Product, HowTo, Dataset, BreadcrumbList, 
+            WebPage, Person, Certification
+          
+          Dynamically extracts all frontmatter fields including:
+          - materialProperties (all categories with confidence scores)
+          - machineSettings (all parameters)
+          - author profile with credentials
+          - applications, environmentalImpact, outcomeMetrics
+          - regulatoryStandards for compliance
+        */}
+        <MaterialJsonLD article={article} slug={slug} />
         
         <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={slug} />
       </>

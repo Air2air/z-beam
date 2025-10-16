@@ -1,6 +1,7 @@
 // app/components/JsonLD/JsonLD.tsx
 import React from 'react';
 import { SITE_CONFIG } from '../../utils/constants';
+import { createJsonLdForArticle } from '../../utils/jsonld-helper';
 import type { 
   JsonLdProps, 
   PersonSchema, 
@@ -12,12 +13,60 @@ import type {
 
 /**
  * Component to render JSON-LD structured data
+ * 
+ * @param data - Pre-generated JSON-LD schema object
+ * @returns Script tag with JSON-LD structured data
  */
 export function JsonLD({ data }: JsonLdProps) {
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+/**
+ * Enhanced component for material/article pages with comprehensive E-E-A-T optimized schemas
+ * 
+ * Automatically generates all 8 schema types from frontmatter:
+ * - TechnicalArticle (expertise & authority)
+ * - Product (material specifications with confidence scores)
+ * - HowTo (process steps from machineSettings)
+ * - Dataset (verified measurements with provenance)
+ * - BreadcrumbList (navigation)
+ * - WebPage (page metadata)
+ * - Person (author credentials)
+ * - Certification (regulatory compliance)
+ * 
+ * @param article - Article object with frontmatter from contentAPI
+ * @param slug - Page slug for URL generation
+ * @returns Script tag with comprehensive @graph JSON-LD structure
+ * 
+ * @example
+ * ```tsx
+ * <MaterialJsonLD article={article} slug={slug} />
+ * ```
+ */
+export function MaterialJsonLD({ 
+  article, 
+  slug 
+}: { 
+  article: any; 
+  slug: string;
+}) {
+  const jsonLdSchema = createJsonLdForArticle(article, slug);
+  
+  if (!jsonLdSchema) {
+    return null;
+  }
+  
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLdSchema, null, 2)
+      }}
     />
   );
 }

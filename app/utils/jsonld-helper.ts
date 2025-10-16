@@ -1,114 +1,475 @@
 import 'server-only';
-import fs from 'fs';
-import path from 'path';
+import { SITE_CONFIG } from './constants';
 
-// Simple utility to load and populate comprehensive article schema
+/**
+ * Enhanced JSON-LD Schema Generator with Full Frontmatter Integration
+ * Optimized for Google E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
+ * 
+ * E-E-A-T Implementation:
+ * - Experience: Detailed process data, real-world applications, outcome metrics
+ * - Expertise: Author credentials, technical specifications, confidence scores
+ * - Authoritativeness: Source citations, regulatory standards, industry references
+ * - Trustworthiness: Verification metadata, data provenance, transparent confidence levels
+ */
 export function createJsonLdForArticle(articleData: any, slug: string) {
-  const schemasDir = path.join(process.cwd(), 'app/utils/schemas');
-  
   try {
-    // Load comprehensive article schema template
-    const schemaTemplate = JSON.parse(
-      fs.readFileSync(path.join(schemasDir, 'comprehensive-article-schema.json'), 'utf8')
-    );
-    
-    // Extract data from your article
     const metadata = articleData.metadata || {};
-    const frontmatter = articleData.frontmatter || {};
-    const properties = frontmatter.properties || {};
-    const laserSettings = frontmatter.laserSettings || {};
+    const frontmatter = articleData.frontmatter || metadata;
     
-    // Basic article info
-    const title = metadata.title || frontmatter.title || 'Material Cleaning Guide';
-    const description = metadata.description || frontmatter.description || `Comprehensive laser cleaning guide for ${title}`;
-    const category = metadata.category || frontmatter.category || 'material';
-    const keywords = metadata.keywords || frontmatter.keywords || [];
-    const authorRaw = metadata.author || frontmatter.author || 'Z-Beam Technical Team';
-    const author = typeof authorRaw === 'string' ? authorRaw : (authorRaw?.name || 'Z-Beam Technical Team');
-    
-    // Material properties
-    const materialName = title.replace(/\s*Laser Cleaning$/i, '').replace(/\s*Cleaning$/i, '');
-    const density = properties.density || '';
-    const densityUnit = properties.densityUnit || 'g/cm³';
-    const thermalConductivity = properties.thermalConductivity || '';
-    const thermalUnit = properties.thermalConductivityUnit || 'W/m·K';
-    const meltingPoint = properties.meltingPoint || '';
-    const meltingPointUnit = properties.meltingPointUnit || '°C';
-    
-    // Laser parameters
-    const laserType = laserSettings.type || 'Fiber';
-    const laserPower = laserSettings.power || laserSettings.powerRange || '100';
-    const laserWavelength = laserSettings.wavelength || '1064';
-    
-    // Process timing
-    const processTime = '15';
-    const cleaningTime = '10';
-    
-    // Applications
+    // Extract all frontmatter data
+    const materialProperties = frontmatter.materialProperties || {};
+    const machineSettings = frontmatter.machineSettings || {};
+    const author = frontmatter.author || {};
+    const images = frontmatter.images || {};
     const applications = frontmatter.applications || [];
-    const primaryApp = applications[0] || 'Industrial Manufacturing';
-    const secondaryApp = applications[1] || 'Surface Preparation';
+    const environmentalImpact = frontmatter.environmentalImpact || [];
+    const outcomeMetrics = frontmatter.outcomeMetrics || [];
+    const regulatoryStandards = frontmatter.regulatoryStandards || [];
+    const caption = frontmatter.caption || {};
     
-    // Word count estimation (rough)
-    const wordCount = articleData.content ? articleData.content.split(' ').length : 500;
+    // Basic info
+    const title = frontmatter.title || metadata.title || 'Material Guide';
+    const description = frontmatter.description || metadata.description || '';
+    const subtitle = frontmatter.subtitle || '';
+    const materialName = frontmatter.name || title.replace(/\s*Laser Cleaning$/i, '');
+    const category = frontmatter.category || metadata.category || 'material';
+    const subcategory = frontmatter.subcategory || '';
     
-    // Category display name
-    const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1) + 's';
-    
-    // Get current date
+    // Dates
     const currentDate = new Date().toISOString();
-    const publishDate = metadata.datePublished || frontmatter.datePublished || currentDate;
-    const modifiedDate = metadata.dateModified || frontmatter.lastModified || currentDate;
+    const publishDate = frontmatter.datePublished || metadata.datePublished || currentDate;
+    const modifiedDate = frontmatter.dateModified || metadata.dateModified || currentDate;
     
-    // Replace all placeholders in the comprehensive schema
-    const populatedSchema = JSON.stringify(schemaTemplate, null, 2)
-      // Basic article info
-      .replace(/{{SLUG}}/g, slug)
-      .replace(/{{ARTICLE_TITLE}}/g, title)
-      .replace(/{{ARTICLE_DESCRIPTION}}/g, description)
-      .replace(/{{ARTICLE_CATEGORY}}/g, category)
-      .replace(/{{AUTHOR_NAME}}/g, author)
-      .replace(/{{KEYWORDS}}/g, Array.isArray(keywords) ? keywords.join(', ') : keywords)
-      .replace(/{{DATE_PUBLISHED}}/g, publishDate)
-      .replace(/{{DATE_MODIFIED}}/g, modifiedDate)
-      .replace(/{{WORD_COUNT}}/g, wordCount.toString())
-      
-      // Material info
-      .replace(/{{MATERIAL_NAME}}/g, materialName)
-      .replace(/{{MATERIAL_DESCRIPTION}}/g, `Industrial laser cleaning parameters and applications for ${materialName}`)
-      .replace(/{{MATERIAL_CATEGORY}}/g, category)
-      .replace(/{{MATERIAL_CATEGORY_DISPLAY}}/g, categoryDisplay)
-      
-      // Material properties
-      .replace(/{{DENSITY_VALUE}}/g, density.toString())
-      .replace(/{{DENSITY_UNIT}}/g, densityUnit)
-      .replace(/{{DENSITY_UNIT_CODE}}/g, densityUnit === 'g/cm³' ? 'GramPerCubicMeter' : 'GramPerCubicMeter')
-      .replace(/{{THERMAL_CONDUCTIVITY}}/g, thermalConductivity.toString())
-      .replace(/{{THERMAL_UNIT}}/g, thermalUnit)
-      .replace(/{{THERMAL_UNIT_CODE}}/g, thermalUnit === 'W/m·K' ? 'WattPerMeterKelvin' : 'WattPerMeterKelvin')
-      .replace(/{{MELTING_POINT}}/g, meltingPoint.toString())
-      .replace(/{{MELTING_POINT_UNIT}}/g, meltingPointUnit)
-      .replace(/{{MELTING_POINT_UNIT_CODE}}/g, meltingPointUnit === '°C' ? 'Celsius' : 'Celsius')
-      
-      // Laser parameters
-      .replace(/{{LASER_TYPE}}/g, laserType)
-      .replace(/{{LASER_POWER}}/g, laserPower.toString())
-      .replace(/{{LASER_WAVELENGTH}}/g, laserWavelength.toString())
-      
-      // Process timing
-      .replace(/{{PROCESS_TIME}}/g, processTime)
-      .replace(/{{CLEANING_TIME}}/g, cleaningTime)
-      
-      // Applications
-      .replace(/{{PRIMARY_APPLICATION}}/g, primaryApp)
-      .replace(/{{SECONDARY_APPLICATION}}/g, secondaryApp);
+    // Build comprehensive schema using @graph pattern
+    const baseUrl = SITE_CONFIG.url || 'https://z-beam.com';
+    const pageUrl = `${baseUrl}/${slug}`;
     
-    return JSON.parse(populatedSchema);
+    const schema = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        // 1. Main TechnicalArticle (E-E-A-T: Experience & Expertise)
+        createTechnicalArticleSchema(
+          { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications }
+        ),
+        
+        // 2. Material Product Schema (E-E-A-T: Authoritativeness)
+        createMaterialProductSchema(
+          { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact }
+        ),
+        
+        // 3. HowTo Schema (E-E-A-T: Experience)
+        createHowToSchema(
+          { materialName, machineSettings, outcomeMetrics, pageUrl }
+        ),
+        
+        // 4. Dataset Schema for Material Properties (E-E-A-T: Trustworthiness)
+        createDatasetSchema(
+          { materialName, materialProperties, pageUrl, modifiedDate }
+        ),
+        
+        // 5. BreadcrumbList
+        createBreadcrumbSchema(slug, title, category),
+        
+        // 6. WebPage
+        createWebPageSchema(pageUrl, title, description, publishDate, modifiedDate),
+        
+        // 7. Author/Expert Profile (E-E-A-T: Expertise & Authoritativeness)
+        createAuthorSchema(author),
+        
+        // 8. Regulatory Compliance (E-E-A-T: Trustworthiness)
+        ...(regulatoryStandards.length > 0 ? [createComplianceSchema(regulatoryStandards, materialName)] : [])
+      ].filter(Boolean) // Remove any null/undefined entries
+    };
+    
+    return schema;
     
   } catch (error) {
     console.error('Error creating comprehensive JSON-LD schema:', error);
     return null;
   }
+}
+
+/**
+ * Schema Builder Functions
+ * Each function creates a specific schema.org type optimized for E-E-A-T
+ */
+
+// 1. Technical Article Schema (E-E-A-T: Experience & Expertise)
+function createTechnicalArticleSchema(data: any) {
+  const { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications } = data;
+  const baseUrl = SITE_CONFIG.url;
+  
+  return {
+    '@type': 'TechnicalArticle',
+    '@id': `${pageUrl}#article`,
+    headline: title,
+    description: description || subtitle,
+    abstract: subtitle,
+    articleBody: caption?.beforeText ? `${caption.beforeText}\n\n${caption.afterText}` : description,
+    
+    // E-E-A-T: Author Expertise
+    author: {
+      '@type': 'Person',
+      '@id': `${baseUrl}#author-${author?.id || 'expert'}`,
+      name: author?.name || 'Z-Beam Technical Team',
+      jobTitle: author?.title || 'Ph.D.',
+      worksFor: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.shortName || 'Z-Beam'
+      },
+      knowsAbout: author?.expertise || applications,
+      nationality: author?.country
+    },
+    
+    // E-E-A-T: Publisher Authoritativeness
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.shortName || 'Z-Beam',
+      url: baseUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/logo.png`,
+        width: 512,
+        height: 512
+      }
+    },
+    
+    // Dates for freshness signals
+    datePublished: publishDate,
+    dateModified: modifiedDate,
+    
+    // Images
+    ...(images?.hero?.url && {
+      image: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}${images.hero.url}`,
+        caption: images.hero.alt || caption?.description
+      }
+    }),
+    
+    // Article metadata
+    url: pageUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl
+    },
+    
+    // E-E-A-T: Experience - application areas
+    about: applications.map((app: string) => ({
+      '@type': 'Thing',
+      name: app
+    })),
+    
+    inLanguage: 'en-US',
+    isAccessibleForFree: true
+  };
+}
+
+// 2. Material Product Schema (E-E-A-T: Authoritativeness with verified data)
+function createMaterialProductSchema(data: any) {
+  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact } = data;
+  
+  // Extract properties from categorized structure
+  const properties: any[] = [];
+  
+  if (materialProperties) {
+    Object.entries(materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
+      if (categoryData?.properties) {
+        Object.entries(categoryData.properties).forEach(([propKey, propData]: [string, any]) => {
+          if (propData?.value !== undefined) {
+            properties.push({
+              '@type': 'PropertyValue',
+              name: propKey.replace(/([A-Z])/g, ' $1').trim(),
+              value: propData.value,
+              unitText: propData.unit || '',
+              // E-E-A-T: Trustworthiness - show confidence and sources
+              description: propData.description,
+              ...(propData.confidence && { 
+                additionalProperty: {
+                  '@type': 'PropertyValue',
+                  name: 'Confidence Score',
+                  value: propData.confidence,
+                  unitText: '%'
+                }
+              }),
+              ...(propData.source && { citation: propData.source })
+            });
+          }
+        });
+      }
+    });
+  }
+  
+  return {
+    '@type': 'Product',
+    '@id': `${pageUrl}#material`,
+    name: materialName,
+    description: description,
+    category: `${category}${subcategory ? ` - ${subcategory}` : ''}`,
+    
+    // Material-specific properties with confidence scores (E-E-A-T: Trustworthiness)
+    additionalProperty: properties,
+    
+    // Applications as use cases
+    applicationCategory: applications,
+    
+    // Environmental benefits (E-E-A-T: Experience)
+    ...(environmentalImpact.length > 0 && {
+      sustainability: environmentalImpact.map((impact: any) => ({
+        '@type': 'DefinedTerm',
+        name: impact.benefit,
+        description: impact.description,
+        ...(impact.quantifiedBenefits && { value: impact.quantifiedBenefits })
+      }))
+    }),
+    
+    // Brand
+    brand: {
+      '@type': 'Brand',
+      name: SITE_CONFIG.shortName || 'Z-Beam'
+    }
+  };
+}
+
+// 3. HowTo Schema (E-E-A-T: Experience with detailed process)
+function createHowToSchema(data: any) {
+  const { materialName, machineSettings, outcomeMetrics, pageUrl } = data;
+  
+  // Build steps from machine settings
+  const steps: any[] = [];
+  if (machineSettings) {
+    let stepNumber = 1;
+    
+    if (machineSettings.powerRange) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Laser Power',
+        text: `Configure laser power to ${machineSettings.powerRange.value} ${machineSettings.powerRange.unit}`,
+        description: machineSettings.powerRange.description
+      });
+    }
+    
+    if (machineSettings.wavelength) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Configure Wavelength',
+        text: `Set wavelength to ${machineSettings.wavelength.value} ${machineSettings.wavelength.unit}`,
+        description: machineSettings.wavelength.description
+      });
+    }
+    
+    if (machineSettings.spotSize) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Adjust Spot Size',
+        text: `Set beam spot size to ${machineSettings.spotSize.value} ${machineSettings.spotSize.unit}`,
+        description: machineSettings.spotSize.description
+      });
+    }
+    
+    if (machineSettings.scanSpeed) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Scanning Speed',
+        text: `Configure scanning speed to ${machineSettings.scanSpeed.value} ${machineSettings.scanSpeed.unit}`,
+        description: machineSettings.scanSpeed.description
+      });
+    }
+  }
+  
+  return steps.length > 0 ? {
+    '@type': 'HowTo',
+    '@id': `${pageUrl}#howto`,
+    name: `How to Clean ${materialName} with Laser`,
+    description: `Step-by-step process for laser cleaning ${materialName} surfaces`,
+    step: steps,
+    
+    // Expected outcomes (E-E-A-T: Experience)
+    ...(outcomeMetrics.length > 0 && {
+      expectedOutput: outcomeMetrics.map((metric: any) => ({
+        '@type': 'DefinedTerm',
+        name: metric.metric,
+        description: metric.description,
+        ...(metric.typicalRanges && { value: metric.typicalRanges })
+      }))
+    }),
+    
+    // Time estimate
+    totalTime: 'PT15M',
+    
+    // Supply needed
+    supply: {
+      '@type': 'HowToSupply',
+      name: 'Laser Cleaning System'
+    }
+  } : null;
+}
+
+// 4. Dataset Schema (E-E-A-T: Trustworthiness with data provenance)
+function createDatasetSchema(data: any) {
+  const { materialName, materialProperties, pageUrl, modifiedDate } = data;
+  
+  // Calculate total property count
+  let propertyCount = 0;
+  const measurements: any[] = [];
+  
+  if (materialProperties) {
+    Object.entries(materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
+      if (categoryData?.properties) {
+        Object.entries(categoryData.properties).forEach(([propKey, propData]: [string, any]) => {
+          if (propData?.value !== undefined) {
+            propertyCount++;
+            measurements.push({
+              '@type': 'Observation',
+              measuredProperty: propKey,
+              measuredValue: {
+                '@type': 'QuantitativeValue',
+                value: propData.value,
+                unitText: propData.unit
+              },
+              // E-E-A-T: Trustworthiness - verification metadata
+              ...(propData.metadata?.last_verified && {
+                observationDate: propData.metadata.last_verified
+              }),
+              ...(propData.source && { citation: propData.source })
+            });
+          }
+        });
+      }
+    });
+  }
+  
+  return propertyCount > 0 ? {
+    '@type': 'Dataset',
+    '@id': `${pageUrl}#dataset`,
+    name: `${materialName} Material Properties Dataset`,
+    description: `Comprehensive material properties and laser cleaning parameters for ${materialName}`,
+    
+    // E-E-A-T: Trustworthiness - data provenance
+    dateModified: modifiedDate,
+    version: '1.0',
+    
+    // Dataset size
+    distribution: {
+      '@type': 'DataDownload',
+      encodingFormat: 'application/ld+json',
+      contentUrl: pageUrl
+    },
+    
+    // Measurements with confidence scores
+    variableMeasured: measurements.slice(0, 10), // Limit to top 10 for size
+    
+    // Publisher
+    creator: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.shortName || 'Z-Beam'
+    },
+    
+    // License
+    license: 'https://creativecommons.org/licenses/by/4.0/'
+  } : null;
+}
+
+// 5. Breadcrumb Schema
+function createBreadcrumbSchema(slug: string, title: string, category: string) {
+  const baseUrl = SITE_CONFIG.url;
+  
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': `${baseUrl}/${slug}#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: baseUrl
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: category.charAt(0).toUpperCase() + category.slice(1),
+        item: `${baseUrl}/${category}`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: `${baseUrl}/${slug}`
+      }
+    ]
+  };
+}
+
+// 6. WebPage Schema
+function createWebPageSchema(pageUrl: string, title: string, description: string, publishDate: string, modifiedDate: string) {
+  return {
+    '@type': 'WebPage',
+    '@id': pageUrl,
+    url: pageUrl,
+    name: title,
+    description: description,
+    datePublished: publishDate,
+    dateModified: modifiedDate,
+    inLanguage: 'en-US',
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${SITE_CONFIG.url}#website`,
+      url: SITE_CONFIG.url,
+      name: SITE_CONFIG.shortName || 'Z-Beam',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${SITE_CONFIG.url}/search?q={search_term_string}`,
+        'query-input': 'required name=search_term_string'
+      }
+    }
+  };
+}
+
+// 7. Author Schema (E-E-A-T: Expertise & Authoritativeness)
+function createAuthorSchema(author: any) {
+  if (!author || !author.name) return null;
+  
+  const baseUrl = SITE_CONFIG.url;
+  
+  return {
+    '@type': 'Person',
+    '@id': `${baseUrl}#author-${author.id || 'expert'}`,
+    name: author.name,
+    ...(author.title && { honorificSuffix: author.title }),
+    ...(author.expertise && { 
+      knowsAbout: Array.isArray(author.expertise) ? author.expertise : [author.expertise]
+    }),
+    ...(author.country && { nationality: author.country }),
+    ...(author.image && { 
+      image: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}${author.image}`
+      }
+    }),
+    worksFor: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.shortName || 'Z-Beam'
+    }
+  };
+}
+
+// 8. Regulatory Compliance Schema (E-E-A-T: Trustworthiness)
+function createComplianceSchema(standards: string[], materialName: string) {
+  return {
+    '@type': 'Certification',
+    '@id': `#compliance`,
+    name: `Regulatory Compliance for ${materialName} Laser Cleaning`,
+    description: 'Applicable regulatory standards and safety certifications',
+    issuedBy: standards.map(standard => ({
+      '@type': 'Organization',
+      name: standard.split('-')[0].trim() // Extract org from "FDA 21 CFR..."
+    })),
+    about: standards
+  };
 }
 
 // Helper to create HTML-safe JSON-LD script content
