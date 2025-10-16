@@ -1,4 +1,3 @@
-import 'server-only';
 import { SITE_CONFIG } from './constants';
 
 /**
