@@ -7,10 +7,11 @@
 
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { cleanupFloat } from '../../utils/formatting';
 import { SITE_CONFIG } from '../../utils/constants';
 import type { ProgressBarProps } from '@/types';
+import './ProgressBar.css';
 
 export function ProgressBar({ 
   min, 
@@ -23,6 +24,39 @@ export function ProgressBar({
   propertyName,
   valueTextColor = 'text-gray-900/70'
 }: ProgressBarProps) {
+  // Viewport animation state
+  const progressRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  // Intersection Observer for viewport animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Once visible, stop observing
+          if (progressRef.current) {
+            observer.unobserve(progressRef.current);
+          }
+        }
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of progress bar is visible
+        rootMargin: '50px',
+      }
+    );
+
+    if (progressRef.current) {
+      observer.observe(progressRef.current);
+    }
+
+    return () => {
+      if (progressRef.current) {
+        observer.unobserve(progressRef.current);
+      }
+    };
+  }, []);
+  
   // Clean up numeric values to 2 decimal places
   const cleanMin = parseFloat(cleanupFloat(min));
   const cleanMax = parseFloat(cleanupFloat(max));
@@ -40,8 +74,12 @@ export function ProgressBar({
   const labelId = `progress-label-${id}`;
   const descId = `progress-desc-${id}`;
   
+  // Animation classes
+  const barAnimationClass = isVisible ? 'animate-slide-up-bar' : 'opacity-0 translate-y-full';
+  const valueAnimationClass = isVisible ? 'animate-slide-up-value' : 'opacity-0 translate-y-8';
+  
   return (
-    <figure className="h-full flex items-stretch" role="img" aria-labelledby={labelId} aria-describedby={descId}>
+    <figure ref={progressRef} className="h-full flex items-stretch" role="img" aria-labelledby={labelId} aria-describedby={descId}>
       
       {/* Screen reader accessible label */}
       <figcaption id={labelId} className="sr-only">
@@ -69,7 +107,7 @@ export function ProgressBar({
       <div className="progress-value-container relative pr-2 min-w-[60px] h-full overflow-visible">
         {/* Value wrapper - clamped within container bounds */}
         <div 
-          className={`progress-value-wrapper absolute right-2 flex flex-col items-center p-1 min-w-[50px] ${
+          className={`progress-value-wrapper absolute right-2 flex flex-col items-center p-1 min-w-[50px] transition-all duration-700 ease-out ${valueAnimationClass} ${
             percentage <= 10 ? 'rounded-tl-sm rounded-tr-sm rounded-bl-sm' : 
             percentage >= 90 ? 'rounded-tl-sm rounded-bl-sm rounded-br-sm' : 
             'rounded-sm'
@@ -141,7 +179,7 @@ export function ProgressBar({
           />
           {/* Progress fill - from bottom */}
           <div 
-            className="progress-bar-fill absolute bottom-0 left-0 w-full opacity-100 transition-all duration-300 rounded-sm"
+            className={`progress-bar-fill absolute bottom-0 left-0 w-full opacity-100 transition-all duration-700 ease-out rounded-sm ${barAnimationClass}`}
             style={{ backgroundColor: color, height: `${percentage}%` }}
             aria-hidden="true"
           />

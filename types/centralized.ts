@@ -548,6 +548,7 @@ export interface MetricsCardProps {
   className?: string;
   searchable?: boolean;
   fullPropertyName?: string;
+  animationDelay?: number; // Animation delay in milliseconds for staggered entrance
   
   // NEW: Category context for categorized properties
   categoryId?: string;
