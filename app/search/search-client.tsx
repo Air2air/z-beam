@@ -83,8 +83,9 @@ function parsePropertiesFromMetadata(metadata: any): Array<{property: string, va
     if (typeof data === 'object' && data !== null) {
       // Check if this is a leaf node with a value
       if (data.value !== undefined || data.numeric !== undefined) {
-        // This is a property with a value - use the current key as property name
-        const propertyName = parentKey ? `${parentKey}.${key}` : key;
+        // This is a property with a value - use just the key name (not the full path)
+        // This allows searching for "specificHeat" instead of "laser_material_interaction.properties.specificHeat"
+        const propertyName = key;
         const value = data.value !== undefined
           ? (data.unit ? `${data.value} ${data.unit}` : String(data.value))
           : (data.units ? `${data.numeric} ${data.units}` : String(data.numeric));
@@ -104,7 +105,8 @@ function parsePropertiesFromMetadata(metadata: any): Array<{property: string, va
         Object.entries(data).forEach(([nestedKey, nestedValue]) => {
           if (hasCategoryStructure || isMetadataKey) {
             // This is a category container or metadata - don't include in property path
-            extractProperty(nestedKey, nestedValue, parentKey);
+            // Pass the current key as the parent only if we're inside a 'properties' container
+            extractProperty(nestedKey, nestedValue, key === 'properties' ? parentKey : key);
           } else {
             // Include this key in the path (for nested properties like thermalDestruction.point)
             const newParentKey = parentKey ? `${parentKey}.${key}` : key;
@@ -161,6 +163,37 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   const normalizedSearchProperty = propertyName ? normalizePropertyName(propertyName) : '';
   
+  // Track extracted unit from properties
+  const [extractedUnit, setExtractedUnit] = useState<string>('');
+  
+  // Extract unit from first matching property across all articles
+  useEffect(() => {
+    if (propertyName && propertyValue && articles.length > 0) {
+      const normalizedSearchProperty = normalizePropertyName(propertyName);
+      
+      for (const article of articles) {
+        const metadata = article.metadata || {};
+        const allProperties = parsePropertiesFromMetadata(metadata);
+        
+        const matchingProp = allProperties.find(prop => {
+          const normalizedPropName = normalizePropertyName(prop.property);
+          return normalizedPropName === normalizedSearchProperty;
+        });
+        
+        if (matchingProp) {
+          // Extract unit from value string (e.g., "840 J/(kg·K)" -> "J/(kg·K)")
+          const unitMatch = matchingProp.value.match(/[\d.]+\s*(.+)/);
+          if (unitMatch && unitMatch[1]) {
+            setExtractedUnit(unitMatch[1].trim());
+            break;
+          }
+        }
+      }
+    } else {
+      setExtractedUnit('');
+    }
+  }, [propertyName, propertyValue, articles]);
+  
   // Filter articles based on search query and property filters
   const filteredArticles = articles.filter(article => {
     // Check property filter
@@ -215,6 +248,15 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         // Value matching - exact or numeric within tolerance/range
         const valueMatch = exactMatch || numericMatch;
         
+        // Extract unit from the first matching property
+        if (valueMatch && !extractedUnit) {
+          // Extract unit from value string (e.g., "840 J/(kg·K)" -> "J/(kg·K)")
+          const unitMatch = prop.value.match(/[\d.]+\s*(.+)/);
+          if (unitMatch && unitMatch[1]) {
+            setExtractedUnit(unitMatch[1].trim());
+          }
+        }
+        
         return valueMatch;
       });
       
@@ -228,101 +270,114 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     
     const searchTerm = query.toLowerCase();
     
-    // Helper function to safely extract and check author information
-    const checkAuthorMatch = (article: any, searchTerm: string): boolean => {
-      // Check simple author field
-      if (article.author && safeIncludes(extractSafeValue(article.author), searchTerm)) {
-        return true;
+    // Helper function to recursively search through any object/array structure
+    const deepSearch = (obj: any, searchTerm: string, maxDepth: number = 10, currentDepth: number = 0): boolean => {
+      // Prevent infinite recursion
+      if (currentDepth > maxDepth || !obj) return false;
+      
+      // Handle primitives (string, number, boolean)
+      if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
+        return safeIncludes(extractSafeValue(obj), searchTerm);
       }
       
-      // Check author in metadata
-      if (article.metadata?.author && safeIncludes(extractSafeValue(article.metadata.author), searchTerm)) {
-        return true;
+      // Handle arrays
+      if (Array.isArray(obj)) {
+        return obj.some(item => deepSearch(item, searchTerm, maxDepth, currentDepth + 1));
       }
       
-      // Check author_object structure
-      const authorObj = article.metadata?.author_object || article.metadata?.author;
-      if (authorObj) {
-        if (authorObj.name && safeIncludes(extractSafeValue(authorObj.name), searchTerm)) {
-          return true;
-        }
-        if (authorObj.title && safeIncludes(extractSafeValue(authorObj.title), searchTerm)) {
-          return true;
-        }
-        if (authorObj.expertise && Array.isArray(authorObj.expertise)) {
-          if (authorObj.expertise.some((exp: string) => safeIncludes(extractSafeValue(exp), searchTerm))) {
-            return true;
-          }
-        }
-        if (authorObj.country && safeIncludes(extractSafeValue(authorObj.country), searchTerm)) {
-          return true;
-        }
+      // Handle objects
+      if (typeof obj === 'object' && obj !== null) {
+        // Skip certain metadata keys that shouldn't be searched
+        const skipKeys = ['image', 'imageUrl', 'imageAlt', 'url', 'href', 'id', 'slug', 'filepath', 'path'];
+        
+        return Object.entries(obj).some(([key, value]) => {
+          // Skip image/url fields to avoid false matches
+          if (skipKeys.includes(key)) return false;
+          
+          // Recursively search the value
+          return deepSearch(value, searchTerm, maxDepth, currentDepth + 1);
+        });
       }
       
       return false;
     };
     
-    // Search in multiple fields
-    const titleMatch = article.title && safeIncludes(extractSafeValue(article.title), searchTerm);
-    const descriptionMatch = article.description && safeIncludes(extractSafeValue(article.description), searchTerm);
-    const authorMatch = checkAuthorMatch(article, searchTerm);
+    // Helper function to safely extract and check author information
+    const checkAuthorMatch = (article: any, searchTerm: string): boolean => {
+      const authorObj = article.metadata?.author_object || article.metadata?.author || article.author;
+      return deepSearch(authorObj, searchTerm);
+    };
     
-    // Search in tags
+    // Search in multiple fields with priority
+    const metadata = article.metadata as any;
+    
+    // High-priority fields (direct matches)
+    const titleMatch = article.title && safeIncludes(extractSafeValue(article.title), searchTerm);
+    const nameMatch = article.name && safeIncludes(extractSafeValue(article.name), searchTerm);
+    const descriptionMatch = article.description && safeIncludes(extractSafeValue(article.description), searchTerm);
+    
+    // Check for high-priority matches first
+    if (titleMatch || nameMatch || descriptionMatch) return true;
+    
+    // Author search
+    const authorMatch = checkAuthorMatch(article, searchTerm);
+    if (authorMatch) return true;
+    
+    // Tags search
     const tagsMatch = article.tags && Array.isArray(article.tags) && 
       article.tags.some(tag => safeIncludes(extractSafeValue(tag), searchTerm));
+    if (tagsMatch) return true;
     
-    // Search in category/subcategory - use type-safe access
-    const metadata = article.metadata as any;
-    const categoryMatch = metadata?.category && 
-      safeIncludes(extractSafeValue(metadata.category), searchTerm);
-    const subcategoryMatch = metadata?.subcategory && 
-      safeIncludes(extractSafeValue(metadata.subcategory), searchTerm);
+    // Category/subcategory search
+    const categoryMatch = metadata?.category && safeIncludes(extractSafeValue(metadata.category), searchTerm);
+    const subcategoryMatch = metadata?.subcategory && safeIncludes(extractSafeValue(metadata.subcategory), searchTerm);
+    if (categoryMatch || subcategoryMatch) return true;
     
-    // Search in keywords (from metadata/metatags)
-    let keywordsMatch = false;
-    if (metadata?.keywords) {
-      const keywords = metadata.keywords;
-      if (Array.isArray(keywords)) {
-        keywordsMatch = keywords.some((keyword: any) => safeIncludes(extractSafeValue(keyword), searchTerm));
+    // Dynamic deep search through ALL metadata fields
+    // This will automatically search machineSettings, materialProperties, and any other frontmatter fields
+    if (metadata) {
+      // Define fields to search deeply (will adapt to any frontmatter structure)
+      const deepSearchFields = [
+        'subtitle',
+        'applications',
+        'machineSettings',        // Dynamic search through all machine parameters
+        'materialProperties',     // Dynamic search through all material properties (all categories)
+        'environmentalImpact',
+        'outcomeMetrics',
+        'caption',
+        'regulatoryStandards',
+        'processing',
+        'keywords',
+        'meta_tags',
+        // Any future frontmatter fields will be automatically included
+      ];
+      
+      for (const field of deepSearchFields) {
+        if (metadata[field] && deepSearch(metadata[field], searchTerm)) {
+          return true;
+        }
       }
-    }
-    
-    // Search in meta_tags keywords if present
-    let metaTagsKeywordsMatch = false;
-    if (metadata?.meta_tags && Array.isArray(metadata.meta_tags)) {
-      const keywordsTag = metadata.meta_tags.find(
-        (tag: any) => tag?.name === 'keywords' && tag?.content
-      );
-      if (keywordsTag?.content) {
-        const keywordsContent = keywordsTag.content;
-        if (Array.isArray(keywordsContent)) {
-          metaTagsKeywordsMatch = keywordsContent.some((keyword: any) => 
-            safeIncludes(extractSafeValue(keyword), searchTerm)
-          );
+      
+      // Fallback: search through any remaining metadata fields not explicitly listed
+      // This ensures complete coverage even if new fields are added
+      const searchedFields = new Set([...deepSearchFields, 'author', 'author_object', 'category', 'subcategory']);
+      const remainingFields = Object.keys(metadata).filter(key => !searchedFields.has(key));
+      
+      for (const field of remainingFields) {
+        if (deepSearch(metadata[field], searchTerm)) {
+          return true;
         }
       }
     }
     
-    // Search in name field (material name)
-    const nameMatch = article.name && safeIncludes(extractSafeValue(article.name), searchTerm);
-    
-    return (
-      titleMatch ||
-      descriptionMatch ||
-      authorMatch ||
-      tagsMatch ||
-      categoryMatch ||
-      subcategoryMatch ||
-      keywordsMatch ||
-      metaTagsKeywordsMatch ||
-      nameMatch
-    );
+    return false;
   });
   
-  // Build subtitle based on search parameters
+  // Build subtitle based on search parameters (not used, handled by wrapper)
   const getSubtitle = () => {
     if (propertyName && propertyValue) {
-      return `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}`;
+      const formattedProperty = capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim());
+      return `${filteredArticles.length} ${filteredArticles.length === 1 ? 'material' : 'materials'} found with ${formattedProperty} of ${propertyValue}:`;
     }
     if (query) {
       return `Search results for "${query}"`;
@@ -330,18 +385,40 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     return 'Browse all available materials and articles';
   };
   
+  // Debug: Log property search details
+  useEffect(() => {
+    if (propertyName && propertyValue) {
+      console.log('Property Search Debug:', {
+        propertyName,
+        propertyValue,
+        totalArticles: articles.length,
+        filteredCount: filteredArticles.length,
+        normalizedSearchProperty: normalizePropertyName(propertyName)
+      });
+      
+      // Sample first article's properties
+      if (articles.length > 0 && articles[0].metadata) {
+        const sampleProps = parsePropertiesFromMetadata(articles[0].metadata);
+        console.log(`Sample properties from ${articles[0].name || articles[0].title}:`, 
+          sampleProps.slice(0, 10).map(p => ({ property: p.property, value: p.value }))
+        );
+      }
+    }
+  }, [propertyName, propertyValue, articles, filteredArticles]);
+  
   // Expose result count to parent via custom event
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const event = new CustomEvent('searchResultsUpdated', { 
         detail: { 
           count: filteredArticles.length,
+          unit: extractedUnit,
           subtitle: getSubtitle()
         } 
       });
       window.dispatchEvent(event);
     }
-  }, [filteredArticles.length, query, propertyName, propertyValue]);
+  }, [filteredArticles.length, extractedUnit]);
   
   return (
     <>

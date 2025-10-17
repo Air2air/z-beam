@@ -16,9 +16,9 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   const query = searchParams?.get('q') || '';
   const propertyName = searchParams?.get('property') || '';
   const propertyValue = searchParams?.get('value') || '';
-  const propertyUnit = searchParams?.get('unit') || '';
   
-  const [resultCount, setResultCount] = useState<number>(initialArticles.length);
+  const [resultCount, setResultCount] = useState<number>(0);
+  const [propertyUnit, setPropertyUnit] = useState<string>('');
   
   // Build title with result count
   const getTitle = () => {
@@ -31,7 +31,9 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   // Build subtitle based on search parameters
   const getSubtitle = () => {
     if (propertyName && propertyValue) {
-      return `Materials with ${capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim())}: ${propertyValue}${propertyUnit ? ' ' + propertyUnit : ''}`;
+      const formattedProperty = capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim());
+      const unitText = propertyUnit ? ` ${propertyUnit}` : '';
+      return `${resultCount} ${resultCount === 1 ? 'material' : 'materials'} found with ${formattedProperty} of ${propertyValue}${unitText}:`;
     }
     if (query) {
       return `Search results for "${query}"`;
@@ -39,11 +41,22 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
     return 'Browse all available materials and articles';
   };
   
+  // Set initial count based on whether there's a search
+  useEffect(() => {
+    if (!query && !propertyName) {
+      // No search active, show total count
+      setResultCount(initialArticles.length);
+    }
+  }, [query, propertyName, initialArticles.length]);
+  
   // Listen for result count updates from SearchClient
   useEffect(() => {
     const handleResultsUpdate = (event: CustomEvent) => {
       if (event.detail?.count !== undefined) {
         setResultCount(event.detail.count);
+      }
+      if (event.detail?.unit !== undefined) {
+        setPropertyUnit(event.detail.unit);
       }
     };
     
