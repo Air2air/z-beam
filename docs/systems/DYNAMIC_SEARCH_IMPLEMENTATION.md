@@ -18,7 +18,13 @@ The search system has been enhanced to **dynamically search ALL frontmatter fiel
 - Adapts instantly when new frontmatter fields are added
 - Works with any nested structure
 
-### 2. **Deep Recursive Search**
+### 2. **Property Search with Tolerance**
+- Property searches use a 10% tolerance for numeric matching
+- Subtitle format: "N materials found with Property of ± Value Unit:"
+- Example: "7 materials found with Specific Heat of ± 840 J/(kg·K):"
+- Unit is automatically extracted from property data
+
+### 3. **Deep Recursive Search**
 The `deepSearch()` function recursively traverses:
 - **Objects**: All properties at any depth
 - **Arrays**: All elements
@@ -392,6 +398,27 @@ The dynamic search implementation provides:
 - ✅ **100% frontmatter coverage** - searches ALL fields
 - ✅ **Zero maintenance** - adapts to new fields automatically
 - ✅ **Deep nested search** - finds values at any depth
+- ✅ **Property search with tolerance** - 10% numeric matching range
+- ✅ **Automatic unit extraction** - displays "± value unit" in subtitle
+- ✅ **Consistent property naming** - works across all MetricsCard categories
+
+### Property Search Examples
+
+**URL Format:**
+```
+/search?property=specificHeat&value=840
+```
+
+**Subtitle Display:**
+```
+7 materials found with Specific Heat of ± 840 J/(kg·K):
+```
+
+**Features:**
+- Property name extracted from fullPropertyName (e.g., "laser_material_interaction.specificHeat" → "specificHeat")
+- Unit automatically extracted from first matching property value
+- ± symbol indicates 10% tolerance range (756-924 in this example)
+- Result count updates dynamically as search executes
 - ✅ **Performance optimized** - priority-based with early exit
 - ✅ **Future-proof** - works with any frontmatter evolution
 

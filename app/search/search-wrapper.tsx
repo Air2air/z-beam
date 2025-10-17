@@ -30,7 +30,7 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
     if (propertyName && propertyValue) {
       const formattedProperty = capitalizeWords(propertyName.replace(/([A-Z])/g, ' $1').trim());
       const unitText = propertyUnit ? ` ${propertyUnit}` : '';
-      return `${resultCount} ${resultCount === 1 ? 'material' : 'materials'} found with ${formattedProperty} of ${propertyValue}${unitText}:`;
+      return `${resultCount} ${resultCount === 1 ? 'material' : 'materials'} found with ${formattedProperty} of ± ${propertyValue}${unitText}:`;
     }
     if (query) {
       return `Search results for "${query}"`;
