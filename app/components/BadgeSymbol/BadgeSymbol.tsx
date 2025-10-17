@@ -103,7 +103,7 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
     "bg-red-900", // Red background for visibility
     "rounded-md border border-red-800",
     "flex flex-col items-center justify-center",
-    "shadow-sm hover:shadow-md hover:scale-105",
+    "shadow-sm hover:shadow-md",
     "transition-all duration-300 ease-out",
     "pointer-events-auto",
     className

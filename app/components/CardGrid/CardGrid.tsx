@@ -373,7 +373,7 @@ export function CardGrid({
                         } as ArticleMetadata}
                         href={item.href || `/${item.slug}`}
                         badge={showBadgeSymbols ? item.badge : undefined}
-                        className="h-full hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out"
+                        className="h-full card-enhanced-hover"
                       />
                     ))}
                   </div>
@@ -416,7 +416,7 @@ export function CardGrid({
                     } as ArticleMetadata}
                     href={item.href || `/${item.slug}`}
                     badge={showBadgeSymbols ? item.badge : undefined}
-                    className="h-full hover:shadow-xl hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 ease-out"
+                    className="h-full card-enhanced-hover"
                   />
                 ))}
               </div>
@@ -472,7 +472,7 @@ export function CardGrid({
             href={item.href || `/${item.slug}`}
             badge={showBadgeSymbols ? item.badge : undefined}
             variant={variant === 'featured' ? 'featured' : 'standard'}
-            className={`hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out`}
+            className={`card-enhanced-hover`}
           />
         ))}
       </div>

@@ -76,7 +76,10 @@ export function ProgressBar({
   
   // Animation classes
   const barAnimationClass = isVisible ? 'animate-slide-up-bar' : 'h-0';
-  const valueAnimationClass = isVisible ? 'animate-slide-up-value' : 'opacity-0 translate-y-full';
+  const valueAnimationClass = isVisible ? 'animate-slide-up-value' : 'opacity-0';
+  
+  // Transform style - only apply translateY after animation or if not animating
+  const valueTransformStyle = isVisible ? { transform: 'translateY(50%)' } : { transform: 'translateY(100%)' };
   
   return (
     <figure ref={progressRef} className="h-full flex items-stretch" role="img" aria-labelledby={labelId} aria-describedby={descId}>
@@ -108,7 +111,7 @@ export function ProgressBar({
         {/* Value wrapper with arrow - clamped within container bounds */}
         <div 
           className={`progress-value-wrapper-group absolute right-2 flex items-center transition-all duration-700 ease-out ${valueAnimationClass}`}
-          style={{ bottom: `${clampedPercentage}%`, transform: 'translateY(50%)' }}
+          style={{ bottom: `${clampedPercentage}%`, ...valueTransformStyle }}
         >
           {/* Value wrapper */}
           <div 

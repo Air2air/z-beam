@@ -248,6 +248,10 @@ input[type="email"] {
 }
 
 /* Enhanced card transitions for consistent hover effects */
+:root {
+  --hover-scale: 1.03;
+}
+
 .card-enhanced-hover {
   transition: all 0.3s ease-out;
   will-change: transform, box-shadow;
@@ -256,17 +260,28 @@ input[type="email"] {
 }
 
 .card-enhanced-hover:hover {
-  transform: scale(1.03) translateY(-4px) translateZ(0);
+  transform: scale(var(--hover-scale)) translateY(-2px) translateZ(0);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Subtle hover scale for buttons and small interactive elements */
+.hover-scale {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(var(--hover-scale));
 }
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .card-enhanced-hover {
+  .card-enhanced-hover,
+  .hover-scale {
     transition: none !important;
   }
   
-  .card-enhanced-hover:hover {
+  .card-enhanced-hover:hover,
+  .hover-scale:hover {
     transform: none !important;
   }
 }

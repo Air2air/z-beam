@@ -233,7 +233,9 @@ export function MetricsCard({
   // Note: CSS variables can't be concatenated in inline styles, so we use fixed opacity values
   // Increased opacity values for more vibrant, saturated appearance
   const bgGradient = `linear-gradient(to bottom, ${color}85, ${color}82, ${color}78, ${color}75, ${color}70)`;
-  const hoverBgGradient = `linear-gradient(to bottom, ${color}95, ${color}92, ${color}88, ${color}85, ${color}80)`;
+  
+  // For smooth hover transition, we'll use a pseudo-element approach via inline styles
+  const [isHovered, setIsHovered] = useState(false);
   
   // Animation classes - fade in with reduced delay
   const animationClasses = isInView 
@@ -247,7 +249,7 @@ export function MetricsCard({
   // Enhanced styles with accessibility features
   const focusStyles = 'focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-offset-2';
   const clickableClasses = isClickable 
-    ? `cursor-pointer hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out ${focusStyles}` 
+    ? `cursor-pointer card-enhanced-hover ${focusStyles}` 
     : '';
 
   // Ensure minimum touch target size (44px minimum)
@@ -257,31 +259,30 @@ export function MetricsCard({
     <Link
       ref={cardRef as any}
       href={finalHref}
-      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
+      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] relative overflow-hidden ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
-        '--hover-bg-gradient': hoverBgGradient,
         ...animationStyles,
-        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
-      } as React.CSSProperties & { '--hover-bg-gradient': string }}
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'transform 0.2s ease-out, box-shadow 0.2s ease-out'
+      }}
       
       // Enhanced accessibility attributes
       aria-label={`Navigate to search results for ${fullPropertyName || title}: ${displayValue}${displayUnit}`}
       aria-describedby={descId}
       title={`Search for ${fullPropertyName || title}: ${displayValue}${displayUnit}`}
       
-      // Reduced motion and hover support
-      onMouseEnter={(e) => {
-        if (isClickable) {
-          (e.currentTarget as HTMLElement).style.backgroundImage = hoverBgGradient;
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (isClickable) {
-          (e.currentTarget as HTMLElement).style.backgroundImage = bgGradient;
-        }
-      }}
+      // Hover state management
+      onMouseEnter={() => isClickable && setIsHovered(true)}
+      onMouseLeave={() => isClickable && setIsHovered(false)}
     >
+      {/* Hover overlay for smooth opacity transition - solid color fill */}
+      <div 
+        className="absolute inset-0 rounded-lg pointer-events-none transition-opacity duration-[400ms] ease-out"
+        style={{
+          backgroundColor: color,
+          opacity: isHovered ? 0.3 : 0
+        }}
+      />
       {cardContent}
     </Link>
   ) : (

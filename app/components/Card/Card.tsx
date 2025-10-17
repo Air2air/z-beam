@@ -38,7 +38,7 @@ const CARD_VARIANTS = {
     
     // Appearance
     cardClass: "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700",
-    hoverEffect: "hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1",
+    hoverEffect: "card-enhanced-hover",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
@@ -56,7 +56,7 @@ const CARD_VARIANTS = {
     
     // Appearance
     cardClass: "rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600",
-    hoverEffect: "hover:shadow-2xl hover:scale-[1.03] hover:-translate-y-2",
+    hoverEffect: "card-enhanced-hover",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects

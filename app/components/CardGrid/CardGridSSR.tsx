@@ -356,7 +356,7 @@ export async function CardGridSSR({
             } as ArticleMetadata}
             badge={showBadgeSymbols ? item.badge : undefined}
             variant={variant === 'featured' ? 'featured' : 'standard'}
-            className={`hover:shadow-xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 ease-out`}
+            className={`card-enhanced-hover`}
           />
         ))}
       </div>

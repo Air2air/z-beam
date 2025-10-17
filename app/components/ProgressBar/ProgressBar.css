@@ -29,6 +29,9 @@
 
 .animate-slide-up-value {
   animation: slide-up-value 0.7s ease-out 0.15s forwards;
+  will-change: transform, opacity;
+  /* Ensure final state is maintained */
+  opacity: 1 !important;
 }
 
 /* Initial state to prevent flickering */
