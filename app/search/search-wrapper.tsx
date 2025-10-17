@@ -20,11 +20,8 @@ export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   const [resultCount, setResultCount] = useState<number>(0);
   const [propertyUnit, setPropertyUnit] = useState<string>('');
   
-  // Build title with result count
+  // Build title
   const getTitle = () => {
-    if (query || propertyName) {
-      return `Search (${resultCount} ${resultCount === 1 ? 'result' : 'results'})`;
-    }
     return 'Search';
   };
   

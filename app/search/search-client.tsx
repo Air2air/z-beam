@@ -246,18 +246,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         }
         
         // Value matching - exact or numeric within tolerance/range
-        const valueMatch = exactMatch || numericMatch;
-        
-        // Extract unit from the first matching property
-        if (valueMatch && !extractedUnit) {
-          // Extract unit from value string (e.g., "840 J/(kg·K)" -> "J/(kg·K)")
-          const unitMatch = prop.value.match(/[\d.]+\s*(.+)/);
-          if (unitMatch && unitMatch[1]) {
-            setExtractedUnit(unitMatch[1].trim());
-          }
-        }
-        
-        return valueMatch;
+        return exactMatch || numericMatch;
       });
       
       if (!hasMatchingProperty) {
@@ -384,27 +373,6 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     }
     return 'Browse all available materials and articles';
   };
-  
-  // Debug: Log property search details
-  useEffect(() => {
-    if (propertyName && propertyValue) {
-      console.log('Property Search Debug:', {
-        propertyName,
-        propertyValue,
-        totalArticles: articles.length,
-        filteredCount: filteredArticles.length,
-        normalizedSearchProperty: normalizePropertyName(propertyName)
-      });
-      
-      // Sample first article's properties
-      if (articles.length > 0 && articles[0].metadata) {
-        const sampleProps = parsePropertiesFromMetadata(articles[0].metadata);
-        console.log(`Sample properties from ${articles[0].name || articles[0].title}:`, 
-          sampleProps.slice(0, 10).map(p => ({ property: p.property, value: p.value }))
-        );
-      }
-    }
-  }, [propertyName, propertyValue, articles, filteredArticles]);
   
   // Expose result count to parent via custom event
   useEffect(() => {

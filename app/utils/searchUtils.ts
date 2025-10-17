@@ -252,9 +252,13 @@ export function generateSearchUrl(title: string, value: string | number, fullPro
   const searchValue = String(value).replace(/[^\w\s.-]/g, ''); // Clean the value
   
   // Use full property name if available, otherwise fall back to title-based detection
-  const propertyNameForSearch = fullPropertyName || title;
+  let propertyNameForSearch = fullPropertyName || title;
   
   if (fullPropertyName) {
+    // Extract just the property name from full path (e.g., "laser_material_interaction.specificHeat" -> "specificHeat")
+    const parts = fullPropertyName.split('.');
+    propertyNameForSearch = parts[parts.length - 1];
+    
     // If we have the full property name, always use property-based search
     return `/search?property=${encodeURIComponent(propertyNameForSearch)}&value=${encodeURIComponent(searchValue)}`;
   }
