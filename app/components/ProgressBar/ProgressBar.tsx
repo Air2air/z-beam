@@ -41,8 +41,8 @@ export function ProgressBar({
         }
       },
       {
-        threshold: 0.2, // Trigger when 20% of progress bar is visible
-        rootMargin: '50px',
+        threshold: 0.4, // Trigger when 40% of progress bar is visible
+        rootMargin: '0px', // No buffer - trigger when well into viewport
       }
     );
 
@@ -75,8 +75,8 @@ export function ProgressBar({
   const descId = `progress-desc-${id}`;
   
   // Animation classes
-  const barAnimationClass = isVisible ? 'animate-slide-up-bar' : 'opacity-0 translate-y-full';
-  const valueAnimationClass = isVisible ? 'animate-slide-up-value' : 'opacity-0 translate-y-8';
+  const barAnimationClass = isVisible ? 'animate-slide-up-bar' : 'h-0';
+  const valueAnimationClass = isVisible ? 'animate-slide-up-value' : 'opacity-0 translate-y-full';
   
   return (
     <figure ref={progressRef} className="h-full flex items-stretch" role="img" aria-labelledby={labelId} aria-describedby={descId}>
@@ -105,53 +105,56 @@ export function ProgressBar({
       
       {/* Main value on the left - positioned at indicator */}
       <div className="progress-value-container relative pr-2 min-w-[60px] h-full overflow-visible">
-        {/* Value wrapper - clamped within container bounds */}
+        {/* Value wrapper with arrow - clamped within container bounds */}
         <div 
-          className={`progress-value-wrapper absolute right-2 flex flex-col items-center p-1 min-w-[50px] transition-all duration-700 ease-out ${valueAnimationClass} ${
-            percentage <= 10 ? 'rounded-tl-sm rounded-tr-sm rounded-bl-sm' : 
-            percentage >= 90 ? 'rounded-tl-sm rounded-bl-sm rounded-br-sm' : 
-            'rounded-sm'
-          }`}
-          style={{ bottom: `${clampedPercentage}%`, transform: 'translateY(50%)', backgroundColor: color }}
+          className={`progress-value-wrapper-group absolute right-2 flex items-center transition-all duration-700 ease-out ${valueAnimationClass}`}
+          style={{ bottom: `${clampedPercentage}%`, transform: 'translateY(50%)' }}
         >
-          <div className="progress-value-inner flex flex-col items-center">
-            <div className={`progress-metric-value metric-value text-sm md:text-base ${valueTextColor} font-semibold text-center leading-none`}>
-              <data 
-                value={cleanValue}
-                data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
-                data-unit={unit}
-                data-type="measurement"
-                data-context="material_property"
-                data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
-                data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
-                data-position="current"
-                itemProp="value"
-                itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
-              >{cleanValue}</data>
+          {/* Value wrapper */}
+          <div 
+            className={`flex flex-col items-center p-1 min-w-[50px] ${
+              percentage <= 10 ? 'rounded-tl-sm rounded-tr-sm rounded-bl-sm' : 
+              percentage >= 90 ? 'rounded-tl-sm rounded-bl-sm rounded-br-sm' : 
+              'rounded-sm'
+            }`}
+            style={{ backgroundColor: color }}
+          >
+            <div className="progress-value-inner flex flex-col items-center">
+              <div className={`progress-metric-value metric-value text-sm md:text-base ${valueTextColor} font-semibold text-center leading-none`}>
+                <data 
+                  value={cleanValue}
+                  data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
+                  data-unit={unit}
+                  data-type="measurement"
+                  data-context="material_property"
+                  data-precision={String(cleanValue).includes('.') ? String(cleanValue).split('.')[1]?.length || 0 : 0}
+                  data-magnitude={Math.abs(cleanValue) >= 1000 ? 'high' : Math.abs(cleanValue) >= 1 ? 'medium' : 'low'}
+                  data-position="current"
+                  itemProp="value"
+                  itemType={`${SITE_CONFIG.schema.context}/${SITE_CONFIG.schema.propertyValueType}`}
+                >{cleanValue}</data>
+              </div>
+              {unit && (
+                <span className="progress-unit text-[10px] text-white/70 mt-0 leading-none text-center">
+                  {unit}
+                </span>
+              )}
             </div>
-            {unit && (
-              <span className="progress-unit text-[10px] text-white/70 mt-0 leading-none text-center">
-                {unit}
-              </span>
+          </div>
+          
+          {/* Arrow pointer - positioned relative to wrapper */}
+          <div className="relative w-0 ml-0 self-stretch">
+            {percentage <= 10 ? (
+              // Bottom arrow with flat bottom - aligned to bottom of wrapper
+              <div className="border-l-[8px] border-t-[8px] border-t-transparent absolute bottom-0" style={{ borderLeftColor: color }}></div>
+            ) : percentage >= 90 ? (
+              // Top arrow with flat top - aligned to top of wrapper
+              <div className="border-l-[8px] border-b-[8px] border-b-transparent absolute top-0" style={{ borderLeftColor: color }}></div>
+            ) : (
+              // Middle arrow (standard triangle pointing right) - centered
+              <div className="border-[8px] border-transparent absolute top-1/2" style={{ transform: 'translateY(-50%)', borderLeftColor: color }}></div>
             )}
           </div>
-        </div>
-        
-        {/* Arrow pointer - always aligned with actual indicator bar position */}
-        <div
-          className="absolute right-2 w-0 h-0"
-          style={{ bottom: `${percentage}%`, transform: 'translateY(50%)' }}
-        >
-          {percentage <= 10 ? (
-            // Bottom arrow with flat bottom
-            <div className="border-l-[8px] border-t-[8px] border-t-transparent" style={{ transform: 'translateY(-100%)', borderLeftColor: color }}></div>
-          ) : percentage >= 90 ? (
-            // Top arrow with flat top
-            <div className="border-l-[8px] border-b-[8px] border-b-transparent" style={{ transform: 'translateY(0)', borderLeftColor: color }}></div>
-          ) : (
-            // Middle arrow (standard triangle pointing right)
-            <div className="border-[8px] border-transparent" style={{ transform: 'translateY(-50%)', borderLeftColor: color }}></div>
-          )}
         </div>
       </div>
       
@@ -179,17 +182,11 @@ export function ProgressBar({
           />
           {/* Progress fill - from bottom */}
           <div 
-            className={`progress-bar-fill absolute bottom-0 left-0 w-full opacity-100 transition-all duration-700 ease-out rounded-sm ${barAnimationClass}`}
-            style={{ backgroundColor: color, height: `${percentage}%` }}
+            className={`progress-bar-fill absolute bottom-0 left-0 w-full transition-all duration-700 ease-out rounded-sm border-t-2 border-white ${barAnimationClass}`}
+            style={{ backgroundColor: color, height: `${percentage}%`, '--bar-height': `${percentage}%` } as React.CSSProperties & { '--bar-height': string }}
             aria-hidden="true"
           />
         </div>
-        {/* Current value indicator */}
-        <div 
-          className="progress-bar-indicator absolute left-0 w-full h-0.5 bg-white dark:bg-white/90 shadow-md"
-          style={{ bottom: `${percentage}%`, transform: 'translateY(50%)' }}
-          aria-hidden="true"
-        />
       </div>
       
       {/* Range values on the right */}

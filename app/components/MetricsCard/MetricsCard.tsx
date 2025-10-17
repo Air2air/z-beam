@@ -86,37 +86,27 @@ export function MetricsCard({
   ...rest // Capture other props including key
 }: MetricsCardProps) {
   
-  // Viewport animation state
-  const cardRef = useRef<HTMLAnchorElement | HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // Animation state with IntersectionObserver
+  const [isInView, setIsInView] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   
-  // Intersection Observer for viewport animation
+  // Intersection Observer for scroll-triggered animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Once visible, stop observing
-          if (cardRef.current) {
-            observer.unobserve(cardRef.current);
-          }
+          setIsInView(true);
+          observer.disconnect();
         }
       },
-      {
-        threshold: 0.1, // Trigger when 10% of card is visible
-        rootMargin: '50px', // Start animation slightly before card enters viewport
-      }
+      { threshold: 0.4, rootMargin: '0px' } // Trigger when 40% of card is visible
     );
 
     if (cardRef.current) {
       observer.observe(cardRef.current);
     }
 
-    return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
   
   // Convert value to display format with cleanup
@@ -245,13 +235,13 @@ export function MetricsCard({
   const bgGradient = `linear-gradient(to bottom, ${color}85, ${color}82, ${color}78, ${color}75, ${color}70)`;
   const hoverBgGradient = `linear-gradient(to bottom, ${color}95, ${color}92, ${color}88, ${color}85, ${color}80)`;
   
-  // Animation classes - only apply when visible, with optional delay
-  const animationClasses = isVisible 
+  // Animation classes - fade in with reduced delay
+  const animationClasses = isInView 
     ? 'opacity-100 translate-y-0' 
     : 'opacity-0 translate-y-4';
-  
-  const animationStyle = {
-    transitionDelay: isVisible ? `${animationDelay}ms` : '0ms',
+  const animationStyles = {
+    transition: 'opacity 0.4s ease-out, transform 0.4s ease-out',
+    transitionDelay: `${animationDelay}ms`
   };
   
   // Enhanced styles with accessibility features
@@ -265,14 +255,14 @@ export function MetricsCard({
 
   return finalHref ? (
     <Link
-      ref={cardRef as React.RefObject<HTMLAnchorElement>}
+      ref={cardRef as any}
       href={finalHref}
-      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] ${clickableClasses} ${minTouchTarget} ${animationClasses} transition-all duration-500 ease-out ${className}`}
+      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
         '--hover-bg-gradient': hoverBgGradient,
-        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out',
-        ...animationStyle,
+        ...animationStyles,
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
       } as React.CSSProperties & { '--hover-bg-gradient': string }}
       
       // Enhanced accessibility attributes
@@ -296,12 +286,12 @@ export function MetricsCard({
     </Link>
   ) : (
     <div 
-      ref={cardRef as React.RefObject<HTMLDivElement>}
-      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[160px] ${animationClasses} transition-all duration-500 ease-out ${minTouchTarget} ${className}`}
+      ref={cardRef}
+      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[160px] transition-all duration-300 ease-out ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
-        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out',
-        ...animationStyle,
+        ...animationStyles,
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'all 0.3s ease-out'
       }}
       role="presentation"
     >

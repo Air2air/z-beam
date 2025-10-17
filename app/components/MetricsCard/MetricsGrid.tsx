@@ -438,7 +438,7 @@ export function MetricsGrid({
                       <SingleMetricsCard
                         {...card}
                         searchable={searchable}
-                        animationDelay={index * 50}
+                        animationDelay={index * 25}
                       />
                     </div>
                   ))}
@@ -496,7 +496,7 @@ export function MetricsGrid({
               <SingleMetricsCard
                 {...card}
                 searchable={searchable}
-                animationDelay={index * 50}
+                animationDelay={index * 25}
               />
             </div>
           ))}
