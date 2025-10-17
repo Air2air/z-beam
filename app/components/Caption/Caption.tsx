@@ -162,7 +162,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
               <h3 className="mb-3">
                 Before Treatment
               </h3>
-              <div className="text-gray-300">
+              <div className="text-gray-300 text-sm leading-relaxed">
                 <MarkdownRenderer content={emphasizeFirstSentence(captionData.beforeText)} />
               </div>
             </div>
@@ -172,7 +172,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
               <h3 className="mb-3">
                 After Treatment
               </h3>
-              <div className="text-gray-300">
+              <div className="text-gray-300 text-sm leading-relaxed">
                 <MarkdownRenderer content={emphasizeFirstSentence(captionData.afterText)} />
               </div>
             </div>

@@ -41,7 +41,7 @@ export function ProgressBar({
         }
       },
       {
-        threshold: 0.4, // Trigger when 40% of progress bar is visible
+        threshold: 0.8, // Trigger when 80% of progress bar is visible
         rootMargin: '0px', // No buffer - trigger when well into viewport
       }
     );
