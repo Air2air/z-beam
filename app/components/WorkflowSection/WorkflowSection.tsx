@@ -89,7 +89,7 @@ export function WorkflowSection({
                 {/* Text Content */}
                 <div className="flex-1">
                   {/* Description */}
-                  <p className={`text-base md:text-lg leading-relaxed mb-4 ${currentTheme.text}`}>
+                  <p className={`text-base leading-relaxed mb-4 ${currentTheme.text}`}>
                     {item.description}
                   </p>
                   

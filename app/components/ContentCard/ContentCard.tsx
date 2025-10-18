@@ -217,7 +217,7 @@ export function ContentCard({
           
           {/* Text/Description */}
           <p 
-            className={`text-base md:text-lg ${hasDetails ? 'leading-relaxed mb-4' : 'leading-normal'} ${currentTheme.text}`}
+            className={`text-base ${hasDetails ? 'leading-relaxed mb-4' : 'leading-normal'} ${currentTheme.text}`}
             itemProp="description"
           >
             {text}

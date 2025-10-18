@@ -263,7 +263,7 @@ export function MetricsCard({
       style={{ 
         backgroundImage: bgGradient,
         ...animationStyles,
-        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'transform 0.2s ease-out, box-shadow 0.2s ease-out'
+        transition: typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'transform 0.15s ease-out, box-shadow 0.15s ease-out'
       }}
       
       // Enhanced accessibility attributes
@@ -277,7 +277,7 @@ export function MetricsCard({
     >
       {/* Hover overlay for smooth opacity transition - solid color fill */}
       <div 
-        className="absolute inset-0 rounded-lg pointer-events-none transition-opacity duration-[400ms] ease-out"
+        className="absolute inset-0 rounded-lg pointer-events-none transition-opacity duration-[400ms] ease-out -z-10"
         style={{
           backgroundColor: color,
           opacity: isHovered ? 0.3 : 0

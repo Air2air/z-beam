@@ -497,18 +497,43 @@ export interface NavItem {
   target?: "_blank" | "_self";
   rel?: string;
   description?: string;
+  dropdown?: NavItem[];
 }
 
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
     name: "Services",
     href: "/services",
-    description: "Explore our laser cleaning services"
+    description: "Explore our laser cleaning services",
+    dropdown: [
+      {
+        name: "Rental",
+        href: "/rental",
+        description: "Rent professional laser cleaning equipment"
+      },
+      {
+        name: "Services",
+        href: "/services",
+        description: "Our laser cleaning services"
+      },
+    ]
   },
   {
-    name: "Rental",
-    href: "/rental",
-    description: "Rent professional laser cleaning equipment"
+    name: "About Us",
+    href: "/about",
+    description: "Learn more about Z-Beam",
+    dropdown: [
+      {
+        name: "Partners",
+        href: "/partners",
+        description: "Our trusted partners"
+      },
+      {
+        name: "About",
+        href: "/about",
+        description: "About Z-Beam"
+      },
+    ]
   },
 ];
 

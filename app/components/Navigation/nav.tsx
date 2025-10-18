@@ -15,9 +15,11 @@ const navItems = MAIN_NAV_ITEMS;
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,6 +27,25 @@ export function Navbar() {
 
   const closeMenu = () => {
     setIsOpen(false);
+    setOpenDropdown(null);
+  };
+
+  const toggleDropdown = (itemName: string) => {
+    setOpenDropdown(openDropdown === itemName ? null : itemName);
+  };
+
+  const handleMouseEnter = (itemName: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setOpenDropdown(itemName);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
   };
 
   // Handle keyboard events for menu interaction
@@ -38,11 +59,23 @@ export function Navbar() {
   // Handle click outside to close menu
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+      
+      // Allow button clicks (dropdown toggles) to work
+      if (target instanceof Element && target.closest('button[aria-expanded]')) {
+        return;
+      }
+      
+      // Check if click is on a navigation link - allow navigation to happen
+      if (target instanceof Element && target.closest('a[href]')) {
+        return;
+      }
+      
       if (
         isOpen &&
         menuRef.current &&
-        !menuRef.current.contains(event.target as Node) &&
-        !menuButtonRef.current?.contains(event.target as Node)
+        !menuRef.current.contains(target) &&
+        !menuButtonRef.current?.contains(target)
       ) {
         closeMenu();
       }
@@ -105,50 +138,112 @@ export function Navbar() {
           {/* Desktop: Nav menu in center */}
           <nav
             ref={menuRef}
-            className="hidden md:flex md:flex-row md:space-x-8 flex-1 justify-start ml-8"
+            className="hidden md:flex md:flex-row md:space-x-8 flex-1 justify-end mr-4"
             id="main-navigation"
             role="navigation"
             aria-label="Main navigation"
           >
             <ul className="flex flex-row space-x-8" role="menubar">
               {navItems.map((item) => {
-                const isActive = pathname === item.href;
+                const isActive = pathname === item.href || (item.dropdown && item.dropdown.some(d => d.href === pathname));
                 const isExternal = item.href.startsWith("http");
+                const hasDropdown = item.dropdown && item.dropdown.length > 0;
 
                 return (
-                  <li key={item.href} role="none">
-                    <Link
-                      href={item.href}
-                      target={isExternal ? "_blank" : "_self"}
-                      rel={isExternal ? "noopener noreferrer" : undefined}
-                      className={`
-                        block py-2 px-3 rounded-md text-base
-                        focus:outline-none transition-colors duration-200
-                        ${
-                          isActive
-                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
-                        }
-                      `}
-                      role="menuitem"
-                      aria-current={isActive ? "page" : undefined}
-                    >
-                      {item.name}
-                      {isExternal && (
-                        <span className="sr-only"> (opens in new window)</span>
-                      )}
-                    </Link>
+                  <li key={item.href} role="none" className="relative">
+                    {hasDropdown ? (
+                      <div
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter(item.name)}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <button
+                          onClick={() => setOpenDropdown(openDropdown === item.name ? null : item.name)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              setOpenDropdown(openDropdown === item.name ? null : item.name);
+                            } else if (e.key === 'Escape') {
+                              setOpenDropdown(null);
+                            }
+                          }}
+                          className={`
+                            inline-flex items-center py-2 px-3 rounded-md text-base
+                            focus:outline-none transition-colors duration-200
+                            ${
+                              isActive
+                                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                            }
+                          `}
+                          aria-haspopup="true"
+                          aria-expanded={openDropdown === item.name}
+                        >
+                          {item.name}
+                          <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        {openDropdown === item.name && item.dropdown && (
+                          <div 
+                            className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50"
+                            onMouseEnter={() => handleMouseEnter(item.name)}
+                            onMouseLeave={handleMouseLeave}
+                          >
+                            {item.dropdown.map((dropdownItem) => {
+                              const isDropdownActive = pathname === dropdownItem.href;
+                              return (
+                                <Link
+                                  key={dropdownItem.href}
+                                  href={dropdownItem.href}
+                                  className={`
+                                    block px-4 py-2 text-sm
+                                    ${
+                                      isDropdownActive
+                                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                    }
+                                  `}
+                                >
+                                  {dropdownItem.name}
+                                </Link>
+                              );
+                            })}
+                            <div className="border-t border-gray-200 dark:border-gray-700 mt-1 pt-1">
+                              <ContactButton variant="inverted" size="sm" href="/contact" fullWidth />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        target={isExternal ? "_blank" : "_self"}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        className={`
+                          block py-2 px-3 rounded-md text-base
+                          focus:outline-none transition-colors duration-200
+                          ${
+                            isActive
+                              ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                          }
+                        `}
+                        role="menuitem"
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        {item.name}
+                        {isExternal && (
+                          <span className="sr-only"> (opens in new window)</span>
+                        )}
+                      </Link>
+                    )}
                   </li>
                 );
               })}
             </ul>
           </nav>
 
-          {/* Desktop: Contact Button on the right */}
-          <div className="hidden md:block flex-shrink-0">
-            <ContactButton variant="inverted" size="md" href="/contact" />
-          </div>
-          
           {/* Mobile: Hamburger on the right */}
           <button
             ref={menuButtonRef}
@@ -210,38 +305,100 @@ export function Navbar() {
         >
           <ul className="flex flex-col space-y-4 w-full" role="menubar">
             {navItems.map((item) => {
-              const isActive = pathname === item.href;
+              const isActive = pathname === item.href || (item.dropdown && item.dropdown.some(d => d.href === pathname));
               const isExternal = item.href.startsWith("http");
+              const hasDropdown = item.dropdown && item.dropdown.length > 0;
+              const isDropdownOpen = openDropdown === item.name;
 
               return (
                 <li key={item.href} role="none">
-                  <Link
-                    href={item.href}
-                    target={isExternal ? "_blank" : "_self"}
-                    rel={isExternal ? "noopener noreferrer" : undefined}
-                    onClick={closeMenu}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        closeMenu();
-                      }
-                    }}
-                    className={`
-                      block py-2 px-3 rounded-md text-lg
-                      focus:outline-none transition-colors duration-200
-                      ${
-                        isActive
-                          ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                          : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
-                      }
-                    `}
-                    role="menuitem"
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    {item.name}
-                    {isExternal && (
-                      <span className="sr-only"> (opens in new window)</span>
-                    )}
-                  </Link>
+                  {hasDropdown ? (
+                    <div>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleDropdown(item.name);
+                        }}
+                        className={`
+                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-lg
+                          focus:outline-none transition-colors duration-200
+                          ${
+                            isActive
+                              ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                          }
+                        `}
+                        aria-expanded={isDropdownOpen}
+                        aria-label={`Toggle ${item.name} submenu`}
+                      >
+                        {item.name}
+                        <svg 
+                          className={`w-5 h-5 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+                          fill="none" 
+                          stroke="currentColor" 
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {isDropdownOpen && item.dropdown && (
+                        <div className="mt-2 ml-4 space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                          {item.dropdown.map((dropdownItem) => {
+                            const isDropdownActive = pathname === dropdownItem.href;
+                            return (
+                              <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                onClick={closeMenu}
+                                className={`
+                                  block py-2 px-3 rounded-md text-base
+                                  ${
+                                    isDropdownActive
+                                      ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                  }
+                                `}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            );
+                          })}
+                          <div className="border-t border-gray-200 dark:border-gray-700 mt-2 pt-2">
+                            <ContactButton variant="inverted" size="md" href="/contact" fullWidth />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      target={isExternal ? "_blank" : "_self"}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      onClick={closeMenu}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          closeMenu();
+                        }
+                      }}
+                      className={`
+                        block py-2 px-3 rounded-md text-lg
+                        focus:outline-none transition-colors duration-200
+                        ${
+                          isActive
+                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
+                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                        }
+                      `}
+                      role="menuitem"
+                      aria-current={isActive ? "page" : undefined}
+                    >
+                      {item.name}
+                      {isExternal && (
+                        <span className="sr-only"> (opens in new window)</span>
+                      )}
+                    </Link>
+                  )}
                 </li>
               );
             })}
