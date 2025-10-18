@@ -8,7 +8,7 @@ import { ContactButton } from '../ContactButton';
 export default function CallToAction() {
   return (
     <section 
-      className="w-full min-h-[80px] md:min-h-[80px] overflow-visible bg-brand-orange fixed md:relative bottom-0 left-0 right-0 z-40" 
+      className="w-full min-h-[80px] md:min-h-[80px] overflow-visible bg-brand-orange fixed md:relative bottom-0 left-0 right-0 z-40 md:mt-10" 
       aria-label="Contact call-to-action"
       role="region"
     >

@@ -70,13 +70,13 @@ export function Callout({
       >
         {/* Image - Left Side */}
         {image && isImageLeft && (
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden md:w-1/2 md:mx-auto">
             <Image
               src={image.url}
               alt={image.alt || heading}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 25vw"
             />
           </div>
         )}
@@ -95,13 +95,13 @@ export function Callout({
 
         {/* Image - Right Side */}
         {image && !isImageLeft && (
-          <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden md:w-1/2 md:mx-auto">
             <Image
               src={image.url}
               alt={image.alt || heading}
               fill
               className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 768px) 100vw, 25vw"
             />
           </div>
         )}

@@ -71,6 +71,16 @@ export function ContentCard({
   const imageId = `${uniqueId}-image`;
   const categoryId = `${uniqueId}-category`;
   
+  // Extract website URL from details if it exists
+  const websiteUrl = useMemo(() => {
+    if (!details) return null;
+    const websiteDetail = details.find(d => d.match(/^Website:\s*(.+)$/i));
+    if (!websiteDetail) return null;
+    const match = websiteDetail.match(/^Website:\s*(.+)$/i);
+    const url = match ? match[1].trim() : '';
+    return url.startsWith('http') ? url : `https://${url}`;
+  }, [details]);
+  
   // Theme-based styling with gradient backgrounds
   const themeClasses = {
     body: {
@@ -172,37 +182,54 @@ export function ContentCard({
       {/* Content Grid - Text and Image side by side */}
       <div
         className={`grid grid-cols-1 ${
-          image ? 'md:grid-cols-2' : 'md:grid-cols-1'
-        } gap-6 md:gap-12 ${hasDetails ? 'items-start' : 'items-center'}`}
+          image ? 'md:grid-cols-3' : 'md:grid-cols-1'
+        } gap-6 md:gap-12 items-start`}
       >
-        {/* Image - Left Side */}
-        {image && isImageLeft && (
-          <figure 
-            role="img" 
-            aria-labelledby={titleId}
-            aria-describedby={imageId}
-            itemScope
-            itemType="https://schema.org/ImageObject"
-          >
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+      {/* Image - Left Side */}
+      {image && isImageLeft && (
+        <figure 
+          role="img" 
+          aria-labelledby={titleId}
+          aria-describedby={imageId}
+          itemScope
+          itemType="https://schema.org/ImageObject"
+          className="flex items-center"
+        >
+          {websiteUrl ? (
+            <a 
+              href={websiteUrl}
+              target="_blank"
+              className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden"
+              aria-label={`Visit website (opens in new tab)`}
+            >
               <Image
                 src={image.url}
                 alt={image.alt || `Visual illustration for ${heading}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                itemProp="contentUrl"
+              />
+            </a>
+          ) : (
+            <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden">
+              <Image
+                src={image.url}
+                alt={image.alt || `Visual illustration for ${heading}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
                 itemProp="contentUrl"
               />
             </div>
-            <figcaption id={imageId} className="sr-only">
-              Illustration for {cardType}: {heading}. {image.alt || `Visual representation of ${text.substring(0, 100)}`}
-            </figcaption>
-          </figure>
-        )}
-
-        {/* Content Section */}
+          )}
+          <figcaption id={imageId} className="sr-only">
+            Illustration for {cardType}: {heading}. {image.alt || `Visual representation of ${text.substring(0, 100)}`}
+          </figcaption>
+        </figure>
+      )}        {/* Content Section */}
         <section 
-          className={image ? '' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}
+          className={image ? 'md:col-span-2' : !hasOrder ? 'text-center max-w-4xl mx-auto' : ''}
           role="region"
           aria-labelledby={titleId}
         >
@@ -234,26 +261,47 @@ export function ContentCard({
               itemScope
               itemType="https://schema.org/ItemList"
             >
-              {details!.map((detail, idx) => (
-                <li 
-                  key={idx} 
-                  className={`flex items-start gap-2 ${currentTheme.text}`}
-                  role="listitem"
-                  itemProp="itemListElement"
-                  itemScope
-                  itemType="https://schema.org/ListItem"
-                >
-                  <span 
-                    className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0"
-                    aria-hidden="true"
-                    role="presentation"
+              {details!.map((detail, idx) => {
+                // Check if this detail is a website URL
+                const websiteMatch = detail.match(/^Website:\s*(.+)$/i);
+                const isWebsite = !!websiteMatch;
+                const url = websiteMatch ? websiteMatch[1].trim() : '';
+                
+                return (
+                  <li 
+                    key={idx} 
+                    className={`flex items-start gap-2 ${currentTheme.text}`}
+                    role="listitem"
+                    itemProp="itemListElement"
+                    itemScope
+                    itemType="https://schema.org/ListItem"
                   >
-                    ✓
-                  </span>
-                  <span className="leading-relaxed" itemProp="name">{detail}</span>
-                  <meta itemProp="position" content={String(idx + 1)} />
-                </li>
-              ))}
+                    <span 
+                      className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0"
+                      aria-hidden="true"
+                      role="presentation"
+                    >
+                      ✓
+                    </span>
+                    {isWebsite ? (
+                      <span className="leading-relaxed" itemProp="name">
+                        Website:{' '}
+                        <a 
+                          href={url.startsWith('http') ? url : `https://${url}`}
+                          target="_blank"
+                          className="text-blue-600 dark:text-blue-400 hover:underline"
+                          aria-label={`Visit ${url} website (opens in new tab)`}
+                        >
+                          {url}
+                        </a>
+                      </span>
+                    ) : (
+                      <span className="leading-relaxed" itemProp="name">{detail}</span>
+                    )}
+                    <meta itemProp="position" content={String(idx + 1)} />
+                  </li>
+                );
+              })}
             </ul>
           )}
         </section>
@@ -266,17 +314,36 @@ export function ContentCard({
             aria-describedby={imageId}
             itemScope
             itemType="https://schema.org/ImageObject"
+            className="flex items-center"
           >
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden">
-              <Image
-                src={image.url}
-                alt={image.alt || `Visual illustration for ${heading}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                itemProp="contentUrl"
-              />
-            </div>
+            {websiteUrl ? (
+              <a 
+                href={websiteUrl}
+                target="_blank"
+                className="card-enhanced-hover block relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden"
+                aria-label={`Visit website (opens in new tab)`}
+              >
+                <Image
+                  src={image.url}
+                  alt={image.alt || `Visual illustration for ${heading}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  itemProp="contentUrl"
+                />
+              </a>
+            ) : (
+              <div className="relative w-1/2 mx-auto md:w-full aspect-video rounded-lg overflow-hidden">
+                <Image
+                  src={image.url}
+                  alt={image.alt || `Visual illustration for ${heading}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  itemProp="contentUrl"
+                />
+              </div>
+            )}
             <figcaption id={imageId} className="sr-only">
               Illustration for {cardType}: {heading}. {image.alt || `Visual representation of ${text.substring(0, 100)}`}
             </figcaption>
