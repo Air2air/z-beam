@@ -1,5 +1,7 @@
 // app/sitemap.ts
 import { SITE_CONFIG } from './utils/constants';
+import fs from 'fs';
+import path from 'path';
 
 type SitemapEntry = {
   url: string;
@@ -39,9 +41,9 @@ export default function sitemap(): SitemapEntry[] {
     },
     {
       url: `${baseUrl}/partners`,
-      lastModified: new Date(),
+      lastModified: new Date('2025-10-17'), // Updated with SEO optimization
       changeFrequency: 'monthly' as const,
-      priority: 0.7,
+      priority: 0.8, // Increased priority for SEO-optimized page
     },
     {
       url: `${baseUrl}/contact`,
@@ -77,5 +79,29 @@ export default function sitemap(): SitemapEntry[] {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...materialRoutes];
+  // Dynamic article routes from frontmatter files
+  const articleRoutes: SitemapEntry[] = [];
+  try {
+    const frontmatterDir = path.join(process.cwd(), 'content/components/frontmatter');
+    const files = fs.readdirSync(frontmatterDir);
+    
+    files.forEach((file) => {
+      if (file.endsWith('.yaml')) {
+        const slug = file.replace('-laser-cleaning.yaml', '');
+        const filePath = path.join(frontmatterDir, file);
+        const stats = fs.statSync(filePath);
+        
+        articleRoutes.push({
+          url: `${baseUrl}/${slug}`,
+          lastModified: stats.mtime,
+          changeFrequency: 'weekly' as const,
+          priority: 0.8,
+        });
+      }
+    });
+  } catch (error) {
+    console.error('Error reading frontmatter directory:', error);
+  }
+
+  return [...staticRoutes, ...materialRoutes, ...articleRoutes];
 }

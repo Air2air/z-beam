@@ -134,6 +134,27 @@ run_predeploy_checks() {
         npm ci --legacy-peer-deps --include=dev || npm install
     fi
     
+    # Run sitemap verification (critical)
+    if [ "${SKIP_CHECKS}" != "true" ]; then
+        info "Verifying sitemap integrity..."
+        if [ -f "$SCRIPT_DIR/../sitemap/verify-sitemap.sh" ]; then
+            chmod +x "$SCRIPT_DIR/../sitemap/verify-sitemap.sh"
+            if "$SCRIPT_DIR/../sitemap/verify-sitemap.sh"; then
+                success "Sitemap verification passed"
+            else
+                error "Sitemap verification failed!"
+                echo ""
+                echo "The sitemap must be valid before deploying to production."
+                echo "Please fix the issues and try again."
+                echo ""
+                exit 1
+            fi
+        else
+            warning "Sitemap verification script not found, skipping..."
+        fi
+        echo ""
+    fi
+    
     # Run type check (optional, can be skipped)
     if [ "${SKIP_CHECKS}" != "true" ]; then
         info "Running TypeScript type check..."
