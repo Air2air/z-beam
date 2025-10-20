@@ -20,31 +20,52 @@ Complete guide to deploying and managing the Z-Beam application on Vercel.
 
 ## Production-Only Deployment Strategy
 
-This project is configured to **only deploy to production** from the `main` branch. Preview deployments are disabled.
+⚠️ **CRITICAL**: This project is configured to **only deploy to production**. All deployments must be marked as Production, never Preview.
+
+### Policy Documentation
+
+See [Production-Only Policy](PRODUCTION_ONLY_POLICY.md) for complete details on:
+- Why deployments must be production-only
+- Configuration requirements
+- Testing and verification
+- Troubleshooting preview deployments
 
 ### Configuration
 
 **vercel.json** is configured with:
 ```json
-"git": {
-  "deploymentEnabled": {
-    "main": true
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "ignoreCommand": "bash -c 'if [ \"$VERCEL_ENV\" != \"production\" ]; then exit 1; else exit 0; fi'",
+  "github": {
+    "enabled": true,
+    "autoAlias": false,
+    "autoJobCancelation": false
   }
 }
 ```
 
-This means:
-- ✅ **Pushes to `main` branch** → Automatic production deployment
-- ❌ **All other branches** → No deployment
-- ❌ **Pull requests** → No preview deployments
-- ❌ **Commits to other branches** → Ignored by Vercel
+This configuration ensures:
+- ✅ **Main branch only** → Only `main` branch triggers deployments
+- ✅ **Production environment** → `VERCEL_ENV=production` required
+- ✅ **No preview builds** → `ignoreCommand` blocks non-production deployments
+- ✅ **No auto-cancellation** → Builds complete without interruption
+- ❌ **All other branches** → Completely ignored
+- ❌ **Pull requests** → No preview deployments created
+- ❌ **Preview environment** → Blocked by ignoreCommand
 
 ### Why Production-Only?
 
-1. **Simplified workflow** - No need to manage multiple environments
-2. **Cost efficiency** - Reduced build minutes and bandwidth usage
-3. **Clearer intent** - Every merge to main is a production release
-4. **Resource conservation** - No unnecessary preview builds
+1. **Deployment Consistency** - All deployments go through the same production pipeline
+2. **Quality Control** - Every deployment is validated and tested
+3. **Resource Efficiency** - No wasted resources on preview builds
+4. **Simplified Workflow** - Single deployment path reduces complexity
+5. **Security** - Production-only environment variables and configuration
+6. **Cost Efficiency** - Reduced build minutes and bandwidth usage
 
 ### Deployment Process
 

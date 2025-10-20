@@ -39,6 +39,7 @@
     "test:images": "jest tests/image-naming-conventions.test.js",
     "test:comprehensive": "npm run test:parsing && npm run test:content && npm run test:images && npm run test:ci",
     "test:deployment": "jest --config jest.deployment.config.js",
+    "test:deployment:config": "jest tests/deployment/deployment-config.test.ts",
     "test:deployment:watch": "jest --config jest.deployment.config.js --watch",
     "test:sitemap": "jest tests/sitemap/sitemap.test.ts",
     "verify:sitemap": "bash scripts/sitemap/verify-sitemap.sh",
