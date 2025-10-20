@@ -172,7 +172,17 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   }
   
   if (type === 'table') {
-    return <section key={type} aria-label="Data table"><Table content={content} config={config} frontmatterData={metadata} /></section>;
+    // Enhanced table with smart display modes
+    const tableConfig = {
+      ...config,
+      displayMode: config?.displayMode || 'hybrid', // Default to hybrid for best UX
+      layoutMode: config?.layoutMode || 'detailed'
+    };
+    return (
+      <section key={type} aria-label="Data table">
+        <Table content={content} config={tableConfig} frontmatterData={metadata} />
+      </section>
+    );
   }
   
   if (type === 'tags') {

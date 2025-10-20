@@ -6,19 +6,9 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { SmartTableData, DisplayMode, SmartField } from '@/types';
 
 // Mock the actual Table/SmartTable components
-const MockTable = ({ content, config, frontmatterData }: {
-  content?: string;
-  config?: {
-    displayMode?: DisplayMode;
-    layoutMode?: string;
-    caption?: string;
-    showHeader?: boolean;
-  };
-  frontmatterData?: SmartTableData;
-}) => {
+const MockTable = ({ content, config, frontmatterData }) => {
   const displayMode = config?.displayMode || 'hybrid';
   
   return (
@@ -111,7 +101,7 @@ const MockTable = ({ content, config, frontmatterData }: {
 };
 
 // Legacy Table component for backward compatibility tests
-const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, variant }: any) => (
+const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, variant }) => (
   <div 
     data-testid="legacy-table-container"
     data-variant={variant}
@@ -127,7 +117,7 @@ const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, va
     <table data-testid="data-table">
       <thead data-testid="table-header">
         <tr>
-          {columns?.map((col: any, index: number) => (
+          {columns?.map((col, index) => (
             <th 
               key={index}
               data-testid={`header-${col.key}`}
@@ -141,9 +131,9 @@ const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, va
         </tr>
       </thead>
       <tbody data-testid="table-body">
-        {data?.map((row: any, rowIndex: number) => (
+        {data?.map((row, rowIndex) => (
           <tr key={rowIndex} data-testid={`row-${rowIndex}`}>
-            {columns?.map((col: any, colIndex: number) => (
+            {columns?.map((col, colIndex) => (
               <td 
                 key={colIndex}
                 data-testid={`cell-${rowIndex}-${col.key}`}
@@ -159,7 +149,7 @@ const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, va
 );
 
 describe('Smart Table Component', () => {
-  const sampleFrontmatterData: SmartTableData = {
+  const sampleFrontmatterData = {
     name: 'Aluminum 6061',
     category: 'Metal',
     subcategory: 'Aluminum Alloy',
@@ -263,7 +253,7 @@ describe('Smart Table Component', () => {
 
   describe('Type Safety and Interfaces', () => {
     test('should handle SmartTableData interface correctly', () => {
-      const typedData: SmartTableData = {
+      const typedData = {
         name: 'Test Material',
         category: 'Test Category',
         materialProperties: {

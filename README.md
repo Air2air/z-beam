@@ -108,7 +108,7 @@ const tagStats = getTagStats();
 - `List` - Displays a list of articles
 - `AuthorArticles` - Shows articles by author
 - `TagDirectory` - Shows all tags with counts
-- `Table` - Generic table component for structured data display
+- `Table` - Enhanced Smart Table component with intelligent frontmatter organization, multiple display modes (content/technical/hybrid), and centralized type system
 - `Caption` - Before/after text content for laser cleaning descriptions
 - `MetricsCard` - **Individual metric card component** - Displays single metrics with progress bars and smart value positioning
 - `MetricsGrid` - **Metrics grid container** - Renders collections of MetricsCard components with title mapping
