@@ -45,13 +45,13 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
     const identityFields = ['name', 'category', 'subcategory', 'chemicalSymbol', 'chemicalFormula', 'atomicNumber'];
     
     // Content-specific fields - educational and descriptive
-    const contentFields = ['title', 'subtitle', 'description', 'excerpt', 'keywords', 'targetAudience', 'articleType', 'applications', 'safety_considerations', 'environmental_impact'];
+    const contentFields = ['title', 'subtitle', 'description', 'excerpt', 'keywords', 'targetAudience', 'articleType', 'applications', 'safety_considerations', 'environmental_impact', 'environmentalImpact', 'materialCharacteristics'];
     
     // Technical-specific fields - specifications and measurements
     const technicalFields = ['materialProperties', 'machineSettings', 'density', 'thermalConductivity', 'laserAbsorption', 'powerRange', 'wavelength', 'quality_metrics', 'outcomeMetrics'];
     
     // Reference fields - research and validation (technical mode only)
-    const referenceFields = ['research_basis', 'validation_method', 'source', 'confidence', 'references'];
+    const referenceFields = ['research_basis', 'validation_method', 'source', 'confidence', 'references', 'regulatoryStandards'];
     
     if (identityFields.includes(key)) return 'identity';
     if (contentFields.includes(key)) return 'content';
@@ -92,6 +92,39 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
     if (typeof value === 'number') return 'number';
     if (typeof value === 'boolean') return 'boolean';
     return 'text';
+  };
+
+  // Helper function to extract nested fields from complex objects
+  const extractNestedFields = (obj: any, parentKey: string = '', maxDepth: number = 2, currentDepth: number = 0): SmartField[] => {
+    const fields: SmartField[] = [];
+    
+    if (!obj || typeof obj !== 'object' || currentDepth >= maxDepth) {
+      return fields;
+    }
+
+    Object.entries(obj).forEach(([key, value]: [string, any]) => {
+      const fieldKey = parentKey ? `${parentKey}.${key}` : key;
+      
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
+        // Handle objects with properties (like materialProperties structure)
+        if (value.properties && typeof value.properties === 'object') {
+          Object.entries(value.properties).forEach(([propKey, propValue]: [string, any]) => {
+            fields.push(categorizeField(`${fieldKey}.${propKey}`, propValue));
+          });
+        } else if (value.value !== undefined || value.unit || value.confidence) {
+          // Handle value objects with metadata
+          fields.push(categorizeField(fieldKey, value));
+        } else if (currentDepth < maxDepth - 1) {
+          // Recursively extract from nested objects
+          fields.push(...extractNestedFields(value, fieldKey, maxDepth, currentDepth + 1));
+        }
+      } else {
+        // Handle simple values and arrays
+        fields.push(categorizeField(fieldKey, value));
+      }
+    });
+    
+    return fields;
   };
 
   // Smart field categorization and formatting
@@ -174,6 +207,25 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         });
       }
 
+      // Material Characteristics - Content mode
+      if (data.materialCharacteristics) {
+        const characteristicFields = extractNestedFields(data.materialCharacteristics, 'materialCharacteristics');
+        
+        if (characteristicFields.length > 0) {
+          sections.push({
+            id: 'material-characteristics',
+            title: 'Material Characteristics',
+            description: 'Physical and structural material characteristics',
+            priority: 2.5,
+            fields: characteristicFields,
+            collapsible: true,
+            defaultExpanded: true,
+            badge: 'Characteristics',
+            modes: ['content', 'hybrid']
+          });
+        }
+      }
+
       // Applications & Usage - Content mode only
       const applicationFields: SmartField[] = [];
       const appKeys = ['applications', 'compatibility', 'outcomes'];
@@ -196,9 +248,37 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         });
       }
 
-      // Safety & Environment - Content mode only
+      // Environmental Impact - Content mode
+      if (data.environmentalImpact || data.environmental_impact) {
+        const envData = data.environmentalImpact || data.environmental_impact;
+        const envFields: SmartField[] = [];
+        
+        if (Array.isArray(envData)) {
+          envFields.push(categorizeField('environmentalImpact', envData));
+        } else if (typeof envData === 'object') {
+          envFields.push(...extractNestedFields(envData, 'environmentalImpact'));
+        } else {
+          envFields.push(categorizeField('environmentalImpact', envData));
+        }
+        
+        if (envFields.length > 0) {
+          sections.push({
+            id: 'environmental-impact',
+            title: 'Environmental Impact',
+            description: 'Environmental benefits and sustainability considerations',
+            priority: 3.5,
+            fields: envFields,
+            collapsible: true,
+            defaultExpanded: false,
+            badge: 'Sustainability',
+            modes: ['content', 'hybrid']
+          });
+        }
+      }
+
+      // Safety & Regulatory - Content mode
       const safetyFields: SmartField[] = [];
-      const safetyKeys = ['safety_considerations', 'environmental_impact', 'regulatoryStandards'];
+      const safetyKeys = ['safety_considerations', 'regulatoryStandards'];
       safetyKeys.forEach(key => {
         if (data[key] !== undefined) {
           safetyFields.push(categorizeField(key, data[key]));
@@ -207,9 +287,9 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
       
       if (safetyFields.length > 0) {
         sections.push({
-          id: 'safety-environment',
-          title: 'Safety & Environment',
-          description: 'Safety guidelines and environmental considerations',
+          id: 'safety-regulatory',
+          title: 'Safety & Regulatory',
+          description: 'Safety guidelines and regulatory compliance',
           priority: 4,
           fields: safetyFields,
           collapsible: true,
@@ -284,9 +364,42 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         }
       }
 
+      // Outcome Metrics - Technical mode
+      if (data.outcomeMetrics) {
+        const outcomeFields: SmartField[] = [];
+        
+        if (Array.isArray(data.outcomeMetrics)) {
+          data.outcomeMetrics.forEach((metric: any, index: number) => {
+            if (typeof metric === 'object') {
+              outcomeFields.push(...extractNestedFields(metric, `outcomeMetric${index + 1}`));
+            } else {
+              outcomeFields.push(categorizeField(`outcomeMetric${index + 1}`, metric));
+            }
+          });
+        } else if (typeof data.outcomeMetrics === 'object') {
+          outcomeFields.push(...extractNestedFields(data.outcomeMetrics, 'outcomeMetrics'));
+        } else {
+          outcomeFields.push(categorizeField('outcomeMetrics', data.outcomeMetrics));
+        }
+        
+        if (outcomeFields.length > 0) {
+          sections.push({
+            id: 'outcome-metrics',
+            title: 'Outcome Metrics',
+            description: 'Performance measurements and success criteria',
+            priority: 3.5,
+            fields: outcomeFields,
+            collapsible: true,
+            defaultExpanded: true,
+            badge: 'Metrics',
+            modes: ['technical', 'hybrid']
+          });
+        }
+      }
+
       // Research & Validation - Technical mode only
       const researchFields: SmartField[] = [];
-      const researchKeys = ['research_basis', 'validation_method', 'source', 'confidence'];
+      const researchKeys = ['research_basis', 'validation_method', 'source', 'confidence', 'description'];
       researchKeys.forEach(key => {
         if (data[key] !== undefined) {
           const field = categorizeField(key, data[key]);
@@ -335,6 +448,25 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         });
       }
       
+      // Material Characteristics (hybrid)
+      if (data.materialCharacteristics) {
+        const characteristicFields = extractNestedFields(data.materialCharacteristics, 'materialCharacteristics');
+        
+        if (characteristicFields.length > 0) {
+          sections.push({
+            id: 'characteristics-summary',
+            title: 'Key Characteristics',
+            description: 'Essential material characteristics',
+            priority: 2.5,
+            fields: characteristicFields.slice(0, 6), // Limit for hybrid view
+            collapsible: true,
+            defaultExpanded: false,
+            badge: 'Characteristics',
+            modes: ['hybrid']
+          });
+        }
+      }
+      
       // Technical summary (expanded)
       if (data.materialProperties) {
         const technicalFields: SmartField[] = [];
@@ -362,6 +494,58 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             modes: ['hybrid']
           });
         }
+      }
+      
+      // Outcome Metrics Summary (hybrid)
+      if (data.outcomeMetrics) {
+        const outcomeFields: SmartField[] = [];
+        
+        if (Array.isArray(data.outcomeMetrics)) {
+          outcomeFields.push(categorizeField('outcomeMetrics', data.outcomeMetrics.slice(0, 3))); // Top 3 outcomes
+        } else if (typeof data.outcomeMetrics === 'object') {
+          const nestedOutcomes = extractNestedFields(data.outcomeMetrics, 'outcomeMetrics');
+          outcomeFields.push(...nestedOutcomes.slice(0, 3));
+        }
+        
+        if (outcomeFields.length > 0) {
+          sections.push({
+            id: 'outcomes-summary',
+            title: 'Key Outcomes',
+            description: 'Primary performance metrics',
+            priority: 3.5,
+            fields: outcomeFields,
+            collapsible: true,
+            defaultExpanded: false,
+            badge: 'Metrics',
+            modes: ['hybrid']
+          });
+        }
+      }
+      
+      // Environmental & Regulatory Summary (hybrid)
+      const hybridEnvFields: SmartField[] = [];
+      if (data.environmentalImpact || data.environmental_impact) {
+        const envData = data.environmentalImpact || data.environmental_impact;
+        if (Array.isArray(envData) && envData.length > 0) {
+          hybridEnvFields.push(categorizeField('environmentalImpact', envData.slice(0, 3))); // Top 3 impacts
+        }
+      }
+      if (data.regulatoryStandards && Array.isArray(data.regulatoryStandards)) {
+        hybridEnvFields.push(categorizeField('regulatoryStandards', data.regulatoryStandards.slice(0, 3))); // Top 3 standards
+      }
+      
+      if (hybridEnvFields.length > 0) {
+        sections.push({
+          id: 'environment-regulatory-summary',
+          title: 'Environment & Compliance',
+          description: 'Key environmental and regulatory information',
+          priority: 4,
+          fields: hybridEnvFields,
+          collapsible: true,
+          defaultExpanded: false,
+          badge: 'Compliance',
+          modes: ['hybrid']
+        });
       }
     }
 
