@@ -24,20 +24,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
 
   // Enhanced display mode with hybrid option
   const displayMode: DisplayMode = (config as any)?.displayMode || 'content';
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(
-    new Set(['core-identity', 'content-overview', 'material-properties'])
-  );
-
-  // Toggle section expansion
-  const toggleSection = (sectionId: string) => {
-    const newExpanded = new Set(expandedSections);
-    if (newExpanded.has(sectionId)) {
-      newExpanded.delete(sectionId);
-    } else {
-      newExpanded.add(sectionId);
-    }
-    setExpandedSections(newExpanded);
-  };
 
   // Enhanced field categorization with stricter boundaries
   const getFieldCategory = (key: string): SmartField['category'] => {
@@ -173,8 +159,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         description: 'Core material identification and classification',
         priority: 1,
         fields: identityFields,
-        collapsible: false, // Always visible
-        defaultExpanded: true,
         badge: 'Essential',
         modes: ['content', 'technical', 'hybrid']
       });
@@ -201,8 +185,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Article and educational content information',
           priority: 2,
           fields: contentInfoFields,
-          collapsible: true,
-          defaultExpanded: true,
           modes: ['content', 'hybrid']
         });
       }
@@ -218,8 +200,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Physical and structural material characteristics',
             priority: 2.5,
             fields: characteristicFields,
-            collapsible: true,
-            defaultExpanded: true,
             badge: 'Characteristics',
             modes: ['content', 'hybrid']
           });
@@ -242,8 +222,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Practical applications and use cases',
           priority: 3,
           fields: applicationFields,
-          collapsible: true,
-          defaultExpanded: false,
           modes: ['content', 'hybrid']
         });
       }
@@ -268,8 +246,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Environmental benefits and sustainability considerations',
             priority: 3.5,
             fields: envFields,
-            collapsible: true,
-            defaultExpanded: false,
             badge: 'Sustainability',
             modes: ['content', 'hybrid']
           });
@@ -292,8 +268,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Safety guidelines and regulatory compliance',
           priority: 4,
           fields: safetyFields,
-          collapsible: true,
-          defaultExpanded: false,
           badge: 'Important',
           modes: ['content', 'hybrid']
         });
@@ -307,8 +281,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Content classification and search terms',
           priority: 5,
           fields: [categorizeField('keywords', data.keywords)],
-          collapsible: true,
-          defaultExpanded: false,
           modes: ['content']
         });
       }
@@ -334,8 +306,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Physical, thermal, and mechanical characteristics',
             priority: 2,
             fields: materialFields.slice(0, 12), // Limit for readability
-            collapsible: true,
-            defaultExpanded: true,
             badge: 'Technical',
             modes: ['technical', 'hybrid']
           });
@@ -356,8 +326,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Recommended laser processing parameters',
             priority: 3,
             fields: machineFields,
-            collapsible: true,
-            defaultExpanded: true,
             badge: 'Parameters',
             modes: ['technical']
           });
@@ -389,8 +357,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Performance measurements and success criteria',
             priority: 3.5,
             fields: outcomeFields,
-            collapsible: true,
-            defaultExpanded: true,
             badge: 'Metrics',
             modes: ['technical', 'hybrid']
           });
@@ -416,8 +382,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Data sources and validation methodology',
           priority: 4,
           fields: researchFields.slice(0, 8), // Limit duplicates
-          collapsible: true,
-          defaultExpanded: false,
           badge: 'Research',
           modes: ['technical']
         });
@@ -442,8 +406,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Key content information',
           priority: 2,
           fields: contentInfoFields,
-          collapsible: true,
-          defaultExpanded: false,
           modes: ['hybrid']
         });
       }
@@ -459,8 +421,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Essential material characteristics',
             priority: 2.5,
             fields: characteristicFields.slice(0, 6), // Limit for hybrid view
-            collapsible: true,
-            defaultExpanded: false,
             badge: 'Characteristics',
             modes: ['hybrid']
           });
@@ -488,8 +448,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Essential technical characteristics',
             priority: 3,
             fields: technicalFields.slice(0, 9), // Max 9 for readability
-            collapsible: true,
-            defaultExpanded: true,
             badge: 'Technical',
             modes: ['hybrid']
           });
@@ -514,8 +472,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             description: 'Primary performance metrics',
             priority: 3.5,
             fields: outcomeFields,
-            collapsible: true,
-            defaultExpanded: false,
             badge: 'Metrics',
             modes: ['hybrid']
           });
@@ -541,8 +497,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           description: 'Key environmental and regulatory information',
           priority: 4,
           fields: hybridEnvFields,
-          collapsible: true,
-          defaultExpanded: false,
           badge: 'Compliance',
           modes: ['hybrid']
         });
@@ -556,9 +510,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
 
   // Render individual section
   const renderSection = (section: TableSection) => {
-    const isExpanded = expandedSections.has(section.id);
-    const shouldShow = !section.collapsible || isExpanded;
-
     return (
       <div 
         key={section.id}
@@ -566,10 +517,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
       >
         {/* Section Header */}
         <div 
-          className={`px-4 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 ${
-            section.collapsible ? 'cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700' : ''
-          }`}
-          onClick={section.collapsible ? () => toggleSection(section.id) : undefined}
+          className="px-4 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -586,18 +534,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
               <span className="text-xs text-gray-500 dark:text-gray-400">
                 {section.fields.length} {section.fields.length === 1 ? 'field' : 'fields'}
               </span>
-              {section.collapsible && (
-                <button className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
-                  <svg 
-                    className={`w-4 h-4 transform transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              )}
             </div>
           </div>
           {section.description && (
@@ -608,13 +544,11 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         </div>
 
         {/* Section Content */}
-        {shouldShow && (
-          <div className="p-4">
-            <div className="space-y-3">
-              {section.fields.map(field => renderField(field))}
-            </div>
+        <div className="p-4">
+          <div className="space-y-3">
+            {section.fields.map(field => renderField(field))}
           </div>
-        )}
+        </div>
       </div>
     );
   };

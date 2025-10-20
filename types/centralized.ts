@@ -793,8 +793,6 @@ export interface TableSection {
   description?: string;
   priority: number;
   fields: SmartField[];
-  collapsible?: boolean;
-  defaultExpanded?: boolean;
   badge?: string;
   modes: DisplayMode[];
 }
