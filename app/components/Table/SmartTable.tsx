@@ -561,6 +561,66 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
       }
 
       if (Array.isArray(value)) {
+        // Special handling for outcomeMetrics array
+        if (value.length > 0 && value[0] && typeof value[0] === 'object' && 'metric' in value[0]) {
+          return (
+            <div className="space-y-3">
+              {value.map((metric: any, index: number) => (
+                <div key={index} className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <div className="font-medium text-blue-900 dark:text-blue-100 mb-2">
+                    {metric.metric}
+                  </div>
+                  {metric.description && (
+                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                      {metric.description}
+                    </p>
+                  )}
+                  {metric.typicalRanges && (
+                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                      <strong>Range:</strong> {metric.typicalRanges}
+                    </div>
+                  )}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
+                    {metric.units && metric.units.length > 0 && (
+                      <div>
+                        <strong className="text-gray-700 dark:text-gray-300">Units:</strong>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          {metric.units.map((unit: string, i: number) => (
+                            <span key={i} className="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-xs">
+                              {unit}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {metric.measurementMethods && metric.measurementMethods.length > 0 && (
+                      <div>
+                        <strong className="text-gray-700 dark:text-gray-300">Methods:</strong>
+                        <div className="mt-1">
+                          {metric.measurementMethods.map((method: string, i: number) => (
+                            <div key={i} className="text-gray-600 dark:text-gray-400">• {method}</div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {metric.factorsAffecting && metric.factorsAffecting.length > 0 && (
+                      <div>
+                        <strong className="text-gray-700 dark:text-gray-300">Factors:</strong>
+                        <div className="mt-1">
+                          {metric.factorsAffecting.map((factor: string, i: number) => (
+                            <div key={i} className="text-gray-600 dark:text-gray-400">• {factor}</div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          );
+        }
+        
+        // Default array handling for non-outcomeMetrics arrays
         return (
           <div className="flex flex-wrap gap-1">
             {value.map((item, index) => (
@@ -576,6 +636,28 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
       }
 
       if (typeof value === 'object') {
+        // Special handling for single outcome metric objects
+        if (value && 'metric' in value) {
+          return (
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
+              <div className="font-medium text-blue-900 dark:text-blue-100 mb-2">
+                {value.metric}
+              </div>
+              {value.description && (
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                  {value.description}
+                </p>
+              )}
+              {value.typicalRanges && (
+                <div className="text-xs text-gray-600 dark:text-gray-400">
+                  <strong>Range:</strong> {value.typicalRanges}
+                </div>
+              )}
+            </div>
+          );
+        }
+        
+        // Default object handling
         return (
           <div className="text-sm font-mono bg-gray-50 dark:bg-gray-800 p-2 rounded border">
             <pre className="whitespace-pre-wrap text-xs">
