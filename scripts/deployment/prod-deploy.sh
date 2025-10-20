@@ -266,21 +266,6 @@ main() {
     check_git_status
     run_predeploy_checks
     
-    # Confirm deployment
-    echo ""
-    echo -e "${YELLOW}═══════════════════════════════════════════════${NC}"
-    echo -e "${YELLOW}  Ready to deploy to PRODUCTION                ${NC}"
-    echo -e "${YELLOW}═══════════════════════════════════════════════${NC}"
-    echo ""
-    read -p "Continue with production deployment? (y/N): " -n 1 -r
-    echo
-    echo ""
-    
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        warning "Deployment cancelled by user"
-        exit 0
-    fi
-    
     # Deploy
     if deploy_to_production; then
         # Monitor if not disabled
