@@ -158,7 +158,7 @@ describe('Deployment Documentation', () => {
   test('deployment guide exists', () => {
     const docPath = path.join(
       process.cwd(), 
-      'docs/deployment/DEPLOYMENT_GUIDE.md'
+      'docs/deployment/README.md'
     );
     expect(fs.existsSync(docPath)).toBe(true);
   });
