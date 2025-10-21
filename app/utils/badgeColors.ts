@@ -19,6 +19,7 @@ export function getMaterialColor(materialType?: string): BadgeColor {
     compound: "gray",
     element: "blue",
     alloy: "blue",
+    "rare-earth": "blue",
     other: "gray"
   };
 

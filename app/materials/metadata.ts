@@ -30,6 +30,19 @@ export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
       category: "Industrial Cleaning Services"
     }
   },
+  "rare-earth": {
+    title: `Rare-Earth Elements Laser Cleaning | ${SITE_CONFIG.shortName}`,
+    subtitle: "Rare-earth elements require ultra-precise cleaning protocols that preserve their unique magnetic, optical, and catalytic properties—essential for electronics, renewable energy, and advanced manufacturing applications.",
+    description: "Professional laser cleaning for rare-earth elements including cerium, neodymium, yttrium, and other lanthanides. High-tech applications with precision cleaning technology.",
+    keywords: ["rare earth laser cleaning", "cerium cleaning", "neodymium surface treatment", "lanthanide restoration", "high-tech materials"],
+    ogImage: "/images/material/neodymium-laser-cleaning-hero.jpg",
+    schema: {
+      "@type": "Product",
+      name: "Rare-Earth Elements Laser Cleaning Services",
+      description: "Professional laser cleaning solutions for rare-earth materials including cerium, neodymium, and other lanthanides.",
+      category: "Industrial Cleaning Services"
+    }
+  },
   ceramic: {
     title: `Ceramic Laser Cleaning Solutions | ${SITE_CONFIG.shortName}`,
     subtitle: "Ceramics demand controlled energy delivery to prevent thermal shock and micro-fractures in brittle alumina, silicon nitride, and technical ceramics used in semiconductor and high-temperature applications.",
