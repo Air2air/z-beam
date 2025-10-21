@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Smart Deploy Monitor
-# Monitors Vercel build logs during deployments
+# Smart Deploy & Monitor
+# Combined deployment and monitoring tool for Vercel
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -37,6 +37,66 @@ check_vercel() {
         return 1
     fi
     return 0
+}
+
+# Deploy to production
+deploy_production() {
+    log "🚀 Starting production deployment..."
+    
+    # Check prerequisites
+    if ! check_vercel; then
+        return 1
+    fi
+    
+    # Check if we're on main branch
+    local current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
+    log "📍 Current branch: $current_branch"
+    
+    if [ "$current_branch" != "main" ]; then
+        warning "Not on main branch. Deploying anyway..."
+    fi
+    
+    # Check for uncommitted changes
+    if ! git diff-index --quiet HEAD -- 2>/dev/null; then
+        warning "You have uncommitted changes. Deploying current state..."
+    fi
+    
+    # Get current commit
+    local commit=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
+    log "📝 Deploying commit: $commit"
+    
+    # Deploy directly to production with force flag
+    log "⚡ Deploying with --prod --force --yes"
+    
+    if vercel --prod --force --yes; then
+        success "Production deployment complete!"
+        log "🌐 Your site is live at:"
+        log "   • https://z-beam.com"
+        log "   • https://z-beam-air2airs-projects.vercel.app"
+        
+        # Show recent deployments
+        log "📊 Recent deployments:"
+        vercel ls | head -5
+        return 0
+    else
+        error "Production deployment failed!"
+        return 1
+    fi
+}
+
+# Deploy and monitor
+deploy_and_monitor() {
+    log "🚀 Starting production deployment with monitoring..."
+    
+    # Deploy first
+    if deploy_production; then
+        log "🔍 Starting deployment monitoring..."
+        # Start monitoring the latest deployment
+        monitor_latest
+    else
+        error "Deployment failed, skipping monitoring"
+        return 1
+    fi
 }
 
 # Monitor deployment by URL
@@ -142,14 +202,18 @@ show_deployments() {
 
 # Show help
 show_help() {
-    echo "Smart Deploy Monitor"
-    echo "==================="
+    echo "Smart Deploy & Monitor"
+    echo "====================="
     echo ""
-    echo "Monitors Vercel build logs during deployments"
+    echo "Combined deployment and monitoring tool for Vercel"
     echo ""
     echo "Usage: $0 <command> [url]"
     echo ""
-    echo "Commands:"
+    echo "DEPLOYMENT COMMANDS:"
+    echo "  deploy            - Deploy to production (main branch)"
+    echo "  deploy-monitor    - Deploy to production and start monitoring"
+    echo ""
+    echo "MONITORING COMMANDS:"
     echo "  start             - Start monitoring for active deployments"
     echo "  start-deploy      - Start monitoring for deployment duration only (auto-stop)"
     echo "  monitor [url]     - Monitor specific deployment (latest if no URL)"
@@ -157,21 +221,32 @@ show_help() {
     echo "  stop              - Stop monitoring"
     echo "  logs              - Show live deployment logs"
     echo "  list              - Show recent deployments"
+    echo ""
+    echo "GENERAL:"
     echo "  help              - Show this help"
     echo ""
     echo "Examples:"
+    echo "  $0 deploy                        # Deploy to production"
+    echo "  $0 deploy-monitor                # Deploy and start monitoring"
     echo "  $0 start                         # Start monitoring for active deployments"
     echo "  $0 monitor                       # Monitor latest deployment"
     echo "  $0 monitor https://my.app        # Monitor specific deployment"
     echo "  $0 status                        # Check if monitoring active"
     echo "  $0 logs                          # Show live deployment logs"
+    echo "  $0 list                          # Show recent deployments"
     echo "  $0 stop                          # Stop monitoring"
-    echo ""
-    echo "Note: This tool only monitors deployments. Use 'vercel' command directly to deploy."
 }
 
 # Main command handler
 case "${1:-help}" in
+    # Deployment commands
+    "deploy")
+        deploy_production
+        ;;
+    "deploy-monitor")
+        deploy_and_monitor
+        ;;
+    # Monitoring commands
     "start")
         start_monitoring
         ;;
@@ -197,6 +272,7 @@ case "${1:-help}" in
     "list")
         show_deployments
         ;;
+    # Help and fallback
     "help"|"--help"|"-h")
         show_help
         ;;
