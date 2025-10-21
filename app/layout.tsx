@@ -42,7 +42,7 @@ export const metadata = {
       { url: SITE_CONFIG.media.favicon.png, type: 'image/png' },
     ],
     apple: [
-      { url: '/images/icons/apple-touch-icon.png' },
+      { url: '/images/favicon/favicon_350.png', sizes: '350x350', type: 'image/png' },
     ],
   },
   manifest: '/manifest.json',
