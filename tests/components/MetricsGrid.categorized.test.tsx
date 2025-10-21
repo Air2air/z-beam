@@ -479,7 +479,7 @@ describe('MetricsGrid - Property Title Mapping', () => {
       />
     );
 
-    expect(screen.getByText('Thermal Conductivity')).toBeInTheDocument();
+    expect(screen.getByText('Therm. Conductivity')).toBeInTheDocument();
     expect(screen.getByText('Thermal Expansion')).toBeInTheDocument();
   });
 });

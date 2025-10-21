@@ -59,7 +59,13 @@ describe('Deployment Configuration', () => {
   describe('Build Configuration', () => {
     test('buildCommand is defined', () => {
       expect(vercelConfig.buildCommand).toBeDefined();
-      expect(vercelConfig.buildCommand).toBe('next build');
+      expect(vercelConfig.buildCommand).toContain('next build');
+    });
+
+    test('buildCommand enforces production-only builds', () => {
+      expect(vercelConfig.buildCommand).toContain('VERCEL_ENV');
+      expect(vercelConfig.buildCommand).toContain('production');
+      expect(vercelConfig.buildCommand).toContain('exit 1');
     });
 
     test('framework is set to nextjs', () => {

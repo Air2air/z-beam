@@ -161,14 +161,11 @@ describe('Sitemap Validation', () => {
   });
 
   describe('Type Safety', () => {
-    it('should have proper TypeScript types defined', () => {
+    it('should import SitemapEntry type from @/types', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      expect(sitemapContent).toContain('type SitemapEntry');
-      expect(sitemapContent).toContain('url: string');
-      expect(sitemapContent).toContain('lastModified?:');
-      expect(sitemapContent).toContain('changeFrequency?:');
-      expect(sitemapContent).toContain('priority?:');
+      expect(sitemapContent).toContain('import { SitemapEntry } from \'@/types\'');
+      expect(sitemapContent).toContain('SitemapEntry[]');
     });
 
     it('should export default sitemap function', () => {

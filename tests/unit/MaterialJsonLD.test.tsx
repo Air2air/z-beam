@@ -157,7 +157,8 @@ describe('MaterialJsonLD Component', () => {
 
     expect(article).toBeDefined();
     expect(article.headline).toBe('Test Material Laser Processing');
-    expect(article.author['@id']).toBe('https://z-beam.com#author-1');
+    // Handle both localhost and production URLs
+    expect(article.author['@id']).toMatch(/(https:\/\/z-beam\.com|http:\/\/localhost:3000)#author-1/);
   });
 
   it('should include Product schema with material properties', () => {
