@@ -1,14 +1,7 @@
 // app/data/featuredMaterialCategories.ts
 // Featured material category data for homepage - showcases different material types
 
-export interface FeaturedMaterialCategory {
-  slug: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-  materialType: string;
-  representativeMaterial: string;
-}
+import { FeaturedMaterialCategory } from '@/types';
 
 export const featuredMaterialCategories: FeaturedMaterialCategory[] = [
   {

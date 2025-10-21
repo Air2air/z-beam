@@ -1,12 +1,7 @@
 // app/data/featuredSections.ts
 // Featured section data for homepage - replaces SectionCard structure
 
-export interface FeaturedSection {
-  slug: string;
-  title: string;
-  description: string;
-  imageUrl: string;
-}
+import { FeaturedSection } from '@/types';
 
 export const featuredSections: FeaturedSection[] = [
   {

@@ -9,14 +9,7 @@ import { TagDebug } from '../components/Debug/TagDebug';
 import { FrontmatterDebug } from '../components/Debug/FrontmatterDebug';
 import { FrontmatterNameChecker } from '../components/Debug/FrontmatterNameChecker';
 import { BadgeSymbol } from '../components/BadgeSymbol/BadgeSymbol';
-
-interface DebugData {
-  thumbnails: Array<{ url: string; alt: string; slug: string }>;
-  images: Array<{ src: string; alt: string; width: number; height: number }>;
-  materials: Array<{ name: string; type: string; fallback: string; status: string }>;
-  cards: Array<{ title: string; content: string; type: string; status: string }>;
-  frontmatter: Array<Record<string, unknown>>;
-}
+import { DebugData } from '@/types';
 
 export default function DebugPage() {
   const [activeTab, setActiveTab] = useState('thumbnails');

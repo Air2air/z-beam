@@ -1,20 +1,7 @@
 // app/materials/metadata.ts
 // SEO metadata configuration for material category pages
 import { SITE_CONFIG } from '../utils/constants';
-
-export interface CategoryMetadata {
-  title: string;
-  subtitle?: string; // Optional subtitle for page display
-  description: string;
-  keywords: string[];
-  ogImage: string;
-  schema: {
-    "@type": string;
-    name: string;
-    description: string;
-    category: string;
-  };
-}
+import { CategoryMetadata } from '@/types';
 
 export const CATEGORY_METADATA: Record<string, CategoryMetadata> = {
   metal: {

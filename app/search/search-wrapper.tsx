@@ -4,12 +4,8 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import SearchClient from "./search-client";
 import { Layout } from "../components/Layout/Layout";
-import { Article } from "@/types";
+import { Article, SearchWrapperProps } from "@/types";
 import { capitalizeWords } from "../utils/formatting";
-
-interface SearchWrapperProps {
-  initialArticles: Article[];
-}
 
 export default function SearchWrapper({ initialArticles }: SearchWrapperProps) {
   const searchParams = useSearchParams();

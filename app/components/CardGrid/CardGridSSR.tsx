@@ -3,59 +3,11 @@
 
 import React from 'react';
 import { Card } from "../Card/Card";
-import { Article, MaterialType, BadgeData, ArticleMetadata } from "@/types";
+import { Article, MaterialType, BadgeData, ArticleMetadata, GridItemSSR, CardGridSSRProps } from "@/types";
 import { getArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap } from "../../utils/gridConfig";
 import { Title } from '../Title';
-
-// Unified item interface for SSR
-interface GridItemSSR {
-  slug: string;
-  title?: string;
-  name?: string;
-  description?: string;
-  href?: string;
-  imageUrl?: string;
-  imageAlt?: string;
-  image?: string;
-  badge?: BadgeData;
-  tags?: string[];
-  category?: string;
-  metadata?: Record<string, unknown>;
-  article?: Article | null;
-}
-
-// SSR-specific props interface
-interface CardGridSSRProps {
-  // Data sources (use one)
-  items?: GridItemSSR[];
-  slugs?: string[];
-  
-  // Display configuration
-  title?: string;
-  heading?: string;
-  columns?: GridColumns;
-  gap?: GridGap;
-  
-  // Layout modes
-  mode?: 'simple' | 'category-grouped';
-  variant?: 'default' | 'compact' | 'featured';
-  
-  // Category grouping options (for mode: 'category-grouped')
-  maxItemsPerCategory?: number;
-  categoryOrder?: string[];
-  
-  // Filtering
-  filterBy?: string;
-  
-  // Badge handling
-  showBadgeSymbols?: boolean;
-  loadBadgeSymbolData?: boolean;
-  
-  // Styling
-  className?: string;
-}
 
 // Default category ordering
 const DEFAULT_CATEGORY_ORDER = [

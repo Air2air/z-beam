@@ -1617,12 +1617,163 @@ export interface ProcessedListItem {
   description: string;
   badge?: any;
   imageUrl?: string;
-  category: string;
-  articleType: string;
-  chemicalSymbol?: string;
-  atomicNumber?: number;
-  chemicalFormula?: string;
-  featured?: boolean;
+}
+
+// ===============================
+// SEARCH & NAVIGATION TYPES
+// ===============================
+
+/**
+ * Search wrapper component props
+ */
+export interface SearchWrapperProps {
+  initialArticles: Article[];
+}
+
+/**
+ * Sitemap entry structure
+ */
+export interface SitemapEntry {
+  url: string;
+  lastModified?: Date | string;
+  changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+  priority?: number;
+}
+
+// ===============================
+// CARD GRID TYPES
+// ===============================
+
+/**
+ * Grid item interface for SSR components
+ */
+export interface GridItemSSR {
+  slug: string;
+  title?: string;
+  name?: string;
+  description?: string;
+  category?: string;
+  articleType?: string;
+  metadata?: ArticleMetadata | Record<string, unknown>;
+  badge?: BadgeData;
+  imageUrl?: string;
+  imageAlt?: string;
+  href?: string;
+  tags?: string[];
+  excerpt?: string;
+  article?: Article | null;
+}
+
+/**
+ * CardGrid SSR-specific props interface
+ */
+export interface CardGridSSRProps {
+  // Data sources (use one)
+  items?: GridItemSSR[];
+  slugs?: string[];
+  
+  // Display configuration
+  title?: string;
+  heading?: string;
+  columns?: GridColumns;
+  gap?: GridGap;
+  
+  // Layout modes
+  mode?: 'simple' | 'category-grouped';
+  variant?: 'default' | 'compact' | 'featured';
+  
+  // Category grouping options (for mode: 'category-grouped')
+  maxItemsPerCategory?: number;
+  categoryOrder?: string[];
+  
+  // Filtering
+  filterBy?: string;
+  showFilters?: boolean;
+  
+  // Badge handling
+  showBadgeSymbols?: boolean;
+  loadBadgeSymbolData?: boolean;
+  
+  // Styling
+  className?: string;
+  cardClassName?: string;
+}
+
+// ===============================
+// SYSTEM & VALIDATION TYPES
+// ===============================
+
+/**
+ * Startup validation check result
+ */
+export interface StartupCheckResult {
+  passed: boolean;
+  errors: string[];
+  warnings: string[];
+  validatedAt: string;
+  duration?: number;
+}
+
+// ===============================
+// FEATURED CONTENT TYPES
+// ===============================
+
+/**
+ * Featured material category for homepage
+ */
+export interface FeaturedMaterialCategory {
+  slug: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  materialType: string;
+  representativeMaterial: string;
+}
+
+/**
+ * Featured section for homepage
+ */
+export interface FeaturedSection {
+  slug: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+// ===============================
+// DEBUG & DEVELOPMENT TYPES
+// ===============================
+
+/**
+ * Debug data structure for development page
+ */
+export interface DebugData {
+  thumbnails: Array<{ url: string; alt: string; slug: string }>;
+  images: Array<{ src: string; alt: string; width: number; height: number }>;
+  materials: Array<{ name: string; type: string; fallback: string; status: string }>;
+  cards: Array<any>;
+  frontmatter: Array<any>;
+}
+
+// ===============================
+// CATEGORY & METADATA TYPES
+// ===============================
+
+/**
+ * Category metadata for material pages
+ */
+export interface CategoryMetadata {
+  title: string;
+  subtitle?: string;
+  description: string;
+  keywords: string[];
+  ogImage: string;
+  schema: {
+    "@type": string;
+    name: string;
+    description: string;
+    category: string;
+  };
   materialData?: Article | null;
   badgeSymbolData?: any;
 }

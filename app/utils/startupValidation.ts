@@ -3,16 +3,9 @@
 // Fails fast on configuration issues, validates dependencies upfront
 
 import { ConfigurationError, validateEnvironment } from './errorSystem';
+import { StartupCheckResult } from '@/types';
 // Configuration imports removed - available from manager.server.ts for server-side use
 import { contentValidator } from './contentValidator';
-
-interface StartupCheckResult {
-  passed: boolean;
-  errors: string[];
-  warnings: string[];
-  validatedAt: string;
-  duration?: number;
-}
 
 class StartupValidator {
   private static instance: StartupValidator;

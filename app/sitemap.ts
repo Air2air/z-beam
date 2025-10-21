@@ -1,14 +1,8 @@
 // app/sitemap.ts
 import { SITE_CONFIG } from './utils/constants';
+import { SitemapEntry } from '@/types';
 import fs from 'fs';
 import path from 'path';
-
-type SitemapEntry = {
-  url: string;
-  lastModified?: Date | string;
-  changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
-  priority?: number;
-};
 
 export default function sitemap(): SitemapEntry[] {
   const baseUrl = SITE_CONFIG.url;
