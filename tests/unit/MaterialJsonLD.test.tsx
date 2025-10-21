@@ -1,4 +1,6 @@
 /**
+ * @jest-environment jsdom
+ * 
  * Tests for MaterialJsonLD component
  * Verifies that the component dynamically generates comprehensive E-E-A-T optimized schemas
  * from frontmatter changes

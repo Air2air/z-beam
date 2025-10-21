@@ -12,6 +12,11 @@ import { SITE_CONFIG } from './constants';
  */
 export function createJsonLdForArticle(articleData: any, slug: string) {
   try {
+    if (!articleData) {
+      console.warn('No article data provided for JSON-LD generation');
+      return null;
+    }
+    
     const metadata = articleData.metadata || {};
     const frontmatter = articleData.frontmatter || metadata;
     
@@ -457,7 +462,11 @@ function createAuthorSchema(author: any) {
 }
 
 // 8. Regulatory Compliance Schema (E-E-A-T: Trustworthiness)
-function createComplianceSchema(standards: string[], materialName: string) {
+function createComplianceSchema(standards: any[], materialName: string) {
+  if (!standards || standards.length === 0) {
+    return null;
+  }
+  
   return {
     '@type': 'Certification',
     '@id': `#compliance`,
@@ -465,9 +474,13 @@ function createComplianceSchema(standards: string[], materialName: string) {
     description: 'Applicable regulatory standards and safety certifications',
     issuedBy: standards.map(standard => ({
       '@type': 'Organization',
-      name: standard.split('-')[0].trim() // Extract org from "FDA 21 CFR..."
+      name: typeof standard === 'string' 
+        ? standard.split('-')[0].trim() 
+        : (standard.issuingOrganization || standard.name?.split('-')[0]?.trim() || 'Unknown')
     })),
-    about: standards
+    about: standards.map(standard => 
+      typeof standard === 'string' ? standard : standard.name || standard.description
+    )
   };
 }
 

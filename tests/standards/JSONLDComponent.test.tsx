@@ -19,19 +19,21 @@ describe('JSON-LD Component Implementation', () => {
     }
   });
 
-  describe('JSON-LD Directory Structure', () => {
-    test('should have jsonld directory', () => {
-      expect(fs.existsSync(jsonldDirPath)).toBe(true);
+  describe('JSON-LD System Architecture', () => {
+    test('should use dynamic JSON-LD generation instead of static files', () => {
+      // After cleanup: No static JSON-LD files - dynamic generation only
+      const totalStaticFiles = jsonldFiles.length + yamlFiles.length;
+      expect(totalStaticFiles).toBe(0); // Static files removed for better maintainability
     });
 
-    test('should contain structured data files', () => {
-      const totalFiles = jsonldFiles.length + yamlFiles.length;
-      expect(totalFiles).toBeGreaterThan(0);
+    test('should have MaterialJsonLD component for dynamic generation', () => {
+      const componentPath = path.join(process.cwd(), 'app', 'components', 'JsonLD', 'JsonLD.tsx');
+      expect(fs.existsSync(componentPath)).toBe(true);
     });
 
-    test('should have both JSON and YAML formats', () => {
-      // Should support both formats for flexibility
-      expect(jsonldFiles.length + yamlFiles.length).toBeGreaterThan(0);
+    test('should have jsonld-helper for schema generation', () => {
+      const helperPath = path.join(process.cwd(), 'app', 'utils', 'jsonld-helper.ts');
+      expect(fs.existsSync(helperPath)).toBe(true);
     });
   });
 
