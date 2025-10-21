@@ -74,6 +74,14 @@ jobs:
               echo "✅ ================================"
               echo "🌐 Live at: https://$URL"
               echo "⏱️  Total time: ${AGE}s"
+              
+              # Auto-promote to production if it's a preview deployment
+              if [ "$TARGET" = "preview" ]; then
+                echo ""
+                echo "🚀 Auto-promoting to production..."
+                node scripts/deployment/auto-promote-production.js
+              fi
+              
               exit 0
             fi
             
