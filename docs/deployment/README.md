@@ -71,7 +71,7 @@ This configuration ensures:
 
 #### Automatic Deployment
 ```bash
-# Merge to main triggers automatic production deployment
+# Push to main triggers automatic production deployment via GitHub Actions
 git checkout main
 git merge feature-branch
 git push origin main
@@ -79,11 +79,14 @@ git push origin main
 
 #### Manual Deployment
 ```bash
-# Deploy current state to production
-vercel --prod
+# Deploy using the smart deployment script
+./smart-deploy.sh deploy
 
-# Check deployment status
-vercel ls
+# Deploy and start monitoring
+./smart-deploy.sh deploy-monitor
+
+# Traditional vercel command still works
+vercel --prod --force --yes
 ```
 
 ### Pre-deployment Checks
@@ -134,24 +137,31 @@ vercel promote <deployment-url>
 
 ### Monitoring
 
-#### 🎯 Automatic Monitoring (Default)
+#### 🎯 Smart Deploy & Monitor Tool
 
-**Monitoring happens automatically!** Every push to main triggers automatic deployment monitoring via git hook.
+**Combined deployment and monitoring tool:** `smart-deploy.sh`
 
-Just push and watch:
 ```bash
-git push origin main
-# Monitoring starts automatically!
+# Deploy to production
+./smart-deploy.sh deploy
+
+# Deploy and start monitoring
+./smart-deploy.sh deploy-monitor
+
+# Start monitoring existing deployments
+./smart-deploy.sh monitor
+
+# Check deployment status
+./smart-deploy.sh status
+
+# Show deployment logs
+./smart-deploy.sh logs
+
+# List recent deployments
+./smart-deploy.sh list
 ```
 
-The git post-push hook:
-- ✅ Activates automatically after every push to main
-- ✅ Shows real-time deployment status
-- ✅ Updates every 5 seconds
-- ✅ Auto-exits when deployment completes
-- ✅ Works for all developers (installed via npm postinstall)
-
-**No manual steps required!**
+**No manual steps required!** GitHub Actions automatically deploys on push to main.
 
 #### Additional Monitoring Options
 
@@ -174,16 +184,19 @@ This task:
 - Automatically starts monitoring
 - Reports when deployment is live
 
-**3. Standalone Monitor Script**
+**3. Smart Deploy Commands**
 ```bash
-# Monitor with full output
-node scripts/deployment/monitor-deployment.js
+# Start monitoring for active deployments
+./smart-deploy.sh start
 
-# Monitor and open in browser when ready
-node scripts/deployment/monitor-deployment.js --open
+# Monitor latest deployment
+./smart-deploy.sh monitor
 
-# Quiet mode (only shows final result)
-node scripts/deployment/monitor-deployment.js --quiet
+# Stop monitoring
+./smart-deploy.sh stop
+
+# Get help with all commands
+./smart-deploy.sh help
 ```
 
 **4. GitHub Actions (Automatic)**

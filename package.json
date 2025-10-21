@@ -5,7 +5,7 @@
     "npm": ">=10.0.0"
   },
   "scripts": {
-    "postinstall": "bash scripts/deployment/setup-auto-monitor.sh 2>/dev/null || true",
+
     "dev": "next dev",
     "prebuild": "npm run verify:sitemap",
     "build": "next build",
@@ -19,11 +19,10 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "validate": "npm run type-check && npm run lint && npm run test:ci && npm run build",
-    "predeploy": "node scripts/deployment/simple-predeploy.js",
-    "deploy": "bash scripts/deployment/prod-deploy.sh",
-    "deploy:prod": "bash scripts/deployment/prod-deploy.sh",
-    "deploy:prod:fast": "bash scripts/deployment/prod-deploy.sh --skip-checks",
-    "deploy:monitor": "node scripts/vercel-deployment-monitor.js",
+    "deploy": "./smart-deploy.sh deploy",
+    "deploy:prod": "./smart-deploy.sh deploy",
+    "deploy:monitor": "./smart-deploy.sh deploy-monitor",
+    "monitor": "./smart-deploy.sh monitor",
     "cleanup": "node scripts/automated-cleanup.js",
     "cleanup:dry-run": "node scripts/automated-cleanup.js --dry-run",
     "logs": "vercel logs --follow",

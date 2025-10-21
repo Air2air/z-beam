@@ -4,7 +4,7 @@
 
 This README is the single source of truth for building, maintaining, and extending the Z-Beam project. It integrates all critical principles, workflows, and enforcement mechanisms from previous documentation.
 
-**🔍 Automatic Deployment Monitoring Active** - All deployments are now automatically tracked and monitored for status changes.
+**� Smart Deploy System Active** - Combined deployment and monitoring system using `smart-deploy.sh`.
 
 ---
 
@@ -208,9 +208,9 @@ npm install                # Install dependencies
 npm run dev                # Start dev server with health checks
 npm run build              # Full build with all checks
 npm run start              # Start production server
-npm run predeploy          # Validate before deployment
 npm run deploy             # Deploy to production
-npm run deploy:preview     # Deploy to preview environment
+npm run deploy:monitor     # Deploy and start monitoring
+npm run monitor            # Monitor existing deployments
 npm run enforce-components # Check component rules
 npm run create:component   # Safely create new component (last resort)
 ```
@@ -223,56 +223,66 @@ npm run create:component   # Safely create new component (last resort)
 
 ---
 
-## 8. Deployment System (v2.1)
+## 8. Smart Deploy & Monitor System
 
-### Production-Only Deployment
+### Unified Deployment System
 
-Z-Beam uses automatic production deployment from the `main` branch with real-time monitoring.
+Z-Beam uses a combined deployment and monitoring system built around `smart-deploy.sh`.
 
 **Quick Deploy:**
 ```bash
-git push origin main   # Automatic production deployment + monitoring
+# Automatic via GitHub Actions
+git push origin main
+
+# Manual deployment
+./smart-deploy.sh deploy
+
+# Manual with monitoring
+./smart-deploy.sh deploy-monitor
 ```
 
-That's it! The system automatically:
-- ✅ Triggers Vercel build
-- ✅ Monitors deployment status
-- ✅ Sends desktop notification
-- ✅ Logs deployment history
-- ✅ Analyzes errors if failure occurs
+### Smart Deploy Commands
 
-### System Health Check
-
-Before deploying, verify your environment:
+**Deployment:**
 ```bash
-npm run deploy:health   # Validates Node, Git, Vercel CLI, hooks
+./smart-deploy.sh deploy          # Deploy to production
+./smart-deploy.sh deploy-monitor  # Deploy and start monitoring
 ```
 
-### Build Configuration
-
-- **Compiler**: Next.js SWC (Babel removed for performance)
-- **TypeScript**: In devDependencies (v5.9.3)
-- **Package Install**: `npm ci --include=dev` (815+ packages)
-- **Build Command**: `next build`
-- **Region**: iad1 (Washington D.C.)
-
-### Automatic Monitoring
-
-Deployment monitoring activates automatically via git hook:
-
-```
-📍 URL: z-beam-xyz.vercel.app
-🔨 Status: BUILDING → ✅ READY
-⏱️  Duration: 65 seconds
-🔔 Desktop notification sent
-```
-
-### Deployment Tools
-
+**Monitoring:**
 ```bash
-# Monitoring
-npm run deploy:health     # System health check
-npm run deploy:history    # View deployment history
+./smart-deploy.sh monitor         # Monitor latest deployment
+./smart-deploy.sh start           # Start monitoring active deployments
+./smart-deploy.sh status          # Check monitoring status
+./smart-deploy.sh logs            # Show live deployment logs
+./smart-deploy.sh list            # List recent deployments
+./smart-deploy.sh stop            # Stop monitoring
+```
+
+**NPM Scripts:**
+```bash
+npm run deploy            # Deploy to production
+npm run deploy:monitor    # Deploy and start monitoring
+npm run monitor           # Monitor existing deployments
+```
+
+### Automatic Deployment
+
+**GitHub Actions Workflow:**
+- Triggers on push to main branch
+- Uses `vercel --prod --force --yes` for direct production deployment
+- Posts status comments on commits
+- No manual intervention required
+
+### System Features
+
+**What happens automatically:**
+- ✅ Direct production deployment (no previews)
+- ✅ Real-time monitoring with 5-second updates
+- ✅ Colored output for status clarity
+- ✅ Auto-stops when deployment completes
+- ✅ GitHub Actions integration
+- ✅ VS Code task integration
 npm run deploy:stats      # Success rate & analytics
 npm run deploy:analyze    # Analyze latest error
 

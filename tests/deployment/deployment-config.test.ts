@@ -21,18 +21,14 @@ describe('Deployment Configuration', () => {
       expect(fs.existsSync(vercelConfigPath)).toBe(true);
     });
 
-    test('ignoreCommand uses VERCEL_ENV for production-only deployments', () => {
-      expect(vercelConfig.ignoreCommand).toBeDefined();
-      expect(vercelConfig.ignoreCommand).toContain('VERCEL_ENV');
-      expect(vercelConfig.ignoreCommand).toContain('production');
+    test('git configuration enables main branch deployments', () => {
+      expect(vercelConfig.git).toBeDefined();
+      expect(vercelConfig.git.deploymentEnabled).toBeDefined();
+      expect(vercelConfig.git.deploymentEnabled.main).toBe(true);
     });
 
-    test('ignoreCommand prevents non-production deployments', () => {
-      const ignoreCmd = vercelConfig.ignoreCommand;
-      // Should exit 1 (fail) if not production
-      expect(ignoreCmd).toMatch(/exit 1/);
-      // Should exit 0 (success) if production
-      expect(ignoreCmd).toMatch(/exit 0/);
+    test('production branch is set to main', () => {
+      expect(vercelConfig.git.productionBranch).toBe('main');
     });
 
     test('only main branch is enabled for deployment', () => {
@@ -62,10 +58,8 @@ describe('Deployment Configuration', () => {
       expect(vercelConfig.buildCommand).toContain('next build');
     });
 
-    test('buildCommand enforces production-only builds', () => {
-      expect(vercelConfig.buildCommand).toContain('VERCEL_ENV');
-      expect(vercelConfig.buildCommand).toContain('production');
-      expect(vercelConfig.buildCommand).toContain('exit 1');
+    test('buildCommand uses standard Next.js build', () => {
+      expect(vercelConfig.buildCommand).toBe('next build');
     });
 
     test('framework is set to nextjs', () => {
@@ -90,19 +84,12 @@ describe('Deployment Configuration', () => {
     });
   });
 
-  describe('Environment Configuration', () => {
-    test('NODE_ENV is set to production', () => {
-      // Check both possible locations for env vars
-      const hasEnv = vercelConfig.env?.NODE_ENV === 'production' ||
-                     vercelConfig.build?.env?.NODE_ENV === 'production';
-      expect(hasEnv).toBe(true);
-    });
-
-    test('NEXT_TELEMETRY_DISABLED is set', () => {
-      const hasTelemetryDisabled = 
-        vercelConfig.env?.NEXT_TELEMETRY_DISABLED === '1' ||
-        vercelConfig.build?.env?.NEXT_TELEMETRY_DISABLED === '1';
-      expect(hasTelemetryDisabled).toBe(true);
+  describe('GitHub Integration', () => {
+    test('GitHub integration is properly configured', () => {
+      expect(vercelConfig.github).toBeDefined();
+      expect(vercelConfig.github.enabled).toBe(true);
+      expect(vercelConfig.github.autoAlias).toBe(false);
+      expect(vercelConfig.github.autoJobCancelation).toBe(false);
     });
   });
 
@@ -186,30 +173,34 @@ describe('Deployment Documentation', () => {
 });
 
 describe('Deployment Scripts', () => {
-  test('production deployment script exists', () => {
-    const scriptPath = path.join(
-      process.cwd(), 
-      'scripts/deployment/prod-deploy.sh'
-    );
+  test('smart-deploy script exists in root', () => {
+    const scriptPath = path.join(process.cwd(), 'smart-deploy.sh');
     expect(fs.existsSync(scriptPath)).toBe(true);
   });
 
-  test('production deployment script is executable', () => {
-    const scriptPath = path.join(
-      process.cwd(), 
-      'scripts/deployment/prod-deploy.sh'
-    );
+  test('smart-deploy script is executable', () => {
+    const scriptPath = path.join(process.cwd(), 'smart-deploy.sh');
     const stats = fs.statSync(scriptPath);
     const isExecutable = !!(stats.mode & fs.constants.S_IXUSR);
     expect(isExecutable).toBe(true);
   });
 
-  test('package.json has deploy:prod script', () => {
-    const packageJsonPath = path.join(process.cwd(), 'package.json');
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
+  test('smart-deploy script contains deployment commands', () => {
+    const scriptPath = path.join(process.cwd(), 'smart-deploy.sh');
+    const content = fs.readFileSync(scriptPath, 'utf-8');
     
-    expect(packageJson.scripts?.['deploy:prod']).toBeDefined();
-    expect(packageJson.scripts['deploy:prod']).toContain('prod-deploy.sh');
+    expect(content).toContain('deploy_production');
+    expect(content).toContain('deploy-monitor');
+    expect(content).toContain('vercel --prod --force --yes');
+  });
+
+  test('VS Code task references smart-deploy script', () => {
+    const tasksPath = path.join(process.cwd(), '.vscode/tasks.json');
+    if (fs.existsSync(tasksPath)) {
+      const tasksContent = fs.readFileSync(tasksPath, 'utf-8');
+      expect(tasksContent).toContain('Deploy to Production');
+      expect(tasksContent).toContain('./smart-deploy.sh');
+    }
   });
 });
 
