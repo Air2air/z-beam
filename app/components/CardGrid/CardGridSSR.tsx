@@ -203,8 +203,8 @@ export async function CardGridSSR({
     ? processedItems
     : processedItems.filter((item) => 
         item.category?.toLowerCase() === filterBy.toLowerCase() ||
-        item.metadata?.articleType?.toLowerCase() === filterBy.toLowerCase() ||
-        item.metadata?.category?.toLowerCase() === filterBy.toLowerCase()
+        (item.metadata && 'articleType' in item.metadata && typeof item.metadata.articleType === 'string' && item.metadata.articleType.toLowerCase() === filterBy.toLowerCase()) ||
+        (item.metadata && 'category' in item.metadata && typeof item.metadata.category === 'string' && item.metadata.category.toLowerCase() === filterBy.toLowerCase())
       );
 
   if (!filteredItems.length) {

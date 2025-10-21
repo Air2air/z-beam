@@ -12,9 +12,7 @@ export * from './apiWrapper';
 export * from './contentValidator';
 export * from './logger';
 
-// Export configuration system
-export { configManager, initializeConfig, getConfig, getConfigSection, Config } from '../config';
-export type { AppConfig } from '../config';
+// Configuration system available from app/config/manager.server.ts for server-side use
 
 // =============================================================================
 // CONTENT MANAGEMENT (Content loading and processing)

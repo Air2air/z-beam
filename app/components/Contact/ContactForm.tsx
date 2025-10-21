@@ -10,7 +10,10 @@ export function ContactForm() {
     name: '',
     email: '',
     phone: '',
+    subject: '',
     message: '',
+    company: '',
+    inquiryType: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -94,7 +97,10 @@ export function ContactForm() {
           name: '',
           email: '',
           phone: '',
+          subject: '',
           message: '',
+          company: '',
+          inquiryType: '',
         });
         
         // Focus success message for accessibility

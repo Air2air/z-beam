@@ -164,9 +164,9 @@ function extractComplexPropertyCards(
     
     // Extract value from nested structure
     let displayValue: number | string;
-    let unit = nestedValue.unit || '';
-    let min = nestedValue.min;
-    let max = nestedValue.max;
+    const unit = nestedValue.unit || '';
+    const min = nestedValue.min;
+    const max = nestedValue.max;
     let description = nestedValue.description || '';
     
     // Handle special case: thermalDestruction.point

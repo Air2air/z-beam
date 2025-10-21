@@ -575,6 +575,7 @@ export interface MetricsGridProps {
   // NEW: Category filtering and expansion controls
   categoryFilter?: string[]; // Filter to specific categories (e.g., ['thermal', 'mechanical'])
   defaultExpandedCategories?: string[]; // Categories expanded by default
+  maxCards?: number; // Limit the number of cards displayed
   
   // Legacy compatibility (for older Caption system usage)
   qualityMetrics?: QualityMetrics;
@@ -1601,7 +1602,10 @@ export interface ContactFormData {
   name: string;
   email: string;
   phone?: string;
+  subject: string;
   message: string;
+  company?: string;
+  inquiryType: string;
 }
 
 /**

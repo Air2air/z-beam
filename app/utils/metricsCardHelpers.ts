@@ -43,7 +43,7 @@ function extractMetricFromKey(metadata: ArticleMetadata, config: GenericMetricCo
   let unit: string | undefined;
   let minValue: number | undefined;
   let maxValue: number | undefined;
-  let rawValue = value;
+  const rawValue = value;
   
   // Handle PropertyWithUnits objects or YAML structured data
   if (typeof value === 'object' && value !== null && ('numeric' in value || 'text' in value || 'value' in value)) {
