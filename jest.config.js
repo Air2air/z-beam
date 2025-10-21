@@ -69,7 +69,8 @@ const customJestConfig = {
         "<rootDir>/tests/image-naming-conventions.test.js",
         "<rootDir>/tests/utils/**/*.test.{js,jsx,ts,tsx}",
         "<rootDir>/tests/types/**/*.test.{js,jsx,ts,tsx}",
-        "<rootDir>/tests/unit/**/*.test.{js,jsx,ts,tsx}"
+        "<rootDir>/tests/unit/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/e2e/**/*.test.{js,jsx,ts,tsx}"
       ],
       setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
       transform: {

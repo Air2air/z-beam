@@ -50,9 +50,9 @@ console.log('Encoded:', urlEncodedNames);
 console.log('Decoded:', urlDecodedNames);
 console.log();
 
-// Step 5: search-client normalizePropertyName
+// Step 5: search-client normalizePropertyName (must match search-client.tsx exactly)
 function normalizePropertyName(name) {
-  return name.toLowerCase().replace(/[^\w]/g, '');
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
 const normalizedSearchNames = urlDecodedNames.map(normalizePropertyName);

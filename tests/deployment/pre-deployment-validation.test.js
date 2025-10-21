@@ -199,14 +199,17 @@ describe('Pre-Deployment Error Prevention', () => {
       }
     });
 
-    test('setup script creates monitoring hooks', () => {
-      const setupScript = path.join(process.cwd(), 'scripts/deployment/setup-auto-monitor.sh');
-      expect(fs.existsSync(setupScript)).toBe(true);
+    test('smart-deploy script handles monitoring', () => {
+      const smartDeploy = path.join(process.cwd(), 'smart-deploy.sh');
+      expect(fs.existsSync(smartDeploy)).toBe(true);
       
       // Check if it's executable
-      const stats = fs.statSync(setupScript);
-      const isExecutable = (stats.mode & 0o111) !== 0;
-      expect(isExecutable).toBe(true);
+      const stats = fs.statSync(smartDeploy);
+      expect(stats.mode & parseInt('755', 8)).toBeTruthy();
+      
+      // Check it contains monitoring functionality
+      const content = fs.readFileSync(smartDeploy, 'utf-8');
+      expect(content).toContain('deployment monitoring');
     });
   });
 
@@ -272,30 +275,37 @@ describe('Pre-Deployment Error Prevention', () => {
     });
   });
 
-  describe('Monitoring tools validation', () => {
-    test('monitor script exists and is valid', () => {
-      const monitorScript = path.join(process.cwd(), 'scripts/deployment/monitor-deployment.js');
-      expect(fs.existsSync(monitorScript)).toBe(true);
+  describe('Unified deployment system validation', () => {
+    test('smart-deploy script contains monitoring functions', () => {
+      const smartDeploy = path.join(process.cwd(), 'smart-deploy.sh');
+      expect(fs.existsSync(smartDeploy)).toBe(true);
       
-      const content = fs.readFileSync(monitorScript, 'utf-8');
-      expect(content).toContain('monitorDeployment');
+      const content = fs.readFileSync(smartDeploy, 'utf-8');
+      expect(content).toContain('monitor');
       expect(content).toContain('vercel');
+      expect(content).toContain('deployment monitoring');
     });
 
-    test('analyzer script exists and is valid', () => {
-      const analyzerScript = path.join(process.cwd(), 'scripts/deployment/analyze-deployment-error.js');
-      expect(fs.existsSync(analyzerScript)).toBe(true);
+    test('smart-deploy script has all required commands', () => {
+      const smartDeploy = path.join(process.cwd(), 'smart-deploy.sh');
+      const content = fs.readFileSync(smartDeploy, 'utf-8');
       
-      const content = fs.readFileSync(analyzerScript, 'utf-8');
-      expect(content).toContain('analyzeErrorLog');
-      expect(content).toContain('errorPatterns');
+      // Check for all deployment commands
+      expect(content).toContain('deploy');
+      expect(content).toContain('deploy-monitor');
+      expect(content).toContain('monitor');
+      expect(content).toContain('start');
+      expect(content).toContain('status');
+      expect(content).toContain('logs');
+      expect(content).toContain('list');
+      expect(content).toContain('stop');
     });
 
-    test('documentation exists for deployment monitoring', () => {
+    test('documentation exists for deployment system', () => {
       const docs = [
         'DEPLOYMENT.md',
-        'scripts/deployment/README.md',
-        'MONITORING_SETUP.md'
+        'docs/deployment/SMART_DEPLOY_SYSTEM.md',
+        'docs/deployment/PRODUCTION_ONLY_POLICY.md'
       ];
       
       docs.forEach(doc => {

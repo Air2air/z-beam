@@ -1,5 +1,5 @@
-// tests/utils/formatting.test.js
-const {
+// tests/utils/formatting-general.test.ts
+import {
   formatDate,
   slugify,
   truncateText,
@@ -15,7 +15,7 @@ const {
   urlEncodeParentheses,
   capitalizeWords,
   slugToDisplayName
-} = require('../../app/utils/formatting.ts');
+} from '../../app/utils/formatting';
 
 describe('Formatting utilities', () => {
   const RealDate = Date;

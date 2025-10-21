@@ -158,7 +158,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   // Normalize property name for comparison (remove spaces, convert to lowercase)
   const normalizePropertyName = (name: string): string => {
-    return name.toLowerCase().replace(/[^\w]/g, '');
+    return name.toLowerCase().replace(/[^a-z0-9]/g, '');
   };
   
   const normalizedSearchProperty = propertyName ? normalizePropertyName(propertyName) : '';

@@ -15,7 +15,7 @@ const testMetadata = {
 };
 
 function normalizePropertyName(name) {
-  return name.toLowerCase().replace(/[^\w]/g, '');
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
 function parsePropertiesFromMetadata(metadata) {
