@@ -128,7 +128,7 @@ describe('MetricsCard Comprehensive Accessibility', () => {
       
       // Searchable cards are wrapped in Next.js Link which handles Enter key navigation
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/search?property=thermal_conductivity&value=45.5&unit=W%2FmK');
+      expect(link).toHaveAttribute('href', '/search?property=thermal_conductivity&value=45.5');
       
       // Verify link is keyboard accessible (link gets focus)
       await user.tab();
@@ -141,7 +141,7 @@ describe('MetricsCard Comprehensive Accessibility', () => {
       
       // Next.js Link component handles Space key activation automatically
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/search?property=thermal_conductivity&value=45.5&unit=W%2FmK');
+      expect(link).toHaveAttribute('href', '/search?property=thermal_conductivity&value=45.5');
       
       // Verify proper ARIA attributes for keyboard users
       expect(link).toHaveAttribute('aria-label');

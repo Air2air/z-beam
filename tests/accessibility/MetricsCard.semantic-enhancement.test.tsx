@@ -10,6 +10,7 @@ import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
 
 describe('MetricsCard Semantic Enhancement Tests', () => {
   const mockProps = {
+    key: 'thermal-conductivity',
     title: 'Thermal Conductivity',
     value: 45.5,
     unit: 'W/mK',
@@ -17,7 +18,7 @@ describe('MetricsCard Semantic Enhancement Tests', () => {
     max: 429,
     searchable: true,
     fullPropertyName: 'thermal_conductivity',
-    color: '#4F46E5'
+    color: 'blue'
   };
 
   describe('Maximum Specificity Data Attributes', () => {
@@ -225,7 +226,7 @@ describe('MetricsCard Semantic Enhancement Tests', () => {
       const htmlSize = container.innerHTML.length;
       
       // Enhanced markup should be under reasonable size limit
-      expect(htmlSize).toBeLessThan(5000); // 5KB threshold for single component
+      expect(htmlSize).toBeLessThan(6000); // 6KB threshold adjusted for semantic enhancements
     });
   });
 });

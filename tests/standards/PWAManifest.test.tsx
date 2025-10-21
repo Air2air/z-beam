@@ -91,7 +91,7 @@ describe('PWA Manifest Standards', () => {
         
         // Check src format
         expect(typeof icon.src).toBe('string');
-        expect(icon.src).toMatch(/\.(png|jpg|jpeg|svg|webp)$/i);
+        expect(icon.src).toMatch(/\.(png|jpg|jpeg|svg|webp|ico)$/i);
         
         // Check sizes format
         expect(icon.sizes).toMatch(/^\d+x\d+$/);

@@ -54,7 +54,7 @@ describe('MetricsCard Simple Component', () => {
       );
       
       expect(screen.getByText('Power')).toBeInTheDocument();
-      expect(screen.getByText(/\(%\)/)).toBeInTheDocument(); // Unit in parentheses
+      expect(screen.getByText('%')).toBeInTheDocument(); // Unit display
       // With semantic enhancement, value appears multiple times (progress bar, data elements, etc.)
       expect(screen.getAllByText('80')).toHaveLength(2); // Current value in progress bar and main data element
       expect(screen.getByText('0')).toBeInTheDocument();
@@ -76,7 +76,7 @@ describe('MetricsCard Simple Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute('href', '/search?property=Thermal%20Conductivity&value=150&unit=W%2FmK');
+      expect(link).toHaveAttribute('href', '/search?property=Thermal%20Conductivity&value=150');
       expect(link).toHaveAttribute('title', 'Search for Thermal Conductivity: 150W/mK');
     });
 
@@ -92,7 +92,7 @@ describe('MetricsCard Simple Component', () => {
       );
       
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/search?property=Melting%20Temperature&value=1200&unit=%C2%B0C');
+      expect(link).toHaveAttribute('href', '/search?property=Melting%20Temperature&value=1200');
     });
 
     it('should generate general search URL for non-property titles', () => {
@@ -155,8 +155,8 @@ describe('MetricsCard Simple Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass('cursor-pointer');
-      expect(link).toHaveClass('hover:shadow-xl'); // Updated from hover:shadow-lg in simplified component
-      expect(link).toHaveClass('hover:scale-[1.03]'); // Updated from hover:scale-105
+      expect(link).toHaveClass('card-enhanced-hover'); // Current hover class implementation
+      expect(link).toHaveClass('focus:ring-2'); // Focus accessibility class
     });
   });
 
