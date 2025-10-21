@@ -19,7 +19,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "validate": "npm run type-check && npm run lint && npm run test:ci && npm run build",
-    "predeploy": "node simple-predeploy.js",
+    "predeploy": "node scripts/deployment/simple-predeploy.js",
     "deploy": "bash scripts/deployment/prod-deploy.sh",
     "deploy:prod": "bash scripts/deployment/prod-deploy.sh",
     "deploy:prod:fast": "bash scripts/deployment/prod-deploy.sh --skip-checks",
