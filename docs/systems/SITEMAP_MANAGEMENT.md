@@ -305,7 +305,7 @@ Update `package.json`:
 ## File Structure
 
 ```
-z-beam-test-push/
+z-beam/
 ├── app/
 │   └── sitemap.ts                         # Dynamic sitemap generator
 ├── content/

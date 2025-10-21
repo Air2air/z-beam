@@ -300,7 +300,7 @@ expect(element?.className).toContain('tracking-');
 
 ### Delete Obsolete Tests
 ```bash
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push
+cd /Users/todddunning/Desktop/Z-Beam/z-beam
 rm tests/components/UniversalPage.test.tsx
 rm tests/components/Caption.author.test.tsx
 rm tests/accessibility/Caption.semantic-enhancement.test.tsx

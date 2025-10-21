@@ -6,7 +6,7 @@
 echo "🧹 Starting batch font class removal..."
 
 # Define the workspace root
-WORKSPACE="/Users/todddunning/Desktop/Z-Beam/z-beam-test-push/app/components"
+WORKSPACE="/Users/todddunning/Desktop/Z-Beam/z-beam/app/components"
 
 # Function to remove font classes while preserving other classes
 remove_font_classes() {

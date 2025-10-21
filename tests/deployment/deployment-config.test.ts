@@ -219,7 +219,7 @@ describe('Environment Variables', () => {
     
     expect(projectJson.projectId).toBeDefined();
     expect(projectJson.orgId).toBeDefined();
-    expect(projectJson.projectName).toBe('z-beam-test-push');
+    expect(projectJson.projectName).toBe('z-beam');
   });
 });
 

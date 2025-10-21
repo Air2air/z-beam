@@ -176,14 +176,27 @@ deploy_to_production() {
     
     cd "$PROJECT_ROOT"
     
-    # Deploy with production flag
-    if vercel --prod; then
+    # Deploy with production flag - force production environment
+    info "Deploying to PRODUCTION environment..."
+    echo "Command: vercel --prod --confirm"
+    echo ""
+    
+    if vercel --prod --confirm; then
         echo ""
-        success "Deployment initiated successfully!"
+        success "PRODUCTION deployment initiated successfully!"
+        
+        # Verify it's actually going to production
+        sleep 5
+        local latest_deploy=$(vercel ls --prod | head -2 | tail -1)
+        if echo "$latest_deploy" | grep -q "Production"; then
+            success "Confirmed: Deployment is going to PRODUCTION environment"
+        else
+            warning "Warning: Could not confirm production environment"
+        fi
         return 0
     else
         echo ""
-        error "Deployment failed!"
+        error "PRODUCTION deployment failed!"
         return 1
     fi
 }

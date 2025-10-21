@@ -3,7 +3,8 @@
 # Documentation Consolidation Script
 # Automatically organizes Z-Beam documentation into clean structure
 
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push/docs
+# Change to the docs directory
+cd /Users/todddunning/Desktop/Z-Beam/z-beam/docs
 
 echo "🚀 Starting Documentation Consolidation..."
 echo ""

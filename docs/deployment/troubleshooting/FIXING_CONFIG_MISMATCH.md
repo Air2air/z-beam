@@ -148,7 +148,7 @@ Let's deploy to production and clear that warning:
 
 ```bash
 # Navigate to project
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push
+cd /Users/todddunning/Desktop/Z-Beam/z-beam
 
 # Deploy to production
 vercel --prod --yes

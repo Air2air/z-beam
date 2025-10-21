@@ -97,7 +97,7 @@ Created comprehensive guides:
 ## File Structure
 
 ```
-z-beam-test-push/
+z-beam/
 ├── app/
 │   └── sitemap.ts                          ✅ Dynamic generator
 ├── content/

@@ -8,7 +8,8 @@
   "git": {
     "deploymentEnabled": {
       "main": true
-    }
+    },
+    "productionBranch": "main"
   },
   "github": {
     "enabled": true,
@@ -16,7 +17,7 @@
     "autoJobCancelation": false
   },
   "buildCommand": "next build",
-  "ignoreCommand": "if [ $VERCEL_ENV != production ]; then exit 1; else exit 0; fi",
+  "ignoreCommand": "if [ $VERCEL_GIT_COMMIT_REF != main ] && [ $VERCEL_ENV != production ]; then exit 1; else exit 0; fi",
   "build": {
     "env": {
       "NODE_ENV": "production",

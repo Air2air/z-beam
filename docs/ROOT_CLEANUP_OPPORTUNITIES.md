@@ -183,8 +183,9 @@ Created: `docs/cleanup-root.sh`
 chmod +x docs/cleanup-root.sh
 
 # Run cleanup (dry run first recommended)
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push
-./docs/cleanup-root.sh
+```bash
+cd /Users/todddunning/Desktop/Z-Beam/z-beam
+./scripts/cleanup-root.js
 
 # Verify structure
 ls -la  # Should see only 3 markdown files
@@ -256,7 +257,7 @@ After execution:
 
 ### Before
 ```
-z-beam-test-push/
+z-beam/
 ├── README.md
 ├── GROK_INSTRUCTIONS.md
 ├── DEPLOYMENT_CHANGELOG.md
@@ -287,7 +288,7 @@ z-beam-test-push/
 
 ### After
 ```
-z-beam-test-push/
+z-beam/
 ├── README.md ✨
 ├── GROK_INSTRUCTIONS.md ✨
 ├── DEPLOYMENT_CHANGELOG.md ✨

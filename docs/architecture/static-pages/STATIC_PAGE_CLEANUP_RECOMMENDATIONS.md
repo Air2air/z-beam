@@ -260,9 +260,8 @@ rm -rf app/pages/
 
 ### Step 1: Delete app/pages/ directory
 ```bash
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push
-rm -rf app/pages/
-```
+cd /Users/todddunning/Desktop/Z-Beam/z-beam
+node scripts/automated-cleanup.js
 
 ### Step 2: Update jest.config.js
 Remove the line:

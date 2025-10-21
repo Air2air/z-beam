@@ -164,14 +164,9 @@ If you can't find the UI setting, configure via CLI:
 Run this:
 
 ```bash
-# Go to project directory
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push
-
-# Ensure linked to project
-vercel link --yes
-
-# Deploy to production explicitly
-vercel --prod --yes
+```bash
+cd /Users/todddunning/Desktop/Z-Beam/z-beam
+cat vercel.json
 ```
 
 ### Step 2: Verify it worked

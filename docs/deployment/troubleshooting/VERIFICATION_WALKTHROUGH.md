@@ -72,7 +72,7 @@ Open terminal and run:
 
 ```bash
 # Navigate to your project
-cd /Users/todddunning/Desktop/Z-Beam/z-beam-test-push
+cd /Users/todddunning/Desktop/Z-Beam/z-beam
 
 # Create an empty test commit
 git commit --allow-empty -m "Test: Verify production-only deployment after dashboard config"

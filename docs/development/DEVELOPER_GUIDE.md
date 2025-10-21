@@ -27,7 +27,7 @@ Z-Beam is built using modern web technologies with a focus on performance, acces
 ## Project Structure
 
 ```
-z-beam-test-push/
+z-beam/
 ├── app/                    # Next.js App Router directory
 │   ├── components/         # Reusable React components
 │   │   ├── Navigation/     # Navigation components (nav.tsx, footer.tsx)
