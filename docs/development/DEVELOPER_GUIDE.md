@@ -772,7 +772,7 @@ vercel --prod
 vercel
 
 # Deploy with monitoring
-./deploy-with-monitoring.sh
+./deploy-prod.sh
 ```
 
 ## Monitoring and Analytics

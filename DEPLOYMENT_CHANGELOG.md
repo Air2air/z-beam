@@ -338,7 +338,7 @@ node scripts/deployment/monitor-deployment.js --no-notify
 - `monitor-deployment.js` - Real-time deployment monitoring
 - `analyze-deployment-error.js` - Intelligent error analysis
 - `setup-auto-monitor.sh` - Git hook installation
-- `deploy-with-monitoring.sh` - Manual deployment wrapper
+- `prod-deploy.sh` - Production deployment script
 - Various helper scripts
 
 **Tests** (tests/deployment/):

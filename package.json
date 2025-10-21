@@ -20,7 +20,7 @@
     "test:coverage": "jest --coverage",
     "validate": "npm run type-check && npm run lint && npm run test:ci && npm run build",
     "predeploy": "node simple-predeploy.js",
-    "deploy": "./deploy-with-monitoring.sh prod",
+    "deploy": "bash scripts/deployment/prod-deploy.sh",
     "deploy:prod": "bash scripts/deployment/prod-deploy.sh",
     "deploy:prod:fast": "bash scripts/deployment/prod-deploy.sh --skip-checks",
     "deploy:monitor": "node scripts/vercel-deployment-monitor.js",

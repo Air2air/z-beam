@@ -67,8 +67,8 @@ git push origin main
 Since git pushes create previews, deploy directly:
 
 ```bash
-# Use the helper script
-./scripts/deployment/deploy-production-direct.sh
+# Use the production deployment script
+./scripts/deployment/prod-deploy.sh
 ```
 
 Or directly:
@@ -200,7 +200,7 @@ But at least you can:
 
 ```bash
 # Run this now
-./scripts/deployment/deploy-production-direct.sh
+./scripts/deployment/prod-deploy.sh
 ```
 
 ### After Deploy: Find Production Branch Setting
@@ -269,7 +269,7 @@ vercel --prod --yes
 Or use the helper:
 
 ```bash
-./scripts/deployment/deploy-production-direct.sh
+./scripts/deployment/prod-deploy.sh
 ```
 
 ---
