@@ -1,0 +1,62 @@
+name: Smart Production Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+      
+      - name: Deploy to Production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          echo "🚀 Starting production deployment for main branch..."
+          echo "📍 Branch: ${{ github.ref_name }}"
+          echo "📝 Commit: ${{ github.sha }}"
+          echo ""
+          
+          # Deploy directly to production with force
+          echo "⚡ Deploying with --prod --force --yes"
+          vercel --prod --force --yes
+          
+          echo ""
+          echo "✅ ================================"
+          echo "✅ PRODUCTION DEPLOYMENT COMPLETE!"
+          echo "✅ ================================"
+          echo "🌐 Live at: https://z-beam.com"
+      
+      - name: Post deployment status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const emoji = status === 'success' ? '✅' : '❌';
+            const message = status === 'success' 
+              ? 'Production deployment completed successfully!' 
+              : 'Production deployment failed.';
+            
+            github.rest.repos.createCommitComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.sha,
+              body: `${emoji} **Production Deployment Status**\n\n${message}\n\n🌐 Live at: https://z-beam.com\n\nView details in [Actions run](${context.payload.repository.html_url}/actions/runs/${context.runId})`
+            });
