@@ -82,103 +82,8 @@ export function SEOOptimizedCaption({
   const processId = `laser-cleaning-${materialName}-${Date.now()}`;
   const thermalProperty = getThermalPropertyLabel(materialName);
   
-  // Generate comprehensive JSON-LD structured data
-  const structuredData = {
-    "@context": SITE_CONFIG.schema.context,
-    "@type": "TechArticle",
-    "@id": `#${processId}`,
-    "headline": `${capitalizedMaterial} Laser Cleaning Process Analysis`,
-    "description": `Professional laser cleaning demonstration on ${materialName} showing before and after results with technical specifications`,
-    "author": {
-      "@type": "Organization",
-      "name": SITE_CONFIG.name,
-      "url": SITE_CONFIG.url,
-      "expertise": ["Laser Cleaning", "Surface Treatment", "Industrial Processing"]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": SITE_CONFIG.name,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${SITE_CONFIG.url}/logo.png`
-      }
-    },
-    "datePublished": captionData?.metadata?.generated || new Date().toISOString(),
-    "dateModified": captionData?.metadata?.generated || new Date().toISOString(),
-    "mainEntity": {
-      "@type": "TechnicalProcess",
-      "name": `Laser Cleaning of ${capitalizedMaterial}`,
-      "description": `Precision laser cleaning process for ${materialName} surface treatment`,
-      "processType": "Laser Ablation Cleaning",
-      "targetMaterial": {
-        "@type": "Material",
-        "name": materialName,
-        "materialType": frontmatter?.chemicalProperties?.materialType,
-        "chemicalComposition": frontmatter?.chemicalProperties?.composition,
-        "physicalProperties": {
-          "materialType": frontmatter?.chemicalProperties?.materialType,
-          "composition": frontmatter?.chemicalProperties?.composition,
-          "formula": frontmatter?.chemicalProperties?.formula
-        }
-      },
-      "processParameters": {
-        "@type": "LaserParameters",
-        "wavelength": `${captionData?.laserParams?.wavelength} nm`,
-        "power": `${captionData?.laserParams?.power} W`,
-        "pulseDuration": `${captionData?.laserParams?.pulse_duration} ns`,
-        "spotSize": `${captionData?.laserParams?.spot_size} µm`
-      },
-      "result": {
-        "@type": "ProcessResult",
-        "description": captionData?.afterText || `Successful cleaning of ${materialName} surface`,
-        "efficiency": "High",
-        "surfaceQuality": "Improved"
-      }
-    },
-    "image": imageData ? [
-      {
-        "@type": "ImageObject",
-        "name": `${capitalizedMaterial} Before Laser Cleaning`,
-        "url": imageData.beforeUrl,
-        "width": imageData.width,
-        "height": imageData.height,
-        "description": captionData?.beforeText || `${capitalizedMaterial} surface before cleaning`
-      },
-      {
-        "@type": "ImageObject", 
-        "name": `${capitalizedMaterial} After Laser Cleaning`,
-        "url": imageData.afterUrl,
-        "width": imageData.width,
-        "height": imageData.height,
-        "description": captionData?.afterText || `${capitalizedMaterial} surface after cleaning`
-      }
-    ] : [],
-    "keywords": [
-      `${materialName} laser cleaning`,
-      "surface treatment",
-      "industrial cleaning",
-      "laser ablation",
-      `${materialName} processing`,
-      "precision cleaning",
-      "contamination removal",
-      "surface preparation"
-    ].join(", "),
-    "about": {
-      "@type": "Topic",
-      "name": "Laser Cleaning Technology",
-      "sameAs": [
-        "https://en.wikipedia.org/wiki/Laser_cleaning",
-        "https://www.iso.org/standard/laser-safety"
-      ]
-    },
-    "citation": [
-      {
-        "@type": "ScholarlyArticle",
-        "name": "Laser cleaning techniques for material processing",
-        "url": "https://doi.org/example-citation"
-      }
-    ]
-  };
+  // Note: JSON-LD structured data is now handled by the MaterialJsonLD component
+  // to prevent duplicate JSON-LD blocks and Schema.org conflicts
 
   return (
     <article 
@@ -189,12 +94,6 @@ export function SEOOptimizedCaption({
       aria-labelledby={`${processId}-heading`}
       aria-describedby={`${processId}-description`}
     >
-      {/* JSON-LD Structured Data */}
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      
       {/* Enhanced Semantic Header */}
       <header className="caption-header" itemProp="headline">
         <Title 
