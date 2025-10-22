@@ -204,76 +204,20 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Phone and Company Row */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="phone" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              autoComplete="tel"
-              value={formData.phone}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none"
-              placeholder="(650) 241-8510"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="company" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-              Company
-            </label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              autoComplete="organization"
-              value={formData.company}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none"
-              placeholder="Your company name"
-            />
-          </div>
-        </div>
-
-        {/* Inquiry Type */}
+        {/* Phone Number */}
         <div>
-          <label htmlFor="inquiryType" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-            Inquiry Type
-          </label>
-          <select
-            id="inquiryType"
-            name="inquiryType"
-            value={formData.inquiryType}
-            onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none"
-          >
-            <option value="">Select an inquiry type (optional)</option>
-            <option value="general">General Inquiry</option>
-            <option value="service">Service Request</option>
-            <option value="rental">Equipment Rental</option>
-            <option value="demo">Request a Demo</option>
-            <option value="quote">Request a Quote</option>
-            <option value="support">Technical Support</option>
-          </select>
-        </div>
-
-        {/* Subject */}
-        <div>
-          <label htmlFor="subject" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-            Subject
+          <label htmlFor="phone" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
+            Phone Number <span className="text-gray-500 text-xs">(optional)</span>
           </label>
           <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
+            type="tel"
+            id="phone"
+            name="phone"
+            autoComplete="tel"
+            value={formData.phone}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none"
-            placeholder="Brief description of your inquiry (optional)"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:outline-none"
+            placeholder="(650) 241-8510"
           />
         </div>
 
