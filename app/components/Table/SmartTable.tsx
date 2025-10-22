@@ -427,16 +427,53 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         }
       }
       
-      // Technical summary (expanded)
+      // Laser Parameters - High priority for operators
+      if (data.machineSettings) {
+        const laserFields: SmartField[] = [];
+        Object.entries(data.machineSettings).forEach(([key, value]: [string, any]) => {
+          laserFields.push(categorizeField(key, value));
+        });
+        
+        if (laserFields.length > 0) {
+          sections.push({
+            id: 'laser-parameters',
+            title: 'Laser Processing Parameters',
+            description: 'Optimal settings for laser cleaning operations',
+            priority: 2,
+            fields: laserFields,
+            badge: 'Critical',
+            modes: ['hybrid']
+          });
+        }
+      }
+      
+      // Enhanced technical summary with subcategories
       if (data.materialProperties) {
         const technicalFields: SmartField[] = [];
+        const categorizedProps: { [key: string]: SmartField[] } = {
+          physical: [],
+          thermal: [],
+          optical: [],
+          mechanical: []
+        };
         
         Object.entries(data.materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
           if (categoryData && typeof categoryData === 'object' && categoryData.properties) {
-            // Take top 3 properties from each category
-            const props = Object.entries(categoryData.properties).slice(0, 3);
-            props.forEach(([propKey, propValue]: [string, any]) => {
-              technicalFields.push(categorizeField(`${categoryKey}.${propKey}`, propValue));
+            // Categorize properties for better organization
+            Object.entries(categoryData.properties).forEach(([propKey, propValue]: [string, any]) => {
+              const field = categorizeField(`${categoryKey}.${propKey}`, propValue);
+              technicalFields.push(field);
+              
+              // Categorize by property type
+              if (['density', 'hardness', 'porosity'].includes(propKey)) {
+                categorizedProps.physical.push(field);
+              } else if (['thermalConductivity', 'specificHeat', 'thermalExpansion', 'thermalDestruction'].includes(propKey)) {
+                categorizedProps.thermal.push(field);
+              } else if (['laserAbsorption', 'laserReflectivity'].includes(propKey)) {
+                categorizedProps.optical.push(field);
+              } else if (['tensileStrength', 'compressiveStrength', 'flexuralStrength', 'fractureToughness'].includes(propKey)) {
+                categorizedProps.mechanical.push(field);
+              }
             });
           }
         });
@@ -444,9 +481,9 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         if (technicalFields.length > 0) {
           sections.push({
             id: 'technical-summary',
-            title: 'Key Properties',
-            description: 'Essential technical characteristics',
-            priority: 3,
+            title: 'Material Properties',
+            description: 'Physical, thermal, optical, and mechanical characteristics',
+            priority: 2.5,
             fields: technicalFields.slice(0, 9), // Max 9 for readability
             badge: 'Technical',
             modes: ['hybrid']
@@ -454,25 +491,25 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         }
       }
       
-      // Outcome Metrics Summary (hybrid)
+      // Enhanced Process Outcomes (hybrid)
       if (data.outcomeMetrics) {
         const outcomeFields: SmartField[] = [];
         
         if (Array.isArray(data.outcomeMetrics)) {
-          outcomeFields.push(categorizeField('outcomeMetrics', data.outcomeMetrics.slice(0, 3))); // Top 3 outcomes
+          outcomeFields.push(categorizeField('Process Results', data.outcomeMetrics.slice(0, 5))); // Top 5 outcomes
         } else if (typeof data.outcomeMetrics === 'object') {
           const nestedOutcomes = extractNestedFields(data.outcomeMetrics, 'outcomeMetrics');
-          outcomeFields.push(...nestedOutcomes.slice(0, 3));
+          outcomeFields.push(...nestedOutcomes.slice(0, 5));
         }
         
         if (outcomeFields.length > 0) {
           sections.push({
-            id: 'outcomes-summary',
-            title: 'Key Outcomes',
-            description: 'Primary performance metrics',
-            priority: 3.5,
+            id: 'process-outcomes',
+            title: 'Process Outcomes',
+            description: 'Expected results and performance metrics',
+            priority: 3,
             fields: outcomeFields,
-            badge: 'Metrics',
+            badge: 'Results',
             modes: ['hybrid']
           });
         }
@@ -561,13 +598,14 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
       }
 
       if (Array.isArray(value)) {
-        // Special handling for outcomeMetrics array
+        // Enhanced handling for outcomeMetrics array with better visual organization
         if (value.length > 0 && value[0] && typeof value[0] === 'object' && 'metric' in value[0]) {
           return (
             <div className="space-y-3">
               {value.map((metric: any, index: number) => (
-                <div key={index} className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
-                  <div className="font-medium text-blue-900 dark:text-blue-100 mb-2">
+                <div key={index} className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800 hover:shadow-sm transition-shadow">
+                  <div className="font-medium text-blue-900 dark:text-blue-100 mb-2 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                     {metric.metric}
                   </div>
                   {metric.description && (
@@ -620,13 +658,44 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           );
         }
         
+        // Enhanced array formatting for environmental benefits and compliance
+        if (value.some((item: any) => typeof item === 'object' && (item.benefit || item.name))) {
+          return (
+            <div className="space-y-2">
+              {value.map((item: any, index: number) => {
+                const title = item.benefit || item.name || item.title;
+                if (!title) return null;
+                
+                return (
+                  <div key={index} className="bg-green-50 dark:bg-green-900/20 p-2 rounded border border-green-200 dark:border-green-800">
+                    <div className="font-medium text-green-900 dark:text-green-100 text-sm flex items-center gap-1">
+                      <span className="text-green-600">🌱</span>
+                      {title}
+                    </div>
+                    {item.description && (
+                      <p className="text-xs text-green-700 dark:text-green-300 mt-1">
+                        {item.description}
+                      </p>
+                    )}
+                    {item.quantifiedBenefits && (
+                      <p className="text-xs font-medium text-green-800 dark:text-green-200 mt-1">
+                        📊 {item.quantifiedBenefits}
+                      </p>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+        
         // Default array handling for non-outcomeMetrics arrays
         return (
           <div className="flex flex-wrap gap-1">
             {value.map((item, index) => (
               <span 
                 key={index}
-                className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200"
+                className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
               >
                 {typeof item === 'object' ? JSON.stringify(item) : String(item)}
               </span>
@@ -695,9 +764,26 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
               </span>
             )}
             {field.confidence && (
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200">
-                {Math.round(field.confidence * 100)}% confidence
-              </span>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  <div className="w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                    <div 
+                      className={`h-full transition-all duration-300 rounded-full ${
+                        field.confidence >= 0.95 ? 'bg-green-500' :
+                        field.confidence >= 0.90 ? 'bg-yellow-500' : 'bg-red-500'
+                      }`}
+                      style={{ width: `${field.confidence * 100}%` }}
+                    ></div>
+                  </div>
+                  <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium ${
+                    field.confidence >= 0.95 ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
+                    field.confidence >= 0.90 ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
+                    'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                  }`}>
+                    {Math.round(field.confidence * 100)}% confidence
+                  </span>
+                </div>
+              </div>
             )}
           </div>
           {field.description && (
