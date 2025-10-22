@@ -3,6 +3,7 @@ import "./css/global.css";
 import { primaryFont } from "./config/fonts";
 import { Navbar } from "./components/Navigation/nav";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "./components/Navigation/footer";
 import { ConditionalCTA } from "./components/CTA";
 import { SITE_CONFIG } from "./utils/constants";
@@ -147,6 +148,7 @@ export default function RootLayout({
           <Footer />
         </ErrorBoundary>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
