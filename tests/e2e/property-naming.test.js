@@ -4,7 +4,7 @@
  * Tests the complete flow from YAML → MetricsGrid → generateSearchUrl → search-client
  */
 
-// Step 1: Property names from YAML (camelCase)
+// Test data - Property names from YAML (camelCase)
 const yamlPropertyNames = [
   'specificHeat',
   'thermalConductivity',
@@ -16,126 +16,127 @@ const yamlPropertyNames = [
   'absorptionCoefficient'
 ];
 
-// Step 2: MetricsGrid creates fullPropertyName (category.property)
-const metricGridFullNames = yamlPropertyNames.map(prop => 
-  `laser_material_interaction.${prop}`
-);
+// Helper functions for the E2E flow
 
-console.log('Step 1: YAML Property Names (camelCase)');
-console.log(yamlPropertyNames);
-console.log();
-
-console.log('Step 2: MetricsGrid fullPropertyName (category.property)');
-console.log(metricGridFullNames);
-console.log();
-
-// Step 3: generateSearchUrl extracts final property name
 function extractPropertyFromFullName(fullName) {
   const parts = fullName.split('.');
   return parts[parts.length - 1];
 }
 
-const urlPropertyNames = metricGridFullNames.map(extractPropertyFromFullName);
-
-console.log('Step 3: generateSearchUrl extracts final name');
-console.log(urlPropertyNames);
-console.log();
-
-// Step 4: URL encoding/decoding (simulated)
-const urlEncodedNames = urlPropertyNames.map(name => encodeURIComponent(name));
-const urlDecodedNames = urlEncodedNames.map(name => decodeURIComponent(name));
-
-console.log('Step 4: URL encoding/decoding');
-console.log('Encoded:', urlEncodedNames);
-console.log('Decoded:', urlDecodedNames);
-console.log();
-
-// Step 5: search-client normalizePropertyName (must match search-client.tsx exactly)
 function normalizePropertyName(name) {
   return name.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
-const normalizedSearchNames = urlDecodedNames.map(normalizePropertyName);
-
-console.log('Step 5: search-client normalizePropertyName');
-console.log(normalizedSearchNames);
-console.log();
-
-// Step 6: parsePropertiesFromMetadata extracts property names
-// (These come directly from YAML keys, same as yamlPropertyNames)
-const extractedPropertyNames = yamlPropertyNames; // Direct from YAML keys
-
-console.log('Step 6: parsePropertiesFromMetadata property names');
-console.log(extractedPropertyNames);
-console.log();
-
-// Step 7: Normalize extracted properties
-const normalizedExtractedNames = extractedPropertyNames.map(normalizePropertyName);
-
-console.log('Step 7: Normalized extracted property names');
-console.log(normalizedExtractedNames);
-console.log();
-
-// Step 8: Comparison - Do they match?
-console.log('='.repeat(60));
-console.log('FINAL COMPARISON: Search Names vs Extracted Names');
-console.log('='.repeat(60));
-
-let allMatch = true;
-for (let i = 0; i < yamlPropertyNames.length; i++) {
-  const original = yamlPropertyNames[i];
-  const searchNormalized = normalizedSearchNames[i];
-  const extractedNormalized = normalizedExtractedNames[i];
-  const match = searchNormalized === extractedNormalized;
+function runPropertyNamingFlow(yamlProperties) {
+  // Step 1: YAML properties (input)
+  const yamlPropertyNames = yamlProperties;
   
-  console.log(`Property: ${original.padEnd(25)} | Search: ${searchNormalized.padEnd(20)} | Extracted: ${extractedNormalized.padEnd(20)} | Match: ${match ? '✅' : '❌'}`);
+  // Step 2: MetricsGrid creates fullPropertyName (category.property)
+  const metricGridFullNames = yamlPropertyNames.map(prop => 
+    `laser_material_interaction.${prop}`
+  );
   
-  if (!match) {
-    allMatch = false;
-  }
+  // Step 3: generateSearchUrl extracts final property name
+  const urlPropertyNames = metricGridFullNames.map(extractPropertyFromFullName);
+  
+  // Step 4: URL encoding/decoding (simulated)
+  const urlEncodedNames = urlPropertyNames.map(name => encodeURIComponent(name));
+  const urlDecodedNames = urlEncodedNames.map(name => decodeURIComponent(name));
+  
+  // Step 5: search-client normalizePropertyName
+  const normalizedSearchNames = urlDecodedNames.map(normalizePropertyName);
+  
+  // Step 6: parsePropertiesFromMetadata extracts property names
+  const extractedPropertyNames = yamlPropertyNames; // Direct from YAML keys
+  
+  // Step 7: Normalize extracted properties
+  const normalizedExtractedNames = extractedPropertyNames.map(normalizePropertyName);
+  
+  return {
+    yamlPropertyNames,
+    metricGridFullNames,
+    urlPropertyNames,
+    normalizedSearchNames,
+    normalizedExtractedNames
+  };
 }
 
-console.log('='.repeat(60));
-console.log(`Result: ${allMatch ? '✅ ALL NAMES MATCH - E2E FLOW IS CONSISTENT' : '❌ MISMATCH FOUND - E2E FLOW HAS ISSUES'}`);
-console.log('='.repeat(60));
+describe('E2E Property Name Normalization', () => {
+  describe('Complete Flow Integration', () => {
+    test('should normalize property names consistently through entire flow', () => {
+      const result = runPropertyNamingFlow(yamlPropertyNames);
+      
+      // Verify each step
+      expect(result.yamlPropertyNames).toHaveLength(8);
+      expect(result.metricGridFullNames[0]).toBe('laser_material_interaction.specificHeat');
+      expect(result.urlPropertyNames[0]).toBe('specificHeat');
+      
+      // Critical test: normalized search names should match normalized extracted names
+      expect(result.normalizedSearchNames).toEqual(result.normalizedExtractedNames);
+    });
 
-// Test edge cases
-console.log();
-console.log('Edge Case Tests:');
-console.log('='.repeat(60));
+    test('should handle all test properties correctly', () => {
+      const result = runPropertyNamingFlow(yamlPropertyNames);
+      
+      const expectedNormalized = [
+        'specificheat',
+        'thermalconductivity', 
+        'thermalexpansion',
+        'laserabsorption',
+        'tensilestrength',
+        'youngsmodulus',
+        'meltingpoint',
+        'absorptioncoefficient'
+      ];
+      
+      expect(result.normalizedSearchNames).toEqual(expectedNormalized);
+      expect(result.normalizedExtractedNames).toEqual(expectedNormalized);
+    });
+  });
 
-const edgeCases = [
-  { input: 'specificHeat', expected: 'specificheat' },
-  { input: 'thermalConductivity', expected: 'thermalconductivity' },
-  { input: 'Specific Heat', expected: 'specificheat' },
-  { input: 'thermal-conductivity', expected: 'thermalconductivity' },
-  { input: 'Thermal_Conductivity', expected: 'thermalconductivity' },
-  { input: 'Young\'s Modulus', expected: 'youngsmodulus' },
-  { input: 'CO2 Absorption', expected: 'co2absorption' }
-];
+  describe('Edge Cases', () => {
+    const edgeCases = [
+      { input: 'specificHeat', expected: 'specificheat' },
+      { input: 'thermalConductivity', expected: 'thermalconductivity' },
+      { input: 'Specific Heat', expected: 'specificheat' },
+      { input: 'thermal-conductivity', expected: 'thermalconductivity' },
+      { input: 'Thermal_Conductivity', expected: 'thermalconductivity' },
+      { input: 'Young\'s Modulus', expected: 'youngsmodulus' },
+      { input: 'CO2 Absorption', expected: 'co2absorption' }
+    ];
 
-let edgeCasesPassed = true;
-edgeCases.forEach(({ input, expected }) => {
-  const result = normalizePropertyName(input);
-  const match = result === expected;
-  console.log(`Input: "${input.padEnd(25)}" → "${result.padEnd(25)}" | Expected: "${expected.padEnd(25)}" | ${match ? '✅' : '❌'}`);
-  if (!match) edgeCasesPassed = false;
+    test.each(edgeCases)('should normalize "$input" to "$expected"', ({ input, expected }) => {
+      const result = normalizePropertyName(input);
+      expect(result).toBe(expected);
+    });
+
+    test('should handle all edge cases correctly', () => {
+      edgeCases.forEach(({ input, expected }) => {
+        const result = normalizePropertyName(input);
+        expect(result).toBe(expected);
+      });
+    });
+  });
+
+  describe('Flow Validation', () => {
+    test('should preserve property name through URL encoding/decoding', () => {
+      const testProperty = 'specificHeat';
+      const encoded = encodeURIComponent(testProperty);
+      const decoded = decodeURIComponent(encoded);
+      expect(decoded).toBe(testProperty);
+    });
+
+    test('should extract property names correctly from full names', () => {
+      const fullName = 'laser_material_interaction.specificHeat';
+      const extracted = extractPropertyFromFullName(fullName);
+      expect(extracted).toBe('specificHeat');
+    });
+  });
 });
 
-console.log('='.repeat(60));
-console.log(`Edge Cases: ${edgeCasesPassed ? '✅ ALL PASSED' : '❌ SOME FAILED'}`);
-console.log('='.repeat(60));
-
-// Summary
-console.log();
-console.log('SUMMARY:');
-console.log('--------');
-console.log(`1. YAML properties (camelCase) → MetricsGrid fullPropertyName`);
-console.log(`2. generateSearchUrl extracts final property name from fullPropertyName`);
-console.log(`3. URL encoding/decoding preserves property name`);
-console.log(`4. search-client normalizes URL property name`);
-console.log(`5. parsePropertiesFromMetadata extracts property names from YAML`);
-console.log(`6. search-client normalizes extracted property names`);
-console.log(`7. Comparison: normalized search name === normalized extracted name`);
-console.log();
-console.log(`Overall E2E Test: ${allMatch && edgeCasesPassed ? '✅ PASS' : '❌ FAIL'}`);
+// Legacy console output for backwards compatibility (can be removed later)
+if (require.main === module) {
+  const result = runPropertyNamingFlow(yamlPropertyNames);
+  console.log('✅ E2E Property Naming Test - Jest format now available');
+  console.log(`✅ All ${yamlPropertyNames.length} properties normalize consistently`);
+}

@@ -213,6 +213,39 @@ describe('Pre-Deployment Error Prevention', () => {
     });
   });
 
+  describe('E2E Testing System Validation', () => {
+    test('E2E tests are properly integrated with Jest', () => {
+      const e2eDir = path.join(process.cwd(), 'tests/e2e');
+      expect(fs.existsSync(e2eDir)).toBe(true);
+      
+      // Check E2E test files exist and are in Jest format
+      const e2eTests = ['property-naming.test.js', 'property-extraction.test.js'];
+      e2eTests.forEach(testFile => {
+        const testPath = path.join(e2eDir, testFile);
+        expect(fs.existsSync(testPath)).toBe(true);
+        
+        const content = fs.readFileSync(testPath, 'utf-8');
+        // Should be proper Jest format with describe/test blocks
+        expect(content).toContain('describe(');
+        expect(content).toContain('test(');
+        expect(content).toContain('expect(');
+        // Should be primarily Jest format (may have legacy console.log for backward compatibility)
+        const jestMatches = (content.match(/expect\(/g) || []).length;
+        const consoleMatches = (content.match(/console\.log/g) || []).length;
+        expect(jestMatches).toBeGreaterThan(consoleMatches);
+      });
+    });
+
+    test('E2E tests can be run via npm test', () => {
+      // Verify E2E tests are included in Jest configuration
+      const jestConfigPath = path.join(process.cwd(), 'jest.config.js');
+      expect(fs.existsSync(jestConfigPath)).toBe(true);
+      
+      const jestConfig = fs.readFileSync(jestConfigPath, 'utf-8');
+      expect(jestConfig).toContain('tests/e2e/**/*.test.{js,jsx,ts,tsx}');
+    });
+  });
+
   describe('Common error scenarios prevention', () => {
     test('API routes handle missing environment variables gracefully', () => {
       // Check contact route for safe Resend initialization
