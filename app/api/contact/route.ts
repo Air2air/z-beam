@@ -12,10 +12,10 @@ export async function POST(request: NextRequest) {
   try {
     const body: ContactFormData = await request.json();
     
-    // Validate required fields
+    // Validate required fields (only name, email, and message are required)
     const { name, email, subject, message, inquiryType } = body;
     
-    if (!name || !email || !subject || !message || !inquiryType) {
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: SITE_CONFIG.messages.formMissingFields },
         { status: 400 }
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
       const { data, error } = await resend.emails.send({
         from: SITE_CONFIG.emailConfig.fromAddress,
         to: [...SITE_CONFIG.emailConfig.toAddresses],
-        subject: `New Contact: ${subject}`,
+        subject: `New Contact: ${subject || 'No Subject'}`,
         html: `
           <div style="max-width: 600px; margin: 0 auto;">
             <h2 style="color: ${SITE_CONFIG.emailConfig.brandColor}; border-bottom: 2px solid ${SITE_CONFIG.emailConfig.brandColor}; padding-bottom: 10px;">
@@ -53,19 +53,19 @@ export async function POST(request: NextRequest) {
             
             <div style="background-color: #f8fafc; padding: 20px; margin: 20px 0; border-radius: 8px;">
               <h3 style="margin-top: 0; color: #374151;">Contact Details</h3>
-              <p><strong>Inquiry Type:</strong> <span style="background-color: #dbeafe; padding: 2px 8px; border-radius: 4px;">${inquiryType.charAt(0).toUpperCase() + inquiryType.slice(1)}</span></p>
+              ${inquiryType ? `<p><strong>Inquiry Type:</strong> <span style="background-color: #dbeafe; padding: 2px 8px; border-radius: 4px;">${inquiryType.charAt(0).toUpperCase() + inquiryType.slice(1)}</span></p>` : ''}
               <p><strong>Name:</strong> ${name}</p>
               <p><strong>Email:</strong> <a href="mailto:${email}" style="color: ${SITE_CONFIG.emailConfig.brandColor};">${email}</a></p>
               ${body.company ? `<p><strong>Company:</strong> ${body.company}</p>` : ''}
               ${body.phone ? `<p><strong>Phone:</strong> <a href="tel:${body.phone}" style="color: ${SITE_CONFIG.emailConfig.brandColor};">${body.phone}</a></p>` : ''}
             </div>
             
-            <div style="margin: 20px 0;">
+            ${subject ? `<div style="margin: 20px 0;">
               <h3 style="color: #374151;">Subject</h3>
               <p style="background-color: #f1f5f9; padding: 15px; border-radius: 6px; border-left: 4px solid ${SITE_CONFIG.emailConfig.brandColor};">
                 ${subject}
               </p>
-            </div>
+            </div>` : ''}
             
             <div style="margin: 20px 0;">
               <h3 style="color: #374151;">Message</h3>

@@ -121,7 +121,7 @@ function createTechnicalArticleSchema(data: any) {
         '@type': 'Organization',
         name: SITE_CONFIG.shortName || 'Z-Beam'
       },
-      knowsAbout: author?.expertise || applications,
+      knowsAbout: author?.expertise || (Array.isArray(applications) ? applications.join(', ') : applications),
       nationality: author?.country
     },
     
@@ -178,12 +178,19 @@ function createMaterialProductSchema(data: any) {
   
   if (materialProperties) {
     Object.entries(materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
-      if (categoryData?.properties) {
-        Object.entries(categoryData.properties).forEach(([propKey, propData]: [string, any]) => {
+      // Handle both structures: with .properties and without
+      const propsToProcess = categoryData?.properties || categoryData;
+      
+      // Skip if categoryData is just metadata (label, description, percentage)
+      if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {
+        Object.entries(propsToProcess).forEach(([propKey, propData]: [string, any]) => {
+          // Skip metadata fields
+          if (['label', 'description', 'percentage'].includes(propKey)) return;
+          
           if (propData?.value !== undefined) {
             properties.push({
               '@type': 'PropertyValue',
-              name: propKey.replace(/([A-Z])/g, ' $1').trim(),
+              name: propKey,
               value: propData.value,
               unitText: propData.unit || '',
               // E-E-A-T: Trustworthiness - show confidence and sources
@@ -323,8 +330,15 @@ function createDatasetSchema(data: any) {
   
   if (materialProperties) {
     Object.entries(materialProperties).forEach(([categoryKey, categoryData]: [string, any]) => {
-      if (categoryData?.properties) {
-        Object.entries(categoryData.properties).forEach(([propKey, propData]: [string, any]) => {
+      // Handle both structures: with .properties and without
+      const propsToProcess = categoryData?.properties || categoryData;
+      
+      // Skip if categoryData is just metadata
+      if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {
+        Object.entries(propsToProcess).forEach(([propKey, propData]: [string, any]) => {
+          // Skip metadata fields
+          if (['label', 'description', 'percentage'].includes(propKey)) return;
+          
           if (propData?.value !== undefined) {
             propertyCount++;
             measurements.push({
@@ -443,9 +457,9 @@ function createAuthorSchema(author: any) {
     '@type': 'Person',
     '@id': `${baseUrl}#author-${author.id || 'expert'}`,
     name: author.name,
-    ...(author.title && { honorificSuffix: author.title }),
+    ...(author.title && { jobTitle: author.title }),
     ...(author.expertise && { 
-      knowsAbout: Array.isArray(author.expertise) ? author.expertise : [author.expertise]
+      knowsAbout: author.expertise
     }),
     ...(author.country && { nationality: author.country }),
     ...(author.image && { 
@@ -467,16 +481,22 @@ function createComplianceSchema(standards: any[], materialName: string) {
     return null;
   }
   
+  // Use the first standard's name as the certification name
+  const primaryStandard = standards[0];
+  const certName = typeof primaryStandard === 'string' 
+    ? primaryStandard 
+    : (primaryStandard.name || `Regulatory Compliance for ${materialName} Laser Cleaning`);
+  
   return {
     '@type': 'Certification',
     '@id': `#compliance`,
-    name: `Regulatory Compliance for ${materialName} Laser Cleaning`,
+    name: certName,
     description: 'Applicable regulatory standards and safety certifications',
     issuedBy: standards.map(standard => ({
       '@type': 'Organization',
       name: typeof standard === 'string' 
         ? standard.split('-')[0].trim() 
-        : (standard.issuingOrganization || standard.name?.split('-')[0]?.trim() || 'Unknown')
+        : (standard.issuingOrganization || 'Unknown')
     })),
     about: standards.map(standard => 
       typeof standard === 'string' ? standard : standard.name || standard.description
