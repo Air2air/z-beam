@@ -259,7 +259,7 @@ export function MetricsCard({
     <Link
       ref={cardRef as any}
       href={finalHref}
-      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[160px] relative overflow-hidden ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
+      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[140px] md:h-[160px] relative overflow-hidden ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
         ...animationStyles,
@@ -288,7 +288,7 @@ export function MetricsCard({
   ) : (
     <div 
       ref={cardRef}
-      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[160px] transition-all duration-300 ease-out ${minTouchTarget} ${animationClasses} ${className}`}
+      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[140px] md:h-[160px] transition-all duration-300 ease-out ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
         ...animationStyles,
