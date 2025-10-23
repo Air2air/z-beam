@@ -282,11 +282,11 @@ fi
 - [x] Integrate into package.json
 - [x] Document rules and patterns
 
-### Phase 2: Normalization 🚧
-- [ ] Create category normalization script
-- [ ] Create author ID conversion script
-- [ ] Create image renaming script
-- [ ] Run normalization across codebase
+### Phase 2: Normalization ✅
+- [x] Create category normalization script
+- [x] Create author ID conversion script
+- [x] Create image renaming script
+- [x] Run normalization across codebase
 
 ### Phase 3: Enforcement 📋
 - [ ] Add pre-commit hooks

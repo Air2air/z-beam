@@ -161,7 +161,7 @@ const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, va
 describe('Smart Table Component', () => {
   const sampleFrontmatterData: SmartTableData = {
     name: 'Aluminum 6061',
-    category: 'Metal',
+    category: 'metal',
     subcategory: 'Aluminum Alloy',
     description: 'High-strength aluminum alloy suitable for laser cleaning',
     materialProperties: {
@@ -233,7 +233,7 @@ describe('Smart Table Component', () => {
       
       expect(screen.getByTestId('core-identity-section')).toBeInTheDocument();
       expect(screen.getByTestId('field-name')).toHaveTextContent('Aluminum 6061');
-      expect(screen.getByTestId('field-category')).toHaveTextContent('Metal');
+      expect(screen.getByTestId('field-category')).toHaveTextContent('metal');
     });
 
     test('should render table caption when provided', () => {

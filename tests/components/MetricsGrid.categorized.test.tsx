@@ -99,7 +99,7 @@ describe('MetricsGrid - Categorized Properties', () => {
   const mockMetadata: ArticleMetadata = {
     title: 'Aluminum Laser Cleaning',
     slug: 'aluminum',
-    category: 'Metal',
+    category: 'metal',
     materialProperties: {
       thermal: mockThermalCategory,
       mechanical: mockMechanicalCategory
