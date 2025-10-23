@@ -2,7 +2,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { Article, ArticleMetadata, ThumbnailProps } from "@/types";
 
 // ThumbnailProps now imported from centralized types
@@ -16,17 +15,8 @@ export function Thumbnail({
   height,
   frontmatter
 }: ThumbnailProps) {
-  const [imageUrl, setImageUrl] = useState<string>("");
-
-  useEffect(() => {
-    // Use frontmatter data directly - no API calls needed
-    // If no frontmatter is provided, don't fetch anything (GROK: simplification)
-    if (frontmatter?.images?.hero?.url) {
-      setImageUrl(frontmatter.images.hero.url);
-    } else {
-      setImageUrl("");
-    }
-  }, [frontmatter]);
+  // Get image URL directly without state/useEffect delay
+  const imageUrl = frontmatter?.images?.hero?.url || "";
 
   // Map objectFit to Tailwind class
   const objectFitClass = {
@@ -54,8 +44,8 @@ export function Thumbnail({
           height={height}
           className={objectFitClass}
           priority={priority}
-          unoptimized={true}
-          sizes="100vw"
+          quality={priority ? 85 : 75}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-600">
@@ -65,7 +55,6 @@ export function Thumbnail({
             width={60}
             height={60}
             className="object-contain opacity-50"
-            unoptimized={true}
           />
         </div>
       )}
