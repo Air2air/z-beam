@@ -35,9 +35,11 @@ const nextConfig = {
 
   experimental: {
     // Optimize package imports to reduce bundle size
-    optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights'],
+    optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights', 'react', 'react-dom'],
     // Enable CSS optimization
     optimizeCss: true,
+    // Optimize font loading
+    optimizeFonts: true,
   },
 
   // Headers for caching (security headers moved to middleware.ts for CSP nonce support)
@@ -87,33 +89,37 @@ const nextConfig = {
       
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
         cacheGroups: {
           default: false,
           vendors: false,
-          vendor: {
-            name: 'vendor',
-            chunks: 'all',
-            test: /node_modules/,
-            priority: 20,
-            maxSize: 200000 // Reduced to 200KB for better loading
-          },
-          common: {
-            name: 'common',
-            minChunks: 2,
-            chunks: 'all',
-            priority: 10,
-            reuseExistingChunk: true,
-            enforce: true,
-            maxSize: 200000 // Reduced to 200KB
-          },
-          // Framework chunk optimization
+          // Framework (React) - critical, load first
           framework: {
             chunks: 'all',
             name: 'framework',
-            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
+            test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
             priority: 40,
             enforce: true,
-          }
+          },
+          // Vendor chunks - split more aggressively
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)(?:[\\/]|$)/)[1];
+              return `vendor.${packageName.replace('@', '')}`;
+            },
+            priority: 20,
+            minChunks: 1,
+            maxSize: 100000, // Even smaller chunks: 100KB
+          },
+          // Common code
+          common: {
+            minChunks: 2,
+            priority: 10,
+            reuseExistingChunk: true,
+            maxSize: 100000,
+          },
         }
       };
       

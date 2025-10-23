@@ -3,15 +3,24 @@ import "./css/global.css";
 import { primaryFont } from "./config/fonts";
 import { getNonce } from "./utils/csp";
 import { Navbar } from "./components/Navigation/nav";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import dynamic from 'next/dynamic';
 
-// Defer Analytics loading to reduce initial bundle
+// Defer ALL non-critical components to reduce initial JS bundle
+const SpeedInsights = dynamic(() => import("@vercel/speed-insights/next").then(mod => ({ default: mod.SpeedInsights })), {
+  ssr: false,
+});
+
 const Analytics = dynamic(() => import("@vercel/analytics/react").then(mod => ({ default: mod.Analytics })), {
   ssr: false,
 });
-import Footer from "./components/Navigation/footer";
-import { ConditionalCTA } from "./components/CTA";
+
+const Footer = dynamic(() => import("./components/Navigation/footer").then(mod => ({ default: mod.default })), {
+  ssr: false,
+});
+
+const ConditionalCTA = dynamic(() => import("./components/CTA").then(mod => ({ default: mod.ConditionalCTA })), {
+  ssr: false,
+});
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { generateOrganizationSchema } from "./utils/business-config";
@@ -123,15 +132,8 @@ export default async function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
-        {/* Preload critical resources for LCP optimization */}
-        <link rel="preload" as="image" href="/images/og-image.jpg" fetchPriority="high" />
-        
-        {/* Resource hints for performance */}
-        <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://vitals.vercel-insights.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        {/* Only critical resource hints - removed preloads that delay initial render */}
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon/favicon_350.png" type="image/png" />
