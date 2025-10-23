@@ -170,42 +170,35 @@ export function Hero({
         </>
       ) : imageSource ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
-        <>
-          <div 
-            className={backgroundClasses}
-            itemScope
-            itemType="https://schema.org/ImageObject"
-          >
-            <meta itemProp="contentUrl" content={imageSource} />
-            <meta itemProp="url" content={imageSource} />
-            <meta itemProp="description" content={getAccessibleAlt()} />
-            <meta itemProp="author" content={typeof frontmatter?.author === 'string' ? frontmatter.author : (frontmatter?.author?.name || SITE_CONFIG.author)} />
-            <meta itemProp="encodingFormat" content="image/jpeg" />
-            {frontmatter?.datePublished && (
-              <meta itemProp="uploadDate" content={frontmatter.datePublished} />
-            )}
-            
-            <Image
-              src={imageSource}
-              alt={getAccessibleAlt()}
-              fill
-              className="object-cover"
-              style={{ zIndex: 1 }}
-              priority={variant === 'fullwidth'}
-              fetchPriority="high"
-              quality={85}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-              onLoad={() => setImageLoaded(true)}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
-              itemProp="thumbnail"
-            />
-          </div>
-        </>
-      ) : imageSource && !isInView ? (
-        /* Placeholder while not in view */
-        <div className={`${backgroundClasses} bg-gray-800 animate-pulse`} aria-hidden="true">
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700"></div>
+        <div 
+          className={backgroundClasses}
+          itemScope
+          itemType="https://schema.org/ImageObject"
+        >
+          <meta itemProp="contentUrl" content={imageSource} />
+          <meta itemProp="url" content={imageSource} />
+          <meta itemProp="description" content={getAccessibleAlt()} />
+          <meta itemProp="author" content={typeof frontmatter?.author === 'string' ? frontmatter.author : (frontmatter?.author?.name || SITE_CONFIG.author)} />
+          <meta itemProp="encodingFormat" content="image/jpeg" />
+          {frontmatter?.datePublished && (
+            <meta itemProp="uploadDate" content={frontmatter.datePublished} />
+          )}
+          
+          <Image
+            src={imageSource}
+            alt={getAccessibleAlt()}
+            fill
+            className="object-cover"
+            style={{ zIndex: 1 }}
+            priority={variant === 'fullwidth'}
+            fetchPriority="high"
+            quality={85}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+            onLoad={() => setImageLoaded(true)}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
+            itemProp="thumbnail"
+          />
         </div>
       ) : (
         /* Default fallback */
