@@ -145,7 +145,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
 
     // Core Identity Section - appears in all modes
     const identityFields: SmartField[] = [];
-    const identityKeys = ['name', 'category', 'subcategory', 'chemicalSymbol', 'chemicalFormula', 'atomicNumber'];
+    const identityKeys = ['name', 'material', 'category', 'subcategory', 'chemicalSymbol', 'chemicalFormula', 'atomicNumber'];
     identityKeys.forEach(key => {
       if (data[key] !== undefined) {
         identityFields.push(categorizeField(key, data[key]));
@@ -287,7 +287,34 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
 
     } else if (displayMode === 'technical') {
       // Technical-specific sections
-      if (data.materialProperties) {
+      
+      // NEW STRUCTURE: Handle flat properties object (2025-10-22 frontmatter refresh)
+      if (data.properties && typeof data.properties === 'object') {
+        const materialFields: SmartField[] = [];
+        const propEntries = Object.entries(data.properties);
+        
+        // Check if properties is empty object or has actual data
+        if (propEntries.length > 0) {
+          propEntries.forEach(([propKey, propValue]: [string, any]) => {
+            // Each property has: value, unit, confidence, source, description
+            materialFields.push(categorizeField(propKey, propValue));
+          });
+          
+          if (materialFields.length > 0) {
+            sections.push({
+              id: 'material-properties',
+              title: 'Material Properties',
+              description: 'Physical, thermal, optical, and mechanical characteristics',
+              priority: 2,
+              fields: materialFields,
+              badge: 'Technical Data',
+              modes: ['technical', 'hybrid']
+            });
+          }
+        }
+      }
+      // LEGACY STRUCTURE: Handle nested materialProperties (backward compatibility)
+      else if (data.materialProperties) {
         const materialFields: SmartField[] = [];
         
         // Handle categorized properties
@@ -363,9 +390,68 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         }
       }
 
+      // NEW STRUCTURE: Category Info with ranges (for materials without individual properties)
+      if (data.category_info && typeof data.category_info === 'object') {
+        const categoryInfoFields: SmartField[] = [];
+        
+        // Add description
+        if (data.category_info.description) {
+          categoryInfoFields.push(categorizeField('category_description', data.category_info.description));
+        }
+        
+        // Add properties count
+        if (data.category_info.properties_count !== undefined) {
+          categoryInfoFields.push(categorizeField('properties_count', data.category_info.properties_count));
+        }
+        
+        // Add category ranges as a separate section if they exist
+        if (data.category_info.category_ranges && Object.keys(data.category_info.category_ranges).length > 0) {
+          const rangeFields: SmartField[] = [];
+          Object.entries(data.category_info.category_ranges).forEach(([key, rangeData]: [string, any]) => {
+            if (rangeData && typeof rangeData === 'object') {
+              const rangeLabel = formatFieldLabel(key);
+              const rangeValue = rangeData.min !== undefined && rangeData.max !== undefined
+                ? `${rangeData.min} - ${rangeData.max} ${rangeData.unit || ''}`
+                : rangeData;
+              rangeFields.push(categorizeField(key, {
+                value: rangeValue,
+                unit: rangeData.unit,
+                confidence: rangeData.confidence,
+                source: rangeData.source,
+                description: rangeData.notes || `Typical ${rangeLabel.toLowerCase()} range for ${data.category} materials`
+              }));
+            }
+          });
+          
+          if (rangeFields.length > 0) {
+            sections.push({
+              id: 'category-ranges',
+              title: `${data.category ? data.category.charAt(0).toUpperCase() + data.category.slice(1) : 'Category'} Property Ranges`,
+              description: 'Typical property ranges for this material category',
+              priority: 2.5,
+              fields: rangeFields,
+              badge: 'Category Data',
+              modes: ['technical', 'hybrid']
+            });
+          }
+        }
+        
+        if (categoryInfoFields.length > 0) {
+          sections.push({
+            id: 'category-info',
+            title: 'Category Information',
+            description: 'Material category classification',
+            priority: 2.2,
+            fields: categoryInfoFields,
+            badge: 'Category',
+            modes: ['technical', 'hybrid']
+          });
+        }
+      }
+
       // Research & Validation - Technical mode only
       const researchFields: SmartField[] = [];
-      const researchKeys = ['research_basis', 'validation_method', 'source', 'confidence', 'description'];
+      const researchKeys = ['research_basis', 'validation_method', 'source', 'confidence', 'generated_date', 'data_completeness'];
       researchKeys.forEach(key => {
         if (data[key] !== undefined) {
           const field = categorizeField(key, data[key]);
@@ -447,8 +533,28 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         }
       }
       
-      // Enhanced technical summary with subcategories
-      if (data.materialProperties) {
+      // NEW STRUCTURE: Enhanced technical summary with flat properties
+      if (data.properties && typeof data.properties === 'object' && Object.keys(data.properties).length > 0) {
+        const technicalFields: SmartField[] = [];
+        
+        Object.entries(data.properties).forEach(([propKey, propValue]: [string, any]) => {
+          technicalFields.push(categorizeField(propKey, propValue));
+        });
+        
+        if (technicalFields.length > 0) {
+          sections.push({
+            id: 'technical-summary',
+            title: 'Material Properties',
+            description: 'Physical, thermal, optical, and mechanical characteristics',
+            priority: 2.5,
+            fields: technicalFields.slice(0, 9), // Max 9 for readability in hybrid mode
+            badge: 'Technical',
+            modes: ['hybrid']
+          });
+        }
+      }
+      // LEGACY STRUCTURE: Enhanced technical summary with subcategories
+      else if (data.materialProperties) {
         const technicalFields: SmartField[] = [];
         const categorizedProps: { [key: string]: SmartField[] } = {
           physical: [],
@@ -486,6 +592,36 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             priority: 2.5,
             fields: technicalFields.slice(0, 9), // Max 9 for readability
             badge: 'Technical',
+            modes: ['hybrid']
+          });
+        }
+      }
+      
+      // NEW STRUCTURE: Category ranges for hybrid mode (if no individual properties)
+      if (data.category_info?.category_ranges && Object.keys(data.category_info.category_ranges).length > 0) {
+        const rangeFields: SmartField[] = [];
+        Object.entries(data.category_info.category_ranges).slice(0, 6).forEach(([key, rangeData]: [string, any]) => {
+          if (rangeData && typeof rangeData === 'object') {
+            const rangeLabel = formatFieldLabel(key);
+            const rangeValue = rangeData.min !== undefined && rangeData.max !== undefined
+              ? `${rangeData.min} - ${rangeData.max} ${rangeData.unit || ''}`
+              : rangeData;
+            rangeFields.push(categorizeField(key, {
+              value: rangeValue,
+              unit: rangeData.unit,
+              description: `Typical ${rangeLabel.toLowerCase()} range`
+            }));
+          }
+        });
+        
+        if (rangeFields.length > 0) {
+          sections.push({
+            id: 'category-ranges-hybrid',
+            title: 'Typical Property Ranges',
+            description: `Standard ranges for ${data.category} materials`,
+            priority: 2.6,
+            fields: rangeFields,
+            badge: 'Reference',
             modes: ['hybrid']
           });
         }
