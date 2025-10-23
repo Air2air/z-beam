@@ -62,6 +62,7 @@ export default async function HomePage() {
     description: homeConfig.description || "Advanced surface treatment solutions for industrial applications", 
     slug: homeConfig.slug || "home",
     video: homeConfig.video, // YouTube ID from YAML - Hero will render if video exists
+    images: homeConfig.images, // Include hero images from YAML
   };
 
   // Extract featured sections and materials from YAML
