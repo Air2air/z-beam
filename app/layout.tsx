@@ -119,15 +119,8 @@ export default async function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
-        {/* Preload critical resources for LCP optimization */}
-        <link rel="preload" as="image" href="/images/og-image.jpg" fetchPriority="high" />
-        
-        {/* Resource hints for performance */}
-        <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://vitals.vercel-insights.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        {/* Only essential resource hints - removed non-critical preconnects */}
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon/favicon_350.png" type="image/png" />
@@ -164,10 +157,6 @@ export default async function RootLayout({
         </ErrorBoundary>
         <SpeedInsights />
         <Analytics />
-        <Script
-          src="https://va.vercel-scripts.com/v1/script.debug.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
