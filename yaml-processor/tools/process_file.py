@@ -17,7 +17,7 @@ try:
 
     # File to process
     file_path = Path(
-        "content/components/frontmatter/epoxy-resin-composites-laser-cleaning.md"
+        "content/frontmatter/epoxy-resin-composites-laser-cleaning.md"
     )
     if len(sys.argv) > 1:
         file_path = Path(sys.argv[1])

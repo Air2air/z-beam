@@ -274,7 +274,7 @@ class ConfigurationManager {
 
     // Only validate directories in Node.js context (server-side)
     const requiredDirs = [
-      'content/components/frontmatter',
+      'content/frontmatter',
       'content/components/badgesymbol',
       'app/utils',
       'app/components'

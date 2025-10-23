@@ -76,7 +76,7 @@ export default function sitemap(): SitemapEntry[] {
   // Dynamic article routes from frontmatter files
   const articleRoutes: SitemapEntry[] = [];
   try {
-    const frontmatterDir = path.join(process.cwd(), 'content/components/frontmatter');
+    const frontmatterDir = path.join(process.cwd(), 'content/frontmatter');
     const files = fs.readdirSync(frontmatterDir);
     
     files.forEach((file) => {

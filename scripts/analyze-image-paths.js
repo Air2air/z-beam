@@ -8,7 +8,7 @@ console.log('🔍 ANALYZING IMAGE PATH NAMING PATTERNS');
 console.log('=====================================\n');
 
 // Get all frontmatter files
-const frontmatterDir = 'content/components/frontmatter';
+const frontmatterDir = 'content/frontmatter';
 const frontmatterFiles = fs.readdirSync(frontmatterDir)
   .filter(file => file.endsWith('.md'))
   .map(file => file.replace('.md', ''));

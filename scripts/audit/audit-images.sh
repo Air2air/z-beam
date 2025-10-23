@@ -27,7 +27,7 @@ echo ""
 
 # Find materials with missing micro images
 echo "=== MISSING MICRO IMAGES ==="
-for yaml in content/components/frontmatter/*.yaml; do
+for yaml in content/frontmatter/*.yaml; do
     material_name=$(basename "$yaml" .yaml)
     micro_path="public/images/material/${material_name}-micro.jpg"
     
