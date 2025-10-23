@@ -141,7 +141,7 @@ export function Card({
           )}
 
           {/* Title Bar Overlay with 80% opacity */}
-          <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner">
+          <header className={`${config.titleBarClass} ${config.padding} z-10`}>
             <div className="flex items-center justify-between">
               <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                 <h3 

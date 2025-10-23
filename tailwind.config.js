@@ -22,6 +22,18 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  // Optimize CSS output
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
+  // Safelist only critical dynamic classes
+  safelist: [
+    'aspect-[16/9]',
+    {
+      pattern: /^(text|bg|border)-(gray|blue|red)-(50|100|200|300|400|500|600|700|800|900)$/,
+      variants: ['hover', 'focus', 'dark'],
+    },
+  ],
   theme: {
     extend: {
       // ============================================

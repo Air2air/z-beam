@@ -34,11 +34,10 @@ const nextConfig = {
   },
 
   experimental: {
-    // serverActions: {
-    //   bodySizeLimit: '2mb'
-    // },
-    // optimizePackageImports: ['react-icons', 'lodash', 'date-fns'],
-    // Enable static optimization features (remove invalid options)
+    // Optimize package imports to reduce bundle size
+    optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights'],
+    // Enable CSS optimization
+    optimizeCss: true,
   },
 
   // Headers for caching (security headers moved to middleware.ts for CSP nonce support)
@@ -82,6 +81,10 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     // Production optimizations
     if (!dev && !isServer) {
+      // Improved tree shaking
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = true;
+      
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
@@ -92,7 +95,7 @@ const nextConfig = {
             chunks: 'all',
             test: /node_modules/,
             priority: 20,
-            maxSize: 244000 // 244KB
+            maxSize: 200000 // Reduced to 200KB for better loading
           },
           common: {
             name: 'common',
@@ -101,7 +104,7 @@ const nextConfig = {
             priority: 10,
             reuseExistingChunk: true,
             enforce: true,
-            maxSize: 244000 // 244KB
+            maxSize: 200000 // Reduced to 200KB
           },
           // Framework chunk optimization
           framework: {
@@ -113,6 +116,9 @@ const nextConfig = {
           }
         }
       };
+      
+      // Minimize bundle size
+      config.optimization.minimize = true;
     }
     
     return config;

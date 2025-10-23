@@ -146,7 +146,7 @@ export function ContentCard({
       </div>
       {/* Optional Header with Order Number - Spans full width */}
       {hasOrder && (
-        <header className="flex items-center gap-4 mb-6" role="banner">
+        <header className="flex items-center gap-4 mb-6">
           {/* Order Number Badge */}
           <div 
             className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full"
