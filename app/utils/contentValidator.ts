@@ -61,7 +61,7 @@ class ContentValidator {
 
   constructor() {
     this.contentDirs = {
-      frontmatter: path.join(process.cwd(), 'content', 'components', 'frontmatter'),
+      frontmatter: path.join(process.cwd(), 'content', 'frontmatter'),
       badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
       metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
       content: path.join(process.cwd(), 'content', 'components', 'content'),

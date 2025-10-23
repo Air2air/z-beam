@@ -32,7 +32,7 @@ const safeContentOperation = async (op: () => Promise<any>, fallback: any, name:
 // Content directories configuration
 const CONTENT_DIRS = {
   components: {
-    frontmatter: path.join(process.cwd(), 'content', 'components', 'frontmatter'),
+    frontmatter: path.join(process.cwd(), 'content', 'frontmatter'),
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table'),
@@ -117,7 +117,7 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
     const slugs = new Set<string>();
     
     // Check frontmatter directory for YAML files (primary source)
-    const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
+    const frontmatterDir = path.join(process.cwd(), 'content', 'frontmatter');
     
     if (existsSync(frontmatterDir)) {
       const files = await fs.readdir(frontmatterDir);
@@ -157,7 +157,7 @@ const loadSingleArticle = cache(async (slug: string): Promise<Article | null> =>
   return safeContentOperation(async () => {
     // Try to find the article in any of the content directories
     const directories = [
-      path.join(process.cwd(), 'content', 'components', 'frontmatter'),
+      path.join(process.cwd(), 'content', 'frontmatter'),
       path.join(process.cwd(), 'content', 'components', 'metatags')
     ];
     

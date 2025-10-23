@@ -27,7 +27,7 @@ export async function loadThumbnailData(slug: string, imageType: string = 'hero'
     
     // If not found, look for files that would generate this slug (with parentheses)
     if (!fs.existsSync(frontmatterPath)) {
-      const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
+      const frontmatterDir = path.join(process.cwd(), 'content', 'frontmatter');
       if (fs.existsSync(frontmatterDir)) {
         const files = fs.readdirSync(frontmatterDir);
         const matchingFile = files.find(file => 

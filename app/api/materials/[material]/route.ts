@@ -13,7 +13,7 @@ export async function GET(
   
   try {
     // Define the base directory for material content
-    const contentDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
+    const contentDir = path.join(process.cwd(), 'content', 'frontmatter');
     
     // List all files in the directory
     const allFiles = fs.readdirSync(contentDir);
