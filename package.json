@@ -55,10 +55,7 @@
     "audit:components": "node scripts/componentAudit.ts",
     "validate:startup": "node -e \"const {startupValidator} = require('./app/utils'); startupValidator.validateSystem().then(r => console.log('Startup validation:', r.passed ? 'PASS' : 'FAIL')).catch(e => {console.error('Startup validation failed:', e); process.exit(1);})\"",
     "validate:content": "node -e \"const {contentValidator} = require('./app/utils'); contentValidator.validateAllContent().then(r => console.log('Content validation:', r.passed ? 'PASS' : 'FAIL', `(${r.errors.length} errors, ${r.warnings.length} warnings)`)).catch(e => {console.error('Content validation failed:', e); process.exit(1);})\"",
-    "validate:all": "npm run validate:startup && npm run validate:content && npm run validate:grok && npm run audit:components",
-    "pagespeed": "node scripts/pagespeed-audit.js https://z-beam.com",
-    "pagespeed:mobile": "node scripts/pagespeed-audit.js https://z-beam.com mobile",
-    "pagespeed:desktop": "node scripts/pagespeed-audit.js https://z-beam.com desktop"
+    "validate:all": "npm run validate:startup && npm run validate:content && npm run validate:grok && npm run audit:components"
   },
   "dependencies": {
     "@babel/runtime": "^7.28.4",
