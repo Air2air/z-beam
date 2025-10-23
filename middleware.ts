@@ -57,10 +57,11 @@ export function middleware(request: NextRequest) {
     'camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=()'
   );
   
-  // Cross-Origin Policies for process isolation
-  response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
-  response.headers.set('Cross-Origin-Resource-Policy', 'same-origin');
-  response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp');
+  // Cross-Origin Policies - relaxed for YouTube embeds
+  response.headers.set('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  response.headers.set('Cross-Origin-Resource-Policy', 'cross-origin');
+  // Note: COEP require-corp blocks YouTube iframes, so we use unsafe-none
+  response.headers.set('Cross-Origin-Embedder-Policy', 'unsafe-none');
 
   return response;
 }
