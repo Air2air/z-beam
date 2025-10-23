@@ -41,75 +41,9 @@ const nextConfig = {
     // Enable static optimization features (remove invalid options)
   },
 
-  // Headers for security and performance
+  // Headers for caching (security headers moved to middleware.ts for CSP nonce support)
   async headers() {
     return [
-      {
-        source: '/(.*)',
-        headers: [
-          // Content Security Policy
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com data:",
-              "img-src 'self' data: blob: https:",
-              "media-src 'self' data: blob:",
-              "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com",
-              "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
-              "frame-ancestors 'none'",
-              "form-action 'self'",
-              "base-uri 'self'",
-              "object-src 'none'",
-              "upgrade-insecure-requests"
-            ].join('; ')
-          },
-          // Frame protection
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY'
-          },
-          // MIME type protection
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          // DNS prefetch control
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          // HTTPS enforcement
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload'
-          },
-          // Referrer policy
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin'
-          },
-          // XSS protection
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          // Permissions policy
-          {
-            key: 'Permissions-Policy',
-            value: [
-              'camera=()',
-              'microphone=()',
-              'geolocation=()',
-              'interest-cohort=()',
-              'payment=()',
-              'usb=()'
-            ].join(', ')
-          }
-        ]
-      },
       {
         source: '/images/(.*)',
         headers: [

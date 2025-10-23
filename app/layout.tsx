@@ -1,6 +1,7 @@
 // app/layout.tsx
 import "./css/global.css";
 import { primaryFont } from "./config/fonts";
+import { getNonce } from "./utils/csp";
 import { Navbar } from "./components/Navigation/nav";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from 'next/script';
@@ -105,11 +106,12 @@ const websiteSchema = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const nonce = await getNonce();
   return (
     <html
       lang="en"
@@ -130,6 +132,7 @@ export default function RootLayout({
         {/* Global Organization Schema */}
         <script
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema)
           }}
@@ -138,6 +141,7 @@ export default function RootLayout({
         {/* Website Schema */}
         <script
           type="application/ld+json"
+          nonce={nonce}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema)
           }}
