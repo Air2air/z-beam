@@ -26,6 +26,8 @@ export function middleware(request: NextRequest) {
     "base-uri 'self'",
     "object-src 'none'",
     "upgrade-insecure-requests",
+    "require-trusted-types-for 'script'", // Prevent DOM-based XSS
+    "trusted-types default", // Allow default policy for React
   ].join('; ');
 
   // Clone the request headers
