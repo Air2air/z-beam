@@ -15,6 +15,9 @@ import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import { RegulatoryStandards } from '../RegulatoryStandards';
+import { ApplicationsList } from '../ApplicationsList';
+import { EnvironmentalImpact } from '../EnvironmentalImpact';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
@@ -125,6 +128,27 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
           <Caption frontmatter={metadata} config={{ className: "caption-section", showTechnicalDetails: true, showMetadata: true }} />
         </section>
       )}
+
+      {metadata?.applications && metadata.applications.length > 0 && (
+        <section aria-labelledby="applications-section" className="my-8">
+          <ApplicationsList 
+            applications={metadata.applications} 
+            materialName={metadata?.name || materialName}
+          />
+        </section>
+      )}
+
+      {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
+        <section aria-labelledby="regulatory-standards-section" className="my-8">
+          <RegulatoryStandards standards={metadata.regulatoryStandards} />
+        </section>
+      )}
+
+      {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
+        <section aria-labelledby="environmental-impact-section" className="my-8">
+          <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
+        </section>
+      )}
     </div>
   );
 };
@@ -145,8 +169,15 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   }
 
   if (type === 'metricsproperties' && component.config) {
-    const propertiesMetadata = { slug: metadata?.slug || '', title: component.config.title || '',
-      description: component.config.description || '', materialProperties: component.config.properties || {} };
+    // NEW: Support both component.config.properties AND metadata.properties (from frontmatter)
+    const properties = component.config.properties || metadata?.properties || {};
+    const propertiesMetadata = { 
+      slug: metadata?.slug || '', 
+      title: component.config.title || metadata?.title || '',
+      description: component.config.description || '', 
+      materialProperties: component.config.materialProperties,  // Legacy categorized structure
+      properties: properties  // NEW flat structure from frontmatter
+    };
     return (
       <section key={type} aria-label="Material properties visualization">
         <MetricsGrid 

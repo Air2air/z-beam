@@ -213,6 +213,140 @@ function extractComplexPropertyCards(
   return cards;
 }
 
+// Auto-categorize flat properties by property name patterns
+function autoCategorizeProperties(properties: Record<string, any>): Record<string, PropertyCategory> {
+  const categorized: Record<string, PropertyCategory> = {
+    thermal: {
+      label: 'Thermal Properties',
+      description: 'Heat transfer and temperature-related characteristics',
+      properties: {},
+      percentage: 0
+    },
+    optical_laser: {
+      label: 'Optical & Laser Interaction',
+      description: 'Light absorption, reflection, and laser processing properties',
+      properties: {},
+      percentage: 0
+    },
+    mechanical: {
+      label: 'Mechanical Properties',
+      description: 'Strength, hardness, and structural characteristics',
+      properties: {},
+      percentage: 0
+    },
+    electrical: {
+      label: 'Electrical Properties',
+      description: 'Conductivity and electrical characteristics',
+      properties: {},
+      percentage: 0
+    },
+    chemical: {
+      label: 'Chemical Properties',
+      description: 'Corrosion resistance and chemical stability',
+      properties: {},
+      percentage: 0
+    },
+    physical: {
+      label: 'Physical Properties',
+      description: 'Density, porosity, and surface characteristics',
+      properties: {},
+      percentage: 0
+    }
+  };
+
+  // Property name to category mappings
+  const categoryMappings: Record<string, string> = {
+    // Thermal
+    'thermalConductivity': 'thermal',
+    'thermalExpansion': 'thermal',
+    'thermalDiffusivity': 'thermal',
+    'thermalDestruction': 'thermal',
+    'thermalDegradationPoint': 'thermal',
+    'specificHeat': 'thermal',
+    'meltingPoint': 'thermal',
+    'boilingPoint': 'thermal',
+    'softeningPoint': 'thermal',
+    'glassTransition': 'thermal',
+    'decompositionTemperature': 'thermal',
+    'degradationTemperature': 'thermal',
+    'ignitionTemperature': 'thermal',
+    'vaporizationPoint': 'thermal',
+    
+    // Optical & Laser
+    'laserAbsorption': 'optical_laser',
+    'laserReflectivity': 'optical_laser',
+    'ablationThreshold': 'optical_laser',
+    'laserDamageThreshold': 'optical_laser',
+    'absorptionCoefficient': 'optical_laser',
+    'refractiveIndex': 'optical_laser',
+    'transmissivity': 'optical_laser',
+    'reflectivity': 'optical_laser',
+    
+    // Mechanical
+    'tensileStrength': 'mechanical',
+    'youngsModulus': 'mechanical',
+    'compressiveStrength': 'mechanical',
+    'flexuralStrength': 'mechanical',
+    'fractureToughness': 'mechanical',
+    'hardness': 'mechanical',
+    'vickersHardness': 'mechanical',
+    
+    // Electrical
+    'electricalConductivity': 'electrical',
+    'electricalResistivity': 'electrical',
+    'dielectricConstant': 'electrical',
+    'bandGap': 'electrical',
+    
+    // Chemical
+    'oxidationResistance': 'chemical',
+    'corrosionResistance': 'chemical',
+    'chemicalStability': 'chemical',
+    'waterSolubility': 'chemical',
+    'moistureContent': 'chemical',
+    'weatherResistance': 'chemical',
+    
+    // Physical (default for uncategorized)
+    'density': 'physical',
+    'porosity': 'physical',
+    'surfaceRoughness': 'physical',
+    'surfaceEnergy': 'physical',
+    'grainSize': 'physical'
+  };
+
+  // Categorize each property
+  Object.entries(properties).forEach(([propName, propValue]) => {
+    if (!propValue || typeof propValue !== 'object') return;
+    if (propValue.value === null || propValue.value === undefined) return;
+
+    // Determine category from mapping or default to physical
+    const categoryId = categoryMappings[propName] || 'physical';
+    
+    if (categorized[categoryId]) {
+      categorized[categoryId].properties[propName] = propValue;
+    }
+  });
+
+  // Remove empty categories and calculate percentages
+  const nonEmptyCategories: Record<string, PropertyCategory> = {};
+  let totalProps = 0;
+  
+  Object.entries(categorized).forEach(([catId, category]) => {
+    const propCount = Object.keys(category.properties).length;
+    if (propCount > 0) {
+      totalProps += propCount;
+      nonEmptyCategories[catId] = category;
+    }
+  });
+
+  // Calculate percentages
+  Object.values(nonEmptyCategories).forEach(category => {
+    const propCount = Object.keys(category.properties).length;
+    category.percentage = Math.round((propCount / totalProps) * 100);
+  });
+
+  return nonEmptyCategories;
+}
+
 // Extract cards from NEW categorized structure
 function extractCardsFromCategorizedProperties(
   materialProperties: Record<string, PropertyCategory>,
@@ -380,10 +514,35 @@ export function MetricsGrid({
   const sectionId = `metrics-section-${dataSource}`;
   const titleId = `metrics-title-${dataSource}`;
   
-  // Handle material properties with NEW categorized structure
-  if (dataSource === 'materialProperties' && metadata.materialProperties) {
+  // Handle material properties - support both NEW flat and legacy categorized structures
+  if (dataSource === 'materialProperties') {
+    let materialProperties: Record<string, PropertyCategory>;
+    
+    // NEW STRUCTURE: Flat properties from frontmatter (2025-10-22 refresh)
+    if (metadata.properties && typeof metadata.properties === 'object' && !metadata.materialProperties) {
+      // Auto-categorize flat properties
+      materialProperties = autoCategorizeProperties(metadata.properties as Record<string, any>);
+    }
+    // LEGACY STRUCTURE: Already categorized materialProperties
+    else if (metadata.materialProperties) {
+      materialProperties = metadata.materialProperties as Record<string, PropertyCategory>;
+    }
+    // No properties available
+    else {
+      return (
+        <section 
+          id={sectionId}
+          className="text-center py-8 text-gray-500 dark:text-gray-400"
+          role="status"
+          aria-live="polite"
+        >
+          <p>No material properties available</p>
+        </section>
+      );
+    }
+    
     const categorizedData = extractCardsFromCategorizedProperties(
-      metadata.materialProperties as Record<string, PropertyCategory>,
+      materialProperties,
       categoryFilter
     );
     
