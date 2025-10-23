@@ -120,6 +120,7 @@ export function Hero({
                 fill
                 className="object-cover"
                 priority={variant === 'fullwidth'}
+                fetchPriority="high"
                 quality={85}
                 sizes="(max-width: 768px) 100vw, 1200px"
               />
@@ -204,6 +205,7 @@ export function Hero({
               className="object-cover"
               style={{ zIndex: 1 }}
               priority={variant === 'fullwidth'}
+              fetchPriority="high"
               quality={85}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
               onLoad={() => setImageLoaded(true)}
