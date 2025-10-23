@@ -168,10 +168,6 @@ export default async function RootLayout({
         </ErrorBoundary>
         <SpeedInsights />
         <Analytics />
-        <Script
-          src="https://va.vercel-scripts.com/v1/script.debug.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );
