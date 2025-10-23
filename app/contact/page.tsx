@@ -1,6 +1,5 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
 const ContactForm = dynamic(() => import('../components/Contact/ContactForm').then(mod => ({ default: mod.ContactForm })), {
