@@ -68,7 +68,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: SITE_CONFIG.name,
     description: SITE_CONFIG.description,
-    images: ['/images/twitter-card.jpg'],
+    images: ['/images/og-image.jpg'],
     // creator: '@zbeamproductions', // Update with actual Twitter handle
   },
   robots: {
