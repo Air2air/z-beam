@@ -30,18 +30,8 @@ export function Hero({
   // Minimal state - only what's essential
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
-
-  // Detect mobile device
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const themeClass = `theme-${theme}`;
   
@@ -110,24 +100,61 @@ export function Hero({
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
-      {/* Video Background - Desktop only, mobile shows poster image */}
-      {videoUrl && !isMobile ? (
+      {/* Video Background - Facade pattern for non-render-blocking load */}
+      {videoUrl ? (
         <>
-          <div className={`${backgroundClasses} bg-gray-800`}>
-            <iframe
-              src={videoUrl}
-              className={videoClasses}
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share; accelerometer; gyroscope"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-              title={getVideoAriaLabel()}
-              aria-label={`${getVideoAriaLabel()} - Video player`}
-              loading="lazy"
-            />
-          </div>
+          {!videoLoaded ? (
+            /* YouTube Facade - Poster image with play button */
+            <div 
+              className={`${backgroundClasses} bg-gray-800 cursor-pointer group`}
+              onClick={() => setVideoLoaded(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => e.key === 'Enter' && setVideoLoaded(true)}
+              aria-label="Load and play video"
+            >
+              {/* YouTube thumbnail as poster */}
+              <Image
+                src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                alt={getAccessibleAlt()}
+                fill
+                className="object-cover"
+                priority={variant === 'fullwidth'}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 1200px"
+              />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity" />
+              {/* Play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                  <svg className="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+              {/* "Click to play" text */}
+              <div className="absolute bottom-4 left-0 right-0 text-center text-white text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                Click to play video
+              </div>
+            </div>
+          ) : (
+            /* Actual YouTube iframe - only loads after user clicks */
+            <div className={`${backgroundClasses} bg-gray-800`}>
+              <iframe
+                src={videoUrl}
+                className={videoClasses}
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share; accelerometer; gyroscope"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                title={getVideoAriaLabel()}
+                aria-label={`${getVideoAriaLabel()} - Video player`}
+              />
+            </div>
+          )}
           {/* VideoObject Schema for YouTube embeds */}
           <script
             type="application/ld+json"
@@ -153,7 +180,7 @@ export function Hero({
             }}
           />
         </>
-      ) : ((videoUrl && isMobile && imageSource) || (imageSource && isInView)) ? (
+      ) : imageSource && isInView ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
         <>
           <div 
@@ -177,8 +204,8 @@ export function Hero({
               className="object-cover"
               style={{ zIndex: 1 }}
               priority={variant === 'fullwidth'}
-              quality={isMobile ? 75 : 85}
-              sizes="(max-width: 768px) 100vw, 1200px"
+              quality={85}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
               onLoad={() => setImageLoaded(true)}
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
