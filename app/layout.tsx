@@ -4,8 +4,12 @@ import { primaryFont } from "./config/fonts";
 import { getNonce } from "./utils/csp";
 import { Navbar } from "./components/Navigation/nav";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from 'next/script';
-import { Analytics } from "@vercel/analytics/react";
+import dynamic from 'next/dynamic';
+
+// Defer Analytics loading to reduce initial bundle
+const Analytics = dynamic(() => import("@vercel/analytics/react").then(mod => ({ default: mod.Analytics })), {
+  ssr: false,
+});
 import Footer from "./components/Navigation/footer";
 import { ConditionalCTA } from "./components/CTA";
 import { SITE_CONFIG } from "./utils/constants";
