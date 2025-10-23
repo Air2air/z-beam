@@ -8,7 +8,7 @@ source: Materials.yaml (direct export)
 properties:
   ablationThreshold:
     value: 0.8
-    unit: "J/cm\xB2"
+    unit: "J/cm²"
     confidence: 80
     source: ai_research
     description: Approximate laser ablation threshold for nanosecond pulses
@@ -20,7 +20,7 @@ properties:
     description: Absorption coefficient for 1064 nm laser wavelength
   density:
     value: 4.51
-    unit: "g/cm\xB3"
+    unit: "g/cm³"
     confidence: 98
     source: ai_research
     description: Density of commercially pure titanium at room temperature
@@ -38,13 +38,13 @@ properties:
     description: Reflectivity at 1064 nm wavelength
   specificHeat:
     value: 522.0
-    unit: "J/(kg\xB7K)"
+    unit: "J/(kg·K)"
     confidence: 91
     source: ai_research
-    description: "Specific heat capacity at 25\xB0C"
+    description: "Specific heat capacity at 25°C"
   surfaceRoughness:
     value: 0.8
-    unit: "\u03BCm Ra"
+    unit: "μm Ra"
     confidence: 85
     source: ai_research
     description: Typical surface roughness of machined titanium surfaces
@@ -56,28 +56,28 @@ properties:
     description: Tensile strength of commercially pure Grade 2 titanium
   thermalConductivity:
     value: 21.9
-    unit: "W/(m\xB7K)"
+    unit: "W/(m·K)"
     confidence: 92
     source: ai_research
-    description: "Thermal conductivity of pure titanium at 20\xB0C"
+    description: "Thermal conductivity of pure titanium at 20°C"
   thermalDestruction:
     value: 1668
-    unit: "\xB0C"
+    unit: "°C"
     confidence: 97
     source: ai_research
     description: Melting point of pure titanium
   thermalDiffusivity:
     value: 7.1
-    unit: "mm\xB2/s"
+    unit: "mm²/s"
     confidence: 88
     source: ai_research
     description: Thermal diffusivity at room temperature
   thermalExpansion:
     value: 8.6
-    unit: "\u03BCm/m\xB7K"
+    unit: "μm/m·K"
     confidence: 90
     source: ai_research
-    description: "Coefficient of thermal expansion (20-100\xB0C)"
+    description: "Coefficient of thermal expansion (20-100°C)"
   youngsModulus:
     value: 105.0
     unit: GPa
@@ -92,7 +92,7 @@ category_info:
     density:
       max: 22.6
       min: 0.53
-      unit: "g/cm\xB3"
+      unit: "g/cm³"
     hardness:
       max: 3500
       min: 0.5
@@ -100,7 +100,7 @@ category_info:
     laserAbsorption:
       max: 100
       min: 0.02
-      unit: "cm\u207B\xB9"
+      unit: "cm⁻¹"
     laserReflectivity:
       max: 99.9
       min: 5
@@ -113,11 +113,11 @@ category_info:
     specificHeat:
       max: 2000
       min: 100
-      unit: "J/kg\xB7K"
+      unit: "J/kg·K"
     surfaceRoughness:
       min: 0.4
       max: 150
-      unit: "\u03BCm Ra"
+      unit: "μm Ra"
       source: Engineering ToolBox
       confidence: 85
       notes: Industrial metal finishing processes
@@ -129,32 +129,32 @@ category_info:
     thermalConductivity:
       min: 7.0
       max: 430
-      unit: "W/(m\xB7K)"
+      unit: "W/(m·K)"
       source: MatWeb Materials Database
       confidence: 85
       notes: Typical range for metal materials at room temperature
       last_updated: '2025-10-14T23:58:54.459362'
-      phase2_adjustment: "Manganese at 7.81 W/(m\xB7K)"
+      phase2_adjustment: "Manganese at 7.81 W/(m·K)"
       adjustment_date: '2025-10-15'
     thermalDestruction:
       point:
         min: -38.8
         max: 3422
-        unit: "\xB0C"
+        unit: "°C"
       type: melting
-      research_basis: "Metal melting points from Mercury (-38.8\xB0C) to Tungsten\
-        \ (3422\xB0C)"
+      research_basis: "Metal melting points from Mercury (-38.8°C) to Tungsten\
+        \ (3422°C)"
       confidence: 98
     thermalDiffusivity:
       max: 174
       min: 0.06
-      unit: "mm\xB2/s"
-      phase2_adjustment: "Beryllium at 0.07 m\xB2/s"
+      unit: "mm²/s"
+      phase2_adjustment: "Beryllium at 0.07 m²/s"
       adjustment_date: '2025-10-15'
     thermalExpansion:
       max: 33
       min: 0.5
-      unit: "\xB5m/m\xB7K"
+      unit: "µm/m·K"
     youngsModulus:
       max: 600
       min: 5
@@ -162,7 +162,7 @@ category_info:
     ablationThreshold:
       min: 2.0
       max: 8.0
-      unit: "J/cm\xB2"
+      unit: "J/cm²"
       source: Marks et al. 2022, Precision Engineering
       confidence: 90
       notes: Nanosecond pulse range for metals (most common industrial laser cleaning)
@@ -180,11 +180,11 @@ category_info:
     oxidationResistance:
       min: 200
       max: 1200
-      unit: "\xB0C"
+      unit: "°C"
       source: ASM Metals Handbook - Corrosion
       confidence: 80
-      notes: "Oxidation onset: Steel 200-400\xB0C, Stainless 400-800\xB0C, Ni alloys\
-        \ 800-1200\xB0C"
+      notes: "Oxidation onset: Steel 200-400°C, Stainless 400-800°C, Ni alloys\
+        \ 800-1200°C"
       last_updated: '2025-10-14T23:58:54.459355'
     compressiveStrength:
       min: 50
@@ -205,17 +205,17 @@ category_info:
     electricalResistivity:
       min: 1.0e-08
       max: 1.5e-06
-      unit: "\u03A9\xB7m"
+      unit: "Ω·m"
       description: Resistance to electrical current flow
-      notes: "Titanium at 48 \u03BC\u03A9\xB7cm = 4.8e-5 \u03A9\xB7m"
+      notes: "Titanium at 48 μΩ·cm = 4.8e-5 Ω·m"
       source: materials_science_literature
       research_date: '2025-10-15'
-      phase2_adjustment: "Titanium at 48 \u03BC\u03A9\xB7cm"
+      phase2_adjustment: "Titanium at 48 μΩ·cm"
       adjustment_date: '2025-10-15'
     fractureToughness:
       min: 20
       max: 200
-      unit: "MPa\xB7m^0.5"
+      unit: "MPa·m^0.5"
       description: Resistance to crack propagation
       notes: Metals ductile, high toughness
       source: materials_science_literature
@@ -231,7 +231,7 @@ category_info:
     laserDamageThreshold:
       min: 0.1
       max: 20.0
-      unit: "J/cm\xB2"
+      unit: "J/cm²"
       source: Laser-Induced Damage in Optical Materials (NIST)
       confidence: 85
       notes: Millisecond to nanosecond pulses for metal surfaces (polished vs. rough)
@@ -240,10 +240,10 @@ category_info:
     boilingPoint:
       min: 907
       max: 5870
-      unit: "\xB0C"
+      unit: "°C"
       source: CRC Handbook of Chemistry and Physics
       confidence: 95
-      notes: "Mercury 357\xB0C, Zinc 907\xB0C, Tungsten 5555\xB0C, Rhenium 5870\xB0\
+      notes: "Mercury 357°C, Zinc 907°C, Tungsten 5555°C, Rhenium 5870°\
         C"
       measurement_context: Standard atmospheric pressure (1 atm)
       last_updated: '2025-10-17T00:00:00.000000'
@@ -255,22 +255,22 @@ category_info:
       confidence: 90
       notes: Bismuth 0.77 MS/m, Aluminum 37.7 MS/m, Copper 59.6 MS/m, Silver 63.0
         MS/m
-      measurement_context: "Room temperature (20\xB0C), pure elements"
+      measurement_context: "Room temperature (20°C), pure elements"
       last_updated: '2025-10-17T00:00:00.000000'
     meltingPoint:
       min: -39
       max: 3422
-      unit: "\xB0C"
+      unit: "°C"
       source: CRC Handbook of Chemistry and Physics
       confidence: 95
-      notes: "Mercury -38.8\xB0C, Aluminum 660\xB0C, Steel 1370-1540\xB0C, Tungsten\
-        \ 3422\xB0C"
+      notes: "Mercury -38.8°C, Aluminum 660°C, Steel 1370-1540°C, Tungsten\
+        \ 3422°C"
       measurement_context: Standard atmospheric pressure (1 atm)
       last_updated: '2025-10-17T00:00:00.000000'
     absorptionCoefficient:
       min: 100000
       max: 50000000
-      unit: "m\u207B\xB9"
+      unit: "m⁻¹"
       source: Optical Properties of Metals (Palik)
       confidence: 80
       notes: At 1064nm wavelength - varies with surface oxide, roughness, temperature
@@ -279,10 +279,10 @@ category_info:
     thermalShockResistance:
       min: 50
       max: 400
-      unit: "\u0394T \xB0C"
+      unit: "ΔT °C"
       source: Materials Science and Engineering (Callister)
       confidence: 75
-      notes: "Cast iron ~50-100\xB0C, Steel ~150-250\xB0C, Nickel alloys ~300-400\xB0\
+      notes: "Cast iron ~50-100°C, Steel ~150-250°C, Nickel alloys ~300-400°\
         C"
       measurement_context: Resistance to thermal stress cracking during rapid temperature
         changes
@@ -323,5 +323,5 @@ category_info:
       source: NIST Thermophysical Properties Database
       confidence: 80
       notes: Room temperature vapor pressure, exponentially increases with temperature
-      measurement_context: "20\xB0C ambient conditions, critical for vacuum applications"
+      measurement_context: "20°C ambient conditions, critical for vacuum applications"
       last_updated: '2025-10-17T00:00:00.000000'

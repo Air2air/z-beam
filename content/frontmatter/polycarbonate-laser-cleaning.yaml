@@ -14,7 +14,7 @@ category_info:
     density:
       max: 2.2
       min: 0.85
-      unit: "g/cm\xB3"
+      unit: "g/cm³"
     hardness:
       max: Shore D 90
       min: Shore A 10
@@ -22,7 +22,7 @@ category_info:
     laserAbsorption:
       max: 100
       min: 0.1
-      unit: "cm\u207B\xB9"
+      unit: "cm⁻¹"
     laserReflectivity:
       max: 95
       min: 4.0
@@ -34,12 +34,12 @@ category_info:
     specificHeat:
       max: 2500
       min: 1.0
-      unit: "J/(kg\xB7K)"
-      adjustment_note: "Unit appears to be kJ/(kg\xB7K) not J/(kg\xB7K)"
+      unit: "J/(kg·K)"
+      adjustment_note: "Unit appears to be kJ/(kg·K) not J/(kg·K)"
       adjustment_date: '2025-10-15'
       adjustment_source: materials_science_research
-      phase2_adjustment: "TPE/Urethane at 1800 J/(kg\xB7K)"
-      notes: "Elastomers 1500-2000 J/(kg\xB7K), rigid plastics 1000-1500"
+      phase2_adjustment: "TPE/Urethane at 1800 J/(kg·K)"
+      notes: "Elastomers 1500-2000 J/(kg·K), rigid plastics 1000-1500"
     tensileStrength:
       max: 400
       min: 10
@@ -50,22 +50,22 @@ category_info:
     thermalConductivity:
       max: 3
       min: 0.02
-      unit: "W/(m\xB7K)"
+      unit: "W/(m·K)"
       source: MatWeb Materials Database - Polymers
       confidence: 75
-      notes: "Wide range includes specialty filled polymers (0.02-3 W/m\xB7K); typical\
-        \ unfilled polymers 0.15-0.35 W/m\xB7K"
+      notes: "Wide range includes specialty filled polymers (0.02-3 W/m·K); typical\
+        \ unfilled polymers 0.15-0.35 W/m·K"
       last_updated: '2025-10-15T14:19:43.867225'
     thermalDestruction:
       point:
         max: 400
         min: 80
-        unit: "\xB0C"
+        unit: "°C"
       type: decomposition
     thermalDiffusivity:
       max: 1
       min: 0.08
-      unit: "mm\xB2/s"
+      unit: "mm²/s"
       adjustment_note: Rubber has low diffusivity
       adjustment_date: '2025-10-15'
       adjustment_source: materials_science_research
@@ -73,7 +73,7 @@ category_info:
     thermalExpansion:
       max: 200
       min: 10
-      unit: "\xB5m/m\xB7K"
+      unit: "µm/m·K"
     youngsModulus:
       max: 5000
       min: 0.01
@@ -100,7 +100,7 @@ category_info:
     electricalResistivity:
       min: 1000000000000.0
       max: 1.0e+16
-      unit: "\u03A9\xB7m"
+      unit: "Ω·m"
       description: Resistance to electrical current flow
       notes: Polymers are insulators
       source: materials_science_literature
@@ -116,7 +116,7 @@ category_info:
     fractureToughness:
       min: 1
       max: 10
-      unit: "MPa\xB7m^0.5"
+      unit: "MPa·m^0.5"
       description: Resistance to crack propagation
       notes: Polymers variable toughness
       source: materials_science_literature
@@ -124,7 +124,7 @@ category_info:
     oxidationResistance:
       min: 60.0
       max: 260.0
-      unit: "\xB0C"
+      unit: "°C"
       description: ''
       sample_count: 6
       auto_generated: true
