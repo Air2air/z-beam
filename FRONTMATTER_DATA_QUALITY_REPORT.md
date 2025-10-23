@@ -192,7 +192,7 @@ const fs = require('fs');
 const yaml = require('yaml');
 const path = require('path');
 
-const frontmatterDir = 'content/components/frontmatter';
+const frontmatterDir = 'content/frontmatter';
 
 // For materials with reflectivity, add calculated absorption
 function enhanceLaserProperties() {

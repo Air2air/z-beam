@@ -21,7 +21,7 @@ echo ""
 
 # Check frontmatter image references
 echo "=== FRONTMATTER IMAGE REFERENCES ==="
-YAML_FILES=$(ls -1 content/components/frontmatter/*.yaml 2>/dev/null | wc -l | tr -d ' ')
+YAML_FILES=$(ls -1 content/frontmatter/*.yaml 2>/dev/null | wc -l | tr -d ' ')
 echo "Total YAML files: $YAML_FILES"
 echo ""
 
@@ -42,7 +42,7 @@ echo ""
 
 # Find materials with missing hero images
 echo "=== MISSING HERO IMAGES ==="
-for yaml in content/components/frontmatter/*.yaml; do
+for yaml in content/frontmatter/*.yaml; do
     material_name=$(basename "$yaml" .yaml)
     hero_path="public/images/material/${material_name}-hero.jpg"
     
@@ -62,7 +62,7 @@ for img in public/images/material/*-hero.jpg public/images/material/*-micro.jpg;
         basename_img=$(basename "$img")
         # Extract material name by removing -hero.jpg or -micro.jpg
         material_name=$(echo "$basename_img" | sed 's/-hero\.jpg$//' | sed 's/-micro\.jpg$//')
-        yaml_file="content/components/frontmatter/${material_name}.yaml"
+        yaml_file="content/frontmatter/${material_name}.yaml"
         
         if [ ! -f "$yaml_file" ]; then
             echo "ORPHANED: $img (no $yaml_file)"

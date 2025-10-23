@@ -40,7 +40,7 @@ echo ""
 
 # Count frontmatter files
 echo "3️⃣  Counting article files..."
-FRONTMATTER_DIR="content/components/frontmatter"
+FRONTMATTER_DIR="content/frontmatter"
 if [ ! -d "$FRONTMATTER_DIR" ]; then
     echo -e "${RED}❌ ERROR: Frontmatter directory not found${NC}"
     exit 1

@@ -57,7 +57,7 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
   
   return safeContentOperation(async () => {
     // Secure path construction with validation
-    const frontmatterDir = path.join(process.cwd(), 'content', 'components', 'frontmatter');
+    const frontmatterDir = path.join(process.cwd(), 'content', 'frontmatter');
     let frontmatterPath = path.join(frontmatterDir, `${validatedSlug}.yaml`);
     
     // Validate constructed path for security
