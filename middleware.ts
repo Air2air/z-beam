@@ -11,12 +11,16 @@ export function middleware(request: NextRequest) {
   // Generate a unique nonce for this request
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
   
+  // Allow unsafe-eval in development for Next.js dev tools
+  const isDev = process.env.NODE_ENV === 'development';
+  const evalPolicy = isDev ? " 'unsafe-eval'" : "";
+  
   // Build CSP with nonce - compatible with Next.js dynamic script loading
   const cspHeader = [
     "default-src 'self'",
     // Allow nonce, unsafe-inline (ignored by modern browsers with nonce), and specific domains
     // This approach works with Next.js dynamic imports while maintaining security
-    `script-src 'self' 'nonce-${nonce}' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com`,
+    `script-src 'self' 'nonce-${nonce}' 'unsafe-inline'${evalPolicy} https://vercel.live https://va.vercel-scripts.com`,
     "style-src 'self' 'unsafe-inline'", // Tailwind requires this
     "font-src 'self' data:",
     "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
