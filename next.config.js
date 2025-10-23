@@ -38,8 +38,6 @@ const nextConfig = {
     optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights', 'react', 'react-dom'],
     // Enable CSS optimization
     optimizeCss: true,
-    // Optimize font loading
-    optimizeFonts: true,
   },
 
   // Headers for caching (security headers moved to middleware.ts for CSP nonce support)
@@ -91,6 +89,7 @@ const nextConfig = {
         chunks: 'all',
         maxInitialRequests: 25,
         minSize: 20000,
+        maxSize: 100000, // Force smaller 100KB chunks
         cacheGroups: {
           default: false,
           vendors: false,
@@ -102,16 +101,13 @@ const nextConfig = {
             priority: 40,
             enforce: true,
           },
-          // Vendor chunks - split more aggressively
+          // Vendor chunks - split into smaller pieces
           vendor: {
             test: /[\\/]node_modules[\\/]/,
-            name(module) {
-              const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)(?:[\\/]|$)/)[1];
-              return `vendor.${packageName.replace('@', '')}`;
-            },
+            name: 'vendor',
             priority: 20,
             minChunks: 1,
-            maxSize: 100000, // Even smaller chunks: 100KB
+            maxSize: 100000,
           },
           // Common code
           common: {
