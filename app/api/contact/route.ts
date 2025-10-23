@@ -1,12 +1,20 @@
 // app/api/contact/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 import { ContactFormData } from '@/types';
 import { SITE_CONFIG } from '@/app/config';
 import { logger } from '@/app/utils/logger';
 
-// Initialize Resend only if API key is available
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+// Initialize Nodemailer transporter with Google Workspace SMTP
+const transporter = nodemailer.createTransport({
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // true for 465, false for other ports
+  auth: {
+    user: process.env.GMAIL_USER, // Your info@z-beam.com email
+    pass: process.env.GMAIL_APP_PASSWORD, // Google App Password
+  },
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,21 +38,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check if Resend API key is configured
-    if (!process.env.RESEND_API_KEY || !resend) {
-      logger.info('Resend API key not configured. Form submission received', { body });
+    // Check if Gmail credentials are configured
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+      logger.info('Gmail credentials not configured. Form submission received', { body });
       return NextResponse.json({
         success: true,
         message: SITE_CONFIG.messages.contactSuccess
       });
     }
     
-    // Send email using Resend
+    // Send email using Nodemailer with Google Workspace SMTP
     try {
-      const { data, error } = await resend.emails.send({
-        from: SITE_CONFIG.emailConfig.fromAddress,
-        to: [...SITE_CONFIG.emailConfig.toAddresses],
+      const mailOptions = {
+        from: `"Z-Beam Contact Form" <${process.env.GMAIL_USER}>`,
+        to: SITE_CONFIG.emailConfig.toAddresses.join(', '),
         subject: `New Contact: ${subject || 'No Subject'}`,
+        replyTo: email,
         html: `
           <div style="max-width: 600px; margin: 0 auto;">
             <h2 style="color: ${SITE_CONFIG.emailConfig.brandColor}; border-bottom: 2px solid ${SITE_CONFIG.emailConfig.brandColor}; padding-bottom: 10px;">
@@ -87,18 +96,12 @@ ${message}
             </p>
           </div>
         `,
-        replyTo: email, // Allow direct reply to the customer
-      });
+      };
 
-      if (error) {
-        logger.error('Resend error', { error });
-        return NextResponse.json(
-          { error: SITE_CONFIG.messages.contactError },
-          { status: 500 }
-        );
-      }
+      // Send email via Google Workspace SMTP
+      const info = await transporter.sendMail(mailOptions);
 
-      logger.info('Email sent successfully', { data });
+      logger.info('Email sent successfully', { messageId: info.messageId });
       
       return NextResponse.json({
         success: true,
