@@ -209,8 +209,8 @@ export function Navbar() {
                                 </Link>
                               );
                             })}
-                            <div className="border-t border-gray-200 dark:border-gray-700 mt-1 pt-1">
-                              <ContactButton variant="inverted" size="sm" href="/contact" fullWidth />
+                            <div className="px-4 py-2">
+                              <ContactButton variant="inverted" size="sm" href="/contact" />
                             </div>
                           </div>
                         )}
@@ -364,8 +364,8 @@ export function Navbar() {
                               </Link>
                             );
                           })}
-                          <div className="border-t border-gray-200 dark:border-gray-700 mt-2 pt-2">
-                            <ContactButton variant="inverted" size="md" href="/contact" fullWidth />
+                          <div className="py-2 px-3">
+                            <ContactButton variant="inverted" size="md" href="/contact" />
                           </div>
                         </div>
                       )}
