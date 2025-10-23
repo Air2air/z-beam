@@ -31,7 +31,18 @@ export function Hero({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const themeClass = `theme-${theme}`;
   
@@ -100,10 +111,10 @@ export function Hero({
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
-      {/* Video Background - Facade pattern for non-render-blocking load */}
+      {/* Video Background - Facade pattern on mobile only */}
       {videoUrl ? (
         <>
-          {!videoLoaded ? (
+          {isMobile && !videoLoaded ? (
             /* YouTube Facade - Poster image with play button */
             <div 
               className={`${backgroundClasses} bg-gray-800 cursor-pointer group`}
@@ -124,10 +135,10 @@ export function Hero({
                 quality={85}
                 sizes="(max-width: 768px) 100vw, 1200px"
               />
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity" />
-              {/* Play button */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* Dark overlay - lower z-index */}
+              <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity z-10" />
+              {/* Play button - higher z-index to appear on top */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
                   <svg className="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
