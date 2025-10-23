@@ -22,14 +22,15 @@ const nextConfig = {
   // Static optimization settings
   trailingSlash: false, // Ensure consistent URLs for static generation
   
-  // Image configuration
+  // Image configuration - mobile-first optimization
   images: {
-    formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    formats: ['image/avif', 'image/webp'], // AVIF first for better compression
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920], // Removed 2048, 3840 for faster mobile
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     unoptimized: process.env.NODE_ENV === 'development', // Optimize in production
     dangerouslyAllowSVG: true,
     minimumCacheTTL: 60,
+    loader: 'default',
   },
 
   experimental: {

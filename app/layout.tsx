@@ -117,6 +117,12 @@ export default function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
+        {/* Resource hints for performance */}
+        <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon/favicon_350.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />

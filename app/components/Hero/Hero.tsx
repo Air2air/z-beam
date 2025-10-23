@@ -30,7 +30,18 @@ export function Hero({
   // Minimal state - only what's essential
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
+
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const themeClass = `theme-${theme}`;
   
@@ -99,8 +110,8 @@ export function Hero({
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
-      {/* Video Background */}
-      {videoUrl ? (
+      {/* Video Background - Desktop only, mobile shows poster image */}
+      {videoUrl && !isMobile ? (
         <>
           <div className={`${backgroundClasses} bg-gray-800`}>
             <iframe
@@ -142,7 +153,7 @@ export function Hero({
             }}
           />
         </>
-      ) : imageSource && isInView ? (
+      ) : ((videoUrl && isMobile && imageSource) || (imageSource && isInView)) ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
         <>
           <div 
@@ -166,8 +177,8 @@ export function Hero({
               className="object-cover"
               style={{ zIndex: 1 }}
               priority={variant === 'fullwidth'}
-              quality={85}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              quality={isMobile ? 75 : 85}
+              sizes="(max-width: 768px) 100vw, 1200px"
               onLoad={() => setImageLoaded(true)}
               placeholder="blur"
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
