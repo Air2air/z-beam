@@ -5,16 +5,22 @@ import { ContactFormData } from '@/types';
 import { SITE_CONFIG } from '@/app/config';
 import { logger } from '@/app/utils/logger';
 
-// Initialize Nodemailer transporter with Google Workspace SMTP
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // true for 465, false for other ports
-  auth: {
-    user: process.env.GMAIL_USER, // Your info@z-beam.com email
-    pass: process.env.GMAIL_APP_PASSWORD, // Google App Password
-  },
-});
+// Function to create transporter when needed
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: 'smtp-relay.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
+    // For Google Workspace SMTP relay
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -99,6 +105,7 @@ ${message}
       };
 
       // Send email via Google Workspace SMTP
+      const transporter = createTransporter();
       const info = await transporter.sendMail(mailOptions);
 
       logger.info('Email sent successfully', { messageId: info.messageId });
@@ -109,7 +116,14 @@ ${message}
       });
 
     } catch (emailError) {
-      logger.error('Email sending failed', { error: emailError });
+      const errorMessage = emailError instanceof Error ? emailError.message : String(emailError);
+      const errorStack = emailError instanceof Error ? emailError.stack : undefined;
+      logger.error('Email sending failed', { 
+        error: errorMessage,
+        stack: errorStack,
+        user: process.env.GMAIL_USER ? 'configured' : 'missing',
+        password: process.env.GMAIL_APP_PASSWORD ? 'configured' : 'missing'
+      });
       return NextResponse.json(
         { error: SITE_CONFIG.messages.contactError },
         { status: 500 }

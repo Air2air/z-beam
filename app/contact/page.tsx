@@ -13,7 +13,7 @@ export const metadata = {
 export default async function ContactPage() {
   return (
     <Layout
-      title="Let's talk!"
+      title="Send us a Z-mail"
       subtitle=""
       rightContent={null}
     >
