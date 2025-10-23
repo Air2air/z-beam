@@ -167,32 +167,8 @@ export function Hero({
               />
             </div>
           )}
-          {/* VideoObject Schema for YouTube embeds */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "VideoObject",
-                "name": frontmatter?.title || `${SITE_CONFIG.shortName} Video`,
-                "description": frontmatter?.description || `Professional laser cleaning demonstration`,
-                "thumbnailUrl": `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
-                "uploadDate": frontmatter?.datePublished || new Date().toISOString(),
-                "contentUrl": `https://www.youtube.com/watch?v=${videoId}`,
-                "embedUrl": `https://www.youtube.com/embed/${videoId}`,
-                "publisher": {
-                  "@type": "Organization",
-                  "name": SITE_CONFIG.shortName,
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": `${SITE_CONFIG.url}${SITE_CONFIG.media.logo.default}`
-                  }
-                }
-              }, null, 2)
-            }}
-          />
         </>
-      ) : imageSource && isInView ? (
+      ) : imageSource ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
         <>
           <div 
@@ -225,37 +201,6 @@ export function Hero({
               itemProp="thumbnail"
             />
           </div>
-          
-          {/* JSON-LD for enhanced image search support */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "ImageObject",
-                "contentUrl": imageSource,
-                "url": imageSource,
-                "description": getAccessibleAlt(),
-                "author": {
-                  "@type": "Person",
-                  "name": typeof frontmatter?.author === 'string' ? frontmatter.author : (frontmatter?.author?.name || SITE_CONFIG.author)
-                },
-                "publisher": {
-                  "@type": "Organization",
-                  "name": SITE_CONFIG.shortName,
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": `${SITE_CONFIG.url}${SITE_CONFIG.media.logo.default}`
-                  }
-                },
-                "copyrightHolder": {
-                  "@type": "Organization",
-                  "name": SITE_CONFIG.name
-                },
-                "uploadDate": frontmatter?.datePublished || new Date().toISOString()
-              }, null, 2)
-            }}
-          />
         </>
       ) : imageSource && !isInView ? (
         /* Placeholder while not in view */
