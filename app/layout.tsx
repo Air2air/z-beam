@@ -137,7 +137,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${primaryFont.className} antialiased`}>
+      <body className={`${primaryFont.className} antialiased bg-slate-900 text-slate-200`}>
         <ErrorBoundary componentName="Layout">
           <Navbar />
           <main className="flex-grow w-full max-w-full py-0 pb-32 md:pb-0 overflow-x-hidden" id="main-content">
