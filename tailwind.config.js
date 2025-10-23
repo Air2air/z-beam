@@ -60,19 +60,6 @@ module.exports = {
       // Typography config removed - using custom CSS for better performance
     },
   },
-  plugins: [
-    // Typography plugin removed - saves ~68KB. Using custom CSS in global.css instead
-  ],
+  plugins: [],
   darkMode: 'class',
-  // Production optimizations
-  ...(process.env.NODE_ENV === 'production' && {
-    purge: {
-      enabled: true,
-      content: [
-        './app/**/*.{js,ts,jsx,tsx,mdx}',
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}'
-      ],
-    },
-  }),
 }
