@@ -1,11 +1,11 @@
 // app/components/Contact/ContactForm.tsx
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import { ContactFormData, FormErrors } from '@/types';
 import { Button } from '../ContactButton';
 
-export function ContactForm() {
+export const ContactForm = memo(function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -288,4 +288,4 @@ export function ContactForm() {
         </p>
       </form>
   );
-}
+});

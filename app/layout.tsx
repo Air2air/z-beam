@@ -3,6 +3,7 @@ import "./css/global.css";
 import { primaryFont } from "./config/fonts";
 import { Navbar } from "./components/Navigation/nav";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from 'next/script';
 import { Analytics } from "@vercel/analytics/react";
 import Footer from "./components/Navigation/footer";
 import { ConditionalCTA } from "./components/CTA";
@@ -136,7 +137,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${primaryFont.className} antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100 overflow-x-hidden`}>
+      <body className={`${primaryFont.variable} antialiased`}>
         <ErrorBoundary componentName="Layout">
           <Navbar />
           <main className="flex-grow w-full max-w-full py-0 pb-32 md:pb-0 overflow-x-hidden" id="main-content">
@@ -149,6 +150,10 @@ export default function RootLayout({
         </ErrorBoundary>
         <SpeedInsights />
         <Analytics />
+        <Script
+          src="https://va.vercel-scripts.com/v1/script.debug.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

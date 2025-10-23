@@ -1,6 +1,16 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
-import { ContactForm } from "../components/Contact/ContactForm";
+import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+
+const ContactForm = dynamic(() => import('../components/Contact/ContactForm').then(mod => ({ default: mod.ContactForm })), {
+  loading: () => (
+    <div className="flex items-center justify-center min-h-[400px]">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>
+  ),
+  ssr: false,
+});
 import { ContactInfo } from "../components/Contact/ContactInfo";
 import { Title } from "../components/Title";
 

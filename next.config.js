@@ -1,5 +1,9 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const nextConfig = {
   // Production optimizations
   reactStrictMode: true,
@@ -23,8 +27,9 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    unoptimized: true, // For local development/testing
+    unoptimized: process.env.NODE_ENV === 'development', // Optimize in production
     dangerouslyAllowSVG: true,
+    minimumCacheTTL: 60,
   },
 
   experimental: {
@@ -179,4 +184,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);
