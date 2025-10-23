@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://vercel.live https://va.vercel-scripts.com`,
     "style-src 'self' 'unsafe-inline'", // Tailwind requires this
     "font-src 'self' data:",
-    "img-src 'self' data: blob: https://img.youtube.com https://i.ytimg.com",
+    "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
     "media-src 'self' data: blob:",
     "connect-src 'self' https://vercel.live https://vitals.vercel-insights.com https://va.vercel-scripts.com",
     "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
