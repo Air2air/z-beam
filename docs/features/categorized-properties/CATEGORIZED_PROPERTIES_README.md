@@ -8,7 +8,7 @@
 - 🧪 **[Testing Guide](./METRICSCARD_CATEGORIZED_TESTING.md)** - Comprehensive testing strategies and test suites
 
 ### Reference Materials
-- 📝 **[Sample Categorized YAML](../content/components/frontmatter/aluminum-test-categorized.yaml)** - Complete example file
+- 📝 **[Sample Categorized YAML](../content/frontmatter/aluminum-test-categorized.yaml)** - Complete example file
 - 🧩 **[Type Definitions](../types/centralized.ts)** - TypeScript interfaces
 - ⚙️ **[MetricsGrid Component](../app/components/MetricsCard/MetricsGrid.tsx)** - Main component implementation
 
@@ -96,7 +96,7 @@ npm test MetricsGrid.categorized
 ### For Content Creators
 
 #### 1. Use Template
-See `/content/components/frontmatter/aluminum-test-categorized.yaml` for complete example
+See `/content/frontmatter/aluminum-test-categorized.yaml` for complete example
 
 #### 2. Category Structure
 ```yaml
@@ -231,15 +231,15 @@ npm test -- --coverage --collectCoverageFrom='app/components/MetricsCard/Metrics
 
 ### Test Files
 - `/tests/components/MetricsGrid.categorized.test.tsx` - Main test suite
-- `/content/components/frontmatter/aluminum-test-categorized.yaml` - Test data
+- `/content/frontmatter/aluminum-test-categorized.yaml` - Test data
 
 ## Migration
 
 ### Automated Migration
 ```bash
 # Backup existing files
-mkdir -p content/components/frontmatter-backup
-cp content/components/frontmatter/*.yaml content/components/frontmatter-backup/
+mkdir -p content/frontmatter-backup
+cp content/frontmatter/*.yaml content/frontmatter-backup/
 
 # Run categorization script
 python scripts/categorize-properties.py
@@ -265,7 +265,7 @@ tests/
     ├── MetricsGrid.test.tsx                           # Legacy tests
     └── MetricsGrid.categorized.test.tsx               # New tests
 
-content/components/frontmatter/
+content/frontmatter/
 └── aluminum-test-categorized.yaml                     # Sample file
 
 app/components/MetricsCard/
@@ -330,7 +330,7 @@ npm run type-check
 ### YAML Validation
 ```bash
 # Validate YAML syntax
-yamllint content/components/frontmatter/*.yaml
+yamllint content/frontmatter/*.yaml
 ```
 
 ## Performance

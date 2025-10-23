@@ -41,7 +41,7 @@ npm run dev                              # Start dev server
 npm test MetricsGrid.categorized         # Run tests
 
 # Validation
-yamllint content/components/frontmatter/*.yaml
+yamllint content/frontmatter/*.yaml
 python scripts/validate-categorized-properties.py
 
 # Migration
@@ -138,7 +138,7 @@ materialProperties:
 - [Frontend Guide](./CATEGORIZED_PROPERTIES_FRONTEND_IMPLEMENTATION.md)
 - [Migration Guide](./MIGRATION_CATEGORIZED_PROPERTIES.md)
 - [Testing Guide](./METRICSCARD_CATEGORIZED_TESTING.md)
-- [Sample File](../content/components/frontmatter/aluminum-test-categorized.yaml)
+- [Sample File](../content/frontmatter/aluminum-test-categorized.yaml)
 
 ## 🔍 Property Mapping
 

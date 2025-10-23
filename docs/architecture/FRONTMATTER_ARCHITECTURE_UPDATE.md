@@ -389,7 +389,7 @@ energy_coupling:
 
 - ✅ `types/centralized.ts` - Type definitions (already updated)
 - ✅ `app/components/MetricsCard/MetricsGrid.tsx` - Component logic (already updated)
-- ✅ All YAML files in `content/components/frontmatter/*.yaml` (updated with labels)
+- ✅ All YAML files in `content/frontmatter/*.yaml` (updated with labels)
 - ✅ Test files using PropertyCategory interface
 
 ### Breaking Changes

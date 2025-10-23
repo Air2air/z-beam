@@ -253,7 +253,7 @@ Success Metrics
 ## Sample Files
 
 ### Test Data
-**📄 File**: `/content/components/frontmatter/aluminum-test-categorized.yaml`
+**📄 File**: `/content/frontmatter/aluminum-test-categorized.yaml`
 
 Complete example with:
 - 7 active property categories

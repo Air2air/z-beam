@@ -10,7 +10,7 @@
 
 ### ✅ 1. Dynamic Sitemap Generation
 **File:** `app/sitemap.ts`
-- Automatically reads all article files from `content/components/frontmatter/`
+- Automatically reads all article files from `content/frontmatter/`
 - Generates URLs dynamically (no manual updates needed)
 - Uses file modification times for accurate `lastModified` dates
 - Includes all static routes and material categories
@@ -129,7 +129,7 @@ z-beam/
 **Adding new article:**
 ```bash
 # 1. Create file
-content/components/frontmatter/titanium-laser-cleaning.yaml
+content/frontmatter/titanium-laser-cleaning.yaml
 
 # 2. Commit and push
 git add .

@@ -201,7 +201,7 @@ const CATEGORY_CONFIG = {
 To find all category IDs in use:
 
 ```bash
-awk '/^materialProperties:/{flag=1; next} /^[a-zA-Z]/{flag=0} flag && /^  [a-z_]+:/{print $1}' content/components/frontmatter/*.yaml | sort -u
+awk '/^materialProperties:/{flag=1; next} /^[a-zA-Z]/{flag=0} flag && /^  [a-z_]+:/{print $1}' content/frontmatter/*.yaml | sort -u
 ```
 
 This command extracts all category IDs from YAML files under `materialProperties`.

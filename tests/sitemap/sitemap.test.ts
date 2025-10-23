@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 describe('Sitemap Validation', () => {
-  const frontmatterDir = path.join(process.cwd(), 'content/components/frontmatter');
+  const frontmatterDir = path.join(process.cwd(), 'content/frontmatter');
   const sitemapPath = path.join(process.cwd(), 'app/sitemap.ts');
 
   describe('Sitemap File Existence', () => {

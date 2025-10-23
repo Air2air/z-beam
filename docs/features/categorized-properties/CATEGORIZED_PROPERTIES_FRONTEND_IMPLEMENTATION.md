@@ -256,7 +256,7 @@ const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 Create test YAML file with categorized structure:
 
 ```yaml
-# content/components/frontmatter/aluminum-test-categorized.yaml
+# content/frontmatter/aluminum-test-categorized.yaml
 name: Aluminum
 category: Metal
 subcategory: non_ferrous
@@ -394,7 +394,7 @@ For questions or issues:
 - See: `docs/CATEGORIZED_FRONTMATTER_OUTPUT.md` (backend structure)
 - See: `data/Categories.yaml` → `propertyCategories` section
 - See: This file for frontend implementation
-- Test file location: `content/components/frontmatter/`
+- Test file location: `content/frontmatter/`
 
 ## Summary
 

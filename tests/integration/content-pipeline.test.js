@@ -34,7 +34,7 @@ describe('Content Pipeline Integration', () => {
 
   async function setupTestContent() {
     const contentDirs = [
-      'content/components/frontmatter',
+      'content/frontmatter',
       'content/components/content',
       'content/components/metatags',
       'content/components/bullets',
@@ -67,7 +67,7 @@ articleType: "technical-guide"
 `;
 
     await fs.writeFile(
-      path.join(TEST_CONTENT_DIR, 'content/components/frontmatter/alumina-laser-cleaning.md'),
+      path.join(TEST_CONTENT_DIR, 'content/frontmatter/alumina-laser-cleaning.md'),
       frontmatterContent
     );
 
@@ -133,7 +133,7 @@ tags: ["Electronics", "High-Temperature"]
 `;
 
     await fs.writeFile(
-      path.join(TEST_CONTENT_DIR, 'content/components/frontmatter/silicon-carbide-processing.md'),
+      path.join(TEST_CONTENT_DIR, 'content/frontmatter/silicon-carbide-processing.md'),
       frontmatterContent2
     );
   }
