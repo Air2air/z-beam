@@ -359,7 +359,7 @@ function extractCardsFromCategorizedProperties(
     .filter(([categoryId, category]) => {
       // Validate category structure
       if (!category || typeof category !== 'object') return false;
-      if (!('label' in category) || !('properties' in category)) return false;
+      if (!('label' in category)) return false;
       
       // Apply category filter if provided
       if (categoryFilter && categoryFilter.length > 0) {
@@ -376,8 +376,13 @@ function extractCardsFromCategorizedProperties(
     const categoryConfig = CATEGORY_CONFIG[categoryId as keyof typeof CATEGORY_CONFIG];
     const categoryColor = categoryConfig?.color || '#6B7280';
     
+    // Get properties from category (excluding metadata fields like label, description, percentage)
+    const properties = Object.entries(category).filter(([key]) => 
+      key !== 'label' && key !== 'description' && key !== 'percentage'
+    );
+    
     // Extract cards from properties with category color
-    Object.entries(category.properties).forEach(([propertyName, propertyValue]) => {
+    properties.forEach(([propertyName, propertyValue]) => {
       if (!propertyValue || typeof propertyValue !== 'object') return;
       
       // Check if this is a complex nested property
