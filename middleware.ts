@@ -11,10 +11,12 @@ export function middleware(request: NextRequest) {
   // Generate a unique nonce for this request
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
   
-  // Build CSP with nonce
+  // Build CSP with nonce - compatible with Next.js dynamic script loading
   const cspHeader = [
     "default-src 'self'",
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://vercel.live https://va.vercel-scripts.com`,
+    // Allow nonce, unsafe-inline (ignored by modern browsers with nonce), and specific domains
+    // This approach works with Next.js dynamic imports while maintaining security
+    `script-src 'self' 'nonce-${nonce}' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com`,
     "style-src 'self' 'unsafe-inline'", // Tailwind requires this
     "font-src 'self' data:",
     "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
@@ -26,9 +28,6 @@ export function middleware(request: NextRequest) {
     "base-uri 'self'",
     "object-src 'none'",
     "upgrade-insecure-requests",
-    // Trusted Types commented out - requires specific policies for Next.js/React
-    // "require-trusted-types-for 'script'",
-    // "trusted-types default 'none'",
   ].join('; ');
 
   // Clone the request headers
