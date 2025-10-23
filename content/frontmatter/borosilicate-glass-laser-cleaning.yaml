@@ -1,5 +1,5 @@
 name: Borosilicate Glass
-category: Glass
+category: glass
 subcategory: silicate
 title: Borosilicate Glass Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Borosilicate Glass
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Borosilicate Glass
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the borosilicate glass surface shows significant contamination. A particulate layer, approximately 5 to 8 µm thick, covers over 80% of the observable area. This layer, it appears as a dense, amorphous film with embedded crystalline deposits—likely salt-based or mineral in nature. The underlying glass topography is completely obscured. Surface roughness measurements confirm heavy fouling, with Ra values increasing from a baseline of 0.5 nm to a current 1.8 µm. The contamination exhibits a cracked-mud pattern, a typical characteristic of dried, adherent films. In several regions, localized pitting is visible beneath the deposit layer, suggesting the contamination may have initiated minor chemical etching. This pitting, it has an average depth of 2.3 µm. Energy-dispersive X-ray (EDX) analysis confirms the presence of foreign elements including calcium, sulfur, and carbon, which supports the identification of carbonate and sulfate salts. The original surface integrity is clearly compromised.
   afterText: Laser cleaning produces a dramatic surface transformation, which is immediately apparent at 500x. The thick contamination layer is entirely absent, revealing the pristine borosilicate substrate. Surface roughness has been restored to near-original specifications, with Ra measurements now at 0.7 nm—a reduction of over 99% from the contaminated state. This is a critical improvement for optical applications. The cleaning process has left subtle, yet telling, evidence of its mechanism. The surface now exhibits a faint, sub-micron laser patterning—a series of parallel striations with a periodicity of approximately 12 µm. This texture, it is a direct result of the laser ablation process and does not negatively impact optical function. Crucially, no thermal cracking or melting is observed, which indicates the laser parameters remained well below the material's damage threshold of 15 J/cm². X-ray Photoelectron Spectroscopy (XPS) analysis confirms the surface chemistry is now dominated by silicon and oxygen, with contaminant elements reduced to trace levels below 0.5 atomic percent. Final inspection confirms functional restoration. The surface reflectivity and clarity are fully recovered, making it suitable for high-precision applications. The minimal post-process roughness and absence of micro-fractures demonstrate that the laser cleaning was both effective and non-destructive. This result, it validates the process for sensitive components in pharmaceutical and semiconductor manufacturing where surface integrity is paramount.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Laboratory Equipment
-- Pharmaceutical Manufacturing
-- Electronics and Semiconductor
-- Aerospace and Defense
-- Cultural Heritage and Museums
-- Medical Device Manufacturing
-- Solar Energy
-- Automotive Lighting
-- Food and Beverage Processing
-- Research and Development
+  - Laboratory Equipment
+  - Pharmaceutical Manufacturing
+  - Electronics and Semiconductor
+  - Aerospace and Defense
+  - Cultural Heritage and Museums
+  - Medical Device Manufacturing
+  - Solar Energy
+  - Automotive Lighting
+  - Food and Beverage Processing
+  - Research and Development
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 830.0
+      value: 830
       min: 120
       max: 900
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Borosilicate Glass (Pyrex 7740) at 300K, Corning Incorporated Material Specifications'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: ASTM E228-17 Standard Test Method for Linear Thermal Expansion of Solid Materials & Corning Incorporated technical datasheets for borosilicate glass (Pyrex 7740 composition)
     compressiveStrength:
-      value: 280.0
+      value: 280
       min: 500
       max: 2000
       unit: MPa
       research_basis: Borosilicate glass compressive strength typically ranges from 280-650 MPa depending on specific composition and surface quality. The lower end (280 MPa) represents a conservative, widely cited value for annealed laboratory borosilicate glass (e.g., Pyrex, Duran) from manufacturer technical data sheets. Higher values up to 650 MPa apply to pristine, flaw-free specimens under ideal laboratory conditions.
     corrosionResistance:
-      value: 9.0
+      value: 9
       min: 9
       max: 10
       unit: rating
@@ -94,15 +94,15 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASTM E438-92 Standard Specification for Glasses in Laboratory Apparatus, Corning Glass Works Material Specifications for Pyrex 7740, and Scholze, H. ''Glass: Nature, Structure, and Properties'' (1991)'
     electricalResistivity:
-      value: 150000000.0
-      min: 10000000000.0
-      max: 1000000000000000.0
+      value: 150000000
+      min: 10000000000
+      max: 1000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 60.0
+      value: 60
       min: 50
-      max: 750.0
+      max: 750
       unit: MPa
       research_basis: Borosilicate glass, while strong in compression, is a brittle material with a flexural strength highly dependent on surface quality and test conditions. Authoritative technical datasheets and materials science references (e.g., Corning, Schott) consistently report a typical flexural strength in the range of 50-70 MPa for laboratory-scale tests on pristine specimens. The value of 60 MPa is a representative median for a 3-point bend test, though real-world strength is often lower due to microscopic surface flaws.
     hardness:
@@ -112,19 +112,19 @@ materialProperties:
       unit: Mohs
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (ASM International, 1990), Section: ''Glass and Glass Ceramics'''
     oxidationResistance:
-      value: 500.0
-      min: 400.0
-      max: 1700.0
+      value: 500
+      min: 400
+      max: 1700
       unit: °C
       research_basis: The maximum continuous service temperature in air for borosilicate glass (e.g., Corning Pyrex 7740) is consistently cited as 500°C by major manufacturers and technical data sheets. This is the temperature limit for long-term use before thermal creep or structural degradation begins, which serves as a practical upper limit for oxidation resistance in an air atmosphere.
     tensileStrength:
-      value: 35.0
+      value: 35
       min: 30
       max: 2000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 19: Fatigue and Fracture, ''Fracture of Glass'' (ASM International, 1996) and Corning Incorporated technical data sheets for borosilicate glass compositions'
     youngsModulus:
-      value: 63.0
+      value: 63
       min: 10
       max: 400
       unit: GPa
@@ -140,8 +140,8 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 2.1
-      min: 2.0
-      max: 6.0
+      min: 2
+      max: 6
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
@@ -160,7 +160,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for contaminant removal without glass damage
   overlapRatio:
@@ -212,36 +212,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength providing good transmission control for surface contamination removal
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:57.952856'
@@ -315,8 +315,8 @@ preservedData:
         min: 10
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 6.0
+        min: 2
+        max: 6
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 80
@@ -339,8 +339,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1000000000000000.0
+        min: 10000000000
+        max: 1000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Glass is insulator
@@ -348,7 +348,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 50
-        max: 750.0
+        max: 750
         unit: MPa
         description: Maximum bending stress before failure
         notes: Glass weak in bending
@@ -363,8 +363,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 400.0
-        max: 1700.0
+        min: 400
+        max: 1700
         unit: °C
         description: ''
         sample_count: 11

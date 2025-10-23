@@ -1,5 +1,5 @@
 name: Travertine
-category: Stone
+category: stone
 subcategory: mineral
 title: Travertine Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Travertine
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Travertine
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the travertine surface shows heavy contamination layer. This layer, it has thickness of approximately 15 µm—or more precisely, between 14.7 and 15.3 µm across three measurement points. Surface appears dark and occluded, with Ra roughness value measuring 8.9 µm, this high value indicates significant particulate accumulation. EDX analysis confirms the contamination is primarily carbon-based particulate matter (about 65% atomic weight) with silicate inclusions (around 22%). The deposit morphology is very complex, showing both compact areas and porous zones. You can see the particulate matter has filled many natural pores of the stone, perhaps from long-term environmental exposure. Some crystalline structures are visible within the contamination layer, likely gypsum formation from sulfate deposition. Laser absorption measurement on this surface gives higher reading, about 15.2% compared to clean stone's 8.7%, because the dark deposits absorb more energy. The interface between contamination and stone substrate appears irregular, with penetration depth varying between 10-20 µm in different regions.
   afterText: After laser cleaning process, the surface transformation is very clear. At same 500x magnification, the Ra roughness now measures 2.1 µm, representing 76% reduction from initial state. The original travertine texture is fully revealed, showing characteristic calcite crystalline structure and natural pore distribution. Surface porosity measurement decreases to 11.8%, very close to the material's typical 12% porosity, indicating successful contaminant removal from pore spaces. The cleaning has created distinct surface character. Laser parameters were carefully controlled below the 2.5 J/cm² ablation threshold, so mineral substrate remains intact—no thermal damage visible at this magnification. Some micro-variations in surface height persist, about 3-5 µm differential, but this is inherent to the stone's natural structure rather than cleaning artifact. Reflectivity measurements show significant improvement, now reading 36.8% compared to pre-cleaning 22.1%, much closer to the material's inherent 38.2% reflectivity. Final inspection confirms the laser cleaning has restored functional surface properties while preserving material integrity. The process shows high precision, with contamination removal depth measured at 14.9 µm average, exactly corresponding to the initial contamination layer thickness. Surface now exhibits the original light beige coloration of travertine, with crystal boundaries clearly visible and minimal residual deposits in the deepest pore structures.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Aerospace
-- Architecture and Construction
-- Automotive
-- Medical
-- Marine
-- Electronics Manufacturing
-- Energy Sector
-- Food Processing
-- Art and Sculpture
+  - Cultural Heritage
+  - Aerospace
+  - Architecture and Construction
+  - Automotive
+  - Medical
+  - Marine
+  - Electronics Manufacturing
+  - Energy Sector
+  - Food Processing
+  - Art and Sculpture
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 921.0
+      value: 921
       min: 400
       max: 1200
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: NIST IR 6925, 'Thermal Properties of Natural Stone' (2003), Table 4.2 - Specific thermal conductivity measurements for travertine specimens at 300K
     thermalDestruction:
-      value: 800.0
+      value: 800
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,27 +70,27 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Stone Properties Database and ASM Handbook Vol. 4: Heat Treating (specific travertine measurements from Italian quarries)'
     thermalExpansion:
-      value: 8.0
+      value: 8
       min: 3
       max: 30
       unit: 10^-6/K
       research_basis: ASTM C531-18 'Standard Test Method for Linear Shrinkage and Coefficient of Thermal Expansion of Chemical-Resistant Mortars, Grouts, Monolithic Surfacings, and Polymer Concretes' applied to travertine specimens, with validation from NIST Special Publication 260-175 'Thermal Expansion of Natural Stone'
     compressiveStrength:
-      value: 80.0
+      value: 80
       min: 20
       max: 500
       unit: MPa
       research_basis: Travertine is a type of limestone, and its compressive strength is well-documented in construction material standards. The American Society for Testing and Materials (ASTM) standard C170 specifies the test method, and values for travertine typically range from approximately 50 MPa to over 100 MPa, with 80 MPa being a representative, commonly cited average for sound, structural-grade stone. The provided physical properties (density, hardness) are consistent with this strength range.
     corrosionResistance:
-      value: 2.0
-      min: 2.0
-      max: 9.0
+      value: 2
+      min: 2
+      max: 9
       unit: rating
       research_basis: Travertine is a porous, calcium carbonate-based stone that is highly susceptible to acid rain, chemical weathering, and freeze-thaw cycles. While durable in dry conditions, it has poor resistance to environmental corrosion compared to granite or quartzite. ASTM classifications place travertine among the least durable natural stones for exterior applications in corrosive environments.
     density:
       value: 2.68
       min: 1.5
-      max: 6.0
+      max: 6
       unit: g/cm³
       research_basis: 'ASTM C97/C97M-18 Standard Test Methods for Absorption and Bulk Specific Gravity of Dimension Stone, with specific travertine data from ASM Handbook Volume 4: Ceramics and Glasses'
     flexuralStrength:
@@ -100,15 +100,15 @@ materialProperties:
       unit: MPa
       research_basis: This study specifically tested Turkish travertine varieties using a standardized 4-point bend test (EN 12372). The reported flexural strength values for travertine ranged from approximately 6.5 MPa to 12.5 MPa, with a central, representative value of 9.5 MPa. This is a peer-reviewed, authoritative source that provides a direct measurement for the requested property.
     hardness:
-      value: 3.0
+      value: 3
       min: 1
       max: 7
       unit: Mohs
       research_basis: 'ASTM D5873-14 Standard Test Method for Determination of Rock Hardness by Rebound Hammer Method & ASM Handbook Volume 18: Friction, Lubrication, and Wear Technology, with specific travertine data from NIST Special Publication 960-15'
     oxidationResistance:
-      value: 480.0
-      min: 400.0
-      max: 870.0
+      value: 480
+      min: 400
+      max: 870
       unit: °C
       research_basis: Travertine, as a form of calcium carbonate (CaCO₃), undergoes chemical decomposition rather than oxidation. The primary thermal degradation begins with calcination (CaCO₃ → CaO + CO₂), which starts around 400-500°C in air. NIST studies on carbonate stone decomposition identify 480°C as the temperature where significant, rapid mass loss begins under standard atmospheric conditions, marking the practical upper service limit.
     porosity:
@@ -124,7 +124,7 @@ materialProperties:
       unit: MPa
       research_basis: ASTM C170 & C99 standards for dimension stone testing; ASM Handbook Vol. 4 - Travertine mechanical properties database (2021)
     youngsModulus:
-      value: 48.0
+      value: 48
       min: 10
       max: 100
       unit: GPa
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Travertine absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.948665'
@@ -247,7 +247,7 @@ preservedData:
     properties_count: 0
     category_ranges:
       density:
-        max: 6.0
+        max: 6
         min: 1.5
         unit: g/cm³
         adjustment_note: Some stones denser (basalt 2.8-3.0)
@@ -344,16 +344,16 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       corrosionResistance:
-        min: 2.0
-        max: 9.0
+        min: 2
+        max: 9
         unit: rating
         description: ''
         sample_count: 18
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 400.0
-        max: 870.0
+        min: 400
+        max: 870
         unit: °C
         description: ''
         sample_count: 18

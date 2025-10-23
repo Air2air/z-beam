@@ -1,5 +1,5 @@
 name: Gold
-category: Metal
+category: metal
 subcategory: alloy
 title: Gold Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Gold
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Gold
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: 'Gold: 1.5μm organic residue, conductivity impaired'
   afterText: 'Gold: clean surface, 95% conductivity restored'
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Electronics Manufacturing
-- Aerospace
-- Medical Devices
-- Jewelry and Luxury Goods
-- Cultural Heritage
-- Automotive Electronics
-- Energy Sector
-- Telecommunications
-- Semiconductor Manufacturing
-- Marine Electronics
+  - Electronics Manufacturing
+  - Aerospace
+  - Medical Devices
+  - Jewelry and Luxury Goods
+  - Cultural Heritage
+  - Automotive Electronics
+  - Energy Sector
+  - Telecommunications
+  - Semiconductor Manufacturing
+  - Marine Electronics
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2970.0
+      value: 2970
       min: 907
       max: 5870
       unit: °C
@@ -66,13 +66,13 @@ materialProperties:
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Gold Thermophysical Properties (CRC Handbook, 84th Edition)'
     thermalConductivity:
-      value: 318.0
-      min: 7.0
+      value: 318
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Gold thermal conductivity at 300K (27°C)'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
@@ -82,7 +82,7 @@ materialProperties:
       unit: K
       research_basis: materials_science_literature
     thermalDiffusivity:
-      value: 127.0
+      value: 127
       min: 0.06
       max: 174
       unit: mm²/s
@@ -94,13 +94,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'NIST Standard Reference Database 74 (2019) - Thermophysical Properties of Matter, ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     compressiveStrength:
-      value: 120.0
+      value: 120
       min: 50
       max: 2000
       unit: MPa
       research_basis: Gold is an FCC metal with no allotropic transformations, making it exceptionally ductile and malleable. It has no true yield point and work hardens slowly. The compressive strength is not a fixed value but depends on the material's condition (e.g., annealed vs. cold-worked). The cited value of ~120 MPa is a representative ultimate compressive strength for annealed, high-purity gold, as reported in authoritative materials handbooks. The low confidence reflects the fact that compressive strength is rarely a critical design parameter for gold due to its primary use in applications where extreme ductility is paramount.
     corrosionResistance:
-      value: 10.0
+      value: 10
       min: 1
       max: 10
       unit: rating
@@ -112,49 +112,49 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Gold and Gold Alloys'', p. 688, Table 1 (1990); NIST Standard Reference Database 124, ''Gold (Au) - Crystal Structure: Face-centered cubic'''
     electricalConductivity:
-      value: 45200000.0
+      value: 45200000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 2.214e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 2.214e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 120.0
+      value: 120
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Pure gold is an extremely ductile metal with no yield point and very low strength in its annealed state. The provided value is a typical flexural strength for high-purity (99.99%) annealed gold, derived from the relationship between its ultimate tensile strength (UTS ~100-140 MPa) and the mechanics of a 3-point bend test for a perfectly plastic material. This value is highly dependent on purity, temper (cold work), and grain size.
     hardness:
-      value: 25.0
+      value: 25
       min: 0.5
       max: 3500
       unit: HV
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Gold'
     oxidationResistance:
-      value: 1064.0
+      value: 1064
       min: 200
       max: 1200
       unit: °C
       research_basis: Gold is a noble metal with exceptional oxidation resistance. It does not form surface oxides at any temperature in air. The value provided is its melting point (1064°C), which represents the maximum temperature for continuous service in air, as it remains unoxidized up to its liquid state. No significant oxidation occurs below this temperature.
     porosity:
       value: 0.0001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 220.0
-      min: 3.0
-      max: 3000.0
+      value: 220
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Mechanical Properties of Wrought Gold and Gold Alloys - Pure Gold (99.99% Au) annealed condition'
     youngsModulus:
-      value: 79.0
+      value: 79
       min: 5
       max: 600
       unit: GPa
@@ -170,14 +170,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.45
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.017
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -189,7 +189,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.45
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -211,7 +211,7 @@ materialProperties:
       unit: MW/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 69000000.0
+      value: 69000000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -224,7 +224,7 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 0.000172
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -284,36 +284,36 @@ machineSettings:
     unit: nm
     description: Green wavelength optimized for Gold absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.217556'
@@ -357,11 +357,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -393,8 +393,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -435,8 +435,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -454,7 +454,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -462,7 +462,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -480,7 +480,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -515,8 +515,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -524,8 +524,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -542,7 +542,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

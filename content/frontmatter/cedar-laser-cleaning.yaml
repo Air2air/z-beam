@@ -1,5 +1,5 @@
 name: Cedar
-category: Wood
+category: wood
 subcategory: natural
 title: Cedar Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Cedar
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Cedar
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the cedar surface exhibits a complex, multi-layered contamination profile. A continuous, amorphous biofilm—measuring between 15 and 25 µm in thickness—obscures the underlying wood anatomy. This layer appears as a dark, particulate-laden matrix, likely a composite of fungal hyphae, atmospheric soot, and degraded organic matter. Energy-dispersive X-ray (EDX) analysis confirms elevated levels of sulfur and carbon, pointing to sulfate deposits and carbonaceous particulate entrapment within the wood's porous structure. The wood's cellular features are largely hidden. The earlywood tracheids, which should display open lumens, are occluded by this infiltrated grime. The surface topography is highly irregular, with a measured average roughness (Ra) exceeding 35 µm due to the uneven deposition and the swelling of degraded surface fibers. This contamination layer significantly alters the surface's intrinsic properties, increasing laser absorption locally while masking the wood's natural reflectivity. The boundary between the contaminant and the cedar substrate is diffuse, indicating deep penetration into the 65% porosity structure, a condition that complicates superficial cleaning methods.
   afterText: Post-cleaning analysis reveals a pronounced transformation. The contaminant layer has been completely ablated, exposing the pristine wood substrate. The surface roughness (Ra) is now measured at 8.2 µm, a 76% reduction that reflects the restoration of the natural grain texture. Individual tracheid cells are now fully visible, with their distinct lumens and pitted walls clearly defined under 500x magnification. The laser process achieved selective removal with minimal thermal alteration. SEM inspection shows the ablation threshold was precisely met, vaporizing the contamination while the underlying cedar—with its 380°C thermal destruction point—remained structurally sound. Some slight micro-charring is present on latewood bands, a typical result of their higher density and resin content. Crucially, the process restored the wood's original optical characteristics; its natural reflectivity has returned, and the cleaned surface exhibits no measurable loss of structural integrity in the superficial cell layers.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Marine
-- Construction
-- Furniture Manufacturing
-- Musical Instruments
-- Aerospace
-- Food Processing
-- Energy
-- Automotive
-- Medical
+  - Cultural Heritage
+  - Marine
+  - Construction
+  - Furniture Manufacturing
+  - Musical Instruments
+  - Aerospace
+  - Food Processing
+  - Energy
+  - Automotive
+  - Medical
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1650.0
+      value: 1650
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Chapter 4: Thermal Properties of Wood, Table 4-3: Thermal conductivity of selected woods at 12% moisture content'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -71,20 +71,20 @@ materialProperties:
       research_basis: 'Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. USDA Forest Service, 2010. Chapter 4: Thermal Properties, Table 4-3 provides species-specific thermal diffusivity values for various woods including cedar.'
     thermalExpansion:
       value: 3.7
-      min: 3.0
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. General Technical Report FPL-GTR-190. 2010. Table 4-3: Coefficients of thermal expansion for selected woods.'
     compressiveStrength:
-      value: 31.0
+      value: 31
       min: 20
       max: 80
       unit: MPa
       research_basis: The Wood Database reports compressive strength (crushing strength) parallel to grain for Eastern White Cedar as 3,170 psi, which converts to 31.0 MPa. This aligns with typical values for softwoods in this density range (0.37 g/cm³). Test conditions are standard ASTM D143 for small clear specimens at 12% moisture content.
     corrosionResistance:
-      value: 4.0
-      min: 2.0
-      max: 8.0
+      value: 4
+      min: 2
+      max: 8
       unit: rating
       research_basis: Cedar wood demonstrates moderate natural decay resistance due to extractives and oils that provide some protection against fungi and insects. However, it has limited resistance to moisture, weathering, and ground contact compared to more durable woods like teak or ipe. Western Red Cedar, for example, typically receives a "moderate" durability rating with a service life of 15-25 years for above-ground applications, placing it in the lower-middle range of wood durability scales.
     density:
@@ -94,21 +94,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. 2010. General Technical Report FPL-GTR-190. Table 4-3, specific gravity values for Western Red Cedar (Thuja plicata) at 12% moisture content.'
     flexuralStrength:
-      value: 59.0
+      value: 59
       min: 40
       max: 150
       unit: MPa
       research_basis: The Wood Database, a widely cited authority on wood properties, reports the modulus of rupture (MOR) for Western Red Cedar as 7,500 psi, which converts to approximately 59.0 MPa. This value represents the flexural strength measured via standard 3-point bend testing per ASTM D143 standards for small clear wood specimens.
     hardness:
-      value: 4.0
+      value: 4
       min: 1
       max: 5000
       unit: MPa
       research_basis: 'USDA Forest Products Laboratory Wood Handbook (2010), Chapter 4: Mechanical Properties of Wood, Table 4-3: Hardness of commercially important woods grown in the United States, specifically Eastern Red Cedar (Juniperus virginiana) Janka hardness of 900 lb_f converted to MPa'
     oxidationResistance:
-      value: 177.0
-      min: 82.0
-      max: 204.0
+      value: 177
+      min: 82
+      max: 204
       unit: °C
       research_basis: The source provides an ignition temperature range of 170-190°C for various wood species in long-term exposure. The lower end of this range (170°C) is the temperature at which significant thermal degradation and oxidation begin, but 177°C is a commonly cited maximum safe continuous service temperature for wood in engineering applications before charring and significant loss of mechanical properties occur.
     porosity:
@@ -118,7 +118,7 @@ materialProperties:
       unit: m³/m³
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 85.0
+      value: 85
       min: 20
       max: 200
       unit: MPa
@@ -154,7 +154,7 @@ machineSettings:
   energyDensity:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without damaging Cedar substrate
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength for optimal Cedar absorption and minimal penetration
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.042578'
@@ -304,7 +304,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -346,16 +346,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

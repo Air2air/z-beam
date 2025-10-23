@@ -1,5 +1,5 @@
 name: Gallium Arsenide
-category: Semiconductor
+category: semiconductor
 subcategory: crystal
 title: Gallium Arsenide Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Gallium Arsenide
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Gallium Arsenide
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,47 +24,47 @@ caption:
   beforeText: This gallium arsenide surface shows heavy hydrocarbon contamination at 500x magnification. A discontinuous film—approximately 2.5 to 3.8 µm thick—covers approximately 85% of the substrate area. This organic layer appears as dark, amorphous patches with visible interference fringes, indicating variable thickness across the surface. Surface roughness measurements confirm significant degradation, with Ra values between 0.45 and 0.62 µm. The contamination exhibits adhesive failure at multiple locations, revealing underlying GaAs substrate. EDX analysis detects carbon (72 at%), oxygen (18 at%), and trace arsenic oxides (10 at%) within these contaminated regions. This carbon-rich layer creates visible light scattering, reducing surface reflectivity to approximately 15-20% at 532 nm wavelength. The contamination morphology suggests particulate embedding within the hydrocarbon matrix. We observe localized delamination at the film-substrate interface, this creates potential sites for further degradation. Crystalline structure beneath remains intact, but surface functionality is compromised by this insulating layer.
   afterText: Laser cleaning produces dramatic surface transformation. The hydrocarbon film is completely removed, revealing the pristine GaAs substrate beneath. Surface roughness decreases substantially to Ra = 0.08-0.12 µm, this is very-very good improvement. The cleaned surface now exhibits characteristic zinc blende crystalline structure with minimal surface damage. We observe clean grain boundaries and restored surface reflectivity—measured at 34.2% at 1064 nm. This process leaves no residual contamination, only occasional minor surface texturing from optimized laser parameters. The surface integrity is fully restored for semiconductor applications.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Semiconductor Manufacturing
-- Aerospace & Defense
-- Medical Devices
-- Telecommunications
-- Research & Development
-- Solar Energy
-- Automotive Electronics
-- Cultural Heritage Preservation
-- Industrial Manufacturing
-- Consumer Electronics
+  - Semiconductor Manufacturing
+  - Aerospace & Defense
+  - Medical Devices
+  - Telecommunications
+  - Research & Development
+  - Solar Energy
+  - Automotive Electronics
+  - Cultural Heritage Preservation
+  - Industrial Manufacturing
+  - Consumer Electronics
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 327.0
+      value: 327
       min: 300
       max: 900
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of Gallium Arsenide, Section 3.1.1 - Specific Heat Capacity at 300K'
     thermalConductivity:
-      value: 55.0
+      value: 55
       min: 0.2
       max: 156
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table ''Thermal Properties of Semiconductors'' specifically listing GaAs at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
-      value: 31.0
+      value: 31
       min: 0.1
       max: 90
       unit: mm²/s
@@ -76,15 +76,15 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: 'Adachi, S. (2004). Properties of Semiconductor Alloys: Group-IV, III-V and II-VI Semiconductors. Wiley, Table 1.9 - Thermal expansion coefficient of GaAs at 300K: 5.73 × 10⁻⁶ K⁻¹'
     compressiveStrength:
-      value: 370.0
-      min: 370.0
-      max: 6000.0
+      value: 370
+      min: 370
+      max: 6000
       unit: MPa
       research_basis: The Ioffe Institute's NSM Archive provides authoritative semiconductor property data. For GaAs, they report a compressive strength of 370 MPa. This value is consistent with the material's known hardness (7.0 GPa) and typical semiconductor behavior where compressive strength is significantly lower than hardness. The value represents standard room temperature testing conditions for bulk single crystal material.
     corrosionResistance:
-      value: 8.0
-      min: 8.0
-      max: 9.0
+      value: 8
+      min: 8
+      max: 9
       unit: rating
       research_basis: Gallium Arsenide exhibits excellent resistance to oxidation and many chemicals due to its stable oxide layer, performing well in ambient environments. However, it can be attacked by strong acids and alkalis, preventing a perfect rating.
     density:
@@ -94,31 +94,31 @@ materialProperties:
       unit: g/cm³
       research_basis: NIST Standard Reference Database 124 - III-V Semiconductor Materials Data, specifically citing the zincblende crystal structure density of GaAs at 300K
     electricalResistivity:
-      value: 37000000.0
+      value: 37000000
       min: 0.001
-      max: 1000.0
+      max: 1000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 130.0
-      min: 120.0
-      max: 410.0
+      value: 130
+      min: 120
+      max: 410
       unit: MPa
       research_basis: The Ioffe Institute's NSM Archive provides authoritative semiconductor property data. For GaAs, they report flexural strength values in the range of 130-150 MPa, with 130 MPa being the commonly cited value for standard material quality. This aligns with typical semiconductor mechanical properties where GaAs has moderate strength compared to other semiconductors.
     hardness:
-      value: 7.0
+      value: 7
       min: 2
       max: 2600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 18: Friction, Lubrication, and Wear Technology & CRC Materials Science and Engineering Handbook'
     oxidationResistance:
-      value: 600.0
-      min: 600.0
-      max: 1600.0
+      value: 600
+      min: 600
+      max: 1600
       unit: °C
       research_basis: While GaAs has a native oxide that forms at room temperature, significant thermal oxidation leading to substantial material degradation begins in the 450-650°C range in air. The 600°C value is widely cited in semiconductor processing literature as the upper limit for avoiding rapid, destructive oxidation, as this is the temperature where arsenic starts to volatilize aggressively, leaving a non-protective, gallium-rich oxide layer.
     tensileStrength:
-      value: 55.0
+      value: 55
       min: 50
       max: 7000
       unit: MPa
@@ -132,7 +132,7 @@ materialProperties:
     fractureToughness:
       value: 0.44
       min: 0.75
-      max: 3.0
+      max: 3
   laser_material_interaction:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
@@ -204,36 +204,36 @@ machineSettings:
     unit: nm
     description: Green wavelength optimized for GaAs absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.201785'
@@ -307,7 +307,7 @@ preservedData:
         adjustment_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 1000.0
+        max: 1000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Silicon, germanium
@@ -315,39 +315,39 @@ preservedData:
         research_date: '2025-10-15'
       fractureToughness:
         min: 0.75
-        max: 3.0
+        max: 3
         unit: MPa·√m
         description: ''
         sample_count: 3
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 8.0
-        max: 9.0
+        min: 8
+        max: 9
         unit: rating
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 600.0
-        max: 1600.0
+        min: 600
+        max: 1600
         unit: °C
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       flexuralStrength:
-        min: 120.0
-        max: 410.0
+        min: 120
+        max: 410
         unit: MPa
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       compressiveStrength:
-        min: 370.0
-        max: 6000.0
+        min: 370
+        max: 6000
         unit: MPa
         description: ''
         sample_count: 4

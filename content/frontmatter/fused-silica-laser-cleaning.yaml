@@ -1,5 +1,5 @@
 name: Fused Silica
-category: Glass
+category: glass
 subcategory: silicate
 title: Fused Silica Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Fused Silica
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Fused Silica
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the fused silica surface exhibits a non-uniform contamination layer, primarily composed of carbonaceous deposits and embedded particulate matter. The layer thickness varies significantly across the substrate, measuring from approximately 2 µm in thin areas to over 15 µm in localized agglomerations. These deposits present as a dark, amorphous film that obscures the underlying substrate's intrinsic transparency and surface texture. Energy-dispersive X-ray spectroscopy (EDS) confirms the presence of carbon and oxygen as primary constituents, with trace amounts of aluminum and silicon—likely from environmental dust or prior processing artifacts. The surface topography is heavily modulated by this contamination, displaying a rough, irregular morphology with a measured average roughness (Ra) exceeding 250 nm. You can observe distinct particulate inclusions, ranging from 5 to 20 µm in diameter, firmly adhered within the carbon matrix. The contamination does not form a continuous film but rather appears as isolated islands and dendritic structures that follow pre-existing surface micro-features. This complex morphology significantly scatters incident light, which drastically reduces optical transmission—a critical parameter for the material's intended application in aerospace optics and semiconductor lithography components.
   afterText: Laser cleaning achieves near-complete restoration of the native fused silica surface, as confirmed by comparative analysis at 500x magnification. The previously dominant carbonaceous layer has been entirely removed, revealing the original polished substrate with its characteristic vitreous luster. Post-cleaning surface roughness measurements now register at 0.8 nm Ra—a figure that approaches the intrinsic 0.5 nm Ra specification of high-quality polished fused silica. This represents a reduction in surface roughness of over two orders of magnitude, a transformation that directly restores the material's optical performance. The cleaning process leaves minimal evidence of its interaction with the surface. You might observe occasional, subtle laser raster patterns—fine, parallel striations with a periodicity of approximately 10 µm—but these features measure less than 0.3 nm in depth and do not functionally compromise the surface. X-ray photoelectron spectroscopy (XPS) analysis confirms the surface chemistry is now predominantly silicon and oxygen, with carbon atomic concentration reduced to below 2%. The elimination of the light-scattering contamination layer and the restoration of sub-nanometer smoothness directly enables the high laser damage threshold and exceptional optical transmission required for semiconductor manufacturing and high-energy laser system applications. The process effectively figures out the contamination removal while maintaining the substrate's mechanical and optical integrity.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Semiconductor Manufacturing
-- Medical Device
-- Solar Energy
-- Cultural Heritage
-- Research Laboratory
-- Automotive
-- Marine
-- Telecommunications
-- Defense and Security
+  - Aerospace
+  - Semiconductor Manufacturing
+  - Medical Device
+  - Solar Energy
+  - Cultural Heritage
+  - Research Laboratory
+  - Automotive
+  - Marine
+  - Telecommunications
+  - Defense and Security
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 741.0
+      value: 741
       min: 120
       max: 900
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Fused Silica at 300K, confirmed by ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: 'NIST Standard Reference Database 84: Fused Silica Thermal Expansion Coefficient at 20°C = 0.55 × 10⁻⁶/K (Section 5.2.1.3)'
     compressiveStrength:
-      value: 1100.0
+      value: 1100
       min: 500
       max: 2000
       unit: MPa
       research_basis: The compressive strength of fused silica is highly dependent on surface quality and test conditions (specimen geometry, loading rate). For high-quality, flaw-free material under standard laboratory conditions, the compressive strength typically ranges from 1.1 GPa to 1.2 GPa. The cited value of 1100 MPa is a conservative, well-documented figure from a primary manufacturer for material in a pristine state.
     corrosionResistance:
-      value: 9.0
+      value: 9
       min: 9
       max: 10
       unit: rating
@@ -94,15 +94,15 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 84: Fused Silica (SiO₂) - Density at 20°C = 2.202 g/cm³; Corning 7980 Fused Silica Technical Data Sheet specifies density range 2.201-2.203 g/cm³'
     electricalResistivity:
-      value: 1.0e+18
-      min: 10000000000.0
-      max: 1000000000000000.0
+      value: 1000000000000000000
+      min: 10000000000
+      max: 1000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 67.0
+      value: 67
       min: 50
-      max: 750.0
+      max: 750
       unit: MPa
       research_basis: Corning, a primary manufacturer of fused silica, provides flexural strength data for their HPFS 7980 material. Their technical documentation specifies a typical modulus of rupture (4-point bend) of 67 MPa for standard grade fused silica. This value is consistent with the brittle nature of glass and aligns with other technical sources like "Properties of Fused Silica" from Heraeus Quarzglas, which cites flexural strength values in the range of 50-70 MPa. The high confidence stems from the direct manufacturer specification for the specific material in question.
     hardness:
@@ -112,19 +112,19 @@ materialProperties:
       unit: GPa
       research_basis: 'NIST Standard Reference Database 84 - Fused Silica Properties: ''Fused silica has a Knoop hardness of 6.75 GPa at 100 g load'' (NIST SRD 84, Section 5.3.2)'
     oxidationResistance:
-      value: 1100.0
-      min: 400.0
-      max: 1700.0
+      value: 1100
+      min: 400
+      max: 1700
       unit: °C
       research_basis: Fused silica is an amorphous form of silicon dioxide (SiO₂), which is already in its fully oxidized state. Its service temperature limit is not governed by oxidation but by structural relaxation and viscosity. The maximum continuous service temperature in air for high-purity fused silica like Corning 7980 is typically cited as 1100°C, above which significant devitrification (crystallization to cristobalite) begins, leading to mechanical failure.
     tensileStrength:
-      value: 50.0
+      value: 50
       min: 30
       max: 2000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 19: Fatigue and Fracture, ''Fracture Toughness of Ceramics and Glasses'' section, specifically citing fused silica with tensile strength of 50 MPa under standard testing conditions'
     youngsModulus:
-      value: 73.0
+      value: 73
       min: 10
       max: 400
       unit: GPa
@@ -138,8 +138,8 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 2.2
-      min: 2.0
-      max: 6.0
+      min: 2
+      max: 6
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
@@ -158,7 +158,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Critical fluence threshold for effective contaminant removal without Fused Silica damage
   overlapRatio:
@@ -210,36 +210,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength providing optimal absorption balance for Fused Silica contamination removal
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.183505'
@@ -313,8 +313,8 @@ preservedData:
         min: 10
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 6.0
+        min: 2
+        max: 6
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 80
@@ -337,8 +337,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1000000000000000.0
+        min: 10000000000
+        max: 1000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Glass is insulator
@@ -346,7 +346,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 50
-        max: 750.0
+        max: 750
         unit: MPa
         description: Maximum bending stress before failure
         notes: Glass weak in bending
@@ -361,8 +361,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 400.0
-        max: 1700.0
+        min: 400
+        max: 1700
         unit: °C
         description: ''
         sample_count: 11

@@ -1,5 +1,5 @@
 name: Bamboo
-category: Wood
+category: wood
 subcategory: natural
 title: Bamboo Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Bamboo
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Bamboo
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the bamboo surface shows heavy contamination layer, approximately 15–20 µm thick. This layer, it appears as a continuous, amorphous film that completely obscures the underlying fiber structure. Energy-dispersive X-ray spectroscopy (EDX) analysis confirms high carbon content—approximately 85 atomic percent—with trace silicon and potassium, suggesting this is primarily soot and organic debris accumulation. Surface roughness measurements indicate significant degradation, with Ra values reaching 24.3 µm compared to the native 8.5 µm for clean bamboo. The contamination adheres in a non-uniform pattern, forming localized deposits up to 35 µm in thickness within the vascular bundles. These deposits create a textured, almost crust-like morphology that bridges between fibers. Under scanning electron microscopy (SEM), the surface shows no visible micro-pores—the natural 35% porosity appears completely sealed by this contaminant layer. The film exhibits moderate reflectivity, perhaps 15-20%, which interferes with optical characterization of the substrate beneath. When examining cross-sections, the interface between contaminant and bamboo shows mechanical interlocking, not just superficial deposition.
   afterText: Laser cleaning produces dramatic surface transformation, this is immediately apparent at 500x. The contaminant layer is completely removed, revealing the intricate longitudinal fiber structure with clear definition. Surface roughness decreases significantly to 9.1 µm Ra—very close to the native bamboo state of 8.5 µm. The vascular bundles and parenchyma cells now show sharp boundaries, their cellular patterns visible with no residual deposits. The process restores material integrity without thermal damage, this is confirmed by the absence of charring or melted cellulose fibers. Reflectivity measurements show improvement to approximately 12%, matching the expected value for clean bamboo at 1064 nm wavelength. Some minor, sub-micron scoring patterns are visible along the fiber direction—these are likely from the laser ablation process—but they do not compromise surface quality. The natural porosity is fully reopened, allowing for proper moisture exchange and adhesion in subsequent applications.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Marine Applications
-- Automotive Interiors
-- Furniture Manufacturing
-- Renewable Energy
-- Construction and Architecture
-- Sports Equipment
+  - Cultural Heritage
+  - Aerospace
+  - Medical Devices
+  - Electronics Manufacturing
+  - Marine Applications
+  - Automotive Interiors
+  - Furniture Manufacturing
+  - Renewable Energy
+  - Construction and Architecture
+  - Sports Equipment
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1600.0
+      value: 1600
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Li et al., ''Thermal conductivity of bamboo and bamboo-based composites'', Journal of Materials Science, Vol. 52, pp. 8212-8223 (2017), DOI: 10.1007/s10853-017-1000-2'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -71,20 +71,20 @@ materialProperties:
       research_basis: 'Li et al., ''Thermal properties of bamboo and its composites: A review,'' Construction and Building Materials, Vol. 341, 2022, pp. 127899, reporting experimental measurements for Phyllostachys edulis (Moso bamboo) at 12% moisture content using transient plane source method.'
     thermalExpansion:
       value: 27.5
-      min: 3.0
+      min: 3
       max: 60
       unit: 10⁻⁶/K
       research_basis: Li et al., 'Thermal expansion characteristics of bamboo and wood composites,' Journal of Materials Science, Vol. 56, pp. 12345-12356 (2021), experimental measurements of Phyllostachys edulis bamboo along fiber direction at 20-60°C
     compressiveStrength:
-      value: 60.0
+      value: 60
       min: 20
       max: 80
       unit: MPa
       research_basis: Bamboo's compressive strength is highly anisotropic and varies significantly with species, moisture content, and position along the culm (node vs. internode). The provided range of 40-80 MPa is well-established in composite and materials science literature for the longitudinal compressive strength of dry bamboo culm material, representing a consolidation of data from multiple standardized mechanical tests. The wide range accounts for natural variability.
     corrosionResistance:
-      value: 3.0
-      min: 2.0
-      max: 8.0
+      value: 3
+      min: 2
+      max: 8
       unit: rating
       research_basis: Bamboo, while having good resistance to some environmental factors due to its silica content and natural waxes, has poor durability against fungal decay, insects, and moisture when untreated. It rates low on wood durability scales (Class 5 - not durable) with untreated bamboo typically lasting 1-3 years in ground contact. Proper treatment can improve resistance, but base material has limited corrosion resistance comparable to other non-durable woods.
     density:
@@ -94,21 +94,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Nogata & Takahashi (1995). Intelligent functionally graded material: Bamboo. Composites Engineering, 5(7), 743-751. AND Amada et al. (1997). Fiber texture and mechanical graded structure of bamboo. Composites Part B: Engineering, 28(1-2), 13-20.'
     flexuralStrength:
-      value: 140.0
+      value: 140
       min: 40
       max: 150
       unit: MPa
       research_basis: This peer-reviewed study directly tested Bambusa vulgaris in a 3-point bend test, reporting a mean modulus of rupture (MOR), which is the flexural strength, of 140 MPa. This value is consistent with the established range for bamboo (typically 100-200 MPa) and aligns with its known high hardness (1580 MPa) and low density (0.6 g/cm³), indicating a strong, lightweight material. The confidence is slightly tempered by natural variability between bamboo species and test conditions.
     hardness:
-      value: 1580.0
+      value: 1580
       min: 1
       max: 5000
       unit: MPa
       research_basis: 'Li, H., Shen, S., & Liu, J. (2016). Mechanical properties of bamboo fiber-reinforced polymer composites: A review of recent research. Construction and Building Materials, 121, 41-50. AND USDA Forest Products Laboratory: Bamboo Mechanical Properties Database'
     oxidationResistance:
-      value: 204.0
-      min: 82.0
-      max: 204.0
+      value: 204
+      min: 82
+      max: 204
       unit: °C
       research_basis: Bamboo, as a lignocellulosic material, follows wood pyrolysis principles where significant thermal degradation begins around 200°C. The cited ASTM standard for wood-based materials establishes that prolonged exposure above 200°C in air leads to oxidative degradation, charring, and measurable strength reduction. This temperature represents the threshold where chemical decomposition of lignin and hemicellulose components becomes significant under oxidative conditions.
     porosity:
@@ -118,7 +118,7 @@ materialProperties:
       unit: m^3/m^3
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 140.0
+      value: 140
       min: 20
       max: 200
       unit: MPa
@@ -154,7 +154,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Optimal fluence level for contaminant ablation while preserving bamboo substrate
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for optimal absorption in bamboo contaminants with minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:57.905012'
@@ -304,7 +304,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -346,16 +346,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

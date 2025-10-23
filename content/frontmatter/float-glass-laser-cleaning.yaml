@@ -1,5 +1,5 @@
 name: Float Glass
-category: Glass
+category: glass
 subcategory: silicate
 title: Float Glass Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Float Glass
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Float Glass
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,43 +24,43 @@ caption:
   beforeText: This contaminated float glass surface shows significant surface degradation at 500x magnification. A complex contamination layer—approximately 15 µm thick—covers the pristine glass substrate completely. This layer consists primarily of carbonaceous particulate matter and inorganic salt deposits, with EDX analysis confirming calcium sulfate crystals and silica-rich dust particles embedded throughout the organic matrix. The surface roughness measures 2.8 µm Ra, a substantial increase from the native 0.5 nm Ra of clean float glass. The contamination exhibits clear stratification, with a dense lower layer adhering directly to the glass interface and a more porous upper layer containing larger particulate matter. Multiple micro-fractures—ranging from 5 to 20 µm in length—propagate through the contamination layer, indicating poor adhesion and mechanical instability. The surface appears completely opaque with zero light transmission through contaminated areas, and visible light reflectivity drops to approximately 15% compared to the 92% baseline. This heavy contamination creates significant functional impairment for architectural and solar applications, the surface becomes unsuitable for any optical purpose in this condition.
   afterText: This laser cleaning process produces remarkable surface restoration, the transformation is immediately evident at 500x magnification. The 15 µm contamination layer is completely removed, revealing the pristine glass substrate beneath with minimal residual evidence of prior contamination. Surface roughness measurements now register 0.6 nm Ra—essentially identical to the original factory condition of 0.5 nm Ra. This represents a 99.98% reduction in surface roughness, a very-very significant improvement. The laser treatment leaves the glass surface completely free of visible particulate matter or thermal damage, the process parameters were carefully controlled to stay below the 5.0 J/cm² ablation threshold. SEM analysis confirms the atomic structure remains intact with no evidence of micro-fractures or subsurface damage that sometimes occurs with aggressive cleaning methods. Light transmission measurements return to 91.8%—nearly full restoration of the original 92% transmissivity—while surface reflectivity improves to 91.5%. This cleaned surface now meets optical-grade specifications for architectural glazing and solar panel applications, the functional restoration is essentially complete.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Architectural Glass Manufacturing
-- Solar Panel Manufacturing
-- Automotive Glass Production
-- Electronics Display Manufacturing
-- Aerospace Canopy Maintenance
-- Marine Window Systems
-- Medical Device Manufacturing
-- Cultural Heritage Conservation
-- Food Processing Equipment
-- Energy Sector Instrumentation
+  - Architectural Glass Manufacturing
+  - Solar Panel Manufacturing
+  - Automotive Glass Production
+  - Electronics Display Manufacturing
+  - Aerospace Canopy Maintenance
+  - Marine Window Systems
+  - Medical Device Manufacturing
+  - Cultural Heritage Conservation
+  - Food Processing Equipment
+  - Energy Sector Instrumentation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 840.0
+      value: 840
       min: 120
       max: 900
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Soda-Lime-Silica Float Glass at 300K (25°C)'
     thermalConductivity:
-      value: 1.0
+      value: 1
       min: 0.7
       max: 30
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Soda-Lime Silicate Glass (Float Glass composition: ~73% SiO₂, 13% Na₂O, 10% CaO, 4% MgO) at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (Table 1: Properties of Soda-Lime-Silica Glass), and Corning Museum of Glass technical specifications for standard float glass composition (72% SiO₂, 13% Na₂O, 10% CaO, 4% MgO)'
     compressiveStrength:
-      value: 50.0
+      value: 50
       min: 500
       max: 2000
       unit: MPa
       research_basis: Float glass is a brittle material with compressive strength significantly higher than its tensile strength. While authoritative sources typically report flexural strength (which is tensile-strength dominated) in the range of 20-90 MPa for annealed float glass, the compressive strength is consistently documented as approximately 5-10 times higher. Multiple glass engineering references (including "The Properties of Glass" by H. Rawson) and industry standards indicate a compressive strength range of 50-100 MPa for annealed float glass, with 50 MPa representing a conservative, well-documented lower bound for standard material under ambient conditions.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 9
       max: 10
       unit: rating
@@ -94,15 +94,15 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 84 - Properties of Soda-Lime-Silica Float Glass; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     electricalResistivity:
-      value: 1000000000000.0
-      min: 10000000000.0
-      max: 1000000000000000.0
+      value: 1000000000000
+      min: 10000000000
+      max: 1000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 45.0
+      value: 45
       min: 50
-      max: 750.0
+      max: 750
       unit: MPa
       research_basis: Float glass, as an annealed glass, has a well-documented characteristic flexural strength. Industry standards and manufacturer data (e.g., Pilkington, Saint-Gobain) consistently report a design strength of 45 MPa for general applications, derived from standardized 4-point bend tests. This value accounts for surface flaws and is a conservative benchmark for safe load-bearing calculations.
     hardness:
@@ -112,19 +112,19 @@ materialProperties:
       unit: Mohs
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (ASM International, 1990), Section: ''Glass and Glass-Ceramics'''
     oxidationResistance:
-      value: 540.0
-      min: 400.0
-      max: 1700.0
+      value: 540
+      min: 400
+      max: 1700
       unit: °C
       research_basis: Float glass, primarily composed of silica, does not "oxidize" in the traditional sense like a metal. Its service temperature limit is defined by the onset of thermal deformation and stress relaxation. The Pilkington technical standard for annealed float glass sets its maximum continuous service temperature at 540°C. Exceeding this temperature risks permanent warping and loss of flatness due to the glass transitioning into its viscoelastic state.
     tensileStrength:
-      value: 40.0
+      value: 40
       min: 30
       max: 2000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section: Glass and Glass-Ceramics, Table 2: Typical Mechanical Properties of Commercial Glasses'
     youngsModulus:
-      value: 72.0
+      value: 72
       min: 10
       max: 400
       unit: GPa
@@ -140,12 +140,12 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 2.1
-      min: 2.0
-      max: 6.0
+      min: 2
+      max: 6
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
-      value: 4.0
+      value: 4
       min: 0.001
       max: 10
       unit: '%'
@@ -166,7 +166,7 @@ machineSettings:
   energyDensity:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal below glass damage threshold
   overlapRatio:
@@ -218,36 +218,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Float Glass absorption and minimal subsurface damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.177064'
@@ -321,8 +321,8 @@ preservedData:
         min: 10
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 6.0
+        min: 2
+        max: 6
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 80
@@ -345,8 +345,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1000000000000000.0
+        min: 10000000000
+        max: 1000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Glass is insulator
@@ -354,7 +354,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 50
-        max: 750.0
+        max: 750
         unit: MPa
         description: Maximum bending stress before failure
         notes: Glass weak in bending
@@ -369,8 +369,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 400.0
-        max: 1700.0
+        min: 400
+        max: 1700
         unit: °C
         description: ''
         sample_count: 11

@@ -1,5 +1,5 @@
 name: Polyester Resin Composites
-category: Composite
+category: composite
 subcategory: reinforced
 title: Polyester Resin Composites Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Polyester Resin Composites
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Polyester Resin Composites
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,33 +24,33 @@ caption:
   beforeText: This surface analysis shows heavy contamination, very-very clear under 500x magnification. A thick carbonaceous layer—approximately 25 to 40 µm thick—covers the entire composite surface, this layer completely obscures the underlying polymer texture. The deposit is not uniform, it shows a cracked-mud pattern with fissures up to 5 µm wide, and embedded particulate matter, likely soot and environmental dust, is visible throughout. The contamination layer has a spongy, porous morphology that increases surface roughness significantly. Initial Ra measurements indicate a value of approximately 18.5 µm, a tenfold increase from the substrate's baseline. This degraded surface shows no fiber exposure, the glass reinforcement is completely hidden. The soot layer exhibits low reflectivity, it appears matte black and absorbs most incident light, which is a typical characteristic of heavy carbon deposition on polymer composites (as seen in fire-damaged specimens).
   afterText: This laser cleaning process produces a very-very good result, the surface transformation is dramatic. The thick contamination layer is completely removed, this reveals the original polyester resin matrix with a measured surface roughness now at 2.1 µm Ra—a value that nearly matches the original substrate specification. The cleaning exposes the woven fiber pattern, individual glass filaments are now clearly visible, they show no thermal damage from the laser ablation process. The surface color reverts to the composite's native light-beige tone, this indicates minimal oxidative damage. Reflectivity increases substantially, from near-zero to approximately 14%, which is close to the material's inherent reflectivity. Some minor sub-surface porosity—about 2.5%—is now observable, these are inherent to the composite and not cleaning artifacts. The process restores surface integrity, the fiber-matrix interface appears intact and well-bonded, which is critical for structural performance in marine and aerospace applications.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Marine
-- Wind Energy
-- Construction
-- Electronics Manufacturing
-- Medical Equipment
-- Cultural Heritage
-- Rail Transportation
-- Sports Equipment
+  - Aerospace
+  - Automotive
+  - Marine
+  - Wind Energy
+  - Construction
+  - Electronics Manufacturing
+  - Medical Equipment
+  - Cultural Heritage
+  - Rail Transportation
+  - Sports Equipment
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1200.0
+      value: 1200
       min: 500
-      max: 2500.0
+      max: 2500
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Polymer Composites, specifically unsaturated polyester resin with 30-40% glass fiber reinforcement at 25°C'
     thermalConductivity:
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Vol. 21: Composites, Section: Thermal Properties of Polymer Matrix Composites, pp. 268-272'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,19 +70,19 @@ materialProperties:
       unit: mm²/s
       research_basis: 'ASM Handbook, Vol. 21: Composites, Thermal Properties of Polyester Matrix Composites with 30-40% glass fiber reinforcement, measured via laser flash method at 25°C'
     thermalExpansion:
-      value: 55.0
+      value: 55
       min: -1
       max: 250
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 21: Composites, Section ''Polyester Matrix Composites'' citing typical CTE range of 100-150 × 10^-6/K for unsaturated polyester resins with glass fiber reinforcement at 20-100°C'
     compressiveStrength:
-      value: 150.0
+      value: 150
       min: 50
       max: 1000
       unit: MPa
       research_basis: The provided properties (density, hardness) are consistent with typical polyester resin composites. Authoritative materials databases indicate compressive strength for these materials is highly dependent on the specific formulation and reinforcement (e.g., fiberglass), but generally falls within the 100-200 MPa range for standard commercial grades. The hardness value (42.0 Shore D) is a secondary indicator supporting this strength range.
     corrosionResistance:
-      value: 7.0
+      value: 7
       min: 5
       max: 9
       unit: rating
@@ -94,37 +94,37 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 21: Composites, ''Polyester Matrix Composites - Typical Properties'', p. 78 (2001)'
     electricalResistivity:
-      value: 120000000000000.0
+      value: 120000000000000
       min: 0.001
-      max: 100000000000000.0
+      max: 100000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 120.0
+      value: 120
       min: 100
       max: 2000
       unit: MPa
       research_basis: materials_science_literature
     hardness:
-      value: 42.0
-      min: 5.0
+      value: 42
+      min: 5
       max: 120
       unit: Shore D
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Thermoset Resins - Polyester Systems, Mechanical Properties Table (pp. 148-152)'
     oxidationResistance:
-      value: 150.0
-      min: 80.0
-      max: 1650.0
+      value: 150
+      min: 80
+      max: 1650
       unit: °C
       research_basis: Polyester resins are thermosets with moderate thermal stability. The maximum continuous service temperature in air is typically 120-150°C, as prolonged exposure above this range leads to significant oxidative degradation, causing discoloration, embrittlement, and loss of mechanical properties. This upper limit is well-documented for general-purpose unsaturated polyester resins in composite applications.
     tensileStrength:
-      value: 85.0
+      value: 85
       min: 20
       max: 6000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Polyester Matrix Composites, pp. 148-152 (2001)'
     youngsModulus:
-      value: 2800.0
+      value: 2800
       min: 0.001
       max: 3000
       unit: MPa
@@ -152,9 +152,9 @@ materialProperties:
       research_basis: NIST Materials Data Repository - Laser-Material Interaction Database for Composite Materials, specifically testing unsaturated polyester resin with 30% glass fiber reinforcement at 1064 nm wavelength
 machineSettings:
   fluence:
-    value: 3.0
+    value: 3
     min: 1.5
-    max: 6.0
+    max: 6
     unit: J/cm²
     description: Energy density threshold for effective Polyester Resin Composites cleaning - Energy density threshold for composite material cleaning considering matrix and reinforcement properties
   overlapRatio:
@@ -206,42 +206,42 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength optimal for polyester resin composite processing
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-  sustainabilityBenefit: ''
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  quantifiedBenefits: ''
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-  quantifiedBenefits: ''
-  sustainabilityBenefit: ''
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
-  quantifiedBenefits: ''
-  sustainabilityBenefit: ''
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+    sustainabilityBenefit: ''
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    quantifiedBenefits: ''
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+    quantifiedBenefits: ''
+    sustainabilityBenefit: ''
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
+    quantifiedBenefits: ''
+    sustainabilityBenefit: ''
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.554920'
@@ -258,7 +258,7 @@ preservedData:
         unit: g/cm³
       hardness:
         max: 120
-        min: 5.0
+        min: 5
         unit: HRC
         adjustment_note: Phenolic resin composites harder
         adjustment_date: '2025-10-15'
@@ -276,7 +276,7 @@ preservedData:
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal matrix composites 40-80%'
         last_updated: '2025-10-15T14:19:43.867274'
       specificHeat:
-        max: 2500.0
+        max: 2500
         min: 500
         unit: J/kg·K
       tensileStrength:
@@ -336,7 +336,7 @@ preservedData:
         research_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 100000000000000.0
+        max: 100000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Highly variable
@@ -359,8 +359,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 80.0
-        max: 1650.0
+        min: 80
+        max: 1650
         unit: °C
         description: ''
         sample_count: 13

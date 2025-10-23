@@ -1,5 +1,5 @@
 name: Zinc
-category: Metal
+category: metal
 subcategory: alloy
 title: Zinc Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Zinc
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Zinc
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,26 +24,26 @@ caption:
   beforeText: The Zinc surface, characterized by its HCP crystalline structure, exhibits contamination with oxide layers and organic residues, often measuring up to 10-15 µm in thickness prior to laser cleaning.
   afterText: Post-laser cleaning, the Zinc surface (HCP structure) reveals enhanced purity with oxide removal, achieving a surface roughness reduction to approximately 0.5 micrometers using a power density of 10^6 W/cm².
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Automotive
-- Construction
-- Die Casting
-- Galvanizing
-- Hardware Manufacturing
+  - Automotive
+  - Construction
+  - Die Casting
+  - Galvanizing
+  - Hardware Manufacturing
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 1180.0
+      value: 1180
       min: 907
       max: 5870
       unit: K
@@ -61,13 +61,13 @@ materialProperties:
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Zinc thermochemical data at 298.15 K'
     thermalConductivity:
-      value: 116.0
-      min: 7.0
+      value: 116
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Physical Properties of Pure Metals'' for Zinc at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
@@ -89,11 +89,11 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table ''Thermal Expansion of Metals and Alloys'' for pure zinc (99.99+%) at 20°C'
     compressiveStrength:
-      value: 110.0
+      value: 110
       min: 50
       max: 2000
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -105,21 +105,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table ''Physical Properties of Pure Metals'' lists zinc density as 7.14 g/cm³ at 20°C'
     electricalConductivity:
-      value: 16700000.0
+      value: 16700000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 5.96e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 5.96e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 120.0
+      value: 120
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: The flexural strength of pure zinc is not a commonly reported property, as it is a relatively soft and ductile metal. Its mechanical behavior is typically characterized by tensile strength and yield strength. However, based on its tensile strength range (110-140 MPa for high-purity zinc) and the relationship between tensile and flexural strength for ductile metals, a value of 120 MPa is a reasonable and conservative estimate for a 3-point bend test. This value is corroborated by engineering material databases and handbooks that list mechanical properties for design purposes.
     hardness:
@@ -129,31 +129,31 @@ materialProperties:
       unit: HB
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Zinc and Zinc Alloys'' chapter, Table 1: Typical mechanical properties of high-grade zinc (99.99+%) at 20°C'
     oxidationResistance:
-      value: 200.0
+      value: 200
       min: 200
       max: 1200
       unit: °C
       research_basis: Zinc has a relatively low melting point (419.5°C) and begins to exhibit significant oxidation and "burning" (rapid oxidation with visible fumes of zinc oxide) well below this point. While it forms a protective layer at room temperature, this layer breaks down and oxidation accelerates significantly in the 200-250°C range, making 200°C a conservative maximum for continuous service in air.
     porosity:
       value: 0.0001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: fraction
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 37.0
-      min: 3.0
-      max: 3000.0
+      value: 37
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Mechanical Properties of Zinc and Zinc Alloys'
     youngsModulus:
-      value: 108.0
+      value: 108
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Zinc and Zinc Alloys'
     fractureToughness:
-      value: 15.0
+      value: 15
       min: 20
       max: 200
       unit: MPa·√m
@@ -163,18 +163,18 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.15
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.042
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
-      value: 38.0
+      value: 38
       min: 0.02
       max: 100
       unit: '%'
@@ -182,7 +182,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.15
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -204,7 +204,7 @@ materialProperties:
       unit: MPa·m^0.5
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 12500000.0
+      value: 12500000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -217,15 +217,15 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 1.33
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
 machineSettings:
   energyDensity:
     value: 5.1
-    min: 3.0
-    max: 8.0
+    min: 3
+    max: 8
     unit: J/cm²
     description: Fluence threshold for Zinc oxide ablation without melting substrate
   overlapRatio:
@@ -277,36 +277,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength with good Zinc absorption and minimal reflectivity
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:59.014547'
@@ -350,11 +350,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -386,8 +386,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -428,8 +428,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -447,7 +447,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -455,7 +455,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -473,7 +473,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -508,8 +508,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -517,8 +517,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -535,7 +535,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

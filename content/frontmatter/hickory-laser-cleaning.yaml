@@ -1,5 +1,5 @@
 name: Hickory
-category: Wood
+category: wood
 subcategory: natural
 title: Hickory Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Hickory
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Hickory
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the hickory surface presents a heavily occluded morphology characterized by a discontinuous, particulate-laden film. This contamination layer, measuring between 15 and 25 µm in thickness, completely masks the underlying wood anatomy. The deposit consists primarily of carbonaceous soot particles—ranging from 2 to 8 µm in diameter—embedded within a tenacious, amorphous matrix likely composed of oxidized organic residues. This composite layer exhibits significant cracking, with fissure widths up to 5 µm, indicating brittle failure of the film due to thermal cycling or desiccation. The surface topography is highly irregular, with a measured arithmetic mean roughness (Ra) exceeding 12 µm due to the particulate agglomerates. Energy-dispersive X-ray (EDX) spectroscopy confirms the presence of foreign elements, including sulfur and silicon, which suggests environmental deposition. The inherent porosity of the hickory—approximately 55%—is entirely filled, with contaminant material visibly packed into vessel elements and lumens. This occlusion fundamentally alters the surface's thermal and optical properties, increasing laser absorption potential beyond the substrate's inherent 32.7% while compromising any functional coating adhesion.
   afterText: Laser cleaning achieves a pronounced restoration of the native hickory surface, as confirmed by comparative microscopy at 500x. The procedure successfully ablated the entire 15-25 µm contamination layer, exposing the intact wood microstructure beneath. The characteristic cellular arrangement—including large vessels and dense fiber cells—is now fully visible, with no residual film obscuring the cell walls. The surface roughness has been substantially reduced to an Ra value of approximately 3.5 µm, a figure that aligns with the inherent texture of undamaged hickory. The cleaning process removed all particulate matter from the wood's porosity, effectively reopening the 55% void volume for potential subsequent
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Medical Equipment
-- Marine
-- Electronics Manufacturing
-- Cultural Heritage
-- Manufacturing
-- Energy Sector
-- Food Processing
-- Sports Equipment
+  - Aerospace
+  - Automotive
+  - Medical Equipment
+  - Marine
+  - Electronics Manufacturing
+  - Cultural Heritage
+  - Manufacturing
+  - Energy Sector
+  - Food Processing
+  - Sports Equipment
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1630.0
+      value: 1630
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Table 4-3: Thermal properties of common wood species at 12% moisture content'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -71,7 +71,7 @@ materialProperties:
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Chapter 4: Moisture and Thermal Properties, Table 4-5, specifically citing hickory species (Carya spp.) at 12% moisture content.'
     thermalExpansion:
       value: 3.7
-      min: 3.0
+      min: 3
       max: 60
       unit: 10⁻⁶/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. General Technical Report FPL-GTR-190. 2010. Table 4-3: Coefficients of thermal expansion for various wood species.'
@@ -82,9 +82,9 @@ materialProperties:
       unit: MPa
       research_basis: The Wood Handbook from the USDA Forest Products Laboratory is the primary authoritative source for North American wood properties. For hickory (genus Carya), the compressive strength parallel to the grain is listed as 51.3 MPa at 12% moisture content, which is the standard test condition for reporting wood strength properties. This value is consistent with the known high density and hardness provided for the material.
     corrosionResistance:
-      value: 2.0
-      min: 2.0
-      max: 8.0
+      value: 2
+      min: 2
+      max: 8
       unit: rating
       research_basis: Hickory, as a hardwood, has moderate natural durability but poor corrosion resistance in moist environments. According to wood science references, hickory is not recommended for ground contact or high-moisture applications without preservative treatment due to its susceptibility to fungal decay and insect attack. While it has good mechanical properties, its natural corrosion resistance ranks low among woods, with most sources classifying it as non-durable to perishable in outdoor conditions.
     density:
@@ -94,7 +94,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. General Technical Report FPL-GTR-190. Table 4-3: Mechanical properties of some commercially important woods grown in the United States.'
     flexuralStrength:
-      value: 139.0
+      value: 139
       min: 40
       max: 150
       unit: MPa
@@ -106,9 +106,9 @@ materialProperties:
       unit: MPa
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. Chapter 4: Mechanical Properties of Wood. Table 4-3: Hardness of domestic hardwoods (Janka hardness test).'
     oxidationResistance:
-      value: 150.0
-      min: 82.0
-      max: 204.0
+      value: 150
+      min: 82
+      max: 204
       unit: °C
       research_basis: Hickory, like most hardwoods, begins significant thermal degradation (pyrolysis) and oxidative changes well below its ignition point. The FPL and other wood science authorities (e.g., Wood as an Engineering Material) consistently report that the maximum safe, long-term service temperature for wood in air is 150°C. Above this temperature, the chemical components (lignin, cellulose, hemicellulose) start to decompose rapidly, leading to charring, loss of mechanical strength, and significant mass loss due to oxidation, even in the absence of flame.
     porosity:
@@ -118,7 +118,7 @@ materialProperties:
       unit: dimensionless
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 139.0
+      value: 139
       min: 20
       max: 200
       unit: MPa
@@ -154,7 +154,7 @@ machineSettings:
   energyDensity:
     value: 1.2
     min: 0.8
-    max: 2.0
+    max: 2
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal from Hickory
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Hickory absorption and minimal penetration
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.271742'
@@ -304,7 +304,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -346,16 +346,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

@@ -1,5 +1,5 @@
 name: Silicon Carbide
-category: Semiconductor
+category: semiconductor
 subcategory: crystal
 title: Silicon Carbide Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Silicon Carbide
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Silicon Carbide
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,67 +24,67 @@ caption:
   beforeText: Looking at this surface, the contamination appears to be a mix of organic residues and particulate matter, with an estimated thickness ranging from roughly 0.3 to 0.5 micrometers. This contamination, it shows irregular patterns that likely represent a significant challenge for complete removal without substrate interaction. Our systematic observation suggests the particle density is quite high, possibly related to the prior handling environment. This non-uniform coverage will require very precise control of the laser parameters to avoid any thermal stress on the Silicon Carbide.
   afterText: This analysis shows a remarkable transformation, the surface now exhibits a clean, uniform morphology with the original SiC grain structure clearly visible. The measured surface roughness has been significantly reduced to around 12-15 μm, which seems to suggest we have successfully ablated the contaminants while preserving the substrate integrity. From a practical standpoint, this level of cleanliness, it meets the stringent requirements for subsequent semiconductor processing steps common in our local fabrication facilities, a result that truly validates our data-driven analysis and measurement protocols.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Semiconductor Manufacturing
-- Aerospace
-- Automotive
-- Power Electronics
-- Medical Devices
-- Research and Development
-- Renewable Energy
-- Defense Systems
-- Industrial Manufacturing
-- Optics and Photonics
+  - Semiconductor Manufacturing
+  - Aerospace
+  - Automotive
+  - Power Electronics
+  - Medical Devices
+  - Research and Development
+  - Renewable Energy
+  - Defense Systems
+  - Industrial Manufacturing
+  - Optics and Photonics
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 750.0
+      value: 750
       min: 300
       max: 900
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of Solids - Silicon Carbide (6H-SiC) at 300K'
     thermalConductivity:
-      value: 120.0
+      value: 120
       min: 0.2
       max: 156
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (2015), Table ''Thermal Properties of Semiconductor Materials'' lists 120 W/m·K for 4H-SiC at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
-      value: 90.0
+      value: 90
       min: 0.1
       max: 90
       unit: mm²/s
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Thermal Properties of Selected Semiconductor Materials'' specifies 90 mm²/s for 4H-SiC at 300K'
     thermalExpansion:
-      value: 4.0
+      value: 4
       min: 2.6
       max: 10
       unit: 10⁻⁶/K
       research_basis: 'ASM Handbook, Volume 21: Composites, Table ''Properties of Silicon Carbide'' citing thermal expansion coefficient for CVD silicon carbide at 20-1000°C range'
     compressiveStrength:
-      value: 3900.0
-      min: 370.0
-      max: 6000.0
+      value: 3900
+      min: 370
+      max: 6000
       unit: MPa
       research_basis: The compressive strength of sintered silicon carbide is significantly higher than its tensile or flexural strength. Authoritative materials databases like MatWeb and supplier technical data sheets for sintered alpha SiC consistently report compressive strength values in the range of 3.8-4.1 GPa (3800-4100 MPa). The provided value of 3900 MPa is a typical, well-cited average for high-purity, dense sintered SiC under standard test conditions (room temperature, uniaxial loading).
     corrosionResistance:
-      value: 9.0
-      min: 8.0
-      max: 9.0
+      value: 9
+      min: 8
+      max: 9
       unit: rating
       research_basis: Silicon Carbide exhibits excellent corrosion resistance across a wide range of environments. It has outstanding resistance to mineral acids, alkalis, and saline solutions at elevated temperatures, with only concentrated hydrofluoric acid, phosphoric acid, and strong alkalis at high temperatures causing significant attack. This places it among the most corrosion-resistant engineering ceramics.
     density:
@@ -94,45 +94,45 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section: Ceramics and Glasses, Table: Properties of Silicon Carbide'
     electricalResistivity:
-      value: 1.0
+      value: 1
       min: 0.001
-      max: 1000.0
+      max: 1000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 410.0
-      min: 120.0
-      max: 410.0
+      value: 410
+      min: 120
+      max: 410
       unit: MPa
       research_basis: The ASM Handbook is a premier reference for engineered materials. For sintered silicon carbide, a common structural form, the handbook lists a typical flexural strength range of 350 to 490 MPa. The value of 410 MPa is a representative median from this authoritative range, derived from standardized 4-point bend tests.
     hardness:
-      value: 2500.0
+      value: 2500
       min: 2
       max: 2600
       unit: kgf/mm²
       research_basis: materials_science_literature
     oxidationResistance:
-      value: 1600.0
-      min: 600.0
-      max: 1600.0
+      value: 1600
+      min: 600
+      max: 1600
       unit: °C
       research_basis: Silicon Carbide forms a protective silica (SiO₂) layer in oxidizing environments, which provides excellent oxidation resistance up to approximately 1600°C. Above this temperature, the protective layer can break down, and active oxidation or significant material degradation begins. This value is widely cited in ceramic and composite materials literature as the maximum continuous service temperature in air.
     tensileStrength:
-      value: 350.0
+      value: 350
       min: 50
       max: 7000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 8: Mechanical Testing and Evaluation (2000), Table ''Mechanical Properties of Advanced Ceramics'' citing room temperature tensile strength of sintered alpha silicon carbide as 350 MPa'
     youngsModulus:
-      value: 410.0
+      value: 410
       min: 5
       max: 450
       unit: GPa
       research_basis: materials_science_literature
     fractureToughness:
-      value: 3.0
+      value: 3
       min: 0.75
-      max: 3.0
+      max: 3
       unit: MPa·√m
       research_basis: This value is for a high-purity, pressureless sintered alpha-SiC, which is a standard reference material. The fracture toughness of SiC is well-established in the literature for dense, polycrystalline forms, typically ranging from 2.5 to 4.0 MPa·√m, with 3.0 MPa·√m being a commonly cited and authoritative median value for room temperature.
   laser_material_interaction:
@@ -154,7 +154,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective contaminant removal from SiC surface
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for optimal SiC absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.749288'
@@ -309,7 +309,7 @@ preservedData:
         adjustment_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 1000.0
+        max: 1000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Silicon, germanium
@@ -317,39 +317,39 @@ preservedData:
         research_date: '2025-10-15'
       fractureToughness:
         min: 0.75
-        max: 3.0
+        max: 3
         unit: MPa·√m
         description: ''
         sample_count: 3
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 8.0
-        max: 9.0
+        min: 8
+        max: 9
         unit: rating
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 600.0
-        max: 1600.0
+        min: 600
+        max: 1600
         unit: °C
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       flexuralStrength:
-        min: 120.0
-        max: 410.0
+        min: 120
+        max: 410
         unit: MPa
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       compressiveStrength:
-        min: 370.0
-        max: 6000.0
+        min: 370
+        max: 6000
         unit: MPa
         description: ''
         sample_count: 4

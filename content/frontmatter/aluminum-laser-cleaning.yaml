@@ -1,5 +1,5 @@
 name: Aluminum
-category: Metal
+category: metal
 subcategory: alloy
 title: Aluminum Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Aluminum
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Aluminum
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,30 +24,30 @@ caption:
   beforeText: Looking at these results, this aluminum's got a pretty significant oxide layer, I'd estimate around 4 to 6 microns thick. We're also seeing some embedded carbonaceous soiling, which is common from industrial exposure. That combination really sets up a challenge for any cleaning process, frankly. It's the kind of surface issue that kills performance in high-precision applications out here.
   afterText: Bottom line - this cleaning really cleaned up that surface. The laser parameters we worked out removed virtually all the contamination, bringing the surface roughness down to what looks like under 0. 8 microns. This kind of efficiency-focused result is a huge win for productivity gains, it means we can get these components back into service with maximum performance.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Construction
-- Electronics Manufacturing
-- Food and Beverage Processing
-- Marine
-- Packaging
-- Rail Transport
-- Renewable Energy
+  - Aerospace
+  - Automotive
+  - Construction
+  - Electronics Manufacturing
+  - Food and Beverage Processing
+  - Marine
+  - Packaging
+  - Rail Transport
+  - Renewable Energy
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2743.0
+      value: 2743
       min: 907
       max: 5870
       unit: K
@@ -59,19 +59,19 @@ materialProperties:
       unit: K
       research_basis: materials_science_literature
     specificHeat:
-      value: 897.0
+      value: 897
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Aluminum thermophysical properties at 300K; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalConductivity:
-      value: 237.0
-      min: 7.0
+      value: 237
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Pure Aluminum at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
@@ -93,13 +93,13 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Thermal Expansion of Metals and Alloys'' for pure aluminum (99.996%) at 20°C'
     compressiveStrength:
-      value: 280.0
+      value: 280
       min: 50
       max: 2000
       unit: MPa
       research_basis: The provided properties (density, hardness) are consistent with aluminum alloys like 6061. For the common 6061-T6 temper, the compressive yield strength is typically 280 MPa, which is nearly identical to its tensile yield strength. This value is widely cited in materials databases and engineering handbooks for this specific, high-strength alloy. The provided generic properties do not specify a particular alloy, but 6061 is a standard engineering reference point.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -111,55 +111,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 124 - Aluminum (Al) - Density at 20°C: 2.70 g/cm³; ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     electricalConductivity:
-      value: 37700000.0
+      value: 37700000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 2.65e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 2.65e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 45.0
+      value: 45
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Flexural strength (bending strength) is not a standard reported property for basic aluminum material specifications, as it is highly dependent on the specific alloy, temper, and test configuration. For a common structural alloy like 6061-T6, authoritative sources like ASM report a typical flexural yield strength of 40-50 MPa, derived from 3-point bend test data. This value is significantly lower than the tensile yield strength due to the stress state in bending. The provided material properties (density, hardness) are generic for aluminum and do not define a specific alloy, making a precise flexural strength value impossible without that specification.
     hardness:
-      value: 245.0
+      value: 245
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Mechanical Properties of Wrought Aluminum'
     oxidationResistance:
-      value: 400.0
+      value: 400
       min: 200
       max: 1200
       unit: °C
       research_basis: For aluminum, a protective oxide layer (Al₂O₃) forms at room temperature, but significant oxidation and loss of protective properties begin around 400°C in air. This temperature is widely cited in materials handbooks as the maximum for continuous service where oxidation resistance is a concern, as the oxide layer can become unstable and non-protective, leading to accelerated degradation.
     porosity:
       value: 0.001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 310.0
-      min: 3.0
-      max: 3000.0
+      value: 310
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (2015), Table 1: Typical Mechanical Properties of Wrought Aluminum Alloys - Pure Aluminum (1100-O)'
     youngsModulus:
-      value: 70.0
+      value: 70
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, pp. 16-17; NIST Materials Data Repository for pure aluminum (99.99%)'
     fractureToughness:
-      value: 30.0
+      value: 30
       min: 20
       max: 200
       unit: MPa·√m
@@ -169,18 +169,18 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.15
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.089
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
-      value: 4.0
+      value: 4
       min: 0.02
       max: 100
       unit: '%'
@@ -188,7 +188,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.15
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -210,7 +210,7 @@ materialProperties:
       unit: MPa·m^0.5
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 10700000.0
+      value: 10700000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -222,16 +222,16 @@ materialProperties:
       unit: μm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 2.42e-06
-      min: 1.0e-10
+      value: 0.00000242
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
 machineSettings:
   energyDensity:
     value: 5.1
-    min: 3.0
-    max: 8.0
+    min: 3
+    max: 8
     unit: J/cm²
     description: Fluence threshold for Aluminum oxide removal without substrate damage
   overlapRatio:
@@ -283,35 +283,35 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for optimal Aluminum absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Aluminum's high thermal conductivity (237 W/(m·K)) enables efficient laser ablation, which eliminates the need for chemical solvents and strippers, preventing the generation of hazardous chemical waste streams. This is critical in high-purity industries like semiconductor and medical manufacturing where chemical contamination must be avoided.
-  quantifiedBenefits: Chemical waste elimination in aluminum laser cleaning reduces disposal costs by 40% and cuts processing time by 25% while achieving 99.9% material purity.
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Laser cleaning of aluminum eliminates the need for chemical solvents and high-pressure water jets, directly conserving water resources. The high thermal conductivity of aluminum (237 W/(m·K)) enables efficient contaminant removal with low laser power, minimizing the process's overall energy footprint and associated indirect water consumption.
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Aluminum's high thermal conductivity (237 W/(m·K)) enables rapid heat dissipation during laser cleaning, minimizing the energy required for effective contaminant removal and reducing localized energy input. This intrinsic property allows for faster processing speeds and lower overall power consumption compared to treating less conductive materials.
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Laser cleaning of aluminum eliminates the use of chemical solvents and abrasive media, preventing the release of volatile organic compounds (VOCs) and particulate matter (PM) into the atmosphere. The process is contained and fume-free, leveraging aluminum's high thermal conductivity for efficient, localized contaminant removal without generating secondary airborne waste.
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Aluminum's high thermal conductivity (237 W/(m·K)) enables efficient laser ablation, which eliminates the need for chemical solvents and strippers, preventing the generation of hazardous chemical waste streams. This is critical in high-purity industries like semiconductor and medical manufacturing where chemical contamination must be avoided.
+    quantifiedBenefits: Chemical waste elimination in aluminum laser cleaning reduces disposal costs by 40% and cuts processing time by 25% while achieving 99.9% material purity.
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Laser cleaning of aluminum eliminates the need for chemical solvents and high-pressure water jets, directly conserving water resources. The high thermal conductivity of aluminum (237 W/(m·K)) enables efficient contaminant removal with low laser power, minimizing the process's overall energy footprint and associated indirect water consumption.
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Aluminum's high thermal conductivity (237 W/(m·K)) enables rapid heat dissipation during laser cleaning, minimizing the energy required for effective contaminant removal and reducing localized energy input. This intrinsic property allows for faster processing speeds and lower overall power consumption compared to treating less conductive materials.
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Laser cleaning of aluminum eliminates the use of chemical solvents and abrasive media, preventing the release of volatile organic compounds (VOCs) and particulate matter (PM) into the atmosphere. The process is contained and fume-free, leveraging aluminum's high thermal conductivity for efficient, localized contaminant removal without generating secondary airborne waste.
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:57.882506'
@@ -325,7 +325,7 @@ preservedData:
         source: ai_research
         description: Laser ablation threshold for nanosecond pulses at 1064 nm
       absorptionCoefficient:
-        value: 12000000.0
+        value: 12000000
         unit: m⁻¹
         confidence: 84
         source: ai_research
@@ -367,19 +367,19 @@ preservedData:
         source: ai_research
         description: Relative oxidation resistance due to protective oxide layer formation
       specificHeat:
-        value: 897.0
+        value: 897
         unit: J/(kg·K)
         confidence: 94
         source: ai_research
         description: Specific heat capacity at 25°C
       tensileStrength:
-        value: 90.0
+        value: 90
         unit: MPa
         confidence: 85
         source: ai_research
         description: Tensile strength of pure annealed aluminum
       thermalConductivity:
-        value: 237.0
+        value: 237
         unit: W/(m·K)
         confidence: 92
         source: ai_research
@@ -403,7 +403,7 @@ preservedData:
         source: ai_research
         description: Linear thermal expansion coefficient at 20°C
       youngsModulus:
-        value: 69.0
+        value: 69
         unit: GPa
         confidence: 96
         source: ai_research
@@ -445,11 +445,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -481,8 +481,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -523,8 +523,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -542,7 +542,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -550,7 +550,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -568,7 +568,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -603,8 +603,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -612,8 +612,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -630,7 +630,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

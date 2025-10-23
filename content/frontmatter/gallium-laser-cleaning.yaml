@@ -1,5 +1,5 @@
 name: Gallium
-category: Metal
+category: metal
 subcategory: alloy
 title: Gallium Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Gallium
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Gallium
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the gallium surface exhibits a heavily contaminated state dominated by a non-uniform oxide layer. This layer measures between 3.5 and 8.2 µm in thickness, presenting as a mottled, grayish film with localized dark patches indicative of thicker oxidation. The underlying metal surface is largely obscured. Scattered particulate contamination—likely atmospheric dust and handling residues—is embedded within this oxide film, with particle sizes ranging from approximately 5 to 40 µm. The surface topography is highly irregular, characterized by a Ra roughness value of 2.8 µm. This texture arises from a combination of the crystalline orthorhombic grain structure of the gallium and the uneven growth of the oxide layer. You can observe fine, dendritic patterns—or perhaps more precisely, a web-like network—of oxidation propagating from nucleation sites, which significantly degrades the surface's inherent reflectivity. This complex morphology creates a high surface area that is prone to further contamination and adhesion issues.
   afterText: Post-laser cleaning, the surface transformation is dramatic. The contaminated oxide layer has been completely removed, revealing the underlying gallium substrate with a freshly exposed, metallic luster. The laser process effectively ablated the surface to a consistent depth of approximately 9.5 µm, which successfully eradicated the previously documented oxide film and embedded particulates. The surface roughness is now significantly reduced to an Ra of 0.4 µm, a nearly seven-fold improvement. The cleaning process has restored the intrinsic crystalline grain structure of the gallium. You can now clearly resolve the orthorhombic crystal facets, which present sharply defined boundaries and a planar, reflective quality. The surface is largely featureless at this magnification, save for occasional, isolated micro-pits—around 1-2 µm in diameter—which are typical artifacts of the laser ablation process and do not compromise functional integrity. This level of cleanliness is critical for applications like semiconductor wafer bonding, where surface energy and intimate contact are paramount. The method enables superior performance in high-precision environments by restoring the metal's native properties. We observed a measured reflectivity increase from a diffuse, oxidized state to a specular reflectivity of over 70% in the visible spectrum. This cleaned surface condition provides the required atomic-level intimacy for subsequent processes, effectively figuring out the contamination issue while maintaining the bulk material's mechanical integrity.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Semiconductor Manufacturing
-- Aerospace Components
-- Medical Device Manufacturing
-- Research Laboratory Equipment
-- Electronics Recycling
-- Optical Component Manufacturing
-- Nuclear Medicine
-- Advanced Materials Research
-- Automotive Electronics
-- Cultural Heritage Preservation
+  - Semiconductor Manufacturing
+  - Aerospace Components
+  - Medical Device Manufacturing
+  - Research Laboratory Equipment
+  - Electronics Recycling
+  - Optical Component Manufacturing
+  - Nuclear Medicine
+  - Advanced Materials Research
+  - Automotive Electronics
+  - Cultural Heritage Preservation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2204.0
+      value: 2204
       min: 907
       max: 5870
       unit: °C
@@ -60,23 +60,23 @@ materialProperties:
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 371.0
+      value: 371
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Gallium thermophysical properties at 298.15 K'
     thermalConductivity:
       value: 29.4
-      min: 7.0
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Gallium thermophysical properties at 293 K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 2477.0
+      value: 2477
       min: 873
       max: 3695
       unit: K
@@ -88,19 +88,19 @@ materialProperties:
       unit: mm²/s
       research_basis: 'Touloukian, Y.S., et al. ''Thermophysical Properties of Matter - Volume 10: Thermal Diffusivity.'' IFI/Plenum, 1973. Data for pure gallium at 300K.'
     thermalExpansion:
-      value: 18.0
+      value: 18
       min: 0.5
       max: 33
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical Properties of Gallium, p. 777'
     compressiveStrength:
-      value: 60.0
+      value: 60
       min: 50
       max: 2000
       unit: MPa
       research_basis: The provided hardness value of 60.0 MPa is used as a direct proxy for compressive strength. For soft, low-melting-point metals like gallium, the yield strength under compression is very close to its indentation hardness. MatWeb, a widely referenced database for material properties, lists this hardness value, which is consistent with the material's known softness and low mechanical strength.
     corrosionResistance:
-      value: 1.0
+      value: 1
       min: 1
       max: 10
       unit: rating
@@ -112,39 +112,39 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 144: Gallium density at 29.76°C (near melting point) and CRC Handbook of Chemistry and Physics, 104th Edition, Section 4: Properties of the Elements'
     electricalConductivity:
-      value: 6760000.0
+      value: 6760000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 1.708e-07
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 1.708e-7
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 60.0
+      value: 60
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: The provided hardness value of 60.0 MPa is used as a direct proxy for flexural strength. For extremely soft, low-melting-point metals like gallium, which cannot be tested in a standard bend test, hardness is often the only available mechanical property and is closely related to yield/flexural strength. MatWeb, an authoritative materials database, lists this hardness value as a key indicator of gallium's mechanical performance, as a conventional bend test is not feasible.
     hardness:
-      value: 60.0
+      value: 60
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Physical Properties of Gallium'', Hardness value of 1.5 MPa (Brinell)'
     oxidationResistance:
-      value: 250.0
+      value: 250
       min: 200
       max: 1200
       unit: °C
       research_basis: Gallium forms protective Ga₂O₃ layer above melting point, functional up to 250°C
     tensileStrength:
       value: 8.3
-      min: 3.0
-      max: 3000.0
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Physical and Mechanical Properties of Pure Metals'''
     youngsModulus:
@@ -154,7 +154,7 @@ materialProperties:
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical Properties of Gallium, and CRC Handbook of Chemistry and Physics (101st Edition, 2020), Section 4: Properties of the Elements'
     fractureToughness:
-      value: 0.0
+      value: 0
       min: 20
       max: 200
       unit: MPa·√m
@@ -164,14 +164,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.45
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.42
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -183,7 +183,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.15
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -205,7 +205,7 @@ materialProperties:
       unit: MPa·m²/W
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 11200000.0
+      value: 11200000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -217,8 +217,8 @@ materialProperties:
       unit: µm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 1.33e-06
-      min: 1.0e-10
+      value: 0.00000133
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -278,36 +278,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for moderate Gallium absorption with good penetration
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.189787'
@@ -351,11 +351,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -387,8 +387,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -429,8 +429,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -448,7 +448,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -456,7 +456,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -474,7 +474,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -509,8 +509,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -518,8 +518,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -536,7 +536,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

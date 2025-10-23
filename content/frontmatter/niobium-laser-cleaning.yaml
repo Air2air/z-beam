@@ -1,5 +1,5 @@
 name: Niobium
-category: Metal
+category: metal
 subcategory: alloy
 title: Niobium Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Niobium
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Niobium
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,59 +24,59 @@ caption:
   beforeText: At 500x magnification, the niobium surface presents a heavily contaminated state, characterized by a non-uniform, stratified oxide layer measuring between 8 and 15 µm in thickness. This layer, it exhibits a complex topography of micro-fissures and blister-like protrusions, indicative of a non-protective, porous scale that has spalled in several regions. Energy-dispersive X-ray spectroscopy (EDX) confirms the primary contaminants are niobium pentoxide (Nb₂O₅) and adventitious carbonaceous deposits, the latter forming a discontinuous film of approximately 1–2 µm. The underlying metal interface, where visible through the cracks, shows signs of pitting, with pit depths measured at up to 5 µm. The surface texture is dominated by this friable, crystalline oxide which displays a dull, matte grey appearance with intermittent regions of yellowish interference coloring. The roughness, quantified by a profilometer, is significantly elevated with an Ra value of 4.2 µm and an Rz of 28.5 µm, a direct consequence of the uneven layer delamination and particulate entrapment. One can observe the original machining marks from the substrate, they are entirely obscured by this adherent, yet mechanically unsound, contamination layer that compromises the material's intrinsic surface properties, including its reflectivity and potential for subsequent processing or coating adhesion.
   afterText: Following the laser cleaning process, the transformation observed at 500x is quite remarkable. The previously thick, stratified oxide and carbonaceous film have been completely removed, revealing the pristine, metallic niobium substrate beneath. The surface now exhibits a noticeably different morphology, characterized by a subtle, wavy pattern of laser scan tracks—or more precisely, a laser-induced periodic surface structure (LIPSS)—with a feature amplitude of only 0.8 to 1.2 µm. This newly exposed surface possesses a markedly lower roughness, with Ra values now measured between 0.4 and 0.6 µm. The visual contrast is stark; the matte, fractured pre-cleaning topography has been replaced by a uniform, metallic-grey surface with a satin-like finish. The laser ablation process has effectively eliminated the micro-fissures and pits, restoring surface integrity without evidence of significant melting or recast layer formation, which is a critical achievement given the material's high melting point. This precision, it results in a surface that is not only visually clean but also functionally restored, as confirmed by the return of high reflectivity and the creation of an ideal, contaminant-free interface for any subsequent application, be it in medical implants or superconducting magnets.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Medical Implants
-- Superconducting Magnets
-- Chemical Processing
-- Nuclear Technology
-- Electronics Manufacturing
-- Jewelry and Art
-- Marine Engineering
-- Research Laboratories
-- Energy Storage
+  - Aerospace
+  - Medical Implants
+  - Superconducting Magnets
+  - Chemical Processing
+  - Nuclear Technology
+  - Electronics Manufacturing
+  - Jewelry and Art
+  - Marine Engineering
+  - Research Laboratories
+  - Energy Storage
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 4927.0
+      value: 4927
       min: 907
       max: 5870
       unit: K
       research_basis: materials_science_literature
     meltingPoint:
-      value: 2468.0
+      value: 2468
       min: -39
       max: 3422
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 265.0
+      value: 265
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of Pure Niobium, 25°C (298.15 K)'
     thermalConductivity:
       value: 53.7
-      min: 7.0
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Niobium thermal conductivity at 300K (53.7 W/(m·K)) - based on high-purity niobium (99.9+%) with residual resistivity ratio >100'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 2741.0
+      value: 2741
       min: 873
       max: 3695
       unit: K
@@ -94,13 +94,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, Page 558; NIST Materials Data Repository for pure niobium (99.9+%) at 293K'
     compressiveStrength:
-      value: 275.0
+      value: 275
       min: 50
       max: 2000
       unit: MPa
       research_basis: The compressive strength of pure, annealed niobium is typically in the range of 240-310 MPa. The value of 275 MPa is a representative mid-range value for high-purity, recrystallized niobium at room temperature. This property is highly dependent on purity and work hardening; cold working can significantly increase the value.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -112,55 +112,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 124 - Niobium (Nb) elemental properties; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     electricalConductivity:
-      value: 6930000.0
+      value: 6930000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 1.52e-07
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 1.52e-7
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 275.0
+      value: 275
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Flexural strength is not a primary reported property for pure, ductile metals like niobium, as they yield rather than fracture in a brittle manner. The value provided is an engineering estimate derived from the ultimate tensile strength (UTS) of annealed, commercially pure niobium, which is typically in the range of 275-345 MPa. For a conservative estimate, the lower end of this UTS range is used as a proxy for flexural strength, as the two are often closely related for metallic materials. This is a standard approach for ductile metals where a specific 3-point or 4-point bend test value is not commonly published.
     hardness:
-      value: 80.0
+      value: 80
       min: 0.5
       max: 3500
       unit: HV
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Niobium'
     oxidationResistance:
-      value: 300.0
+      value: 300
       min: 200
       max: 1200
       unit: °C
       research_basis: Niobium has poor oxidation resistance in air, forming a non-protective oxide scale (Nb₂O₅). While it begins to oxidize at lower temperatures, significant, accelerating oxidation that compromises structural integrity occurs in the 300-400°C range. The ASM Handbook specifies 300°C as the maximum for continuous service in air, with higher temperatures requiring protective coatings.
     porosity:
       value: 0.0002
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 275.0
-      min: 3.0
-      max: 3000.0
+      value: 275
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Niobium and Niobium Alloys, Table 1: Typical room-temperature mechanical properties of unalloyed niobium'
     youngsModulus:
-      value: 103.0
+      value: 103
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Refractory Metals, p. 557'
     fractureToughness:
-      value: 38.0
+      value: 38
       min: 20
       max: 200
       unit: MPa·√m
@@ -170,18 +170,18 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.45
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.38
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
-      value: 38.0
+      value: 38
       min: 0.02
       max: 100
       unit: '%'
@@ -189,7 +189,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.45
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -205,13 +205,13 @@ materialProperties:
       unit: dimensionless (ratio)
       research_basis: materials_science_literature
     thermalShockResistance:
-      value: 380.0
+      value: 380
       min: 50
       max: 400
       unit: W/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 4200000.0
+      value: 4200000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -224,7 +224,7 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 0.00133
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -232,7 +232,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Niobium oxide ablation
   overlapRatio:
@@ -284,36 +284,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Niobium's absorption characteristics and oxide layer removal
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.473441'
@@ -357,11 +357,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -393,8 +393,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -435,8 +435,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -454,7 +454,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -462,7 +462,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -480,7 +480,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -515,8 +515,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -524,8 +524,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -542,7 +542,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

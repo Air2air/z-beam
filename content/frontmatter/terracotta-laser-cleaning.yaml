@@ -1,5 +1,5 @@
 name: Terracotta
-category: Masonry
+category: masonry
 subcategory: construction
 title: Terracotta Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Terracotta
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Terracotta
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the terracotta surface shows heavy contamination. A stratified deposit layer, approximately 15 to 20 µm thick, completely obscures the original substrate. This layer, it has a complex morphology with both particulate matter—likely soot and soil—and a darker, cohesive biofilm matrix. Surface roughness is significant, with Ra values measuring between 8.5 and 12.4 µm. The contamination adheres tenaciously, filling the natural micro-porosity of the clay body. EDX analysis confirms high carbon content, along with traces of sulfur and calcium, which suggests a mix of organic and gypsum-based deposits. Individual pores, which should be visible, are instead occluded by this dense, amorphous crust. The overall topography is highly irregular, this creates deep shadows and a mottled, dark appearance that reduces surface reflectivity to below 10%. The original terracotta texture is not discernible.
   afterText: 'Laser cleaning produces a very clear transformation. The stratified contamination layer is entirely removed, revealing the intact terracotta substrate beneath. Now, the original micro-topography is fully visible, with a surface roughness (Ra) reduced to a consistent 2.1 to 2.8 µm. This is a significant improvement, the surface is now uniform and much smoother. The laser process selectively ablates the contamination, it does not damage the primary material. SEM imaging confirms this: the vitrified clay particles show sharp, clean edges and the intrinsic porosity—approximately 15% by area—is fully reopened and free of deposits. Some minor, sub-micron pitting is observed in isolated areas, a result of localized vaporization of embedded impurities, but this does not compromise structural integrity. The surface reflectivity has increased substantially, from below 10% to nearly the material''s inherent 36%, which indicates a return to its original optical properties. Post-cleaning XPS analysis shows the elemental composition has normalized, with carbon content dropping from over 40% to just 3-5%. The dominant signals are now silicon, aluminum, and oxygen—the expected constituents of the clay body. This cleaned surface, it exhibits excellent integrity with no micro-cracking observed, confirming the laser parameters were well below the 2.5 J/cm² damage threshold. The restoration of both the visual and material characteristics is complete.'
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Architecture and Construction
-- Manufacturing
-- Archaeology
-- Museum Conservation
-- Art Restoration
-- Industrial Maintenance
-- Historic Preservation
-- Ceramics Production
-- Research and Analysis
+  - Cultural Heritage
+  - Architecture and Construction
+  - Manufacturing
+  - Archaeology
+  - Museum Conservation
+  - Art Restoration
+  - Industrial Maintenance
+  - Historic Preservation
+  - Ceramics Production
+  - Research and Analysis
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 880.0
+      value: 880
       min: 700
       max: 1100
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: NIST Interagency/Internal Report (IR) 7563 - Section 5.2.2, 'Measured Thermal Properties of Common Masonry Materials' (2019), which provides direct laboratory measurements for terracotta specimens.
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,15 +76,15 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 4: Ceramics and Glasses, Table ''Thermal Expansion of Clay-Based Ceramics'' specifying terracotta (earthenware clay bodies) at 5.5-6.2 × 10^-6/K'
     compressiveStrength:
-      value: 45.0
+      value: 45
       min: 5
       max: 100
       unit: MPa
       research_basis: 'ASTM C67-23 Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile, combined with analysis of terracotta composition (15-25% porosity, iron oxide content 5-12%) from ASM Handbook, Volume 4: Ceramics and Glasses'
     corrosionResistance:
-      value: 8.0
-      min: 2.0
-      max: 8.0
+      value: 8
+      min: 2
+      max: 8
       unit: rating
       research_basis: Terracotta demonstrates excellent corrosion resistance to atmospheric and environmental degradation due to its vitrified ceramic nature. As a fired clay product, it is chemically inert and highly resistant to acid rain, pollution, and weathering. ASTM standards classify brick and terracotta as having "severe weather" (SW) grade for maximum resistance to moisture penetration and frost action, indicating superior durability in corrosive environments. The material maintains structural integrity when exposed to common environmental corrosives that would degrade metals or other masonry materials.
     density:
@@ -94,21 +94,21 @@ materialProperties:
       unit: g/cm³
       research_basis: ASTM C67-23 'Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile' & NIST Special Publication 395 'Thermal and Mechanical Properties of Masonry Materials'
     flexuralStrength:
-      value: 8.0
+      value: 8
       min: 2
       max: 20
       unit: MPa
       research_basis: Flexural strength (modulus of rupture) is a standard property for masonry materials. For fired clay products like terracotta, the flexural strength is typically 15-25% of its compressive strength. The cited ASTM standard, a primary authority for clay-based masonry, lists a minimum modulus of rupture of 8.3 MPa (1200 psi) for severe weathering brick, which aligns with the derived range from the known compressive strength (45.0 MPa * 0.2 = ~9.0 MPa). The value of 8.0 MPa is a conservative, well-attested estimate for a typical terracotta body.
     hardness:
-      value: 3.0
+      value: 3
       min: 1
       max: 6
       unit: Mohs
       research_basis: NIST Special Publication 960-17 'Ceramic Tile and Related Products' & ASTM C242 Standard Terminology for Ceramic Whitewares and Related Products
     oxidationResistance:
-      value: 800.0
-      min: 300.0
-      max: 1200.0
+      value: 800
+      min: 300
+      max: 1200
       unit: °C
       research_basis: While terracotta itself is not a standardized high-temperature ceramic, it is a fired clay product. ASTM C62 classifies brick (clay masonry) for severe weathering (SW) grade, which must withstand freeze-thaw cycles, implying high structural integrity after firing. Industrial and historical sources (e.g., National Terracotta Society, 1920s) specify that architectural terracotta is fired between 1000-1200°C, creating a stable, oxidized ceramic body. Its maximum continuous service temperature in air is limited not by oxidation but by the onset of vitrification and loss of mechanical strength, beginning around 800°C for typical clay compositions. This is well below its original firing temperature, ensuring no further oxidation occurs.
     tensileStrength:
@@ -118,8 +118,8 @@ materialProperties:
       unit: MPa
       research_basis: ASTM C67-20 Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile, combined with data from NIST Special Publication 984-1 'Properties of Masonry Materials' and academic studies on terracotta mechanical properties
     youngsModulus:
-      value: 22.0
-      min: 3.0
+      value: 22
+      min: 3
       max: 50
       unit: GPa
       research_basis: ASTM C67-20 Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile, combined with Charola (2004) 'Scanning electron microscopy in the assessment of brick properties' in Materials and Structures, Vol. 37, pp. 360-366
@@ -154,7 +154,7 @@ machineSettings:
   energyDensity:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence level sufficient for contaminant removal while preserving Terracotta substrate
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength optimized for Terracotta absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.886238'
@@ -305,7 +305,7 @@ preservedData:
         unit: µm/m·K
       youngsModulus:
         max: 50
-        min: 3.0
+        min: 3
         unit: GPa
         phase2_adjustment: Plaster at 3.0 GPa
         adjustment_date: '2025-10-15'
@@ -334,16 +334,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 7
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 300.0
-        max: 1200.0
+        min: 300
+        max: 1200
         unit: °C
         description: ''
         sample_count: 7

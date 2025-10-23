@@ -1,5 +1,5 @@
 name: Plywood
-category: Wood
+category: wood
 subcategory: natural
 title: Plywood Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Plywood
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Plywood
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Plywood surface after laser cleaning showing detailed surface structure
     url: /images/material/plywood-laser-cleaning-micro.jpg
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Marine
-- Cultural Heritage
-- Electronics Manufacturing
-- Automotive
-- Construction
-- Furniture Manufacturing
-- Energy Sector
-- Medical Equipment
-- Transportation
+  - Aerospace
+  - Marine
+  - Cultural Heritage
+  - Electronics Manufacturing
+  - Automotive
+  - Construction
+  - Furniture Manufacturing
+  - Energy Sector
+  - Medical Equipment
+  - Transportation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1210.0
+      value: 1210
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material, USDA Forest Service, Forest Products Laboratory, Chapter 4: Thermal Properties, Table 4-3 for plywood at 12% moisture content and 27°C'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -66,8 +66,8 @@ materialProperties:
       unit: m²/s
       research_basis: 'NIST Wood Database - Specific measurements for plywood (Douglas fir construction grade) at 12% moisture content, 20°C. Reference: NIST Standard Reference Database 69: Thermophysical Properties of Wood Products'
     thermalExpansion:
-      value: 30.0
-      min: 3.0
+      value: 30
+      min: 3
       max: 60
       unit: 10⁻⁶/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material, USDA Forest Service, Forest Products Laboratory, Chapter 4: Physical Properties and Moisture Relations of Wood, Table 4-3: Coefficients of thermal expansion for various wood species and wood-based composites'
@@ -78,9 +78,9 @@ materialProperties:
       unit: MPa
       research_basis: The compressive strength of plywood is highly dependent on the species of the face veneers, the adhesive type, and the direction of loading (parallel or perpendicular to the face grain). The cited source provides a typical range of 4.8 to 6.2 MPa for compressive strength perpendicular to the face grain for common softwood plywood, with 5.5 MPa being a representative median value. This value is consistent with data from other engineering handbooks for construction-grade plywood.
     corrosionResistance:
-      value: 2.0
-      min: 2.0
-      max: 8.0
+      value: 2
+      min: 2
+      max: 8
       unit: rating
       research_basis: Plywood, typically made from wood veneers, has poor inherent corrosion resistance as it is highly susceptible to moisture, fungal decay, and insect attack. The "Wood Handbook" states that untreated wood products have low durability and require protective treatments for any exterior or damp service conditions. While corrosion is a metal-specific term, in the context of material degradation, plywood's organic composition makes it highly vulnerable to environmental degradation. A rating of 2 reflects that it offers minimal resistance without chemical preservatives.
     density:
@@ -90,21 +90,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Chapter 12: Plywood and Structural Wood Panels, Table 12-1: Typical properties of commercial plywood'
     flexuralStrength:
-      value: 30.0
+      value: 30
       min: 40
       max: 150
       unit: MPa
       research_basis: The flexural strength of plywood varies significantly based on species, veneer grade, adhesive type, and construction. The cited USDA source provides typical MOR (Modulus of Rupture) values for commercial softwood plywood in the range of 20-40 MPa. The value of 30 MPa represents a reasonable median for structural softwood plywood, consistent with values reported in engineering material databases for general-purpose construction plywood.
     hardness:
-      value: 1813.0
+      value: 1813
       min: 1
       max: 5000
       unit: MPa
       research_basis: 'ASTM D143-14 Standard Test Methods for Small Clear Specimens of Timber, supplemented by Wood Handbook: Wood as an Engineering Material (USDA Forest Service, 2010) and specific plywood mechanical property studies'
     oxidationResistance:
-      value: 200.0
-      min: 82.0
-      max: 204.0
+      value: 200
+      min: 82
+      max: 204
       unit: °C
       research_basis: Plywood, as an engineered wood product, has thermal degradation properties similar to solid wood. The Wood Handbook states that wood in air begins significant thermal decomposition around 200°C, with the onset of pyrolysis where chemical bonds break and mass loss occurs. This represents the maximum temperature before rapid oxidation and charring begins, making it unsuitable for continuous service above this threshold.
     porosity:
@@ -114,13 +114,13 @@ materialProperties:
       unit: dimensionless
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 31.0
+      value: 31
       min: 20
       max: 200
       unit: MPa
       research_basis: 'ASTM D3500-90 & Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Table 5-3a: Mechanical Properties of Commercial Plywood'
     youngsModulus:
-      value: 9.0
+      value: 9
       min: 5
       max: 20000
       unit: GPa
@@ -154,7 +154,7 @@ machineSettings:
     unit: μs
     description: Optimal dwell time per spot for Plywood processing
   energyDensity:
-    value: 2.0
+    value: 2
     min: 1.2
     max: 3.5
     unit: J/cm²
@@ -208,36 +208,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength for optimal Plywood absorption and minimal penetration
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.543174'
@@ -306,7 +306,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -348,16 +348,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

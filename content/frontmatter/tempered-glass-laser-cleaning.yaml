@@ -1,5 +1,5 @@
 name: Tempered Glass
-category: Glass
+category: glass
 subcategory: silicate
 title: Tempered Glass Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Tempered Glass
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Tempered Glass
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,43 +24,43 @@ caption:
   beforeText: At 500x magnification, the tempered glass surface presents a heavily contaminated state, characterized by a complex, non-uniform layer of particulate and film-based deposits. The primary contaminant appears as a carbonaceous soot layer, approximately 5-7 µm thick, which exhibits a characteristic dendritic morphology with significant surface area. This layer, it demonstrates poor adhesion in localized regions, revealing underlying glass substrate through micro-fissures in the deposit matrix. Energy Dispersive X-Ray (EDX) analysis confirms the presence of carbon (82%), along with trace elements including silicon (9%), oxygen (6%), and calcium (3%)—the latter likely representing environmental particulate matter embedded within the carbon matrix. The surface topography reveals significant disruption to the native glass structure, with the original surface roughness of 0.01 µm Ra now measuring 1.8-2.3 µm Ra due to the particulate accumulation. One observes numerous micro-pits, approximately 2-5 µm in diameter, which serve as nucleation sites for further contamination adherence, creating a stratified layer structure. The laser absorption characteristics are severely compromised by this contamination layer, which exhibits near-total opacity and reduces surface reflectivity to less than 2% across visible wavelengths. What strikes one is the complete masking of the tempered glass's intrinsic properties—the compressive surface layer and chemical stability remain functionally inaccessible beneath this tenacious contamination.
   afterText: 'Following the laser cleaning process, the transformation observed at 500x magnification is quite remarkable. The carbonaceous layer has been completely removed, revealing the pristine tempered glass substrate with its characteristic surface compressive layer fully restored. The surface roughness now measures 0.02-0.03 µm Ra—a value approaching the original manufacturing specification of 0.01 µm Ra and representing a 98% reduction from the contaminated state. This precision in contaminant removal, it preserves the microscopic surface integrity while eliminating all foreign material. The laser interaction, it produces sophisticated outcomes—one observes no evidence of thermal stress cracking or micro-fractures that would indicate substrate damage. The surface reflectivity has been restored to 4.1-4.2%, consistent with the material''s inherent optical properties, while the chemical stability remains uncompromised as confirmed through subsequent XPS analysis. What is evident to observe is the complete functional restoration: the surface now exhibits uniform laser absorption characteristics and maintains the full flexural strength of 165 MPa inherent to properly tempered glass. The cleaning process has achieved this elegant balance between aggressive contaminant removal and delicate substrate preservation.'
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Electronics Manufacturing
-- Medical Devices
-- Marine
-- Cultural Heritage
-- Solar Energy
-- Architectural Glass
-- Food Processing
-- Laboratory Equipment
+  - Aerospace
+  - Automotive
+  - Electronics Manufacturing
+  - Medical Devices
+  - Marine
+  - Cultural Heritage
+  - Solar Energy
+  - Architectural Glass
+  - Food Processing
+  - Laboratory Equipment
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 840.0
+      value: 840
       min: 120
       max: 900
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Mineral Glasses, specifically soda-lime silicate glass composition (typical tempered glass) at 300K'
     thermalConductivity:
-      value: 1.0
+      value: 1
       min: 0.7
       max: 30
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Soda-Lime-Silica Glass (Annealed and Tempered variants), Corning Glass Technical Documents on Gorilla Glass thermal properties'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials - Section: Glass and Glass-Ceramics (ASM International, 1990); Pilkington Glass Technical Data Sheets for tempered soda-lime-silica glass'
     compressiveStrength:
-      value: 160.0
+      value: 160
       min: 500
       max: 2000
       unit: MPa
       research_basis: Tempered glass compressive strength is substantially higher than its tensile strength due to induced surface compression. ASTM C1048 specifies surface compression values of ≥69 MPa (10,000 psi) for heat-strengthened and ≥100 MPa (15,000 psi) for fully tempered glass, translating to compressive strength typically in the 120-200 MPa range. The wide range accounts for variations in glass composition, tempering process, and thickness.
     corrosionResistance:
-      value: 9.0
+      value: 9
       min: 9
       max: 10
       unit: rating
@@ -94,15 +94,15 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (ASM International, 1990); Corning Gorilla Glass Technical Data Sheets; ASTM C693-93 Standard Test Method for Density of Glass by Buoyancy'
     electricalResistivity:
-      value: 1000000000000.0
-      min: 10000000000.0
-      max: 1000000000000000.0
+      value: 1000000000000
+      min: 10000000000
+      max: 1000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 120.0
+      value: 120
       min: 50
-      max: 750.0
+      max: 750
       unit: MPa
       research_basis: The flexural strength of tempered glass is well-documented in material standards and engineering references. ASTM C1048 specifies a minimum surface compressive stress of 69 MPa (10,000 psi) for tempered glass, which correlates to a minimum flexural strength of approximately 120 MPa. This value is consistently reported across authoritative sources like the "Engineered Materials Handbook" and Pilkington glass technical data sheets for 3-point and 4-point bend tests, representing a 4-5x strength increase over annealed glass due to the tempering process.
     hardness:
@@ -112,19 +112,19 @@ materialProperties:
       unit: Mohs
       research_basis: 'ASM Handbook, Volume 19: Fatigue and Fracture (2002) - Section: ''Fracture of Glass and Ceramics'' citing soda-lime-silica glass hardness as 6-7 Mohs, with tempered glass maintaining identical surface hardness properties'
     oxidationResistance:
-      value: 470.0
-      min: 400.0
-      max: 1700.0
+      value: 470
+      min: 400
+      max: 1700
       unit: °C
       research_basis: Tempered glass, such as Gorilla Glass, is a type of chemically strengthened soda-lime glass. While glass itself does not oxidize like a metal, its maximum continuous service temperature is limited by the onset of thermal relaxation, which causes a loss of the compressive surface stress that gives it its "tempered" strength. For soda-lime-based tempered glass, this critical temperature is typically in the range of 450-500°C. The cited value is a conservative upper limit for continuous use from a leading manufacturer's technical data sheet.
     tensileStrength:
-      value: 165.0
+      value: 165
       min: 30
       max: 2000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Properties of Glass and Glass Ceramics'', Table 2, pp. 443-451, ASM International, 1990.'
     youngsModulus:
-      value: 73.0
+      value: 73
       min: 10
       max: 400
       unit: GPa
@@ -140,8 +140,8 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 3.2
-      min: 2.0
-      max: 6.0
+      min: 2
+      max: 6
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
@@ -166,7 +166,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Optimal fluence threshold for contaminant removal without glass damage
   overlapRatio:
@@ -218,36 +218,36 @@ machineSettings:
     unit: nm
     description: Optimal wavelength for Tempered Glass processing with good absorption
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.873297'
@@ -321,8 +321,8 @@ preservedData:
         min: 10
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 6.0
+        min: 2
+        max: 6
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 80
@@ -345,8 +345,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1000000000000000.0
+        min: 10000000000
+        max: 1000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Glass is insulator
@@ -354,7 +354,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 50
-        max: 750.0
+        max: 750
         unit: MPa
         description: Maximum bending stress before failure
         notes: Glass weak in bending
@@ -369,8 +369,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 400.0
-        max: 1700.0
+        min: 400
+        max: 1700
         unit: °C
         description: ''
         sample_count: 11

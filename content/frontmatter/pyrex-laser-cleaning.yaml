@@ -1,5 +1,5 @@
 name: Pyrex
-category: Glass
+category: glass
 subcategory: silicate
 title: Pyrex Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Pyrex
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Pyrex
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the Pyrex surface presents a heavily contaminated state characterized by a complex, non-uniform layer of particulate and film-based deposits. The primary contaminant appears as a carbonaceous soot layer, approximately 5–7 µm thick, which exhibits a characteristic dendritic, or branching, pattern across the surface topography. This layer, it is not continuous; one can observe localized agglomerations reaching up to 15 µm in height, creating significant micro-scale shadowing and a pronounced increase in surface roughness, with preliminary stylus profilometer estimates indicating an Ra value exceeding 2.5 µm. The underlying glass substrate is largely obscured, with only intermittent regions where the original surface is partially visible through cracks in the overlying deposit. Energy Dispersive X-ray (EDX) analysis confirms the presence of foreign elements, including significant carbon and oxygen peaks alongside trace amounts of silicon, aluminum, and calcium—the latter suggesting embedded environmental particulates. The adhesion of this layer appears tenacious, as the deposits follow the micron-scale flaws and scratches inherent to the used substrate, effectively locking the contamination into the surface microstructure. This intimate contact, it creates a significant challenge for removal, as the contaminant layer modifies the surface's intrinsic optical properties, increasing light absorption and scattering, which would detrimentally impact performance in optical or analytical applications. The overall morphology is one of a deeply embedded, multi-component film that compromises both the functional integrity and the chemical inertness of the Pyrex surface.
   afterText: Following the laser cleaning process, the transformation observed at 500x is quite remarkable. The previously dominant carbonaceous layer has been entirely ablated, revealing the pristine, underlying Pyrex substrate with exceptional clarity. The surface now exhibits its native vitreous and amorphous microstructure, characterized by a smooth, continuous phase with a measured surface roughness (Ra) reduced to approximately 0.08 µm—a value that approaches the original manufacturer specification for pristine borosilicate glass. What strikes one is the precision of the material removal; the laser interaction has successfully eliminated the contaminant film without inducing measurable thermal damage to the bulk material. No evidence of micro-fracturing, melting, or recast layers is detectable within the resolution of optical microscopy. The surface reflectivity has been restored significantly, and the chemical composition, as verified by post-process XPS, now shows a surface atomic concentration of >99% silicon and oxygen, confirming the return of the material's inherent chemical stability. This level of cleaning, it achieves a functional restoration that meets the stringent requirements for high-performance applications in pharmaceutical and aerospace sectors, where surface purity and integrity are paramount.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Laboratory and Scientific Equipment
-- Pharmaceutical Manufacturing
-- Aerospace and Defense
-- Electronics and Semiconductor
-- Food and Beverage Processing
-- Cultural Heritage and Museums
-- Medical Device Manufacturing
-- Energy and Power Generation
-- Automotive Manufacturing
-- Chemical Processing
+  - Laboratory and Scientific Equipment
+  - Pharmaceutical Manufacturing
+  - Aerospace and Defense
+  - Electronics and Semiconductor
+  - Food and Beverage Processing
+  - Cultural Heritage and Museums
+  - Medical Device Manufacturing
+  - Energy and Power Generation
+  - Automotive Manufacturing
+  - Chemical Processing
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 753.0
+      value: 753
       min: 120
       max: 900
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Miscellaneous Materials, specifically borosilicate glass (Pyrex 7740) at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'Corning Incorporated Material Specification - Pyrex 7740 Borosilicate Glass (20-300°C range), ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     compressiveStrength:
-      value: 1000.0
+      value: 1000
       min: 500
       max: 2000
       unit: MPa
       research_basis: The compressive strength of glass is significantly higher than its tensile strength. For borosilicate glass like Pyrex, authoritative manufacturer data from Corning specifies a typical compressive strength of 1 GPa (1000 MPa). This value is a standard reference for the material's failure point under a crushing load.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 9
       max: 10
       unit: rating
@@ -94,37 +94,37 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Corning Incorporated Material Specifications for Pyrex 7740 borosilicate glass, ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     electricalResistivity:
-      value: 120000000000000.0
-      min: 10000000000.0
-      max: 1000000000000000.0
+      value: 120000000000000
+      min: 10000000000
+      max: 1000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 69.0
+      value: 69
       min: 50
-      max: 750.0
+      max: 750
       unit: MPa
       research_basis: The manufacturer's technical data sheet is the definitive source for this property. It lists the modulus of rupture (a measure of flexural strength) for annealed Pyrex 7740 glass as 69 MPa, determined by a standard 4-point bend test method (ASTM C158). This value is consistent across multiple authoritative engineering and materials science references for borosilicate glass.
     hardness:
-      value: 6.0
+      value: 6
       min: 3.5
       max: 9.5
       unit: Mohs
       research_basis: 'Corning Incorporated Material Property Sheets for Pyrex 7740 borosilicate glass, ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     oxidationResistance:
-      value: 500.0
-      min: 400.0
-      max: 1700.0
+      value: 500
+      min: 400
+      max: 1700
       unit: °C
       research_basis: The maximum continuous service temperature for Pyrex 7740 borosilicate glass in air is consistently cited as 500°C by its primary manufacturer, Corning. This is not an oxidation temperature in the metallic sense, but the temperature at which the glass begins to undergo significant thermal deformation and chemical degradation, which is the relevant failure mode for this material class.
     tensileStrength:
-      value: 70.0
+      value: 70
       min: 30
       max: 2000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section ''Properties of Glass'' and Corning Incorporated Pyrex® 7740 technical data sheets'
     youngsModulus:
-      value: 62.0
+      value: 62
       min: 10
       max: 400
       unit: GPa
@@ -140,8 +140,8 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 2.1
-      min: 2.0
-      max: 6.0
+      min: 2
+      max: 6
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
@@ -151,7 +151,7 @@ materialProperties:
       unit: '%'
       research_basis: 'NIST Standard Reference Database 78 (2019) - Optical Constants of Inorganic Glasses; Corning Incorporated Pyrex 7740 Technical Data Sheet - Composition: 80.6% SiO₂, 12.6% B₂O₃, 4.2% Na₂O, 2.2% Al₂O₃'
     laserReflectivity:
-      value: 4.0
+      value: 4
       min: 0.1
       max: 92
       unit: '%'
@@ -160,7 +160,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Energy density threshold for effective contaminant removal without damaging Pyrex substrate
   overlapRatio:
@@ -212,36 +212,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength providing good absorption in surface contaminants while minimizing bulk Pyrex absorption
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.631723'
@@ -315,8 +315,8 @@ preservedData:
         min: 10
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 6.0
+        min: 2
+        max: 6
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 80
@@ -339,8 +339,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1000000000000000.0
+        min: 10000000000
+        max: 1000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Glass is insulator
@@ -348,7 +348,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 50
-        max: 750.0
+        max: 750
         unit: MPa
         description: Maximum bending stress before failure
         notes: Glass weak in bending
@@ -363,8 +363,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 400.0
-        max: 1700.0
+        min: 400
+        max: 1700
         unit: °C
         description: ''
         sample_count: 11

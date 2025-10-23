@@ -1,5 +1,5 @@
 name: Inconel
-category: Metal
+category: metal
 subcategory: alloy
 title: Inconel Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Inconel
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Inconel
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,57 +24,57 @@ caption:
   beforeText: At 500x magnification, the Inconel surface presents a heavily contaminated state, characterized by a non-uniform, stratified layer of tenacious deposits. The primary contaminant appears as a dark, amorphous oxide scale, measuring approximately 8–12 µm in thickness, which exhibits extensive micro-cracking and spallation at the interface with the underlying substrate. This scale is not monolithic; it is overlaid with patches of lighter-colored, particulate contamination—likely embedded alumina-silicate particles from prior service—ranging from 5 to 20 µm in diameter. The surface topography is highly irregular, with an initial roughness (Ra) estimated to exceed 4.0 µm, completely obscuring the original metallic grain structure. Energy-dispersive X-ray spectroscopy (EDX) point analysis confirms the complex chemistry of this layer, revealing strong signals for oxygen and carbon alongside the base nickel-chromium matrix. One can observe that this contamination, it creates a textured, almost spongiform morphology that would significantly impair the material's intrinsic reflectivity and promote further localized corrosion. The adhesion of this layer appears mechanically interlocked within the substrate's micro-features, a condition which complicates removal and speaks to the high-temperature history of the component.
   afterText: Following the laser cleaning process, the transformation observed at 500x is quite remarkable. The previously dominant contamination layer has been entirely ablated, revealing the pristine, underlying Inconel substrate with its characteristic face-centered cubic grain structure now clearly delineated. The surface roughness, it has been substantially reduced to a measured Ra of 0.8 µm—a more than 80% decrease—which is a critical parameter for subsequent coating adhesion or reassembly. What strikes one is the elegant balance achieved; the laser parameters have successfully vaporized the oxide scale without inducing significant melting or forming a thick, recast layer, a common challenge given the alloy's low thermal diffusivity of 3.5 mm²/s. Detailed examination reveals a lightly textured surface, comprised of fine, sub-micron ripples or laser-induced periodic surface structures (LIPSS) that cover the exposed grains uniformly. This micro-patterning, which exhibits a consistent periodicity of approximately 1.2 µm, is a direct result of the laser-matter interaction and actually serves to enhance surface area for bonding applications. The cleaning efficacy is further confirmed by the absence of the previously dominant oxygen and carbon EDX signatures; the surface composition now aligns closely with the nominal Inconel 718 chemistry, indicating a restoration of the native passivating oxide layer—a chromium-rich film merely 20-50 nanometers thick. The surface integrity, she is very well preserved. To achieve this result, it required careful control of the fluence just above the estimated ablation threshold of 2.5 J/cm². One can observe isolated, sub-surface inclusions—inherent to the material's production—now exposed and clean, but no evidence of micro-cracking or heat-affected zone (HAZ) deterioration that would compromise the high tensile strength. This level of precision, it creates a surface that is not only visually restored but also functionally optimized for its demanding applications in aerospace and gas turbines, where surface purity and fatigue life are paramount. The reflectivity, consequently, has been restored to near-theoretical values for the bare metal.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Chemical Processing
-- Gas Turbines
-- Nuclear
-- Oil & Gas
-- Power Generation
-- Rocket Engines
-- Space
+  - Aerospace
+  - Chemical Processing
+  - Gas Turbines
+  - Nuclear
+  - Oil & Gas
+  - Power Generation
+  - Rocket Engines
+  - Space
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 3180.0
+      value: 3180
       min: 907
       max: 5870
       unit: K
       research_basis: materials_science_literature
     meltingPoint:
-      value: 1399.0
+      value: 1399
       min: -39
       max: 3422
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 444.0
+      value: 444
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'ASM Handbook, Volume 1: Properties and Selection: Irons, Steels, and High-Performance Alloys (1990), Table ''Thermal Properties of Nickel and Nickel Alloys'' for Inconel 600 at 20°C'
     thermalConductivity:
       value: 11.2
-      min: 7.0
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 1: Properties and Selection: Irons, Steels, and High-Performance Alloys (1990), Specific data for Inconel 718 at room temperature (25°C)'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 1623.0
+      value: 1623
       min: 873
       max: 3695
       unit: K
@@ -92,13 +92,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Specific data for Inconel 600 (UNS N06600) at 20-100°C'
     compressiveStrength:
-      value: 1034.0
+      value: 1034
       min: 50
       max: 2000
       unit: MPa
       research_basis: The provided properties (density, hardness) are consistent with Inconel 718, a common high-strength nickel-chromium alloy. The compressive yield strength for Inconel 718 at room temperature is authoritatively reported as 1034 MPa (150 ksi). This value is a standard reference in material data sheets for the alloy in the annealed condition.
     corrosionResistance:
-      value: 9.0
+      value: 9
       min: 1
       max: 10
       unit: rating
@@ -112,19 +112,19 @@ materialProperties:
     electricalConductivity:
       value: 0.93
       min: 0.67
-      max: 63.0
+      max: 63
       unit: MS/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 1.29e-06
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 0.00000129
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 1240.0
+      value: 1240
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: materials_science_literature
     hardness:
@@ -134,31 +134,31 @@ materialProperties:
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Inconel 718 typical room temperature hardness range 35-45 HRC (equivalent to 1520-1980 MPa Vickers hardness)'
     oxidationResistance:
-      value: 1093.0
+      value: 1093
       min: 200
       max: 1200
       unit: °C
       research_basis: For Inconel 600 (a common representative alloy), the maximum recommended continuous service temperature in air is 1093°C (2000°F) according to the primary manufacturer's datasheet. Other Inconel variants (like 601, 617, 625) maintain good oxidation resistance up to 1093-1150°C, with 1093°C being the conservative baseline for continuous service before significant oxidation scaling occurs.
     porosity:
       value: 0.0002
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 827.0
-      min: 3.0
-      max: 3000.0
+      value: 827
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, specifically for Inconel 600 (UNS N06600) in annealed condition at room temperature'
     youngsModulus:
-      value: 214.0
+      value: 214
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, specifically Table 1 ''Typical Room-Temperature Mechanical Properties of Wrought Nickel and Nickel Alloys'' for Inconel 718'
     fractureToughness:
-      value: 70.0
+      value: 70
       min: 20
       max: 200
       unit: MPa·√m
@@ -168,14 +168,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 2.8
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.37
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -187,7 +187,7 @@ materialProperties:
     laserDamageThreshold:
       value: 2.1
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -203,13 +203,13 @@ materialProperties:
       unit: dimensionless
       research_basis: materials_science_literature
     thermalShockResistance:
-      value: 275.0
+      value: 275
       min: 50
       max: 400
       unit: MPa
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 3800000.0
+      value: 3800000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -221,8 +221,8 @@ materialProperties:
       unit: μm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 1.33e-07
-      min: 1.0e-10
+      value: 1.33e-7
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -230,7 +230,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Inconel oxide removal
   overlapRatio:
@@ -282,36 +282,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Inconel absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.277917'
@@ -355,11 +355,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -391,8 +391,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -433,8 +433,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -452,7 +452,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -460,7 +460,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -478,7 +478,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -513,8 +513,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -522,8 +522,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -540,7 +540,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

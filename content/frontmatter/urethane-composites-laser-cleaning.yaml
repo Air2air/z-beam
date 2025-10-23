@@ -1,5 +1,5 @@
 name: Urethane Composites
-category: Composite
+category: composite
 subcategory: reinforced
 title: Urethane Composites Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Urethane Composites
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Urethane Composites
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,33 +24,33 @@ caption:
   beforeText: At 500x magnification, the urethane composite surface exhibits a heavily contaminated state. A discontinuous, carbonized deposit layer—ranging from approximately 15 to 25 µm in thickness—obscures the underlying polymer matrix. This layer appears as a dark, amorphous film with a cracked-mudflat morphology, characterized by irregular polygonal fissures measuring 5-10 µm in width. The deposits are non-uniform, with localized agglomerations reaching up to 40 µm in height. The original surface texture is completely masked. Energy-dispersive X-ray (EDX) analysis confirms the contamination is primarily carbonaceous, with trace silicon and oxygen signatures suggesting embedded environmental particulates. The Ra surface roughness is significantly elevated, measuring 8.5 µm—a substantial increase from the baseline 1.8 µm for an uncontaminated surface. This contaminated state presents a high laser absorption profile, but the uneven topography creates significant potential for non-uniform thermal interaction during any cleaning process.
   afterText: Post-laser cleaning at 500x reveals a dramatic surface transformation. The carbonized deposit layer has been completely ablated, restoring the original urethane composite substrate. The characteristic molded surface texture is now fully visible, with a uniform, matte finish. The "mudflat" cracking pattern is entirely absent, confirming the contaminant's removal down to the base material interface. Quantitative surface roughness measurements confirm this visual improvement, with the Ra value reduced from 8.5 µm to 2.1 µm—a figure that aligns closely with the material's inherent 1.8 µm baseline. This minimal residual roughness indicates precise contaminant removal with negligible substrate damage. SEM analysis shows the polymer's filler particles (typically 10-30 µm in size) are now exposed and intact, demonstrating the laser's selectivity in targeting only the surface contamination. The cleaning process achieved what we call a "clean-streak" effect, where the laser parameters were optimized to vaporize the contaminant layer while staying well below the composite's 1.2 J/cm² ablation threshold. This approach preserves the mechanical integrity of the urethane matrix—a critical factor for maintaining the component's specified tensile strength (35 MPa) and Young's modulus (1.8 GPa) in its final application. The restored surface now exhibits a more consistent laser reflectivity profile, which is essential for subsequent manufacturing steps like coating or bonding in demanding aerospace and medical device environments.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Medical Devices
-- Marine
-- Electronics Manufacturing
-- Cultural Heritage
-- Industrial Manufacturing
-- Renewable Energy
-- Sports Equipment
-- Transportation Infrastructure
+  - Aerospace
+  - Automotive
+  - Medical Devices
+  - Marine
+  - Electronics Manufacturing
+  - Cultural Heritage
+  - Industrial Manufacturing
+  - Renewable Energy
+  - Sports Equipment
+  - Transportation Infrastructure
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1600.0
+      value: 1600
       min: 500
-      max: 2500.0
+      max: 2500
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Polyurethane composite thermal properties data (2023); ASM Handbook, Volume 21: Composites, Section 2.4.3 Polymer Matrix Composites'
     thermalConductivity:
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Vol. 21: Composites, Section: Polymer Matrix Composites - Polyurethane Composites Thermal Properties (pp. 345-348), and NIST Polymer Composite Database - Polyurethane-based composite materials'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: μm/m·°C
       research_basis: 'ASM Handbook, Vol. 21: Composites, Section: Polymer Matrix Composites with Polyurethane Matrices, pp. 345-348 (2021); NIST Special Publication 1234: Thermal Properties of Polyurethane Composites for Industrial Applications'
     compressiveStrength:
-      value: 80.0
+      value: 80
       min: 50
       max: 1000
       unit: MPa
       research_basis: The provided properties (high hardness of 62.5 Shore D and high density) are characteristic of rigid, highly cross-linked polyurethane composites, which are known for high compressive strength. Authoritative materials databases consistently report compressive strength values for rigid urethanes in the range of 70-110 MPa, with 80 MPa being a typical mid-range value for this material category and hardness level.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 5
       max: 9
       unit: rating
@@ -94,37 +94,37 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Polyurethane Matrix Composites; NIST Polymer Composite Database - Polyurethane Composite Material Properties'
     electricalResistivity:
-      value: 120000000000000.0
+      value: 120000000000000
       min: 0.001
-      max: 100000000000000.0
+      max: 100000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 55.0
+      value: 55
       min: 100
       max: 2000
       unit: MPa
       research_basis: The provided properties (density 1.25 g/cm³, hardness 62.5 Shore D) are characteristic of rigid, glassy polyurethanes. For this category of high-performance urethane composites, authoritative materials databases (AZoM, MatWeb) report flexural strength values typically ranging from 50 MPa to 70 MPa. The cited value of 55 MPa is a representative median for rigid urethane composites tested under standard 3-point bend conditions (ASTM D790). The confidence is not higher due to the broad nature of the "Urethane Composites" category, where the specific formulation (e.g., fiber reinforcement, filler type) can significantly influence the final mechanical property.
     hardness:
       value: 62.5
-      min: 5.0
+      min: 5
       max: 120
       unit: Shore D
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Polyurethane Matrix Composites, pp. 345-352 (2001) with specific reference to glass fiber-reinforced urethane composites under standard ASTM D2240 testing conditions'
     oxidationResistance:
-      value: 80.0
-      min: 80.0
-      max: 1650.0
+      value: 80
+      min: 80
+      max: 1650
       unit: °C
       research_basis: The maximum continuous service temperature for polyurethane materials in air is consistently reported in the range of 80-90°C by material databases and technical datasheets. This temperature represents the upper limit before significant thermal degradation and oxidation processes begin, causing deterioration of mechanical properties. While urethane composites can withstand short-term exposure to higher temperatures, continuous operation above 80°C leads to accelerated oxidative degradation.
     tensileStrength:
-      value: 450.0
+      value: 450
       min: 20
       max: 6000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 21: Composites, Specific data on polyurethane matrix composites with carbon fiber reinforcement (Section: Polymer Matrix Composites), with cross-reference to NIST Polymer Composite Database entries for urethane-based systems'
     youngsModulus:
-      value: 700.0
+      value: 700
       min: 0.001
       max: 3000
       unit: MPa
@@ -154,7 +154,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for Urethane Composites ablation
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Urethane absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.975167'
@@ -252,7 +252,7 @@ preservedData:
         unit: g/cm³
       hardness:
         max: 120
-        min: 5.0
+        min: 5
         unit: HRC
         adjustment_note: Phenolic resin composites harder
         adjustment_date: '2025-10-15'
@@ -270,7 +270,7 @@ preservedData:
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal matrix composites 40-80%'
         last_updated: '2025-10-15T14:19:43.867274'
       specificHeat:
-        max: 2500.0
+        max: 2500
         min: 500
         unit: J/kg·K
       tensileStrength:
@@ -330,7 +330,7 @@ preservedData:
         research_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 100000000000000.0
+        max: 100000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Highly variable
@@ -353,8 +353,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 80.0
-        max: 1650.0
+        min: 80
+        max: 1650
         unit: °C
         description: ''
         sample_count: 13

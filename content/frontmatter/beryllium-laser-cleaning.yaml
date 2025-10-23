@@ -1,5 +1,5 @@
 name: Beryllium
-category: Metal
+category: metal
 subcategory: alloy
 title: Beryllium Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Beryllium
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Beryllium
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,59 +24,59 @@ caption:
   beforeText: At 500x magnification, the beryllium surface shows significant contamination. A non-uniform oxide layer is present, with a measured thickness varying from 2.5 to 5.1 µm. This layer appears as a dark, mottled film with localized patches of white, powdery beryllium oxide. Surface roughness is high, measuring approximately 3.8 µm Ra, which is a substantial increase from the substrate's typical 0.8 µm Ra. The contamination layer itself has a complex structure. It features micro-cracking and some areas of delamination, likely from thermal stress during prior service. Energy-dispersive X-ray spectroscopy (EDX) confirms the presence of carbonaceous deposits and silicate particles embedded within the oxide matrix. These contaminants create a textured, irregular topography that would significantly impair surface-dependent properties like reflectivity and adhesion. The overall appearance is one of a degraded, non-protective surface film that compromises the base material's integrity.
   afterText: Laser cleaning produces a very clear transformation. The contaminated layer is completely removed, revealing the underlying metallic substrate. Surface now exhibits the characteristic hexagonal grain structure of beryllium's HCP lattice, with grain boundaries clearly defined. This is a significant improvement from the previously obscured surface. Post-cleaning analysis shows a dramatic reduction in surface roughness, now measuring 1.2 µm Ra. This represents a 68% decrease from the pre-cleaned state. Some minor laser ablation patterns are visible—these appear as fine, overlapping striations with a periodicity of approximately 12-15 µm. The surface reflectivity has increased substantially, a direct result of the contaminant removal and the restoration of a continuous metallic surface. XPS analysis confirms the presence of a thin, protective beryllium oxide layer, now measuring a consistent 0.2 µm, which is desirable for passivation. Final surface integrity is excellent. No evidence of melting or heat-affected zone micro-cracking is observed, which indicates the laser parameters were well-controlled and remained below the material's ablation threshold. The process has successfully restored the surface to a state that is functionally superior, with improved reflectivity and a clean, uniform topography that is suitable for subsequent coating or bonding operations. This represents a high-precision restoration of the beryllium substrate.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace and Defense
-- Nuclear Energy
-- Medical Device Manufacturing
-- Electronics and Semiconductor
-- Automotive Racing
-- Research and Laboratory
-- Telecommunications
-- Optics and Laser Manufacturing
-- Marine and Naval
-- Cultural Heritage Preservation
+  - Aerospace and Defense
+  - Nuclear Energy
+  - Medical Device Manufacturing
+  - Electronics and Semiconductor
+  - Automotive Racing
+  - Research and Laboratory
+  - Telecommunications
+  - Optics and Laser Manufacturing
+  - Marine and Naval
+  - Cultural Heritage Preservation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2742.0
+      value: 2742
       min: 907
       max: 5870
       unit: K
       research_basis: materials_science_literature
     meltingPoint:
-      value: 1287.0
+      value: 1287
       min: -39
       max: 3422
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 1925.0
+      value: 1925
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: materials_science_literature
     thermalConductivity:
-      value: 201.0
-      min: 7.0
+      value: 201
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical Properties of Beryllium at 20°C'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 1287.0
+      value: 1287
       min: 873
       max: 3695
       unit: °C
@@ -94,13 +94,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Physical Properties of Beryllium'' (20°C to 100°C range)'
     compressiveStrength:
-      value: 600.0
+      value: 600
       min: 50
       max: 2000
       unit: MPa
       research_basis: The compressive strength of beryllium is significantly higher than its tensile strength (which is typically 240-380 MPa). The value of 600 MPa is a representative compressive yield strength (0.2% offset) for hot-pressed beryllium block, a common industrial form. The high stiffness-to-weight ratio and hexagonal crystal structure of beryllium contribute to its anisotropic mechanical properties, where compressive strength is a key design parameter.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -112,55 +112,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Chapter: Beryllium and Beryllium Alloys, Table: Physical Properties of Beryllium'
     electricalConductivity:
-      value: 30800000.0
+      value: 30800000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 3.6e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 3.6e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 345.0
+      value: 345
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: The provided flexural strength value is for hot-pressed beryllium, which is the most common structural form. Beryllium is a brittle metal, and its flexural strength is a critical design property, typically determined by 4-point bend testing. The value falls within the 250-450 MPa range commonly reported for high-purity, hot-pressed block material in authoritative materials databases.
     hardness:
-      value: 150.0
+      value: 150
       min: 0.5
       max: 3500
       unit: HB
       research_basis: 'ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Room-Temperature Mechanical Properties of Commercial-Purity Beryllium'
     oxidationResistance:
-      value: 600.0
+      value: 600
       min: 200
       max: 1200
       unit: °C
       research_basis: Beryllium has poor oxidation resistance in air. While a thin protective BeO film forms, it becomes non-protective and breaks down at elevated temperatures. The ASM Handbook states that for continuous service in air, temperatures are limited to approximately 600°C (1112°F) due to rapid oxidation above this point. Significant oxidation begins at lower temperatures (~500°C), but 600°C is the established maximum service limit for sustained exposure.
     porosity:
       value: 0.003
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 448.0
-      min: 3.0
-      max: 3000.0
+      value: 448
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Room-Temperature Mechanical Properties of Wrought Beryllium'
     youngsModulus:
-      value: 287.0
+      value: 287
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Beryllium'
     fractureToughness:
-      value: 4.0
+      value: 4
       min: 20
       max: 200
       unit: MPa·√m
@@ -170,14 +170,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.8
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.38
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -189,7 +189,7 @@ materialProperties:
     laserDamageThreshold:
       value: 1.8
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -223,8 +223,8 @@ materialProperties:
       unit: µm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 133.0
-      min: 1.0e-10
+      value: 133
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -232,7 +232,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for Beryllium oxide removal without substrate damage
   overlapRatio:
@@ -284,36 +284,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Beryllium thermal absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:57.924536'
@@ -357,11 +357,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -393,8 +393,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -435,8 +435,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -454,7 +454,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -462,7 +462,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -480,7 +480,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -515,8 +515,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -524,8 +524,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -542,7 +542,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

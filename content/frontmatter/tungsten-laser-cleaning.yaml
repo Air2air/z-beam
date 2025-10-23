@@ -1,5 +1,5 @@
 name: Tungsten
-category: Metal
+category: metal
 subcategory: alloy
 title: Tungsten Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Tungsten
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Tungsten
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,58 +24,58 @@ caption:
   beforeText: At 500x magnification, the tungsten surface shows heavy, non-uniform contamination. A thick, amorphous carbonaceous layer—approximately 15 to 20 µm thick—dominates the topography, appearing as a dark, congealed film that obscures the underlying metallic substrate. This layer exhibits extensive micro-cracking, with fissure widths measuring between 2 and 5 µm, a clear indicator of thermal stress and poor adhesion. Particulate inclusions, likely silica and alumina from environmental deposition, are embedded throughout, ranging in size from sub-micron to about 8 µm. These particulates create localized topographic highs that further disrupt surface integrity. The native tungsten microstructure is completely masked. Energy-dispersive X-ray (EDX) analysis confirms the primary contaminants are carbon and oxygen, with atomic percentages reaching roughly 65% and 25%, respectively. This suggests significant hydrocarbon accumulation and surface oxidation. The overall surface roughness is severe, with initial Ra values measured between 4.5 and 6.0 µm. This level of contamination would severely degrade functional properties, most notably the thermal and electrical contact conductivity, because the insulating layer directly impedes electron transfer. The surface, it has no metallic luster, appearing instead as a matte, topographically complex landscape that compromises component performance.
   afterText: Laser cleaning produces a dramatic surface transformation, which is immediately evident at 500x. The contaminant layer has been completely ablated, revealing the pristine, underlying tungsten grain structure. The surface now exhibits a clear, recrystallized appearance with well-defined grain boundaries and a noticeable increase in reflectivity. Some localized remelting is visible—precisely in areas of prior high contamination—creating shallow, smooth micro-craters with depths of approximately 3 to 8 µm. This is a direct result of exceeding the material's ablation threshold, which for tungsten is 3.2 J/cm². Surface roughness has been significantly reduced, with post-process Ra values now measured between 0.8 and 1.2 µm. This represents an improvement of nearly 80% from the initial state. X-ray photoelectron spectroscopy (XPS) analysis confirms the surface chemistry is restored to nearly pure tungsten, with oxygen atomic percentage dropping below 5% and carbon reduced to under 2%. The process leaves a very clean, metallurgically sound surface. Minor laser scanning patterns are observable as faint, overlapping lines with a spacing of about 50 µm, but these do not negatively impact the surface integrity. The functional restoration is very clear. The high reflectivity characteristic of pure tungsten has returned, and the surface is free of the insulating films that previously degraded performance. This cleaned state, it provides an optimal surface for subsequent processes like thin-film deposition or brazing, as the excellent adhesion is now possible on the contaminant-free, mechanically sound substrate. The grain structure, now fully visible, confirms no bulk material damage occurred during the cleaning process.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Defense
-- Electronics Manufacturing
-- Lighting and Vacuum Tubes
-- Medical Devices (X-ray tubes)
-- Mining and Drilling
-- Nuclear
-- Tooling and Dies
-- Welding Electrodes
+  - Aerospace
+  - Defense
+  - Electronics Manufacturing
+  - Lighting and Vacuum Tubes
+  - Medical Devices (X-ray tubes)
+  - Mining and Drilling
+  - Nuclear
+  - Tooling and Dies
+  - Welding Electrodes
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 5930.0
+      value: 5930
       min: 907
       max: 5870
       unit: K
       research_basis: materials_science_literature
     meltingPoint:
-      value: 3695.0
+      value: 3695
       min: -39
       max: 3422
       unit: K
       research_basis: materials_science_literature
     specificHeat:
-      value: 132.0
+      value: 132
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of Pure Tungsten at 300K, ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalConductivity:
-      value: 173.0
-      min: 7.0
+      value: 173
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Tungsten at 300K, complemented by ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 3695.0
+      value: 3695
       min: 873
       max: 3695
       unit: K
@@ -93,13 +93,13 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, pp. 762-763; NIST Standard Reference Database 144, ''Thermophysical Properties of Pure Tungsten'''
     compressiveStrength:
-      value: 1510.0
+      value: 1510
       min: 50
       max: 2000
       unit: MPa
       research_basis: The compressive strength of pure, recrystallized tungsten is significantly lower than its hardness and highly dependent on its form (e.g., pure sintered, wire-drawn) and test temperature. The cited value of 1510 MPa is a representative figure for the compressive yield strength (0.2% offset) of pure tungsten at room temperature, as established in authoritative materials handbooks. This value is consistent with its known behavior of being strong but brittle under compression at room temperature.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -111,55 +111,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, p. 446; NIST Standard Reference Database 144, ''Physical Constants of Tungsten'''
     electricalConductivity:
-      value: 18200000.0
+      value: 18200000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 5.28e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 5.28e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 750.0
+      value: 750
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: The provided flexural strength is a typical value for sintered, unalloyed tungsten. The ASM Handbook is a definitive reference for material properties. It is critical to note that tungsten's flexural strength is highly dependent on its processing (sintering, rolling, etc.) and purity. For high-purity, recrystallized tungsten, flexural strength can be significantly lower (around 550 MPa), while heavily worked or alloyed forms can exceed 1000 MPa. The value of 750 MPa represents a common baseline for sintered and forged material.
     hardness:
-      value: 3430.0
+      value: 3430
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Tungsten'
     oxidationResistance:
-      value: 400.0
+      value: 400
       min: 200
       max: 1200
       unit: °C
       research_basis: Authoritative texts on tungsten consistently report that significant oxidation begins in air around 400-500°C, forming volatile WO₃. The lower end of this range (400°C) is cited as the maximum for continuous service where oxidation is minimal and predictable. At higher temperatures, the oxidation rate becomes rapid and catastrophic.
     porosity:
       value: 0.02
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 1510.0
-      min: 3.0
-      max: 3000.0
+      value: 1510
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Tungsten and Tungsten Alloys'' chapter, Table 1: Typical room-temperature mechanical properties of unalloyed tungsten'
     youngsModulus:
-      value: 411.0
+      value: 411
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, p. 446; NIST Materials Data Repository - Tungsten Single Crystal Elastic Constants'
     fractureToughness:
-      value: 400.0
+      value: 400
       min: 20
       max: 200
       unit: MPa·√m
@@ -169,14 +169,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.65
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.41
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -188,7 +188,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.45
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -204,13 +204,13 @@ materialProperties:
       unit: dimensionless
       research_basis: materials_science_literature
     thermalShockResistance:
-      value: 450.0
+      value: 450
       min: 50
       max: 400
       unit: W/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 42000000.0
+      value: 42000000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -222,8 +222,8 @@ materialProperties:
       unit: μm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 1.3e-07
-      min: 1.0e-10
+      value: 1.3e-7
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -231,7 +231,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Tungsten oxide removal
   overlapRatio:
@@ -283,36 +283,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Tungsten absorption and thermal processing
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.954217'
@@ -356,11 +356,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -392,8 +392,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -434,8 +434,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -453,7 +453,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -461,7 +461,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -479,7 +479,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -514,8 +514,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -523,8 +523,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -541,7 +541,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

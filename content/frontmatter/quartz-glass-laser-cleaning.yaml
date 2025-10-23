@@ -1,5 +1,5 @@
 name: Quartz Glass
-category: Glass
+category: glass
 subcategory: silicate
 title: Quartz Glass Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Quartz Glass
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Quartz Glass
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: This quartz glass surface shows heavy contamination at 500x magnification. A carbonaceous deposit layer covers approximately 85% of the surface area, this layer measures between 5-15 µm in thickness. The deposit appears as a discontinuous film with particulate inclusions—or more precisely—metallic oxide particles embedded throughout. Surface analysis reveals significant textural degradation. The original polished substrate now exhibits localized pitting and micro-fractures beneath the contamination layer. These features, perhaps from previous cleaning attempts, create adhesion sites that anchor the deposits. The contamination morphology suggests mixed organic and inorganic composition, with visible stratification in cross-section. This complex layer structure severely compromises optical performance and surface integrity.
   afterText: This laser cleaning process produces remarkable surface restoration. The quartz glass now exhibits its original vitreous character, with complete removal of the carbonaceous deposit layer. Surface roughness measurements confirm this improvement, showing Ra values of 0.8-1.2 nm—very close to the pristine material specification of 0.5 nm Ra. The transformation is particularly evident in the elimination of subsurface damage. Micro-fractures observed in the contaminated state are now absent, this indicates the laser parameters were properly calibrated below the ablation threshold of 2.5 J/cm². The surface shows no evidence of thermal stress cracking or melting, which demonstrates excellent process control. This method achieves functional restoration while preserving material integrity. The surface now displays characteristic transmissivity—approximately 93% in visible spectrum—and maintains chemical stability. This clean surface condition meets semiconductor manufacturing requirements, with no detectable residue or laser-induced damage features. The process removes contamination completely, so surface becomes optically functional again.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Semiconductor Manufacturing
-- Aerospace & Defense
-- Medical Device Manufacturing
-- Solar Energy
-- Cultural Heritage
-- Laboratory & Analytical
-- Optical Manufacturing
-- Marine & Offshore
-- Automotive Lighting
-- High-Temperature Processing
+  - Semiconductor Manufacturing
+  - Aerospace & Defense
+  - Medical Device Manufacturing
+  - Solar Energy
+  - Cultural Heritage
+  - Laboratory & Analytical
+  - Optical Manufacturing
+  - Marine & Offshore
+  - Automotive Lighting
+  - High-Temperature Processing
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 741.0
+      value: 741
       min: 120
       max: 900
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Fused Quartz, measured at 300K using guarded hot plate method (ASTM C177)'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10⁻⁶/K
       research_basis: 'NIST Standard Reference Database 84: Fused Silica (Quartz Glass) - Thermal Expansion Coefficient at 20°C = 0.55 × 10⁻⁶/K'
     compressiveStrength:
-      value: 1100.0
+      value: 1100
       min: 500
       max: 2000
       unit: MPa
       research_basis: The compressive strength of fused quartz (quartz glass) is exceptionally high compared to its tensile strength. The cited authoritative handbook provides a typical value of 1.1 GPa (1100 MPa) for the compressive strength of this material, which is consistent with the known brittle nature of glass where compressive strength is significantly higher than tensile strength.
     corrosionResistance:
-      value: 9.0
+      value: 9
       min: 9
       max: 10
       unit: rating
@@ -94,37 +94,37 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (ASM International, 1990), Section ''Fused Silica and Other Glasses'''
     electricalResistivity:
-      value: 1.5e+18
-      min: 10000000000.0
-      max: 1000000000000000.0
+      value: 1500000000000000000
+      min: 10000000000
+      max: 1000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 50.0
+      value: 50
       min: 50
-      max: 750.0
+      max: 750
       unit: MPa
       research_basis: Quartz glass (fused silica) is a brittle ceramic material with typical flexural strength ranging from 30-70 MPa. The value of 50 MPa represents a conservative average from materials engineering references for 3-point bend testing of pristine, annealed specimens. The low strength is characteristic of glass's brittle nature and sensitivity to surface flaws.
     hardness:
-      value: 7.0
+      value: 7
       min: 3.5
       max: 9.5
       unit: Mohs
       research_basis: 'ASM Handbook, Volume 19: Fatigue and Fracture (1996), Section: ''Properties of Glass and Glass Ceramics''; NIST Special Publication 960-15: ''Properties of Optical Materials'''
     oxidationResistance:
-      value: 1100.0
-      min: 400.0
-      max: 1700.0
+      value: 1100
+      min: 400
+      max: 1700
       unit: °C
       research_basis: According to the leading manufacturer Heraeus, the maximum continuous service temperature for fused quartz in air is 1100°C. While quartz glass has excellent thermal stability, prolonged exposure above this temperature in an oxidizing atmosphere can lead to surface devitrification (crystallization), which is the primary oxidation-related degradation mechanism, rather than the formation of a gaseous oxide.
     tensileStrength:
-      value: 48.0
+      value: 48
       min: 30
       max: 2000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (ASM International, 1990), Section: ''Fused Silica and Other Glasses'''
     youngsModulus:
-      value: 72.0
+      value: 72
       min: 10
       max: 400
       unit: GPa
@@ -140,8 +140,8 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 2.1
-      min: 2.0
-      max: 6.0
+      min: 2
+      max: 6
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
@@ -160,7 +160,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Energy density threshold for effective contaminant removal without damaging Quartz Glass substrate
   overlapRatio:
@@ -212,36 +212,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength with good transmission through Quartz Glass for selective contaminant removal
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.637797'
@@ -315,8 +315,8 @@ preservedData:
         min: 10
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 6.0
+        min: 2
+        max: 6
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 80
@@ -339,8 +339,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1000000000000000.0
+        min: 10000000000
+        max: 1000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Glass is insulator
@@ -348,7 +348,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 50
-        max: 750.0
+        max: 750
         unit: MPa
         description: Maximum bending stress before failure
         notes: Glass weak in bending
@@ -363,8 +363,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 400.0
-        max: 1700.0
+        min: 400
+        max: 1700
         unit: °C
         description: ''
         sample_count: 11

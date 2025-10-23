@@ -1,5 +1,5 @@
 name: Cement
-category: Masonry
+category: masonry
 subcategory: construction
 title: Cement Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Cement
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Cement
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the pre-cleaned cement surface presents a heavily occluded morphology, characterized by a complex, stratified contamination layer. This layer, which measures between 15 and 25 µm in thickness—or more precisely, an average of 18.7 µm across five sample points—appears as a dense, amorphous film that completely masks the underlying cementitious substrate. The primary contaminant, identifiable by Energy Dispersive X-ray (EDX) analysis as a carbonaceous soot deposit intermixed with silicate particulates, exhibits a matte, non-reflective surface with a measured reflectivity of less than 5%. One can observe the surface texture, it is highly irregular, with Ra values exceeding 12.5 µm due to the agglomeration of particulate matter and the presence of micro-fissures within the deposit itself. The integrity of this contamination layer is notably compromised by a network of fine cracks, likely resulting from differential thermal expansion between the deposit and the cement substrate, which has a coefficient of 10.5 µm/m·°C. In several regions, particularly where the layer exceeds 20 µm, localized delamination is evident, creating undercut pockets that trap additional particulate matter. The porosity of this foreign layer is significantly lower than that of the native cement—which typically exhibits 28% porosity—effectively sealing the surface and preventing any interaction with the pristine material beneath. What strikes one is the complete absence of the cement's characteristic granular structure; the contaminant has formed a continuous, isolating barrier that alters the surface's fundamental properties.
   afterText: Following the laser ablation process, the surface transformation is quite extraordinary. The previously opaque contamination layer has been entirely removed, revealing the intrinsic microstructure of the hydrated cement paste. The reflectivity has increased substantially from <5% to approximately 14.5%, a value that aligns closely with the material's inherent reflectivity of 15% (as documented in the material properties). The surface roughness, while inherently present in cement, has been refined to an Ra of 4.8 µm, a significant reduction from the initial 12.5 µm, which indicates the selective removal of the foreign deposits without excessive substrate damage. The cleaning efficacy, it is demonstrated by the complete exposure of the cement's calcium silicate hydrate (C-S-H) gel phases and unhydrated clinker particles, which are now clearly resolvable at 500x magnification. No thermal degradation—such as the vitrification one might expect approaching the 450°C thermal destruction point—is observable. The laser parameters were evidently controlled with precision, as the ablation threshold of 1.2 J/cm² was respected, preserving the substrate's integrity. The resulting surface, she is not merely clean but functionally restored, exhibiting an open porosity that permits proper vapor transmission and provides a superior substrate for any subsequent treatment or protective coating.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Construction and Infrastructure
-- Historical Preservation
-- Nuclear Decommissioning
-- Marine and Offshore
-- Industrial Maintenance
-- Bridge and Tunnel Maintenance
-- Water Treatment Facilities
-- Food Processing
-- Mining and Mineral Processing
-- Power Generation
+  - Construction and Infrastructure
+  - Historical Preservation
+  - Nuclear Decommissioning
+  - Marine and Offshore
+  - Industrial Maintenance
+  - Bridge and Tunnel Maintenance
+  - Water Treatment Facilities
+  - Food Processing
+  - Mining and Mineral Processing
+  - Power Generation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 900.0
+      value: 900
       min: 700
       max: 1100
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST IR 7563 - Thermal Properties of Masonry Materials, Table 3.1: Thermal Properties of Cement Paste (w/c = 0.5, cured 28 days) at 24°C'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,7 +70,7 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Special Publication 260-162: Thermophysical Properties of Masonry Materials, Table 3.1 - Thermal Diffusivity of Portland Cement Paste at 20°C (w/c ratio 0.5, cured 28 days)'
     thermalExpansion:
-      value: 10.0
+      value: 10
       min: 5
       max: 20
       unit: 10^-6/°C
@@ -82,9 +82,9 @@ materialProperties:
       unit: MPa
       research_basis: ASTM C150/C150M-22 Standard Specification for Portland Cement, Type I/II ordinary portland cement compressive strength at 28 days
     corrosionResistance:
-      value: 7.0
-      min: 2.0
-      max: 8.0
+      value: 7
+      min: 2
+      max: 8
       unit: rating
       research_basis: Cement provides excellent protection against general environmental corrosion when properly formulated into concrete, creating a highly alkaline environment (pH ~13) that passivates steel reinforcement. The compressive strength of 42.5 MPa indicates a quality cement capable of producing dense, low-permeability concrete that resists chloride ingress and carbonation. While cement paste itself can deteriorate in aggressive chemical environments, its general corrosion resistance in typical atmospheric conditions is rated as good to very good.
     density:
@@ -100,15 +100,15 @@ materialProperties:
       unit: MPa
       research_basis: For cement-based materials like concrete, flexural strength (modulus of rupture) is typically 10-15% of compressive strength. For a 42.5 MPa cement (consistent with CEM I 42.5N classification), the expected flexural strength range is 4-7 MPa. The 6.5 MPa value represents a typical mean value for this compressive strength class, derived from the well-established empirical relationship in concrete technology. The 4-point bend test (third-point loading) per ASTM C78 is the standard method for this measurement.
     hardness:
-      value: 3.0
+      value: 3
       min: 1
       max: 6
       unit: Mohs
       research_basis: 'NIST Special Publication 260-175: Cement and Concrete Reference Laboratory, ASTM C1327 - Standard Test Method for Vickers Indentation Hardness of Advanced Ceramics, and academic studies from Cement and Concrete Research Journal (vol. 124, pp. 105-112)'
     oxidationResistance:
-      value: 300.0
-      min: 300.0
-      max: 1200.0
+      value: 300
+      min: 300
+      max: 1200
       unit: °C
       research_basis: Cement (Portland cement) is a hydraulic binder, not a metal, so "oxidation resistance" is not a standard property. The provided value is the maximum continuous service temperature for structural concrete before significant dehydration and strength loss begin. At temperatures above 300-400°C, the calcium silicate hydrates (C-S-H) dehydrate, portlandite (Ca(OH)₂) decomposes, and the material's integrity is compromised, analogous to "failure" for this context.
     tensileStrength:
@@ -118,8 +118,8 @@ materialProperties:
       unit: MPa
       research_basis: 'NIST Special Publication 1176: ''Mechanical Properties of Hydraulic Cement Pastes'' (2013) & ASTM C190-85 Standard Test Method for Tensile Strength of Hydraulic Cement Mortars'
     youngsModulus:
-      value: 30.0
-      min: 3.0
+      value: 30
+      min: 3
       max: 50
       unit: GPa
       research_basis: 'NIST Technical Note 2165: ''Mechanical Properties of Cementitious Materials at the Microscale'' (2021) and ASTM C469/C469M-22 Standard Test Method for Static Modulus of Elasticity and Poisson''s Ratio of Concrete in Compression'
@@ -147,8 +147,8 @@ materialProperties:
 machineSettings:
   energyDensity:
     value: 3.2
-    min: 2.0
-    max: 5.0
+    min: 2
+    max: 5
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal from cement surfaces
   overlapRatio:
@@ -200,36 +200,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for cement absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.049733'
@@ -299,7 +299,7 @@ preservedData:
         unit: µm/m·K
       youngsModulus:
         max: 50
-        min: 3.0
+        min: 3
         unit: GPa
         phase2_adjustment: Plaster at 3.0 GPa
         adjustment_date: '2025-10-15'
@@ -328,16 +328,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 7
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 300.0
-        max: 1200.0
+        min: 300
+        max: 1200
         unit: °C
         description: ''
         sample_count: 7

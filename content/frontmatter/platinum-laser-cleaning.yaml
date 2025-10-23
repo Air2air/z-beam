@@ -1,5 +1,5 @@
 name: Platinum
-category: Metal
+category: metal
 subcategory: alloy
 title: Platinum Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Platinum
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Platinum
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -21,34 +21,38 @@ images:
     url: /images/material/platinum-laser-cleaning-micro.jpg
 caption:
   description: Microscopic analysis of Platinum surface before and after laser cleaning treatment
-  beforeText: "{\n  \"beforeText\": \"Platinum surface with 2.5 µm contaminant layer, exhibiting reduced thermal conductivity of 71.6 W/(m·K) and laser absorption at 36.5%, requiring precise cleaning to restore properties.\","
-  afterText: "{\n  \"beforeText\": \"Platinum surface with 2.5 µm oxide layer, exhibiting reduced thermal conductivity of 71.6 W/(m·K) and compromised laser absorption at 36.5%, requiring precise cleaning to restore properties"
+  beforeText: |-
+    {
+      "beforeText": "Platinum surface with 2.5 µm contaminant layer, exhibiting reduced thermal conductivity of 71.6 W/(m·K) and laser absorption at 36.5%, requiring precise cleaning to restore properties.",
+  afterText: |-
+    {
+      "beforeText": "Platinum surface with 2.5 µm oxide layer, exhibiting reduced thermal conductivity of 71.6 W/(m·K) and compromised laser absorption at 36.5%, requiring precise cleaning to restore properties
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Jewelry and Luxury Goods
-- Chemical Processing
-- Automotive
-- Research and Laboratory
-- Energy Sector
-- Marine and Offshore
-- Cultural Heritage
+  - Aerospace
+  - Medical Devices
+  - Electronics Manufacturing
+  - Jewelry and Luxury Goods
+  - Chemical Processing
+  - Automotive
+  - Research and Laboratory
+  - Energy Sector
+  - Marine and Offshore
+  - Cultural Heritage
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 3827.0
+      value: 3827
       min: 907
       max: 5870
       unit: °C
@@ -60,19 +64,19 @@ materialProperties:
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 133.0
+      value: 133
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Platinum thermophysical properties at 298.15 K'
     thermalConductivity:
       value: 71.6
-      min: 7.0
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Pure Platinum at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
@@ -94,13 +98,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'NIST Standard Reference Database 74, ''Thermophysical Properties of Materials for Nuclear Engineering: Platinum'', and ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     compressiveStrength:
-      value: 325.0
+      value: 325
       min: 50
       max: 2000
       unit: MPa
       research_basis: Platinum is a face-centered cubic (FCC) metal with high ductility, and pure metals in this group typically do not have a definitive compressive strength as they yield and deform plastically rather than fracture. The provided range represents the compressive yield strength (typically at 0.2% offset) for annealed, high-purity platinum, which is highly dependent on purity, grain size, and prior work hardening. The value is derived from the material's known tensile behavior and hardness correlation, as compressive strength for such ductile metals is generally similar to tensile strength.
     corrosionResistance:
-      value: 10.0
+      value: 10
       min: 1
       max: 10
       unit: rating
@@ -112,55 +116,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1; NIST Standard Reference Data; CRC Handbook of Chemistry and Physics (97th Edition)'
     electricalConductivity:
-      value: 9430000.0
+      value: 9430000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 1.06e-07
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 1.06e-7
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 125.0
+      value: 125
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Platinum is a face-centered cubic (FCC) metal with high ductility, resulting in relatively low flexural strength compared to its compressive strength. The provided value is a typical flexural strength for annealed, high-purity platinum based on standardized bend tests. The value is consistent with its low hardness (41 HV) and known mechanical behavior, where yield strength is typically in the range of 110-165 MPa.
     hardness:
-      value: 41.0
+      value: 41
       min: 0.5
       max: 3500
       unit: HV
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section: Platinum Group Metals, Table: Mechanical Properties of Platinum'
     oxidationResistance:
-      value: 1000.0
+      value: 1000
       min: 200
       max: 1200
       unit: °C
       research_basis: Platinum is one of the most oxidation-resistant metals. It does not form a stable oxide (platinum oxide decomposes around 500-600 °C). The limit of ~1000 °C in air is not due to catastrophic oxidation but to a slow, continuous loss of material through the formation of volatile PtO₂, which becomes significant at this temperature. Below this, it is considered highly stable.
     porosity:
       value: 0.0001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 125.0
-      min: 3.0
-      max: 3000.0
+      value: 125
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Platinum Group Metals'', pp. 693-694, indicating annealed platinum tensile strength range 125-165 MPa'
     youngsModulus:
-      value: 168.0
+      value: 168
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Platinum and Platinum Alloys'
     fractureToughness:
-      value: 38.0
+      value: 38
       min: 20
       max: 200
       unit: MPa·√m
@@ -170,14 +174,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.45
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.065
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -189,7 +193,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.45
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -211,7 +215,7 @@ materialProperties:
       unit: MW/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 42000000.0
+      value: 42000000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -223,8 +227,8 @@ materialProperties:
       unit: μm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 2.51e-07
-      min: 1.0e-10
+      value: 2.51e-7
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -284,36 +288,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Platinum's moderate reflectivity and thermal processing
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.531139'
@@ -357,11 +361,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -393,8 +397,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -435,8 +439,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -454,7 +458,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -462,7 +466,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -480,7 +484,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -515,8 +519,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -524,8 +528,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -542,7 +546,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

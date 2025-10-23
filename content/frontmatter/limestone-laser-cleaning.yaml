@@ -1,5 +1,5 @@
 name: Limestone
-category: Stone
+category: stone
 subcategory: mineral
 title: Limestone Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Limestone
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Limestone
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, surface shows heavy contamination layer. This layer, it has thickness of approximately 15 µm—or more precisely—14.7 µm, composed primarily of carbonaceous particulate matter and gypsum crust (CaSO₄·2H₂O). SEM-EDX analysis confirms the composition, showing strong sulfur and carbon peaks alongside the calcium substrate. Surface texture appears heavily occluded, with Ra roughness measurements of 8.2 µm due to particulate embedding. The contamination forms discontinuous crusts, these crusts show micro-fracturing patterns across the surface. Porous structure of limestone, it acts like sponge for pollutants, creating this complex stratified layer. Original stone features remain mostly obscured beneath this dark, granular deposit.
   afterText: Laser cleaning produces dramatic surface transformation, this is very clear at 500x. Contamination layer is completely removed, revealing the original calcite crystalline structure beneath. Surface roughness decreases significantly to Ra 2.1 µm, creating much smoother profile compared to previous 8.2 µm measurement. The process exposes micro-topography with excellent precision, ablation depth measures between 12-18 µm across treated area. Some areas show slight color variation—perhaps due to differential cleaning—but overall surface integrity remains excellent. Thermal effects appear minimal, with only occasional localized discoloration at grain boundaries (likely from calcium oxide formation). EDX analysis now shows clean calcium carbonate signature, sulfur and carbon contaminants reduced to trace levels below 0.5%. Surface reflectivity increases from initial 15% to approximately 32%, this improvement indicates successful contaminant removal without substrate damage. The crystalline structure, it appears well-preserved with sharp grain boundaries and minimal micro-fracturing. Laser parameters were well-controlled, achieving conservation-grade cleaning where original surface features remain fully legible.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Construction
-- Manufacturing
-- Marine
-- Energy
-- Food Processing
-- Automotive
-- Aerospace
-- Medical
-- Electronics
+  - Cultural Heritage
+  - Construction
+  - Manufacturing
+  - Marine
+  - Energy
+  - Food Processing
+  - Automotive
+  - Aerospace
+  - Medical
+  - Electronics
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 908.0
+      value: 908
       min: 400
       max: 1200
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 81: Thermophysical Properties of Mineral Substances, specifically for high-calcium limestone (95% CaCO3) at 300K'
     thermalDestruction:
-      value: 800.0
+      value: 800
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,45 +70,45 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems, with specific limestone measurements from Clark, S.P. (1966) ''Handbook of Physical Constants'' and experimental data from Sass, J.H. (1965) ''Journal of Geophysical Research'''
     thermalExpansion:
-      value: 8.0
+      value: 8
       min: 3
       max: 30
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table 1: Average coefficients of thermal expansion for selected nonmetallic substances (Limestone: 8.0 × 10^-6/°C)'
     compressiveStrength:
-      value: 55.0
+      value: 55
       min: 20
       max: 500
       unit: MPa
       research_basis: 'ASTM C170/C170M-22 Standard Test Method for Compressive Strength of Dimension Stone, ASM Handbook Volume 4: Heat Treating, and NIST Special Publication 260-174: Stone Test Specimens'
     corrosionResistance:
-      value: 2.0
-      min: 2.0
-      max: 9.0
+      value: 2
+      min: 2
+      max: 9
       unit: rating
       research_basis: Limestone is a calcium carbonate-based rock highly susceptible to chemical weathering from acidic environments (acid rain, urban pollution). It offers poor resistance to corrosion from sulfation, dissolution, and salt crystallization, leading to surface erosion, loss of detail, and spalling. While durable in dry, stable conditions, its performance is rated as poor for general environmental exposure where moisture and airborne acids are present.
     density:
       value: 2.71
       min: 1.5
-      max: 6.0
+      max: 6
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 203: Web Mineralogy - Calcite (primary constituent of limestone) density = 2.71 g/cm³; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Section: Natural Building Stones'
     flexuralStrength:
-      value: 10.0
+      value: 10
       min: 5
       max: 50
       unit: MPa
       research_basis: The flexural strength of limestone is not a fixed material constant like compressive strength but falls within a typical range. ASTM C880 provides the standard testing method for dimension stone. Data from the Natural Stone Institute and other technical sources (e.g., Indiana Limestone Institute) consistently report flexural strengths for various limestones between 7 MPa and 15 MPa. The value of 10.0 MPa is a representative, conservative estimate for a medium-strength limestone, aligning with its known compressive strength of 55 MPa and typical stone property correlations.
     hardness:
-      value: 3.0
+      value: 3
       min: 1
       max: 7
       unit: Mohs
       research_basis: 'NIST Special Publication 960-15 ''Standard Reference Materials: Calibration of Rockwell Diamond Indenters'' and ASM Handbook Volume 18: Friction, Lubrication, and Wear Technology, which specify calcite (primary constituent of limestone) hardness as 3.0 on Mohs scale'
     oxidationResistance:
-      value: 600.0
-      min: 400.0
-      max: 870.0
+      value: 600
+      min: 400
+      max: 870
       unit: °C
       research_basis: Limestone (CaCO₃) does not oxidize; it undergoes thermal decomposition (calcination) in air. Authoritative sources place the onset of significant decomposition between 600°C and 900°C, with 600°C being a conservative threshold for the beginning of this irreversible chemical breakdown in a continuous service context.
     porosity:
@@ -118,13 +118,13 @@ materialProperties:
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 8.0
+      value: 8
       min: 2
       max: 25
       unit: MPa
       research_basis: ASTM C170-90 Standard Test Method for Compressive Strength of Dimension Stone, with tensile strength typically 8-15% of compressive strength based on ASM Handbook Vol. 4 and NIST Special Publication 260-166
     youngsModulus:
-      value: 68.0
+      value: 68
       min: 10
       max: 100
       unit: GPa
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for limestone absorption and minimal scattering
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.368286'
@@ -247,7 +247,7 @@ preservedData:
     properties_count: 0
     category_ranges:
       density:
-        max: 6.0
+        max: 6
         min: 1.5
         unit: g/cm³
         adjustment_note: Some stones denser (basalt 2.8-3.0)
@@ -344,16 +344,16 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       corrosionResistance:
-        min: 2.0
-        max: 9.0
+        min: 2
+        max: 9
         unit: rating
         description: ''
         sample_count: 18
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 400.0
-        max: 870.0
+        min: 400
+        max: 870
         unit: °C
         description: ''
         sample_count: 18

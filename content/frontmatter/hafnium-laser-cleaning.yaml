@@ -1,5 +1,5 @@
 name: Hafnium
-category: Metal
+category: metal
 subcategory: alloy
 title: Hafnium Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Hafnium
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Hafnium
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,59 +24,59 @@ caption:
   beforeText: At 500x magnification, the hafnium surface exhibits a non-uniform contamination layer, primarily composed of tenacious oxide scale and embedded particulate. The oxide layer measures between 8 and 15 µm in thickness—or more precisely, 14.7 µm in the thickest regions observed. This scale displays a characteristic mud-cracked topography, with fissures approximately 5-10 µm wide traversing the surface. The underlying metal texture is completely obscured. Embedded within this oxide matrix are numerous foreign particulates, likely carbonaceous deposits and silicate inclusions from prior service. These particulates range from sub-micron specks to agglomerates nearly 25 µm across. Surface roughness measurements confirm significant degradation, with an Ra value of 4.8 µm and an Rz of 38.5 µm. The high laser reflectivity of the base hafnium (approximately 48.2%) is effectively neutralized by this contaminated layer, which presents a matte, dark gray appearance under optical examination. Energy-dispersive X-ray spectroscopy (EDX) spot analysis confirms elevated oxygen and carbon concentrations, this creates a significant barrier to any functional surface performance.
   afterText: Laser cleaning achieves a dramatic surface transformation, completely removing the contaminated layer and restoring the underlying metallic substrate. The mud-cracked oxide topography is entirely absent, replaced by the characteristic grain structure of the hafnium. The surface now reveals a clean, slightly textured morphology with a measured Ra value of 1.2 µm—a 75% reduction in average roughness. The process leaves a faint, light gray interference pattern, indicative of a thin, passivating oxide film perhaps 200-500 nm thick (as confirmed by subsequent XPS analysis). No evidence of the former embedded particulates remains. The surface reflectivity has increased significantly, now approximating the base material's inherent property. Crucially, the cleaning method enables this performance while maintaining surface integrity; no evidence of melting or micro-fissuring is observed, which is critical for hafnium's performance in nuclear applications. The surface is now functionally restored for further processing or service.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Nuclear Reactors
-- Chemical Processing
-- Electronics Manufacturing
-- Medical Devices
-- Research Laboratories
-- Marine Engineering
-- Additive Manufacturing
-- Optics and Coatings
-- High-Temperature Manufacturing
+  - Aerospace
+  - Nuclear Reactors
+  - Chemical Processing
+  - Electronics Manufacturing
+  - Medical Devices
+  - Research Laboratories
+  - Marine Engineering
+  - Additive Manufacturing
+  - Optics and Coatings
+  - High-Temperature Manufacturing
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 4603.0
+      value: 4603
       min: 907
       max: 5870
       unit: K
       research_basis: materials_science_literature
     meltingPoint:
-      value: 2233.0
+      value: 2233
       min: -39
       max: 3422
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 144.0
+      value: 144
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of Pure Hafnium, Section 4.1.1 - Specific Heat Capacity at 298.15K'
     thermalConductivity:
-      value: 23.0
-      min: 7.0
+      value: 23
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, p. 592; NIST Materials Data Repository for Hafnium; CRC Handbook of Chemistry and Physics (92nd Edition)'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 2222.0
+      value: 2222
       min: 873
       max: 3695
       unit: K
@@ -94,13 +94,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical Properties of Hafnium, and NIST Materials Data Repository for pure hafnium at 20°C'
     compressiveStrength:
-      value: 380.0
+      value: 380
       min: 50
       max: 2000
       unit: MPa
       research_basis: Compressive strength is not a commonly reported property for pure, annealed hafnium metal, as it is a ductile material. The provided value is a typical compressive yield strength (0.2% offset) for commercially pure hafnium, which aligns with its known relationship to tensile strength. The hardness value (1760 MPa) is a pressure-based measurement and is significantly higher than the macro-scale compressive strength.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -112,55 +112,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, p. 557; NIST Standard Reference Database 144, ''Crystal Lattice Structures'''
     electricalConductivity:
-      value: 3120000.0
+      value: 3120000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 3.31e-07
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 3.31e-7
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 345.0
+      value: 345
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Flexural strength is not a standardly reported property for pure hafnium metal, as it is typically characterized by tensile or compressive yield strength. The provided value is an engineering estimate derived from the relationship between ultimate tensile strength (UTS) and flexural strength for ductile metals. Authoritative material data sheets for commercially pure hafnium report an ultimate tensile strength in the range of 290-400 MPa. For a conservative estimate in a bending context, a value near the upper end of this range is cited, as the flexural strength of a ductile metal is generally similar to or slightly higher than its UTS.
     hardness:
-      value: 1760.0
+      value: 1760
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Hafnium'
     oxidationResistance:
-      value: 400.0
+      value: 400
       min: 200
       max: 1200
       unit: °C
       research_basis: ASM Handbook states that hafnium has good oxidation resistance up to 400°C in air, but rapid oxidation and embrittlement occur at temperatures above approximately 540°C. The 400°C value is cited as the maximum for continuous service where oxidation resistance is maintained.
     porosity:
       value: 0.0005
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: fraction
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 380.0
-      min: 3.0
-      max: 3000.0
+      value: 380
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Room-Temperature Mechanical Properties of Hafnium'
     youngsModulus:
-      value: 141.0
+      value: 141
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Hafnium, showing Young''s modulus of 141 GPa for commercially pure hafnium at room temperature'
     fractureToughness:
-      value: 15.0
+      value: 15
       min: 20
       max: 200
       unit: MPa·√m
@@ -170,14 +170,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.45
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.42
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -189,7 +189,7 @@ materialProperties:
     laserDamageThreshold:
       value: 1.8
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -211,7 +211,7 @@ materialProperties:
       unit: MW/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 3420000.0
+      value: 3420000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -224,7 +224,7 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 0.00133
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -232,7 +232,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Hafnium oxide removal
   overlapRatio:
@@ -284,35 +284,35 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Hafnium's absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Hafnium laser cleaning eliminates chemical waste by removing surface contaminants and oxide layers through non-contact ablation, preventing the generation of hazardous solvent and acid residues used in traditional wet etching. This is critical for ultra-high-purity hafnium components in semiconductor and nuclear applications where chemical residues compromise performance and create significant disposal liabilities.
-  quantifiedBenefits: Hafnium laser cleaning eliminates 100% of chemical waste, reduces operational costs by 30%, and increases processing throughput by 25%.
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Hafnium laser cleaning achieves water usage reduction by utilizing high-intensity, pulsed laser ablation to remove surface contaminants from metals. This process eliminates the need for water-based cleaning methods, such as chemical rinses or high-pressure water jets, thereby conserving industrial water resources and preventing contaminated wastewater generation.
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Hafnium's low vaporization threshold enables efficient laser-material interaction, minimizing the required pulse energy for ablation. This reduces overall system power consumption compared to cleaning metals with higher ablation energies.
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Hafnium laser cleaning achieves air quality improvement by eliminating the generation of secondary waste, such as abrasive media dust or chemical solvent vapors, associated with conventional surface cleaning methods. The process directly ablates contaminants through pulsed laser energy, preventing the release of fine metallic particulate matter (PM2.5/PM10) and volatile organic compounds (VOCs) into the operational atmosphere.
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Hafnium laser cleaning eliminates chemical waste by removing surface contaminants and oxide layers through non-contact ablation, preventing the generation of hazardous solvent and acid residues used in traditional wet etching. This is critical for ultra-high-purity hafnium components in semiconductor and nuclear applications where chemical residues compromise performance and create significant disposal liabilities.
+    quantifiedBenefits: Hafnium laser cleaning eliminates 100% of chemical waste, reduces operational costs by 30%, and increases processing throughput by 25%.
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Hafnium laser cleaning achieves water usage reduction by utilizing high-intensity, pulsed laser ablation to remove surface contaminants from metals. This process eliminates the need for water-based cleaning methods, such as chemical rinses or high-pressure water jets, thereby conserving industrial water resources and preventing contaminated wastewater generation.
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Hafnium's low vaporization threshold enables efficient laser-material interaction, minimizing the required pulse energy for ablation. This reduces overall system power consumption compared to cleaning metals with higher ablation energies.
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Hafnium laser cleaning achieves air quality improvement by eliminating the generation of secondary waste, such as abrasive media dust or chemical solvent vapors, associated with conventional surface cleaning methods. The process directly ablates contaminants through pulsed laser energy, preventing the release of fine metallic particulate matter (PM2.5/PM10) and volatile organic compounds (VOCs) into the operational atmosphere.
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.242164'
@@ -356,19 +356,19 @@ preservedData:
         source: ai_research
         description: Estimated reflectivity at 1.06 μm wavelength
       specificHeat:
-        value: 144.0
+        value: 144
         unit: J/(kg·K)
         confidence: 91
         source: ai_research
         description: Specific heat capacity at room temperature
       tensileStrength:
-        value: 380.0
+        value: 380
         unit: MPa
         confidence: 86
         source: ai_research
         description: Ultimate tensile strength of annealed hafnium
       thermalConductivity:
-        value: 23.0
+        value: 23
         unit: W/(m·K)
         confidence: 92
         source: ai_research
@@ -392,7 +392,7 @@ preservedData:
         source: ai_research
         description: Coefficient of linear thermal expansion (20-100°C)
       youngsModulus:
-        value: 78.0
+        value: 78
         unit: GPa
         confidence: 89
         source: ai_research
@@ -434,11 +434,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -470,8 +470,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -512,8 +512,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -531,7 +531,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -539,7 +539,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -557,7 +557,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -592,8 +592,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -601,8 +601,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -619,7 +619,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

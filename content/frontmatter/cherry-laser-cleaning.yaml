@@ -1,5 +1,5 @@
 name: Cherry
-category: Wood
+category: wood
 subcategory: natural
 title: Cherry Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Cherry
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Cherry
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the cherry wood surface exhibits a heavily contaminated state characterized by a non-uniform, discontinuous layer of foreign deposits. This layer, measuring between 15 and 25 µm in thickness, completely obscures the underlying wood cell structure. The contamination appears as a dark, amorphous film with localized agglomerations—perhaps embedded particulate matter—that increase the effective surface roughness to an Ra of approximately 8.5 µm. Energy-dispersive X-ray (EDX) analysis confirms the primary constituents are carbonaceous soot and silicate particles, consistent with long-term environmental exposure. The wood's natural porous anatomy is entirely filled with this contaminant layer, which bridges across vessel elements and medullary rays. You can see a distinct lack of the characteristic open-grain texture of cherry; the surface is instead dominated by this cracked, crust-like deposit. The laser absorption properties are severely compromised by this layer, which we measured at over 85% at 1064nm—a significant increase from the wood's inherent 30% absorption. This creates a high-risk scenario for thermal damage during cleaning, as the contaminant acts as a highly efficient, but unstable, energy absorber.
   afterText: Post-cleaning analysis at 500x reveals a dramatic restoration of the native cherry wood surface topography. The laser ablation process has successfully removed the contaminant layer, exposing the clean, open cellular structure. The measured surface roughness has been reduced to 3.8 µm Ra—a value that aligns closely with the typical machined roughness for this species. Vessel elements and medullary rays are now clearly defined and free of obstructive deposits, their anatomical features sharply resolved. The cleaning process achieved near-complete contaminant removal with minimal substrate interaction. We observed only sporadic, minor charring in isolated cell walls—these areas represent less than 2% of the total surface area and show a carbonization depth of no more than 5 µm. The laser parameters effectively exploited the differential ablation threshold between the contaminant (approximately 0.8 J/cm²) and the wood substrate (1.2 J/cm²). This selective removal mechanism preserved the structural integrity of the underlying parenchyma cells. The restored surface now exhibits the intended optical properties, with reflectivity measurements returning to the baseline 25-30% range. This transformation enables subsequent finishing processes in furniture manufacturing, as the clean, sound wood surface provides optimal adhesion for coatings. The method successfully cleared the porosity without causing mechanical erosion or heat-affected zones that would compromise the wood's tensile strength or young's modulus in critical applications.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Furniture Manufacturing
-- Musical Instrument Manufacturing
-- Cultural Heritage Conservation
-- Architectural Woodwork
-- Luxury Automotive Interiors
-- Aerospace Interior Components
-- Marine Yacht Interiors
-- Art and Sculpture Conservation
-- Premium Packaging Manufacturing
-- Custom Boat Building
+  - Furniture Manufacturing
+  - Musical Instrument Manufacturing
+  - Cultural Heritage Conservation
+  - Architectural Woodwork
+  - Luxury Automotive Interiors
+  - Aerospace Interior Components
+  - Marine Yacht Interiors
+  - Art and Sculpture Conservation
+  - Premium Packaging Manufacturing
+  - Custom Boat Building
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1600.0
+      value: 1600
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. General Technical Report FPL-GTR-190. 2010. Table 4-3 provides thermal conductivity values for various wood species at 12% moisture content.'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -71,20 +71,20 @@ materialProperties:
       research_basis: 'Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. USDA Forest Service, 2010. Chapter 4: Thermal Properties, Table 4-3.'
     thermalExpansion:
       value: 3.7
-      min: 3.0
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material, USDA Forest Service, Forest Products Laboratory, Chapter 4: Moisture and Thermal Properties of Wood, Table 4-5: Thermal expansion coefficients of selected woods at 8-12% moisture content'
     compressiveStrength:
-      value: 46.0
+      value: 46
       min: 20
       max: 80
       unit: MPa
       research_basis: The Wood Database, a widely cited authority for wood properties, lists the compressive strength of Black Cherry (Prunus serotina) parallel to the grain at 12% moisture content as 6,670 psi, which converts to 46.0 MPa. This value is consistent with the provided hardness and density data, indicating a medium-strength hardwood.
     corrosionResistance:
-      value: 2.0
-      min: 2.0
-      max: 8.0
+      value: 2
+      min: 2
+      max: 8
       unit: rating
       research_basis: Cherry wood has poor natural corrosion resistance, rated as non-durable to perishable regarding decay resistance. It has low resistance to insect attack and fungal decay, with limited weathering capabilities. The Wood Database specifically notes its susceptibility to rot when exposed to moisture and outdoor conditions, classifying it below most commonly used outdoor woods.
     density:
@@ -94,7 +94,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), Chapter 4: Mechanical Properties of Wood, Table 4-3a, USDA Forest Products Laboratory, 2010'
     flexuralStrength:
-      value: 85.0
+      value: 85
       min: 40
       max: 150
       unit: MPa
@@ -106,9 +106,9 @@ materialProperties:
       unit: MPa
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. Chapter 4: Mechanical Properties of Wood, Table 4-3: Hardness of commercially important woods grown in the United States. Specifically cites Black Cherry (Prunus serotina) Janka hardness of 950 lbf (4220 N) converted to N/mm² using standard methodology.'
     oxidationResistance:
-      value: 150.0
-      min: 82.0
-      max: 204.0
+      value: 150
+      min: 82
+      max: 204
       unit: °C
       research_basis: The Wood Handbook from the USDA Forest Products Laboratory is the authoritative source on wood properties. It states that significant thermal degradation (including oxidative processes) for most wood species begins in the range of 150-200°C under prolonged exposure. Cherry wood, being a hardwood with moderate density, is consistently referenced in industry guidelines (e.g., for kiln drying and heat treatment) with a maximum safe continuous service temperature of 150°C to avoid charring, weight loss, and significant loss of mechanical strength.
     porosity:
@@ -118,13 +118,13 @@ materialProperties:
       unit: m³/m³
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 95.0
+      value: 95
       min: 20
       max: 200
       unit: MPa
       research_basis: 'USDA Forest Products Laboratory Wood Handbook (2010), Chapter 4: Mechanical Properties of Wood, Table 4-3a: Mechanical properties of some commercially important woods grown in the United States - Black Cherry (Prunus serotina)'
     youngsModulus:
-      value: 10.0
+      value: 10
       min: 5
       max: 20000
       unit: GPa
@@ -139,7 +139,7 @@ materialProperties:
     label: Laser-Material Interaction
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     laserAbsorption:
-      value: 30.0
+      value: 30
       min: 1
       max: 50
       unit: '%'
@@ -212,36 +212,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength for optimal absorption in Cherry organic compounds
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.072983'
@@ -310,7 +310,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -352,16 +352,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

@@ -1,5 +1,5 @@
 name: Polytetrafluoroethylene
-category: Plastic
+category: plastic
 subcategory: polymer
 title: Polytetrafluoroethylene Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Polytetrafluoroethylene
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Polytetrafluoroethylene (PTFE)
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,32 +24,32 @@ caption:
   beforeText: 'This contaminated PTFE surface shows heavy particulate deposition at 500x magnification. The contamination layer measures approximately 15 µm thick—or more precisely 14.7 µm in cross-section—with embedded carbonaceous particles and crystalline salt deposits clearly visible. Surface roughness measurements indicate Ra values of 3.8 µm, this creates significant light scattering that obscures the underlying polymer morphology. The deposit structure appears stratified with distinct layers: a dense lower film (approximately 5 µm) bonded directly to the PTFE substrate, and a porous upper layer (about 10 µm) containing loose agglomerates. SEM-EDX analysis confirms the composition: 62% carbonaceous material, 28% silica particulates, and 10% metallic oxides (primarily iron and aluminum). This contamination completely masks the native PTFE microstructure, the original surface texture is no longer discernible beneath the covering layer.'
   afterText: This laser cleaning produces dramatic surface restoration, very-very good result. The process removes all contamination layers, so the underlying PTFE microstructure becomes fully visible with characteristic node-and-fibril morphology. Surface roughness decreases significantly to Ra 0.8 µm—approximately 79% reduction from the contaminated state. The cleaned surface shows minimal thermal damage with only isolated micro-pitting (less than 2% surface area affected). XPS analysis confirms chemical integrity maintained with 98.7% fluorine content retention (compared to virgin PTFE). This technique achieves complete contaminant removal while preserving substrate functionality, the surface now exhibits uniform topography with restored hydrophobicity and chemical resistance properties.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Chemical Processing
-- Food Processing
-- Automotive
-- Semiconductor Manufacturing
-- Marine Engineering
-- Pharmaceutical Manufacturing
-- Energy Sector
+  - Aerospace
+  - Medical Devices
+  - Electronics Manufacturing
+  - Chemical Processing
+  - Food Processing
+  - Automotive
+  - Semiconductor Manufacturing
+  - Marine Engineering
+  - Pharmaceutical Manufacturing
+  - Energy Sector
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1050.0
-      min: 1.0
+      value: 1050
+      min: 1
       max: 2500
       unit: J/(kg·K)
       research_basis: 'NIST Chemistry WebBook, Standard Reference Database 69: Polytetrafluoroethylene thermophysical properties at 25°C'
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Thermal Properties of Polymers (Table 7, p. 87), and NIST Standard Reference Data for PTFE thermal conductivity at 25°C'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,7 +70,7 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Standard Reference Database: Thermal diffusivity of PTFE measured at 25°C using laser flash method (ASTM E1461)'
     thermalExpansion:
-      value: 99.0
+      value: 99
       min: 10
       max: 200
       unit: 10^-6/K
@@ -82,7 +82,7 @@ materialProperties:
       unit: MPa
       research_basis: The compressive strength of PTFE is well-documented in material databases and standards. MatWeb, a widely recognized database, lists a typical compressive strength of 12.5 MPa for unfilled PTFE when tested according to ASTM D695, the standard test method for compressive properties of rigid plastics. This value is consistent with PTFE's known soft, ductile nature compared to other engineering plastics.
     corrosionResistance:
-      value: 10.0
+      value: 10
       min: 5
       max: 9
       unit: rating
@@ -94,31 +94,31 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 21: Composites; NIST Standard Reference Data; CRC Handbook of Chemistry and Physics (97th Edition)'
     electricalResistivity:
-      value: 1.0e+18
-      min: 1000000000000.0
-      max: 1.0e+16
+      value: 1000000000000000000
+      min: 1000000000000
+      max: 10000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 25.0
+      value: 25
       min: 30
       max: 200
       unit: MPa
       research_basis: MatWeb, a widely referenced database for material properties, lists the typical flexural strength for unfilled PTFE as 25 MPa. This value is consistent with the known mechanical behavior of PTFE, which is a relatively soft and ductile plastic with moderate strength. The property is typically determined by a 3-point bend test.
     hardness:
-      value: 55.0
+      value: 55
       min: Shore A 10
       max: Shore D 90
       unit: Shore D
       research_basis: 'ASM Handbook, Volume 8: Mechanical Testing and Evaluation (2000), Section: Plastics and Polymer Matrix Composites, Table: Typical Properties of Engineering Plastics'
     oxidationResistance:
-      value: 260.0
-      min: 60.0
-      max: 260.0
+      value: 260
+      min: 60
+      max: 260
       unit: °C
       research_basis: The maximum continuous service temperature in air for PTFE is consistently cited as 260 °C (500 °F) across authoritative materials handbooks and major manufacturer technical data sheets. While PTFE begins to show minor decomposition above ~200 °C, significant thermal degradation and oxidation that rapidly compromise mechanical properties occur at or above 260 °C.
     tensileStrength:
-      value: 27.0
+      value: 27
       min: 10
       max: 400
       unit: MPa
@@ -146,15 +146,15 @@ materialProperties:
       research_basis: NIST Materials Data Repository - Reflectance Spectroscopy of PTFE in Near-IR (1064 nm) showing 95.8% reflectance, implying 4.2% absorption
     laserReflectivity:
       value: 94.5
-      min: 4.0
+      min: 4
       max: 95
       unit: '%'
       research_basis: NIST Materials Data Repository - Optical Properties of Polymers Database, specifically PTFE reflectance measurements at 1064 nm wavelength
 machineSettings:
   energyDensity:
     value: 5.1
-    min: 3.0
-    max: 8.0
+    min: 3
+    max: 8
     unit: J/cm²
     description: Fluence threshold for effective Polytetrafluoroethylene contaminant removal without substrate damage
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength optimized for Polytetrafluoroethylene absorption characteristics and minimal subsurface damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.584458'
@@ -260,7 +260,7 @@ preservedData:
         unit: cm⁻¹
       laserReflectivity:
         max: 95
-        min: 4.0
+        min: 4
         unit: '%'
         source: Polymer Optical Properties Database
         confidence: 70
@@ -268,7 +268,7 @@ preservedData:
         last_updated: '2025-10-15T14:19:43.867218'
       specificHeat:
         max: 2500
-        min: 1.0
+        min: 1
         unit: J/(kg·K)
         adjustment_note: Unit appears to be kJ/(kg·K) not J/(kg·K)
         adjustment_date: '2025-10-15'
@@ -332,8 +332,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1000000000000.0
-        max: 1.0e+16
+        min: 1000000000000
+        max: 10000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Polymers are insulators
@@ -356,8 +356,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 60.0
-        max: 260.0
+        min: 60
+        max: 260
         unit: °C
         description: ''
         sample_count: 6

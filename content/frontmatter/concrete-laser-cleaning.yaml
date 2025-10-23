@@ -1,5 +1,5 @@
 name: Concrete
-category: Masonry
+category: masonry
 subcategory: construction
 title: Concrete Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Concrete
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Concrete
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the concrete surface exhibits a complex, multi-layered contamination profile. A continuous, carbonaceous soot layer—approximately 15 to 20 µm thick—uniformly blankets the substrate, effectively obscuring the underlying aggregate and cement paste. This primary deposit displays significant micro-cracking and a flaky, desiccated morphology. Energy-dispersive X-ray (EDX) analysis confirms a high carbon content, alongside trace sulfur and heavy metal particulates embedded within the film's matrix. Beneath this soot layer, a more tenacious biofilm adheres directly to the concrete pores. This biological growth, measuring 5-10 µm in localized patches, exhibits a filamentous structure that penetrates the surface micropores, creating a strong mechanical bond. The original concrete surface texture is completely masked, with initial surface roughness (Ra) measurements indicating a value of 45±5 µm, a figure heavily influenced by the overlying deposits rather than the native substrate. The overall appearance is one of a heavily compromised surface where the contaminant, not the concrete, defines the material's optical and topographical properties.
   afterText: Laser cleaning produces a dramatic and quantifiable surface transformation, fully restoring the intrinsic concrete microstructure. The process completely ablates the contaminant layers, revealing a clean, mineralogical surface with a measured post-cleaning roughness (Ra) of 12.3 µm—a 73% reduction from the contaminated state. The underlying cement paste now displays a distinct, lightly sintered appearance; this subtle vitrification, a direct result of transient thermal exposure, creates a smoother paste phase with a reflectivity increase of approximately 40% (as measured by confocal microscopy). The cleaning efficacy is particularly evident at the aggregate boundaries. Previously obscured by biofilm, the sharp interfacial transition zone (ITZ) between the coarse aggregate and the cement matrix is now fully exposed and intact, showing no evidence of micro-fracturing from laser-induced stress. The concrete's inherent porosity is also restored, with open pores ranging from 10 to 100 µm in diameter now clearly visible and free of particulate fillers. This level of cleaning sets up optimal conditions for subsequent coating adhesion, as the surface energy is now defined by the concrete itself, not a weak boundary layer. Furthermore, the process leaves a chemically pure substrate. X-ray Photoelectron Spectroscopy (XPS) analysis confirms the surface composition is now primarily calcium, silicon, and oxygen, matching unweathered concrete, with contaminant elements falling below the 0.1 atomic percent detection limit. The final surface, while texturally altered from its original as-cast state, presents a functionally restored profile that is both clean and mechanically sound for long-term performance.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Civil Infrastructure
-- Nuclear Decommissioning
-- Marine Structures
-- Historical Preservation
-- Industrial Flooring
-- Parking Structures
-- Food Processing
-- Transportation Infrastructure
-- Water Treatment Facilities
-- Power Generation
+  - Civil Infrastructure
+  - Nuclear Decommissioning
+  - Marine Structures
+  - Historical Preservation
+  - Industrial Flooring
+  - Parking Structures
+  - Food Processing
+  - Transportation Infrastructure
+  - Water Treatment Facilities
+  - Power Generation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 880.0
+      value: 880
       min: 700
       max: 1100
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST IR 7563 - Thermophysical Properties of Masonry and Its Constituents, Table 4.1: Thermal conductivity of concrete at 24°C = 1.28 W/m·K for standard concrete mixtures'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,7 +70,7 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Special Publication 260-174: Thermophysical Properties of Masonry Materials, Table 3.1 - Thermal Diffusivity Values for Standard Concrete Mixes (20°C, dry conditions)'
     thermalExpansion:
-      value: 10.0
+      value: 10
       min: 5
       max: 20
       unit: μm/m·°C
@@ -82,9 +82,9 @@ materialProperties:
       unit: MPa
       research_basis: ASTM C39/C39M-21 Standard Test Method for Compressive Strength of Cylindrical Concrete Specimens, with typical normal-weight concrete mixtures (20-25 MPa cement paste + aggregate composite)
     corrosionResistance:
-      value: 8.0
-      min: 2.0
-      max: 8.0
+      value: 8
+      min: 2
+      max: 8
       unit: rating
       research_basis: Concrete provides excellent corrosion protection to embedded steel through its high alkalinity (pH ~13), creating a passive layer. While concrete itself is highly resistant to general environmental corrosion, the rating acknowledges potential deterioration mechanisms from chemical attacks (sulfates, chlorides) or carbonation that can compromise the protective environment over decades in harsh conditions. The 8/10 rating reflects concrete's superior performance in most atmospheric exposures compared to other masonry materials.
     density:
@@ -100,15 +100,15 @@ materialProperties:
       unit: MPa
       research_basis: The ACI 318 code provides a direct empirical relationship for the modulus of rupture (flexural strength) of normal-weight concrete. For a compressive strength of 41.4 MPa (6000 psi), the formula `f_r = 0.62 * λ * √(f'_c)` (where λ=1 for normal-weight concrete and f'_c is in MPa) yields a flexural strength of approximately 4.0 MPa. This value aligns with typical industry data where flexural strength is generally 8-12% of the compressive strength for normal-strength concrete, placing the expected value for 41.4 MPa concrete between 3.3 and 5.0 MPa. The cited 4.1 MPa is a well-established median value for this compressive strength range.
     hardness:
-      value: 5.0
+      value: 5
       min: 1
       max: 6
       unit: Mohs
       research_basis: 'NIST Special Publication 260-175: Hardness Measurements on Cement and Concrete (2012) & ASM Handbook Volume 8: Mechanical Testing and Evaluation (2000)'
     oxidationResistance:
-      value: 300.0
-      min: 300.0
-      max: 1200.0
+      value: 300
+      min: 300
+      max: 1200
       unit: °C
       research_basis: Concrete is a masonry/composite material whose high-temperature performance is governed by the degradation of its cement paste and the properties of its aggregate. Authoritative structural design codes like Eurocode 2 specify that for most normal-strength concrete, the maximum service temperature for sustained loading is approximately 300°C. Beyond this temperature, significant loss of compressive strength and chemical decomposition (e.g., dehydration of calcium silicate hydrates) begins, which is the functional equivalent of "significant oxidation" for this non-metallic material. The provided compressive strength of 41.4 MPa confirms this is normal-strength concrete, aligning with the code's scope.
     tensileStrength:
@@ -118,8 +118,8 @@ materialProperties:
       unit: MPa
       research_basis: ACI 318-19 Building Code Requirements for Structural Concrete and Commentary, Table 19.2.1.1 - Normalweight concrete tensile strength values
     youngsModulus:
-      value: 30.0
-      min: 3.0
+      value: 30
+      min: 3
       max: 50
       unit: GPa
       research_basis: 'ACI 318-19: Building Code Requirements for Structural Concrete, Section 19.2.2.1, which specifies Ec = wc^1.5 * 0.043√f''c for normal-weight concrete with wc = 2320-2560 kg/m³'
@@ -147,8 +147,8 @@ materialProperties:
 machineSettings:
   energyDensity:
     value: 2.5
-    min: 1.0
-    max: 5.0
+    min: 1
+    max: 5
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal while preserving concrete integrity
   overlapRatio:
@@ -190,7 +190,7 @@ machineSettings:
   spotSize:
     value: 0.8
     min: 0.3
-    max: 2.0
+    max: 2
     unit: mm
     description: Beam spot diameter for effective cleaning coverage and energy density control
   wavelength:
@@ -200,36 +200,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength optimized for concrete absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.102358'
@@ -299,7 +299,7 @@ preservedData:
         unit: µm/m·K
       youngsModulus:
         max: 50
-        min: 3.0
+        min: 3
         unit: GPa
         phase2_adjustment: Plaster at 3.0 GPa
         adjustment_date: '2025-10-15'
@@ -328,16 +328,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 7
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 300.0
-        max: 1200.0
+        min: 300
+        max: 1200
         unit: °C
         description: ''
         sample_count: 7

@@ -1,5 +1,5 @@
 name: Oak
-category: Wood
+category: wood
 subcategory: natural
 title: Oak Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Oak
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Oak
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Oak surface after laser cleaning showing detailed surface structure
     url: /images/material/oak-laser-cleaning-micro.jpg
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Aerospace
-- Marine
-- Furniture Manufacturing
-- Musical Instrument
-- Architectural Restoration
-- Wine & Spirits
-- Automotive
-- Energy
-- Medical Equipment
+  - Cultural Heritage
+  - Aerospace
+  - Marine
+  - Furniture Manufacturing
+  - Musical Instrument
+  - Architectural Restoration
+  - Wine & Spirits
+  - Automotive
+  - Energy
+  - Medical Equipment
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 2400.0
+      value: 2400
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), Chapter 4: Thermal Properties, Table 4-3, specific values for oak species at 12% moisture content'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -66,21 +66,21 @@ materialProperties:
       unit: mm²/s
       research_basis: 'Suleiman, B. M., Larfeldt, J., Leckner, B., & Gustavsson, M. (1999). Thermal conductivity and diffusivity of wood. Wood Science and Technology, 33(6), 465-473. DOI: 10.1007/s002260050130'
     thermalExpansion:
-      value: 54.0
-      min: 3.0
+      value: 54
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), Chapter 4: Moisture Relations and Physical Properties of Wood, Table 4-5: Coefficients of thermal expansion for selected woods, specifically citing Quercus rubra (red oak) perpendicular to grain value of 54 × 10^-6/K'
     compressiveStrength:
-      value: 46.0
+      value: 46
       min: 20
       max: 80
       unit: MPa
       research_basis: The Wood Database provides comprehensive mechanical property data for various oak species. The reported compressive strength (crushing strength) parallel to grain for white oak is approximately 46 MPa, while red oak is around 43 MPa. This value represents the stress at the proportional limit during standard testing per ASTM D143. Test conditions assume 12% moisture content and loading parallel to grain, which is the standard reporting method for wood compressive strength.
     corrosionResistance:
-      value: 7.0
-      min: 2.0
-      max: 8.0
+      value: 7
+      min: 2
+      max: 8
       unit: rating
       research_basis: Oak is a durable hardwood with good resistance to decay and environmental corrosion when not in ground contact. Its natural tannins and dense cell structure provide protection against fungal decay and weathering, though it is not as resistant as some tropical hardwoods or treated woods. The rating reflects its performance in above-ground, non-marine environments.
     density:
@@ -90,7 +90,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Chapter 4: Physical Properties of Wood, Table 4-3: Average specific gravity of common U.S. hardwood species - White Oak (12% moisture content)'
     flexuralStrength:
-      value: 97.0
+      value: 97
       min: 40
       max: 150
       unit: MPa
@@ -102,9 +102,9 @@ materialProperties:
       unit: MPa
       research_basis: 'USDA Forest Products Laboratory Wood Handbook (Chapter 4: Mechanical Properties of Wood), ASTM D143 standard testing methodology for small clear wood specimens'
     oxidationResistance:
-      value: 150.0
-      min: 82.0
-      max: 204.0
+      value: 150
+      min: 82
+      max: 204
       unit: °C
       research_basis: The Wood Handbook from the USDA Forest Products Laboratory is a primary authoritative source for wood properties. It states that prolonged exposure to temperatures above 150 °C (300 °F) leads to significant chemical degradation, including pyrolysis and oxidation, which reduces strength and mass. This temperature is widely cited as the maximum for continuous service before significant thermal decomposition begins.
     porosity:
@@ -114,7 +114,7 @@ materialProperties:
       unit: dimensionless
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 95.0
+      value: 95
       min: 20
       max: 200
       unit: MPa
@@ -156,7 +156,7 @@ machineSettings:
   energyDensity:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without wood damage
   overlapRatio:
@@ -208,36 +208,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for optimal absorption in Oak cellulose and lignin
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.484835'
@@ -306,7 +306,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -348,16 +348,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

@@ -1,5 +1,5 @@
 name: Nickel
-category: Metal
+category: metal
 subcategory: alloy
 title: Nickel Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Nickel
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Nickel
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,61 +24,61 @@ caption:
   beforeText: Surface analysis reveals a contaminated Nickel alloy surface exhibiting significant oxide and organic residue layers at 500x magnification, with an average thickness of 12.5 micrometers across sampled areas. These layers, irregularly distributed in patchy formations, pose a substantial challenge to achieving uniform laser cleaning efficacy, particularly due to their variable absorption properties under laser irradiation. Furthermore, 85% of the observed surface shows micro-scale pitting (depths ranging from 3 to 7 micrometers), which complicates the removal process as contaminants are embedded within these structural defects. From a Taiwan technical perspective, such contamination demands precise calibration of laser parameters to prevent substrate damage while ensuring effective cleaning.
   afterText: Microscopic examination shows a remarkable transformation of the Nickel alloy surface post-laser cleaning, with residual contamination reduced to below 0.5 micrometers in thickness at 500x magnification. Additionally, compared to the initial 12.5-micrometer contamination layer, over 95% of oxide and organic residues have been successfully ablated, restoring surface integrity (a critical factor, I must note, for industrial applications). Consequently, the elimination of embedded contaminants from micro-pits, previously measured at depths of 3-7 micrometers, enhances corrosion resistance and surface uniformity, which, um, directly improves performance in general cleaning applications.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Chemical Processing
-- Electronics Manufacturing
-- Energy Storage
-- Medical Devices
-- Oil & Gas
+  - Aerospace
+  - Chemical Processing
+  - Electronics Manufacturing
+  - Energy Storage
+  - Medical Devices
+  - Oil & Gas
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2913.0
+      value: 2913
       min: 907
       max: 5870
       unit: °C
       research_basis: materials_science_literature
     meltingPoint:
-      value: 1728.0
+      value: 1728
       min: -39
       max: 3422
       unit: K
       research_basis: materials_science_literature
     specificHeat:
-      value: 444.0
+      value: 444
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Nickel thermophysical properties at 298.15 K'
     thermalConductivity:
       value: 90.7
-      min: 7.0
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Pure Nickel at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 1726.0
+      value: 1726
       min: 873
       max: 3695
       unit: K
       research_basis: materials_science_literature
     thermalDiffusivity:
-      value: 23.0
+      value: 23
       min: 0.06
       max: 174
       unit: mm²/s
@@ -90,13 +90,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table ''Thermal Expansion of Metals and Alloys'' for pure nickel (99.9+%) at 20-100°C'
     compressiveStrength:
-      value: 535.0
+      value: 535
       min: 50
       max: 2000
       unit: MPa
       research_basis: The compressive strength of pure nickel is highly dependent on its form (wrought, cast, powder) and temper/condition (annealed vs. cold-worked). For annealed, commercially pure (99.5%) wrought nickel, the compressive yield strength (0.2% offset) is typically in the range of 70-150 MPa. However, this value can increase significantly with cold working, reaching up to 1000 MPa for severely cold-worked material. The provided value range reflects this wide variation based on material condition.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -108,55 +108,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table ''Physical Properties of Pure Metals'' lists density of nickel as 8.902 g/cm³ at 25°C. NIST Chemistry WebBook (SRD 69) reports 8.908 g/cm³ at 20°C for pure nickel.'
     electricalConductivity:
-      value: 14300000.0
+      value: 14300000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 6.99e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 6.99e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 345.0
+      value: 345
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: materials_science_literature
     hardness:
-      value: 638.0
+      value: 638
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table ''Typical Room-Temperature Mechanical Properties of Annealed Wrought Nickel'''
     oxidationResistance:
-      value: 316.0
+      value: 316
       min: 200
       max: 1200
       unit: °C
       research_basis: The ASM Handbook states that commercially pure nickel (Nickel 200/201) has a maximum continuous service temperature of approximately 600°F (316°C) in oxidizing atmospheres before significant oxidation occurs. Above this temperature, oxidation rates increase substantially, requiring nickel-chromium alloys for improved oxidation resistance.
     porosity:
       value: 0.0001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 345.0
-      min: 3.0
-      max: 3000.0
+      value: 345
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Room-Temperature Mechanical Properties of Wrought Nickel'
     youngsModulus:
-      value: 200.0
+      value: 200
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Elastic Constants of Pure Metals'' lists Young''s modulus for Nickel as 200 GPa at room temperature'
     fractureToughness:
-      value: 125.0
+      value: 125
       min: 20
       max: 200
       unit: MPa·√m
@@ -166,14 +166,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.25
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.36
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -185,7 +185,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.45
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -201,13 +201,13 @@ materialProperties:
       unit: dimensionless (ratio)
       research_basis: materials_science_literature
     thermalShockResistance:
-      value: 450.0
+      value: 450
       min: 50
       max: 400
       unit: °C
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 680000.0
+      value: 680000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -220,7 +220,7 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 1.33
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -228,7 +228,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Nickel contaminant removal
   overlapRatio:
@@ -280,36 +280,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for efficient Nickel processing with good absorption
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.456812'
@@ -353,11 +353,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -389,8 +389,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -431,8 +431,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -450,7 +450,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -458,7 +458,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -476,7 +476,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -511,8 +511,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -520,8 +520,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -538,7 +538,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

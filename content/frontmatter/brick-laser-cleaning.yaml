@@ -1,5 +1,5 @@
 name: Brick
-category: Masonry
+category: masonry
 subcategory: construction
 title: Brick Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Brick
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Brick
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the brick surface presents a heavily contaminated state characterized by a complex, stratified deposit layer. The primary contaminant appears as a continuous, dark biofilm—approximately 15 to 20 µm thick—that completely obscures the underlying brick substrate. This organic matrix embeds significant particulate matter, identified via spot EDX analysis as silicon-rich soot and calcium sulfate crystals, which creates a highly irregular surface topography. The Ra value, measured across a 1 mm profile, registers at 18.7 µm, indicating severe surface degradation from the accumulated deposits. The contamination layer exhibits poor adhesion in localized areas, showing micro-fissures and delamination at the brick-contaminant interface. These features suggest the deposits are brittle and susceptible to spallation under thermal or mechanical stress. The surface morphology is dominated by a porous, sponge-like structure that has likely increased the brick's water absorption capacity significantly beyond its inherent 25% porosity. This compromised state would negatively impact the material's chemical stability and overall durability, providing pathways for further subsurface degradation.
   afterText: Post-cleaning analysis at 500x reveals a dramatic transformation, with the laser process successfully removing the contaminant layer to expose the original brick substrate. The surface roughness (Ra) has been reduced to 4.2 µm—a 78% improvement—restoring a profile consistent with undamaged, historic brick. The cleaning process has exposed the intrinsic granular structure of the fired clay body, revealing individual mineral grains and the characteristic micro-porosity (now measured at approximately 26%) without inducing surface vitrification. The laser parameters achieved selective ablation of the contamination while preserving the brick's structural integrity. SEM imaging confirms the absence of thermal damage, with no evidence of melting or micro-fracturing that would indicate exposure beyond the material's thermal destruction threshold. The surface now exhibits a uniform, matte texture with restored reflectivity properties—measured at 14.8%, closely matching the brick's inherent 15% reflectivity. This careful removal of the biofilm has re-established the surface's original chemical stability, a critical factor for long-term preservation in cultural heritage applications. The process effectively restored functional surface characteristics while maintaining the material's historic fabric.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Construction and Restoration
-- Industrial Manufacturing
-- Marine and Coastal
-- Food Processing
-- Energy Sector
-- Transportation Infrastructure
-- Historical Archaeology
-- Wastewater Treatment
-- Mining and Mineral Processing
+  - Cultural Heritage
+  - Construction and Restoration
+  - Industrial Manufacturing
+  - Marine and Coastal
+  - Food Processing
+  - Energy Sector
+  - Transportation Infrastructure
+  - Historical Archaeology
+  - Wastewater Treatment
+  - Mining and Mineral Processing
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 800.0
+      value: 800
       min: 700
       max: 1100
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST IR 6990 - Thermal Properties of Masonry Materials (2015), Table 4.1: Measured thermal conductivity of standard fired clay brick at 24°C, dry condition'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -82,9 +82,9 @@ materialProperties:
       unit: MPa
       research_basis: ASTM C67-23 Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile, Section 16 Compressive Strength
     corrosionResistance:
-      value: 8.0
-      min: 2.0
-      max: 8.0
+      value: 8
+      min: 2
+      max: 8
       unit: rating
       research_basis: Brick is highly resistant to environmental corrosion due to its ceramic composition and firing process. ASTM standards note brick's exceptional durability against atmospheric degradation, moisture, and chemical attack in normal environments. The material's high compressive strength (41.4 MPa) and low porosity contribute to its corrosion resistance, though it can be susceptible to efflorescence and freeze-thaw damage in extreme conditions.
     density:
@@ -100,15 +100,15 @@ materialProperties:
       unit: MPa
       research_basis: For fired clay brick, a well-established empirical relationship exists where the flexural strength (modulus of rupture) is typically 1/6th of the compressive strength. Given the provided compressive strength of 41.4 MPa, this ratio yields a value of 6.9 MPa. This correlation is supported by industry standards and material property data sheets for masonry design, which typically report flexural strengths for brick in the range of 4.8 to 8.3 MPa, with 6.9 MPa being a representative mid-range value for a brick of this compressive strength. The test method is typically a 3-point or 4-point bend test on whole bricks as per ASTM C67.
     hardness:
-      value: 2.0
+      value: 2
       min: 1
       max: 6
       unit: Mohs
       research_basis: 'ASTM C67-23 Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile; NIST Special Publication 260-175: Certified Reference Materials for Vickers Hardness of Ceramics; Journal of Materials in Civil Engineering, Vol. 34, Issue 5 (2022)'
     oxidationResistance:
-      value: 800.0
-      min: 300.0
-      max: 1200.0
+      value: 800
+      min: 300
+      max: 1200
       unit: °C
       research_basis: Brick is a fired clay ceramic. Its maximum service temperature is governed by the softening point of its silicate matrix and the oxidation of any residual carbon or metallic impurities. While not a pure oxide, standard fired clay bricks are rated for continuous service up to 800°C in oxidizing atmospheres. Above this temperature, significant softening and potential for spalling or structural weakening due to continued vitrification and differential thermal expansion occur. The provided compressive strength and density are consistent with a high-quality fired clay product supporting this temperature range.
     tensileStrength:
@@ -119,7 +119,7 @@ materialProperties:
       research_basis: 'ASTM C67-20 Standard Test Methods for Sampling and Testing Brick and Structural Clay Tile, and ASM Handbook Vol. 4: Heat Treating (1991) - Table 1: Typical Properties of Common Brick'
     youngsModulus:
       value: 16.7
-      min: 3.0
+      min: 3
       max: 50
       unit: GPa
       research_basis: 'NIST Technical Note 1493 - ''Mechanical Properties of Masonry'' (1999), Table 4.1: Young''s modulus of fired clay brick specimens measured under standard compression testing conditions'
@@ -200,36 +200,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength for optimal brick absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:57.985926'
@@ -299,7 +299,7 @@ preservedData:
         unit: µm/m·K
       youngsModulus:
         max: 50
-        min: 3.0
+        min: 3
         unit: GPa
         phase2_adjustment: Plaster at 3.0 GPa
         adjustment_date: '2025-10-15'
@@ -328,16 +328,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 7
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 300.0
-        max: 1200.0
+        min: 300
+        max: 1200
         unit: °C
         description: ''
         sample_count: 7

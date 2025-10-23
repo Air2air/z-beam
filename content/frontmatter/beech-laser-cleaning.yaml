@@ -1,5 +1,5 @@
 name: Beech
-category: Wood
+category: wood
 subcategory: natural
 title: Beech Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Beech
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Beech
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the beech surface presents a heavily contaminated state characterized by a complex, stratified layer of foreign deposits. The primary contaminant appears as a continuous, amorphous film—approximately 15 to 20 µm in thickness—that uniformly obscures the underlying wood anatomy. This layer, which energy-dispersive X-ray spectroscopy (EDX) confirms is rich in carbonaceous soot and silicate particulates, effectively masks the cellular structure of the wood, presenting a topographically muted and homogeneously darkened plane. The surface roughness, measured at an Ra of 8.5 µm, is dominated by the particulate agglomerates embedded within this film rather than the native wood texture. What is particularly evident is the manner in which this contamination interacts with the porous substrate. The film does not merely sit atop the surface; it penetrates into the lumen of vessels and fibers, perhaps 5 to 10 µm deep, creating a challenging, composite structure for any cleaning process. One can observe micro-fissures within the thicker regions of the deposit, which likely result from differential thermal expansion between the contaminant and the wood substrate. The original grain pattern is only faintly perceptible as a subtle, undulating topography beneath this opaque, tenacious layer, indicating a significant loss of surface definition and a compromised substrate-reflectivity, measured at a mere 12%.
   afterText: Following the laser cleaning protocol, the transformation observed at 500x is quite remarkable. The contaminated layer has been completely ablated, revealing the intricate, open cellular structure of the beech wood with exceptional clarity. The surface roughness has been substantially altered, now measuring an Ra of 4.2 µm—a value that reflects the natural topography of the earlywood and latewood bands rather than the previously obscuring contamination. This precision in material removal, it preserves the delicate cell walls of the fibers and parenchyma, leaving them largely intact and free of carbonization, which indicates the laser parameters were maintained well below the thermal destruction threshold of the wood. The contrast with the prior state is most striking in the complete restoration of micro-detail. Vessel elements, which were once plugged with deposits, are now open and clearly defined, their diameters ranging from 50 to 120 µm. The laser interaction has effectively disintegrated the contaminant film without generating significant heat-affected zones, as verified by the minimal presence of fused or melted cellulose at the cellular level. The surface reflectivity has consequently increased to approximately 28%, a value that aligns closely with the inherent optical properties of clean, dry beech. This level of cleanliness, it creates a surface that is not only visually restored but also functionally prepared for subsequent high-performance applications, such as adhesive bonding or coating, where surface integrity is paramount.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Cultural Heritage
-- Medical
-- Marine
-- Electronics
-- Manufacturing
-- Energy
-- Food Processing
-- Musical Instruments
+  - Aerospace
+  - Automotive
+  - Cultural Heritage
+  - Medical
+  - Marine
+  - Electronics
+  - Manufacturing
+  - Energy
+  - Food Processing
+  - Musical Instruments
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1630.0
+      value: 1630
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Table 4-3: Thermal properties of common wood species at 12% moisture content'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,21 +70,21 @@ materialProperties:
       unit: mm²/s
       research_basis: 'Suleiman, B. M., Larfeldt, J., Leckner, B., & Gustavsson, M. (1999). Thermal conductivity and diffusivity of wood. Wood Science and Technology, 33(6), 465-473. Table 2: Beech wood thermal diffusivity measurements at 12% moisture content.'
     thermalExpansion:
-      value: 33.0
-      min: 3.0
+      value: 33
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. USDA Forest Service, 2010. Chapter 4: Mechanical Properties of Wood, Table 4-3: Thermal expansion coefficients for various wood species.'
     compressiveStrength:
-      value: 46.0
+      value: 46
       min: 20
       max: 80
       unit: MPa
       research_basis: The Forest Products Laboratory's Wood Handbook is a globally recognized authority on wood properties. For beech (Fagus spp.), it lists the compressive strength parallel to the grain as 46 MPa at 12% moisture content, which is the standard test condition for comparing wood species. This value is consistent with other engineering databases for this hardwood.
     corrosionResistance:
-      value: 2.0
-      min: 2.0
-      max: 8.0
+      value: 2
+      min: 2
+      max: 8
       unit: rating
       research_basis: Beech wood has poor natural durability against decay fungi and insects, with very low resistance to moisture and environmental degradation. According to wood durability classifications, beech is rated as "non-durable" to "slightly durable" with a service life of less than 5 years in ground contact. Its high permeability and lack of natural extractives make it susceptible to rot, fungal attack, and environmental corrosion when exposed to moisture or outdoor conditions without protective treatment.
     density:
@@ -94,21 +94,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material (FPL-GTR-190). USDA Forest Service, Forest Products Laboratory. Chapter 4: Mechanical Properties of Wood, Table 4-3, beech (Fagus grandifolia) at 12% moisture content.'
     flexuralStrength:
-      value: 103.0
+      value: 103
       min: 40
       max: 150
       unit: MPa
       research_basis: The Wood Handbook from the USDA FPL is a preeminent authority on wood science. For beech (Fagus spp.), it lists a modulus of rupture (MOR) of 103 MPa at 12% moisture content, derived from standardized 3-point and 4-point bend tests on small, clear specimens. This value is consistent with the material's known high hardness and density.
     hardness:
-      value: 1300.0
+      value: 1300
       min: 1
       max: 5000
       unit: MPa
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Table 5-3a: Hardness of domestic hardwoods - American beech (Fagus grandifolia)'
     oxidationResistance:
-      value: 200.0
-      min: 82.0
-      max: 204.0
+      value: 200
+      min: 82
+      max: 204
       unit: °C
       research_basis: The maximum continuous service temperature for wood is not a fixed point like a metal's melting point but is based on the onset of significant thermal degradation. For most wood species, including beech, prolonged exposure to temperatures above 200°C leads to pyrolysis, charring, and a rapid loss of mechanical strength, which is a form of oxidative degradation in an air environment. This value is consistently cited in wood technology literature as the upper limit for safe, long-term service.
     porosity:
@@ -118,7 +118,7 @@ materialProperties:
       unit: dimensionless
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 120.0
+      value: 120
       min: 20
       max: 200
       unit: MPa
@@ -154,7 +154,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal from Beech surface
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Beech absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:57.917090'
@@ -304,7 +304,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -346,16 +346,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

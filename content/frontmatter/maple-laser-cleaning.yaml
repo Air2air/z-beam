@@ -1,5 +1,5 @@
 name: Maple
-category: Wood
+category: wood
 subcategory: natural
 title: Maple Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Maple
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Maple
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Maple surface after laser cleaning showing detailed surface structure
     url: /images/material/maple-laser-cleaning-micro.jpg
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Musical Instrument Manufacturing
-- Furniture Restoration
-- Food Processing Equipment
-- Sports Equipment Manufacturing
-- Architectural Woodwork
-- Marine Interior Finishes
-- Museum Conservation
-- Laboratory Equipment
-- Commercial Flooring Maintenance
-- Artisan Craft Manufacturing
+  - Musical Instrument Manufacturing
+  - Furniture Restoration
+  - Food Processing Equipment
+  - Sports Equipment Manufacturing
+  - Architectural Woodwork
+  - Marine Interior Finishes
+  - Museum Conservation
+  - Laboratory Equipment
+  - Commercial Flooring Maintenance
+  - Artisan Craft Manufacturing
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1760.0
+      value: 1760
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook: Wood as an Engineering Material. USDA Forest Service, General Technical Report FPL-GTR-190, Chapter 4: Thermal Properties, Table 4-3, specifically for hard maple (Acer spp.) at 12% moisture content and room temperature.'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -66,21 +66,21 @@ materialProperties:
       unit: mm²/s
       research_basis: Suleiman, B. M., Larfeldt, J., Leckner, B., & Gustavsson, M. (1999). Thermal conductivity and diffusivity of wood. Wood Science and Technology, 33(6), 465-473. Specific data for hard maple (Acer saccharum) at 12% moisture content and room temperature.
     thermalExpansion:
-      value: 5.0
-      min: 3.0
+      value: 5
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. General Technical Report FPL-GTR-190. Chapter 4: Moisture and Thermal Properties of Wood.'
     compressiveStrength:
-      value: 25.0
+      value: 25
       min: 20
       max: 80
       unit: MPa
       research_basis: The Wood Handbook, published by the USDA Forest Products Laboratory, is the principal authoritative source for North American wood properties. It lists the compressive strength parallel to the grain for Maple (Sugar Maple, *Acer saccharum*) at 12% moisture content as 54.0 MPa. The value of 25.0 MPa is the compressive strength perpendicular to the grain, which is the more common and critical design parameter for many applications and is the value typically associated with the general term "compressive strength" for wood when a specific grain direction is not stated.
     corrosionResistance:
-      value: 3.0
-      min: 2.0
-      max: 8.0
+      value: 3
+      min: 2
+      max: 8
       unit: rating
       research_basis: Maple wood has moderate natural durability but poor resistance to decay fungi and insects when exposed to moisture. While it performs reasonably well in indoor applications, it has limited corrosion resistance in outdoor environments without preservative treatment. The rating reflects its susceptibility to environmental degradation compared to more durable woods like teak or cedar.
     density:
@@ -90,7 +90,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. Chapter 4: Mechanical Properties of Wood, Table 4-3: Specific gravity of some common wood species. Specifically references Hard Maple (Acer saccharum) at 12% moisture content.'
     flexuralStrength:
-      value: 109.0
+      value: 109
       min: 40
       max: 150
       unit: MPa
@@ -102,9 +102,9 @@ materialProperties:
       unit: MPa
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. General Technical Report FPL-GTR-190. Table 5-3a: Mechanical properties of some commercially important woods grown in the United States (Hard Maple, Acer saccharum).'
     oxidationResistance:
-      value: 150.0
-      min: 82.0
-      max: 204.0
+      value: 150
+      min: 82
+      max: 204
       unit: °C
       research_basis: The Wood Handbook from the USDA Forest Products Laboratory is a primary authority. While it does not list an explicit "oxidation resistance temperature," it provides maximum safe service temperature guidelines for wood in long-term applications. The recommended maximum continuous service temperature for most wood species, including hardwoods like maple, to avoid significant thermal degradation (which includes oxidation, pyrolysis, and loss of mechanical strength) is typically in the range of 65°C to 150°C (150°F to 300°F). The upper limit of 150°C is cited as the point where significant chemical decomposition begins over time, making it a suitable proxy for the temperature at which significant oxidation occurs.
     porosity:
@@ -202,36 +202,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for controlled wood ablation with minimal thermal damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.412685'
@@ -300,7 +300,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -342,16 +342,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

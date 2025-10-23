@@ -1,5 +1,5 @@
 name: Copper
-category: Metal
+category: metal
 subcategory: alloy
 title: Copper Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Copper
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Copper
 author:
   country: Indonesia
   expertise: Industrial Process Innovation
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: f
@@ -24,29 +24,29 @@ caption:
   beforeText: Surface analysis reveals significant contamination on the copper alloy surface, observed at 500x magnification, with layered deposits of organic residues and oxide formations. These contaminants, measuring approximately 15-25 micrometers in thickness, form irregular patchy patterns across the material, posing a substantial challenge for effective cleaning. From an Indonesian technical perspective, such contamination hinders thermal and electrical conductivity, critical for copper’s industrial applications, while also risking environmental degradation if not addressed sustainably.
   afterText: Microscopic examination shows a remarkable transformation of the copper surface post-laser cleaning, with contamination layers reduced to negligible traces at 500x magnification. Compared to the initial 15-25 micrometer thick deposits, the cleaned surface exhibits a uniform texture, with residual contaminants below 1 micrometer, restoring optimal conductivity and aesthetic quality. This improvement, achieved through targeted laser technology, enhances the material’s performance in general applications and minimizes waste, aligning with sustainable practices vital in Indonesia’s industrial context. Furthermore, the process efficiency—completing cleaning in under 10 minutes per square meter—demonstrates practical benefits for large-scale operations.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Architecture
-- Electronics Manufacturing
-- HVAC Systems
-- Marine
-- Plumbing
-- Power Generation
-- Renewable Energy
-- Telecommunications
+  - Architecture
+  - Electronics Manufacturing
+  - HVAC Systems
+  - Marine
+  - Plumbing
+  - Power Generation
+  - Renewable Energy
+  - Telecommunications
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2562.0
+      value: 2562
       min: 907
       max: 5870
       unit: °C
@@ -58,19 +58,19 @@ materialProperties:
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 385.0
+      value: 385
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Copper thermophysical properties at 300K; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalConductivity:
-      value: 401.0
-      min: 7.0
+      value: 401
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Pure Copper at 300K'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
@@ -92,13 +92,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'NIST Standard Reference Database 144, CRC Handbook of Chemistry and Physics (104th Edition), and ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     compressiveStrength:
-      value: 210.0
+      value: 210
       min: 50
       max: 2000
       unit: MPa
       research_basis: The compressive strength of pure, annealed copper is not a single fixed value but is dependent on its temper (condition). For annealed (soft) OFHC (Oxygen-Free High Thermal Conductivity) copper, the compressive yield strength (the standard measure for compressive strength in metals) is typically in the range of 70-210 MPa. The value of 210 MPa represents a common upper-bound value for annealed material and aligns with the yield strength under compression, which is approximately equal to its tensile yield strength for ductile metals like copper. The ASM Handbook is a globally recognized authoritative source for material properties.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 1
       max: 10
       unit: rating
@@ -110,55 +110,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table ''Physical Properties of Pure Metals'', Copper density at 20°C'
     electricalConductivity:
-      value: 59600000.0
+      value: 59600000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 1.724e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 1.724e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 210.0
+      value: 210
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Copper is a ductile metal, and its flexural strength is not a primary design property like its tensile yield strength. The value provided is an estimate based on the relationship between tensile strength and flexural strength for ductile materials, using a typical tensile strength range of 210-220 MPa for annealed copper as a basis. Direct citations for a standardized 3-point bend test on pure copper are less common than for tensile properties.
     hardness:
-      value: 369.0
+      value: 369
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Table: Mechanical Properties of Copper and Copper Alloys, Annealed Copper (UNS C11000)'
     oxidationResistance:
-      value: 300.0
+      value: 300
       min: 200
       max: 1200
       unit: °C
       research_basis: The ASM Handbook states that while copper is generally considered to have good oxidation resistance at room temperature, significant oxidation begins in the range of 300-400°C in air. The lower end of this range (300°C) is cited as the maximum temperature for continuous service in oxidizing environments before oxide scaling becomes a serious issue.
     porosity:
       value: 0.0001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 210.0
-      min: 3.0
-      max: 3000.0
+      value: 210
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Copper and Copper Alloys'' chapter, Table 1: Typical Mechanical Properties of Wrought Copper'
     youngsModulus:
-      value: 110.0
+      value: 110
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Wrought Copper and Copper Alloys'
     fractureToughness:
-      value: 60.0
+      value: 60
       min: 20
       max: 200
       unit: MPa·√m
@@ -168,14 +168,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.45
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.017
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -187,7 +187,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.15
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -209,7 +209,7 @@ materialProperties:
       unit: W/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 12300000.0
+      value: 12300000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -222,7 +222,7 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 0.00347
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -230,7 +230,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Copper oxide removal
   overlapRatio:
@@ -282,35 +282,35 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Copper absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Copper laser cleaning achieves chemical waste elimination by utilizing high-intensity laser pulses to ablate contaminants like oxides and particulates, a process entirely driven by photothermal and photomechanical effects. This prevents the generation of toxic chemical slurries and spent etchants, such as acidic cupric chloride, typically associated with traditional wet etching and pickling methods.
-  quantifiedBenefits: Copper laser cleaning eliminates 100% of chemical waste, reduces operational costs by 15%, and cuts processing time by 25%.
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Copper laser cleaning achieves water usage reduction by eliminating the need for water-intensive processes like chemical etching and high-pressure water jetting, which are traditionally used for oxide removal and surface preparation. This dry, ablative process removes contaminants without generating aqueous waste streams or requiring subsequent water rinsing.
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Copper's high thermal conductivity enables rapid heat dissipation during laser cleaning, minimizing the total energy required for contaminant removal compared to less conductive metals. This intrinsic property reduces the laser's power consumption and operational time, directly enhancing energy efficiency.
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Copper laser cleaning eliminates airborne particulate matter by vaporizing contaminants without generating secondary waste, unlike abrasive methods. This non-contact process prevents the release of copper dust, a hazardous air pollutant, ensuring captured fumes are filtered without residual solid waste.
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Copper laser cleaning achieves chemical waste elimination by utilizing high-intensity laser pulses to ablate contaminants like oxides and particulates, a process entirely driven by photothermal and photomechanical effects. This prevents the generation of toxic chemical slurries and spent etchants, such as acidic cupric chloride, typically associated with traditional wet etching and pickling methods.
+    quantifiedBenefits: Copper laser cleaning eliminates 100% of chemical waste, reduces operational costs by 15%, and cuts processing time by 25%.
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Copper laser cleaning achieves water usage reduction by eliminating the need for water-intensive processes like chemical etching and high-pressure water jetting, which are traditionally used for oxide removal and surface preparation. This dry, ablative process removes contaminants without generating aqueous waste streams or requiring subsequent water rinsing.
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Copper's high thermal conductivity enables rapid heat dissipation during laser cleaning, minimizing the total energy required for contaminant removal compared to less conductive metals. This intrinsic property reduces the laser's power consumption and operational time, directly enhancing energy efficiency.
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Copper laser cleaning eliminates airborne particulate matter by vaporizing contaminants without generating secondary waste, unlike abrasive methods. This non-contact process prevents the release of copper dust, a hazardous air pollutant, ensuring captured fumes are filtered without residual solid waste.
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.108024'
@@ -354,19 +354,19 @@ preservedData:
         source: ai_research
         description: Reflectivity at 1064 nm wavelength (common laser)
       specificHeat:
-        value: 385.0
+        value: 385
         unit: J/(kg·K)
         confidence: 94
         source: ai_research
         description: Specific heat capacity at 20°C
       tensileStrength:
-        value: 210.0
+        value: 210
         unit: MPa
         confidence: 88
         source: ai_research
         description: Typical tensile strength for annealed copper
       thermalConductivity:
-        value: 401.0
+        value: 401
         unit: W/(m·K)
         confidence: 96
         source: ai_research
@@ -378,7 +378,7 @@ preservedData:
         source: ai_research
         description: Melting point of pure copper
       thermalDiffusivity:
-        value: 117.0
+        value: 117
         unit: mm²/s
         confidence: 90
         source: ai_research
@@ -390,7 +390,7 @@ preservedData:
         source: ai_research
         description: Coefficient of thermal expansion at 20°C
       youngsModulus:
-        value: 110.0
+        value: 110
         unit: GPa
         confidence: 95
         source: ai_research
@@ -432,11 +432,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -468,8 +468,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -510,8 +510,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -529,7 +529,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -537,7 +537,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -555,7 +555,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -590,8 +590,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -599,8 +599,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -617,7 +617,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

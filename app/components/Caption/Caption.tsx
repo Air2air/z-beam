@@ -81,7 +81,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
 
   const materialName = captionData.material || 'material';
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
-  const imageSource = captionData.images?.micro?.url || captionData.imageUrl?.url;
+  const imageSource = frontmatter?.images?.micro?.url || captionData.images?.micro?.url || captionData.imageUrl?.url;
 
   return (
     <section 

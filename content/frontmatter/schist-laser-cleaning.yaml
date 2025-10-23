@@ -1,5 +1,5 @@
 name: Schist
-category: Stone
+category: stone
 subcategory: mineral
 title: Schist Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Schist
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Schist
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the schist surface exhibits a complex, multi-layered contamination profile that significantly obscures the underlying mineralogical features. A continuous, heterogeneous crust—measuring between 15 and 45 µm in thickness—dominates the field of view. This crust is primarily a carbonaceous soot layer, but it also incorporates significant particulate matter, likely silicate-based atmospheric dust, embedded within its matrix. The surface texture is highly irregular, with a measured average roughness (Ra) exceeding 12 µm, which effectively masks the natural foliation of the schist substrate. The contamination layer shows distinct micro-cracking—a craquelure pattern—with fissure widths up to 5 µm, a result of differential thermal expansion and contraction cycles. EDX analysis confirms the dominant presence of carbon, alongside trace amounts of sulfur and calcium, suggesting the deposition of gypsum and other sulfates. The overall morphology is one of a dense, optically opaque film that increases light absorption and reduces the inherent reflectivity of the mica and quartz minerals. This layer completely fills the natural micro-porosity of the stone, which typically measures around 2.5%, effectively sealing the surface.
   afterText: Post-cleaning analysis at 500x reveals a dramatic restoration of the original schist surface morphology, with the contaminant crust entirely removed. The laser ablation process has successfully exposed the distinct foliation plane, characterized by the interlocking play of muscovite and biotite mica sheets with quartz and feldspar bands. The surface roughness has been substantially reduced to an Ra value of approximately 2.8 µm—a direct result of the precise, layer-by-layer removal of the crust without significant substrate damage. The cleaning process has restored the stone's intrinsic reflectivity; the freshly exposed mica layers now exhibit a characteristic vitreous to pearly luster. Crucially, the laser parameters were maintained below the documented ablation threshold of 2.8 J/cm², which preserved the structural integrity of the weaker phyllosilicate minerals. Some minor, sub-micron pitting is observable in localized areas—perhaps where more tenacious sulfate nodules were dislodged—but this is within acceptable limits for conservation. The method enables this high-fidelity cleaning performance while maintaining the critical surface integrity required for cultural heritage applications. The approach achieves a functionally restored surface, one where the original porosity and mineralogical features are now fully accessible for study and stabilization.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Construction and Architecture
-- Museum Conservation
-- Geological Research
-- Landscape Architecture
-- Monument Preservation
-- Interior Design
-- Archaeological Conservation
-- Stone Fabrication
-- Geotechnical Engineering
+  - Cultural Heritage
+  - Construction and Architecture
+  - Museum Conservation
+  - Geological Research
+  - Landscape Architecture
+  - Monument Preservation
+  - Interior Design
+  - Archaeological Conservation
+  - Stone Fabrication
+  - Geotechnical Engineering
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 800.0
+      value: 800
       min: 400
       max: 1200
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Clauser & Huenges (1995) - Thermal conductivity of rocks and minerals, Rock Physics & Phase Relations: A Handbook of Physical Constants, American Geophysical Union, Table 4: Metamorphic rocks thermal conductivity values'
     thermalDestruction:
-      value: 800.0
+      value: 800
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,25 +76,25 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'NIST Monograph 143 - Properties of Building Stones; ASM Handbook Volume 4: Heat Treating (specific schist measurements); International Journal of Rock Mechanics and Mining Sciences, Vol. 45, pp. 1264-1275 (2008) - Thermal properties of metamorphic rocks'
     compressiveStrength:
-      value: 150.0
+      value: 150
       min: 20
       max: 500
       unit: MPa
       research_basis: The compressive strength of schist is highly variable (range ~50-300 MPa) due to its foliated nature, anisotropy, and mineral composition. The provided value of 150 MPa is a representative mid-range estimate for uniaxial compressive strength tested perpendicular to the foliation. Strength can be significantly lower when loaded parallel to the foliation planes.
     corrosionResistance:
-      value: 6.0
-      min: 2.0
-      max: 9.0
+      value: 6
+      min: 2
+      max: 9
       unit: rating
       research_basis: Schist demonstrates moderate corrosion resistance due to its metamorphic crystalline structure and mineral composition. While more resistant than sedimentary rocks like limestone, it is less durable than quartz-rich stones like granite. Schist's foliation can create planes of weakness where environmental degradation may occur over time. Performance varies significantly based on specific mineral composition and exposure conditions.
     density:
       value: 2.72
       min: 1.5
-      max: 6.0
+      max: 6
       unit: g/cm³
       research_basis: 'ASTM D7012-14e1 Standard Test Methods for Compressive Strength and Elastic Moduli of Intact Rock Core Specimens under Varying States of Stress and Temperatures; NIST Recommended Practice Guide: Stone Testing; Goodman, R.E. (1989). Introduction to Rock Mechanics. John Wiley & Sons.'
     flexuralStrength:
-      value: 30.0
+      value: 30
       min: 5
       max: 50
       unit: MPa
@@ -106,9 +106,9 @@ materialProperties:
       unit: Mohs
       research_basis: 'NIST Special Publication 960-15: ''Hardness of Minerals and Rocks'' (2007) and ASM Handbook Volume 18: ''Friction, Lubrication, and Wear Technology'' (1992), supplemented by Klein & Hurlbut''s ''Manual of Mineralogy'' (1993) for schist mineral composition analysis'
     oxidationResistance:
-      value: 400.0
-      min: 400.0
-      max: 870.0
+      value: 400
+      min: 400
+      max: 870
       unit: °C
       research_basis: Schist, a metamorphic rock containing sheet silicate minerals like mica and chlorite, begins significant dehydration and oxidation (of iron-bearing minerals) around 400-450°C in air. This temperature marks the onset of structural degradation and mass loss, defining the upper limit for continuous service before material properties are compromised. The provided value is a conservative estimate from authoritative industry sources for general schist types.
     porosity:
@@ -124,7 +124,7 @@ materialProperties:
       unit: MPa
       research_basis: ASTM D7012-14e1 Standard Test Methods for Compressive Strength and Elastic Moduli of Intact Rock Core Specimens under Different States of Stress and Temperatures; ISRM Suggested Methods for Rock Characterization; Goodman, R.E. (1989). Introduction to Rock Mechanics. John Wiley & Sons.
     youngsModulus:
-      value: 70.0
+      value: 70
       min: 10
       max: 100
       unit: GPa
@@ -153,7 +153,7 @@ materialProperties:
 machineSettings:
   energyDensity:
     value: 4.5
-    min: 3.0
+    min: 3
     max: 6.5
     unit: J/cm²
     description: Fluence threshold for effective contaminant ablation without damaging Schist substrate
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Schist mineral absorption characteristics
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.726111'
@@ -247,7 +247,7 @@ preservedData:
     properties_count: 0
     category_ranges:
       density:
-        max: 6.0
+        max: 6
         min: 1.5
         unit: g/cm³
         adjustment_note: Some stones denser (basalt 2.8-3.0)
@@ -344,16 +344,16 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       corrosionResistance:
-        min: 2.0
-        max: 9.0
+        min: 2
+        max: 9
         unit: rating
         description: ''
         sample_count: 18
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 400.0
-        max: 870.0
+        min: 400
+        max: 870
         unit: °C
         description: ''
         sample_count: 18

@@ -1,5 +1,5 @@
 name: Thermoplastic Elastomer
-category: Composite
+category: composite
 subcategory: reinforced
 title: Thermoplastic Elastomer Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Thermoplastic Elastomer
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Thermoplastic Elastomer
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,33 +24,33 @@ caption:
   beforeText: At 500x magnification, the thermoplastic elastomer surface exhibits a heavily contaminated state characterized by a non-uniform, particulate-laden film. The primary contaminant appears as a discontinuous carbonaceous layer, approximately 5–8 µm thick, with embedded silicate particulates measuring 10–15 µm in diameter. This layer obscures the native polymer morphology, presenting a mottled, high-contrast topography with visible cracking and delamination at the film-substrate interface. Energy-dispersive X-ray spectroscopy (EDX) confirms the presence of external elements, including silicon, aluminum, and calcium, which are inconsistent with the base TPE composition. The underlying TPE substrate shows signs of degradation, likely from prolonged environmental exposure. The original molded surface texture, which typically registers around 1.8 µm Ra, is completely masked. Instead, we observe localized areas where the contaminant has adhered strongly, creating raised islands that increase the effective surface roughness to a measured 6.5 µm Ra. The contaminant film itself displays low reflectivity, scattering incident light and giving the surface a matte, occluded appearance. This compromised state would significantly impair adhesion and sealing performance in critical applications.
   afterText: Laser cleaning produces a dramatic transformation, restoring the surface to near-virgin substrate conditions. The carbonaceous film and embedded particulates are completely absent, revealing the intrinsic TPE microstructure—a continuous polymer phase with a characteristic elastomeric texture. The surface roughness has been reduced to 2.1 µm Ra, a value that closely matches the material's original as-molded specification of 1.8 µm Ra. This indicates minimal substrate damage, a critical outcome given the material's low laser damage threshold of 0.8 J/cm². The cleaning process has selectively ablated the contaminant layer while preserving the TPE's mechanical integrity. High-magnification inspection shows no evidence of melting, charring, or thermal degradation—common risks with a melting point of 180°C. The surface now exhibits a uniform, semi-gloss appearance with a measured reflectivity increase of approximately 60% over the pre-cleaned state. Some minor, sub-micron pitting is visible, likely from the removal of deeply embedded silicate particles, but this does not compromise the overall surface continuity. Comparative analysis confirms functional restoration. The surface is now free of foreign material, with EDX analysis showing only carbon and oxygen peaks consistent with the base polymer. This cleaned state provides an optimal foundation for subsequent bonding or coating operations in aerospace and medical device assemblies, meeting the required surface energy and cleanliness specifications. The process effectively figured out the precise parameter window to remove contamination without inducing substrate damage.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Medical Devices
-- Electronics Manufacturing
-- Marine Equipment
-- Food Processing
-- Renewable Energy
-- Consumer Products
-- Industrial Manufacturing
-- Cultural Heritage
+  - Aerospace
+  - Automotive
+  - Medical Devices
+  - Electronics Manufacturing
+  - Marine Equipment
+  - Food Processing
+  - Renewable Energy
+  - Consumer Products
+  - Industrial Manufacturing
+  - Cultural Heritage
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1800.0
+      value: 1800
       min: 500
-      max: 2500.0
+      max: 2500
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Polymer Systems, specifically TPE-S (Styrenic block copolymer) data at 25°C'
     thermalConductivity:
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Thermoplastic Elastomers - Thermal Properties (pp. 345-347); NIST Polymer Database - TPE Thermal Conductivity Measurements'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,17 +70,17 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Polymer Database and ASM Handbook, Volume 21: Composites, with specific reference to styrene-ethylene/butylene-styrene (SEBS) block copolymer formulations typical in TPE applications'
     thermalExpansion:
-      value: 100.0
+      value: 100
       min: -1
       max: 250
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Thermoplastic Elastomers - Thermal Properties (pp. 345-348), specifically citing SBS (Styrene-Butadiene-Styrene) block copolymer data at 23-80°C range'
     compressiveStrength:
-      value: 15.0
+      value: 15
       min: 50
       max: 1000
     corrosionResistance:
-      value: 7.0
+      value: 7
       min: 5
       max: 9
       unit: rating
@@ -92,37 +92,37 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Thermoplastic Elastomers; NIST Polymer Database - TPE Material Properties'
     electricalResistivity:
-      value: 120000000000000.0
+      value: 120000000000000
       min: 0.001
-      max: 100000000000000.0
+      max: 100000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 15.0
+      value: 15
       min: 100
       max: 2000
       unit: MPa
       research_basis: materials_science_literature
     hardness:
-      value: 55.0
-      min: 5.0
+      value: 55
+      min: 5
       max: 120
       unit: Shore A
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Thermoplastic Elastomer Properties, with specific reference to styrene-ethylene/butylene-styrene (SEBS) block copolymer formulations exhibiting 55 Shore A hardness as a standardized commercial grade'
     oxidationResistance:
-      value: 135.0
-      min: 80.0
-      max: 1650.0
+      value: 135
+      min: 80
+      max: 1650
       unit: °C
       research_basis: Thermoplastic Elastomers (TPEs) are a broad material class with varying thermal properties. For general-purpose TPEs, the maximum continuous service temperature in air typically ranges from 120°C to 135°C. The cited UL standard, which is authoritative for material performance ratings, lists 135°C as the upper temperature limit for many TPE formulations before significant oxidative degradation occurs. This aligns with technical datasheets from major TPE manufacturers indicating service temperatures up to 130-135°C in air for standard grades.
     tensileStrength:
-      value: 25.0
+      value: 25
       min: 20
       max: 6000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 21: Composites, Thermoplastic Elastomers Section, pp. 345-348 (2015); NIST Special Publication 1176: Mechanical Properties of Polymer Composites'
     youngsModulus:
-      value: 10.0
+      value: 10
       min: 0.001
       max: 3000
       unit: MPa
@@ -158,7 +158,7 @@ machineSettings:
   energyDensity:
     value: 1.2
     min: 0.8
-    max: 2.0
+    max: 2
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without damaging Thermoplastic Elastomer substrate
   overlapRatio:
@@ -210,36 +210,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Thermoplastic Elastomer absorption and minimal substrate damage
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.891778'
@@ -256,7 +256,7 @@ preservedData:
         unit: g/cm³
       hardness:
         max: 120
-        min: 5.0
+        min: 5
         unit: HRC
         adjustment_note: Phenolic resin composites harder
         adjustment_date: '2025-10-15'
@@ -274,7 +274,7 @@ preservedData:
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal matrix composites 40-80%'
         last_updated: '2025-10-15T14:19:43.867274'
       specificHeat:
-        max: 2500.0
+        max: 2500
         min: 500
         unit: J/kg·K
       tensileStrength:
@@ -334,7 +334,7 @@ preservedData:
         research_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 100000000000000.0
+        max: 100000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Highly variable
@@ -357,8 +357,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 80.0
-        max: 1650.0
+        min: 80
+        max: 1650
         unit: °C
         description: ''
         sample_count: 13

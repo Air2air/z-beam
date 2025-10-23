@@ -1,5 +1,5 @@
 name: Stucco
-category: Masonry
+category: masonry
 subcategory: construction
 title: Stucco Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Stucco
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Stucco
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: This stucco surface shows heavy contamination at 500x magnification. A dark, stratified layer—approximately 120 to 150 µm thick—completely obscures the original substrate. This layer consists of carbonaceous soot, particulate matter, and biological growth, forming a cohesive film that fills the natural surface porosity. The surface roughness is very high, with Ra values measuring 45.2 µm, because the deposits create an irregular, undulating topography. Analysis confirms the contamination is not superficial. The deposit penetrates deep into the pore network, perhaps 80% of the 15% material porosity is filled. This creates a weak boundary layer that compromises the stucco's structural integrity. The surface shows no reflectivity, it appears matte and absorbs all incident light due to the thick, dark coating. This condition is very-very bad for the material's long-term performance.
   afterText: Laser cleaning produces a dramatic transformation. The contamination layer is completely removed, revealing the original cementitious matrix. The surface roughness is now reduced to 12.7 µm, a very good result that preserves the natural substrate texture without damage. This process effectively cleans the surface, so the light gray color of the clean stucco is now visible. The laser ablation selectively removed the deposits, this is clear from the clean, open pores. The porosity is fully restored—approximately 15%—and the surface integrity is maintained. We observe no micro-cracking or thermal alteration, which indicates perfect parameter control. This clean surface now has higher reflectivity, perhaps 20-25%, and the compressive strength of the original material is fully accessible. This is a very-very successful restoration.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Aerospace
-- Marine
-- Construction Restoration
-- Manufacturing
-- Energy Sector
-- Automotive
-- Electronics Manufacturing
-- Food Processing
-- Historical Monument Preservation
+  - Cultural Heritage
+  - Aerospace
+  - Marine
+  - Construction Restoration
+  - Manufacturing
+  - Energy Sector
+  - Automotive
+  - Electronics Manufacturing
+  - Food Processing
+  - Historical Monument Preservation
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 840.0
+      value: 840
       min: 700
       max: 1100
       unit: J/(kg·K)
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASHRAE Fundamentals Handbook (2021), Chapter 26 - Table 3: Thermal Properties of Building and Insulating Materials, specifically listing ''Stucco'' as 0.72 W/m·K at 24°C'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -70,7 +70,7 @@ materialProperties:
       unit: mm²/s
       research_basis: 'NIST Special Publication 1196: ''Thermal Properties of Masonry Materials'' (Table 4.2) and ASM Handbook Vol. 4: ''Thermal Properties of Building Materials'' (Section 3.4)'
     thermalExpansion:
-      value: 10.0
+      value: 10
       min: 5
       max: 20
       unit: µm/m·°C
@@ -82,9 +82,9 @@ materialProperties:
       unit: MPa
       research_basis: ASTM C926-22a Standard Specification for Application of Portland Cement-Based Plaster, Table 1 - Physical Requirements for Portland Cement Plaster
     corrosionResistance:
-      value: 8.0
-      min: 2.0
-      max: 8.0
+      value: 8
+      min: 2
+      max: 8
       unit: rating
       research_basis: Stucco (portland cement-based) exhibits excellent corrosion resistance due to its high alkalinity (pH ~12-13) which passivates embedded materials and resists chemical attack from atmospheric exposure. The cementitious matrix provides superior performance against environmental corrosion compared to other masonry materials, with documented long-term durability in various climates.
     density:
@@ -94,21 +94,21 @@ materialProperties:
       unit: g/cm³
       research_basis: ASTM C926-22 Standard Specification for Application of Portland Cement-Based Plaster, which governs stucco composition and properties; NIST IR 8612 - Performance of Traditional and Polymer-Modified Stucco Systems
     flexuralStrength:
-      value: 3.0
+      value: 3
       min: 2
       max: 20
       unit: MPa
       research_basis: The PCA, a leading authority on cement-based materials, provides a typical flexural strength range for portland cement plaster (stucco) of 2.8 to 3.5 MPa when tested in accordance with ASTM C78 (standard test method for flexural strength of concrete using a simple beam with third-point loading). The value of 3.0 MPa is a conservative, commonly cited average within this range for general design and specification purposes. This property is distinct from the provided compressive strength and is directly relevant for evaluating the material's resistance to bending.
     hardness:
-      value: 2.0
+      value: 2
       min: 1
       max: 6
       unit: Mohs
       research_basis: 'NIST Special Publication 984-2: ''Standard Guide for Characterization of Masonry Materials'' and ASTM C1324-05: ''Standard Test Method for Examination and Analysis of Hardened Masonry Mortar'''
     oxidationResistance:
-      value: 1200.0
-      min: 300.0
-      max: 1200.0
+      value: 1200
+      min: 300
+      max: 1200
       unit: °C
       research_basis: Stucco is primarily composed of calcium sulfate hemihydrate (CaSO₄·0.5H₂O). Authoritative materials handbooks indicate that calcium sulfate-based materials begin significant decomposition (not oxidation in the metallic sense, but thermal degradation) in air starting around 1200°C, where it decomposes to calcium oxide and sulfur oxides. This temperature represents the maximum service limit before material failure.
     tensileStrength:
@@ -119,7 +119,7 @@ materialProperties:
       research_basis: ASTM C1324-18 'Standard Test Method for Examination and Analysis of Hardened Masonry Mortar' and NISTIR 7415 'Mechanical Properties of Masonry Components'
     youngsModulus:
       value: 20.7
-      min: 3.0
+      min: 3
       max: 50
       unit: GPa
       research_basis: ASTM C1386-07 'Standard Specification for Precast Autoclaved Aerated Concrete (PAAC) Wall Construction Units' and supplementary mechanical property studies on cementitious stucco compositions by Larbi (1993) in 'Cement and Concrete Research'
@@ -147,8 +147,8 @@ materialProperties:
 machineSettings:
   energyDensity:
     value: 3.2
-    min: 2.0
-    max: 5.0
+    min: 2
+    max: 5
     unit: J/cm²
     description: Fluence threshold for effective Stucco surface cleaning
   overlapRatio:
@@ -200,36 +200,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength optimized for Stucco absorption and minimal substrate interaction
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.847392'
@@ -299,7 +299,7 @@ preservedData:
         unit: µm/m·K
       youngsModulus:
         max: 50
-        min: 3.0
+        min: 3
         unit: GPa
         phase2_adjustment: Plaster at 3.0 GPa
         adjustment_date: '2025-10-15'
@@ -328,16 +328,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 7
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 300.0
-        max: 1200.0
+        min: 300
+        max: 1200
         unit: °C
         description: ''
         sample_count: 7

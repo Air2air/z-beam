@@ -1,5 +1,5 @@
 name: Ceramic Matrix Composites CMCs
-category: Composite
+category: composite
 subcategory: reinforced
 title: Ceramic Matrix Composites CMCs Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Ceramic Matrix Composites CMCs
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Ceramic Matrix Composites CMCs (CMCs)
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,33 +24,33 @@ caption:
   beforeText: At 500x magnification, the CMC surface shows a heavy, non-uniform contamination layer. This layer, it has a thickness varying from approximately 15 to over 40 µm, completely obscuring the underlying composite weave. The deposit morphology appears crust-like and sintered, with a high degree of micro-cracking—likely from thermal cycling stresses during service. Energy-dispersive X-ray (EDX) analysis confirms the primary contaminants are oxygen and carbon, suggesting a complex mixture of oxide scale and carbonaceous soot. Surface texture is severely degraded. The original 3.2 µm Ra roughness is now masked by this adherent film, which exhibits a porous, globular structure. You can see particulate inclusions—probably environmental dust—embedded within the matrix. The laser absorption characteristics of the surface are fundamentally altered by this dark, uneven layer, which increases localized heating risks during any subsequent laser processing. This contamination state, it compromises the material's functional integrity, providing initiation sites for mechanical failure and reducing thermal performance.
   afterText: After laser cleaning, the transformation is very clear. The contaminated layer is completely removed, revealing the pristine, woven architecture of the SiC/SiC composite. Individual fiber tows and the matrix pockets between them are now fully exposed and distinct. Surface shows a dramatic reduction in average roughness, now measuring 3.8 µm Ra—a value close to the original as-fabricated state of 3.2 µm. No evidence of the previous crust-like deposits remains. The cleaning process has restored the surface's inherent reflectivity, which is critical for its performance in high-temperature applications. Some minor, sub-micron pitting is visible in the matrix regions—this is likely due to selective ablation of the more absorbent contamination residues. However, the fundamental integrity of both fibers and matrix is fully preserved, with no observable thermal damage like melting or micro-cracking. This surface, it is now functionally restored for further processing or service.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Energy
-- Medical
-- Electronics
-- Marine
-- Manufacturing
-- Cultural Heritage
-- Defense
-- Research & Development
+  - Aerospace
+  - Automotive
+  - Energy
+  - Medical
+  - Electronics
+  - Marine
+  - Manufacturing
+  - Cultural Heritage
+  - Defense
+  - Research & Development
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 750.0
+      value: 750
       min: 500
-      max: 2500.0
+      max: 2500
       unit: J/(kg·K)
       research_basis: 'ASM Handbook, Volume 21: Composites, Specific Heat Data for SiC/SiC Ceramic Matrix Composites at 300K (pp. 324-327)'
     thermalConductivity:
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 21: Composites, Specific data for SiC/SiC CMCs at room temperature (25°C) from standardized testing'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Vol. 21: Composites, Specific data for SiC/SiC CMCs at room temperature to 1000°C range'
     compressiveStrength:
-      value: 350.0
+      value: 350
       min: 50
       max: 1000
       unit: MPa
       research_basis: The provided properties (density, hardness) are characteristic of a silicon carbide (SiC) fiber-reinforced SiC matrix composite (SiC/SiC CMC), a common and well-documented type. For this class of material, compressive strength is significantly lower than its tensile strength and is highly dependent on the fiber architecture and matrix porosity. The cited value of 350 MPa is a representative lower-bound figure for the compressive strength of 2D woven SiC/SiC CMCs at room temperature, as established in materials databases for aerospace applications. The confidence is not higher because the exact fiber type, weave, and interfacial coating of the specific CMC in question are unknown, which can cause the value to vary by ±150 MPa.
     corrosionResistance:
-      value: 8.0
+      value: 8
       min: 5
       max: 9
       unit: rating
@@ -96,41 +96,41 @@ materialProperties:
     electricalResistivity:
       value: 0.0015
       min: 0.001
-      max: 100000000000000.0
+      max: 100000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 350.0
+      value: 350
       min: 100
       max: 2000
       unit: MPa
       research_basis: The provided properties (density, hardness) are characteristic of silicon carbide (SiC) fiber-reinforced SiC matrix composites (SiC/SiC CMCs), a common aerospace-grade material. NASA's extensive research and testing of these materials for turbine engine components consistently report flexural strength values in the range of 300-400 MPa when measured via a standard 4-point bend test at room temperature. The value of 350 MPa is a representative median from this authoritative source.
     hardness:
       value: 22.5
-      min: 5.0
+      min: 5
       max: 120
       unit: GPa
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Ceramic Matrix Composites, specifically reporting Vickers hardness for SiC/SiC CMCs at 22.5 GPa under standard indentation testing conditions (HV0.5, 4.9N load)'
     oxidationResistance:
-      value: 1650.0
-      min: 80.0
-      max: 1650.0
+      value: 1650
+      min: 80
+      max: 1650
       unit: °C
       research_basis: The oxidation resistance temperature for CMCs is highly dependent on the specific matrix and fiber composition (e.g., SiC/SiC). For the most common and commercially significant SiC-based CMCs with environmental barrier coatings (EBCs), the maximum continuous use temperature in air is typically cited as 1650°C. Below this temperature, the protective silica scale forms and provides oxidation resistance. Above this threshold, the silica scale becomes volatile and active oxidation occurs, leading to significant material recession.
     tensileStrength:
-      value: 325.0
+      value: 325
       min: 20
       max: 6000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 21: Composites, Specific data for SiC/SiC CMCs from Table ''Typical Room-Temperature Tensile Properties of Ceramic-Matrix Composites'' showing tensile strength range of 250-400 MPa for continuous fiber-reinforced CMCs'
     youngsModulus:
-      value: 150.0
+      value: 150
       min: 0.001
       max: 3000
       unit: GPa
       research_basis: 'ASM Handbook, Volume 21: Composites, Section: Ceramic Matrix Composites, specifically referencing SiC/SiC composites with continuous fiber reinforcement under standard ASTM testing conditions'
     fractureToughness:
-      value: 8.0
+      value: 8
       min: 20
       max: 100
       unit: MPa·√m
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength providing optimal absorption balance for CMC ceramic phases and contaminants
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.055685'
@@ -252,7 +252,7 @@ preservedData:
         unit: g/cm³
       hardness:
         max: 120
-        min: 5.0
+        min: 5
         unit: HRC
         adjustment_note: Phenolic resin composites harder
         adjustment_date: '2025-10-15'
@@ -270,7 +270,7 @@ preservedData:
         notes: 'Wide range reflects diversity: polymer matrix composites 5-30%, metal matrix composites 40-80%'
         last_updated: '2025-10-15T14:19:43.867274'
       specificHeat:
-        max: 2500.0
+        max: 2500
         min: 500
         unit: J/kg·K
       tensileStrength:
@@ -330,7 +330,7 @@ preservedData:
         research_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 100000000000000.0
+        max: 100000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Highly variable
@@ -353,8 +353,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 80.0
-        max: 1650.0
+        min: 80
+        max: 1650
         unit: °C
         description: ''
         sample_count: 13

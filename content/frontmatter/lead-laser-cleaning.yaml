@@ -1,5 +1,5 @@
 name: Lead
-category: Metal
+category: metal
 subcategory: alloy
 title: Lead Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Lead
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Lead
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: 2
+  id: alessandro-moretti
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -24,31 +24,31 @@ caption:
   beforeText: At 500x magnification, the lead surface presents a heavily contaminated state, characterized by a non-uniform, stratified corrosion layer. The primary contaminant is a continuous lead carbonate (cerussite, PbCO₃) film, exhibiting a crystalline, acicular morphology with a measured thickness varying between 15 and 25 µm. This stratified deposit, it effectively masks the underlying metallic substrate, creating a topographical profile with a high degree of micro-roughness. The surface roughness, quantified using white light interferometry, yields an average arithmetic roughness (Ra) of 4.8 µm, with isolated peaks—likely lead oxide (PbO) nodules—reaching heights of up to 30 µm. Energy Dispersive X-ray (EDX) analysis confirms the widespread presence of oxygen and carbon, which is consistent with the formation of a complex patina comprising both oxides and carbonates. One can observe localized pitting beneath this crust, with pit diameters averaging 8–12 µm, indicating active corrosion sites that compromise the material's integrity. The visual texture is matte and highly irregular, a direct consequence of the porous, friable nature of the corrosion products that exhibit poor adhesion to the substrate. This degraded surface condition, with its high reflectivity loss and compromised topography, is entirely unsuitable for any subsequent industrial processing or coating adhesion.
   afterText: Following the laser cleaning process, the microscopic analysis reveals a profound surface transformation. The stratified contamination layer has been completely ablated, exposing the pristine, underlying lead substrate. The surface roughness, it is now significantly reduced to an Ra value of approximately 0.7 µm—or more precisely, 0.68 µm—which indicates the restoration of a remarkably smooth and planar surface finish. One can observe the re-emergence of the metal's characteristic metallic luster and a refined grain structure, which was entirely obscured previously. The cleaning efficacy is nearly total, as confirmed by post-process EDX spectroscopy showing a reduction in oxygen atomic concentration from over 40% to a mere 2.3%. The previously noted pitting is still faintly visible—these are the remnants of the pre-existing corrosion damage—but their edges are now clean and well-defined, free of any loosely adherent oxides. This precision in contaminant removal, it creates a surface with restored reflectivity and, crucially, a topographical integrity that is optimal for functional applications such as soldering or protective coating. The surface, she is now perfectly prepared.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Nuclear Energy
-- Battery Manufacturing
-- Cultural Heritage
-- Medical Radiation Shielding
-- Marine Engineering
-- Electronics Manufacturing
-- Construction and Roofing
-- Automotive Manufacturing
-- Aerospace Component Manufacturing
-- Industrial Machinery
+  - Nuclear Energy
+  - Battery Manufacturing
+  - Cultural Heritage
+  - Medical Radiation Shielding
+  - Marine Engineering
+  - Electronics Manufacturing
+  - Construction and Roofing
+  - Automotive Manufacturing
+  - Aerospace Component Manufacturing
+  - Industrial Machinery
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 2022.0
+      value: 2022
       min: 907
       max: 5870
       unit: K
@@ -67,16 +67,16 @@ materialProperties:
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Lead thermochemical data at 298.15 K'
     thermalConductivity:
       value: 35.3
-      min: 7.0
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: NIST Chemistry WebBook, Lead thermophysical properties at 300K; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 601.0
+      value: 601
       min: 873
       max: 3695
       unit: K
@@ -94,13 +94,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'NIST Standard Reference Database 144 - Lead (Pb) thermal expansion coefficient at 20°C: 29.1 × 10^-6 K^-1'
     compressiveStrength:
-      value: 15.0
+      value: 15
       min: 50
       max: 2000
       unit: MPa
       research_basis: Lead is an exceptionally soft, malleable metal with no distinct yield point. Its compressive strength is highly dependent on purity, strain rate, and temperature. For commercially pure lead, authoritative materials handbooks report compressive yield strength (0.2% offset) typically in the range of 12-18 MPa under standard laboratory conditions (room temperature, quasi-static loading). The value overlaps significantly with its tensile strength due to its low capacity for work hardening.
     corrosionResistance:
-      value: 2.0
+      value: 2
       min: 1
       max: 10
       unit: rating
@@ -112,55 +112,55 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 144 (Lead), ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     electricalConductivity:
-      value: 4810000.0
+      value: 4810000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 2.065e-07
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 2.065e-7
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 12.0
+      value: 12
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: Lead is an extremely soft, malleable metal with negligible capacity for elastic deformation. Its flexural strength is not a primary design property and is rarely tested directly. The value of ~12 MPa is derived from its ultimate tensile strength, which is well-documented in authoritative materials handbooks (e.g., ASM) as being in the 12-18 MPa range for pure lead. Since bending failure is governed by tensile stress, this value serves as a conservative and representative estimate of its flexural strength.
     hardness:
-      value: 38.0
+      value: 38
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, Lead and Lead Alloys Chapter, Table 1: Physical and Mechanical Properties of High-Purity Lead'
     oxidationResistance:
-      value: 400.0
+      value: 400
       min: 200
       max: 1200
       unit: °C
       research_basis: The ASM Handbook states that while lead forms a protective oxide film at room temperature, significant oxidation begins above approximately 400°C (750°F). This temperature is well below lead's melting point of 327.5°C, meaning molten lead oxidizes readily. The 400°C threshold is widely cited in materials science references for the onset of substantial oxidation in air.
     porosity:
       value: 0.0001
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 12.0
-      min: 3.0
-      max: 3000.0
+      value: 12
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical Mechanical Properties of Wrought Lead'
     youngsModulus:
-      value: 14.0
+      value: 14
       min: 5
       max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Physical and Mechanical Properties of Lead and Lead Alloys'
     fractureToughness:
-      value: 15.0
+      value: 15
       min: 20
       max: 200
   laser_material_interaction:
@@ -168,14 +168,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.15
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.35
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -187,7 +187,7 @@ materialProperties:
     laserDamageThreshold:
       value: 0.15
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
@@ -203,13 +203,13 @@ materialProperties:
       unit: dimensionless
       research_basis: materials_science_literature
     thermalShockResistance:
-      value: 180.0
+      value: 180
       min: 50
       max: 400
       unit: W/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 12400000.0
+      value: 12400000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -221,8 +221,8 @@ materialProperties:
       unit: µm
       research_basis: materials_science_literature
     vaporPressure:
-      value: 2.13e-07
-      min: 1.0e-10
+      value: 2.13e-7
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -230,7 +230,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Minimum fluence required for effective Lead removal
   overlapRatio:
@@ -282,36 +282,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength optimized for Lead absorption and minimal reflectivity
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.346546'
@@ -355,11 +355,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -391,8 +391,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -433,8 +433,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -452,7 +452,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -460,7 +460,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -478,7 +478,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -513,8 +513,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -522,8 +522,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -540,7 +540,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

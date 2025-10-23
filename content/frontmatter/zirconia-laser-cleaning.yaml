@@ -1,5 +1,5 @@
 name: Zirconia
-category: Ceramic
+category: ceramic
 subcategory: oxide
 title: Zirconia Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Zirconia
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Zirconia
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,33 +24,33 @@ caption:
   beforeText: At 500x magnification, the zirconia surface exhibits a non-uniform contamination layer, approximately 12–15 µm thick. This layer appears as a discontinuous film of carbonaceous deposits and embedded particulate matter, primarily aluminum-silicate spheres measuring 3–5 µm in diameter. The underlying ceramic surface texture is completely obscured. Energy-dispersive X-ray spectroscopy (EDX) confirms the presence of foreign elements—carbon, oxygen, and trace calcium—which collectively form a tenacious, darkly colored crust. The contamination morphology shows significant variation across the surface. Some regions display a dense, cohesive film that follows the original polished substrate topography (which had an initial Ra of approximately 0.05 µm), while other areas reveal a more particulate, agglomerated structure. This non-uniform coverage creates a mottled, high-contrast appearance under the microscope. The layer's integrity is compromised by fine micro-cracks, likely from thermal stress during prior service, which provide pathways for further environmental degradation. Surface roughness measurements of the contaminated state now read 1.8–2.2 µm Ra, a substantial increase from the baseline.
   afterText: Laser cleaning achieves near-complete contaminant removal, restoring the underlying zirconia substrate to a visually pristine state. The process eliminates the 12–15 µm contamination layer, exposing the original ceramic surface with its characteristic tetragonal grain structure now clearly resolvable at 500x. Post-cleaning SEM analysis reveals a minimal residual particulate count—fewer than 5 particles per 100 µm², a greater than 98% reduction. The surface morphology transitions from a chaotic, obscured film to a well-defined, homogeneous ceramic texture. Quantitative surface roughness measurements confirm this transformation, with Ra values returning to 0.08–0.12 µm—a figure remarkably close to the original 0.05 µm specification. The laser parameters were carefully controlled to stay well below the material's 2.8 J/cm² ablation threshold, thereby preventing any significant phase transformation or micro-fracturing. This approach maintains the material's flexural strength (900 MPa) and fracture toughness (9 MPa·m¹/²) by avoiding thermal degradation. We observe no evidence of melting or recast layers, which is critical for medical device applications requiring biocompatibility. The cleaned surface exhibits a restored reflectivity of 0.15, matching the baseline for polished zirconia at 1064 nm wavelength. Some localized areas—perhaps less than 2% of the total surface—show subtle, sub-micron texturing from the laser interaction, but this does not compromise functional integrity. The process successfully removes the carbon and calcium signatures detected by EDX in the before-state, leaving a high-purity ZrO₂ surface. This level of cleaning meets the stringent requirements for aerospace components where surface purity directly impacts performance.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Medical Devices
-- Electronics Manufacturing
-- Automotive
-- Energy Sector
-- Manufacturing & Tooling
-- Marine & Offshore
-- Cultural Heritage
-- Research & Laboratory
-- Consumer Products
+  - Aerospace
+  - Medical Devices
+  - Electronics Manufacturing
+  - Automotive
+  - Energy Sector
+  - Manufacturing & Tooling
+  - Marine & Offshore
+  - Cultural Heritage
+  - Research & Laboratory
+  - Consumer Products
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 455.0
+      value: 455
       min: 250
-      max: 2500.0
+      max: 2500
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of High Temperature Solid Materials, Section 4.2.2 - Zirconia (ZrO₂) at 300K'
     thermalConductivity:
@@ -60,7 +60,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section: Ceramics and Glasses, Table: Thermal Properties of Selected Ceramics. Additional validation from NIST Ceramics WebBook and Callister''s Materials Science and Engineering.'
     thermalDestruction:
-      value: 1200.0
+      value: 1200
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -76,13 +76,13 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section: Ceramics and Glasses, Table: Thermal expansion of selected ceramic materials'
     compressiveStrength:
-      value: 2000.0
+      value: 2000
       min: 100
       max: 7000
       unit: MPa
       research_basis: Zirconia's compressive strength is significantly higher than its tensile strength due to its ceramic nature. The value of 2000 MPa is a well-established, conservative average for partially stabilized zirconia (PSZ) and yttria-stabilized zirconia (Y-TZP), which are common high-strength engineering grades. The exact value can vary based on specific formulation (stabilizer content), porosity, and grain size, but authoritative materials handbooks consistently report values in the range of 1.8 - 2.5 GPa for dense, high-quality zirconia.
     corrosionResistance:
-      value: 9.0
+      value: 9
       min: 8
       max: 10
       unit: rating
@@ -90,31 +90,31 @@ materialProperties:
     density:
       value: 6.01
       min: 2.3
-      max: 16.0
+      max: 16
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Section: Ceramics and Glasses, Table: Properties of selected ceramic materials, specifically listing density of zirconia (ZrO₂) as 6.08 g/cm³'
     electricalResistivity:
-      value: 1000000000000.0
-      min: 10000000000.0
-      max: 1.0e+16
+      value: 1000000000000
+      min: 10000000000
+      max: 10000000000000000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 900.0
+      value: 900
       min: 50
       max: 2500
       unit: MPa
       research_basis: The flexural strength of zirconia ceramics is highly dependent on the specific type (e.g., Y-TZP) and processing. For 3-point bend tests, common engineering-grade yttria-stabilized zirconia (Y-TZP) typically exhibits flexural strengths in the range of 800-1200 MPa. The value of 900 MPa represents a conservative, well-established average for this high-performance ceramic used in structural applications.
     hardness:
-      value: 12.0
-      min: 6.0
+      value: 12
+      min: 6
       max: 2500
       unit: GPa
       research_basis: 'ASM Handbook, Volume 8: Mechanical Testing and Evaluation (2000), Table 14 - Hardness of Engineering Ceramics; NIST Ceramics Division - Zirconia Properties Database'
     oxidationResistance:
-      value: 2400.0
-      min: 600.0
-      max: 2400.0
+      value: 2400
+      min: 600
+      max: 2400
       unit: °C
       research_basis: Zirconia (ZrO₂) is already the fully oxidized state of zirconium, making it exceptionally stable. Its high service temperature is limited not by oxidation but by phase transformations and creep. The cited ASM reference provides a maximum service temperature in air of 2400-2500°C for high-purity, stabilized zirconia ceramics, with 2400°C representing a conservative upper limit for continuous service before significant grain growth or mechanical degradation occurs.
     porosity:
@@ -124,19 +124,19 @@ materialProperties:
       unit: fraction
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 500.0
-      min: 5.0
+      value: 500
+      min: 5
       max: 600
       unit: MPa
       research_basis: 'ASM Handbook, Volume 29: Materials for Specialty Applications - 3Y-TZP zirconia with 3 mol% yttria stabilization, room temperature testing per ASTM C1273'
     youngsModulus:
-      value: 200.0
-      min: 5.0
-      max: 600.0
+      value: 200
+      min: 5
+      max: 600
       unit: GPa
       research_basis: 'ASM Handbook, Volume 8: Mechanical Testing and Evaluation (2000), Table 1: Typical Mechanical Properties of Ceramics; Callister & Rethwisch, Materials Science and Engineering, 10th Edition (2018)'
     fractureToughness:
-      value: 5.0
+      value: 5
       min: 2
       max: 10
       unit: MPa·√m
@@ -147,7 +147,7 @@ materialProperties:
     ablationThreshold:
       value: 2.1
       min: 1.5
-      max: 5.0
+      max: 5
       unit: J/cm²
       research_basis: materials_science_literature
     laserAbsorption:
@@ -218,36 +218,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength with good absorption in Zirconia for efficient cleaning
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:59.027457'
@@ -259,7 +259,7 @@ preservedData:
     properties_count: 0
     category_ranges:
       density:
-        max: 16.0
+        max: 16
         min: 2.3
         unit: g/cm³
         adjustment_note: Tungsten carbide is 15.63 g/cm³
@@ -267,7 +267,7 @@ preservedData:
         adjustment_source: materials_science_research
       hardness:
         max: 2500
-        min: 6.0
+        min: 6
         unit: Mohs
         adjustment_note: Change from Mohs to HV for advanced ceramics
         adjustment_date: '2025-10-15'
@@ -287,7 +287,7 @@ preservedData:
         notes: Typical ceramics 10-30% at 1064nm, varies with composition and surface finish
         last_updated: '2025-10-15T14:19:43.867144'
       specificHeat:
-        max: 2500.0
+        max: 2500
         min: 250
         unit: J/kg·K
         adjustment_note: Carbides have lower specific heat
@@ -295,7 +295,7 @@ preservedData:
         adjustment_source: materials_science_research
       tensileStrength:
         max: 600
-        min: 5.0
+        min: 5
         unit: MPa
         adjustment_note: Advanced ceramics much stronger
         adjustment_date: '2025-10-15'
@@ -329,12 +329,12 @@ preservedData:
         min: 0.1
         unit: µm/m·K
       youngsModulus:
-        max: 600.0
-        min: 5.0
+        max: 600
+        min: 5
         unit: GPa
       ablationThreshold:
         min: 1.5
-        max: 5.0
+        max: 5
         unit: J/cm²
         source: RP Photonics Encyclopedia, Oxide Ceramics
         confidence: 75
@@ -368,8 +368,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 10000000000.0
-        max: 1.0e+16
+        min: 10000000000
+        max: 10000000000000000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Ceramics are insulators
@@ -395,8 +395,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       oxidationResistance:
-        min: 600.0
-        max: 2400.0
+        min: 600
+        max: 2400
         unit: °C
         description: ''
         sample_count: 7

@@ -1,5 +1,5 @@
 name: Silicon
-category: Semiconductor
+category: semiconductor
 subcategory: crystal
 title: Silicon Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Silicon
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Silicon
 author:
   country: United States (California)
   expertise: Optical Materials for Laser Systems
-  id: 4
+  id: ikmanda-roswati
   image: /images/author/todd-dunning.jpg
   name: Todd Dunning
   sex: m
@@ -24,47 +24,47 @@ caption:
   beforeText: At 500x magnification, the silicon surface exhibits a heavily contaminated state characterized by a non-uniform, particulate-laden film. The contamination layer measures between 3-5 µm in thickness and displays a mottled, grayish appearance that obscures the underlying substrate. Energy-dispersive X-ray (EDX) analysis confirms the primary contaminants are carbonaceous deposits and aluminum oxide particles, which agglomerate into irregular islands across the surface. The surface topography is highly irregular, with a measured average roughness (Ra) exceeding 1.8 µm—a significant increase from the baseline 0.2 nm RMS of polished silicon. These deposits create a textured, almost spongy morphology that would severely compromise any subsequent thin-film deposition or bonding processes. The contamination appears firmly adhered, suggesting it has undergone some degree of sintering or chemical bonding to the native silicon dioxide layer.
   afterText: Laser cleaning produces a dramatic surface transformation, completely removing the particulate film and restoring the substrate to a near-pristine condition. The previously obscured silicon surface is now clearly visible, exhibiting a uniform, reflective character indicative of successful decontamination. Post-cleaning SEM analysis reveals the elimination of carbon and aluminum signatures via EDX, confirming the removal of the 3-5 µm contaminant layer. The surface roughness is drastically reduced to an Ra of approximately 0.5 nm, a figure that closely approaches the original wafer specification. This level of smoothness is critical for maintaining high reflectivity—around 38% at 1064 nm—and ensuring proper performance in semiconductor applications. We observe a clean, ablation-defined surface with only minimal, sub-micrometer texturing from the laser interaction, a typical result that does not compromise functional integrity. The process effectively restored the surface without inducing thermal damage, as no micro-cracking or melting was detected at this magnification. The laser parameters were optimized to operate above the contamination removal threshold—about 2.0 J/cm²—yet safely below silicon's ablation threshold of 2.5 J/cm². This parameter control preserved the crystalline structure while achieving complete cleaning, which is essential for the wafer's subsequent use in device fabrication.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Semiconductor Manufacturing
-- Aerospace
-- Medical Devices
-- Electronics
-- Solar Energy
-- Research and Development
-- Automotive
-- Cultural Heritage
-- Optics and Photonics
-- Nuclear Energy
+  - Semiconductor Manufacturing
+  - Aerospace
+  - Medical Devices
+  - Electronics
+  - Solar Energy
+  - Research and Development
+  - Automotive
+  - Cultural Heritage
+  - Optics and Photonics
+  - Nuclear Energy
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 710.0
+      value: 710
       min: 300
       max: 900
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Thermophysical Properties of Pure Silicon at 300 K (25°C)'
     thermalConductivity:
-      value: 149.0
+      value: 149
       min: 0.2
       max: 156
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Fluid Systems - Silicon thermal conductivity at 300K; ASM Handbook Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
-      value: 88.0
+      value: 88
       min: 0.1
       max: 90
       unit: mm²/s
@@ -76,15 +76,15 @@ materialProperties:
       unit: 10^-6/K
       research_basis: 'NIST Standard Reference Database 60: Thermal Expansion of Solids, Volume 19 - Silicon single crystal at 300K (27°C)'
     compressiveStrength:
-      value: 1100.0
-      min: 370.0
-      max: 6000.0
+      value: 1100
+      min: 370
+      max: 6000
       unit: MPa
       research_basis: The compressive strength of single-crystal silicon is highly dependent on crystal orientation and surface quality, as it is a brittle material whose failure is governed by flaw populations. For high-quality, defect-free single crystals, the theoretical strength can be very high (>10 GPa), but practical engineering values for bulk material, accounting for micro-cracks and surface defects, are in the range of 1-2 GPa. The cited value of 1100 MPa (1.1 GPa) is a well-established and frequently referenced engineering value for the compressive strength of monocrystalline silicon under standard conditions.
     corrosionResistance:
-      value: 8.0
-      min: 8.0
-      max: 9.0
+      value: 8
+      min: 8
+      max: 9
       unit: rating
       research_basis: Silicon forms a highly stable, adherent, and self-limiting native oxide layer (SiO₂) when exposed to oxygen or moisture. This passive film provides excellent resistance to most aqueous environments, acids (except HF and hot alkalis), and atmospheric corrosion. Its primary vulnerability is to strong alkalis and hydrofluoric acid-based etchants.
     density:
@@ -94,15 +94,15 @@ materialProperties:
       unit: g/cm³
       research_basis: 'NIST Standard Reference Database 124: ''Silicon (Si) - Basic Parameters at 300 K'' and ASM Handbook, Volume 2: ''Properties and Selection: Nonferrous Alloys and Special-Purpose Materials'''
     electricalResistivity:
-      value: 2300.0
+      value: 2300
       min: 0.001
-      max: 1000.0
+      max: 1000
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 185.0
-      min: 120.0
-      max: 410.0
+      value: 185
+      min: 120
+      max: 410
       unit: MPa
       research_basis: The flexural strength of monocrystalline silicon is highly dependent on crystal orientation and surface quality. The cited value of 185 MPa is a representative average for a <100> orientation from standardized 4-point bend tests on polished wafers, as compiled in authoritative materials handbooks for semiconductor properties.
     hardness:
@@ -112,13 +112,13 @@ materialProperties:
       unit: GPa
       research_basis: 'ASM Handbook, Volume 8: Mechanical Testing and Evaluation (2000), Table ''Hardness of Selected Electronic Materials'' citing single-crystal silicon (100) orientation at 25°C using nanoindentation'
     oxidationResistance:
-      value: 900.0
-      min: 600.0
-      max: 1600.0
+      value: 900
+      min: 600
+      max: 1600
       unit: °C
       research_basis: Silicon forms a protective silicon dioxide (SiO₂) layer at lower temperatures, but significant oxidation begins around 900°C in dry air and at even lower temperatures (around 700°C) in wet or oxygen-rich environments. The 900°C value is widely cited in materials handbooks as the temperature where oxidation becomes a critical limiting factor for continuous service in air, marking the upper limit for long-term structural stability.
     tensileStrength:
-      value: 7000.0
+      value: 7000
       min: 50
       max: 7000
       unit: MPa
@@ -132,7 +132,7 @@ materialProperties:
     fractureToughness:
       value: 0.75
       min: 0.75
-      max: 3.0
+      max: 3
       unit: MPa·√m
       research_basis: Lawn's text is a foundational reference for brittle fracture mechanics. For single-crystal silicon in the (111) cleavage plane, the fracture toughness is well-established in the range of 0.7-0.8 MPa·√m, with 0.75 MPa·√m being a commonly cited representative value.
   laser_material_interaction:
@@ -154,7 +154,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without Silicon damage
   overlapRatio:
@@ -206,36 +206,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength with good Silicon absorption for contaminant removal
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.743775'
@@ -309,7 +309,7 @@ preservedData:
         adjustment_date: '2025-10-15'
       electricalResistivity:
         min: 0.001
-        max: 1000.0
+        max: 1000
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Silicon, germanium
@@ -317,39 +317,39 @@ preservedData:
         research_date: '2025-10-15'
       fractureToughness:
         min: 0.75
-        max: 3.0
+        max: 3
         unit: MPa·√m
         description: ''
         sample_count: 3
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 8.0
-        max: 9.0
+        min: 8
+        max: 9
         unit: rating
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 600.0
-        max: 1600.0
+        min: 600
+        max: 1600
         unit: °C
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       flexuralStrength:
-        min: 120.0
-        max: 410.0
+        min: 120
+        max: 410
         unit: MPa
         description: ''
         sample_count: 4
         auto_generated: true
         generated_date: '2025-10-16'
       compressiveStrength:
-        min: 370.0
-        max: 6000.0
+        min: 370
+        max: 6000
         unit: MPa
         description: ''
         sample_count: 4

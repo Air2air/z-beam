@@ -1,5 +1,5 @@
 name: Magnesium
-category: Metal
+category: metal
 subcategory: alloy
 title: Magnesium Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Magnesium
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Magnesium
 author:
   country: Taiwan
   expertise: Precision Laser Engineering
-  id: 1
+  id: todd-dunning
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -24,59 +24,59 @@ caption:
   beforeText: Surface analysis reveals significant contamination on the Magnesium alloy substrate, characterized by a heterogeneous oxide layer and organic residues under 500x magnification. At this resolution, the oxide layer thickness measures approximately 12.5 micrometers, which, combined with irregular carbon-based deposits ranging from 3 to 7 micrometers, poses a substantial challenge for achieving uniform cleaning. Additionally, the contamination exhibits a patchy distribution pattern, with denser accumulations near micro-crevices, potentially compromising the structural integrity if not addressed. From a Taiwan technical perspective, such layered impurities demand precise laser parameter calibration to avoid substrate damage. Perhaps, considering the alloy’s low melting point, this level of contamination underscores the critical need for controlled energy density during cleaning.
   afterText: Microscopic examination shows a remarkable transformation of the Magnesium alloy surface post-laser cleaning, with contamination layers reduced to negligible levels under 500x magnification. Specifically, the oxide layer thickness has decreased to under 0.5 micrometers, while organic residues are virtually eliminated, reflecting a 95% reduction compared to the initial state. Furthermore, the surface uniformity has improved significantly, as evidenced by a surface roughness value of Ra 0.8 micrometers, which enhances corrosion resistance and suitability for general cleaning applications. At this stage, one might note, um, a slight variation in reflectivity across treated zones, though this remains within acceptable limits. Consequently, these quantified results (including a cleaning efficiency of 98%) demonstrate the effectiveness of tailored laser settings in preserving substrate integrity. From a Taiwan technical documentation standard, such outcomes validate the precision of pulsed laser systems for lightweight metal applications, ensuring optimal performance in industrial contexts.
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Aerospace
-- Automotive
-- Medical Device Manufacturing
-- Electronics
-- Marine
-- Cultural Heritage
-- Energy Sector
-- Manufacturing & Tooling
-- Defense & Military
-- Sports Equipment
+  - Aerospace
+  - Automotive
+  - Medical Device Manufacturing
+  - Electronics
+  - Marine
+  - Cultural Heritage
+  - Energy Sector
+  - Manufacturing & Tooling
+  - Defense & Military
+  - Sports Equipment
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     boilingPoint:
-      value: 1363.0
+      value: 1363
       min: 907
       max: 5870
       unit: K
       research_basis: materials_science_literature
     meltingPoint:
-      value: 650.0
+      value: 650
       min: -39
       max: 3422
       unit: °C
       research_basis: materials_science_literature
     specificHeat:
-      value: 1025.0
+      value: 1025
       min: 100
       max: 2000
       unit: J/(kg·K)
       research_basis: 'NIST Standard Reference Database 144: Magnesium (Mg) - Thermophysical Properties, Section 4.1.1 Specific Heat Capacity at 298.15 K'
     thermalConductivity:
-      value: 156.0
-      min: 7.0
+      value: 156
+      min: 7
       max: 430
       unit: W/(m·K)
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, p. 1139 for pure magnesium (99.8%) at 27°C'
     thermalDestruction:
-      value: 500.0
+      value: 500
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDestructionPoint:
-      value: 923.0
+      value: 923
       min: 873
       max: 3695
       unit: K
@@ -100,7 +100,7 @@ materialProperties:
       unit: MPa
       research_basis: The compressive strength of magnesium is highly dependent on its form (cast vs. wrought), specific alloy, and temper condition. For pure, cast magnesium, the compressive yield strength is typically in the range of 65-100 MPa. This value is significantly lower than its tensile strength due to magnesium's HCP crystal structure, which exhibits tension-compression strength asymmetry (the yield strength is lower in compression than in tension). The provided value is a representative range for commercially pure cast material under standard ambient temperature testing conditions.
     corrosionResistance:
-      value: 1.0
+      value: 1
       min: 1
       max: 10
       unit: rating
@@ -112,45 +112,45 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1, p. 740; NIST Standard Reference Database 144, ''Physical Constants of Inorganic Compounds'''
     electricalConductivity:
-      value: 22400000.0
+      value: 22400000
       min: 0.67
-      max: 63.0
+      max: 63
       unit: S/m
       research_basis: materials_science_literature
     electricalResistivity:
-      value: 4.45e-08
-      min: 1.0e-08
-      max: 1.5e-06
+      value: 4.45e-8
+      min: 1.e-8
+      max: 0.0000015
       unit: Ω·m
       research_basis: materials_science_literature
     flexuralStrength:
-      value: 130.0
+      value: 130
       min: 2.5
-      max: 1050.0
+      max: 1050
       unit: MPa
       research_basis: The flexural strength of magnesium is highly dependent on its alloy and temper condition. For a common, representative magnesium alloy like AZ91 in the cast condition, authoritative materials databases (ASM, Key to Metals) report flexural yield strengths in the range of 130-160 MPa. The value of 130 MPa is a conservative and well-cited figure for a standard 3-point bend test on a common cast alloy, providing a realistic baseline. Pure magnesium would be lower, but engineering applications typically use alloys.
     hardness:
-      value: 44.0
+      value: 44
       min: 0.5
       max: 3500
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (1990), Table 1: Typical room-temperature mechanical properties of pure magnesium'
     oxidationResistance:
-      value: 650.0
+      value: 650
       min: 200
       max: 1200
       unit: °C
       research_basis: materials_science_literature
     porosity:
       value: 0.015
-      min: 0.0
-      max: 15.0
+      min: 0
+      max: 15
       unit: '%'
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 160.0
-      min: 3.0
-      max: 3000.0
+      value: 160
+      min: 3
+      max: 3000
       unit: MPa
       research_basis: 'ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials, ''Magnesium and Magnesium Alloys'' chapter, pp. 455-479, specifically Table 2 ''Typical room-temperature mechanical properties of magnesium alloys'' for pure magnesium (ASTM 9980A)'
     youngsModulus:
@@ -170,14 +170,14 @@ materialProperties:
     description: Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds
     ablationThreshold:
       value: 0.35
-      min: 2.0
-      max: 8.0
+      min: 2
+      max: 8
       unit: J/cm²
       research_basis: materials_science_literature
     absorptivity:
       value: 0.12
-      min: 2.0
-      max: 65.0
+      min: 2
+      max: 65
       unit: dimensionless
       research_basis: materials_science_literature
     laserAbsorption:
@@ -189,11 +189,11 @@ materialProperties:
     laserDamageThreshold:
       value: 0.15
       min: 0.1
-      max: 20.0
+      max: 20
       unit: J/cm²
       research_basis: materials_science_literature
     laserReflectivity:
-      value: 74.0
+      value: 74
       min: 5
       max: 99.9
       unit: '%'
@@ -211,7 +211,7 @@ materialProperties:
       unit: W/m
       research_basis: materials_science_literature
     absorptionCoefficient:
-      value: 11200000.0
+      value: 11200000
       min: 100000
       max: 50000000
       unit: m⁻¹
@@ -224,7 +224,7 @@ materialProperties:
       research_basis: materials_science_literature
     vaporPressure:
       value: 36.1
-      min: 1.0e-10
+      min: 1.e-10
       max: 0.001
       unit: Pa
       research_basis: materials_science_literature
@@ -284,36 +284,36 @@ machineSettings:
     unit: nm
     description: Optimal wavelength considering Magnesium's optical properties
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.380535'
@@ -357,11 +357,11 @@ preservedData:
         notes: Industrial metal finishing processes
         last_updated: '2025-10-14T23:58:54.459299'
       tensileStrength:
-        max: 3000.0
-        min: 3.0
+        max: 3000
+        min: 3
         unit: MPa
       thermalConductivity:
-        min: 7.0
+        min: 7
         max: 430
         unit: W/(m·K)
         source: MatWeb Materials Database
@@ -393,8 +393,8 @@ preservedData:
         min: 5
         unit: GPa
       ablationThreshold:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: J/cm²
         source: Marks et al. 2022, Precision Engineering
         confidence: 90
@@ -435,8 +435,8 @@ preservedData:
         source: materials_science_literature
         research_date: '2025-10-15'
       electricalResistivity:
-        min: 1.0e-08
-        max: 1.5e-06
+        min: 1.e-8
+        max: 0.0000015
         unit: Ω·m
         description: Resistance to electrical current flow
         notes: Titanium at 48 μΩ·cm = 4.8e-5 Ω·m
@@ -454,7 +454,7 @@ preservedData:
         research_date: '2025-10-15'
       flexuralStrength:
         min: 2.5
-        max: 1050.0
+        max: 1050
         unit: MPa
         description: ''
         sample_count: 34
@@ -462,7 +462,7 @@ preservedData:
         generated_date: '2025-10-16'
       laserDamageThreshold:
         min: 0.1
-        max: 20.0
+        max: 20
         unit: J/cm²
         source: Laser-Induced Damage in Optical Materials (NIST)
         confidence: 85
@@ -480,7 +480,7 @@ preservedData:
         last_updated: '2025-10-17T00:00:00.000000'
       electricalConductivity:
         min: 0.67
-        max: 63.0
+        max: 63
         unit: MS/m
         source: Materials Handbook (ASM International)
         confidence: 90
@@ -515,8 +515,8 @@ preservedData:
         measurement_context: Resistance to thermal stress cracking during rapid temperature changes
         last_updated: '2025-10-17T00:00:00.000000'
       absorptivity:
-        min: 2.0
-        max: 65.0
+        min: 2
+        max: 65
         unit: '%'
         source: Laser Material Processing (Steen & Mazumder)
         confidence: 85
@@ -524,8 +524,8 @@ preservedData:
         measurement_context: Near-IR wavelengths (1064nm Nd:YAG), room temperature
         last_updated: '2025-10-17T00:00:00.000000'
       porosity:
-        min: 0.0
-        max: 15.0
+        min: 0
+        max: 15
         unit: '%'
         source: ASM Metals Handbook - Powder Metallurgy
         confidence: 90
@@ -542,7 +542,7 @@ preservedData:
         measurement_context: Temperature at which material structurally fails or vaporizes
         last_updated: '2025-10-17T00:00:00.000000'
       vaporPressure:
-        min: 1.0e-10
+        min: 1.e-10
         max: 0.001
         unit: Pa
         source: NIST Thermophysical Properties Database

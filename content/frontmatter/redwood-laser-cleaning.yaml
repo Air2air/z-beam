@@ -1,5 +1,5 @@
 name: Redwood
-category: Wood
+category: wood
 subcategory: natural
 title: Redwood Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Redwood
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Redwood
 author:
   country: Indonesia
   expertise: Ultrafast Laser Physics and Material Interactions
-  id: 3
+  id: hiroshi-tanaka
   image: /images/author/ikmanda-roswati.jpg
   name: Ikmanda Roswati
   sex: m
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Redwood surface after laser cleaning showing detailed surface structure
     url: /images/material/redwood-laser-cleaning-micro.jpg
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo_org_ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo_org_iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo-org-ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo-org-iec.png
 applications:
-- Cultural Heritage
-- Marine
-- Architectural Restoration
-- Furniture Manufacturing
-- Outdoor Structures
-- Musical Instrument
-- Wine Barrel
-- Construction
-- Art Conservation
-- Garden and Landscape
+  - Cultural Heritage
+  - Marine
+  - Architectural Restoration
+  - Furniture Manufacturing
+  - Outdoor Structures
+  - Musical Instrument
+  - Wine Barrel
+  - Construction
+  - Art Conservation
+  - Garden and Landscape
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1630.0
+      value: 1630
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), Chapter 4: Thermal Properties of Wood, USDA Forest Service, Forest Products Laboratory, 2010'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -67,7 +67,7 @@ materialProperties:
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Chapter 4: Thermal Properties, Table 4-3, specifically listing Sequoia sempervirens (coast redwood) at 12% moisture content.'
     thermalExpansion:
       value: 27.8
-      min: 3.0
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'USDA Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. General Technical Report FPL-GTR-190. Table 4-3: Coefficients of thermal expansion for various wood species.'
@@ -78,9 +78,9 @@ materialProperties:
       unit: MPa
       research_basis: The Wood Handbook, published by the USDA Forest Products Laboratory, is the principal authoritative source for wood properties in the United States. It lists the compressive strength parallel to the grain for Redwood (Sequoia sempervirens) at 12% moisture content as 31.2 MPa. This value is consistent with the provided hardness property, as compressive strength and hardness are often correlated for wood species.
     corrosionResistance:
-      value: 4.0
-      min: 2.0
-      max: 8.0
+      value: 4
+      min: 2
+      max: 8
       unit: rating
       research_basis: Redwood has moderate natural decay resistance due to extractives like tannins and thujaplicins, but this is primarily against biological decay rather than chemical corrosion. It performs better than most softwoods but is not as durable as treated woods or naturally resistant tropical hardwoods. The rating reflects good performance in above-ground applications but poor resistance in ground contact or marine environments without preservative treatment.
     density:
@@ -90,7 +90,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. General Technical Report FPL-GTR-190. Table 5-3a: ''Density of some common woods'' specifies Coast Redwood (Sequoia sempervirens) at 12% moisture content.'
     flexuralStrength:
-      value: 65.0
+      value: 65
       min: 40
       max: 150
       unit: MPa
@@ -102,9 +102,9 @@ materialProperties:
       unit: MPa
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. Chapter 4: Mechanical Properties of Wood. Table 4-3: Hardness of domestic woods.'
     oxidationResistance:
-      value: 200.0
-      min: 82.0
-      max: 204.0
+      value: 200
+      min: 82
+      max: 204
       unit: °C
       research_basis: The Wood Handbook from the USDA Forest Products Laboratory is a primary authority. It states that prolonged exposure to temperatures above 200 °C leads to significant thermal degradation (pyrolysis) and charring of wood, even in the absence of flame. This temperature is considered the practical upper limit before significant oxidative mass loss begins.
     porosity:
@@ -114,13 +114,13 @@ materialProperties:
       unit: dimensionless (volume fraction)
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 85.0
+      value: 85
       min: 20
       max: 200
       unit: MPa
       research_basis: 'USDA Forest Products Laboratory Wood Handbook (2010), Chapter 4: Mechanical Properties of Wood, Table 4-3 specific to Coast Redwood (Sequoia sempervirens) at 12% moisture content'
     youngsModulus:
-      value: 9.0
+      value: 9
       min: 5
       max: 20000
       unit: GPa
@@ -156,7 +156,7 @@ machineSettings:
   energyDensity:
     value: 1.2
     min: 0.8
-    max: 2.0
+    max: 2
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without wood damage
   overlapRatio:
@@ -208,36 +208,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength optimized for Redwood lignin absorption
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.650738'
@@ -306,7 +306,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -348,16 +348,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20
