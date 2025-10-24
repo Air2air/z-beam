@@ -219,22 +219,24 @@ export function ApplicationsList({
         />
       )}
 
-      <div className="applications-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      <div className="applications-grid grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3">
         {applications.map((application, index) => (
           <Link
             key={`${application}-${index}`}
             href={`/search?q=${encodeURIComponent(application)}`}
-            className="application-badge group relative bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-blue-200 dark:border-blue-800 p-3 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer"
+            className="application-card group relative bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 p-3 hover:shadow-lg hover:scale-105 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-pointer"
           >
-            <div className="flex flex-col items-center text-center gap-2">
-              {getIndustryIcon(application)}
-              <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
+            <div className="flex flex-col items-center justify-center text-center gap-2 h-full">
+              <div className="flex-shrink-0">
+                {getIndustryIcon(application)}
+              </div>
+              <span className="text-xs font-medium text-gray-900 dark:text-gray-100 leading-tight">
                 {application}
               </span>
             </div>
             
             {/* Hover overlay */}
-            <div className="absolute inset-0 bg-blue-600 dark:bg-blue-500 rounded-lg opacity-0 group-hover:opacity-10 transition-opacity duration-200 pointer-events-none" />
+            <div className="absolute inset-0 bg-blue-500 dark:bg-blue-600 rounded-lg opacity-0 group-hover:opacity-5 transition-opacity duration-200 pointer-events-none" />
           </Link>
         ))}
       </div>
