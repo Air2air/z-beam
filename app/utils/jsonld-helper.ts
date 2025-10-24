@@ -147,13 +147,20 @@ function createTechnicalArticleSchema(data: any) {
     datePublished: publishDate,
     dateModified: modifiedDate,
     
-    // Images
-    ...(images?.hero?.url && {
-      image: {
-        '@type': 'ImageObject',
-        url: `${baseUrl}${images.hero.url}`,
-        caption: images.hero.alt || caption?.description
-      }
+    // Images (hero + micro for detailed view)
+    ...((images?.hero?.url || images?.micro?.url) && {
+      image: [
+        ...(images?.hero?.url ? [{
+          '@type': 'ImageObject',
+          url: `${baseUrl}${images.hero.url}`,
+          caption: images.hero.alt || caption?.description
+        }] : []),
+        ...(images?.micro?.url ? [{
+          '@type': 'ImageObject',
+          url: `${baseUrl}${images.micro.url}`,
+          caption: images.micro.alt || caption?.description
+        }] : [])
+      ]
     }),
     
     // Article metadata
@@ -225,6 +232,14 @@ function createMaterialProductSchema(data: any) {
       '@type': 'ImageObject',
       url: `${baseUrl}${images.hero.url}`,
       caption: images.hero.alt || description
+    });
+  }
+  // Add micro image for detailed surface view
+  if (images?.micro?.url) {
+    productImages.push({
+      '@type': 'ImageObject',
+      url: `${baseUrl}${images.micro.url}`,
+      caption: images.micro.alt || `Detailed microscopic view of ${materialName} surface after laser cleaning`
     });
   }
   
@@ -347,12 +362,24 @@ function createHowToSchema(data: any) {
     }
   }
   
+  const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
+  const { images } = data;
+  
   return steps.length > 0 ? {
     '@type': 'HowTo',
     '@id': `${pageUrl}#howto`,
     name: `How to Clean ${materialName} with Laser`,
     description: `Step-by-step process for laser cleaning ${materialName} surfaces`,
     step: steps,
+    
+    // Outcome image (micro image shows detailed result)
+    ...(images?.micro?.url && {
+      image: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}${images.micro.url}`,
+        caption: images.micro.alt || `Detailed result of laser cleaning ${materialName}`
+      }
+    }),
     
     // Expected outcomes (E-E-A-T: Experience)
     ...(outcomeMetrics.length > 0 && {
