@@ -1,13 +1,13 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { parse } from 'yaml';
+import { load as parseYaml } from 'js-yaml';
 import { SmartTable } from '@/app/components/Table/SmartTable';
 
 export default function TestNestedFields() {
   // Load aluminum frontmatter data for testing
   const filePath = join(process.cwd(), 'content/frontmatter/aluminum-laser-cleaning.yaml');
   const fileContents = readFileSync(filePath, 'utf8');
-  const frontmatterData = parse(fileContents);
+  const frontmatterData = parseYaml(fileContents) as any;
 
   return (
     <div className="container mx-auto px-4 py-8">

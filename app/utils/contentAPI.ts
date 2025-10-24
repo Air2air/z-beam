@@ -365,11 +365,12 @@ export const loadComponent = cache(async (
     if (isYamlFile) {
       // Handle YAML files for different component types
       // For pure YAML files, we need to parse with yaml parser, not gray-matter
-      const yaml = await import('yaml');
-      // Use parseAllDocuments to handle multiple documents separated by ---
-      const documents = yaml.parseAllDocuments(fileContents);
+      const yaml = await import('js-yaml');
+      // Use loadAll to handle multiple documents separated by ---
+      const documents: any[] = [];
+      yaml.loadAll(fileContents, (doc) => documents.push(doc));
       // Get the first document which contains the actual data
-      const yamlData = documents[0]?.toJS();
+      const yamlData = documents[0];
       
       if (type === 'table') {
         // Handle YAML table files - convert to markdown format expected by Table component
@@ -701,9 +702,10 @@ export const loadPageData = cache(async (slug: string): Promise<PageData> => {
     if (existsSync(pageYamlPath)) {
       try {
         const fileContent = await fs.readFile(pageYamlPath, 'utf8');
-        const yaml = await import('yaml');
-        const documents = yaml.parseAllDocuments(fileContent);
-        const parsed = documents[0]?.toJS();
+        const yaml = await import('js-yaml');
+        const documents: any[] = [];
+        yaml.loadAll(fileContent, (doc) => documents.push(doc));
+        const parsed = documents[0];
         
         if (parsed && typeof parsed === 'object') {
           pageYamlData = parsed;
