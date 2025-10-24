@@ -1,5 +1,5 @@
 name: MDF
-category: wood
+category: Wood
 subcategory: natural
 title: MDF Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for MDF
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for MDF (MDF)
 author:
   country: Italy
   expertise: Laser-Based Additive Manufacturing
-  id: alessandro-moretti
+  id: 2
   image: /images/author/alessandro-moretti.jpg
   name: Alessandro Moretti
   sex: m
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Mdf surface after laser cleaning showing detailed surface structure
     url: /images/material/mdf-laser-cleaning-micro.jpg
 regulatoryStandards:
-  - name: ANSI
-    description: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-  - name: IEC
-    description: IEC 60825 - Safety of Laser Products
-    url: https://webstore.iec.ch/en/publication/3587
-    image: /images/logo/logo-org-iec.png
+- name: ANSI
+  description: ANSI Z136.1 - Safe Use of Lasers
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo_org_ansi.png
+- name: IEC
+  description: IEC 60825 - Safety of Laser Products
+  url: https://webstore.iec.ch/en/publication/3587
+  image: /images/logo/logo_org_iec.png
 applications:
-  - Furniture Manufacturing
-  - Automotive Interior Components
-  - Electronics Enclosure Production
-  - Architectural Millwork
-  - Exhibition and Display Manufacturing
-  - Musical Instrument Production
-  - Packaging and Point-of-Purchase
-  - Marine Interior Components
-  - Medical Equipment Housing
-  - Cultural Heritage Reproduction
+- Furniture Manufacturing
+- Automotive Interior Components
+- Electronics Enclosure Production
+- Architectural Millwork
+- Exhibition and Display Manufacturing
+- Musical Instrument Production
+- Packaging and Point-of-Purchase
+- Marine Interior Components
+- Medical Equipment Housing
+- Cultural Heritage Reproduction
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1200
+      value: 1200.0
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'NIST Standard Reference Database 69: Thermophysical Properties of Wood and Wood-Based Materials, specifically MDF at 12% moisture content and 24°C'
     thermalDestruction:
-      value: 300
+      value: 300.0
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -66,8 +66,8 @@ materialProperties:
       unit: mm²/s
       research_basis: 'International Journal of Thermal Sciences, Vol. 49, Issue 10, pp. 1931-1941 (2010) - ''Thermal properties of wood-based panels: Experimental analysis and predictive modeling'''
     thermalExpansion:
-      value: 35
-      min: 3
+      value: 35.0
+      min: 3.0
       max: 60
       unit: 10⁻⁶/K
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook - Wood as an Engineering Material. USDA Forest Service, Chapter 4: Mechanical Properties of Wood, Table 4-3. Specific reference to reconstituted wood products including MDF.'
@@ -78,9 +78,9 @@ materialProperties:
       unit: MPa
       research_basis: The Wood Handbook, published by the USDA Forest Service, Forest Products Laboratory, is the primary authoritative source for North American wood properties. It reports a typical compressive strength (parallel to surface) for standard MDF to be in the range of 14-17 MPa. The provided value of 15.2 MPa is a median value from this established range for general-purpose MDF under standard test conditions (ambient temperature, ~65% relative humidity).
     corrosionResistance:
-      value: 2
-      min: 2
-      max: 8
+      value: 2.0
+      min: 2.0
+      max: 8.0
       unit: rating
       research_basis: MDF has poor moisture resistance due to its wood fiber composition and adhesive binders. When exposed to moisture or humidity, it swells, warps, and deteriorates rapidly. Unlike solid wood, it lacks natural protective mechanisms and has increased susceptibility to fungal growth and material degradation in damp conditions. While it resists some chemical corrosion better than metals, its overall environmental corrosion resistance is very low.
     density:
@@ -90,7 +90,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'ASTM D2395-17 Standard Test Methods for Density and Specific Gravity of Wood and Wood-Based Materials, and ASM Handbook Volume 4: Heat Treating (specifically wood composite materials section)'
     flexuralStrength:
-      value: 35
+      value: 35.0
       min: 40
       max: 150
       unit: MPa
@@ -102,9 +102,9 @@ materialProperties:
       unit: MPa
       research_basis: ASTM D1037-12 Standard Test Methods for Evaluating Properties of Wood-Base Fiber and Particle Panel Materials, supplemented by research from Forest Products Laboratory (USDA) on medium-density fiberboard mechanical properties
     oxidationResistance:
-      value: 82
-      min: 82
-      max: 204
+      value: 82.0
+      min: 82.0
+      max: 204.0
       unit: °C
       research_basis: MDF begins significant oxidative degradation around 80-85°C in air due to lignin decomposition and binder breakdown. The 82°C threshold represents the temperature where mechanical properties start deteriorating rapidly under continuous exposure, based on thermal aging studies of wood composites with similar resin content to standard MDF formulations.
     porosity:
@@ -114,13 +114,13 @@ materialProperties:
       unit: m³/m³
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 40
+      value: 40.0
       min: 20
       max: 200
       unit: MPa
       research_basis: 'ASTM D1037-12 Standard Test Methods for Evaluating Properties of Wood-Base Fiber and Particle Panel Materials; ASM Handbook, Volume 10: Materials Characterization, Section: Mechanical Properties of Wood Composites'
     youngsModulus:
-      value: 4
+      value: 4.0
       min: 5
       max: 20000
       unit: GPa
@@ -156,7 +156,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4
+    max: 4.0
     unit: J/cm²
     description: Energy density threshold for MDF surface ablation
   overlapRatio:
@@ -208,36 +208,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for optimal MDF absorption and minimal substrate damage
 environmentalImpact:
-  - applicableIndustries:
-      - Semiconductor
-      - Electronics
-      - Medical
-      - Nuclear
-    benefit: Chemical Waste Elimination
-    description: Eliminates hazardous chemical waste streams
-    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-  - applicableIndustries: []
-    benefit: Water Usage Reduction
-    description: Dry process requires no water
-    sustainabilityBenefit: Significant water conservation in industrial processes
-  - applicableIndustries: []
-    benefit: Energy Efficiency
-    description: Focused energy delivery with minimal waste heat
-  - applicableIndustries: []
-    benefit: Air Quality Improvement
-    description: Eliminates volatile organic compounds from chemical cleaning
+- applicableIndustries:
+  - Semiconductor
+  - Electronics
+  - Medical
+  - Nuclear
+  benefit: Chemical Waste Elimination
+  description: Eliminates hazardous chemical waste streams
+  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+- applicableIndustries: []
+  benefit: Water Usage Reduction
+  description: Dry process requires no water
+  sustainabilityBenefit: Significant water conservation in industrial processes
+- applicableIndustries: []
+  benefit: Energy Efficiency
+  description: Focused energy delivery with minimal waste heat
+- applicableIndustries: []
+  benefit: Air Quality Improvement
+  description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-  - Contaminant Removal Efficiency:
-      description: Percentage of target contaminants successfully removed from surface
-      typicalRanges: 95-99.9% depending on application and material
-      measurementMethods:
-        - Before/after microscopy
-        - Chemical analysis
-        - Mass spectrometry
-      factorsAffecting:
-        - Contamination type
-        - Adhesion strength
-        - Surface geometry
+- Contaminant Removal Efficiency:
+    description: Percentage of target contaminants successfully removed from surface
+    typicalRanges: 95-99.9% depending on application and material
+    measurementMethods:
+    - Before/after microscopy
+    - Chemical analysis
+    - Mass spectrometry
+    factorsAffecting:
+    - Contamination type
+    - Adhesion strength
+    - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.374109'
@@ -306,7 +306,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3
+        min: 3.0
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -348,16 +348,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2
-        max: 8
+        min: 2.0
+        max: 8.0
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82
-        max: 204
+        min: 82.0
+        max: 204.0
         unit: °C
         description: ''
         sample_count: 20

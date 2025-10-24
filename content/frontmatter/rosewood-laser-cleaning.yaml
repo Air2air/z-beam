@@ -1,5 +1,5 @@
 name: Rosewood
-category: wood
+category: Wood
 subcategory: natural
 title: Rosewood Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Rosewood
@@ -7,7 +7,7 @@ description: Laser cleaning parameters for Rosewood
 author:
   country: Taiwan
   expertise: Laser Materials Processing
-  id: todd-dunning
+  id: 1
   image: /images/author/yi-chun-lin.jpg
   name: Yi-Chun Lin
   sex: f
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Rosewood surface after laser cleaning showing detailed surface structure
     url: /images/material/rosewood-laser-cleaning-micro.jpg
 regulatoryStandards:
-  - name: ANSI
-    description: ANSI Z136.1 - Safe Use of Lasers
-    url: https://webstore.ansi.org/standards/lia/ansiz1362022
-    image: /images/logo/logo-org-ansi.png
-  - name: IEC
-    description: IEC 60825 - Safety of Laser Products
-    url: https://webstore.iec.ch/en/publication/3587
-    image: /images/logo/logo-org-iec.png
+- name: ANSI
+  description: ANSI Z136.1 - Safe Use of Lasers
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+  image: /images/logo/logo_org_ansi.png
+- name: IEC
+  description: IEC 60825 - Safety of Laser Products
+  url: https://webstore.iec.ch/en/publication/3587
+  image: /images/logo/logo_org_iec.png
 applications:
-  - Aerospace
-  - Automotive
-  - Marine
-  - Cultural Heritage
-  - Musical Instruments
-  - Medical Equipment
-  - Luxury Manufacturing
-  - Energy Sector
-  - Electronics Manufacturing
-  - Architectural Restoration
+- Aerospace
+- Automotive
+- Marine
+- Cultural Heritage
+- Musical Instruments
+- Medical Equipment
+- Luxury Manufacturing
+- Energy Sector
+- Electronics Manufacturing
+- Architectural Restoration
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1760
+      value: 1760.0
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190) - Table 4-3a, specific values for Dalbergia genus species at 12% moisture content'
     thermalDestruction:
-      value: 300
+      value: 300.0
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -66,8 +66,8 @@ materialProperties:
       unit: mm²/s
       research_basis: 'Forest Products Laboratory. (1999). Wood Handbook—Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. General Technical Report FPL-GTR-113, Chapter 3: Physical Properties of Wood, Table 3-5: Thermal properties of various wood species.'
     thermalExpansion:
-      value: 27
-      min: 3
+      value: 27.0
+      min: 3.0
       max: 60
       unit: 10⁻⁶/K
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190) - Table 4-3a: Coefficients of thermal expansion for various hardwoods, with specific data for Dalbergia genus species including Brazilian rosewood (Dalbergia nigra)'
@@ -78,9 +78,9 @@ materialProperties:
       unit: MPa
       research_basis: The Wood Database provides comprehensive mechanical property data for various wood species. For Brazilian Rosewood (Dalbergia nigra), the reported compressive strength parallel to grain is 59.3 MPa at 12% moisture content, which represents a standard testing condition for wood materials. This value aligns with the known high density (0.85 g/cm³) and hardness (2720 N) properties provided, as these mechanical characteristics typically correlate in wood species.
     corrosionResistance:
-      value: 8
-      min: 2
-      max: 8
+      value: 8.0
+      min: 2.0
+      max: 8.0
       unit: rating
       research_basis: Rosewood contains natural oils and dense grain structure that provide excellent resistance to moisture, decay, and insect attack. While not completely immune to environmental degradation, its natural durability is considered very high among wood species, particularly in ground contact and wet conditions.
     density:
@@ -90,21 +90,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Chapter 4: Physical Properties of Wood, Table 4-5: Specific gravity of selected domestic and imported woods'
     flexuralStrength:
-      value: 125
+      value: 125.0
       min: 40
       max: 150
       unit: MPa
       research_basis: The Wood Database, a widely cited authority on wood properties, reports the modulus of rupture (MOR) for Brazilian Rosewood (Dalbergia nigra) as 18,200 psi, which converts to approximately 125 MPa. This value represents the flexural strength measured via standard 3-point or 4-point bend tests. While rosewood species vary, this value is consistent with the high density and hardness properties provided.
     hardness:
-      value: 2720
+      value: 2720.0
       min: 1
       max: 5000
       unit: MPa
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. Chapter 4: Mechanical Properties of Wood. Table 4-3: Janka hardness of selected domestic and tropical woods. Specific data for Brazilian Rosewood (Dalbergia nigra).'
     oxidationResistance:
-      value: 200
-      min: 82
-      max: 204
+      value: 200.0
+      min: 82.0
+      max: 204.0
       unit: °C
       research_basis: The Wood Handbook, a primary reference for wood science, states that prolonged exposure to temperatures above 150°C (300°F) causes significant degradation in most wood species. For safe continuous service in air, a maximum temperature of 200°C is cited for dry wood before the onset of rapid pyrolysis and oxidative decomposition, which aligns with the thermal degradation point of lignin and hemicellulose.
     porosity:
@@ -114,7 +114,7 @@ materialProperties:
       unit: dimensionless (volume fraction)
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 157
+      value: 157.0
       min: 20
       max: 200
       unit: MPa
@@ -156,7 +156,7 @@ machineSettings:
   energyDensity:
     value: 4.5
     min: 2.5
-    max: 7
+    max: 7.0
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without substrate damage
   overlapRatio:
@@ -208,36 +208,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength for optimal absorption in Rosewood lignin and cellulose
 environmentalImpact:
-  - applicableIndustries:
-      - Semiconductor
-      - Electronics
-      - Medical
-      - Nuclear
-    benefit: Chemical Waste Elimination
-    description: Eliminates hazardous chemical waste streams
-    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-  - applicableIndustries: []
-    benefit: Water Usage Reduction
-    description: Dry process requires no water
-    sustainabilityBenefit: Significant water conservation in industrial processes
-  - applicableIndustries: []
-    benefit: Energy Efficiency
-    description: Focused energy delivery with minimal waste heat
-  - applicableIndustries: []
-    benefit: Air Quality Improvement
-    description: Eliminates volatile organic compounds from chemical cleaning
+- applicableIndustries:
+  - Semiconductor
+  - Electronics
+  - Medical
+  - Nuclear
+  benefit: Chemical Waste Elimination
+  description: Eliminates hazardous chemical waste streams
+  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+- applicableIndustries: []
+  benefit: Water Usage Reduction
+  description: Dry process requires no water
+  sustainabilityBenefit: Significant water conservation in industrial processes
+- applicableIndustries: []
+  benefit: Energy Efficiency
+  description: Focused energy delivery with minimal waste heat
+- applicableIndustries: []
+  benefit: Air Quality Improvement
+  description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-  - Contaminant Removal Efficiency:
-      description: Percentage of target contaminants successfully removed from surface
-      typicalRanges: 95-99.9% depending on application and material
-      measurementMethods:
-        - Before/after microscopy
-        - Chemical analysis
-        - Mass spectrometry
-      factorsAffecting:
-        - Contamination type
-        - Adhesion strength
-        - Surface geometry
+- Contaminant Removal Efficiency:
+    description: Percentage of target contaminants successfully removed from surface
+    typicalRanges: 95-99.9% depending on application and material
+    measurementMethods:
+    - Before/after microscopy
+    - Chemical analysis
+    - Mass spectrometry
+    factorsAffecting:
+    - Contamination type
+    - Adhesion strength
+    - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.685315'
@@ -306,7 +306,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3
+        min: 3.0
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -348,16 +348,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2
-        max: 8
+        min: 2.0
+        max: 8.0
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82
-        max: 204
+        min: 82.0
+        max: 204.0
         unit: °C
         description: ''
         sample_count: 20
