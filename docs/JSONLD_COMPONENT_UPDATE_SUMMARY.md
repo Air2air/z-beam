@@ -77,7 +77,7 @@ return (
 **Test Coverage** (15 test cases):
 1. Script tag rendering
 2. @graph structure generation
-3. TechnicalArticle with author
+3. Article with author
 4. Product with material properties
 5. Confidence scores in properties
 6. HowTo with machine settings

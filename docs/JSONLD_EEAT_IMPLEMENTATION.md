@@ -43,7 +43,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 
 ## 🎯 Schema Types Generated
 
-### 1. TechnicalArticle (Main Content)
+### 1. Article (Main Content)
 **E-E-A-T Focus**: Experience & Expertise
 
 **Frontmatter Fields Used**:
@@ -54,7 +54,7 @@ The enhanced JSON-LD schema generator (`app/utils/jsonld-helper.ts`) now leverag
 - `applications` array
 - `datePublished`, `dateModified`
 
-**Schema.org Type**: `TechnicalArticle`
+**Schema.org Type**: `Article`
 
 **Key Features**:
 - Author profile with credentials and expertise areas
@@ -330,7 +330,7 @@ For Alabaster material page:
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "TechnicalArticle",
+      "@type": "Article",
       "@id": "https://z-beam.com/alabaster-laser-cleaning#article",
       "headline": "Alabaster Laser Cleaning",
       "author": {
@@ -402,21 +402,7 @@ For Alabaster material page:
           "position": 1,
           "name": "Set Laser Power",
           "text": "Configure laser power to 90 W",
-          "description": "Optimal average power for Alabaster surface cleaning..."
-        },
-        ... // 3 more steps
-      ],
-      "expectedOutput": [
-        {
-          "@type": "DefinedTerm",
-          "name": "Contaminant Removal Efficiency",
-          "description": "Percentage of target contaminants successfully removed...",
-          "value": "95-99.9% depending on application and material"
-        }
-      ]
-    },
-    {
-      "@type": "Dataset",
+          "description": "Optimal average power for Alabaster surface cleaning..."\n        },\n        ... // 3 more steps\n      ]\n      // Note: expectedOutput removed - not valid for HowTo schema\n    },\n    {\n      \"@type\": \"Dataset\",
       "@id": "https://z-beam.com/alabaster-laser-cleaning#dataset",
       "name": "Alabaster Material Properties Dataset",
       "variableMeasured": [

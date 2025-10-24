@@ -202,7 +202,7 @@ describe('Organization Schema Implementation', () => {
     test('should have valid geographic areas', () => {
       schema.areaServed.forEach((area: any) => {
         expect(area['@type']).toBeDefined();
-        expect(['State', 'City', 'Country', 'AdministrativeArea', 'MetropolitanArea']).toContain(area['@type']);
+        expect(['State', 'City', 'Country', 'AdministrativeArea', 'Place']).toContain(area['@type']);
         expect(area.name).toBeDefined();
         expect(typeof area.name).toBe('string');
         expect(area.name.length).toBeGreaterThan(0);

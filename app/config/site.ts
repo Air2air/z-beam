@@ -135,7 +135,7 @@ export const SITE_CONFIG = {
     context: 'https://schema.org',
     organizationType: 'Organization',
     websiteType: 'WebSite',
-    articleType: 'TechnicalArticle',
+    articleType: 'Article',
     propertyValueType: 'PropertyValue'
   },
   

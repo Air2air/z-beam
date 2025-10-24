@@ -74,7 +74,7 @@ No conflicts           Auto-extracted             Google optimized
 ```
 
 ### **Schema Types Generated (8 total):**
-1. **TechnicalArticle** - Main content with E-E-A-T
+1. **Article** - Main content with E-E-A-T
 2. **Product** - Material specifications with confidence scores
 3. **HowTo** - Machine settings as process steps
 4. **Dataset** - Verified measurements with provenance  

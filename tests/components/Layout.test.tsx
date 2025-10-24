@@ -39,7 +39,7 @@ jest.mock('../../app/components/JsonLD/JsonLD', () => ({
     </script>
   ),
   schemas: {
-    technicalArticle: (data: any) => ({ ...data, '@type': 'TechnicalArticle' }),
+    technicalArticle: (data: any) => ({ ...data, '@type': 'Article' }),
   },
 }));
 
@@ -213,7 +213,7 @@ describe('Layout Component', () => {
       expect(jsonLd).toBeInTheDocument();
       
       const data = JSON.parse(jsonLd.textContent || '{}');
-      expect(data['@type']).toBe('TechnicalArticle');
+      expect(data['@type']).toBe('Article');
       expect(data.headline).toBe('Test Article');
       expect(data.description).toBe('Test article description');
     });

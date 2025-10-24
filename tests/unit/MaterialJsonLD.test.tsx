@@ -146,7 +146,7 @@ describe('MaterialJsonLD Component', () => {
     expect(Array.isArray(jsonLd['@graph'])).toBe(true);
   });
 
-  it('should include TechnicalArticle schema with author', () => {
+  it('should include Article schema with author', () => {
     const { container } = render(
       <MaterialJsonLD article={baseArticle} slug="test-material" />
     );
@@ -289,7 +289,7 @@ describe('MaterialJsonLD Component', () => {
     const jsonLd = JSON.parse(script?.textContent || '{}');
     
     // Verify title change
-    const article = jsonLd['@graph']?.find((item: any) => item['@type'] === 'TechnicalArticle');
+    const article = jsonLd['@graph']?.find((item: any) => item['@type'] === 'Article');
     expect(article.headline).toBe('Updated Material Title');
     
     // Verify author change
@@ -328,9 +328,9 @@ describe('MaterialJsonLD Component', () => {
     const jsonLd = JSON.parse(script?.textContent || '{}');
     const howto = jsonLd['@graph']?.find((item: any) => item['@type'] === 'HowTo');
 
-    expect(howto.expectedOutput).toBeDefined();
-    expect(Array.isArray(howto.expectedOutput)).toBe(true);
-    expect(howto.expectedOutput[0].name).toBe('Cleaning Efficiency');
+    expect(howto.step).toBeDefined();
+    expect(Array.isArray(howto.step)).toBe(true);
+    // Note: expectedOutput removed - not a valid HowTo property
   });
 
   it('should include regulatory standards as Certification schema', () => {

@@ -52,8 +52,8 @@ describe('Organization Schema Integration', () => {
       expect(states).toHaveLength(configStates.length);
       
       // Verify metropolitan areas
-      const metros = schema.areaServed.filter((area: any) => area['@type'] === 'MetropolitanArea');
-      const configMetros = BUSINESS_CONFIG.serviceArea.filter(area => area.type === 'MetropolitanArea');
+      const metros = schema.areaServed.filter((area: any) => area['@type'] === 'Place');
+      const configMetros = BUSINESS_CONFIG.serviceArea.filter(area => area.type === 'Place');
       expect(metros).toHaveLength(configMetros.length);
     });
 
