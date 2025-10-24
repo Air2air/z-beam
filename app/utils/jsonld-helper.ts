@@ -224,6 +224,29 @@ function createMaterialProductSchema(data: any) {
     // Applications as use cases
     applicationCategory: applications,
     
+    // Offers (required by Google for Product schema)
+    offers: {
+      '@type': 'Offer',
+      url: pageUrl,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        priceCurrency: 'USD',
+        referenceQuantity: {
+          '@type': 'QuantitativeValue',
+          value: 1,
+          unitText: 'service'
+        }
+      },
+      seller: {
+        '@type': 'Organization',
+        name: SITE_CONFIG.shortName || 'Z-Beam',
+        url: SITE_CONFIG.url
+      },
+      description: `Professional laser cleaning service for ${materialName}. Contact for custom quote based on project requirements.`
+    },
+    
     // Environmental benefits (E-E-A-T: Experience)
     ...(environmentalImpact.length > 0 && {
       sustainability: environmentalImpact.map((impact: any) => ({
