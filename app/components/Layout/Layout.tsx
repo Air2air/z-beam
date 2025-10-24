@@ -10,7 +10,6 @@ import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import { extractSafeValue } from '../../utils/safeValueExtractor';
-import { Table } from "../Table/Table";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
@@ -20,7 +19,7 @@ import { ApplicationsList } from '../ApplicationsList';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 
-const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
+const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
 
 // Helper: Extract material name from metadata or slug
@@ -215,20 +214,6 @@ const renderComponent = (type: string, component: any, metadata: any) => {
     return (
       <section key={type} aria-label="Main content" className="max-w-none">
         <MarkdownRenderer content={content} convertMarkdown={false} />
-      </section>
-    );
-  }
-  
-  if (type === 'table') {
-    // Enhanced table with smart display modes
-    const tableConfig = {
-      ...config,
-      displayMode: config?.displayMode || 'hybrid', // Default to hybrid for best UX
-      layoutMode: config?.layoutMode || 'detailed'
-    };
-    return (
-      <section key={type} aria-label="Data table">
-        <Table content={content} config={tableConfig} frontmatterData={metadata} />
       </section>
     );
   }
