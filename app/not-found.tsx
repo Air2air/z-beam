@@ -1,14 +1,11 @@
+'use client';
+
 import { SITE_CONFIG } from './utils/constants';
 import Link from 'next/link';
 
-export const metadata = {
-  title: `404 - Page Not Found | ${SITE_CONFIG.shortName}`,
-  description: 'The page you are looking for does not exist.'
-};
-
 export default function NotFound() {
   return (
-    <div className="absolute inset-0 bg-gray-900 flex items-center justify-center px-4">
+    <div className="flex items-center justify-center min-h-screen bg-gray-900 px-4">
       <div className="text-center max-w-2xl">
         <h1 className="mb-4 text-6xl md:text-8xl font-bold tracking-tight text-white">
           404
