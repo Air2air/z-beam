@@ -138,12 +138,6 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
         </section>
       )}
 
-      {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
-        <section aria-labelledby="regulatory-standards-section" className="my-8">
-          <RegulatoryStandards standards={metadata.regulatoryStandards} />
-        </section>
-      )}
-
       {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
         <section aria-labelledby="environmental-impact-section" className="my-8">
           <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
@@ -163,6 +157,12 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
             environmentalImpact={metadata.environmentalImpact}
             outcomeMetrics={metadata.outcomeMetrics}
           />
+        </section>
+      )}
+
+      {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
+        <section aria-labelledby="regulatory-standards-section" className="my-8">
+          <RegulatoryStandards standards={metadata.regulatoryStandards} />
         </section>
       )}
     </div>
