@@ -137,8 +137,11 @@ export default async function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
-        {/* Only critical resource hints - removed preloads that delay initial render */}
+        {/* Critical resource hints for better LCP and TTFB */}
+        <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon/favicon-350.png" type="image/png" />

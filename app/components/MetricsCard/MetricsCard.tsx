@@ -9,12 +9,13 @@
  * - Extracted ProgressBar to separate component (reusable)
  * - Removed 140+ lines of inline helper functions
  * - Maintained all functionality and accessibility features
+ * - Memoized to prevent unnecessary re-renders (performance optimization)
  * 
  * Result: ~250 lines (41% reduction)
  * Benefits: Better code organization, reusable utilities, cleaner component
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, memo } from 'react';
 import Link from 'next/link';
 import { MetricsCardProps } from '@/types';
 import { cleanupFloat } from '../../utils/formatting';
@@ -71,7 +72,8 @@ const getColorTheme = (color: string) => {
 };
 
 // Single MetricsCard component - represents one metric with progress bar
-export function MetricsCard({ 
+// Memoized to prevent unnecessary re-renders when parent re-renders
+export const MetricsCard = memo(function MetricsCard({ 
   title, 
   value, 
   unit = '', 
@@ -300,4 +302,4 @@ export function MetricsCard({
       {cardContent}
     </div>
   );
-}
+});
