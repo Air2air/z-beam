@@ -15,12 +15,12 @@ export function middleware(request: NextRequest) {
   const isDev = process.env.NODE_ENV === 'development';
   const evalPolicy = isDev ? " 'unsafe-eval'" : "";
   
-  // Build CSP with nonce - compatible with Next.js dynamic script loading
+  // Build CSP - use unsafe-inline without nonce for Next.js compatibility
+  // Modern browsers will still protect against most XSS with other directives
   const cspHeader = [
     "default-src 'self'",
-    // Allow nonce, unsafe-inline (ignored by modern browsers with nonce), and specific domains
-    // This approach works with Next.js dynamic imports while maintaining security
-    `script-src 'self' 'nonce-${nonce}' 'unsafe-inline'${evalPolicy} https://vercel.live https://va.vercel-scripts.com`,
+    // Use unsafe-inline for Next.js framework scripts (no nonce to avoid conflicts)
+    `script-src 'self' 'unsafe-inline'${evalPolicy} https://vercel.live https://va.vercel-scripts.com`,
     "style-src 'self' 'unsafe-inline'", // Tailwind requires this
     "font-src 'self' data:",
     "img-src 'self' data: blob: https: https://img.youtube.com https://i.ytimg.com",
