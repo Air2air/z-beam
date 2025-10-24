@@ -8,32 +8,32 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="flex items-center justify-center min-h-[60vh] py-20">
-      <div className="text-center max-w-2xl px-4">
-        <h1 className="mb-4 text-4xl md:text-6xl font-bold tracking-tight text-white">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 px-4">
+      <div className="text-center max-w-2xl">
+        <h1 className="mb-4 text-6xl md:text-8xl font-bold tracking-tight text-white">
           404
         </h1>
-        <h2 className="mb-6 text-xl md:text-2xl text-gray-200">
+        <h2 className="mb-6 text-2xl md:text-3xl font-semibold text-gray-100">
           Page Not Found
         </h2>
-        <p className="mb-8 text-gray-300">
+        <p className="mb-8 text-lg text-gray-300">
           The page you are looking for doesn't exist or has been moved.
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
           <Link
             href="/"
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg"
           >
             Go to Home
           </Link>
           <Link
             href="/services"
-            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors"
+            className="px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-colors shadow-lg"
           >
             View Services
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
