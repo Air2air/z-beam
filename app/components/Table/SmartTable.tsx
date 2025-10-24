@@ -467,22 +467,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
       
       // Content overview (collapsed)
       const contentInfoFields: SmartField[] = [];
-      ['title', 'description', 'applications'].forEach(key => {
-        if (data[key] !== undefined) {
-          contentInfoFields.push(categorizeField(key, data[key]));
-        }
-      });
-      
-      if (contentInfoFields.length > 0) {
-        sections.push({
-          id: 'content-summary',
-          title: 'Content Summary',
-          description: 'Key content information',
-          priority: 2,
-          fields: contentInfoFields,
-          modes: ['hybrid']
-        });
-      }
+      // Content Summary section removed - information displayed elsewhere
       
       // Material Characteristics (hybrid)
       if (data.materialCharacteristics) {
