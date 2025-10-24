@@ -81,7 +81,7 @@ export default function sitemap(): SitemapEntry[] {
     
     files.forEach((file) => {
       if (file.endsWith('.yaml')) {
-        const slug = file.replace('-laser-cleaning.yaml', '');
+        const slug = file.replace('.yaml', '');
         const filePath = path.join(frontmatterDir, file);
         const stats = fs.statSync(filePath);
         
