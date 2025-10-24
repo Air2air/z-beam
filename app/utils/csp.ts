@@ -32,10 +32,10 @@ export async function getNonce(): Promise<string | undefined> {
 export function buildCSP(nonce?: string): string {
   const policies = [
     "default-src 'self'",
-    // Script policy - remove unsafe-inline, use nonce for JSON-LD
+    // Script policy - include unsafe-inline for Next.js error/404 pages
     nonce
-      ? `script-src 'self' 'nonce-${nonce}' https://vercel.live https://va.vercel-scripts.com`
-      : "script-src 'self' https://vercel.live https://va.vercel-scripts.com",
+      ? `script-src 'self' 'nonce-${nonce}' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com`
+      : "script-src 'self' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
     // Style policy - Tailwind requires unsafe-inline (no easy workaround)
     "style-src 'self' 'unsafe-inline'",
     // Font policy
