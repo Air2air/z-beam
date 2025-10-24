@@ -96,6 +96,11 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'HS1GKAULwVWhcn49yxMtkoQdbdWZw05XBMtuJGmzwug',
+    // yandex: 'yandex-verification-code',
+    // bing: 'bing-verification-code',
+  },
 };
 
 // Website schema
