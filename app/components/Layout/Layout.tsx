@@ -18,6 +18,7 @@ import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { ApplicationsList } from '../ApplicationsList';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
+import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'table', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
@@ -147,6 +148,22 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
         <section aria-labelledby="environmental-impact-section" className="my-8">
           <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
+        </section>
+      )}
+
+      {/* Material-specific FAQ section - auto-generated from frontmatter */}
+      {metadata?.name && (
+        <section aria-labelledby="faq-section" className="my-8">
+          <MaterialFAQ
+            materialName={metadata.name}
+            category={metadata.category || 'Material'}
+            subcategory={metadata.subcategory}
+            materialProperties={metadata.materialProperties}
+            machineSettings={metadata.machineSettings}
+            applications={metadata.applications}
+            environmentalImpact={metadata.environmentalImpact}
+            outcomeMetrics={metadata.outcomeMetrics}
+          />
         </section>
       )}
     </div>
