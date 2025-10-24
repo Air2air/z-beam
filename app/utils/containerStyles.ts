@@ -17,7 +17,7 @@ export const CONTAINER_STYLES = {
   standard: "max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 py-6 md:py-8",
   
   // Main container - used by Layout component (wider max-width)
-  main: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+  main: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8",
   
   // Article container - optimized for long-form content
   article: "max-w-4xl mx-auto px-4 sm:px-6",
