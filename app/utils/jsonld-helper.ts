@@ -71,16 +71,21 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
           { materialName, materialProperties, pageUrl, modifiedDate }
         ),
         
-        // 5. BreadcrumbList
+        // 5. FAQPage Schema (E-E-A-T: Expertise & User Intent)
+        createFAQPageSchema(
+          { materialName, category, subcategory, materialProperties, machineSettings, applications, environmentalImpact, outcomeMetrics, pageUrl }
+        ),
+        
+        // 6. BreadcrumbList
         createBreadcrumbSchema(slug, title, category),
         
-        // 6. WebPage
+        // 7. WebPage
         createWebPageSchema(pageUrl, title, description, publishDate, modifiedDate),
         
-        // 7. Author/Expert Profile (E-E-A-T: Expertise & Authoritativeness)
+        // 8. Author/Expert Profile (E-E-A-T: Expertise & Authoritativeness)
         createAuthorSchema(author),
         
-        // 8. Regulatory Compliance (E-E-A-T: Trustworthiness)
+        // 9. Regulatory Compliance (E-E-A-T: Trustworthiness)
         ...(regulatoryStandards.length > 0 ? [createComplianceSchema(regulatoryStandards, materialName)] : [])
       ].filter(Boolean) // Remove any null/undefined entries
     };
@@ -458,7 +463,7 @@ function createBreadcrumbSchema(slug: string, title: string, category: string) {
   };
 }
 
-// 6. WebPage Schema
+// 5. WebPage Schema
 function createWebPageSchema(pageUrl: string, title: string, description: string, publishDate: string, modifiedDate: string) {
   return {
     '@type': 'WebPage',
@@ -481,6 +486,93 @@ function createWebPageSchema(pageUrl: string, title: string, description: string
       }
     }
   };
+}
+
+// 6. FAQPage Schema (E-E-A-T: Expertise through detailed Q&A)
+function createFAQPageSchema(data: any) {
+  const { materialName, category, subcategory, materialProperties, machineSettings, applications, environmentalImpact, outcomeMetrics, pageUrl } = data;
+  
+  const faqs: any[] = [];
+  
+  // Extract key properties
+  const matChar = materialProperties?.material_characteristics || {};
+  const laserInteraction = materialProperties?.laser_material_interaction || {};
+  
+  // FAQ 1: Unique challenge
+  const hardness = matChar?.hardness?.value;
+  const thermalCond = matChar?.thermalConductivity?.value;
+  
+  if (hardness && hardness > 1000) {
+    faqs.push({
+      '@type': 'Question',
+      name: `What makes ${materialName} challenging to laser clean?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${materialName} is an extremely hard material (${hardness} ${matChar.hardness.unit}), making it resistant to mechanical cleaning methods. Laser cleaning uses controlled energy pulses that ablate only the contamination layer while preserving the base material's hardness and surface finish.`
+      }
+    });
+  }
+  
+  // FAQ 2: Wavelength selection
+  const wavelength = machineSettings?.wavelength?.value;
+  const absorption = laserInteraction?.laserAbsorption?.value;
+  
+  if (wavelength && absorption) {
+    faqs.push({
+      '@type': 'Question',
+      name: `Why is ${wavelength} nm wavelength recommended for ${materialName}?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${materialName} has ${absorption}% laser absorption at ${wavelength} nm, making this wavelength highly efficient for energy coupling into surface contaminants. This allows effective cleaning at lower power levels while minimizing thermal stress on the base material.`
+      }
+    });
+  }
+  
+  // FAQ 3: Thermal safety
+  const thermalDest = matChar?.thermalDestruction?.value;
+  const pulseWidth = machineSettings?.pulseWidth?.value;
+  
+  if (thermalDest && pulseWidth) {
+    faqs.push({
+      '@type': 'Question',
+      name: `Can laser cleaning damage ${materialName} through overheating?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${materialName} has a thermal limit of ${thermalDest}°C. Using ${pulseWidth} ${machineSettings.pulseWidth.unit} pulses ensures heat input is confined to the contamination layer with minimal thermal diffusion into the base material, staying safely below critical thresholds.`
+      }
+    });
+  }
+  
+  // FAQ 4: Application-specific
+  if (applications && applications.length > 0) {
+    const keyApp = applications[0];
+    faqs.push({
+      '@type': 'Question',
+      name: `Why is laser cleaning preferred for ${materialName} in ${keyApp} applications?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${keyApp} applications demand ultra-clean surfaces free from contamination. Laser cleaning of ${materialName} achieves precision cleaning without introducing secondary contamination from abrasives or chemicals, while preserving tight tolerances critical for ${category.toLowerCase()} components.`
+      }
+    });
+  }
+  
+  // FAQ 5: Environmental benefits
+  if (environmentalImpact && environmentalImpact.length > 0) {
+    faqs.push({
+      '@type': 'Question',
+      name: `What are the environmental benefits of laser cleaning ${materialName}?`,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `Laser cleaning ${materialName} is a dry, chemical-free process that eliminates hazardous waste streams, requires no water consumption, and produces minimal waste. This supports sustainable manufacturing while reducing operating costs.`
+      }
+    });
+  }
+  
+  return faqs.length > 0 ? {
+    '@type': 'FAQPage',
+    '@id': `${pageUrl}#faq`,
+    mainEntity: faqs
+  } : null;
 }
 
 // 7. Author Schema (E-E-A-T: Expertise & Authoritativeness)
