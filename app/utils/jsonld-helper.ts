@@ -218,6 +218,16 @@ function createMaterialProductSchema(data: any) {
   
   const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
   
+  // Build image array (required by Google)
+  const productImages: any[] = [];
+  if (images?.hero?.url) {
+    productImages.push({
+      '@type': 'ImageObject',
+      url: `${baseUrl}${images.hero.url}`,
+      caption: images.hero.alt || description
+    });
+  }
+  
   return {
     '@type': 'Product',
     '@id': `${pageUrl}#material`,
@@ -225,22 +235,23 @@ function createMaterialProductSchema(data: any) {
     description: description,
     category: `${category}${subcategory ? ` - ${subcategory}` : ''}`,
     
+    // Brand/Manufacturer (required by Google)
+    brand: {
+      '@type': 'Brand',
+      name: SITE_CONFIG.shortName || 'Z-Beam'
+    },
+    
     // Product image (required by Google)
-    ...(images?.hero?.url && {
-      image: [
-        {
-          '@type': 'ImageObject',
-          url: `${baseUrl}${images.hero.url}`,
-          caption: images.hero.alt || description
-        }
-      ]
-    }),
+    image: productImages,
     
     // Material-specific properties with confidence scores (E-E-A-T: Trustworthiness)
     additionalProperty: properties,
     
     // Applications as use cases
     applicationCategory: applications,
+    
+    // SKU based on material name
+    sku: `LASER-CLEAN-${materialName.toUpperCase().replace(/[^A-Z0-9]/g, '-')}`,
     
     // Offers (required by Google for Product schema)
     offers: {
@@ -273,13 +284,7 @@ function createMaterialProductSchema(data: any) {
         description: impact.description,
         ...(impact.quantifiedBenefits && { value: impact.quantifiedBenefits })
       }))
-    }),
-    
-    // Brand
-    brand: {
-      '@type': 'Brand',
-      name: SITE_CONFIG.shortName || 'Z-Beam'
-    }
+    })
   };
 }
 
