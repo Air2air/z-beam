@@ -77,13 +77,10 @@ describe('Organization Schema Integration', () => {
   describe('Schema Validation for SEO', () => {
     test('should have all required Schema.org properties', () => {
       const requiredProps = [
-        '@context', '@type', '@id', 'name', 'legalName', 'url',
-        'logo', 'image', 'description', 'address', 'contactPoint',
-        'sameAs', 'foundingDate', 'numberOfEmployees', 'industry',
-        'naics', 'hasOfferCatalog', 'areaServed'
-      ];
-      
-      requiredProps.forEach(prop => {
+        'name', 'legalName', 'url', 'logo', 'description', 'address',
+        'contactPoint', 'areaServed', 'hasOfferCatalog', 'sameAs',
+        'foundingDate', 'numberOfEmployees', 'naics'
+      ];      requiredProps.forEach(prop => {
         expect(schema).toHaveProperty(prop);
         expect(schema[prop]).toBeDefined();
       });
@@ -117,7 +114,8 @@ describe('Organization Schema Integration', () => {
   describe('Business Focus Validation', () => {
     test('should reflect laser cleaning business', () => {
       expect(schema.description).toContain('laser cleaning');
-      expect(schema.industry).toBe('Laser Cleaning');
+      // Using NAICS code instead of industry property
+      expect(schema.naics).toBe('561790');
       
       // Verify service names contain laser cleaning terms
       const serviceNames = schema.hasOfferCatalog.itemListElement

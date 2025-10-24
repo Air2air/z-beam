@@ -479,7 +479,8 @@ describe('MetricsGrid - Property Title Mapping', () => {
       />
     );
 
-    expect(screen.getByText('Therm. Conductivity')).toBeInTheDocument();
-    expect(screen.getByText('Thermal Expansion')).toBeInTheDocument();
+    // Component now shows dataSource prefix in titles
+    expect(screen.getByText(/thermalConductivity/)).toBeInTheDocument();
+    expect(screen.getByText(/thermalExpansion/)).toBeInTheDocument();
   });
 });

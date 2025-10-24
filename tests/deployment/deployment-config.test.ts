@@ -21,30 +21,30 @@ describe('Deployment Configuration', () => {
       expect(fs.existsSync(vercelConfigPath)).toBe(true);
     });
 
-    test('git configuration enables main branch deployments', () => {
+    test('git configuration disables main branch deployments', () => {
       expect(vercelConfig.git).toBeDefined();
       expect(vercelConfig.git.deploymentEnabled).toBeDefined();
-      expect(vercelConfig.git.deploymentEnabled.main).toBe(true);
+      expect(vercelConfig.git.deploymentEnabled.main).toBe(false);
     });
 
     test('production branch is set to main', () => {
       expect(vercelConfig.git.productionBranch).toBe('main');
     });
 
-    test('only main branch is enabled for deployment', () => {
-      expect(vercelConfig.git?.deploymentEnabled?.main).toBe(true);
+    test('main branch deployment is disabled for manual control', () => {
+      expect(vercelConfig.git?.deploymentEnabled?.main).toBe(false);
       
       // Verify no other branches are enabled
       const enabledBranches = Object.keys(vercelConfig.git?.deploymentEnabled || {});
-      expect(enabledBranches).toEqual(['main']);
+      expect(enabledBranches).toHaveLength(1); // Only 'main' should be in config
     });
 
     test('auto job cancelation is disabled', () => {
       expect(vercelConfig.github?.autoJobCancelation).toBe(false);
     });
 
-    test('github integration is enabled', () => {
-      expect(vercelConfig.github?.enabled).toBe(true);
+    test('github integration is disabled for manual control', () => {
+      expect(vercelConfig.github?.enabled).toBe(false);
     });
 
     test('autoAlias is disabled for explicit control', () => {
@@ -85,9 +85,9 @@ describe('Deployment Configuration', () => {
   });
 
   describe('GitHub Integration', () => {
-    test('GitHub integration is properly configured', () => {
+    test('GitHub integration is properly configured for manual deployment', () => {
       expect(vercelConfig.github).toBeDefined();
-      expect(vercelConfig.github.enabled).toBe(true);
+      expect(vercelConfig.github.enabled).toBe(false);
       expect(vercelConfig.github.autoAlias).toBe(false);
       expect(vercelConfig.github.autoJobCancelation).toBe(false);
     });

@@ -149,10 +149,11 @@ describe('Organization Schema Implementation', () => {
       expect(typeof schema.numberOfEmployees).toBe('string');
     });
 
-    test('should have industry classification', () => {
-      expect(schema.industry).toBeDefined();
-      expect(typeof schema.industry).toBe('string');
-      expect(schema.industry.length).toBeGreaterThan(0);
+    test('should have NAICS classification', () => {
+      // Industry property removed per schema.org validation, using NAICS instead
+      expect(schema.naics).toBeDefined();
+      expect(typeof schema.naics).toBe('string');
+      expect(schema.naics.length).toBeGreaterThan(0);
     });
 
     test('should have NAICS code', () => {
@@ -209,7 +210,8 @@ describe('Organization Schema Implementation', () => {
       });
     });
 
-    test('should have opening hours', () => {
+    test.skip('should have opening hours', () => {
+      // openingHoursSpecification removed per schema.org validation (LocalBusiness only)
       expect(schema.openingHoursSpecification).toBeDefined();
       expect(Array.isArray(schema.openingHoursSpecification)).toBe(true);
       
@@ -227,13 +229,15 @@ describe('Organization Schema Implementation', () => {
   });
 
   describe('Payment and Pricing Information', () => {
-    test('should have currency information', () => {
+    test.skip('should have currency information', () => {
+      // currenciesAccepted removed per schema.org validation (LocalBusiness only)
       expect(schema.currenciesAccepted).toBeDefined();
       expect(typeof schema.currenciesAccepted).toBe('string');
       expect(schema.currenciesAccepted).toMatch(/^[A-Z]{3}$/); // ISO currency code
     });
 
-    test('should have payment methods', () => {
+    test.skip('should have payment methods', () => {
+      // paymentAccepted removed per schema.org validation (LocalBusiness only)
       expect(schema.paymentAccepted).toBeDefined();
       expect(Array.isArray(schema.paymentAccepted)).toBe(true);
       expect(schema.paymentAccepted.length).toBeGreaterThan(0);
@@ -248,7 +252,8 @@ describe('Organization Schema Implementation', () => {
       });
     });
 
-    test('should have price range indicator', () => {
+    test.skip('should have price range indicator', () => {
+      // priceRange removed per schema.org validation (LocalBusiness only)
       expect(schema.priceRange).toBeDefined();
       expect(typeof schema.priceRange).toBe('string');
       expect(['$', '$$', '$$$', '$$$$']).toContain(schema.priceRange);
@@ -290,11 +295,12 @@ describe('Organization Schema Implementation', () => {
     });
 
     test('should have consistent branding', () => {
-      // Logo URL should match domain
+      // Logo URL should use z-beam.com domain (without www)
       const domainMatch = schema.url.match(/https?:\/\/([^\/]+)/);
       if (domainMatch) {
         const domain = domainMatch[1];
-        expect(schema.logo.url).toContain(domain);
+        // Logo URL uses z-beam.com instead of www.z-beam.com
+        expect(schema.logo.url).toMatch(/z-beam\.com/);
       }
     });
 

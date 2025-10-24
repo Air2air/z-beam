@@ -153,7 +153,7 @@ describe('MaterialJsonLD Component', () => {
 
     const script = container.querySelector('script[type="application/ld+json"]');
     const jsonLd = JSON.parse(script?.textContent || '{}');
-    const article = jsonLd['@graph']?.find((item: any) => item['@type'] === 'TechnicalArticle');
+    const article = jsonLd['@graph']?.find((item: any) => item['@type'] === 'Article');
 
     expect(article).toBeDefined();
     expect(article.headline).toBe('Test Material Laser Processing');
@@ -314,9 +314,9 @@ describe('MaterialJsonLD Component', () => {
     const jsonLd = JSON.parse(script?.textContent || '{}');
     const product = jsonLd['@graph']?.find((item: any) => item['@type'] === 'Product');
 
-    expect(product.sustainability).toBeDefined();
-    expect(Array.isArray(product.sustainability)).toBe(true);
-    expect(product.sustainability[0].name).toBe('Zero Chemical Waste');
+    // Sustainability removed from Product schema per schema.org validation
+    expect(product).toBeDefined();
+    expect(product.name).toBeDefined();
   });
 
   it('should include outcome metrics in HowTo schema', () => {

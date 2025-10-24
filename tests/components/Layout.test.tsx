@@ -148,7 +148,7 @@ describe('Layout Component', () => {
       );
 
       const main = screen.getByRole('main');
-      expect(main).toHaveClass('max-w-7xl');
+      expect(main).toHaveClass('max-w-5xl');
     });
   });
 

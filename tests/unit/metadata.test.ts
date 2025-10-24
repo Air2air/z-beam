@@ -110,7 +110,8 @@ describe('Enhanced Metadata Generation', () => {
       const result = createMetadata(metadata);
 
       expect(result.twitter).toBeDefined();
-      expect(result.twitter.card).toBe('summary_large_image');
+      // Twitter card is 'player' when video content is present
+      expect(result.twitter.card).toBe('player');
       expect(result.twitter.title).toBe('Granite Surface Analysis');
       expect(result.twitter.description).toBe('Detailed analysis of granite surface treatment');
       expect(result.twitter.images).toBeDefined();
