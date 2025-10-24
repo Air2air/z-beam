@@ -124,6 +124,15 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
         type: 'image/jpeg',
       }] : undefined,
       
+      // Video metadata for rich social sharing
+      videos: [{
+        url: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
+        secureUrl: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
+        type: 'text/html',
+        width: 1280,
+        height: 720,
+      }],
+      
       // Article-specific metadata (E-E-A-T: Trustworthiness via dates)
       ...(ogType === 'article' && {
         article: {
@@ -136,13 +145,19 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       }),
     },
     
-    // Twitter Card for enhanced social sharing
+    // Twitter Card for enhanced social sharing with video player
     twitter: {
-      card: 'summary_large_image',
+      card: 'player',
       title: actualTitle || formattedTitle,
       description: fullDescription,
       images: heroImageUrl ? [heroImageUrl] : undefined,
       creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : undefined,
+      players: [{
+        playerUrl: 'https://www.youtube.com/embed/eGgMJdjRUJk',
+        streamUrl: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
+        width: 1280,
+        height: 720,
+      }],
     },
     
     // Additional E-E-A-T meta tags

@@ -82,10 +82,13 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
         // 7. WebPage
         createWebPageSchema(pageUrl, title, description, publishDate, modifiedDate),
         
-        // 8. Author/Expert Profile (E-E-A-T: Expertise & Authoritativeness)
+        // 8. VideoObject - YouTube demonstration (E-E-A-T: Experience)
+        createVideoSchema(materialName, pageUrl),
+        
+        // 9. Author/Expert Profile (E-E-A-T: Expertise & Authoritativeness)
         createAuthorSchema(author),
         
-        // 9. Regulatory Compliance (E-E-A-T: Trustworthiness)
+        // 10. Regulatory Compliance (E-E-A-T: Trustworthiness)
         ...(regulatoryStandards.length > 0 ? [createComplianceSchema(regulatoryStandards, materialName)] : [])
       ].filter(Boolean) // Remove any null/undefined entries
     };
@@ -644,7 +647,32 @@ function createAuthorSchema(author: any) {
   };
 }
 
-// 8. Regulatory Compliance Schema (E-E-A-T: Trustworthiness)
+// 8. VideoObject Schema for YouTube demonstration
+function createVideoSchema(materialName: string, pageUrl: string) {
+  const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
+  
+  return {
+    '@type': 'VideoObject',
+    '@id': `${pageUrl}#video`,
+    name: `Laser Cleaning ${materialName} - Demonstration`,
+    description: `Professional laser cleaning demonstration showing the process and results for ${materialName} surface treatment. Watch how our advanced laser technology safely and effectively removes contaminants without damaging the material.`,
+    thumbnailUrl: 'https://i.ytimg.com/vi/eGgMJdjRUJk/maxresdefault.jpg',
+    uploadDate: '2024-01-15T00:00:00Z',
+    duration: 'PT2M30S',
+    contentUrl: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
+    embedUrl: 'https://www.youtube.com/embed/eGgMJdjRUJk',
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.shortName || 'Z-Beam',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/images/logo-.png`
+      }
+    }
+  };
+}
+
+// 9. Regulatory Compliance Schema (E-E-A-T: Trustworthiness)
 function createComplianceSchema(standards: any[], materialName: string) {
   if (!standards || standards.length === 0) {
     return null;
