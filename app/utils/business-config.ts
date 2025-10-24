@@ -132,27 +132,27 @@ const BUSINESS_CONFIG_OLD = {
       name: "Oregon" // Expanded service area
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "San Francisco Bay Area" // Primary metro area
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Los Angeles Metropolitan Area" // Major CA metro
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Phoenix Metropolitan Area" // Arizona metro
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Portland Metropolitan Area" // Oregon metro
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Las Vegas Metropolitan Area" // Nevada metro
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Sacramento Metropolitan Area" // Northern CA metro
     }
   ],

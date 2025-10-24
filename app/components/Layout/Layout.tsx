@@ -156,6 +156,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
             applications={metadata.applications}
             environmentalImpact={metadata.environmentalImpact}
             outcomeMetrics={metadata.outcomeMetrics}
+            caption={metadata.caption}
           />
         </section>
       )}

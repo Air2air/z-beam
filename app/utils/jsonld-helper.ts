@@ -112,7 +112,7 @@ function createTechnicalArticleSchema(data: any) {
   const baseUrl = SITE_CONFIG.url;
   
   return {
-    '@type': 'TechnicalArticle',
+    '@type': 'Article',
     '@id': `${pageUrl}#article`,
     headline: title,
     description: description || subtitle,

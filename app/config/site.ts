@@ -263,27 +263,27 @@ export const BUSINESS_CONFIG = {
       name: "Oregon"
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "San Francisco Bay Area"
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Los Angeles Metropolitan Area"
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Phoenix Metropolitan Area"
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Portland Metropolitan Area"
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Las Vegas Metropolitan Area"
     },
     {
-      type: "MetropolitanArea",
+      type: "Place",
       name: "Sacramento Metropolitan Area"
     }
   ],
@@ -627,7 +627,6 @@ export function generateOrganizationSchema() {
     
     "foundingDate": BUSINESS_CONFIG.legal.foundingDate,
     "numberOfEmployees": BUSINESS_CONFIG.legal.employeeCount,
-    "industry": BUSINESS_CONFIG.legal.industry,
     "naics": BUSINESS_CONFIG.legal.naicsCode,
     
     "hasOfferCatalog": {
@@ -647,19 +646,6 @@ export function generateOrganizationSchema() {
       "@type": area.type,
       "name": area.name
     })),
-    
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification", 
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": BUSINESS_CONFIG.hours.monday.open,
-        "closes": BUSINESS_CONFIG.hours.monday.close
-      }
-    ],
-    
-    "currenciesAccepted": BUSINESS_CONFIG.operations.currency,
-    "paymentAccepted": BUSINESS_CONFIG.operations.paymentMethods,
-    "priceRange": BUSINESS_CONFIG.operations.priceRange,
     
     ...(BUSINESS_CONFIG.credentials.length > 0 && {
       "hasCredential": BUSINESS_CONFIG.credentials.map(cred => ({

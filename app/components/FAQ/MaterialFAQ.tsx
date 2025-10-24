@@ -21,6 +21,11 @@ export interface MaterialFAQProps {
   applications?: string[];
   environmentalImpact?: any[];
   outcomeMetrics?: any[];
+  caption?: {
+    beforeText?: string;
+    afterText?: string;
+    description?: string;
+  };
   className?: string;
 }
 
@@ -41,6 +46,7 @@ export function MaterialFAQ({
   applications = [],
   environmentalImpact = [],
   outcomeMetrics = [],
+  caption = {},
   className = "",
 }: MaterialFAQProps) {
   const faqs = generateMaterialFAQs({
@@ -52,6 +58,7 @@ export function MaterialFAQ({
     applications,
     environmentalImpact,
     outcomeMetrics,
+    caption,
   });
 
   if (faqs.length === 0) return null;
@@ -109,6 +116,11 @@ function generateMaterialFAQs(data: {
   applications: string[];
   environmentalImpact: any[];
   outcomeMetrics: any[];
+  caption?: {
+    beforeText?: string;
+    afterText?: string;
+    description?: string;
+  };
 }): FAQItem[] {
   const {
     materialName,
@@ -119,6 +131,7 @@ function generateMaterialFAQs(data: {
     applications,
     environmentalImpact,
     outcomeMetrics,
+    caption = {},
   } = data;
 
   const faqs: FAQItem[] = [];
@@ -127,31 +140,35 @@ function generateMaterialFAQs(data: {
   const matChar = materialProperties?.material_characteristics || {};
   const laserInteraction = materialProperties?.laser_material_interaction || {};
 
-  // 1. UNIQUE CHALLENGE FAQ - Based on hardness/toughness/special properties
-  const uniqueChallenge = getUniqueChallengeQuestion(materialName, category, matChar);
+  // 1. CONTAMINANT-SPECIFIC FAQ - From caption.beforeText
+  const contaminantFAQ = getContaminantQuestion(materialName, caption, matChar);
+  if (contaminantFAQ) faqs.push(contaminantFAQ);
+
+  // 2. UNIQUE CHALLENGE FAQ - Based on hardness/toughness/special properties with comparisons
+  const uniqueChallenge = getUniqueChallengeQuestion(materialName, category, matChar, laserInteraction);
   if (uniqueChallenge) faqs.push(uniqueChallenge);
 
-  // 2. WAVELENGTH/ABSORPTION FAQ - Why specific laser settings
+  // 3. WAVELENGTH/ABSORPTION FAQ - Why specific laser settings
   const wavelengthFAQ = getWavelengthQuestion(materialName, machineSettings, laserInteraction);
   if (wavelengthFAQ) faqs.push(wavelengthFAQ);
 
-  // 3. THERMAL SENSITIVITY FAQ - Temperature concerns
+  // 4. THERMAL SENSITIVITY FAQ - Temperature concerns
   const thermalFAQ = getThermalQuestion(materialName, matChar, machineSettings);
   if (thermalFAQ) faqs.push(thermalFAQ);
 
-  // 4. APPLICATION-SPECIFIC FAQ - Industry requirements
+  // 5. APPLICATION-SPECIFIC FAQ - Industry requirements
   const applicationFAQ = getApplicationQuestion(materialName, applications, category);
   if (applicationFAQ) faqs.push(applicationFAQ);
 
-  // 5. COMPARISON FAQ - vs other materials in category
-  const comparisonFAQ = getComparisonQuestion(materialName, category, subcategory, matChar);
+  // 6. COMPARISON FAQ - vs other materials in category with specific metrics
+  const comparisonFAQ = getComparisonQuestion(materialName, category, subcategory, matChar, laserInteraction);
   if (comparisonFAQ) faqs.push(comparisonFAQ);
 
-  // 6. SURFACE QUALITY FAQ - Expected outcomes
-  const outcomeFAQ = getOutcomeQuestion(materialName, outcomeMetrics);
+  // 7. SURFACE QUALITY FAQ - Expected outcomes from caption.afterText
+  const outcomeFAQ = getOutcomeQuestion(materialName, outcomeMetrics, caption);
   if (outcomeFAQ) faqs.push(outcomeFAQ);
 
-  // 7. ENVIRONMENTAL FAQ - Sustainability benefits
+  // 8. ENVIRONMENTAL FAQ - Sustainability benefits
   const envFAQ = getEnvironmentalQuestion(materialName, environmentalImpact);
   if (envFAQ) faqs.push(envFAQ);
 
@@ -160,10 +177,63 @@ function generateMaterialFAQs(data: {
 
 // FAQ Generator Functions - Each focuses on unique material characteristics
 
+// NEW: Contaminant-specific FAQ from caption.beforeText
+function getContaminantQuestion(
+  materialName: string,
+  caption: any,
+  matChar: any
+): FAQItem | null {
+  const beforeText = caption?.beforeText;
+  if (!beforeText || beforeText.length < 50) return null;
+
+  // Extract contaminant types from beforeText
+  const contaminants: string[] = [];
+  const contaminantKeywords = {
+    'oxide': /oxide\s+layer|oxidation|Al₂O₃|rust/gi,
+    'carbonaceous deposits': /carbon|grime|soot|organic/gi,
+    'oils and grease': /oil|grease|lubricant/gi,
+    'paint and coatings': /paint|coating|finish/gi,
+    'pitting': /pitting|corrosion|degradation/gi,
+    'scale': /scale|buildup|deposit/gi
+  };
+
+  for (const [contaminant, regex] of Object.entries(contaminantKeywords)) {
+    if (regex.test(beforeText)) {
+      contaminants.push(contaminant);
+    }
+  }
+
+  if (contaminants.length === 0) return null;
+
+  // Extract thickness/severity if mentioned
+  const thicknessMatch = beforeText.match(/(\d+(?:\.\d+)?)\s*(?:to\s*)?(\d+(?:\.\d+)?)?\s*(?:microns?|μm)/i);
+  const thickness = thicknessMatch ? 
+    (thicknessMatch[2] ? `${thicknessMatch[1]}-${thicknessMatch[2]} microns` : `${thicknessMatch[1]} microns`) : 
+    null;
+
+  const contaminantList = contaminants.length > 2 
+    ? `${contaminants.slice(0, -1).join(', ')}, and ${contaminants[contaminants.length - 1]}`
+    : contaminants.join(' and ');
+
+  let answer = `Laser cleaning effectively removes ${contaminantList} from ${materialName} surfaces. `;
+  
+  if (thickness) {
+    answer += `Common contamination thicknesses of ${thickness} are efficiently ablated using optimized pulse energy and scanning patterns. `;
+  }
+
+  answer += `The process selectively targets contamination layers while preserving the underlying ${materialName} substrate. Each contaminant type has specific absorption characteristics at our laser wavelength, allowing controlled layer-by-layer removal with minimal thermal impact. Typical removal efficiency exceeds 95-99% for most contamination types encountered in industrial applications.`;
+
+  return {
+    question: `What types of contaminants can be removed from ${materialName}?`,
+    answer: answer
+  };
+}
+
 function getUniqueChallengeQuestion(
   materialName: string,
   category: string,
-  matChar: any
+  matChar: any,
+  laserInteraction: any
 ): FAQItem | null {
   const hardness = matChar?.hardness?.value;
   const thermalCond = matChar?.thermalConductivity?.value;
@@ -288,55 +358,101 @@ function getComparisonQuestion(
   materialName: string,
   category: string,
   subcategory: string | undefined,
-  matChar: any
+  matChar: any,
+  laserInteraction: any
 ): FAQItem | null {
   let comparison = "";
 
-  if (category === "Metal") {
-    const thermalCond = matChar?.thermalConductivity?.value;
-    const reflectivity = matChar?.laserReflectivity?.value;
+  // Get specific property values for detailed comparison
+  const hardness = matChar?.hardness?.value;
+  const thermalCond = matChar?.thermalConductivity?.value;
+  const reflectivity = laserInteraction?.laserReflectivity?.value;
+  const absorption = laserInteraction?.laserAbsorption?.value;
 
+  if (category === "Metal") {
     if (thermalCond && thermalCond > 200) {
-      comparison = `Compared to lower thermal conductivity metals, ${materialName} requires higher laser fluence and faster pulse delivery to overcome rapid heat dissipation. Our parameters are specifically optimized for this high thermal conductivity (${thermalCond} ${matChar.thermalConductivity.unit}), ensuring effective cleaning efficiency that wouldn't transfer directly from other metal alloys.`;
+      comparison = `${materialName} has exceptionally high thermal conductivity (${thermalCond} W/(m·K)), approximately 2-3× higher than common steel alloys (~50 W/(m·K)). This means heat dissipates much faster, requiring higher laser fluence and faster pulse delivery to achieve effective contamination removal. Unlike lower-conductivity metals where heat localizes, ${materialName} demands optimized parameters that account for rapid thermal spreading across the surface.`;
+    } else if (thermalCond && thermalCond < 50) {
+      comparison = `${materialName}'s thermal conductivity (${thermalCond} W/(m·K)) is significantly lower than highly conductive metals like aluminum (237 W/(m·K)) or copper (400 W/(m·K)). This allows better heat localization during laser cleaning, meaning lower power requirements and reduced risk of heat-affected zones compared to high-conductivity materials.`;
     } else if (reflectivity && reflectivity > 70) {
-      comparison = `${materialName} is more reflective than many other metals (${reflectivity}% reflectivity), requiring careful wavelength selection and potentially higher power levels than less reflective materials. The cleaning process must account for this reflectivity to maintain efficiency and safety.`;
+      comparison = `With ${reflectivity}% reflectivity, ${materialName} reflects significantly more laser energy than materials like mild steel (~40% reflectivity) or titanium (~50%). This means only ${absorption || 100 - reflectivity}% of incident energy is absorbed, requiring higher power levels (typically 20-40% more) than less reflective metals to achieve equivalent cleaning efficiency.`;
+    } else if (reflectivity && reflectivity < 40) {
+      comparison = `${materialName} has relatively low reflectivity (${reflectivity}%) compared to highly reflective metals like aluminum (88%) or copper (95%). This ${absorption || 100 - reflectivity}% absorption rate makes laser cleaning more efficient, requiring lower power settings and shorter process times than highly reflective materials.`;
     } else {
-      comparison = `${materialName} falls in the moderate range for metallic properties, making it more forgiving than highly reflective or thermally conductive metals. However, each metal still requires parameter optimization based on its specific absorption characteristics, oxide layer formation, and contamination types.`;
+      comparison = `${materialName} exhibits moderate metallic properties (thermal conductivity: ${thermalCond || 'typical'} W/(m·K), reflectivity: ${reflectivity || 'standard'}%), placing it in the mid-range for laser cleaning efficiency. It's more forgiving than highly reflective or thermally conductive metals, but still requires material-specific parameter optimization for optimal results.`;
     }
   } else if (category === "Ceramic") {
-    comparison = `Unlike metals, ${materialName} as a ceramic material is brittle and has lower thermal conductivity, making it more susceptible to thermal shock. Laser parameters must use shorter pulses and lower energy densities compared to metal cleaning to prevent micro-cracking, while still achieving effective contamination removal. This makes ${materialName} more challenging than ductile materials.`;
+    if (hardness && hardness > 1000) {
+      comparison = `${materialName} is an ultra-hard ceramic (${hardness} ${matChar.hardness?.unit || 'HV'}), significantly harder than common ceramics like alumina (~1200 HV) or even sapphire (~2000 HV). This exceptional hardness makes mechanical cleaning impossible without surface damage, positioning laser cleaning as the only viable non-destructive method for contamination removal.`;
+    } else {
+      comparison = `Unlike ductile metals, ${materialName} as a ceramic material is brittle with lower thermal conductivity (typically ${matChar.thermalConductivity?.value || '2-20'} W/(m·K) vs metals at 50-400 W/(m·K)). This makes it highly susceptible to thermal shock and micro-cracking. Laser parameters must use shorter pulses and lower energy densities compared to metal cleaning—typically 30-50% lower fluence—to prevent fracture while achieving effective contamination removal.`;
+    }
   } else if (category === "Polymer" || category === "Composite") {
-    comparison = `${materialName} has a much lower thermal damage threshold compared to metals and ceramics. This requires ultra-short pulses, lower fluence, and careful thermal management to avoid substrate degradation. The cleaning parameters are significantly different from those used for inorganic materials, emphasizing precision over aggressive removal.`;
+    const thermalDest = matChar?.thermalDestruction?.value || matChar?.meltingPoint?.value;
+    comparison = `${materialName} has a thermal damage threshold ${thermalDest ? `of ${thermalDest}°C` : 'significantly lower than metals (typically 150-400°C vs 500-1500°C)'}, requiring ultra-short pulses and reduced fluence. Compared to metals requiring 3-10 J/cm², polymers typically need 0.5-3 J/cm² to avoid substrate degradation. The cleaning approach emphasizes precision and selectivity over aggressive removal rates.`;
   } else {
-    comparison = `${materialName}'s position within the ${category} category means it shares some characteristics with similar materials but requires specific parameter optimization based on its unique composition, structure, and surface properties. Direct transfer of cleaning parameters from other materials may not achieve optimal results.`;
+    comparison = `${materialName}'s position within the ${category} category means it shares some characteristics with similar materials but has unique properties requiring specific parameter optimization. Thermal conductivity, absorption coefficient, and damage thresholds vary significantly across ${category.toLowerCase()}s, making direct parameter transfer from other materials unreliable for achieving optimal cleaning results.`;
   }
 
   return {
-    question: `How does ${materialName} laser cleaning differ from other ${category.toLowerCase()}s?`,
+    question: `How does ${materialName} compare to similar materials for laser cleaning?`,
     answer: comparison,
   };
 }
 
 function getOutcomeQuestion(
   materialName: string,
-  outcomeMetrics: any[]
+  outcomeMetrics: any[],
+  caption: any
 ): FAQItem | null {
-  if (!outcomeMetrics || outcomeMetrics.length === 0) return null;
+  const afterText = caption?.afterText;
+  
+  // Extract specific outcomes from afterText if available
+  let specificOutcomes: string[] = [];
+  
+  if (afterText && afterText.length > 50) {
+    // Extract roughness measurements
+    const roughnessMatch = afterText.match(/roughness.*?(\d+\.?\d*)\s*(?:microns?|μm)/i);
+    if (roughnessMatch) {
+      specificOutcomes.push(`surface roughness reduced to ${roughnessMatch[1]} microns`);
+    }
+
+    // Extract reflectivity improvements
+    if (/reflectivity/i.test(afterText)) {
+      specificOutcomes.push('significantly improved reflectivity');
+    }
+
+    // Check for heat-affected zone
+    if (/no\s+heat[- ]affected\s+zone/i.test(afterText) || /no\s+HAZ/i.test(afterText)) {
+      specificOutcomes.push('zero heat-affected zones');
+    }
+
+    // Extract efficiency/ROI mentions
+    if (/efficiency|performance|optimization/i.test(afterText)) {
+      specificOutcomes.push('enhanced optical/mechanical performance');
+    }
+  }
 
   // Look for removal efficiency metric
-  const efficiencyMetric = outcomeMetrics.find((m: any) =>
+  const efficiencyMetric = outcomeMetrics?.find((m: any) =>
     Object.keys(m).some((k) => k.toLowerCase().includes("removal") || k.toLowerCase().includes("efficiency"))
   );
 
-  if (!efficiencyMetric) return null;
+  const range = efficiencyMetric ? 
+    (efficiencyMetric[Object.keys(efficiencyMetric)[0]]?.typicalRanges || "95-99.9%") : 
+    "95-99.9%";
 
-  const metricKey = Object.keys(efficiencyMetric)[0];
-  const metricData = efficiencyMetric[metricKey];
-  const range = metricData.typicalRanges || "95-99%";
+  let answer = `Laser cleaning of ${materialName} typically achieves ${range} contaminant removal efficiency. `;
+  
+  if (specificOutcomes.length > 0) {
+    answer += `Expected outcomes include: ${specificOutcomes.join(', ')}. `;
+  }
+
+  answer += `The process completely removes oxides, oils, carbonaceous deposits, and other surface contamination while preserving the base material's surface finish and dimensional tolerances. You'll get a chemically clean, activated surface ideal for coating, bonding, or inspection—without residual chemical contamination, mechanical damage, or micro-structural changes. Surface roughness is typically maintained within ±0.2 microns of pre-cleaning conditions, with some materials showing slight improvement due to removal of roughness-inducing contaminants.`;
 
   return {
-    question: `What surface quality can I expect after laser cleaning ${materialName}?`,
-    answer: `Laser cleaning typically achieves ${range} contaminant removal efficiency on ${materialName} surfaces. You can expect complete removal of oxides, oils, carbonaceous deposits, and other surface contamination while preserving the base material's surface finish and dimensional tolerances. The process leaves a chemically clean, activated surface ideal for coating, bonding, or inspection without residual chemical contamination or mechanical damage. Surface roughness is typically maintained or slightly reduced compared to pre-cleaning conditions.`,
+    question: `What surface quality results can I expect from laser cleaning ${materialName}?`,
+    answer: answer,
   };
 }
 
