@@ -1,9 +1,12 @@
-name: Production Deploy
+name: Production Deploy (DISABLED)
 
+# Disabled: Manual deployments only via 'vercel --prod'
+# Auto-deploy was causing duplicate deployments
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:  # Manual trigger only
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   deploy:
