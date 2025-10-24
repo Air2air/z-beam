@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   shortName: 'Z-Beam',
   description: 'Professional laser cleaning services. Specializing in industrial surface preparation, rust removal, and eco-friendly cleaning solutions.',
   url: process.env.NODE_ENV === 'production' 
-    ? 'https://z-beam.com' 
+    ? 'https://www.z-beam.com' 
     : 'http://localhost:3000',
   author: 'Z-Beam',
   
@@ -188,7 +188,7 @@ export const BUSINESS_CONFIG = {
       support: "info@z-beam.com"
     },
 
-    website: "https://z-beam.com"
+    website: "https://www.z-beam.com"
   },
 
   social: {
