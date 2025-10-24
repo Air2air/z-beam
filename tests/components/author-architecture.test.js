@@ -6,7 +6,7 @@
 const { loadComponent, getArticle } = require('../../app/utils/contentAPI');
 const path = require('path');
 const fs = require('fs');
-const yaml = require('yaml');
+const yaml = require('js-yaml');
 
 describe('Author Architecture Tests', () => {
   

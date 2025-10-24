@@ -45,7 +45,7 @@ describe('Constants', () => {
       jest.resetModules();
       const { SITE_CONFIG: prodConfig } = require('../../app/utils/constants');
       
-      expect(prodConfig.url).toBe('https://z-beam.com');
+      expect(prodConfig.url).toBe('https://www.z-beam.com');
       
       process.env.NODE_ENV = originalEnv;
     });
