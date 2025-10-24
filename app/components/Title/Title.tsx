@@ -245,7 +245,7 @@ export function Title({
             {subtitle && (
               <h3 
                 id={subtitleId}
-                className="text-gray-400 tracking-tight mt-3 text-sm sm:text-base lg:text-xl"
+                className="text-gray-400 tracking-tight mt-3 text-base sm:text-lg lg:text-2xl"
               >
                 {subtitle}
               </h3>

@@ -48,11 +48,11 @@ export function RegulatoryStandards({
         />
       )}
 
-      <div className="standards-grid grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="standards-grid grid grid-cols-2 gap-4">
         {standards.map((standard, index) => (
           <div
             key={`${standard.name}-${index}`}
-            className="standard-card bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"
+            className="standard-card card-background rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"
           >
             <div className="flex items-start gap-4">
               {/* Logo */}
@@ -108,8 +108,8 @@ export function RegulatoryStandards({
       </div>
 
       {/* Trust signals */}
-      <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-        <p className="text-sm text-blue-800 dark:text-blue-200 flex items-center">
+      <div className="mt-4 p-3 bg-gradient-to-b from-white to-gray-600 dark:from-gray-600 dark:to-gray-600 rounded-lg border border-blue-200 dark:border-blue-800">
+        <p className="text-sm text-gray-900 dark:text-white flex items-center">
           <svg 
             className="w-5 h-5 mr-2 flex-shrink-0" 
             fill="none" 

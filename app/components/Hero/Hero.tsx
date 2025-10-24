@@ -97,7 +97,7 @@ export function Hero({
   };
   
   // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
-  const containerClasses = `relative w-full max-w-6xl mx-auto aspect-[16/9] rounded-b-lg overflow-hidden bg-gray-900 ${themeClass}`;
+  const containerClasses = `relative w-full max-w-6xl mx-auto aspect-[16/9] rounded-b-lg overflow-hidden bg-gray-700 ${themeClass}`;
   const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
   const videoClasses = "absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-[1]";
   const contentClasses = variant === 'fullwidth'
@@ -117,7 +117,7 @@ export function Hero({
           {isMobile && !videoLoaded ? (
             /* YouTube Facade - Poster image with play button */
             <div 
-              className={`${backgroundClasses} bg-gray-800 cursor-pointer group`}
+              className={`${backgroundClasses} bg-gray-700 cursor-pointer group`}
               onClick={() => setVideoLoaded(true)}
               role="button"
               tabIndex={0}
@@ -152,7 +152,7 @@ export function Hero({
             </div>
           ) : (
             /* Actual YouTube iframe - only loads after user clicks */
-            <div className={`${backgroundClasses} bg-gray-800`}>
+            <div className={`${backgroundClasses} bg-gray-700`}>
               <iframe
                 src={videoUrl}
                 className={videoClasses}
@@ -203,7 +203,7 @@ export function Hero({
       ) : (
         /* Default fallback */
         <div 
-          className={`${backgroundClasses} flex items-center justify-center bg-gray-600`}
+          className={`${backgroundClasses} flex items-center justify-center bg-gray-700`}
           aria-label="Default hero background with logo"
         >
           <Image
@@ -217,7 +217,7 @@ export function Hero({
         </div>
       )}
 
-      {/* Custom homepage overlay - left side, 42% width, gray-900 background at 50% opacity, text at 100% */}
+      {/* Custom homepage overlay - left side, 42% width, gray-700 background at 50% opacity, text at 100% */}
       {customOverlay && (
         <div 
           className="absolute left-0 top-0 h-full w-[42%] flex flex-col items-center justify-center"
@@ -228,9 +228,9 @@ export function Hero({
         >
           {/* Background layer with reduced opacity */}
           <div 
-            className="absolute inset-0 bg-gray-900"
+            className="absolute inset-0 bg-gray-700"
             style={{ 
-              backgroundColor: 'rgb(17, 24, 39)', // gray-900
+              backgroundColor: 'rgb(15, 23, 42)', // slate-900
               opacity: 0.5
             }}
             aria-hidden="true"

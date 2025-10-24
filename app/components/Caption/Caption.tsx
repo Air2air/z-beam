@@ -158,7 +158,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       {(captionData.beforeText || captionData.afterText) && (
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
-            <div className="p-4 bg-gray-800 rounded-lg">
+            <div className="p-6 md:p-8 card-background rounded-lg">
               <h3 className="mb-3">
                 Before Treatment
               </h3>
@@ -168,7 +168,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
             </div>
           )}
           {captionData.afterText && (
-            <div className="p-4 bg-gray-800 rounded-lg">
+            <div className="p-6 md:p-8 card-background rounded-lg">
               <h3 className="mb-3">
                 After Treatment
               </h3>

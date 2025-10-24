@@ -58,7 +58,7 @@ export const metadata = {
       { url: SITE_CONFIG.media.favicon.png, type: 'image/png' },
     ],
     apple: [
-      { url: '/images/favicon/favicon_350.png', sizes: '350x350', type: 'image/png' },
+      { url: '/images/favicon/favicon-350.png', sizes: '350x350', type: 'image/png' },
     ],
   },
   manifest: '/manifest.json',
@@ -136,7 +136,7 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/images/favicon/favicon_350.png" type="image/png" />
+        <link rel="icon" href="/images/favicon/favicon-350.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Global Organization Schema */}

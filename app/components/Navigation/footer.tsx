@@ -64,7 +64,7 @@ const socialLinks: SocialLink[] = [
 export default function Footer() {
   return (
     <footer 
-      className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 mt-0"
+      className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-800 mt-0"
       role="contentinfo"
       aria-label="Site footer"
     >
@@ -102,7 +102,7 @@ export default function Footer() {
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white 
+              className="text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white 
                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                          rounded-md px-2 py-1 transition-colors"
             >

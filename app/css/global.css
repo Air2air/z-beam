@@ -105,42 +105,42 @@
 @layer base {
   /* Body background */
   body {
-    @apply bg-slate-900 text-slate-200 font-normal;
+    @apply bg-gray-800 text-gray-200 font-normal;
   }
   
   /* Headings - Semantic font weights and colors with responsive sizing */
   h1 {
-    @apply text-2xl sm:text-3xl md:text-4xl font-normal text-slate-50;
+    @apply text-xl sm:text-2xl md:text-3xl font-bold text-gray-50;
   }
   
   h2 {
-    @apply text-xl sm:text-2xl md:text-3xl font-normal text-slate-100;
+    @apply text-lg sm:text-xl md:text-2xl font-bold text-gray-100;
   }
   
   h3 {
-    @apply text-lg sm:text-xl md:text-2xl font-medium text-slate-200 leading-snug;
+    @apply text-lg sm:text-xl md:text-2xl font-medium text-gray-200 leading-snug;
   }
   
   h4 {
-    @apply text-base sm:text-lg md:text-xl font-medium text-slate-200;
+    @apply text-base sm:text-lg md:text-xl font-medium text-gray-200;
   }
   
   h5 {
-    @apply text-base sm:text-lg font-medium text-slate-300;
+    @apply text-base sm:text-lg font-medium text-gray-300;
   }
   
   h6 {
-    @apply text-sm sm:text-base font-medium text-slate-300;
+    @apply text-sm sm:text-base font-medium text-gray-300;
   }
   
   /* Semantic elements */
   strong, b {
-    @apply font-bold text-slate-50;
+    @apply font-bold text-gray-50;
   }
   
   /* Paragraph text */
   p {
-    @apply text-slate-200;
+    @apply text-gray-200;
   }
   
   /* Links */
@@ -185,6 +185,15 @@
   
   .badge-number {
     @apply font-bold;
+  }
+  
+  /* Card background gradient */
+  .card-background {
+    @apply bg-gradient-to-b from-gray-100 to-gray-700;
+  }
+  
+  .dark .card-background {
+    @apply from-gray-800/50 to-gray-700;
   }
 }
 

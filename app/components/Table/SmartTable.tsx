@@ -151,18 +151,6 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         identityFields.push(categorizeField(key, data[key]));
       }
     });
-    
-    if (identityFields.length > 0) {
-      sections.push({
-        id: 'core-identity',
-        title: 'Material Identity',
-        description: 'Core material identification and classification',
-        priority: 1,
-        fields: identityFields,
-        badge: 'Essential',
-        modes: ['content', 'technical', 'hybrid']
-      });
-    }
 
     // Mode-specific sections
     if (displayMode === 'content') {

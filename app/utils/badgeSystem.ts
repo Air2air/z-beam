@@ -85,7 +85,7 @@ export function getMaterialGradient(materialType: MaterialType): string {
     case 'polymer':
       return 'bg-gradient-to-br from-green-500 to-teal-600';
     case 'alloy':
-      return 'bg-gradient-to-br from-gray-500 to-slate-600';
+      return 'bg-gradient-to-br from-gray-500 to-gray-600';
     case 'composite':
       return 'bg-gradient-to-br from-indigo-500 to-cyan-600';
     default:

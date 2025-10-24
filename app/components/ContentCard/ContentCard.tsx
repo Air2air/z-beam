@@ -89,7 +89,7 @@ export function ContentCard({
       text: 'text-gray-100',
     },
     navbar: {
-      container: 'bg-gradient-to-b from-white to-gray-700 dark:from-gray-800 dark:to-gray-700',
+      container: 'card-background',
       heading: 'text-gray-900 dark:text-white',
       text: 'text-gray-700 dark:text-gray-300',
     },
@@ -112,7 +112,7 @@ export function ContentCard({
   const variantClasses = {
     default: {
       container: currentTheme.container,
-      outer: 'p-4 md:p-6 mb-6 rounded-lg',
+      outer: 'p-6 md:p-8 mb-6 rounded-lg',
     },
     inline: {
       container: '',

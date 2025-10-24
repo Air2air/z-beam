@@ -172,7 +172,7 @@ export function Navbar() {
                             }
                           }}
                           className={`
-                            inline-flex items-center py-2 px-3 rounded-md text-base
+                            inline-flex items-center py-2 px-3 rounded-md text-lg
                             focus:outline-none transition-colors duration-200
                             ${
                               isActive
@@ -225,7 +225,7 @@ export function Navbar() {
                         target={isExternal ? "_blank" : "_self"}
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={`
-                          block py-2 px-3 rounded-md text-base
+                          block py-2 px-3 rounded-md text-lg
                           focus:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -356,7 +356,7 @@ export function Navbar() {
                                 href={dropdownItem.href}
                                 onClick={closeMenu}
                                 className={`
-                                  block py-2 px-3 rounded-md text-base
+                                  block px-4 py-2 text-lg
                                   ${
                                     isDropdownActive
                                       ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"

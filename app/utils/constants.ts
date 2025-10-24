@@ -105,13 +105,13 @@ const SITE_CONFIG_OLD = {
       }
     },
     logo: {
-      default: '/images/logo/logo_.png',
+      default: '/images/logo/logo-.png',
       width: 200,
       height: 120
     },
     favicon: {
       ico: '/favicon.ico',
-      png: '/images/favicon/favicon_350.png'
+      png: '/images/favicon/favicon-350.png'
     }
   },
   
