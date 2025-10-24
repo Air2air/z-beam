@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { CardGrid } from "../components/CardGrid/CardGrid";
 import { Article, MaterialType, SearchClientProps } from "@/types";
@@ -30,6 +30,31 @@ function toMaterialType(value?: string): MaterialType {
   };
   
   return typeMap[normalizedValue] || 'other';
+}
+
+// Flatten object into searchable text (replaces deep recursive search)
+function flattenToSearchableText(obj: any, maxDepth: number = 3, currentDepth: number = 0): string {
+  if (!obj || currentDepth > maxDepth) return '';
+  
+  // Skip image/url fields
+  const skipKeys = ['image', 'imageUrl', 'imageAlt', 'url', 'href', 'id', 'slug', 'filepath', 'path'];
+  
+  if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
+    return String(obj);
+  }
+  
+  if (Array.isArray(obj)) {
+    return obj.map(item => flattenToSearchableText(item, maxDepth, currentDepth + 1)).join(' ');
+  }
+  
+  if (typeof obj === 'object' && obj !== null) {
+    return Object.entries(obj)
+      .filter(([key]) => !skipKeys.includes(key))
+      .map(([_, value]) => flattenToSearchableText(value, maxDepth, currentDepth + 1))
+      .join(' ');
+  }
+  
+  return '';
 }
 
 // Simple synchronous property parser for client-side filtering
@@ -153,6 +178,62 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   const [articles] = useState<Article[]>(initialArticles);
   
+  // Debounced search query
+  const [debouncedQuery, setDebouncedQuery] = useState(query);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedQuery(query), 300);
+    return () => clearTimeout(timer);
+  }, [query]);
+  
+  // Cache: Pre-parse properties once per article
+  const propertyCache = useMemo(() => {
+    const cache = new Map<string, Array<{property: string, value: string}>>();
+    
+    articles.forEach(article => {
+      const slug = article.slug || String(Math.random());
+      cache.set(slug, parsePropertiesFromMetadata(article.metadata));
+    });
+    
+    return cache;
+  }, [articles]);
+  
+  // Cache: Build searchable index once
+  const searchIndex = useMemo(() => {
+    return articles.map(article => {
+      const metadata = article.metadata as any;
+      
+      // Build flat searchable text
+      const searchableFields = [
+        article.title,
+        article.name,
+        article.description,
+        article.tags?.join(' '),
+        metadata?.category,
+        metadata?.subcategory,
+        metadata?.author?.name || metadata?.author_object?.name,
+        metadata?.subtitle,
+        metadata?.keywords?.join(' '),
+        // Flatten complex objects
+        flattenToSearchableText(metadata?.materialProperties),
+        flattenToSearchableText(metadata?.machineSettings),
+        flattenToSearchableText(metadata?.applications),
+        flattenToSearchableText(metadata?.caption),
+      ];
+      
+      const searchText = searchableFields
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+      
+      return {
+        article,
+        searchText,
+        slug: article.slug || ''
+      };
+    });
+  }, [articles]);
+  
   // Property search logic
   const isPropertySearch = propertyName && propertyValue;
   
@@ -168,12 +249,11 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
   
   // Extract unit from first matching property across all articles
   useEffect(() => {
-    if (propertyName && propertyValue && articles.length > 0) {
+    if (propertyName && propertyValue && searchIndex.length > 0) {
       const normalizedSearchProperty = normalizePropertyName(propertyName);
       
-      for (const article of articles) {
-        const metadata = article.metadata || {};
-        const allProperties = parsePropertiesFromMetadata(metadata);
+      for (const { slug } of searchIndex) {
+        const allProperties = propertyCache.get(slug) || [];
         
         const matchingProp = allProperties.find(prop => {
           const normalizedPropName = normalizePropertyName(prop.property);
@@ -192,175 +272,60 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
     } else {
       setExtractedUnit('');
     }
-  }, [propertyName, propertyValue, articles]);
+  }, [propertyName, propertyValue, searchIndex, propertyCache]);
   
-  // Filter articles based on search query and property filters
-  const filteredArticles = articles.filter(article => {
-    // Check property filter
-    if (propertyName && propertyValue) {
-      // Get properties from both content and metadata
-      const contentProperties = article.content ? parsePropertiesFromContent(article.content) : [];
-      const metadataProperties = parsePropertiesFromMetadata(article.metadata);
-      const allProperties = [...contentProperties, ...metadataProperties];
-      
-      // Check for matching property with normalized property name matching
-      const hasMatchingProperty = allProperties.some(prop => {
-        // Normalize both property names for comparison (handles tensileStrength vs "Tensile Strength")
-        const normalizedPropName = normalizePropertyName(prop.property);
-        const propNameMatch = normalizedPropName === normalizedSearchProperty;
+  // Memoized filter: Only re-compute when inputs change
+  const filteredArticles = useMemo(() => {
+    return searchIndex.filter(({ article, searchText, slug }) => {
+      // Check property filter first (more specific)
+      if (propertyName && propertyValue) {
+        const allProperties = propertyCache.get(slug) || [];
         
-        // Early exit if property name doesn't match
-        if (!propNameMatch) {
-          return false;
-        }
-        
-        // Flexible value matching
-        const searchVal = String(propertyValue).toLowerCase().trim();
-        const actualVal = String(prop.value).toLowerCase().trim();
-        
-        // Try multiple value matching strategies
-        const exactMatch = actualVal === searchVal;
-        
-        // Numeric matching with reasonable tolerance
-        let numericMatch = false;
-        
-        // Extract numeric values more carefully, preserving decimals
-        const searchNum = parseFloat(searchVal.match(/[\d.]+/)?.[0] || searchVal);
-        const propValString = actualVal.match(/[\d.]+/)?.[0] || actualVal;
-        const propNum = parseFloat(propValString);
-        
-        if (!isNaN(searchNum) && !isNaN(propNum)) {
-          // Check if property value is a range (e.g., "400-600" or "400–600")
-          const rangeMatch = actualVal.match(/([\d.]+)\s*[-–]\s*([\d.]+)/);
+        // Check for matching property with normalized property name matching
+        const hasMatchingProperty = allProperties.some(prop => {
+          // Normalize both property names for comparison
+          const normalizedPropName = normalizePropertyName(prop.property);
+          const propNameMatch = normalizedPropName === normalizedSearchProperty;
           
-          if (rangeMatch) {
-            // Value is a range - check if search value falls within it
-            const rangeMin = parseFloat(rangeMatch[1]);
-            const rangeMax = parseFloat(rangeMatch[2]);
-            numericMatch = searchNum >= rangeMin && searchNum <= rangeMax;
-          } else {
-            // Single numeric value - check with 10% tolerance
-            const tolerance = Math.max(Math.abs(searchNum * 0.1), 0.1);
-            numericMatch = Math.abs(propNum - searchNum) <= tolerance;
+          if (!propNameMatch) return false;
+          
+          // Flexible value matching
+          const searchVal = String(propertyValue).toLowerCase().trim();
+          const actualVal = String(prop.value).toLowerCase().trim();
+          
+          const exactMatch = actualVal === searchVal;
+          
+          // Numeric matching with tolerance
+          let numericMatch = false;
+          const searchNum = parseFloat(searchVal.match(/[\d.]+/)?.[0] || searchVal);
+          const propNum = parseFloat(actualVal.match(/[\d.]+/)?.[0] || actualVal);
+          
+          if (!isNaN(searchNum) && !isNaN(propNum)) {
+            const rangeMatch = actualVal.match(/([\d.]+)\s*[-–]\s*([\d.]+)/);
+            
+            if (rangeMatch) {
+              const rangeMin = parseFloat(rangeMatch[1]);
+              const rangeMax = parseFloat(rangeMatch[2]);
+              numericMatch = searchNum >= rangeMin && searchNum <= rangeMax;
+            } else {
+              const tolerance = Math.max(Math.abs(searchNum * 0.1), 0.1);
+              numericMatch = Math.abs(propNum - searchNum) <= tolerance;
+            }
           }
-        }
-        
-        // Value matching - exact or numeric within tolerance/range
-        return exactMatch || numericMatch;
-      });
-      
-      if (!hasMatchingProperty) {
-        return false;
-      }
-    }
-    
-    // Then check search query
-    if (!query) return true;
-    
-    const searchTerm = query.toLowerCase();
-    
-    // Helper function to recursively search through any object/array structure
-    const deepSearch = (obj: any, searchTerm: string, maxDepth: number = 10, currentDepth: number = 0): boolean => {
-      // Prevent infinite recursion
-      if (currentDepth > maxDepth || !obj) return false;
-      
-      // Handle primitives (string, number, boolean)
-      if (typeof obj === 'string' || typeof obj === 'number' || typeof obj === 'boolean') {
-        return safeIncludes(extractSafeValue(obj), searchTerm);
-      }
-      
-      // Handle arrays
-      if (Array.isArray(obj)) {
-        return obj.some(item => deepSearch(item, searchTerm, maxDepth, currentDepth + 1));
-      }
-      
-      // Handle objects
-      if (typeof obj === 'object' && obj !== null) {
-        // Skip certain metadata keys that shouldn't be searched
-        const skipKeys = ['image', 'imageUrl', 'imageAlt', 'url', 'href', 'id', 'slug', 'filepath', 'path'];
-        
-        return Object.entries(obj).some(([key, value]) => {
-          // Skip image/url fields to avoid false matches
-          if (skipKeys.includes(key)) return false;
           
-          // Recursively search the value
-          return deepSearch(value, searchTerm, maxDepth, currentDepth + 1);
+          return exactMatch || numericMatch;
         });
+        
+        if (!hasMatchingProperty) return false;
       }
       
-      return false;
-    };
-    
-    // Helper function to safely extract and check author information
-    const checkAuthorMatch = (article: any, searchTerm: string): boolean => {
-      const authorObj = article.metadata?.author_object || article.metadata?.author || article.author;
-      return deepSearch(authorObj, searchTerm);
-    };
-    
-    // Search in multiple fields with priority
-    const metadata = article.metadata as any;
-    
-    // High-priority fields (direct matches)
-    const titleMatch = article.title && safeIncludes(extractSafeValue(article.title), searchTerm);
-    const nameMatch = article.name && safeIncludes(extractSafeValue(article.name), searchTerm);
-    const descriptionMatch = article.description && safeIncludes(extractSafeValue(article.description), searchTerm);
-    
-    // Check for high-priority matches first
-    if (titleMatch || nameMatch || descriptionMatch) return true;
-    
-    // Author search
-    const authorMatch = checkAuthorMatch(article, searchTerm);
-    if (authorMatch) return true;
-    
-    // Tags search
-    const tagsMatch = article.tags && Array.isArray(article.tags) && 
-      article.tags.some(tag => safeIncludes(extractSafeValue(tag), searchTerm));
-    if (tagsMatch) return true;
-    
-    // Category/subcategory search
-    const categoryMatch = metadata?.category && safeIncludes(extractSafeValue(metadata.category), searchTerm);
-    const subcategoryMatch = metadata?.subcategory && safeIncludes(extractSafeValue(metadata.subcategory), searchTerm);
-    if (categoryMatch || subcategoryMatch) return true;
-    
-    // Dynamic deep search through ALL metadata fields
-    // This will automatically search machineSettings, materialProperties, and any other frontmatter fields
-    if (metadata) {
-      // Define fields to search deeply (will adapt to any frontmatter structure)
-      const deepSearchFields = [
-        'subtitle',
-        'applications',
-        'machineSettings',        // Dynamic search through all machine parameters
-        'materialProperties',     // Dynamic search through all material properties (all categories)
-        'environmentalImpact',
-        'outcomeMetrics',
-        'caption',
-        'regulatoryStandards',
-        'processing',
-        'keywords',
-        'meta_tags',
-        // Any future frontmatter fields will be automatically included
-      ];
+      // Then check search query using pre-built index
+      if (!debouncedQuery) return true;
       
-      for (const field of deepSearchFields) {
-        if (metadata[field] && deepSearch(metadata[field], searchTerm)) {
-          return true;
-        }
-      }
-      
-      // Fallback: search through any remaining metadata fields not explicitly listed
-      // This ensures complete coverage even if new fields are added
-      const searchedFields = new Set([...deepSearchFields, 'author', 'author_object', 'category', 'subcategory']);
-      const remainingFields = Object.keys(metadata).filter(key => !searchedFields.has(key));
-      
-      for (const field of remainingFields) {
-        if (deepSearch(metadata[field], searchTerm)) {
-          return true;
-        }
-      }
-    }
-    
-    return false;
-  });
+      const searchTerm = debouncedQuery.toLowerCase();
+      return searchText.includes(searchTerm);
+    }).map(({ article }) => article);
+  }, [searchIndex, debouncedQuery, propertyName, propertyValue, propertyCache, normalizedSearchProperty]);
   
   // Build subtitle based on search parameters (not used, handled by wrapper)
   const getSubtitle = () => {
