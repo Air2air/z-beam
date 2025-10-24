@@ -274,11 +274,13 @@ function createMaterialProductSchema(data: any) {
     // Material-specific properties with confidence scores (E-E-A-T: Trustworthiness)
     additionalProperty: properties,
     
-    // Applications as use cases
-    applicationCategory: applications,
-    
     // SKU based on material name
     sku: `LASER-CLEAN-${materialName.toUpperCase().replace(/[^A-Z0-9]/g, '-')}`,
+    
+    // Applications in description or keywords (applicationCategory not valid for Product)
+    ...(applications.length > 0 && {
+      keywords: applications.join(', ')
+    }),
     
     // Offers (required by Google for Product schema)
     offers: {
@@ -301,17 +303,9 @@ function createMaterialProductSchema(data: any) {
         url: SITE_CONFIG.url
       },
       description: `Professional laser cleaning service for ${materialName}. Contact for custom quote based on project requirements.`
-    },
+    }
     
-    // Environmental benefits (E-E-A-T: Experience)
-    ...(environmentalImpact.length > 0 && {
-      sustainability: environmentalImpact.map((impact: any) => ({
-        '@type': 'DefinedTerm',
-        name: impact.benefit,
-        description: impact.description,
-        ...(impact.quantifiedBenefits && { value: impact.quantifiedBenefits })
-      }))
-    })
+    // Note: Environmental benefits moved to Article schema where they are more appropriate
   };
 }
 
@@ -384,16 +378,6 @@ function createHowToSchema(data: any) {
       }
     }),
     
-    // Expected outcomes (E-E-A-T: Experience)
-    ...(outcomeMetrics.length > 0 && {
-      expectedOutput: outcomeMetrics.map((metric: any) => ({
-        '@type': 'DefinedTerm',
-        name: metric.metric,
-        description: metric.description,
-        ...(metric.typicalRanges && { value: metric.typicalRanges })
-      }))
-    }),
-    
     // Time estimate
     totalTime: 'PT15M',
     
@@ -402,6 +386,8 @@ function createHowToSchema(data: any) {
       '@type': 'HowToSupply',
       name: 'Laser Cleaning System'
     }
+    
+    // Note: expectedOutput removed - not a valid HowTo property
   } : null;
 }
 
@@ -427,18 +413,15 @@ function createDatasetSchema(data: any) {
           if (propData?.value !== undefined) {
             propertyCount++;
             measurements.push({
-              '@type': 'Observation',
-              measuredProperty: propKey,
-              measuredValue: {
-                '@type': 'QuantitativeValue',
-                value: propData.value,
-                unitText: propData.unit
-              },
+              '@type': 'PropertyValue',
+              propertyID: propKey,
+              name: propKey,
+              value: propData.value,
+              unitText: propData.unit,
               // E-E-A-T: Trustworthiness - verification metadata
               ...(propData.metadata?.last_verified && {
-                observationDate: propData.metadata.last_verified
-              }),
-              ...(propData.source && { citation: propData.source })
+                dateModified: propData.metadata.last_verified
+              })
             });
           }
         });
