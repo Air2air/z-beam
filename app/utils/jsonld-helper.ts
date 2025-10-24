@@ -58,7 +58,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
         
         // 2. Material Product Schema (E-E-A-T: Authoritativeness)
         createMaterialProductSchema(
-          { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact }
+          { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact, images }
         ),
         
         // 3. HowTo Schema (E-E-A-T: Experience)
@@ -171,7 +171,7 @@ function createTechnicalArticleSchema(data: any) {
 
 // 2. Material Product Schema (E-E-A-T: Authoritativeness with verified data)
 function createMaterialProductSchema(data: any) {
-  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact } = data;
+  const { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact, images } = data;
   
   // Extract properties from categorized structure
   const properties: any[] = [];
@@ -211,12 +211,25 @@ function createMaterialProductSchema(data: any) {
     });
   }
   
+  const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
+  
   return {
     '@type': 'Product',
     '@id': `${pageUrl}#material`,
     name: materialName,
     description: description,
     category: `${category}${subcategory ? ` - ${subcategory}` : ''}`,
+    
+    // Product image (required by Google)
+    ...(images?.hero?.url && {
+      image: [
+        {
+          '@type': 'ImageObject',
+          url: `${baseUrl}${images.hero.url}`,
+          caption: images.hero.alt || description
+        }
+      ]
+    }),
     
     // Material-specific properties with confidence scores (E-E-A-T: Trustworthiness)
     additionalProperty: properties,
