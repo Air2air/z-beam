@@ -88,8 +88,8 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
     
     try {
       // Parse as pure YAML since these are now .yaml files
-      const yaml = require('yaml');
-      const data = yaml.parse(fileContent);
+      const yaml = await import('js-yaml');
+      const data = yaml.load(fileContent);
       
       // Process all image URLs to strip parentheses
       if (data && data.images && typeof data.images === 'object') {
@@ -791,17 +791,8 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
     const frontmatterData = await loadFrontmatterDataInline(slug);
     
     if (!frontmatterData || Object.keys(frontmatterData).length === 0) {
-      console.log(`getArticle debug for slug: ${slug}`);
-      console.log('frontmatterData:', Object.keys(frontmatterData || {}));
-      console.log('Has title?', frontmatterData?.title);
-      console.log('Returning null - no frontmatter data found');
       return null;
     }
-    
-    console.log(`getArticle debug for slug: ${slug}`);
-    console.log('frontmatterData:', Object.keys(frontmatterData || {}));
-    console.log('Has title?', frontmatterData?.title);
-    console.log('Returning article with title:', frontmatterData?.title);
     
     // Use frontmatter data as the primary metadata source
     const metadata = {
