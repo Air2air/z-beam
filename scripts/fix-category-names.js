@@ -33,9 +33,11 @@ const CATEGORY_NORMALIZATIONS = {
   'stone': 'stone',
   'Composite': 'composite',
   'composite': 'composite',
-  'rare-earth': 'rare earth',
-  'Rare-Earth': 'rare earth',
-  'rare earth': 'rare earth'
+  'rare-earth': 'rareearth',
+  'Rare-Earth': 'rareearth',
+  'rare earth': 'rareearth',
+  'Masonry': 'masonry',
+  'masonry': 'masonry'
 };
 
 class CategoryFixer {

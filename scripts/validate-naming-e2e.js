@@ -25,7 +25,7 @@ const RULES = {
   imagePath: /^\/images\/[a-z0-9/-]+\.(jpg|jpeg|png|webp|svg)$/,
   imageFileName: /^[a-z0-9-]+\.(jpg|jpeg|png|webp|svg)$/,
   componentName: /^[A-Z][a-zA-Z0-9]+$/,  // PascalCase
-  authorId: /^[a-z-]+$/,
+  authorId: /^[a-z0-9-]+$/,  // Allow numbers for numeric author IDs
   categorySlug: /^[a-z]+$/,
   subcategorySlug: /^[a-z-]+$/
 };
