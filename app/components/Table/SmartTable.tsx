@@ -908,57 +908,84 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
     );
   };
 
-  // Main render logic
-  const renderSmartFrontmatterTable = (data: SmartTableData, sectionTitle?: string) => {
-    const sections = organizeFrontmatterSections(data);
-    
-    if (sections.length === 0) {
+  // Simple table renderer - flatten all fields into key-value pairs
+  const renderSimpleTable = (data: SmartTableData, sectionTitle?: string) => {
+    if (!data || Object.keys(data).length === 0) {
       return (
         <div className="enhanced-table-container">
           {sectionTitle && (
-            <SectionTitle title={`${sectionTitle} - Properties`} className="mb-4" />
+            <SectionTitle title={sectionTitle} className="mb-4" />
           )}
           <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <p className="text-gray-500 dark:text-gray-400 text-center">
-              No displayable {displayMode} data available
+              No table data available
             </p>
           </div>
         </div>
       );
     }
 
-    const getModeTitle = () => {
-      switch (displayMode) {
-        case 'content': return 'Content Overview';
-        case 'technical': return 'Technical Specifications';
-        case 'hybrid': return 'Comprehensive Overview';
-        default: return 'Properties';
-      }
+    // Flatten all nested objects into simple key-value pairs
+    const flattenObject = (obj: any, prefix: string = ''): Array<{key: string, label: string, value: any}> => {
+      const result: Array<{key: string, label: string, value: any}> = [];
+      
+      Object.entries(obj).forEach(([key, value]) => {
+        const fullKey = prefix ? `${prefix}.${key}` : key;
+        
+        // Skip certain metadata fields
+        if (['slug', 'keywords', 'content'].includes(key)) {
+          return;
+        }
+        
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+          // Recursively flatten nested objects
+          result.push(...flattenObject(value, fullKey));
+        } else if (value !== null && value !== undefined) {
+          // Add simple values
+          result.push({
+            key: fullKey,
+            label: formatFieldLabel(key),
+            value: value
+          });
+        }
+      });
+      
+      return result;
     };
+
+    const rows = flattenObject(data);
 
     return (
       <div className="enhanced-table-container">
         {sectionTitle && (
-          <SectionTitle 
-            title={`${sectionTitle} - ${getModeTitle()}`} 
-            className="mb-4" 
-          />
+          <SectionTitle title={sectionTitle} className="mb-4" />
         )}
         
-        <div className="mb-4 flex items-center justify-between">
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            Viewing: <span className="font-medium capitalize">{displayMode} Mode</span>
-            {displayMode === 'hybrid' && (
-              <span className="ml-2 text-xs text-gray-500">• Expandable sections</span>
-            )}
-          </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            {sections.length} {sections.length === 1 ? 'section' : 'sections'}
-          </div>
-        </div>
-        
-        <div className="space-y-4">
-          {sections.map(section => renderSection(section))}
+        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <table className="w-full">
+            <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  Property
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                  Value
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+              {rows.map((row, index) => (
+                <tr key={row.key} className={index % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                    {row.label}
+                  </td>
+                  <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                    {Array.isArray(row.value) ? row.value.join(', ') : String(row.value)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     );
@@ -968,7 +995,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
   try {
     // Handle frontmatter data if available
     if (frontmatterData && Object.keys(frontmatterData).length > 0) {
-      return renderSmartFrontmatterTable(frontmatterData, caption);
+      return renderSimpleTable(frontmatterData, caption);
     }
 
     // Fallback to basic table rendering

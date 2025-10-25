@@ -2,6 +2,7 @@
 import React from 'react';
 import { SITE_CONFIG } from '../../utils/constants';
 import { createJsonLdForArticle } from '../../utils/jsonld-helper';
+import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
 import type { 
   JsonLdProps, 
   PersonSchema, 
@@ -55,7 +56,18 @@ export function MaterialJsonLD({
   article: any; 
   slug: string;
 }) {
-  const jsonLdSchema = createJsonLdForArticle(article, slug);
+  // Try new SchemaFactory first, fallback to legacy if needed
+  let jsonLdSchema;
+  
+  try {
+    // Use SchemaFactory for enhanced schema generation
+    const factory = new SchemaFactory(article, slug);
+    jsonLdSchema = factory.generate();
+  } catch (error) {
+    console.warn('SchemaFactory failed, using legacy generator:', error);
+    // Fallback to legacy generator for compatibility
+    jsonLdSchema = createJsonLdForArticle(article, slug);
+  }
   
   if (!jsonLdSchema) {
     return null;

@@ -1,5 +1,5 @@
 name: Teak
-category: Wood
+category: wood
 subcategory: natural
 title: Teak Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Teak
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Teak surface after laser cleaning showing detailed surface structure
     url: /images/material/teak-laser-cleaning-micro.jpg
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo-org-iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo_org_ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo_org_iec.png
 applications:
-- Marine
-- Aerospace
-- Cultural Heritage
-- Medical
-- Automotive
-- Manufacturing
-- Energy
-- Electronics
-- Rail Transportation
-- Hospitality
+  - Marine
+  - Aerospace
+  - Cultural Heritage
+  - Medical
+  - Automotive
+  - Manufacturing
+  - Energy
+  - Electronics
+  - Rail Transportation
+  - Hospitality
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1600.0
+      value: 1600
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Forest Products Laboratory. 2010. Chapter 4: Moisture and Thermal Properties of Wood, Table 4-5.'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -67,20 +67,20 @@ materialProperties:
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Chapter 4: Thermal Properties of Wood, Table 4-3. Specific values for Tectona grandis (teak) at 12% moisture content.'
     thermalExpansion:
       value: 3.8
-      min: 3.0
+      min: 3
       max: 60
       unit: 10^-6/K
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook: Wood as an Engineering Material. USDA Forest Service, Chapter 4: Mechanical Properties of Wood, Table 4-3. Specific data for Tectona grandis (teak) along grain.'
     compressiveStrength:
-      value: 53.0
+      value: 53
       min: 20
       max: 80
       unit: MPa
       research_basis: The Wood Database, a widely cited technical reference for wood properties, reports the compressive strength of Teak (Tectona grandis) parallel to the grain as 53 MPa at 12% moisture content. This value is consistent with teak's classification as a high-density hardwood, and the source provides comprehensive mechanical property data derived from standardized testing (typically ASTM D143).
     corrosionResistance:
-      value: 8.0
-      min: 2.0
-      max: 8.0
+      value: 8
+      min: 2
+      max: 8
       unit: rating
       research_basis: Teak is renowned for exceptional natural durability and resistance to moisture, decay, fungi, and insects due to high natural oil content and silica. It's classified as very durable and commonly used in marine applications, outdoor furniture, and high-moisture environments where corrosion resistance is critical.
     density:
@@ -90,21 +90,21 @@ materialProperties:
       unit: g/cm³
       research_basis: 'Wood Handbook: Wood as an Engineering Material (FPL-GTR-190), USDA Forest Service, Forest Products Laboratory, Chapter 4: Physical Properties of Wood, Table 4-5: Specific gravity of selected domestic and tropical woods'
     flexuralStrength:
-      value: 97.0
+      value: 97
       min: 40
       max: 150
       unit: MPa
       research_basis: The Wood Database, a recognized authority on wood properties, reports the modulus of rupture (MOR) for Teak as 97 MPa. This value represents the flexural strength measured via standard 3-point bend testing, consistent with ASTM D143 standards for small clear specimens of wood. The reported value aligns with the known high density and durability characteristics of Teak wood.
     hardness:
-      value: 41.0
+      value: 41
       min: 1
       max: 5000
       unit: MPa
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Chapter 4: Mechanical Properties of Wood, Table 4-3a: Hardness of commercial woods'
     oxidationResistance:
-      value: 204.0
-      min: 82.0
-      max: 204.0
+      value: 204
+      min: 82
+      max: 204
       unit: °C
       research_basis: The FPL, a globally recognized authority on wood science, states that the maximum safe long-term service temperature for most wood species, including hardwoods like teak, is 200-220°F (93-104°C) to prevent slow, permanent degradation. For intermittent service, a common upper limit is 300°F (149°C). However, for significant oxidative degradation (charring and chemical decomposition) in air, the established threshold is 400°F (204°C). This is the temperature at which a measurable, self-sustaining loss of mass begins for wood in an oxidative environment.
     porosity:
@@ -114,7 +114,7 @@ materialProperties:
       unit: dimensionless
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 95.0
+      value: 95
       min: 20
       max: 200
       unit: MPa
@@ -208,36 +208,36 @@ machineSettings:
     unit: nm
     description: Near-IR wavelength for optimal absorption in Teak lignin and contaminants
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.867548'
@@ -306,7 +306,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -348,16 +348,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

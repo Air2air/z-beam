@@ -1,5 +1,5 @@
 name: Walnut
-category: Wood
+category: wood
 subcategory: natural
 title: Walnut Laser Cleaning
 subtitle: Laser cleaning parameters and specifications for Walnut
@@ -20,31 +20,31 @@ images:
     alt: Microscopic view of Walnut surface after laser cleaning showing detailed surface structure
     url: /images/material/walnut-laser-cleaning-micro.jpg
 regulatoryStandards:
-- name: ANSI
-  description: ANSI Z136.1 - Safe Use of Lasers
-  url: https://webstore.ansi.org/standards/lia/ansiz1362022
-  image: /images/logo/logo-org-ansi.png
-- name: IEC
-  description: IEC 60825 - Safety of Laser Products
-  url: https://webstore.iec.ch/en/publication/3587
-  image: /images/logo/logo-org-iec.png
+  - name: ANSI
+    description: ANSI Z136.1 - Safe Use of Lasers
+    url: https://webstore.ansi.org/standards/lia/ansiz1362022
+    image: /images/logo/logo_org_ansi.png
+  - name: IEC
+    description: IEC 60825 - Safety of Laser Products
+    url: https://webstore.iec.ch/en/publication/3587
+    image: /images/logo/logo_org_iec.png
 applications:
-- Aerospace
-- Automotive
-- Cultural Heritage
-- Medical
-- Marine
-- Electronics
-- Manufacturing
-- Energy
-- Musical Instruments
-- Architectural
+  - Aerospace
+  - Automotive
+  - Cultural Heritage
+  - Medical
+  - Marine
+  - Electronics
+  - Manufacturing
+  - Energy
+  - Musical Instruments
+  - Architectural
 materialProperties:
   material_characteristics:
     label: Material Characteristics
     description: Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity
     specificHeat:
-      value: 1400.0
+      value: 1400
       min: 800
       max: 2500
       unit: J/(kg·K)
@@ -56,7 +56,7 @@ materialProperties:
       unit: W/(m·K)
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190), Table 4-7: Thermal properties of selected woods at 12% moisture content'
     thermalDestruction:
-      value: 300.0
+      value: 300
       unit: °C
       research_basis: ai_research_comprehensive
     thermalDiffusivity:
@@ -66,21 +66,21 @@ materialProperties:
       unit: m²/s
       research_basis: 'Forest Products Laboratory. (2010). Wood Handbook - Wood as an Engineering Material. USDA Forest Service, General Technical Report FPL-GTR-190, Chapter 4: Thermal Properties, Table 4-3, specific walnut data at 12% moisture content.'
     thermalExpansion:
-      value: 5.0
-      min: 3.0
+      value: 5
+      min: 3
       max: 60
       unit: 10⁻⁶/K
       research_basis: 'NIST Wood Handbook: Wood as an Engineering Material, Chapter 4: Physical Properties and Moisture Relations of Wood, Table 4-3: Coefficients of thermal expansion for various wood species at 12% moisture content'
     compressiveStrength:
-      value: 52.0
+      value: 52
       min: 20
       max: 80
       unit: MPa
       research_basis: The Wood Database provides comprehensive mechanical property data for North American hardwoods, listing the compressive strength (crushing strength) parallel to grain for Black Walnut as 52.1 MPa. This value is consistent with published wood engineering references and represents the standard test condition of compression parallel to grain at 12% moisture content.
     corrosionResistance:
-      value: 3.0
-      min: 2.0
-      max: 8.0
+      value: 3
+      min: 2
+      max: 8
       unit: rating
       research_basis: Walnut is classified as having moderate to low natural decay resistance among hardwoods. While more durable than many domestic species, it's not considered highly resistant to fungal decay or insect attack without treatment. The Wood Database rates black walnut's decay resistance as "durable" but notes it's not suitable for ground contact without preservative treatment, placing it in the lower-middle range of wood durability scales.
     density:
@@ -90,7 +90,7 @@ materialProperties:
       unit: g/cm³
       research_basis: 'USDA Forest Service, Forest Products Laboratory. Wood Handbook: Wood as an Engineering Material. General Technical Report FPL-GTR-190. Table 4-3: Specific gravity of some commercially important woods.'
     flexuralStrength:
-      value: 101.0
+      value: 101
       min: 40
       max: 150
       unit: MPa
@@ -102,9 +102,9 @@ materialProperties:
       unit: MPa
       research_basis: 'Wood Handbook: Wood as an Engineering Material (USDA Forest Service, FPL-GTR-190) and ASTM D143-14 Standard Test Methods for Small Clear Specimens of Timber'
     oxidationResistance:
-      value: 150.0
-      min: 82.0
-      max: 204.0
+      value: 150
+      min: 82
+      max: 204
       unit: °C
       research_basis: The provided material properties (specific heat, density) are consistent with wood. Authoritative sources like the USDA Wood Handbook indicate that significant thermal degradation of wood, including oxidation and pyrolysis, begins well below 200°C. For most wood species, prolonged exposure to temperatures above 150°C in air leads to significant chemical changes, charring, and loss of mechanical strength. Walnut, as a hardwood, falls within this general range. The value is a conservative estimate for the onset of significant oxidative degradation in an air environment.
     porosity:
@@ -114,7 +114,7 @@ materialProperties:
       unit: dimensionless (volume fraction)
       research_basis: ai_research_comprehensive
     tensileStrength:
-      value: 101.0
+      value: 101
       min: 20
       max: 200
       unit: MPa
@@ -150,7 +150,7 @@ machineSettings:
   fluenceThreshold:
     value: 2.5
     min: 1.5
-    max: 4.0
+    max: 4
     unit: J/cm²
     description: Fluence threshold for effective contaminant removal without wood damage
   overlapRatio:
@@ -202,36 +202,36 @@ machineSettings:
     unit: nm
     description: Near-infrared wavelength for optimal absorption in walnut lignin and contaminants
 environmentalImpact:
-- applicableIndustries:
-  - Semiconductor
-  - Electronics
-  - Medical
-  - Nuclear
-  benefit: Chemical Waste Elimination
-  description: Eliminates hazardous chemical waste streams
-  quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
-- applicableIndustries: []
-  benefit: Water Usage Reduction
-  description: Dry process requires no water
-  sustainabilityBenefit: Significant water conservation in industrial processes
-- applicableIndustries: []
-  benefit: Energy Efficiency
-  description: Focused energy delivery with minimal waste heat
-- applicableIndustries: []
-  benefit: Air Quality Improvement
-  description: Eliminates volatile organic compounds from chemical cleaning
+  - applicableIndustries:
+      - Semiconductor
+      - Electronics
+      - Medical
+      - Nuclear
+    benefit: Chemical Waste Elimination
+    description: Eliminates hazardous chemical waste streams
+    quantifiedBenefits: Up to 100% reduction in chemical cleaning agents
+  - applicableIndustries: []
+    benefit: Water Usage Reduction
+    description: Dry process requires no water
+    sustainabilityBenefit: Significant water conservation in industrial processes
+  - applicableIndustries: []
+    benefit: Energy Efficiency
+    description: Focused energy delivery with minimal waste heat
+  - applicableIndustries: []
+    benefit: Air Quality Improvement
+    description: Eliminates volatile organic compounds from chemical cleaning
 outcomeMetrics:
-- Contaminant Removal Efficiency:
-    description: Percentage of target contaminants successfully removed from surface
-    typicalRanges: 95-99.9% depending on application and material
-    measurementMethods:
-    - Before/after microscopy
-    - Chemical analysis
-    - Mass spectrometry
-    factorsAffecting:
-    - Contamination type
-    - Adhesion strength
-    - Surface geometry
+  - Contaminant Removal Efficiency:
+      description: Percentage of target contaminants successfully removed from surface
+      typicalRanges: 95-99.9% depending on application and material
+      measurementMethods:
+        - Before/after microscopy
+        - Chemical analysis
+        - Mass spectrometry
+      factorsAffecting:
+        - Contamination type
+        - Adhesion strength
+        - Surface geometry
 preservedData:
   generationMetadata:
     generated_date: '2025-10-22T20:36:58.993871'
@@ -300,7 +300,7 @@ preservedData:
         notes: Variable by density and moisture
       thermalExpansion:
         max: 60
-        min: 3.0
+        min: 3
         unit: µm/m·K
       youngsModulus:
         max: 20000
@@ -342,16 +342,16 @@ preservedData:
         auto_generated: true
         generated_date: '2025-10-16'
       corrosionResistance:
-        min: 2.0
-        max: 8.0
+        min: 2
+        max: 8
         unit: rating
         description: ''
         sample_count: 20
         auto_generated: true
         generated_date: '2025-10-16'
       oxidationResistance:
-        min: 82.0
-        max: 204.0
+        min: 82
+        max: 204
         unit: °C
         description: ''
         sample_count: 20

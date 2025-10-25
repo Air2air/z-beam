@@ -40,6 +40,12 @@ export default function sitemap(): SitemapEntry[] {
       priority: 0.8, // Increased priority for SEO-optimized page
     },
     {
+      url: `${baseUrl}/netalux`,
+      lastModified: new Date('2025-10-25'), // Equipment specifications page
+      changeFrequency: 'monthly' as const,
+      priority: 0.8, // Equipment page with comparison tables
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,

@@ -1,111 +1,82 @@
 /**
  * Test Suite: Table Component
- * Testing Smart Table rendering, display modes, and frontmatter organization
+ * Testing simplified Smart Table rendering and frontmatter flattening
  */
 
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { SmartTableData, DisplayMode, SmartField } from '@/types';
+import { SmartTableData } from '@/types';
 
-// Mock the actual Table/SmartTable components
+// Mock the simplified SmartTable component
 const MockTable = ({ content, config, frontmatterData }: {
   content?: string;
   config?: {
-    displayMode?: DisplayMode;
-    layoutMode?: string;
     caption?: string;
     showHeader?: boolean;
   };
   frontmatterData?: SmartTableData;
 }) => {
-  const displayMode = config?.displayMode || 'hybrid';
+  if (!frontmatterData) {
+    return (
+      <div data-testid="smart-table-container" className="enhanced-table-container">
+        <div data-testid="no-data-message">No table data available</div>
+      </div>
+    );
+  }
+
+  // Simulate the flattening logic
+  const flattenObject = (obj: any, prefix: string = ''): Array<{key: string, label: string, value: any}> => {
+    const result: Array<{key: string, label: string, value: any}> = [];
+    
+    Object.entries(obj).forEach(([key, value]) => {
+      const fullKey = prefix ? `${prefix}.${key}` : key;
+      
+      // Skip metadata fields
+      if (['slug', 'keywords', 'content', 'name', 'category', 'subcategory', 'description'].includes(key)) {
+        return;
+      }
+      
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
+        result.push(...flattenObject(value, fullKey));
+      } else if (value !== null && value !== undefined) {
+        result.push({
+          key: fullKey,
+          label: key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()),
+          value: value
+        });
+      }
+    });
+    
+    return result;
+  };
+
+  const rows = flattenObject(frontmatterData);
   
   return (
-    <div 
-      data-testid="smart-table-container"
-      data-display-mode={displayMode}
-      className="enhanced-table-container"
-    >
+    <div data-testid="smart-table-container" className="enhanced-table-container">
       {config?.caption && (
         <h2 data-testid="table-caption">{config.caption}</h2>
       )}
       
-      <div data-testid="mode-indicator" className="mode-info">
-        Viewing: {displayMode} Mode
-      </div>
-      
-      {frontmatterData && (
-        <div data-testid="sections-container">
-          {/* Core Identity - always visible */}
-          <section data-testid="core-identity-section">
-            <h3>Material Identity</h3>
-            <div data-testid="identity-fields">
-              {frontmatterData.name && (
-                <div data-testid="field-name">{frontmatterData.name}</div>
-              )}
-              {frontmatterData.category && (
-                <div data-testid="field-category">{frontmatterData.category}</div>
-              )}
-            </div>
-          </section>
-          
-          {/* Mode-specific sections */}
-          {displayMode === 'content' && (
-            <>
-              <section data-testid="content-overview-section">
-                <h3>Content Overview</h3>
-                <div data-testid="content-fields">
-                  {frontmatterData.description && (
-                    <div data-testid="field-description">{frontmatterData.description}</div>
-                  )}
-                </div>
-              </section>
-              
-              <section data-testid="applications-section">
-                <h3>Applications & Usage</h3>
-              </section>
-            </>
-          )}
-          
-          {displayMode === 'technical' && (
-            <>
-              <section data-testid="material-properties-section">
-                <h3>Material Properties</h3>
-                <div data-testid="technical-fields">
-                  {frontmatterData.materialProperties && (
-                    <div data-testid="field-properties">Technical Properties</div>
-                  )}
-                </div>
-              </section>
-              
-              <section data-testid="research-validation-section">
-                <h3>Research & Validation</h3>
-              </section>
-            </>
-          )}
-          
-          {displayMode === 'hybrid' && (
-            <>
-              <section data-testid="content-summary-section">
-                <h3>Content Summary</h3>
-                <div data-testid="expandable-hint">• Expandable sections</div>
-              </section>
-              
-              <section data-testid="technical-summary-section">
-                <h3>Key Properties</h3>
-                <div data-testid="technical-badge">Technical</div>
-              </section>
-            </>
-          )}
-        </div>
-      )}
-      
-      {!frontmatterData && (
-        <div data-testid="no-data-message">
-          No table data available
-        </div>
-      )}
+      <table data-testid="simple-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row.key} data-testid={`table-row-${index}`}>
+              <td data-testid={`property-${row.key}`}>{row.label}</td>
+              <td data-testid={`value-${row.key}`}>
+                {Array.isArray(row.value) ? row.value.join(', ') : String(row.value)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
@@ -176,88 +147,107 @@ describe('Smart Table Component', () => {
     keywords: ['aluminum', 'alloy', 'lightweight']
   };
 
-  describe('Display Modes', () => {
-    test('should render hybrid mode by default', () => {
+  describe('Simplified Table Rendering', () => {
+    test('should render two-column table structure', () => {
       render(<MockTable frontmatterData={sampleFrontmatterData} />);
       
-      expect(screen.getByTestId('smart-table-container')).toHaveAttribute('data-display-mode', 'hybrid');
-      expect(screen.getByTestId('mode-indicator')).toHaveTextContent('Viewing: hybrid Mode');
-      expect(screen.getByTestId('expandable-hint')).toHaveTextContent('• Expandable sections');
+      expect(screen.getByTestId('simple-table')).toBeInTheDocument();
+      expect(screen.getByText('Property')).toBeInTheDocument();
+      expect(screen.getByText('Value')).toBeInTheDocument();
     });
 
-    test('should render content mode correctly', () => {
-      render(
-        <MockTable 
-          frontmatterData={sampleFrontmatterData}
-          config={{ displayMode: 'content' }}
-        />
-      );
+    test('should flatten nested objects into rows', () => {
+      const nestedData = {
+        materialProperties: {
+          laserType: "Fiber laser",
+          wavelength: "1064 nm"
+        },
+        machineSettings: {
+          power: "200W",
+          weight: "20 kg"
+        }
+      };
+
+      render(<MockTable frontmatterData={nestedData} />);
       
-      expect(screen.getByTestId('smart-table-container')).toHaveAttribute('data-display-mode', 'content');
-      expect(screen.getByTestId('content-overview-section')).toBeInTheDocument();
-      expect(screen.getByTestId('applications-section')).toBeInTheDocument();
-      expect(screen.queryByTestId('material-properties-section')).not.toBeInTheDocument();
+      // Should show flattened properties
+      expect(screen.getByText('Laser Type')).toBeInTheDocument();
+      expect(screen.getByText('Fiber laser')).toBeInTheDocument();
+      expect(screen.getByText('Wavelength')).toBeInTheDocument();
+      expect(screen.getByText('1064 nm')).toBeInTheDocument();
+      expect(screen.getByText('Power')).toBeInTheDocument();
+      expect(screen.getByText('200W')).toBeInTheDocument();
     });
 
-    test('should render technical mode correctly', () => {
-      render(
-        <MockTable 
-          frontmatterData={sampleFrontmatterData}
-          config={{ displayMode: 'technical' }}
-        />
-      );
+    test('should filter out metadata fields', () => {
+      const dataWithMetadata = {
+        name: "Equipment Name",
+        category: "Category",
+        subcategory: "Subcategory",
+        description: "Description text",
+        slug: "equipment-slug",
+        keywords: ["keyword1", "keyword2"],
+        content: "Content text",
+        materialProperties: {
+          laserType: "Fiber laser"
+        }
+      };
+
+      render(<MockTable frontmatterData={dataWithMetadata} />);
       
-      expect(screen.getByTestId('smart-table-container')).toHaveAttribute('data-display-mode', 'technical');
-      expect(screen.getByTestId('material-properties-section')).toBeInTheDocument();
-      expect(screen.getByTestId('research-validation-section')).toBeInTheDocument();
-      expect(screen.queryByTestId('content-overview-section')).not.toBeInTheDocument();
+      // Metadata fields should not appear
+      expect(screen.queryByText('Equipment Name')).not.toBeInTheDocument();
+      expect(screen.queryByText('Category')).not.toBeInTheDocument();
+      expect(screen.queryByText('Subcategory')).not.toBeInTheDocument();
+      expect(screen.queryByText('Description text')).not.toBeInTheDocument();
+      
+      // But actual properties should appear
+      expect(screen.getByText('Laser Type')).toBeInTheDocument();
+      expect(screen.getByText('Fiber laser')).toBeInTheDocument();
     });
 
-    test('should render hybrid mode with both content and technical sections', () => {
-      render(
-        <MockTable 
-          frontmatterData={sampleFrontmatterData}
-          config={{ displayMode: 'hybrid' }}
-        />
-      );
-      
-      expect(screen.getByTestId('content-summary-section')).toBeInTheDocument();
-      expect(screen.getByTestId('technical-summary-section')).toBeInTheDocument();
-      expect(screen.getByTestId('technical-badge')).toHaveTextContent('Technical');
-    });
-  });
+    test('should handle array values', () => {
+      const dataWithArrays = {
+        applications: ["Weld cleaning", "Surface preparation", "Rust removal"]
+      };
 
-  describe('Core Features', () => {
-    test('should always render core identity section', () => {
-      render(<MockTable frontmatterData={sampleFrontmatterData} />);
+      render(<MockTable frontmatterData={dataWithArrays} />);
       
-      expect(screen.getByTestId('core-identity-section')).toBeInTheDocument();
-      expect(screen.getByTestId('field-name')).toHaveTextContent('Aluminum 6061');
-      expect(screen.getByTestId('field-category')).toHaveTextContent('metal');
+      expect(screen.getByText('Weld cleaning, Surface preparation, Rust removal')).toBeInTheDocument();
     });
 
     test('should render table caption when provided', () => {
       render(
         <MockTable 
           frontmatterData={sampleFrontmatterData}
-          config={{ caption: 'Material Properties Overview' }}
+          config={{ caption: 'Equipment Specifications' }}
         />
       );
       
-      expect(screen.getByTestId('table-caption')).toHaveTextContent('Material Properties Overview');
-    });
-
-    test('should handle empty frontmatter data gracefully', () => {
-      render(<MockTable frontmatterData={{}} />);
-      
-      expect(screen.getByTestId('smart-table-container')).toBeInTheDocument();
-      expect(screen.getByTestId('core-identity-section')).toBeInTheDocument();
+      expect(screen.getByTestId('table-caption')).toHaveTextContent('Equipment Specifications');
     });
 
     test('should show no data message when frontmatterData is undefined', () => {
       render(<MockTable />);
       
       expect(screen.getByTestId('no-data-message')).toHaveTextContent('No table data available');
+    });
+
+    test('should handle deeply nested objects', () => {
+      const deeplyNested = {
+        specs: {
+          laser: {
+            source: {
+              type: "Fiber"
+            }
+          }
+        }
+      };
+
+      render(<MockTable frontmatterData={deeplyNested} />);
+      
+      expect(screen.getByText('Type')).toBeInTheDocument();
+      expect(screen.getByText('Fiber')).toBeInTheDocument();
     });
   });
 

@@ -40,6 +40,12 @@ import { ContentCard, ContentSection } from "../ContentCard";
 import { BenefitsSection } from "../BenefitsSection/BenefitsSection";
 import { EquipmentSection } from "../EquipmentSection/EquipmentSection";
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import { Table } from '../Table/Table';
+import { ComparisonTable } from '../ComparisonTable/ComparisonTable';
+import { JsonLD } from '../JsonLD/JsonLD';
+import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
+import { loadComponent } from '@/app/utils/contentAPI';
+import { SITE_CONFIG } from '@/app/config';
 import fs from 'fs/promises';
 import path from 'path';
 import { marked } from 'marked';
@@ -78,7 +84,12 @@ export async function StaticPage({
   // Load YAML configuration
   const yamlPath = path.join(process.cwd(), 'content/pages', `${slug}.yaml`);
   const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { content?: string };
+  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { 
+    content?: string;
+    needle100_150?: any;
+    needle200_300?: any;
+    jangoSpecs?: any;
+  };
   
   // Convert markdown content from YAML to HTML
   const htmlContent = pageConfig.content ? await marked(pageConfig.content) : '';
@@ -96,7 +107,36 @@ export async function StaticPage({
     const legacyBenefits = pageConfig.benefits || [];
     contentCardsToRender = [...legacyCallouts, ...legacyWorkflow, ...legacyBenefits];
   }
+  
+  // Split content cards into sections for Netalux page structure
+  const needleCard = contentCardsToRender.find(card => card.heading?.includes('Needle'));
+  const jangoCard = contentCardsToRender.find(card => card.heading?.includes('Jango'));
+  const otherCards = contentCardsToRender.filter(card => 
+    !card.heading?.includes('Needle') && !card.heading?.includes('Jango')
+  );
+  
+  // Generate JSON-LD structured data using SchemaFactory
+  const generateJsonLd = () => {
+    // Prepare data for SchemaFactory
+    const schemaData = {
+      ...pageConfig,
+      title: pageConfig.title || fallbackTitle || slug,
+      description: pageConfig.description || fallbackDescription,
+      pageConfig,
+      contentCards: contentCardsToRender,
+      // Pass through all equipment data
+      ...(pageConfig.needle100_150 && { needle100_150: pageConfig.needle100_150 }),
+      ...(pageConfig.needle200_300 && { needle200_300: pageConfig.needle200_300 }),
+      ...(pageConfig.jangoSpecs && { jangoSpecs: pageConfig.jangoSpecs })
+    };
 
+    // Use SchemaFactory for automatic schema generation
+    const factory = new SchemaFactory(schemaData, slug);
+    return factory.generate();
+  };
+
+  const jsonLdData = generateJsonLd();
+  
   return (
     <Layout
       title={pageConfig.title || fallbackTitle || slug}
@@ -104,13 +144,48 @@ export async function StaticPage({
       description={pageConfig.description || fallbackDescription}
       metadata={pageConfig}
     >
-      {/* Unified content cards - renders all callouts, workflow items, and benefits */}
-      {contentCardsToRender.length > 0 && <ContentSection items={contentCardsToRender} />}
+      {/* JSON-LD Structured Data */}
+      <JsonLD data={jsonLdData} />
+      {/* Needle® Section: Card followed by comparison table */}
+      {needleCard && (
+        <>
+          <ContentSection items={[needleCard]} />
+          {pageConfig.needle100_150 && pageConfig.needle200_300 && (
+            <div className="my-12">
+              <ComparisonTable
+                title="Needle® Model Comparison"
+                model1Data={pageConfig.needle100_150}
+                model2Data={pageConfig.needle200_300}
+                model1Name="Needle® 100/150"
+                model2Name="Needle® 200/300"
+              />
+            </div>
+          )}
+        </>
+      )}
+      
+      {/* Jango® Section: Card followed by specs table */}
+      {jangoCard && (
+        <>
+          <ContentSection items={[jangoCard]} />
+          {pageConfig.jangoSpecs && (
+            <div className="my-12">
+              <Table content="" frontmatterData={pageConfig.jangoSpecs} config={{}} />
+            </div>
+          )}
+        </>
+      )}
+      
+      {/* Other content cards */}
+      {otherCards.length > 0 && <ContentSection items={otherCards} />}
       
       {/* Main markdown content - optional */}
       {htmlContent && (
-        <div className="max-w-none">
-          <MarkdownRenderer content={htmlContent} convertMarkdown={false} />
+        <div className="my-12">
+          <div 
+            className="prose prose-lg max-w-none dark:prose-invert prose-table:border-collapse prose-table:w-full prose-th:bg-gray-100 prose-th:dark:bg-gray-800 prose-th:p-3 prose-th:text-left prose-td:p-3 prose-td:border prose-td:border-gray-200 prose-td:dark:border-gray-700" 
+            dangerouslySetInnerHTML={{ __html: htmlContent }} 
+          />
         </div>
       )}
       

@@ -35,7 +35,7 @@ const CONTENT_DIRS = {
     frontmatter: path.join(process.cwd(), 'content', 'frontmatter'),
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
-    table: path.join(process.cwd(), 'content', 'components', 'table'),
+    table: path.join(process.cwd(), 'content', 'components', 'table-yaml'), // Use table-yaml for new tables
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
     tags: path.join(process.cwd(), 'content', 'components', 'tags'),
@@ -390,7 +390,27 @@ export const loadComponent = cache(async (
               const isCompositionTable = table.header && table.header.toLowerCase().includes('composition');
               const isLaserParametersTable = table.header && table.header.toLowerCase().includes('laser processing parameters');
               
-              if (isCompositionTable) {
+              // Check if this is a comparison table (has value_* columns instead of value/min/max)
+              const firstRow = table.rows[0];
+              const comparisonColumns = Object.keys(firstRow).filter(key => key.startsWith('value_'));
+              const isComparisonTable = comparisonColumns.length > 0;
+              
+              if (isComparisonTable) {
+                // For comparison tables, dynamically create columns based on value_* fields
+                const columnHeaders = ['Property', ...comparisonColumns.map((col: string) => {
+                  // Convert value_100_150 to a readable header
+                  return col.replace('value_', '').replace(/_/g, '/');
+                })];
+                
+                markdownContent += `| ${columnHeaders.join(' | ')} |\n`;
+                markdownContent += `| ${columnHeaders.map(() => '---').join(' | ')} |\n`;
+                
+                table.rows.forEach((row: any) => {
+                  const property = row.property || '';
+                  const values = comparisonColumns.map((col: string) => row[col] || '');
+                  markdownContent += `| ${property} | ${values.join(' | ')} |\n`;
+                });
+              } else if (isCompositionTable) {
                 // For Composition tables, use simple 2-column format: Property | Value
                 markdownContent += '| Property | Value |\n';
                 markdownContent += '| --- | --- |\n';

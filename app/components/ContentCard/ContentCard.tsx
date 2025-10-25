@@ -30,6 +30,7 @@
  */
 import React, { useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 export interface ContentCardProps {
@@ -262,10 +263,14 @@ export function ContentCard({
               itemType="https://schema.org/ItemList"
             >
               {details!.map((detail, idx) => {
-                // Check if this detail is a website URL
-                const websiteMatch = detail.match(/^Website:\s*(.+)$/i);
-                const isWebsite = !!websiteMatch;
-                const url = websiteMatch ? websiteMatch[1].trim() : '';
+                // Check if this detail contains a link
+                // Matches patterns like "Website: url", "Equipment Specifications: /path", etc.
+                const linkMatch = detail.match(/^([^:]+):\s*(.+)$/);
+                const hasLink = !!linkMatch;
+                const linkLabel = linkMatch ? linkMatch[1].trim() : '';
+                const linkUrl = linkMatch ? linkMatch[2].trim() : '';
+                const isInternalLink = linkUrl.startsWith('/');
+                const isExternalLink = linkUrl.match(/^https?:\/\//) || (!isInternalLink && linkUrl.includes('.'));
                 
                 return (
                   <li 
@@ -283,17 +288,27 @@ export function ContentCard({
                     >
                       ✓
                     </span>
-                    {isWebsite ? (
+                    {hasLink && (isInternalLink || isExternalLink) ? (
                       <span className="leading-relaxed" itemProp="name">
-                        Website:{' '}
-                        <a 
-                          href={url.startsWith('http') ? url : `https://${url}`}
-                          target="_blank"
-                          className="text-blue-600 dark:text-blue-400 hover:underline"
-                          aria-label={`Visit ${url} website (opens in new tab)`}
-                        >
-                          {url}
-                        </a>
+                        {linkLabel}:{' '}
+                        {isInternalLink ? (
+                          <Link 
+                            href={linkUrl}
+                            className="text-blue-600 dark:text-blue-400 hover:underline"
+                            aria-label={`View ${linkLabel}`}
+                          >
+                            {linkUrl}
+                          </Link>
+                        ) : (
+                          <a 
+                            href={linkUrl.startsWith('http') ? linkUrl : `https://${linkUrl}`}
+                            target="_blank"
+                            className="text-blue-600 dark:text-blue-400 hover:underline"
+                            aria-label={`Visit ${linkUrl} (opens in new tab)`}
+                          >
+                            {linkUrl}
+                          </a>
+                        )}
                       </span>
                     ) : (
                       <span className="leading-relaxed" itemProp="name">{detail}</span>

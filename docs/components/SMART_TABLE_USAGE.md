@@ -1,8 +1,268 @@
-# Smart Table Component - Usage Examples
+# Smart Table Component - Usage Guide
 
-The enhanced Table component now supports three intelligent display modes that organize frontmatter data for maximum clarity and usefulness.
+The Smart Table component provides simplified two-column rendering of frontmatter data with automatic flattening of nested objects.
 
-## Hybrid Mode (Recommended Default)
+## Overview
+
+The SmartTable component takes complex nested YAML/frontmatter data and renders it as a clean, simple table with Property and Value columns. It automatically:
+- Flattens nested objects into individual rows
+- Filters out metadata fields (name, category, subcategory, description, slug, keywords, content)
+- Formats field labels in a readable way
+- Handles arrays by joining values with commas
+
+## Basic Usage
+
+### In YAML Configuration
+```yaml
+# content/pages/equipment.yaml
+jangoSpecs:
+  materialProperties:
+    laserType: "Nano-second pulsed ytterbium fiber laser"
+    wavelength: "1064 nm"
+    laserClass: "Class 4"
+    coolingSystem: "Water cooled"
+  machineSettings:
+    pulseFrequency: "2 - 50 kHz"
+    averagePower: "7500 W"
+    totalWeight: "850 kg (1874 lb)"
+  applications: "Large-scale industrial cleaning"
+```
+
+### In Component
+```tsx
+import { Table } from '@/app/components/Table/Table';
+
+<Table 
+  content="" 
+  frontmatterData={jangoSpecs} 
+  config={{
+    caption: "Jango® Specifications"
+  }} 
+/>
+```
+
+## Output Format
+
+The above YAML will render as:
+
+| Property | Value |
+|----------|-------|
+| Laser Type | Nano-second pulsed ytterbium fiber laser |
+| Wavelength | 1064 nm |
+| Laser Class | Class 4 |
+| Cooling System | Water cooled |
+| Pulse Frequency | 2 - 50 kHz |
+| Average Power | 7500 W |
+| Total Weight | 850 kg (1874 lb) |
+| Applications | Large-scale industrial cleaning |
+
+## Features
+
+### 1. Automatic Flattening
+Nested objects are automatically flattened into individual rows:
+
+```yaml
+specs:
+  laser:
+    source:
+      type: "Fiber"
+      power: "200W"
+```
+
+Renders as:
+- Type: Fiber
+- Power: 200W
+
+### 2. Metadata Filtering
+These fields are automatically excluded from the table:
+- `name`
+- `category`
+- `subcategory`
+- `description`
+- `slug`
+- `keywords`
+- `content`
+
+Use these fields for page metadata without cluttering the table.
+
+### 3. Label Formatting
+Field names are automatically converted to readable labels:
+- `laserType` → "Laser Type"
+- `pulseFrequency` → "Pulse Frequency"
+- `total_weight` → "Total Weight"
+
+### 4. Array Handling
+Arrays are automatically joined with commas:
+
+```yaml
+applications: 
+  - "Weld cleaning"
+  - "Surface preparation"
+  - "Rust removal"
+```
+
+Renders as: "Weld cleaning, Surface preparation, Rust removal"
+
+## Configuration Options
+
+```tsx
+<Table 
+  frontmatterData={data}
+  config={{
+    caption: "Table Title",      // Optional table caption/title
+    showHeader: true,             // Show table headers (default: true)
+    className: "custom-class"     // Optional custom CSS class
+  }} 
+/>
+```
+
+## Integration with StaticPage
+
+The SmartTable works seamlessly with StaticPage component:
+
+```tsx
+// In StaticPage component
+{pageConfig.jangoSpecs && (
+  <div className="my-12">
+    <Table 
+      content="" 
+      frontmatterData={pageConfig.jangoSpecs} 
+      config={{}} 
+    />
+  </div>
+)}
+```
+
+## Comparison Tables
+
+For side-by-side model comparisons, use the ComparisonTable component instead:
+
+```tsx
+import { ComparisonTable } from '@/app/components/ComparisonTable/ComparisonTable';
+
+<ComparisonTable
+  title="Model Comparison"
+  model1Data={needle100Data}
+  model2Data={needle200Data}
+  model1Name="Needle® 100/150"
+  model2Name="Needle® 200/300"
+/>
+```
+
+See [Comparison Table documentation](./COMPARISON_TABLE_USAGE.md) for details.
+
+## Best Practices
+
+### 1. Structure Your Data Logically
+Group related fields under meaningful keys:
+
+```yaml
+equipment:
+  materialProperties:
+    # Laser specifications
+  machineSettings:
+    # Operating parameters
+  applications: "Use cases"
+```
+
+### 2. Use Descriptive Field Names
+Field names become labels, so use clear, descriptive names:
+- ✅ `averagePower` → "Average Power"
+- ✅ `coolingSystem` → "Cooling System"
+- ❌ `avg_pwr` → "Avg Pwr"
+
+### 3. Keep Values Readable
+Format values for end-users:
+- ✅ `"850 kg (1874 lb)"`
+- ✅ `"2 - 50 kHz"`
+- ❌ `850` (missing units)
+
+### 4. Separate Metadata from Specs
+Use metadata fields for page info, actual properties for table display:
+
+```yaml
+equipment:
+  name: "Jango® Industrial System"      # Filtered out
+  category: "Laser Cleaning"            # Filtered out
+  description: "High-power system..."    # Filtered out
+  materialProperties:                    # Displayed in table
+    laserType: "Fiber laser"
+```
+
+## Common Patterns
+
+### Equipment Specifications
+```yaml
+equipmentName:
+  materialProperties:
+    laserType: "..."
+    wavelength: "..."
+  machineSettings:
+    power: "..."
+    weight: "..."
+  applications: "..."
+```
+
+### Material Properties
+```yaml
+materialName:
+  physical:
+    density: "..."
+    hardness: "..."
+  thermal:
+    conductivity: "..."
+    meltingPoint: "..."
+```
+
+### Process Parameters
+```yaml
+processName:
+  laserSettings:
+    power: "..."
+    speed: "..."
+  outcomes:
+    quality: "..."
+    efficiency: "..."
+```
+
+## Troubleshooting
+
+### Table shows no data
+- Verify `frontmatterData` is defined
+- Check that you have fields beyond metadata fields
+- Ensure nested objects have actual values
+
+### Fields not appearing
+- Check if field name is in metadata filter list
+- Verify field has a non-null, non-undefined value
+
+### Label formatting issues
+- Use camelCase or snake_case for field names
+- Avoid special characters in field names
+
+## Migration from Old Display Modes
+
+Previous versions supported `displayMode` (hybrid/content/technical). The new version:
+- ✅ Simpler two-column format
+- ✅ No mode configuration needed
+- ✅ Automatic field organization
+- ❌ No sectioned display modes
+- ❌ No expandable sections
+
+Update your code:
+```tsx
+// Old
+<Table 
+  frontmatterData={data}
+  config={{ displayMode: 'technical' }}
+/>
+
+// New (remove displayMode)
+<Table 
+  frontmatterData={data}
+  config={{}}
+/>
+```
 
 Hybrid mode provides an intelligent combination of content and technical information with expandable sections, offering the best user experience for most scenarios.
 
