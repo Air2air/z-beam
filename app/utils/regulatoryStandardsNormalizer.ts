@@ -38,8 +38,8 @@ const ORG_MAPPINGS: Record<string, OrgMapping> = {
   },
   'FSC': {
     name: 'FSC',
-    imagePattern: 'logo-org-generic.png', // No FSC logo available
-    patterns: ['FSC', 'Forest Stewardship Council']
+    imagePattern: 'logo-org-fsc.png',
+    patterns: ['FSC', 'Forest Stewardship Council', 'Sustainable Forestry']
   },
   'ISO': {
     name: 'ISO',
