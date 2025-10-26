@@ -190,21 +190,38 @@ async function updateFrontmatterFile(file, updates) {
   // Find insertion points for datePublished and dateModified
   let datePublishedLine = -1;
   let dateModifiedLine = -1;
-  let lastTopLevelKey = -1;
+  let subtitleLine = -1;
+  let descriptionLine = -1;
+  let nextTopLevelAfterSubtitle = -1;
+  let nextTopLevelAfterDescription = -1;
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     
     // Track top-level keys (no leading spaces)
-    if (line.match(/^[a-zA-Z]/)) {
-      lastTopLevelKey = i;
-    }
+    const isTopLevel = line.match(/^[a-zA-Z]/);
     
     if (line.startsWith('datePublished:')) {
       datePublishedLine = i;
     }
     if (line.startsWith('dateModified:')) {
       dateModifiedLine = i;
+    }
+    if (line.startsWith('subtitle:')) {
+      subtitleLine = i;
+    }
+    if (line.startsWith('description:')) {
+      descriptionLine = i;
+    }
+    
+    // Find next top-level key after subtitle
+    if (subtitleLine >= 0 && nextTopLevelAfterSubtitle === -1 && isTopLevel && i > subtitleLine) {
+      nextTopLevelAfterSubtitle = i;
+    }
+    
+    // Find next top-level key after description
+    if (descriptionLine >= 0 && nextTopLevelAfterDescription === -1 && isTopLevel && i > descriptionLine) {
+      nextTopLevelAfterDescription = i;
     }
   }
   
@@ -215,13 +232,28 @@ async function updateFrontmatterFile(file, updates) {
     if (datePublishedLine >= 0) {
       updatedLines[datePublishedLine] = publishedLine;
     } else {
-      // Insert after subtitle or description
-      const insertAfter = Math.max(
-        lines.findIndex(l => l.startsWith('subtitle:')),
-        lines.findIndex(l => l.startsWith('description:')),
-        0
-      );
-      updatedLines.splice(insertAfter + 1, 0, publishedLine);
+      // Insert before next top-level key after subtitle/description
+      let insertBefore = -1;
+      if (nextTopLevelAfterSubtitle >= 0) {
+        insertBefore = nextTopLevelAfterSubtitle;
+      } else if (nextTopLevelAfterDescription >= 0) {
+        insertBefore = nextTopLevelAfterDescription;
+      } else if (subtitleLine >= 0) {
+        insertBefore = subtitleLine + 1;
+      } else if (descriptionLine >= 0) {
+        insertBefore = descriptionLine + 1;
+      } else {
+        insertBefore = 1; // After name/title
+      }
+      
+      updatedLines.splice(insertBefore, 0, publishedLine);
+      
+      // Adjust line numbers after insertion
+      if (dateModifiedLine >= insertBefore) dateModifiedLine++;
+      if (subtitleLine >= insertBefore) subtitleLine++;
+      if (descriptionLine >= insertBefore) descriptionLine++;
+      if (nextTopLevelAfterSubtitle >= insertBefore) nextTopLevelAfterSubtitle++;
+      if (nextTopLevelAfterDescription >= insertBefore) nextTopLevelAfterDescription++;
     }
   }
   
@@ -232,14 +264,28 @@ async function updateFrontmatterFile(file, updates) {
     if (dateModifiedLine >= 0) {
       updatedLines[dateModifiedLine] = modifiedLine;
     } else {
-      // Insert after datePublished or subtitle
-      const insertAfter = Math.max(
-        datePublishedLine >= 0 ? datePublishedLine : -1,
-        lines.findIndex(l => l.startsWith('datePublished:')),
-        lines.findIndex(l => l.startsWith('subtitle:')),
-        0
-      );
-      updatedLines.splice(insertAfter + 1, 0, modifiedLine);
+      // Insert after datePublished, or before next top-level key after subtitle
+      let insertBefore = -1;
+      
+      // Recalculate datePublished line in updated content
+      const currentDatePublishedLine = updatedLines.findIndex(l => l.startsWith('datePublished:'));
+      
+      if (currentDatePublishedLine >= 0) {
+        // Insert right after datePublished
+        insertBefore = currentDatePublishedLine + 1;
+      } else if (nextTopLevelAfterSubtitle >= 0) {
+        insertBefore = nextTopLevelAfterSubtitle;
+      } else if (nextTopLevelAfterDescription >= 0) {
+        insertBefore = nextTopLevelAfterDescription;
+      } else if (subtitleLine >= 0) {
+        insertBefore = subtitleLine + 1;
+      } else if (descriptionLine >= 0) {
+        insertBefore = descriptionLine + 1;
+      } else {
+        insertBefore = 1;
+      }
+      
+      updatedLines.splice(insertBefore, 0, modifiedLine);
     }
   }
   
