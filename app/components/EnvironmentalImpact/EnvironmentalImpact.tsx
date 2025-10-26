@@ -100,7 +100,7 @@ export function EnvironmentalImpact({
           if (properties.length === 0) return null;
 
           return (
-            <div key={categoryKey} className="category-section">
+            <section key={categoryKey} className="category-section">
               {/* Category header */}
               <div className={`category-header flex items-center gap-3 mb-4 p-3 rounded-lg ${bg}`}>
                 <span className="text-3xl" role="img" aria-hidden="true">
@@ -146,10 +146,10 @@ export function EnvironmentalImpact({
                       categoryLabel={category.label}
                       animationDelay={index * 50}
                     />
-                  );
-                })}
+                );
+              })}
               </div>
-            </div>
+            </section>
           );
         })}
       </div>

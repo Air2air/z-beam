@@ -2,6 +2,13 @@
 
 /**
  * Fix Category Names Script
+ * 
+ * @deprecated This functionality is now handled automatically
+ *             by app/utils/normalizers/categoryNormalizer.ts
+ * 
+ * This script remains for one-time batch updates only.
+ * For new materials, normalization happens at load time in contentAPI.ts
+ * 
  * Normalizes category names in YAML frontmatter files
  * 
  * Fixes:

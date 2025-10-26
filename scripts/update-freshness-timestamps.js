@@ -4,6 +4,17 @@
  * FRONTMATTER FRESHNESS TIMESTAMP UPDATER
  * ========================================
  * 
+ * @deprecated Basic freshness timestamp initialization is now handled automatically
+ *             by app/utils/normalizers/freshnessNormalizer.ts
+ * 
+ * This script remains useful for:
+ * - Batch updates of existing files
+ * - Strategic freshness rotation scheduling
+ * - Manual control over update timing
+ * 
+ * For new materials, datePublished and dateModified are automatically added
+ * at load time in contentAPI.ts
+ * 
  * Updates frontmatter timestamps to signal content freshness to Google
  * while maintaining authentic modification history.
  * 

@@ -70,7 +70,6 @@ describe('Author Component with Frontmatter Data', () => {
     );
 
     // Should render fallback author from SITE_CONFIG when no author data is provided
-    expect(container.querySelector('.author-name')).toBeTruthy();
     expect(container.textContent).toContain(SITE_CONFIG.author);
   });
 

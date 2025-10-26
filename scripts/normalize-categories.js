@@ -2,6 +2,12 @@
 /**
  * Category Normalization Script
  * 
+ * @deprecated This functionality is now handled automatically
+ *             by app/utils/normalizers/categoryNormalizer.ts
+ * 
+ * This script remains for one-time batch updates only.
+ * For new materials, normalization happens at load time in contentAPI.ts
+ * 
  * Normalizes category fields in frontmatter YAML files to lowercase
  * Categories should be single lowercase words (metal, ceramic, composite)
  * 

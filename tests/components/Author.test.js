@@ -66,20 +66,17 @@ describe('Author Component', () => {
     test('renders with correct CSS classes', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
-      // Check for key CSS classes
-      const authorComponent = document.querySelector('.author-component');
-      expect(authorComponent).toBeInTheDocument();
-      expect(authorComponent).toHaveClass('mt-2', 'mb-4');
+      const link = screen.getByRole('link');
+      expect(link).toHaveClass('flex', 'items-center', 'gap-4', 'rounded-lg');
       
-      const authorAvatar = document.querySelector('.author-avatar');
-      expect(authorAvatar).toBeInTheDocument();
+      // Check image classes
+      const image = screen.getByAltText('Test Author');
+      expect(image).toHaveClass('rounded-full', 'flex-shrink-0');
       
-      const authorInfo = document.querySelector('.author-info');
-      expect(authorInfo).toBeInTheDocument();
-      
-      const authorName = document.querySelector('.author-name');
-      expect(authorName).toBeInTheDocument();
-      expect(authorName).toHaveClass('text-gray-900');
+      // Check text content container
+      const textContainer = link.querySelector('.flex-1');
+      expect(textContainer).toBeInTheDocument();
+      expect(textContainer).toHaveClass('min-w-0');
     });
 
     test('creates correct tag link', () => {
@@ -87,8 +84,8 @@ describe('Author Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/search?q=Test%20Author');
-      // Link wraps entire author component
-      expect(link).toHaveClass('block', 'rounded-lg');
+      // Link wraps entire author component with flex layout
+      expect(link).toHaveClass('flex', 'items-center', 'rounded-lg');
     });
   });
 
@@ -130,7 +127,7 @@ describe('Author Component', () => {
         );
         
         expect(screen.getByText(title)).toBeInTheDocument();
-        expect(screen.getByText(title)).toHaveClass('author-appellation');
+        expect(screen.getByText(title)).toHaveClass('text-gray-600', 'dark:text-gray-400');
         
         unmount();
       });
@@ -166,7 +163,7 @@ describe('Author Component', () => {
         );
         
         expect(screen.getByText(country)).toBeInTheDocument();
-        expect(screen.getByText(country)).toHaveClass('author-country');
+        expect(screen.getByText(country)).toHaveClass('text-sm', 'text-gray-500');
         
         unmount();
       });
@@ -184,7 +181,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: longExpertiseAuthor }} />);
       
       expect(screen.getByText(longExpertise)).toBeInTheDocument();
-      expect(screen.getByText(longExpertise)).toHaveClass('author-field');
+      expect(screen.getByText(longExpertise)).toHaveClass('text-sm', 'text-gray-600', 'dark:text-gray-400');
     });
 
     test('handles short expertise descriptions', () => {
@@ -240,9 +237,7 @@ describe('Author Component', () => {
       expect(link).toHaveClass(
         'hover:bg-gray-50',
         'dark:hover:bg-gray-800',
-        'transition-colors',
-        'duration-200',
-        'cursor-pointer'
+        'transition-colors'
       );
     });
 
@@ -259,53 +254,41 @@ describe('Author Component', () => {
     });
   });
 
-  describe('8. Table Structure', () => {
-    test('renders proper table structure', () => {
+  describe('8. Flex Layout Structure', () => {
+    test('renders proper flex layout structure', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
-      const table = screen.getByRole('table');
-      expect(table).toBeInTheDocument();
-      expect(table).toHaveClass('w-full');
+      const link = screen.getByRole('link');
+      expect(link).toHaveClass('flex', 'items-center', 'gap-4');
       
-      const tbody = table.querySelector('tbody');
-      expect(tbody).toBeInTheDocument();
+      // Check for image
+      const image = screen.getByAltText('Test Author');
+      expect(image).toHaveClass('flex-shrink-0');
       
-      const row = tbody.querySelector('tr');
-      expect(row).toBeInTheDocument();
-      
-      const cells = row.querySelectorAll('td');
-      expect(cells).toHaveLength(2);
-      
-      // First cell should contain the avatar
-      expect(cells[0]).toHaveClass('w-20', 'pr-4', 'align-middle');
-      
-      // Second cell should contain the author info
-      expect(cells[1]).toHaveClass('align-top');
+      // Check for content container
+      const contentDiv = link.querySelector('.flex-1');
+      expect(contentDiv).toBeInTheDocument();
+      expect(contentDiv).toHaveClass('min-w-0');
     });
   });
 
   describe('9. Accessibility', () => {
     test('has proper semantic structure', () => {
-      render(<Author frontmatter={{ author: mockAuthorInfo }} />);
+      const { container } = render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
-      // Check for proper image alt text
-      const image = screen.getByAltText('Test Author');
-      expect(image).toBeInTheDocument();
-      
-      // Check for proper link structure
+      // Check for proper link wrapping
       const link = screen.getByRole('link');
       expect(link).toBeInTheDocument();
       
-      // Check for table structure
-      const table = screen.getByRole('table');
-      expect(table).toBeInTheDocument();
+      // Check for flex layout
+      expect(link).toHaveClass('flex', 'items-center');
     });
 
     test('image has descriptive alt text', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const image = screen.getByAltText('Test Author');
-      expect(image).toHaveAttribute('alt', 'Test Author');
+      expect(image).toBeInTheDocument();
     });
   });
 

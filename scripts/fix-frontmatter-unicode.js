@@ -2,6 +2,13 @@
 
 /**
  * Fix Unicode Encoding in Frontmatter Files
+ * 
+ * @deprecated This functionality is now handled automatically
+ *             by app/utils/normalizers/unicodeNormalizer.ts
+ * 
+ * This script remains for one-time batch updates only.
+ * For new materials, normalization happens at load time in contentAPI.ts
+ * 
  * Replaces unicode escape sequences with actual unicode characters
  */
 

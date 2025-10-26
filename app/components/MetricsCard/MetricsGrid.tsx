@@ -583,7 +583,7 @@ export function MetricsGrid({
         <div className="space-y-8">
           {categorizedData.map(({ categoryId, category, cards }) => {
             return (
-              <div key={categoryId} className="category-section">
+              <section key={categoryId} className="category-section">
                 <CategoryHeader
                   categoryId={categoryId}
                   category={category}
@@ -608,7 +608,7 @@ export function MetricsGrid({
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
             );
           })}
         </div>

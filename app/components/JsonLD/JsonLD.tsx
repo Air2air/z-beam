@@ -3,6 +3,7 @@ import React from 'react';
 import { SITE_CONFIG } from '../../utils/constants';
 import { createJsonLdForArticle } from '../../utils/jsonld-helper';
 import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
+import { validateAndLogSchema } from '../../utils/validators';
 import type { 
   JsonLdProps, 
   PersonSchema, 
@@ -74,6 +75,11 @@ export function MaterialJsonLD({
   
   if (!jsonLdSchema) {
     return null;
+  }
+  
+  // Validate schema in development mode
+  if (process.env.NODE_ENV === 'development') {
+    validateAndLogSchema(jsonLdSchema, `MaterialJsonLD (${slug})`);
   }
   
   // Remove unnecessary escaped forward slashes for cleaner markup

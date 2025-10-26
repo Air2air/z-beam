@@ -2,6 +2,18 @@
 
 /**
  * JSON-LD Syntax Validator
+ * 
+ * @deprecated Runtime validation is now handled automatically
+ *             by app/utils/validators/schemaValidator.ts
+ * 
+ * This script remains useful for:
+ * - Batch validation of static JSON-LD files in content/components/jsonld/
+ * - CI/CD pipeline validation
+ * - Pre-deployment schema checking
+ * 
+ * For runtime validation, schemas are automatically validated in development
+ * mode by the MaterialJsonLD component.
+ * 
  * Validates JSON syntax in all JSON-LD YAML files
  */
 

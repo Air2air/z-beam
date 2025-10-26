@@ -31,52 +31,39 @@ export function Author({
   return (
     <Link
       href={`/search?q=${encodedAuthorName}`}
-      className="block rounded-lg px-2 py-0.5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+      className={`flex items-center gap-4 rounded-lg px-2 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors ${className}`}
     >
-      <div className={`author-component mt-2 mb-4 ${className}`}>
-        <table className="w-full">
-          <tbody>
-            <tr>
-              <td className="w-20 pr-4 align-middle">
-                {showAvatar && authorImage && (
-                  <div className="author-avatar">
-                    <Image
-                      src={authorImage}
-                      alt={authorName}
-                      width={60}
-                      height={60}
-                      className="rounded-full"
-                    />
-                  </div>
-                )}
-              </td>
-              <td className="align-top">
-                <div className="author-info">
-                  <div className="author-name text-gray-900 dark:text-white block">
-                    {authorName}
-                    {showCredentials && credentials && (
-                      <span className="ml-1 author-appellation text-gray-600 dark:text-gray-400">
-                        {credentials}
-                      </span>
-                    )}
-                  </div>
+      {showAvatar && authorImage && (
+        <Image
+          src={authorImage}
+          alt={authorName}
+          width={60}
+          height={60}
+          className="rounded-full flex-shrink-0"
+        />
+      )}
+      
+      <div className="flex-1 min-w-0">
+        <div className="text-gray-900 dark:text-white">
+          {authorName}
+          {showCredentials && credentials && (
+            <span className="ml-1 text-gray-600 dark:text-gray-400">
+              {credentials}
+            </span>
+          )}
+        </div>
 
-                  {showSpecialties && field && (
-                    <div className="author-field text-md text-gray-600 dark:text-gray-400">
-                      {field}
-                    </div>
-                  )}
+        {showSpecialties && field && (
+          <div className="text-sm text-gray-600 dark:text-gray-400">
+            {field}
+          </div>
+        )}
 
-                  {showCountry && country && (
-                    <div className="author-country text-sm text-gray-500 dark:text-gray-500">
-                      {country}
-                    </div>
-                  )}
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {showCountry && country && (
+          <div className="text-sm text-gray-500">
+            {country}
+          </div>
+        )}
       </div>
     </Link>
   );

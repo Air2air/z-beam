@@ -16,6 +16,12 @@ import { safeMatterParse } from './yamlSanitizer';
 import { stripParenthesesFromSlug, stripParenthesesFromImageUrl } from './formatting';
 import { extractSafeValue } from './stringHelpers';
 import { validateSlug, validateFilePath, ValidationError, GenerationError, safeOperation } from './errorSystem';
+import { 
+  normalizeRegulatoryStandards,
+  normalizeCategoryFields,
+  normalizeAllTextFields,
+  normalizeFreshnessTimestamps
+} from './normalizers';
 // Import centralized types instead of defining our own
 import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType } from '@/types';
 
@@ -89,10 +95,23 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
     try {
       // Parse as pure YAML since these are now .yaml files
       const yaml = await import('js-yaml');
-      const data = yaml.load(fileContent);
+      let data = yaml.load(fileContent) as any;
       
-      // Process all image URLs to strip parentheses
-      if (data && data.images && typeof data.images === 'object') {
+      if (!data) return {};
+      
+      // Apply all normalizations
+      
+      // 1. Normalize unicode escape sequences in all text fields
+      data = normalizeAllTextFields(data);
+      
+      // 2. Normalize category and subcategory fields
+      data = normalizeCategoryFields(data);
+      
+      // 3. Ensure freshness timestamps (datePublished, dateModified)
+      data = normalizeFreshnessTimestamps(data);
+      
+      // 4. Process all image URLs to strip parentheses
+      if (data.images && typeof data.images === 'object') {
         Object.keys(data.images as Record<string, unknown>).forEach(imageType => {
           const imageData = (data.images as any)[imageType];
           if (imageData && imageData.url) {
@@ -101,7 +120,12 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
         });
       }
       
-      return data || {};
+      // 5. Normalize regulatory standards to resolve "Unknown" names
+      if (data.regulatoryStandards) {
+        data.regulatoryStandards = normalizeRegulatoryStandards(data.regulatoryStandards);
+      }
+      
+      return data;
     } catch (error) {
       console.warn(`Failed to parse YAML for ${validatedSlug}:`, error);
       return {};

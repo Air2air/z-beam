@@ -38,7 +38,7 @@ export function RegulatoryStandards({
 
   return (
     <section 
-      className={`regulatory-standards ${className}`}
+      className={className}
       aria-labelledby="regulatory-standards-heading"
     >
       {showTitle && (
@@ -48,11 +48,11 @@ export function RegulatoryStandards({
         />
       )}
 
-      <div className="standards-grid grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         {standards.map((standard, index) => (
           <div
             key={`${standard.name}-${index}`}
-            className="standard-card card-background rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"
+            className="card-background rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"
           >
             <div className="flex items-start gap-4">
               {/* Logo */}
