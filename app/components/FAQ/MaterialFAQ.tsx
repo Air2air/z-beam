@@ -64,42 +64,39 @@ export function MaterialFAQ({
   if (faqs.length === 0) return null;
 
   return (
-    <section className={`material-faq ${className}`} aria-labelledby="faq-heading">
+    <section className={className} aria-labelledby="faq-heading">
       <SectionTitle
         title={`${materialName} Laser Cleaning FAQs`}
-        subtitle="Common questions about laser cleaning specifications and requirements"
         id="faq-heading"
       />
 
-      <div className="faq-container space-y-4 max-w-4xl mx-auto">
-        {faqs.map((faq, index) => (
-          <details
-            key={index}
-            className="faq-item group bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md"
-          >
-            <summary className="faq-question cursor-pointer px-6 py-4 font-semibold text-gray-900 dark:text-gray-100 flex items-center justify-between group-open:border-b group-open:border-gray-200 dark:group-open:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700">
-              <span className="text-sm md:text-base pr-4">{faq.question}</span>
-              <svg
-                className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </summary>
-            <div className="faq-answer px-6 py-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              {faq.answer}
-            </div>
-          </details>
-        ))}
-      </div>
+      {faqs.map((faq, index) => (
+        <details
+          key={index}
+          className="group bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md mb-4"
+        >
+          <summary className="cursor-pointer px-6 py-4 font-semibold text-gray-900 dark:text-gray-100 flex items-center justify-between group-open:border-b group-open:border-gray-200 dark:group-open:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50 group-open:bg-gray-50 dark:group-open:bg-gray-700/50">
+            <span className="text-sm md:text-base pr-4">{faq.question}</span>
+            <svg
+              className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </summary>
+          <div className="px-6 py-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed bg-gray-50 dark:bg-gray-700/50">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
     </section>
   );
 }
