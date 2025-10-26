@@ -6,6 +6,7 @@ import { Layout } from "@/app/components/Layout/Layout";
 import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
+import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import type { PageProps } from "@/types";
 
@@ -130,6 +131,13 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
       <>
         <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
         <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
+        <RelatedMaterials 
+          currentSlug={slug}
+          category={category}
+          subcategory={subcategory}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+          maxItems={6}
+        />
       </>
     );
   } catch (error) {

@@ -1,14 +1,6 @@
 /**
  * @component Card
- * @purpose Ind  featured: {
-    // Layout
-    padding: "p-3 md:p-4",
-    imageHeight: "h-full", // Full height image
-    cardHeight: "h-full min-h-[16rem]", // Fixed min-height across all breakpoints - not responsive
-    
-    // Typography
-    titleClass: "card-title text-xl text-white truncate",
-    descriptionClass: "text-gray-200 text-sm line-clamp-3",rticle card with thumbnail, badge, and metadata display
+ * @purpose Individual article card with thumbnail, badge, and metadata display
  * @dependencies @/types (CardProps, ArticleMetadata, BadgeData), Thumbnail, BadgeSymbol
  * @related CardGrid.tsx, Thumbnail/Thumbnail.tsx, BadgeSymbol/BadgeSymbol.tsx
  * @complexity Low (140 lines, 4 variants: standard, compact, featured, preview)
@@ -29,8 +21,8 @@ const CARD_VARIANTS = {
   standard: {
     // Layout
     padding: "p-2 md:p-3",
-    imageHeight: "h-[11rem] md:h-[13rem]", // Responsive image - taller on larger screens
-    cardHeight: "h-full min-h-[9rem] md:min-h-[11rem] lg:min-h-[12rem]", // Responsive card height - smaller on mobile
+    imageHeight: "h-[9rem] md:h-[10rem]", // Responsive image - taller on larger screens
+    cardHeight: "h-full min-h-[7rem] md:min-h-[9rem] lg:min-h-[10rem]", // Responsive card height - smaller on mobile
     
     // Typography
     titleClass: "card-title text-base text-white truncate",
@@ -48,7 +40,7 @@ const CARD_VARIANTS = {
     // Layout
     padding: "p-3 md:p-4",
     imageHeight: "h-full", // Full height image
-    cardHeight: "h-full min-h-[16rem]", // Fixed min-height across all breakpoints - not responsive
+    cardHeight: "h-full min-h-[13rem]", // Fixed min-height across all breakpoints - not responsive
     
     // Typography
     titleClass: "card-title text-xl text-white truncate",
