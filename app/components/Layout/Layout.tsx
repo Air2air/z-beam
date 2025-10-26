@@ -18,6 +18,7 @@ import { RegulatoryStandards } from '../RegulatoryStandards';
 import { ApplicationsList } from '../ApplicationsList';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
+import { Breadcrumbs } from '../Navigation/breadcrumbs';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
@@ -42,6 +43,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
   
   return (
     <div className="header-section mb-6">
+      <Breadcrumbs />
       {hasHeroContent ? (
         <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (

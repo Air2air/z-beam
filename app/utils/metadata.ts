@@ -96,10 +96,31 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   
   const authorName = getAuthorName(metadata.author);
   
+  // Enhanced description with subtitle and technical details for better SEO
+  let enhancedDescription = description;
+  
+  // For material pages, add key technical specifications
+  if ('machineSettings' in metadata || 'materialProperties' in metadata) {
+    const machineSettings = (metadata as any).machineSettings;
+    const materialProps = (metadata as any).materialProperties;
+    
+    const wavelength = machineSettings?.wavelength?.value || 
+      materialProps?.laser_material_interaction?.properties?.wavelength?.value;
+    const absorption = materialProps?.laser_material_interaction?.properties?.laserAbsorption?.value;
+    
+    const technicalDetails: string[] = [];
+    if (wavelength) technicalDetails.push(`${wavelength}nm wavelength`);
+    if (absorption) technicalDetails.push(`${absorption}% laser absorption`);
+    
+    if (technicalDetails.length > 0 && !description.includes('nm') && !description.includes('%')) {
+      enhancedDescription = `${description} Key specifications: ${technicalDetails.join(', ')}.`;
+    }
+  }
+  
   // Enhanced description with subtitle for better context
   const fullDescription = subtitle && typeof subtitle === 'string'
-    ? `${extractSafeValue(subtitle)}. ${description}`
-    : description;
+    ? `${extractSafeValue(subtitle)}. ${enhancedDescription}`
+    : enhancedDescription;
   
   // Get author details for E-E-A-T
   const authorDetails = typeof author === 'object' && author !== null ? author : null;

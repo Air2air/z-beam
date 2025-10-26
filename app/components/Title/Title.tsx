@@ -237,6 +237,7 @@ export function Title({
               onFocus={onFocus}
               onBlur={onBlur}
               onKeyDown={handleKeyDown}
+              {...(level === 'page' ? { itemProp: 'headline' } : {})}
               {...rest}
             >
               {title}
