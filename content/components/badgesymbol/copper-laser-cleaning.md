@@ -1,6 +1,7 @@
 ---
 symbol: "Cu"
 materialType: "metal"
+atomicNumber: 29
 ---
 
 ---

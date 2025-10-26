@@ -1,6 +1,7 @@
 ---
 symbol: "Al"
 materialType: "metal"
+atomicNumber: 13
 ---
 
 ---

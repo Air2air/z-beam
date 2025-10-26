@@ -180,13 +180,14 @@ metadata.category         // No underscores
 ```javascript
 const RULES = {
   componentName: /^[A-Z][a-zA-Z0-9]+$/,  // PascalCase for components
-  categorySlug: /^[a-z]+$/,              // lowercase, no hyphens for categories
+  categorySlug: /^[a-z-]+$/,             // lowercase with optional hyphens
   subcategorySlug: /^[a-z-]+$/,          // lowercase with hyphens
   authorId: /^[a-z0-9-]+$/,              // lowercase, numbers, hyphens
 };
 ```
 
 **Status:** ✅ Validation system accommodates both conventions (doesn't enforce camelCase/snake_case)
+**Update (Oct 2025):** Category slugs now allow hyphens to support multi-word categories like `rare-earth`
 
 ---
 

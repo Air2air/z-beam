@@ -4,6 +4,46 @@ All notable changes to the Z-Beam documentation will be recorded in this file.
 
 ---
 
+## [2.1.0] - 2025-10-26 - Category Validation Fix
+
+### 🐛 Bug Fixes
+
+**Category Slug Validation**: Fixed validation regex to allow hyphens in category names.
+
+- **Issue**: The validation script `validate-naming-e2e.js` was incorrectly rejecting hyphenated category names like `rare-earth`
+- **Root Cause**: Category slug regex was `/^[a-z]+$/` (no hyphens allowed) while subcategory allowed `/^[a-z-]+$/`
+- **Impact**: All 8 rare-earth materials (cerium, dysprosium, europium, lanthanum, neodymium, praseodymium, terbium, yttrium) were returning 404 errors
+- **Fix**: Updated `categorySlug` regex to `/^[a-z-]+$/` to allow optional hyphens
+- **Validation**: Changed error message from "should be lowercase, no hyphens" to "should be lowercase with optional hyphens"
+
+### 📝 Documentation Updates
+
+**Updated Files**:
+- `docs/reference/FRONTMATTER_NAMING_RULES.md` - Category slug rules now allow hyphens
+- `docs/systems/NAMING_VALIDATION_E2E.md` - Updated examples to show `rare-earth` as valid category
+- `docs/NAMING_NORMALIZATION_EVALUATION.md` - Updated regex patterns and added Oct 2025 update note
+
+**Changed Rules**:
+- Category format: `lowercase with optional hyphens` (was: `lowercase, single word`)
+- Examples: `metal`, `rare-earth` (was: `rareearth`)
+- Regex: `/^[a-z-]+$/` (was: `/^[a-z]+$/`)
+
+### 🎯 Affected Materials
+
+**rare-earth Category** (8 materials):
+- cerium-laser-cleaning
+- dysprosium-laser-cleaning
+- europium-laser-cleaning
+- lanthanum-laser-cleaning
+- neodymium-laser-cleaning
+- praseodymium-laser-cleaning
+- terbium-laser-cleaning
+- yttrium-laser-cleaning
+
+All now properly validated and accessible at `/materials/rare-earth/lanthanide/[slug]`.
+
+---
+
 ## [2.0.0] - 2025-10-15 - Major Consolidation & Organization
 
 ### 🎯 Major Changes

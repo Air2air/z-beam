@@ -42,8 +42,8 @@ Comprehensive validation of naming conventions across all project assets to ensu
 - Author: `/images/author/[name].jpg`
 
 ### ✅ Category/Subcategory
-- Category: lowercase, no hyphens (e.g., `metal`, `ceramic`)
-- Subcategory: lowercase with hyphens (e.g., `rare-earth`, `oxide`)
+- Category: lowercase with optional hyphens (e.g., `metal`, `rare-earth`)
+- Subcategory: lowercase with hyphens (e.g., `lanthanide`, `oxide`)
 
 ### ✅ Author References
 - Author IDs must be lowercase slugs
@@ -243,8 +243,9 @@ fi
 - ✅ `metal`
 - ✅ `ceramic`
 - ✅ `composite`
+- ✅ `rare-earth`
 - ❌ `Metal` (uppercase)
-- ❌ `rare-earth` (should be subcategory)
+- ❌ `Rare-Earth` (mixed case)
 
 ### Valid Author ID
 - ✅ `alessandro-moretti`

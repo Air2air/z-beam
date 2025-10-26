@@ -194,10 +194,10 @@ caption:
 - **Regex:** `/^[a-z0-9]+(-[a-z0-9]+)*\.yaml$/`
 
 ### Category Slugs
-- **Format:** lowercase, single word
-- **Examples:** `metal`, `ceramic`, `wood`, `stone`, `plastic`, `rareearth`
-- **Regex:** `/^[a-z]+$/`
-- **Note:** No hyphens (use `rareearth` not `rare-earth`)
+- **Format:** lowercase with optional hyphens
+- **Examples:** `metal`, `ceramic`, `wood`, `stone`, `plastic`, `rare-earth`
+- **Regex:** `/^[a-z-]+$/`
+- **Note:** Hyphens allowed for multi-word categories (e.g., `rare-earth`)
 
 ### Property Names
 - **Format:** camelCase
@@ -222,7 +222,7 @@ caption:
 | **Property metadata** | snake_case | `research_date` | Nested under properties |
 | **Category ranges** | camelCase keys | `thermalConductivity` | `category_info.category_ranges.*` |
 | **File names** | kebab-case | `aluminum-laser-cleaning.yaml` | File system |
-| **Category slugs** | lowercase | `metal` | Single word, no hyphens |
+| **Category slugs** | lowercase-hyphen | `metal`, `rare-earth` | Optional hyphens |
 | **Author fields** | lowercase | `name`, `title` | Single words |
 
 ---

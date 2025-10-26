@@ -26,7 +26,7 @@ const RULES = {
   imageFileName: /^[a-z0-9-]+\.(jpg|jpeg|png|webp|svg)$/,
   componentName: /^[A-Z][a-zA-Z0-9]+$/,  // PascalCase
   authorId: /^[a-z0-9-]+$/,  // Allow numbers for numeric author IDs
-  categorySlug: /^[a-z]+$/,
+  categorySlug: /^[a-z-]+$/,  // Allow hyphens for multi-word categories like rare-earth
   subcategorySlug: /^[a-z-]+$/
 };
 
@@ -239,7 +239,7 @@ class NamingValidator {
             type: 'invalid_category',
             category: data.category,
             file: fileName,
-            message: `Category "${data.category}" should be lowercase, no hyphens`
+            message: `Category "${data.category}" should be lowercase with optional hyphens`
           });
           this.stats.namingErrors++;
         }
