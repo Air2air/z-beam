@@ -19,6 +19,7 @@ interface RegulatoryStandard {
   description: string;
   url: string;
   image: string;
+  longName: string;
 }
 
 export interface RegulatoryStandardsProps {
@@ -76,16 +77,16 @@ export function RegulatoryStandards({
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                   {standard.description}
                 </p>
-                {standard.url && (
+                
+                {/* Action Links */}
+                <div className="flex flex-col gap-2">
+                  {/* Search Materials Link */}
                   <Link
-                    href={standard.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={`/search?q=${encodeURIComponent(standard.name)}`}
                     className="inline-flex items-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                   >
-                    <span>View Official Documentation</span>
                     <svg 
-                      className="w-4 h-4 ml-1" 
+                      className="w-4 h-4 mr-1" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
@@ -95,12 +96,39 @@ export function RegulatoryStandards({
                         strokeLinecap="round" 
                         strokeLinejoin="round" 
                         strokeWidth={2} 
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
                       />
                     </svg>
-                    <span className="sr-only">(opens in new tab)</span>
+                    <span>Search Materials with {standard.name} Standards</span>
                   </Link>
-                )}
+
+                  {/* Official Documentation Link */}
+                  {standard.url && (
+                    <Link
+                      href={standard.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                    >
+                      <span>View Official Documentation</span>
+                      <svg 
+                        className="w-4 h-4 ml-1" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={2} 
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                        />
+                      </svg>
+                      <span className="sr-only">(opens in new tab)</span>
+                    </Link>
+                  )}
+                </div>
               </div>
             </div>
           </div>

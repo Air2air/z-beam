@@ -219,6 +219,7 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
         flattenToSearchableText(metadata?.machineSettings),
         flattenToSearchableText(metadata?.applications),
         flattenToSearchableText(metadata?.caption),
+        flattenToSearchableText(metadata?.regulatoryStandards),
       ];
       
       const searchText = searchableFields

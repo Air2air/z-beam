@@ -152,32 +152,6 @@ export function Card({
                   {/* Prioritize subject over title */}
                   {subject || title}
                 </h3>
-                
-                {/* Display dates with time elements if available */}
-                {(frontmatter?.datePublished || frontmatter?.lastModified) && (
-                  <div className="text-xs text-gray-300 mt-1">
-                    {frontmatter?.datePublished && (
-                      <time dateTime={frontmatter.datePublished}>
-                        {new Date(frontmatter.datePublished).toLocaleDateString('en-US', { 
-                          year: 'numeric', 
-                          month: 'short', 
-                          day: 'numeric' 
-                        })}
-                      </time>
-                    )}
-                    {frontmatter?.lastModified && frontmatter.lastModified !== frontmatter.datePublished && (
-                      <>
-                        <span className="mx-1">•</span>
-                        <time dateTime={frontmatter.lastModified} title="Last updated">
-                          Updated {new Date(frontmatter.lastModified).toLocaleDateString('en-US', { 
-                            month: 'short', 
-                            day: 'numeric' 
-                          })}
-                        </time>
-                      </>
-                    )}
-                  </div>
-                )}
               </div>
               
               {/* Arrow-right icon */}
