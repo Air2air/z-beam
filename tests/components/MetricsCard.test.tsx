@@ -156,7 +156,7 @@ describe('MetricsCard Simple Component', () => {
       const link = screen.getByRole('link');
       expect(link).toHaveClass('cursor-pointer');
       expect(link).toHaveClass('card-enhanced-hover'); // Current hover class implementation
-      expect(link).toHaveClass('focus:ring-2'); // Focus accessibility class
+      expect(link).toHaveClass('focus-visible:ring-2'); // Focus accessibility class
     });
   });
 

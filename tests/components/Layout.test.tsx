@@ -181,7 +181,7 @@ describe('Layout Component', () => {
       expect(screen.getByRole('main')).toBeInTheDocument();
       expect(screen.getByRole('article')).toBeInTheDocument();
       expect(screen.getByTestId('hero')).toBeInTheDocument();
-      expect(screen.getByText('Test Article')).toBeInTheDocument(); // Check for title text instead of testid
+      expect(screen.getAllByText('Test Article').length).toBeGreaterThan(0); // Text appears in breadcrumb and title
       expect(screen.getByTestId('author')).toBeInTheDocument();
       // Note: Caption is rendered from metadata.caption, not components.caption
       expect(screen.getByTestId('tags-component')).toBeInTheDocument();

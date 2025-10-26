@@ -321,7 +321,7 @@ describe('ProgressBar Component', () => {
     it('applies focus styles to progress bar', () => {
       const { container } = render(<ProgressBar {...defaultProps} />);
       const progressBar = container.querySelector('[role="progressbar"]');
-      expect(progressBar).toHaveClass('focus:ring-2', 'focus:ring-blue-500', 'focus:outline-none');
+      expect(progressBar).toHaveClass('focus-visible:ring-2', 'focus-visible:ring-blue-500', 'focus-visible:outline-none');
     });
 
     it('hides visual elements from screen readers', () => {

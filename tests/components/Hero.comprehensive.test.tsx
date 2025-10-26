@@ -234,7 +234,9 @@ describe('Hero Component', () => {
       });
     });
 
-    it('should use Intersection Observer for lazy loading', () => {
+    it.skip('should use Intersection Observer for lazy loading', () => {
+      // SKIPPED: Hero optimized to render immediately for better LCP performance
+      // IntersectionObserver removed as part of critical request chain optimization
       render(<Hero frontmatter={{ image: '/hero.jpg' }} />);
       
       expect(mockIntersectionObserver).toHaveBeenCalled();

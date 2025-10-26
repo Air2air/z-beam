@@ -154,9 +154,9 @@ describe('MetricsCard Comprehensive Accessibility', () => {
       
       // Focus indicators are on the progressbar element
       const progressbar = screen.getByRole('progressbar');
-      expect(progressbar).toHaveClass('focus:ring-2');
-      expect(progressbar).toHaveClass('focus:ring-blue-500');
-      expect(progressbar).toHaveClass('focus:outline-none');
+      expect(progressbar).toHaveClass('focus-visible:ring-2');
+      expect(progressbar).toHaveClass('focus-visible:ring-blue-500');
+      expect(progressbar).toHaveClass('focus-visible:outline-none');
     });
   });
 

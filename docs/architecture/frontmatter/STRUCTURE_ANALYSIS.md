@@ -303,11 +303,11 @@ caption:
 
 regulatoryStandards:
   - description: ANSI Z136.1 - Safe Use of Lasers standard for industrial laser operations and safety protocols
-    image: /images/logo/logo_org_ansi.png
+    image: /images/logo/logo-org-ansi.png
     name: ANSI
     url: https://webstore.ansi.org/standards/lia/ansiz1362014
   - description: IEC 60825-1 - Safety of laser products standard for classification and requirements
-    image: /images/logo/logo_org_iec.png
+    image: /images/logo/logo-org-iec.png
     name: IEC
     url: https://webstore.iec.ch/publication/3587
 
