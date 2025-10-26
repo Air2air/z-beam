@@ -65,6 +65,21 @@ const ORG_MAPPINGS: Record<string, OrgMapping> = {
     name: 'FDA',
     imagePattern: 'logo-org-fda.png',
     patterns: ['FDA', 'Food and Drug Administration']
+  },
+  'UNESCO': {
+    name: 'UNESCO',
+    imagePattern: 'logo-org-unesco.png',
+    patterns: ['UNESCO', 'Cultural Heritage Conservation']
+  },
+  'SEMI': {
+    name: 'SEMI',
+    imagePattern: 'logo-org-semi.png',
+    patterns: ['SEMI', 'SEMI M1', 'Semiconductor Equipment']
+  },
+  'CITES': {
+    name: 'CITES',
+    imagePattern: 'logo-org-cites.png',
+    patterns: ['CITES', 'Convention on International Trade', 'Sustainable Mahogany']
   }
 };
 
