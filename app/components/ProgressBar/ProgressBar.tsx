@@ -169,7 +169,7 @@ export function ProgressBar({
           aria-valuenow={cleanValue}
           aria-valuemin={cleanMin}
           aria-valuemax={cleanMax}
-          aria-labelledby={labelId}
+          aria-label={`${title} progress indicator`}
           aria-describedby={descId}
           tabIndex={0}
           className="progress-bar-track h-full w-full bg-white/20 dark:bg-white/10 rounded-sm overflow-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"

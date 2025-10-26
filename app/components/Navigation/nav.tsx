@@ -181,6 +181,7 @@ export function Navbar() {
                                 : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
                             }
                           `}
+                          role="menuitem"
                           aria-haspopup="true"
                           aria-expanded={openDropdown === item.name}
                         >
@@ -224,10 +225,11 @@ export function Navbar() {
                     ) : (
                       <Link
                         href={item.href}
-                        target={isExternal ? "_blank" : "_self"}
+                        target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
+                        role="menuitem"
                         className={`
-                          block px-3 pb-1 text-base min-h-[44px]
+                          flex items-end px-3 pb-1 text-base min-h-[44px]
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -235,7 +237,6 @@ export function Navbar() {
                               : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
                           }
                         `}
-                        role="menuitem"
                         aria-current={isActive ? "page" : undefined}
                       >
                         {item.name}
@@ -335,6 +336,7 @@ export function Navbar() {
                               : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
                           }
                         `}
+                        role="menuitem"
                         aria-expanded={isDropdownOpen}
                         aria-label={`Toggle ${item.name} submenu`}
                       >

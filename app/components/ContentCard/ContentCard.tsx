@@ -282,7 +282,6 @@ export function ContentCard({
                   >
                     <span 
                       className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0"
-                      aria-hidden="true"
                       role="presentation"
                     >
                       ✓
