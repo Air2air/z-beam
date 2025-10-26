@@ -64,8 +64,25 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const pageTitle = `${categoryDisplayName} Laser Cleaning`;
   const pageSubtitle = categoryMetadata.subtitle;
 
+  // Create metadata object with breadcrumb configuration
+  const metadata = {
+    title: pageTitle,
+    subtitle: pageSubtitle,
+    description: categoryMetadata.description,
+    breadcrumb: [
+      { label: 'Home', href: '/' },
+      { label: categoryDisplayName, href: `/materials/${category}` }
+    ]
+  };
+
   return (
-    <Layout title={pageTitle} subtitle={pageSubtitle} fullWidth>
+    <Layout 
+      title={pageTitle} 
+      subtitle={pageSubtitle} 
+      metadata={metadata as any}
+      slug={`materials/${category}`}
+      fullWidth
+    >
       {/* Materials Grid - no hero content in metadata, so Hero won't render */}
       <section className={CONTAINER_STYLES.standard}>
         <CardGridSSR

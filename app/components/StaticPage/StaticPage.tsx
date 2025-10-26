@@ -143,6 +143,7 @@ export async function StaticPage({
       subtitle={pageConfig.subtitle}
       description={pageConfig.description || fallbackDescription}
       metadata={pageConfig}
+      slug={slug}
     >
       {/* JSON-LD Structured Data */}
       <JsonLD data={jsonLdData} />

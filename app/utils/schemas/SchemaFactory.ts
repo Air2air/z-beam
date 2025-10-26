@@ -16,6 +16,7 @@
  */
 
 import { SITE_CONFIG } from '../constants';
+import { generateBreadcrumbs } from '../breadcrumbs';
 
 // ============================================================================
 // Types & Interfaces
@@ -325,41 +326,32 @@ function generateWebPageSchema(data: any, context: SchemaContext): any {
 
 /**
  * BreadcrumbList Schema
+ * Uses the centralized generateBreadcrumbs utility for consistency
  */
 function generateBreadcrumbSchema(data: any, context: SchemaContext): any {
   const { pageUrl, baseUrl, slug } = context;
-  const category = data.frontmatter?.category || data.category || data.pageConfig?.category;
-  const title = data.title || data.pageConfig?.title || slug;
-
-  const items = [
-    {
-      '@type': 'ListItem',
-      'position': 1,
-      'name': 'Home',
-      'item': baseUrl
-    }
-  ];
-
-  if (category) {
-    items.push({
-      '@type': 'ListItem',
-      'position': 2,
-      'name': category.charAt(0).toUpperCase() + category.slice(1),
-      'item': `${baseUrl}/${category}`
-    });
-  }
-
-  items.push({
+  
+  // Construct pathname from slug
+  const pathname = slug ? `/${slug}` : '/';
+  
+  // Extract frontmatter from various data structures
+  const frontmatter = data.frontmatter || data.metadata || data.pageConfig || data;
+  
+  // Use the centralized breadcrumb generation utility
+  const breadcrumbItems = generateBreadcrumbs(frontmatter, pathname);
+  
+  // Convert to Schema.org format
+  const itemListElement = breadcrumbItems.map((item, index) => ({
     '@type': 'ListItem',
-    'position': items.length + 1,
-    'name': title,
-    'item': pageUrl
-  });
+    'position': index + 1,
+    'name': item.label,
+    'item': `${baseUrl}${item.href}`
+  }));
 
   return {
     '@type': 'BreadcrumbList',
     '@id': `${pageUrl}#breadcrumb`,
-    'itemListElement': items
+    'itemListElement': itemListElement
   };
 }
 

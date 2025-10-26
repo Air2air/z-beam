@@ -217,6 +217,13 @@ export interface ArticleMetadata {
   // Other structured content sections for static pages
   benefits?: BenefitItem[];
   equipment?: EquipmentItem[];
+  
+  // Breadcrumb navigation configuration
+  breadcrumb?: BreadcrumbItem[];
+  
+  // Material-specific fields for auto-breadcrumb generation
+  name?: string; // Material name (e.g., "Aluminum")
+  subcategory?: string; // Material subcategory (e.g., "non-ferrous")
 }
 
 // ===============================
@@ -1380,7 +1387,7 @@ export interface ContentItem {
  */
 export interface BreadcrumbItem {
   label: string;
-  href?: string;
+  href: string; // Always required for breadcrumb navigation
 }
 
 /**

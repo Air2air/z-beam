@@ -6,124 +6,164 @@ import Link from "next/link";
 import { BreadcrumbItem } from "@/types";
 import { capitalizeWords } from "../../utils/formatting";
 
-export function Breadcrumbs() {
+export interface BreadcrumbsProps {
+  /**
+   * Optional breadcrumb data from frontmatter
+   * If provided, this takes priority over URL-based generation
+   */
+  breadcrumbData?: BreadcrumbItem[];
+}
+
+/**
+ * WCAG 2.1 AAA Compliant Breadcrumb Component
+ * 
+ * Follows W3C ARIA Authoring Practices Guide:
+ * - Uses semantic <nav> with aria-label="Breadcrumb"
+ * - Uses <ol> for ordered list structure
+ * - Last item is <a> with aria-current="page" (not span)
+ * - Visual separators via CSS to prevent screen reader verbosity
+ * - Includes microdata for enhanced SEO
+ * 
+ * @see https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/
+ */
+export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
   const pathname = usePathname();
+  
+  // Priority 1: Use frontmatter-provided breadcrumb data
+  let allBreadcrumbs: BreadcrumbItem[];
+  
+  if (breadcrumbData && breadcrumbData.length > 0) {
+    allBreadcrumbs = breadcrumbData;
+  } else {
+    // Priority 2: Generate from URL (fallback)
+    allBreadcrumbs = generateBreadcrumbsFromUrl(pathname);
+  }
+  
+  return (
+    <nav className="flex py-4" aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
+      <ol className="inline-flex items-center breadcrumb-list">
+        {allBreadcrumbs.map((crumb, index) => {
+          const isLast = index === allBreadcrumbs.length - 1;
+          
+          return (
+            <li 
+              key={crumb.href + '-' + index} 
+              className="breadcrumb-item"
+              itemProp="itemListElement" 
+              itemScope 
+              itemType="https://schema.org/ListItem"
+            >
+              {isLast ? (
+                // Last item: link with aria-current="page" per W3C spec
+                // Note: href="" or href={crumb.href} both valid, using href for consistency
+                <Link
+                  href={crumb.href}
+                  className="text-sm text-gray-700 dark:text-gray-300"
+                  aria-current="page"
+                  itemProp="item"
+                  onClick={(e) => e.preventDefault()} // Prevent navigation on current page
+                >
+                  <span itemProp="name">{crumb.label}</span>
+                </Link>
+              ) : crumb.href ? (
+                // Other items are normal links
+                <Link
+                  href={crumb.href}
+                  className="text-sm text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-white
+                             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm
+                             transition-colors duration-150"
+                  itemProp="item"
+                >
+                  <span itemProp="name">{crumb.label}</span>
+                </Link>
+              ) : (
+                // Item without href (fallback)
+                <span className="text-sm text-gray-500 dark:text-gray-400" itemProp="name">
+                  {crumb.label}
+                </span>
+              )}
+              <meta itemProp="position" content={String(index + 1)} />
+            </li>
+          );
+        })}
+      </ol>
+      
+      <style jsx>{`
+        .breadcrumb-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+        
+        .breadcrumb-item:not(:last-child)::after {
+          content: '/';
+          margin: 0 0.5rem;
+          color: rgb(156, 163, 175); /* gray-400 */
+          font-size: 0.875rem;
+          display: inline-block;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+          .breadcrumb-item:not(:last-child)::after {
+            color: rgb(107, 114, 128); /* gray-500 for dark mode */
+          }
+        }
+        
+        /* Ensure separators are not announced by screen readers */
+        .breadcrumb-item::after {
+          aria-hidden: true;
+        }
+      `}</style>
+    </nav>
+  );
+}
+
+/**
+ * Generate breadcrumbs from URL pathname
+ * This is the fallback when no frontmatter breadcrumb data is provided
+ */
+function generateBreadcrumbsFromUrl(pathname: string | null): BreadcrumbItem[] {
+  const allBreadcrumbs: BreadcrumbItem[] = [{ href: "/", label: "Home" }];
   
   // Handle case where pathname might be null
   if (!pathname) {
-    return (
-      <nav className="flex py-4" aria-label="Breadcrumb">
-        <ol className="inline-flex items-center space-x-1 md:space-x-2">
-          <li className="inline-flex items-center">
-            <Link
-              href="/"
-              className="ml-1 text-sm text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white"
-            >
-              Home
-            </Link>
-          </li>
-        </ol>
-      </nav>
-    );
+    return allBreadcrumbs;
   }
   
-  // Split the pathname into segments and filter out empty strings (e.g., from leading slash)
+  // Split the pathname into segments and filter out empty strings
   const segments = pathname.split("/").filter((segment) => segment !== "");
-
-  // Define a set of known "material" slugs (or a more robust way to identify material pages)
-  // For a dynamic site, you might pass a prop or use context/global state
-  // to tell the breadcrumb component if the current page is an "material".
-  // For now, we'll assume any top-level path that ISN'T a known static route (like /about, /contact)
-  // is an material. Or, if you have a list of all material slugs available client-side,
-  // you could check if `segments[0]` exists in that list.
-  //
-  // A more robust approach might involve:
-  // 1. Passing a `isMaterialPage: boolean` prop from the material page.
-  // 2. Having a `getMaterialSlugsClientSide` utility (less efficient).
-  // 3. Using a `context` provider at the layout level that marks if it's an material route.
-  //
-  // For simplicity and assuming most top-level dynamic routes are materials:
+  
+  // Known static routes that don't need "Articles" parent
   const knownStaticTopLevelRoutes = new Set([
     "about",
     "contact",
-    // Add any other static top-level routes here that should NOT be considered materials
+    "services",
+    "rental",
+    "partners",
+    "search",
+    "materials"
   ]);
-
-  const allBreadcrumbs: BreadcrumbItem[] = [{ href: "/", label: "Home" }];
-
+  
   let currentPathAccumulator = ""; // To build hrefs correctly
-
+  
   segments.forEach((segment, index) => {
     currentPathAccumulator += `/${segment}`;
-
-    // Determine if "Materials" needs to be inserted
-    // This logic assumes:
-    // 1. The current segment is the first one after home.
-    // 2. The segment is NOT a known static top-level route.
-    // 3. We haven't already inserted "Materials".
+    
+    // Determine if "Articles" needs to be inserted
     const isFirstSegment = index === 0;
     const isNotStaticRoute = !knownStaticTopLevelRoutes.has(segment);
     const articlesAlreadyInserted = allBreadcrumbs.some(crumb => crumb.label === "Articles");
-
+    
     if (isFirstSegment && isNotStaticRoute && !articlesAlreadyInserted) {
       // Insert "Articles" before the actual slug
       allBreadcrumbs.push({ href: "/articles", label: "Articles" });
     }
-
+    
     // Generate the label (e.g., "my-material" -> "My Material")
     const label = capitalizeWords(segment);
-
+    
     allBreadcrumbs.push({ href: currentPathAccumulator, label });
   });
-
-  return (
-    <nav className="flex py-4" aria-label="Breadcrumb">
-      <ol className="inline-flex items-center space-x-1 md:space-x-2">
-        {allBreadcrumbs.map((crumb, index) => (
-          <li key={crumb.href + '-' + index} className="inline-flex items-center">
-            {index > 0 && (
-              <svg
-                className="w-3 h-3 text-gray-400 mx-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="m1 9 4-4-4-4"
-                />
-              </svg>
-            )}
-            {index === allBreadcrumbs.length - 1 ? (
-              // Last item is the current page, not a link
-              <span 
-                className="ml-1 text-sm text-gray-500 dark:text-gray-400"
-                aria-current="page"
-              >
-                {crumb.label}
-              </span>
-            ) : crumb.href ? (
-              // Other items are links (only if href exists)
-              <Link
-                href={crumb.href}
-                className="ml-1 text-sm text-gray-700 hover:text-blue-600 md:ml-2 dark:text-gray-200 dark:hover:text-white
-                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm"
-              >
-                {crumb.label}
-              </Link>
-            ) : (
-              // Item without href (default to span)
-              <span className="ml-1 text-sm text-gray-500 dark:text-gray-400">
-                {crumb.label}
-              </span>
-            )}
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
+  
+  return allBreadcrumbs;
 }

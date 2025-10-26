@@ -77,6 +77,44 @@ const nextConfig = {
     ];
   },
 
+  // Redirects for old flat URLs to new hierarchical structure
+  async redirects() {
+    const fs = require('fs').promises;
+    const path = require('path');
+    const yaml = require('js-yaml');
+    
+    try {
+      const frontmatterDir = path.join(process.cwd(), 'content/frontmatter');
+      const files = await fs.readdir(frontmatterDir);
+      const yamlFiles = files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
+      
+      const redirects = [];
+      
+      for (const file of yamlFiles) {
+        const filePath = path.join(frontmatterDir, file);
+        const content = await fs.readFile(filePath, 'utf8');
+        const data = yaml.load(content);
+        
+        if (data.category && data.subcategory) {
+          const slug = file.replace(/\.(yaml|yml)$/, '');
+          const category = data.category.toLowerCase().replace(/\s+/g, '-');
+          const subcategory = data.subcategory.toLowerCase().replace(/\s+/g, '-');
+          
+          redirects.push({
+            source: `/${slug}`,
+            destination: `/materials/${category}/${subcategory}/${slug}`,
+            permanent: true // 301 redirect for SEO
+          });
+        }
+      }
+      
+      return redirects;
+    } catch (error) {
+      console.warn('Could not generate redirects:', error.message);
+      return [];
+    }
+  },
+
   // Bundle optimization
   webpack: (config, { dev, isServer }) => {
     // Production optimizations

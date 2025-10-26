@@ -19,6 +19,7 @@ import { ApplicationsList } from '../ApplicationsList';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
+import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
@@ -33,6 +34,10 @@ const getMaterialName = (metadata: any, slug?: string) => {
 const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
   const materialName = getMaterialName(metadata, slug);
   
+  // Generate breadcrumbs from frontmatter or category/subcategory
+  const pathname = slug ? `/${slug}` : '/';
+  const breadcrumbData = generateBreadcrumbs(metadata, pathname);
+  
   // Check if we have hero image/video from markdown or material-based hero
   // Hero renders automatically if any hero content exists
   const hasHeroContent = 
@@ -43,12 +48,13 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
   
   return (
     <div className="header-section mb-6">
-      <Breadcrumbs />
       {hasHeroContent ? (
         <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
+
+      <Breadcrumbs breadcrumbData={breadcrumbData} />
 
       <Title 
         level="page" 
@@ -281,6 +287,11 @@ export function Layout(props: LayoutProps) {
     metadata?.image || 
     metadata?.images?.hero?.url || 
     metadata?.video;
+  
+  // Generate breadcrumbs for regular pages
+  const pathname = slug ? `/${slug}` : '/';
+  const breadcrumbData = generateBreadcrumbs(metadata || null, pathname);
+  const isHomePage = !slug || slug === '' || pathname === '/';
 
   return (
     <main className={containerClass} id="main-content" role="main">
@@ -289,6 +300,13 @@ export function Layout(props: LayoutProps) {
         <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
+      )}
+      
+      {/* Breadcrumbs - hide on homepage */}
+      {!isHomePage && (
+        <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
+          <Breadcrumbs breadcrumbData={breadcrumbData} />
+        </div>
       )}
       
       {/* Title renders consistently for all pages - fullWidth pages need container */}
