@@ -1361,6 +1361,19 @@ export interface ImageMetadata {
   alt?: string;
   width?: number | string;
   height?: number | string;
+  
+  // Google Image License Metadata
+  // @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
+  license?: string;              // URL to license page (e.g., Creative Commons, proprietary)
+  acquireLicensePage?: string;   // URL where users can acquire license/permission
+  creditText?: string;           // Text attribution/credit for the image
+  creator?: string | {
+    '@type': 'Person' | 'Organization';
+    name: string;
+    url?: string;
+  };
+  copyrightNotice?: string;      // Copyright statement
+  
   [key: string]: any;
 }
 

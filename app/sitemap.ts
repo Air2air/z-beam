@@ -59,49 +59,73 @@ export default function sitemap(): SitemapEntry[] {
     },
   ];
 
-  // Material category routes
-  const materialCategories = [
-    'metal',
-    'ceramic',
-    'composite',
-    'semiconductor',
-    'glass',
-    'stone',
-    'wood',
-    'masonry',
-    'plastic',
-  ];
-
-  const materialRoutes = materialCategories.map((category) => ({
-    url: `${baseUrl}/materials/${category}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  // Dynamic article routes from frontmatter files
-  const articleRoutes: SitemapEntry[] = [];
+  // Material category and subcategory routes
+  const materialRoutes: SitemapEntry[] = [];
+  const materialPageRoutes: SitemapEntry[] = [];
+  
   try {
     const frontmatterDir = path.join(process.cwd(), 'content/frontmatter');
     const files = fs.readdirSync(frontmatterDir);
+    const yamlFiles = files.filter(f => f.endsWith('.yaml'));
     
-    files.forEach((file) => {
-      if (file.endsWith('.yaml')) {
+    // Track categories and subcategories we've seen
+    const categorySet = new Set<string>();
+    const subcategorySet = new Set<string>();
+    
+    yamlFiles.forEach((file) => {
+      const filePath = path.join(frontmatterDir, file);
+      const stats = fs.statSync(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      
+      // Simple YAML parsing to extract category and subcategory
+      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      
+      if (categoryMatch) {
+        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
+        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
         const slug = file.replace('.yaml', '');
-        const filePath = path.join(frontmatterDir, file);
-        const stats = fs.statSync(filePath);
         
-        articleRoutes.push({
-          url: `${baseUrl}/${slug}`,
-          lastModified: stats.mtime,
-          changeFrequency: 'weekly' as const,
-          priority: 0.8,
-        });
+        // Skip if category is empty
+        if (!category) return;
+        
+        // Add category page if not seen before
+        if (!categorySet.has(category)) {
+          categorySet.add(category);
+          materialRoutes.push({
+            url: `${baseUrl}/materials/${category}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.7,
+          });
+        }
+        
+        // Add subcategory page if present and not seen before
+        if (subcategory && subcategory.length > 0) {
+          const subcategoryKey = `${category}/${subcategory}`;
+          if (!subcategorySet.has(subcategoryKey)) {
+            subcategorySet.add(subcategoryKey);
+            materialRoutes.push({
+              url: `${baseUrl}/materials/${category}/${subcategory}`,
+              lastModified: new Date(),
+              changeFrequency: 'weekly' as const,
+              priority: 0.75,
+            });
+          }
+          
+          // Add material page with full path
+          materialPageRoutes.push({
+            url: `${baseUrl}/materials/${category}/${subcategory}/${slug}`,
+            lastModified: stats.mtime,
+            changeFrequency: 'weekly' as const,
+            priority: 0.8,
+          });
+        }
       }
     });
   } catch (error) {
-    console.error('Error reading frontmatter directory:', error);
+    console.error('Error generating material routes:', error);
   }
 
-  return [...staticRoutes, ...materialRoutes, ...articleRoutes];
+  return [...staticRoutes, ...materialRoutes, ...materialPageRoutes];
 }

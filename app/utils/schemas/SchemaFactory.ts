@@ -843,20 +843,70 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): any | nul
 }
 
 /**
- * ImageObject Schema - Enhanced
+ * ImageObject Schema - Enhanced with License Metadata
+ * Implements Google's image license structured data
+ * Uses page author as default creator if not explicitly specified
+ * Uses caption.beforeText for image descriptions
+ * @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
  */
 function generateImageObjectSchema(data: any, context: SchemaContext): any | null {
   const mainImage = getMainImage(data);
   if (!mainImage) return null;
 
-  return {
+  // Get caption from multiple sources (priority order)
+  const caption = mainImage.caption 
+    || data.frontmatter?.caption?.beforeText 
+    || data.caption?.beforeText
+    || data.title 
+    || '';
+
+  const imageObject: any = {
     '@type': 'ImageObject',
     '@id': `${context.pageUrl}#image`,
     'url': mainImage.url,
-    'caption': mainImage.caption || data.title || '',
+    'caption': caption,
     ...(mainImage.width && { 'width': mainImage.width }),
     ...(mainImage.height && { 'height': mainImage.height })
   };
+
+  // Add license metadata if available
+  if (mainImage.license) {
+    imageObject.license = mainImage.license;
+  }
+  
+  if (mainImage.acquireLicensePage) {
+    imageObject.acquireLicensePage = mainImage.acquireLicensePage;
+  }
+  
+  // Use creditText from image, or fall back to caption.description for micro images
+  if (mainImage.creditText) {
+    imageObject.creditText = mainImage.creditText;
+  } else if (mainImage.isMicro && (data.frontmatter?.caption?.description || data.caption?.description)) {
+    imageObject.creditText = data.frontmatter?.caption?.description || data.caption?.description;
+  }
+  
+  // Use image creator if specified, otherwise fall back to page author
+  if (mainImage.creator) {
+    imageObject.creator = typeof mainImage.creator === 'string'
+      ? { '@type': 'Person', 'name': mainImage.creator }
+      : mainImage.creator;
+  } else {
+    // Use page author as creator if available
+    const author = data.frontmatter?.author || data.author;
+    if (author && author.name) {
+      imageObject.creator = {
+        '@type': 'Person',
+        'name': author.name,
+        ...(author.url && { 'url': author.url })
+      };
+    }
+  }
+  
+  if (mainImage.copyrightNotice) {
+    imageObject.copyrightNotice = mainImage.copyrightNotice;
+  }
+
+  return imageObject;
 }
 
 /**
@@ -974,18 +1024,48 @@ function getMainImage(data: any): any | null {
       return {
         '@type': 'ImageObject',
         'url': `${SITE_CONFIG.url}${cardWithImage.image.url}`,
-        'caption': cardWithImage.image.alt || data.title
+        'caption': cardWithImage.image.alt || data.frontmatter?.caption?.beforeText || data.caption?.beforeText || data.title
       };
     }
   }
 
-  // From frontmatter images
+  // From frontmatter images - prioritize hero, then micro
   const frontmatter = data.frontmatter || {};
+  
   if (frontmatter.images?.hero?.url) {
+    const hero = frontmatter.images.hero;
     return {
       '@type': 'ImageObject',
-      'url': `${SITE_CONFIG.url}${frontmatter.images.hero.url}`,
-      'caption': frontmatter.images.hero.alt || data.title
+      'url': `${SITE_CONFIG.url}${hero.url}`,
+      'caption': hero.alt || frontmatter.caption?.beforeText || data.caption?.beforeText || data.title,
+      'isMicro': false,
+      // Pass through license metadata if present
+      ...(hero.license && { 'license': hero.license }),
+      ...(hero.acquireLicensePage && { 'acquireLicensePage': hero.acquireLicensePage }),
+      ...(hero.creditText && { 'creditText': hero.creditText }),
+      ...(hero.creator && { 'creator': hero.creator }),
+      ...(hero.copyrightNotice && { 'copyrightNotice': hero.copyrightNotice }),
+      ...(hero.width && { 'width': hero.width }),
+      ...(hero.height && { 'height': hero.height })
+    };
+  }
+  
+  // Fallback to micro image if no hero
+  if (frontmatter.images?.micro?.url) {
+    const micro = frontmatter.images.micro;
+    return {
+      '@type': 'ImageObject',
+      'url': `${SITE_CONFIG.url}${micro.url}`,
+      'caption': micro.alt || frontmatter.caption?.beforeText || data.caption?.beforeText || data.title,
+      'isMicro': true,
+      // Pass through license metadata if present
+      ...(micro.license && { 'license': micro.license }),
+      ...(micro.acquireLicensePage && { 'acquireLicensePage': micro.acquireLicensePage }),
+      ...(micro.creditText && { 'creditText': micro.creditText }),
+      ...(micro.creator && { 'creator': micro.creator }),
+      ...(micro.copyrightNotice && { 'copyrightNotice': micro.copyrightNotice }),
+      ...(micro.width && { 'width': micro.width }),
+      ...(micro.height && { 'height': micro.height })
     };
   }
 
@@ -994,7 +1074,7 @@ function getMainImage(data: any): any | null {
     return {
       '@type': 'ImageObject',
       'url': typeof data.image === 'string' ? data.image : `${SITE_CONFIG.url}${data.image.url}`,
-      'caption': data.title
+      'caption': data.frontmatter?.caption?.beforeText || data.caption?.beforeText || data.title
     };
   }
 

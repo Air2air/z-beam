@@ -25,10 +25,10 @@ describe('Sitemap Validation', () => {
       expect(sitemapContent).toContain("import fs from 'fs'");
       expect(sitemapContent).toContain("import path from 'path'");
       
-      // Check for dynamic article generation
+      // Check for dynamic material route generation
       expect(sitemapContent).toContain('frontmatterDir');
       expect(sitemapContent).toContain('fs.readdirSync');
-      expect(sitemapContent).toContain('articleRoutes');
+      expect(sitemapContent).toContain('materialPageRoutes');
     });
 
     it('should include all static routes', () => {
@@ -48,27 +48,17 @@ describe('Sitemap Validation', () => {
       });
     });
 
-    it('should include material category routes', () => {
+    it('should generate hierarchical material routes', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      const materialCategories = [
-        'metal',
-        'ceramic',
-        'composite',
-        'semiconductor',
-        'glass',
-        'stone',
-        'wood',
-        'masonry',
-        'plastic'
-      ];
-
-      // Check that materialCategories array exists
-      expect(sitemapContent).toContain('materialCategories');
+      // Should generate category pages
+      expect(sitemapContent).toContain('/materials/${category}');
       
-      materialCategories.forEach(category => {
-        expect(sitemapContent).toContain(`'${category}'`);
-      });
+      // Should generate subcategory pages  
+      expect(sitemapContent).toContain('/materials/${category}/${subcategory}');
+      
+      // Should generate material pages with full path
+      expect(sitemapContent).toContain('/materials/${category}/${subcategory}/${slug}');
     });
   });
 
@@ -78,10 +68,10 @@ describe('Sitemap Validation', () => {
       const yamlFiles = files.filter(f => f.endsWith('.yaml'));
       
       expect(yamlFiles.length).toBeGreaterThan(0);
-      console.log(`\n✓ Found ${yamlFiles.length} article files that will be included in sitemap`);
+      console.log(`\n✓ Found ${yamlFiles.length} material files that will be included in sitemap`);
     });
 
-    it('should follow naming convention for article files', () => {
+    it('should follow naming convention for material files', () => {
       const files = fs.readdirSync(frontmatterDir);
       const yamlFiles = files.filter(f => f.endsWith('.yaml'));
       
@@ -91,19 +81,13 @@ describe('Sitemap Validation', () => {
       });
     });
 
-    it('should generate valid slugs from filenames', () => {
-      const files = fs.readdirSync(frontmatterDir);
-      const yamlFiles = files.filter(f => f.endsWith('.yaml'));
+    it('should extract category and subcategory from YAML files', () => {
+      const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      yamlFiles.forEach(file => {
-        const slug = file.replace('-laser-cleaning.yaml', '');
-        
-        // Slug should not be empty
-        expect(slug.length).toBeGreaterThan(0);
-        
-        // Slug should not contain spaces or special characters
-        expect(slug).toMatch(/^[a-z0-9-]+$/);
-      });
+      // Should parse category and subcategory from YAML
+      expect(sitemapContent).toContain('categoryMatch');
+      expect(sitemapContent).toContain('subcategoryMatch');
+      expect(sitemapContent).toContain('/materials/${category}/${subcategory}/${slug}');
     });
   });
 
@@ -117,11 +101,17 @@ describe('Sitemap Validation', () => {
       expect(sitemapContent).toContain('console.error');
     });
 
-    it('should set appropriate priority for article pages', () => {
+    it('should set appropriate priorities for different page types', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Articles should have high priority (0.8)
+      // Material pages should have high priority (0.8)
       expect(sitemapContent).toContain('priority: 0.8');
+      
+      // Subcategory pages should have priority (0.75)
+      expect(sitemapContent).toContain('priority: 0.75');
+      
+      // Category pages should have priority (0.7)
+      expect(sitemapContent).toContain('priority: 0.7');
     });
 
     it('should use file modification time for lastModified', () => {
