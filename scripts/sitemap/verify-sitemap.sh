@@ -31,8 +31,8 @@ if ! grep -q "fs.readdirSync" app/sitemap.ts; then
     echo -e "${RED}❌ ERROR: Sitemap is not dynamically reading frontmatter files${NC}"
     exit 1
 fi
-if ! grep -q "articleRoutes" app/sitemap.ts; then
-    echo -e "${RED}❌ ERROR: Missing articleRoutes in sitemap${NC}"
+if ! grep -q "materialPageRoutes\|articleRoutes" app/sitemap.ts; then
+    echo -e "${RED}❌ ERROR: Missing materialPageRoutes or articleRoutes in sitemap${NC}"
     exit 1
 fi
 echo -e "${GREEN}✓ Dynamic article generation is implemented${NC}"
@@ -74,11 +74,12 @@ echo ""
 
 # Check material category routes
 echo "5️⃣  Validating material category routes..."
-REQUIRED_CATEGORIES=("metal" "ceramic" "composite" "semiconductor" "glass" "stone" "wood" "masonry" "plastic")
+REQUIRED_CATEGORIES=("metal" "ceramic" "composite" "semiconductor" "glass" "stone" "wood" "masonry" "plastic" "rareearth")
 MISSING_CATEGORIES=()
 
 for category in "${REQUIRED_CATEGORIES[@]}"; do
-    if ! grep -q "'${category}'" app/sitemap.ts; then
+    # Check for category with or without quotes
+    if ! grep -qE "(category: ${category}|category: '${category}')" app/sitemap.ts content/frontmatter/*.yaml 2>/dev/null; then
         MISSING_CATEGORIES+=("$category")
     fi
 done

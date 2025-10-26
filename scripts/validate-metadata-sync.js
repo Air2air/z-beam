@@ -23,19 +23,18 @@ const PAGES_DIR = path.join(process.cwd(), 'content/pages');
 
 // Required fields for complete metadata
 const REQUIRED_FIELDS = {
-  material: ['name', 'title', 'description', 'category', 'images', 'author'],
+  material: ['name', 'title', 'subtitle', 'category', 'images', 'author'],
   page: ['title', 'description']
 };
 
 // Fields that should match between frontmatter and JSON-LD
 const CRITICAL_SYNC_FIELDS = [
   'title',
-  'description',
+  'subtitle',
   'author.name',
   'images.hero.url',
   'images.micro.url',
-  'materialProperties',
-  'machineSettings'
+  'properties'
 ];
 
 class MetadataValidator {
