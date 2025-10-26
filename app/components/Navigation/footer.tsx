@@ -73,7 +73,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-6">
           <Link 
             href="/" 
-            className="block focus:outline-none rounded-md"
+            className="block focus-visible:outline-none rounded-md"
             aria-label={`${SITE_CONFIG.name} home page`}
           >
             <Image
@@ -103,7 +103,7 @@ export default function Footer() {
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
               className="text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white 
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
                          rounded-md px-2 py-1 transition-colors"
             >
               {item.name}
@@ -128,7 +128,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label={`Follow us on ${social.name} (opens in new window)`}
               className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 
-                         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
                          rounded-md p-2 min-w-[44px] min-h-[44px] 
                          inline-flex items-center justify-center
                          transition-colors duration-200"

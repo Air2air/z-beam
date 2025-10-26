@@ -172,7 +172,7 @@ export function ProgressBar({
           aria-labelledby={labelId}
           aria-describedby={descId}
           tabIndex={0}
-          className="progress-bar-track h-full w-full bg-white/20 dark:bg-white/10 rounded-sm overflow-hidden focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          className="progress-bar-track h-full w-full bg-white/20 dark:bg-white/10 rounded-sm overflow-hidden focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none"
           data-property={propertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-percentage={Math.round(percentage)}
           data-component="progress-bar"

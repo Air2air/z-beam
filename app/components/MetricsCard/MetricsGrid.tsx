@@ -376,9 +376,10 @@ function extractCardsFromCategorizedProperties(
     const categoryConfig = CATEGORY_CONFIG[categoryId as keyof typeof CATEGORY_CONFIG];
     const categoryColor = categoryConfig?.color || '#6B7280';
     
-    // Get properties from category (excluding metadata fields like label, description, percentage)
-    const properties = Object.entries(category).filter(([key]) => 
-      key !== 'label' && key !== 'description' && key !== 'percentage'
+    // Get properties from category.properties (NEW structure) or from category directly (LEGACY fallback)
+    const propertiesSource = category.properties || category;
+    const properties = Object.entries(propertiesSource).filter(([key]) => 
+      key !== 'label' && key !== 'description' && key !== 'percentage' && key !== 'properties'
     );
     
     // Extract cards from properties with category color

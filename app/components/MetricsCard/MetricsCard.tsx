@@ -250,7 +250,7 @@ export const MetricsCard = memo(function MetricsCard({
   };
   
   // Enhanced styles with accessibility features
-  const focusStyles = 'focus:ring-2 focus:ring-blue-500 focus:outline-none focus:ring-offset-2';
+  const focusStyles = 'focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none focus-visible:ring-offset-2';
   const clickableClasses = isClickable 
     ? `cursor-pointer card-enhanced-hover ${focusStyles}` 
     : '';

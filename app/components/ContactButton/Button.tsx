@@ -48,10 +48,10 @@ export function Button({
   
   // Variant styles - primary matches exact CTA button styling
   const variantClasses = {
-    primary: 'bg-white text-brand-orange hover:bg-gray-100 focus:ring-white focus:ring-offset-brand-orange shadow-lg hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300 ease-in-out',
-    inverted: 'bg-brand-orange text-white hover:bg-orange-600 focus:ring-brand-orange focus:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300 ease-in-out',
-    secondary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-gray-900',
-    minimal: 'bg-transparent text-blue-600 hover:text-blue-700 hover:underline focus:ring-blue-500',
+    primary: 'bg-white text-brand-orange hover:bg-gray-100 focus-visible:ring-white focus-visible:ring-offset-brand-orange shadow-lg hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300 ease-in-out',
+    inverted: 'bg-brand-orange text-white hover:bg-orange-600 focus-visible:ring-brand-orange focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03] transition-all duration-300 ease-in-out',
+    secondary: 'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500 focus-visible:ring-offset-gray-900',
+    minimal: 'bg-transparent text-blue-600 hover:text-blue-700 hover:underline focus-visible:ring-blue-500',
   };
   
   // Size styles
@@ -69,7 +69,7 @@ export function Button({
   };
   
   // Base classes
-  const baseClasses = 'inline-flex items-center justify-center rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2';
+  const baseClasses = 'inline-flex items-center justify-center rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
   
   // Combine all classes
   const combinedClasses = [

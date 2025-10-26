@@ -134,7 +134,7 @@ export function ContentCard({
       data-has-image={!!image}
       itemScope
       itemType="https://schema.org/Article"
-      className={`${variantClasses[variant].container} ${variantClasses[variant].outer} focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+      className={`${variantClasses[variant].container} ${variantClasses[variant].outer} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2`}
       tabIndex={0}
     >
       {/* Screen Reader Only - Comprehensive Description */}

@@ -96,7 +96,7 @@ export function Navbar() {
       {/* Skip Navigation Link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white px-4 py-2 z-[100] rounded-md m-2 focus:outline-none"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white px-4 py-2 z-[100] rounded-md m-2 focus-visible:outline-none"
         onFocus={(e) => e.target.scrollIntoView()}
       >
         Skip to main content
@@ -174,7 +174,7 @@ export function Navbar() {
                           }}
                           className={`
                             inline-flex items-center px-3 pb-1 text-base min-h-[44px]
-                            focus:outline-none transition-colors duration-200
+                            focus-visible:outline-none transition-colors duration-200
                             ${
                               isActive
                                 ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -228,7 +228,7 @@ export function Navbar() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={`
                           block px-3 pb-1 text-base min-h-[44px]
-                          focus:outline-none transition-colors duration-200
+                          focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
                               ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -253,7 +253,7 @@ export function Navbar() {
           {/* Mobile: Hamburger on the right */}
           <button
             ref={menuButtonRef}
-            className="md:hidden text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-2 min-w-[44px] min-h-[44px]"
+            className="md:hidden text-gray-800 dark:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md p-2 min-w-[44px] min-h-[44px]"
             onClick={toggleMenu}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -328,7 +328,7 @@ export function Navbar() {
                         }}
                         className={`
                           w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-base
-                          focus:outline-none transition-colors duration-200
+                          focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
                               ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -389,7 +389,7 @@ export function Navbar() {
                       }}
                       className={`
                         block py-2 px-3 rounded-md text-base
-                        focus:outline-none transition-colors duration-200
+                        focus-visible:outline-none transition-colors duration-200
                         ${
                           isActive
                             ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"

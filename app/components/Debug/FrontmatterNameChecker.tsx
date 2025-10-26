@@ -99,7 +99,7 @@ export function FrontmatterNameChecker() {
               value={nameToCheck}
               onChange={(e) => setNameToCheck(e.target.value)}
               placeholder="Enter a name to validate"
-              className="flex-1 rounded border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+              className="flex-1 rounded border-gray-300 shadow-sm focus-visible:border-blue-500 focus-visible:ring-blue-500"
             />
             <button
               type="button"

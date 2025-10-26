@@ -159,9 +159,9 @@ export function Caption({ frontmatter, config }: CaptionProps) {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {captionData.beforeText && (
             <div className="p-6 md:p-8 card-background rounded-lg">
-              <h3 className="mb-3">
+              <h4>
                 Before Treatment
-              </h3>
+              </h4>
               <div className="text-gray-300 text-sm leading-relaxed">
                 <MarkdownRenderer content={emphasizeFirstSentence(captionData.beforeText)} />
               </div>
@@ -169,9 +169,9 @@ export function Caption({ frontmatter, config }: CaptionProps) {
           )}
           {captionData.afterText && (
             <div className="p-6 md:p-8 card-background rounded-lg">
-              <h3 className="mb-3">
+              <h4>
                 After Treatment
-              </h3>
+              </h4>
               <div className="text-gray-300 text-sm leading-relaxed">
                 <MarkdownRenderer content={emphasizeFirstSentence(captionData.afterText)} />
               </div>
