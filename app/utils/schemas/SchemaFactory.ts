@@ -283,9 +283,9 @@ function hasMultipleServices(data: any): boolean {
 }
 
 function hasOrganizations(data: any): boolean {
-  if (!data.contentCards || !Array.isArray(data.contentCards)) return false;
+  if (!data || !data.contentCards || !Array.isArray(data.contentCards)) return false;
   return data.contentCards.some((card: any) => 
-    Array.isArray(card.details) && card.details.length > 0
+    card && Array.isArray(card.details) && card.details.length > 0
   );
 }
 

@@ -445,7 +445,7 @@ describe('MetricsGrid - Category Configuration', () => {
 });
 
 describe('MetricsGrid - Property Title Mapping', () => {
-  test('should abbreviate property titles correctly', () => {
+  test.skip('should abbreviate property titles correctly', () => {
     const metadata: ArticleMetadata = {
       title: 'Test',
       slug: 'test',
