@@ -29,41 +29,40 @@ export function Hero({
 }: HeroProps) {
   // Minimal state - only what's essential
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(true); // Hero is above-fold, always visible
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
-  // Detect mobile device
+  // Detect mobile device - deferred to not block LCP
   useEffect(() => {
+    // Use requestIdleCallback to defer non-critical work
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(checkMobile);
+    } else {
+      setTimeout(checkMobile, 1);
+    }
+    
+    const handleResize = () => {
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(checkMobile);
+      } else {
+        setTimeout(checkMobile, 1);
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const themeClass = `theme-${theme}`;
   
-  // Intersection Observer for lazy loading
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '50px' }
-    );
-
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  // Remove Intersection Observer - Hero is always above fold, should load immediately
+  // This reduces JavaScript execution before LCP
   
   // Get video ID from frontmatter
   const videoId = frontmatter?.video;

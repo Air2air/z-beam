@@ -6,20 +6,25 @@ import { Navbar } from "./components/Navigation/nav";
 import dynamic from 'next/dynamic';
 
 // Defer ALL non-critical components to reduce initial JS bundle
+// Load after page interactive to not impact LCP
 const SpeedInsights = dynamic(() => import("@vercel/speed-insights/next").then(mod => ({ default: mod.SpeedInsights })), {
   ssr: false,
+  loading: () => null,
 });
 
 const Analytics = dynamic(() => import("@vercel/analytics/react").then(mod => ({ default: mod.Analytics })), {
   ssr: false,
+  loading: () => null,
 });
 
 const Footer = dynamic(() => import("./components/Navigation/footer").then(mod => ({ default: mod.default })), {
   ssr: false,
+  loading: () => null,
 });
 
 const ConditionalCTA = dynamic(() => import("./components/CTA").then(mod => ({ default: mod.ConditionalCTA })), {
   ssr: false,
+  loading: () => null,
 });
 import { SITE_CONFIG } from "./utils/constants";
 import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
@@ -137,10 +142,29 @@ export default async function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
+        {/* Preload critical font files to reduce LCP chain */}
+        <link
+          rel="preload"
+          href="/_next/static/media/geist-sans-bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/_next/static/media/geist-sans-regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        
         {/* Critical resource hints for better LCP and TTFB */}
-        <link rel="preconnect" href="https://img.youtube.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+        <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
+        
+        {/* Defer non-critical third-party connections */}
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
         <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
         
         <link rel="icon" href="/favicon.ico" sizes="any" />

@@ -46,6 +46,16 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Link',
+            // Preload critical resources to break dependency chains
+            value: '</images/logo/logo-.png>; rel=preload; as=image; fetchpriority=high'
+          }
+        ]
+      },
+      {
         source: '/images/(.*)',
         headers: [
           {
