@@ -176,7 +176,7 @@ describe('Centralized Types - Component Props', () => {
       config: {
         showHeader: true,
         caption: 'Test Table',
-        variant: 'sectioned'
+        variant: 'compact'
       },
       striped: true,
       responsive: true

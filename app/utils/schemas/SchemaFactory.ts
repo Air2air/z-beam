@@ -172,7 +172,14 @@ export class SchemaFactory {
     });
     this.register('FAQ', generateFAQSchema, {
       priority: 55,
-      condition: (data) => data.faq || data.frontmatter?.outcomeMetrics
+      condition: (data) => {
+        // Check for explicit FAQ data
+        if (data.faq || data.frontmatter?.faq) return true;
+        
+        // Check for FAQ-generating frontmatter (used by MaterialFAQ component)
+        const fm = data.frontmatter || {};
+        return !!(fm.outcomeMetrics || fm.applications || fm.environmentalImpact);
+      }
     });
     this.register('Event', generateEventSchema, {
       priority: 50,
@@ -184,7 +191,11 @@ export class SchemaFactory {
     });
     this.register('VideoObject', generateVideoObjectSchema, {
       priority: 40,
-      condition: (data) => data.video || data.youtubeUrl
+      condition: (data) => {
+        // Always include video for material pages (default video: eGgMJdjRUJk)
+        const isMaterialPage = data.frontmatter?.materialProperties || data.frontmatter?.category;
+        return !!(data.video || data.youtubeUrl || data.frontmatter?.video || isMaterialPage);
+      }
     });
     this.register('ImageObject', generateImageObjectSchema, {
       priority: 35,
@@ -801,17 +812,41 @@ function generateFAQSchema(data: any, context: SchemaContext): any | null {
  * VideoObject Schema
  */
 function generateVideoObjectSchema(data: any, context: SchemaContext): any | null {
-  const videoUrl = data.video || data.youtubeUrl;
-  if (!videoUrl) return null;
+  // Check for explicit video URL or use default YouTube video
+  const videoUrl = data.video || data.youtubeUrl || data.frontmatter?.video;
+  const youtubeId = videoUrl || 'eGgMJdjRUJk'; // Default demo video
+  
+  // Always include video schema for material pages
+  const isMaterialPage = data.frontmatter?.materialProperties || data.frontmatter?.category;
+  
+  if (!videoUrl && !isMaterialPage) return null;
+
+  const embedUrl = youtubeId.includes('youtube.com') || youtubeId.includes('youtu.be')
+    ? youtubeId
+    : `https://www.youtube.com/watch?v=${youtubeId}`;
+  
+  const thumbnailUrl = youtubeId.includes('youtube.com') || youtubeId.includes('youtu.be')
+    ? `https://img.youtube.com/vi/${youtubeId.split('/').pop()?.split('?')[0]}/maxresdefault.jpg`
+    : `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
 
   return {
     '@type': 'VideoObject',
     '@id': `${context.pageUrl}#video`,
-    'name': `${data.title || 'Video'} - Laser Cleaning Demonstration`,
-    'description': data.description || `Demonstration of laser cleaning process`,
-    'contentUrl': videoUrl,
-    'uploadDate': data.videoUploadDate || context.currentDate,
-    'thumbnailUrl': data.videoThumbnail || getMainImage(data)?.url
+    'name': `${data.frontmatter?.name || data.title || 'Material'} - Laser Cleaning Demonstration`,
+    'description': data.frontmatter?.description || data.description || `Demonstration of laser cleaning process for ${data.frontmatter?.name || 'this material'}`,
+    'contentUrl': embedUrl,
+    'embedUrl': `https://www.youtube.com/embed/${youtubeId}`,
+    'uploadDate': data.videoUploadDate || '2024-01-15',
+    'thumbnailUrl': data.videoThumbnail || thumbnailUrl,
+    'duration': 'PT2M30S',
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'Z-Beam Laser Cleaning',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${SITE_CONFIG.url}/images/favicon/favicon-350.png`
+      }
+    }
   };
 }
 

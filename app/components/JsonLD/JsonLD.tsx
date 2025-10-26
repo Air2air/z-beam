@@ -19,10 +19,13 @@ import type {
  * @returns Script tag with JSON-LD structured data
  */
 export function JsonLD({ data }: JsonLdProps) {
+  // Remove unnecessary escaped forward slashes for cleaner markup
+  const jsonString = JSON.stringify(data).replace(/\\\//g, '/');
+  
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: jsonString }}
     />
   );
 }
@@ -73,11 +76,14 @@ export function MaterialJsonLD({
     return null;
   }
   
+  // Remove unnecessary escaped forward slashes for cleaner markup
+  const jsonString = JSON.stringify(jsonLdSchema, null, 2).replace(/\\\//g, '/');
+  
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(jsonLdSchema, null, 2)
+        __html: jsonString
       }}
     />
   );

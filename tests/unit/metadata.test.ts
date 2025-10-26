@@ -91,6 +91,46 @@ describe('Enhanced Metadata Generation', () => {
 
       expect(result.openGraph.images[0].alt).toContain('Marble Laser Etching');
     });
+
+    it('should use dynamic dimensions from frontmatter when provided', () => {
+      const metadata: ArticleMetadata = {
+        title: 'Ultra HD Material',
+        slug: 'ultra-hd-material',
+        description: 'Test description',
+        images: {
+          hero: {
+            url: '/images/ultra-hd-hero.jpg',
+            alt: 'Ultra HD surface',
+            width: 3840,
+            height: 2160,
+          },
+        },
+      };
+
+      const result = createMetadata(metadata);
+
+      expect(result.openGraph.images[0].width).toBe(3840);
+      expect(result.openGraph.images[0].height).toBe(2160);
+    });
+
+    it('should fallback to default dimensions when not in frontmatter', () => {
+      const metadata: ArticleMetadata = {
+        title: 'No Dimensions Material',
+        slug: 'no-dimensions-material',
+        description: 'Test description',
+        images: {
+          hero: {
+            url: '/images/no-dims-hero.jpg',
+            alt: 'Hero without dimensions',
+          },
+        },
+      };
+
+      const result = createMetadata(metadata);
+
+      expect(result.openGraph.images[0].width).toBe(1200);
+      expect(result.openGraph.images[0].height).toBe(630);
+    });
   });
 
   describe('Twitter Card Generation', () => {

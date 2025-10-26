@@ -54,12 +54,17 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Extract hero image from images.hero or fall back to legacy image field
   // This ensures consistent image usage across OG, Twitter, and JSON-LD
   let heroImageUrl: string | undefined;
+  let heroImageWidth: number | undefined;
+  let heroImageHeight: number | undefined;
+  
   if (images && typeof images === 'object' && 'hero' in images) {
     const hero = (images as any).hero;
     if (hero && hero.url) {
       heroImageUrl = hero.url.startsWith('http') 
         ? hero.url 
         : `${SITE_CONFIG.url}${hero.url}`;
+      heroImageWidth = hero.width;
+      heroImageHeight = hero.height;
     }
   }
   // Fall back to legacy image field
@@ -115,12 +120,12 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       siteName: SITE_CONFIG.name,
       locale: 'en_US',
       
-      // Use hero image for OpenGraph
+      // Use hero image for OpenGraph with frontmatter dimensions
       images: heroImageUrl ? [{
         url: heroImageUrl,
         alt: heroImageAlt,
-        width: 1200,
-        height: 630,
+        width: heroImageWidth || 1200,
+        height: heroImageHeight || 630,
         type: 'image/jpeg',
       }] : undefined,
       

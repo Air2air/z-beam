@@ -36,11 +36,17 @@ The SchemaFactory is a unified JSON-LD schema generation system that replaces ma
 - **LocalBusiness** - Physical business locations (priority: 85)
 - **HowTo** - Step-by-step guides (priority: 60)
 - **FAQ** - Frequently asked questions (priority: 55)
+  - Auto-detects FAQ data from explicit `faq` field
+  - Also detects FAQ-generating frontmatter (outcomeMetrics, applications, environmentalImpact)
+  - Material pages automatically generate FAQPage schema
 - **Event** - Events, webinars (priority: 50)
 - **AggregateRating** - Product/service ratings (priority: 45)
 
 ### Media Schemas
 - **VideoObject** - Video content with enhanced metadata (priority: 40)
+  - Automatically included for all material pages
+  - Default YouTube video: eGgMJdjRUJk
+  - Includes embed URL, thumbnail, publisher info, duration
 - **ImageObject** - Images with detailed metadata (priority: 35)
 - **ContactPoint** - Contact information (priority: 30)
 

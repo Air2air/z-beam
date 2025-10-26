@@ -32,7 +32,9 @@ describe('MaterialJsonLD Component', () => {
       images: {
         hero: {
           url: '/images/test-material.jpg',
-          alt: 'Test Material Microscopy'
+          alt: 'Test Material Microscopy',
+          width: 1920,
+          height: 1080
         }
       },
       caption: {
@@ -386,5 +388,60 @@ describe('MaterialJsonLD Component', () => {
 
     const script = container.querySelector('script[type="application/ld+json"]');
     expect(script).toBeNull();
+  });
+
+  it('should output clean JSON-LD without escaped forward slashes', () => {
+    const { container } = render(
+      <MaterialJsonLD article={baseArticle} slug="test-material" />
+    );
+
+    const script = container.querySelector('script[type="application/ld+json"]');
+    const jsonText = script?.textContent || '';
+    
+    // URLs should NOT have escaped slashes
+    expect(jsonText).not.toContain('\\/');
+    expect(jsonText).toContain('https://www.z-beam.com');
+    expect(jsonText).toContain('"@id":"https://www.z-beam.com/test-material"');
+  });
+
+  it('should include default VideoObject for material pages', () => {
+    const { container } = render(
+      <MaterialJsonLD article={baseArticle} slug="test-material" />
+    );
+
+    const script = container.querySelector('script[type="application/ld+json"]');
+    const jsonLd = JSON.parse(script?.textContent || '{}');
+    const videoObject = jsonLd['@graph']?.find((item: any) => item['@type'] === 'VideoObject');
+
+    expect(videoObject).toBeDefined();
+    expect(videoObject.embedUrl).toContain('eGgMJdjRUJk');
+    expect(videoObject.thumbnailUrl).toContain('eGgMJdjRUJk');
+  });
+
+  it('should auto-detect FAQ schema from material frontmatter', () => {
+    const articleWithFaqData = {
+      ...baseArticle,
+      metadata: {
+        ...baseArticle.metadata,
+        outcomeMetrics: [
+          {
+            metric: 'Cleaning Efficiency',
+            value: '99.5%',
+            description: 'Surface contaminant removal rate'
+          }
+        ]
+      }
+    };
+
+    const { container } = render(
+      <MaterialJsonLD article={articleWithFaqData} slug="test-material" />
+    );
+
+    const script = container.querySelector('script[type="application/ld+json"]');
+    const jsonLd = JSON.parse(script?.textContent || '{}');
+    const faqPage = jsonLd['@graph']?.find((item: any) => item['@type'] === 'FAQPage');
+
+    expect(faqPage).toBeDefined();
+    expect(faqPage.mainEntity).toBeDefined();
   });
 });

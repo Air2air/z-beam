@@ -36,6 +36,8 @@ return factory.generate(); // Returns complete JSON-LD with @graph
 
 **Supported Schema Types**: WebPage, BreadcrumbList, Organization, Article, Product, Service, LocalBusiness, Course, HowTo, FAQ, Event, AggregateRating, VideoObject, ImageObject, ContactPoint, Person, Dataset, Certification, ItemList, CollectionPage
 
+**Output Format**: All JSON-LD output uses clean, unescaped forward slashes (e.g., `https://example.com` not `https:\/\/example.com`) for optimal readability and standards compliance.
+
 ---
 
 ## ✅ Correct Patterns
