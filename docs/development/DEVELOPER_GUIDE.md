@@ -520,7 +520,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.ico' },
-      { url: '/images/Favicon/favicon_350.png', type: 'image/png' },
+      { url: '/images/Favicon/favicon-350.png', type: 'image/png' },
     ],
     apple: [
       { url: '/images/icons/apple-touch-icon.png' },

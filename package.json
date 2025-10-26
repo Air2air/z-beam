@@ -62,7 +62,12 @@
     "validate:all": "npm run validate:naming && npm run validate:metadata && npm run validate:startup && npm run validate:content && npm run validate:grok && npm run validate:jsonld && npm run audit:components",
     "pagespeed": "node scripts/pagespeed-audit.js https://z-beam.com",
     "pagespeed:mobile": "node scripts/pagespeed-audit.js https://z-beam.com mobile",
-    "pagespeed:desktop": "node scripts/pagespeed-audit.js https://z-beam.com desktop"
+    "pagespeed:desktop": "node scripts/pagespeed-audit.js https://z-beam.com desktop",
+    "update-freshness": "node scripts/update-freshness-timestamps.js",
+    "update-freshness:execute": "node scripts/update-freshness-timestamps.js --execute",
+    "update-freshness:weekly": "node scripts/update-freshness-timestamps.js --execute --batch=25 --oldest",
+    "verify:freshness": "bash scripts/verify-freshness-integration.sh",
+    "setup:freshness": "bash scripts/setup-freshness-hooks.sh"
   },
   "dependencies": {
     "@babel/runtime": "^7.28.4",

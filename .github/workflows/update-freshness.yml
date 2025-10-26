@@ -1,0 +1,186 @@
+name: Update Content Freshness
+
+# Automated weekly timestamp updates to maintain Google freshness signals
+# Runs every Monday at 9 AM UTC (configurable)
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  
+  # Allow manual triggering from GitHub Actions UI
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: 'Number of files to update'
+        required: false
+        default: '25'
+      dry_run:
+        description: 'Dry run (preview only, no changes)'
+        required: false
+        default: 'false'
+
+jobs:
+  update-freshness:
+    name: Update Frontmatter Timestamps
+    runs-on: ubuntu-latest
+    
+    steps:
+      # ========================================
+      # 1. CHECKOUT CODE
+      # ========================================
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Full history for accurate git operations
+      
+      # ========================================
+      # 2. SETUP NODE.JS
+      # ========================================
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      # ========================================
+      # 3. INSTALL DEPENDENCIES
+      # ========================================
+      - name: Install dependencies
+        run: npm ci
+      
+      # ========================================
+      # 4. DRY RUN (PREVIEW)
+      # ========================================
+      - name: Preview changes (dry run)
+        if: github.event.inputs.dry_run == 'true'
+        run: |
+          echo "🔍 Running in DRY RUN mode - no changes will be made"
+          npm run update-freshness -- --batch=${{ github.event.inputs.batch_size || '25' }}
+      
+      # ========================================
+      # 5. EXECUTE UPDATES
+      # ========================================
+      - name: Update freshness timestamps
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          echo "⚡ Executing freshness timestamp updates..."
+          npm run update-freshness:execute -- --batch=${{ github.event.inputs.batch_size || '25' }} --oldest
+      
+      # ========================================
+      # 6. VERIFY INTEGRATION
+      # ========================================
+      - name: Verify freshness integration
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          echo "🔍 Verifying freshness timestamp integration..."
+          npm run verify:freshness
+      
+      # ========================================
+      # 7. COMMIT CHANGES
+      # ========================================
+      - name: Commit timestamp updates
+        if: github.event.inputs.dry_run != 'true'
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if there are changes to commit
+          if git diff --quiet content/frontmatter/ content/.freshness-updates.json; then
+            echo "No changes to commit"
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            git add content/frontmatter/ content/.freshness-updates.json
+            
+            # Get count of updated files
+            UPDATED_COUNT=$(git diff --cached --name-only content/frontmatter/ | wc -l | tr -d ' ')
+            
+            git commit -m "chore: update content freshness timestamps ($UPDATED_COUNT files) [skip ci]"
+            
+            echo "Committed $UPDATED_COUNT file updates"
+            echo "changes=true" >> $GITHUB_OUTPUT
+            echo "updated_count=$UPDATED_COUNT" >> $GITHUB_OUTPUT
+          fi
+      
+      # ========================================
+      # 8. PUSH CHANGES
+      # ========================================
+      - name: Push changes
+        if: steps.commit.outputs.changes == 'true' && github.event.inputs.dry_run != 'true'
+        run: |
+          git push origin main
+          echo "✅ Changes pushed to repository"
+      
+      # ========================================
+      # 9. TRIGGER DEPLOYMENT
+      # ========================================
+      - name: Trigger Vercel deployment
+        if: steps.commit.outputs.changes == 'true' && github.event.inputs.dry_run != 'true'
+        run: |
+          echo "🚀 Deployment will be triggered automatically by Vercel"
+          echo "   Updated ${{ steps.commit.outputs.updated_count }} files"
+          echo "   Monitor deployment: https://vercel.com/z-beam/deployments"
+      
+      # ========================================
+      # 10. GENERATE SUMMARY
+      # ========================================
+      - name: Generate workflow summary
+        if: always()
+        run: |
+          echo "# Freshness Timestamp Update Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ github.event.inputs.dry_run }}" == "true" ]; then
+            echo "## 👁️ Dry Run Mode" >> $GITHUB_STEP_SUMMARY
+            echo "No changes were made (preview only)" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ steps.commit.outputs.changes }}" == "true" ]; then
+            echo "## ✅ Update Successful" >> $GITHUB_STEP_SUMMARY
+            echo "- **Files Updated**: ${{ steps.commit.outputs.updated_count }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Batch Size**: ${{ github.event.inputs.batch_size || '25' }}" >> $GITHUB_STEP_SUMMARY
+            echo "- **Timestamp**: $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Next Steps" >> $GITHUB_STEP_SUMMARY
+            echo "1. ✅ Changes committed and pushed" >> $GITHUB_STEP_SUMMARY
+            echo "2. 🚀 Vercel deployment triggered automatically" >> $GITHUB_STEP_SUMMARY
+            echo "3. 📊 Monitor Google Search Console for freshness impact" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## ℹ️ No Updates Needed" >> $GITHUB_STEP_SUMMARY
+            echo "All files are within freshness interval" >> $GITHUB_STEP_SUMMARY
+          fi
+
+# ============================================
+# WORKFLOW CONFIGURATION NOTES
+# ============================================
+#
+# MANUAL TRIGGERING:
+# 1. Go to Actions tab in GitHub
+# 2. Select "Update Content Freshness" workflow
+# 3. Click "Run workflow"
+# 4. Configure batch_size and dry_run options
+#
+# SCHEDULED RUNS:
+# - Runs automatically every Monday at 9 AM UTC
+# - Updates 25 oldest files (default)
+# - Commits and pushes changes automatically
+# - Triggers Vercel deployment
+#
+# DRY RUN MODE:
+# - Preview changes without committing
+# - Useful for testing before mass updates
+# - Set dry_run=true in manual trigger
+#
+# CUSTOMIZATION:
+# - Adjust cron schedule in 'schedule' section
+# - Change default batch size (default: 25)
+# - Modify commit message format
+# - Add notification integrations (Slack, email, etc.)
+#
+# MONITORING:
+# - Check workflow runs: https://github.com/<org>/<repo>/actions
+# - Review commit history: content/frontmatter/
+# - Verify tracking: content/.freshness-updates.json
+# - Monitor deployments: https://vercel.com/<org>/deployments
+#
+# ============================================
