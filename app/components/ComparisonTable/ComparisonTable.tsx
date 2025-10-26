@@ -10,6 +10,7 @@ interface ComparisonTableProps {
   model2Data: any;
   model1Name?: string;
   model2Name?: string;
+  variant?: 'default' | 'compact' | 'sectioned';
 }
 
 /**
@@ -21,7 +22,8 @@ export function ComparisonTable({
   model1Data, 
   model2Data,
   model1Name = 'Model 1',
-  model2Name = 'Model 2'
+  model2Name = 'Model 2',
+  variant = 'default'
 }: ComparisonTableProps) {
   if (!model1Data || !model2Data) {
     return null;
@@ -99,10 +101,12 @@ export function ComparisonTable({
   const renderGroup = (sectionName: string, keys: string[]) => {
     if (keys.length === 0) return null;
 
+    const isCompact = variant === 'compact';
+    
     return (
       <React.Fragment key={sectionName}>
         <tr className="bg-gray-100 dark:bg-gray-800">
-          <td colSpan={3} className="px-6 py-3 text-sm font-semibold text-gray-900 dark:text-gray-100">
+          <td colSpan={3} className={`${isCompact ? 'px-4 py-2' : 'px-6 py-3'} text-sm font-semibold text-gray-900 dark:text-gray-100`}>
             {sectionName}
           </td>
         </tr>
@@ -116,13 +120,13 @@ export function ComparisonTable({
               key={key} 
               className={index % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}
             >
-              <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap">
+              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap`}>
                 {label}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm text-gray-700 dark:text-gray-300`}>
                 {renderValue(value1)}
               </td>
-              <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm text-gray-700 dark:text-gray-300`}>
                 {renderValue(value2)}
               </td>
             </tr>
@@ -142,13 +146,13 @@ export function ComparisonTable({
         <table className="w-full">
           <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3">
+              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3`}>
                 Property
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3">
+              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3`}>
                 {model1Name}
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3">
+              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3`}>
                 {model2Name}
               </th>
             </tr>

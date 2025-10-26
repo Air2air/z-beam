@@ -148,10 +148,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     // Twitter Card for enhanced social sharing with video player
     twitter: {
       card: 'player',
+      site: '@ZBeamLaser',
       title: actualTitle || formattedTitle,
       description: fullDescription,
       images: heroImageUrl ? [heroImageUrl] : undefined,
-      creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : undefined,
+      creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : '@ZBeamLaser',
       players: [{
         playerUrl: 'https://www.youtube.com/embed/eGgMJdjRUJk',
         streamUrl: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
@@ -174,6 +175,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       // Content categorization (E-E-A-T: Authoritativeness)
       ...(category ? { 'article:section': extractSafeValue(category) } : {}),
       ...(materialName ? { 'material-name': extractSafeValue(materialName) } : {}),
+      
+      // Material-specific technical metadata
+      ...(category ? { 'material:category': extractSafeValue(category) } : {}),
     },
   };
   

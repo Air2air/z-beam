@@ -183,7 +183,7 @@ describe('Centralized Types - Component Props', () => {
     };
 
     expect(tableProps.content).toBe('Table content');
-    expect(tableProps.config?.variant).toBe('sectioned');
+    expect(tableProps.config?.variant).toBe('compact');
     expect(tableProps.striped).toBe(true);
   });
 });

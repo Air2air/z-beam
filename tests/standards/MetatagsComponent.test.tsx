@@ -20,7 +20,7 @@ const parseYamlFile = (content: string) => {
 };
 
 describe('Metatags Component Implementation', () => {
-  const metatagsDirPath = path.join(process.cwd(), 'content', 'components', 'metatags');
+  const metatagsDirPath = path.join(process.cwd(), 'content', 'components', 'metatags.deprecated');
   let metatagFiles: string[] = [];
 
   beforeAll(() => {
@@ -30,15 +30,15 @@ describe('Metatags Component Implementation', () => {
   });
 
   describe('Metatags Directory Structure', () => {
-    test('should have metatags directory', () => {
+    test.skip('should have metatags directory (DEPRECATED - now using dynamic createMetadata)', () => {
       expect(fs.existsSync(metatagsDirPath)).toBe(true);
     });
 
-    test('should contain YAML files', () => {
+    test.skip('should contain YAML files (DEPRECATED)', () => {
       expect(metatagFiles.length).toBeGreaterThan(0);
     });
 
-    test('should follow naming convention', () => {
+    test.skip('should follow naming convention (DEPRECATED)', () => {
       metatagFiles.forEach(file => {
         expect(file).toMatch(/^[a-z0-9-]+\.yaml$/);
         expect(file).toContain('laser-cleaning');

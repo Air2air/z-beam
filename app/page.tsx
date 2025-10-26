@@ -23,21 +23,11 @@ export async function generateMetadata() {
     const yamlContent = await fs.readFile(yamlPath, 'utf8');
     const homeConfig = yaml.load(yamlContent) as ArticleMetadata;
 
-    // Try to get the home-specific metatags component
-    const homeMetaTags = await loadComponentData('metatags', 'home');
-
     return createMetadata({
-      title: (homeMetaTags?.config?.title as string) || homeConfig?.title || SITE_CONFIG.name,
-      description: (homeMetaTags?.config?.description as string) || 
-        homeConfig?.description ||
-        SITE_CONFIG.description,
-      keywords: homeConfig?.keywords || 
-        (Array.isArray(homeMetaTags?.config?.keywords) 
-          ? homeMetaTags.config.keywords 
-          : typeof homeMetaTags?.config?.keywords === 'string' 
-            ? [homeMetaTags.config.keywords] 
-            : undefined),
-      image: (homeMetaTags?.config?.ogImage as string) || "/images/home-og.jpg",
+      title: homeConfig?.title || SITE_CONFIG.name,
+      description: homeConfig?.description || SITE_CONFIG.description,
+      keywords: homeConfig?.keywords || [...SITE_CONFIG.keywords],
+      image: "/images/home-og.jpg",
       slug: "home",
     });
   } catch (error) {

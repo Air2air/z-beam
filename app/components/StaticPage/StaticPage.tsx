@@ -158,6 +158,7 @@ export async function StaticPage({
                 model2Data={pageConfig.needle200_300}
                 model1Name="Needle® 100/150"
                 model2Name="Needle® 200/300"
+                variant="compact"
               />
             </div>
           )}

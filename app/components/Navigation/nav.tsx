@@ -103,7 +103,7 @@ export function Navbar() {
       </a>
       
       {/* The main container for the entire header/navbar, spans full width */}
-      <header className="w-full bg-white dark:bg-gray-800 shadow-md z-50 relative" role="banner">{/* Role for better screen reader support */}
+      <header className="w-full bg-white dark:bg-gray-800 shadow-md z-50 relative md:h-20" role="banner">{/* Role for better screen reader support */}
         {/* Van image superimposed over nav bar - clickable link to contact */}
         <Link 
           href="/contact" 
@@ -120,9 +120,9 @@ export function Navbar() {
           />
         </Link>
         
-        <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-2 md:py-3') + ' flex justify-between items-center'}>
+        <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-2 md:py-0') + ' flex justify-between items-center md:items-end md:h-full'}>
           {/* Logo on the left */}
-          <div className="flex-shrink-0 pl-4 md:pl-6">
+          <div className="flex-shrink-0 pl-4 md:pl-6 md:self-center">
             <Link
               href="/"
               aria-label={`${SITE_CONFIG.name} home page`}
@@ -142,22 +142,23 @@ export function Navbar() {
           {/* Desktop: Nav menu in center */}
           <nav
             ref={menuRef}
-            className="hidden md:flex md:flex-row md:space-x-8 flex-1 justify-end mr-4"
+            className="hidden md:flex md:flex-row md:space-x-8 flex-1 justify-end items-end mr-4"
             id="main-navigation"
             role="navigation"
             aria-label="Main navigation"
           >
-            <ul className="flex flex-row space-x-8" role="menubar">
-              {navItems.map((item) => {
+            <ul className="flex flex-row space-x-8 items-end" role="menubar">
+              {navItems.map((item, index) => {
                 const isActive = pathname === item.href || (item.dropdown && item.dropdown.some(d => d.href === pathname));
                 const isExternal = item.href.startsWith("http");
                 const hasDropdown = item.dropdown && item.dropdown.length > 0;
+                const isLastItem = index === navItems.length - 1;
 
                 return (
                   <li key={item.href} role="none" className="relative">
                     {hasDropdown ? (
                       <div
-                        className="relative"
+                        className="relative h-full flex items-end"
                         onMouseEnter={() => handleMouseEnter(item.name)}
                         onMouseLeave={handleMouseLeave}
                       >
@@ -172,7 +173,7 @@ export function Navbar() {
                             }
                           }}
                           className={`
-                            inline-flex items-center py-2 px-3 rounded-md text-lg
+                            inline-flex items-center px-3 pb-1 text-base min-h-[44px]
                             focus:outline-none transition-colors duration-200
                             ${
                               isActive
@@ -190,7 +191,8 @@ export function Navbar() {
                         </button>
                         {openDropdown === item.name && item.dropdown && (
                           <div 
-                            className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50"
+                            className={`absolute ${isLastItem ? 'right-0' : 'left-0'} bg-white dark:bg-gray-800 rounded-b-md shadow-lg py-1 z-50`}
+                            style={{ top: 'calc(100% + 1px)' }}
                             onMouseEnter={() => handleMouseEnter(item.name)}
                             onMouseLeave={handleMouseLeave}
                           >
@@ -201,7 +203,7 @@ export function Navbar() {
                                   key={dropdownItem.href}
                                   href={dropdownItem.href}
                                   className={`
-                                    block px-4 py-2 text-sm
+                                    block px-4 py-2 text-base
                                     ${
                                       isDropdownActive
                                         ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -213,7 +215,7 @@ export function Navbar() {
                                 </Link>
                               );
                             })}
-                            <div className="px-4 py-2">
+                            <div className="px-4 py-2 whitespace-nowrap">
                               <ContactButton variant="inverted" size="sm" href="/contact" />
                             </div>
                           </div>
@@ -225,7 +227,7 @@ export function Navbar() {
                         target={isExternal ? "_blank" : "_self"}
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={`
-                          block py-2 px-3 rounded-md text-lg
+                          block px-3 pb-1 text-base min-h-[44px]
                           focus:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -325,7 +327,7 @@ export function Navbar() {
                           toggleDropdown(item.name);
                         }}
                         className={`
-                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-lg
+                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-base
                           focus:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -356,7 +358,7 @@ export function Navbar() {
                                 href={dropdownItem.href}
                                 onClick={closeMenu}
                                 className={`
-                                  block px-4 py-2 text-lg
+                                  block px-4 py-2 text-base
                                   ${
                                     isDropdownActive
                                       ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -386,7 +388,7 @@ export function Navbar() {
                         }
                       }}
                       className={`
-                        block py-2 px-3 rounded-md text-lg
+                        block py-2 px-3 rounded-md text-base
                         focus:outline-none transition-colors duration-200
                         ${
                           isActive

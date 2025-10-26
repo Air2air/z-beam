@@ -501,7 +501,7 @@ export const loadComponent = cache(async (
           
           return {
             content: processedContent,
-            config: { variant: 'sectioned' }, // Use sectioned variant for YAML-based tables
+            config: { variant: 'compact' }, // Use compact variant for YAML-based tables
           };
         }
       } else if (type === 'jsonld') {

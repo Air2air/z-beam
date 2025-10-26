@@ -247,9 +247,8 @@ export function ContentCard({
           <p 
             className={`text-base ${hasDetails ? 'leading-relaxed mb-4' : 'leading-normal'} ${currentTheme.text}`}
             itemProp="description"
-          >
-            {text}
-          </p>
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
           
           {/* Optional Details List */}
           {hasDetails && (
