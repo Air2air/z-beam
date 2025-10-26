@@ -38,6 +38,8 @@ const nextConfig = {
     optimizePackageImports: ['@vercel/analytics', '@vercel/speed-insights', 'react', 'react-dom'],
     // Enable CSS optimization
     optimizeCss: true,
+    // Modern JavaScript output - no unnecessary transpilation for modern browsers
+    forceSwcTransforms: true,
   },
 
   // Headers for caching (security headers moved to middleware.ts for CSP nonce support)
@@ -163,6 +165,17 @@ const nextConfig = {
     
     return config;
   },
+
+  // SWC compiler options for modern JavaScript output
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+
+  // Modern JavaScript target - reduces polyfills
+  swcMinify: true,
 }
 
 module.exports = withBundleAnalyzer(nextConfig);
