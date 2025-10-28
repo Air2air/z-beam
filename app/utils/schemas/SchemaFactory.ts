@@ -175,11 +175,12 @@ export class SchemaFactory {
       priority: 55,
       condition: (data) => {
         // Check for explicit FAQ data in multiple locations
+        // Material pages pass FAQ data via metadata from contentAPI
         if (data.faq || data.frontmatter?.faq || data.metadata?.faq) return true;
         
         // Check for FAQ-generating frontmatter (used by MaterialFAQ component)
         const fm = data.frontmatter || data.metadata || {};
-        return !!(fm.outcomeMetrics || fm.applications || fm.environmentalImpact);
+        return !!(fm.outcomeMetrics || fm.applications || fm.environmentalImpact || fm.faq);
       }
     });
     this.register('Event', generateEventSchema, {
@@ -299,12 +300,17 @@ function hasOrganizations(data: any): boolean {
 function generateWebPageSchema(data: any, context: SchemaContext): any {
   const { pageUrl, baseUrl } = context;
   
+  // Extract metadata from various possible locations
+  const metadata = data.metadata || data.frontmatter || data.pageConfig || {};
+  const title = metadata.title || data.title || 'Z-Beam';
+  const description = metadata.description || data.description || '';
+  
   return {
     '@type': hasOrganizations(data) ? 'CollectionPage' : 'WebPage',
     '@id': `${pageUrl}#webpage`,
     'url': pageUrl,
-    'name': data.title || data.pageConfig?.title || 'Z-Beam',
-    'description': data.description || data.pageConfig?.description || '',
+    'name': title,
+    'description': description,
     'inLanguage': 'en-US',
     'isPartOf': {
       '@type': 'WebSite',
@@ -317,9 +323,9 @@ function generateWebPageSchema(data: any, context: SchemaContext): any {
         'name': SITE_CONFIG.name
       }
     },
-    'datePublished': data.datePublished || data.pageConfig?.datePublished || context.currentDate,
-    'dateModified': data.lastModified || data.pageConfig?.lastModified || context.currentDate,
-    ...(data.keywords && { 'keywords': Array.isArray(data.keywords) ? data.keywords.join(', ') : data.keywords }),
+    'datePublished': metadata.datePublished || data.datePublished || context.currentDate,
+    'dateModified': metadata.dateModified || data.lastModified || data.lastModified || context.currentDate,
+    ...(metadata.keywords && { 'keywords': Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords }),
     ...(getMainImage(data) && { 'image': getMainImage(data) })
   };
 }
@@ -447,7 +453,7 @@ function generateOrganizationSchema(data: any, context: SchemaContext): any | nu
 }
 
 /**
- * Article/TechnicalArticle Schema
+ * Article/TechnicalArticle Schema - Enhanced with E-E-A-T signals
  */
 function generateArticleSchema(data: any, context: SchemaContext): any | null {
   const frontmatter = data.frontmatter || data.metadata || {};
@@ -457,6 +463,40 @@ function generateArticleSchema(data: any, context: SchemaContext): any | null {
   const description = frontmatter.description || data.description || '';
   
   if (!title) return null;
+
+  // Enhanced author with E-E-A-T credentials
+  const author = frontmatter.author || {};
+  const enhancedAuthor = generatePersonObject(author, baseUrl);
+  
+  // Add E-E-A-T signals to author
+  if (typeof enhancedAuthor === 'object' && enhancedAuthor['@type'] === 'Person') {
+    // Add jobTitle if available
+    if (author.title) {
+      enhancedAuthor.jobTitle = author.title;
+    }
+    
+    // Add affiliation (worksFor)
+    if (!enhancedAuthor.worksFor) {
+      enhancedAuthor.worksFor = {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl
+      };
+    }
+    
+    // Add expertise areas (knowsAbout)
+    if (author.expertise) {
+      enhancedAuthor.knowsAbout = author.expertise;
+    } else if (frontmatter.applications && frontmatter.applications.length > 0) {
+      // Use material applications as expertise areas
+      enhancedAuthor.knowsAbout = frontmatter.applications.join(', ');
+    }
+    
+    // Add country/nationality for geographic authority
+    if (author.country) {
+      enhancedAuthor.nationality = author.country;
+    }
+  }
 
   return {
     '@type': 'TechnicalArticle',
@@ -471,11 +511,15 @@ function generateArticleSchema(data: any, context: SchemaContext): any | null {
       '@type': 'WebPage',
       '@id': pageUrl
     },
-    'author': generatePersonObject(frontmatter.author, baseUrl),
+    'author': enhancedAuthor,
     'publisher': {
       '@type': 'Organization',
       'name': SITE_CONFIG.name,
-      'url': baseUrl
+      'url': baseUrl,
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${baseUrl}/images/favicon/favicon-350.png`
+      }
     },
     ...(getMainImage(data) && { 'image': getMainImage(data) }),
     ...(frontmatter.applications && {
@@ -483,7 +527,10 @@ function generateArticleSchema(data: any, context: SchemaContext): any | null {
         '@type': 'Thing',
         'name': app
       }))
-    })
+    }),
+    // E-E-A-T: Add expertise indicators
+    ...(frontmatter.subtitle && { 'abstract': frontmatter.subtitle }),
+    ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords })
   };
 }
 
@@ -748,48 +795,64 @@ function generateHowToSchema(data: any, context: SchemaContext): any | null {
 }
 
 /**
- * FAQ Schema
+ * FAQ Schema - Enhanced to handle both explicit FAQs and auto-generated from frontmatter
  */
 function generateFAQSchema(data: any, context: SchemaContext): any | null {
   const frontmatter = data.frontmatter || data.metadata || {};
   const faqs: any[] = [];
 
-  // Generate FAQs from frontmatter
-  if (frontmatter.applications && frontmatter.applications.length > 0) {
-    faqs.push({
-      '@type': 'Question',
-      'name': `What can laser cleaning be used for on ${frontmatter.name || 'this material'}?`,
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': `Laser cleaning is effective for: ${frontmatter.applications.join(', ')}`
-      }
-    });
-  }
-
-  if (frontmatter.environmentalImpact && frontmatter.environmentalImpact.length > 0) {
-    faqs.push({
-      '@type': 'Question',
-      'name': 'What are the environmental benefits?',
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': `Environmental benefits include: ${frontmatter.environmentalImpact.join(', ')}`
-      }
-    });
-  }
-
-  // Custom FAQs - check multiple possible locations
-  const faqData = data.faq || data.metadata?.faq || frontmatter.faq;
-  if (faqData && Array.isArray(faqData)) {
+  // Custom FAQs - check multiple possible locations (prioritize explicit FAQs)
+  const faqData = frontmatter.faq || data.metadata?.faq || data.faq;
+  if (faqData && Array.isArray(faqData) && faqData.length > 0) {
     faqData.forEach((item: any) => {
+      if (item.question && item.answer) {
+        faqs.push({
+          '@type': 'Question',
+          'name': item.question,
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': item.answer
+          }
+        });
+      }
+    });
+  }
+
+  // Only auto-generate FAQs if no explicit FAQs exist
+  if (faqs.length === 0) {
+    // Generate FAQs from applications
+    if (frontmatter.applications && Array.isArray(frontmatter.applications) && frontmatter.applications.length > 0) {
       faqs.push({
         '@type': 'Question',
-        'name': item.question,
+        'name': `What can laser cleaning be used for on ${frontmatter.name || 'this material'}?`,
         'acceptedAnswer': {
           '@type': 'Answer',
-          'text': item.answer
+          'text': `Laser cleaning is effective for: ${frontmatter.applications.join(', ')}`
         }
       });
-    });
+    }
+
+    // Generate FAQs from environmental impact
+    if (frontmatter.environmentalImpact && Array.isArray(frontmatter.environmentalImpact) && frontmatter.environmentalImpact.length > 0) {
+      // Extract benefit descriptions if environmentalImpact is array of objects
+      const benefits = frontmatter.environmentalImpact.map((item: any) => {
+        if (typeof item === 'string') return item;
+        if (item.benefit) return item.benefit;
+        if (item.description) return item.description;
+        return null;
+      }).filter(Boolean);
+      
+      if (benefits.length > 0) {
+        faqs.push({
+          '@type': 'Question',
+          'name': 'What are the environmental benefits?',
+          'acceptedAnswer': {
+            '@type': 'Answer',
+            'text': `Environmental benefits include: ${benefits.join(', ')}`
+          }
+        });
+      }
+    }
   }
 
   if (faqs.length === 0) return null;
@@ -802,15 +865,17 @@ function generateFAQSchema(data: any, context: SchemaContext): any | null {
 }
 
 /**
- * VideoObject Schema
+ * VideoObject Schema - Enhanced for material demonstrations
  */
 function generateVideoObjectSchema(data: any, context: SchemaContext): any | null {
+  const frontmatter = data.frontmatter || data.metadata || {};
+  
   // Check for explicit video URL or use default YouTube video
-  const videoUrl = data.video || data.youtubeUrl || data.frontmatter?.video;
+  const videoUrl = data.video || data.youtubeUrl || frontmatter.video;
   const youtubeId = videoUrl || 'eGgMJdjRUJk'; // Default demo video
   
   // Always include video schema for material pages
-  const isMaterialPage = data.frontmatter?.materialProperties || data.frontmatter?.category;
+  const isMaterialPage = frontmatter.materialProperties || frontmatter.category;
   
   if (!videoUrl && !isMaterialPage) return null;
 
@@ -822,11 +887,18 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): any | nul
     ? `https://img.youtube.com/vi/${youtubeId.split('/').pop()?.split('?')[0]}/maxresdefault.jpg`
     : `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
 
+  // Enhanced material-specific video title and description
+  const materialName = frontmatter.name || frontmatter.subject || data.title || 'this material';
+  const videoTitle = `${materialName} Laser Cleaning - Professional Demonstration`;
+  const videoDescription = frontmatter.description 
+    ? `See how laser cleaning effectively processes ${materialName}. ${frontmatter.description}`
+    : `Professional demonstration of laser cleaning process for ${materialName}. Watch how our advanced laser technology safely and effectively removes contaminants without damaging the material surface.`;
+
   return {
     '@type': 'VideoObject',
     '@id': `${context.pageUrl}#video`,
-    'name': `${data.frontmatter?.name || data.title || 'Material'} - Laser Cleaning Demonstration`,
-    'description': data.frontmatter?.description || data.description || `Demonstration of laser cleaning process for ${data.frontmatter?.name || 'this material'}`,
+    'name': videoTitle,
+    'description': videoDescription,
     'contentUrl': embedUrl,
     'embedUrl': `https://www.youtube.com/embed/${youtubeId}`,
     'uploadDate': data.videoUploadDate || '2024-01-15',
@@ -835,11 +907,19 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): any | nul
     'publisher': {
       '@type': 'Organization',
       'name': 'Z-Beam Laser Cleaning',
+      'url': SITE_CONFIG.url,
       'logo': {
         '@type': 'ImageObject',
         'url': `${SITE_CONFIG.url}/images/favicon/favicon-350.png`
       }
-    }
+    },
+    // E-E-A-T: Add subject matter for context
+    ...(frontmatter.category && {
+      'about': {
+        '@type': 'Thing',
+        'name': `${frontmatter.category} laser cleaning`
+      }
+    })
   };
 }
 
@@ -1100,9 +1180,22 @@ function generatePersonObject(author: any, baseUrl: string): any {
   const personObj: any = {
     '@type': 'Person',
     'name': author.name || 'Expert',
+    // E-E-A-T: Add professional credentials
     ...(author.jobTitle && { 'jobTitle': author.jobTitle }),
+    ...(author.title && !author.jobTitle && { 'jobTitle': author.title }), // Use title as jobTitle if jobTitle not set
     ...(author.email && { 'email': author.email }),
-    ...(author.url && { 'url': author.url })
+    ...(author.url && { 'url': author.url }),
+    // E-E-A-T: Add organizational affiliation
+    ...(author.affiliation && {
+      'affiliation': {
+        '@type': 'Organization',
+        'name': author.affiliation
+      }
+    }),
+    // E-E-A-T: Add expertise areas
+    ...(author.expertise && { 'knowsAbout': author.expertise }),
+    // E-E-A-T: Add geographic authority
+    ...(author.country && { 'nationality': author.country })
   };
 
   // E-E-A-T: Add sameAs links for authority
@@ -1110,9 +1203,11 @@ function generatePersonObject(author: any, baseUrl: string): any {
     personObj.sameAs = author.sameAs || author.socialProfiles;
   }
 
-  // E-E-A-T: Add credentials
+  // E-E-A-T: Add credentials/qualifications
   if (author.credentials || author.qualifications) {
-    personObj.knowsAbout = author.credentials || author.qualifications;
+    if (!personObj.knowsAbout) {
+      personObj.knowsAbout = author.credentials || author.qualifications;
+    }
   }
 
   return personObj;
