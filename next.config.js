@@ -89,7 +89,7 @@ const nextConfig = {
     ];
   },
 
-  // Redirects for old flat URLs to new hierarchical structure
+  // Redirects for URL structure changes
   async redirects() {
     const fs = require('fs').promises;
     const path = require('path');
@@ -112,12 +112,30 @@ const nextConfig = {
           const category = data.category.toLowerCase().replace(/\s+/g, '-');
           const subcategory = data.subcategory.toLowerCase().replace(/\s+/g, '-');
           
+          // Redirect old flat URLs to new categorized structure
           redirects.push({
             source: `/${slug}`,
-            destination: `/materials/${category}/${subcategory}/${slug}`,
+            destination: `/${category}/${subcategory}/${slug}`,
+            permanent: true // 301 redirect for SEO
+          });
+          
+          // Redirect old /materials/* URLs to new root-level categorized structure
+          redirects.push({
+            source: `/materials/${category}/${subcategory}/${slug}`,
+            destination: `/${category}/${subcategory}/${slug}`,
             permanent: true // 301 redirect for SEO
           });
         }
+      }
+      
+      // Also redirect category and subcategory pages from /materials
+      const categories = ['metal', 'rare-earth', 'ceramic', 'composite', 'glass', 'plastic', 'stone', 'semiconductor', 'building', 'wood'];
+      for (const category of categories) {
+        redirects.push({
+          source: `/materials/${category}`,
+          destination: `/${category}`,
+          permanent: true
+        });
       }
       
       return redirects;

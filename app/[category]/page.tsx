@@ -1,4 +1,4 @@
-// app/materials/[category]/page.tsx
+// app/[category]/page.tsx
 // Dynamic category pages with SEO optimization
 
 import { notFound } from 'next/navigation';
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: { category: string 
     description: categoryMetadata.description,
     keywords: categoryMetadata.keywords,
     image: categoryMetadata.ogImage,
-    slug: `materials/${category}`,
+    slug: `${category}`,
   });
 }
 
@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     description: categoryMetadata.description,
     breadcrumb: [
       { label: 'Home', href: '/' },
-      { label: categoryDisplayName, href: `/materials/${category}` }
+      { label: categoryDisplayName, href: `/${category}` }
     ]
   };
 
@@ -80,7 +80,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       title={pageTitle} 
       subtitle={pageSubtitle} 
       metadata={metadata as any}
-      slug={`materials/${category}`}
+      slug={`${category}`}
       fullWidth
     >
       {/* Materials Grid - no hero content in metadata, so Hero won't render */}

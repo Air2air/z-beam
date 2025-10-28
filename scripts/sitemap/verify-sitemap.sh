@@ -74,7 +74,10 @@ echo ""
 
 # Check material category routes
 echo "5️⃣  Validating material category routes..."
-REQUIRED_CATEGORIES=("metal" "ceramic" "composite" "semiconductor" "glass" "stone" "wood" "masonry" "plastic" "rareearth")
+
+# Define required material categories (must match frontmatter categories)
+REQUIRED_CATEGORIES=("metal" "ceramic" "composite" "semiconductor" "glass" "stone" "wood" "masonry" "plastic" "rare-earth")
+
 MISSING_CATEGORIES=()
 
 for category in "${REQUIRED_CATEGORIES[@]}"; do

@@ -31,7 +31,7 @@ const CATEGORY_MAP = {
   'Wood': 'wood',
   'Stone': 'stone',
   'Glass': 'glass',
-  'Rare-Earth': 'rareearth',  // Remove hyphen for single word
+  'Rare-Earth': 'rare-earth',
   'Natural': 'natural'
 };
 

@@ -1,4 +1,4 @@
-// app/materials/[category]/[subcategory]/page.tsx
+// app/[category]/[subcategory]/page.tsx
 import { notFound } from "next/navigation";
 import { getAllCategories, getSubcategoryInfo } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: PageProps) {
       `${subcategoryInfo.label} ${categoryLabel}`,
       'laser surface treatment'
     ],
-    slug: `materials/${category}/${subcategory}`
+    slug: `${category}/${subcategory}`
   });
 }
 
@@ -78,12 +78,12 @@ export default async function SubcategoryPage({ params }: PageProps) {
     subcategory: subcategory,
     breadcrumb: [
       { label: "Home", href: "/" },
-      { label: categoryLabel, href: `/materials/${category}` },
-      { label: subcategoryInfo.label, href: `/materials/${category}/${subcategory}` }
+      { label: categoryLabel, href: `/${category}` },
+      { label: subcategoryInfo.label, href: `/${category}/${subcategory}` }
     ]
   };
   
-  const factory = new SchemaFactory(schemaData, `materials/${category}/${subcategory}`);
+  const factory = new SchemaFactory(schemaData, `${category}/${subcategory}`);
   const jsonLdData = factory.generate();
   
   // Get material slugs for this subcategory
@@ -97,7 +97,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
         subtitle={`${subcategoryInfo.materials.length} materials available for laser cleaning`}
         description={`Explore laser cleaning solutions for ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials`}
         metadata={schemaData as any}
-        slug={`materials/${category}/${subcategory}`}
+        slug={`${category}/${subcategory}`}
         fullWidth
       >
         {/* Materials Grid */}

@@ -40,9 +40,10 @@ const CATEGORY_NORMALIZATIONS = {
   'stone': 'stone',
   'Composite': 'composite',
   'composite': 'composite',
-  'rare-earth': 'rareearth',
-  'Rare-Earth': 'rareearth',
-  'rare earth': 'rareearth',
+  'rare-earth': 'rare-earth',
+  'Rare-Earth': 'rare-earth',
+  'rare earth': 'rare-earth',
+  'rareearth': 'rare-earth',
   'Masonry': 'masonry',
   'masonry': 'masonry'
 };
