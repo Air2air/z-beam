@@ -156,7 +156,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
 
       {/* Before/After Content */}
       {(captionData.beforeText || captionData.afterText) && (
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <div className="grid md:grid-cols-2 gap-6">
           {captionData.beforeText && (
             <div className="p-6 md:p-8 card-background rounded-lg">
               <h4>

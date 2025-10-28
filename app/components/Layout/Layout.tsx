@@ -131,7 +131,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       )}
 
       {metadata?.caption && (
-        <section aria-labelledby="caption-section" className="my-8">
+        <section aria-labelledby="caption-section" className="mb-2">
           <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
         </section>
       )}
