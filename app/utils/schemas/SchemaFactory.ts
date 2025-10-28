@@ -174,11 +174,11 @@ export class SchemaFactory {
     this.register('FAQ', generateFAQSchema, {
       priority: 55,
       condition: (data) => {
-        // Check for explicit FAQ data
-        if (data.faq || data.frontmatter?.faq) return true;
+        // Check for explicit FAQ data in multiple locations
+        if (data.faq || data.frontmatter?.faq || data.metadata?.faq) return true;
         
         // Check for FAQ-generating frontmatter (used by MaterialFAQ component)
-        const fm = data.frontmatter || {};
+        const fm = data.frontmatter || data.metadata || {};
         return !!(fm.outcomeMetrics || fm.applications || fm.environmentalImpact);
       }
     });
@@ -751,7 +751,7 @@ function generateHowToSchema(data: any, context: SchemaContext): any | null {
  * FAQ Schema
  */
 function generateFAQSchema(data: any, context: SchemaContext): any | null {
-  const frontmatter = data.frontmatter || {};
+  const frontmatter = data.frontmatter || data.metadata || {};
   const faqs: any[] = [];
 
   // Generate FAQs from frontmatter
@@ -777,9 +777,10 @@ function generateFAQSchema(data: any, context: SchemaContext): any | null {
     });
   }
 
-  // Custom FAQs
-  if (data.faq && Array.isArray(data.faq)) {
-    data.faq.forEach((item: any) => {
+  // Custom FAQs - check multiple possible locations
+  const faqData = data.faq || data.metadata?.faq || frontmatter.faq;
+  if (faqData && Array.isArray(faqData)) {
+    faqData.forEach((item: any) => {
       faqs.push({
         '@type': 'Question',
         'name': item.question,
