@@ -110,7 +110,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       )}
 
       {metadata?.materialProperties && (
-        <section aria-labelledby="material-properties-heading" className="my-8">
+        <section aria-label="Material properties" className="my-8">
           <MetricsGrid 
             metadata={metadata} 
             dataSource="materialProperties" 
@@ -124,27 +124,27 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       )}
 
       {metadata?.machineSettings && (
-        <section aria-labelledby="machine-settings-heading" className="my-8">
+        <section aria-label="Machine settings" className="my-8">
           <MetricsGrid metadata={metadata} dataSource="machineSettings" titleFormat="comparison"
             layout="auto" showTitle searchable />
         </section>
       )}
 
       {metadata?.caption && (
-        <section aria-labelledby="caption-section" className="mb-2">
+        <section aria-label="Image caption and metadata" className="mb-2">
           <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
         </section>
       )}
 
       {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
-        <section aria-labelledby="environmental-impact-section" className="my-8">
+        <section aria-label="Environmental impact assessment" className="my-8">
           <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
         </section>
       )}
 
       {/* Material-specific FAQ section - from frontmatter */}
       {metadata?.name && metadata?.faq && metadata.faq.length > 0 && (
-        <section aria-labelledby="faq-section" className="my-8">
+        <section aria-label="Frequently asked questions" className="my-8">
           <MaterialFAQ
             materialName={metadata.name}
             faq={metadata.faq}
@@ -153,7 +153,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       )}
 
       {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
-        <section aria-labelledby="regulatory-standards-section" className="my-8">
+        <section aria-label="Regulatory standards and certifications" className="my-8">
           <RegulatoryStandards standards={metadata.regulatoryStandards} />
         </section>
       )}
