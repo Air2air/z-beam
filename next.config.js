@@ -100,7 +100,20 @@ const nextConfig = {
       const files = await fs.readdir(frontmatterDir);
       const yamlFiles = files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
       
-      const redirects = [];
+      const redirects = [
+        // Non-www to www redirect (redundant with vercel.json but ensures it works)
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'z-beam.com',
+            },
+          ],
+          destination: 'https://www.z-beam.com/:path*',
+          permanent: true,
+        },
+      ];
       
       for (const file of yamlFiles) {
         const filePath = path.join(frontmatterDir, file);
