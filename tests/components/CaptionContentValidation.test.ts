@@ -183,13 +183,32 @@ describe('Caption Component Content Validation', () => {
         const content = fs.readFileSync(filePath, 'utf8');
         const lines = content.split('\n');
         
-        // Check if file ends cleanly after after_text
-        const lastNonEmptyLine = lines.filter(line => line.trim()).pop();
+        // Find the last section in the file
+        let inFaqSection = false;
+        let lastSectionType = '';
         
-        if (lastNonEmptyLine && 
-            (lastNonEmptyLine.includes('wavelength') ||
-             lastNonEmptyLine.includes('power:') ||
-             lastNonEmptyLine.includes('frequency:'))) {
+        for (let i = lines.length - 1; i >= 0; i--) {
+          const line = lines[i].trim();
+          if (!line) continue;
+          
+          // Check if we're in FAQ section
+          if (line === 'faq:' || line.startsWith('faq:')) {
+            inFaqSection = true;
+            break;
+          }
+          
+          // Check for other top-level sections
+          if (line.match(/^[a-zA-Z_]+:$/) && !line.startsWith(' ') && !line.startsWith('-')) {
+            lastSectionType = line;
+            break;
+          }
+        }
+        
+        // Only flag files that end with laser parameters outside of FAQ
+        if (!inFaqSection && lastSectionType && 
+            (lastSectionType.includes('machineSettings:') ||
+             lastSectionType.includes('laserParameters:') ||
+             lastSectionType.includes('laser_parameters:'))) {
           filesWithTrailingContent.push(path.basename(filePath));
         }
       } catch (error) {

@@ -152,19 +152,12 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
         </section>
       )}
 
-      {/* Material-specific FAQ section - auto-generated from frontmatter */}
-      {metadata?.name && (
+      {/* Material-specific FAQ section - from frontmatter */}
+      {metadata?.name && metadata?.faq && metadata.faq.length > 0 && (
         <section aria-labelledby="faq-section" className="my-8">
           <MaterialFAQ
             materialName={metadata.name}
-            category={metadata.category || 'Material'}
-            subcategory={metadata.subcategory}
-            materialProperties={metadata.materialProperties}
-            machineSettings={metadata.machineSettings}
-            applications={metadata.applications}
-            environmentalImpact={metadata.environmentalImpact}
-            outcomeMetrics={metadata.outcomeMetrics}
-            caption={metadata.caption}
+            faq={metadata.faq}
           />
         </section>
       )}
