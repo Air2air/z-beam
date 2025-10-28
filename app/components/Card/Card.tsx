@@ -105,6 +105,17 @@ export function Card({
         {frontmatter?.lastModified && (
           <meta itemProp="dateModified" content={frontmatter.lastModified} />
         )}
+        {/* Image metadata */}
+        {frontmatter?.images?.hero?.url && (
+          <meta itemProp="image" content={frontmatter.images.hero.url} />
+        )}
+        {/* Author metadata */}
+        {frontmatter?.author && (
+          <meta 
+            itemProp="author" 
+            content={typeof frontmatter.author === 'string' ? frontmatter.author : frontmatter.author.name} 
+          />
+        )}
         
         {/* Full Height Image Container */}
         <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`} aria-label="Material image">
