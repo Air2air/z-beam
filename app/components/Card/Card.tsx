@@ -15,6 +15,7 @@ import Link from "next/link";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { BadgeData, ArticleMetadata, CardProps } from "@/types";
+import { SITE_CONFIG } from "../../utils/constants";
 
 // Card variant configurations
 const CARD_VARIANTS = {
@@ -76,6 +77,9 @@ export function Card({
   const subject = frontmatter?.subject || ''; // Use subject instead of name
   const imageAlt = frontmatter?.images?.hero?.alt || '';
   
+  // Create absolute URL for Schema.org (relative href won't work for SEO)
+  const absoluteUrl = href.startsWith('http') ? href : `${SITE_CONFIG.url}${href}`;
+  
   // Check if this is a featured card by examining the className
   return (
     <Link
@@ -93,7 +97,7 @@ export function Card({
         itemType="https://schema.org/Article"
       >
         {/* Schema.org metadata */}
-        <meta itemProp="url" content={href} />
+        <meta itemProp="url" content={absoluteUrl} />
         <meta itemProp="headline" content={subject || title} />
         {frontmatter?.description && (
           <meta itemProp="description" content={frontmatter.description} />
@@ -107,7 +111,14 @@ export function Card({
         )}
         {/* Image metadata */}
         {frontmatter?.images?.hero?.url && (
-          <meta itemProp="image" content={frontmatter.images.hero.url} />
+          <meta 
+            itemProp="image" 
+            content={
+              frontmatter.images.hero.url.startsWith('http') 
+                ? frontmatter.images.hero.url 
+                : `${SITE_CONFIG.url}${frontmatter.images.hero.url}`
+            } 
+          />
         )}
         {/* Author metadata */}
         {frontmatter?.author && (
