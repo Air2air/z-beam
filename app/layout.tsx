@@ -142,14 +142,8 @@ export default async function RootLayout({
       className="dark scroll-smooth"
     >
       <head>
-        {/* Preload critical font files to reduce LCP chain - only bold used above-the-fold */}
-        <link
-          rel="preload"
-          href="/_next/static/media/geist-sans-bold.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
+        {/* Font is automatically optimized by Next.js through geist/font/sans */}
+        {/* No manual preload needed - Next.js handles font loading */}
         
         {/* Critical resource hints for better LCP and TTFB */}
         <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
