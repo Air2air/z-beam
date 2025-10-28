@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: { params: { category: string 
     keywords: categoryMetadata.keywords,
     image: categoryMetadata.ogImage,
     slug: `${category}`,
+    canonical: `${SITE_CONFIG.url}/${category}`,
   });
 }
 

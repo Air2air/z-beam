@@ -2,6 +2,8 @@
 import { Layout } from "../components/Layout/Layout";
 import dynamic from 'next/dynamic';
 
+import { SITE_CONFIG } from '../utils/constants';
+
 const ContactForm = dynamic(() => import('../components/Contact/ContactForm').then(mod => ({ default: mod.ContactForm })), {
   loading: () => (
     <div className="flex items-center justify-center min-h-[400px]">
@@ -16,6 +18,9 @@ import { Title } from "../components/Title";
 export const metadata = {
   title: 'Contact Z-Beam',
   description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/contact`,
+  },
 };
 
 // Default export - the page component

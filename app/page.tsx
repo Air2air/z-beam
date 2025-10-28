@@ -29,6 +29,7 @@ export async function generateMetadata() {
       keywords: homeConfig?.keywords || [...SITE_CONFIG.keywords],
       image: "/images/home-og.jpg",
       slug: "home",
+      canonical: SITE_CONFIG.url,
     });
   } catch (error) {
     console.error('Error loading home metadata:', error);

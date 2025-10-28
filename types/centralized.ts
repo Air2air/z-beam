@@ -160,6 +160,7 @@ export interface ArticleMetadata {
   references?: string[];
   targetAudience?: string;
   articleType?: string;
+  canonical?: string; // Canonical URL for SEO
   
   // Enhanced frontmatter fields
   chemicalProperties?: ChemicalProperties;

@@ -48,6 +48,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   // Access optional fields with type narrowing
   const dateModified = 'dateModified' in metadata ? metadata.dateModified : undefined;
   const materialName = 'name' in metadata ? (metadata as any).name : undefined;
+  const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
   
   const ogType = 'article'; // Default type
   
@@ -131,6 +132,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     title: formattedTitle,
     description: fullDescription,
     keywords: Array.isArray(keywords) ? keywords.join(', ') : extractSafeValue(keywords),
+    
+    // Canonical URL for SEO (prevents duplicate content issues)
+    alternates: canonical ? {
+      canonical: canonical,
+    } : undefined,
     
     // Enhanced OpenGraph with hero image and article metadata
     openGraph: {

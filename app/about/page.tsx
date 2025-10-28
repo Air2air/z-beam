@@ -6,7 +6,10 @@ import { SITE_CONFIG } from '../utils/constants';
 
 export const metadata = {
   title: `About ${SITE_CONFIG.shortName}`,
-  description: `Learn about ${SITE_CONFIG.shortName}'s mission, team, and expertise in laser cleaning technology.`
+  description: `Learn about ${SITE_CONFIG.shortName}'s mission, team, and expertise in laser cleaning technology.`,
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/about`,
+  },
 };
 
 // Default export - the page component using standard Layout pattern

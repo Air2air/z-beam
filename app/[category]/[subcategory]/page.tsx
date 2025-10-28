@@ -56,7 +56,8 @@ export async function generateMetadata({ params }: PageProps) {
       `${subcategoryInfo.label} ${categoryLabel}`,
       'laser surface treatment'
     ],
-    slug: `${category}/${subcategory}`
+    slug: `${category}/${subcategory}`,
+    canonical: `${SITE_CONFIG.url}/${category}/${subcategory}`,
   });
 }
 
