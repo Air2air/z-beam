@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { BreadcrumbItem } from "@/types";
 import { capitalizeWords } from "../../utils/formatting";
+import { SITE_CONFIG } from "../../utils/constants";
 
 export interface BreadcrumbsProps {
   /**
@@ -53,14 +54,17 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
               itemScope 
               itemType="https://schema.org/ListItem"
             >
+              {/* Hidden absolute URL for Schema.org */}
+              <meta itemProp="item" content={crumb.href.startsWith('http') ? crumb.href : `${SITE_CONFIG.url}${crumb.href}`} />
+              <meta itemProp="position" content={String(index + 1)} />
+              
               {isLast ? (
                 // Last item: link with aria-current="page" per W3C spec
-                // Note: href="" or href={crumb.href} both valid, using href for consistency
+                // Note: href="" or href{crumb.href} both valid, using href for consistency
                 <Link
                   href={crumb.href}
                   className="text-base text-gray-700 dark:text-gray-300"
                   aria-current="page"
-                  itemProp="item"
                   onClick={(e) => e.preventDefault()} // Prevent navigation on current page
                 >
                   <span itemProp="name">{crumb.label}</span>
@@ -72,7 +76,6 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                   className="text-base text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-white
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
                              transition-colors duration-150"
-                  itemProp="item"
                 >
                   <span itemProp="name">{crumb.label}</span>
                 </Link>
