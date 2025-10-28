@@ -15,7 +15,6 @@ import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { RegulatoryStandards } from '../RegulatoryStandards';
-import { ApplicationsList } from '../ApplicationsList';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
@@ -134,15 +133,6 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       {metadata?.caption && (
         <section aria-labelledby="caption-section" className="my-8">
           <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
-        </section>
-      )}
-
-      {metadata?.applications && metadata.applications.length > 0 && (
-        <section aria-labelledby="applications-section" className="my-8">
-          <ApplicationsList 
-            applications={metadata.applications} 
-            materialName={metadata?.name || materialName}
-          />
         </section>
       )}
 
