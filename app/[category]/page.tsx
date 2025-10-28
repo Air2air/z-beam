@@ -9,6 +9,7 @@ import { CATEGORY_METADATA, VALID_CATEGORIES } from '../metadata';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
+import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 
 // Static generation for all category pages
 export async function generateStaticParams() {
@@ -81,32 +82,87 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     ]
   };
 
+  // Generate CollectionPage JSON-LD schema
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': pageTitle,
+    'description': categoryMetadata.description,
+    'url': `${SITE_CONFIG.url}/${category}`,
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Home',
+          'item': SITE_CONFIG.url
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': categoryDisplayName,
+          'item': `${SITE_CONFIG.url}/${category}`
+        }
+      ]
+    },
+    'mainEntity': {
+      '@type': 'ItemList',
+      'numberOfItems': categoryData.materials.length,
+      'itemListElement': categoryData.subcategories.map((subcategory, index) => ({
+        '@type': 'ListItem',
+        'position': index + 1,
+        'name': subcategory.label,
+        'url': `${SITE_CONFIG.url}/${category}/${subcategory.slug}`,
+        'description': `${subcategory.materials.length} materials in ${subcategory.label}`,
+        'item': {
+          '@type': 'ItemList',
+          'numberOfItems': subcategory.materials.length,
+          'itemListElement': subcategory.materials.map((material, matIndex) => ({
+            '@type': 'ListItem',
+            'position': matIndex + 1,
+            'name': material.name,
+            'url': `${SITE_CONFIG.url}/${category}/${subcategory.slug}/${material.slug}`
+          }))
+        }
+      }))
+    },
+    'publisher': {
+      '@type': 'Organization',
+      'name': SITE_CONFIG.name,
+      'url': SITE_CONFIG.url
+    }
+  };
+
   return (
-    <Layout 
-      title={pageTitle} 
-      subtitle={pageSubtitle} 
-      metadata={metadata as any}
-      slug={`${category}`}
-      fullWidth
-    >
-      <div className={CONTAINER_STYLES.standard}>
-        {/* Group materials by subcategory */}
-        {categoryData.subcategories.map((subcategory) => (
-          <section key={subcategory.slug} className="mb-12">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-              {subcategory.label}
-            </h2>
-            
-            <CardGridSSR
-              slugs={subcategory.materials.map(m => m.slug)}
-              columns={3}
-              mode="simple"
-              showBadgeSymbols={true}
-              loadBadgeSymbolData={true}
-            />
-          </section>
-        ))}
-      </div>
-    </Layout>
+    <>
+      <JsonLD data={collectionSchema} />
+      <Layout 
+        title={pageTitle} 
+        subtitle={pageSubtitle} 
+        metadata={metadata as any}
+        slug={`${category}`}
+        fullWidth
+      >
+        <div className={CONTAINER_STYLES.standard}>
+          {/* Group materials by subcategory */}
+          {categoryData.subcategories.map((subcategory) => (
+            <section key={subcategory.slug} className="mb-12">
+              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+                {subcategory.label}
+              </h2>
+              
+              <CardGridSSR
+                slugs={subcategory.materials.map(m => m.slug)}
+                columns={3}
+                mode="simple"
+                showBadgeSymbols={true}
+                loadBadgeSymbolData={true}
+              />
+            </section>
+          ))}
+        </div>
+      </Layout>
+    </>
   );
 }
