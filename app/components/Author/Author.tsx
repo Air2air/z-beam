@@ -31,7 +31,7 @@ export function Author({
   return (
     <Link
       href={`/search?q=${encodedAuthorName}`}
-      className={`flex items-center gap-4 rounded-lg px-2 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors ${className}`}
+      className={`flex items-center gap-4 rounded-lg px-2 py-2 bg-gray-800/30 hover:bg-gray-50 dark:bg-gray-800/50 dark:hover:bg-gray-900 transition-colors ${className}`}
     >
       {showAvatar && authorImage && (
         <Image
