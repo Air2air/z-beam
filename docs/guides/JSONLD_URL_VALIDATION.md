@@ -17,7 +17,7 @@ export const SITE_CONFIG = {
 }
 ```
 
-### 2. Schema Generation
+### 2. Schema Generation (JSON-LD)
 **File:** `app/utils/schemas/SchemaFactory.ts`
 
 ```typescript
@@ -32,9 +32,46 @@ constructor(data: any, slug: string, baseUrl?: string) {
 ```
 
 **Key Points:**
-- All schemas use `context.baseUrl` or `context.pageUrl`
+- All JSON-LD schemas use `context.baseUrl` or `context.pageUrl`
 - Defaults to `SITE_CONFIG.url` if not explicitly provided
 - Dynamic generation at runtime (not cached)
+
+### 3. Microdata URL Handling
+
+#### Card Component
+**File:** `app/components/Card/Card.tsx`
+
+```typescript
+import { SITE_CONFIG } from "../../utils/constants";
+
+// Create absolute URL for Schema.org
+const absoluteUrl = href.startsWith('http') ? href : `${SITE_CONFIG.url}${href}`;
+
+// In component:
+<meta itemProp="url" content={absoluteUrl} />
+<meta itemProp="image" content={
+  frontmatter.images.hero.url.startsWith('http') 
+    ? frontmatter.images.hero.url 
+    : `${SITE_CONFIG.url}${frontmatter.images.hero.url}`
+} />
+```
+
+#### Breadcrumbs Component
+**File:** `app/components/Navigation/breadcrumbs.tsx`
+
+```typescript
+import { SITE_CONFIG } from "../../utils/constants";
+
+// In component:
+<meta itemProp="item" content={
+  crumb.href.startsWith('http') ? crumb.href : `${SITE_CONFIG.url}${crumb.href}`
+} />
+<meta itemProp="position" content={String(index + 1)} />
+```
+
+**Components Fixed (2025-10-28):**
+- ✅ Card component - `itemProp="url"` and `itemProp="image"` now use absolute URLs
+- ✅ Breadcrumbs component - `itemProp="item"` now uses absolute URLs with position metadata
 
 ## Validation Checklist
 
