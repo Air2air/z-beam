@@ -53,7 +53,7 @@ Pages can now have:
 
 ### Single Callout (Original Behavior)
 ```yaml
-# content/pages/mypage.yaml
+# static-pages/mypage.yaml
 callout:
   heading: "Ready to Get Started?"
   text: "Contact us today for a free consultation."
@@ -67,7 +67,7 @@ callout:
 
 ### Multiple Callouts (New Feature)
 ```yaml
-# content/pages/mypage.yaml
+# static-pages/mypage.yaml
 callouts:
   # First callout - primary CTA with full spacing
   - heading: "Transform Your Operations"

@@ -5,7 +5,7 @@
 ### **Duplication Issues Identified**
 
 #### 1. **Dual JSON-LD Systems** ❌
-- **Static Files**: 239 files in `content/components/jsonld/` (both `.json` and `.yaml`)
+- **Static Files**: 239 files in `[REMOVED] content/components/jsonld/` (both `.json` and `.yaml`)
 - **Dynamic Components**: React components generating JSON-LD from frontmatter
 - **Problem**: Same data represented twice with potential inconsistencies
 
@@ -74,13 +74,13 @@ const subcategory = frontmatter.subcategory || '';                  // ✅ FULL
 1. **Delete Static JSON-LD Files** (239 files)
    ```bash
    # Remove all static JSON-LD files
-   rm -rf content/components/jsonld/
+   rm -rf [REMOVED] content/components/jsonld/
    ```
 
 2. **Update Git Ignore**
    ```gitignore
    # Prevent static JSON-LD files from being re-added
-   content/components/jsonld/
+   [REMOVED] content/components/jsonld/
    ```
 
 3. **Remove Schema Templates** (6 files)
@@ -175,7 +175,7 @@ const subcategory = frontmatter.subcategory || '';                  // ✅ FULL
 #### **Backup Strategy** 💾
 ```bash
 # Before cleanup, backup static files
-cp -r content/components/jsonld/ backup/jsonld-$(date +%Y%m%d)/
+cp -r [REMOVED] content/components/jsonld/ backup/jsonld-$(date +%Y%m%d)/
 ```
 
 #### **Gradual Migration** 🔄

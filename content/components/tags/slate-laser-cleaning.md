@@ -1,1 +1,0 @@
-Tags integrated into frontmatter: slate, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, thermal-sensitive, laser-absorptive, alessandro-moretti

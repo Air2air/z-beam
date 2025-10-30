@@ -40,7 +40,7 @@ keywords:
 ---
 ```
 
-### YAML Configuration Files (content/pages/*.yaml)
+### YAML Configuration Files (static-pages/*.yaml)
 
 **Required Fields:**
 - `title` - Page title (string, quoted)
@@ -81,7 +81,7 @@ showHero: true
    - All fields already present
    - Status: Normalized
 
-### YAML Configuration Files (content/pages/)
+### YAML Configuration Files (static-pages/)
 
 ✅ **rental.yaml**
    - **Before:** Plain text paragraphs with no structure

@@ -11,8 +11,8 @@ The `StaticPage` component is a reusable page template for simple static content
 - **Index Export**: `app/components/StaticPage/index.ts`
 
 ### Data Sources
-- **Configuration**: `content/pages/{slug}.yaml` - Page metadata, hero images, settings
-- **Content**: `content/components/text/{slug}.md` - Markdown page content
+- **Configuration**: `static-pages/{slug}.yaml` - Page metadata, hero images, settings
+- **Content**: `[REMOVED] content/components/text/{slug}.md` - Markdown page content
 
 ## When to Use StaticPage
 
@@ -32,7 +32,7 @@ The `StaticPage` component is a reusable page template for simple static content
 
 ### Step 1: Create YAML Configuration
 
-Create `content/pages/{slug}.yaml`:
+Create `static-pages/{slug}.yaml`:
 
 ```yaml
 title: "Your Page Title"
@@ -58,7 +58,7 @@ callout:
 
 ### Step 2: Create Markdown Content
 
-Create `content/components/text/{slug}.md`:
+Create `[REMOVED] content/components/text/{slug}.md`:
 
 ```markdown
 # Page Content
@@ -124,14 +124,14 @@ interface StaticPageProps {
 
 ### Services Page
 - **Route**: `/services`
-- **Config**: `content/pages/services.yaml`
-- **Content**: `content/components/text/services.md`
+- **Config**: `static-pages/services.yaml`
+- **Content**: `[REMOVED] content/components/text/services.md`
 - **Features**: Hero image, markdown content
 
 ### Rental Page
 - **Route**: `/rental`
-- **Config**: `content/pages/rental.yaml`
-- **Content**: `content/components/text/rental.md`
+- **Config**: `static-pages/rental.yaml`
+- **Content**: `[REMOVED] content/components/text/rental.md`
 - **Features**: Hero image, markdown content
 
 ## Hero Image Configuration
@@ -320,11 +320,11 @@ import yaml from 'js-yaml';
 import type { ArticleMetadata } from '@/types';
 
 export default async function MyPage() {
-  const yamlPath = path.join(process.cwd(), 'content/pages/mypage.yaml');
+  const yamlPath = path.join(process.cwd(), 'static-pages/mypage.yaml');
   const yamlContent = await fs.readFile(yamlPath, 'utf8');
   const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { showHero?: boolean };
   
-  const mdPath = path.join(process.cwd(), 'content/components/text/mypage.md');
+  const mdPath = path.join(process.cwd(), '[REMOVED] content/components/text/mypage.md');
   const markdownContent = await fs.readFile(mdPath, 'utf8');
   const htmlContent = marked(markdownContent);
   

@@ -37,7 +37,7 @@
 **Status:** Dual systems - one excellent, one redundant
 
 **Systems Found:**
-1. ❌ **Static metatag YAMLs** (124 files in `content/components/metatags/`)
+1. ❌ **Static metatag YAMLs** (124 files in `[REMOVED] content/components/metatags/`)
    - NOT consumed by 165/166 pages
    - Author field empty in all files
    - Duplicate data maintenance

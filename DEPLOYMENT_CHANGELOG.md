@@ -510,7 +510,7 @@ Contributions welcome! Areas of interest:
 
 **Files Updated:**
 
-1. **`content/pages/partners.yaml`** - Updated partner descriptions
+1. **`static-pages/partners.yaml`** - Updated partner descriptions
    - **Laserverse:** Enhanced description to highlight Needle portability/plug-and-play (20-43 kg, standard power) and Jango industrial scale (7500W, 50m reach)
    - **Netalux:** Rewrote to emphasize ease of use, patented safety features, and practical applications for each system
    
@@ -563,7 +563,7 @@ Contributions welcome! Areas of interest:
 
 ### Files Modified
 - `docs/META_TAG_VERIFICATION_REPORT.md` (NEW - comprehensive verification)
-- `content/pages/partners.yaml` (enhanced Needle/Jango descriptions)
+- `static-pages/partners.yaml` (enhanced Needle/Jango descriptions)
 - `content/components/table-yaml/netalux-needle-comparison.yaml` (ease-of-use emphasis)
 - `content/components/table-yaml/netalux-jango-specs.yaml` (expanded comparison)
 - `DEPLOYMENT_CHANGELOG.md` (this entry)
@@ -609,7 +609,7 @@ Contributions welcome! Areas of interest:
 **Deleted:** `content/components/table-yaml/`
 
 **Rationale:**
-- Netalux page frontmatter (`content/pages/netalux.yaml`) contains complete table data
+- Netalux page frontmatter (`static-pages/netalux.yaml`) contains complete table data
 - Data is embedded directly: `needle100_150`, `needle200_300`, `jangoSpecs` sections
 - Table YAML files (`netalux-needle-comparison.yaml`, `netalux-jango-specs.yaml`) were not referenced in codebase
 - Grep search confirmed: No imports or references to these files anywhere
@@ -632,7 +632,7 @@ Contributions welcome! Areas of interest:
 5. **Cleaner Codebase:** Removed unused files
 
 ### Files Modified
-- `content/pages/netalux.yaml` (enhanced descriptions + added Netalux website links)
+- `static-pages/netalux.yaml` (enhanced descriptions + added Netalux website links)
 - `DEPLOYMENT_CHANGELOG.md` (this entry)
 
 ### Files Deleted

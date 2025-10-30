@@ -1,1 +1,0 @@
-Tags integrated into frontmatter: shale, stone, semiconductor, mems, optics, precision-cleaning, surface-preparation, restoration-cleaning, porous-material, thermal-sensitive, alessandro-moretti

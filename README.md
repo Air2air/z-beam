@@ -30,19 +30,16 @@ This README is the single source of truth for building, maintaining, and extendi
 │   └── page.tsx            # Home page
 ├── public/                 # Static assets
 │   └── images/             # Image assets (see docs/IMAGE_NAMING_CONVENTIONS.md)
-├── frontmatter/            # Content metadata (YAML files at root level)
-│   ├── materials/          # Material frontmatter (132 files)
+├── frontmatter/            # Material metadata (YAML files)
+│   └── materials/          # Material frontmatter (132 files)
+├── static-pages/           # Static page metadata (YAML files)
 │   ├── services.yaml       # Services page metadata
 │   ├── rental.yaml         # Rental page metadata
-│   └── about.yaml          # About page metadata
-├── content/                # Component-specific YAML files
-│   └── components/         # Component content data
-│       ├── caption/        # Before/after text content
-│       ├── author/         # Author profile data
-│       ├── badgesymbol/    # Badge symbol definitions
-│       ├── bullets/        # Bullet point lists
-│       ├── content/        # Body content
-│       └── metatags/       # Meta tag configurations
+│   ├── partners.yaml       # Partners page metadata
+│   ├── netalux.yaml        # Netalux page metadata
+│   ├── contact.yaml        # Contact page metadata
+│   ├── home.yaml           # Home page metadata
+│   └── image-licensing.yaml # Image licensing page metadata
 ├── docs/                   # Documentation (archived)
 ├── package.json            # NPM scripts & dependencies
 ├── next.config.js          # Next.js config
@@ -58,16 +55,10 @@ This README is the single source of truth for building, maintaining, and extendi
 ## 3. Content Architecture & System
 
 ### Content Organization
-- `/frontmatter/` - Root-level YAML metadata files
+- `/frontmatter/` - Material metadata (YAML files)
   - `/materials/` - Material frontmatter (132 YAML files)
-  - Page-level YAML files (services.yaml, rental.yaml, about.yaml)
-- `/content/components/` - Component-specific content data
-  - `/caption/` - Before/after image captions
-  - `/author/` - Author profile information
-  - `/badgesymbol/` - Badge and symbol definitions
-  - `/bullets/` - Structured bullet point lists
-  - `/content/` - Body content sections
-  - `/metatags/` - SEO meta tag configurations
+- `/static-pages/` - Static page metadata (YAML files)
+  - Page-level YAML files (home.yaml, services.yaml, rental.yaml, etc.)
 - `/app/materials/[category]/` - Material category pages
 - `/app/materials/[category]/[subcategory]/` - Material subcategory pages
 - `/app/materials/[category]/[subcategory]/[slug]/` - Individual material pages

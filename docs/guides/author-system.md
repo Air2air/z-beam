@@ -53,7 +53,7 @@ YAML Files → ContentAPI → Layout → Author Component
 ## 🚀 Quick Start
 
 ### Adding a New Author
-1. **Create YAML file**: `content/components/author/new-author.yaml`
+1. **Create YAML file**: `[REMOVED] content/components/author/new-author.yaml`
 2. **Add author image**: `public/images/author/new-author.jpg`
 3. **Reference in content**: Set `author: "New Author"` in frontmatter
 
@@ -79,14 +79,14 @@ profile:
 ### Check Author Loading
 ```bash
 # Test author YAML processing
-npm run yaml:check-file content/components/author/author-name.yaml
+npm run yaml:check-file [REMOVED] content/components/author/author-name.yaml
 
 # Validate all author files
 npm run yaml:authors
 ```
 
 ### Update Author Information
-1. Edit the YAML file in `content/components/author/`
+1. Edit the YAML file in `[REMOVED] content/components/author/`
 2. Update the author image if needed
 3. Restart dev server to see changes
 
@@ -105,7 +105,7 @@ npm run yaml:authors
 **A. YAML File Issues**
 ```bash
 # Check if YAML file exists
-ls content/components/author/
+ls [REMOVED] content/components/author/
 
 # Expected files:
 # ikmanda-roswati.yaml
@@ -114,7 +114,7 @@ ls content/components/author/
 
 **Solution**: Ensure YAML file exists and has correct naming
 ```yaml
-# Correct format in content/components/author/author-name.yaml
+# Correct format in [REMOVED] content/components/author/author-name.yaml
 id: 1
 name: "Author Name"  # Must match frontmatter exactly
 title: "Ph.D."
@@ -130,7 +130,7 @@ Check that the `author` field in your content frontmatter matches the `name` fie
 author: "Ikmanda Roswati"  # Must match YAML name exactly
 ---
 
-# In content/components/author/ikmanda-roswati.yaml
+# In [REMOVED] content/components/author/ikmanda-roswati.yaml
 name: "Ikmanda Roswati"  # Must match frontmatter exactly
 ```
 
@@ -207,7 +207,7 @@ interface AuthorInfo {
 ## 📁 File Structure
 
 ```
-content/components/author/          # Author YAML files
+[REMOVED] content/components/author/          # Author YAML files
 ├── ikmanda-roswati.yaml           # Author profiles
 └── todd-dunning.yaml              # With structured data
 

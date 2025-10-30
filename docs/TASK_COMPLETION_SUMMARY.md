@@ -140,20 +140,20 @@ Z-Beam has the most comprehensive meta tag implementation among material science
 
 **Content Files (4 updates):**
 
-1. **`content/pages/partners.yaml`**
+1. **`static-pages/partners.yaml`**
    - Updated Laserverse description (emphasizes Needle portability + Jango industrial scale)
    - Updated Netalux description (emphasizes ease of use, patented safety, practical applications)
    - Added plug-and-play messaging, weight specifications, power requirements
    - Highlighted ergonomic design and immediate productivity
 
-2. **`content/components/table-yaml/netalux-needle-comparison.yaml`**
+2. **`[REMOVED] content/components/table-yaml/netalux-needle-comparison.yaml`**
    - Enhanced metadata notes with ease-of-use emphasis
    - Added plug-and-play details (110-240V standard power)
    - Highlighted lightweight portability (20-43 kg)
    - Emphasized ergonomic design and safety features
    - Clarified ideal applications
 
-3. **`content/components/table-yaml/netalux-jango-specs.yaml`**
+3. **`[REMOVED] content/components/table-yaml/netalux-jango-specs.yaml`**
    - Comprehensive metadata and comparison update
    - Added industrial power with ease-of-operation messaging
    - Highlighted Top-Hat beam benefits (uniform coverage)
@@ -279,9 +279,9 @@ npm run validate:metadata
 2. ✅ `DEPLOYMENT_CHANGELOG.md` - Updated with all changes
 
 ### Content Updates (3 files)
-1. ✅ `content/pages/partners.yaml` - Enhanced Needle/Jango descriptions
-2. ✅ `content/components/table-yaml/netalux-needle-comparison.yaml` - Ease-of-use emphasis
-3. ✅ `content/components/table-yaml/netalux-jango-specs.yaml` - Expanded comparison
+1. ✅ `static-pages/partners.yaml` - Enhanced Needle/Jango descriptions
+2. ✅ `[REMOVED] content/components/table-yaml/netalux-needle-comparison.yaml` - Ease-of-use emphasis
+3. ✅ `[REMOVED] content/components/table-yaml/netalux-jango-specs.yaml` - Expanded comparison
 
 ### Summary (1 file)
 4. ✅ `docs/TASK_COMPLETION_SUMMARY.md` - This document

@@ -33,7 +33,7 @@ The Netalux page pattern combines:
 ### Complete Page Configuration
 
 ```yaml
-# content/pages/netalux.yaml
+# static-pages/netalux.yaml
 title: "Netalux Laser Cleaning Equipment"
 subtitle: "Award-winning precision laser cleaning systems"
 description: "Comprehensive specifications for Netalux systems"

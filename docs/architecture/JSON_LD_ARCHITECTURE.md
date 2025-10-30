@@ -62,7 +62,7 @@ export default async function PartnersPage() {
 **Frontmatter drives everything:**
 
 ```yaml
-# content/pages/partners.yaml
+# static-pages/partners.yaml
 title: "Z-Beam Partners"
 description: "Trusted partners providing laser cleaning equipment..."
 keywords:
@@ -93,7 +93,7 @@ contentCards:
 **StaticPage detects equipment data structures and generates Product schemas:**
 
 ```yaml
-# content/pages/netalux.yaml
+# static-pages/netalux.yaml
 needle100_150:
   name: "Needle® 100/150"
   description: "Compact precision laser cleaning system"

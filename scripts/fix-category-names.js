@@ -130,12 +130,9 @@ class CategoryFixer {
     
     // Find all YAML files in content directory
     const patterns = [
-      'content/components/**/*.yaml',
-      'content/pages/**/*.yaml',
-      'frontmatter/materials/**/*.yaml'
-    ];
-    
-    let allFiles = [];
+      'frontmatter/materials/**/*.yaml',
+      'static-pages/**/*.yaml',
+    ];    let allFiles = [];
     for (const pattern of patterns) {
       const files = glob.sync(pattern);
       allFiles = allFiles.concat(files);

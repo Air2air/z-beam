@@ -15,7 +15,7 @@
 - **Result:** No more duplicate JSON-LD blocks on pages with captions
 
 #### 2. ✅ **Static Files Already Removed**
-- **Location:** `content/components/jsonld/` directory 
+- **Location:** `[REMOVED] content/components/jsonld/` directory 
 - **Status:** Directory not found (already cleaned up)
 - **Impact:** 239 redundant static JSON-LD files eliminated
 - **Storage Saved:** Significant reduction in bundle size

@@ -2,9 +2,10 @@
  * @component StaticPage
  * @purpose Reusable page component for simple static content pages
  * @dependencies @/types (ArticleMetadata), Layout, marked, js-yaml
- * @aiContext Use this for any static page that loads from content/pages/*.yaml with embedded markdown
- *           Automatically handles YAML config, markdown content (in content field), hero images, 
- *           and structured sections (workflow, benefits, equipment)
+  * @aiContext Use this for any static page that loads from static-pages/*.yaml with embedded markdown
+ * content directly in the YAML file.
+ * 
+ * Features:
  * 
  * @usage
  * // In app/[pagename]/page.tsx:
@@ -14,7 +15,7 @@
  *   return <StaticPage slug="mypage" fallbackTitle="My Page" />;
  * }
  * 
- * // In content/pages/mypage.yaml:
+ * // In static-pages/mypage.yaml:
  * title: "My Page"
  * content: |
  *   # Markdown content here
@@ -72,7 +73,7 @@ export interface StaticPageProps {
 
 /**
  * Reusable static page component
- * Loads all configuration and content from content/pages/{slug}.yaml
+ * Loads all configuration and content from static-pages/{slug}.yaml
  * Markdown content is embedded in the 'content' field of the YAML file
  * Automatically renders structured sections (workflow, benefits, equipment) when present
  */
@@ -82,7 +83,7 @@ export async function StaticPage({
   fallbackDescription 
 }: StaticPageProps) {
   // Load YAML configuration
-  const yamlPath = path.join(process.cwd(), 'content/pages', `${slug}.yaml`);
+  const yamlPath = path.join(process.cwd(), 'static-pages', `${slug}.yaml`);
   const yamlContent = await fs.readFile(yamlPath, 'utf8');
   const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { 
     content?: string;

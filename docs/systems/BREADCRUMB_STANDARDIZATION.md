@@ -117,7 +117,7 @@ breadcrumb:
 Add breadcrumb array to YAML config:
 
 ```yaml
-# content/pages/services.yaml
+# static-pages/services.yaml
 title: Services
 breadcrumb:
   - label: Home

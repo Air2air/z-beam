@@ -14,7 +14,7 @@ The SmartTable component takes complex nested YAML/frontmatter data and renders 
 
 ### In YAML Configuration
 ```yaml
-# content/pages/equipment.yaml
+# static-pages/equipment.yaml
 jangoSpecs:
   materialProperties:
     laserType: "Nano-second pulsed ytterbium fiber laser"

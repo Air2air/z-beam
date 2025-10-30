@@ -190,7 +190,7 @@ interface CalloutProps {
 
 ### Services Page
 ```yaml
-# content/pages/services.yaml
+# static-pages/services.yaml
 callout:
   heading: "Ready to Transform Your Operations?"
   text: "Our expert team is here to help you achieve superior cleaning results..."

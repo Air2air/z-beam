@@ -19,8 +19,8 @@
 - **Schema templates**: 6 ✅ All compliant
 
 ### File Locations Validated
-1. `content/components/jsonld/*.json` - Material-specific JSON-LD files
-2. `content/components/jsonld/*.yaml` - Material-specific YAML JSON-LD files  
+1. `[REMOVED] content/components/jsonld/*.json` - Material-specific JSON-LD files
+2. `[REMOVED] content/components/jsonld/*.yaml` - Material-specific YAML JSON-LD files  
 3. `app/utils/schemas/*.json` - Reusable schema templates
 
 ## Issues Identified and Resolved
@@ -84,7 +84,7 @@ node scripts/comprehensive-jsonld-validation.js
 node scripts/complete-jsonld-schema-fix.js
 
 # Check for invalid Material types
-find content/components/jsonld -name "*.json" -exec grep -l '"@type": "Material"' {} \;
+find [REMOVED] content/components/jsonld -name "*.json" -exec grep -l '"@type": "Material"' {} \;
 ```
 
 ## SEO and Technical Benefits

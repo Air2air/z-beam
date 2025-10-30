@@ -591,7 +591,7 @@ export function FAQ({ items, title = "Frequently Asked Questions", category }: F
 ```
 
 #### B. YAML Structure for FAQ Content
-**Location**: `content/components/faq/laser-cleaning.yaml`
+**Location**: `[REMOVED] content/components/faq/laser-cleaning.yaml`
 
 ```yaml
 faq:
@@ -621,9 +621,9 @@ faq:
 
 **Files to Create:**
 - `app/components/FAQ/FAQ.tsx`
-- `content/components/faq/laser-cleaning.yaml`
-- `content/components/faq/materials.yaml`
-- `content/components/faq/safety.yaml`
+- `[REMOVED] content/components/faq/laser-cleaning.yaml`
+- `[REMOVED] content/components/faq/materials.yaml`
+- `[REMOVED] content/components/faq/safety.yaml`
 
 **Expected Impact:**
 - +25-35% featured snippet capture rate

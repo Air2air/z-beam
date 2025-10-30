@@ -35,10 +35,7 @@ describe('Content Pipeline Integration', () => {
   async function setupTestContent() {
     const contentDirs = [
       'frontmatter/materials',
-      'content/components/content',
-      'content/components/metatags',
-      'content/components/bullets',
-      'content/components/author'
+      'static-pages'
     ];
 
     // Create directory structure

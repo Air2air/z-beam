@@ -58,7 +58,7 @@ other: {
 
 1. **Moved directory:**
    ```bash
-   content/components/metatags/ → content/components/metatags.deprecated/
+   [REMOVED] content/components/metatags/ → [REMOVED] content/components/metatags.deprecated/
    ```
 
 2. **Updated home page** (`app/page.tsx`):
@@ -176,7 +176,7 @@ Metadata Warnings: 107 (data quality - non-blocking)
 5. ✅ `DEPLOYMENT_CHANGELOG.md` - Updated with consolidation notes
 
 ### Directory Changes
-6. ✅ `content/components/metatags/` → `content/components/metatags.deprecated/`
+6. ✅ `[REMOVED] content/components/metatags/` → `[REMOVED] content/components/metatags.deprecated/`
 
 ---
 

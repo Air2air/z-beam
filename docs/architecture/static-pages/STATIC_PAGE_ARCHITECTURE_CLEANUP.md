@@ -180,16 +180,16 @@ export default async function PageName() {
 
 ### Page Metadata (Optional)
 
-Static pages can optionally have metadata files in `content/pages/`:
+Static pages can optionally have metadata files in `static-pages/`:
 
 ```
-content/pages/
+static-pages/
 ├── contact.yaml    (optional - page uses custom JSX)
 ├── services.yaml   (optional - page uses custom JSX)
 └── about.yaml      (used by loadPageData for component rendering)
 ```
 
-**When to create content/pages/{name}.yaml:**
+**When to create static-pages/{name}.yaml:**
 - ✅ Page uses component-based rendering (`loadPageData()`)
 - ✅ Need to share metadata with other systems
 - ✅ Want to generate navigation from YAML

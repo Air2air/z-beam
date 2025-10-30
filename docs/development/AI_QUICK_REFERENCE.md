@@ -150,8 +150,8 @@ export default async function MyPage() {
 ```
 
 **Requirements:**
-- Create `content/pages/mypage.yaml` (config + hero image + optional callout)
-- Create `content/components/text/mypage.md` (markdown content)
+- Create `static-pages/mypage.yaml` (config + hero image + optional callout)
+- Create `[REMOVED] content/components/text/mypage.md` (markdown content)
 - No custom React components needed
 
 **Optional Callout Section(s):**

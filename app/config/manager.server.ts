@@ -275,9 +275,7 @@ class ConfigurationManager {
     // Only validate directories in Node.js context (server-side)
     const requiredDirs = [
       'frontmatter/materials',
-      'content/components/badgesymbol',
-      'app/utils',
-      'app/components'
+      'static-pages'
     ];
 
     const fs = await import('fs');

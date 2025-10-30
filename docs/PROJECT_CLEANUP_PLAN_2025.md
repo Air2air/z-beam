@@ -57,10 +57,10 @@ npm run build:skip-validation
 ```
 ./app/utils/logger.ts.backup
 ./app/components/MetricsCard/MetricsGrid.tsx.backup
-./content/pages/rental.yaml.backup
-./content/pages/pros.yaml.backup
-./content/pages/partners.yaml.backup
-./content/pages/services.yaml.backup
+./static-pages/rental.yaml.backup
+./static-pages/pros.yaml.backup
+./static-pages/partners.yaml.backup
+./static-pages/services.yaml.backup
 ./coverage/app/types.backup
 ./coverage/lcov-report/app/types.backup
 ```

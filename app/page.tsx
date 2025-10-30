@@ -18,8 +18,7 @@ export const revalidate = false; // Never revalidate in production
 // Generate metadata from home.yaml
 export async function generateMetadata() {
   try {
-    // Load home.yaml configuration
-    const yamlPath = path.join(process.cwd(), 'content/pages', 'home.yaml');
+    const yamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
     const yamlContent = await fs.readFile(yamlPath, 'utf8');
     const homeConfig = yaml.load(yamlContent) as ArticleMetadata;
 
@@ -42,13 +41,15 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
-  // Load home.yaml configuration
-  const yamlPath = path.join(process.cwd(), 'content/pages', 'home.yaml');
-  const yamlContent = await fs.readFile(yamlPath, 'utf8');
-  const homeConfig = yaml.load(yamlContent) as any;
+  // Read the YAML configuration for the home page
+  let homeContent;
+  try {
+    const yamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
+    const yamlContent = await fs.readFile(yamlPath, 'utf8');
+    const homeConfig = yaml.load(yamlContent) as any;
 
-  // Create frontmatter object for Hero component (loaded from Layout)
-  const heroFrontmatter = {
+    // Create frontmatter object for Hero component (loaded from Layout)
+    const heroFrontmatter = {
     title: homeConfig.title || SITE_CONFIG.name,
     description: homeConfig.description || "Advanced surface treatment solutions for industrial applications", 
     slug: homeConfig.slug || "home",
@@ -56,15 +57,15 @@ export default async function HomePage() {
     images: homeConfig.images, // Include hero images from YAML
   };
 
-  // Extract featured sections and materials from YAML
-  const featuredSections = homeConfig.featuredSections || [];
-  const featuredMaterials = homeConfig.featuredMaterials || [];
-  
-  // Page title and subtitle for consistent Title component display
-  const pageTitle = homeConfig.title || SITE_CONFIG.name;
-  const pageSubtitle = homeConfig.subtitle || "Advanced laser surface treatment solutions for industrial applications";
+    // Extract featured sections and materials from YAML
+    const featuredSections = homeConfig.featuredSections || [];
+    const featuredMaterials = homeConfig.featuredMaterials || [];
+    
+    // Page title and subtitle for consistent Title component display
+    const pageTitle = homeConfig.title || SITE_CONFIG.name;
+    const pageSubtitle = homeConfig.subtitle || "Advanced laser surface treatment solutions for industrial applications";
 
-  return (
+    return (
     <Layout 
       title={pageTitle}
       subtitle={pageSubtitle}
@@ -114,5 +115,16 @@ export default async function HomePage() {
         </section>
       )}
     </Layout>
-  );
+    );
+  } catch (error) {
+    console.error('Error loading home page content:', error);
+    // Return minimal fallback page
+    return (
+      <Layout title={SITE_CONFIG.name} subtitle="Advanced laser surface treatment solutions" fullWidth>
+        <section className={CONTAINER_STYLES.standard}>
+          <p>Welcome to Z-Beam. Content is loading...</p>
+        </section>
+      </Layout>
+    );
+  }
 }

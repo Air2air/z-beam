@@ -101,7 +101,7 @@ Created comprehensive guide covering:
 
 Created new page at `/image-licensing`:
 - **File**: `app/image-licensing/page.tsx`
-- **Content**: `content/pages/image-licensing.yaml`
+- **Content**: `static-pages/image-licensing.yaml`
 - **Purpose**: Explain image usage rights and licensing options
 
 ### 6. Bulk Update Script (`scripts/add-image-licenses.sh`)
@@ -120,7 +120,7 @@ Created bash script to add default license metadata to all material YAML files:
 4. ✅ `docs/guides/IMAGE_LICENSE_METADATA.md` - Comprehensive documentation
 5. ✅ `scripts/add-image-licenses.sh` - Bulk update script
 6. ✅ `app/image-licensing/page.tsx` - New licensing page
-7. ✅ `content/pages/image-licensing.yaml` - Page content
+7. ✅ `static-pages/image-licensing.yaml` - Page content
 
 ## How to Use
 

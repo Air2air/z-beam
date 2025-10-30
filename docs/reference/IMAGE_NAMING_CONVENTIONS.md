@@ -53,7 +53,7 @@ This document outlines the standardized image naming conventions for the Z-Beam 
 ```
 
 ### Migration Status
-- **✅ Complete**: All 100+ YAML files in `content/components/caption/`
+- **✅ Complete**: All 100+ YAML files in `[REMOVED] content/components/caption/`
 - **✅ Complete**: TypeScript configuration files
 - **✅ Complete**: Example data files
 - **✅ Complete**: Social media image references

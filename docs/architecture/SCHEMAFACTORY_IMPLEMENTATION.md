@@ -306,7 +306,7 @@ it('StaticPage should pass data to SchemaFactory', () => {
 ### Product Page
 
 ```yaml
-# content/pages/netalux.yaml
+# static-pages/netalux.yaml
 title: "Netalux Laser Equipment"
 needle100_150:
   name: "Needle® 100/150"
@@ -325,7 +325,7 @@ needle100_150:
 ### Partners Page
 
 ```yaml
-# content/pages/partners.yaml
+# static-pages/partners.yaml
 title: "Our Partners"
 contentCards:
   - heading: "Laserverse - Canada"
@@ -346,7 +346,7 @@ contentCards:
 ### Service Page
 
 ```yaml
-# content/pages/services.yaml
+# static-pages/services.yaml
 title: "Our Services"
 services:
   - name: "Laser Cleaning Training"

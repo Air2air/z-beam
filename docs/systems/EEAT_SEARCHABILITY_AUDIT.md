@@ -42,7 +42,7 @@
 
 #### **Missing: Real-World Project Showcases**
 ```yaml
-# RECOMMENDED: Add to content/pages/
+# RECOMMENDED: Add to static-pages/
 case-studies/
   automotive-rust-removal.yaml
   aerospace-component-cleaning.yaml
@@ -341,7 +341,7 @@ safety:
 #### **Missing: FAQ Schema**
 ```yaml
 # RECOMMENDED: Add FAQ pages
-content/pages/faq.yaml:
+static-pages/faq.yaml:
   questions:
     - question: "What materials can be laser cleaned?"
       answer: "We clean aluminum, steel, copper..."
@@ -416,7 +416,7 @@ content/pages/faq.yaml:
 
 #### 1. **Add Case Studies/Portfolio**
 ```bash
-mkdir -p content/pages/case-studies
+mkdir -p static-pages/case-studies
 mkdir -p public/images/case-studies/{before,after}
 ```
 
@@ -448,17 +448,17 @@ Add to About page and footer.
 
 #### 3. **Create Legal Pages**
 ```bash
-mkdir -p content/pages/legal
-touch content/pages/legal/privacy-policy.yaml
-touch content/pages/legal/terms-of-service.yaml
-touch content/pages/legal/refund-policy.yaml
+mkdir -p static-pages/legal
+touch static-pages/legal/privacy-policy.yaml
+touch static-pages/legal/terms-of-service.yaml
+touch static-pages/legal/refund-policy.yaml
 ```
 
 Link from footer.
 
 #### 4. **Add FAQ with Schema**
 ```yaml
-# content/pages/faq.yaml
+# static-pages/faq.yaml
 questions:
   - q: "What materials can laser cleaning be used on?"
     a: "Our laser cleaning services work on aluminum, steel, copper..."

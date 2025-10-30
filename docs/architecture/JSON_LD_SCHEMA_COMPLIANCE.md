@@ -82,7 +82,7 @@
 
 ### Check for Invalid Types
 ```bash
-find content/components/jsonld -name "*.yaml" -exec grep -l '"@type": "Material"' {} \;
+find [REMOVED] content/components/jsonld -name "*.yaml" -exec grep -l '"@type": "Material"' {} \;
 ```
 
 ### Run Full Validation

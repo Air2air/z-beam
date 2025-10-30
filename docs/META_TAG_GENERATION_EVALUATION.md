@@ -17,7 +17,7 @@
 
 ### System 1: Static Metatag YAML Files (UNUSED)
 
-**Location:** `content/components/metatags/`  
+**Location:** `[REMOVED] content/components/metatags/`  
 **Count:** 124 files (one per material)  
 **Status:** ❌ **NOT CONSUMED** by pages
 
@@ -508,7 +508,7 @@ return createMetadata({
 **Action Plan:**
 ```bash
 # 1. Backup metatags directory
-mv content/components/metatags content/components/metatags.deprecated
+mv [REMOVED] content/components/metatags [REMOVED] content/components/metatags.deprecated
 
 # 2. Update home page to use createMetadata() fully
 # Edit app/page.tsx to remove loadComponentData('metatags', 'home')

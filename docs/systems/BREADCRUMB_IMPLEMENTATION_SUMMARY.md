@@ -74,7 +74,7 @@ Functions:
 
 ### 4. Example Configuration
 
-**File**: `content/pages/services.yaml`
+**File**: `static-pages/services.yaml`
 
 Added explicit breadcrumb configuration:
 
@@ -129,7 +129,7 @@ subcategory: non-ferrous
 For static pages like `/services`:
 
 ```yaml
-# content/pages/services.yaml
+# static-pages/services.yaml
 breadcrumb:
   - label: "Home"
     href: "/"
@@ -178,7 +178,7 @@ For pages without frontmatter configuration:
 2. ✅ `app/utils/breadcrumbs.ts` - NEW: Breadcrumb generation utility
 3. ✅ `app/components/Navigation/breadcrumbs.tsx` - Accept breadcrumbData prop
 4. ✅ `app/components/Layout/Layout.tsx` - Generate and pass breadcrumb data
-5. ✅ `content/pages/services.yaml` - Added breadcrumb example
+5. ✅ `static-pages/services.yaml` - Added breadcrumb example
 6. ✅ `docs/systems/BREADCRUMB_STANDARDIZATION.md` - NEW: Documentation
 
 ## Files Verified (No Changes Needed)
@@ -227,7 +227,7 @@ breadcrumb:
 Add breadcrumb array to YAML config:
 
 ```yaml
-# content/pages/your-page.yaml
+# static-pages/your-page.yaml
 title: Your Page
 breadcrumb:
   - label: Home

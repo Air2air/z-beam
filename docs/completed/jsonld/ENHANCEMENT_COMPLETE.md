@@ -208,7 +208,7 @@ content/
 ### Static Page with Organizations
 
 ```yaml
-# content/pages/partners.yaml
+# static-pages/partners.yaml
 title: "Our Partners"
 contentCards:
   - heading: "Laserverse - Canada"
@@ -228,7 +228,7 @@ contentCards:
 ### Equipment/Product Page
 
 ```yaml
-# content/pages/netalux.yaml
+# static-pages/netalux.yaml
 title: "Netalux Equipment"
 needle100_150:
   name: "Needle® 100/150"
@@ -246,7 +246,7 @@ needle100_150:
 ### Service Page
 
 ```yaml
-# content/pages/services.yaml
+# static-pages/services.yaml
 title: "Our Services"
 services:
   - name: "Training"
