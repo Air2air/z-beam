@@ -128,6 +128,25 @@ Current `tsconfig.json` settings:
 }
 ```
 
+### Type System Architecture
+
+**Single Source of Truth**: All types are defined in `types/centralized.ts`
+
+```typescript
+// ✅ Always import from @/types
+import type { ArticleMetadata, NavItem, ButtonProps } from '@/types';
+
+// ❌ Never export types from component/config files
+export interface NavItem { ... }  // Wrong - already in centralized.ts
+```
+
+**Recent Consolidation (Oct 2025)**:
+- Removed 8 duplicate type exports from component and config files
+- All types now sourced exclusively from `types/centralized.ts`
+- Backward compatibility maintained via re-exports
+
+See: [Type System Audit](../TYPE_SYSTEM_AUDIT.md) for full details.
+
 ### Type Safety Requirements
 
 **All new code must:**
@@ -135,6 +154,7 @@ Current `tsconfig.json` settings:
 - Avoid `any` types (enforced by ESLint)
 - Use type annotations for variables when types can't be inferred
 - Handle null/undefined cases explicitly
+- Import all types from `@/types` (never define types locally unless component-specific)
 
 ### ✅ Correct Usage
 
