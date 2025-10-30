@@ -173,20 +173,20 @@ describe('Deployment Documentation', () => {
 });
 
 describe('Deployment Scripts', () => {
-  test('smart-deploy script exists in root', () => {
-    const scriptPath = path.join(process.cwd(), 'smart-deploy.sh');
+  test('smart-deploy script exists in scripts/deployment/', () => {
+    const scriptPath = path.join(process.cwd(), 'scripts/deployment/smart-deploy.sh');
     expect(fs.existsSync(scriptPath)).toBe(true);
   });
 
   test('smart-deploy script is executable', () => {
-    const scriptPath = path.join(process.cwd(), 'smart-deploy.sh');
+    const scriptPath = path.join(process.cwd(), 'scripts/deployment/smart-deploy.sh');
     const stats = fs.statSync(scriptPath);
     const isExecutable = !!(stats.mode & fs.constants.S_IXUSR);
     expect(isExecutable).toBe(true);
   });
 
   test('smart-deploy script contains deployment commands', () => {
-    const scriptPath = path.join(process.cwd(), 'smart-deploy.sh');
+    const scriptPath = path.join(process.cwd(), 'scripts/deployment/smart-deploy.sh');
     const content = fs.readFileSync(scriptPath, 'utf-8');
     
     expect(content).toContain('deploy_production');
@@ -199,7 +199,7 @@ describe('Deployment Scripts', () => {
     if (fs.existsSync(tasksPath)) {
       const tasksContent = fs.readFileSync(tasksPath, 'utf-8');
       expect(tasksContent).toContain('Deploy to Production');
-      expect(tasksContent).toContain('./smart-deploy.sh');
+      expect(tasksContent).toContain('./scripts/deployment/smart-deploy.sh');
     }
   });
 });

@@ -14,6 +14,8 @@ This README is the single source of truth for building, maintaining, and extendi
 - **Smallest codebase wins**: Fewer files, less complexity, and maximum reuse.
 - **Zero component duplication**: Each UI pattern must exist exactly once.
 - **Strict anti-bloat**: Every change must reduce code size or improve clarity.
+- **Consistent imports**: Always use `@/` path aliases for app/ and types/ imports (enforced by ESLint)
+- **Type safety**: Progressive TypeScript strictness with `noImplicitAny` and `strictFunctionTypes` enabled
 
 ---
 
@@ -23,6 +25,8 @@ This README is the single source of truth for building, maintaining, and extendi
 /
 ├── app/                    # Next.js application
 │   ├── components/         # Shared React components
+│   ├── config/             # Configuration
+│   │   └── env.ts          # Centralized environment variables
 │   ├── materials/          # Material pages
 │   ├── css/                # Global styles
 │   ├── utils/              # Utility functions
@@ -40,11 +44,17 @@ This README is the single source of truth for building, maintaining, and extendi
 │   ├── contact.yaml        # Contact page metadata
 │   ├── home.yaml           # Home page metadata
 │   └── image-licensing.yaml # Image licensing page metadata
+├── scripts/                # Utility scripts
+│   ├── deployment/         # Deployment scripts
+│   │   ├── smart-deploy.sh # Main deployment script
+│   │   └── deploy-prod.sh  # Direct production deploy
+│   └── validation/         # Validation scripts
 ├── docs/                   # Documentation (archived)
 ├── package.json            # NPM scripts & dependencies
 ├── next.config.js          # Next.js config
 ├── tailwind.config.js      # Tailwind CSS config
 ├── tsconfig.json           # TypeScript config
+├── .eslintrc.json          # ESLint config (enforces @/ imports)
 ├── REQUIREMENTS.md         # Architecture principles
 ├── PROJECT_GUIDE.md        # Workflow & enforcement
 └── README.md               # This file
@@ -94,19 +104,26 @@ Material categories:
 
 ### Usage Examples
 ```typescript
-import { getArticle } from 'app/utils/contentAPI';
+// ✅ Use @/ path aliases (enforced by ESLint)
+import { getArticle } from '@/app/utils/contentAPI';
 // Get material by full path
 const article = await getArticle('metal', 'non-ferrous', 'aluminum-laser-cleaning');
 
-import { getAllCategories, getSubcategoryInfo } from 'app/utils/materialCategories';
+import { getAllCategories, getSubcategoryInfo } from '@/app/utils/materialCategories';
 // Get all categories with counts
 const categories = getAllCategories();
 // Get subcategory metadata
 const subcategoryInfo = getSubcategoryInfo('metal', 'non-ferrous');
 
-import { getAllAuthors, getAuthorBySlug, getAllTags, getTagStats } from 'app/utils/utils';
+import { getAllAuthors, getAuthorBySlug, getAllTags, getTagStats } from '@/app/utils/utils';
 const authors = getAllAuthors();
 const tagStats = getTagStats();
+
+// Environment variables (centralized)
+import { ENV, isProduction } from '@/app/config/env';
+if (isProduction()) {
+  console.log(`Base URL: ${ENV.BASE_URL}`);
+}
 ```
 
 ### Components
@@ -224,7 +241,41 @@ npm run create:component   # Safely create new component (last resort)
 - **Pre-commit hooks** and **CI pipeline** enforce compliance with all mandates.
 - **Emergency bypass**: Use `npm run dev:direct` to start server regardless of issues.
 
----
+### Code Standards & Enforcement
+
+**Import Path Standards** (Enforced by ESLint):
+```typescript
+// ✅ Correct - Use @/ path aliases
+import { Component } from '@/app/components/Component';
+import { Type } from '@/types';
+import { ENV } from '@/app/config/env';
+
+// ❌ Wrong - Relative imports will fail ESLint
+import { Component } from '../../app/components/Component';
+import { Type } from '../../types';
+```
+
+**Environment Variables**:
+```typescript
+// ✅ Correct - Use centralized ENV config
+import { ENV, isProduction } from '@/app/config/env';
+const baseUrl = ENV.BASE_URL;
+
+// ❌ Wrong - Direct process.env access (not enforced, but discouraged)
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+```
+
+**TypeScript Standards**:
+- `noImplicitAny: true` - All variables must have explicit types
+- `strictFunctionTypes: true` - Strict function type checking
+- `strictNullChecks: true` - Null safety checks
+- Progressive migration toward full `strict: true`
+
+**ESLint Rules** (Errors, not warnings):
+- `@typescript-eslint/no-explicit-any` - Avoid `any` types
+- `@typescript-eslint/no-unused-vars` - No unused variables
+- `prefer-const` - Use `const` when possible
+- `no-restricted-imports` - Enforce `@/` path aliases
 
 ---
 
@@ -240,33 +291,33 @@ Z-Beam uses a combined deployment and monitoring system built around `smart-depl
 git push origin main
 
 # Manual deployment
-./smart-deploy.sh deploy
+./scripts/deployment/smart-deploy.sh deploy
 
 # Manual with monitoring
-./smart-deploy.sh deploy-monitor
+./scripts/deployment/smart-deploy.sh deploy-monitor
 ```
 
 ### Smart Deploy Commands
 
 **Deployment:**
 ```bash
-./smart-deploy.sh deploy          # Deploy to production
-./smart-deploy.sh deploy-monitor  # Deploy and start monitoring
+./scripts/deployment/smart-deploy.sh deploy          # Deploy to production
+./scripts/deployment/smart-deploy.sh deploy-monitor  # Deploy and start monitoring
 ```
 
 **Monitoring:**
 ```bash
-./smart-deploy.sh monitor         # Monitor latest deployment
-./smart-deploy.sh start           # Start monitoring active deployments
-./smart-deploy.sh status          # Check monitoring status
-./smart-deploy.sh logs            # Show live deployment logs
-./smart-deploy.sh list            # List recent deployments
-./smart-deploy.sh stop            # Stop monitoring
+./scripts/deployment/smart-deploy.sh monitor         # Monitor latest deployment
+./scripts/deployment/smart-deploy.sh start           # Start monitoring active deployments
+./scripts/deployment/smart-deploy.sh status          # Check monitoring status
+./scripts/deployment/smart-deploy.sh logs            # Show live deployment logs
+./scripts/deployment/smart-deploy.sh list            # List recent deployments
+./scripts/deployment/smart-deploy.sh stop            # Stop monitoring
 ```
 
 **NPM Scripts:**
 ```bash
-npm run deploy            # Deploy to production
+npm run deploy            # Deploy to production (uses scripts/deployment/smart-deploy.sh)
 npm run deploy:monitor    # Deploy and start monitoring
 npm run monitor           # Monitor existing deployments
 ```

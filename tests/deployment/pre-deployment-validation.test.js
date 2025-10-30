@@ -200,7 +200,7 @@ describe('Pre-Deployment Error Prevention', () => {
     });
 
     test('smart-deploy script handles monitoring', () => {
-      const smartDeploy = path.join(process.cwd(), 'smart-deploy.sh');
+      const smartDeploy = path.join(process.cwd(), 'scripts/deployment/smart-deploy.sh');
       expect(fs.existsSync(smartDeploy)).toBe(true);
       
       // Check if it's executable
@@ -311,7 +311,7 @@ describe('Pre-Deployment Error Prevention', () => {
 
   describe('Unified deployment system validation', () => {
     test('smart-deploy script contains monitoring functions', () => {
-      const smartDeploy = path.join(process.cwd(), 'smart-deploy.sh');
+      const smartDeploy = path.join(process.cwd(), 'scripts/deployment/smart-deploy.sh');
       expect(fs.existsSync(smartDeploy)).toBe(true);
       
       const content = fs.readFileSync(smartDeploy, 'utf-8');
@@ -321,7 +321,7 @@ describe('Pre-Deployment Error Prevention', () => {
     });
 
     test('smart-deploy script has all required commands', () => {
-      const smartDeploy = path.join(process.cwd(), 'smart-deploy.sh');
+      const smartDeploy = path.join(process.cwd(), 'scripts/deployment/smart-deploy.sh');
       const content = fs.readFileSync(smartDeploy, 'utf-8');
       
       // Check for all deployment commands
