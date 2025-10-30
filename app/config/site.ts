@@ -2,6 +2,8 @@
 // Unified site configuration - Single source of truth
 // Consolidates: constants.ts, business-config.ts, gridConfig.ts, navigation.ts
 
+import type { GridColumns, GridGap, GridContainer, StandardGridProps, NavItem } from '@/types';
+
 /**
  * SITE CONFIGURATION
  * Core website information and settings
@@ -445,17 +447,6 @@ export const CATEGORY_HEADER_CLASSES = {
   container: "mb-6"
 } as const;
 
-export type GridColumns = 1 | 2 | 3 | 4;
-export type GridGap = keyof typeof GRID_GAPS;
-export type GridContainer = keyof typeof GRID_CONTAINER_CLASSES;
-
-export interface StandardGridProps {
-  columns?: GridColumns;
-  gap?: GridGap;
-  container?: GridContainer;
-  className?: string;
-}
-
 export function getGridClasses({ 
   columns = 3, 
   gap = "md", 
@@ -490,16 +481,6 @@ export function createCategoryHeader(title: string, itemCount: number) {
  * NAVIGATION CONFIGURATION
  * Site navigation structure
  */
-export interface NavItem {
-  name: string;
-  href: string;
-  external?: boolean;
-  target?: "_blank" | "_self";
-  rel?: string;
-  description?: string;
-  dropdown?: NavItem[];
-}
-
 export const MAIN_NAV_ITEMS: NavItem[] = [
   {
     name: "Services",

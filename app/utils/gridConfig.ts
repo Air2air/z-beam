@@ -9,6 +9,8 @@
 // OLD: import { GRID_CONFIGS } from '@/utils/gridConfig'
 // NEW: import { GRID_CONFIGS } from '@/config'
 
+import type { GridColumns, GridGap, GridContainer, StandardGridProps } from '@/types';
+
 export {
   GRID_CONFIGS,
   GRID_GAPS,
@@ -18,12 +20,10 @@ export {
   CATEGORY_HEADER_CLASSES,
   getGridClasses,
   createSectionHeader,
-  createCategoryHeader,
-  type GridColumns,
-  type GridGap,
-  type GridContainer,
-  type StandardGridProps
+  createCategoryHeader
 } from '../config/site';
+
+export type { GridColumns, GridGap, GridContainer, StandardGridProps };
 
 /**
  * @deprecated Use imports from @/config instead

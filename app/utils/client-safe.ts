@@ -1,10 +1,12 @@
 // app/utils/client-safe.ts
 // Client-safe utility functions for components
 
-import { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap } from './gridConfig';
+import { getGridClasses, createSectionHeader, createCategoryHeader } from './gridConfig';
+import type { GridColumns, GridGap } from '@/types';
 
 // Export grid utilities from centralized location
-export { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap };
+export { getGridClasses, createSectionHeader, createCategoryHeader };
+export type { GridColumns, GridGap };
 
 export function slugToDisplayName(slug: string): string {
   return slug

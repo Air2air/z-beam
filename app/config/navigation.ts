@@ -9,7 +9,10 @@
 // OLD: import { MAIN_NAV_ITEMS } from '@/config/navigation'
 // NEW: import { MAIN_NAV_ITEMS } from '@/config'
 
-export { MAIN_NAV_ITEMS, type NavItem } from './site';
+import type { NavItem } from '@/types';
+
+export { MAIN_NAV_ITEMS } from './site';
+export type { NavItem };
 
 /**
  * @deprecated Use imports from @/config instead

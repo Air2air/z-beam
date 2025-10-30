@@ -1438,7 +1438,11 @@ export interface BadgeSymbolData extends BadgeData {
  * Breadcrumbs component props
  */
 export interface BreadcrumbsProps {
-  items: BreadcrumbItem[];
+  /**
+   * Optional breadcrumb data from frontmatter
+   * If provided, this takes priority over URL-based generation
+   */
+  breadcrumbData?: BreadcrumbItem[];
   className?: string;
 }
 
@@ -1944,7 +1948,12 @@ export interface MetricAutoDiscoveryConfig {
 export interface NavItem {
   name: string;
   href: string;
-  current: boolean;
+  current?: boolean;
+  external?: boolean;
+  target?: "_blank" | "_self";
+  rel?: string;
+  description?: string;
+  dropdown?: NavItem[];
   children?: NavItem[];
   icon?: React.ComponentType;
 }
@@ -2006,8 +2015,15 @@ export interface DebugLayoutProps {
  * SEO caption props
  */
 export interface SEOCaptionProps {
-  frontmatter: ArticleMetadata;
-  content: string | CaptionDataStructure;
+  materialName: string;
+  frontmatter?: FrontmatterType;
+  captionData?: ParsedCaptionData;
+  imageData?: {
+    beforeUrl: string;
+    afterUrl: string;
+    width: number;
+    height: number;
+  };
 }
 
 /**

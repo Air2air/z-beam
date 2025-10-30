@@ -3,17 +3,9 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { BreadcrumbItem } from "@/types";
+import type { BreadcrumbItem, BreadcrumbsProps } from "@/types";
 import { capitalizeWords } from "../../utils/formatting";
 import { SITE_CONFIG } from "../../utils/constants";
-
-export interface BreadcrumbsProps {
-  /**
-   * Optional breadcrumb data from frontmatter
-   * If provided, this takes priority over URL-based generation
-   */
-  breadcrumbData?: BreadcrumbItem[];
-}
 
 /**
  * WCAG 2.1 AAA Compliant Breadcrumb Component

@@ -4,20 +4,7 @@
 'use client';
 
 import Link from 'next/link';
-
-export interface ButtonProps {
-  variant?: 'primary' | 'inverted' | 'secondary' | 'minimal';
-  size?: 'sm' | 'md' | 'lg';
-  showIcon?: boolean;
-  className?: string;
-  fullWidth?: boolean;
-  children?: React.ReactNode;
-  'aria-label'?: string;
-  href?: string;
-  type?: 'button' | 'submit' | 'reset';
-  disabled?: boolean;
-  onClick?: (e: React.MouseEvent) => void;
-}
+import type { ButtonProps } from '@/types';
 
 /**
  * Button - Reusable button component for links and form actions

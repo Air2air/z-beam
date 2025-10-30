@@ -1,27 +1,12 @@
 // app/components/Caption/SEOOptimizedCaption.tsx
 "use client";
 
-import { ParsedCaptionData, FrontmatterType } from '@/types';
+import type { ParsedCaptionData, FrontmatterType, SEOCaptionProps } from '@/types';
 import React from 'react';
 import Image from 'next/image';
 import { CaptionData } from './useCaptionParsing';
 import { Title } from '../Title';
 import { SITE_CONFIG } from '../../utils/constants';
-
-interface SEOOptimizedCaptionProps {
-  materialName: string;
-  frontmatter?: FrontmatterType;
-  captionData?: ParsedCaptionData;
-  imageData?: {
-    beforeUrl: string;
-    afterUrl: string;
-    width: number;
-    height: number;
-  };
-}
-
-// Shorter alias for external use - Phase 1 (non-breaking)
-export type SEOCaptionProps = SEOOptimizedCaptionProps;
 
 /**
  * Determines the appropriate thermal property label based on material type
@@ -77,7 +62,7 @@ export function SEOOptimizedCaption({
   frontmatter, 
   captionData, 
   imageData 
-}: SEOOptimizedCaptionProps) {
+}: SEOCaptionProps) {
   const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
   const processId = `laser-cleaning-${materialName}-${Date.now()}`;
   const thermalProperty = getThermalPropertyLabel(materialName);
