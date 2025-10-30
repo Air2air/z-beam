@@ -116,7 +116,7 @@ Created bash script to add default license metadata to all material YAML files:
 
 1. ✅ `types/centralized.ts` - Added license fields to ImageMetadata
 2. ✅ `app/utils/schemas/SchemaFactory.ts` - Enhanced ImageObject schema
-3. ✅ `content/frontmatter/aluminum-laser-cleaning.yaml` - Example implementation
+3. ✅ `frontmatter/materials/aluminum-laser-cleaning.yaml` - Example implementation
 4. ✅ `docs/guides/IMAGE_LICENSE_METADATA.md` - Comprehensive documentation
 5. ✅ `scripts/add-image-licenses.sh` - Bulk update script
 6. ✅ `app/image-licensing/page.tsx` - New licensing page
@@ -150,7 +150,7 @@ Run the bulk update script:
 ```
 
 This will:
-1. Find all YAML files in `content/frontmatter/`
+1. Find all YAML files in `frontmatter/materials/`
 2. Add default license metadata to hero and micro images
 3. Create `.bak` backup files
 4. Report progress and statistics
@@ -279,14 +279,14 @@ cat scripts/add-image-licenses.sh
 ./scripts/add-image-licenses.sh
 
 # Review changes
-git diff content/frontmatter/
+git diff frontmatter/materials/
 
 # If satisfied, commit
-git add content/frontmatter/
+git add frontmatter/materials/
 git commit -m "feat: Add image license metadata to all materials"
 
 # Remove backups
-find content/frontmatter -name '*.bak' -delete
+find frontmatter/materials -name '*.bak' -delete
 ```
 
 ### Update Single File
@@ -297,7 +297,7 @@ Use `yq` manually:
 yq eval -i '
   .images.hero.license = "https://creativecommons.org/licenses/by-nc-nd/4.0/" |
   .images.hero.creditText = "Z-Beam Industrial Solutions"
-' content/frontmatter/your-file.yaml
+' frontmatter/materials/your-file.yaml
 ```
 
 ## Customization

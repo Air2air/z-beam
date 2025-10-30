@@ -23,7 +23,7 @@ ERROR_COUNT=0
 # ============================================
 echo "📄 Checking frontmatter files..."
 
-FRONTMATTER_DIR="content/frontmatter"
+FRONTMATTER_DIR="frontmatter/materials"
 TOTAL_FILES=$(find "$FRONTMATTER_DIR" -name "*.yaml" 2>/dev/null | wc -l | tr -d ' ')
 FILES_WITH_PUBLISHED=$(grep -r "^datePublished:" "$FRONTMATTER_DIR" 2>/dev/null | wc -l | tr -d ' ')
 FILES_WITH_MODIFIED=$(grep -r "^dateModified:" "$FRONTMATTER_DIR" 2>/dev/null | wc -l | tr -d ' ')

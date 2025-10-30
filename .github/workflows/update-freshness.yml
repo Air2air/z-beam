@@ -88,14 +88,14 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
           # Check if there are changes to commit
-          if git diff --quiet content/frontmatter/ content/.freshness-updates.json; then
+          if git diff --quiet frontmatter/materials/ content/.freshness-updates.json; then
             echo "No changes to commit"
             echo "changes=false" >> $GITHUB_OUTPUT
           else
-            git add content/frontmatter/ content/.freshness-updates.json
+            git add frontmatter/materials/ content/.freshness-updates.json
             
             # Get count of updated files
-            UPDATED_COUNT=$(git diff --cached --name-only content/frontmatter/ | wc -l | tr -d ' ')
+            UPDATED_COUNT=$(git diff --cached --name-only frontmatter/materials/ | wc -l | tr -d ' ')
             
             git commit -m "chore: update content freshness timestamps ($UPDATED_COUNT files) [skip ci]"
             
@@ -179,7 +179,7 @@ jobs:
 #
 # MONITORING:
 # - Check workflow runs: https://github.com/<org>/<repo>/actions
-# - Review commit history: content/frontmatter/
+# - Review commit history: frontmatter/materials/
 # - Verify tracking: content/.freshness-updates.json
 # - Monitor deployments: https://vercel.com/<org>/deployments
 #

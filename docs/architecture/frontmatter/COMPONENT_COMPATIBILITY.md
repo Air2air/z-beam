@@ -337,7 +337,7 @@ const frontmatterData = await loadFrontmatterDataInline(slug);
    ↓ calls loadFrontmatterDataInline(slug)
    
 3. contentAPI.ts: loadFrontmatterDataInline()
-   ↓ reads content/frontmatter/{slug}.yaml
+   ↓ reads frontmatter/materials/{slug}.yaml
    ↓ returns complete frontmatter object
    
 4. [slug]/page.tsx

@@ -53,7 +53,7 @@ class ImageRenamer {
     const references = [];
     
     // Search in frontmatter files
-    const yamlFiles = await glob('content/frontmatter/*.yaml');
+    const yamlFiles = await glob('frontmatter/materials/*.yaml');
     for (const yamlFile of yamlFiles) {
       try {
         const content = await fs.readFile(yamlFile, 'utf8');

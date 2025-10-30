@@ -216,7 +216,7 @@ class BuildValidator {
   // Validate content directory structure
   private async validateContentStructure(): Promise<void> {
     const requiredDirs = [
-      'content/frontmatter',
+      'frontmatter/materials',
       'content/components/badgesymbol',
       'content/components'
     ];
@@ -239,7 +239,7 @@ class BuildValidator {
   // Validate YAML file integrity
   private async validateYamlIntegrity(): Promise<void> {
     const yamlDirs = [
-      'content/frontmatter',
+      'frontmatter/materials',
       'content/components/badgesymbol'
     ];
     

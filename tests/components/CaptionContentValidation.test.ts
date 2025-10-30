@@ -9,7 +9,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 
 describe('Caption Component Content Validation', () => {
-  const captionDir = path.join(process.cwd(), 'content/frontmatter');
+  const captionDir = path.join(process.cwd(), 'frontmatter/materials');
   let captionFiles: string[] = [];
 
   beforeAll(() => {

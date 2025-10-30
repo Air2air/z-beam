@@ -62,7 +62,7 @@ Time:        4.008 s
 | File | Status | Lines | Tests |
 |------|--------|-------|-------|
 | `tests/components/MetricsGrid.categorized.test.tsx` | ✅ Created & Passing | 550+ | 26 |
-| `content/frontmatter/aluminum-test-categorized.yaml` | ✅ Created | 250+ | Sample Data |
+| `frontmatter/materials/aluminum-test-categorized.yaml` | ✅ Created | 250+ | Sample Data |
 
 **Verification:**
 ```bash
@@ -71,7 +71,7 @@ npm test -- MetricsGrid.categorized.test.tsx
 ✅ 26/26 tests passing
 
 # Sample YAML exists
-ls -la content/frontmatter/aluminum-test-categorized.yaml
+ls -la frontmatter/materials/aluminum-test-categorized.yaml
 ✅ File exists (8.5 KB)
 ```
 
@@ -110,7 +110,7 @@ Complete documentation for the new categorized material properties system:
 - **[Frontend Implementation](docs/CATEGORIZED_PROPERTIES_README.md)** - Complete overview & usage
 - **[Migration Guide](docs/MIGRATION_CATEGORIZED_PROPERTIES.md)** - Migrate from flat to categorized
 - **[Testing Guide](docs/METRICSCARD_CATEGORIZED_TESTING.md)** - Test strategies & patterns
-- **[Sample File](content/frontmatter/aluminum-test-categorized.yaml)** - Complete example
+- **[Sample File](frontmatter/materials/aluminum-test-categorized.yaml)** - Complete example
 ```
 
 **Verification:**
@@ -317,7 +317,7 @@ npm test -- MetricsGrid.categorized.test.tsx
 ✅ 26/26 tests passing
 
 # 4. View sample
-cat content/frontmatter/aluminum-test-categorized.yaml
+cat frontmatter/materials/aluminum-test-categorized.yaml
 ✅ Complete example available
 ```
 
@@ -329,7 +329,7 @@ cat docs/MIGRATION_CATEGORIZED_PROPERTIES.md
 ✅ Step-by-step migration instructions
 
 # 2. Check sample file
-cat content/frontmatter/aluminum-test-categorized.yaml
+cat frontmatter/materials/aluminum-test-categorized.yaml
 ✅ Template to follow
 
 # 3. Validate structure
@@ -422,7 +422,7 @@ tests/components/MetricsGrid.categorized.test.tsx (550+ lines)
 
 ### Sample Data Files
 ```
-content/frontmatter/aluminum-test-categorized.yaml (250+ lines)
+frontmatter/materials/aluminum-test-categorized.yaml (250+ lines)
 └── 7 categories, 20+ properties
 ```
 
@@ -502,7 +502,7 @@ The Categorized Material Properties system is fully tested and documented:
 
 ### For Content Creators
 - [Migration Guide](MIGRATION_CATEGORIZED_PROPERTIES.md)
-- [Sample File](../content/frontmatter/aluminum-test-categorized.yaml)
+- [Sample File](../frontmatter/materials/aluminum-test-categorized.yaml)
 - [Quick Reference](CATEGORIZED_PROPERTIES_QUICK_REFERENCE.md)
 
 ### For QA Engineers

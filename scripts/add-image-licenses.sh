@@ -6,7 +6,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-FRONTMATTER_DIR="$SCRIPT_DIR/../content/frontmatter"
+FRONTMATTER_DIR="$SCRIPT_DIR/../frontmatter/materials"
 
 # Colors
 GREEN='\033[0;32m'
@@ -114,4 +114,4 @@ echo "Next steps:"
 echo "1. Review changes in a few files"
 echo "2. Test with: npm run build"
 echo "3. Validate with Google Rich Results Test"
-echo "4. If satisfied, remove .bak files: find content/frontmatter -name '*.bak' -delete"
+echo "4. If satisfied, remove .bak files: find frontmatter/materials -name '*.bak' -delete"

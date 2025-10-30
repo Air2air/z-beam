@@ -79,7 +79,7 @@ Time:        7.507 s
 
 ### Alabaster Laser Cleaning Frontmatter
 
-The tests use real data from `content/frontmatter/alabaster-laser-cleaning.yaml`:
+The tests use real data from `frontmatter/materials/alabaster-laser-cleaning.yaml`:
 
 ```yaml
 title: Alabaster Laser Cleaning
@@ -264,7 +264,7 @@ interface TagsProps {
 1. `tests/components/Tags.frontmatter.test.tsx` - New test file (447 lines, 23 tests)
 
 ### Sample Data Used
-1. `content/frontmatter/alabaster-laser-cleaning.yaml` - Real frontmatter data
+1. `frontmatter/materials/alabaster-laser-cleaning.yaml` - Real frontmatter data
 
 ## Commits
 

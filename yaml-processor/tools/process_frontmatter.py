@@ -9,7 +9,7 @@ Usage:
     python process_frontmatter.py [directory_path]
 
 Example:
-    python process_frontmatter.py content/frontmatter
+    python process_frontmatter.py frontmatter/materials
 """
 
 import sys
@@ -85,7 +85,7 @@ try:
         parser.add_argument(
             "directory",
             nargs="?",
-            default="content/frontmatter",
+            default="frontmatter/materials",
             help="Directory containing markdown files to process",
         )
         parser.add_argument(

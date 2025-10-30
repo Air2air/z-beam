@@ -27,7 +27,7 @@ Covers legacy QualityMetrics structure (still supported for backward compatibili
 ## Test Sample Data
 
 ### Sample Categorized YAML
-**Location**: `/content/frontmatter/aluminum-test-categorized.yaml`
+**Location**: `/frontmatter/materials/aluminum-test-categorized.yaml`
 
 A complete example demonstrating:
 - All 7 active property categories
@@ -224,7 +224,7 @@ const minimalMetadata: ArticleMetadata = {
 ```
 
 ### Complete Test Data
-See `/content/frontmatter/aluminum-test-categorized.yaml` for full example with:
+See `/frontmatter/materials/aluminum-test-categorized.yaml` for full example with:
 - 7 property categories
 - Multiple properties per category
 - Full PropertyValue structure

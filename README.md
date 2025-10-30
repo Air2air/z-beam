@@ -320,7 +320,7 @@ Errors saved to: `.vercel-deployment-error.log`
 - **[Frontend Implementation](./docs/CATEGORIZED_PROPERTIES_FRONTEND_IMPLEMENTATION.md)** - Technical details
 - **[Migration Guide](./docs/MIGRATION_CATEGORIZED_PROPERTIES.md)** - Flat to categorized migration
 - **[Testing Guide](./docs/METRICSCARD_CATEGORIZED_TESTING.md)** - Test suite and strategies
-- **[Sample File](./content/frontmatter/aluminum-test-categorized.yaml)** - Complete example
+- **[Sample File](./frontmatter/materials/aluminum-test-categorized.yaml)** - Complete example
 
 **System Status**: ✅ Operational (100% success rate since v2.1)
 

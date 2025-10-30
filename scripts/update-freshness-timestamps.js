@@ -46,7 +46,7 @@ const yaml = require('js-yaml');
 
 const CONFIG = {
   // Directory containing frontmatter YAML files
-  frontmatterDir: path.join(process.cwd(), 'content/frontmatter'),
+  frontmatterDir: path.join(process.cwd(), 'frontmatter/materials'),
   
   // Freshness intervals (days)
   intervals: {
@@ -561,7 +561,7 @@ async function main() {
   console.log(`✅ Complete: ${successCount} updated, ${errorCount} errors`);
   console.log(`📝 Tracking saved to: ${CONFIG.trackingFile}`);
   console.log('\n💡 Next Steps:');
-  console.log('   1. Review changes: git diff content/frontmatter/');
+  console.log('   1. Review changes: git diff frontmatter/materials/');
   console.log('   2. Test build: npm run build');
   console.log('   3. Commit: git add . && git commit -m "chore: update content freshness timestamps"');
   console.log('   4. Deploy: ./smart-deploy.sh deploy');

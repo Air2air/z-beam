@@ -86,7 +86,7 @@ breadcrumb:
     href: "/services"
 ```
 
-**File**: `content/frontmatter/aluminum-laser-cleaning.yaml`
+**File**: `frontmatter/materials/aluminum-laser-cleaning.yaml`
 
 Existing fields auto-generate breadcrumbs:
 
@@ -116,7 +116,7 @@ Comprehensive documentation covering:
 For material pages like `/aluminum-laser-cleaning`:
 
 ```yaml
-# content/frontmatter/aluminum-laser-cleaning.yaml
+# frontmatter/materials/aluminum-laser-cleaning.yaml
 name: Aluminum
 category: metal
 subcategory: non-ferrous
@@ -184,7 +184,7 @@ For pages without frontmatter configuration:
 ## Files Verified (No Changes Needed)
 
 1. ✅ `app/components/StaticPage/StaticPage.tsx` - Already passes metadata
-2. ✅ `content/frontmatter/aluminum-laser-cleaning.yaml` - Has name/category/subcategory
+2. ✅ `frontmatter/materials/aluminum-laser-cleaning.yaml` - Has name/category/subcategory
 
 ## Next Steps (Optional Enhancements)
 

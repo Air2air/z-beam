@@ -97,7 +97,7 @@ Implement automated timestamp management for 132 frontmatter YAML files to maint
 
 **Before:**
 ```yaml
-# content/frontmatter/aluminum-laser-cleaning.yaml
+# frontmatter/materials/aluminum-laser-cleaning.yaml
 title: Aluminum Laser Cleaning
 subtitle: Precision surface preparation...
 
@@ -107,7 +107,7 @@ caption:
 
 **After:**
 ```yaml
-# content/frontmatter/aluminum-laser-cleaning.yaml
+# frontmatter/materials/aluminum-laser-cleaning.yaml
 title: Aluminum Laser Cleaning
 subtitle: Precision surface preparation...
 datePublished: '2025-10-25T13:53:55.449239Z'  # ← NEW (from caption.generated)
@@ -198,7 +198,7 @@ npm run update-freshness -- --batch=132
 npm run update-freshness -- --execute --batch=132 --oldest
 
 # 3. Review changes
-git diff content/frontmatter/
+git diff frontmatter/materials/
 
 # 4. Verify integration
 npm run verify:freshness
@@ -207,7 +207,7 @@ npm run verify:freshness
 npm run build
 
 # 6. Commit
-git add content/frontmatter/ content/.freshness-updates.json
+git add frontmatter/materials/ content/.freshness-updates.json
 git commit -m "feat: add freshness timestamps to all frontmatter files"
 
 # 7. Deploy
@@ -249,8 +249,8 @@ crontab -e
 npm run update-freshness:weekly
 
 # Review, commit, deploy
-git diff content/frontmatter/
-git add content/frontmatter/ content/.freshness-updates.json
+git diff frontmatter/materials/
+git add frontmatter/materials/ content/.freshness-updates.json
 git commit -m "chore: update content freshness timestamps (weekly rotation)"
 ./smart-deploy.sh deploy
 ```
@@ -396,7 +396,7 @@ git commit -m "chore: update content freshness timestamps (weekly rotation)"
 
 **Corrective Actions:**
 1. Pause automated updates
-2. Review recent changes (`git log content/frontmatter/`)
+2. Review recent changes (`git log frontmatter/materials/`)
 3. Revert to conservative approach
 4. Focus on genuine content improvements
 5. Request Google reconsideration (if penalized)
@@ -468,7 +468,7 @@ Strategy: oldest
 📝 Tracking saved to: content/.freshness-updates.json
 
 💡 Next Steps:
-   1. Review changes: git diff content/frontmatter/
+   1. Review changes: git diff frontmatter/materials/
    2. Test build: npm run build
    3. Commit: git add . && git commit -m "chore: update content freshness timestamps"
    4. Deploy: ./smart-deploy.sh deploy
@@ -583,7 +583,7 @@ content/
 - [ ] Execute initial update: `npm run update-freshness -- --execute --batch=132 --oldest`
 - [ ] Verify integration: `npm run verify:freshness`
 - [ ] Test build: `npm run build`
-- [ ] Review changes: `git diff content/frontmatter/`
+- [ ] Review changes: `git diff frontmatter/materials/`
 - [ ] Commit changes: `git add content/ && git commit -m "feat: add freshness timestamps"`
 - [ ] Deploy to production: `./smart-deploy.sh deploy`
 - [ ] Monitor Google Search Console (indexing, errors)

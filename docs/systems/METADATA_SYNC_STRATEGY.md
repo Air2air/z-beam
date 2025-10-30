@@ -157,7 +157,7 @@ export async function generateMetadata({ params }) {
   // Validate freshness
   const yamlPath = path.join(
     process.cwd(),
-    'content/frontmatter',
+    'frontmatter/materials',
     `${params.slug}.yaml`
   );
   

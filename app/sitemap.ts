@@ -64,7 +64,7 @@ export default function sitemap(): SitemapEntry[] {
   const materialPageRoutes: SitemapEntry[] = [];
   
   try {
-    const frontmatterDir = path.join(process.cwd(), 'content/frontmatter');
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter/materials');
     const files = fs.readdirSync(frontmatterDir);
     const yamlFiles = files.filter(f => f.endsWith('.yaml'));
     

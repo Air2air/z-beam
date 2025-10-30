@@ -132,7 +132,7 @@ class CategoryFixer {
     const patterns = [
       'content/components/**/*.yaml',
       'content/pages/**/*.yaml',
-      'content/frontmatter/**/*.yaml'
+      'frontmatter/materials/**/*.yaml'
     ];
     
     let allFiles = [];

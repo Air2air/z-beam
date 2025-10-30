@@ -325,7 +325,7 @@ class NamingValidator {
   async validateCrossReferences() {
     console.log('\n🔗 Validating cross-references...\n');
 
-    const frontmatterFiles = await glob('content/frontmatter/*.yaml');
+    const frontmatterFiles = await glob('frontmatter/materials/*.yaml');
     const slugs = new Set();
     const duplicates = new Set();
 
@@ -439,7 +439,7 @@ class NamingValidator {
 
     // Validate frontmatter files
     console.log('📝 Validating frontmatter YAML files...\n');
-    const frontmatterFiles = await glob('content/frontmatter/*.yaml');
+    const frontmatterFiles = await glob('frontmatter/materials/*.yaml');
     console.log(`   Found ${frontmatterFiles.length} files\n`);
     
     for (const filePath of frontmatterFiles) {

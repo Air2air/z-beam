@@ -249,7 +249,7 @@ npm run update-freshness:weekly  # 25 files immediately
 git log --grep="freshness"
 
 # Files updated in last commit
-git diff HEAD~1 --name-only content/frontmatter/
+git diff HEAD~1 --name-only frontmatter/materials/
 
 # Tracking file
 cat content/.freshness-updates.json

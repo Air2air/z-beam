@@ -5,7 +5,7 @@ import { SmartTable } from '@/app/components/Table/SmartTable';
 
 export default function TestNestedFields() {
   // Load aluminum frontmatter data for testing
-  const filePath = join(process.cwd(), 'content/frontmatter/aluminum-laser-cleaning.yaml');
+  const filePath = join(process.cwd(), 'frontmatter/materials/aluminum-laser-cleaning.yaml');
   const fileContents = readFileSync(filePath, 'utf8');
   const frontmatterData = parseYaml(fileContents) as any;
 

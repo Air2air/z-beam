@@ -196,7 +196,7 @@ class AuthorIdConverter {
   async run() {
     console.log('🚀 Starting author ID conversion...\n');
 
-    const yamlFiles = await glob('content/frontmatter/*.yaml');
+    const yamlFiles = await glob('frontmatter/materials/*.yaml');
     console.log(`📁 Found ${yamlFiles.length} frontmatter files\n`);
 
     let processed = 0;

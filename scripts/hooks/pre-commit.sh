@@ -25,7 +25,7 @@ if ! grep -q "articleRoutes" app/sitemap.ts; then
 fi
 
 # Count frontmatter files
-FRONTMATTER_COUNT=$(find content/frontmatter -name "*.yaml" | wc -l | tr -d ' ')
+FRONTMATTER_COUNT=$(find frontmatter/materials -name "*.yaml" | wc -l | tr -d ' ')
 echo "✓ Found $FRONTMATTER_COUNT article files in frontmatter directory"
 
 # Run sitemap tests if they exist

@@ -293,13 +293,13 @@ npm run update-freshness
 npm run update-freshness:execute
 
 # 4. Review changes
-git diff content/frontmatter/
+git diff frontmatter/materials/
 
 # 5. Test build
 npm run build
 
 # 6. Commit and deploy
-git add content/frontmatter/ content/.freshness-updates.json
+git add frontmatter/materials/ content/.freshness-updates.json
 git commit -m "chore: update content freshness timestamps (25 files)"
 ./smart-deploy.sh deploy
 ```
@@ -335,7 +335,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add content/frontmatter/ content/.freshness-updates.json
+          git add frontmatter/materials/ content/.freshness-updates.json
           git commit -m "chore: automated freshness timestamp update [skip ci]" || exit 0
           git push
       
@@ -485,8 +485,8 @@ echo "🔍 Verifying freshness timestamp integration..."
 
 # 1. Check frontmatter files have dateModified
 echo "Checking frontmatter files..."
-FILES_WITH_DATES=$(grep -r "dateModified:" content/frontmatter/*.yaml | wc -l)
-TOTAL_FILES=$(find content/frontmatter -name "*.yaml" | wc -l)
+FILES_WITH_DATES=$(grep -r "dateModified:" frontmatter/materials/*.yaml | wc -l)
+TOTAL_FILES=$(find frontmatter/materials -name "*.yaml" | wc -l)
 
 if [ "$FILES_WITH_DATES" -eq "$TOTAL_FILES" ]; then
   echo "✅ All $TOTAL_FILES files have dateModified"
@@ -599,7 +599,7 @@ echo "✅ Verification complete!"
 - [ ] Review update script (`scripts/update-freshness-timestamps.js`)
 - [ ] Run dry run: `npm run update-freshness`
 - [ ] Execute initial batch: `npm run update-freshness:execute --batch=10`
-- [ ] Review changes: `git diff content/frontmatter/`
+- [ ] Review changes: `git diff frontmatter/materials/`
 - [ ] Test build: `npm run build`
 - [ ] Verify metadata: Check HTML for OpenGraph dates
 - [ ] Deploy to staging: Test live site

@@ -320,7 +320,7 @@ CREDIT_TEXT="Z-Beam Industrial Solutions"
 COPYRIGHT_YEAR="2025"
 
 # Process all frontmatter YAML files
-find content/frontmatter -name "*.yaml" | while read file; do
+find frontmatter/materials -name "*.yaml" | while read file; do
   echo "Processing: $file"
   
   # Add license metadata to hero images (using yq or manual editing)

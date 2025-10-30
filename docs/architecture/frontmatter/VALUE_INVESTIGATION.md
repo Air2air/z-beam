@@ -17,10 +17,10 @@ Search all frontmatter YAML files to identify which material(s) have `laserRefle
 
 ```bash
 # Search for laserReflectivity values near 97
-grep -r "laserReflectivity:" content/frontmatter/ -A 2 | grep -E "value: (9[0-9]|97)"
+grep -r "laserReflectivity:" frontmatter/materials/ -A 2 | grep -E "value: (9[0-9]|97)"
 
 # Or check all laserReflectivity values
-for file in content/frontmatter/*.yaml; do
+for file in frontmatter/materials/*.yaml; do
   value=$(grep -A 1 "laserReflectivity:" "$file" | grep "value:" | awk '{print $2}')
   if [ ! -z "$value" ]; then
     echo "$(basename $file): $value"

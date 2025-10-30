@@ -18,7 +18,7 @@ const yaml = require('js-yaml');
 const { glob } = require('glob');
 
 // Configuration
-const FRONTMATTER_DIR = path.join(process.cwd(), 'content/frontmatter');
+const FRONTMATTER_DIR = path.join(process.cwd(), 'frontmatter/materials');
 const PAGES_DIR = path.join(process.cwd(), 'content/pages');
 
 // Required fields for complete metadata

@@ -16,7 +16,7 @@ The sitemap is **automatically generated** and includes all pages dynamically. I
 ### Dynamic Content Discovery
 
 The sitemap (`app/sitemap.ts`) automatically:
-1. ✅ Reads all files from `content/frontmatter/`
+1. ✅ Reads all files from `frontmatter/materials/`
 2. ✅ Generates URLs from filenames (e.g., `aluminum-laser-cleaning.yaml` → `/aluminum`)
 3. ✅ Uses file modification times for `lastModified` dates
 4. ✅ Includes all static routes (home, about, services, etc.)
@@ -40,7 +40,7 @@ The sitemap (`app/sitemap.ts`) automatically:
 
 **No action required!** The sitemap automatically includes it.
 
-1. Create new file: `content/frontmatter/titanium-laser-cleaning.yaml`
+1. Create new file: `frontmatter/materials/titanium-laser-cleaning.yaml`
 2. Deploy to production
 3. Sitemap automatically includes `/titanium` with current modification date
 
@@ -176,7 +176,7 @@ chmod +x scripts/sitemap/verify-sitemap.sh
 **Check:**
 ```bash
 # Count frontmatter files
-ls -1 content/frontmatter/*.yaml | wc -l
+ls -1 frontmatter/materials/*.yaml | wc -l
 
 # Run verification
 ./scripts/sitemap/verify-sitemap.sh
@@ -192,7 +192,7 @@ ls -1 content/frontmatter/*.yaml | wc -l
 **Solutions:**
 1. Clear Next.js cache: `rm -rf .next`
 2. Rebuild: `npm run build`
-3. Check file permissions in `content/frontmatter/`
+3. Check file permissions in `frontmatter/materials/`
 4. Verify deployment completed successfully
 
 ### 404 Errors in Sitemap
@@ -343,7 +343,7 @@ npm test tests/sitemap/sitemap.test.ts
 ./scripts/sitemap/verify-sitemap.sh
 
 # Count articles
-ls -1 content/frontmatter/*.yaml | wc -l
+ls -1 frontmatter/materials/*.yaml | wc -l
 
 # Install pre-commit hook
 chmod +x scripts/hooks/pre-commit.sh

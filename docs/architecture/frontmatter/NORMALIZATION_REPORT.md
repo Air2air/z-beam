@@ -3,7 +3,7 @@
 **Date:** October 22, 2025  
 **Analyst:** GitHub Copilot  
 **Files Analyzed:** 132 frontmatter files  
-**Location:** `content/frontmatter/*.yaml`
+**Location:** `frontmatter/materials/*.yaml`
 
 ## Executive Summary
 

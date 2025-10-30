@@ -40,7 +40,7 @@ echo ""
 
 # Count frontmatter files
 echo "3️⃣  Counting article files..."
-FRONTMATTER_DIR="content/frontmatter"
+FRONTMATTER_DIR="frontmatter/materials"
 if [ ! -d "$FRONTMATTER_DIR" ]; then
     echo -e "${RED}❌ ERROR: Frontmatter directory not found${NC}"
     exit 1
@@ -82,7 +82,7 @@ MISSING_CATEGORIES=()
 
 for category in "${REQUIRED_CATEGORIES[@]}"; do
     # Check for category with or without quotes
-    if ! grep -qE "(category: ${category}|category: '${category}')" app/sitemap.ts content/frontmatter/*.yaml 2>/dev/null; then
+    if ! grep -qE "(category: ${category}|category: '${category}')" app/sitemap.ts frontmatter/materials/*.yaml 2>/dev/null; then
         MISSING_CATEGORIES+=("$category")
     fi
 done

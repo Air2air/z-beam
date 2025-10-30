@@ -96,7 +96,7 @@ const nextConfig = {
     const yaml = require('js-yaml');
     
     try {
-      const frontmatterDir = path.join(process.cwd(), 'content/frontmatter');
+      const frontmatterDir = path.join(process.cwd(), 'frontmatter/materials');
       const files = await fs.readdir(frontmatterDir);
       const yamlFiles = files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
       

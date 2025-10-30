@@ -41,13 +41,13 @@ npm run update-freshness -- --batch=132
 npm run update-freshness -- --execute --batch=132 --oldest
 
 # Review changes
-git diff content/frontmatter/
+git diff frontmatter/materials/
 
 # Build and test
 npm run build
 
 # Commit
-git add content/frontmatter/ content/.freshness-updates.json
+git add frontmatter/materials/ content/.freshness-updates.json
 git commit -m "feat: add freshness timestamps to all frontmatter files"
 
 # Deploy
@@ -135,13 +135,13 @@ npm run update-freshness
 npm run update-freshness:weekly
 
 # 3. Review changes
-git diff content/frontmatter/
+git diff frontmatter/materials/
 
 # 4. Build and test
 npm run build
 
 # 5. Commit and deploy
-git add content/frontmatter/ content/.freshness-updates.json
+git add frontmatter/materials/ content/.freshness-updates.json
 git commit -m "chore: update content freshness timestamps (weekly rotation)"
 ./smart-deploy.sh deploy
 ```
@@ -277,7 +277,7 @@ Wait 7+ days before next update.
 **Run detailed checks:**
 ```bash
 # Check frontmatter files
-find content/frontmatter -name "*.yaml" -exec grep -l "dateModified" {} \; | wc -l
+find frontmatter/materials -name "*.yaml" -exec grep -l "dateModified" {} \; | wc -l
 
 # Check tracking file
 cat content/.freshness-updates.json
@@ -369,7 +369,7 @@ const CONFIG = {
 
 **Monitoring:**
 - Tracking file: `content/.freshness-updates.json`
-- Git history: `git log content/frontmatter/`
+- Git history: `git log frontmatter/materials/`
 - Google Search Console: https://search.google.com/search-console
 
 **Issues?**

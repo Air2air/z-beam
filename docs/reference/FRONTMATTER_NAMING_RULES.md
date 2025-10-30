@@ -1,7 +1,7 @@
 # Frontmatter Naming Convention Rules
 **Status:** Official  
 **Last Updated:** October 25, 2025  
-**Applies to:** All YAML frontmatter files in `content/frontmatter/`
+**Applies to:** All YAML frontmatter files in `frontmatter/materials/`
 
 ---
 
@@ -362,7 +362,7 @@ npm run build  # Runs prebuild validation
 
 **Found an issue?** Validate before assuming error:
 ```bash
-npm run validate:naming -- --file content/frontmatter/yourfile.yaml
+npm run validate:naming -- --file frontmatter/materials/yourfile.yaml
 ```
 
 ---

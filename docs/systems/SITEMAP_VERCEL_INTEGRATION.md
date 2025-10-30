@@ -149,7 +149,7 @@ verify:sitemap validates everything
 
 ```bash
 # Create new article
-content/frontmatter/titanium-laser-cleaning.yaml
+frontmatter/materials/titanium-laser-cleaning.yaml
 
 # Commit and push
 git add .
@@ -206,7 +206,7 @@ git push origin main
 **Verify article count:**
 ```bash
 # Count files
-ls -1 content/frontmatter/*.yaml | wc -l
+ls -1 frontmatter/materials/*.yaml | wc -l
 
 # Should match sitemap entry count
 ```

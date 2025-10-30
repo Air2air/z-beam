@@ -17,7 +17,7 @@
 
 ### 1. **Top-Level Frontmatter Fields** (snake_case)
 
-**Location:** `content/frontmatter/*.yaml` root level
+**Location:** `frontmatter/materials/*.yaml` root level
 
 ```yaml
 # Snake_case convention for metadata
@@ -45,7 +45,7 @@ category_info:
 
 ### 2. **Material Properties** (camelCase)
 
-**Location:** `content/frontmatter/*.yaml` under `properties` key
+**Location:** `frontmatter/materials/*.yaml` under `properties` key
 
 ```yaml
 properties:
@@ -84,7 +84,7 @@ properties:
 
 ### 3. **Category Ranges** (Mixed)
 
-**Location:** `content/frontmatter/*.yaml` under `category_info.category_ranges`
+**Location:** `frontmatter/materials/*.yaml` under `category_info.category_ranges`
 
 ```yaml
 category_info:
@@ -102,7 +102,7 @@ category_info:
 
 ### 4. **Author Fields** (Mixed)
 
-**Location:** `content/frontmatter/*.yaml` author section
+**Location:** `frontmatter/materials/*.yaml` author section
 
 ```yaml
 author:
@@ -292,7 +292,7 @@ Python Generator
   ↓ (generates)
 Materials.yaml
   ↓ (exports to)
-content/frontmatter/*.yaml
+frontmatter/materials/*.yaml
   ↓ (processed by)
 yaml-processor/yaml_processor.py
   ↓ (converts property names to camelCase)
