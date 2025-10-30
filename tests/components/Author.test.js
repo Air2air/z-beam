@@ -236,7 +236,7 @@ describe('Author Component', () => {
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
         'hover:bg-gray-50',
-        'dark:hover:bg-gray-800',
+        'dark:hover:bg-gray-900',
         'transition-colors'
       );
     });

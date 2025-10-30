@@ -102,7 +102,7 @@ describe('CategoryPage Component', () => {
     it('should include canonical URL', async () => {
       const metadata = await generateMetadata({ params: { category: 'metal' } });
       
-      expect(metadata.alternates?.canonical).toBe(`${SITE_CONFIG.url}/metal`);
+      expect(metadata.alternates?.canonical).toBe(`${SITE_CONFIG.url}/materials/metal`);
     });
 
     it('should return not found metadata for invalid category', async () => {

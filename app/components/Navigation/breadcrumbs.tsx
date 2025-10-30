@@ -77,7 +77,6 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                   {crumb.label}
                 </span>
               )}
-              <meta itemProp="position" content={String(index + 1)} />
             </li>
           );
         })}
