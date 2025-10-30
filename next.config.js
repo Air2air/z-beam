@@ -125,28 +125,28 @@ const nextConfig = {
           const category = data.category.toLowerCase().replace(/\s+/g, '-');
           const subcategory = data.subcategory.toLowerCase().replace(/\s+/g, '-');
           
-          // Redirect old flat URLs to new categorized structure
+          // Redirect old flat URLs to /materials/ structure
           redirects.push({
             source: `/${slug}`,
-            destination: `/${category}/${subcategory}/${slug}`,
+            destination: `/materials/${category}/${subcategory}/${slug}`,
             permanent: true // 301 redirect for SEO
           });
           
-          // Redirect old /materials/* URLs to new root-level categorized structure
+          // Redirect root-level categorized URLs back to /materials/*
           redirects.push({
-            source: `/materials/${category}/${subcategory}/${slug}`,
-            destination: `/${category}/${subcategory}/${slug}`,
+            source: `/${category}/${subcategory}/${slug}`,
+            destination: `/materials/${category}/${subcategory}/${slug}`,
             permanent: true // 301 redirect for SEO
           });
         }
       }
       
-      // Also redirect category and subcategory pages from /materials
+      // Also redirect root-level category pages to /materials
       const categories = ['metal', 'rare-earth', 'ceramic', 'composite', 'glass', 'plastic', 'stone', 'semiconductor', 'building', 'wood'];
       for (const category of categories) {
         redirects.push({
-          source: `/materials/${category}`,
-          destination: `/${category}`,
+          source: `/${category}`,
+          destination: `/materials/${category}`,
           permanent: true
         });
       }

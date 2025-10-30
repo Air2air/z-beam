@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { render, screen } from '@testing-library/react';
-import CategoryPage, { generateStaticParams, generateMetadata } from '@/app/[category]/page';
+import CategoryPage, { generateStaticParams, generateMetadata } from '@/app/materials/[category]/page';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '@/app/metadata';
 import { SITE_CONFIG } from '@/app/config';
@@ -221,7 +221,7 @@ describe('CategoryPage Component', () => {
       const firstMaterial = firstSubcategory.item.itemListElement[0];
       
       expect(firstMaterial.url).toBe(
-        `${SITE_CONFIG.url}/metal/non-ferrous/aluminum-laser-cleaning`
+        `${SITE_CONFIG.url}/materials/metal/non-ferrous/aluminum-laser-cleaning`
       );
     });
 
@@ -244,7 +244,7 @@ describe('CategoryPage Component', () => {
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      expect(schemaData.url).toBe(`${SITE_CONFIG.url}/metal`);
+      expect(schemaData.url).toBe(`${SITE_CONFIG.url}/materials/metal`);
     });
   });
 

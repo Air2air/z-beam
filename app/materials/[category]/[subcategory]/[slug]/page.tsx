@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: MaterialPageProps) {
     
     return createMetadata({
       ...article.metadata,
-      canonical: `${SITE_CONFIG.url}/${category}/${subcategory}/${slug}`
+      canonical: `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`
     } as unknown as ArticleMetadata);
   } catch (error) {
     console.error(`Error generating metadata for ${slug}:`, error);
@@ -106,7 +106,7 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     if (articleCategory && articleSubcategory) {
       if (articleCategory !== category || articleSubcategory !== subcategory) {
         // Redirect to correct URL
-        redirect(`/${articleCategory}/${articleSubcategory}/${slug}`);
+        redirect(`/materials/${articleCategory}/${articleSubcategory}/${slug}`);
       }
     }
     
@@ -129,8 +129,8 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     
     return (
       <>
-        <MaterialJsonLD article={article} slug={`${category}/${subcategory}/${slug}`} />
-        <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={`${category}/${subcategory}/${slug}`} />
+        <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
+        <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
         <RelatedMaterials 
           currentSlug={slug}
           category={category}

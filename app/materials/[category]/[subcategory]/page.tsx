@@ -56,8 +56,8 @@ export async function generateMetadata({ params }: PageProps) {
       `${subcategoryInfo.label} ${categoryLabel}`,
       'laser surface treatment'
     ],
-    slug: `${category}/${subcategory}`,
-    canonical: `${SITE_CONFIG.url}/${category}/${subcategory}`,
+    slug: `materials/${category}/${subcategory}`,
+    canonical: `${SITE_CONFIG.url}/materials/${category}/${subcategory}`,
   });
 }
 
@@ -79,12 +79,12 @@ export default async function SubcategoryPage({ params }: PageProps) {
     subcategory: subcategory,
     breadcrumb: [
       { label: "Home", href: "/" },
-      { label: categoryLabel, href: `/${category}` },
-      { label: subcategoryInfo.label, href: `/${category}/${subcategory}` }
+      { label: categoryLabel, href: `/materials/${category}` },
+      { label: subcategoryInfo.label, href: `/materials/${category}/${subcategory}` }
     ]
   };
   
-  const factory = new SchemaFactory(schemaData, `${category}/${subcategory}`);
+  const factory = new SchemaFactory(schemaData, `materials/${category}/${subcategory}`);
   const jsonLdData = factory.generate();
   
   // Get material slugs for this subcategory
@@ -98,7 +98,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
         subtitle={`${subcategoryInfo.materials.length} materials available for laser cleaning`}
         description={`Explore laser cleaning solutions for ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials`}
         metadata={schemaData as any}
-        slug={`${category}/${subcategory}`}
+        slug={`materials/${category}/${subcategory}`}
         fullWidth
       >
         {/* Materials Grid */}

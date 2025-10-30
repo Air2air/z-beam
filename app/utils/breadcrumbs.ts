@@ -50,7 +50,7 @@ export function generateBreadcrumbs(
     const categorySlug = frontmatter.category.toLowerCase().replace(/\s+/g, '-');
     breadcrumbs.push({ 
       label: categoryLabel, 
-      href: `/${categorySlug}` 
+      href: `/materials/${categorySlug}` 
     });
     
     // Add subcategory page if present
@@ -59,7 +59,7 @@ export function generateBreadcrumbs(
       const subcategorySlug = frontmatter.subcategory.toLowerCase().replace(/\s+/g, '-');
       breadcrumbs.push({ 
         label: subcategoryLabel, 
-        href: `/${categorySlug}/${subcategorySlug}` 
+        href: `/materials/${categorySlug}/${subcategorySlug}` 
       });
     }
     

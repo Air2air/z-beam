@@ -93,7 +93,7 @@ export default function sitemap(): SitemapEntry[] {
         if (!categorySet.has(category)) {
           categorySet.add(category);
           materialRoutes.push({
-            url: `${baseUrl}/${category}`,
+            url: `${baseUrl}/materials/${category}`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.7,
@@ -106,7 +106,7 @@ export default function sitemap(): SitemapEntry[] {
           if (!subcategorySet.has(subcategoryKey)) {
             subcategorySet.add(subcategoryKey);
             materialRoutes.push({
-              url: `${baseUrl}/${category}/${subcategory}`,
+              url: `${baseUrl}/materials/${category}/${subcategory}`,
               lastModified: new Date(),
               changeFrequency: 'weekly' as const,
               priority: 0.75,
@@ -115,7 +115,7 @@ export default function sitemap(): SitemapEntry[] {
           
           // Add material page with full path
           materialPageRoutes.push({
-            url: `${baseUrl}/${category}/${subcategory}/${slug}`,
+            url: `${baseUrl}/materials/${category}/${subcategory}/${slug}`,
             lastModified: stats.mtime,
             changeFrequency: 'weekly' as const,
             priority: 0.8,

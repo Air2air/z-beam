@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: { params: { category: string 
     description: categoryMetadata.description,
     keywords: categoryMetadata.keywords,
     image: categoryMetadata.ogImage,
-    slug: `${category}`,
-    canonical: `${SITE_CONFIG.url}/${category}`,
+    slug: `materials/${category}`,
+    canonical: `${SITE_CONFIG.url}/materials/${category}`,
   });
 }
 
@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     description: categoryMetadata.description,
     breadcrumb: [
       { label: 'Home', href: '/' },
-      { label: categoryDisplayName, href: `/${category}` }
+      { label: categoryDisplayName, href: `/materials/${category}` }
     ]
   };
 
@@ -88,7 +88,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     '@type': 'CollectionPage',
     'name': pageTitle,
     'description': categoryMetadata.description,
-    'url': `${SITE_CONFIG.url}/${category}`,
+    'url': `${SITE_CONFIG.url}/materials/${category}`,
     'breadcrumb': {
       '@type': 'BreadcrumbList',
       'itemListElement': [
@@ -102,7 +102,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           '@type': 'ListItem',
           'position': 2,
           'name': categoryDisplayName,
-          'item': `${SITE_CONFIG.url}/${category}`
+          'item': `${SITE_CONFIG.url}/materials/${category}`
         }
       ]
     },
@@ -113,7 +113,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         '@type': 'ListItem',
         'position': index + 1,
         'name': subcategory.label,
-        'url': `${SITE_CONFIG.url}/${category}/${subcategory.slug}`,
+        'url': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}`,
         'description': `${subcategory.materials.length} materials in ${subcategory.label}`,
         'item': {
           '@type': 'ItemList',
@@ -122,7 +122,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             '@type': 'ListItem',
             'position': matIndex + 1,
             'name': material.name,
-            'url': `${SITE_CONFIG.url}/${category}/${subcategory.slug}/${material.slug}`
+            'url': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}/${material.slug}`
           }))
         }
       }))
@@ -141,7 +141,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         title={pageTitle} 
         subtitle={pageSubtitle} 
         metadata={metadata as any}
-        slug={`${category}`}
+        slug={`materials/${category}`}
         fullWidth
       >
         <div className={CONTAINER_STYLES.standard}>
