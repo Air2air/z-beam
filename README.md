@@ -30,15 +30,19 @@ This README is the single source of truth for building, maintaining, and extendi
 │   └── page.tsx            # Home page
 ├── public/                 # Static assets
 │   └── images/             # Image assets (see docs/IMAGE_NAMING_CONVENTIONS.md)
-├── content/                # All MDX/MD files (read-only)
-│   ├── application/        # Application articles
-│   ├── author/             # Author profiles
-│   ├── material/           # Material articles
-│   ├── region/             # Region content
-│   ├── thesaurus/          # Terminology
-│   └── components/         # Component-specific YAML files
+├── frontmatter/            # Content metadata (YAML files at root level)
+│   ├── materials/          # Material frontmatter (132 files)
+│   ├── services.yaml       # Services page metadata
+│   ├── rental.yaml         # Rental page metadata
+│   └── about.yaml          # About page metadata
+├── content/                # Component-specific YAML files
+│   └── components/         # Component content data
 │       ├── caption/        # Before/after text content
-│       └── author/         # Author profile data
+│       ├── author/         # Author profile data
+│       ├── badgesymbol/    # Badge symbol definitions
+│       ├── bullets/        # Bullet point lists
+│       ├── content/        # Body content
+│       └── metatags/       # Meta tag configurations
 ├── docs/                   # Documentation (archived)
 ├── package.json            # NPM scripts & dependencies
 ├── next.config.js          # Next.js config
@@ -54,35 +58,43 @@ This README is the single source of truth for building, maintaining, and extendi
 ## 3. Content Architecture & System
 
 ### Content Organization
-- `/content/` - Root for all content, organized by category
-  - `/application/` - Application-focused articles
-  - `/author/` - Author profile pages
-  - `/material/` - Material-specific laser cleaning articles
-  - `/region/` - Region-specific content
-  - `/thesaurus/` - Terminology and definitions
-- `/app/[slug]/` - Unified dynamic route for all content types
-- `/app/authors/[slug]/` - Dedicated author profile pages
-- `/app/articles/` - Index page listing all articles
-- `/app/authors/` - Index page listing all authors
-- `/app/applications/` - Index page listing application articles
-- `/app/regions/` - Index page listing region articles
-- `/app/thesaurus/` - Index page listing thesaurus entries
+- `/frontmatter/` - Root-level YAML metadata files
+  - `/materials/` - Material frontmatter (132 YAML files)
+  - Page-level YAML files (services.yaml, rental.yaml, about.yaml)
+- `/content/components/` - Component-specific content data
+  - `/caption/` - Before/after image captions
+  - `/author/` - Author profile information
+  - `/badgesymbol/` - Badge and symbol definitions
+  - `/bullets/` - Structured bullet point lists
+  - `/content/` - Body content sections
+  - `/metatags/` - SEO meta tag configurations
+- `/app/materials/[category]/` - Material category pages
+- `/app/materials/[category]/[subcategory]/` - Material subcategory pages
+- `/app/materials/[category]/[subcategory]/[slug]/` - Individual material pages
+- Static pages: `/services`, `/rental`, `/about`, `/contact`, etc.
 
-### Content Categories
-Each MDX/MD file in `/content/` must include an `articleType` field in its frontmatter:
+### Material Frontmatter Structure
+Each YAML file in `/frontmatter/materials/` contains structured metadata:
 ```yaml
 ---
-title: "Article Title"
-articleType: "material"
-# Other frontmatter fields...
+name: "Aluminum"
+slug: "aluminum-laser-cleaning"
+category: "metal"
+subcategory: "non-ferrous"
+title: "Laser Cleaning for Aluminum | Z-Beam"
+description: "Professional aluminum laser cleaning services..."
+# Images, properties, SEO data, etc.
 ---
 ```
-Supported types:
-- `material` - Material articles
-- `author` - Author profiles
-- `region` - Region-specific content
-- `application` - Application-specific content
-- `thesaurus` - Thesaurus/dictionary entries
+Material categories:
+- `metal` - Ferrous, non-ferrous, alloy, specialty
+- `ceramic` - Oxide, structural, technical
+- `composite` - Fiber-reinforced, structural
+- `glass` - Standard, specialty, technical
+- `polymer` - Thermoplastic, thermoset, elastomer
+- `stone` - Natural, engineered, specialty
+- `wood` - Hardwood, softwood, engineered
+- `rare-earth` - Lanthanides and related materials
 
 ### Content System Features
 - **Unified Content API**: All content accessed via `utils/content.ts`
@@ -91,13 +103,15 @@ Supported types:
 
 ### Usage Examples
 ```typescript
-import { getList, getArticleBySlug } from 'app/utils/utils';
-const allArticles = getList();
-const article = getArticleBySlug('aluminum-laser-cleaning');
+import { getArticle } from 'app/utils/contentAPI';
+// Get material by full path
+const article = await getArticle('metal', 'non-ferrous', 'aluminum-laser-cleaning');
 
-import { getArticlesByAuthorId, getArticlesByTag } from 'app/utils/utils';
-const authorArticles = getArticlesByAuthorId(1);
-const taggedArticles = getArticlesByTag('Aluminum');
+import { getAllCategories, getSubcategoryInfo } from 'app/utils/materialCategories';
+// Get all categories with counts
+const categories = getAllCategories();
+// Get subcategory metadata
+const subcategoryInfo = getSubcategoryInfo('metal', 'non-ferrous');
 
 import { getAllAuthors, getAuthorBySlug, getAllTags, getTagStats } from 'app/utils/utils';
 const authors = getAllAuthors();
