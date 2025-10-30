@@ -19,7 +19,7 @@ import {
   AuthorInfo,
   MaterialType,
   TableProps
-} from '../../types/centralized';
+} from '@/types/centralized';
 
 describe('Centralized Types - Caption System', () => {
   test('CaptionDataStructure should support all required fields', () => {

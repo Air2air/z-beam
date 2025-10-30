@@ -5,8 +5,8 @@
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MetricsGrid } from '../../app/components/MetricsCard/MetricsGrid';
-import { ArticleMetadata, PropertyCategory, PropertyValue } from '../../types/centralized';
+import { MetricsGrid } from '@/app/components/MetricsCard/MetricsGrid';
+import { ArticleMetadata, PropertyCategory, PropertyValue } from '@/types/centralized';
 
 // Mock SectionTitle component
 jest.mock('../../app/components/SectionTitle/SectionTitle', () => ({

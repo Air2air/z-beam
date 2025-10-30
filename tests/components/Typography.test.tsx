@@ -9,7 +9,7 @@ import {
   P, A, Strong, Em,
   UL, OL, LI,
   Code, Pre, Blockquote
-} from '../../app/components/Typography';
+} from '@/app/components/Typography';
 
 describe('Typography Components', () => {
   // ==========================================

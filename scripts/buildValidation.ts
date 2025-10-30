@@ -155,9 +155,9 @@ class BuildValidator {
         
         if (stderr) {
           // Parse TypeScript errors
-          const errorLines = stderr.split('\n').filter(line => line.trim());
-          const errors = errorLines.filter(line => line.includes('error TS'));
-          const warnings = errorLines.filter(line => line.includes('warning TS'));
+          const errorLines = stderr.split('\n').filter((line: any) => line.trim());
+          const errors = errorLines.filter((line: any) => line.includes('error TS'));
+          const warnings = errorLines.filter((line: any) => line.includes('warning TS'));
           
           this.result.checks.typescript.errors.push(...errors);
           this.result.checks.typescript.warnings.push(...warnings);
@@ -171,8 +171,8 @@ class BuildValidator {
         if (execError.code === 2) {
           // TypeScript compilation errors (expected for error detection)
           const errorOutput = execError.stdout || execError.stderr || '';
-          const errorLines = errorOutput.split('\n').filter((line: string) => line.trim());
-          const errors = errorLines.filter((line: string) => line.includes('error TS'));
+          const errorLines = errorOutput.split('\n').filter((line: any) => line.trim());
+          const errors = errorLines.filter((line: any) => line.includes('error TS'));
           
           this.result.checks.typescript.errors.push(...errors);
           this.result.checks.typescript.success = false;

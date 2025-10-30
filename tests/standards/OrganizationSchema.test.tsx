@@ -3,7 +3,7 @@
  * Tests for global business Schema.org markup in layout
  */
 
-import { generateOrganizationSchema } from '../../app/utils/business-config';
+import { generateOrganizationSchema } from '@/app/utils/business-config';
 
 describe('Organization Schema Implementation', () => {
   let schema: any;

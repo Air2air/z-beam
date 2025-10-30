@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
-import { Tags } from '../../app/components/Tags/Tags';
+import { Tags } from '@/app/components/Tags/Tags';
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({

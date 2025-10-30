@@ -8,8 +8,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Breadcrumbs } from '../../app/components/Navigation/breadcrumbs';
-import { SITE_CONFIG } from '../../app/utils/constants';
+import { Breadcrumbs } from '@/app/components/Navigation/breadcrumbs';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 // Mock Next.js navigation
 jest.mock('next/navigation', () => ({

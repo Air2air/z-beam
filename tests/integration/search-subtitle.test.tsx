@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import SearchWrapper from '../../app/search/search-wrapper';
+import SearchWrapper from '@/app/search/search-wrapper';
 import { Article } from '@/types';
 
 // Mock Next.js navigation

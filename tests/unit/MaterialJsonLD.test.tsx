@@ -8,7 +8,7 @@
 
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MaterialJsonLD } from '../../app/components/JsonLD/JsonLD';
+import { MaterialJsonLD } from '@/app/components/JsonLD/JsonLD';
 
 describe('MaterialJsonLD Component', () => {
   const baseArticle = {

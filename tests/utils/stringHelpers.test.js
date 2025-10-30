@@ -6,7 +6,7 @@ import {
   toSafeString,
   safeIncludes,
   safeMatch
-} from '../../app/utils/stringHelpers';
+} from '@/app/utils/stringHelpers';
 
 describe('String Helper utilities', () => {
   describe('extractSafeValue', () => {

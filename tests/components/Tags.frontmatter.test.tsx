@@ -2,8 +2,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useRouter } from 'next/navigation';
-import { Tags } from '../../app/components/Tags/Tags';
-import { ArticleMetadata } from '../../types/centralized';
+import { Tags } from '@/app/components/Tags/Tags';
+import { ArticleMetadata } from '@/types/centralized';
 
 // Mock next/navigation
 jest.mock('next/navigation', () => ({

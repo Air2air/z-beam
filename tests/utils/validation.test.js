@@ -4,7 +4,7 @@
 import {
   validateContentStructure,
   validateImageMetadata
-} from '../../app/utils/validation';
+} from '@/app/utils/validation';
 
 describe('Validation utilities', () => {
   describe('validateContentStructure', () => {

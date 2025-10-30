@@ -15,7 +15,7 @@ import {
   safeOperation,
   isZBeamError,
   getErrorDetails
-} from '../../app/utils/errorSystem';
+} from '@/app/utils/errorSystem';
 
 describe('Error System', () => {
   describe('ZBeamError base class', () => {

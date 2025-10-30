@@ -4,7 +4,7 @@
  * Tests for search URL generation functions extracted from MetricsCard
  */
 
-import { generateSearchUrl, buildSearchUrl, buildPropertySearchUrl } from '../../app/utils/searchUtils';
+import { generateSearchUrl, buildSearchUrl, buildPropertySearchUrl } from '@/app/utils/searchUtils';
 
 describe('generateSearchUrl', () => {
   

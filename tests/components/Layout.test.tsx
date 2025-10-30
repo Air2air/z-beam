@@ -4,8 +4,8 @@
  */
 
 import { render, screen } from '@testing-library/react';
-import { Layout } from '../../app/components/Layout/Layout';
-import { ArticleMetadata, ComponentData } from '../../types/centralized';
+import { Layout } from '@/app/components/Layout/Layout';
+import { ArticleMetadata, ComponentData } from '@/types/centralized';
 
 // Mock child components to focus on layout logic
 jest.mock('../../app/components/Hero/Hero', () => ({

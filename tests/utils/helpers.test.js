@@ -14,7 +14,7 @@ import {
   generateId,
   fileToBase64,
   getContrastRatio
-} from '../../app/utils/helpers';
+} from '@/app/utils/helpers';
 
 // Mock browser globals for testing
 const mockMatchMedia = (matches) => ({

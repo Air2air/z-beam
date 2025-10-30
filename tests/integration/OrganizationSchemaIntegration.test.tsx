@@ -3,8 +3,8 @@
  * Tests the actual implementation of organization schema in the root layout
  */
 
-import { generateOrganizationSchema } from '../../app/utils/business-config';
-import { BUSINESS_CONFIG } from '../../app/utils/business-config';
+import { generateOrganizationSchema } from '@/app/utils/business-config';
+import { BUSINESS_CONFIG } from '@/app/utils/business-config';
 
 describe('Organization Schema Integration', () => {
   let schema: any;

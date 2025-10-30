@@ -4,7 +4,7 @@
  * Tests for cleanupFloat and formatWithUnit functions extracted from MetricsCard
  */
 
-import { cleanupFloat, formatWithUnit } from '../../app/utils/formatting';
+import { cleanupFloat, formatWithUnit } from '@/app/utils/formatting';
 
 describe('cleanupFloat', () => {
   

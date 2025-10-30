@@ -56,7 +56,7 @@ export const ContactForm = memo(function ContactForm() {
     setFormData(prev => ({ ...prev, [name]: value }));
     
     // Clear error when user starts typing
-    if (errors[name]) {
+    if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };

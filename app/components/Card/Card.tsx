@@ -18,7 +18,18 @@ import { BadgeData, ArticleMetadata, CardProps } from "@/types";
 import { SITE_CONFIG } from "../../utils/constants";
 
 // Card variant configurations
-const CARD_VARIANTS = {
+type CardVariantKey = 'standard' | 'featured';
+const CARD_VARIANTS: Record<CardVariantKey, {
+  padding: string;
+  imageHeight: string;
+  cardHeight: string;
+  titleClass: string;
+  descriptionClass: string;
+  cardClass: string;
+  hoverEffect: string;
+  titleBarClass: string;
+  transitionClass: string;
+}> = {
   standard: {
     // Layout
     padding: "p-2 md:p-3",
@@ -66,8 +77,9 @@ export function Card({
   className = "",
   variant = "standard", // Default to standard variant
 }: CardProps) {
-  // Get variant configuration
-  const config = CARD_VARIANTS[variant];
+  // Get variant configuration - fallback to standard if variant not found
+  const variantKey = variant in CARD_VARIANTS ? (variant as CardVariantKey) : 'standard';
+  const config = CARD_VARIANTS[variantKey];
   
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';

@@ -12,8 +12,8 @@
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
-import { MetricsGrid } from '../../app/components/MetricsCard/MetricsGrid';
+import { MetricsCard } from '@/app/components/MetricsCard/MetricsCard';
+import { MetricsGrid } from '@/app/components/MetricsCard/MetricsGrid';
 
 // NOTE: Utility functions (cleanupFloat, generateSearchUrl) are now in separate modules
 // with their own comprehensive test files:

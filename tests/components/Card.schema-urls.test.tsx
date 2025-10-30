@@ -8,8 +8,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Card } from '../../app/components/Card/Card';
-import { SITE_CONFIG } from '../../app/utils/constants';
+import { Card } from '@/app/components/Card/Card';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 // Mock dependencies
 jest.mock('../../app/components/Thumbnail/Thumbnail', () => ({

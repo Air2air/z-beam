@@ -3,7 +3,7 @@
  * Testing the MetricsGrid component with centralized types
  */
 
-import { QualityMetrics, MetricsGridProps } from '../../types/centralized';
+import { QualityMetrics, MetricsGridProps } from '@/types/centralized';
 
 describe('MetricsGrid Component', () => {
   const mockQualityMetrics: QualityMetrics = {

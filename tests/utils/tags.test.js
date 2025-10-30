@@ -7,7 +7,7 @@ import {
   getTagCounts,
   filterArticlesByTag,
   invalidateTagCache
-} from '../../app/utils/tags';
+} from '@/app/utils/tags';
 import fs from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';

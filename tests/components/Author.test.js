@@ -6,7 +6,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Author } from '../../app/components/Author/Author';
+import { Author } from '@/app/components/Author/Author';
 
 // Mock Next.js components
 jest.mock('next/link', () => {

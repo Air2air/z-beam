@@ -59,7 +59,8 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
     displaySymbol.length > 2 || /[0-9]/.test(displaySymbol);
 
   // Configure sizes based on variant and complexity
-  const sizeConfig = {
+  type SizeVariant = 'card' | 'large' | 'small' | 'inline';
+  const sizeConfig: Record<SizeVariant, { container: string; symbol: string; number: string }> = {
     card: {
       container: isComplexFormula ? "w-12 h-12" : "w-8 h-8",
       symbol: isComplexFormula ? "text-lg" : "text-md",
@@ -93,7 +94,8 @@ export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
     return formula.replace(/([0-9]+)/g, "<sub>$1</sub>");
   };
 
-  const sizes = sizeConfig[variant];
+  const sizeVariant = (variant as string) in sizeConfig ? (variant as SizeVariant) : 'card';
+  const sizes = sizeConfig[sizeVariant];
 
   // Build className parts separately for better maintainability
   const containerClasses = [

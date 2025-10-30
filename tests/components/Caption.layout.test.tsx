@@ -4,8 +4,8 @@
  * Updated to use centralized types
  */
 
-import { Caption } from '../../app/components/Caption/Caption';
-import { CaptionDataStructure, CaptionProps, FrontmatterType } from '../../types/centralized';
+import { Caption } from '@/app/components/Caption/Caption';
+import { CaptionDataStructure, CaptionProps, FrontmatterType } from '@/types/centralized';
 
 describe('Caption Component Layout Integration', () => {
   const mockCaptionData: CaptionDataStructure = {

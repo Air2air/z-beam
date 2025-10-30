@@ -6,7 +6,7 @@ import {
   ANIMATION_CONFIG, 
   COMPONENT_DEFAULTS, 
   BREAKPOINTS 
-} from '../../app/utils/constants';
+} from '@/app/utils/constants';
 
 describe('Constants', () => {
   describe('SITE_CONFIG', () => {

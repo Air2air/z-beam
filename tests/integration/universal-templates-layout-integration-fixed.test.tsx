@@ -6,8 +6,8 @@
 
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { UniversalPage } from '../../app/components/Templates/UniversalPage';
-import { UniversalLayout } from '../../app/components/Layout/Layout';
+import { UniversalPage } from '@/app/components/Templates/UniversalPage';
+import { UniversalLayout } from '@/app/components/Layout/Layout';
 
 // Mock dependencies
 jest.mock('fs/promises');

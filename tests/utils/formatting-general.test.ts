@@ -15,7 +15,7 @@ import {
   urlEncodeParentheses,
   capitalizeWords,
   slugToDisplayName
-} from '../../app/utils/formatting';
+} from '@/app/utils/formatting';
 
 describe('Formatting utilities', () => {
   const RealDate = Date;

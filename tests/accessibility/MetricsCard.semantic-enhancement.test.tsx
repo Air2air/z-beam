@@ -6,7 +6,7 @@
  * - These tests focus on MetricsCard-level semantic attributes
  */
 import { render, screen } from '@testing-library/react';
-import { MetricsCard } from '../../app/components/MetricsCard/MetricsCard';
+import { MetricsCard } from '@/app/components/MetricsCard/MetricsCard';
 
 describe('MetricsCard Semantic Enhancement Tests', () => {
   const mockProps = {

@@ -1,9 +1,9 @@
 // tests/integration/author-frontmatter.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Author } from '../../app/components/Author/Author';
-import { ArticleMetadata } from '../../types/centralized';
-import { SITE_CONFIG } from '../../app/utils/constants';
+import { Author } from '@/app/components/Author/Author';
+import { ArticleMetadata } from '@/types/centralized';
+import { SITE_CONFIG } from '@/app/utils/constants';
 
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
