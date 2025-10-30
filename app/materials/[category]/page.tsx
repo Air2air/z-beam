@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { CardGridSSR } from '@/app/components/CardGrid';
 import { Layout } from '@/app/components/Layout/Layout';
 import { createMetadata } from '@/app/utils/metadata';
-import { CATEGORY_METADATA, VALID_CATEGORIES } from '../metadata';
+import { CATEGORY_METADATA, VALID_CATEGORIES } from '@/app/metadata';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
