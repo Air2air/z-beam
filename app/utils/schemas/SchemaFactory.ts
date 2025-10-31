@@ -194,7 +194,7 @@ export class SchemaFactory {
     this.register('VideoObject', generateVideoObjectSchema, {
       priority: 40,
       condition: (data) => {
-        // Always include video for material pages (default video: eGgMJdjRUJk)
+        // Always include video for material pages (default video: t8fB3tJCfQw)
         const isMaterialPage = data.frontmatter?.materialProperties || data.frontmatter?.category;
         return !!(data.video || data.youtubeUrl || data.frontmatter?.video || isMaterialPage);
       }
@@ -872,7 +872,7 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): any | nul
   
   // Check for explicit video URL or use default YouTube video
   const videoUrl = data.video || data.youtubeUrl || frontmatter.video;
-  const youtubeId = videoUrl || 'eGgMJdjRUJk'; // Default demo video
+  const youtubeId = videoUrl || 't8fB3tJCfQw'; // Default demo video
   
   // Always include video schema for material pages
   const isMaterialPage = frontmatter.materialProperties || frontmatter.category;

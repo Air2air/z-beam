@@ -158,8 +158,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       
       // Video metadata for rich social sharing
       videos: [{
-        url: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
-        secureUrl: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
+        url: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',
+        secureUrl: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',
         type: 'text/html',
         width: 1280,
         height: 720,
@@ -186,8 +186,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       images: heroImageUrl ? [heroImageUrl] : undefined,
       creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : '@ZBeamLaser',
       players: [{
-        playerUrl: 'https://www.youtube.com/embed/eGgMJdjRUJk',
-        streamUrl: 'https://www.youtube.com/watch?v=eGgMJdjRUJk',
+        playerUrl: 'https://www.youtube.com/embed/t8fB3tJCfQw',
+        streamUrl: 'https://www.youtube.com/watch?v=t8fB3tJCfQw',
         width: 1280,
         height: 720,
       }],
