@@ -94,28 +94,38 @@ describe('urlBuilder', () => {
   });
 
   describe('buildCategoryUrl', () => {
-    it('builds relative category URL', () => {
-      const url = buildCategoryUrl('metal');
+    it('builds relative category URL for materials', () => {
+      const url = buildCategoryUrl('materials', 'metal');
       expect(url).toBe('/materials/metal');
     });
 
-    it('builds absolute category URL', () => {
-      const url = buildCategoryUrl('wood', true);
+    it('builds absolute category URL for materials', () => {
+      const url = buildCategoryUrl('materials', 'wood', true);
       expect(url).toMatch(/^https?:\/\/.+\/materials\/wood$/);
       expect(url).toContain('/materials/wood');
+    });
+
+    it('builds category URL for other root paths', () => {
+      const url = buildCategoryUrl('products', 'lasers');
+      expect(url).toBe('/products/lasers');
     });
   });
 
   describe('buildSubcategoryUrl', () => {
-    it('builds relative subcategory URL', () => {
-      const url = buildSubcategoryUrl('metal', 'ferrous');
+    it('builds relative subcategory URL for materials', () => {
+      const url = buildSubcategoryUrl('materials', 'metal', 'ferrous');
       expect(url).toBe('/materials/metal/ferrous');
     });
 
-    it('builds absolute subcategory URL', () => {
-      const url = buildSubcategoryUrl('wood', 'hardwood', true);
+    it('builds absolute subcategory URL for materials', () => {
+      const url = buildSubcategoryUrl('materials', 'wood', 'hardwood', true);
       expect(url).toMatch(/^https?:\/\/.+\/materials\/wood\/hardwood$/);
       expect(url).toContain('/materials/wood/hardwood');
+    });
+
+    it('builds subcategory URL for other root paths', () => {
+      const url = buildSubcategoryUrl('products', 'lasers', 'portable');
+      expect(url).toBe('/products/lasers/portable');
     });
   });
 
@@ -241,6 +251,9 @@ describe('urlBuilder', () => {
       const patterns = getUrlPatterns();
       expect(patterns).toEqual({
         material: '/materials/[category]/[subcategory]/[slug]',
+        product: '/products/[category]/[subcategory]/[slug]',
+        equipment: '/equipment/[category]/[subcategory]/[slug]',
+        custom: '/[rootPath]/[category]/[subcategory]/[slug]',
         service: '/[slug]',
         article: '/[slug]',
         page: '/[slug]'
@@ -277,27 +290,32 @@ describe('urlBuilder', () => {
     });
   });
 
-  describe('Real-World Material Examples', () => {
+  describe('Real-World Examples', () => {
     const testCases = [
       {
-        name: 'Wood hardwood',
+        name: 'Wood hardwood (legacy - infers materials)',
         metadata: { category: 'wood', subcategory: 'hardwood', slug: 'ash-laser-cleaning' },
         expected: '/materials/wood/hardwood/ash-laser-cleaning'
       },
       {
-        name: 'Metal ferrous',
-        metadata: { category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-laser-cleaning' },
+        name: 'Metal ferrous (explicit rootPath)',
+        metadata: { rootPath: 'materials', category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-laser-cleaning' },
         expected: '/materials/metal/ferrous/carbon-steel-laser-cleaning'
       },
       {
         name: 'Ceramic oxide',
-        metadata: { category: 'ceramic', subcategory: 'oxide', slug: 'alumina-laser-cleaning' },
+        metadata: { rootPath: 'materials', category: 'ceramic', subcategory: 'oxide', slug: 'alumina-laser-cleaning' },
         expected: '/materials/ceramic/oxide/alumina-laser-cleaning'
       },
       {
-        name: 'Composite fiber-reinforced',
-        metadata: { category: 'composite', subcategory: 'fiber-reinforced', slug: 'carbon-fiber-laser-cleaning' },
-        expected: '/materials/composite/fiber-reinforced/carbon-fiber-laser-cleaning'
+        name: 'Future: Product laser',
+        metadata: { rootPath: 'products', category: 'lasers', subcategory: 'portable', slug: 'netalux-compact' },
+        expected: '/products/lasers/portable/netalux-compact'
+      },
+      {
+        name: 'Future: Equipment industrial',
+        metadata: { rootPath: 'equipment', category: 'industrial', subcategory: 'high-power', slug: 'laser-system-5000' },
+        expected: '/equipment/industrial/high-power/laser-system-5000'
       }
     ];
 

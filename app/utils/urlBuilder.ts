@@ -8,19 +8,22 @@
 
 import { SITE_CONFIG } from './constants';
 
-export type ContentType = 'material' | 'service' | 'article' | 'page';
+export type ContentType = 'material' | 'service' | 'article' | 'page' | 'product' | 'equipment' | 'custom';
 
 export interface UrlBuildOptions {
+  rootPath?: string;      // e.g., 'materials', 'products', 'equipment'
   category?: string;
   subcategory?: string;
   slug: string;
   absolute?: boolean;
 }
 
-export interface MaterialMetadata {
+export interface ContentMetadata {
+  rootPath?: string;      // Root path for hierarchical content
   category?: string;
   subcategory?: string;
   slug: string;
+  articleType?: string;   // For determining content type
   [key: string]: unknown;
 }
 
@@ -30,7 +33,15 @@ export interface MaterialMetadata {
 export function getContentType(metadata?: Record<string, unknown>): ContentType {
   if (!metadata) return 'page';
   
-  // Check if it's a material (has category and subcategory)
+  // Check for explicit rootPath (most reliable)
+  if (metadata.rootPath) {
+    if (metadata.rootPath === 'materials') return 'material';
+    if (metadata.rootPath === 'products') return 'product';
+    if (metadata.rootPath === 'equipment') return 'equipment';
+    return 'custom';
+  }
+  
+  // Legacy: Check if it's a material (has category and subcategory)
   if (metadata.category && metadata.subcategory) {
     return 'material';
   }
@@ -55,30 +66,36 @@ export function getContentType(metadata?: Record<string, unknown>): ContentType 
  * @returns Relative or absolute URL
  * 
  * @example
- * // Material with category/subcategory
- * buildUrl({ category: 'metal', subcategory: 'ferrous', slug: 'steel-laser-cleaning' })
+ * // Hierarchical content with rootPath
+ * buildUrl({ rootPath: 'materials', category: 'metal', subcategory: 'ferrous', slug: 'steel-laser-cleaning' })
  * // => '/materials/metal/ferrous/steel-laser-cleaning'
  * 
  * @example
- * // Material with absolute URL
- * buildUrl({ category: 'wood', subcategory: 'hardwood', slug: 'oak-laser-cleaning', absolute: true })
- * // => 'https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning'
+ * // Future: Products with hierarchy
+ * buildUrl({ rootPath: 'products', category: 'lasers', subcategory: 'portable', slug: 'netalux-compact' })
+ * // => '/products/lasers/portable/netalux-compact'
  * 
  * @example
- * // Simple page (no category/subcategory)
+ * // Legacy: Material (infers rootPath='materials')
+ * buildUrl({ category: 'wood', subcategory: 'hardwood', slug: 'oak-laser-cleaning' })
+ * // => '/materials/wood/hardwood/oak-laser-cleaning'
+ * 
+ * @example
+ * // Simple flat page
  * buildUrl({ slug: 'contact' })
  * // => '/contact'
  */
 export function buildUrl(options: UrlBuildOptions): string {
-  const { category, subcategory, slug, absolute = false } = options;
+  const { rootPath, category, subcategory, slug, absolute = false } = options;
   
   let path: string;
   
-  // Material with full hierarchy
+  // Hierarchical URL: rootPath/category/subcategory/slug
   if (category && subcategory) {
-    path = `/materials/${category}/${subcategory}/${slug}`;
+    const root = rootPath || 'materials'; // Default to 'materials' for backward compatibility
+    path = `/${root}/${category}/${subcategory}/${slug}`;
   }
-  // Fallback to flat URL (services, articles, pages)
+  // Flat URL: /slug (services, articles, pages)
   else {
     path = `/${slug}`;
   }
@@ -87,26 +104,39 @@ export function buildUrl(options: UrlBuildOptions): string {
 }
 
 /**
- * Builds a URL from article metadata
+ * Builds a URL from content metadata
  * Automatically detects content type and builds appropriate URL
  * 
- * @param metadata - Article metadata object
+ * @param metadata - Content metadata object
  * @param absolute - Whether to return absolute URL
  * @returns Relative or absolute URL
  * 
  * @example
+ * // Material
  * buildUrlFromMetadata({ 
+ *   rootPath: 'materials',
  *   category: 'metal', 
  *   subcategory: 'ferrous', 
  *   slug: 'steel-laser-cleaning' 
  * })
  * // => '/materials/metal/ferrous/steel-laser-cleaning'
+ * 
+ * @example
+ * // Future: Product
+ * buildUrlFromMetadata({ 
+ *   rootPath: 'products',
+ *   category: 'lasers', 
+ *   subcategory: 'portable', 
+ *   slug: 'netalux-compact' 
+ * })
+ * // => '/products/lasers/portable/netalux-compact'
  */
 export function buildUrlFromMetadata(
-  metadata: MaterialMetadata,
+  metadata: ContentMetadata,
   absolute: boolean = false
 ): string {
   return buildUrl({
+    rootPath: metadata.rootPath,
     category: metadata.category,
     subcategory: metadata.subcategory,
     slug: metadata.slug,
@@ -117,28 +147,50 @@ export function buildUrlFromMetadata(
 /**
  * Builds a category page URL
  * 
+ * @param rootPath - Root path (e.g., 'materials', 'products')
+ * @param category - Category slug
+ * @param absolute - Whether to return absolute URL
+ * 
  * @example
- * buildCategoryUrl('metal')
+ * buildCategoryUrl('materials', 'metal')
  * // => '/materials/metal'
+ * 
+ * @example
+ * buildCategoryUrl('products', 'lasers')
+ * // => '/products/lasers'
  */
-export function buildCategoryUrl(category: string, absolute: boolean = false): string {
-  const path = `/materials/${category}`;
+export function buildCategoryUrl(
+  rootPath: string,
+  category: string,
+  absolute: boolean = false
+): string {
+  const path = `/${rootPath}/${category}`;
   return absolute ? `${SITE_CONFIG.url}${path}` : path;
 }
 
 /**
  * Builds a subcategory page URL
  * 
+ * @param rootPath - Root path (e.g., 'materials', 'products')
+ * @param category - Category slug
+ * @param subcategory - Subcategory slug
+ * @param absolute - Whether to return absolute URL
+ * 
  * @example
- * buildSubcategoryUrl('metal', 'ferrous')
+ * buildSubcategoryUrl('materials', 'metal', 'ferrous')
  * // => '/materials/metal/ferrous'
+ * 
+ * @example
+ * buildSubcategoryUrl('products', 'lasers', 'portable')
+ * // => '/products/lasers/portable'
  */
 export function buildSubcategoryUrl(
+  rootPath: string,
   category: string,
   subcategory: string,
   absolute: boolean = false
 ): string {
-  const path = `/materials/${category}/${subcategory}`;
+  const path = `/${rootPath}/${category}/${subcategory}`;
   return absolute ? `${SITE_CONFIG.url}${path}` : path;
 }
 
@@ -171,7 +223,7 @@ export function parseUrl(url: string): UrlBuildOptions {
  * Validates that a URL matches the expected structure
  * Used by validation scripts
  */
-export function validateUrl(url: string, metadata: MaterialMetadata): boolean {
+export function validateUrl(url: string, metadata: ContentMetadata): boolean {
   const expected = buildUrlFromMetadata(metadata, url.startsWith('http'));
   return url === expected;
 }
@@ -182,6 +234,9 @@ export function validateUrl(url: string, metadata: MaterialMetadata): boolean {
 export function getUrlPatterns(): Record<ContentType, string> {
   return {
     material: '/materials/[category]/[subcategory]/[slug]',
+    product: '/products/[category]/[subcategory]/[slug]',
+    equipment: '/equipment/[category]/[subcategory]/[slug]',
+    custom: '/[rootPath]/[category]/[subcategory]/[slug]',
     service: '/[slug]',
     article: '/[slug]',
     page: '/[slug]'

@@ -84,14 +84,19 @@ Comprehensive test coverage ensures URL generation works correctly across all sc
 
 ## URL Patterns
 
-### Materials (Hierarchical)
+### Hierarchical Content (with rootPath)
 ```
 /materials/wood/hardwood/ash-laser-cleaning
 /materials/metal/ferrous/carbon-steel-laser-cleaning
 /materials/ceramic/oxide/alumina-laser-cleaning
+
+# Future examples:
+/products/lasers/portable/netalux-compact
+/equipment/industrial/high-power/laser-system-5000
+/[any-root]/[category]/[subcategory]/[slug]
 ```
 
-### Other Content (Flat)
+### Flat Content (no hierarchy)
 ```
 /contact
 /about
@@ -105,7 +110,16 @@ Comprehensive test coverage ensures URL generation works correctly across all sc
 ```typescript
 import { buildUrlFromMetadata } from '@/app/utils/urlBuilder';
 
-// Material card
+// Material card (explicit rootPath)
+const href = buildUrlFromMetadata({
+  rootPath: 'materials',
+  category: 'wood',
+  subcategory: 'hardwood',
+  slug: 'oak-laser-cleaning'
+});
+// => '/materials/wood/hardwood/oak-laser-cleaning'
+
+// Legacy: Material (infers materials)
 const href = buildUrlFromMetadata({
   category: 'wood',
   subcategory: 'hardwood',
@@ -113,7 +127,16 @@ const href = buildUrlFromMetadata({
 });
 // => '/materials/wood/hardwood/oak-laser-cleaning'
 
-// Service page
+// Future: Product card
+const href = buildUrlFromMetadata({
+  rootPath: 'products',
+  category: 'lasers',
+  subcategory: 'portable',
+  slug: 'netalux-compact'
+});
+// => '/products/lasers/portable/netalux-compact'
+
+// Service page (flat)
 const href = buildUrlFromMetadata({
   slug: 'contact'
 });
@@ -122,10 +145,29 @@ const href = buildUrlFromMetadata({
 
 ### In Sitemaps
 ```typescript
-import { buildUrlFromMetadata } from './utils/urlBuilder';
+import { buildUrlFromMetadata, buildCategoryUrl, buildSubcategoryUrl } from './utils/urlBuilder';
 
+// Category page
 materialRoutes.push({
-  url: buildUrlFromMetadata({ category, subcategory, slug }, true),
+  url: buildCategoryUrl('materials', category, true),
+  // => 'https://www.z-beam.com/materials/wood'
+  lastModified: new Date(),
+  changeFrequency: 'weekly',
+  priority: 0.7
+});
+
+// Subcategory page
+materialRoutes.push({
+  url: buildSubcategoryUrl('materials', category, subcategory, true),
+  // => 'https://www.z-beam.com/materials/wood/hardwood'
+  lastModified: new Date(),
+  changeFrequency: 'weekly',
+  priority: 0.75
+});
+
+// Material detail page
+materialPageRoutes.push({
+  url: buildUrlFromMetadata({ rootPath: 'materials', category, subcategory, slug }, true),
   // => 'https://www.z-beam.com/materials/wood/hardwood/oak-laser-cleaning'
   lastModified: stats.mtime,
   changeFrequency: 'weekly',
@@ -138,6 +180,7 @@ materialRoutes.push({
 import { validateUrl } from '@/app/utils/urlBuilder';
 
 const metadata = {
+  rootPath: 'materials',
   category: 'wood',
   subcategory: 'hardwood',
   slug: 'oak-laser-cleaning'
@@ -148,6 +191,17 @@ validateUrl(url, metadata); // => true
 
 const badUrl = '/oak-laser-cleaning';
 validateUrl(badUrl, metadata); // => false
+
+// Works for any rootPath
+const productMetadata = {
+  rootPath: 'products',
+  category: 'lasers',
+  subcategory: 'portable',
+  slug: 'netalux'
+};
+
+const productUrl = '/products/lasers/portable/netalux';
+validateUrl(productUrl, productMetadata); // => true
 ```
 
 ## Testing Results
@@ -240,33 +294,60 @@ href="/materials/wood/hardwood/mahogany-laser-cleaning"
 - Type-safe implementation
 - Comprehensive test coverage
 
-## Future URL Structure Changes
+## Adding New Root Paths
 
-To change URL patterns in the future:
+The urlBuilder is designed to support ANY hierarchical content structure. To add a new root path:
 
-1. Update `buildUrl()` function in `app/utils/urlBuilder.ts`
-2. Update `getUrlPatterns()` to reflect new patterns
-3. Update tests if patterns change
-4. Run `npm test && npm run build` to verify
-5. All components automatically use new structure
+**Example: Adding `/products/...` structure**
 
-**Example:** Adding language prefix `/en/materials/...`
+1. **In components** - Just pass the rootPath:
 ```typescript
-// Only need to change this one function:
-export function buildUrl(options: UrlBuildOptions): string {
-  const { category, subcategory, slug, absolute = false } = options;
-  
-  let path: string;
-  if (category && subcategory) {
-    path = `/en/materials/${category}/${subcategory}/${slug}`; // Changed
-  } else {
-    path = `/en/${slug}`; // Changed
-  }
-  
-  return absolute ? `${SITE_CONFIG.url}${path}` : path;
-}
-// All components, sitemaps, schemas automatically updated!
+const href = buildUrlFromMetadata({
+  rootPath: 'products',  // New root path
+  category: 'lasers',
+  subcategory: 'portable',
+  slug: 'netalux-compact'
+});
+// => '/products/lasers/portable/netalux-compact'
 ```
+
+2. **In sitemaps** - Use the same functions:
+```typescript
+// Category page
+productRoutes.push({
+  url: buildCategoryUrl('products', category, true),
+  // => 'https://www.z-beam.com/products/lasers'
+});
+
+// Subcategory page
+productRoutes.push({
+  url: buildSubcategoryUrl('products', category, subcategory, true),
+  // => 'https://www.z-beam.com/products/lasers/portable'
+});
+
+// Product detail page
+productPageRoutes.push({
+  url: buildUrlFromMetadata({ rootPath: 'products', category, subcategory, slug }, true),
+  // => 'https://www.z-beam.com/products/lasers/portable/netalux-compact'
+});
+```
+
+3. **That's it!** No changes needed to urlBuilder itself.
+
+### Supported Root Paths
+
+The urlBuilder supports any root path you specify:
+- `materials` - Current implementation ✅
+- `products` - Ready to use
+- `equipment` - Ready to use
+- `services` - Can use hierarchical structure if needed
+- Any custom root path you define in the future
+
+### Pattern Recognition
+
+The urlBuilder automatically handles:
+- Hierarchical: `/{rootPath}/{category}/{subcategory}/{slug}`
+- Flat: `/{slug}` (when no category/subcategory)
 
 ## Conclusion
 

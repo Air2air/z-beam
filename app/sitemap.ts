@@ -94,7 +94,7 @@ export default function sitemap(): SitemapEntry[] {
         if (!categorySet.has(category)) {
           categorySet.add(category);
           materialRoutes.push({
-            url: buildCategoryUrl(category, true),
+            url: buildCategoryUrl('materials', category, true),
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.7,
@@ -107,7 +107,7 @@ export default function sitemap(): SitemapEntry[] {
           if (!subcategorySet.has(subcategoryKey)) {
             subcategorySet.add(subcategoryKey);
             materialRoutes.push({
-              url: buildSubcategoryUrl(category, subcategory, true),
+              url: buildSubcategoryUrl('materials', category, subcategory, true),
               lastModified: new Date(),
               changeFrequency: 'weekly' as const,
               priority: 0.75,
@@ -116,7 +116,7 @@ export default function sitemap(): SitemapEntry[] {
           
           // Add material page with full path
           materialPageRoutes.push({
-            url: buildUrlFromMetadata({ category, subcategory, slug }, true),
+            url: buildUrlFromMetadata({ rootPath: 'materials', category, subcategory, slug }, true),
             lastModified: stats.mtime,
             changeFrequency: 'weekly' as const,
             priority: 0.8,
