@@ -38,7 +38,7 @@ const safeContentOperation = async (op: () => Promise<any>, fallback: any, name:
 // Content directories configuration
 const CONTENT_DIRS = {
   components: {
-    frontmatter: path.join(process.cwd(), 'content', 'frontmatter'),
+    frontmatter: path.join(process.cwd(), 'frontmatter', 'materials'),
     metatags: path.join(process.cwd(), 'content', 'components', 'metatags'),
     caption: path.join(process.cwd(), 'content', 'components', 'caption'),
     table: path.join(process.cwd(), 'content', 'components', 'table-yaml'), // Use table-yaml for new tables
@@ -63,7 +63,7 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
   
   return safeContentOperation(async () => {
     // Secure path construction with validation
-    const frontmatterDir = path.join(process.cwd(), 'content', 'frontmatter');
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'materials');
     let frontmatterPath = path.join(frontmatterDir, `${validatedSlug}.yaml`);
     
     // Validate constructed path for security
@@ -141,7 +141,7 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
     const slugs = new Set<string>();
     
     // Check frontmatter directory for YAML files (primary source)
-    const frontmatterDir = path.join(process.cwd(), 'content', 'frontmatter');
+    const frontmatterDir = path.join(process.cwd(), 'frontmatter', 'materials');
     
     if (existsSync(frontmatterDir)) {
       const files = await fs.readdir(frontmatterDir);
@@ -181,7 +181,7 @@ const loadSingleArticle = cache(async (slug: string): Promise<Article | null> =>
   return safeContentOperation(async () => {
     // Try to find the article in any of the content directories
     const directories = [
-      path.join(process.cwd(), 'content', 'frontmatter'),
+      path.join(process.cwd(), 'frontmatter', 'materials'),
       path.join(process.cwd(), 'content', 'components', 'metatags')
     ];
     
