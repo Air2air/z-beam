@@ -326,22 +326,30 @@ npm run deploy:monitor    # Deploy and start monitoring
 npm run monitor           # Monitor existing deployments
 ```
 
-### Automatic Deployment
+### Manual Deployment Required
 
-**GitHub Actions Workflow:**
-- Triggers on push to main branch
-- Uses `vercel --prod --force --yes` for direct production deployment
-- Posts status comments on commits
-- No manual intervention required
+**Auto-deploy is disabled.** Deploy using Vercel CLI:
+
+```bash
+# Deploy to production
+vercel --prod
+
+# Monitor deployment
+npm run monitor
+```
+
+**Why Manual?**
+- Quality control before production releases
+- Prevents duplicate/conflicting deployments  
+- Better tracking and intentional releases
 
 ### System Features
 
-**What happens automatically:**
-- ✅ Direct production deployment (no previews)
+**Deployment tools:**
+- ✅ Manual production deployment via Vercel CLI
 - ✅ Real-time monitoring with 5-second updates
 - ✅ Colored output for status clarity
 - ✅ Auto-stops when deployment completes
-- ✅ GitHub Actions integration
 - ✅ VS Code task integration
 npm run deploy:stats      # Success rate & analytics
 npm run deploy:analyze    # Analyze latest error

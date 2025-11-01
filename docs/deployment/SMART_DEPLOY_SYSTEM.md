@@ -32,26 +32,25 @@ The Z-Beam project uses a unified deployment and monitoring system built around 
 
 ## Deployment Methods
 
-### 1. Automatic Deployment (Recommended)
-```bash
-git push origin main
-```
-- Triggers GitHub Actions workflow
-- Deploys directly to production using `vercel --prod --force --yes`
-- Posts status comments on commits
-- No manual intervention required
+### Manual Deployment (Required)
 
-### 2. Manual Deployment
-```bash
-# Deploy immediately
-./smart-deploy.sh deploy
+**Auto-deploy is disabled.** Use one of these manual deployment methods:
 
-# Deploy with monitoring
+```bash
+# Method 1: Deploy with monitoring (recommended)
 ./smart-deploy.sh deploy-monitor
 
-# Traditional method (still works)
-vercel --prod --force --yes
+# Method 2: Deploy immediately
+./smart-deploy.sh deploy
+
+# Method 3: Direct Vercel CLI
+vercel --prod
+
+# Method 4: Deploy with force flag
+vercel --prod --force
 ```
+
+**Note:** GitHub Actions workflow is disabled. Pushes to main branch do not trigger automatic deployments.
 
 ## Monitoring Commands
 

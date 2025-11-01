@@ -25,19 +25,17 @@ Run this one command:
 
 ## Option 2: Manual Test 🔧
 
-### Step 1: Push the verification docs
+### Step 1: Deploy manually
 
 ```bash
-git push origin main
+# Auto-deploy is disabled, use manual deployment
+vercel --prod
 ```
 
-### Step 2: Wait and check
+### Step 2: Check deployment status
 
 ```bash
-# Wait 15 seconds
-sleep 15
-
-# Check deployment
+# Check recent deployments
 vercel ls | head -8
 ```
 
@@ -49,34 +47,34 @@ Age     Deployment                              Status       Environment
 1m      https://z-beam-xxx.vercel.app          ● Ready      Production  ✅
 ```
 
-❌ **BAD** (Problem - dashboard not configured):
-```
-Age     Deployment                              Status       Environment
-30s     https://z-beam-xxx.vercel.app          Canceled     Preview     ❌
-```
+**Note:** Auto-deploy is disabled. Pushing to main does NOT trigger deployments.
 
 ---
 
 ## If You See "Production" ✅
 
-**Congratulations!** Your configuration is working!
+**Congratulations!** Your deployment is working!
 
 ### Next steps:
 
-1. **Clean up old previews**:
+1. **Deploy workflow** (auto-deploy disabled):
    ```bash
-   ./scripts/deployment/cleanup-previews.sh all --yes
-   ```
-
-2. **From now on, just push**:
-   ```bash
+   # Commit and push your changes
    git push origin main
-   # Automatically deploys to production!
+   
+   # Then deploy manually
+   vercel --prod
    ```
 
-3. **Or use the deployment tool**:
+2. **Monitor deployment**:
    ```bash
-   npm run deploy:prod
+   npm run monitor
+   ```
+
+3. **Alternative deployment tools**:
+   ```bash
+   npm run deploy
+   ./smart-deploy.sh deploy-monitor
    ```
 
 ---

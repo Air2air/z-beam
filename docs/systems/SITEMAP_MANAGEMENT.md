@@ -260,14 +260,15 @@ npm run build
 
 ### Vercel (Current Setup)
 
-✅ **Automatic deployment** on push to main
+**Manual deployment required** (auto-deploy disabled)
 
-**Sitemap is automatically generated** during build:
-1. Push to main branch
-2. Vercel builds site
-3. Sitemap generated with latest content
-4. Deploy completes
-5. Search engines fetch updated sitemap
+**Sitemap is generated during build**:
+1. Push changes to main branch
+2. Deploy manually: `vercel --prod`
+3. Vercel builds site
+4. Sitemap generated with latest content
+5. Deploy completes
+6. Search engines fetch updated sitemap
 
 ### Adding Verification to Deployment
 

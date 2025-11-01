@@ -30,24 +30,37 @@ Production deployments use the following environment settings:
 
 ## Deployment Process
 
-### Automatic Deployments
+### Manual Deployment (Required)
 
-1. **Production Branch**: Pushes to `main` trigger production deployments
-2. **Preview Deployments**: Feature branches create preview deployments
-3. **Build Validation**: All deployments run comprehensive test suites
-
-### Manual Deployment Commands
+**Auto-deploy is disabled.** All deployments must be triggered manually using the Vercel CLI:
 
 ```bash
-# Deploy to production
+# 1. Ensure all changes are committed and pushed
 git push origin main
+
+# 2. Deploy to production manually
+vercel --prod
+
+# Alternative: Deploy with force flag to bypass caching
+vercel --prod --force
 
 # Monitor deployment progress
 npm run monitor-deployment
-
-# Deploy specific branch to preview
-vercel --prod --scope team-name
 ```
+
+### Why Manual Deployments?
+
+- **Quality Control**: Ensures thorough testing before production releases
+- **Prevents Duplicate Deployments**: Avoids conflicts between Git integration and CLI deployments
+- **Controlled Release Timing**: Deploy only when ready, not on every push
+- **Better Monitoring**: Manual deployments provide clearer deployment tracking
+
+### Deployment Configuration
+
+Verify `vercel.json` settings:
+- `git.deploymentEnabled.main: false` - Auto-deploy disabled for main branch
+- `github.enabled: false` - GitHub integration disabled
+- `github.autoAlias: false` - No automatic aliasing
 
 ## Deployment Validation
 

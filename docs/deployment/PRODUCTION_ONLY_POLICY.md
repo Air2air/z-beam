@@ -41,26 +41,25 @@ This project uses a **production-only deployment strategy**. All deployments to 
 
 ## Deployment Methods
 
-### 1. Automatic Deployment (Recommended)
-```bash
-# Push to main branch triggers production deployment
-git push origin main
-```
+### Manual Deployment (Required)
 
-### 2. Manual Deployment
-```bash
-# Deploy directly using Vercel CLI
-vercel deploy --prod
+**Auto-deploy is disabled.** Use manual deployment methods:
 
-# Or use project deployment script
-npm run deploy:prod
-```
-
-### 3. Deployment Pipeline
 ```bash
-# Full validation and deployment
+# Method 1: Deploy with monitoring
+./smart-deploy.sh deploy-monitor
+
+# Method 2: Direct Vercel CLI deployment
+vercel --prod
+
+# Method 3: Deploy with validation
 bash scripts/deployment/prod-deploy.sh
+
+# Method 4: NPM script
+npm run deploy
 ```
+
+**Important:** Pushes to main branch do NOT trigger automatic deployments.
 
 ## Why Production-Only?
 
