@@ -99,12 +99,18 @@ const customJestConfig = {
       displayName: "node",
       testEnvironment: "node", 
       testMatch: [
-        "<rootDir>/tests/**/*.test.{js,jsx,ts,tsx}"
+        "<rootDir>/tests/**/*.test.{js,jsx,ts,tsx}",
+        "<rootDir>/tests/integration/contentAPI-filesystem.test.js",
+        "<rootDir>/tests/integration/material-pages-build.test.js"
       ],
       testPathIgnorePatterns: [
         "<rootDir>/tests/components/",
         "<rootDir>/tests/accessibility/",
-        "<rootDir>/tests/integration/",
+        "<rootDir>/tests/integration/universal-templates-layout-integration*.test.tsx",
+        "<rootDir>/tests/integration/OrganizationSchemaIntegration.test.tsx",
+        "<rootDir>/tests/integration/search-*.test.*",
+        "<rootDir>/tests/integration/type-*.test.*",
+        "<rootDir>/tests/integration/content-pipeline.test.js",
         "<rootDir>/tests/alabaster-tags.test.js",
         "<rootDir>/tests/standards/",
         "<rootDir>/tests/pages/",
