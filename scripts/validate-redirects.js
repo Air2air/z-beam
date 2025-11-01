@@ -172,10 +172,6 @@ describe('301 Redirects Validation', () => {
     expect(true).toBe(true);
   });
 });
-
-// Sample redirects for manual validation
-console.log('Sample redirects to test manually:');
-console.log(redirects.slice(0, 5).map(r => \`\${r.from} → \${r.to}\`).join('\\n'));
 `;
 
   await fs.writeFile(
