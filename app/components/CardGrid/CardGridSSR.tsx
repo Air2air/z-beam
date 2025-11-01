@@ -8,6 +8,7 @@ import { getArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap } from "../../utils/gridConfig";
 import { Title } from '../Title';
+import { buildUrlFromMetadata } from "../../utils/urlBuilder";
 
 // Default category ordering
 const DEFAULT_CATEGORY_ORDER = [
@@ -81,12 +82,19 @@ export async function CardGridSSR({
 
           const itemDescription = article?.metadata?.description || '';
           const itemImageUrl = article?.metadata?.image || '';
-          const itemHref = `/${slug}`;
-
-          // Extract category from article metadata
+          
+          // Extract category and subcategory from article metadata
           const category = article?.metadata?.category as string ||
                           article?.metadata?.articleType as string ||
                           'Other';
+          const subcategory = article?.metadata?.subcategory as string;
+
+          // Build URL using centralized utility
+          const itemHref = buildUrlFromMetadata({
+            category,
+            subcategory,
+            slug
+          });
 
           // Badge/Symbol data handling
           let badgeSymbolData: BadgeData | undefined = undefined;

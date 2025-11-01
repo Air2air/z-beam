@@ -3,6 +3,7 @@ import { SITE_CONFIG } from './utils/constants';
 import { SitemapEntry } from '@/types';
 import fs from 'fs';
 import path from 'path';
+import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from './utils/urlBuilder';
 
 export default function sitemap(): SitemapEntry[] {
   const baseUrl = SITE_CONFIG.url;
@@ -93,7 +94,7 @@ export default function sitemap(): SitemapEntry[] {
         if (!categorySet.has(category)) {
           categorySet.add(category);
           materialRoutes.push({
-            url: `${baseUrl}/materials/${category}`,
+            url: buildCategoryUrl(category, true),
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.7,
@@ -106,7 +107,7 @@ export default function sitemap(): SitemapEntry[] {
           if (!subcategorySet.has(subcategoryKey)) {
             subcategorySet.add(subcategoryKey);
             materialRoutes.push({
-              url: `${baseUrl}/materials/${category}/${subcategory}`,
+              url: buildSubcategoryUrl(category, subcategory, true),
               lastModified: new Date(),
               changeFrequency: 'weekly' as const,
               priority: 0.75,
@@ -115,7 +116,7 @@ export default function sitemap(): SitemapEntry[] {
           
           // Add material page with full path
           materialPageRoutes.push({
-            url: `${baseUrl}/materials/${category}/${subcategory}/${slug}`,
+            url: buildUrlFromMetadata({ category, subcategory, slug }, true),
             lastModified: stats.mtime,
             changeFrequency: 'weekly' as const,
             priority: 0.8,
