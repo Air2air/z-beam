@@ -2257,11 +2257,41 @@ export interface MaterialDatasetData {
 }
 
 /**
- * Material dataset card component props
+ * Material dataset card component props (legacy)
+ * @deprecated Use DatasetCardProps instead
  */
 export interface MaterialDatasetCardProps {
   material: MaterialDatasetData;
   showFullDataset?: boolean;
+}
+
+/**
+ * Format badge for dataset download options
+ */
+export interface FormatBadge {
+  format: 'JSON' | 'CSV' | 'TXT';
+  url: string;
+  size?: string;
+}
+
+/**
+ * DatasetCard Props - extends base Card with dataset-specific features
+ * Used for displaying material datasets with download options
+ */
+export interface DatasetCardProps {
+  // Base card props
+  frontmatter?: ArticleMetadata;
+  href: string;
+  badge?: BadgeData | null;
+  className?: string;
+  variant?: 'standard' | 'featured';
+  
+  // Dataset-specific props
+  formats?: FormatBadge[];
+  dataPoints?: number;
+  category?: string;
+  subcategory?: string;
+  onQuickDownload?: (format: string, url: string) => void;
 }
 
 /**

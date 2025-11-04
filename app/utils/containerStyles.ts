@@ -64,7 +64,9 @@ export const GRID_STYLES = {
 } as const;
 
 /**
- * Grid column classes (legacy from styles.ts - prefer GRID_STYLES above)
+ * @deprecated Import GRID_CONFIGS from @/config/site instead
+ * Grid column classes - kept for backward compatibility only
+ * Will be removed in next major version
  */
 export const GRID_CLASSES = {
   1: 'grid-cols-1',
@@ -74,7 +76,9 @@ export const GRID_CLASSES = {
 } as const;
 
 /**
- * Gap size classes (legacy from styles.ts - prefer responsive gaps in GRID_STYLES)
+ * @deprecated Import GRID_GAPS from @/config/site instead
+ * Gap size classes - kept for backward compatibility only
+ * Will be removed in next major version
  */
 export const GAP_CLASSES = {
   sm: 'gap-3',

@@ -1,183 +1,183 @@
-// app/components/Dataset/DatasetCard.tsx
 'use client';
 
-import React, { useState } from 'react';
-import { FiInfo, FiCheckCircle } from 'react-icons/fi';
-import { BsFileEarmarkSpreadsheet } from 'react-icons/bs';
-import DatasetDownloadControls from './DatasetDownloadControls';
+import React from 'react';
+import { Card } from '@/app/components/Card/Card';
+import type { DatasetCardProps } from '@/types/centralized';
 
-interface DatasetCardProps {
-  title: string;
-  description: string;
-  stats: Array<{
-    value: string | number;
-    label: string;
-  }>;
-  formats: Array<'json' | 'csv' | 'txt'>;
-  onDownload: (format: 'json' | 'csv' | 'txt') => void | Promise<void>;
-  getDirectLink?: (format: 'json' | 'csv' | 'txt') => string;
-  includes?: Array<string>;
-  note?: string;
-  categoryLink?: {
-    href: string;
-    label: string;
-  };
-  fullDatasetLink?: boolean;
-}
-
-export default function DatasetCard({
-  title,
-  description,
-  stats,
-  formats,
-  onDownload,
-  getDirectLink,
-  includes,
-  note,
-  categoryLink,
-  fullDatasetLink = false
+/**
+ * DatasetCard Component
+ * 
+ * Extends the base Card component with dataset-specific features:
+ * - Format badges (JSON/CSV/TXT) with quick download
+ * - Data point counter
+ * - Category indicators
+ * - Maintains all Card functionality (thumbnail, hover, accessibility)
+ * 
+ * @example
+ * ```tsx
+ * <DatasetCard
+ *   frontmatter={material}
+ *   href={`/datasets/materials/${material.slug}`}
+ *   formats={[
+ *     { format: 'JSON', url: '/datasets/materials/aluminum.json', size: '2.4 KB' },
+ *     { format: 'CSV', url: '/datasets/materials/aluminum.csv', size: '1.8 KB' }
+ *   ]}
+ *   dataPoints={42}
+ *   category="Metals"
+ *   subcategory="Non-Ferrous"
+ * />
+ * ```
+ */
+export function DatasetCard({
+  frontmatter,
+  href,
+  badge,
+  className = '',
+  variant = 'standard',
+  formats = [],
+  dataPoints,
+  category,
+  subcategory,
+  onQuickDownload,
 }: DatasetCardProps) {
-  const [downloadFormat, setDownloadFormat] = useState<'json' | 'csv' | 'txt'>(formats[0]);
-  const [copied, setCopied] = useState(false);
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  // Handle download
-  const handleDownload = async () => {
-    try {
-      setIsDownloading(true);
-      await onDownload(downloadFormat);
-    } catch (error) {
-      console.error('Download failed:', error);
-      alert('Failed to download dataset. Please try again.');
-    } finally {
-      setIsDownloading(false);
-    }
-  };
-
-  // Copy download URL
-  const copyDownloadUrl = () => {
-    if (!getDirectLink) {
-      const message = `${title} - ${description}`;
-      navigator.clipboard.writeText(message);
+  
+  /**
+   * Handle format badge click for quick download
+   */
+  const handleFormatClick = (e: React.MouseEvent, format: string, url: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (onQuickDownload) {
+      onQuickDownload(format, url);
     } else {
-      const fullUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}${getDirectLink(downloadFormat)}`;
-      navigator.clipboard.writeText(fullUrl);
+      // Default behavior: trigger download
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = url.split('/').pop() || `dataset.${format.toLowerCase()}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
   };
 
-  const directLink = getDirectLink?.(downloadFormat);
+  /**
+   * Format data point count for display
+   */
+  const formatDataPoints = (count: number): string => {
+    if (count >= 1000000) {
+      return `${(count / 1000000).toFixed(1)}M`;
+    } else if (count >= 1000) {
+      return `${(count / 1000).toFixed(1)}K`;
+    }
+    return count.toString();
+  };
 
   return (
-    <div className="dataset-card bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-      {/* Header */}
-      <div className="dataset-header flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <h3 className="dataset-title text-lg font-semibold text-gray-900 dark:text-white mb-1">
-            {title}
-          </h3>
-          <p className="dataset-description text-sm text-gray-600 dark:text-gray-400">
-            {description}
-          </p>
-        </div>
-        {directLink && (
-          <button
-            onClick={copyDownloadUrl}
-            className="ml-4 flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
-          >
-            {copied ? (
-              <>
-                <FiCheckCircle className="text-green-500" />
-                <span>Copied!</span>
-              </>
-            ) : (
-              <>
-                <FiInfo className="text-gray-500" />
-                <span>Copy Link</span>
-              </>
-            )}
-          </button>
+    <div className={`relative group ${className}`}>
+      {/* Base Card Component */}
+      <Card
+        frontmatter={frontmatter}
+        href={href}
+        badge={badge}
+        variant={variant}
+        className="h-full"
+      />
+      
+      {/* Material Dataset Overlays */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Format Badges - Top Left */}
+        {formats.length > 0 && (
+          <div className="absolute top-2 left-2 flex gap-1 pointer-events-auto z-20">
+            {formats.map((format) => (
+              <button
+                key={format.format}
+                onClick={(e) => handleFormatClick(e, format.format, format.url)}
+                className="
+                  px-2 py-1 text-xs font-semibold rounded
+                  bg-blue-600 text-white
+                  hover:bg-blue-700 active:bg-blue-800
+                  transition-colors duration-150
+                  shadow-sm hover:shadow-md
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
+                "
+                aria-label={`Download ${format.format} format${format.size ? ` (${format.size})` : ''}`}
+                title={format.size || 'Download'}
+              >
+                {format.format}
+              </button>
+            ))}
+          </div>
+        )}
+        
+        {/* Data Points Counter - Bottom Left */}
+        {dataPoints !== undefined && dataPoints > 0 && (
+          <div className="absolute bottom-2 left-2 z-10">
+            <div 
+              className="
+                px-2 py-1 text-xs font-medium rounded
+                bg-white/90 dark:bg-gray-800/90
+                text-gray-700 dark:text-gray-200
+                backdrop-blur-sm
+                shadow-sm
+              "
+              aria-label={`${dataPoints.toLocaleString()} data points`}
+            >
+              <span className="inline-flex items-center gap-1">
+                <svg 
+                  className="w-3 h-3" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" 
+                  />
+                </svg>
+                <span>{formatDataPoints(dataPoints)}</span>
+              </span>
+            </div>
+          </div>
+        )}
+        
+        {/* Category Badge - Bottom Right */}
+        {(category || subcategory) && (
+          <div className="absolute bottom-2 right-2 z-10">
+            <div 
+              className="
+                px-2 py-1 text-xs font-medium rounded
+                bg-white/90 dark:bg-gray-800/90
+                text-gray-700 dark:text-gray-200
+                backdrop-blur-sm
+                shadow-sm
+                text-right
+              "
+              aria-label={`Category: ${category}${subcategory ? ` - ${subcategory}` : ''}`}
+            >
+              {subcategory || category}
+            </div>
+          </div>
         )}
       </div>
-
-      {/* Stats Grid */}
-      <div className="dataset-stats-grid grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
-        {stats.map((stat, index) => (
-          <div 
-            key={index} 
-            className="dataset-stat-card bg-gray-50 dark:bg-gray-700/50 rounded-lg p-1 h-[60px] flex flex-col items-center justify-center"
-          >
-            <div className="dataset-stat-value text-lg md:text-xl font-bold text-gray-900 dark:text-white text-center">
-              {stat.value}
-            </div>
-            <div className="dataset-stat-label text-xs text-gray-600 dark:text-gray-400 text-center mt-0.5">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-
-      <DatasetDownloadControls
-        formats={formats}
-        selectedFormat={downloadFormat}
-        onFormatChange={setDownloadFormat}
-        onDownload={handleDownload}
-        onCopyLink={copyDownloadUrl}
-        isDownloading={isDownloading}
-        copied={copied}
-        showCopyButton={false}
+      
+      {/* Hover State Enhancement */}
+      <div 
+        className="
+          absolute inset-0 rounded-lg
+          border-2 border-transparent
+          group-hover:border-blue-500
+          transition-all duration-200
+          pointer-events-none
+          z-30
+        "
+        aria-hidden="true"
       />
-
-      {/* Info Note (optional) */}
-      {note && (
-        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-          <p className="text-xs text-blue-800 dark:text-blue-300">
-            <strong>Note:</strong> {note}
-          </p>
-        </div>
-      )}
-
-      {/* Navigation Links (conditional based on context) */}
-      {(categoryLink || fullDatasetLink) && (
-        <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 space-y-2">
-          {/* Category Link (shown on material pages) */}
-          {categoryLink && (
-            <a
-              href={categoryLink.href}
-              className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1"
-            >
-              <BsFileEarmarkSpreadsheet className="w-4 h-4" />
-              <span>{categoryLink.label}</span>
-            </a>
-          )}
-          
-          {/* Full Dataset Link (shown on category pages) */}
-          {fullDatasetLink && (
-            <a
-              href="/datasets"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1"
-            >
-              <BsFileEarmarkSpreadsheet className="w-4 h-4" />
-              <span>View complete materials database (138+ materials)</span>
-            </a>
-          )}
-        </div>
-      )}
-
-      {/* License Info */}
-      <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
-        <p className="text-xs text-gray-600 dark:text-gray-400">
-          <span className="font-medium">License:</span> Creative Commons BY 4.0 • 
-          Free to use with attribution • 
-          <a 
-            href="https://creativecommons.org/licenses/by/4.0/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline ml-1"
-          >
-            Learn more
-          </a>
-        </p>
-      </div>
     </div>
   );
 }
+
+export default DatasetCard;

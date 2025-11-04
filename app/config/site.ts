@@ -476,11 +476,16 @@ export const ANIMATION_CONFIG = {
  * GRID CONFIGURATION
  * Responsive grid layouts and spacing
  */
+/**
+ * GRID CONFIGURATION
+ * Responsive grid layouts and spacing
+ * Unified grid system - single source of truth for all grid layouts
+ */
 export const GRID_CONFIGS = {
-  1: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4",
-  2: "grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2",
-  3: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4",
-  4: "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4",
+  1: "grid-cols-1",
+  2: "grid-cols-1 sm:grid-cols-2",
+  3: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
+  4: "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
 } as const;
 
 export const GRID_GAPS = {
