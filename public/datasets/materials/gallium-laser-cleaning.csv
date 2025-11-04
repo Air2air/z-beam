@@ -1,16 +1,26 @@
-"Field","Category","Property","Value","Unit"
-"Basic","Info","Name","Gallium",""
-"Basic","Info","Category","metal",""
-"Basic","Info","Subcategory","non-ferrous",""
-"Basic","Info","Slug","gallium",""
-"Property","material_characteristics","electricalConductivity","6760000","S/m"
-"Property","material_characteristics","electricalResistivity","1.708e-7","Ω·m"
-"Property","material_characteristics","fractureToughness","0","MPa·√m"
-"Property","material_characteristics","surfaceRoughness","0.025","µm"
-"Property","laser_material_interaction","absorptionCoefficient","11200000","m⁻¹"
-"Property","laser_material_interaction","absorptivity","0.42","dimensionless"
-"Property","laser_material_interaction","laserDamageThreshold","0.15","J/cm²"
-"Property","laser_material_interaction","reflectivity","0.71","dimensionless (ratio)"
-"Property","laser_material_interaction","thermalDestructionPoint","2477","K"
-"Property","laser_material_interaction","thermalShockResistance","0.0021","MPa·m²/W"
-"Property","laser_material_interaction","vaporPressure","0.00000133","Pa"
+# Gallium Laser Cleaning Dataset
+# License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
+# Source: Z-Beam Laser Cleaning Research Lab
+# URL: http://localhost:3000/materials/metal/non-ferrous/gallium
+# Last Updated: 2025-11-04
+# Version: 1.0
+# Contact: data@z-beam.com
+#
+# Citation: Z-Beam (2025). Gallium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/gallium
+#
+Field,Category,Property,Value,Unit,Min,Max,Source,Description
+Basic,Info,Name,Gallium,,,,,Material name
+Basic,Info,Category,metal,,,,,Material category
+Basic,Info,Subcategory,non-ferrous,,,,,Material subcategory
+Basic,Info,Slug,gallium,,,,,URL identifier
+Property,material_characteristics,electricalConductivity,6760000,S/m,0.67,63,ai_research,Material property: electricalConductivity
+Property,material_characteristics,electricalResistivity,1.708e-7,Ω·m,1e-8,0.0000015,ai_research,Material property: electricalResistivity
+Property,material_characteristics,fractureToughness,0,MPa·√m,20,200,"ASM Handbook, Volume 02 - Properties and Selection: Nonferrous Alloys and Special-Purpose Materials",Material property: fractureToughness
+Property,material_characteristics,surfaceRoughness,0.025,µm,0.05,150,ai_research,Material property: surfaceRoughness
+Property,laser_material_interaction,absorptionCoefficient,11200000,m⁻¹,1000000,100000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,absorptivity,0.42,dimensionless,2,65,ai_research,Material property: absorptivity
+Property,laser_material_interaction,laserDamageThreshold,0.15,J/cm²,0.1,20,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,reflectivity,0.71,dimensionless (ratio),85,98,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,2477,K,873,3695,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,thermalShockResistance,0.0021,MPa·m²/W,50,400,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,vaporPressure,0.00000133,Pa,1e-10,0.001,ai_research,Material property: vaporPressure

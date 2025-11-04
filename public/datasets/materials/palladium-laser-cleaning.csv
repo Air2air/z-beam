@@ -1,16 +1,26 @@
-"Field","Category","Property","Value","Unit"
-"Basic","Info","Name","Palladium",""
-"Basic","Info","Category","metal",""
-"Basic","Info","Subcategory","non-ferrous",""
-"Basic","Info","Slug","palladium",""
-"Property","material_characteristics","electricalConductivity","9500000","S/m"
-"Property","material_characteristics","electricalResistivity","1.08e-7","Ω·m"
-"Property","material_characteristics","fractureToughness","70","MPa·√m"
-"Property","material_characteristics","surfaceRoughness","0.025","μm"
-"Property","laser_material_interaction","absorptionCoefficient","52000000","m^-1"
-"Property","laser_material_interaction","absorptivity","0.35","dimensionless"
-"Property","laser_material_interaction","laserDamageThreshold","0.45","J/cm²"
-"Property","laser_material_interaction","reflectivity","0.71","dimensionless"
-"Property","laser_material_interaction","thermalDestructionPoint","1828.05","K"
-"Property","laser_material_interaction","thermalShockResistance","1.8","MPa·m^0.5"
-"Property","laser_material_interaction","vaporPressure","1.33","Pa"
+# Palladium Laser Cleaning Dataset
+# License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
+# Source: Z-Beam Laser Cleaning Research Lab
+# URL: http://localhost:3000/materials/metal/non-ferrous/palladium
+# Last Updated: 2025-11-04
+# Version: 1.0
+# Contact: data@z-beam.com
+#
+# Citation: Z-Beam (2025). Palladium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/palladium
+#
+Field,Category,Property,Value,Unit,Min,Max,Source,Description
+Basic,Info,Name,Palladium,,,,,Material name
+Basic,Info,Category,metal,,,,,Material category
+Basic,Info,Subcategory,non-ferrous,,,,,Material subcategory
+Basic,Info,Slug,palladium,,,,,URL identifier
+Property,material_characteristics,electricalConductivity,9500000,S/m,0.67,63,ai_research,Material property: electricalConductivity
+Property,material_characteristics,electricalResistivity,1.08e-7,Ω·m,1e-8,0.0000015,ai_research,Material property: electricalResistivity
+Property,material_characteristics,fractureToughness,70,MPa·√m,20,200,"ASM Handbook, Volume 19: Fatigue and Fracture, ""Fracture Toughness of Metals"" (Table 1)",Material property: fractureToughness
+Property,material_characteristics,surfaceRoughness,0.025,μm,0.05,150,ai_research,Material property: surfaceRoughness
+Property,laser_material_interaction,absorptionCoefficient,52000000,m^-1,1000000,100000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,absorptivity,0.35,dimensionless,2,65,ai_research,Material property: absorptivity
+Property,laser_material_interaction,laserDamageThreshold,0.45,J/cm²,0.1,20,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,reflectivity,0.71,dimensionless,85,98,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,1828.05,K,873,3695,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,thermalShockResistance,1.8,MPa·m^0.5,50,400,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,vaporPressure,1.33,Pa,1e-10,0.001,ai_research,Material property: vaporPressure

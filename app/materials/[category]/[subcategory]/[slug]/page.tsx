@@ -7,7 +7,7 @@ import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
-import MaterialDatasetCard from "@/app/components/Dataset/MaterialDatasetCard";
+import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import type { PageProps } from "@/types";
 
@@ -140,7 +140,7 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           maxItems={6}
         />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-          <MaterialDatasetCard 
+          <MaterialDatasetCardWrapper 
             material={{
               name: (article.metadata.title as string) || slug,
               slug: slug,
@@ -148,9 +148,10 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
               subcategory: subcategory,
               parameters: (article.metadata as any).parameters,
               materialProperties: (article.metadata as any).materialProperties,
-              machineSettings: (article.metadata as any).machineSettings,
               applications: (article.metadata as any).applications,
-              faq: (article.metadata as any).faq
+              faq: (article.metadata as any).faq,
+              regulatoryStandards: (article.metadata as any).regulatoryStandards,
+              machineSettings: (article.metadata as any).machineSettings
             }}
             showFullDataset={true}
           />

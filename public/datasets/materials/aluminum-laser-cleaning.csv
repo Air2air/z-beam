@@ -1,23 +1,33 @@
-"Field","Category","Property","Value","Unit"
-"Basic","Info","Name","Aluminum",""
-"Basic","Info","Category","metal",""
-"Basic","Info","Subcategory","non-ferrous",""
-"Basic","Info","Slug","aluminum",""
-"Property","material_characteristics","density","2.7","g/cm³"
-"Property","material_characteristics","porosity","0","%"
-"Property","material_characteristics","surfaceRoughness","0.8","μm"
-"Property","material_characteristics","tensileStrength","90","MPa"
-"Property","material_characteristics","youngsModulus","70","GPa"
-"Property","material_characteristics","hardness","0.2744","GPa"
-"Property","material_characteristics","flexuralStrength","95","MPa"
-"Property","material_characteristics","oxidationResistance","5","μm/year"
-"Property","material_characteristics","corrosionResistance","0.1","mm/year"
-"Property","laser_material_interaction","thermalConductivity","237","W/(m·K)"
-"Property","laser_material_interaction","thermalExpansion","23.1","×10^{-6}/K"
-"Property","laser_material_interaction","thermalDiffusivity","9.7","×10^{-5} m²/s"
-"Property","laser_material_interaction","specificHeat","900","J/(kg·K)"
-"Property","laser_material_interaction","thermalShockResistance","250","K"
-"Property","laser_material_interaction","laserReflectivity","0.92",""
-"Property","laser_material_interaction","absorptionCoefficient","1.2","×10^7 m^{-1}"
-"Property","laser_material_interaction","ablationThreshold","2.5","J/cm²"
-"Property","laser_material_interaction","laserDamageThreshold","1.8","J/cm²"
+# Aluminum Laser Cleaning Dataset
+# License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
+# Source: Z-Beam Laser Cleaning Research Lab
+# URL: http://localhost:3000/materials/metal/non-ferrous/aluminum
+# Last Updated: 2025-11-04
+# Version: 1.0
+# Contact: data@z-beam.com
+#
+# Citation: Z-Beam (2025). Aluminum Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/aluminum
+#
+Field,Category,Property,Value,Unit,Min,Max,Source,Description
+Basic,Info,Name,Aluminum,,,,,Material name
+Basic,Info,Category,metal,,,,,Material category
+Basic,Info,Subcategory,non-ferrous,,,,,Material subcategory
+Basic,Info,Slug,aluminum,,,,,URL identifier
+Property,material_characteristics,density,2.7,g/cm³,0.53,22.6,,Material property: density
+Property,material_characteristics,porosity,0,%,0,15,,Material property: porosity
+Property,material_characteristics,surfaceRoughness,0.8,μm,0.4,150,,Material property: surfaceRoughness
+Property,material_characteristics,tensileStrength,90,MPa,3,3000,,Material property: tensileStrength
+Property,material_characteristics,youngsModulus,70,GPa,5,600,,Material property: youngsModulus
+Property,material_characteristics,hardness,0.2744,GPa,0.5,3500,,Material property: hardness
+Property,material_characteristics,flexuralStrength,95,MPa,2.5,1050,,Material property: flexuralStrength
+Property,material_characteristics,oxidationResistance,5,μm/year,200,1200,,Material property: oxidationResistance
+Property,material_characteristics,corrosionResistance,0.1,mm/year,1,10,,Material property: corrosionResistance
+Property,laser_material_interaction,thermalConductivity,237,W/(m·K),7,430,,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,23.1,×10^{-6}/K,0.5,33,,Material property: thermalExpansion
+Property,laser_material_interaction,thermalDiffusivity,9.7,×10^{-5} m²/s,0.06,174,,Material property: thermalDiffusivity
+Property,laser_material_interaction,specificHeat,900,J/(kg·K),100,2000,,Material property: specificHeat
+Property,laser_material_interaction,thermalShockResistance,250,K,50,400,,Material property: thermalShockResistance
+Property,laser_material_interaction,laserReflectivity,0.92,,5,99.9,,Material property: laserReflectivity
+Property,laser_material_interaction,absorptionCoefficient,1.2,×10^7 m^{-1},100000,50000000,,Material property: absorptionCoefficient
+Property,laser_material_interaction,ablationThreshold,2.5,J/cm²,2,8,,Material property: ablationThreshold
+Property,laser_material_interaction,laserDamageThreshold,1.8,J/cm²,0.1,20,,Material property: laserDamageThreshold

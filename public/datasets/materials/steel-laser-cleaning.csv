@@ -1,23 +1,33 @@
-"Field","Category","Property","Value","Unit"
-"Basic","Info","Name","Steel",""
-"Basic","Info","Category","metal",""
-"Basic","Info","Subcategory","ferrous",""
-"Basic","Info","Slug","steel",""
-"Property","material_characteristics","density","7.85","g/cm³"
-"Property","material_characteristics","porosity","0.1","%"
-"Property","material_characteristics","surfaceRoughness","1.6","μm Ra"
-"Property","material_characteristics","tensileStrength","400","MPa"
-"Property","material_characteristics","youngsModulus","200","GPa"
-"Property","material_characteristics","hardness","1.47","GPa"
-"Property","material_characteristics","flexuralStrength","350","MPa"
-"Property","material_characteristics","oxidationResistance","8","scale (1-10)"
-"Property","material_characteristics","corrosionResistance","6","scale (1-10)"
-"Property","laser_material_interaction","thermalConductivity","50","W/(m·K)"
-"Property","laser_material_interaction","thermalExpansion","12","×10^{-6}/K"
-"Property","laser_material_interaction","thermalDiffusivity","1.4","×10^{-5} m²/s"
-"Property","laser_material_interaction","specificHeat","486","J/(kg·K)"
-"Property","laser_material_interaction","thermalShockResistance","250","W/m"
-"Property","laser_material_interaction","laserReflectivity","0.4","dimensionless (at 1064 nm)"
-"Property","laser_material_interaction","absorptionCoefficient","0.6","dimensionless (at 1064 nm)"
-"Property","laser_material_interaction","ablationThreshold","1.5","J/cm²"
-"Property","laser_material_interaction","laserDamageThreshold","2","J/cm²"
+# Steel Laser Cleaning Dataset
+# License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
+# Source: Z-Beam Laser Cleaning Research Lab
+# URL: http://localhost:3000/materials/metal/ferrous/steel
+# Last Updated: 2025-11-04
+# Version: 1.0
+# Contact: data@z-beam.com
+#
+# Citation: Z-Beam (2025). Steel Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/ferrous/steel
+#
+Field,Category,Property,Value,Unit,Min,Max,Source,Description
+Basic,Info,Name,Steel,,,,,Material name
+Basic,Info,Category,metal,,,,,Material category
+Basic,Info,Subcategory,ferrous,,,,,Material subcategory
+Basic,Info,Slug,steel,,,,,URL identifier
+Property,material_characteristics,density,7.85,g/cm³,0.53,22.6,,Material property: density
+Property,material_characteristics,porosity,0.1,%,0,15,,Material property: porosity
+Property,material_characteristics,surfaceRoughness,1.6,μm Ra,0.4,150,,Material property: surfaceRoughness
+Property,material_characteristics,tensileStrength,400,MPa,3,3000,,Material property: tensileStrength
+Property,material_characteristics,youngsModulus,200,GPa,5,600,,Material property: youngsModulus
+Property,material_characteristics,hardness,1.47,GPa,0.5,3500,,Material property: hardness
+Property,material_characteristics,flexuralStrength,350,MPa,2.5,1050,,Material property: flexuralStrength
+Property,material_characteristics,oxidationResistance,8,scale (1-10),200,1200,,Material property: oxidationResistance
+Property,material_characteristics,corrosionResistance,6,scale (1-10),1,10,,Material property: corrosionResistance
+Property,laser_material_interaction,thermalConductivity,50,W/(m·K),7,430,,Material property: thermalConductivity
+Property,laser_material_interaction,thermalExpansion,12,×10^{-6}/K,0.5,33,,Material property: thermalExpansion
+Property,laser_material_interaction,thermalDiffusivity,1.4,×10^{-5} m²/s,0.06,174,,Material property: thermalDiffusivity
+Property,laser_material_interaction,specificHeat,486,J/(kg·K),100,2000,,Material property: specificHeat
+Property,laser_material_interaction,thermalShockResistance,250,W/m,50,400,,Material property: thermalShockResistance
+Property,laser_material_interaction,laserReflectivity,0.4,dimensionless (at 1064 nm),5,99.9,,Material property: laserReflectivity
+Property,laser_material_interaction,absorptionCoefficient,0.6,dimensionless (at 1064 nm),100000,50000000,,Material property: absorptionCoefficient
+Property,laser_material_interaction,ablationThreshold,1.5,J/cm²,2,8,,Material property: ablationThreshold
+Property,laser_material_interaction,laserDamageThreshold,2,J/cm²,0.1,20,,Material property: laserDamageThreshold

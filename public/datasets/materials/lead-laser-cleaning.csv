@@ -1,15 +1,25 @@
-"Field","Category","Property","Value","Unit"
-"Basic","Info","Name","Lead",""
-"Basic","Info","Category","metal",""
-"Basic","Info","Subcategory","non-ferrous",""
-"Basic","Info","Slug","lead",""
-"Property","material_characteristics","electricalConductivity","4810000","S/m"
-"Property","material_characteristics","electricalResistivity","2.065e-7","Ω·m"
-"Property","material_characteristics","surfaceRoughness","0.8","µm"
-"Property","laser_material_interaction","absorptionCoefficient","12400000","m⁻¹"
-"Property","laser_material_interaction","absorptivity","0.35","dimensionless"
-"Property","laser_material_interaction","laserDamageThreshold","0.15","J/cm²"
-"Property","laser_material_interaction","reflectivity","0.65","dimensionless"
-"Property","laser_material_interaction","thermalDestructionPoint","601","K"
-"Property","laser_material_interaction","thermalShockResistance","0.0005","W/m"
-"Property","laser_material_interaction","vaporPressure","2.13e-7","Pa"
+# Lead Laser Cleaning Dataset
+# License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
+# Source: Z-Beam Laser Cleaning Research Lab
+# URL: http://localhost:3000/materials/metal/non-ferrous/lead
+# Last Updated: 2025-11-04
+# Version: 1.0
+# Contact: data@z-beam.com
+#
+# Citation: Z-Beam (2025). Lead Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/lead
+#
+Field,Category,Property,Value,Unit,Min,Max,Source,Description
+Basic,Info,Name,Lead,,,,,Material name
+Basic,Info,Category,metal,,,,,Material category
+Basic,Info,Subcategory,non-ferrous,,,,,Material subcategory
+Basic,Info,Slug,lead,,,,,URL identifier
+Property,material_characteristics,electricalConductivity,4810000,S/m,0.67,63,ai_research,Material property: electricalConductivity
+Property,material_characteristics,electricalResistivity,2.065e-7,Ω·m,1e-8,0.0000015,ai_research,Material property: electricalResistivity
+Property,material_characteristics,surfaceRoughness,0.8,µm,0.05,150,ai_research,Material property: surfaceRoughness
+Property,laser_material_interaction,absorptionCoefficient,12400000,m⁻¹,1000000,100000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,absorptivity,0.35,dimensionless,2,65,ai_research,Material property: absorptivity
+Property,laser_material_interaction,laserDamageThreshold,0.15,J/cm²,0.1,20,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,reflectivity,0.65,dimensionless,85,98,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,601,K,873,3695,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,thermalShockResistance,0.0005,W/m,50,400,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,vaporPressure,2.13e-7,Pa,1e-10,0.001,ai_research,Material property: vaporPressure

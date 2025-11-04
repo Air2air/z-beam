@@ -10,7 +10,7 @@ import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import CategoryDatasetCard from '@/app/components/Dataset/CategoryDatasetCard';
+import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
 
 // Static generation for all category pages
 export async function generateStaticParams() {
@@ -175,10 +175,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         
         {/* Category Dataset Card at bottom */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-16">
-          <CategoryDatasetCard 
+          <CategoryDatasetCardWrapper 
             category={category}
             categoryLabel={categoryDisplayName}
             materials={allMaterials}
+            subcategoryCount={categoryData.subcategories.length}
           />
         </div>
       </Layout>
