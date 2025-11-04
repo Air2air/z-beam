@@ -70,8 +70,13 @@ export default function MaterialDatasetCardWrapper({
       ]}
       formats={['json', 'csv', 'txt']}
       onDownload={(format: 'json' | 'csv' | 'txt') => {
-        const fileName = `${slug}.${format}`;
-        const filePath = `/datasets/${category}/${subcategory}/${fileName}`;
+        // Remove -laser-cleaning suffix if slug already contains it
+        const baseSlug = slug.endsWith('-laser-cleaning') ? slug : `${slug}-laser-cleaning`;
+        const fileName = `${baseSlug}.${format}`;
+        const filePath = `/datasets/materials/${fileName}`;
+        
+        console.log('Download Debug:', { slug, baseSlug, fileName, filePath });
+        
         const link = document.createElement('a');
         link.href = filePath;
         link.download = fileName;
@@ -79,9 +84,10 @@ export default function MaterialDatasetCardWrapper({
         link.click();
         document.body.removeChild(link);
       }}
-      getDirectLink={(format: 'json' | 'csv' | 'txt') => 
-        `/datasets/${category}/${subcategory}/${slug}.${format}`
-      }
+      getDirectLink={(format: 'json' | 'csv' | 'txt') => {
+        const baseSlug = slug.endsWith('-laser-cleaning') ? slug : `${slug}-laser-cleaning`;
+        return `/datasets/materials/${baseSlug}.${format}`;
+      }}
       includes={[
         'Material properties with full specifications',
         'Processing parameters and recommended settings',

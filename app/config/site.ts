@@ -167,7 +167,7 @@ export const SITE_CONFIG = {
       name: 'Z-Beam Laser Cleaning Research Lab',
       type: 'Organization',
       url: 'https://www.z-beam.com',
-      email: 'data@z-beam.com',
+      email: 'info@z-beam.com',
       contactType: 'Data Support'
     },
     catalog: {
