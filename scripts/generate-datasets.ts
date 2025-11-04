@@ -4,8 +4,8 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-import type { MaterialDatasetData } from '../types/centralized';
-import { SITE_CONFIG } from '../app/config/site';
+import type { MaterialDatasetData } from '../types/centralized.js';
+import { SITE_CONFIG } from '../app/config/site.js';
 
 // Extended interface for script processing
 interface MaterialData extends MaterialDatasetData {
@@ -489,15 +489,15 @@ async function generateAllDatasets() {
       }
       
       // Generate JSON
-      const jsonContent = generateJSON(material, slug);
+      const jsonContent = generateJSON(material, datasetName);
       fs.writeFileSync(path.join(outputDir, `${datasetName}.json`), jsonContent);
       
       // Generate CSV
-      const csvContent = generateCSV(material, slug);
+      const csvContent = generateCSV(material, datasetName);
       fs.writeFileSync(path.join(outputDir, `${datasetName}.csv`), csvContent);
       
       // Generate TXT
-      const txtContent = generateTXT(material, slug);
+      const txtContent = generateTXT(material, datasetName);
       fs.writeFileSync(path.join(outputDir, `${datasetName}.txt`), txtContent);
       
       successCount++;
