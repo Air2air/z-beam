@@ -15,8 +15,10 @@ export default function CategoryDatasetCardWrapper({
     // Fetch full data for all materials in parallel
     const materialDataPromises = materials.map(async (m) => {
       try {
-        const response = await fetch(`/datasets/materials/${m.slug}.json`);
-        if (!response.ok) throw new Error(`Failed to fetch ${m.slug}`);
+        // Ensure slug has -laser-cleaning suffix
+        const fullSlug = m.slug.endsWith('-laser-cleaning') ? m.slug : `${m.slug}-laser-cleaning`;
+        const response = await fetch(`/datasets/materials/${fullSlug}.json`);
+        if (!response.ok) throw new Error(`Failed to fetch ${fullSlug}`);
         return await response.json();
       } catch (error) {
         console.error(`Error fetching data for ${m.name}:`, error);
@@ -41,7 +43,7 @@ export default function CategoryDatasetCardWrapper({
       };
       content = JSON.stringify(data, null, 2);
       mimeType = 'application/json';
-      fileName = `${category}-category.json`;
+      fileName = `${category}-category-laser-cleaning.json`;
     } else if (format === 'csv') {
       // Create comprehensive CSV with all material properties
       const allFields = new Set<string>();
@@ -63,7 +65,7 @@ export default function CategoryDatasetCardWrapper({
         row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')
       ).join('\n');
       mimeType = 'text/csv';
-      fileName = `${category}-category.csv`;
+      fileName = `${category}-category-laser-cleaning.csv`;
     } else {
       // txt format with full material data
       content = `${categoryLabel} Category Dataset\n`;
@@ -165,7 +167,7 @@ export default function CategoryDatasetCardWrapper({
       content += `${'='.repeat(80)}\n`;
       
       mimeType = 'text/plain';
-      fileName = `${category}-category.txt`;
+      fileName = `${category}-category-laser-cleaning.txt`;
     }
 
     // Trigger download
