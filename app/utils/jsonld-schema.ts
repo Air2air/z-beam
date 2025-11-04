@@ -1,9 +1,10 @@
 import { SITE_CONFIG } from './constants';
+import type { MaterialDatasetData } from '@/types';
 
-interface MaterialData {
+// Extended interface for JSON-LD generation
+interface MaterialData extends Partial<MaterialDatasetData> {
   title: string;
   description?: string;
-  category?: string;
   keywords?: string[];
   author?: string;
   lastModified?: string;
@@ -14,7 +15,6 @@ interface MaterialData {
     thermalConductivityUnit?: string;
     [key: string]: any;
   };
-  applications?: string[];
   [key: string]: any;
 }
 

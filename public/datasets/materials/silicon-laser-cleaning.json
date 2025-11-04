@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://www.z-beam.com/materials/semiconductor/elemental/silicon#dataset",
+  "name": "Silicon Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Silicon",
+  "version": "1.0",
+  "dateModified": "2025-11-04",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Laser Cleaning",
+    "url": "https://www.z-beam.com"
+  },
+  "material": {
+    "name": "Silicon",
+    "slug": "silicon",
+    "classification": {
+      "category": "semiconductor",
+      "subcategory": "elemental"
+    },
+    "laserParameters": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 40,
+        "electricalResistivity": {
+          "source": "ai_research",
+          "unit": "Ω·m",
+          "value": 2300,
+          "min": 0.001,
+          "max": 1000
+        },
+        "fractureToughness": {
+          "ai_verified": true,
+          "source": "Fracture of Brittle Solids by Brian Lawn, Table 1.1 (Cambridge University Press, 1993)",
+          "unit": "MPa·√m",
+          "value": 0.75,
+          "min": 0.75,
+          "max": 3
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40
+      }
+    },
+    "applications": [],
+    "safetyConsiderations": [],
+    "faqs": []
+  },
+  "variableMeasured": [],
+  "citation": "Z-Beam (2025). Silicon Laser Cleaning Dataset. https://www.z-beam.com/materials/semiconductor/elemental/silicon"
+}

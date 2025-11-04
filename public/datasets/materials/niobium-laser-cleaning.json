@@ -1,0 +1,117 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://www.z-beam.com/materials/metal/non-ferrous/niobium#dataset",
+  "name": "Niobium Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Niobium",
+  "version": "1.0",
+  "dateModified": "2025-11-04",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Laser Cleaning",
+    "url": "https://www.z-beam.com"
+  },
+  "material": {
+    "name": "Niobium",
+    "slug": "niobium",
+    "classification": {
+      "category": "metal",
+      "subcategory": "non-ferrous"
+    },
+    "laserParameters": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 40,
+        "electricalConductivity": {
+          "source": "ai_research",
+          "unit": "S/m",
+          "value": 6930000,
+          "min": 0.67,
+          "max": 63
+        },
+        "electricalResistivity": {
+          "source": "ai_research",
+          "unit": "Ω·m",
+          "value": 1.52e-7,
+          "min": 1e-8,
+          "max": 0.0000015
+        },
+        "fractureToughness": {
+          "ai_verified": true,
+          "source": "ASM Handbook, Volume 2: Properties and Selection: Nonferrous Alloys and Special-Purpose Materials (ASM International, 10th edition)",
+          "unit": "MPa·√m",
+          "value": 38,
+          "min": 20,
+          "max": 200
+        },
+        "surfaceRoughness": {
+          "source": "ai_research",
+          "unit": "μm",
+          "value": 0.8,
+          "min": 0.05,
+          "max": 150
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40,
+        "absorptionCoefficient": {
+          "source": "ai_research",
+          "unit": "m⁻¹",
+          "value": 4200000,
+          "min": 1000000,
+          "max": 100000000
+        },
+        "absorptivity": {
+          "source": "ai_research",
+          "unit": "dimensionless",
+          "value": 0.38,
+          "min": 2,
+          "max": 65
+        },
+        "laserDamageThreshold": {
+          "source": "ai_research",
+          "unit": "J/cm²",
+          "value": 0.45,
+          "min": 0.1,
+          "max": 20
+        },
+        "reflectivity": {
+          "source": "ai_research",
+          "unit": "dimensionless (ratio)",
+          "value": 0.58,
+          "min": 85,
+          "max": 98
+        },
+        "thermalDestructionPoint": {
+          "source": "ai_research",
+          "unit": "K",
+          "value": 2741,
+          "min": 873,
+          "max": 3695
+        },
+        "thermalShockResistance": {
+          "source": "ai_research",
+          "unit": "W/m",
+          "value": 380,
+          "min": 50,
+          "max": 400
+        },
+        "vaporPressure": {
+          "source": "ai_research",
+          "unit": "Pa",
+          "value": 0.00133,
+          "min": 1e-10,
+          "max": 0.001
+        }
+      }
+    },
+    "applications": [],
+    "safetyConsiderations": [],
+    "faqs": []
+  },
+  "variableMeasured": [],
+  "citation": "Z-Beam (2025). Niobium Laser Cleaning Dataset. https://www.z-beam.com/materials/metal/non-ferrous/niobium"
+}

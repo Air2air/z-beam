@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://www.z-beam.com/materials/semiconductor/elemental/silicon-germanium#dataset",
+  "name": "Silicon Germanium Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Silicon Germanium",
+  "version": "1.0",
+  "dateModified": "2025-11-04",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Laser Cleaning",
+    "url": "https://www.z-beam.com"
+  },
+  "material": {
+    "name": "Silicon Germanium",
+    "slug": "silicon-germanium",
+    "classification": {
+      "category": "semiconductor",
+      "subcategory": "elemental"
+    },
+    "laserParameters": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 40,
+        "electricalResistivity": {
+          "source": "ai_research",
+          "unit": "Ω·m",
+          "value": 0.005,
+          "min": 0.001,
+          "max": 1000
+        },
+        "fractureToughness": {
+          "ai_verified": true,
+          "source": "Suwannakij, S., et al. \"Fracture toughness of thermoelectric materials SiGe.\" Journal of Materials Science: Materials in Electronics, Vol. 29, 2018, pp. 13989–13996.",
+          "unit": "MPa·√m",
+          "value": 0.8,
+          "min": 0.75,
+          "max": 3
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40
+      }
+    },
+    "applications": [],
+    "safetyConsiderations": [],
+    "faqs": []
+  },
+  "variableMeasured": [],
+  "citation": "Z-Beam (2025). Silicon Germanium Laser Cleaning Dataset. https://www.z-beam.com/materials/semiconductor/elemental/silicon-germanium"
+}

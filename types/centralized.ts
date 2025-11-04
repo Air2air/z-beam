@@ -2241,6 +2241,30 @@ export interface CardProps {
 }
 
 /**
+ * Material dataset data structure for dataset downloads
+ */
+export interface MaterialDatasetData {
+  name: string;
+  category: string;
+  subcategory?: string;
+  slug: string;
+  parameters?: Record<string, any>;
+  materialProperties?: Record<string, any>;
+  machineSettings?: Record<string, any>;
+  applications?: string[];
+  faqs?: Array<{ question: string; answer: string }>;
+  faq?: Array<{ question: string; answer: string }>;
+}
+
+/**
+ * Material dataset card component props
+ */
+export interface MaterialDatasetCardProps {
+  material: MaterialDatasetData;
+  showFullDataset?: boolean;
+}
+
+/**
  * Tag filter component props
  */
 export interface TagFilterProps {

@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene#dataset",
+  "name": "Polystyrene Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Polystyrene",
+  "version": "1.0",
+  "dateModified": "2025-11-04",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Laser Cleaning",
+    "url": "https://www.z-beam.com"
+  },
+  "material": {
+    "name": "Polystyrene",
+    "slug": "polystyrene",
+    "classification": {
+      "category": "plastic",
+      "subcategory": "thermoplastic"
+    },
+    "laserParameters": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "percentage": 40,
+        "electricalResistivity": {
+          "source": "ai_research",
+          "unit": "Ω·m",
+          "value": 1e+21,
+          "min": 1000000000000,
+          "max": 10000000000000000
+        },
+        "fractureToughness": {
+          "ai_verified": true,
+          "source": "ASM Handbook, Volume 21: Composites, \"Engineering Plastics and Plastic Composites\" (Data Table for Polystyrene)",
+          "unit": "MPa·√m",
+          "value": 1,
+          "min": 1,
+          "max": 10
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "percentage": 40
+      }
+    },
+    "applications": [],
+    "safetyConsiderations": [],
+    "faqs": []
+  },
+  "variableMeasured": [],
+  "citation": "Z-Beam (2025). Polystyrene Laser Cleaning Dataset. https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene"
+}
