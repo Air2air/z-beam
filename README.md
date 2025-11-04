@@ -172,13 +172,15 @@ The Z-Beam project uses a **centralized configuration system** for all site-wide
 ```typescript
 import { SITE_CONFIG } from '@/app/utils/constants';
 
-// Page metadata
-export const metadata = {
-  title: `Contact ${SITE_CONFIG.shortName}`,
-  description: `Get in touch with ${SITE_CONFIG.shortName}'s team...`
-};
+// Generate metadata
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: `Contact ${SITE_CONFIG.shortName}`,
+    description: `Get in touch with ${SITE_CONFIG.shortName}'s team...`
+  };
+}
 
-// Schema.org structured data
+// Use in Schema.org JSON-LD
 const schema = {
   '@context': SITE_CONFIG.schema.context,
   '@type': SITE_CONFIG.schema.organizationType,
@@ -186,6 +188,77 @@ const schema = {
   url: SITE_CONFIG.url
 };
 ```
+
+---
+
+## 5. Build-Time Requirements & Automation
+
+### Mandatory Build-Time Scripts
+
+All production builds **automatically execute** critical validation and generation scripts via npm lifecycle hooks (`prebuild` → `build` → `postbuild`).
+
+**🚨 CRITICAL**: These scripts CANNOT be bypassed in production builds.
+
+#### Automatic Execution Order
+
+```bash
+npm run build  # Production build
+```
+
+**Executes**:
+1. **prebuild** (automatic):
+   - `validate:naming` - Enforce file naming conventions
+   - `validate:metadata` - Validate frontmatter structure
+   - `verify:sitemap` - Check sitemap configuration
+   - `generate:datasets` - Generate static dataset files (JSON/CSV/TXT)
+
+2. **build**: `next build`
+
+3. **postbuild** (automatic):
+   - `validate:urls` - Validate JSON-LD URLs
+
+#### Critical Scripts
+
+| Script | Purpose | When | Failure Blocks Build |
+|--------|---------|------|---------------------|
+| `generate:datasets` | Generate 396 dataset files (132 materials × 3 formats) | prebuild | ✅ Yes |
+| `validate:metadata` | Validate frontmatter structure & required fields | prebuild | ✅ Yes |
+| `validate:naming` | Enforce naming conventions | prebuild | ✅ Yes |
+| `verify:sitemap` | Verify sitemap generation | prebuild | ✅ Yes |
+| `validate:urls` | Validate JSON-LD URLs | postbuild | ✅ Yes |
+
+#### Runtime Generation (NOT Build-Time)
+
+**JSON-LD Schemas**: Generated at runtime per request via `SchemaFactory.ts`
+- Why: Dynamic content needs current data, better for SEO
+- Where: Material pages, category pages, static pages, layouts
+- Implementation: `app/utils/schemas/SchemaFactory.ts`
+
+#### Safety Mechanisms
+
+❌ **Prohibited in production builds**:
+- `--skip-validation`, `--no-validate`, `--force`
+- Error suppression (`|| true`)
+- Manual bypass flags
+
+✅ **Enforced by**:
+- Test suite: `tests/build/build-time-requirements.test.ts`
+- Package.json validation
+- CI/CD integration
+
+#### Development Fast Build
+
+```bash
+npm run build:fast  # Skips validations (development only)
+```
+
+⚠️ **Never use in production or CI/CD!**
+
+📖 **Full Documentation**: [Build-Time Requirements](docs/BUILD_TIME_REQUIREMENTS.md)
+
+---
+
+## 6. Development Workflow
 
 ### TypeScript Type System
 The Z-Beam project uses a **centralized type system** for consistency and maintainability:

@@ -132,6 +132,13 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
       <>
         <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
         <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
+        <RelatedMaterials 
+          currentSlug={slug}
+          category={category}
+          subcategory={subcategory}
+          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+          maxItems={6}
+        />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
           <MaterialDatasetCard 
             material={{
@@ -148,13 +155,6 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
             showFullDataset={true}
           />
         </div>
-        <RelatedMaterials 
-          currentSlug={slug}
-          category={category}
-          subcategory={subcategory}
-          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
-          maxItems={6}
-        />
       </>
     );
   } catch (error) {

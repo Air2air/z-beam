@@ -114,7 +114,7 @@ export const MetricsCard = memo(function MetricsCard({
   // Convert value to display format with cleanup
   const cleanedValue = cleanupFloat(value);
   const displayValue = cleanedValue;
-  const displayUnit = unit || '';
+  const displayUnit = unit === 'dimensionless' ? '' : (unit || '');
   
   // Get theme based on color
   const theme = getColorTheme(color);
@@ -176,7 +176,7 @@ export const MetricsCard = memo(function MetricsCard({
       <header className="metric-card-header h-[32px] flex items-center justify-center text-center mb-3">
         <h4 
           id={titleId} 
-          className={`metric-label text-xs md:text-sm ${theme.titleColor} font-medium leading-none`}
+          className={`metric-label text-xs ${theme.titleColor} font-medium leading-tight`}
           data-property={fullPropertyName || title.toLowerCase().replace(/[^\w]/g, '_')}
           data-component="metric-title"
           itemProp="name"
@@ -202,7 +202,7 @@ export const MetricsCard = memo(function MetricsCard({
         </section>
       ) : (
         <section className="metric-card-content h-[95px] flex items-center justify-center">
-          <div className={`metric-value-container text-2xl md:text-3xl ${theme.valueColor} font-semibold text-center`}>
+          <div className={`metric-value-container text-xl md:text-2xl ${theme.valueColor} font-semibold text-center`}>
             <data 
               id={valueId} 
               value={numericValue || displayValue}

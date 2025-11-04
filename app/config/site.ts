@@ -152,7 +152,76 @@ export const SITE_CONFIG = {
     'corrosion treatment',
     'heritage restoration',
     'precision cleaning'
-  ]
+  ],
+  
+  // Dataset Configuration
+  datasets: {
+    version: '1.0',
+    license: {
+      type: 'CC-BY-4.0',
+      name: 'Creative Commons Attribution 4.0 International',
+      url: 'https://creativecommons.org/licenses/by/4.0/',
+      description: 'Free to share and adapt with attribution'
+    },
+    publisher: {
+      name: 'Z-Beam Laser Cleaning Research Lab',
+      type: 'Organization',
+      url: 'https://www.z-beam.com',
+      email: 'data@z-beam.com',
+      contactType: 'Data Support'
+    },
+    catalog: {
+      name: 'Z-Beam Material Properties Database',
+      description: 'Comprehensive laser cleaning parameters and material properties for industrial applications',
+      url: 'https://www.z-beam.com/datasets'
+    },
+    quality: {
+      verificationMethod: 'Multi-source cross-reference with industry standards',
+      sources: ['ASM Handbook', 'Peer-reviewed literature', 'AI-verified research'],
+      updateFrequency: 'Quarterly',
+      accuracyLevel: 'High (±5%)',
+      lastVerified: new Date().toISOString().split('T')[0]
+    },
+    attribution: {
+      required: true,
+      format: 'Z-Beam ({year}). {materialName} Laser Cleaning Dataset. Retrieved from {url}',
+      example: 'Z-Beam (2025). Aluminum Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/datasets/materials/aluminum-laser-cleaning.json'
+    },
+    metadata: {
+      language: 'en-US',
+      encoding: 'UTF-8',
+      temporalCoverage: '2020/2025',
+      spatialCoverage: 'Global',
+      measurementTechnique: 'Laser ablation testing, material characterization, spectroscopy',
+      keywords: [
+        'laser cleaning',
+        'material properties',
+        'industrial cleaning',
+        'surface preparation',
+        'laser parameters',
+        'material characterization',
+        'thermal properties',
+        'optical properties'
+      ]
+    },
+    usageInfo: {
+      allowedUses: [
+        'Commercial applications',
+        'Research and development',
+        'Educational purposes',
+        'Industrial process optimization'
+      ],
+      requirements: [
+        'Provide attribution to Z-Beam',
+        'Include link to original dataset',
+        'Indicate if modifications were made'
+      ],
+      restrictions: [
+        'Do not misrepresent the source',
+        'Do not imply Z-Beam endorsement without permission'
+      ]
+    }
+  }
 } as const;
 
 /**

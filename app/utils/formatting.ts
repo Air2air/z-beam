@@ -210,12 +210,14 @@ export function slugToDisplayName(slug: string): string {
 }
 
 /**
- * Clean up float values to 2 decimal places
- * Removes unnecessary trailing zeros
- * Extracted from MetricsCard component
+ * Clean up float values with conditional formatting based on magnitude
+ * - Very large numbers (>= 1M): Format as "X.XXM"
+ * - Large numbers (>= 1K): Format as "X.XXK"
+ * - Small floats: 2 decimal places
+ * - Integers: Keep as-is
  * 
  * @param value - Number or string to clean up
- * @returns Cleaned string representation
+ * @returns Cleaned string representation with appropriate formatting
  */
 export function cleanupFloat(value: number | string): string {
   const numericValue = typeof value === 'string' ? parseFloat(value) : value;
@@ -225,9 +227,25 @@ export function cleanupFloat(value: number | string): string {
     return String(value);
   }
   
-  // Round to 2 decimal places and remove unnecessary trailing zeros
-  const rounded = Math.round(numericValue * 100) / 100;
-  return rounded.toString();
+  const absValue = Math.abs(numericValue);
+  
+  // Format millions
+  if (absValue >= 1_000_000) {
+    return `${(numericValue / 1_000_000).toFixed(2)}M`;
+  }
+  
+  // Format thousands
+  if (absValue >= 1_000) {
+    return `${(numericValue / 1_000).toFixed(2)}K`;
+  }
+  
+  // Check if the number is an integer
+  if (Number.isInteger(numericValue)) {
+    return numericValue.toString();
+  }
+  
+  // Round to 2 decimal places for floats
+  return numericValue.toFixed(2);
 }
 
 /**

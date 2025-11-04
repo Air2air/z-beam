@@ -1014,18 +1014,54 @@ function generatePersonSchema(data: any, context: SchemaContext): any | null {
  */
 function generateDatasetSchema(data: any, context: SchemaContext): any | null {
   const frontmatter = data.frontmatter || {};
-  if (!frontmatter.materialProperties) return null;
+  if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
 
-  const { pageUrl } = context;
+  const { pageUrl, slug } = context;
+  
+  // Extract material slug from the full slug path (e.g., "materials/metal/non-ferrous/titanium" -> "titanium")
+  const materialSlug = slug.split('/').pop() || slug;
+  
+  // Check if slug already ends with "-laser-cleaning"
+  const datasetName = materialSlug.endsWith('-laser-cleaning') 
+    ? materialSlug 
+    : `${materialSlug}-laser-cleaning`;
 
   return {
     '@type': 'Dataset',
     '@id': `${pageUrl}#dataset`,
-    'name': `${frontmatter.name || 'Material'} Properties Data`,
-    'description': 'Verified material properties for laser cleaning',
-    'distribution': {
-      '@type': 'DataDownload',
-      'contentUrl': pageUrl
+    'name': `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
+    'description': `Comprehensive laser cleaning parameters and material properties for ${frontmatter.name || 'material'}`,
+    'version': '1.0',
+    'license': 'https://creativecommons.org/licenses/by/4.0/',
+    'creator': {
+      '@type': 'Organization',
+      'name': 'Z-Beam Laser Cleaning',
+      'url': SITE_CONFIG.url
+    },
+    'distribution': [
+      {
+        '@type': 'DataDownload',
+        'encodingFormat': 'application/json',
+        'contentUrl': `${SITE_CONFIG.url}/datasets/materials/${datasetName}.json`,
+        'name': 'JSON Dataset'
+      },
+      {
+        '@type': 'DataDownload',
+        'encodingFormat': 'text/csv',
+        'contentUrl': `${SITE_CONFIG.url}/datasets/materials/${datasetName}.csv`,
+        'name': 'CSV Dataset'
+      },
+      {
+        '@type': 'DataDownload',
+        'encodingFormat': 'text/plain',
+        'contentUrl': `${SITE_CONFIG.url}/datasets/materials/${datasetName}.txt`,
+        'name': 'Plain Text Dataset'
+      }
+    ],
+    'temporalCoverage': '2025',
+    'spatialCoverage': {
+      '@type': 'Place',
+      'name': 'Global'
     }
   };
 }
