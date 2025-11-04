@@ -90,7 +90,7 @@ export function Card({
   const imageAlt = frontmatter?.images?.hero?.alt || '';
   
   // Create absolute URL for Schema.org (relative href won't work for SEO)
-  const absoluteUrl = href.startsWith('http') ? href : `${SITE_CONFIG.url}${href}`;
+  const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
   
   // Check if this is a featured card by examining the className
   return (

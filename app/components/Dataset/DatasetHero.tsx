@@ -3,11 +3,7 @@
 
 import React from 'react';
 import { FiDatabase, FiLayers, FiDownload } from 'react-icons/fi';
-
-interface DatasetHeroProps {
-  totalMaterials: number;
-  categoryCount: number;
-}
+import type { DatasetHeroProps } from '@/types/centralized';
 
 export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHeroProps) {
   return (

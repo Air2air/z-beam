@@ -4,11 +4,7 @@
 import React, { useState } from 'react';
 import { FiDownload, FiPackage, FiCode, FiFileText } from 'react-icons/fi';
 import { BsFiletypeJson, BsFiletypeCsv } from 'react-icons/bs';
-
-interface BulkDownloadProps {
-  materials: any[];
-  categoryStats: Record<string, number>;
-}
+import type { BulkDownloadProps } from '@/types/centralized';
 
 export default function BulkDownload({ materials, categoryStats }: BulkDownloadProps) {
   const [downloading, setDownloading] = useState<string | null>(null);

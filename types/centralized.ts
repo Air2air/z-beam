@@ -2254,6 +2254,7 @@ export interface MaterialDatasetData {
   applications?: string[];
   faqs?: Array<{ question: string; answer: string }>;
   faq?: Array<{ question: string; answer: string }>;
+  regulatoryStandards?: Array<any>;
 }
 
 /**
@@ -2292,6 +2293,117 @@ export interface DatasetCardProps {
   category?: string;
   subcategory?: string;
   onQuickDownload?: (format: string, url: string) => void;
+}
+
+/**
+ * Material for dataset browser and bulk download
+ */
+export interface DatasetMaterial {
+  name: string;
+  slug: string;
+  category: string;
+  subcategory: string;
+  downloads: {
+    json: string;
+    csv: string;
+    txt: string;
+  };
+}
+
+/**
+ * MaterialBrowser component props
+ */
+export interface MaterialBrowserProps {
+  materials: DatasetMaterial[];
+}
+
+/**
+ * BulkDownload component props
+ */
+export interface BulkDownloadProps {
+  materials: any[];
+  categoryStats: Record<string, number>;
+}
+
+/**
+ * Material info for category dataset card
+ */
+export interface MaterialInfo {
+  name: string;
+  slug: string;
+  category: string;
+  subcategory: string;
+}
+
+/**
+ * CategoryDatasetCardWrapper component props
+ */
+export interface CategoryDatasetCardWrapperProps {
+  category: string;
+  categoryLabel: string;
+  materials: MaterialInfo[];
+  subcategoryCount: number;
+}
+
+/**
+ * MaterialDatasetCardWrapper component props
+ */
+export interface MaterialDatasetCardWrapperProps {
+  material: MaterialDatasetData;
+  showFullDataset?: boolean;
+}
+
+/**
+ * CategoryGrid component props
+ */
+export interface CategoryGridProps {
+  categoryStats: Record<string, number>;
+  materials: any[];
+}
+
+/**
+ * DatasetHero component props
+ */
+export interface DatasetHeroProps {
+  totalMaterials: number;
+  categoryCount: number;
+}
+
+/**
+ * DatasetDownloadControls component props
+ */
+export interface DatasetDownloadControlsProps {
+  formats: Array<'json' | 'csv' | 'txt'>;
+  selectedFormat: 'json' | 'csv' | 'txt';
+  onFormatChange: (format: 'json' | 'csv' | 'txt') => void;
+  onDownload: () => void;
+  onCopyLink?: () => void;
+  isDownloading: boolean;
+  copied: boolean;
+  showCopyButton: boolean;
+}
+
+/**
+ * DatasetSection component props (for material and category pages)
+ * Display dataset download section with stats, formats, and download controls
+ */
+export interface DatasetSectionProps {
+  title: string;
+  description: string;
+  stats: Array<{
+    value: string | number;
+    label: string;
+  }>;
+  formats: Array<'json' | 'csv' | 'txt'>;
+  onDownload: (format: 'json' | 'csv' | 'txt') => void | Promise<void>;
+  getDirectLink?: (format: 'json' | 'csv' | 'txt') => string;
+  includes?: Array<string>;
+  note?: string;
+  categoryLink?: {
+    href: string;
+    label: string;
+  };
+  fullDatasetLink?: boolean;
 }
 
 /**

@@ -1,25 +1,8 @@
 // app/components/Dataset/MaterialDatasetCardWrapper.tsx
 'use client';
 
-import DatasetCard from './DatasetCard';
-
-interface MaterialData {
-  name: string;
-  slug: string;
-  category: string;
-  subcategory: string;
-  parameters?: Record<string, any>;
-  materialProperties?: Record<string, any>;
-  applications?: Array<any>;
-  faq?: { questions?: Array<any> };
-  regulatoryStandards?: Array<any>;
-  machineSettings?: Record<string, any>;
-}
-
-interface MaterialDatasetCardWrapperProps {
-  material: MaterialData;
-  showFullDataset?: boolean;
-}
+import DatasetSection from './DatasetSection';
+import type { MaterialDatasetCardWrapperProps, MaterialDatasetData } from '@/types/centralized';
 
 export default function MaterialDatasetCardWrapper({
   material,
@@ -39,7 +22,7 @@ export default function MaterialDatasetCardWrapper({
   } = material;
 
   return (
-    <DatasetCard
+    <DatasetSection
       title={`${name} Dataset`}
       description="Download material properties, specifications, and machining parameters in machine-readable formats"
       stats={[
@@ -60,7 +43,7 @@ export default function MaterialDatasetCardWrapper({
           label: 'Applications'
         },
         {
-          value: faq?.questions?.length || 0,
+          value: Array.isArray(faq) ? faq.length : ((faq as any)?.questions?.length || 0),
           label: 'FAQs'
         },
         {

@@ -6,22 +6,7 @@ import { FiSearch, FiDownload, FiFilter, FiX } from 'react-icons/fi';
 import { BsFiletypeJson, BsFiletypeCsv, BsFiletypeTxt } from 'react-icons/bs';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
-
-interface Material {
-  name: string;
-  slug: string;
-  category: string;
-  subcategory: string;
-  downloads: {
-    json: string;
-    csv: string;
-    txt: string;
-  };
-}
-
-interface MaterialBrowserProps {
-  materials: Material[];
-}
+import type { MaterialBrowserProps, DatasetMaterial } from '@/types/centralized';
 
 export default function MaterialBrowser({ materials }: MaterialBrowserProps) {
   const [searchTerm, setSearchTerm] = useState('');

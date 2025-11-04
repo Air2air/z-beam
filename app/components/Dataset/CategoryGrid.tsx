@@ -14,11 +14,7 @@ import {
   FiZap,
   FiCircle
 } from 'react-icons/fi';
-
-interface CategoryGridProps {
-  categoryStats: Record<string, number>;
-  materials: any[];
-}
+import type { CategoryGridProps } from '@/types/centralized';
 
 const categoryIcons: Record<string, any> = {
   metal: FiBox,

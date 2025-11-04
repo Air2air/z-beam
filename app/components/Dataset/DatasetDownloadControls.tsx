@@ -5,17 +5,7 @@ import React from 'react';
 import { FiDownload, FiCheckCircle } from 'react-icons/fi';
 import { AiOutlineFileText } from 'react-icons/ai';
 import { BsFiletypeJson, BsFiletypeCsv } from 'react-icons/bs';
-
-interface DatasetDownloadControlsProps {
-  formats: Array<'json' | 'csv' | 'txt'>;
-  selectedFormat: 'json' | 'csv' | 'txt';
-  onFormatChange: (format: 'json' | 'csv' | 'txt') => void;
-  onDownload: () => void;
-  onCopyLink?: () => void;
-  isDownloading: boolean;
-  copied: boolean;
-  showCopyButton: boolean;
-}
+import type { DatasetDownloadControlsProps } from '@/types/centralized';
 
 export default function DatasetDownloadControls({
   formats,

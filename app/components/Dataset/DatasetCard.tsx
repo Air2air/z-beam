@@ -74,7 +74,7 @@ export function DatasetCard({
   };
 
   return (
-    <div className={`relative group ${className}`}>
+    <div className={`relative group h-full ${className}`}>
       {/* Base Card Component */}
       <Card
         frontmatter={frontmatter}
@@ -89,9 +89,9 @@ export function DatasetCard({
         {/* Format Badges - Top Left */}
         {formats.length > 0 && (
           <div className="absolute top-2 left-2 flex gap-1 pointer-events-auto z-20">
-            {formats.map((format) => (
+            {formats.map((format, index) => (
               <button
-                key={format.format}
+                key={`${format.format}-${index}`}
                 onClick={(e) => handleFormatClick(e, format.format, format.url)}
                 className="
                   px-2 py-1 text-xs font-semibold rounded

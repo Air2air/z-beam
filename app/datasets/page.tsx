@@ -5,6 +5,7 @@ import DatasetHero from '@/app/components/Dataset/DatasetHero';
 import CategoryGrid from '@/app/components/Dataset/CategoryGrid';
 import MaterialBrowser from '@/app/components/Dataset/MaterialBrowser';
 import BulkDownload from '@/app/components/Dataset/BulkDownload';
+import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 
 export const metadata = {
   title: 'Materials Database - Laser Cleaning Parameters | Z-Beam',
@@ -78,41 +79,43 @@ export default async function DatasetsPage() {
         }}
       />
 
-      <Layout>
-        {/* Breadcrumb */}
-        <Breadcrumbs breadcrumbData={[
-          { label: 'Home', href: '/' },
-          { label: 'Datasets', href: '/datasets' }
-        ]} />
+      <Layout fullWidth>
+        <div className={CONTAINER_STYLES.standard}>
+          {/* Breadcrumb */}
+          <Breadcrumbs breadcrumbData={[
+            { label: 'Home', href: '/' },
+            { label: 'Datasets', href: '/datasets' }
+          ]} />
 
-        {/* Material Browser */}
-        <section>
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-              All Materials
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Search and filter {totalDatasets} materials
-            </p>
-          </div>
-          <MaterialBrowser materials={materials} />
-        </section>
+          {/* Material Browser */}
+          <section>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                All Materials
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Search and filter {totalDatasets} materials
+              </p>
+            </div>
+            <MaterialBrowser materials={materials} />
+          </section>
 
-        {/* Bulk Download */}
-        <section className="mt-16">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-              Bulk Downloads
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Download complete datasets or category bundles
-            </p>
-          </div>
-          <BulkDownload 
-            materials={materials}
-            categoryStats={categoryStats}
-          />
-        </section>
+          {/* Bulk Download */}
+          <section className="mt-16">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                Bulk Downloads
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Download complete datasets or category bundles
+              </p>
+            </div>
+            <BulkDownload 
+              materials={materials}
+              categoryStats={categoryStats}
+            />
+          </section>
+        </div>
       </Layout>
     </>
   );

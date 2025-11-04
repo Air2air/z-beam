@@ -173,7 +173,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           ))}
         </div>
         
-        {/* Category Dataset Card at bottom */}
+        {/* Category Dataset Section at bottom */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-16">
           <CategoryDatasetCardWrapper 
             category={category}
