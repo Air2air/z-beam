@@ -1435,13 +1435,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/titanium-laser-cleaning",
-    "to": "/materials/metal/aerospace/titanium-laser-cleaning",
+    "to": "/materials/metal/non-ferrous/titanium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Titanium"
   },
   {
-    "from": "/metal/aerospace/titanium-laser-cleaning",
-    "to": "/materials/metal/aerospace/titanium-laser-cleaning",
+    "from": "/metal/non-ferrous/titanium-laser-cleaning",
+    "to": "/materials/metal/non-ferrous/titanium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Titanium"
   },
