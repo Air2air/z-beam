@@ -12,6 +12,21 @@ export default function CategoryDatasetCardWrapper({
 }: CategoryDatasetCardWrapperProps) {
   
   const handleDownload = async (format: 'json' | 'csv' | 'txt') => {
+    // Fetch full data for all materials in parallel
+    const materialDataPromises = materials.map(async (m) => {
+      try {
+        const response = await fetch(`/datasets/materials/${m.slug}.json`);
+        if (!response.ok) throw new Error(`Failed to fetch ${m.slug}`);
+        return await response.json();
+      } catch (error) {
+        console.error(`Error fetching data for ${m.name}:`, error);
+        return null;
+      }
+    });
+
+    const materialsData = await Promise.all(materialDataPromises);
+    const validMaterialsData = materialsData.filter(d => d !== null);
+
     // Generate aggregated dataset on the fly
     let content = '';
     let mimeType = '';
@@ -22,38 +37,50 @@ export default function CategoryDatasetCardWrapper({
         category: categoryLabel,
         totalMaterials: materials.length,
         subcategories: subcategoryCount,
-        materials: materials.map(m => ({
-          name: m.name,
-          slug: m.slug,
-          category: m.category,
-          subcategory: m.subcategory,
-          datasetUrl: `/datasets/materials/${m.slug}.json`
-        }))
+        materials: validMaterialsData
       };
       content = JSON.stringify(data, null, 2);
       mimeType = 'application/json';
       fileName = `${category}-category.json`;
     } else if (format === 'csv') {
-      const headers = ['Name', 'Slug', 'Category', 'Subcategory', 'Dataset URL'];
-      const rows = materials.map(m => [
-        m.name,
-        m.slug,
-        m.category,
-        m.subcategory,
-        `/datasets/materials/${m.slug}.json`
-      ]);
-      content = [headers, ...rows].map(row => row.join(',')).join('\n');
+      // Create comprehensive CSV with all material properties
+      const allFields = new Set<string>();
+      validMaterialsData.forEach(material => {
+        Object.keys(material).forEach(key => allFields.add(key));
+      });
+      
+      const headers = Array.from(allFields);
+      const rows = validMaterialsData.map(material => 
+        headers.map(header => {
+          const value = material[header];
+          if (value === null || value === undefined) return '';
+          if (typeof value === 'object') return JSON.stringify(value);
+          return String(value);
+        })
+      );
+      
+      content = [headers, ...rows].map(row => 
+        row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(',')
+      ).join('\n');
       mimeType = 'text/csv';
       fileName = `${category}-category.csv`;
     } else {
-      // txt format
-      content = `${categoryLabel} Category Dataset\n\n`;
+      // txt format with full material summaries
+      content = `${categoryLabel} Category Dataset\n`;
+      content += `${'='.repeat(50)}\n\n`;
       content += `Total Materials: ${materials.length}\n`;
       content += `Subcategories: ${subcategoryCount}\n\n`;
-      content += `Materials:\n`;
-      materials.forEach(m => {
-        content += `- ${m.name} (${m.category}/${m.subcategory})\n`;
+      
+      validMaterialsData.forEach((material, index) => {
+        content += `${index + 1}. ${material.name || 'Unknown'}\n`;
+        content += `   Category: ${material.category || 'N/A'}\n`;
+        content += `   Subcategory: ${material.subcategory || 'N/A'}\n`;
+        if (material.description) {
+          content += `   Description: ${material.description}\n`;
+        }
+        content += '\n';
       });
+      
       mimeType = 'text/plain';
       fileName = `${category}-category.txt`;
     }
@@ -84,11 +111,11 @@ export default function CategoryDatasetCardWrapper({
   return (
     <DatasetSection
       title={`${categoryLabel} Category Dataset`}
-      description="Download aggregated data for all materials in this category"
+      description="Download complete aggregated data for all materials in this category"
       stats={stats}
       formats={['json', 'csv', 'txt']}
       onDownload={handleDownload}
-      note="This aggregated dataset includes references to all individual material datasets in this category. Download individual material datasets for detailed properties and specifications."
+      note="This aggregated dataset includes full data for all materials in this category, combining properties, specifications, and parameters into a single comprehensive file."
       fullDatasetLink={true}
     />
   );
