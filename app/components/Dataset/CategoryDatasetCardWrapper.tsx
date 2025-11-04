@@ -65,21 +65,104 @@ export default function CategoryDatasetCardWrapper({
       mimeType = 'text/csv';
       fileName = `${category}-category.csv`;
     } else {
-      // txt format with full material summaries
+      // txt format with full material data
       content = `${categoryLabel} Category Dataset\n`;
-      content += `${'='.repeat(50)}\n\n`;
+      content += `${'='.repeat(80)}\n`;
+      content += `License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)\n`;
+      content += `Source: Z-Beam Laser Cleaning Research Lab\n`;
+      content += `Contact: info@z-beam.com\n`;
+      content += `Last Updated: ${new Date().toISOString().split('T')[0]}\n`;
+      content += `${'='.repeat(80)}\n\n`;
       content += `Total Materials: ${materials.length}\n`;
       content += `Subcategories: ${subcategoryCount}\n\n`;
       
       validMaterialsData.forEach((material, index) => {
-        content += `${index + 1}. ${material.name || 'Unknown'}\n`;
-        content += `   Category: ${material.category || 'N/A'}\n`;
-        content += `   Subcategory: ${material.subcategory || 'N/A'}\n`;
+        content += `\n${'='.repeat(80)}\n`;
+        content += `MATERIAL ${index + 1}: ${material.name || 'Unknown'}\n`;
+        content += `${'='.repeat(80)}\n\n`;
+        
+        // Basic Info
+        content += `Category: ${material.category || 'N/A'}\n`;
+        content += `Subcategory: ${material.subcategory || 'N/A'}\n`;
+        content += `Slug: ${material.slug || 'N/A'}\n`;
         if (material.description) {
-          content += `   Description: ${material.description}\n`;
+          content += `Description: ${material.description}\n`;
         }
         content += '\n';
+        
+        // Machine Settings
+        if (material.machineSettings && Object.keys(material.machineSettings).length > 0) {
+          content += `MACHINE SETTINGS:\n`;
+          content += `${'-'.repeat(40)}\n`;
+          Object.entries(material.machineSettings).forEach(([key, value]: [string, any]) => {
+            if (value && typeof value === 'object') {
+              const unit = value.unit || '';
+              const val = value.value !== undefined ? value.value : '';
+              const min = value.min !== undefined ? value.min : '';
+              const max = value.max !== undefined ? value.max : '';
+              content += `  ${key}: ${val} ${unit}`;
+              if (min !== '' || max !== '') {
+                content += ` (Range: ${min}-${max} ${unit})`;
+              }
+              content += '\n';
+            }
+          });
+          content += '\n';
+        }
+        
+        // Material Properties
+        if (material.materialProperties && Object.keys(material.materialProperties).length > 0) {
+          content += `MATERIAL PROPERTIES:\n`;
+          content += `${'-'.repeat(40)}\n`;
+          Object.entries(material.materialProperties).forEach(([key, value]: [string, any]) => {
+            if (value && typeof value === 'object' && key === 'material_characteristics') {
+              Object.entries(value).forEach(([propKey, propValue]: [string, any]) => {
+                if (propValue && typeof propValue === 'object' && propValue.value !== undefined) {
+                  const unit = propValue.unit || '';
+                  content += `  ${propKey}: ${propValue.value} ${unit}\n`;
+                }
+              });
+            }
+          });
+          content += '\n';
+        }
+        
+        // Applications
+        if (material.applications && Array.isArray(material.applications) && material.applications.length > 0) {
+          content += `APPLICATIONS:\n`;
+          content += `${'-'.repeat(40)}\n`;
+          material.applications.forEach((app: string) => {
+            content += `  • ${app}\n`;
+          });
+          content += '\n';
+        }
+        
+        // Regulatory Standards
+        if (material.regulatoryStandards && Array.isArray(material.regulatoryStandards) && material.regulatoryStandards.length > 0) {
+          content += `REGULATORY STANDARDS:\n`;
+          content += `${'-'.repeat(40)}\n`;
+          material.regulatoryStandards.forEach((std: any) => {
+            if (typeof std === 'object') {
+              content += `  • ${std.name || 'N/A'}: ${std.description || ''}\n`;
+            }
+          });
+          content += '\n';
+        }
+        
+        // FAQ Count
+        if (material.faq) {
+          const faqCount = Array.isArray(material.faq) 
+            ? material.faq.length 
+            : (material.faq.questions?.length || 0);
+          if (faqCount > 0) {
+            content += `FAQ Questions Available: ${faqCount}\n\n`;
+          }
+        }
       });
+      
+      content += `\n${'='.repeat(80)}\n`;
+      content += `END OF DATASET\n`;
+      content += `${'='.repeat(80)}\n`;
       
       mimeType = 'text/plain';
       fileName = `${category}-category.txt`;
