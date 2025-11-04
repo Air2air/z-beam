@@ -70,20 +70,22 @@ export default function CategoryDatasetCardWrapper({
     URL.revokeObjectURL(blobUrl);
   };
 
+  const stats = [
+    {
+      value: materials?.length || 0,
+      label: 'Materials'
+    },
+    {
+      value: subcategoryCount || 0,
+      label: 'Subcategories'
+    }
+  ];
+
   return (
     <DatasetSection
       title={`${categoryLabel} Category Dataset`}
       description="Download aggregated data for all materials in this category"
-      stats={[
-        {
-          value: materials.length,
-          label: 'Materials'
-        },
-        {
-          value: subcategoryCount,
-          label: 'Subcategories'
-        }
-      ]}
+      stats={stats}
       formats={['json', 'csv', 'txt']}
       onDownload={handleDownload}
       note="This aggregated dataset includes references to all individual material datasets in this category. Download individual material datasets for detailed properties and specifications."
