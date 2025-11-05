@@ -521,7 +521,9 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
       'url': baseUrl,
       'logo': {
         '@type': 'ImageObject',
-        'url': `${baseUrl}/images/favicon/favicon-350.png`
+        'url': `${baseUrl}/images/favicon/favicon-350.png`,
+        'width': 350,
+        'height': 350
       }
     },
     ...(getMainImage(data) && { 'image': getMainImage(data) }),
@@ -1158,6 +1160,8 @@ function getMainImage(data: any): any | null {
     return {
       '@type': 'ImageObject',
       'url': `${SITE_CONFIG.url}${hero.url}`,
+      'width': hero.width || 1200,  // P0 enhancement: default dimensions for rich snippets
+      'height': hero.height || 630,  // P0 enhancement: default dimensions for rich snippets
       'caption': hero.alt || frontmatter.caption?.beforeText || data.caption?.beforeText || data.title,
       'isMicro': false,
       // Pass through license metadata if present
@@ -1165,9 +1169,7 @@ function getMainImage(data: any): any | null {
       ...(hero.acquireLicensePage && { 'acquireLicensePage': hero.acquireLicensePage }),
       ...(hero.creditText && { 'creditText': hero.creditText }),
       ...(hero.creator && { 'creator': hero.creator }),
-      ...(hero.copyrightNotice && { 'copyrightNotice': hero.copyrightNotice }),
-      ...(hero.width && { 'width': hero.width }),
-      ...(hero.height && { 'height': hero.height })
+      ...(hero.copyrightNotice && { 'copyrightNotice': hero.copyrightNotice })
     };
   }
   
@@ -1177,6 +1179,8 @@ function getMainImage(data: any): any | null {
     return {
       '@type': 'ImageObject',
       'url': `${SITE_CONFIG.url}${micro.url}`,
+      'width': micro.width || 1200,  // P0 enhancement: default dimensions for rich snippets
+      'height': micro.height || 630,  // P0 enhancement: default dimensions for rich snippets
       'caption': micro.alt || frontmatter.caption?.beforeText || data.caption?.beforeText || data.title,
       'isMicro': true,
       // Pass through license metadata if present
@@ -1184,9 +1188,7 @@ function getMainImage(data: any): any | null {
       ...(micro.acquireLicensePage && { 'acquireLicensePage': micro.acquireLicensePage }),
       ...(micro.creditText && { 'creditText': micro.creditText }),
       ...(micro.creator && { 'creator': micro.creator }),
-      ...(micro.copyrightNotice && { 'copyrightNotice': micro.copyrightNotice }),
-      ...(micro.width && { 'width': micro.width }),
-      ...(micro.height && { 'height': micro.height })
+      ...(micro.copyrightNotice && { 'copyrightNotice': micro.copyrightNotice })
     };
   }
 
@@ -1232,8 +1234,10 @@ function generatePersonObject(author: any, _baseUrl: string): any {
         'name': author.affiliation
       }
     }),
-    // E-E-A-T: Add expertise areas
-    ...(author.expertise && { 'knowsAbout': author.expertise }),
+    // E-E-A-T: Add expertise areas as array (P0 enhancement)
+    ...(author.expertise && { 
+      'knowsAbout': Array.isArray(author.expertise) ? author.expertise : [author.expertise]
+    }),
     // E-E-A-T: Add geographic authority
     ...(author.country && { 'nationality': author.country })
   };
@@ -1243,10 +1247,11 @@ function generatePersonObject(author: any, _baseUrl: string): any {
     personObj.sameAs = author.sameAs || author.socialProfiles;
   }
 
-  // E-E-A-T: Add credentials/qualifications
+  // E-E-A-T: Add credentials/qualifications as array (P0 enhancement)
   if (author.credentials || author.qualifications) {
     if (!personObj.knowsAbout) {
-      personObj.knowsAbout = author.credentials || author.qualifications;
+      const creds = author.credentials || author.qualifications;
+      personObj.knowsAbout = Array.isArray(creds) ? creds : [creds];
     }
   }
 

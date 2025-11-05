@@ -29,16 +29,21 @@ export function generatePersonSchema(options: PersonSchemaOptions) {
     name: authorName,
     jobTitle: author.title || 'Ph.D. Materials Science',
     email: author.email || 'info@z-beam.com',
+    
+    // E-E-A-T: Affiliation (P0 enhancement)
     worksFor: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
       url: baseUrl
     },
+    
+    // E-E-A-T: Expertise areas as array (P0 enhancement)
     ...(author.expertise && {
       knowsAbout: Array.isArray(author.expertise) 
-        ? author.expertise.join(', ') 
-        : author.expertise
+        ? author.expertise 
+        : [author.expertise]
     }),
+    
     ...(author.country && { nationality: author.country })
   };
 }

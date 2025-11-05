@@ -24,9 +24,21 @@ const CONFIG = {
   baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   timeout: 30000,
   testPages: [
+    // Material pages (individual materials)
     '/materials/ceramic/oxide/alumina-laser-cleaning',
     '/materials/metal/non-ferrous/copper-laser-cleaning',
+    // Category pages (new dynamic category pages)
+    '/materials/metal',
+    '/materials/ceramic',
+    '/materials/wood',
+    '/materials/stone',
+    // Dataset pages
+    '/datasets',
+    // Static pages
     '/services/laser-cleaning',
+    '/about',
+    '/contact',
+    // Home page
     '/'
   ]
 };
@@ -53,6 +65,16 @@ const SCHEMA_REQUIREMENTS = {
     recommended: ['creator', 'datePublished', 'license', 'distribution'],
     eeat: ['creator', 'citation', 'isBasedOn']
   },
+  DataCatalog: {
+    required: ['name', 'description'],
+    recommended: ['creator', 'license', 'distribution', 'dateModified'],
+    eeat: ['creator', 'temporalCoverage', 'spatialCoverage']
+  },
+  CollectionPage: {
+    required: ['name'],
+    recommended: ['description', 'breadcrumb', 'mainEntity'],
+    eeat: ['dateModified', 'about']
+  },
   Person: {
     required: ['name'],
     recommended: ['jobTitle', 'email', 'url', 'image'],
@@ -72,6 +94,16 @@ const SCHEMA_REQUIREMENTS = {
     required: ['name', 'description', 'uploadDate'],
     recommended: ['thumbnailUrl', 'duration', 'contentUrl', 'embedUrl'],
     eeat: ['author', 'publisher']
+  },
+  ItemList: {
+    required: ['itemListElement'],
+    recommended: ['numberOfItems', 'itemListOrder'],
+    eeat: []
+  },
+  Service: {
+    required: ['name', 'description'],
+    recommended: ['provider', 'serviceType', 'areaServed'],
+    eeat: ['provider', 'offers']
   }
 };
 
@@ -129,6 +161,31 @@ const RICH_SNIPPET_CHECKS = {
       'Include creator with full Person schema',
       'Add temporalCoverage for time-series data',
       'Include spatialCoverage for geographic data'
+    ]
+  },
+  DataCatalog: {
+    googleEligible: schema => {
+      return schema.name &&
+             schema.description &&
+             schema.license &&
+             schema.distribution;
+    },
+    recommendations: [
+      'Add distribution with encoding formats',
+      'Include creator organization',
+      'Add temporalCoverage for data freshness',
+      'Include dateModified to show updates'
+    ]
+  },
+  CollectionPage: {
+    googleEligible: schema => {
+      return schema.name &&
+             schema.description;
+    },
+    recommendations: [
+      'Add mainEntity for primary content',
+      'Include breadcrumb navigation',
+      'Add about property for categorization'
     ]
   }
 };

@@ -56,10 +56,12 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     ? `${caption.beforeText}\n\n${caption.afterText || ''}`
     : description;
   
-  // Build image object
+  // Build image object with dimensions (P0 enhancement for rich snippets)
   const mainImage = images?.hero?.url ? {
     '@type': 'ImageObject',
     url: `${baseUrl}${images.hero.url}`,
+    width: images.hero.width || 1200,
+    height: images.hero.height || 630,
     caption: images.hero.alt || description
   } : undefined;
 
@@ -82,14 +84,16 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     // E-E-A-T: Author reference
     author: createAuthorReference(baseUrl, author.id || 'expert'),
     
-    // E-E-A-T: Publisher
+    // E-E-A-T: Publisher with logo dimensions (P0 enhancement)
     publisher: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/images/favicon/favicon-350.png`
+        url: `${baseUrl}/images/favicon/favicon-350.png`,
+        width: 350,
+        height: 350
       }
     },
     

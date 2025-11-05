@@ -146,11 +146,13 @@ export function generateHowToSchema(options: HowToSchemaOptions) {
     
     step: steps,
     
-    // Result image
+    // Result image with dimensions (P0 enhancement)
     ...(images?.micro?.url && {
       image: {
         '@type': 'ImageObject',
         url: `${baseUrl}${images.micro.url}`,
+        width: images.micro.width || 1200,
+        height: images.micro.height || 630,
         caption: images.micro.alt || `Result of laser cleaning ${name}`
       }
     }),
