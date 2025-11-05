@@ -27,6 +27,20 @@ import {
   createWebPageSchema,
   createBreadcrumbSchema
 } from '../jsonld-helper';
+import {
+  getMetadata,
+  hasProductData,
+  hasMachineSettings,
+  hasMaterialProperties,
+  hasAuthor,
+  hasFAQData,
+  hasServiceData,
+  hasMultipleProducts,
+  hasMultipleServices,
+  hasRegulatoryStandards,
+  hasVideoData,
+  hasImageData
+} from './helpers';
 
 // ============================================================================
 // Types & Interfaces
@@ -176,22 +190,13 @@ export class SchemaFactory {
     this.register('HowTo', generateHowToSchema, {
       priority: 60,
       condition: (data) => {
-        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
         return !!(fm?.machineSettings || data.steps);
       }
     });
     this.register('FAQ', generateFAQSchema, {
       priority: 55,
-      condition: (data) => {
-        // Check for explicit FAQ data in multiple locations
-        // Material pages pass FAQ data via metadata from contentAPI
-        const fm = data.frontmatter as Record<string, unknown> | undefined;
-        if (data.faq || fm?.faq || data.metadata?.faq) return true;
-        
-        // Check for FAQ-generating frontmatter (used by MaterialFAQ component)
-        const fmOrMeta = (data.frontmatter || data.metadata || {}) as Record<string, unknown>;
-        return !!(fmOrMeta.outcomeMetrics || fmOrMeta.applications || fmOrMeta.environmentalImpact || fmOrMeta.faq);
-      }
+      condition: (data) => hasFAQData(data)
     });
     this.register('Event', generateEventSchema, {
       priority: 50,
@@ -203,19 +208,11 @@ export class SchemaFactory {
     });
     this.register('VideoObject', generateVideoObjectSchema, {
       priority: 40,
-      condition: (data) => {
-        // Always include video for material pages (default video: t8fB3tJCfQw)
-        const fm = data.frontmatter as Record<string, unknown> | undefined;
-        const isMaterialPage = fm?.materialProperties || fm?.category;
-        return !!(data.video || data.youtubeUrl || fm?.video || isMaterialPage);
-      }
+      condition: (data) => hasVideoData(data)
     });
     this.register('ImageObject', generateImageObjectSchema, {
       priority: 35,
-      condition: (data) => {
-        const fm = data.frontmatter as Record<string, unknown> | undefined;
-        return !!(data.images || fm?.images);
-      }
+      condition: (data) => hasImageData(data)
     });
     this.register('ContactPoint', generateContactPointSchema, {
       priority: 30,
@@ -225,21 +222,18 @@ export class SchemaFactory {
     // E-E-A-T schemas
     this.register('Person', generatePersonSchema, {
       priority: 25,
-      condition: (data) => !!(data.frontmatter?.author || data.author)
+      condition: (data) => !!(data.frontmatter?.author || data.metadata?.author || data.author)
     });
     this.register('Dataset', generateDatasetSchema, {
       priority: 20,
       condition: (data) => {
-        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
         return !!fm?.materialProperties;
       }
     });
     this.register('Certification', generateCertificationSchema, {
       priority: 15,
-      condition: (data) => {
-        const fm = data.frontmatter as Record<string, unknown> | undefined;
-        return !!fm?.regulatoryStandards;
-      }
+      condition: (data) => hasRegulatoryStandards(data)
     });
 
     // Collection schemas
@@ -272,40 +266,8 @@ export class SchemaFactory {
 // Condition Helpers
 // ============================================================================
 
-function hasProductData(data: any): boolean {
-  const fm = data.frontmatter as Record<string, unknown> | undefined;
-  return !!(
-    data.needle100_150 ||
-    data.needle200_300 ||
-    data.jangoSpecs ||
-    fm?.materialProperties ||
-    data.products
-  );
-}
-
-function hasServiceData(data: any): boolean {
-  const title = typeof data.title === 'string' ? data.title : '';
-  return !!(
-    data.services ||
-    data.serviceOfferings ||
-    (data.contentCards && title.toLowerCase().includes('service'))
-  );
-}
-
-function hasMultipleProducts(data: any): boolean {
-  const productCount = [
-    data.needle100_150,
-    data.needle200_300,
-    data.jangoSpecs
-  ].filter(Boolean).length;
-  const products = Array.isArray(data.products) ? data.products : [];
-  return productCount > 1 || products.length > 1;
-}
-
-function hasMultipleServices(data: any): boolean {
-  const services = Array.isArray(data.services) ? data.services : [];
-  return services.length > 1;
-}
+// hasProductData, hasServiceData, hasMultipleProducts, hasMultipleServices
+// now imported from ./helpers.ts
 
 function hasOrganizations(data: any): boolean {
   if (!data || !data.contentCards || !Array.isArray(data.contentCards)) return false;
