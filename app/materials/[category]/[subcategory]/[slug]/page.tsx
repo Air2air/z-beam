@@ -136,10 +136,10 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           currentSlug={slug}
           category={category}
           subcategory={subcategory}
-          className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16"
+          className={`${CONTAINER_STYLES.main} mb-16`}
           maxItems={6}
         />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className={`${CONTAINER_STYLES.main} mb-16`}>
           <MaterialDatasetCardWrapper 
             material={{
               name: (article.metadata.title as string) || slug,

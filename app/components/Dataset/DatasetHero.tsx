@@ -15,8 +15,9 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
         }} />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="text-center">
+      <div className="relative py-12 md:py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-6">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
             <FiDatabase className="w-4 h-4" />
@@ -76,6 +77,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
             </svg>
             <span>Licensed under CC BY 4.0 • Free to use with attribution</span>
           </div>
+        </div>
         </div>
       </div>
     </div>

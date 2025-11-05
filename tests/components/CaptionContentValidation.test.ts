@@ -89,8 +89,7 @@ describe('Caption Component Content Validation', () => {
     }
   });
 
-  test.skip('should contain required caption structure (before_text and after_text)', () => {
-    // SKIPPED: Caption structure may have changed. Needs investigation of actual frontmatter YAML structure.
+  test('should contain required nested caption structure (caption.before and caption.after)', () => {
     const filesWithoutRequiredFields: string[] = [];
 
     captionFiles.forEach(filePath => {
@@ -108,9 +107,11 @@ describe('Caption Component Content Validation', () => {
           parsedContent = yaml.load(content);
         }
         
+        // Check for nested caption structure: caption.before and caption.after
         if (!parsedContent || 
-            !parsedContent.before_text || 
-            !parsedContent.after_text) {
+            !parsedContent.caption || 
+            !parsedContent.caption.before || 
+            !parsedContent.caption.after) {
           filesWithoutRequiredFields.push(path.basename(filePath));
         }
       } catch (error) {
@@ -120,7 +121,7 @@ describe('Caption Component Content Validation', () => {
 
     expect(filesWithoutRequiredFields).toHaveLength(0);
     if (filesWithoutRequiredFields.length > 0) {
-      console.error('Files missing required fields:', filesWithoutRequiredFields);
+      console.error('Files missing required nested caption fields:', filesWithoutRequiredFields);
     }
   });
 

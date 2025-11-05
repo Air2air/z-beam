@@ -4,6 +4,137 @@ All notable changes to the Z-Beam documentation will be recorded in this file.
 
 ---
 
+## [2.2.0] - 2025-11-04 - Frontmatter Structure & Layout Standardization
+
+### 🎯 Major Changes
+
+**Nested Frontmatter Structures**: Updated frontmatter architecture to support nested FAQ and caption structures across all 132 materials.
+
+**Layout Standardization**: Consolidated all page layouts to consistent `max-w-5xl` width for uniform user experience.
+
+### ✨ Component Updates
+
+**Layout Component** (`app/components/Layout/Layout.tsx`):
+- Added support for nested FAQ structure: `faq.questions` array
+- Updated FAQ extraction logic to handle both legacy and new formats
+- Maintains backward compatibility with flat FAQ arrays
+
+**Caption Component** (`app/components/Caption/Caption.tsx`):
+- Integrated parsed caption data from `useCaptionParsing` hook
+- Maps nested `caption.before` and `caption.after` frontmatter fields
+- Removed redundant description text display
+- Added quality metrics support from parsed data
+
+### 📐 Layout Architecture
+
+**Standardized Container Widths** (`app/utils/containerStyles.ts`):
+- All containers now use `max-w-5xl` for consistency
+- Updated styles:
+  - `STANDARD_CONTAINER`: `max-w-6xl` → `max-w-5xl`
+  - `CONTAINER_STYLES.standard`: `max-w-6xl` → `max-w-5xl`
+  - `CONTAINER_STYLES.contentOnly`: `max-w-6xl` → `max-w-5xl`
+  - `CONTAINER_STYLES.section`: `max-w-6xl` → `max-w-5xl`
+- Updated padding: `px-3` → `px-4` across all styles
+
+**Hero Components**:
+- `Hero.tsx`: Updated to `max-w-5xl` (was `max-w-6xl`)
+- `DatasetHero.tsx`: Updated to `max-w-5xl` (was `max-w-7xl`)
+
+### 🗂️ Frontmatter Structure
+
+**FAQ Structure** (132 materials):
+```yaml
+faq:
+  questions:
+    - question: "..."
+      answer: "..."
+```
+
+**Caption Structure** (132 materials):
+```yaml
+caption:
+  before: "Surface condition description..."
+  after: "Post-treatment description..."
+```
+
+**Enhanced Property Format**:
+```yaml
+property_name:
+  value: 123
+  unit: "W/cm²"
+  confidence: 0.95
+  min: 100
+  max: 150
+  source: "Material handbook"
+```
+
+### 📊 Dataset Generation
+
+**Updated Dataset Pipeline** (`scripts/generate-datasets.ts`):
+- Successfully processes nested FAQ structures
+- Exports FAQ question count to dataset metadata
+- Handles nested caption before/after fields
+- Supports enhanced property format with confidence intervals
+- Generated 396 dataset files (132 materials × 3 formats + index.json)
+- Zero errors during regeneration
+
+**Dataset Files**:
+- JSON format: Machine-readable with Schema.org metadata
+- CSV format: Spreadsheet-compatible with all properties
+- TXT format: Human-readable summaries
+- Index: Master catalog of all datasets
+
+### 🎨 UI Improvements
+
+**Caption Display**:
+- Removed redundant "Laser cleaning parameters for [Material]" description text
+- Cleaner visual hierarchy focusing on before/after treatment descriptions
+- Better content spacing and typography
+
+**Page Consistency**:
+- Home page, search results, and category listings now match material page width
+- Unified spacing and padding across all page types
+- Consistent content area boundaries
+
+### 🏗️ Affected Files
+
+**Components** (3 files):
+- `app/components/Layout/Layout.tsx`
+- `app/components/Caption/Caption.tsx`
+- `app/components/Hero/Hero.tsx`
+
+**Utilities** (1 file):
+- `app/utils/containerStyles.ts`
+
+**Dataset Components** (1 file):
+- `app/components/Dataset/DatasetHero.tsx`
+
+**Frontmatter** (132 files):
+- All materials in `frontmatter/materials/*.yaml`
+
+**Generated Datasets** (396 files):
+- `public/datasets/materials/*.{json,csv,txt}`
+- `public/datasets/index.json`
+
+### ✅ Validation
+
+**Build Status**:
+- Production build: 193 static pages generated
+- Zero errors
+- 132 expected warnings (breadcrumb format)
+
+**Pre-Build Validations**:
+- ✅ Naming conventions (132/132 materials)
+- ✅ Metadata structure validation
+- ✅ Sitemap generation
+
+**Post-Build Validations**:
+- ✅ URL accessibility
+- ✅ JSON-LD Schema.org compliance
+- ✅ Dataset generation integrity
+
+---
+
 ## [2.1.0] - 2025-10-26 - Category Validation Fix
 
 ### 🐛 Bug Fixes

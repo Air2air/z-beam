@@ -71,12 +71,16 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     return () => observer.disconnect();
   }, []);
 
-  // Simplified caption data
+  // Simplified caption data - use parsed caption data
   const captionData: CaptionDataStructure = {
     ...(captionContent as CaptionDataStructure),
     title: (captionContent as CaptionDataStructure).title || frontmatter?.title,
     description: (captionContent as CaptionDataStructure).description || frontmatter?.description,
     material: (captionContent as CaptionDataStructure).material || frontmatter?.name,
+    // Add parsed before/after text from the hook
+    beforeText: parsedCaption.beforeText,
+    afterText: parsedCaption.afterText,
+    quality_metrics: parsedCaption.qualityMetrics,
   };
 
   const materialName = captionData.material || 'material';
@@ -145,13 +149,6 @@ export function Caption({ frontmatter, config }: CaptionProps) {
             </div>
           )}
         </figure>
-      )}
-
-      {/* Description */}
-      {captionData.description && (
-        <div className="my-2 py-1 text-center">
-          <p className="text-sm text-gray-300 leading-relaxed italic">{captionData.description}</p>
-        </div>
       )}
 
       {/* Before/After Content */}

@@ -143,14 +143,20 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       )}
 
       {/* Material-specific FAQ section - from frontmatter */}
-      {metadata?.name && metadata?.faq && metadata.faq.length > 0 && (
-        <section aria-label="Frequently asked questions" className="my-8">
-          <MaterialFAQ
-            materialName={metadata.name}
-            faq={metadata.faq}
-          />
-        </section>
-      )}
+      {metadata?.name && metadata?.faq && (() => {
+        // Support both array format and nested questions format
+        const faqArray = Array.isArray(metadata.faq) 
+          ? metadata.faq 
+          : (metadata.faq as any)?.questions || [];
+        return faqArray.length > 0 ? (
+          <section aria-label="Frequently asked questions" className="my-8">
+            <MaterialFAQ
+              materialName={metadata.name}
+              faq={faqArray}
+            />
+          </section>
+        ) : null;
+      })()}
 
       {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
         <section aria-label="Regulatory standards and certifications" className="my-8">
