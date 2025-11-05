@@ -2,8 +2,25 @@
 // Unified Performance Cache System for Z-Beam Project
 // Follows GROK principles: fail-fast, minimal changes, performance-focused
 
+// Performance logging context type
+interface PerformanceContext {
+  cacheSize?: number;
+  ttl?: number;
+  operation?: string;
+  entriesRemoved?: number;
+  remainingEntries?: number;
+  cleanupTime?: number;
+  age?: number;
+  materialsLoaded?: number;
+  totalTime?: number;
+  avgTimePerMaterial?: number;
+  cleanupInterval?: string;
+  totalEntriesRemoved?: number;
+  [key: string]: unknown;
+}
+
 // Simple performance logging function
-const logPerformance = (operation: string, duration: number, context?: any) => {
+const logPerformance = (operation: string, duration: number, context?: PerformanceContext) => {
   if (duration > 1000) {
     console.warn(`🐌 Performance: ${operation} took ${duration}ms`, context);
   } else {
@@ -25,7 +42,15 @@ const CACHE_CONFIG = {
   maxColorEntries: 100
 };
 
-import { CacheEntry, CacheMetrics } from '@/types';
+import { CacheEntry, CacheMetrics, BadgeData, MaterialBadgeData } from '@/types';
+
+// Cache report interface
+interface CacheReport {
+  timestamp: string;
+  caches: Array<CacheMetrics & { hitRate: number; name: string }>;
+  totalMemoryUsage: number;
+  recommendations: string[];
+}
 
 class PerformanceCache<T> {
   private cache = new Map<string, CacheEntry<T>>();
@@ -231,8 +256,8 @@ class PerformanceCache<T> {
 }
 
 // Global cache instances with specific types
-export const badgeCache = new PerformanceCache<any>('badges', CACHE_CONFIG.badge, CACHE_CONFIG.maxBadgeEntries);
-export const materialCache = new PerformanceCache<any>('materials', CACHE_CONFIG.material, CACHE_CONFIG.maxMaterialEntries);
+export const badgeCache = new PerformanceCache<BadgeData>('badges', CACHE_CONFIG.badge, CACHE_CONFIG.maxBadgeEntries);
+export const materialCache = new PerformanceCache<MaterialBadgeData>('materials', CACHE_CONFIG.material, CACHE_CONFIG.maxMaterialEntries);
 export const fileCache = new PerformanceCache<string>('files', CACHE_CONFIG.file, CACHE_CONFIG.maxFileEntries);
 export const colorCache = new PerformanceCache<string>('colors', CACHE_CONFIG.color, CACHE_CONFIG.maxColorEntries);
 
@@ -253,8 +278,9 @@ class PreloadManager {
           // Import loadBadgeData dynamically to avoid circular imports
           const { loadBadgeData } = await import('./badgeSystem');
           const data = await loadBadgeData(material);
-          if (data) {
-            materialCache.set(material, data);
+          // Type guard: ensure materialType is present for material cache
+          if (data && data.materialType) {
+            materialCache.set(material, data as MaterialBadgeData);
             loaded++;
           }
         }
@@ -326,7 +352,7 @@ class CacheMonitor {
   }
   
   // Get comprehensive cache report
-  static getCacheReport(): any {
+  static getCacheReport(): CacheReport {
     return {
       timestamp: new Date().toISOString(),
       caches: [

@@ -202,11 +202,11 @@ Optimized the deployment validation pipeline to reduce build and test times.
 | Other Validations | ~10s | 2% |
 | **Total** | **~530s (8m 50s)** | **100%** |
 
-### Type System Refactoring (November 5, 2025) - 39% Complete
+### Type System Refactoring (November 5, 2025) - 42% Complete
 
 **Initial State:** 503 `@typescript-eslint/no-explicit-any` violations
-**Current State:** 305 violations remaining
-**Progress:** 198 violations fixed (39% reduction)
+**Current State:** 294 violations remaining
+**Progress:** 209 violations fixed (42% reduction)
 
 #### Completed Work - SchemaFactory.ts Refactoring
 **Files Modified:**
@@ -238,10 +238,26 @@ Optimized the deployment validation pipeline to reduce build and test times.
 5. Used strategic `as any` casts for complex array returns
 6. Kept generator function internals flexible with `any` parameters (preserving runtime behavior)
 
+#### performanceCache.ts Refactoring
+**Changes:**
+- Created `PerformanceContext` interface for logging context (replaces `any`)
+- Created `CacheReport` interface for cache report return type
+- Updated cache instances to use proper types:
+  - `badgeCache: PerformanceCache<BadgeData>`
+  - `materialCache: PerformanceCache<MaterialBadgeData>`
+- Added type guard in preloadCommonMaterials to ensure materialType is present
+- Fixed 4 `any` violations
+
+#### safeValueExtractor.ts Refactoring
+**Changes:**
+- Made `extractSafeValue` generic: `extractSafeValue<T = unknown>(obj: Record<string, unknown> | null | undefined, ...)`
+- Updated `getSafeString(value: unknown, ...)` - replaces `any`
+- Made `getSafeArray` generic: `getSafeArray<T = unknown>(value: unknown, ...): T[]`
+- Added comprehensive JSDoc comments
+- Fixed 7 `any` violations
+
 **Remaining High-Impact Files:**
-- `app/utils/performanceCache.ts` (35 errors)
-- `app/utils/safeValueExtractor.ts` (27 errors)
-- Other schema generators and utility files (243 errors total)
+- Other schema generators and utility files (294 errors total)
 
 ### Configuration Already Optimized
 - TypeScript `incremental: true` - Caches type check results
