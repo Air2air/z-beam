@@ -12,7 +12,10 @@ export interface HowToStep {
   description?: string;
 }
 
-export interface MachineSettings {
+/**
+ * Machine settings for HowTo steps (different from MachineSettings in centralized types)
+ */
+export interface HowToMachineSettings {
   powerRange?: { value: string; unit: string; description?: string };
   wavelength?: { value: string; unit: string; description?: string };
   spotSize?: { value: string; unit: string; description?: string };
@@ -25,7 +28,7 @@ export interface HowToSchemaOptions {
   name: string;
   description?: string;
   author?: AuthorData;
-  machineSettings?: MachineSettings;
+  machineSettings?: HowToMachineSettings;
   customSteps?: HowToStep[];
   images?: {
     micro?: ImageData;

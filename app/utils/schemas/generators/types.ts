@@ -3,10 +3,10 @@
  */
 
 export interface SchemaContext {
+  slug: string;
   baseUrl: string;
   pageUrl: string;
-  slug?: string;
-  currentDate?: string;
+  currentDate: string;
 }
 
 export interface AuthorData {

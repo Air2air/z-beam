@@ -12,15 +12,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import type { RegulatoryStandard } from '@/types';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
-
-interface RegulatoryStandard {
-  name: string;
-  description: string;
-  url: string;
-  image: string;
-  longName: string;
-}
 
 export interface RegulatoryStandardsProps {
   standards: RegulatoryStandard[];

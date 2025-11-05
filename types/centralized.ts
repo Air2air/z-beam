@@ -2421,3 +2421,72 @@ export interface TagFilterProps {
   className?: string;
   tagItemCounts?: Record<string, number>;
 }
+
+// ============================================================================
+// NORMALIZATION & UTILITY TYPES
+// ============================================================================
+
+/**
+ * Category data structure for normalization
+ */
+export interface CategoryData {
+  category?: string;
+  subcategory?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Timestamp data structure for freshness normalization
+ */
+export interface TimestampData {
+  datePublished?: string;
+  dateModified?: string;
+  [key: string]: unknown;
+}
+
+/**
+ * Regulatory standard structure
+ */
+export interface RegulatoryStandard {
+  name: string;
+  id?: string;
+  abbreviation?: string;
+  description: string;
+  url: string;
+  image: string;
+  longName: string;
+  [key: string]: unknown;
+}
+
+// ============================================================================
+// PERFORMANCE CACHE TYPES
+// ============================================================================
+
+/**
+ * Performance logging context
+ */
+export interface PerformanceContext {
+  cacheSize?: number;
+  ttl?: number;
+  operation?: string;
+  entriesRemoved?: number;
+  remainingEntries?: number;
+  cleanupTime?: number;
+  age?: number;
+  materialsLoaded?: number;
+  totalTime?: number;
+  avgTimePerMaterial?: number;
+  cleanupInterval?: string;
+  totalEntriesRemoved?: number;
+  [key: string]: unknown;
+}
+
+/**
+ * Cache report structure
+ */
+export interface CacheReport {
+  timestamp: string;
+  caches: Array<CacheMetrics & { hitRate: number; name: string }>;
+  totalMemoryUsage: number;
+  recommendations: string[];
+}

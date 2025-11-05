@@ -2,22 +2,7 @@
 // Unified Performance Cache System for Z-Beam Project
 // Follows GROK principles: fail-fast, minimal changes, performance-focused
 
-// Performance logging context type
-interface PerformanceContext {
-  cacheSize?: number;
-  ttl?: number;
-  operation?: string;
-  entriesRemoved?: number;
-  remainingEntries?: number;
-  cleanupTime?: number;
-  age?: number;
-  materialsLoaded?: number;
-  totalTime?: number;
-  avgTimePerMaterial?: number;
-  cleanupInterval?: string;
-  totalEntriesRemoved?: number;
-  [key: string]: unknown;
-}
+import type { PerformanceContext, CacheReport } from '@/types';
 
 // Simple performance logging function
 const logPerformance = (operation: string, duration: number, context?: PerformanceContext) => {
@@ -43,14 +28,6 @@ const CACHE_CONFIG = {
 };
 
 import { CacheEntry, CacheMetrics, BadgeData, MaterialBadgeData } from '@/types';
-
-// Cache report interface
-interface CacheReport {
-  timestamp: string;
-  caches: Array<CacheMetrics & { hitRate: number; name: string }>;
-  totalMemoryUsage: number;
-  recommendations: string[];
-}
 
 class PerformanceCache<T> {
   private cache = new Map<string, CacheEntry<T>>();

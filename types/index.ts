@@ -6,6 +6,35 @@
 export * from './centralized';
 
 // ============================================================================
+// SCHEMA GENERATOR TYPES - From app/utils/schemas/generators/types.ts
+// ============================================================================
+// These types are used for JSON-LD schema generation
+// Export them for use across the application
+export type {
+  SchemaContext,
+  AuthorData,
+  ImageData,
+  PropertyValue,
+  SchemaOrgBase,
+  SchemaOrgThing,
+  ImageObject,
+  PersonObject,
+  OrganizationObject,
+  ContactPointObject,
+  BreadcrumbListObject,
+  ListItemObject,
+  MaterialPropertyValue,
+  MaterialProperties,
+  FrontmatterBase,
+  MaterialFrontmatter,
+  ArticleFrontmatter,
+  ExtendedFrontmatter,
+  ComponentData,
+  ContentCard,
+  SchemaData
+} from '../app/utils/schemas/generators/types';
+
+// ============================================================================
 // YAML COMPONENT TYPES - Intentionally Separate
 // ============================================================================
 // YAML component types are NOT re-exported here to avoid naming conflicts

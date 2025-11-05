@@ -1,33 +1,7 @@
 // app/utils/normalizers.ts
 // Data normalization functions for content processing
 
-/**
- * Data structure with category and subcategory fields
- */
-interface CategoryData {
-  category?: string;
-  subcategory?: string;
-  [key: string]: unknown;
-}
-
-/**
- * Timestamp data structure
- */
-interface TimestampData {
-  datePublished?: string;
-  dateModified?: string;
-  [key: string]: unknown;
-}
-
-/**
- * Regulatory standard structure
- */
-interface RegulatoryStandard {
-  name?: string;
-  id?: string;
-  abbreviation?: string;
-  [key: string]: unknown;
-}
+import type { CategoryData, TimestampData, RegulatoryStandard } from '@/types';
 
 /**
  * Normalize category and subcategory fields to lowercase with hyphens

@@ -6,13 +6,7 @@
  * @usage Import normalizeRegulatoryStandards and apply to frontmatter.regulatoryStandards
  */
 
-export interface RegulatoryStandard {
-  name: string;
-  description: string;
-  url: string;
-  image: string;
-  longName: string;
-}
+import type { RegulatoryStandard } from '@/types';
 
 interface OrgMapping {
   name: string;

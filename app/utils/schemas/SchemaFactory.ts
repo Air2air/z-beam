@@ -32,14 +32,7 @@ import {
 // Types & Interfaces
 // ============================================================================
 
-import type { SchemaData, SchemaOrgBase } from './generators/types';
-
-export interface SchemaContext {
-  slug: string;
-  baseUrl: string;
-  pageUrl: string;
-  currentDate: string;
-}
+import type { SchemaData, SchemaOrgBase, SchemaContext } from './generators/types';
 
 export interface SchemaGeneratorOptions {
   priority?: number;
