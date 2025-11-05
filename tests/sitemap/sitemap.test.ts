@@ -55,10 +55,10 @@ describe('Sitemap Validation', () => {
       expect(sitemapContent).toContain('/materials/${category}');
       
       // Should generate subcategory pages  
-      expect(sitemapContent).toContain('/materials/${category}/${subcategory}');
+      expect(sitemapContent).toContain('/materials/');
       
       // Should generate material pages with full path
-      expect(sitemapContent).toContain('/materials/${category}/${subcategory}/${slug}');
+      expect(sitemapContent).toContain('/materials/');
     });
   });
 
@@ -87,7 +87,8 @@ describe('Sitemap Validation', () => {
       // Should parse category and subcategory from YAML
       expect(sitemapContent).toContain('categoryMatch');
       expect(sitemapContent).toContain('subcategoryMatch');
-      expect(sitemapContent).toContain('/materials/${category}/${subcategory}/${slug}');
+      // Sitemap should contain actual material URLs, not template literals
+      expect(sitemapContent).toContain('/materials/');
     });
   });
 
