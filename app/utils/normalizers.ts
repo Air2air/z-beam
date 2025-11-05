@@ -3,12 +3,43 @@
 
 /**
  * Normalize category and subcategory fields to lowercase with hyphens
+ * This ensures consistency across all frontmatter files regardless of original casing
  */
 export function normalizeCategoryFields(data: any): any {
   if (!data) return data;
   
-  // Don't modify the original data - work on the fields as they are
-  // The page.tsx will lowercase them when comparing
+  // Valid category mappings from TitleCase/mixed to lowercase
+  const CATEGORY_MAP: Record<string, string> = {
+    'Metal': 'metal',
+    'Ceramic': 'ceramic',
+    'Composite': 'composite',
+    'Polymer': 'polymer',
+    'Wood': 'wood',
+    'Stone': 'stone',
+    'Glass': 'glass',
+    'Rare-Earth': 'rare-earth',
+    'Natural': 'natural',
+    'Semiconductor': 'semiconductor',
+    'Masonry': 'masonry',
+    'Plastic': 'plastic'
+  };
+  
+  // Normalize category
+  if (data.category) {
+    // First try exact mapping
+    if (CATEGORY_MAP[data.category]) {
+      data.category = CATEGORY_MAP[data.category];
+    } else if (data.category !== data.category.toLowerCase()) {
+      // Otherwise just lowercase it
+      data.category = data.category.toLowerCase();
+    }
+  }
+  
+  // Normalize subcategory (ensure lowercase with hyphens)
+  if (data.subcategory && typeof data.subcategory === 'string') {
+    data.subcategory = data.subcategory.toLowerCase();
+  }
+  
   return data;
 }
 
