@@ -170,7 +170,7 @@ describe('CategoryPage Component', () => {
       
       expect(schemaData['@context']).toBe('https://schema.org');
       expect(schemaData['@graph']).toBeDefined();
-      expect(schemaData['@graph']).toHaveLength(5);
+      expect(schemaData['@graph']).toHaveLength(6); // CollectionPage, Breadcrumb, ItemList, Dataset, WebPage, Person
     });
 
     it('should include CollectionPage schema in @graph', async () => {
@@ -227,7 +227,12 @@ describe('CategoryPage Component', () => {
       expect(dataset['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#dataset`);
       expect(dataset.name).toBe('Metal Laser Cleaning Parameters Dataset');
       expect(dataset.distribution).toHaveLength(3); // JSON, CSV, TXT
-      expect(dataset.license).toBe('https://creativecommons.org/licenses/by/4.0/');
+      expect(dataset.license).toEqual({
+        '@type': 'CreativeWork',
+        'identifier': 'CC BY 4.0',
+        'name': 'Creative Commons Attribution 4.0 International',
+        'url': 'https://creativecommons.org/licenses/by/4.0/'
+      });
     });
 
     it('should include WebPage schema', async () => {

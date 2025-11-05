@@ -108,7 +108,7 @@ export function Hero({
   return (
     <section 
       ref={heroRef}
-      className={`${containerClasses} ${aspectRatioClasses}`}
+      className={`${themeClass} ${containerClasses} ${aspectRatioClasses}`}
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
