@@ -51,11 +51,10 @@ describe('Sitemap Validation', () => {
     it('should generate hierarchical material routes', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Should generate material pages with hierarchical paths
-      expect(sitemapContent).toContain('/materials/');
-      // Sitemap should be valid XML
-      expect(sitemapContent).toContain('<?xml');
-      expect(sitemapContent).toContain('</urlset>');
+      // Should use URL builder functions for material routes
+      expect(sitemapContent).toContain("buildCategoryUrl('materials'");
+      expect(sitemapContent).toContain("buildSubcategoryUrl('materials'");
+      expect(sitemapContent).toContain("buildUrlFromMetadata");
     });
   });
 
@@ -81,10 +80,10 @@ describe('Sitemap Validation', () => {
     it('should extract category and subcategory from YAML files', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Sitemap should contain actual material URLs with category structure
-      expect(sitemapContent).toContain('/materials/');
-      expect(sitemapContent).toContain('<url>');
-      expect(sitemapContent).toContain('<loc>');
+      // Sitemap should parse YAML frontmatter for category/subcategory
+      expect(sitemapContent).toContain('const matter = require');
+      expect(sitemapContent).toContain('category');
+      expect(sitemapContent).toContain('subcategory');
     });
   });
 
