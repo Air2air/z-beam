@@ -36,7 +36,7 @@
     "vercel-build": "npm run validate:metadata && next build",
     "test:ci": "jest --coverage --watchAll=false --passWithNoTests",
     "test:debug": "jest --detectOpenHandles --forceExit",
-    "test:unit": "jest tests/utils",
+    "test:unit": "jest tests/utils --coverage=false",
     "test:integration": "jest tests/integration",
     "test:components": "jest tests/components",
     "test:parsing": "node tests/test-parsing-standardization.js",
