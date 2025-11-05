@@ -80,10 +80,10 @@ describe('Sitemap Validation', () => {
     it('should extract category and subcategory from YAML files', () => {
       const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
       
-      // Sitemap should parse YAML frontmatter for category/subcategory
-      expect(sitemapContent).toContain('const matter = require');
-      expect(sitemapContent).toContain('category');
-      expect(sitemapContent).toContain('subcategory');
+      // Sitemap should parse YAML frontmatter using regex
+      expect(sitemapContent).toContain('categoryMatch');
+      expect(sitemapContent).toContain('subcategoryMatch');
+      expect(sitemapContent).toContain('fileContent.match');
     });
   });
 
