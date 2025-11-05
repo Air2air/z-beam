@@ -103,7 +103,7 @@ export function normalizeRegulatoryStandards(standards: any[]): any[] {
   if (!Array.isArray(standards)) return standards;
   
   return standards.map(standard => {
-    if (typeof standard === 'object' && standard.name === 'Unknown') {
+    if (typeof standard === 'object' && standard !== null && standard.name === 'Unknown') {
       // Try to infer name from other fields
       if (standard.id) {
         return { ...standard, name: standard.id };

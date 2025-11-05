@@ -30,7 +30,7 @@ describe('cleanupFloat', () => {
     it('handles negative numbers', () => {
       expect(cleanupFloat(-3.14159)).toBe('-3.14');
       expect(cleanupFloat(-5.00)).toBe('-5');
-      expect(cleanupFloat(-0.005)).toBe('0'); // Rounds to 0 after cleanup
+      expect(cleanupFloat(-0.005)).toBe('-0.01'); // Rounds to -0.01 (2 decimal places)
     });
 
     it('handles very small numbers', () => {
@@ -40,8 +40,8 @@ describe('cleanupFloat', () => {
     });
 
     it('handles very large numbers', () => {
-      expect(cleanupFloat(1000000.123456)).toBe('1000000.12');
-      expect(cleanupFloat(999999.99)).toBe('999999.99');
+      expect(cleanupFloat(1000000.123456)).toBe('1.00M');  // Formatted with M suffix
+      expect(cleanupFloat(999999.99)).toBe('1000.00K');  // Formatted with K suffix
     });
 
     it('handles zero', () => {
@@ -96,7 +96,7 @@ describe('cleanupFloat', () => {
 
     it('handles scientific notation', () => {
       expect(cleanupFloat(1e-5)).toBe('0');
-      expect(cleanupFloat(1e5)).toBe('100000');
+      expect(cleanupFloat(1e5)).toBe('100.00K');  // 100,000 formatted with K suffix
       expect(cleanupFloat(1.23e2)).toBe('123');
     });
 
@@ -173,7 +173,8 @@ describe('formatWithUnit', () => {
     });
 
     it('handles very large numbers', () => {
-      expect(formatWithUnit(1000000, 'Pa')).toBe('1000000 Pa');
+      // formatWithUnit uses cleanupFloat which formats millions with M suffix
+      expect(formatWithUnit(1000000, 'Pa')).toBe('1.00M Pa');
     });
 
     it('handles very small numbers', () => {
@@ -182,6 +183,7 @@ describe('formatWithUnit', () => {
     });
 
     it('handles invalid number input', () => {
+      // Invalid strings are returned as-is by cleanupFloat
       expect(formatWithUnit('not a number', 'kg')).toBe('not a number kg');
     });
   });

@@ -220,11 +220,31 @@ export function slugToDisplayName(slug: string): string {
  * @returns Cleaned string representation with appropriate formatting
  */
 export function cleanupFloat(value: number | string): string {
+  // Handle undefined - return as string
+  if (value === undefined) {
+    return 'undefined';
+  }
+  
+  // Handle null
+  if (value === null) {
+    return '0';
+  }
+  
   const numericValue = typeof value === 'string' ? parseFloat(value) : value;
   
-  // Return original value if not a valid number
+  // Handle invalid strings - return as-is
+  if (typeof value === 'string' && isNaN(numericValue)) {
+    return value;
+  }
+  
+  // Handle NaN from number input
   if (isNaN(numericValue)) {
-    return String(value);
+    return '0';
+  }
+  
+  // Handle Infinity
+  if (!isFinite(numericValue)) {
+    return numericValue > 0 ? 'Infinity' : '-Infinity';
   }
   
   const absValue = Math.abs(numericValue);
@@ -244,8 +264,9 @@ export function cleanupFloat(value: number | string): string {
     return numericValue.toString();
   }
   
-  // Round to 2 decimal places for floats
-  return numericValue.toFixed(2);
+  // Round to 2 decimal places for floats and remove trailing zeros
+  const rounded = numericValue.toFixed(2);
+  return parseFloat(rounded).toString();
 }
 
 /**

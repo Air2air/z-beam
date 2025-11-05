@@ -1057,7 +1057,7 @@ export interface CardGridProps {
  * Button component props
  */
 export interface ButtonProps {
-  children: ReactNode;
+  children?: ReactNode;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'danger' | 'inverted' | 'minimal';
   size?: 'sm' | 'md' | 'lg';

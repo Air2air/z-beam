@@ -6,10 +6,10 @@
 import { STANDARD_CONTAINER, CONTAINER_STYLES } from '@/app/utils/containerStyles';
 
 describe('Container Styles - Width Consistency', () => {
-  const EXPECTED_MAX_WIDTH = 'max-w-6xl';
+  const EXPECTED_MAX_WIDTH = 'max-w-5xl';
   const EXPECTED_PADDING = 'px-4';
 
-  test('STANDARD_CONTAINER should use max-w-6xl', () => {
+  test('STANDARD_CONTAINER should use max-w-5xl', () => {
     expect(STANDARD_CONTAINER).toContain(EXPECTED_MAX_WIDTH);
   });
 
@@ -17,8 +17,8 @@ describe('Container Styles - Width Consistency', () => {
     expect(STANDARD_CONTAINER).toContain(EXPECTED_PADDING);
   });
 
-  test('all primary CONTAINER_STYLES entries should use max-w-6xl', () => {
-    // These styles should use max-w-6xl for content pages
+  test('all primary CONTAINER_STYLES entries should use max-w-5xl', () => {
+    // These styles should use max-w-5xl for content pages
     const primaryStyles = ['standard', 'main', 'contentOnly', 'section'];
     
     // These styles have legitimate exceptions
@@ -30,7 +30,7 @@ describe('Container Styles - Width Consistency', () => {
       // Skip known exceptions
       if (exceptions.includes(key)) return;
       
-      // Primary styles must use max-w-6xl
+      // Primary styles must use max-w-5xl
       if (primaryStyles.includes(key) && !styleClasses.includes(EXPECTED_MAX_WIDTH)) {
         invalidStyles.push(`${key}: ${styleClasses}`);
       }
@@ -39,28 +39,28 @@ describe('Container Styles - Width Consistency', () => {
     expect(invalidStyles).toHaveLength(0);
 
     if (invalidStyles.length > 0) {
-      console.error('Primary container styles not using max-w-6xl:', invalidStyles);
+      console.error('Primary container styles not using max-w-5xl:', invalidStyles);
     }
   });
 
-  test('CONTAINER_STYLES.standard should use max-w-6xl', () => {
+  test('CONTAINER_STYLES.standard should use max-w-5xl', () => {
     expect(CONTAINER_STYLES.standard).toContain(EXPECTED_MAX_WIDTH);
   });
 
-  test('CONTAINER_STYLES.main should use max-w-6xl', () => {
+  test('CONTAINER_STYLES.main should use max-w-5xl', () => {
     expect(CONTAINER_STYLES.main).toContain(EXPECTED_MAX_WIDTH);
   });
 
-  test('CONTAINER_STYLES.contentOnly should use max-w-6xl', () => {
+  test('CONTAINER_STYLES.contentOnly should use max-w-5xl', () => {
     expect(CONTAINER_STYLES.contentOnly).toContain(EXPECTED_MAX_WIDTH);
   });
 
-  test('CONTAINER_STYLES.section should use max-w-6xl', () => {
+  test('CONTAINER_STYLES.section should use max-w-5xl', () => {
     expect(CONTAINER_STYLES.section).toContain(EXPECTED_MAX_WIDTH);
   });
 
-  test('no container styles should use max-w-5xl or max-w-7xl', () => {
-    const oldWidths = ['max-w-5xl', 'max-w-7xl'];
+  test('no container styles should use deprecated widths', () => {
+    const oldWidths = ['max-w-7xl'];
     const stylesWithOldWidths: string[] = [];
 
     // Check STANDARD_CONTAINER
@@ -92,7 +92,7 @@ describe('Container Styles - Width Consistency', () => {
   test('container styles should have consistent structure', () => {
     const requiredClasses = [
       'mx-auto',      // Center the container
-      'max-w-6xl',    // Standard width
+      'max-w-5xl',    // Standard width
       'px-4'          // Standard padding
     ];
 

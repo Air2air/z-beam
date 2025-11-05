@@ -11,12 +11,14 @@ import { EnvironmentalImpact } from '../components/EnvironmentalImpact';
 const sampleStandards = [
   {
     name: "ANSI",
+    longName: "American National Standards Institute",
     description: "ANSI Z136.1 - Safe Use of Lasers standard for industrial laser operations and safety protocols",
     url: "https://webstore.ansi.org/standards/lia/ansiz1362014",
     image: "/images/logo/logo-org-ansi.png"
   },
   {
     name: "IEC",
+    longName: "International Electrotechnical Commission",
     description: "IEC 60825-1 - Safety of laser products standard for classification and requirements",
     url: "https://webstore.iec.ch/publication/3587",
     image: "/images/logo/logo-org-iec.png"
