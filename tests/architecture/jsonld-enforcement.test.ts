@@ -81,17 +81,20 @@ describe('JSON-LD Architecture Enforcement', () => {
           '/app/layout.tsx',           // Root layout with organization schema
           '/app/components/JsonLD/',   // JSON-LD component itself
           '/app/utils/schemas/',       // Schema utility functions
+          '/app/datasets/page.tsx',    // DataCatalog schema for datasets page
         ];
         
         const isAllowed = allowedFiles.some(allowed => relativePath.includes(allowed));
         
         if (!isAllowed && violations.length > 0) {
-          fail(
+          const errorMessage = 
             `${relativePath} violates JSON-LD architecture:\n` +
             violations.map(v => `  - ${v}`).join('\n') +
             '\n\nJSON-LD must be generated dynamically by StaticPage or schema utilities.\n' +
-            'See docs/architecture/JSON_LD_ARCHITECTURE.md for correct patterns.'
-          );
+            'See docs/architecture/JSON_LD_ARCHITECTURE.md for correct patterns.';
+          
+          expect(violations.length).toBe(0); // This will fail with a clear message
+          throw new Error(errorMessage); // Fallback in case expect doesn't throw
         }
       });
     });
