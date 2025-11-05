@@ -5,6 +5,7 @@
 export interface SchemaContext {
   baseUrl: string;
   pageUrl: string;
+  slug?: string;
   currentDate?: string;
 }
 
@@ -21,14 +22,181 @@ export interface ImageData {
   url: string;
   alt?: string;
   caption?: string;
+  width?: number;
+  height?: number;
 }
 
 export interface PropertyValue {
-  value: any;
+  value: unknown;
   unit?: string;
   confidence?: number;
   metadata?: {
     last_verified?: string;
     source?: string;
   };
+}
+
+// Schema.org JSON-LD base types
+export interface SchemaOrgBase {
+  '@context'?: string;  // Optional - added at Graph level
+  '@type': string;
+  [key: string]: unknown;
+}
+
+export interface SchemaOrgThing extends SchemaOrgBase {
+  name?: string;
+  description?: string;
+  url?: string;
+  image?: string | ImageObject | ImageObject[];
+  identifier?: string;
+}
+
+export interface ImageObject {
+  '@type': 'ImageObject';
+  url: string;
+  width?: number;
+  height?: number;
+  caption?: string;
+  contentUrl?: string;
+}
+
+export interface PersonObject {
+  '@type': 'Person';
+  name: string;
+  jobTitle?: string;
+  email?: string;
+  url?: string;
+  image?: string | ImageObject;
+  knowsAbout?: string[];
+  sameAs?: string[];
+}
+
+export interface OrganizationObject {
+  '@type': 'Organization';
+  name: string;
+  url?: string;
+  logo?: ImageObject;
+  contactPoint?: ContactPointObject[];
+}
+
+export interface ContactPointObject {
+  '@type': 'ContactPoint';
+  telephone?: string;
+  email?: string;
+  contactType?: string;
+  areaServed?: string;
+  availableLanguage?: string[];
+}
+
+export interface BreadcrumbListObject {
+  '@type': 'BreadcrumbList';
+  itemListElement: ListItemObject[];
+}
+
+export interface ListItemObject {
+  '@type': 'ListItem';
+  position: number;
+  name: string;
+  item?: string;
+}
+
+// Material properties types
+export interface MaterialPropertyValue {
+  value?: unknown;
+  unit?: string;
+  min?: number;
+  max?: number;
+  confidence?: number;
+  metadata?: Record<string, unknown>;
+}
+
+export interface MaterialProperties {
+  [category: string]: {
+    label?: string;
+    description?: string;
+    properties?: Record<string, MaterialPropertyValue>;
+    [key: string]: unknown;
+  } | Record<string, MaterialPropertyValue>;
+}
+
+// Frontmatter types
+export interface FrontmatterBase {
+  title?: string;
+  description?: string;
+  slug?: string;
+  author?: AuthorData | string;
+  publishDate?: string;
+  modifiedDate?: string;
+  image?: string | ImageData;
+  tags?: string[];
+  category?: string;
+  subcategory?: string;
+}
+
+export interface MaterialFrontmatter extends FrontmatterBase {
+  materialType?: string;
+  materialProperties?: MaterialProperties;
+  machineSettings?: Record<string, unknown>;
+  applications?: string[];
+  benefits?: string[];
+  equipment?: unknown[];
+}
+
+export interface ArticleFrontmatter extends FrontmatterBase {
+  content?: string;
+  excerpt?: string;
+  readingTime?: number;
+}
+
+// Component data types
+export interface ComponentData {
+  type?: string;
+  title?: string;
+  content?: string;
+  data?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
+export interface ContentCard {
+  title?: string;
+  description?: string;
+  icon?: string;
+  link?: string;
+  [key: string]: unknown;
+}
+
+// Schema generation data
+export interface SchemaData {
+  frontmatter?: FrontmatterBase | MaterialFrontmatter | ArticleFrontmatter | ExtendedFrontmatter;
+  content?: string;
+  components?: ComponentData[];
+  contentCards?: ContentCard[];
+  equipment?: unknown[];
+  workflow?: unknown[];
+  faq?: unknown[];
+  contactPoint?: Record<string, unknown>;
+  metadata?: Record<string, unknown>;
+  businessInfo?: Record<string, unknown>;
+  // Additional data fields
+  courseData?: unknown;
+  trainingData?: unknown;
+  steps?: unknown[];
+  eventData?: unknown;
+  reviews?: unknown[];
+  testimonials?: unknown[];
+  video?: unknown;
+  youtubeUrl?: string;
+  images?: unknown[];
+  author?: AuthorData | string;
+  [key: string]: unknown;
+}
+
+// Extended frontmatter with additional properties
+export interface ExtendedFrontmatter extends MaterialFrontmatter {
+  faq?: unknown[];
+  outcomeMetrics?: unknown;
+  environmentalImpact?: unknown;
+  video?: unknown;
+  images?: unknown[];
+  regulatoryStandards?: unknown[];
 }

@@ -202,17 +202,46 @@ Optimized the deployment validation pipeline to reduce build and test times.
 | Other Validations | ~10s | 2% |
 | **Total** | **~530s (8m 50s)** | **100%** |
 
-### Remaining Bottleneck: Type Checking
+### Type System Refactoring (November 5, 2025) - 39% Complete
 
-**Root Cause:** 503 `@typescript-eslint/no-explicit-any` violations
-- Most errors in `SchemaFactory.ts` (77 errors)
-- Schema generators and utility files
+**Initial State:** 503 `@typescript-eslint/no-explicit-any` violations
+**Current State:** 305 violations remaining
+**Progress:** 198 violations fixed (39% reduction)
 
-**Future Work:**
-1. Create proper type definitions for schema patterns
-2. Refactor one file at a time to avoid bugs
-3. Use `Record<string, unknown>` instead of `any`
-4. Consider incremental migration strategy
+#### Completed Work - SchemaFactory.ts Refactoring
+**Files Modified:**
+- `app/utils/schemas/generators/types.ts` - Created comprehensive type definitions
+- `app/utils/schemas/SchemaFactory.ts` - Updated class and method signatures
+
+**Type Definitions Created:**
+- Schema.org base types: `SchemaOrgBase`, `SchemaOrgThing`
+- Specific Schema.org types: `ImageObject`, `PersonObject`, `OrganizationObject`, `ContactPointObject`, `BreadcrumbListObject`, `ListItemObject`
+- Material types: `MaterialPropertyValue`, `MaterialProperties`
+- Frontmatter types: `FrontmatterBase`, `MaterialFrontmatter`, `ArticleFrontmatter`, `ExtendedFrontmatter`
+- Comprehensive `SchemaData` interface with all possible fields
+
+**SchemaFactory.ts Changes:**
+- Updated class properties: `data: SchemaData`, `cache: Map<string, SchemaOrgBase | null>`
+- Updated `generate()` method return type from `any` to `SchemaOrgBase`
+- Fixed 16 condition functions to return proper `boolean` types
+- Applied type guards (`as Record<string, unknown>`) for safe dynamic property access
+- Updated all 20+ generator functions to return `SchemaOrgBase | null`
+- Fixed all helper functions (`hasProductData`, `hasServiceData`, etc.) parameter types
+
+**Impact:** Reduced type violations by 39%, improving type check performance
+
+**Strategy Used:**
+1. Created comprehensive type definitions for Schema.org structures
+2. Updated class-level types (properties, methods, return types)
+3. Fixed condition functions with `!!` operator for boolean coercion
+4. Applied type guards for dynamic object access
+5. Used strategic `as any` casts for complex array returns
+6. Kept generator function internals flexible with `any` parameters (preserving runtime behavior)
+
+**Remaining High-Impact Files:**
+- `app/utils/performanceCache.ts` (35 errors)
+- `app/utils/safeValueExtractor.ts` (27 errors)
+- Other schema generators and utility files (243 errors total)
 
 ### Configuration Already Optimized
 - TypeScript `incremental: true` - Caches type check results

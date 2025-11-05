@@ -32,6 +32,8 @@ import {
 // Types & Interfaces
 // ============================================================================
 
+import type { SchemaData, SchemaOrgBase } from './generators/types';
+
 export interface SchemaContext {
   slug: string;
   baseUrl: string;
@@ -42,14 +44,14 @@ export interface SchemaContext {
 export interface SchemaGeneratorOptions {
   priority?: number;
   required?: boolean;
-  condition?: (data: any, context: SchemaContext) => boolean;
+  condition?: (data: SchemaData, context: SchemaContext) => boolean;
 }
 
 export type SchemaGenerator = (
-  data: any,
+  data: SchemaData,
   context: SchemaContext,
   options?: SchemaGeneratorOptions
-) => any | null;
+) => SchemaOrgBase | null;
 
 export interface SchemaRegistry {
   [key: string]: {
@@ -63,12 +65,12 @@ export interface SchemaRegistry {
 // ============================================================================
 
 export class SchemaFactory {
-  private data: any;
+  private data: SchemaData;
   private context: SchemaContext;
   private registry: SchemaRegistry = {};
-  private cache: Map<string, any> = new Map();
+  private cache: Map<string, SchemaOrgBase | null> = new Map();
 
-  constructor(data: any, slug: string, baseUrl?: string) {
+  constructor(data: SchemaData, slug: string, baseUrl?: string) {
     this.data = data;
     this.context = {
       slug,
@@ -102,8 +104,8 @@ export class SchemaFactory {
   /**
    * Generate all applicable schemas
    */
-  generate(): any {
-    const schemas: any[] = [];
+  generate(): SchemaOrgBase {
+    const schemas: SchemaOrgBase[] = [];
 
     // Sort by priority (higher first)
     const sortedEntries = Object.entries(this.registry).sort(
@@ -141,7 +143,8 @@ export class SchemaFactory {
 
     return {
       '@context': 'https://schema.org',
-      '@graph': schemas.filter(Boolean)
+      '@type': 'Graph',
+      '@graph': schemas.filter((s): s is SchemaOrgBase => s !== null)
     };
   }
 
@@ -157,7 +160,7 @@ export class SchemaFactory {
     // Content schemas
     this.register('Article', generateArticleSchema, { 
       priority: 80,
-      condition: (data) => data.frontmatter?.category || data.metadata?.category
+      condition: (data) => !!(data.frontmatter?.category || data.metadata?.category)
     });
     this.register('Product', generateProductSchema, {
       priority: 75,
@@ -169,67 +172,81 @@ export class SchemaFactory {
     });
     this.register('Course', generateCourseSchema, {
       priority: 70,
-      condition: (data) => data.courseData || data.trainingData
+      condition: (data) => !!(data.courseData || data.trainingData)
     });
 
     // Supporting schemas
     this.register('LocalBusiness', generateLocalBusinessSchema, {
       priority: 65,
-      condition: (data) => data.businessInfo?.geo || data.contactPoint
+      condition: (data) => !!(data.businessInfo?.geo || data.contactPoint)
     });
     this.register('HowTo', generateHowToSchema, {
       priority: 60,
-      condition: (data) => data.frontmatter?.machineSettings || data.steps
+      condition: (data) => {
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        return !!(fm?.machineSettings || data.steps);
+      }
     });
     this.register('FAQ', generateFAQSchema, {
       priority: 55,
       condition: (data) => {
         // Check for explicit FAQ data in multiple locations
         // Material pages pass FAQ data via metadata from contentAPI
-        if (data.faq || data.frontmatter?.faq || data.metadata?.faq) return true;
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        if (data.faq || fm?.faq || data.metadata?.faq) return true;
         
         // Check for FAQ-generating frontmatter (used by MaterialFAQ component)
-        const fm = data.frontmatter || data.metadata || {};
-        return !!(fm.outcomeMetrics || fm.applications || fm.environmentalImpact || fm.faq);
+        const fmOrMeta = (data.frontmatter || data.metadata || {}) as Record<string, unknown>;
+        return !!(fmOrMeta.outcomeMetrics || fmOrMeta.applications || fmOrMeta.environmentalImpact || fmOrMeta.faq);
       }
     });
     this.register('Event', generateEventSchema, {
       priority: 50,
-      condition: (data) => data.eventData
+      condition: (data) => !!data.eventData
     });
     this.register('AggregateRating', generateAggregateRatingSchema, {
       priority: 45,
-      condition: (data) => data.reviews || data.testimonials
+      condition: (data) => !!(data.reviews || data.testimonials)
     });
     this.register('VideoObject', generateVideoObjectSchema, {
       priority: 40,
       condition: (data) => {
         // Always include video for material pages (default video: t8fB3tJCfQw)
-        const isMaterialPage = data.frontmatter?.materialProperties || data.frontmatter?.category;
-        return !!(data.video || data.youtubeUrl || data.frontmatter?.video || isMaterialPage);
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        const isMaterialPage = fm?.materialProperties || fm?.category;
+        return !!(data.video || data.youtubeUrl || fm?.video || isMaterialPage);
       }
     });
     this.register('ImageObject', generateImageObjectSchema, {
       priority: 35,
-      condition: (data) => data.images || data.frontmatter?.images
+      condition: (data) => {
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        return !!(data.images || fm?.images);
+      }
     });
     this.register('ContactPoint', generateContactPointSchema, {
       priority: 30,
-      condition: (data) => data.contactPoint
+      condition: (data) => !!data.contactPoint
     });
 
     // E-E-A-T schemas
     this.register('Person', generatePersonSchema, {
       priority: 25,
-      condition: (data) => data.frontmatter?.author || data.author
+      condition: (data) => !!(data.frontmatter?.author || data.author)
     });
     this.register('Dataset', generateDatasetSchema, {
       priority: 20,
-      condition: (data) => data.frontmatter?.materialProperties
+      condition: (data) => {
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        return !!fm?.materialProperties;
+      }
     });
     this.register('Certification', generateCertificationSchema, {
       priority: 15,
-      condition: (data) => data.frontmatter?.regulatoryStandards
+      condition: (data) => {
+        const fm = data.frontmatter as Record<string, unknown> | undefined;
+        return !!fm?.regulatoryStandards;
+      }
     });
 
     // Collection schemas
@@ -263,20 +280,22 @@ export class SchemaFactory {
 // ============================================================================
 
 function hasProductData(data: any): boolean {
+  const fm = data.frontmatter as Record<string, unknown> | undefined;
   return !!(
     data.needle100_150 ||
     data.needle200_300 ||
     data.jangoSpecs ||
-    data.frontmatter?.materialProperties ||
+    fm?.materialProperties ||
     data.products
   );
 }
 
 function hasServiceData(data: any): boolean {
+  const title = typeof data.title === 'string' ? data.title : '';
   return !!(
     data.services ||
     data.serviceOfferings ||
-    (data.contentCards && data.title?.toLowerCase().includes('service'))
+    (data.contentCards && title.toLowerCase().includes('service'))
   );
 }
 
@@ -286,11 +305,13 @@ function hasMultipleProducts(data: any): boolean {
     data.needle200_300,
     data.jangoSpecs
   ].filter(Boolean).length;
-  return productCount > 1 || (data.products && data.products.length > 1);
+  const products = Array.isArray(data.products) ? data.products : [];
+  return productCount > 1 || products.length > 1;
 }
 
 function hasMultipleServices(data: any): boolean {
-  return data.services && Array.isArray(data.services) && data.services.length > 1;
+  const services = Array.isArray(data.services) ? data.services : [];
+  return services.length > 1;
 }
 
 function hasOrganizations(data: any): boolean {
@@ -307,15 +328,16 @@ function hasOrganizations(data: any): boolean {
 /**
  * WebPage Schema - Base schema for all pages
  */
-function generateWebPageSchema(data: any, context: SchemaContext): any {
+function generateWebPageSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl } = context;
   
-  // Extract metadata from various possible locations
-  const metadata = data.metadata || data.frontmatter || data.pageConfig || {};
-  const title = metadata.title || data.title || 'Z-Beam';
-  const description = metadata.description || data.description || '';
+  // Extract metadata from various possible locations with type guards
+  const metadata = (data.metadata || data.frontmatter || data.pageConfig || {}) as Record<string, unknown>;
+  const title = (metadata.title as string) || (typeof data.title === 'string' ? data.title : '') || 'Z-Beam';
+  const description = (metadata.description as string) || (typeof data.description === 'string' ? data.description : '') || '';
   
   return {
+    '@context': 'https://schema.org',
     '@type': hasOrganizations(data) ? 'CollectionPage' : 'WebPage',
     '@id': `${pageUrl}#webpage`,
     'url': pageUrl,
@@ -333,10 +355,10 @@ function generateWebPageSchema(data: any, context: SchemaContext): any {
         'name': SITE_CONFIG.name
       }
     },
-    'datePublished': metadata.datePublished || data.datePublished || context.currentDate,
-    'dateModified': metadata.dateModified || data.lastModified || data.lastModified || context.currentDate,
-    ...(metadata.keywords && { 'keywords': Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords }),
-    ...(getMainImage(data) && { 'image': getMainImage(data) })
+    'datePublished': (metadata.datePublished as string) || (data.datePublished as string) || context.currentDate,
+    'dateModified': (metadata.dateModified as string) || (data.lastModified as string) || context.currentDate,
+    ...(metadata.keywords ? { 'keywords': Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords } : {}),
+    ...(getMainImage(data) ? { 'image': getMainImage(data) } : {})
   };
 }
 
@@ -344,7 +366,7 @@ function generateWebPageSchema(data: any, context: SchemaContext): any {
  * BreadcrumbList Schema
  * Uses the centralized generateBreadcrumbs utility for consistency
  */
-function generateBreadcrumbSchema(data: any, context: SchemaContext): any {
+function generateBreadcrumbSchema(data: any, context: SchemaContext): SchemaOrgBase {
   const { pageUrl, baseUrl, slug } = context;
   
   // Construct pathname from slug
@@ -374,7 +396,7 @@ function generateBreadcrumbSchema(data: any, context: SchemaContext): any {
 /**
  * Organization Schema - Enhanced with E-E-A-T signals
  */
-function generateOrganizationSchema(data: any, context: SchemaContext): any | null {
+function generateOrganizationSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { baseUrl } = context;
   
   // For partner organizations
@@ -449,7 +471,7 @@ function generateOrganizationSchema(data: any, context: SchemaContext): any | nu
       organizations.push(org);
     });
 
-    return organizations.length > 0 ? organizations : null;
+    return organizations.length > 0 ? (organizations as any) : null;
   }
 
   // Main organization
@@ -465,7 +487,7 @@ function generateOrganizationSchema(data: any, context: SchemaContext): any | nu
 /**
  * Article/TechnicalArticle Schema - Enhanced with E-E-A-T signals
  */
-function generateArticleSchema(data: any, context: SchemaContext): any | null {
+function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = data.frontmatter || data.metadata || {};
   const { pageUrl, baseUrl, currentDate } = context;
   
@@ -547,7 +569,7 @@ function generateArticleSchema(data: any, context: SchemaContext): any | null {
 /**
  * Product Schema - Enhanced for equipment
  */
-function generateProductSchema(data: any, context: SchemaContext): any | null {
+function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl } = context;
   const products: any[] = [];
 
@@ -604,13 +626,13 @@ function generateProductSchema(data: any, context: SchemaContext): any | null {
     });
   }
 
-  return products.length === 1 ? products[0] : (products.length > 1 ? products : null);
+  return products.length === 1 ? products[0] : (products.length > 1 ? (products as any) : null);
 }
 
 /**
  * Service Schema - NEW
  */
-function generateServiceSchema(data: any, context: SchemaContext): any | null {
+function generateServiceSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl, baseUrl } = context;
   
   if (!hasServiceData(data)) return null;
@@ -660,7 +682,7 @@ function generateServiceSchema(data: any, context: SchemaContext): any | null {
 /**
  * LocalBusiness Schema - NEW
  */
-function generateLocalBusinessSchema(data: any, context: SchemaContext): any | null {
+function generateLocalBusinessSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { baseUrl } = context;
   
   if (!data.businessInfo?.geo && !data.contactPoint) return null;
@@ -693,7 +715,7 @@ function generateLocalBusinessSchema(data: any, context: SchemaContext): any | n
 /**
  * Course Schema - NEW
  */
-function generateCourseSchema(data: any, context: SchemaContext): any | null {
+function generateCourseSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const courseData = data.courseData || data.trainingData;
   if (!courseData) return null;
 
@@ -723,7 +745,7 @@ function generateCourseSchema(data: any, context: SchemaContext): any | null {
 /**
  * Event Schema - NEW
  */
-function generateEventSchema(data: any, context: SchemaContext): any | null {
+function generateEventSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const eventData = data.eventData;
   if (!eventData) return null;
 
@@ -757,7 +779,7 @@ function generateEventSchema(data: any, context: SchemaContext): any | null {
 /**
  * AggregateRating Schema - NEW
  */
-function generateAggregateRatingSchema(data: any, context: SchemaContext): any | null {
+function generateAggregateRatingSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const reviews = data.reviews || data.testimonials;
   if (!reviews || !Array.isArray(reviews) || reviews.length === 0) return null;
 
@@ -779,7 +801,7 @@ function generateAggregateRatingSchema(data: any, context: SchemaContext): any |
 /**
  * HowTo Schema
  */
-function generateHowToSchema(data: any, context: SchemaContext): any | null {
+function generateHowToSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = data.frontmatter || {};
   const machineSettings = frontmatter.machineSettings;
   
@@ -807,7 +829,7 @@ function generateHowToSchema(data: any, context: SchemaContext): any | null {
 /**
  * FAQ Schema - Enhanced to handle both explicit FAQs and auto-generated from frontmatter
  */
-function generateFAQSchema(data: any, context: SchemaContext): any | null {
+function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = data.frontmatter || data.metadata || {};
   const faqs: any[] = [];
 
@@ -877,7 +899,7 @@ function generateFAQSchema(data: any, context: SchemaContext): any | null {
 /**
  * VideoObject Schema - Enhanced for material demonstrations
  */
-function generateVideoObjectSchema(data: any, context: SchemaContext): any | null {
+function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = data.frontmatter || data.metadata || {};
   
   // Check for explicit video URL or use default YouTube video
@@ -940,7 +962,7 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): any | nul
  * Uses caption.beforeText for image descriptions
  * @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
  */
-function generateImageObjectSchema(data: any, context: SchemaContext): any | null {
+function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const mainImage = getMainImage(data);
   if (!mainImage) return null;
 
@@ -1003,7 +1025,7 @@ function generateImageObjectSchema(data: any, context: SchemaContext): any | nul
 /**
  * ContactPoint Schema - NEW
  */
-function generateContactPointSchema(data: any, _context: SchemaContext): any | null {
+function generateContactPointSchema(data: any, _context: SchemaContext): SchemaOrgBase | null {
   if (!data.contactPoint) return null;
 
   return generateContactPointObject(data.contactPoint);
@@ -1012,7 +1034,7 @@ function generateContactPointSchema(data: any, _context: SchemaContext): any | n
 /**
  * Person Schema - Enhanced with E-E-A-T
  */
-function generatePersonSchema(data: any, context: SchemaContext): any | null {
+function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const author = data.frontmatter?.author || data.author;
   if (!author) return null;
 
@@ -1022,7 +1044,7 @@ function generatePersonSchema(data: any, context: SchemaContext): any | null {
 /**
  * Dataset Schema
  */
-function generateDatasetSchema(data: any, context: SchemaContext): any | null {
+function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = data.frontmatter || {};
   if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
 
@@ -1079,7 +1101,7 @@ function generateDatasetSchema(data: any, context: SchemaContext): any | null {
 /**
  * Certification Schema
  */
-function generateCertificationSchema(data: any, context: SchemaContext): any | null {
+function generateCertificationSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const standards = data.frontmatter?.regulatoryStandards;
   if (!standards || !Array.isArray(standards) || standards.length === 0) return null;
 
@@ -1088,13 +1110,13 @@ function generateCertificationSchema(data: any, context: SchemaContext): any | n
     '@id': `${context.pageUrl}#cert-${index + 1}`,
     'name': standard,
     'about': 'Regulatory compliance for laser cleaning'
-  }));
+  })) as any;
 }
 
 /**
  * ItemList Schema
  */
-function generateItemListSchema(data: any, context: SchemaContext): any | null {
+function generateItemListSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const { pageUrl } = context;
   const products = generateProductSchema(data, context);
   const services = generateServiceSchema(data, context);
@@ -1131,7 +1153,7 @@ function generateItemListSchema(data: any, context: SchemaContext): any | null {
 /**
  * CollectionPage Schema
  */
-function generateCollectionPageSchema(data: any, _context: SchemaContext): any | null {
+function generateCollectionPageSchema(data: any, _context: SchemaContext): SchemaOrgBase | null {
   if (!hasOrganizations(data)) return null;
 
   // This is handled by modifying WebPage @type
