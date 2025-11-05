@@ -5,6 +5,7 @@ import React from 'react';
 import { FiDownload, FiCheckCircle } from 'react-icons/fi';
 import { AiOutlineFileText } from 'react-icons/ai';
 import { BsFiletypeJson, BsFiletypeCsv } from 'react-icons/bs';
+import { Button } from '@/app/components/Button';
 import type { DatasetDownloadControlsProps } from '@/types/centralized';
 
 export default function DatasetDownloadControls({
@@ -89,14 +90,15 @@ export default function DatasetDownloadControls({
         </div>
 
         {/* Download Button */}
-        <button
+        <Button
           onClick={onDownload}
           disabled={isDownloading}
-          className="w-full sm:w-auto sm:ml-auto flex items-center justify-center gap-2 px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg transition-colors text-sm font-medium shadow-sm"
+          variant="primary"
+          className="w-full sm:w-auto sm:ml-auto"
         >
           <FiDownload />
           <span>{isDownloading ? 'Downloading...' : `Download ${selectedFormat.toUpperCase()}`}</span>
-        </button>
+        </Button>
       </div>
     </div>
   );

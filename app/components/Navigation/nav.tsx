@@ -217,7 +217,7 @@ export function Navbar() {
                               );
                             })}
                             <div className="px-4 py-2 whitespace-nowrap">
-                              <ContactButton variant="inverted" size="sm" href="/contact" />
+                              <ContactButton variant="primary" size="sm" href="/contact" />
                             </div>
                           </div>
                         )}
@@ -373,7 +373,7 @@ export function Navbar() {
                             );
                           })}
                           <div className="py-2 px-3">
-                            <ContactButton variant="inverted" size="md" href="/contact" />
+                            <ContactButton variant="primary" size="md" href="/contact" />
                           </div>
                         </div>
                       )}

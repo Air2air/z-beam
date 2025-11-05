@@ -1055,11 +1055,17 @@ export interface CardGridProps {
 
 /**
  * Button component props
+ * Variants:
+ * - primary: Orange background, white text (main CTA)
+ * - secondary: White background, orange text (Let's Talk style)
+ * - outline: Border only, no fill (Dataset downloader style)
+ * - danger: Red background, white text (destructive actions)
+ * - minimal: Transparent background, link style
  */
 export interface ButtonProps {
   children?: ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'danger' | 'inverted' | 'minimal';
+  variant?: 'primary' | 'secondary' | 'outline' | 'danger' | 'minimal';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   disabled?: boolean;
@@ -1074,7 +1080,7 @@ export interface ButtonProps {
  * ContactButton component props
  */
 export interface ContactButtonProps {
-  variant?: 'primary' | 'inverted' | 'secondary' | 'minimal';
+  variant?: 'primary' | 'secondary' | 'outline' | 'danger' | 'minimal';
   size?: 'sm' | 'md' | 'lg';
   showIcon?: boolean;
   className?: string;

@@ -273,7 +273,7 @@ export const ContactForm = memo(function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            variant="inverted"
+            variant="primary"
             size="lg"
             fullWidth
             showIcon={false}
