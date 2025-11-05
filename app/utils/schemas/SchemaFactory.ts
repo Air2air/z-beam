@@ -86,6 +86,21 @@ export class SchemaFactory {
       currentDate: new Date().toISOString().split('T')[0]
     };
 
+    // Debug: Log what we receive
+    if (process.env.NODE_ENV === 'development' && slug.includes('alumina')) {
+      const meta = getMetadata(data);
+      console.log('[SchemaFactory Debug]', {
+        slug,
+        hasProductData: hasProductData(data),
+        hasMachineSettings: hasMachineSettings(data),
+        hasMaterialProperties: hasMaterialProperties(data),
+        hasAuthor: hasAuthor(data),
+        metadataKeys: meta ? Object.keys(meta).slice(0, 15) : [],
+        materialPropertiesType: typeof meta.materialProperties,
+        machineSettingsType: typeof meta.machineSettings
+      });
+    }
+
     // Register all built-in schema generators
     this.registerDefaultSchemas();
   }
@@ -222,7 +237,7 @@ export class SchemaFactory {
     // E-E-A-T schemas
     this.register('Person', generatePersonSchema, {
       priority: 25,
-      condition: (data) => !!(data.frontmatter?.author || data.metadata?.author || data.author)
+      condition: (data) => hasAuthor(data)
     });
     this.register('Dataset', generateDatasetSchema, {
       priority: 20,
@@ -443,7 +458,7 @@ function generateOrganizationSchema(data: any, context: SchemaContext): SchemaOr
  * Article/TechnicalArticle Schema - Enhanced with E-E-A-T signals
  */
 function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const frontmatter = data.frontmatter || data.metadata || {};
+  const frontmatter = getMetadata(data);
   const { pageUrl, baseUrl, currentDate } = context;
   
   const title = frontmatter.title || data.title || '';
@@ -567,14 +582,14 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   });
 
   // Material products
-  const frontmatter = data.frontmatter || {};
-  if (frontmatter.materialProperties) {
+  const meta = getMetadata(data);
+  if (meta.materialProperties) {
     products.push({
       '@type': 'Product',
       '@id': `${pageUrl}#material-product`,
-      'name': frontmatter.name || data.title || 'Material',
-      'description': frontmatter.description || data.description || '',
-      'category': frontmatter.category || 'Material',
+      'name': meta.name || data.title || 'Material',
+      'description': meta.description || data.description || '',
+      'category': meta.category || 'Material',
       'brand': {
         '@type': 'Brand',
         'name': SITE_CONFIG.name
@@ -758,7 +773,7 @@ function generateAggregateRatingSchema(data: any, context: SchemaContext): Schem
  * HowTo Schema
  */
 function generateHowToSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const frontmatter = data.frontmatter || {};
+  const frontmatter = getMetadata(data);
   const machineSettings = frontmatter.machineSettings;
   
   if (!machineSettings || Object.keys(machineSettings).length === 0) return null;
@@ -786,7 +801,7 @@ function generateHowToSchema(data: any, context: SchemaContext): SchemaOrgBase |
  * FAQ Schema - Enhanced to handle both explicit FAQs and auto-generated from frontmatter
  */
 function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const frontmatter = data.frontmatter || data.metadata || {};
+  const frontmatter = getMetadata(data);
   const faqs: any[] = [];
 
   // Custom FAQs - check multiple possible locations (prioritize explicit FAQs)
@@ -856,7 +871,7 @@ function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | n
  * VideoObject Schema - Enhanced for material demonstrations
  */
 function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const frontmatter = data.frontmatter || data.metadata || {};
+  const frontmatter = getMetadata(data);
   
   // Check for explicit video URL or use default YouTube video
   const videoUrl = data.video || data.youtubeUrl || frontmatter.video;
@@ -991,7 +1006,8 @@ function generateContactPointSchema(data: any, _context: SchemaContext): SchemaO
  * Person Schema - Enhanced with E-E-A-T
  */
 function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const author = data.frontmatter?.author || data.author;
+  const frontmatter = getMetadata(data);
+  const author = frontmatter.author || data.author;
   if (!author) return null;
 
   return generatePersonObject(author, context.baseUrl);
@@ -1001,7 +1017,7 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
  * Dataset Schema
  */
 function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
-  const frontmatter = data.frontmatter || {};
+  const frontmatter = getMetadata(data);
   if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
 
   const { pageUrl, slug } = context;
@@ -1135,7 +1151,7 @@ function getMainImage(data: any): any | null {
   }
 
   // From frontmatter images - prioritize hero, then micro
-  const frontmatter = data.frontmatter || {};
+  const frontmatter = getMetadata(data);
   
   if (frontmatter.images?.hero?.url) {
     const hero = frontmatter.images.hero;
