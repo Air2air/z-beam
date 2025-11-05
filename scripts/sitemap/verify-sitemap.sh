@@ -75,14 +75,14 @@ echo ""
 # Check material category routes
 echo "5️⃣  Validating material category routes..."
 
-# Define required material categories (must match frontmatter categories)
-REQUIRED_CATEGORIES=("metal" "ceramic" "composite" "semiconductor" "glass" "stone" "wood" "masonry" "plastic" "rare-earth")
+# Define required material categories (TitleCase as used in frontmatter)
+REQUIRED_CATEGORIES=("Metal" "Ceramic" "Composite" "Semiconductor" "Glass" "Stone" "Wood" "Masonry" "Plastic" "Rare-Earth")
 
 MISSING_CATEGORIES=()
 
 for category in "${REQUIRED_CATEGORIES[@]}"; do
-    # Check for category with or without quotes
-    if ! grep -qE "(category: ${category}|category: '${category}')" app/sitemap.ts frontmatter/materials/*.yaml 2>/dev/null; then
+    # Check for category with or without quotes (TitleCase)
+    if ! grep -qE "(category: ${category}|category: '${category}')" frontmatter/materials/*.yaml 2>/dev/null; then
         MISSING_CATEGORIES+=("$category")
     fi
 done
