@@ -198,7 +198,7 @@ run_pre_deployment_validations() {
         info "Build size: $build_size"
         
         # Check for critical files
-        local critical_files=(".next/BUILD_ID" ".next/server" ".next/static")
+        local critical_files=("BUILD_ID" "server" "static")
         local missing_files=()
         
         for file in "${critical_files[@]}"; do
