@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/plastic/thermoplastic/polystyrene-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene-laser-cleaning#dataset",
   "name": "Polystyrene Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Polystyrene. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "polystyrene",
     "laser cleaning",
-    "plastic",
+    "Plastic",
     "thermoplastic",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/polystyrene-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/polystyrene-laser-cleaning.json",
       "name": "Polystyrene Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/polystyrene-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/polystyrene-laser-cleaning.csv",
       "name": "Polystyrene Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/polystyrene-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/polystyrene-laser-cleaning.txt",
       "name": "Polystyrene Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,39 +83,162 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Polystyrene",
     "slug": "polystyrene-laser-cleaning",
     "classification": {
-      "category": "plastic",
+      "category": "Plastic",
       "subcategory": "thermoplastic"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
-          "source": "ai_research",
+          "value": 100000000000000,
           "unit": "Ω·m",
-          "value": 1e+21,
+          "confidence": 95,
+          "source": "ai_research",
           "min": 1000000000000,
           "max": 10000000000000000
         },
         "fractureToughness": {
-          "ai_verified": true,
-          "source": "ASM Handbook, Volume 21: Composites, \"Engineering Plastics and Plastic Composites\" (Data Table for Polystyrene)",
-          "unit": "MPa·√m",
-          "value": 1,
+          "value": 0.9,
+          "unit": "MPa m^{1/2}",
+          "confidence": 95,
+          "source": "ai_research",
           "min": 1,
           "max": 10
+        },
+        "thermalDestruction": {
+          "value": 623,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 700
+        },
+        "specificHeat": {
+          "value": 1300,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1,
+          "max": 2500
+        },
+        "youngsModulus": {
+          "value": 3.3,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.01,
+          "max": 5000
+        },
+        "oxidationResistance": {
+          "value": 523,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 60,
+          "max": 260
+        },
+        "laserReflectivity": {
+          "value": 0.052,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 4,
+          "max": 95
+        },
+        "thermalConductivity": {
+          "value": 0.12,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.02,
+          "max": 3
+        },
+        "thermalExpansion": {
+          "value": 0.00007,
+          "unit": "K^{-1}",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 10,
+          "max": 200
+        },
+        "density": {
+          "value": 1.05,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 0.85,
+          "max": 2.2
+        },
+        "hardness": {
+          "value": 77,
+          "unit": "Shore D",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 61.6,
+          "max": 92.39999999999999
+        },
+        "corrosionResistance": {
+          "value": 0.65,
+          "unit": "dimensionless (normalized resistance index)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 9
+        },
+        "laserAbsorption": {
+          "value": 100,
+          "unit": "m^{-1}",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 100
+        },
+        "compressiveStrength": {
+          "value": 70,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 20,
+          "max": 200
+        },
+        "thermalDiffusivity": {
+          "value": 1.02e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.08,
+          "max": 1
+        },
+        "flexuralStrength": {
+          "value": 50,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 30,
+          "max": 200
+        },
+        "tensileStrength": {
+          "value": 40,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10,
+          "max": 400
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -128,7 +251,7 @@
       "propertyID": "electricalResistivity",
       "name": "Electrical Resistivity",
       "description": "Electrical Resistivity - material characteristics",
-      "value": 1e+21,
+      "value": 100000000000000,
       "unitText": "Ω·m",
       "minValue": 1000000000000,
       "maxValue": 10000000000000000,
@@ -139,12 +262,177 @@
       "propertyID": "fractureToughness",
       "name": "Fracture Toughness",
       "description": "Fracture Toughness - material characteristics",
-      "value": 1,
-      "unitText": "MPa·√m",
+      "value": 0.9,
+      "unitText": "MPa m^{1/2}",
       "minValue": 1,
       "maxValue": 10,
-      "measurementTechnique": "ASM Handbook, Volume 21: Composites, \"Engineering Plastics and Plastic Composites\" (Data Table for Polystyrene)"
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 623,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 700,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 1300,
+      "unitText": "J/(kg·K)",
+      "minValue": 1,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 3.3,
+      "unitText": "GPa",
+      "minValue": 0.01,
+      "maxValue": 5000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 523,
+      "unitText": "K",
+      "minValue": 60,
+      "maxValue": 260,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.052,
+      "unitText": "dimensionless",
+      "minValue": 4,
+      "maxValue": 95,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 0.12,
+      "unitText": "W/m·K",
+      "minValue": 0.02,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.00007,
+      "unitText": "K^{-1}",
+      "minValue": 10,
+      "maxValue": 200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1.05,
+      "unitText": "g/cm³",
+      "minValue": 0.85,
+      "maxValue": 2.2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 77,
+      "unitText": "Shore D",
+      "minValue": 61.6,
+      "maxValue": 92.39999999999999,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.65,
+      "unitText": "dimensionless (normalized resistance index)",
+      "minValue": 5,
+      "maxValue": 9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 100,
+      "unitText": "m^{-1}",
+      "minValue": 0.1,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 70,
+      "unitText": "MPa",
+      "minValue": 20,
+      "maxValue": 200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 1.02e-7,
+      "unitText": "m²/s",
+      "minValue": 0.08,
+      "maxValue": 1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 50,
+      "unitText": "MPa",
+      "minValue": 30,
+      "maxValue": 200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 40,
+      "unitText": "MPa",
+      "minValue": 10,
+      "maxValue": 400,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Polystyrene Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/polystyrene-laser-cleaning"
+  "citation": "Z-Beam (2025). Polystyrene Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/plastic/thermoplastic/polystyrene-laser-cleaning"
 }

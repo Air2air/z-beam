@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Bluestone Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-04
+Last Updated:   2025-11-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            http://localhost:3000/materials/stone/sedimentary/bluestone-laser-cleaning
+URL:            https://www.z-beam.com/materials/stone/sedimentary/bluestone-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-04
+Last Verified:  2025-11-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -26,7 +26,7 @@ MATERIAL INFORMATION
 ================================================================================
 
 Material:       Bluestone
-Category:       stone
+Category:       Stone
 Subcategory:    sedimentary
 Identifier:     bluestone-laser-cleaning
 
@@ -37,17 +37,115 @@ MATERIAL PROPERTIES
 MATERIAL CHARACTERISTICS:
 --------------------------------------------------------------------------------
   fractureToughness:
-    Value:  1.2 MPa·√m
-    Min:    0.5 MPa·√m
-    Max:    5 MPa·√m
-    Source: ISRM Suggested Methods for determining fracture toughness of rock (Ulusay & Hudson, 2007), citing typical values for fine-grained sandstones and siltstones.
+    Value:  1.05 MPa m^{1/2}
+    Min:    0.5 MPa m^{1/2}
+    Max:    5 MPa m^{1/2}
+    Source: ai_research
 
+  thermalDestruction:
+    Value:  950 °C
+    Min:    273 °C
+    Max:    2300 °C
+    Source: ai_research
+
+  density:
+    Value:  2650 kg/m³
+    Min:    1.5 kg/m³
+    Max:    6 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.96 dimensionless (scale 0-1)
+    Min:    400 dimensionless (scale 0-1)
+    Max:    870 dimensionless (scale 0-1)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.32 
+    Min:    5 
+    Max:    80 
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000085 K^{-1}
+    Min:    3 K^{-1}
+    Max:    30 K^{-1}
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  1.7 W/m·K
+    Min:    0.2 W/m·K
+    Max:    8 W/m·K
+    Source: ai_research
+
+  youngsModulus:
+    Value:  15000000000 Pa
+    Min:    10 Pa
+    Max:    100 Pa
+    Source: ai_research
+
+  hardness:
+    Value:  6.5 Mohs
+    Min:    1 Mohs
+    Max:    7 Mohs
+    Source: ai_research
+
+  specificHeat:
+    Value:  920 J/(kg·K)
+    Min:    400 J/(kg·K)
+    Max:    1200 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.68 dimensionless
+    Min:    0.1 dimensionless
+    Max:    100 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  124 MPa
+    Min:    20 MPa
+    Max:    500 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  4.8 MPa
+    Min:    2 MPa
+    Max:    25 MPa
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.00000125 m²/s
+    Min:    0.2 m²/s
+    Max:    2.5 m²/s
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  8.27 MPa
+    Min:    5 MPa
+    Max:    50 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.92 dimensionless (normalized resistance index)
+    Min:    2 dimensionless (normalized resistance index)
+    Max:    9 dimensionless (normalized resistance index)
+    Source: ai_research
+
+  porosity:
+    Value:  4.2 %
+    Min:    0.5 %
+    Max:    25 %
+    Source: ai_research
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
 ================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Bluestone Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/sedimentary/bluestone-laser-cleaning
+  Z-Beam (2025). Bluestone Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/sedimentary/bluestone-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

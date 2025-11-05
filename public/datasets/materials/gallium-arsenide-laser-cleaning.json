@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning#dataset",
   "name": "Gallium Arsenide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Gallium Arsenide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "gallium arsenide",
     "laser cleaning",
-    "semiconductor",
+    "Semiconductor",
     "elemental",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/gallium-arsenide-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/gallium-arsenide-laser-cleaning.json",
       "name": "Gallium Arsenide Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/gallium-arsenide-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/gallium-arsenide-laser-cleaning.csv",
       "name": "Gallium Arsenide Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/gallium-arsenide-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/gallium-arsenide-laser-cleaning.txt",
       "name": "Gallium Arsenide Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,32 +83,155 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Gallium Arsenide",
     "slug": "gallium-arsenide-laser-cleaning",
     "classification": {
-      "category": "semiconductor",
+      "category": "Semiconductor",
       "subcategory": "elemental"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
+          "value": 3300000,
+          "unit": "Ω m",
+          "confidence": 98,
           "source": "ai_research",
-          "unit": "Ω·m",
-          "value": 37000000,
           "min": 0.001,
           "max": 1000
         },
-        "fractureToughness": 0.44
+        "fractureToughness": 0.44,
+        "thermalDestruction": {
+          "value": 1511,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 273,
+          "max": 1685
+        },
+        "density": {
+          "value": 5.317,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 2.3,
+          "max": 7.13
+        },
+        "oxidationResistance": {
+          "value": 0.008,
+          "unit": "nm/min",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 600,
+          "max": 1600
+        },
+        "laserReflectivity": {
+          "value": 0.3,
+          "unit": "1",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10,
+          "max": 70
+        },
+        "thermalExpansion": {
+          "value": 0.00000573,
+          "unit": "1/K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 2.6,
+          "max": 10
+        },
+        "thermalConductivity": {
+          "value": 55,
+          "unit": "W/m·K",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 0.2,
+          "max": 156
+        },
+        "youngsModulus": {
+          "value": 85.4,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 5,
+          "max": 450
+        },
+        "hardness": {
+          "value": 7.5,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 2600
+        },
+        "specificHeat": {
+          "value": 322,
+          "unit": "J/(kg·K)",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 300,
+          "max": 900
+        },
+        "laserAbsorption": {
+          "value": 0.68,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.01,
+          "max": 100
+        },
+        "compressiveStrength": {
+          "value": 1170,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 370,
+          "max": 6000
+        },
+        "tensileStrength": {
+          "value": 41,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 7000
+        },
+        "thermalDiffusivity": {
+          "value": 0.000032,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 90
+        },
+        "flexuralStrength": {
+          "value": 140,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 120,
+          "max": 410
+        },
+        "corrosionResistance": {
+          "value": 0.85,
+          "unit": "dimensionless (normalized resistance scale 0-1)",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 8,
+          "max": 9
+        }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -121,12 +244,177 @@
       "propertyID": "electricalResistivity",
       "name": "Electrical Resistivity",
       "description": "Electrical Resistivity - material characteristics",
-      "value": 37000000,
-      "unitText": "Ω·m",
+      "value": 3300000,
+      "unitText": "Ω m",
       "minValue": 0.001,
       "maxValue": 1000,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1511,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 1685,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 5.317,
+      "unitText": "g/cm³",
+      "minValue": 2.3,
+      "maxValue": 7.13,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0.008,
+      "unitText": "nm/min",
+      "minValue": 600,
+      "maxValue": 1600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.3,
+      "unitText": "1",
+      "minValue": 10,
+      "maxValue": 70,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.00000573,
+      "unitText": "1/K",
+      "minValue": 2.6,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 55,
+      "unitText": "W/m·K",
+      "minValue": 0.2,
+      "maxValue": 156,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 85.4,
+      "unitText": "GPa",
+      "minValue": 5,
+      "maxValue": 450,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 7.5,
+      "unitText": "GPa",
+      "minValue": 2,
+      "maxValue": 2600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 322,
+      "unitText": "J/(kg·K)",
+      "minValue": 300,
+      "maxValue": 900,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.68,
+      "unitText": "dimensionless",
+      "minValue": 0.01,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 1170,
+      "unitText": "MPa",
+      "minValue": 370,
+      "maxValue": 6000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 41,
+      "unitText": "MPa",
+      "minValue": 50,
+      "maxValue": 7000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 0.000032,
+      "unitText": "m²/s",
+      "minValue": 0.1,
+      "maxValue": 90,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 140,
+      "unitText": "MPa",
+      "minValue": 120,
+      "maxValue": 410,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.85,
+      "unitText": "dimensionless (normalized resistance scale 0-1)",
+      "minValue": 8,
+      "maxValue": 9,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning"
+  "citation": "Z-Beam (2025). Gallium Arsenide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/semiconductor/elemental/gallium-arsenide-laser-cleaning"
 }

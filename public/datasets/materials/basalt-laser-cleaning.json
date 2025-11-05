@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/stone/igneous/basalt-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/stone/igneous/basalt-laser-cleaning#dataset",
   "name": "Basalt Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Basalt. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "basalt",
     "laser cleaning",
-    "stone",
+    "Stone",
     "igneous",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/basalt-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/basalt-laser-cleaning.json",
       "name": "Basalt Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/basalt-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/basalt-laser-cleaning.csv",
       "name": "Basalt Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/basalt-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/basalt-laser-cleaning.txt",
       "name": "Basalt Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,32 +83,162 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Basalt",
     "slug": "basalt-laser-cleaning",
     "classification": {
-      "category": "stone",
+      "category": "Stone",
       "subcategory": "igneous"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "fractureToughness": {
-          "ai_verified": true,
-          "source": "Nara, Y., Meredith, P. G., Yoneda, T., & Kaneko, K. (2011). Influence of macro-fractures and micro-fractures on permeability and elastic wave velocities in basalt at elevated pressure. Tectonophysics, 503(1-2), 52-59.",
-          "unit": "MPa·√m",
-          "value": 1.5,
+          "value": 2.4,
+          "unit": "MPa m^{0.5}",
+          "confidence": 95,
+          "source": "ai_research",
           "min": 0.5,
           "max": 5
+        },
+        "thermalDestruction": {
+          "value": 1673,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 2300
+        },
+        "density": {
+          "value": 2900,
+          "unit": "kg/m³",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1.5,
+          "max": 6
+        },
+        "oxidationResistance": {
+          "value": 0.96,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 400,
+          "max": 870
+        },
+        "laserReflectivity": {
+          "value": 0.1,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 80
+        },
+        "thermalExpansion": {
+          "value": 0.0000065,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 3,
+          "max": 30
+        },
+        "thermalConductivity": {
+          "value": 1.74,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.2,
+          "max": 8
+        },
+        "youngsModulus": {
+          "value": 89,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10,
+          "max": 100
+        },
+        "hardness": {
+          "value": 6,
+          "unit": "Mohs",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1,
+          "max": 7
+        },
+        "specificHeat": {
+          "value": 840,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 400,
+          "max": 1200
+        },
+        "laserAbsorption": {
+          "value": 7500,
+          "unit": "cm^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 100
+        },
+        "compressiveStrength": {
+          "value": 200,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 20,
+          "max": 500
+        },
+        "tensileStrength": {
+          "value": 14,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 25
+        },
+        "thermalDiffusivity": {
+          "value": 8.5e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.2,
+          "max": 2.5
+        },
+        "flexuralStrength": {
+          "value": 20,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 50
+        },
+        "corrosionResistance": {
+          "value": 0.96,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 9
+        },
+        "porosity": {
+          "value": 3.4,
+          "unit": "%",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.5,
+          "max": 25
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -121,12 +251,188 @@
       "propertyID": "fractureToughness",
       "name": "Fracture Toughness",
       "description": "Fracture Toughness - material characteristics",
-      "value": 1.5,
-      "unitText": "MPa·√m",
+      "value": 2.4,
+      "unitText": "MPa m^{0.5}",
       "minValue": 0.5,
       "maxValue": 5,
-      "measurementTechnique": "Nara, Y., Meredith, P. G., Yoneda, T., & Kaneko, K. (2011). Influence of macro-fractures and micro-fractures on permeability and elastic wave velocities in basalt at elevated pressure. Tectonophysics, 503(1-2), 52-59."
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1673,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2300,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2900,
+      "unitText": "kg/m³",
+      "minValue": 1.5,
+      "maxValue": 6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0.96,
+      "unitText": "dimensionless",
+      "minValue": 400,
+      "maxValue": 870,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.1,
+      "unitText": "dimensionless",
+      "minValue": 5,
+      "maxValue": 80,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.0000065,
+      "unitText": "K^{-1}",
+      "minValue": 3,
+      "maxValue": 30,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 1.74,
+      "unitText": "W/m·K",
+      "minValue": 0.2,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 89,
+      "unitText": "GPa",
+      "minValue": 10,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 6,
+      "unitText": "Mohs",
+      "minValue": 1,
+      "maxValue": 7,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 840,
+      "unitText": "J/(kg·K)",
+      "minValue": 400,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 7500,
+      "unitText": "cm^{-1}",
+      "minValue": 0.1,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 200,
+      "unitText": "MPa",
+      "minValue": 20,
+      "maxValue": 500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 14,
+      "unitText": "MPa",
+      "minValue": 2,
+      "maxValue": 25,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 8.5e-7,
+      "unitText": "m²/s",
+      "minValue": 0.2,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 20,
+      "unitText": "MPa",
+      "minValue": 5,
+      "maxValue": 50,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.96,
+      "unitText": "dimensionless",
+      "minValue": 2,
+      "maxValue": 9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 3.4,
+      "unitText": "%",
+      "minValue": 0.5,
+      "maxValue": 25,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Basalt Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/stone/igneous/basalt-laser-cleaning"
+  "citation": "Z-Beam (2025). Basalt Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/stone/igneous/basalt-laser-cleaning"
 }

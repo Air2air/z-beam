@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Nickel Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-04
+Last Updated:   2025-11-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            http://localhost:3000/materials/metal/non-ferrous/nickel-laser-cleaning
+URL:            https://www.z-beam.com/materials/metal/specialty/nickel-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-04
+Last Verified:  2025-11-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -26,8 +26,8 @@ MATERIAL INFORMATION
 ================================================================================
 
 Material:       Nickel
-Category:       metal
-Subcategory:    non-ferrous
+Category:       Metal
+Subcategory:    specialty
 Identifier:     nickel-laser-cleaning
 
 ================================================================================
@@ -49,15 +49,171 @@ MATERIAL CHARACTERISTICS:
     Source: ai_research
 
   fractureToughness:
-    Value:  125 MPa·√m
-    Min:    20 MPa·√m
-    Max:    200 MPa·√m
-    Source: ASM Handbook, Volume 19: Fatigue and Fracture, "Fracture Toughness of Metals"
+    Value:  55 MPa√m
+    Min:    20 MPa√m
+    Max:    200 MPa√m
+    Source: ai_research
 
   surfaceRoughness:
-    Value:  0.15 μm
+    Value:  0.12 μm
     Min:    0.05 μm
     Max:    150 μm
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1728 K
+    Min:    273 K
+    Max:    3695 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  445 J/kg·K
+    Min:    100 J/kg·K
+    Max:    2000 J/kg·K
+    Source: ai_research
+
+  youngsModulus:
+    Value:  200 GPa
+    Min:    5 GPa
+    Max:    600 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  1.65 dimensionless
+    Min:    200 dimensionless
+    Max:    1200 dimensionless
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.65 
+    Min:    5 
+    Max:    99.9 
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  90.7 W/m·K
+    Min:    7 W/m·K
+    Max:    430 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000133 /K
+    Min:    0.5 /K
+    Max:    33 /K
+    Source: ai_research
+
+  density:
+    Value:  8908 kg/m³
+    Min:    0.53 kg/m³
+    Max:    22.6 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  150 HV
+    Min:    0.2 HV
+    Max:    3500 HV
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.005 mm/year
+    Min:    0.01 mm/year
+    Max:    10 mm/year
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.35 dimensionless
+    Min:    0.02 dimensionless
+    Max:    100 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  345 MPa
+    Min:    50 MPa
+    Max:    2000 MPa
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.0000229 m²/s
+    Min:    0.06 m²/s
+    Max:    174 m²/s
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  483 MPa
+    Min:    2.5 MPa
+    Max:    1050 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  455 MPa
+    Min:    3 MPa
+    Max:    3000 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0 fraction
+    Min:    0 fraction
+    Max:    15 fraction
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  2.1 J/cm²
+    Min:    0.8 J/cm²
+    Max:    8 J/cm²
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.37 dimensionless
+    Min:    2 dimensionless
+    Max:    65 dimensionless
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3186 K
+    Min:    907 K
+    Max:    5870 K
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  5600000 m^{-1}
+    Min:    1000000 m^{-1}
+    Max:    100000000 m^{-1}
+    Source: ai_research
+
+  meltingPoint:
+    Value:  1728 K
+    Min:    -39 K
+    Max:    3422 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  101325 Pa
+    Min:    1e-10 Pa
+    Max:    0.001 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1728 K
+    Min:    873 K
+    Max:    3695 K
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.63 dimensionless
+    Min:    85 dimensionless
+    Max:    98 dimensionless
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  117 K
+    Min:    50 K
+    Max:    400 K
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  2.1 J/cm²
+    Min:    0.1 J/cm²
+    Max:    20 J/cm²
     Source: ai_research
 
 LASER MATERIAL INTERACTION:
@@ -109,7 +265,7 @@ CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Nickel Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/nickel-laser-cleaning
+  Z-Beam (2025). Nickel Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/specialty/nickel-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

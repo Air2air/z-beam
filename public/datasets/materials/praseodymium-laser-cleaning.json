@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/rare-earth/lanthanide/praseodymium-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/rare-earth/lanthanide/praseodymium-laser-cleaning#dataset",
   "name": "Praseodymium Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Praseodymium. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "praseodymium",
     "laser cleaning",
-    "rare-earth",
+    "Rare-Earth",
     "lanthanide",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/praseodymium-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/praseodymium-laser-cleaning.json",
       "name": "Praseodymium Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/praseodymium-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/praseodymium-laser-cleaning.csv",
       "name": "Praseodymium Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/praseodymium-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/praseodymium-laser-cleaning.txt",
       "name": "Praseodymium Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,24 +83,130 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Praseodymium",
     "slug": "praseodymium-laser-cleaning",
     "classification": {
-      "category": "rare-earth",
+      "category": "Rare-Earth",
       "subcategory": "lanthanide"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40
+        "percentage": 92.9,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "thermalDestruction": {
+          "value": 1204,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 273,
+          "max": 3520
+        },
+        "specificHeat": {
+          "value": 195.2,
+          "unit": "J/(kg·K)",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 150,
+          "max": 200
+        },
+        "youngsModulus": {
+          "value": 37.3,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 25,
+          "max": 65
+        },
+        "oxidationResistance": {
+          "value": 1.16,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 300,
+          "max": 600
+        },
+        "laserReflectivity": {
+          "value": 0.72,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 40,
+          "max": 75
+        },
+        "thermalConductivity": {
+          "value": 17,
+          "unit": "W/(m·K)",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 10,
+          "max": 17
+        },
+        "thermalExpansion": {
+          "value": 11.3,
+          "unit": "10^{-6} K^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 12
+        },
+        "density": {
+          "value": 6.773,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 6.1,
+          "max": 9.8
+        },
+        "hardness": {
+          "value": 26,
+          "unit": "HV",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 25,
+          "max": 60
+        },
+        "ablationThreshold": {
+          "value": 2.85,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.5,
+          "max": 2
+        },
+        "absorptivity": {
+          "value": 0.32,
+          "unit": "",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 0.25,
+          "max": 0.6
+        },
+        "boilingPoint": {
+          "value": 3512,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 2800,
+          "max": 3700
+        },
+        "absorptionCoefficient": {
+          "value": 63000000,
+          "unit": "m^{-1}",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 0.3,
+          "max": 0.8
+        }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40,
+        "percentage": 7.1,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
         "absorptivity": {
           "source": "ai_research",
           "unit": "dimensionless",
@@ -117,6 +223,149 @@
   "variableMeasured": [
     {
       "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1204,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3520,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 195.2,
+      "unitText": "J/(kg·K)",
+      "minValue": 150,
+      "maxValue": 200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 37.3,
+      "unitText": "GPa",
+      "minValue": 25,
+      "maxValue": 65,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 1.16,
+      "unitText": "dimensionless",
+      "minValue": 300,
+      "maxValue": 600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.72,
+      "unitText": "dimensionless",
+      "minValue": 40,
+      "maxValue": 75,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 17,
+      "unitText": "W/(m·K)",
+      "minValue": 10,
+      "maxValue": 17,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 11.3,
+      "unitText": "10^{-6} K^{-1}",
+      "minValue": 5,
+      "maxValue": 12,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 6.773,
+      "unitText": "g/cm³",
+      "minValue": 6.1,
+      "maxValue": 9.8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 26,
+      "unitText": "HV",
+      "minValue": 25,
+      "maxValue": 60,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - material characteristics",
+      "value": 2.85,
+      "unitText": "J/cm²",
+      "minValue": 0.5,
+      "maxValue": 2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.32,
+      "unitText": "",
+      "minValue": 0.25,
+      "maxValue": 0.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 3512,
+      "unitText": "K",
+      "minValue": 2800,
+      "maxValue": 3700,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - material characteristics",
+      "value": 63000000,
+      "unitText": "m^{-1}",
+      "minValue": 0.3,
+      "maxValue": 0.8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
       "propertyID": "absorptivity",
       "name": "Absorptivity",
       "description": "Absorptivity - laser material interaction",
@@ -127,5 +376,5 @@
       "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Praseodymium Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/rare-earth/lanthanide/praseodymium-laser-cleaning"
+  "citation": "Z-Beam (2025). Praseodymium Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/rare-earth/lanthanide/praseodymium-laser-cleaning"
 }

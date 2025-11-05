@@ -48,6 +48,7 @@ export default async function DatasetsPage() {
   return (
     <>
       {/* Schema.org DataCatalog */}
+      {/* Schema.org DataCatalog */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -75,6 +76,31 @@ export default async function DatasetsPage() {
               '@type': 'Place',
               name: 'Global'
             }
+          })
+        }}
+      />
+
+      {/* Schema.org BreadcrumbList */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+              {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': process.env.NEXT_PUBLIC_SITE_URL || 'https://z-beam.com'
+              },
+              {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Datasets',
+                'item': `${process.env.NEXT_PUBLIC_SITE_URL || 'https://z-beam.com'}/datasets`
+              }
+            ]
           })
         }}
       />

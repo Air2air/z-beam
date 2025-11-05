@@ -7,6 +7,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import yaml from 'js-yaml';
+import { normalizeForUrl } from './urlBuilder';
 
 export interface CategoryInfo {
   slug: string;
@@ -46,9 +47,9 @@ export async function getAllCategories(): Promise<CategoryInfo[]> {
     
     if (!data.category) continue;
     
-    const categorySlug = data.category.toLowerCase().replace(/\s+/g, '-');
+    const categorySlug = normalizeForUrl(data.category);
     const categoryLabel = capitalizeWords(data.category);
-    const subcategorySlug = data.subcategory?.toLowerCase().replace(/\s+/g, '-');
+    const subcategorySlug = data.subcategory ? normalizeForUrl(data.subcategory) : undefined;
     const subcategoryLabel = data.subcategory ? capitalizeWords(data.subcategory) : undefined;
     const materialSlug = file.replace(/\.(yaml|yml)$/, '');
     

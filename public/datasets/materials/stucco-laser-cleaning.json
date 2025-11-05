@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/masonry/concrete/stucco-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning#dataset",
   "name": "Stucco Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Stucco. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "stucco",
     "laser cleaning",
-    "masonry",
+    "Masonry",
     "concrete",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/stucco-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/stucco-laser-cleaning.json",
       "name": "Stucco Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/stucco-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/stucco-laser-cleaning.csv",
       "name": "Stucco Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/stucco-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/stucco-laser-cleaning.txt",
       "name": "Stucco Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,28 +83,337 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Stucco",
     "slug": "stucco-laser-cleaning",
     "classification": {
-      "category": "masonry",
+      "category": "Masonry",
       "subcategory": "concrete"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
-        "label": "Material Characteristics"
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "thermalDestruction": {
+          "value": 773,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 2500
+        },
+        "specificHeat": {
+          "value": 880,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 700,
+          "max": 1100
+        },
+        "youngsModulus": {
+          "value": 18.5,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 3,
+          "max": 50
+        },
+        "oxidationResistance": {
+          "value": 0.95,
+          "unit": "dimensionless (relative scale 0-1)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 300,
+          "max": 1200
+        },
+        "laserReflectivity": {
+          "value": 0.28,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10,
+          "max": 70
+        },
+        "thermalConductivity": {
+          "value": 0.72,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.08,
+          "max": 2.5
+        },
+        "thermalExpansion": {
+          "value": 0.0000104,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 20
+        },
+        "density": {
+          "value": 1760,
+          "unit": "kg/m³",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.6,
+          "max": 3.2
+        },
+        "hardness": {
+          "value": 2.5,
+          "unit": "Mohs",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1,
+          "max": 6
+        },
+        "corrosionResistance": {
+          "value": 0.92,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 8
+        },
+        "laserAbsorption": {
+          "value": 0.42,
+          "unit": "",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.5,
+          "max": 15
+        },
+        "compressiveStrength": {
+          "value": 10.3,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 100
+        },
+        "thermalDiffusivity": {
+          "value": 4.5e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 1
+        },
+        "flexuralStrength": {
+          "value": 4.2,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 20
+        },
+        "tensileStrength": {
+          "value": 0.7,
+          "unit": "MPa",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 1,
+          "max": 15
+        },
+        "fractureToughness": {
+          "value": 0.42,
+          "unit": "MPa m^{0.5}",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 0.15,
+          "max": 1.1
+        },
+        "percentage": 100
       },
       "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
+        "label": "Laser-Material Interaction",
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 0
       }
     },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
   },
-  "variableMeasured": [],
-  "citation": "Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/masonry/concrete/stucco-laser-cleaning"
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 773,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 880,
+      "unitText": "J/(kg·K)",
+      "minValue": 700,
+      "maxValue": 1100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 18.5,
+      "unitText": "GPa",
+      "minValue": 3,
+      "maxValue": 50,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0.95,
+      "unitText": "dimensionless (relative scale 0-1)",
+      "minValue": 300,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.28,
+      "unitText": "dimensionless",
+      "minValue": 10,
+      "maxValue": 70,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 0.72,
+      "unitText": "W/m·K",
+      "minValue": 0.08,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.0000104,
+      "unitText": "K^{-1}",
+      "minValue": 5,
+      "maxValue": 20,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 1760,
+      "unitText": "kg/m³",
+      "minValue": 0.6,
+      "maxValue": 3.2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 2.5,
+      "unitText": "Mohs",
+      "minValue": 1,
+      "maxValue": 6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.92,
+      "unitText": "dimensionless",
+      "minValue": 2,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.42,
+      "unitText": "",
+      "minValue": 0.5,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 10.3,
+      "unitText": "MPa",
+      "minValue": 5,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 4.5e-7,
+      "unitText": "m²/s",
+      "minValue": 0.1,
+      "maxValue": 1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 4.2,
+      "unitText": "MPa",
+      "minValue": 2,
+      "maxValue": 20,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 0.7,
+      "unitText": "MPa",
+      "minValue": 1,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 0.42,
+      "unitText": "MPa m^{0.5}",
+      "minValue": 0.15,
+      "maxValue": 1.1,
+      "measurementTechnique": "ai_research"
+    }
+  ],
+  "citation": "Z-Beam (2025). Stucco Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/concrete/stucco-laser-cleaning"
 }

@@ -10,6 +10,21 @@ import { SITE_CONFIG } from './constants';
 
 export type ContentType = 'material' | 'service' | 'article' | 'page' | 'product' | 'equipment' | 'custom';
 
+/**
+ * Normalizes a string for use in URLs
+ * Converts to lowercase and replaces spaces with hyphens
+ * 
+ * @param value - String to normalize
+ * @returns Normalized URL-safe string
+ * 
+ * @example
+ * normalizeForUrl('Metal Alloy') // => 'metal-alloy'
+ * normalizeForUrl('Stainless Steel') // => 'stainless-steel'
+ */
+export function normalizeForUrl(value: string): string {
+  return value.toLowerCase().replace(/\s+/g, '-');
+}
+
 export interface UrlBuildOptions {
   rootPath?: string;      // e.g., 'materials', 'products', 'equipment'
   category?: string;
@@ -93,7 +108,10 @@ export function buildUrl(options: UrlBuildOptions): string {
   // Hierarchical URL: rootPath/category/subcategory/slug
   if (category && subcategory) {
     const root = rootPath || 'materials'; // Default to 'materials' for backward compatibility
-    path = `/${root}/${category}/${subcategory}/${slug}`;
+    // Normalize category and subcategory to lowercase with hyphens for URL consistency
+    const normalizedCategory = normalizeForUrl(category);
+    const normalizedSubcategory = normalizeForUrl(subcategory);
+    path = `/${root}/${normalizedCategory}/${normalizedSubcategory}/${slug}`;
   }
   // Flat URL: /slug (services, articles, pages)
   else {

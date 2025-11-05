@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Rubber Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-04
+Last Updated:   2025-11-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            http://localhost:3000/materials/composite/fiber-reinforced/rubber-laser-cleaning
+URL:            https://www.z-beam.com/materials/composite/fiber-reinforced/rubber-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-04
+Last Verified:  2025-11-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -26,7 +26,7 @@ MATERIAL INFORMATION
 ================================================================================
 
 Material:       Rubber
-Category:       composite
+Category:       Composite
 Subcategory:    fiber-reinforced
 Identifier:     rubber-laser-cleaning
 
@@ -37,23 +37,115 @@ MATERIAL PROPERTIES
 MATERIAL CHARACTERISTICS:
 --------------------------------------------------------------------------------
   electricalResistivity:
-    Value:  10000000000000 Ω·m
+    Value:  10000 Ω·m
     Min:    0.001 Ω·m
     Max:    100000000000000 Ω·m
     Source: ai_research
 
   fractureToughness:
-    Value:  0.05 MPa·√m
-    Min:    20 MPa·√m
-    Max:    100 MPa·√m
-    Source: "Fracture Mechanics of Rubber Materials" in The Science and Technology of Rubber (4th ed.), Chapter 10, J.G. Sommer et al., Academic Press, 2013
+    Value:  3.2 MPa m^{0.5}
+    Min:    20 MPa m^{0.5}
+    Max:    100 MPa m^{0.5}
+    Source: ai_research
 
+  thermalDestruction:
+    Value:  673 K
+    Min:    273 K
+    Max:    900 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  1700 J/(kg·K)
+    Min:    500 J/(kg·K)
+    Max:    2500 J/(kg·K)
+    Source: ai_research
+
+  youngsModulus:
+    Value:  0.003 GPa
+    Min:    0.001 GPa
+    Max:    3000 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  36 h
+    Min:    80 h
+    Max:    1650 h
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.07 fraction
+    Min:    2 fraction
+    Max:    80 fraction
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.17 W/m·K
+    Min:    0.03 W/m·K
+    Max:    400 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0002 K^{-1}
+    Min:    -1 K^{-1}
+    Max:    250 K^{-1}
+    Source: ai_research
+
+  density:
+    Value:  1.15 g/cm³
+    Min:    0.5 g/cm³
+    Max:    8 g/cm³
+    Source: ai_research
+
+  hardness:
+    Value:  65 Shore A
+    Min:    5 Shore A
+    Max:    120 Shore A
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.95 dimensionless (normalized resistance index)
+    Min:    5 dimensionless (normalized resistance index)
+    Max:    9 dimensionless (normalized resistance index)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  120000 m^{-1}
+    Min:    0.05 m^{-1}
+    Max:    200 m^{-1}
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  16.5 MPa
+    Min:    50 MPa
+    Max:    1000 MPa
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  1.04e-7 m²/s
+    Min:    0.08 m²/s
+    Max:    180 m²/s
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  12.5 MPa
+    Min:    100 MPa
+    Max:    2000 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  22 MPa
+    Min:    20 MPa
+    Max:    6000 MPa
+    Source: ai_research
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
 ================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Rubber Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/rubber-laser-cleaning
+  Z-Beam (2025). Rubber Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/composite/fiber-reinforced/rubber-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

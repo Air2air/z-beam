@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/glass/soda-lime/fused-silica-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/glass/soda-lime/fused-silica-laser-cleaning#dataset",
   "name": "Fused Silica Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Fused Silica. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "fused silica",
     "laser cleaning",
-    "glass",
+    "Glass",
     "soda-lime",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/fused-silica-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/fused-silica-laser-cleaning.json",
       "name": "Fused Silica Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/fused-silica-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/fused-silica-laser-cleaning.csv",
       "name": "Fused Silica Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/fused-silica-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/fused-silica-laser-cleaning.txt",
       "name": "Fused Silica Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,32 +83,163 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Fused Silica",
     "slug": "fused-silica-laser-cleaning",
     "classification": {
-      "category": "glass",
+      "category": "Glass",
       "subcategory": "soda-lime"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
-          "source": "ai_research",
+          "value": 10000000000000000,
           "unit": "Ω·m",
-          "value": 1000000000000000000,
+          "confidence": 98,
+          "source": "ai_research",
           "min": 10000000000,
           "max": 1000000000000000
         },
-        "fractureToughness": 0.75
+        "fractureToughness": 0.75,
+        "thermalDestruction": {
+          "value": 1986,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 2300
+        },
+        "density": {
+          "value": 2.203,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 1.2,
+          "max": 7.6
+        },
+        "oxidationResistance": {
+          "value": 0,
+          "unit": "g/m²/s",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 400,
+          "max": 1700
+        },
+        "laserReflectivity": {
+          "value": 0.035,
+          "unit": "",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 92
+        },
+        "thermalExpansion": {
+          "value": 5.5e-7,
+          "unit": "K^{-1}",
+          "confidence": 99,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 15
+        },
+        "thermalConductivity": {
+          "value": 1.38,
+          "unit": "W/m·K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 0.7,
+          "max": 30
+        },
+        "youngsModulus": {
+          "value": 73,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 10,
+          "max": 400
+        },
+        "hardness": {
+          "value": 5.5,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 3.5,
+          "max": 9.5
+        },
+        "specificHeat": {
+          "value": 740,
+          "unit": "J/(kg·K)",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 120,
+          "max": 900
+        },
+        "laserAbsorption": {
+          "value": 0.1,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.001,
+          "max": 10
+        },
+        "compressiveStrength": {
+          "value": 1100,
+          "unit": "MPa",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 500,
+          "max": 2000
+        },
+        "tensileStrength": {
+          "value": 48,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 30,
+          "max": 2000
+        },
+        "thermalDiffusivity": {
+          "value": 8.4e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.01,
+          "max": 15
+        },
+        "flexuralStrength": {
+          "value": 50,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 750
+        },
+        "corrosionResistance": {
+          "value": 0.999,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 9,
+          "max": 10
+        },
+        "ablationThreshold": {
+          "value": 9.2,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 6
+        }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -121,12 +252,188 @@
       "propertyID": "electricalResistivity",
       "name": "Electrical Resistivity",
       "description": "Electrical Resistivity - material characteristics",
-      "value": 1000000000000000000,
+      "value": 10000000000000000,
       "unitText": "Ω·m",
       "minValue": 10000000000,
       "maxValue": 1000000000000000,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1986,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2300,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2.203,
+      "unitText": "g/cm³",
+      "minValue": 1.2,
+      "maxValue": 7.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0,
+      "unitText": "g/m²/s",
+      "minValue": 400,
+      "maxValue": 1700,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.035,
+      "unitText": "",
+      "minValue": 0.1,
+      "maxValue": 92,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 5.5e-7,
+      "unitText": "K^{-1}",
+      "minValue": 0.1,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 1.38,
+      "unitText": "W/m·K",
+      "minValue": 0.7,
+      "maxValue": 30,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 73,
+      "unitText": "GPa",
+      "minValue": 10,
+      "maxValue": 400,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 5.5,
+      "unitText": "GPa",
+      "minValue": 3.5,
+      "maxValue": 9.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 740,
+      "unitText": "J/(kg·K)",
+      "minValue": 120,
+      "maxValue": 900,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.1,
+      "unitText": "m^{-1}",
+      "minValue": 0.001,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 1100,
+      "unitText": "MPa",
+      "minValue": 500,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 48,
+      "unitText": "MPa",
+      "minValue": 30,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 8.4e-7,
+      "unitText": "m²/s",
+      "minValue": 0.01,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 50,
+      "unitText": "MPa",
+      "minValue": 50,
+      "maxValue": 750,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.999,
+      "unitText": "dimensionless",
+      "minValue": 9,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - material characteristics",
+      "value": 9.2,
+      "unitText": "J/cm²",
+      "minValue": 2,
+      "maxValue": 6,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Fused Silica Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/glass/soda-lime/fused-silica-laser-cleaning"
+  "citation": "Z-Beam (2025). Fused Silica Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/glass/soda-lime/fused-silica-laser-cleaning"
 }

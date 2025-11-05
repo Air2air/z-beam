@@ -1,9 +1,10 @@
 // scripts/generate-datasets.ts
 // Generates static dataset files (JSON, CSV, TXT) for each material at build time
 
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
+import * as fs from 'fs';
+import * as path from 'path';
+import * as yaml from 'js-yaml';
+import { normalizeForUrl } from '../app/utils/urlBuilder';
 import type { MaterialDatasetData } from '../types/centralized.js';
 import { SITE_CONFIG } from '../app/config/site.js';
 
@@ -18,7 +19,9 @@ function generateJSON(material: MaterialData, slug: string): string {
   const config = SITE_CONFIG.datasets;
   const baseUrl = SITE_CONFIG.url;
   const currentYear = new Date().getFullYear();
-  const materialUrl = `${baseUrl}/materials/${material.category}/${material.subcategory}/${slug}`;
+  const category = normalizeForUrl(material.category || '');
+  const subcategory = normalizeForUrl(material.subcategory || '');
+  const materialUrl = `${baseUrl}/materials/${category}/${subcategory}/${slug}`;
   
   const dataset = {
     '@context': 'https://schema.org',
@@ -210,7 +213,9 @@ function extractVariables(material: MaterialData): any[] {
 function generateCSV(material: MaterialData, slug: string): string {
   const config = SITE_CONFIG.datasets;
   const currentDate = new Date().toISOString().split('T')[0];
-  const materialUrl = `${SITE_CONFIG.url}/materials/${material.category}/${material.subcategory}/${slug}`;
+  const category = normalizeForUrl(material.category || '');
+  const subcategory = normalizeForUrl(material.subcategory || '');
+  const materialUrl = `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`;
   
   const rows: string[][] = [];
   
@@ -321,7 +326,9 @@ function generateCSV(material: MaterialData, slug: string): string {
 function generateTXT(material: MaterialData, slug: string): string {
   const config = SITE_CONFIG.datasets;
   const currentDate = new Date().toISOString().split('T')[0];
-  const materialUrl = `${SITE_CONFIG.url}/materials/${material.category}/${material.subcategory}/${slug}`;
+  const category = (material.category || '').toLowerCase().replace(/\s+/g, '-');
+  const subcategory = (material.subcategory || '').toLowerCase().replace(/\s+/g, '-');
+  const materialUrl = `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`;
   
   let txt = '';
   

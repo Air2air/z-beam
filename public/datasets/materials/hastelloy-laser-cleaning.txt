@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Hastelloy Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-04
+Last Updated:   2025-11-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            http://localhost:3000/materials/metal/non-ferrous/hastelloy-laser-cleaning
+URL:            https://www.z-beam.com/materials/metal/specialty/hastelloy-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-04
+Last Verified:  2025-11-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -26,8 +26,8 @@ MATERIAL INFORMATION
 ================================================================================
 
 Material:       Hastelloy
-Category:       metal
-Subcategory:    non-ferrous
+Category:       Metal
+Subcategory:    specialty
 Identifier:     hastelloy-laser-cleaning
 
 ================================================================================
@@ -37,27 +37,183 @@ MATERIAL PROPERTIES
 MATERIAL CHARACTERISTICS:
 --------------------------------------------------------------------------------
   electricalConductivity:
-    Value:  1.22 MS/m
-    Min:    0.67 MS/m
-    Max:    63 MS/m
+    Value:  800000 S/m
+    Min:    0.67 S/m
+    Max:    63 S/m
     Source: ai_research
 
   electricalResistivity:
-    Value:  1.24 μΩ·m
-    Min:    1e-8 μΩ·m
-    Max:    0.0000015 μΩ·m
+    Value:  0.0000013 Ω·m
+    Min:    1e-8 Ω·m
+    Max:    0.0000015 Ω·m
     Source: ai_research
 
   fractureToughness:
-    Value:  219 MPa·√m
-    Min:    20 MPa·√m
-    Max:    200 MPa·√m
-    Source: ASM Handbook, Volume 19: Fatigue and Fracture, "Fracture Toughness of Metals" (Table 1, p. 767)
+    Value:  55 MPa m^{1/2}
+    Min:    20 MPa m^{1/2}
+    Max:    200 MPa m^{1/2}
+    Source: ai_research
 
   surfaceRoughness:
-    Value:  0.8 µm
-    Min:    0.05 µm
-    Max:    150 µm
+    Value:  1.6 μm
+    Min:    0.05 μm
+    Max:    150 μm
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1621 K
+    Min:    273 K
+    Max:    3695 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  544 J/(kg·K)
+    Min:    100 J/(kg·K)
+    Max:    2000 J/(kg·K)
+    Source: ai_research
+
+  youngsModulus:
+    Value:  205 GPa
+    Min:    5 GPa
+    Max:    600 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  1477 K
+    Min:    200 K
+    Max:    1200 K
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.68 fraction
+    Min:    5 fraction
+    Max:    99.9 fraction
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  9.8 W/m·K
+    Min:    7 W/m·K
+    Max:    430 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000112 /K
+    Min:    0.5 /K
+    Max:    33 /K
+    Source: ai_research
+
+  density:
+    Value:  8.89 g/cm³
+    Min:    0.53 g/cm³
+    Max:    22.6 g/cm³
+    Source: ai_research
+
+  hardness:
+    Value:  92 HRB
+    Min:    0.2 HRB
+    Max:    3500 HRB
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  450000 ohm·cm²
+    Min:    0.01 ohm·cm²
+    Max:    10 ohm·cm²
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.32 dimensionless
+    Min:    0.02 dimensionless
+    Max:    100 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  345 MPa
+    Min:    50 MPa
+    Max:    2000 MPa
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.00000288 m²/s
+    Min:    0.06 m²/s
+    Max:    174 m²/s
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  827 MPa
+    Min:    2.5 MPa
+    Max:    1050 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  690 MPa
+    Min:    3 MPa
+    Max:    3000 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0 fraction
+    Min:    0 fraction
+    Max:    15 fraction
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  2.15 J/cm²
+    Min:    0.8 J/cm²
+    Max:    8 J/cm²
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.35 dimensionless
+    Min:    2 dimensionless
+    Max:    65 dimensionless
+    Source: ai_research
+
+  boilingPoint:
+    Value:  3003 K
+    Min:    907 K
+    Max:    5870 K
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  1200000 cm^{-1}
+    Min:    1000000 cm^{-1}
+    Max:    100000000 cm^{-1}
+    Source: ai_research
+
+  meltingPoint:
+    Value:  1623 K
+    Min:    -39 K
+    Max:    3422 K
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.00133 Pa
+    Min:    1e-10 Pa
+    Max:    0.001 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1347.5 K
+    Min:    873 K
+    Max:    3695 K
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.65 dimensionless (fraction)
+    Min:    85 dimensionless (fraction)
+    Max:    98 dimensionless (fraction)
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  185000 K
+    Min:    50 K
+    Max:    400 K
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Min:    0.1 J/cm²
+    Max:    20 J/cm²
     Source: ai_research
 
 LASER MATERIAL INTERACTION:
@@ -109,7 +265,7 @@ CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Hastelloy Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/hastelloy-laser-cleaning
+  Z-Beam (2025). Hastelloy Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/specialty/hastelloy-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

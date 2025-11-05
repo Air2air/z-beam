@@ -32,7 +32,7 @@ export function Hero({
   const [isInView, setIsInView] = useState(true); // Hero is above-fold, always visible
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const heroRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
 
   // Detect mobile device - deferred to not block LCP
   useEffect(() => {
@@ -96,8 +96,9 @@ export function Hero({
   };
   
   // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
-    // Container classes for responsive layout
+  // Container classes for responsive layout
   const containerClasses = `mx-auto max-w-5xl px-4 sm:px-6`;
+  const aspectRatioClasses = "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-lg");
   const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
   const videoClasses = "absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-[1]";
   const contentClasses = variant === 'fullwidth'
@@ -106,11 +107,11 @@ export function Hero({
 
   return (
     <section 
-      ref={heroRef}
       className={containerClasses}
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
+      <div ref={heroRef} className={aspectRatioClasses}>
       {/* Video Background - Facade pattern on mobile only */}
       {videoUrl ? (
         <>
@@ -258,6 +259,7 @@ export function Hero({
         </div>
       )}
 
+      </div> {/* Close aspect ratio wrapper */}
     </section>
   );
 }

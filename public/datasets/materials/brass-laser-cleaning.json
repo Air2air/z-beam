@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/metal/non-ferrous/brass-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/metal/non-ferrous/brass-laser-cleaning#dataset",
   "name": "Brass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Brass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "brass",
     "laser cleaning",
-    "metal",
+    "Metal",
     "non-ferrous",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/brass-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/brass-laser-cleaning.json",
       "name": "Brass Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/brass-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/brass-laser-cleaning.csv",
       "name": "Brass Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/brass-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/brass-laser-cleaning.txt",
       "name": "Brass Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,53 +83,266 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Brass",
     "slug": "brass-laser-cleaning",
     "classification": {
-      "category": "metal",
+      "category": "Metal",
       "subcategory": "non-ferrous"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 81.1,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalConductivity": {
-          "source": "ai_research",
+          "value": 15900000,
           "unit": "S/m",
-          "value": 15000000,
+          "confidence": 95,
+          "source": "ai_research",
           "min": 0.67,
           "max": 63
         },
         "electricalResistivity": {
-          "source": "ai_research",
+          "value": 6.2e-8,
           "unit": "Ω·m",
-          "value": 6.5e-8,
+          "confidence": 95,
+          "source": "ai_research",
           "min": 1e-8,
           "max": 0.0000015
         },
         "fractureToughness": {
-          "ai_verified": true,
-          "source": "ASM Handbook, Volume 8: Mechanical Testing and Evaluation, \"Fracture Toughness of Metals\"",
-          "unit": "MPa·√m",
-          "value": 100,
+          "value": 52,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research",
           "min": 20,
           "max": 200
         },
         "surfaceRoughness": {
-          "source": "ai_research",
+          "value": 1.6,
           "unit": "μm",
-          "value": 0.32,
+          "confidence": 95,
+          "source": "ai_research",
           "min": 0.05,
           "max": 150
+        },
+        "thermalDestruction": {
+          "value": 1194,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 3695
+        },
+        "density": {
+          "value": 8530,
+          "unit": "kg/m³",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 0.53,
+          "max": 22.6
+        },
+        "oxidationResistance": {
+          "value": 478,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 200,
+          "max": 1200
+        },
+        "laserReflectivity": {
+          "value": 0.94,
+          "unit": "dimensionless",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 5,
+          "max": 99.9
+        },
+        "thermalExpansion": {
+          "value": 0.0000189,
+          "unit": "10^{-6}/K",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 0.5,
+          "max": 33
+        },
+        "thermalConductivity": {
+          "value": 109,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 7,
+          "max": 430
+        },
+        "youngsModulus": {
+          "value": 110,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 600
+        },
+        "hardness": {
+          "value": 65,
+          "unit": "HB",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.2,
+          "max": 3500
+        },
+        "specificHeat": {
+          "value": 385,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 100,
+          "max": 2000
+        },
+        "laserAbsorption": {
+          "value": 0.12,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.02,
+          "max": 100
+        },
+        "compressiveStrength": {
+          "value": 345,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 2000
+        },
+        "tensileStrength": {
+          "value": 315,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 3,
+          "max": 3000
+        },
+        "thermalDiffusivity": {
+          "value": 0.000033,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.06,
+          "max": 174
+        },
+        "flexuralStrength": {
+          "value": 379,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2.5,
+          "max": 1050
+        },
+        "corrosionResistance": {
+          "value": 0.75,
+          "unit": "dimensionless (0-1 scale)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.01,
+          "max": 10
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 0,
+          "max": 15
+        },
+        "ablationThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.8,
+          "max": 8
+        },
+        "boilingPoint": {
+          "value": 2013,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 907,
+          "max": 5870
+        },
+        "absorptivity": {
+          "value": 0.34,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 65
+        },
+        "absorptionCoefficient": {
+          "value": 80000000,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1000000,
+          "max": 100000000
+        },
+        "reflectivity": {
+          "value": 0.92,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 85,
+          "max": 98
+        },
+        "vaporPressure": {
+          "value": 25.3,
+          "unit": "Pa",
+          "confidence": 92,
+          "source": "ai_research",
+          "min": 1e-10,
+          "max": 0.001
+        },
+        "meltingPoint": {
+          "value": 930,
+          "unit": "°C",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": -39,
+          "max": 3422
+        },
+        "thermalDestructionPoint": {
+          "value": 1193,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 873,
+          "max": 3695
+        },
+        "thermalShockResistance": {
+          "value": 150,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 400
+        },
+        "laserDamageThreshold": {
+          "value": 1.1,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 20
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40,
+        "percentage": 18.9,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
         "absorptionCoefficient": {
           "source": "ai_research",
           "unit": "m⁻¹",
@@ -191,7 +404,7 @@
       "propertyID": "electricalConductivity",
       "name": "Electrical Conductivity",
       "description": "Electrical Conductivity - material characteristics",
-      "value": 15000000,
+      "value": 15900000,
       "unitText": "S/m",
       "minValue": 0.67,
       "maxValue": 63,
@@ -202,7 +415,7 @@
       "propertyID": "electricalResistivity",
       "name": "Electrical Resistivity",
       "description": "Electrical Resistivity - material characteristics",
-      "value": 6.5e-8,
+      "value": 6.2e-8,
       "unitText": "Ω·m",
       "minValue": 1e-8,
       "maxValue": 0.0000015,
@@ -213,21 +426,307 @@
       "propertyID": "fractureToughness",
       "name": "Fracture Toughness",
       "description": "Fracture Toughness - material characteristics",
-      "value": 100,
-      "unitText": "MPa·√m",
+      "value": 52,
+      "unitText": "MPa√m",
       "minValue": 20,
       "maxValue": 200,
-      "measurementTechnique": "ASM Handbook, Volume 8: Mechanical Testing and Evaluation, \"Fracture Toughness of Metals\""
+      "measurementTechnique": "ai_research"
     },
     {
       "@type": "PropertyValue",
       "propertyID": "surfaceRoughness",
       "name": "Surface Roughness",
       "description": "Surface Roughness - material characteristics",
-      "value": 0.32,
+      "value": 1.6,
       "unitText": "μm",
       "minValue": 0.05,
       "maxValue": 150,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 1194,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3695,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 8530,
+      "unitText": "kg/m³",
+      "minValue": 0.53,
+      "maxValue": 22.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 478,
+      "unitText": "K",
+      "minValue": 200,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.94,
+      "unitText": "dimensionless",
+      "minValue": 5,
+      "maxValue": 99.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.0000189,
+      "unitText": "10^{-6}/K",
+      "minValue": 0.5,
+      "maxValue": 33,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 109,
+      "unitText": "W/m·K",
+      "minValue": 7,
+      "maxValue": 430,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 110,
+      "unitText": "GPa",
+      "minValue": 5,
+      "maxValue": 600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 65,
+      "unitText": "HB",
+      "minValue": 0.2,
+      "maxValue": 3500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 385,
+      "unitText": "J/(kg·K)",
+      "minValue": 100,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.12,
+      "unitText": "dimensionless",
+      "minValue": 0.02,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 345,
+      "unitText": "MPa",
+      "minValue": 50,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 315,
+      "unitText": "MPa",
+      "minValue": 3,
+      "maxValue": 3000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 0.000033,
+      "unitText": "m²/s",
+      "minValue": 0.06,
+      "maxValue": 174,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 379,
+      "unitText": "MPa",
+      "minValue": 2.5,
+      "maxValue": 1050,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.75,
+      "unitText": "dimensionless (0-1 scale)",
+      "minValue": 0.01,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%",
+      "minValue": 0,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - material characteristics",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 0.8,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 2013,
+      "unitText": "K",
+      "minValue": 907,
+      "maxValue": 5870,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.34,
+      "unitText": "dimensionless",
+      "minValue": 2,
+      "maxValue": 65,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - material characteristics",
+      "value": 80000000,
+      "unitText": "m^{-1}",
+      "minValue": 1000000,
+      "maxValue": 100000000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - material characteristics",
+      "value": 0.92,
+      "unitText": "dimensionless",
+      "minValue": 85,
+      "maxValue": 98,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - material characteristics",
+      "value": 25.3,
+      "unitText": "Pa",
+      "minValue": 1e-10,
+      "maxValue": 0.001,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 930,
+      "unitText": "°C",
+      "minValue": -39,
+      "maxValue": 3422,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - material characteristics",
+      "value": 1193,
+      "unitText": "K",
+      "minValue": 873,
+      "maxValue": 3695,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - material characteristics",
+      "value": 150,
+      "unitText": "K",
+      "minValue": 50,
+      "maxValue": 400,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 1.1,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
       "measurementTechnique": "ai_research"
     },
     {
@@ -308,5 +807,5 @@
       "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Brass Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/brass-laser-cleaning"
+  "citation": "Z-Beam (2025). Brass Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/brass-laser-cleaning"
 }

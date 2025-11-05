@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/masonry/general/concrete-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/masonry/general/concrete-laser-cleaning#dataset",
   "name": "Concrete Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Concrete. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "concrete",
     "laser cleaning",
-    "masonry",
+    "Masonry",
     "general",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/concrete-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/concrete-laser-cleaning.json",
       "name": "Concrete Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/concrete-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/concrete-laser-cleaning.csv",
       "name": "Concrete Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/concrete-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/concrete-laser-cleaning.txt",
       "name": "Concrete Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,32 +83,154 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Concrete",
     "slug": "concrete-laser-cleaning",
     "classification": {
-      "category": "masonry",
+      "category": "Masonry",
       "subcategory": "general"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "fractureToughness": {
-          "ai_verified": true,
-          "source": "\"Fracture and Size Effect in Concrete and Other Quasibrittle Materials\" by Zdeněk P. Bažant and Jaime Planas (1998), CRC Press, Chapter 2.",
-          "unit": "MPa·√m",
-          "value": 0.8,
+          "value": 0.7,
+          "unit": "MPa m^{1/2}",
+          "confidence": 95,
+          "source": "ai_research",
           "min": 0.15,
           "max": 1.1
+        },
+        "thermalDestruction": {
+          "value": 773,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 2500
+        },
+        "density": {
+          "value": 2400,
+          "unit": "kg/m³",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.6,
+          "max": 3.2
+        },
+        "oxidationResistance": {
+          "value": 0.98,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 300,
+          "max": 1200
+        },
+        "laserReflectivity": {
+          "value": 0.35,
+          "unit": "",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10,
+          "max": 70
+        },
+        "thermalExpansion": {
+          "value": 0.000012,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 20
+        },
+        "thermalConductivity": {
+          "value": 1.4,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.08,
+          "max": 2.5
+        },
+        "youngsModulus": {
+          "value": 30,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 3,
+          "max": 50
+        },
+        "hardness": {
+          "value": 0.4,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1,
+          "max": 6
+        },
+        "specificHeat": {
+          "value": 880,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 700,
+          "max": 1100
+        },
+        "laserAbsorption": {
+          "value": 0.9,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.5,
+          "max": 15
+        },
+        "compressiveStrength": {
+          "value": 25,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 100
+        },
+        "tensileStrength": {
+          "value": 3.2,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1,
+          "max": 15
+        },
+        "thermalDiffusivity": {
+          "value": 5e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 1
+        },
+        "flexuralStrength": {
+          "value": 4.2,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 20
+        },
+        "corrosionResistance": {
+          "value": 300,
+          "unit": "Ω·m",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 8
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -121,12 +243,177 @@
       "propertyID": "fractureToughness",
       "name": "Fracture Toughness",
       "description": "Fracture Toughness - material characteristics",
-      "value": 0.8,
-      "unitText": "MPa·√m",
+      "value": 0.7,
+      "unitText": "MPa m^{1/2}",
       "minValue": 0.15,
       "maxValue": 1.1,
-      "measurementTechnique": "\"Fracture and Size Effect in Concrete and Other Quasibrittle Materials\" by Zdeněk P. Bažant and Jaime Planas (1998), CRC Press, Chapter 2."
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 773,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 2400,
+      "unitText": "kg/m³",
+      "minValue": 0.6,
+      "maxValue": 3.2,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 0.98,
+      "unitText": "dimensionless",
+      "minValue": 300,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.35,
+      "unitText": "",
+      "minValue": 10,
+      "maxValue": 70,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.000012,
+      "unitText": "K^{-1}",
+      "minValue": 5,
+      "maxValue": 20,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 1.4,
+      "unitText": "W/m·K",
+      "minValue": 0.08,
+      "maxValue": 2.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 30,
+      "unitText": "GPa",
+      "minValue": 3,
+      "maxValue": 50,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 0.4,
+      "unitText": "GPa",
+      "minValue": 1,
+      "maxValue": 6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 880,
+      "unitText": "J/(kg·K)",
+      "minValue": 700,
+      "maxValue": 1100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.9,
+      "unitText": "dimensionless",
+      "minValue": 0.5,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 25,
+      "unitText": "MPa",
+      "minValue": 5,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 3.2,
+      "unitText": "MPa",
+      "minValue": 1,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 5e-7,
+      "unitText": "m²/s",
+      "minValue": 0.1,
+      "maxValue": 1,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 4.2,
+      "unitText": "MPa",
+      "minValue": 2,
+      "maxValue": 20,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 300,
+      "unitText": "Ω·m",
+      "minValue": 2,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Concrete Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/masonry/general/concrete-laser-cleaning"
+  "citation": "Z-Beam (2025). Concrete Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/concrete-laser-cleaning"
 }

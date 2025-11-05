@@ -39,10 +39,6 @@ caption:
     after: 24
     before: 36
 regulatoryStandards:
-- FDA 21 CFR 1040.10 - Laser Product Performance Standards
-- ANSI Z136.1 - Safe Use of Lasers
-- IEC 60825 - Safety of Laser Products
-- OSHA 29 CFR 1926.95 - Personal Protective Equipment
 - description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
   image: /images/logo/logo-org-fda.png
   longName: Food and Drug Administration
@@ -66,7 +62,7 @@ regulatoryStandards:
 materialProperties:
   material_characteristics:
     label: Material Characteristics
-    percentage: 100.0
+    percentage: 89.5
     description: Intrinsic physical, mechanical, chemical, and structural properties
       affecting cleaning outcomes and material integrity
     electricalResistivity:
@@ -190,9 +186,23 @@ materialProperties:
       max: 600.0
   laser_material_interaction:
     label: Laser-Material Interaction
-    percentage: 0.0
+    percentage: 10.5
     description: Optical and thermal properties governing laser energy absorption,
       reflection, propagation, and ablation thresholds
+    porosity:
+      value: 0.005
+      unit: dimensionless
+      confidence: 95
+      source: ai_research
+      min: 0.0
+      max: 0.05
+    ablationThreshold:
+      value: 3.0
+      unit: J/cm²
+      confidence: 95
+      source: ai_research
+      min: 2.0
+      max: 5.0
 machineSettings:
   powerRange:
     description: Optimal average power for SiC surface cleaning without thermal damage

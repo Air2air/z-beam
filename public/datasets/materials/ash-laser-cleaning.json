@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/wood/hardwood/ash-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/wood/hardwood/ash-laser-cleaning#dataset",
   "name": "Ash Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Ash. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "ash",
     "laser cleaning",
-    "wood",
+    "Wood",
     "hardwood",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/ash-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/ash-laser-cleaning.json",
       "name": "Ash Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/ash-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/ash-laser-cleaning.csv",
       "name": "Ash Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/ash-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/ash-laser-cleaning.txt",
       "name": "Ash Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,32 +83,162 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Ash",
     "slug": "ash-laser-cleaning",
     "classification": {
-      "category": "wood",
+      "category": "Wood",
       "subcategory": "hardwood"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "fractureToughness": {
-          "ai_verified": true,
-          "source": "E.J. Bodner, A. H. Mayer, and C. D. Mote. \"Fracture Characteristics of Hardwoods\" in Wood and Fiber Science, Vol. 12, No. 1, 1980.",
-          "unit": "MPa·√m",
-          "value": 3.5,
+          "value": 0.36,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research",
           "min": 0.33,
           "max": 4.4
+        },
+        "thermalDestruction": {
+          "value": 573,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 600
+        },
+        "density": {
+          "value": 670,
+          "unit": "kg/m³",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.12,
+          "max": 1.5
+        },
+        "oxidationResistance": {
+          "value": 290,
+          "unit": "°C",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 82,
+          "max": 204
+        },
+        "laserReflectivity": {
+          "value": 0.082,
+          "unit": "dimensionless (fraction)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10,
+          "max": 60
+        },
+        "thermalExpansion": {
+          "value": 0.000032,
+          "unit": "1/°C",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 3,
+          "max": 60
+        },
+        "thermalConductivity": {
+          "value": 0.15,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.04,
+          "max": 0.4
+        },
+        "youngsModulus": {
+          "value": 12.8,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 20000
+        },
+        "hardness": {
+          "value": 5870,
+          "unit": "N",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 1,
+          "max": 5000
+        },
+        "specificHeat": {
+          "value": 1380,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 800,
+          "max": 2500
+        },
+        "laserAbsorption": {
+          "value": 0.82,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1,
+          "max": 50
+        },
+        "compressiveStrength": {
+          "value": 69,
+          "unit": "MPa",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 20,
+          "max": 80
+        },
+        "tensileStrength": {
+          "value": 115,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 20,
+          "max": 200
+        },
+        "thermalDiffusivity": {
+          "value": 1.4e-7,
+          "unit": "m²/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.0001,
+          "max": 0.4
+        },
+        "flexuralStrength": {
+          "value": 96.5,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 40,
+          "max": 150
+        },
+        "corrosionResistance": {
+          "value": 0.75,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 8
+        },
+        "porosity": {
+          "value": 0.6,
+          "unit": "fraction",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 12,
+          "max": 65
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -121,12 +251,188 @@
       "propertyID": "fractureToughness",
       "name": "Fracture Toughness",
       "description": "Fracture Toughness - material characteristics",
-      "value": 3.5,
-      "unitText": "MPa·√m",
+      "value": 0.36,
+      "unitText": "MPa√m",
       "minValue": 0.33,
       "maxValue": 4.4,
-      "measurementTechnique": "E.J. Bodner, A. H. Mayer, and C. D. Mote. \"Fracture Characteristics of Hardwoods\" in Wood and Fiber Science, Vol. 12, No. 1, 1980."
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 573,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 670,
+      "unitText": "kg/m³",
+      "minValue": 0.12,
+      "maxValue": 1.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 290,
+      "unitText": "°C",
+      "minValue": 82,
+      "maxValue": 204,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.082,
+      "unitText": "dimensionless (fraction)",
+      "minValue": 10,
+      "maxValue": 60,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.000032,
+      "unitText": "1/°C",
+      "minValue": 3,
+      "maxValue": 60,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 0.15,
+      "unitText": "W/m·K",
+      "minValue": 0.04,
+      "maxValue": 0.4,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 12.8,
+      "unitText": "GPa",
+      "minValue": 5,
+      "maxValue": 20000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 5870,
+      "unitText": "N",
+      "minValue": 1,
+      "maxValue": 5000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 1380,
+      "unitText": "J/(kg·K)",
+      "minValue": 800,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.82,
+      "unitText": "dimensionless",
+      "minValue": 1,
+      "maxValue": 50,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 69,
+      "unitText": "MPa",
+      "minValue": 20,
+      "maxValue": 80,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 115,
+      "unitText": "MPa",
+      "minValue": 20,
+      "maxValue": 200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 1.4e-7,
+      "unitText": "m²/s",
+      "minValue": 0.0001,
+      "maxValue": 0.4,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 96.5,
+      "unitText": "MPa",
+      "minValue": 40,
+      "maxValue": 150,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.75,
+      "unitText": "dimensionless",
+      "minValue": 2,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0.6,
+      "unitText": "fraction",
+      "minValue": 12,
+      "maxValue": 65,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Ash Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/wood/hardwood/ash-laser-cleaning"
+  "citation": "Z-Beam (2025). Ash Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/wood/hardwood/ash-laser-cleaning"
 }

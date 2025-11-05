@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/semiconductor/elemental/silicon-carbide-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/ceramic/carbide/silicon-carbide-laser-cleaning#dataset",
   "name": "Silicon Carbide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Silicon Carbide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,8 +31,8 @@
   "keywords": [
     "silicon carbide",
     "laser cleaning",
-    "semiconductor",
-    "elemental",
+    "Ceramic",
+    "carbide",
     "laser cleaning",
     "material properties",
     "industrial cleaning",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/silicon-carbide-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/silicon-carbide-laser-cleaning.json",
       "name": "Silicon Carbide Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/silicon-carbide-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/silicon-carbide-laser-cleaning.csv",
       "name": "Silicon Carbide Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/silicon-carbide-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/silicon-carbide-laser-cleaning.txt",
       "name": "Silicon Carbide Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,39 +83,162 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Silicon Carbide",
     "slug": "silicon-carbide-laser-cleaning",
     "classification": {
-      "category": "semiconductor",
-      "subcategory": "elemental"
+      "category": "Ceramic",
+      "subcategory": "carbide"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 100,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
-          "source": "ai_research",
+          "value": 0.0003,
           "unit": "Ω·m",
-          "value": 1,
-          "min": 0.001,
-          "max": 1000
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 10000000000,
+          "max": 10000000000000000
         },
         "fractureToughness": {
-          "ai_verified": true,
-          "source": "Munro, R. G. (1997). Material Properties of a Sintered α-SiC. *Journal of Physical and Chemical Reference Data*, 26(5), 1195-1203.",
-          "unit": "MPa·√m",
-          "value": 3,
-          "min": 0.75,
-          "max": 3
+          "value": 4.6,
+          "unit": "MPa√m",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 10
+        },
+        "thermalDestruction": {
+          "value": 3103,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 273,
+          "max": 3900
+        },
+        "specificHeat": {
+          "value": 671,
+          "unit": "J/(kg·K)",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 250,
+          "max": 2500
+        },
+        "youngsModulus": {
+          "value": 450,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 600
+        },
+        "oxidationResistance": {
+          "value": 1600,
+          "unit": "°C",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 600,
+          "max": 2400
+        },
+        "laserReflectivity": {
+          "value": 0.204,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 90
+        },
+        "thermalConductivity": {
+          "value": 370,
+          "unit": "W/m·K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.8,
+          "max": 120
+        },
+        "thermalExpansion": {
+          "value": 0.000004,
+          "unit": "K^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 14
+        },
+        "density": {
+          "value": 3.21,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 2.3,
+          "max": 16
+        },
+        "hardness": {
+          "value": 27.5,
+          "unit": "GPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 6,
+          "max": 2500
+        },
+        "corrosionResistance": {
+          "value": 1000000,
+          "unit": "Ω·cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 8,
+          "max": 10
+        },
+        "laserAbsorption": {
+          "value": 0.8,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 50
+        },
+        "compressiveStrength": {
+          "value": 3900,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 100,
+          "max": 7000
+        },
+        "thermalDiffusivity": {
+          "value": 0.00012,
+          "unit": "m^2/s",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.005,
+          "max": 120
+        },
+        "flexuralStrength": {
+          "value": 450,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 2500
+        },
+        "tensileStrength": {
+          "value": 414,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 600
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40
+        "percentage": 0,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
       }
     },
     "applications": [],
@@ -128,10 +251,10 @@
       "propertyID": "electricalResistivity",
       "name": "Electrical Resistivity",
       "description": "Electrical Resistivity - material characteristics",
-      "value": 1,
+      "value": 0.0003,
       "unitText": "Ω·m",
-      "minValue": 0.001,
-      "maxValue": 1000,
+      "minValue": 10000000000,
+      "maxValue": 10000000000000000,
       "measurementTechnique": "ai_research"
     },
     {
@@ -139,12 +262,177 @@
       "propertyID": "fractureToughness",
       "name": "Fracture Toughness",
       "description": "Fracture Toughness - material characteristics",
-      "value": 3,
-      "unitText": "MPa·√m",
-      "minValue": 0.75,
-      "maxValue": 3,
-      "measurementTechnique": "Munro, R. G. (1997). Material Properties of a Sintered α-SiC. *Journal of Physical and Chemical Reference Data*, 26(5), 1195-1203."
+      "value": 4.6,
+      "unitText": "MPa√m",
+      "minValue": 2,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 3103,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3900,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 671,
+      "unitText": "J/(kg·K)",
+      "minValue": 250,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 450,
+      "unitText": "GPa",
+      "minValue": 5,
+      "maxValue": 600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 1600,
+      "unitText": "°C",
+      "minValue": 600,
+      "maxValue": 2400,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.204,
+      "unitText": "dimensionless",
+      "minValue": 5,
+      "maxValue": 90,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 370,
+      "unitText": "W/m·K",
+      "minValue": 0.8,
+      "maxValue": 120,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.000004,
+      "unitText": "K^{-1}",
+      "minValue": 0.1,
+      "maxValue": 14,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 3.21,
+      "unitText": "g/cm³",
+      "minValue": 2.3,
+      "maxValue": 16,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 27.5,
+      "unitText": "GPa",
+      "minValue": 6,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 1000000,
+      "unitText": "Ω·cm²",
+      "minValue": 8,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.8,
+      "unitText": "dimensionless",
+      "minValue": 0.1,
+      "maxValue": 50,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 3900,
+      "unitText": "MPa",
+      "minValue": 100,
+      "maxValue": 7000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 0.00012,
+      "unitText": "m^2/s",
+      "minValue": 0.005,
+      "maxValue": 120,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 450,
+      "unitText": "MPa",
+      "minValue": 50,
+      "maxValue": 2500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 414,
+      "unitText": "MPa",
+      "minValue": 5,
+      "maxValue": 600,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Silicon Carbide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/semiconductor/elemental/silicon-carbide-laser-cleaning"
+  "citation": "Z-Beam (2025). Silicon Carbide Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/ceramic/carbide/silicon-carbide-laser-cleaning"
 }

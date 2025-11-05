@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "http://localhost:3000/materials/metal/alloy/tungsten-laser-cleaning#dataset",
+  "@id": "https://www.z-beam.com/materials/metal/alloy/tungsten-laser-cleaning#dataset",
   "name": "Tungsten Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Tungsten. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-04",
-  "datePublished": "2025-11-04",
+  "dateModified": "2025-11-05",
+  "datePublished": "2025-11-05",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "tungsten",
     "laser cleaning",
-    "metal",
+    "Metal",
     "alloy",
     "laser cleaning",
     "material properties",
@@ -56,24 +56,24 @@
     {
       "@type": "DataDownload",
       "encodingFormat": "application/json",
-      "contentUrl": "http://localhost:3000/datasets/materials/tungsten-laser-cleaning.json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/tungsten-laser-cleaning.json",
       "name": "Tungsten Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
-      "contentUrl": "http://localhost:3000/datasets/materials/tungsten-laser-cleaning.csv",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/tungsten-laser-cleaning.csv",
       "name": "Tungsten Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
-      "contentUrl": "http://localhost:3000/datasets/materials/tungsten-laser-cleaning.txt",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/tungsten-laser-cleaning.txt",
       "name": "Tungsten Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
-  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "usageInfo": "https://www.z-beam.com/datasets/usage-terms",
   "dataQuality": {
     "verificationMethod": "Multi-source cross-reference with industry standards",
     "sources": [
@@ -83,28 +83,603 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-04"
+    "lastVerified": "2025-11-05"
   },
   "material": {
     "name": "Tungsten",
     "slug": "tungsten-laser-cleaning",
     "classification": {
-      "category": "metal",
+      "category": "Metal",
       "subcategory": "alloy"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
-        "label": "Material Characteristics"
+        "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "thermalDestruction": {
+          "value": 3695,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 273,
+          "max": 3695
+        },
+        "specificHeat": {
+          "value": 132,
+          "unit": "J/kg·K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 100,
+          "max": 2000
+        },
+        "youngsModulus": {
+          "value": 411,
+          "unit": "GPa",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 5,
+          "max": 600
+        },
+        "oxidationResistance": {
+          "value": 773,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 200,
+          "max": 1200
+        },
+        "laserReflectivity": {
+          "value": 0.6,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 5,
+          "max": 99.9
+        },
+        "thermalConductivity": {
+          "value": 174,
+          "unit": "W/m·K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 7,
+          "max": 430
+        },
+        "thermalExpansion": {
+          "value": 0.0000045,
+          "unit": "K^{-1}",
+          "confidence": 99,
+          "source": "ai_research",
+          "min": 0.5,
+          "max": 33
+        },
+        "density": {
+          "value": 19.25,
+          "unit": "g/cm³",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 0.53,
+          "max": 22.6
+        },
+        "hardness": {
+          "value": 370,
+          "unit": "HV",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.2,
+          "max": 3500
+        },
+        "corrosionResistance": {
+          "value": 0.96,
+          "unit": "dimensionless (normalized resistance index)",
+          "confidence": 96,
+          "source": "ai_research",
+          "min": 0.01,
+          "max": 10
+        },
+        "laserAbsorption": {
+          "value": 0.4,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.02,
+          "max": 100
+        },
+        "compressiveStrength": {
+          "value": 2760,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 2000
+        },
+        "thermalDiffusivity": {
+          "value": 0.000068,
+          "unit": "m²/s",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 0.06,
+          "max": 174
+        },
+        "flexuralStrength": {
+          "value": 1200,
+          "unit": "MPa",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2.5,
+          "max": 1050
+        },
+        "tensileStrength": {
+          "value": 1510,
+          "unit": "MPa",
+          "confidence": 98,
+          "source": "ai_research",
+          "min": 3,
+          "max": 3000
+        },
+        "fractureToughness": {
+          "value": 5.2,
+          "unit": "MPa m^{1/2}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 20,
+          "max": 200
+        },
+        "porosity": {
+          "value": 0,
+          "unit": "%",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 0,
+          "max": 15
+        },
+        "electricalResistivity": {
+          "value": 5.6e-8,
+          "unit": "Ω m",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 1e-8,
+          "max": 0.0000015
+        },
+        "ablationThreshold": {
+          "value": 1.8,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.8,
+          "max": 8
+        },
+        "absorptivity": {
+          "value": 0.42,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 65
+        },
+        "boilingPoint": {
+          "value": 6203,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 907,
+          "max": 5870
+        },
+        "absorptionCoefficient": {
+          "value": 65000000,
+          "unit": "m^{-1}",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 1000000,
+          "max": 100000000
+        },
+        "electricalConductivity": {
+          "value": 18200000,
+          "unit": "S/m",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 0.67,
+          "max": 63
+        },
+        "meltingPoint": {
+          "value": 3695,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": -39,
+          "max": 3422
+        },
+        "vaporPressure": {
+          "value": 0,
+          "unit": "Pa",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 1e-10,
+          "max": 0.001
+        },
+        "thermalDestructionPoint": {
+          "value": 3695,
+          "unit": "K",
+          "confidence": 100,
+          "source": "ai_research",
+          "min": 873,
+          "max": 3695
+        },
+        "reflectivity": {
+          "value": 0.845,
+          "unit": "fraction",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 85,
+          "max": 98
+        },
+        "thermalShockResistance": {
+          "value": 392,
+          "unit": "K",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 50,
+          "max": 400
+        },
+        "surfaceRoughness": {
+          "value": 0.8,
+          "unit": "μm",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.05,
+          "max": 150
+        },
+        "laserDamageThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0.1,
+          "max": 20
+        },
+        "percentage": 100
       },
       "laser_material_interaction": {
-        "label": "Laser-Material Interaction"
+        "label": "Laser-Material Interaction",
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 0
       }
     },
     "applications": [],
     "safetyConsiderations": [],
     "faqs": []
   },
-  "variableMeasured": [],
-  "citation": "Z-Beam (2025). Tungsten Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/alloy/tungsten-laser-cleaning"
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 3695,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3695,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 132,
+      "unitText": "J/kg·K",
+      "minValue": 100,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 411,
+      "unitText": "GPa",
+      "minValue": 5,
+      "maxValue": 600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 773,
+      "unitText": "K",
+      "minValue": 200,
+      "maxValue": 1200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.6,
+      "unitText": "dimensionless",
+      "minValue": 5,
+      "maxValue": 99.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 174,
+      "unitText": "W/m·K",
+      "minValue": 7,
+      "maxValue": 430,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.0000045,
+      "unitText": "K^{-1}",
+      "minValue": 0.5,
+      "maxValue": 33,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 19.25,
+      "unitText": "g/cm³",
+      "minValue": 0.53,
+      "maxValue": 22.6,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 370,
+      "unitText": "HV",
+      "minValue": 0.2,
+      "maxValue": 3500,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.96,
+      "unitText": "dimensionless (normalized resistance index)",
+      "minValue": 0.01,
+      "maxValue": 10,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.4,
+      "unitText": "dimensionless",
+      "minValue": 0.02,
+      "maxValue": 100,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 2760,
+      "unitText": "MPa",
+      "minValue": 50,
+      "maxValue": 2000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 0.000068,
+      "unitText": "m²/s",
+      "minValue": 0.06,
+      "maxValue": 174,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 1200,
+      "unitText": "MPa",
+      "minValue": 2.5,
+      "maxValue": 1050,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 1510,
+      "unitText": "MPa",
+      "minValue": 3,
+      "maxValue": 3000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 5.2,
+      "unitText": "MPa m^{1/2}",
+      "minValue": 20,
+      "maxValue": 200,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0,
+      "unitText": "%",
+      "minValue": 0,
+      "maxValue": 15,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 5.6e-8,
+      "unitText": "Ω m",
+      "minValue": 1e-8,
+      "maxValue": 0.0000015,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - material characteristics",
+      "value": 1.8,
+      "unitText": "J/cm²",
+      "minValue": 0.8,
+      "maxValue": 8,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - material characteristics",
+      "value": 0.42,
+      "unitText": "dimensionless",
+      "minValue": 2,
+      "maxValue": 65,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "boilingPoint",
+      "name": "Boiling Point",
+      "description": "Boiling Point - material characteristics",
+      "value": 6203,
+      "unitText": "K",
+      "minValue": 907,
+      "maxValue": 5870,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - material characteristics",
+      "value": 65000000,
+      "unitText": "m^{-1}",
+      "minValue": 1000000,
+      "maxValue": 100000000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalConductivity",
+      "name": "Electrical Conductivity",
+      "description": "Electrical Conductivity - material characteristics",
+      "value": 18200000,
+      "unitText": "S/m",
+      "minValue": 0.67,
+      "maxValue": 63,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "meltingPoint",
+      "name": "Melting Point",
+      "description": "Melting Point - material characteristics",
+      "value": 3695,
+      "unitText": "K",
+      "minValue": -39,
+      "maxValue": 3422,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - material characteristics",
+      "value": 0,
+      "unitText": "Pa",
+      "minValue": 1e-10,
+      "maxValue": 0.001,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - material characteristics",
+      "value": 3695,
+      "unitText": "K",
+      "minValue": 873,
+      "maxValue": 3695,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - material characteristics",
+      "value": 0.845,
+      "unitText": "fraction",
+      "minValue": 85,
+      "maxValue": 98,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - material characteristics",
+      "value": 392,
+      "unitText": "K",
+      "minValue": 50,
+      "maxValue": 400,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "surfaceRoughness",
+      "name": "Surface Roughness",
+      "description": "Surface Roughness - material characteristics",
+      "value": 0.8,
+      "unitText": "μm",
+      "minValue": 0.05,
+      "maxValue": 150,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20,
+      "measurementTechnique": "ai_research"
+    }
+  ],
+  "citation": "Z-Beam (2025). Tungsten Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/alloy/tungsten-laser-cleaning"
 }

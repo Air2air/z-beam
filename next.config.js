@@ -138,6 +138,22 @@ const nextConfig = {
             destination: `/materials/${category}/${subcategory}/${slug}`,
             permanent: true // 301 redirect for SEO
           });
+          
+          // Redirect any capitalized category/subcategory URLs to lowercase (case-insensitive fix)
+          // This handles URLs that may have been indexed with capitalized categories
+          const categoryCapitalized = data.category.replace(/\s+/g, '-');
+          const subcategoryCapitalized = data.subcategory.replace(/\s+/g, '-');
+          const categoryLowercase = categoryCapitalized.toLowerCase();
+          const subcategoryLowercase = subcategoryCapitalized.toLowerCase();
+          
+          // Only add redirect if the capitalized version is different from lowercase
+          if (categoryCapitalized !== categoryLowercase || subcategoryCapitalized !== subcategoryLowercase) {
+            redirects.push({
+              source: `/materials/${categoryCapitalized}/${subcategoryCapitalized}/${slug}`,
+              destination: `/materials/${categoryLowercase}/${subcategoryLowercase}/${slug}`,
+              permanent: true // 301 redirect for SEO
+            });
+          }
         }
       }
       

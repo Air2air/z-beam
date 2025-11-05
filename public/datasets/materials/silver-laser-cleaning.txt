@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Silver Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-04
+Last Updated:   2025-11-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            http://localhost:3000/materials/metal/non-ferrous/silver-laser-cleaning
+URL:            https://www.z-beam.com/materials/metal/non-ferrous/silver-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-04
+Last Verified:  2025-11-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -26,7 +26,7 @@ MATERIAL INFORMATION
 ================================================================================
 
 Material:       Silver
-Category:       metal
+Category:       Metal
 Subcategory:    non-ferrous
 Identifier:     silver-laser-cleaning
 
@@ -49,15 +49,171 @@ MATERIAL CHARACTERISTICS:
     Source: ai_research
 
   fractureToughness:
-    Value:  22 MPa·√m
-    Min:    20 MPa·√m
-    Max:    200 MPa·√m
-    Source: ASM Handbook, Volume 8: Mechanical Testing and Evaluation
+    Value:  22 MPa m^{1/2}
+    Min:    20 MPa m^{1/2}
+    Max:    200 MPa m^{1/2}
+    Source: ai_research
 
   surfaceRoughness:
-    Value:  0.12 μm
+    Value:  0.05 μm
     Min:    0.05 μm
     Max:    150 μm
+    Source: ai_research
+
+  thermalDestruction:
+    Value:  1234.93 K
+    Min:    273 K
+    Max:    3695 K
+    Source: ai_research
+
+  specificHeat:
+    Value:  235 J/(kg·K)
+    Min:    100 J/(kg·K)
+    Max:    2000 J/(kg·K)
+    Source: ai_research
+
+  youngsModulus:
+    Value:  83 GPa
+    Min:    5 GPa
+    Max:    600 GPa
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.7996 V
+    Min:    200 V
+    Max:    1200 V
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.98 dimensionless
+    Min:    5 dimensionless
+    Max:    99.9 dimensionless
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  429 W/m·K
+    Min:    7 W/m·K
+    Max:    430 W/m·K
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.0000189 K^{-1}
+    Min:    0.5 K^{-1}
+    Max:    33 K^{-1}
+    Source: ai_research
+
+  density:
+    Value:  10490 kg/m³
+    Min:    0.53 kg/m³
+    Max:    22.6 kg/m³
+    Source: ai_research
+
+  hardness:
+    Value:  25 HV
+    Min:    0.2 HV
+    Max:    3500 HV
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.92 dimensionless (0-1 scale)
+    Min:    0.01 dimensionless (0-1 scale)
+    Max:    10 dimensionless (0-1 scale)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.015 dimensionless
+    Min:    0.02 dimensionless
+    Max:    100 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  55 MPa
+    Min:    50 MPa
+    Max:    2000 MPa
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  0.000174 m^2/s
+    Min:    0.06 m^2/s
+    Max:    174 m^2/s
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  250 MPa
+    Min:    2.5 MPa
+    Max:    1050 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  125 MPa
+    Min:    3 MPa
+    Max:    3000 MPa
+    Source: ai_research
+
+  porosity:
+    Value:  0 %
+    Min:    0 %
+    Max:    15 %
+    Source: ai_research
+
+  ablationThreshold:
+    Value:  1.1 J/cm²
+    Min:    0.8 J/cm²
+    Max:    8 J/cm²
+    Source: ai_research
+
+  absorptivity:
+    Value:  0.02 dimensionless
+    Min:    2 dimensionless
+    Max:    65 dimensionless
+    Source: ai_research
+
+  boilingPoint:
+    Value:  2435 K
+    Min:    907 K
+    Max:    5870 K
+    Source: ai_research
+
+  absorptionCoefficient:
+    Value:  82000000 m^{-1}
+    Min:    1000000 m^{-1}
+    Max:    100000000 m^{-1}
+    Source: ai_research
+
+  meltingPoint:
+    Value:  961.8 °C
+    Min:    -39 °C
+    Max:    3422 °C
+    Source: ai_research
+
+  vaporPressure:
+    Value:  0.53 Pa
+    Min:    1e-10 Pa
+    Max:    0.001 Pa
+    Source: ai_research
+
+  thermalDestructionPoint:
+    Value:  1234.93 K
+    Min:    873 K
+    Max:    3695 K
+    Source: ai_research
+
+  reflectivity:
+    Value:  0.98 
+    Min:    85 
+    Max:    98 
+    Source: ai_research
+
+  thermalShockResistance:
+    Value:  68.3 K
+    Min:    50 K
+    Max:    400 K
+    Source: ai_research
+
+  laserDamageThreshold:
+    Value:  1.2 J/cm²
+    Min:    0.1 J/cm²
+    Max:    20 J/cm²
     Source: ai_research
 
 LASER MATERIAL INTERACTION:
@@ -109,7 +265,7 @@ CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Silver Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/metal/non-ferrous/silver-laser-cleaning
+  Z-Beam (2025). Silver Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/metal/non-ferrous/silver-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

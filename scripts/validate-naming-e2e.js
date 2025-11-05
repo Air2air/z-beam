@@ -232,26 +232,30 @@ class NamingValidator {
         });
       }
 
-      // Validate category/subcategory
+      // Validate category/subcategory - allow TitleCase since code converts to lowercase
       if (data.category) {
-        if (!RULES.categorySlug.test(data.category)) {
+        const categorySlug = data.category.toLowerCase().replace(/\s+/g, '-');
+        // Validate the converted slug format is valid
+        if (!RULES.categorySlug.test(categorySlug)) {
           this.errors.push({
             type: 'invalid_category',
             category: data.category,
             file: fileName,
-            message: `Category "${data.category}" should be lowercase with optional hyphens`
+            message: `Category "${data.category}" converts to invalid slug "${categorySlug}"`
           });
           this.stats.namingErrors++;
         }
       }
 
       if (data.subcategory) {
-        if (!RULES.subcategorySlug.test(data.subcategory)) {
+        const subcategorySlug = data.subcategory.toLowerCase().replace(/\s+/g, '-');
+        // Validate the converted slug format is valid
+        if (!RULES.subcategorySlug.test(subcategorySlug)) {
           this.errors.push({
             type: 'invalid_subcategory',
             subcategory: data.subcategory,
             file: fileName,
-            message: `Subcategory "${data.subcategory}" should be lowercase with hyphens`
+            message: `Subcategory "${data.subcategory}" converts to invalid slug "${subcategorySlug}"`
           });
           this.stats.namingErrors++;
         }

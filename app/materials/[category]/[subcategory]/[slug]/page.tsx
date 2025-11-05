@@ -9,6 +9,8 @@ import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
 import { SITE_CONFIG } from "@/app/utils/constants";
+import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
+import { normalizeForUrl } from "@/app/utils/urlBuilder";
 import type { PageProps } from "@/types";
 
 export const dynamic = 'force-static';
@@ -61,8 +63,8 @@ export async function generateMetadata({ params }: MaterialPageProps) {
     
     // Verify category and subcategory match
     const metadata = article.metadata as any;
-    const articleCategory = metadata.category?.toLowerCase().replace(/\s+/g, '-');
-    const articleSubcategory = metadata.subcategory?.toLowerCase().replace(/\s+/g, '-');
+    const articleCategory = metadata.category ? normalizeForUrl(metadata.category) : undefined;
+    const articleSubcategory = metadata.subcategory ? normalizeForUrl(metadata.subcategory) : undefined;
     
     if (articleCategory !== category || articleSubcategory !== subcategory) {
       // Wrong URL structure - will redirect in page component
@@ -101,8 +103,8 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     
     // Verify category and subcategory match - redirect to correct URL if needed
     const metadata = article.metadata as any;
-    const articleCategory = metadata.category?.toLowerCase().replace(/\s+/g, '-');
-    const articleSubcategory = metadata.subcategory?.toLowerCase().replace(/\s+/g, '-');
+    const articleCategory = metadata.category ? normalizeForUrl(metadata.category) : undefined;
+    const articleSubcategory = metadata.subcategory ? normalizeForUrl(metadata.subcategory) : undefined;
     
     if (articleCategory && articleSubcategory) {
       if (articleCategory !== category || articleSubcategory !== subcategory) {

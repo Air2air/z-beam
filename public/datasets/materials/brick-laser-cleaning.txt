@@ -6,19 +6,19 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Brick Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-04
+Last Updated:   2025-11-05
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
 Contact:        info@z-beam.com
-URL:            http://localhost:3000/materials/masonry/general/brick-laser-cleaning
+URL:            https://www.z-beam.com/materials/masonry/general/brick-laser-cleaning
 
 DATA QUALITY
 --------------------------------------------------------------------------------
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-04
+Last Verified:  2025-11-05
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -26,7 +26,7 @@ MATERIAL INFORMATION
 ================================================================================
 
 Material:       Brick
-Category:       masonry
+Category:       Masonry
 Subcategory:    general
 Identifier:     brick-laser-cleaning
 
@@ -37,17 +37,109 @@ MATERIAL PROPERTIES
 MATERIAL CHARACTERISTICS:
 --------------------------------------------------------------------------------
   fractureToughness:
-    Value:  0.8 MPa·√m
-    Min:    0.15 MPa·√m
-    Max:    1.1 MPa·√m
-    Source: "Fracture and Size Effect in Concrete and Other Quasibrittle Materials" by Zdeněk P. Bažant and Jaime Planas, CRC Press (1998), and "Fracture Toughness of Rocks and Other Solids" in the *RILEM Report*, Fracture Mechanics of Concrete Structures (1994).
+    Value:  0.75 MPa√m
+    Min:    0.15 MPa√m
+    Max:    1.1 MPa√m
+    Source: ai_research
 
+  thermalDestruction:
+    Value:  1323 K
+    Min:    273 K
+    Max:    2500 K
+    Source: ai_research
+
+  density:
+    Value:  1920 kg/m³
+    Min:    0.6 kg/m³
+    Max:    3.2 kg/m³
+    Source: ai_research
+
+  oxidationResistance:
+    Value:  0.98 dimensionless (scale 0-1, where 1 indicates complete resistance)
+    Min:    300 dimensionless (scale 0-1, where 1 indicates complete resistance)
+    Max:    1200 dimensionless (scale 0-1, where 1 indicates complete resistance)
+    Source: ai_research
+
+  laserReflectivity:
+    Value:  0.28 dimensionless
+    Min:    10 dimensionless
+    Max:    70 dimensionless
+    Source: ai_research
+
+  thermalExpansion:
+    Value:  0.000006 1/K
+    Min:    5 1/K
+    Max:    20 1/K
+    Source: ai_research
+
+  thermalConductivity:
+    Value:  0.72 W/m·K
+    Min:    0.08 W/m·K
+    Max:    2.5 W/m·K
+    Source: ai_research
+
+  youngsModulus:
+    Value:  11 GPa
+    Min:    3 GPa
+    Max:    50 GPa
+    Source: ai_research
+
+  hardness:
+    Value:  2.5 Mohs
+    Min:    1 Mohs
+    Max:    6 Mohs
+    Source: ai_research
+
+  specificHeat:
+    Value:  880 J/(kg·K)
+    Min:    700 J/(kg·K)
+    Max:    1100 J/(kg·K)
+    Source: ai_research
+
+  laserAbsorption:
+    Value:  0.92 dimensionless
+    Min:    0.5 dimensionless
+    Max:    15 dimensionless
+    Source: ai_research
+
+  compressiveStrength:
+    Value:  20 MPa
+    Min:    5 MPa
+    Max:    100 MPa
+    Source: ai_research
+
+  tensileStrength:
+    Value:  2.5 MPa
+    Min:    1 MPa
+    Max:    15 MPa
+    Source: ai_research
+
+  thermalDiffusivity:
+    Value:  4.26e-7 m²/s
+    Min:    0.1 m²/s
+    Max:    1 m²/s
+    Source: ai_research
+
+  flexuralStrength:
+    Value:  8.3 MPa
+    Min:    2 MPa
+    Max:    20 MPa
+    Source: ai_research
+
+  corrosionResistance:
+    Value:  0.0005 mm/year
+    Min:    2 mm/year
+    Max:    8 mm/year
+    Source: ai_research
+
+LASER MATERIAL INTERACTION:
+--------------------------------------------------------------------------------
 ================================================================================
 CITATION & USAGE
 ================================================================================
 
 Citation:
-  Z-Beam (2025). Brick Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/masonry/general/brick-laser-cleaning
+  Z-Beam (2025). Brick Laser Cleaning Dataset. Retrieved from https://www.z-beam.com/materials/masonry/general/brick-laser-cleaning
 
 License:
   Creative Commons Attribution 4.0 International

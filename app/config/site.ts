@@ -702,6 +702,33 @@ export function generateOrganizationSchema() {
       "name": area.name
     })),
     
+    "potentialAction": [
+      {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${BUSINESS_CONFIG.contact.website}/search?q={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
+      },
+      {
+        "@type": "DownloadAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${BUSINESS_CONFIG.contact.website}/datasets`,
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/MobileWebPlatform"
+          ]
+        },
+        "object": {
+          "@type": "DataCatalog",
+          "name": "Laser Cleaning Materials Database",
+          "description": "Free and open-source database of laser cleaning parameters for 132+ materials"
+        }
+      }
+    ],
+    
     ...(BUSINESS_CONFIG.credentials.length > 0 && {
       "hasCredential": BUSINESS_CONFIG.credentials.map(cred => ({
         "@type": "EducationalOccupationalCredential",
