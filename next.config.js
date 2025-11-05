@@ -100,6 +100,9 @@ const nextConfig = {
       const files = await fs.readdir(frontmatterDir);
       const yamlFiles = files.filter(f => f.endsWith('.yaml') || f.endsWith('.yml'));
       
+      // Centralized URL normalization function
+      const normalizeForUrl = (value) => value.toLowerCase().replace(/\s+/g, '-');
+      
       const redirects = [
         // Non-www to www redirect (redundant with vercel.json but ensures it works)
         {
@@ -122,8 +125,8 @@ const nextConfig = {
         
         if (data.category && data.subcategory) {
           const slug = file.replace(/\.(yaml|yml)$/, '');
-          const category = data.category.toLowerCase().replace(/\s+/g, '-');
-          const subcategory = data.subcategory.toLowerCase().replace(/\s+/g, '-');
+          const category = normalizeForUrl(data.category);
+          const subcategory = normalizeForUrl(data.subcategory);
           
           // Redirect old flat URLs to /materials/ structure
           redirects.push({
@@ -138,22 +141,6 @@ const nextConfig = {
             destination: `/materials/${category}/${subcategory}/${slug}`,
             permanent: true // 301 redirect for SEO
           });
-          
-          // Redirect any capitalized category/subcategory URLs to lowercase (case-insensitive fix)
-          // This handles URLs that may have been indexed with capitalized categories
-          const categoryCapitalized = data.category.replace(/\s+/g, '-');
-          const subcategoryCapitalized = data.subcategory.replace(/\s+/g, '-');
-          const categoryLowercase = categoryCapitalized.toLowerCase();
-          const subcategoryLowercase = subcategoryCapitalized.toLowerCase();
-          
-          // Only add redirect if the capitalized version is different from lowercase
-          if (categoryCapitalized !== categoryLowercase || subcategoryCapitalized !== subcategoryLowercase) {
-            redirects.push({
-              source: `/materials/${categoryCapitalized}/${subcategoryCapitalized}/${slug}`,
-              destination: `/materials/${categoryLowercase}/${subcategoryLowercase}/${slug}`,
-              permanent: true // 301 redirect for SEO
-            });
-          }
         }
       }
       

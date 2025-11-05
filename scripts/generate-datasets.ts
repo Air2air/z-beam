@@ -326,8 +326,8 @@ function generateCSV(material: MaterialData, slug: string): string {
 function generateTXT(material: MaterialData, slug: string): string {
   const config = SITE_CONFIG.datasets;
   const currentDate = new Date().toISOString().split('T')[0];
-  const category = (material.category || '').toLowerCase().replace(/\s+/g, '-');
-  const subcategory = (material.subcategory || '').toLowerCase().replace(/\s+/g, '-');
+  const category = normalizeForUrl(material.category || '');
+  const subcategory = normalizeForUrl(material.subcategory || '');
   const materialUrl = `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`;
   
   let txt = '';
