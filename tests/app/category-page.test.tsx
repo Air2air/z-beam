@@ -161,90 +161,112 @@ describe('CategoryPage Component', () => {
   });
 
   describe('JSON-LD Schema Generation', () => {
-    it('should generate CollectionPage schema', async () => {
+    it('should generate @graph with 5 schemas', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      expect(schemaData['@type']).toBe('CollectionPage');
-      expect(schemaData.name).toBe('Metal Laser Cleaning');
+      expect(schemaData['@context']).toBe('https://schema.org');
+      expect(schemaData['@graph']).toBeDefined();
+      expect(schemaData['@graph']).toHaveLength(5);
     });
 
-    it('should include breadcrumb in schema', async () => {
+    it('should include CollectionPage schema in @graph', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      expect(schemaData.breadcrumb).toBeDefined();
-      expect(schemaData.breadcrumb['@type']).toBe('BreadcrumbList');
-      expect(schemaData.breadcrumb.itemListElement).toHaveLength(2);
+      const collectionPage = schemaData['@graph'].find((item: any) => item['@type'] === 'CollectionPage');
+      expect(collectionPage).toBeDefined();
+      expect(collectionPage.name).toBe('Metal Laser Cleaning');
+      expect(collectionPage['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#webpage`);
     });
 
-    it('should include ItemList with subcategories', async () => {
+    it('should include separate BreadcrumbList schema in @graph', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      expect(schemaData.mainEntity['@type']).toBe('ItemList');
-      expect(schemaData.mainEntity.numberOfItems).toBe(3); // Total materials
-      expect(schemaData.mainEntity.itemListElement).toHaveLength(2); // 2 subcategories
+      const breadcrumbList = schemaData['@graph'].find((item: any) => item['@type'] === 'BreadcrumbList');
+      expect(breadcrumbList).toBeDefined();
+      expect(breadcrumbList['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#breadcrumb`);
+      expect(breadcrumbList.itemListElement).toHaveLength(2);
+      expect(breadcrumbList.itemListElement[0].name).toBe('Home');
+      expect(breadcrumbList.itemListElement[1].name).toBe('Metal');
     });
 
-    it('should include nested ItemList for each subcategory', async () => {
+    it('should include ItemList schema with all materials', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      const firstSubcategory = schemaData.mainEntity.itemListElement[0];
-      expect(firstSubcategory.name).toBe('Non-Ferrous');
-      expect(firstSubcategory.item['@type']).toBe('ItemList');
-      expect(firstSubcategory.item.numberOfItems).toBe(2);
-      expect(firstSubcategory.item.itemListElement).toHaveLength(2);
+      const itemList = schemaData['@graph'].find((item: any) => item['@type'] === 'ItemList');
+      expect(itemList).toBeDefined();
+      expect(itemList['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#itemlist`);
+      expect(itemList.numberOfItems).toBe(3); // Total materials
+      expect(itemList.itemListElement).toHaveLength(3); // Flattened list
     });
 
-    it('should include correct URLs for materials', async () => {
+    it('should include Dataset schema with multiple distribution formats', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      const firstSubcategory = schemaData.mainEntity.itemListElement[0];
-      const firstMaterial = firstSubcategory.item.itemListElement[0];
-      
-      expect(firstMaterial.url).toBe(
-        `${SITE_CONFIG.url}/materials/metal/non-ferrous/aluminum-laser-cleaning`
-      );
+      const dataset = schemaData['@graph'].find((item: any) => item['@type'] === 'Dataset');
+      expect(dataset).toBeDefined();
+      expect(dataset['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#dataset`);
+      expect(dataset.name).toBe('Metal Laser Cleaning Parameters Dataset');
+      expect(dataset.distribution).toHaveLength(3); // JSON, CSV, TXT
+      expect(dataset.license).toBe('https://creativecommons.org/licenses/by/4.0/');
     });
 
-    it('should include publisher information', async () => {
+    it('should include WebPage schema', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      expect(schemaData.publisher['@type']).toBe('Organization');
-      expect(schemaData.publisher.name).toBe(SITE_CONFIG.name);
-      expect(schemaData.publisher.url).toBe(SITE_CONFIG.url);
+      const webPage = schemaData['@graph'].find((item: any) => item['@type'] === 'WebPage');
+      expect(webPage).toBeDefined();
+      expect(webPage['@id']).toBe(`${SITE_CONFIG.url}/materials/metal`);
+      expect(webPage.name).toBe('Metal Laser Cleaning');
     });
 
-    it('should include canonical URL in schema', async () => {
+    it('should use @id references between schemas', async () => {
       const page = await CategoryPage({ params: { category: 'metal' } });
       const { container } = render(page);
       
       const jsonLdScript = screen.getByTestId('jsonld-script');
       const schemaData = JSON.parse(jsonLdScript.innerHTML);
       
-      expect(schemaData.url).toBe(`${SITE_CONFIG.url}/materials/metal`);
+      const collectionPage = schemaData['@graph'].find((item: any) => item['@type'] === 'CollectionPage');
+      expect(collectionPage.breadcrumb['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#breadcrumb`);
+      expect(collectionPage.mainEntity['@id']).toBe(`${SITE_CONFIG.url}/materials/metal#itemlist`);
+    });
+
+    it('should include correct URLs for materials in ItemList', async () => {
+      const page = await CategoryPage({ params: { category: 'metal' } });
+      const { container } = render(page);
+      
+      const jsonLdScript = screen.getByTestId('jsonld-script');
+      const schemaData = JSON.parse(jsonLdScript.innerHTML);
+      
+      const itemList = schemaData['@graph'].find((item: any) => item['@type'] === 'ItemList');
+      const firstMaterial = itemList.itemListElement[0];
+      
+      expect(firstMaterial.url).toContain('/materials/metal/');
+      expect(firstMaterial.item['@type']).toBe('Article');
     });
   });
 

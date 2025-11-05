@@ -1,4 +1,19 @@
-# MaterialJsonLD - Example Output
+# JSON-LD Example Output
+
+**Updated**: November 4, 2025  
+**Status**: Normalized across all page types
+
+---
+
+## 📑 Table of Contents
+
+1. [Material Page JSON-LD](#material-page-json-ld) - 7-8 schemas via MaterialJsonLD
+2. [Category Page JSON-LD](#category-page-json-ld) - 5 schemas via JsonLD
+3. [Subcategory Page JSON-LD](#subcategory-page-json-ld) - 5 schemas via JsonLD
+
+---
+
+## Material Page JSON-LD
 
 **Material**: Alabaster Laser Cleaning  
 **Generated**: October 16, 2025  
@@ -705,13 +720,338 @@ If frontmatter changes:
 
 ---
 
+## Category Page JSON-LD
+
+**Category**: Ceramic Materials  
+**URL**: `/materials/ceramic`  
+**Generated**: November 4, 2025  
+**Component**: `<JsonLD data={schemas} />`
+
+### Schema Overview
+Category pages now use **5 comprehensive schemas** in a `@graph` structure:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.z-beam.com/materials/ceramic#webpage",
+      "name": "Ceramic Laser Cleaning",
+      "description": "Comprehensive guide to laser cleaning ceramic materials...",
+      "url": "https://www.z-beam.com/materials/ceramic",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.z-beam.com#organization",
+        "name": "Z-Beam",
+        "url": "https://www.z-beam.com"
+      },
+      "breadcrumb": {
+        "@id": "https://www.z-beam.com/materials/ceramic#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://www.z-beam.com/materials/ceramic#itemlist"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.z-beam.com/materials/ceramic#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.z-beam.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ceramic",
+          "item": "https://www.z-beam.com/materials/ceramic"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.z-beam.com/materials/ceramic#itemlist",
+      "numberOfItems": 15,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Alumina",
+          "url": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning",
+          "item": {
+            "@type": "Article",
+            "@id": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning",
+            "name": "Alumina",
+            "url": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning"
+          }
+        }
+        // ... more materials
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://www.z-beam.com/materials/ceramic#dataset",
+      "name": "Ceramic Laser Cleaning Parameters Dataset",
+      "description": "Comprehensive dataset of 15 ceramic materials with laser cleaning parameters...",
+      "url": "https://www.z-beam.com/materials/ceramic",
+      "creator": {
+        "@type": "Organization",
+        "@id": "https://www.z-beam.com#organization",
+        "name": "Z-Beam",
+        "url": "https://www.z-beam.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "keywords": ["ceramic", "laser cleaning", "material properties"],
+      "temporalCoverage": "2024/..",
+      "spatialCoverage": "Global",
+      "variableMeasured": [
+        "wavelength",
+        "power",
+        "fluence",
+        "pulse duration",
+        "repetition rate",
+        "scan speed",
+        "thermal conductivity",
+        "hardness",
+        "ablation threshold"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.z-beam.com/data/datasets/ceramic.json",
+          "description": "JSON format dataset with 15 ceramic materials"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://www.z-beam.com/data/datasets/ceramic.csv",
+          "description": "CSV format dataset with 15 ceramic materials"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/plain",
+          "contentUrl": "https://www.z-beam.com/data/datasets/ceramic.txt",
+          "description": "Plain text format dataset with 15 ceramic materials"
+        }
+      ],
+      "hasPart": [
+        {
+          "@type": "Dataset",
+          "name": "Alumina",
+          "url": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning"
+        }
+        // ... more material datasets
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.z-beam.com/materials/ceramic",
+      "name": "Ceramic Laser Cleaning",
+      "description": "Explore 15 ceramic materials for laser cleaning applications",
+      "url": "https://www.z-beam.com/materials/ceramic",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.z-beam.com#website",
+        "name": "Z-Beam",
+        "url": "https://www.z-beam.com"
+      },
+      "breadcrumb": {
+        "@id": "https://www.z-beam.com/materials/ceramic#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://www.z-beam.com/materials/ceramic#dataset"
+      }
+    }
+  ]
+}
+```
+
+### Key Features
+
+1. **@graph Pattern**: All 5 schemas in single JSON-LD block
+2. **@id References**: Entities reference each other for semantic relationships
+3. **Dataset Schema**: Enables Google Dataset Search visibility
+4. **Multiple Formats**: JSON, CSV, TXT distribution options
+5. **Creative Commons License**: CC BY 4.0 for open access
+
+---
+
+## Subcategory Page JSON-LD
+
+**Subcategory**: Ceramic Oxide Materials  
+**URL**: `/materials/ceramic/oxide`  
+**Generated**: November 4, 2025  
+**Component**: `<JsonLD data={schemas} />`
+
+### Schema Overview
+Subcategory pages use the **same 5-schema pattern** with 3-level breadcrumbs:
+
+```json
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.z-beam.com/materials/ceramic/oxide#webpage",
+      "name": "Oxide Ceramic Laser Cleaning",
+      "description": "Laser cleaning solutions for oxide ceramic materials. 8 materials available.",
+      "url": "https://www.z-beam.com/materials/ceramic/oxide",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.z-beam.com#organization",
+        "name": "Z-Beam",
+        "url": "https://www.z-beam.com"
+      },
+      "breadcrumb": {
+        "@id": "https://www.z-beam.com/materials/ceramic/oxide#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://www.z-beam.com/materials/ceramic/oxide#itemlist"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.z-beam.com/materials/ceramic/oxide#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.z-beam.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ceramic",
+          "item": "https://www.z-beam.com/materials/ceramic"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oxide",
+          "item": "https://www.z-beam.com/materials/ceramic/oxide"
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.z-beam.com/materials/ceramic/oxide#itemlist",
+      "numberOfItems": 8,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Alumina",
+          "url": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning",
+          "item": {
+            "@type": "Article",
+            "@id": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning",
+            "name": "Alumina",
+            "url": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning"
+          }
+        }
+        // ... 7 more materials
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://www.z-beam.com/materials/ceramic/oxide#dataset",
+      "name": "Oxide Ceramic Laser Cleaning Parameters Dataset",
+      "description": "Comprehensive dataset of 8 oxide ceramic materials...",
+      "url": "https://www.z-beam.com/materials/ceramic/oxide",
+      "creator": {
+        "@type": "Organization",
+        "@id": "https://www.z-beam.com#organization",
+        "name": "Z-Beam",
+        "url": "https://www.z-beam.com"
+      },
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "keywords": ["Oxide", "Ceramic", "laser cleaning"],
+      "temporalCoverage": "2024/..",
+      "spatialCoverage": "Global",
+      "variableMeasured": [
+        "wavelength",
+        "power",
+        "fluence",
+        "pulse duration",
+        "repetition rate",
+        "scan speed",
+        "thermal conductivity",
+        "hardness",
+        "ablation threshold"
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://www.z-beam.com/data/datasets/ceramic-oxide.json",
+          "description": "JSON format dataset with 8 materials"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/csv",
+          "contentUrl": "https://www.z-beam.com/data/datasets/ceramic-oxide.csv",
+          "description": "CSV format dataset with 8 materials"
+        }
+      ],
+      "hasPart": [
+        {
+          "@type": "Dataset",
+          "name": "Alumina",
+          "url": "https://www.z-beam.com/materials/ceramic/oxide/alumina-laser-cleaning"
+        }
+        // ... more material datasets
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.z-beam.com/materials/ceramic/oxide",
+      "name": "Oxide Ceramic Laser Cleaning",
+      "description": "Explore 8 oxide ceramic materials for laser cleaning applications",
+      "url": "https://www.z-beam.com/materials/ceramic/oxide",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.z-beam.com#website",
+        "name": "Z-Beam",
+        "url": "https://www.z-beam.com"
+      },
+      "breadcrumb": {
+        "@id": "https://www.z-beam.com/materials/ceramic/oxide#breadcrumb"
+      },
+      "mainEntity": {
+        "@id": "https://www.z-beam.com/materials/ceramic/oxide#dataset"
+      }
+    }
+  ]
+}
+```
+
+---
+
+## 📊 Schema Comparison
+
+| Page Type | Schemas | Component | Discovery Status |
+|-----------|---------|-----------|------------------|
+| Material | 7-8 | MaterialJsonLD | ✅ Always discoverable |
+| Category | 5 | JsonLD | ✅ **NOW discoverable** (Nov 2025) |
+| Subcategory | 5 | JsonLD | ✅ **NOW discoverable** (Nov 2025) |
+| Static Pages | 1-2 | JsonLD via Layout | ✅ Discoverable |
+
+---
+
 ## 📚 Related Documentation
 
-- [JsonLD Component Usage](../components/JSONLD_COMPONENT_USAGE.md)
+- [Rich Data Normalization Summary](../RICH_DATA_NORMALIZATION_SUMMARY.md)
+- [Category Page SEO Audit](../CATEGORY_PAGE_SEO_AUDIT.md)
 - [E-E-A-T Implementation Details](JSONLD_EEAT_IMPLEMENTATION.md)
 - [Component Update Summary](JSONLD_COMPONENT_UPDATE_SUMMARY.md)
 - [Frontmatter Structure](FRONTMATTER_CURRENT_STRUCTURE.md)
 
 ---
 
-Generated by: `<MaterialJsonLD article={article} slug="alabaster-laser-cleaning" />`
+**Last Updated**: November 4, 2025  
+**Deployment Status**: ✅ In Production
