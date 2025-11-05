@@ -31,14 +31,9 @@ export {
   getGridClasses,
   createSectionHeader,
   createCategoryHeader,
-  type GridColumns,
-  type GridGap,
-  type GridContainer,
-  type StandardGridProps,
   
   // Navigation Configuration
   MAIN_NAV_ITEMS,
-  type NavItem,
   
   // Component Defaults
   COMPONENT_DEFAULTS,
@@ -46,3 +41,6 @@ export {
   // Breakpoints
   BREAKPOINTS,
 } from './site';
+
+// Re-export types from @/types (they're defined there, not in site.ts)
+export type { GridColumns, GridGap, GridContainer, StandardGridProps, NavItem } from '@/types';

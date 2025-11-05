@@ -1059,11 +1059,15 @@ export interface CardGridProps {
 export interface ButtonProps {
   children: ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: 'primary' | 'secondary' | 'danger' | 'inverted' | 'minimal';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  showIcon?: boolean;
+  fullWidth?: boolean;
+  'aria-label'?: string;
+  href?: string;
 }
 
 /**
