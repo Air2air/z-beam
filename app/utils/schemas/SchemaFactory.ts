@@ -1003,7 +1003,7 @@ function generateImageObjectSchema(data: any, context: SchemaContext): any | nul
 /**
  * ContactPoint Schema - NEW
  */
-function generateContactPointSchema(data: any, context: SchemaContext): any | null {
+function generateContactPointSchema(data: any, _context: SchemaContext): any | null {
   if (!data.contactPoint) return null;
 
   return generateContactPointObject(data.contactPoint);
@@ -1131,7 +1131,7 @@ function generateItemListSchema(data: any, context: SchemaContext): any | null {
 /**
  * CollectionPage Schema
  */
-function generateCollectionPageSchema(data: any, context: SchemaContext): any | null {
+function generateCollectionPageSchema(data: any, _context: SchemaContext): any | null {
   if (!hasOrganizations(data)) return null;
 
   // This is handled by modifying WebPage @type
@@ -1208,7 +1208,7 @@ function getMainImage(data: any): any | null {
   return null;
 }
 
-function generatePersonObject(author: any, baseUrl: string): any {
+function generatePersonObject(author: any, _baseUrl: string): any {
   if (!author) {
     return {
       '@type': 'Person',

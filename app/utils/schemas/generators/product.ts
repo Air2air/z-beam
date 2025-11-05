@@ -62,7 +62,7 @@ export function generateProductSchema(options: ProductSchemaOptions) {
   
   // Build additional properties with confidence scores
   const properties: any[] = [];
-  Object.entries(materialProperties).forEach(([categoryKey, categoryData]) => {
+  Object.entries(materialProperties).forEach(([_categoryKey, categoryData]) => {
     const propsToProcess = categoryData?.properties || categoryData;
     
     if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {

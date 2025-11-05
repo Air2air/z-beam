@@ -38,7 +38,7 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
   let propertyCount = 0;
   const measurements: any[] = [];
   
-  Object.entries(materialProperties).forEach(([categoryKey, categoryData]) => {
+  Object.entries(materialProperties).forEach(([_categoryKey, categoryData]) => {
     const propsToProcess = categoryData?.properties || categoryData;
     
     if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {

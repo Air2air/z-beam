@@ -49,25 +49,30 @@ VALIDATIONS_PASSED=0
 VALIDATIONS_FAILED=0
 VALIDATIONS_WARNED=0
 
-# Run a validation step
+# Run a validation step with timing
 run_validation() {
     local step_name="$1"
     local command="$2"
     local is_critical="${3:-true}"  # Default to critical
     
+    local start_time=$(date +%s)
     log "🔍 Running: $step_name"
     
     if eval "$command"; then
-        success "$step_name"
+        local end_time=$(date +%s)
+        local duration=$((end_time - start_time))
+        success "$step_name (${duration}s)"
         ((VALIDATIONS_PASSED++))
         return 0
     else
+        local end_time=$(date +%s)
+        local duration=$((end_time - start_time))
         if [ "$is_critical" = "true" ]; then
-            error "$step_name FAILED"
+            error "$step_name FAILED (${duration}s)"
             ((VALIDATIONS_FAILED++))
             return 1
         else
-            warning "$step_name failed (non-critical)"
+            warning "$step_name failed (non-critical, ${duration}s)"
             ((VALIDATIONS_WARNED++))
             return 0
         fi

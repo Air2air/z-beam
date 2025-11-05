@@ -159,8 +159,12 @@ const customJestConfig = {
   // Don't fail on coverage threshold errors - we prioritize working deployments
   coverageReporters: ['text', 'lcov', 'html'],
   verbose: true,
-  maxWorkers: "50%",
+  // Optimize for faster test execution - use 75% of cores in CI, 50% locally
+  maxWorkers: process.env.CI ? "75%" : "50%",
   testTimeout: 10000,
+  // Cache test results for faster re-runs
+  cache: true,
+  cacheDirectory: "<rootDir>/.jest-cache",
   // Don't fail the entire test run if some suites fail to parse
   // This allows deployment tests to pass even if component tests have TypeScript issues
   bail: false,

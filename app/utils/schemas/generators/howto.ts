@@ -3,7 +3,6 @@
  * Implements E-E-A-T: Experience with detailed process
  */
 
-import { SITE_CONFIG } from '../../constants';
 import { createAuthorReference } from './person';
 import type { SchemaContext, AuthorData, ImageData } from './types';
 

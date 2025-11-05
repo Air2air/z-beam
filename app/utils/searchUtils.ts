@@ -1,5 +1,5 @@
 // app/utils/searchUtils.ts
-import { MaterialType, BadgeData, BadgeColor, ChemicalProperties } from '@/types';
+import { MaterialType, BadgeData, ChemicalProperties } from '@/types';
 import { capitalizeWords } from './formatting';
 import { getMaterialColor } from './badgeColors';
 
@@ -239,16 +239,14 @@ const PROPERTY_KEYWORDS = [
 const PROPERTY_PATTERNS = /\b(g\/cm|w\/m|j\/cm|mpa|gpa|nm|μm)\b/i;
 
 /**
- * Generate search URL based on metric title and value
- * Extracted from MetricsCard component for reusability
- * 
+ * Generate search URL for material properties
  * @param title - Metric title
  * @param value - Metric value
  * @param fullPropertyName - Optional full property name for accurate search
- * @param unit - Optional unit for display
+ * @param _unit - Optional unit for display (reserved for future use)
  * @returns Search URL
  */
-export function generateSearchUrl(title: string, value: string | number, fullPropertyName?: string, unit?: string): string {
+export function generateSearchUrl(title: string, value: string | number, fullPropertyName?: string, _unit?: string): string {
   const searchValue = String(value).replace(/[^\w\s.-]/g, ''); // Clean the value
   
   // Use full property name if available, otherwise fall back to title-based detection
