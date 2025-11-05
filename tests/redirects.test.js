@@ -91,13 +91,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/beryllium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/beryllium-laser-cleaning",
+    "to": "/materials/metal/specialty/beryllium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Beryllium"
   },
   {
-    "from": "/metal/non-ferrous/beryllium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/beryllium-laser-cleaning",
+    "from": "/metal/specialty/beryllium-laser-cleaning",
+    "to": "/materials/metal/specialty/beryllium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Beryllium"
   },
@@ -201,13 +201,13 @@ describe('301 Redirects Validation', () => {
     "from": "/carbon-fiber-reinforced-polymer-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Carbon Fiber Reinforced Polymer"
+    "material": "CFRP"
   },
   {
     "from": "/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Carbon Fiber Reinforced Polymer"
+    "material": "CFRP"
   },
   {
     "from": "/cast-iron-laser-cleaning",
@@ -249,13 +249,13 @@ describe('301 Redirects Validation', () => {
     "from": "/ceramic-matrix-composites-cmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Ceramic Matrix Composites CMCs"
+    "material": "CMCs"
   },
   {
     "from": "/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Ceramic Matrix Composites CMCs"
+    "material": "CMCs"
   },
   {
     "from": "/cerium-laser-cleaning",
@@ -283,25 +283,25 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/chromium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/chromium-laser-cleaning",
+    "to": "/materials/metal/specialty/chromium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Chromium"
   },
   {
-    "from": "/metal/non-ferrous/chromium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/chromium-laser-cleaning",
+    "from": "/metal/specialty/chromium-laser-cleaning",
+    "to": "/materials/metal/specialty/chromium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Chromium"
   },
   {
     "from": "/cobalt-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/cobalt-laser-cleaning",
+    "to": "/materials/metal/specialty/cobalt-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Cobalt"
   },
   {
-    "from": "/metal/non-ferrous/cobalt-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/cobalt-laser-cleaning",
+    "from": "/metal/specialty/cobalt-laser-cleaning",
+    "to": "/materials/metal/specialty/cobalt-laser-cleaning",
     "type": "root-to-materials",
     "material": "Cobalt"
   },
@@ -381,13 +381,13 @@ describe('301 Redirects Validation', () => {
     "from": "/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Fiber Reinforced Polyurethane FRPU"
+    "material": "FRPU"
   },
   {
     "from": "/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Fiber Reinforced Polyurethane FRPU"
+    "material": "FRPU"
   },
   {
     "from": "/fiberglass-laser-cleaning",
@@ -451,13 +451,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/gallium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/gallium-laser-cleaning",
+    "to": "/materials/metal/specialty/gallium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Gallium"
   },
   {
-    "from": "/metal/non-ferrous/gallium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/gallium-laser-cleaning",
+    "from": "/metal/specialty/gallium-laser-cleaning",
+    "to": "/materials/metal/specialty/gallium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Gallium"
   },
@@ -465,13 +465,13 @@ describe('301 Redirects Validation', () => {
     "from": "/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Glass Fiber Reinforced Polymers GFRP"
+    "material": "GFRP"
   },
   {
     "from": "/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Glass Fiber Reinforced Polymers GFRP"
+    "material": "GFRP"
   },
   {
     "from": "/gold-laser-cleaning",
@@ -523,13 +523,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/hastelloy-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/hastelloy-laser-cleaning",
+    "to": "/materials/metal/specialty/hastelloy-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Hastelloy"
   },
   {
-    "from": "/metal/non-ferrous/hastelloy-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/hastelloy-laser-cleaning",
+    "from": "/metal/specialty/hastelloy-laser-cleaning",
+    "to": "/materials/metal/specialty/hastelloy-laser-cleaning",
     "type": "root-to-materials",
     "material": "Hastelloy"
   },
@@ -547,25 +547,25 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/inconel-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/inconel-laser-cleaning",
+    "to": "/materials/metal/specialty/inconel-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Inconel"
   },
   {
-    "from": "/metal/non-ferrous/inconel-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/inconel-laser-cleaning",
+    "from": "/metal/specialty/inconel-laser-cleaning",
+    "to": "/materials/metal/specialty/inconel-laser-cleaning",
     "type": "root-to-materials",
     "material": "Inconel"
   },
   {
     "from": "/indium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/indium-laser-cleaning",
+    "to": "/materials/metal/specialty/indium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Indium"
   },
   {
-    "from": "/metal/non-ferrous/indium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/indium-laser-cleaning",
+    "from": "/metal/specialty/indium-laser-cleaning",
+    "to": "/materials/metal/specialty/indium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Indium"
   },
@@ -583,13 +583,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/iron-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/iron-laser-cleaning",
+    "to": "/materials/metal/ferrous/iron-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Iron"
   },
   {
-    "from": "/metal/non-ferrous/iron-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/iron-laser-cleaning",
+    "from": "/metal/ferrous/iron-laser-cleaning",
+    "to": "/materials/metal/ferrous/iron-laser-cleaning",
     "type": "root-to-materials",
     "material": "Iron"
   },
@@ -655,13 +655,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/magnesium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/magnesium-laser-cleaning",
+    "to": "/materials/metal/specialty/magnesium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Magnesium"
   },
   {
-    "from": "/metal/non-ferrous/magnesium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/magnesium-laser-cleaning",
+    "from": "/metal/specialty/magnesium-laser-cleaning",
+    "to": "/materials/metal/specialty/magnesium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Magnesium"
   },
@@ -729,13 +729,13 @@ describe('301 Redirects Validation', () => {
     "from": "/metal-matrix-composites-mmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Metal Matrix Composites MMCs"
+    "material": "MMCs"
   },
   {
     "from": "/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Metal Matrix Composites MMCs"
+    "material": "MMCs"
   },
   {
     "from": "/molybdenum-laser-cleaning",
@@ -775,13 +775,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/nickel-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/nickel-laser-cleaning",
+    "to": "/materials/metal/specialty/nickel-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Nickel"
   },
   {
-    "from": "/metal/non-ferrous/nickel-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/nickel-laser-cleaning",
+    "from": "/metal/specialty/nickel-laser-cleaning",
+    "to": "/materials/metal/specialty/nickel-laser-cleaning",
     "type": "root-to-materials",
     "material": "Nickel"
   },
@@ -957,25 +957,25 @@ describe('301 Redirects Validation', () => {
     "from": "/polytetrafluoroethylene-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polytetrafluoroethylene-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Polytetrafluoroethylene"
+    "material": "PTFE"
   },
   {
     "from": "/plastic/thermoplastic/polytetrafluoroethylene-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polytetrafluoroethylene-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Polytetrafluoroethylene"
+    "material": "PTFE"
   },
   {
     "from": "/polyvinyl-chloride-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Polyvinyl Chloride"
+    "material": "PVC"
   },
   {
     "from": "/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Polyvinyl Chloride"
+    "material": "PVC"
   },
   {
     "from": "/poplar-laser-cleaning",
@@ -1195,13 +1195,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/silicon-carbide-laser-cleaning",
-    "to": "/materials/semiconductor/elemental/silicon-carbide-laser-cleaning",
+    "to": "/materials/ceramic/carbide/silicon-carbide-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Silicon Carbide"
   },
   {
-    "from": "/semiconductor/elemental/silicon-carbide-laser-cleaning",
-    "to": "/materials/semiconductor/elemental/silicon-carbide-laser-cleaning",
+    "from": "/ceramic/carbide/silicon-carbide-laser-cleaning",
+    "to": "/materials/ceramic/carbide/silicon-carbide-laser-cleaning",
     "type": "root-to-materials",
     "material": "Silicon Carbide"
   },
@@ -1435,13 +1435,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/titanium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/titanium-laser-cleaning",
+    "to": "/materials/metal/specialty/titanium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Titanium"
   },
   {
-    "from": "/metal/non-ferrous/titanium-laser-cleaning",
-    "to": "/materials/metal/non-ferrous/titanium-laser-cleaning",
+    "from": "/metal/specialty/titanium-laser-cleaning",
+    "to": "/materials/metal/specialty/titanium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Titanium"
   },
@@ -1543,13 +1543,13 @@ describe('301 Redirects Validation', () => {
   },
   {
     "from": "/yttrium-laser-cleaning",
-    "to": "/materials/rare-earth/lanthanide/yttrium-laser-cleaning",
+    "to": "/materials/rare-earth/scandium-group/yttrium-laser-cleaning",
     "type": "flat-to-hierarchical",
     "material": "Yttrium"
   },
   {
-    "from": "/rare-earth/lanthanide/yttrium-laser-cleaning",
-    "to": "/materials/rare-earth/lanthanide/yttrium-laser-cleaning",
+    "from": "/rare-earth/scandium-group/yttrium-laser-cleaning",
+    "to": "/materials/rare-earth/scandium-group/yttrium-laser-cleaning",
     "type": "root-to-materials",
     "material": "Yttrium"
   },

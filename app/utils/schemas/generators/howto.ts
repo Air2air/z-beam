@@ -1,0 +1,165 @@
+/**
+ * HowTo Schema Generator
+ * Implements E-E-A-T: Experience with detailed process
+ */
+
+import { SITE_CONFIG } from '../../constants';
+import { createAuthorReference } from './person';
+import type { SchemaContext, AuthorData, ImageData } from './types';
+
+export interface HowToStep {
+  name: string;
+  text: string;
+  description?: string;
+}
+
+export interface MachineSettings {
+  powerRange?: { value: string; unit: string; description?: string };
+  wavelength?: { value: string; unit: string; description?: string };
+  spotSize?: { value: string; unit: string; description?: string };
+  scanSpeed?: { value: string; unit: string; description?: string };
+  pulseFrequency?: { value: string; unit: string; description?: string };
+}
+
+export interface HowToSchemaOptions {
+  context: SchemaContext;
+  name: string;
+  description?: string;
+  author?: AuthorData;
+  machineSettings?: MachineSettings;
+  customSteps?: HowToStep[];
+  images?: {
+    micro?: ImageData;
+  };
+  totalTime?: string;
+}
+
+/**
+ * Generate HowTo schema for laser cleaning process
+ */
+export function generateHowToSchema(options: HowToSchemaOptions) {
+  const {
+    context,
+    name,
+    description,
+    author = {},
+    machineSettings,
+    customSteps,
+    images,
+    totalTime = 'PT15M'
+  } = options;
+  
+  const { baseUrl, pageUrl } = context;
+  
+  // Build steps from machine settings or use custom steps
+  const steps: any[] = [];
+  
+  if (customSteps && customSteps.length > 0) {
+    customSteps.forEach((step, index) => {
+      steps.push({
+        '@type': 'HowToStep',
+        position: index + 1,
+        name: step.name,
+        text: step.text,
+        ...(step.description && { description: step.description })
+      });
+    });
+  } else if (machineSettings) {
+    let stepNumber = 1;
+    
+    if (machineSettings.powerRange) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Laser Power',
+        text: `Configure laser power to ${machineSettings.powerRange.value} ${machineSettings.powerRange.unit}`,
+        ...(machineSettings.powerRange.description && { 
+          description: machineSettings.powerRange.description 
+        })
+      });
+    }
+    
+    if (machineSettings.wavelength) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Configure Wavelength',
+        text: `Set wavelength to ${machineSettings.wavelength.value} ${machineSettings.wavelength.unit}`,
+        ...(machineSettings.wavelength.description && { 
+          description: machineSettings.wavelength.description 
+        })
+      });
+    }
+    
+    if (machineSettings.spotSize) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Adjust Spot Size',
+        text: `Set beam spot size to ${machineSettings.spotSize.value} ${machineSettings.spotSize.unit}`,
+        ...(machineSettings.spotSize.description && { 
+          description: machineSettings.spotSize.description 
+        })
+      });
+    }
+    
+    if (machineSettings.scanSpeed) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Scanning Speed',
+        text: `Configure scanning speed to ${machineSettings.scanSpeed.value} ${machineSettings.scanSpeed.unit}`,
+        ...(machineSettings.scanSpeed.description && { 
+          description: machineSettings.scanSpeed.description 
+        })
+      });
+    }
+    
+    if (machineSettings.pulseFrequency) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Pulse Frequency',
+        text: `Configure pulse frequency to ${machineSettings.pulseFrequency.value} ${machineSettings.pulseFrequency.unit}`,
+        ...(machineSettings.pulseFrequency.description && { 
+          description: machineSettings.pulseFrequency.description 
+        })
+      });
+    }
+  }
+  
+  // Return null if no steps
+  if (steps.length === 0) return null;
+  
+  const howToDescription = description || `Step-by-step process for laser cleaning ${name} surfaces`;
+  
+  return {
+    '@type': 'HowTo',
+    '@id': `${pageUrl}#howto`,
+    name: `How to Clean ${name} with Laser`,
+    description: howToDescription,
+    
+    // E-E-A-T: Author reference
+    author: createAuthorReference(baseUrl, author.id || 'expert'),
+    
+    step: steps,
+    
+    // Result image
+    ...(images?.micro?.url && {
+      image: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}${images.micro.url}`,
+        caption: images.micro.alt || `Result of laser cleaning ${name}`
+      }
+    }),
+    
+    // Time estimate
+    totalTime,
+    
+    // Equipment needed
+    supply: {
+      '@type': 'HowToSupply',
+      name: 'Laser Cleaning System'
+    }
+  };
+}

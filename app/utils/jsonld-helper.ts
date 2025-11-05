@@ -1,7 +1,23 @@
 import { SITE_CONFIG } from './constants';
+import {
+  generatePersonSchema,
+  generateArticleSchema,
+  generateProductSchema,
+  generateHowToSchema,
+  generateDatasetSchema,
+  generateFAQSchema,
+  generateWebPageSchema,
+  generateBreadcrumbSchema,
+  createContext,
+  wrapInGraph
+} from './schemas/generators';
 
 /**
  * Enhanced JSON-LD Schema Generator with Full Frontmatter Integration
+ * 
+ * @deprecated Use modular generators from './schemas/generators' instead
+ * This file maintained for backward compatibility during migration
+ * 
  * Optimized for Google E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
  * 
  * E-E-A-T Implementation:
@@ -9,6 +25,10 @@ import { SITE_CONFIG } from './constants';
  * - Expertise: Author credentials, technical specifications, confidence scores
  * - Authoritativeness: Source citations, regulatory standards, industry references
  * - Trustworthiness: Verification metadata, data provenance, transparent confidence levels
+ */
+/**
+ * Create comprehensive JSON-LD for article/material pages
+ * Uses modular generators for consistency
  */
 export function createJsonLdForArticle(articleData: any, slug: string) {
   try {
@@ -20,19 +40,16 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     const metadata = articleData.metadata || {};
     const frontmatter = articleData.frontmatter || metadata;
     
-    // Extract all frontmatter data
+    // Extract data
     const materialProperties = frontmatter.materialProperties || {};
     const machineSettings = frontmatter.machineSettings || {};
     const author = frontmatter.author || {};
     const images = frontmatter.images || {};
     const applications = frontmatter.applications || [];
-    const environmentalImpact = frontmatter.environmentalImpact || [];
-    const outcomeMetrics = frontmatter.outcomeMetrics || [];
     const regulatoryStandards = frontmatter.regulatoryStandards || [];
     const caption = frontmatter.caption || {};
     const faq = frontmatter.faq || [];
     
-    // Basic info
     const title = frontmatter.title || metadata.title || 'Material Guide';
     const description = frontmatter.description || metadata.description || '';
     const subtitle = frontmatter.subtitle || '';
@@ -40,61 +57,91 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
     const category = frontmatter.category || metadata.category || 'material';
     const subcategory = frontmatter.subcategory || '';
     
-    // Dates
-    const currentDate = new Date().toISOString();
-    const publishDate = frontmatter.datePublished || metadata.datePublished || currentDate;
-    const modifiedDate = frontmatter.dateModified || metadata.dateModified || currentDate;
+    const publishDate = frontmatter.datePublished || metadata.datePublished;
+    const modifiedDate = frontmatter.dateModified || metadata.dateModified;
     
-    // Build comprehensive schema using @graph pattern
-    const baseUrl = SITE_CONFIG.url || 'https://z-beam.com';
-    const pageUrl = `${baseUrl}/${slug}`;
+    // Create context
+    const context = createContext(slug);
     
-    const schema = {
-      '@context': 'https://schema.org',
-      '@graph': [
-        // 1. Main TechnicalArticle (E-E-A-T: Experience & Expertise)
-        createTechnicalArticleSchema(
-          { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications, faq }
-        ),
-        
-        // 2. Material Product Schema (E-E-A-T: Authoritativeness)
-        createMaterialProductSchema(
-          { materialName, category, subcategory, description, pageUrl, materialProperties, applications, environmentalImpact, images }
-        ),
-        
-        // 3. HowTo Schema (E-E-A-T: Experience)
-        createHowToSchema(
-          { materialName, machineSettings, outcomeMetrics, pageUrl }
-        ),
-        
-        // 4. Dataset Schema for Material Properties (E-E-A-T: Trustworthiness)
-        createDatasetSchema(
-          { materialName, materialProperties, pageUrl, modifiedDate }
-        ),
-        
-        // 5. FAQPage Schema (E-E-A-T: Expertise & User Intent)
-        createFAQPageSchema(
-          { materialName, faq, pageUrl }
-        ),
-        
-        // 6. BreadcrumbList
-        createBreadcrumbSchema(slug, title, category),
-        
-        // 7. WebPage
-        createWebPageSchema(pageUrl, title, description, publishDate, modifiedDate),
-        
-        // 8. VideoObject - YouTube demonstration (E-E-A-T: Experience)
-        createVideoSchema(materialName, pageUrl),
-        
-        // 9. Author/Expert Profile (E-E-A-T: Expertise & Authoritativeness)
-        createAuthorSchema(author),
-        
-        // 10. Regulatory Compliance (E-E-A-T: Trustworthiness)
-        ...(regulatoryStandards.length > 0 ? [createComplianceSchema(regulatoryStandards, materialName)] : [])
-      ].filter(Boolean) // Remove any null/undefined entries
-    };
+    // Build schemas using modular generators
+    const schemas = [
+      // Person schema (must come first for @id references)
+      generatePersonSchema({ context, author }),
+      
+      // Article
+      generateArticleSchema({
+        context,
+        title,
+        description,
+        subtitle,
+        publishDate,
+        modifiedDate,
+        author,
+        images,
+        caption,
+        applications,
+        articleType: 'TechnicalArticle'
+      }),
+      
+      // Product
+      generateProductSchema({
+        context,
+        name: materialName,
+        description,
+        category,
+        subcategory,
+        author,
+        images,
+        materialProperties,
+        applications
+      }),
+      
+      // HowTo
+      generateHowToSchema({
+        context,
+        name: materialName,
+        author,
+        machineSettings,
+        images
+      }),
+      
+      // Dataset
+      generateDatasetSchema({
+        context,
+        name: materialName,
+        description,
+        author,
+        materialProperties,
+        modifiedDate
+      }),
+      
+      // FAQ
+      faq && faq.length > 0 ? generateFAQSchema({
+        context,
+        name: materialName,
+        items: faq
+      }) : null,
+      
+      // Breadcrumb (using legacy function - TODO: migrate)
+      createBreadcrumbSchema(slug, title, category),
+      
+      // WebPage
+      generateWebPageSchema({
+        context,
+        title,
+        description,
+        publishDate,
+        modifiedDate
+      }),
+      
+      // Video (using legacy function - TODO: migrate)
+      createVideoSchema(materialName, context.pageUrl),
+      
+      // Compliance (using legacy function - TODO: migrate)
+      regulatoryStandards.length > 0 ? createComplianceSchema(regulatoryStandards, materialName) : null
+    ];
     
-    return schema;
+    return wrapInGraph(schemas);
     
   } catch (error) {
     console.error('Error creating comprehensive JSON-LD schema:', error);
@@ -706,3 +753,17 @@ export function createJsonLdScript(schema: any) {
   
   return `<script type="application/ld+json">${JSON.stringify(schema, null, 2)}</script>`;
 }
+
+// Export individual schema generators for reuse
+export {
+  createTechnicalArticleSchema,
+  createMaterialProductSchema,
+  createHowToSchema,
+  createDatasetSchema,
+  createFAQPageSchema,
+  createAuthorSchema,
+  createWebPageSchema,
+  createBreadcrumbSchema,
+  createVideoSchema,
+  createComplianceSchema
+};

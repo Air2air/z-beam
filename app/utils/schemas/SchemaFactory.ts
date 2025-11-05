@@ -17,6 +17,16 @@
 
 import { SITE_CONFIG } from '../constants';
 import { generateBreadcrumbs } from '../breadcrumbs';
+import { 
+  createTechnicalArticleSchema,
+  createMaterialProductSchema,
+  createHowToSchema,
+  createDatasetSchema,
+  createFAQPageSchema,
+  createAuthorSchema,
+  createWebPageSchema,
+  createBreadcrumbSchema
+} from '../jsonld-helper';
 
 // ============================================================================
 // Types & Interfaces
