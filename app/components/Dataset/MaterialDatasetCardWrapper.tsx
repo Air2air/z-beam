@@ -13,13 +13,36 @@ export default function MaterialDatasetCardWrapper({
     slug, 
     category, 
     subcategory, 
-    parameters = {}, 
     materialProperties = {}, 
-    applications = [],
     faq,
     regulatoryStandards = [],
     machineSettings = {}
   } = material;
+
+  // Count total properties from all nested sections
+  const totalProperties = Object.values(materialProperties).reduce((total, section: any) => {
+    if (section && typeof section === 'object' && !Array.isArray(section)) {
+      // Count all nested properties in this section (excluding label, percentage, description)
+      const propCount = Object.keys(section).filter(k => !['label', 'percentage', 'description'].includes(k)).length;
+      return total + propCount;
+    }
+    return total;
+  }, 0);
+
+  // Count machine settings
+  const settingsCount = Object.keys(machineSettings).length;
+
+  // Count FAQs
+  const faqCount = Array.isArray(faq) ? faq.length : ((faq as any)?.questions?.length || 0);
+
+  // Count standards
+  const standardsCount = regulatoryStandards?.length || 0;
+  
+  // Count total variables measured (sum of all properties across all sections)
+  const variablesCount = totalProperties;
+  
+  // Count material property sections
+  const sectionsCount = Object.keys(materialProperties).length;
 
   return (
     <DatasetSection
@@ -27,28 +50,28 @@ export default function MaterialDatasetCardWrapper({
       description="Download material properties, specifications, and machining parameters in machine-readable formats"
       stats={[
         {
-          value: Object.keys(materialProperties).length,
-          label: 'Properties'
+          value: variablesCount,
+          label: 'Variables'
         },
         {
-          value: Object.keys(machineSettings).length,
-          label: 'Settings'
-        },
-        {
-          value: Object.keys(parameters).length,
+          value: settingsCount,
           label: 'Parameters'
         },
         {
-          value: applications.length,
-          label: 'Applications'
+          value: sectionsCount,
+          label: 'Categories'
         },
         {
-          value: Array.isArray(faq) ? faq.length : ((faq as any)?.questions?.length || 0),
+          value: faqCount,
           label: 'FAQs'
         },
         {
-          value: regulatoryStandards.length,
+          value: standardsCount,
           label: 'Standards'
+        },
+        {
+          value: 3,
+          label: 'Formats'
         }
       ]}
       formats={['json', 'csv', 'txt']}

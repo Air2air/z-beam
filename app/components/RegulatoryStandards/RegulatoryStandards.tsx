@@ -36,6 +36,13 @@ export function RegulatoryStandards({
   title = 'Regulatory Standards & Compliance'
 }: RegulatoryStandardsProps) {
   if (!standards || standards.length === 0) return null;
+  
+  // Filter to only show object/dict standards, not strings
+  const validStandards = standards.filter(std => 
+    typeof std === 'object' && std !== null && std.name
+  );
+  
+  if (validStandards.length === 0) return null;
 
   return (
     <section 
@@ -50,7 +57,7 @@ export function RegulatoryStandards({
       )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {standards.map((standard, index) => (
+        {validStandards.map((standard, index) => (
           <div
             key={`${standard.name}-${index}`}
             className="card-background rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"

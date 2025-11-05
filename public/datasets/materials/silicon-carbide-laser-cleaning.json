@@ -96,7 +96,7 @@
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 100,
+        "percentage": 89.5,
         "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
           "value": 0.0003,
@@ -237,8 +237,24 @@
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 0,
-        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
+        "percentage": 10.5,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "porosity": {
+          "value": 0.005,
+          "unit": "dimensionless",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 0,
+          "max": 0.05
+        },
+        "ablationThreshold": {
+          "value": 3,
+          "unit": "J/cm²",
+          "confidence": 95,
+          "source": "ai_research",
+          "min": 2,
+          "max": 5
+        }
       }
     },
     "applications": [],
@@ -431,6 +447,28 @@
       "unitText": "MPa",
       "minValue": 5,
       "maxValue": 600,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - laser material interaction",
+      "value": 0.005,
+      "unitText": "dimensionless",
+      "minValue": 0,
+      "maxValue": 0.05,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 3,
+      "unitText": "J/cm²",
+      "minValue": 2,
+      "maxValue": 5,
       "measurementTechnique": "ai_research"
     }
   ],
