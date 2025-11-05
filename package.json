@@ -46,7 +46,7 @@
     "test:deployment": "jest --config jest.deployment.config.js",
     "test:deployment:config": "jest tests/deployment/deployment-config.test.ts",
     "test:deployment:watch": "jest --config jest.deployment.config.js --watch",
-    "test:sitemap": "jest tests/sitemap/sitemap.test.ts",
+    "test:sitemap": "jest tests/sitemap/sitemap.test.ts --coverage=false",
     "verify:sitemap": "bash scripts/sitemap/verify-sitemap.sh",
     "validate:fast": "npm run type-check && npm run test:unit",
     "validate:deployment": "npm run type-check && npm run test:deployment && npm run build",

@@ -57,10 +57,10 @@ export function ProgressBar({
     };
   }, []);
   
-  // Clean up numeric values to 2 decimal places
-  const cleanMin = parseFloat(cleanupFloat(min));
-  const cleanMax = parseFloat(cleanupFloat(max));
-  const cleanValue = parseFloat(cleanupFloat(value));
+  // Convert numeric values to numbers (don't use cleanupFloat which formats with K/M suffixes)
+  const cleanMin = typeof min === 'number' ? min : parseFloat(min);
+  const cleanMax = typeof max === 'number' ? max : parseFloat(max);
+  const cleanValue = typeof value === 'number' ? value : parseFloat(value);
   
   // Calculate percentage position (0-100) - inverted for vertical (bottom to top)
   const percentage = Math.min(Math.max((cleanValue - cleanMin) / (cleanMax - cleanMin) * 100, 0), 100);
