@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import { FiInfo, FiCheckCircle } from 'react-icons/fi';
 import { BsFileEarmarkSpreadsheet } from 'react-icons/bs';
+import { Button } from '@/app/components/Button';
 import DatasetDownloadControls from './DatasetDownloadControls';
 import type { DatasetSectionProps } from '@/types/centralized';
 
@@ -64,9 +65,11 @@ export default function DatasetSection({
           </p>
         </div>
         {directLink && (
-          <button
+          <Button
             onClick={copyDownloadUrl}
-            className="ml-4 flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+            variant="outline"
+            size="sm"
+            className="ml-4"
           >
             {copied ? (
               <>
@@ -75,11 +78,11 @@ export default function DatasetSection({
               </>
             ) : (
               <>
-                <FiInfo className="text-gray-500" />
+                <FiInfo />
                 <span>Copy Link</span>
               </>
             )}
-          </button>
+          </Button>
         )}
       </div>
 

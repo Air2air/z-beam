@@ -3,7 +3,7 @@
 
 import { useState, useRef, useEffect, memo } from 'react';
 import { ContactFormData, FormErrors } from '@/types';
-import { Button } from '../ContactButton';
+import { Button } from '../Button';
 
 export const ContactForm = memo(function ContactForm() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -273,7 +273,7 @@ export const ContactForm = memo(function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            variant="primary"
+            variant="secondary"
             size="lg"
             fullWidth
             showIcon={false}

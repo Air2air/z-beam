@@ -70,9 +70,10 @@ export default function DatasetDownloadControls({
           )}
 
           {showCopyButton && (
-            <button
+            <Button
               onClick={onCopyLink}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+              variant="outline"
+              size="sm"
             >
               {copied ? (
                 <>
@@ -85,7 +86,7 @@ export default function DatasetDownloadControls({
                   <span>Copy Link</span>
                 </>
               )}
-            </button>
+            </Button>
           )}
         </div>
 

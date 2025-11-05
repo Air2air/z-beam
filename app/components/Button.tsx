@@ -1,8 +1,11 @@
 // app/components/Button.tsx
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
 import { ButtonProps } from '@/types';
 
-// ButtonProps now imported from centralized types
+// Unified Button component with Link support
 
 export function Button({
   children,
@@ -12,8 +15,12 @@ export function Button({
   className = '',
   disabled = false,
   type = 'button',
+  href,
+  showIcon = false,
+  fullWidth = false,
+  'aria-label': ariaLabel,
 }: ButtonProps) {
-  const baseClasses = 'btn inline-flex items-center justify-center rounded-lg transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed';
   
   // Three variants matching site design:
   // 1. Primary: Orange background, white text (main CTA)
@@ -34,14 +41,65 @@ export function Button({
     lg: 'px-4 py-3 sm:px-6 sm:py-3 text-base lg:text-lg min-h-[48px]'
   };
   
-  const combinedClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  // Icon size based on button size
+  const iconSizeClasses = {
+    sm: 'w-3 h-3',
+    md: 'w-4 h-4 md:w-5 md:h-5',
+    lg: 'w-5 h-5 md:w-6 md:h-6',
+  };
   
+  const combinedClasses = [
+    baseClasses,
+    variantClasses[variant],
+    sizeClasses[size],
+    fullWidth ? 'w-full' : '',
+    className
+  ].filter(Boolean).join(' ');
+  
+  // Icon component for links
+  const Icon = showIcon && href ? (
+    <svg
+      aria-hidden="true"
+      role="presentation"
+      focusable="false"
+      className={`hidden sm:block ml-1 sm:ml-2 ${iconSizeClasses[size]}`}
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={3}
+        d="M9 5l7 7-7 7"
+      />
+    </svg>
+  ) : null;
+  
+  // Render as Link if href is provided
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={combinedClasses}
+        aria-label={ariaLabel}
+      >
+        {children}
+        {Icon}
+      </Link>
+    );
+  }
+  
+  // Render as button
   return (
     <button
       type={type}
       onClick={onClick}
       disabled={disabled}
       className={combinedClasses}
+      aria-label={ariaLabel}
+      aria-disabled={disabled}
     >
       {children}
     </button>

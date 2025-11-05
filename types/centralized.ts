@@ -1073,7 +1073,7 @@ export interface ButtonProps {
   showIcon?: boolean;
   fullWidth?: boolean;
   'aria-label'?: string;
-  href?: string;
+  href?: string; // If provided, renders as Link instead of button
 }
 
 /**

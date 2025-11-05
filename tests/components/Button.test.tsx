@@ -183,14 +183,14 @@ describe('Button Component', () => {
       expect(button).toHaveClass('border-2'); // variant
       expect(button).toHaveClass('min-h-[48px]'); // size
       expect(button).toHaveClass('mt-4'); // custom
-      expect(button).toHaveClass('btn'); // base
+      expect(button).toHaveClass('font-medium'); // base
     });
 
     it('should work without custom className', () => {
       render(<Button>No Custom</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('btn', 'bg-brand-orange', 'text-white'); // base and variant only
+      expect(button).toHaveClass('font-medium', 'bg-brand-orange', 'text-white'); // base and variant only
     });
   });
 
@@ -464,7 +464,7 @@ describe('Button Component', () => {
           const button = screen.getByRole('button');
           
           // All should have base button classes
-          expect(button).toHaveClass('btn', 'rounded-lg', 'inline-flex');
+          expect(button).toHaveClass('font-medium', 'rounded-lg', 'inline-flex');
           
           unmount();
         });

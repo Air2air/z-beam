@@ -3,6 +3,7 @@
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { Title } from '../Title';
+import { Button } from '../Button';
 
 interface Props {
   children: ReactNode;
@@ -58,13 +59,14 @@ export class ErrorBoundary extends Component<Props, State> {
               : 'An unexpected error occurred.'
             }
           </p>
-          <button
+          <Button
             type="button"
             onClick={() => this.setState({ hasError: false, error: undefined })}
-            className="px-4 py-2 bg-red-600 text-white rounded"
+            variant="danger"
+            size="md"
           >
             Try Again
-          </button>
+          </Button>
         </div>
       );
     }

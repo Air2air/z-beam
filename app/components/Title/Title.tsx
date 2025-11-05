@@ -4,7 +4,7 @@
 import React, { useEffect, useRef } from 'react';
 import { TitleProps } from '@/types';
 import { SITE_CONFIG } from '../../utils/constants';
-import { ContactButton } from '../ContactButton';
+import { Button } from '../Button';
 
 /**
  * WCAG 2.1 AAA Compliant Title Component with Enhanced Accessibility
@@ -256,7 +256,7 @@ export function Title({
           {(rightContent !== undefined ? rightContent : level === 'page') && (
             <div className="flex-shrink-0">
               {rightContent !== undefined ? rightContent : (
-                <ContactButton variant="primary" size="md" href="/contact" />
+                <Button variant="secondary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
               )}
             </div>
           )}

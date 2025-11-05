@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { SITE_CONFIG } from '@/app/config';
-import { ContactButton } from '../ContactButton';
+import { Button } from '../Button';
 
 export default function CallToAction() {
   return (
@@ -42,12 +42,15 @@ export default function CallToAction() {
 
           {/* Right column: Contact button */}
           <div className="flex items-center justify-center w-full h-[80px]">
-            <ContactButton 
+            <Button 
               variant="primary" 
               size="lg"
               href="/contact"
               className="mx-auto"
-            />
+              showIcon={true}
+            >
+              Let's talk
+            </Button>
           </div>
         </div>
       </div>

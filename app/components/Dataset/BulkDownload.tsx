@@ -4,6 +4,7 @@
 import React, { useState } from 'react';
 import { FiDownload, FiPackage, FiCode, FiFileText } from 'react-icons/fi';
 import { BsFiletypeJson, BsFiletypeCsv } from 'react-icons/bs';
+import { Button } from '@/app/components/Button';
 import type { BulkDownloadProps } from '@/types/centralized';
 
 export default function BulkDownload({ materials, categoryStats }: BulkDownloadProps) {
@@ -189,22 +190,24 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <button
+          <Button
             onClick={() => handleBulkDownload('all', 'json')}
             disabled={downloading === 'all-json'}
-            className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+            variant="primary"
+            size="lg"
           >
             <BsFiletypeJson className="w-5 h-5" />
             <span>{downloading === 'all-json' ? 'Downloading...' : 'Download JSON'}</span>
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => handleBulkDownload('all', 'csv')}
             disabled={downloading === 'all-csv'}
-            className="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+            variant="primary"
+            size="lg"
           >
             <BsFiletypeCsv className="w-5 h-5" />
             <span>{downloading === 'all-csv' ? 'Downloading...' : 'Download CSV'}</span>
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -230,22 +233,26 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
                 </div>
               </div>
               <div className="flex gap-2">
-                <button
+                <Button
                   onClick={() => handleBulkDownload(category, 'json')}
                   disabled={downloading === `${category}-json`}
-                  className="flex-1 inline-flex items-center justify-center space-x-1 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+                  variant="primary"
+                  size="sm"
+                  className="flex-1"
                 >
                   <BsFiletypeJson className="w-4 h-4" />
                   <span>{downloading === `${category}-json` ? 'Downloading...' : 'JSON'}</span>
-                </button>
-                <button
+                </Button>
+                <Button
                   onClick={() => handleBulkDownload(category, 'csv')}
                   disabled={downloading === `${category}-csv`}
-                  className="flex-1 inline-flex items-center justify-center space-x-1 bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+                  variant="primary"
+                  size="sm"
+                  className="flex-1"
                 >
                   <BsFiletypeCsv className="w-4 h-4" />
                   <span>{downloading === `${category}-csv` ? 'Downloading...' : 'CSV'}</span>
-                </button>
+                </Button>
               </div>
             </div>
           ))}

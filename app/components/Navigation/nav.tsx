@@ -5,14 +5,10 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import dynamic from 'next/dynamic';
 import { CONTAINER_STYLES } from "../../utils/containerStyles";
 import { SITE_CONFIG } from "../../utils/constants";
 import { MAIN_NAV_ITEMS } from "../../config/navigation";
-
-const ContactButton = dynamic(() => import("../ContactButton"), {
-  ssr: false,
-});
+import { Button } from "../Button";
 
 // Use centralized navigation config
 const navItems = MAIN_NAV_ITEMS;
@@ -217,7 +213,7 @@ export function Navbar() {
                               );
                             })}
                             <div className="px-4 py-2 whitespace-nowrap">
-                              <ContactButton variant="primary" size="sm" href="/contact" />
+                              <Button variant="secondary" size="sm" href="/contact" showIcon={true}>Let's talk</Button>
                             </div>
                           </div>
                         )}
@@ -373,7 +369,7 @@ export function Navbar() {
                             );
                           })}
                           <div className="py-2 px-3">
-                            <ContactButton variant="primary" size="md" href="/contact" />
+                            <Button variant="secondary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
                           </div>
                         </div>
                       )}
