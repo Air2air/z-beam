@@ -94,6 +94,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         'name': pageTitle,
         'description': categoryMetadata.description,
         'url': `${SITE_CONFIG.url}/materials/${category}`,
+        'author': {
+          '@id': `${SITE_CONFIG.url}#author-technical-team`
+        },
         'publisher': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -158,6 +161,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         'alternateName': `${categoryDisplayName} Materials Database`,
         'url': `${SITE_CONFIG.url}/materials/${category}`,
         'identifier': `${SITE_CONFIG.url}/materials/${category}#dataset`,
+        'author': {
+          '@id': `${SITE_CONFIG.url}#author-technical-team`
+        },
         'creator': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -225,6 +231,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         'name': pageTitle,
         'description': categoryMetadata.description,
         'url': `${SITE_CONFIG.url}/materials/${category}`,
+        'author': {
+          '@id': `${SITE_CONFIG.url}#author-technical-team`
+        },
         'isPartOf': {
           '@type': 'WebSite',
           '@id': `${SITE_CONFIG.url}#website`,
@@ -236,6 +245,20 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         },
         'mainEntity': {
           '@id': `${SITE_CONFIG.url}/materials/${category}#dataset`
+        }
+      },
+      
+      // 6. Person schema - Technical author
+      {
+        '@type': 'Person',
+        '@id': `${SITE_CONFIG.url}#author-technical-team`,
+        'name': 'Z-Beam Technical Team',
+        'jobTitle': 'Laser Cleaning Specialists',
+        'knowsAbout': `${categoryDisplayName} laser cleaning, material properties, industrial laser systems`,
+        'worksFor': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`,
+          'name': SITE_CONFIG.name
         }
       }
     ]

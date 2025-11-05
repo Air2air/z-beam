@@ -270,6 +270,11 @@ function createMaterialProductSchema(data: any) {
     description: description,
     category: `${category}${subcategory ? ` - ${subcategory}` : ''}`,
     
+    // Author reference (E-E-A-T: Expertise)
+    author: {
+      '@id': `${baseUrl}#author-expert`
+    },
+    
     // Brand/Manufacturer (required by Google)
     brand: {
       '@type': 'Brand',
@@ -384,6 +389,12 @@ function createHowToSchema(data: any) {
     '@id': `${pageUrl}#howto`,
     name: `How to Clean ${materialName} with Laser`,
     description: `Step-by-step process for laser cleaning ${materialName} surfaces`,
+    
+    // Author reference (E-E-A-T: Expertise)
+    author: {
+      '@id': `${baseUrl}#author-expert`
+    },
+    
     step: steps,
     
     // Outcome image (micro image shows detailed result)
@@ -458,6 +469,11 @@ function createDatasetSchema(data: any) {
     name: `${materialName} Laser Cleaning Parameters Dataset`,
     description: `Comprehensive material properties and laser cleaning parameters for ${materialName}. Includes material characteristics, laser-material interaction properties, machine settings, and regulatory standards. Available in multiple formats for analysis and research.`,
     
+    // Author reference (E-E-A-T: Expertise)
+    author: {
+      '@id': `${baseUrl}#author-expert`
+    },
+    
     // E-E-A-T: Trustworthiness - data provenance
     dateModified: modifiedDate,
     version: '1.0',
@@ -524,6 +540,9 @@ function createDatasetSchema(data: any) {
       url: 'https://creativecommons.org/licenses/by/4.0/',
       identifier: 'CC BY 4.0'
     },
+    
+    // Language
+    inLanguage: 'en-US',
     
     // Keywords for discoverability
     keywords: [

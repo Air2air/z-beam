@@ -83,6 +83,9 @@ export default async function SubcategoryPage({ params }: PageProps) {
         'name': `${pageTitle} Laser Cleaning`,
         'description': `Laser cleaning solutions for ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials. ${subcategoryInfo.materials.length} materials available.`,
         'url': pageUrl,
+        'author': {
+          '@id': `${SITE_CONFIG.url}#author-technical-team`
+        },
         'publisher': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -151,6 +154,9 @@ export default async function SubcategoryPage({ params }: PageProps) {
         'alternateName': `${pageTitle} Materials Database`,
         'url': pageUrl,
         'identifier': `${pageUrl}#dataset`,
+        'author': {
+          '@id': `${SITE_CONFIG.url}#author-technical-team`
+        },
         'creator': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
@@ -170,6 +176,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
           'url': 'https://creativecommons.org/licenses/by/4.0/',
           'identifier': 'CC BY 4.0'
         },
+        'inLanguage': 'en-US',
         'keywords': [
           subcategoryInfo.label,
           categoryLabel,
@@ -218,6 +225,9 @@ export default async function SubcategoryPage({ params }: PageProps) {
         'name': `${pageTitle} Laser Cleaning`,
         'description': `Explore ${subcategoryInfo.materials.length} ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials for laser cleaning applications`,
         'url': pageUrl,
+        'author': {
+          '@id': `${SITE_CONFIG.url}#author-technical-team`
+        },
         'isPartOf': {
           '@type': 'WebSite',
           '@id': `${SITE_CONFIG.url}#website`,
@@ -229,6 +239,20 @@ export default async function SubcategoryPage({ params }: PageProps) {
         },
         'mainEntity': {
           '@id': `${pageUrl}#dataset`
+        }
+      },
+      
+      // 6. Person schema - Technical author
+      {
+        '@type': 'Person',
+        '@id': `${SITE_CONFIG.url}#author-technical-team`,
+        'name': 'Z-Beam Technical Team',
+        'jobTitle': 'Laser Cleaning Specialists',
+        'knowsAbout': `${pageTitle} laser cleaning, ${categoryLabel.toLowerCase()} materials, industrial laser systems`,
+        'worksFor': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`,
+          'name': SITE_CONFIG.name
         }
       }
     ]
