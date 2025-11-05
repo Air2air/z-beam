@@ -133,7 +133,7 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     return (
       <>
         <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
-        <Layout components={components} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
+        <Layout components={components as any} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
         <RelatedMaterials 
           currentSlug={slug}
           category={category}

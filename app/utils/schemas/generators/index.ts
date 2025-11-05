@@ -46,7 +46,7 @@ export {
   generateHowToSchema,
   type HowToSchemaOptions,
   type HowToStep,
-  type MachineSettings
+  type HowToMachineSettings
 } from './howto';
 
 export {
@@ -75,7 +75,8 @@ export function createContext(slug: string, baseUrl?: string): SchemaContext {
   return {
     baseUrl: base,
     pageUrl: `${base}/${slug}`,
-    currentDate: new Date().toISOString().split('T')[0]
+    currentDate: new Date().toISOString().split('T')[0],
+    slug
   };
 }
 

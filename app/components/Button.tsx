@@ -17,6 +17,8 @@ export function Button({
   type = 'button',
   href,
   showIcon = false,
+  iconLeft,
+  iconRight,
   fullWidth = false,
   'aria-label': ariaLabel,
 }: ButtonProps) {
@@ -25,11 +27,11 @@ export function Button({
   // Three variants matching site design:
   // 1. Primary: Orange background, white text (main CTA)
   // 2. Secondary: White background, orange text (Let's Talk style)
-  // 3. Outline: Border only, no fill (Dataset downloader style)
+  // 3. Outline: Border only, no fill (Dataset downloader style) - uses className for colors
   const variantClasses = {
     primary: 'bg-brand-orange text-white hover:bg-orange-600 focus-visible:ring-brand-orange focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
     secondary: 'bg-white text-brand-orange hover:bg-gray-100 focus-visible:ring-white focus-visible:ring-offset-brand-orange shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
-    outline: 'bg-white dark:bg-gray-700 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-brand-orange dark:hover:border-brand-orange hover:text-brand-orange dark:hover:text-brand-orange focus-visible:ring-brand-orange focus-visible:ring-offset-gray-100',
+    outline: 'bg-transparent border border-opacity-50 hover:border-opacity-100 focus-visible:ring-2 focus-visible:ring-offset-gray-100 transition-all',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl',
     minimal: 'bg-transparent text-blue-600 hover:text-blue-700 hover:underline focus-visible:ring-blue-500 shadow-none hover:shadow-none transform-none hover:scale-100'
   };
@@ -56,13 +58,13 @@ export function Button({
     className
   ].filter(Boolean).join(' ');
   
-  // Icon component for links
-  const Icon = showIcon && href ? (
+  // Default arrow icon for backward compatibility with showIcon
+  const defaultArrowIcon = (
     <svg
       aria-hidden="true"
       role="presentation"
       focusable="false"
-      className={`ml-2 ${iconSizeClasses[size]}`}
+      className={iconSizeClasses[size]}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -75,6 +77,24 @@ export function Button({
         d="M9 5l7 7-7 7"
       />
     </svg>
+  );
+  
+  // Determine which icons to render
+  // iconLeft has right padding (mr-1.5), iconRight has left padding (ml-1.5)
+  const leftIcon = iconLeft ? (
+    <span className={`inline-flex items-center ${iconSizeClasses[size]} mr-1.5`}>
+      {iconLeft}
+    </span>
+  ) : null;
+  
+  const rightIcon = iconRight ? (
+    <span className={`inline-flex items-center ${iconSizeClasses[size]} ml-1.5`}>
+      {iconRight}
+    </span>
+  ) : showIcon && href ? (
+    <span className={`inline-flex items-center ${iconSizeClasses[size]} ml-1.5`}>
+      {defaultArrowIcon}
+    </span>
   ) : null;
   
   // Render as Link if href is provided
@@ -85,8 +105,9 @@ export function Button({
         className={combinedClasses}
         aria-label={ariaLabel}
       >
+        {leftIcon}
         {children}
-        {Icon}
+        {rightIcon}
       </Link>
     );
   }
@@ -101,7 +122,9 @@ export function Button({
       aria-label={ariaLabel}
       aria-disabled={disabled}
     >
+      {leftIcon}
       {children}
+      {rightIcon}
     </button>
   );
 }

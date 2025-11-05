@@ -14,6 +14,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
+import { Button } from "../Button";
 import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata, CardItem, CardGridProps, GridColumns, GridGap } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
@@ -226,15 +227,16 @@ export function CardGrid({
                     aria-label="Search articles"
                   />
                   {searchTerm && (
-                    <button
-                      type="button"
+                    <Button
+                      variant="minimal"
+                      size="md"
                       onClick={() => setSearchTerm('')}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 
-                                 text-gray-500 text-xl leading-none"
+                                 text-gray-500 text-xl leading-none p-0 min-h-0"
                       aria-label="Clear search"
                     >
                       ×
-                    </button>
+                    </Button>
                   )}
                 </form>
               </search>
@@ -243,30 +245,30 @@ export function CardGrid({
             {/* Category Filter Buttons */}
             {showCategoryFilter && (
               <div className="flex flex-wrap gap-2">
-                <button
-                  type="button"
+                <Button
+                  variant="outline"
+                  size="md"
                   onClick={() => setSelectedCategory('all')}
-                  className={`px-4 py-2 rounded-lg text-sm transition-colors
-                    ${selectedCategory === 'all' 
-                      ? 'bg-blue-600 text-white shadow-md' 
-                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-                    }`}
+                  className={selectedCategory === 'all' 
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  }
                 >
                   All Categories ({processedItems.length})
-                </button>
+                </Button>
                 {categories.map(category => (
-                  <button
-                    type="button"
+                  <Button
+                    variant="outline"
+                    size="md"
                     key={category}
                     onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-lg text-sm
-                      ${selectedCategory === category 
-                        ? 'bg-blue-600 text-white shadow-md' 
-                        : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                      }`}
+                    className={selectedCategory === category 
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
+                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                    }
                   >
                     {category} ({groupedItems[category]?.length || 0})
-                  </button>
+                  </Button>
                 ))}
               </div>
             )}
@@ -285,13 +287,14 @@ export function CardGrid({
                     Category: {selectedCategory}
                   </span>
                 )}
-                <button
-                  type="button"
+                <Button
+                  variant="minimal"
+                  size="md"
                   onClick={clearFilters}
                   className="text-blue-600 dark:text-blue-400 hover:text-blue-700"
                 >
                   Clear all
-                </button>
+                </Button>
               </div>
             )}
           </div>
@@ -334,22 +337,25 @@ export function CardGrid({
                     </div>
                     
                     {hasMore && (
-                      <button
-                        type="button"
+                      <Button
+                        variant="minimal"
+                        size="md"
                         onClick={() => toggleCategoryExpansion(category)}
-                        className="flex items-center gap-2 px-4 py-2 text-blue-600 dark:text-blue-400 
-                                   hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg transition-colors"
+                        iconRight={
+                          <svg 
+                            className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        }
+                        className="flex items-center gap-2 text-blue-600 dark:text-blue-400 
+                                   hover:bg-blue-50 dark:hover:bg-blue-900"
                       >
                         {isExpanded ? 'Show Less' : `View All ${categoryItems.length}`}
-                        <svg 
-                          className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
+                      </Button>
                     )}
                   </div>
 
@@ -425,13 +431,14 @@ export function CardGrid({
                 <div className="text-gray-500 dark:text-gray-400 mb-4">
                   No articles found {searchTerm ? `for "${searchTerm}"` : 'in this category'}.
                 </div>
-                <button
-                  type="button"
+                <Button
+                  variant="minimal"
+                  size="md"
                   onClick={clearFilters}
                   className="text-blue-600 dark:text-blue-400 hover:text-blue-700"
                 >
                   Clear filters and view all articles
-                </button>
+                </Button>
               </div>
             )}
           </div>

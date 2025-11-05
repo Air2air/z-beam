@@ -68,20 +68,11 @@ export default function DatasetSection({
           <Button
             onClick={copyDownloadUrl}
             variant="outline"
-            size="sm"
+            size="md"
+            iconLeft={copied ? <FiCheckCircle className="text-green-500" /> : <FiInfo />}
             className="ml-4"
           >
-            {copied ? (
-              <>
-                <FiCheckCircle className="text-green-500" />
-                <span>Copied!</span>
-              </>
-            ) : (
-              <>
-                <FiInfo />
-                <span>Copy Link</span>
-              </>
-            )}
+            {copied ? 'Copied!' : 'Copy Link'}
           </Button>
         )}
       </div>

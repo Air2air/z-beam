@@ -57,7 +57,7 @@ describe('Button Component', () => {
       render(<Button variant="outline">Outline</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('border-2', 'border-gray-300', 'hover:border-brand-orange');
+      expect(button).toHaveClass('bg-transparent', 'border', 'border-opacity-50', 'hover:border-opacity-100');
     });
 
     it('should apply danger variant classes', () => {
@@ -178,7 +178,7 @@ describe('Button Component', () => {
       render(<Button variant="outline" size="lg" className="mt-4">Combined</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('border-2'); // variant
+      expect(button).toHaveClass('border'); // variant
       expect(button).toHaveClass('min-h-[48px]'); // size
       expect(button).toHaveClass('mt-4'); // custom
       expect(button).toHaveClass('font-medium'); // base
@@ -198,7 +198,6 @@ describe('Button Component', () => {
       
       const button = screen.getByRole('button');
       expect(button).toHaveClass(
-        'btn',
         'inline-flex',
         'items-center',
         'justify-center',
@@ -320,7 +319,7 @@ describe('Button Component', () => {
         const variants = [
           { variant: 'primary' as const, ring: 'focus-visible:ring-brand-orange' },
           { variant: 'secondary' as const, ring: 'focus-visible:ring-white' },
-          { variant: 'outline' as const, ring: 'focus-visible:ring-brand-orange' },
+          { variant: 'outline' as const, ring: 'focus-visible:ring-2' },
           { variant: 'danger' as const, ring: 'focus-visible:ring-red-500' },
           { variant: 'minimal' as const, ring: 'focus-visible:ring-blue-500' },
         ];

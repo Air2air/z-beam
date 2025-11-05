@@ -213,7 +213,7 @@ export function Navbar() {
                               );
                             })}
                             <div className="px-4 py-2 whitespace-nowrap">
-                              <Button variant="secondary" size="sm" href="/contact" showIcon={true}>Let's talk</Button>
+                              <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
                             </div>
                           </div>
                         )}
@@ -369,7 +369,7 @@ export function Navbar() {
                             );
                           })}
                           <div className="py-2 px-3">
-                            <Button variant="secondary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
+                            <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
                           </div>
                         </div>
                       )}

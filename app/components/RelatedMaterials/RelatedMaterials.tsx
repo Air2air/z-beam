@@ -10,6 +10,7 @@
 
 import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
+import { Button } from '../Button';
 import Link from 'next/link';
 
 export interface RelatedMaterialsProps {
@@ -54,15 +55,14 @@ export async function RelatedMaterials({
         >
           Related {formattedSubcategory} Materials
         </h2>
-        <Link
+        <Button
+          variant="primary"
+          size="md"
           href={`/search?q=${encodeURIComponent(category)}`}
-          className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 rounded-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          showIcon={true}
         >
           Show all
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
+        </Button>
       </div>
       
       <CardGridSSR

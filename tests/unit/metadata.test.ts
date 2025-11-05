@@ -155,7 +155,7 @@ describe('Enhanced Metadata Generation', () => {
       expect(result.twitter.title).toBe('Granite Surface Analysis');
       expect(result.twitter.description).toBe('Detailed analysis of granite surface treatment');
       expect(result.twitter.images).toBeDefined();
-      expect(result.twitter.images[0]).toContain('granite-hero.jpg');
+      expect(result.twitter.images?.[0]?.url).toContain('granite-hero.jpg');
     });
 
     it('should include author Twitter handle', () => {
@@ -352,11 +352,12 @@ describe('Enhanced Metadata Generation', () => {
         slug: 'article-string-author',
         description: 'Test article',
         author: 'Simple Author Name',
+        datePublished: '2024-01-01', // Required for article type
       };
 
       const result = createMetadata(metadata);
 
-      expect(result.openGraph.article?.authors).toContain('Simple Author Name');
+      expect(result.openGraph.article?.authors).toEqual(['Simple Author Name']);
       expect(result.other?.['author']).toBe('Simple Author Name');
     });
 

@@ -39,32 +39,47 @@ function startServer() {
   return new Promise((resolve, reject) => {
     console.log('🚀 Starting Next.js dev server on port', PORT);
     
-    serverProcess = spawn('npm', ['run', 'dev', '--', '-p', PORT], {
-      cwd: process.cwd(),
-      env: { ...process.env, PORT: PORT.toString() }
-    });
+    // Check if port is already in use
+    const testConnection = http.get(`http://localhost:${PORT}`, (res) => {
+      console.log('✅ Server already running on port', PORT);
+      serverReady = true;
+      resolve();
+    }).on('error', () => {
+      // Port is free, start the server
+      serverProcess = spawn('npm', ['run', 'dev', '--', '-p', PORT], {
+        cwd: process.cwd(),
+        env: { ...process.env, PORT: PORT.toString() },
+        stdio: ['ignore', 'pipe', 'pipe']
+      });
 
-    serverProcess.stdout.on('data', (data) => {
-      const output = data.toString();
-      if (output.includes('Ready in') || output.includes('started server')) {
-        serverReady = true;
-        setTimeout(() => resolve(), 2000); // Wait 2s for full startup
-      }
-    });
+      let output = '';
+      
+      const dataHandler = (data) => {
+        const text = data.toString();
+        output += text;
+        // Look for success indicators
+        if (text.includes('Local:') || text.includes('Ready in') || text.includes('started server')) {
+          serverReady = true;
+          console.log('✅ Server started successfully');
+          setTimeout(() => resolve(), 3000); // Wait 3s for full startup
+        }
+      };
 
-    serverProcess.stderr.on('data', (data) => {
-      const output = data.toString();
-      if (output.includes('Ready in') || output.includes('started server')) {
-        serverReady = true;
-        setTimeout(() => resolve(), 2000);
-      }
-    });
+      serverProcess.stdout.on('data', dataHandler);
+      serverProcess.stderr.on('data', dataHandler);
 
-    setTimeout(() => {
-      if (!serverReady) {
-        reject(new Error('Server failed to start within timeout'));
-      }
-    }, 30000);
+      serverProcess.on('error', (err) => {
+        reject(new Error(`Failed to start server: ${err.message}`));
+      });
+
+      // Increased timeout to 60s for slower systems
+      setTimeout(() => {
+        if (!serverReady) {
+          console.error('Server output:', output);
+          reject(new Error('Server failed to start within 60s timeout'));
+        }
+      }, 60000);
+    });
   });
 }
 

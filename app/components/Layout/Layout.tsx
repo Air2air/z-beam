@@ -25,8 +25,9 @@ const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tight
 
 // Helper: Extract material name from metadata or slug
 const getMaterialName = (metadata: any, slug?: string) => {
-  return extractSafeValue(metadata?.subject, 'subject', '').toLowerCase() ||
-    (slug?.includes('-') ? slug.split('-')[0].toLowerCase() : slug?.toLowerCase() || '');
+  const subject = extractSafeValue(metadata?.subject, 'subject', '') || '';
+  return subject.toLowerCase() ||
+    (slug?.includes('-') ? (slug.split('-')[0] || '').toLowerCase() : slug?.toLowerCase() || '');
 };
 
 // Helper: Render article header section

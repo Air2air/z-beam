@@ -173,7 +173,8 @@ export const schemas = {
   // Add new schema for technical article which is more appropriate for your content
   technicalArticle: (data: ArticleSchema) => ({
     '@context': SITE_CONFIG.schema.context,
-    '@type': 'TechnicalArticle',
+    '@type': 'Article',
+    'articleSection': 'Technical',
     headline: data.headline,
     description: data.description,
     author: getAuthorObject(data.author),

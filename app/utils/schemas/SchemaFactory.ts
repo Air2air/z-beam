@@ -524,10 +524,11 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   }
 
   return {
-    '@type': 'TechnicalArticle',
+    '@type': 'Article',
     '@id': `${pageUrl}#article`,
     'headline': title,
     'description': description,
+    'articleSection': 'Technical',
     'url': pageUrl,
     'datePublished': frontmatter.datePublished || currentDate,
     'dateModified': frontmatter.dateModified || currentDate,

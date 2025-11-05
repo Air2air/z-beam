@@ -273,8 +273,8 @@ export const ContactForm = memo(function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            variant="secondary"
-            size="lg"
+            variant="primary"
+            size="md"
             fullWidth
             showIcon={false}
             aria-label={isSubmitting ? "Submitting form, please wait" : "Send message"}

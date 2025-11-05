@@ -316,7 +316,6 @@ describe('Tags Component - Frontmatter Integration', () => {
       const link = screen.getByRole('link', { name: /View all articles tagged with alabaster/i });
       expect(link).toBeInTheDocument();
       expect(link).toHaveAttribute('aria-label', 'View all articles tagged with alabaster');
-      expect(link).toHaveAttribute('title', 'View all articles tagged with alabaster');
     });
 
     it('should maintain accessibility with custom onClick handler', () => {

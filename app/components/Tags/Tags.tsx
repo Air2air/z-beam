@@ -3,6 +3,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Button } from '../Button';
 import { capitalizeWords } from '../../utils/formatting';
 import { useRouter } from "next/navigation";
 import { TagsData, TagsProps } from '@/types';
@@ -259,32 +260,17 @@ const parseTags = (content: string | TagsData): string[] => {
               <div key={categoryName}>
                 <div className="flex flex-wrap gap-2">
                   {categoryTags!.map((tag, index) => (
-                    onClick ? (
-                      <button
-                        type="button"
-                        key={index}
-                        onClick={() => handleTagClick(tag)}
-                        className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
-                        aria-label={`Filter by ${tag} tag`}
-                        title={`Filter by ${tag} tag`}
-                      >
-                        {toTitleCase(tag)}
-                      </button>
-                    ) : (
-                      <Link
-                        key={index}
-                        href={`${linkPrefix}${encodeURIComponent(tag)}`}
-                        legacyBehavior
-                      >
-                        <a
-                          className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer flex items-center`}
-                          aria-label={`View all articles tagged with ${tag}`}
-                          title={`View all articles tagged with ${tag}`}
-                        >
-                          {toTitleCase(tag)}
-                        </a>
-                      </Link>
-                    )
+                    <Button
+                      key={index}
+                      variant="outline"
+                      size="md"
+                      onClick={onClick ? () => handleTagClick(tag) : undefined}
+                      href={onClick ? undefined : `${linkPrefix}${encodeURIComponent(tag)}`}
+                      className={`rounded-full ${pillColor} ${textColor} ${hoverColor}`}
+                      aria-label={onClick ? `Filter by ${tag} tag` : `View all articles tagged with ${tag}`}
+                    >
+                      {toTitleCase(tag)}
+                    </Button>
                   ))}
                 </div>
               </div>
@@ -294,34 +280,17 @@ const parseTags = (content: string | TagsData): string[] => {
         // Standard flat tags display
         <div className="flex flex-wrap gap-4">
           {tags.map((tag, index) => (
-            onClick ? (
-              // Interactive button for in-page filtering
-              <button
-                type="button"
-                key={index}
-                onClick={() => handleTagClick(tag)}
-                className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
-                aria-label={`Filter by ${tag} tag`}
-                title={`Filter by ${tag} tag`}
-              >
-                {toTitleCase(tag)}
-              </button>
-            ) : (
-              // Link for navigation to tag page - use legacy Link approach for testing
-              <Link
-                key={index}
-                href={`${linkPrefix}${encodeURIComponent(tag)}`}
-                legacyBehavior
-              >
-                <a
-                  className={`inline-block px-3 py-2 rounded-full text-sm ${pillColor} ${textColor} ${hoverColor} cursor-pointer transition-colors duration-200 flex items-center`}
-                  aria-label={`View all articles tagged with ${tag}`}
-                  title={`View all articles tagged with ${tag}`}
-                >
-                  {toTitleCase(tag)}
-                </a>
-              </Link>
-            )
+            <Button
+              key={index}
+              variant="outline"
+              size="md"
+              onClick={onClick ? () => handleTagClick(tag) : undefined}
+              href={onClick ? undefined : `${linkPrefix}${encodeURIComponent(tag)}`}
+              className={`rounded-full ${pillColor} ${textColor} ${hoverColor}`}
+              aria-label={onClick ? `Filter by ${tag} tag` : `View all articles tagged with ${tag}`}
+            >
+              {toTitleCase(tag)}
+            </Button>
           ))}
         </div>
       )}

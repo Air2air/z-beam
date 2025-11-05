@@ -1070,7 +1070,9 @@ export interface ButtonProps {
   className?: string;
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
-  showIcon?: boolean;
+  showIcon?: boolean; // Deprecated: use iconRight instead
+  iconLeft?: ReactNode; // Custom icon component positioned on the left
+  iconRight?: ReactNode; // Custom icon component positioned on the right
   fullWidth?: boolean;
   'aria-label'?: string;
   href?: string; // If provided, renders as Link instead of button

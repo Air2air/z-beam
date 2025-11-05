@@ -43,8 +43,8 @@ export default function CallToAction() {
           {/* Right column: Contact button */}
           <div className="flex items-center justify-center w-full h-[80px]">
             <Button 
-              variant="primary" 
-              size="lg"
+              variant="secondary" 
+              size="md"
               href="/contact"
               className="mx-auto"
               showIcon={true}

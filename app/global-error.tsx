@@ -27,7 +27,7 @@ export default function GlobalError({
           <Button
             onClick={reset}
             variant="primary"
-            size="lg"
+            size="md"
           >
             Try again
           </Button>

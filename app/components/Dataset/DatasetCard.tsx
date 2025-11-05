@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Card } from '@/app/components/Card/Card';
+import { Button } from '@/app/components/Button';
 import type { DatasetCardProps } from '@/types/centralized';
 
 /**
@@ -90,22 +91,16 @@ export function DatasetCard({
         {formats.length > 0 && (
           <div className="absolute top-2 left-2 flex gap-1 pointer-events-auto z-20">
             {formats.map((format, index) => (
-              <button
+              <Button
                 key={`${format.format}-${index}`}
-                onClick={(e) => handleFormatClick(e, format.format, format.url)}
-                className="
-                  px-2 py-1 text-xs font-semibold rounded
-                  bg-blue-600 text-white
-                  hover:bg-blue-700 active:bg-blue-800
-                  transition-colors duration-150
-                  shadow-sm hover:shadow-md
-                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1
-                "
+                variant="primary"
+                size="md"
+                onClick={() => handleFormatClick({} as React.MouseEvent, format.format, format.url)}
+                className="px-2 py-1 text-xs font-semibold min-h-0"
                 aria-label={`Download ${format.format} format${format.size ? ` (${format.size})` : ''}`}
-                title={format.size || 'Download'}
               >
                 {format.format}
-              </button>
+              </Button>
             ))}
           </div>
         )}

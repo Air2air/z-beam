@@ -194,19 +194,19 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
             onClick={() => handleBulkDownload('all', 'json')}
             disabled={downloading === 'all-json'}
             variant="primary"
-            size="lg"
+            size="md"
+            iconLeft={<BsFiletypeJson className="w-5 h-5" />}
           >
-            <BsFiletypeJson className="w-5 h-5" />
-            <span>{downloading === 'all-json' ? 'Downloading...' : 'Download JSON'}</span>
+            {downloading === 'all-json' ? 'Downloading...' : 'Download JSON'}
           </Button>
           <Button
             onClick={() => handleBulkDownload('all', 'csv')}
             disabled={downloading === 'all-csv'}
             variant="primary"
-            size="lg"
+            size="md"
+            iconLeft={<BsFiletypeCsv className="w-5 h-5" />}
           >
-            <BsFiletypeCsv className="w-5 h-5" />
-            <span>{downloading === 'all-csv' ? 'Downloading...' : 'Download CSV'}</span>
+            {downloading === 'all-csv' ? 'Downloading...' : 'Download CSV'}
           </Button>
         </div>
       </div>
@@ -237,21 +237,21 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
                   onClick={() => handleBulkDownload(category, 'json')}
                   disabled={downloading === `${category}-json`}
                   variant="primary"
-                  size="sm"
+                  size="md"
+                  iconLeft={<BsFiletypeJson className="w-4 h-4" />}
                   className="flex-1"
                 >
-                  <BsFiletypeJson className="w-4 h-4" />
-                  <span>{downloading === `${category}-json` ? 'Downloading...' : 'JSON'}</span>
+                  {downloading === `${category}-json` ? 'Downloading...' : 'JSON'}
                 </Button>
                 <Button
                   onClick={() => handleBulkDownload(category, 'csv')}
                   disabled={downloading === `${category}-csv`}
                   variant="primary"
-                  size="sm"
+                  size="md"
+                  iconLeft={<BsFiletypeCsv className="w-4 h-4" />}
                   className="flex-1"
                 >
-                  <BsFiletypeCsv className="w-4 h-4" />
-                  <span>{downloading === `${category}-csv` ? 'Downloading...' : 'CSV'}</span>
+                  {downloading === `${category}-csv` ? 'Downloading...' : 'CSV'}
                 </Button>
               </div>
             </div>
