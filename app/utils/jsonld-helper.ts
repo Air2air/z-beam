@@ -54,7 +54,7 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
       '@graph': [
         // 1. Main TechnicalArticle (E-E-A-T: Experience & Expertise)
         createTechnicalArticleSchema(
-          { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications }
+          { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications, faq }
         ),
         
         // 2. Material Product Schema (E-E-A-T: Authoritativeness)
@@ -109,8 +109,19 @@ export function createJsonLdForArticle(articleData: any, slug: string) {
 
 // 1. Technical Article Schema (E-E-A-T: Experience & Expertise)
 function createTechnicalArticleSchema(data: any) {
-  const { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications } = data;
+  const { title, description, subtitle, pageUrl, publishDate, modifiedDate, author, images, caption, applications, faq } = data;
   const baseUrl = SITE_CONFIG.url;
+  
+  // Process FAQ questions if available
+  const hasFAQ = faq && Array.isArray(faq) && faq.length > 0;
+  const faqQuestions = hasFAQ ? faq.map((item: { question: string; answer: string }) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer
+    }
+  })) : [];
   
   return {
     '@type': 'Article',
@@ -173,6 +184,11 @@ function createTechnicalArticleSchema(data: any) {
       '@type': 'WebPage',
       '@id': pageUrl
     },
+    
+    // FAQ Questions embedded in Article (E-E-A-T: Expertise through Q&A)
+    ...(hasFAQ && {
+      mainEntity: faqQuestions
+    }),
     
     // E-E-A-T: Experience - application areas
     about: applications.map((app: string) => ({
@@ -430,34 +446,75 @@ function createDatasetSchema(data: any) {
     });
   }
   
+  // Extract slug from pageUrl for dataset paths
+  const baseUrl = SITE_CONFIG.url || 'https://www.z-beam.com';
+  const slugMatch = pageUrl.match(/\/materials\/([^\/]+)\/([^\/]+)\/([^\/]+)/);
+  const datasetSlug = slugMatch ? slugMatch[3] : 'material';
+  const datasetBasePath = `${baseUrl}/datasets/materials/${datasetSlug}`;
+  
   return propertyCount > 0 ? {
     '@type': 'Dataset',
     '@id': `${pageUrl}#dataset`,
-    name: `${materialName} Material Properties Dataset`,
-    description: `Comprehensive material properties and laser cleaning parameters for ${materialName}`,
+    name: `${materialName} Laser Cleaning Parameters Dataset`,
+    description: `Comprehensive material properties and laser cleaning parameters for ${materialName}. Includes material characteristics, laser-material interaction properties, machine settings, and regulatory standards. Available in multiple formats for analysis and research.`,
     
     // E-E-A-T: Trustworthiness - data provenance
     dateModified: modifiedDate,
     version: '1.0',
+    isAccessibleForFree: true,
     
-    // Dataset size
-    distribution: {
-      '@type': 'DataDownload',
-      encodingFormat: 'application/ld+json',
-      contentUrl: pageUrl
-    },
+    // Multiple distribution formats for better discoverability
+    distribution: [
+      {
+        '@type': 'DataDownload',
+        name: 'JSON Format',
+        description: 'Machine-readable structured data format',
+        encodingFormat: 'application/json',
+        contentUrl: `${datasetBasePath}.json`
+      },
+      {
+        '@type': 'DataDownload',
+        name: 'CSV Format',
+        description: 'Spreadsheet-compatible format',
+        encodingFormat: 'text/csv',
+        contentUrl: `${datasetBasePath}.csv`
+      },
+      {
+        '@type': 'DataDownload',
+        name: 'TXT Format',
+        description: 'Human-readable text format',
+        encodingFormat: 'text/plain',
+        contentUrl: `${datasetBasePath}.txt`
+      }
+    ],
     
     // Measurements with confidence scores
     variableMeasured: measurements.slice(0, 10), // Limit to top 10 for size
     
-    // Publisher
+    // Publisher with contact information
     creator: {
       '@type': 'Organization',
-      name: SITE_CONFIG.shortName || 'Z-Beam'
+      '@id': `${baseUrl}#organization`,
+      name: SITE_CONFIG.shortName || 'Z-Beam',
+      url: baseUrl
     },
     
-    // License
-    license: 'https://creativecommons.org/licenses/by/4.0/'
+    // License with clear terms
+    license: {
+      '@type': 'CreativeWork',
+      name: 'Creative Commons Attribution 4.0 International',
+      url: 'https://creativecommons.org/licenses/by/4.0/',
+      identifier: 'CC BY 4.0'
+    },
+    
+    // Keywords for discoverability
+    keywords: [
+      materialName,
+      'laser cleaning',
+      'material properties',
+      'machine parameters',
+      'technical specifications'
+    ].join(', ')
   } : null;
 }
 
@@ -516,29 +573,12 @@ function createWebPageSchema(pageUrl: string, title: string, description: string
   };
 }
 
-// 6. FAQPage Schema (E-E-A-T: Expertise through detailed Q&A)
+// 6. FAQ Questions as part of Article (NOT FAQPage since FAQ is a section, not a page)
+// This returns null because FAQs are integrated into the Article schema instead
 function createFAQPageSchema(data: any) {
-  const { materialName, faq, pageUrl } = data;
-  
-  // Use FAQ data from frontmatter if available
-  if (!faq || !Array.isArray(faq) || faq.length === 0) {
-    return null;
-  }
-  
-  const faqEntities = faq.map((item: { question: string; answer: string }) => ({
-    '@type': 'Question',
-    name: item.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.answer
-    }
-  }));
-  
-  return {
-    '@type': 'FAQPage',
-    '@id': `${pageUrl}#faq`,
-    mainEntity: faqEntities
-  };
+  // FAQs are now part of the Article schema mainEntity property
+  // This function is kept for backward compatibility but returns null
+  return null;
 }
 
 // 7. Author Schema (E-E-A-T: Expertise & Authoritativeness)

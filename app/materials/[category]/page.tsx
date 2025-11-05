@@ -83,56 +83,148 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     ]
   };
 
-  // Generate CollectionPage JSON-LD schema
-  const collectionSchema = {
+  // Generate comprehensive JSON-LD schemas using @graph pattern
+  const schemas = {
     '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    'name': pageTitle,
-    'description': categoryMetadata.description,
-    'url': `${SITE_CONFIG.url}/materials/${category}`,
-    'breadcrumb': {
-      '@type': 'BreadcrumbList',
-      'itemListElement': [
-        {
-          '@type': 'ListItem',
-          'position': 1,
-          'name': 'Home',
-          'item': SITE_CONFIG.url
+    '@graph': [
+      // 1. CollectionPage schema
+      {
+        '@type': 'CollectionPage',
+        '@id': `${SITE_CONFIG.url}/materials/${category}#webpage`,
+        'name': pageTitle,
+        'description': categoryMetadata.description,
+        'url': `${SITE_CONFIG.url}/materials/${category}`,
+        'publisher': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`,
+          'name': SITE_CONFIG.name,
+          'url': SITE_CONFIG.url
         },
-        {
-          '@type': 'ListItem',
-          'position': 2,
-          'name': categoryDisplayName,
-          'item': `${SITE_CONFIG.url}/materials/${category}`
+        'breadcrumb': {
+          '@id': `${SITE_CONFIG.url}/materials/${category}#breadcrumb`
+        },
+        'mainEntity': {
+          '@id': `${SITE_CONFIG.url}/materials/${category}#itemlist`
         }
-      ]
-    },
-    'mainEntity': {
-      '@type': 'ItemList',
-      'numberOfItems': categoryData.materials.length,
-      'itemListElement': categoryData.subcategories.map((subcategory, index) => ({
-        '@type': 'ListItem',
-        'position': index + 1,
-        'name': subcategory.label,
-        'url': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}`,
-        'description': `${subcategory.materials.length} materials in ${subcategory.label}`,
-        'item': {
-          '@type': 'ItemList',
-          'numberOfItems': subcategory.materials.length,
-          'itemListElement': subcategory.materials.map((material, matIndex) => ({
+      },
+      
+      // 2. BreadcrumbList schema (separate for better discovery)
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${SITE_CONFIG.url}/materials/${category}#breadcrumb`,
+        'itemListElement': [
+          {
             '@type': 'ListItem',
-            'position': matIndex + 1,
+            'position': 1,
+            'name': 'Home',
+            'item': SITE_CONFIG.url
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': categoryDisplayName,
+            'item': `${SITE_CONFIG.url}/materials/${category}`
+          }
+        ]
+      },
+      
+      // 3. ItemList schema for materials
+      {
+        '@type': 'ItemList',
+        '@id': `${SITE_CONFIG.url}/materials/${category}#itemlist`,
+        'numberOfItems': categoryData.materials.length,
+        'itemListElement': categoryData.subcategories.flatMap((subcategory, subIndex) => 
+          subcategory.materials.map((material, matIndex) => ({
+            '@type': 'ListItem',
+            'position': subIndex * 100 + matIndex + 1,
             'name': material.name,
-            'url': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}/${material.slug}`
+            'url': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}/${material.slug}`,
+            'item': {
+              '@type': 'Article',
+              '@id': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}/${material.slug}`,
+              'name': material.name,
+              'url': `${SITE_CONFIG.url}/materials/${category}/${subcategory.slug}/${material.slug}`
+            }
           }))
+        )
+      },
+      
+      // 4. Dataset schema for category-level data aggregation
+      {
+        '@type': 'Dataset',
+        '@id': `${SITE_CONFIG.url}/materials/${category}#dataset`,
+        'name': `${categoryDisplayName} Laser Cleaning Parameters Dataset`,
+        'description': `Comprehensive dataset of ${categoryData.materials.length} ${category} materials with laser cleaning parameters, machine settings, and material properties for industrial applications.`,
+        'url': `${SITE_CONFIG.url}/materials/${category}`,
+        'creator': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`,
+          'name': SITE_CONFIG.name,
+          'url': SITE_CONFIG.url
+        },
+        'license': 'https://creativecommons.org/licenses/by/4.0/',
+        'keywords': [category, 'laser cleaning', 'material properties', 'machine settings', 'industrial parameters'],
+        'temporalCoverage': '2024/..',
+        'spatialCoverage': 'Global',
+        'variableMeasured': [
+          'wavelength',
+          'power',
+          'fluence',
+          'pulse duration',
+          'repetition rate',
+          'scan speed',
+          'thermal conductivity',
+          'hardness',
+          'ablation threshold'
+        ],
+        'distribution': [
+          {
+            '@type': 'DataDownload',
+            'encodingFormat': 'application/json',
+            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}.json`,
+            'description': `JSON format dataset with ${categoryData.materials.length} ${category} materials`
+          },
+          {
+            '@type': 'DataDownload',
+            'encodingFormat': 'text/csv',
+            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}.csv`,
+            'description': `CSV format dataset with ${categoryData.materials.length} ${category} materials`
+          },
+          {
+            '@type': 'DataDownload',
+            'encodingFormat': 'text/plain',
+            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}.txt`,
+            'description': `Plain text format dataset with ${categoryData.materials.length} ${category} materials`
+          }
+        ],
+        'hasPart': categoryData.materials.map((material) => ({
+          '@type': 'Dataset',
+          'name': material.name,
+          'url': `${SITE_CONFIG.url}/materials/${category}/${material.subcategory || 'uncategorized'}/${material.slug}`
+        }))
+      },
+      
+      // 5. WebPage schema
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_CONFIG.url}/materials/${category}`,
+        'name': pageTitle,
+        'description': categoryMetadata.description,
+        'url': `${SITE_CONFIG.url}/materials/${category}`,
+        'isPartOf': {
+          '@type': 'WebSite',
+          '@id': `${SITE_CONFIG.url}#website`,
+          'name': SITE_CONFIG.name,
+          'url': SITE_CONFIG.url
+        },
+        'breadcrumb': {
+          '@id': `${SITE_CONFIG.url}/materials/${category}#breadcrumb`
+        },
+        'mainEntity': {
+          '@id': `${SITE_CONFIG.url}/materials/${category}#dataset`
         }
-      }))
-    },
-    'publisher': {
-      '@type': 'Organization',
-      'name': SITE_CONFIG.name,
-      'url': SITE_CONFIG.url
-    }
+      }
+    ]
   };
 
   // Collect all materials in this category for dataset
@@ -146,7 +238,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <>
-      <JsonLD data={collectionSchema} />
+      <JsonLD data={schemas} />
       <Layout 
         title={pageTitle} 
         subtitle={pageSubtitle} 

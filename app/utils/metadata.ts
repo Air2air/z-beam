@@ -50,7 +50,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const materialName = 'name' in metadata ? (metadata as any).name : undefined;
   const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
   
-  const ogType = 'article'; // Default type
+  // Determine Open Graph type dynamically
+  const ogType: 'article' | 'website' = (datePublished || category) ? 'article' : 'website';
   
   // Extract hero image from images.hero or fall back to legacy image field
   // This ensures consistent image usage across OG, Twitter, and JSON-LD
@@ -142,10 +143,11 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     openGraph: {
       title: actualTitle || formattedTitle,
       description: fullDescription,
-      type: ogType as 'website' | 'article',
-      url: slug ? `${SITE_CONFIG.url}/${slug}` : undefined,
+      type: ogType,
+      url: canonical || (slug ? `${SITE_CONFIG.url}/${slug}` : undefined),
       siteName: SITE_CONFIG.name,
       locale: 'en_US',
+      determiner: 'auto', // Improves how the link appears in social shares
       
       // Use hero image for OpenGraph with frontmatter dimensions
       images: heroImageUrl ? [{
@@ -183,7 +185,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       site: '@ZBeamLaser',
       title: actualTitle || formattedTitle,
       description: fullDescription,
-      images: heroImageUrl ? [heroImageUrl] : undefined,
+      images: heroImageUrl ? [{
+        url: heroImageUrl,
+        alt: heroImageAlt,
+      }] : undefined,
       creator: authorName ? `@${authorName.replace(/\s+/g, '')}` : '@ZBeamLaser',
       players: [{
         playerUrl: 'https://www.youtube.com/embed/t8fB3tJCfQw',
