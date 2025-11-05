@@ -64,6 +64,8 @@
     "validate:startup": "node -e \"const {startupValidator} = require('./app/utils'); startupValidator.validateSystem().then(r => console.log('Startup validation:', r.passed ? 'PASS' : 'FAIL')).catch(e => {console.error('Startup validation failed:', e); process.exit(1);})\"",
     "validate:content": "node -e \"const {contentValidator} = require('./app/utils'); contentValidator.validateAllContent().then(r => console.log('Content validation:', r.passed ? 'PASS' : 'FAIL', `(${r.errors.length} errors, ${r.warnings.length} warnings)`)).catch(e => {console.error('Content validation failed:', e); process.exit(1);})\"",
     "validate:jsonld": "jest tests/architecture/jsonld-enforcement.test.ts --verbose --coverage=false",
+    "validate:jsonld:live": "node scripts/test-jsonld-live.js",
+    "validate:jsonld:comprehensive": "node scripts/validate-jsonld-comprehensive.js",
     "validate:all": "npm run validate:naming && npm run validate:metadata && npm run validate:startup && npm run validate:content && npm run validate:grok && npm run validate:jsonld && npm run audit:components",
     "pagespeed": "node scripts/pagespeed-audit.js https://z-beam.com",
     "pagespeed:mobile": "node scripts/pagespeed-audit.js https://z-beam.com mobile",
