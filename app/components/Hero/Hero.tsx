@@ -107,11 +107,11 @@ export function Hero({
 
   return (
     <section 
-      className={containerClasses}
+      ref={heroRef}
+      className={`${containerClasses} ${aspectRatioClasses}`}
       aria-label={getSectionAriaLabel()}
       role={variant === 'fullwidth' ? 'banner' : 'region'}
     >
-      <div ref={heroRef} className={aspectRatioClasses}>
       {/* Video Background - Facade pattern on mobile only */}
       {videoUrl ? (
         <>
@@ -258,8 +258,6 @@ export function Hero({
           {children}
         </div>
       )}
-
-      </div> {/* Close aspect ratio wrapper */}
     </section>
   );
 }
