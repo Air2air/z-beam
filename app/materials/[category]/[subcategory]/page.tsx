@@ -148,14 +148,28 @@ export default async function SubcategoryPage({ params }: PageProps) {
         '@id': `${pageUrl}#dataset`,
         'name': `${pageTitle} Laser Cleaning Parameters Dataset`,
         'description': `Comprehensive dataset of ${subcategoryInfo.materials.length} ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials with laser cleaning parameters, machine settings, and material properties.`,
+        'alternateName': `${pageTitle} Materials Database`,
         'url': pageUrl,
+        'identifier': `${pageUrl}#dataset`,
         'creator': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`,
+          'name': SITE_CONFIG.name,
+          'url': SITE_CONFIG.url,
+          'sameAs': SITE_CONFIG.social.linkedin
+        },
+        'publisher': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
           'name': SITE_CONFIG.name,
           'url': SITE_CONFIG.url
         },
-        'license': 'https://creativecommons.org/licenses/by/4.0/',
+        'license': {
+          '@type': 'CreativeWork',
+          'name': 'Creative Commons Attribution 4.0 International',
+          'url': 'https://creativecommons.org/licenses/by/4.0/',
+          'identifier': 'CC BY 4.0'
+        },
         'keywords': [
           subcategoryInfo.label,
           categoryLabel,

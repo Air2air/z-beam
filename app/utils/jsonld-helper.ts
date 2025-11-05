@@ -491,8 +491,26 @@ function createDatasetSchema(data: any) {
     // Measurements with confidence scores
     variableMeasured: measurements.slice(0, 10), // Limit to top 10 for size
     
+    // Alternative names for better discovery
+    alternateName: [
+      `${materialName} Laser Cleaning Guide`,
+      `${materialName} Technical Specifications`,
+      `${materialName} Parameters`
+    ],
+    
+    // Unique identifier
+    identifier: `${pageUrl}#dataset`,
+    
     // Publisher with contact information
     creator: {
+      '@type': 'Organization',
+      '@id': `${baseUrl}#organization`,
+      name: SITE_CONFIG.shortName || 'Z-Beam',
+      url: baseUrl,
+      sameAs: SITE_CONFIG.social.linkedin
+    },
+    
+    publisher: {
       '@type': 'Organization',
       '@id': `${baseUrl}#organization`,
       name: SITE_CONFIG.shortName || 'Z-Beam',

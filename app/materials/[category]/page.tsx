@@ -155,14 +155,28 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         '@id': `${SITE_CONFIG.url}/materials/${category}#dataset`,
         'name': `${categoryDisplayName} Laser Cleaning Parameters Dataset`,
         'description': `Comprehensive dataset of ${categoryData.materials.length} ${category} materials with laser cleaning parameters, machine settings, and material properties for industrial applications.`,
+        'alternateName': `${categoryDisplayName} Materials Database`,
         'url': `${SITE_CONFIG.url}/materials/${category}`,
+        'identifier': `${SITE_CONFIG.url}/materials/${category}#dataset`,
         'creator': {
+          '@type': 'Organization',
+          '@id': `${SITE_CONFIG.url}#organization`,
+          'name': SITE_CONFIG.name,
+          'url': SITE_CONFIG.url,
+          'sameAs': SITE_CONFIG.social.linkedin
+        },
+        'publisher': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
           'name': SITE_CONFIG.name,
           'url': SITE_CONFIG.url
         },
-        'license': 'https://creativecommons.org/licenses/by/4.0/',
+        'license': {
+          '@type': 'CreativeWork',
+          'name': 'Creative Commons Attribution 4.0 International',
+          'url': 'https://creativecommons.org/licenses/by/4.0/',
+          'identifier': 'CC BY 4.0'
+        },
         'keywords': [category, 'laser cleaning', 'material properties', 'machine settings', 'industrial parameters'],
         'temporalCoverage': '2024/..',
         'spatialCoverage': 'Global',
