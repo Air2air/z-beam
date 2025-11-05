@@ -89,9 +89,7 @@ describe('Button Component', () => {
       render(<Button size="sm">Small</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('min-h-[36px]');
-      expect(button.className).toMatch(/px-\d+/);
-      expect(button.className).toMatch(/text-(xs|sm)/);
+      expect(button).toHaveClass('min-h-[40px]', 'px-3', 'py-2', 'text-sm');
     });
 
     it('should apply large size classes', () => {
@@ -403,8 +401,8 @@ describe('Button Component', () => {
         render(<Button size="sm">Small Button</Button>);
         
         const button = screen.getByRole('button');
-        // min-h-[36px] ensures minimum touch target height
-        expect(button).toHaveClass('min-h-[36px]');
+        // min-h-[40px] ensures minimum touch target height
+        expect(button).toHaveClass('min-h-[40px]');
       });
 
       it('should have adequate touch target for medium size', () => {
@@ -512,7 +510,7 @@ describe('Button Component', () => {
       render(<Button variant="secondary" size="sm">Small Secondary</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-white', 'text-brand-orange', 'min-h-[36px]');
+      expect(button).toHaveClass('bg-white', 'text-brand-orange', 'min-h-[40px]');
     });
 
     it('should combine danger variant with large size', () => {

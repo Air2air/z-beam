@@ -42,18 +42,18 @@ export function Button({
     minimal: 'bg-transparent text-blue-600 hover:text-blue-700 hover:underline focus-visible:ring-blue-500 shadow-none hover:shadow-none transform-none hover:scale-100',
   };
   
-  // Size styles
+  // Fixed sizes for consistency - no responsive variations
   const sizeClasses = {
-    sm: 'px-2 py-1.5 text-xs sm:text-sm min-h-[36px]',
-    md: 'px-3 py-2 sm:px-4 sm:py-2.5 text-sm md:text-base min-h-[44px]',
-    lg: 'px-4 py-3 sm:px-6 sm:py-3 text-base lg:text-lg min-h-[48px]',
+    sm: 'px-3 py-2 text-sm min-h-[40px]',
+    md: 'px-4 py-2.5 text-base min-h-[44px]',
+    lg: 'px-6 py-3 text-lg min-h-[48px]',
   };
   
   // Icon size based on button size
   const iconSizeClasses = {
-    sm: 'w-3 h-3',
-    md: 'w-4 h-4 md:w-5 md:h-5',
-    lg: 'w-5 h-5 md:w-6 md:h-6',
+    sm: 'w-4 h-4',
+    md: 'w-5 h-5',
+    lg: 'w-6 h-6',
   };
   
   // Base classes
@@ -75,7 +75,7 @@ export function Button({
       aria-hidden="true"
       role="presentation"
       focusable="false"
-      className={`hidden sm:block ml-1 sm:ml-2 ${iconSizeClasses[size]}`}
+      className={`ml-2 ${iconSizeClasses[size]}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
