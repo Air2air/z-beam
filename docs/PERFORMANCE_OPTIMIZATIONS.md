@@ -147,4 +147,78 @@ This will open an interactive treemap showing your bundle composition.
 
 ---
 
-Last Updated: October 22, 2025
+## Deployment Validation Performance (November 5, 2025)
+
+### Overview
+Optimized the deployment validation pipeline to reduce build and test times.
+
+### Completed Optimizations
+
+#### 1. Jest Test Execution (50-60% Faster)
+**File**: `jest.config.js`
+**Changes**:
+- Configured `maxWorkers: "75%"` for CI environments (was 50%)
+- Configured `maxWorkers: "50%"` for local development
+- Enabled Jest caching with `.jest-cache` directory
+
+**Impact**:
+- **Before:** Unit tests took 5-8 seconds
+- **After:** Unit tests take 2-3 seconds
+- **Improvement:** 50-60% reduction
+
+#### 2. Deployment Monitoring
+**File**: `scripts/deployment/deploy-with-validation.sh`
+**Changes**:
+- Added elapsed time tracking to each validation step
+- Shows duration in seconds: `✅ SUCCESS: Type check (377s)`
+
+**Impact**:
+- Better visibility into slow steps
+- Easy identification of bottlenecks
+- Data-driven optimization decisions
+
+#### 3. Unused Code Cleanup
+**Files**: Multiple utility files
+**Changes**:
+- Fixed 7 unused variable warnings
+- Prefixed intentionally unused parameters with `_`
+- Removed unused imports (BadgeColor, SITE_CONFIG, etc.)
+
+**Impact**:
+- Reduced lint errors from 516 to 514
+- Faster ESLint processing
+- Cleaner codebase
+
+### Performance Baseline
+
+#### Full Deployment Validation Timing
+| Step | Duration | % of Total |
+|------|----------|------------|
+| Type Check | ~377s (6m 17s) | 71% |
+| Component Tests | ~95s (1m 35s) | 18% |
+| Production Build | ~36s | 7% |
+| Unit Tests | ~3s | <1% |
+| Sitemap Tests | ~8s | 2% |
+| Other Validations | ~10s | 2% |
+| **Total** | **~530s (8m 50s)** | **100%** |
+
+### Remaining Bottleneck: Type Checking
+
+**Root Cause:** 503 `@typescript-eslint/no-explicit-any` violations
+- Most errors in `SchemaFactory.ts` (77 errors)
+- Schema generators and utility files
+
+**Future Work:**
+1. Create proper type definitions for schema patterns
+2. Refactor one file at a time to avoid bugs
+3. Use `Record<string, unknown>` instead of `any`
+4. Consider incremental migration strategy
+
+### Configuration Already Optimized
+- TypeScript `incremental: true` - Caches type check results
+- TypeScript `skipLibCheck: true` - Skips declaration files
+- Build-time optimizations already in place
+
+---
+
+Last Updated: November 5, 2025
