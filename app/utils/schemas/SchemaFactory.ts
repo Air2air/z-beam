@@ -1041,13 +1041,13 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
 }
 
 /**
- * Dataset Schema
+ * Dataset Schema - Enhanced with E-E-A-T author signals
  */
 function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
   if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
 
-  const { pageUrl, slug } = context;
+  const { pageUrl, slug, baseUrl } = context;
   
   // Extract material slug from the full slug path (e.g., "materials/metal/non-ferrous/titanium" -> "titanium")
   const materialSlug = slug.split('/').pop() || slug;
@@ -1057,6 +1057,15 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     ? materialSlug 
     : `${materialSlug}-laser-cleaning`;
 
+  // E-E-A-T Enhancement: Use page author as dataset creator for authority
+  const author = frontmatter.author || data.author;
+  const authorPerson = (author && (author as any).name) ? generatePersonObject(author, baseUrl) : null;
+  const creator = authorPerson || {
+    '@type': 'Organization',
+    'name': 'Z-Beam Laser Cleaning',
+    'url': SITE_CONFIG.url
+  };
+
   return {
     '@type': 'Dataset',
     '@id': `${pageUrl}#dataset`,
@@ -1064,11 +1073,9 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     'description': `Comprehensive laser cleaning parameters and material properties for ${frontmatter.name || 'material'}`,
     'version': '1.0',
     'license': 'https://creativecommons.org/licenses/by/4.0/',
-    'creator': {
-      '@type': 'Organization',
-      'name': 'Z-Beam Laser Cleaning',
-      'url': SITE_CONFIG.url
-    },
+    'creator': creator,
+    // E-E-A-T: Also add author field for better E-E-A-T scoring
+    ...(authorPerson && { 'author': authorPerson }),
     'distribution': [
       {
         '@type': 'DataDownload',
