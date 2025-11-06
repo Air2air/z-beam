@@ -467,14 +467,17 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   if (!title) return null;
 
   // Enhanced author with E-E-A-T credentials
-  const author = frontmatter.author || {};
-  const enhancedAuthor = generatePersonObject(author, baseUrl);
+  const authorData = frontmatter.author || { name: '' };
+  const enhancedAuthor = generatePersonObject(authorData, baseUrl);
   
   // Add E-E-A-T signals to author
   if (typeof enhancedAuthor === 'object' && enhancedAuthor['@type'] === 'Person') {
+    // Type guard: check if authorData is an object (AuthorInfo)
+    const isAuthorObject = typeof authorData === 'object' && authorData !== null && 'name' in authorData;
+    
     // Add jobTitle if available
-    if (author.title) {
-      enhancedAuthor.jobTitle = author.title;
+    if (isAuthorObject && 'title' in authorData && authorData.title) {
+      enhancedAuthor.jobTitle = authorData.title;
     }
     
     // Add affiliation (worksFor)
@@ -487,16 +490,13 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
     }
     
     // Add expertise areas (knowsAbout)
-    if (author.expertise) {
-      enhancedAuthor.knowsAbout = author.expertise;
-    } else if (frontmatter.applications && frontmatter.applications.length > 0) {
-      // Use material applications as expertise areas
-      enhancedAuthor.knowsAbout = frontmatter.applications.join(', ');
+    if (isAuthorObject && 'expertise' in authorData && authorData.expertise) {
+      enhancedAuthor.knowsAbout = authorData.expertise;
     }
     
     // Add country/nationality for geographic authority
-    if (author.country) {
-      enhancedAuthor.nationality = author.country;
+    if (isAuthorObject && 'country' in authorData && authorData.country) {
+      enhancedAuthor.nationality = authorData.country;
     }
   }
 
@@ -527,12 +527,6 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
       }
     },
     ...(getMainImage(data) && { 'image': getMainImage(data) }),
-    ...(frontmatter.applications && {
-      'about': frontmatter.applications.map((app: string) => ({
-        '@type': 'Thing',
-        'name': app
-      }))
-    }),
     // E-E-A-T: Add expertise indicators (removed abstract - not in Schema.org Article spec)
     ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords }),
     
@@ -850,18 +844,6 @@ function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | n
 
   // Only auto-generate FAQs if no explicit FAQs exist
   if (faqs.length === 0) {
-    // Generate FAQs from applications
-    if (frontmatter.applications && Array.isArray(frontmatter.applications) && frontmatter.applications.length > 0) {
-      faqs.push({
-        '@type': 'Question',
-        'name': `What can laser cleaning be used for on ${frontmatter.name || 'this material'}?`,
-        'acceptedAnswer': {
-          '@type': 'Answer',
-          'text': `Laser cleaning is effective for: ${frontmatter.applications.join(', ')}`
-        }
-      });
-    }
-
     // Generate FAQs from environmental impact
     if (frontmatter.environmentalImpact && Array.isArray(frontmatter.environmentalImpact) && frontmatter.environmentalImpact.length > 0) {
       // Extract benefit descriptions if environmentalImpact is array of objects
@@ -1196,7 +1178,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}${hero.url}`,
       'width': hero.width || 1200,  // P0 enhancement: default dimensions for rich snippets
       'height': hero.height || 630,  // P0 enhancement: default dimensions for rich snippets
-      'caption': hero.alt || frontmatter.caption?.beforeText || data.caption?.beforeText || data.title,
+      'caption': hero.alt || frontmatter.caption?.before || data.caption?.before || data.title,
       'isMicro': false,
       // Pass through license metadata if present
       ...(hero.license && { 'license': hero.license }),
@@ -1215,7 +1197,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}${micro.url}`,
       'width': micro.width || 1200,  // P0 enhancement: default dimensions for rich snippets
       'height': micro.height || 630,  // P0 enhancement: default dimensions for rich snippets
-      'caption': micro.alt || frontmatter.caption?.beforeText || data.caption?.beforeText || data.title,
+      'caption': micro.alt || frontmatter.caption?.before || data.caption?.before || data.title,
       'isMicro': true,
       // Pass through license metadata if present
       ...(micro.license && { 'license': micro.license }),

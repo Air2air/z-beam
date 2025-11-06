@@ -365,90 +365,8 @@ export interface BadgeData {
  * Enhanced Caption Data Structure - Complete interface for caption content
  */
 export interface CaptionDataStructure {
-  beforeText?: string;
-  afterText?: string;
-  material?: string;
-  title?: string;
-  description?: string;
-  keywords?: string[];
-  laser_parameters?: {
-    wavelength?: number;
-    power?: number;
-    pulse_duration?: number;
-    spot_size?: string;
-    frequency?: number;
-    energy_density?: number;
-    scanning_speed?: string;
-    beam_profile?: string;
-    pulse_overlap?: number;
-  };
-  quality_metrics?: {
-    contamination_removal?: string;
-    surface_roughness_before?: string;
-    surface_roughness_after?: string;
-    thermal_damage?: string;
-    substrate_integrity?: string;
-    processing_efficiency?: string;
-  };
-  author_object?: AuthorInfo;
-  chemicalProperties?: {
-    composition?: string;
-    surface_treatment?: string;
-    contamination_type?: string;
-    materialType?: string;
-    formula?: string;
-    surface_finish?: string;
-    corrosion_resistance?: string;
-    density?: string;
-    meltingPoint?: string;
-    thermalConductivity?: string;
-  };
-  technicalSpecifications?: {
-    wavelength?: string;
-    power?: string;
-    pulse_duration?: string;
-    scanning_speed?: string;
-    material?: string;
-    beam_delivery?: string;
-    focus_diameter?: string;
-    processing_atmosphere?: string;
-  };
-  metadata?: {
-    generated?: string;
-    format?: string;
-    version?: string;
-    analysis_method?: string;
-    magnification?: string;
-    field_of_view?: string;
-    image_resolution?: string;
-  };
-  images?: {
-    micro?: {
-      url?: string;
-      alt?: string;
-      width?: number;
-      height?: number;
-      format?: string;
-      caption?: string;
-    };
-  };
-  imageUrl?: {
-    url?: string;
-    alt?: string;
-  };
-  accessibility?: {
-    alt_text_detailed?: string;
-    caption_language?: string;
-    technical_level?: string;
-    visual_description?: string;
-  };
-  seo_data?: {
-    canonical_url?: string;
-    og_title?: string;
-    og_description?: string;
-    schema_type?: string;
-    last_modified?: string;
-  };
+  before?: string;
+  after?: string;
 }
 
 /**
@@ -461,8 +379,13 @@ export interface FrontmatterType {
   author?: string | AuthorInfo;
   name?: string;
   images?: {
+    hero?: {
+      url?: string;
+      alt?: string;
+    };
     micro?: {
       url?: string;
+      alt?: string;
     };
   };
   author_object?: {
@@ -514,6 +437,25 @@ export interface FrontmatterType {
   
   // Caption data from frontmatter.caption
   caption?: CaptionDataStructure;
+  
+  // Material categories
+  category?: string;
+  subcategory?: string;
+  
+  // E-E-A-T credentials
+  eeat?: {
+    reviewedBy?: string | { name: string; title?: string };
+    citations?: Array<{ title: string; url?: string; author?: string }>;
+    isBasedOn?: string | { name: string; url?: string };
+  };
+  
+  // Date fields
+  datePublished?: string;
+  dateModified?: string;
+  
+  // Hero/Image fields
+  hero?: { url?: string; beforeText?: string };
+  micro?: { url?: string; beforeText?: string };
 }
 
 /**
