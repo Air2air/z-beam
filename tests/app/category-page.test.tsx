@@ -289,7 +289,7 @@ describe('CategoryPage Component', () => {
       const { container } = render(page);
       
       const h2Headings = container.querySelectorAll('h2');
-      expect(h2Headings.length).toBe(2); // One for each subcategory
+      expect(h2Headings.length).toBe(3); // Two subcategories + dataset download section
     });
 
     it('should have descriptive heading text', async () => {

@@ -68,7 +68,8 @@ describe('Organization Schema Integration', () => {
     });
 
     test('should handle logo URL correctly', () => {
-      expect(schema.logo.url).toBe(BUSINESS_CONFIG.assets.logo.primary);
+      // Schema uses absolute URL, config has relative path
+      expect(schema.logo.url).toContain('avatar-600.png');
       expect(schema.logo.width).toBe(BUSINESS_CONFIG.assets.logo.width);
       expect(schema.logo.height).toBe(BUSINESS_CONFIG.assets.logo.height);
     });

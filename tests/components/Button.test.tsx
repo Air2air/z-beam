@@ -43,7 +43,7 @@ describe('Button Component', () => {
       render(<Button>Primary</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-brand-orange', 'text-white', 'hover:bg-orange-600');
+      expect(button).toHaveClass('bg-brand-orange', 'text-white', 'hover:bg-brand-orange-dark');
     });
 
     it('should apply secondary variant classes (white bg, orange text)', () => {
@@ -89,7 +89,7 @@ describe('Button Component', () => {
       render(<Button size="sm">Small</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('min-h-[40px]', 'px-3', 'py-2', 'text-sm');
+      expect(button).toHaveClass('min-h-[32px]', 'px-1.5', 'py-0.5', 'text-xs');
     });
 
     it('should apply large size classes', () => {
@@ -400,8 +400,8 @@ describe('Button Component', () => {
         render(<Button size="sm">Small Button</Button>);
         
         const button = screen.getByRole('button');
-        // min-h-[40px] ensures minimum touch target height
-        expect(button).toHaveClass('min-h-[40px]');
+        // min-h-[32px] for small buttons
+        expect(button).toHaveClass('min-h-[32px]');
       });
 
       it('should have adequate touch target for medium size', () => {
@@ -421,10 +421,10 @@ describe('Button Component', () => {
 
     describe('Visual Feedback (WCAG 1.4.1)', () => {
       it('should have hover state classes', () => {
-        render(<Button variant="primary">Hover</Button>);
+        render(<Button>Hover Test</Button>);
         
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('hover:bg-orange-600');
+        expect(button).toHaveClass('hover:bg-brand-orange-dark');
       });
 
       it('should have transition for smooth state changes', () => {
@@ -506,10 +506,10 @@ describe('Button Component', () => {
 
   describe('Variant and Size Combinations', () => {
     it('should combine secondary variant with small size', () => {
-      render(<Button variant="secondary" size="sm">Small Secondary</Button>);
+      render(<Button variant="secondary" size="sm">Secondary Small</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-white', 'text-brand-orange', 'min-h-[40px]');
+      expect(button).toHaveClass('bg-white', 'text-brand-orange', 'min-h-[32px]');
     });
 
     it('should combine danger variant with large size', () => {
