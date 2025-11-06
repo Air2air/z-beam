@@ -32,7 +32,7 @@ const CARD_VARIANTS: Record<CardVariantKey, {
 }> = {
   standard: {
     // Layout
-    padding: "p-2 md:p-3",
+    padding: "px-2 py-2 md:px-3 md:py-1.5",
     imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Responsive image - 25% reduction
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]", // Responsive card height - 25% reduction
     
@@ -50,7 +50,7 @@ const CARD_VARIANTS: Record<CardVariantKey, {
   },
   featured: {
     // Layout
-    padding: "p-3 md:p-4",
+    padding: "px-3 py-2.5 md:px-4 md:py-2",
     imageHeight: "h-full", // Full height image
     cardHeight: "h-full min-h-[9.75rem]", // Fixed min-height - 25% reduction (156px)
     
