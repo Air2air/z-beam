@@ -88,6 +88,7 @@ const BEST_PRACTICES = {
 
   // Technical SEO Best Practices
   technicalSEO: {
+    physicalLocation: { check: 'JSON-LD scripts in <head> not <body>', score: 5 },
     graphStructure: { check: 'uses @graph for multiple schemas', score: 5 },
     uniqueIds: { check: 'all schemas have unique @id', score: 3 },
     imageOptimization: { check: 'images have width/height', score: 4 },
@@ -152,6 +153,25 @@ function extractSchemas(html) {
       return null;
     }
   }).filter(Boolean);
+}
+
+/**
+ * Check if JSON-LD scripts are in correct physical location (head vs body)
+ * Schema.org best practice: Place JSON-LD in <head> for better crawlability
+ */
+function validatePhysicalLocation(html) {
+  const headMatch = html.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  
+  const headScripts = (headMatch?.[1] || '').match(/<script type="application\/ld\+json"[^>]*>/g) || [];
+  const bodyScripts = (bodyMatch?.[1] || '').match(/<script type="application\/ld\+json"[^>]*>/g) || [];
+  
+  return {
+    inHead: headScripts.length,
+    inBody: bodyScripts.length,
+    total: headScripts.length + bodyScripts.length,
+    correctPlacement: bodyScripts.length === 0
+  };
 }
 
 function getNestedValue(obj, path) {
@@ -299,7 +319,7 @@ function evaluateRichSnippets(schemas) {
   };
 }
 
-function evaluateTechnicalSEO(schemas) {
+function evaluateTechnicalSEO(schemas, html) {
   const results = {
     passed: [],
     failed: [],
@@ -309,12 +329,23 @@ function evaluateTechnicalSEO(schemas) {
 
   const allSchemas = schemas.flatMap(s => s['@graph'] || [s]);
   const usesGraph = schemas.some(s => s['@graph']);
+  const locationInfo = html ? validatePhysicalLocation(html) : null;
 
   Object.entries(BEST_PRACTICES.technicalSEO).forEach(([key, criteria]) => {
     results.maxScore += criteria.score;
     let passed = false;
 
     switch (key) {
+      case 'physicalLocation':
+        passed = locationInfo ? locationInfo.correctPlacement : true;
+        if (!passed && locationInfo) {
+          results.failed.push({
+            check: criteria.check,
+            score: criteria.score,
+            details: `${locationInfo.inBody} script(s) in <body>, should be in <head>`
+          });
+        }
+        break;
       case 'graphStructure':
         passed = usesGraph;
         break;
@@ -593,7 +624,7 @@ async function auditPage(pageName, url) {
     // Evaluate all aspects
     const eeat = evaluateEEAT(schemas);
     const richSnippets = evaluateRichSnippets(schemas);
-    const technical = evaluateTechnicalSEO(schemas);
+    const technical = evaluateTechnicalSEO(schemas, html);
     const coverage = evaluateCoverage(schemas);
     const schemaOrgCompliance = validateSchemaOrgCompliance(schemas);
 

@@ -1,5 +1,6 @@
 // app/about/page.tsx
 import { Layout } from '../components/Layout/Layout';
+import { MaterialJsonLD } from '../components/JsonLD/JsonLD';
 import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
@@ -17,10 +18,13 @@ export default async function AboutPage() {
   const { metadata: pageMetadata, components } = await loadPageData('about');
   
   return (
-    <Layout
-      components={components}
-      metadata={pageMetadata as unknown as ArticleMetadata}
-      slug="about"
-    />
+    <>
+      <MaterialJsonLD article={{ metadata: pageMetadata }} slug="about" />
+      <Layout
+        components={components}
+        metadata={pageMetadata as unknown as ArticleMetadata}
+        slug="about"
+      />
+    </>
   );
 }

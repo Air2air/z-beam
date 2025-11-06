@@ -1,5 +1,8 @@
 // app/contact/page.tsx
 import { Layout } from "../components/Layout/Layout";
+import { MaterialJsonLD } from '../components/JsonLD/JsonLD';
+import { loadPageData } from '../utils/contentAPI';
+import { ArticleMetadata } from '@/types';
 import dynamic from 'next/dynamic';
 
 import { SITE_CONFIG } from '../utils/constants';
@@ -25,21 +28,28 @@ export const metadata = {
 
 // Default export - the page component
 export default async function ContactPage() {
+  const { metadata: pageMetadata } = await loadPageData('contact');
+  
   return (
-    <Layout
-      title="Send us a Z-mail"
-      subtitle=""
-      rightContent={null}
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
-        <div>
-          <ContactForm />
+    <>
+      <MaterialJsonLD article={{ metadata: pageMetadata }} slug="contact" />
+      <Layout
+        title="Send us a Z-mail"
+        subtitle=""
+        rightContent={null}
+        metadata={pageMetadata as unknown as ArticleMetadata}
+        slug="contact"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
+          <div>
+            <ContactForm />
+          </div>
+          
+          <div>
+            <ContactInfo />
+          </div>
         </div>
-        
-        <div>
-          <ContactInfo />
-        </div>
-      </div>
-    </Layout>
+      </Layout>
+    </>
   );
 }
