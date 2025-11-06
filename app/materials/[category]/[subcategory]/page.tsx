@@ -242,18 +242,39 @@ export default async function SubcategoryPage({ params }: PageProps) {
         }
       },
       
-      // 6. Person schema - Technical author
+      // 6. Person schema - Technical author with E-E-A-T enhancements
       {
         '@type': 'Person',
         '@id': `${SITE_CONFIG.url}#author-technical-team`,
         'name': 'Z-Beam Technical Team',
         'jobTitle': 'Laser Cleaning Specialists',
-        'knowsAbout': `${pageTitle} laser cleaning, ${categoryLabel.toLowerCase()} materials, industrial laser systems`,
+        'email': SITE_CONFIG.contact.general.email,
+        'url': `${SITE_CONFIG.url}/about`,
+        'knowsAbout': [
+          `${pageTitle} laser cleaning`,
+          `${categoryLabel} materials science`,
+          'Industrial laser systems',
+          'Laser ablation parameters',
+          `${subcategoryInfo.label} material properties`
+        ],
         'worksFor': {
           '@type': 'Organization',
           '@id': `${SITE_CONFIG.url}#organization`,
           'name': SITE_CONFIG.name
-        }
+        },
+        'hasCredential': [
+          {
+            '@type': 'EducationalOccupationalCredential',
+            'name': 'Laser Safety Certification',
+            'credentialCategory': 'Professional Certification'
+          },
+          {
+            '@type': 'EducationalOccupationalCredential',
+            'name': 'Materials Science Expertise',
+            'credentialCategory': 'Professional Expertise'
+          }
+        ],
+        'description': `Expert team specializing in laser cleaning research, material analysis, and industrial surface treatment applications for ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials.`
       }
     ]
   };
