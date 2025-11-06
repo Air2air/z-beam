@@ -173,7 +173,7 @@ export const MetricsCard = memo(function MetricsCard({
       </div>
       
       {/* Metric title at top */}
-      <header className="metric-card-header h-[32px] flex items-center justify-center text-center mb-3">
+      <header className="metric-card-header h-[24px] flex items-center justify-center text-center mb-2">
         <h4 
           id={titleId} 
           className={`metric-label text-xs ${theme.titleColor} font-medium leading-tight`}
@@ -187,7 +187,7 @@ export const MetricsCard = memo(function MetricsCard({
       
       {/* Progress bar section (vertical) or value display */}
       {hasValidRange ? (
-        <section className="metric-card-content h-[95px] min-h-0" aria-label="Metric visualization">
+        <section className="metric-card-content h-[71px] min-h-0" aria-label="Metric visualization">
           <ProgressBar 
             id={componentKey}
             title={title}
@@ -201,8 +201,8 @@ export const MetricsCard = memo(function MetricsCard({
           />
         </section>
       ) : (
-        <section className="metric-card-content h-[95px] flex items-center justify-center">
-          <div className={`metric-value-container text-xl md:text-2xl ${theme.valueColor} font-semibold text-center`}>
+        <section className="metric-card-content h-[71px] flex items-center justify-center">
+          <div className={`metric-value-container text-lg md:text-xl ${theme.valueColor} font-semibold text-center`}>
             <data 
               id={valueId} 
               value={numericValue || displayValue}
@@ -221,7 +221,7 @@ export const MetricsCard = memo(function MetricsCard({
               {displayValue}
             </data>
             {displayUnit && (
-              <span title={displayUnit} className={`metric-unit text-sm md:text-base ${theme.valueColor} ml-1`}>
+              <span title={displayUnit} className={`metric-unit text-sm ${theme.valueColor} ml-1`}>
                 {displayUnit}
               </span>
             )}
@@ -262,7 +262,7 @@ export const MetricsCard = memo(function MetricsCard({
     <Link
       ref={cardRef as any}
       href={finalHref}
-      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[140px] relative overflow-hidden ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
+      className={`metric-card-wrapper metric-card-link rounded-lg p-1.5 md:p-2 block h-[105px] relative overflow-hidden ${clickableClasses} ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
         ...animationStyles,
@@ -291,7 +291,7 @@ export const MetricsCard = memo(function MetricsCard({
   ) : (
     <div 
       ref={cardRef}
-      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[140px] transition-all duration-300 ease-out ${minTouchTarget} ${animationClasses} ${className}`}
+      className={`metric-card-wrapper metric-card-static rounded-lg p-1.5 md:p-2 h-[105px] transition-all duration-300 ease-out ${minTouchTarget} ${animationClasses} ${className}`}
       style={{ 
         backgroundImage: bgGradient,
         ...animationStyles,
