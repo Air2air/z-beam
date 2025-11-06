@@ -1227,32 +1227,65 @@ function generatePersonObject(author: any, _baseUrl: string): any {
     ...(author.title && !author.jobTitle && { 'jobTitle': author.title }), // Use title as jobTitle if jobTitle not set
     ...(author.email && { 'email': author.email }),
     ...(author.url && { 'url': author.url }),
-    // E-E-A-T: Add organizational affiliation
+    // E-E-A-T: Add organizational affiliation (P1 enhancement - supports object structure)
     ...(author.affiliation && {
-      'affiliation': {
-        '@type': 'Organization',
-        'name': author.affiliation
-      }
+      'affiliation': typeof author.affiliation === 'string' 
+        ? {
+            '@type': 'Organization',
+            'name': author.affiliation
+          }
+        : {
+            '@type': author.affiliation.type || 'Organization',
+            'name': author.affiliation.name
+          }
+    }),
+    // E-E-A-T: Add educational institution (P1 enhancement)
+    ...(author.alumniOf && {
+      'alumniOf': typeof author.alumniOf === 'string'
+        ? {
+            '@type': 'EducationalOrganization',
+            'name': author.alumniOf
+          }
+        : {
+            '@type': author.alumniOf.type || 'EducationalOrganization',
+            'name': author.alumniOf.name
+          }
     }),
     // E-E-A-T: Add expertise areas as array (P0 enhancement)
     ...(author.expertise && { 
       'knowsAbout': Array.isArray(author.expertise) ? author.expertise : [author.expertise]
     }),
     // E-E-A-T: Add geographic authority
-    ...(author.country && { 'nationality': author.country })
+    ...(author.country && { 'nationality': author.country }),
+    // E-E-A-T: Add image with alt text (accessibility + SEO)
+    ...(author.image && {
+      'image': typeof author.image === 'string'
+        ? author.image
+        : {
+            '@type': 'ImageObject',
+            'url': author.image,
+            ...(author.imageAlt && { 'description': author.imageAlt })
+          }
+    })
   };
 
-  // E-E-A-T: Add sameAs links for authority
+  // E-E-A-T: Add sameAs links for authority (P0 enhancement)
   if (author.sameAs || author.socialProfiles) {
     personObj.sameAs = author.sameAs || author.socialProfiles;
   }
 
-  // E-E-A-T: Add credentials/qualifications as array (P0 enhancement)
-  if (author.credentials || author.qualifications) {
-    if (!personObj.knowsAbout) {
-      const creds = author.credentials || author.qualifications;
-      personObj.knowsAbout = Array.isArray(creds) ? creds : [creds];
-    }
+  // E-E-A-T: Add languages spoken (optional enhancement)
+  if (author.languages && Array.isArray(author.languages)) {
+    personObj.knowsLanguage = author.languages;
+  }
+
+  // E-E-A-T: Add credentials array (P1 enhancement - separate from expertise)
+  if (author.credentials && Array.isArray(author.credentials)) {
+    personObj.hasCredential = author.credentials.map((cred: string) => ({
+      '@type': 'EducationalOccupationalCredential',
+      'credentialCategory': 'degree',
+      'description': cred
+    }));
   }
 
   return personObj;
