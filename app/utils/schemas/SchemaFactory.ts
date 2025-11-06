@@ -521,9 +521,9 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
       'url': baseUrl,
       'logo': {
         '@type': 'ImageObject',
-        'url': `${baseUrl}/images/favicon/favicon-350.png`,
-        'width': 350,
-        'height': 350
+        'url': `${baseUrl}${SITE_CONFIG.media.logo.default}`,
+        'width': SITE_CONFIG.media.logo.width,
+        'height': SITE_CONFIG.media.logo.height
       }
     },
     ...(getMainImage(data) && { 'image': getMainImage(data) }),
@@ -940,7 +940,9 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
       'url': SITE_CONFIG.url,
       'logo': {
         '@type': 'ImageObject',
-        'url': `${SITE_CONFIG.url}/images/favicon/favicon-350.png`
+        'url': `${SITE_CONFIG.url}${SITE_CONFIG.media.logo.default}`,
+        'width': SITE_CONFIG.media.logo.width,
+        'height': SITE_CONFIG.media.logo.height
       }
     },
     // E-E-A-T: Add subject matter for context

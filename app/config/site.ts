@@ -93,9 +93,9 @@ export const SITE_CONFIG = {
       }
     },
     logo: {
-      default: '/images/logo/logo-.png',
-      width: 200,
-      height: 120
+      default: '/images/logo/avatar-600.png',
+      width: 600,
+      height: 600
     },
     favicon: {
       ico: '/favicon.ico',
@@ -409,9 +409,9 @@ export const BUSINESS_CONFIG = {
 
   assets: {
     logo: {
-      primary: "https://z-beam.com/images/logo-.png",
-      width: 400,
-      height: 100
+      primary: "/images/logo/avatar-600.png",
+      width: 600,
+      height: 600
     },
     images: {
       hero: "/images/hero-image.jpg",

@@ -198,9 +198,9 @@ function createTechnicalArticleSchema(data: any) {
       url: baseUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/logo.png`,
-        width: 512,
-        height: 512
+        url: `${baseUrl}${SITE_CONFIG.media.logo.default}`,
+        width: SITE_CONFIG.media.logo.width,
+        height: SITE_CONFIG.media.logo.height
       }
     },
     
@@ -711,7 +711,9 @@ function createVideoSchema(materialName: string, pageUrl: string) {
       name: SITE_CONFIG.shortName || 'Z-Beam',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/images/logo-.png`
+        url: `${baseUrl}${SITE_CONFIG.media.logo.default}`,
+        width: SITE_CONFIG.media.logo.width,
+        height: SITE_CONFIG.media.logo.height
       }
     }
   };
