@@ -6,7 +6,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run validate:naming && npm run validate:metadata && npm run verify:sitemap && npm run validate:jsonld && npm run generate:datasets",
+    "prebuild": "npm run validate:frontmatter && npm run validate:naming && npm run validate:metadata && npm run verify:sitemap && npm run validate:jsonld && npm run generate:datasets",
     "build": "next build && npm run postbuild",
     "postbuild": "npm run validate:urls",
     "build:fast": "next build",
@@ -50,6 +50,7 @@
     "verify:sitemap": "bash scripts/sitemap/verify-sitemap.sh",
     "validate:fast": "npm run type-check && npm run test:unit",
     "validate:deployment": "npm run type-check && npm run test:deployment && npm run build",
+    "validate:frontmatter": "node scripts/validate-frontmatter-structure.js",
     "validate:urls": "node scripts/validate-jsonld-urls.js",
     "validate:redirects": "node scripts/validate-redirects.js",
     "precommit": "npm run validate:fast",

@@ -364,20 +364,63 @@ export interface BadgeData {
 /**
  * Enhanced Caption Data Structure - Complete interface for caption content
  */
+/**
+ * CaptionDataStructure - Before/After Caption Text
+ * 
+ * ⚠️ CRITICAL: This interface MUST match actual YAML caption structure
+ * 
+ * ONLY two fields exist in YAML:
+ * - before: Description of material before laser cleaning
+ * - after: Description of material after laser cleaning
+ * 
+ * DO NOT add fields like beforeText, afterText, material, title, etc.
+ * These do NOT exist in actual YAML files.
+ * 
+ * Example from YAML:
+ * ```yaml
+ * caption:
+ *   before: "Contaminated surface with..."
+ *   after: "Clean surface showing..."
+ * ```
+ * 
+ * @see frontmatter/materials/bamboo-laser-cleaning.yaml lines 52-53
+ */
 export interface CaptionDataStructure {
+  /** Description of material BEFORE laser cleaning */
   before?: string;
+  /** Description of material AFTER laser cleaning */
   after?: string;
 }
 
 /**
- * Legacy frontmatter interface for backward compatibility
+ * FrontmatterType - YAML Frontmatter Structure
+ * 
+ * ⚠️ CRITICAL: This interface MUST match actual YAML frontmatter files in /frontmatter/materials/
+ * 
+ * DO NOT add properties that don't exist in YAML files!
+ * Before adding any property, verify it exists in actual YAML files:
+ * - Check frontmatter/materials/*.yaml files
+ * - Grep for the property: `grep -r "propertyName:" frontmatter/materials/`
+ * 
+ * Properties that DO NOT exist (DO NOT ADD):
+ * ❌ applications - does not exist in YAML
+ * ❌ environmentalImpact - does not exist in YAML
+ * ❌ caption.beforeText/afterText - use caption.before/after instead
+ * 
+ * @see frontmatter/materials/alumina-laser-cleaning.yaml for reference structure
  */
 export interface FrontmatterType {
+  /** Page title */
   title?: string;
+  /** Meta description */
   description?: string;
+  /** SEO keywords array */
   keywords?: string[];
+  /** Author can be string (name) or full AuthorInfo object */
   author?: string | AuthorInfo;
+  /** Material name (e.g., "Alumina", "Bamboo") */
   name?: string;
+  /** Material images - hero and micro views */
   images?: {
     hero?: {
       url?: string;
@@ -438,24 +481,29 @@ export interface FrontmatterType {
   // Caption data from frontmatter.caption
   caption?: CaptionDataStructure;
   
-  // Material categories
+  /** Material category (e.g., "ceramic", "wood", "metal") */
   category?: string;
+  /** Material subcategory (e.g., "oxide", "hardwood", "alloy") */
   subcategory?: string;
   
-  // E-E-A-T credentials
+  /**
+   * E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) credentials
+   * Used for enhanced Schema.org structured data
+   * @see frontmatter/materials/bamboo-laser-cleaning.yaml lines 273-279
+   */
   eeat?: {
+    /** Person or team who reviewed the content */
     reviewedBy?: string | { name: string; title?: string };
+    /** Array of cited sources */
     citations?: Array<{ title: string; url?: string; author?: string }>;
+    /** Primary source this content is based on */
     isBasedOn?: string | { name: string; url?: string };
   };
   
-  // Date fields
+  /** Publication date in ISO format */
   datePublished?: string;
+  /** Last modification date in ISO format */
   dateModified?: string;
-  
-  // Hero/Image fields
-  hero?: { url?: string; beforeText?: string };
-  micro?: { url?: string; beforeText?: string };
 }
 
 /**
