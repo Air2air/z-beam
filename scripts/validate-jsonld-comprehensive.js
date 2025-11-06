@@ -192,6 +192,7 @@ const RICH_SNIPPET_CHECKS = {
 
 // E-E-A-T (Experience, Expertise, Authoritativeness, Trust) signals
 const EEAT_SIGNALS = {
+  // Core Author Signals (34 points)
   author: {
     score: 10,
     check: schema => !!(schema.author && typeof schema.author === 'object')
@@ -208,10 +209,36 @@ const EEAT_SIGNALS = {
     score: 7,
     check: schema => schema.author?.affiliation
   },
+  authorImage: {
+    score: 4,
+    check: schema => !!schema.author?.image
+  },
+  
+  // Authority & Verification Signals (24 points)
+  authorSameAs: {
+    score: 8,
+    check: schema => schema.author?.sameAs && (Array.isArray(schema.author.sameAs) ? schema.author.sameAs.length > 0 : true)
+  },
+  authorHasCredential: {
+    score: 9,
+    check: schema => schema.author?.hasCredential && schema.author.hasCredential.length > 0
+  },
+  authorAlumniOf: {
+    score: 7,
+    check: schema => !!schema.author?.alumniOf
+  },
+  
+  // Publisher Signals (13 points)
   publisher: {
     score: 8,
     check: schema => !!(schema.publisher && typeof schema.publisher === 'object')
   },
+  publisherLogo: {
+    score: 5,
+    check: schema => !!schema.publisher?.logo
+  },
+  
+  // Freshness & Trust Signals (26 points)
   dateModified: {
     score: 5,
     check: schema => !!schema.dateModified
@@ -228,6 +255,7 @@ const EEAT_SIGNALS = {
     score: 5,
     check: schema => !!schema.isBasedOn
   }
+  // Total possible: 97 points (up from 64)
 };
 
 // ============================================================================
