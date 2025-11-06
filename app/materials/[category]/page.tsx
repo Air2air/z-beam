@@ -307,8 +307,11 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         <div className={CONTAINER_STYLES.standard}>
           {/* Group materials by subcategory */}
           {categoryData.subcategories.map((subcategory) => (
-            <section key={subcategory.slug} className="mb-12">
-              <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+            <section key={subcategory.slug} className="mb-12" aria-labelledby={`subcategory-${subcategory.slug}`}>
+              <h2 
+                id={`subcategory-${subcategory.slug}`}
+                className="subcategory-title text-2xl font-semibold text-gray-900 dark:text-white mb-6"
+              >
                 {subcategory.label}
               </h2>
               
