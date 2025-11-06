@@ -2,7 +2,7 @@
 # License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
 # Source: Z-Beam Laser Cleaning Research Lab
 # URL: http://localhost:3000/materials/semiconductor/elemental/silicon-germanium-laser-cleaning
-# Last Updated: 2025-11-05
+# Last Updated: 2025-11-06
 # Version: 1.0
 # Contact: info@z-beam.com
 #
@@ -10,7 +10,7 @@
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Silicon Germanium,,,,,Material name
-Basic,Info,Category,Semiconductor,,,,,Material category
+Basic,Info,Category,semiconductor,,,,,Material category
 Basic,Info,Subcategory,elemental,,,,,Material subcategory
 Basic,Info,Slug,silicon-germanium-laser-cleaning,,,,,URL identifier
 Property,material_characteristics,electricalResistivity,80,ohm·m,0.001,1000,ai_research,Material property: electricalResistivity
@@ -30,3 +30,10 @@ Property,material_characteristics,compressiveStrength,8500,MPa,370,6000,ai_resea
 Property,material_characteristics,thermalDiffusivity,0.000025,m²/s,0.1,90,ai_research,Material property: thermalDiffusivity
 Property,material_characteristics,flexuralStrength,280,MPa,120,410,ai_research,Material property: flexuralStrength
 Property,material_characteristics,tensileStrength,3.2,GPa,50,7000,ai_research,Material property: tensileStrength
+Property,laser_material_interaction,absorptivity,0.6,dimensionless,0.4,0.8,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,2,J/cm²,0.5,5,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,0.5,3,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.4,dimensionless,0.2,0.6,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,1400,K,1200,1600,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,1,Pa,0.01,10,ai_research,Material property: vaporPressure

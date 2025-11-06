@@ -2,11 +2,11 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "@id": "http://localhost:3000/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning#dataset",
-  "name": "CFRP Laser Cleaning Dataset",
-  "description": "Comprehensive laser cleaning parameters and material properties for CFRP. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
+  "name": "Carbon Fiber Reinforced Polymer Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Carbon Fiber Reinforced Polymer. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-05",
-  "datePublished": "2025-11-05",
+  "dateModified": "2025-11-06",
+  "datePublished": "2025-11-06",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -29,9 +29,9 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "cfrp",
+    "carbon fiber reinforced polymer",
     "laser cleaning",
-    "Composite",
+    "composite",
     "fiber-reinforced",
     "laser cleaning",
     "material properties",
@@ -57,19 +57,19 @@
       "@type": "DataDownload",
       "encodingFormat": "application/json",
       "contentUrl": "http://localhost:3000/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.json",
-      "name": "CFRP Dataset (JSON)"
+      "name": "Carbon Fiber Reinforced Polymer Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
       "contentUrl": "http://localhost:3000/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.csv",
-      "name": "CFRP Dataset (CSV)"
+      "name": "Carbon Fiber Reinforced Polymer Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
       "contentUrl": "http://localhost:3000/datasets/materials/carbon-fiber-reinforced-polymer-laser-cleaning.txt",
-      "name": "CFRP Dataset (TXT)"
+      "name": "Carbon Fiber Reinforced Polymer Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
@@ -83,25 +83,23 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-05"
+    "lastVerified": "2025-11-06"
   },
   "material": {
-    "name": "CFRP",
+    "name": "Carbon Fiber Reinforced Polymer",
     "slug": "carbon-fiber-reinforced-polymer-laser-cleaning",
     "classification": {
-      "category": "Composite",
+      "category": "composite",
       "subcategory": "fiber-reinforced"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 100,
-        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "percentage": 40,
         "electricalResistivity": {
           "value": 0.0015,
           "unit": "Ω·m",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.001,
           "max": 100000000000000
@@ -109,7 +107,6 @@
         "fractureToughness": {
           "value": 1.2,
           "unit": "MPa√m",
-          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 100
@@ -117,7 +114,6 @@
         "thermalDestruction": {
           "value": 673,
           "unit": "K",
-          "confidence": 95,
           "source": "ai_research",
           "min": 273,
           "max": 900
@@ -125,7 +121,6 @@
         "density": {
           "value": 1.55,
           "unit": "g/cm³",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.5,
           "max": 8
@@ -133,7 +128,6 @@
         "oxidationResistance": {
           "value": 673,
           "unit": "K",
-          "confidence": 95,
           "source": "ai_research",
           "min": 80,
           "max": 1650
@@ -141,7 +135,6 @@
         "laserReflectivity": {
           "value": 0.35,
           "unit": "dimensionless",
-          "confidence": 95,
           "source": "ai_research",
           "min": 2,
           "max": 80
@@ -149,7 +142,6 @@
         "thermalExpansion": {
           "value": 2.7e-7,
           "unit": "K^{-1}",
-          "confidence": 95,
           "source": "ai_research",
           "min": -1,
           "max": 250
@@ -157,7 +149,6 @@
         "thermalConductivity": {
           "value": 0.92,
           "unit": "W/m·K",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.03,
           "max": 400
@@ -165,7 +156,6 @@
         "youngsModulus": {
           "value": 150000000000,
           "unit": "Pa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.001,
           "max": 3000
@@ -173,7 +163,6 @@
         "hardness": {
           "value": 250,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 5,
           "max": 120
@@ -181,7 +170,6 @@
         "specificHeat": {
           "value": 920,
           "unit": "J/(kg·K)",
-          "confidence": 95,
           "source": "ai_research",
           "min": 500,
           "max": 2500
@@ -189,7 +177,6 @@
         "laserAbsorption": {
           "value": 0.92,
           "unit": "dimensionless (absorptivity)",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.05,
           "max": 200
@@ -197,7 +184,6 @@
         "compressiveStrength": {
           "value": 1500,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 50,
           "max": 1000
@@ -205,7 +191,6 @@
         "tensileStrength": {
           "value": 1480,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 6000
@@ -213,7 +198,6 @@
         "thermalDiffusivity": {
           "value": 5.7e-7,
           "unit": "m²/s",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.08,
           "max": 180
@@ -221,7 +205,6 @@
         "flexuralStrength": {
           "value": 690,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 100,
           "max": 2000
@@ -229,7 +212,6 @@
         "corrosionResistance": {
           "value": 0.98,
           "unit": "dimensionless (normalized resistance index)",
-          "confidence": 96,
           "source": "ai_research",
           "min": 5,
           "max": 9
@@ -237,8 +219,56 @@
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 0,
-        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds"
+        "percentage": 40,
+        "absorptivity": {
+          "value": 0.3,
+          "unit": "dimensionless",
+          "min": 0.1,
+          "max": 0.5,
+          "source": "ai_research"
+        },
+        "absorptionCoefficient": {
+          "value": 50000,
+          "unit": "m⁻¹",
+          "min": 10000,
+          "max": 100000,
+          "source": "ai_research"
+        },
+        "laserDamageThreshold": {
+          "value": 3,
+          "unit": "J/cm²",
+          "min": 1,
+          "max": 5,
+          "source": "ai_research"
+        },
+        "thermalShockResistance": {
+          "value": 1.5,
+          "unit": "MW/m",
+          "min": 0.5,
+          "max": 3,
+          "source": "ai_research"
+        },
+        "reflectivity": {
+          "value": 0.7,
+          "unit": "dimensionless",
+          "min": 0.5,
+          "max": 0.9,
+          "source": "ai_research"
+        },
+        "thermalDestructionPoint": {
+          "value": 700,
+          "unit": "K",
+          "min": 500,
+          "max": 900,
+          "source": "ai_research"
+        },
+        "vaporPressure": {
+          "value": 100,
+          "unit": "Pa",
+          "min": 1,
+          "max": 1000,
+          "source": "ai_research"
+        }
       }
     },
     "applications": [],
@@ -432,7 +462,84 @@
       "minValue": 5,
       "maxValue": 9,
       "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptivity",
+      "name": "Absorptivity",
+      "description": "Absorptivity - laser material interaction",
+      "value": 0.3,
+      "unitText": "dimensionless",
+      "minValue": 0.1,
+      "maxValue": 0.5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "absorptionCoefficient",
+      "name": "Absorption Coefficient",
+      "description": "Absorption Coefficient - laser material interaction",
+      "value": 50000,
+      "unitText": "m⁻¹",
+      "minValue": 10000,
+      "maxValue": 100000,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - laser material interaction",
+      "value": 3,
+      "unitText": "J/cm²",
+      "minValue": 1,
+      "maxValue": 5,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalShockResistance",
+      "name": "Thermal Shock Resistance",
+      "description": "Thermal Shock Resistance - laser material interaction",
+      "value": 1.5,
+      "unitText": "MW/m",
+      "minValue": 0.5,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "reflectivity",
+      "name": "Reflectivity",
+      "description": "Reflectivity - laser material interaction",
+      "value": 0.7,
+      "unitText": "dimensionless",
+      "minValue": 0.5,
+      "maxValue": 0.9,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestructionPoint",
+      "name": "Thermal Destruction Point",
+      "description": "Thermal Destruction Point - laser material interaction",
+      "value": 700,
+      "unitText": "K",
+      "minValue": 500,
+      "maxValue": 900,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "vaporPressure",
+      "name": "Vapor Pressure",
+      "description": "Vapor Pressure - laser material interaction",
+      "value": 100,
+      "unitText": "Pa",
+      "minValue": 1,
+      "maxValue": 1000,
+      "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). CFRP Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning"
+  "citation": "Z-Beam (2025). Carbon Fiber Reinforced Polymer Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning"
 }

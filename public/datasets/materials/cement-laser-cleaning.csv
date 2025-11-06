@@ -2,7 +2,7 @@
 # License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
 # Source: Z-Beam Laser Cleaning Research Lab
 # URL: http://localhost:3000/materials/masonry/general/cement-laser-cleaning
-# Last Updated: 2025-11-05
+# Last Updated: 2025-11-06
 # Version: 1.0
 # Contact: info@z-beam.com
 #
@@ -10,7 +10,7 @@
 #
 Field,Category,Property,Value,Unit,Min,Max,Source,Description
 Basic,Info,Name,Cement,,,,,Material name
-Basic,Info,Category,Masonry,,,,,Material category
+Basic,Info,Category,masonry,,,,,Material category
 Basic,Info,Subcategory,general,,,,,Material subcategory
 Basic,Info,Slug,cement-laser-cleaning,,,,,URL identifier
 Property,material_characteristics,fractureToughness,0.55,MPa m^{1/2},0.15,1.1,ai_research,Material property: fractureToughness
@@ -29,3 +29,10 @@ Property,material_characteristics,tensileStrength,3.2,MPa,1,15,ai_research,Mater
 Property,material_characteristics,thermalDiffusivity,5.26e-7,m^2/s,0.1,1,ai_research,Material property: thermalDiffusivity
 Property,material_characteristics,flexuralStrength,7.5,MPa,2,20,ai_research,Material property: flexuralStrength
 Property,material_characteristics,corrosionResistance,0.92,dimensionless (normalized resistance index 0-1),2,8,ai_research,Material property: corrosionResistance
+Property,laser_material_interaction,absorptivity,0.85,dimensionless,0.7,0.95,ai_research,Material property: absorptivity
+Property,laser_material_interaction,absorptionCoefficient,500000,m⁻¹,100000,1000000,ai_research,Material property: absorptionCoefficient
+Property,laser_material_interaction,laserDamageThreshold,8,J/cm²,1,20,ai_research,Material property: laserDamageThreshold
+Property,laser_material_interaction,thermalShockResistance,1.5,MW/m,0.5,3,ai_research,Material property: thermalShockResistance
+Property,laser_material_interaction,reflectivity,0.15,dimensionless,0.05,0.3,ai_research,Material property: reflectivity
+Property,laser_material_interaction,thermalDestructionPoint,1000,K,800,1500,ai_research,Material property: thermalDestructionPoint
+Property,laser_material_interaction,vaporPressure,10,Pa,0.1,100,ai_research,Material property: vaporPressure

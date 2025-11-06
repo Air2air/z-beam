@@ -5,8 +5,8 @@
   "name": "Aluminum Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Aluminum. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-05",
-  "datePublished": "2025-11-05",
+  "dateModified": "2025-11-06",
+  "datePublished": "2025-11-06",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "aluminum",
     "laser cleaning",
-    "Metal",
+    "metal",
     "non-ferrous",
     "laser cleaning",
     "material properties",
@@ -83,87 +83,76 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-05"
+    "lastVerified": "2025-11-06"
   },
   "material": {
     "name": "Aluminum",
     "slug": "aluminum-laser-cleaning",
     "classification": {
-      "category": "Metal",
+      "category": "metal",
       "subcategory": "non-ferrous"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "density": {
           "value": 2.7,
           "unit": "g/cm³",
-          "confidence": 98,
           "min": 0.53,
           "max": 22.6
         },
         "porosity": {
           "value": 0,
           "unit": "%",
-          "confidence": 95,
           "min": 0,
           "max": 15
         },
         "surfaceRoughness": {
           "value": 0.8,
           "unit": "μm",
-          "confidence": 84,
           "min": 0.4,
           "max": 150
         },
         "tensileStrength": {
           "value": 90,
           "unit": "MPa",
-          "confidence": 89,
           "min": 3,
           "max": 3000
         },
         "youngsModulus": {
           "value": 70,
           "unit": "GPa",
-          "confidence": 96,
           "min": 5,
           "max": 600
         },
         "hardness": {
           "value": 0.2744,
           "unit": "GPa",
-          "confidence": 87,
           "min": 0.5,
           "max": 3500
         },
         "flexuralStrength": {
           "value": 95,
           "unit": "MPa",
-          "confidence": 84,
           "min": 2.5,
           "max": 1050
         },
         "oxidationResistance": {
           "value": 5,
           "unit": "μm/year",
-          "confidence": 85,
           "min": 200,
           "max": 1200
         },
         "corrosionResistance": {
           "value": 0.1,
           "unit": "mm/year",
-          "confidence": 90,
           "min": 1,
           "max": 10
         },
         "thermalDestruction": {
           "value": 933.47,
           "unit": "K",
-          "confidence": 100,
           "source": "ai_research",
           "min": 273,
           "max": 3695
@@ -171,7 +160,6 @@
         "laserAbsorption": {
           "value": 0.06,
           "unit": "dimensionless",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.02,
           "max": 100
@@ -179,7 +167,6 @@
         "compressiveStrength": {
           "value": 90,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 50,
           "max": 2000
@@ -187,7 +174,6 @@
         "fractureToughness": {
           "value": 25,
           "unit": "MPa m^{1/2}",
-          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 200
@@ -195,7 +181,6 @@
         "electricalResistivity": {
           "value": 2.65e-8,
           "unit": "Ω·m",
-          "confidence": 100,
           "source": "ai_research",
           "min": 1e-8,
           "max": 0.0000015
@@ -203,7 +188,6 @@
         "boilingPoint": {
           "value": 2792,
           "unit": "K",
-          "confidence": 100,
           "source": "ai_research",
           "min": 907,
           "max": 5870
@@ -211,7 +195,6 @@
         "absorptivity": {
           "value": 0.06,
           "unit": "dimensionless",
-          "confidence": 95,
           "source": "ai_research",
           "min": 2,
           "max": 65
@@ -219,7 +202,6 @@
         "reflectivity": {
           "value": 0.95,
           "unit": "dimensionless",
-          "confidence": 95,
           "source": "ai_research",
           "min": 85,
           "max": 98
@@ -227,7 +209,6 @@
         "electricalConductivity": {
           "value": 37700000,
           "unit": "S/m",
-          "confidence": 100,
           "source": "ai_research",
           "min": 0.67,
           "max": 63
@@ -235,7 +216,6 @@
         "vaporPressure": {
           "value": 101325,
           "unit": "Pa",
-          "confidence": 100,
           "source": "ai_research",
           "min": 1e-10,
           "max": 0.001
@@ -243,7 +223,6 @@
         "meltingPoint": {
           "value": 933.47,
           "unit": "K",
-          "confidence": 100,
           "source": "ai_research",
           "min": -39,
           "max": 3422
@@ -251,80 +230,69 @@
         "thermalDestructionPoint": {
           "value": 933.47,
           "unit": "K",
-          "confidence": 100,
           "source": "ai_research",
           "min": 873,
           "max": 3695
         },
-        "percentage": 70
+        "percentage": 60
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
         "thermalConductivity": {
           "value": 237,
           "unit": "W/(m·K)",
-          "confidence": 92,
           "min": 7,
           "max": 430
         },
         "thermalExpansion": {
           "value": 23.1,
           "unit": "×10^{-6}/K",
-          "confidence": 90,
           "min": 0.5,
           "max": 33
         },
         "thermalDiffusivity": {
           "value": 9.7,
           "unit": "×10^{-5} m²/s",
-          "confidence": 88,
           "min": 0.06,
           "max": 174
         },
         "specificHeat": {
           "value": 900,
           "unit": "J/(kg·K)",
-          "confidence": 94,
           "min": 100,
           "max": 2000
         },
         "thermalShockResistance": {
           "value": 250,
           "unit": "K",
-          "confidence": 85,
           "min": 50,
           "max": 400
         },
         "laserReflectivity": {
           "value": 0.92,
           "unit": "",
-          "confidence": 91,
           "min": 5,
           "max": 99.9
         },
         "absorptionCoefficient": {
           "value": 1.2,
           "unit": "×10^7 m^{-1}",
-          "confidence": 82,
           "min": 100000,
           "max": 50000000
         },
         "ablationThreshold": {
           "value": 2.5,
           "unit": "J/cm²",
-          "confidence": 83,
           "min": 2,
           "max": 8
         },
         "laserDamageThreshold": {
           "value": 1.8,
           "unit": "J/cm²",
-          "confidence": 81,
           "min": 0.1,
           "max": 20
         },
-        "percentage": 30
+        "percentage": 40
       }
     },
     "applications": [],
