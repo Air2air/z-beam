@@ -537,28 +537,28 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
     ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords }),
     
     // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
-    ...(frontmatter.reviewedBy && {
+    ...(frontmatter.eeat?.reviewedBy && {
       'reviewedBy': {
         '@type': 'Person',
         '@id': `${baseUrl}#reviewer-technical`,
-        'name': typeof frontmatter.reviewedBy === 'string' ? frontmatter.reviewedBy : frontmatter.reviewedBy.name || 'Technical Review Team',
+        'name': typeof frontmatter.eeat.reviewedBy === 'string' ? frontmatter.eeat.reviewedBy : frontmatter.eeat.reviewedBy.name || 'Technical Review Team',
         'jobTitle': 'Quality Assurance Specialist'
       }
     }),
     
-    ...(frontmatter.citations && frontmatter.citations.length > 0 && {
-      'citation': frontmatter.citations.map((cite: any) => ({
+    ...(frontmatter.eeat?.citations && frontmatter.eeat.citations.length > 0 && {
+      'citation': frontmatter.eeat.citations.map((cite: any) => ({
         '@type': 'CreativeWork',
         'name': typeof cite === 'string' ? cite : cite.name || cite.title,
         ...(typeof cite === 'object' && cite.url && { 'url': cite.url })
       }))
     }),
     
-    ...(frontmatter.isBasedOn && {
+    ...(frontmatter.eeat?.isBasedOn && {
       'isBasedOn': {
         '@type': 'CreativeWork',
-        'name': typeof frontmatter.isBasedOn === 'string' ? frontmatter.isBasedOn : frontmatter.isBasedOn.name,
-        ...(typeof frontmatter.isBasedOn === 'object' && frontmatter.isBasedOn.url && { 'url': frontmatter.isBasedOn.url })
+        'name': typeof frontmatter.eeat.isBasedOn === 'string' ? frontmatter.eeat.isBasedOn : frontmatter.eeat.isBasedOn.name,
+        ...(typeof frontmatter.eeat.isBasedOn === 'object' && frontmatter.eeat.isBasedOn.url && { 'url': frontmatter.eeat.isBasedOn.url })
       }
     })
   };
