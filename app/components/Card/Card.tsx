@@ -33,8 +33,8 @@ const CARD_VARIANTS: Record<CardVariantKey, {
   standard: {
     // Layout
     padding: "p-2 md:p-3",
-    imageHeight: "h-[9rem] md:h-[10rem]", // Responsive image - taller on larger screens
-    cardHeight: "h-full min-h-[7rem] md:min-h-[9rem] lg:min-h-[10rem]", // Responsive card height - smaller on mobile
+    imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Responsive image - 25% reduction
+    cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]", // Responsive card height - 25% reduction
     
     // Typography
     titleClass: "card-title text-base text-white truncate",
@@ -52,7 +52,7 @@ const CARD_VARIANTS: Record<CardVariantKey, {
     // Layout
     padding: "p-3 md:p-4",
     imageHeight: "h-full", // Full height image
-    cardHeight: "h-full min-h-[13rem]", // Fixed min-height across all breakpoints - not responsive
+    cardHeight: "h-full min-h-[9.75rem]", // Fixed min-height - 25% reduction (156px)
     
     // Typography
     titleClass: "card-title text-xl text-white truncate",
