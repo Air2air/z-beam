@@ -125,7 +125,7 @@ export function Navbar() {
               className="block transition-transform duration-300 ease-in-out hover:scale-[1.03]"
             >
               <Image
-                src={SITE_CONFIG.media.logo.default}
+                src="/images/logo/logo-.png"
                 alt={`${SITE_CONFIG.shortName} Logo`}
                 width={150}
                 height={50}
@@ -169,7 +169,7 @@ export function Navbar() {
                             }
                           }}
                           className={`
-                            inline-flex items-center px-3 pb-1 text-base min-h-[44px]
+                            inline-flex items-center px-3 pb-1 text-sm min-h-[44px]
                             focus-visible:outline-none transition-colors duration-200
                             ${
                               isActive
@@ -200,7 +200,7 @@ export function Navbar() {
                                   key={dropdownItem.href}
                                   href={dropdownItem.href}
                                   className={`
-                                    block px-4 py-2 text-base
+                                    block px-4 py-2 text-sm
                                     ${
                                       isDropdownActive
                                         ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -225,7 +225,7 @@ export function Navbar() {
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         role="menuitem"
                         className={`
-                          flex items-end px-3 pb-1 text-base min-h-[44px]
+                          flex items-end px-3 pb-1 text-sm min-h-[44px]
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -324,7 +324,7 @@ export function Navbar() {
                           toggleDropdown(item.name);
                         }}
                         className={`
-                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-base
+                          w-full text-left flex justify-between items-center py-2 px-3 rounded-md text-sm
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
@@ -356,7 +356,7 @@ export function Navbar() {
                                 href={dropdownItem.href}
                                 onClick={closeMenu}
                                 className={`
-                                  block px-4 py-2 text-base
+                                  block px-4 py-2 text-sm
                                   ${
                                     isDropdownActive
                                       ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
@@ -386,7 +386,7 @@ export function Navbar() {
                         }
                       }}
                       className={`
-                        block py-2 px-3 rounded-md text-base
+                        block py-2 px-3 rounded-md text-sm
                         focus-visible:outline-none transition-colors duration-200
                         ${
                           isActive

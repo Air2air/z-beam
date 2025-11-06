@@ -33,7 +33,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
   }
   
   return (
-    <nav className="flex py-2 sm:py-4" aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
+    <nav className="flex py-2 sm:py-3" aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
       <ol className="inline-flex items-center breadcrumb-list">
         {allBreadcrumbs.map((crumb, index) => {
           const isLast = index === allBreadcrumbs.length - 1;
@@ -55,7 +55,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Note: href="" or href{crumb.href} both valid, using href for consistency
                 <Link
                   href={crumb.href}
-                  className="text-base text-gray-700 dark:text-gray-300"
+                  className="text-sm text-gray-700 dark:text-gray-300"
                   aria-current="page"
                   onClick={(e) => e.preventDefault()} // Prevent navigation on current page
                 >
@@ -65,7 +65,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Other items are normal links
                 <Link
                   href={crumb.href}
-                  className="text-base text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-white
+                  className="text-sm text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-white
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
                              transition-colors duration-150"
                 >
@@ -73,7 +73,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 </Link>
               ) : (
                 // Item without href (fallback)
-                <span className="text-base text-gray-500 dark:text-gray-400" itemProp="name">
+                <span className="text-sm text-gray-500 dark:text-gray-400" itemProp="name">
                   {crumb.label}
                 </span>
               )}

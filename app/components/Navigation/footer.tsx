@@ -77,7 +77,7 @@ export default function Footer() {
             aria-label={`${SITE_CONFIG.name} home page`}
           >
             <Image
-              src={SITE_CONFIG.media.logo.default}
+              src="/images/logo/logo-.png"
               alt={`${SITE_CONFIG.shortName} Logo`}
               width={150}
               height={50}
