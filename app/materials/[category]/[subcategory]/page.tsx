@@ -151,7 +151,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
         '@type': 'Dataset',
         '@id': `${pageUrl}#dataset`,
         'name': `${pageTitle} Laser Cleaning Parameters Dataset`,
-        'description': `Comprehensive dataset of ${subcategoryInfo.materials.length} ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials with laser cleaning parameters, machine settings, and material properties.`,
+        'description': `Comprehensive dataset of ${subcategoryInfo.materials.length} ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials with laser cleaning parameters, machine settings, and material properties. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.`,
         'alternateName': `${pageTitle} Materials Database`,
         'url': pageUrl,
         'identifier': `${pageUrl}#dataset`,
