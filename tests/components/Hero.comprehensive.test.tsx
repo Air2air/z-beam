@@ -264,7 +264,7 @@ describe('Hero Component', () => {
       
       const logo = screen.getByAltText(`${SITE_CONFIG.shortName} company logo`);
       expect(logo).toBeInTheDocument();
-      expect(logo).toHaveAttribute('src', '/images/logo/logo-.png');
+      expect(logo).toHaveAttribute('src', SITE_CONFIG.media.logo.default);
     });
 
     it('should prioritize video over image', () => {
