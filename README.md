@@ -42,8 +42,7 @@ This README is the single source of truth for building, maintaining, and extendi
 │   ├── partners.yaml       # Partners page metadata
 │   ├── netalux.yaml        # Netalux page metadata
 │   ├── contact.yaml        # Contact page metadata
-│   ├── home.yaml           # Home page metadata
-│   └── image-licensing.yaml # Image licensing page metadata
+│   └── home.yaml           # Home page metadata
 ├── scripts/                # Utility scripts
 │   ├── deployment/         # Deployment scripts
 │   │   ├── smart-deploy.sh # Main deployment script
