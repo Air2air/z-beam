@@ -222,7 +222,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         'hasPart': categoryData.materials.map((material) => ({
           '@type': 'Dataset',
           'name': material.name,
-          'url': `${SITE_CONFIG.url}/materials/${category}/${material.subcategory || 'uncategorized'}/${material.slug}`
+          'description': `Laser cleaning parameters and material properties for ${material.name}, including wavelength, power, fluence, and thermal characteristics.`,
+          'url': `${SITE_CONFIG.url}/materials/${category}/${material.subcategory || 'uncategorized'}/${material.slug}`,
+          'license': {
+            '@type': 'CreativeWork',
+            'name': 'Creative Commons Attribution 4.0 International',
+            'url': 'https://creativecommons.org/licenses/by/4.0/',
+            'identifier': 'CC BY 4.0'
+          },
+          'creator': {
+            '@type': 'Organization',
+            '@id': `${SITE_CONFIG.url}#organization`,
+            'name': SITE_CONFIG.name
+          }
         }))
       },
       
