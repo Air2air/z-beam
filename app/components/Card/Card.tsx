@@ -166,8 +166,8 @@ export function MaterialCard({
             </div>
           )}
 
-          {/* Title Bar Overlay with 80% opacity */}
-          <header className={`${config.titleBarClass} ${config.padding} z-10`}>
+          {/* Material Title Bar - displays material name with navigation indicator */}
+          <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner" aria-label="Material card title">
             <div className="flex items-center justify-between">
               <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                 <h3 
@@ -180,7 +180,7 @@ export function MaterialCard({
                 </h3>
               </div>
               
-              {/* Arrow-right icon */}
+              {/* Navigation arrow indicator */}
               <svg 
                 className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out flex-shrink-0" 
                 fill="none" 
