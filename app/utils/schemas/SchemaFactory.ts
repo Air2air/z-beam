@@ -534,7 +534,33 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
       }))
     }),
     // E-E-A-T: Add expertise indicators (removed abstract - not in Schema.org Article spec)
-    ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords })
+    ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords }),
+    
+    // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
+    ...(frontmatter.reviewedBy && {
+      'reviewedBy': {
+        '@type': 'Person',
+        '@id': `${baseUrl}#reviewer-technical`,
+        'name': typeof frontmatter.reviewedBy === 'string' ? frontmatter.reviewedBy : frontmatter.reviewedBy.name || 'Technical Review Team',
+        'jobTitle': 'Quality Assurance Specialist'
+      }
+    }),
+    
+    ...(frontmatter.citations && frontmatter.citations.length > 0 && {
+      'citation': frontmatter.citations.map((cite: any) => ({
+        '@type': 'CreativeWork',
+        'name': typeof cite === 'string' ? cite : cite.name || cite.title,
+        ...(typeof cite === 'object' && cite.url && { 'url': cite.url })
+      }))
+    }),
+    
+    ...(frontmatter.isBasedOn && {
+      'isBasedOn': {
+        '@type': 'CreativeWork',
+        'name': typeof frontmatter.isBasedOn === 'string' ? frontmatter.isBasedOn : frontmatter.isBasedOn.name,
+        ...(typeof frontmatter.isBasedOn === 'object' && frontmatter.isBasedOn.url && { 'url': frontmatter.isBasedOn.url })
+      }
+    })
   };
 }
 

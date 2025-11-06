@@ -26,6 +26,10 @@ export interface ArticleSchemaOptions {
   applications?: string[];
   keywords?: string | string[];
   articleType?: 'Article' | 'TechnicalArticle';
+  // Phase 2 E-E-A-T enhancements
+  reviewedBy?: AuthorData;
+  citations?: string[];
+  isBasedOn?: string | { '@type': string; name: string; url: string };
 }
 
 /**
@@ -44,7 +48,10 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     caption,
     applications = [],
     keywords,
-    articleType = 'TechnicalArticle'
+    articleType = 'TechnicalArticle',
+    reviewedBy,
+    citations,
+    isBasedOn
   } = options;
   
   const { baseUrl, pageUrl, currentDate } = context;
@@ -109,6 +116,24 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     // Keywords
     ...(keywords && {
       keywords: Array.isArray(keywords) ? keywords.join(', ') : keywords
+    }),
+    
+    // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
+    ...(reviewedBy && {
+      reviewedBy: createAuthorReference(baseUrl, reviewedBy.id || 'reviewer')
+    }),
+    
+    ...(citations && citations.length > 0 && {
+      citation: citations.map(cite => ({
+        '@type': 'CreativeWork',
+        name: cite
+      }))
+    }),
+    
+    ...(isBasedOn && {
+      isBasedOn: typeof isBasedOn === 'string' 
+        ? { '@type': 'CreativeWork', name: isBasedOn }
+        : isBasedOn
     })
   };
 }
