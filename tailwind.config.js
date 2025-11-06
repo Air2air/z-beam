@@ -54,7 +54,8 @@ module.exports = {
       },
       colors: {
         brand: {
-          orange: '#ff6811',
+          orange: '#ff8500',
+          'orange-dark': '#e67700',
         },
       },
       // Typography config removed - using custom CSS for better performance

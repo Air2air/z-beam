@@ -8,7 +8,7 @@ export const revalidate = false;
 
 export const metadata = {
   title: `Professional Laser Cleaning Services | ${SITE_CONFIG.name}`,
-  description: `Professional on-site laser cleaning services at $${SITE_CONFIG.pricing.professionalCleaning.hourlyRate}/hour. Expert technicians, state-of-the-art equipment, and comprehensive industrial cleaning solutions.`,
+  description: `Professional on-site laser cleaning services. Expert technicians, state-of-the-art equipment, and comprehensive industrial cleaning solutions.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/services`,
   },

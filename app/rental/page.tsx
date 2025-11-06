@@ -8,7 +8,7 @@ export const revalidate = false;
 
 export const metadata = {
   title: `Laser Cleaning Equipment Rental | ${SITE_CONFIG.shortName}`,
-  description: `Rent professional laser cleaning equipment at $${SITE_CONFIG.pricing.equipmentRental.hourlyRate}/hour. Flexible daily, weekly, or monthly terms with training and 24/7 support included.`,
+  description: `Rent professional laser cleaning equipment. Flexible daily, weekly, or monthly terms with training and 24/7 support included.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },

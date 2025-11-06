@@ -1,7 +1,7 @@
 /**
  * @component EnvironmentalImpact
  * @purpose Displays environmental impact metrics and safety data
- * @dependencies @/types (EnvironmentalImpactProps), MetricsCard
+ * @dependencies SectionContainer, @/types (EnvironmentalImpactProps), MetricsCard
  * @related Layout.tsx, MetricsGrid.tsx
  * @complexity Medium (categorized metrics with icons and descriptions)
  * @aiContext Pass frontmatter.environmentalImpact object. Component renders
@@ -10,7 +10,7 @@
 // app/components/EnvironmentalImpact/EnvironmentalImpact.tsx
 "use client";
 
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MetricsCard } from '../MetricsCard/MetricsCard';
 
 interface PropertyValue {
@@ -72,18 +72,11 @@ export function EnvironmentalImpact({
   if (categories.length === 0) return null;
 
   return (
-    <section 
-      className={`environmental-impact ${className}`}
-      aria-labelledby="environmental-impact-heading"
+    <SectionContainer 
+      title={title}
+      bgColor="transparent"
+      radius={false}
     >
-      {showTitle && (
-        <SectionTitle 
-          title={title}
-          subtitle="Environmental footprint, emissions, and safety metrics for laser cleaning operations"
-          id="environmental-impact-heading"
-        />
-      )}
-
       <div className="space-y-8">
         {categories.map(([categoryKey, category]) => {
           const { icon, color, bg } = getCategoryIcon(categoryKey);
@@ -99,15 +92,22 @@ export function EnvironmentalImpact({
 
           if (properties.length === 0) return null;
 
+          const categoryId = `category-${categoryKey}`;
+
           return (
-            <section key={categoryKey} className="category-section">
+            <div 
+              key={categoryKey} 
+              className="category-section"
+              role="region"
+              aria-labelledby={categoryId}
+            >
               {/* Category header */}
               <div className={`category-header flex items-center gap-3 mb-4 p-3 rounded-lg ${bg}`}>
-                <span className="text-3xl" role="img" aria-hidden="true">
+                <span className="text-3xl" role="img" aria-label={category.label}>
                   {icon}
                 </span>
                 <div className="flex-1">
-                  <h3 className={`text-lg font-semibold ${color}`}>
+                  <h3 id={categoryId} className={`text-lg font-semibold ${color}`}>
                     {category.label}
                   </h3>
                   {category.description && (
@@ -149,7 +149,7 @@ export function EnvironmentalImpact({
                 );
               })}
               </div>
-            </section>
+            </div>
           );
         })}
       </div>
@@ -170,6 +170,6 @@ export function EnvironmentalImpact({
           </div>
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }

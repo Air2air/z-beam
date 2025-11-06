@@ -304,6 +304,7 @@ import { SearchApiResponse, MaterialsApiResponse } from '@/types';
 ```bash
 npm install                # Install dependencies
 npm run dev                # Start dev server with health checks
+npm run dev:safe           # Safe start with automatic cleanup (recommended)
 npm run build              # Full build with all checks
 npm run start              # Start production server
 npm run deploy             # Deploy to production
@@ -316,6 +317,32 @@ npm run create:component   # Safely create new component (last resort)
 - **Health checks** run before dev server starts (port, CSS, dependencies, component system, TypeScript, environment).
 - **Pre-commit hooks** and **CI pipeline** enforce compliance with all mandates.
 - **Emergency bypass**: Use `npm run dev:direct` to start server regardless of issues.
+
+### Process Monitoring & Cleanup
+
+**Prevent runaway/hanging processes that plague Copilot:**
+
+```bash
+# Before starting work
+npm run dev:health         # Full environment health check
+npm run dev:safe           # Safe start with automatic cleanup
+
+# During development
+npm run dev:detect         # Scan for runaway processes
+npm run dev:watch          # Continuous monitoring (every 30s)
+
+# When things go wrong
+npm run dev:stop-all       # Emergency stop - kills ALL dev processes
+AUTO_KILL=true npm run dev:cleanup  # Auto-kill stuck processes
+```
+
+**Quick Reference:**
+- **Sluggish Copilot?** → `npm run dev:detect` then `npm run dev:stop-all`
+- **Build won't start?** → `npm run dev:stop-all` then `npm run clean && npm run build`
+- **High CPU/Memory?** → `AUTO_KILL=true npm run dev:cleanup`
+- **Long session?** → `npm run dev:watch` in background terminal
+
+**See:** `PROCESS_MONITORING_QUICK_REF.md` for detailed usage and `docs/PROCESS_MONITORING.md` for full documentation.
 
 ### Code Standards & Enforcement
 

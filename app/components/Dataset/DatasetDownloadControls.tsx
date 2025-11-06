@@ -30,7 +30,7 @@ export default function DatasetDownloadControls({
           {formats.includes('json') && (
             <Button
               variant="outline"
-              size="md"
+              size="sm"
               onClick={() => onFormatChange('json')}
               iconLeft={<BsFiletypeJson className="text-lg" />}
               className={selectedFormat === 'json'
@@ -45,7 +45,7 @@ export default function DatasetDownloadControls({
           {formats.includes('csv') && (
             <Button
               variant="outline"
-              size="md"
+              size="sm"
               onClick={() => onFormatChange('csv')}
               iconLeft={<BsFiletypeCsv className="text-lg" />}
               className={selectedFormat === 'csv'
@@ -60,7 +60,7 @@ export default function DatasetDownloadControls({
           {formats.includes('txt') && (
             <Button
               variant="outline"
-              size="md"
+              size="sm"
               onClick={() => onFormatChange('txt')}
               iconLeft={<AiOutlineFileText className="text-lg" />}
               className={selectedFormat === 'txt'
@@ -76,7 +76,7 @@ export default function DatasetDownloadControls({
             <Button
               onClick={onCopyLink}
               variant="outline"
-              size="md"
+              size="sm"
               iconLeft={copied ? <FiCheckCircle className="text-green-500" /> : <AiOutlineFileText />}
             >
               {copied ? 'Copied!' : 'Copy Link'}
@@ -89,7 +89,7 @@ export default function DatasetDownloadControls({
           onClick={onDownload}
           disabled={isDownloading}
           variant="primary"
-          size="md"
+          size="sm"
           iconLeft={<FiDownload />}
           className="w-full sm:w-auto sm:ml-auto"
         >

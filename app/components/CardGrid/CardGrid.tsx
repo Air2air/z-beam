@@ -45,7 +45,6 @@ export function CardGrid({
   columns = 3,
   gap = "md",
   mode = 'simple',
-  variant = 'default',
   showSearch = true,
   showCategoryFilter = true,
   maxItemsPerCategory = 6,
@@ -478,7 +477,6 @@ export function CardGrid({
             } as ArticleMetadata}
             href={item.href || `/${item.slug}`}
             badge={showBadgeSymbols ? item.badge : undefined}
-            variant={variant === 'featured' ? 'featured' : 'standard'}
             className={`card-enhanced-hover`}
           />
         ))}

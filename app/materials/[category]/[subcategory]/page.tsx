@@ -8,6 +8,7 @@ import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { CardGridSSR } from "@/app/components/CardGrid";
 import { createMetadata } from "@/app/utils/metadata";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
+import SubcategoryDatasetWrapper from "@/app/components/Dataset/SubcategoryDatasetWrapper";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -315,6 +316,17 @@ export default async function SubcategoryPage({ params }: PageProps) {
               mode="simple"
               showBadgeSymbols={true}
               loadBadgeSymbolData={true}
+            />
+          </SectionContainer>
+          
+          {/* Subcategory Dataset Section */}
+          <SectionContainer title={`${subcategoryInfo.label} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
+            <SubcategoryDatasetWrapper
+              category={category}
+              categoryLabel={categoryLabel}
+              subcategory={subcategory}
+              subcategoryLabel={subcategoryInfo.label}
+              materials={subcategoryInfo.materials}
             />
           </SectionContainer>
         </div>

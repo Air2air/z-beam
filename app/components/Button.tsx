@@ -29,7 +29,7 @@ export function Button({
   // 2. Secondary: White background, orange text (Let's Talk style)
   // 3. Outline: Border only, no fill (Dataset downloader style) - uses className for colors
   const variantClasses = {
-    primary: 'bg-brand-orange text-white hover:bg-orange-600 focus-visible:ring-brand-orange focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
+    primary: 'bg-brand-orange text-white hover:bg-brand-orange-dark focus-visible:ring-brand-orange focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
     secondary: 'bg-white text-brand-orange hover:bg-gray-100 focus-visible:ring-white focus-visible:ring-offset-brand-orange shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
     outline: 'bg-transparent border border-opacity-50 hover:border-opacity-100 focus-visible:ring-2 focus-visible:ring-offset-gray-100 transition-all',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl',
@@ -38,7 +38,7 @@ export function Button({
   
   // Fixed sizes for consistency - no responsive variations
   const sizeClasses = {
-    sm: 'px-2 py-1 text-sm min-h-[40px]',
+    sm: 'px-1.5 py-0.5 text-xs min-h-[32px]',
     md: 'px-3 py-1.5 text-sm min-h-[44px]',
     lg: 'px-5 py-2 text-base min-h-[48px]'
   };

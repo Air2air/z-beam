@@ -97,10 +97,10 @@ export function Hero({
   
   // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
   // Container classes for responsive layout
-  const containerClasses = `mx-auto max-w-5xl px-4 sm:px-5`;
+  const containerClasses = `mx-auto max-w-6xl px-4 sm:px-5`;
   const aspectRatioClasses = "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-lg");
   const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
-  const videoClasses = "absolute top-0 left-0 w-full h-full min-w-full min-h-full object-cover z-[1]";
+  const videoClasses = "absolute top-0 left-0 w-full h-full object-cover z-[1]";
   const contentClasses = variant === 'fullwidth'
     ? "relative z-10 p-8 w-full h-full flex flex-col justify-center bg-black bg-opacity-30"
     : "relative z-[2] p-8 w-full h-full flex flex-col justify-center";

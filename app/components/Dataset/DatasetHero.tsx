@@ -16,7 +16,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
       </div>
 
       <div className="relative py-12 md:py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-5 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5 lg:px-8">
           <div className="text-center space-y-6">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">

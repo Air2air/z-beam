@@ -737,9 +737,16 @@ export const loadMetadata = cache(async (slug: string): Promise<Record<string, u
  */
 export const loadPageData = cache(async (slug: string): Promise<PageData> => {
   return safeContentOperation(async () => {
-    // First, check for page-specific YAML file in content/pages/
+    // Check for page-specific YAML file in content/pages/ or static-pages/
     const pagesDir = path.join(process.cwd(), 'content', 'pages');
-    const pageYamlPath = path.join(pagesDir, `${slug}.yaml`);
+    const staticPagesDir = path.join(process.cwd(), 'static-pages');
+    
+    let pageYamlPath = path.join(pagesDir, `${slug}.yaml`);
+    
+    // If not in content/pages, check static-pages
+    if (!existsSync(pageYamlPath)) {
+      pageYamlPath = path.join(staticPagesDir, `${slug}.yaml`);
+    }
     
     let pageYamlData: Record<string, unknown> = {};
     

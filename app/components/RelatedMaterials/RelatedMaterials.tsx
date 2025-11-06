@@ -1,7 +1,7 @@
 /**
  * @component RelatedMaterials
  * @purpose Displays related materials from the same subcategory to encourage exploration
- * @dependencies CardGridSSR, getMaterialsBySubcategory
+ * @dependencies SectionContainer, CardGridSSR, getMaterialsBySubcategory
  * @related Layout.tsx
  * @complexity Low (simple grid with filtering)
  * @aiContext Shows 3-6 related materials from same subcategory, excluding current material
@@ -10,14 +10,13 @@
 
 import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { Button } from '../Button';
-import Link from 'next/link';
 
 export interface RelatedMaterialsProps {
   currentSlug: string;
   category: string;
   subcategory: string;
-  className?: string;
   maxItems?: number;
 }
 
@@ -25,7 +24,6 @@ export async function RelatedMaterials({
   currentSlug,
   category,
   subcategory,
-  className = '',
   maxItems = 6
 }: RelatedMaterialsProps) {
   // Get all materials in this subcategory
@@ -47,14 +45,12 @@ export async function RelatedMaterials({
     .join(' ');
   
   return (
-    <section className={className} aria-labelledby="related-materials-heading">
-      <div className="flex items-center justify-between mb-8">
-        <h2 
-          id="related-materials-heading"
-          className="text-gray-900 dark:text-white"
-        >
-          Related {formattedSubcategory} Materials
-        </h2>
+    <SectionContainer 
+      title={`Related ${formattedSubcategory} Materials`}
+      bgColor="transparent"
+      radius={false}
+    >
+      <div className="flex justify-end mb-4 -mt-12">
         <Button
           variant="primary"
           size="md"
@@ -72,6 +68,6 @@ export async function RelatedMaterials({
         showBadgeSymbols={true}
         loadBadgeSymbolData={true}
       />
-    </section>
+    </SectionContainer>
   );
 }

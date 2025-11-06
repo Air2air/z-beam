@@ -63,7 +63,7 @@ export default function DatasetSection({
           <Button
             onClick={copyDownloadUrl}
             variant="outline"
-            size="md"
+            size="sm"
             iconLeft={copied ? <FiCheckCircle className="text-green-500" /> : <FiInfo />}
             className="ml-4"
           >
@@ -73,7 +73,7 @@ export default function DatasetSection({
       </div>
 
       {/* Stats Grid */}
-      <div className="dataset-stats-grid grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
+      <div className="dataset-stats-grid hidden sm:grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
         {stats.map((stat, index) => (
           <div 
             key={index} 
@@ -97,15 +97,6 @@ export default function DatasetSection({
         copied={copied}
         showCopyButton={false}
       />
-
-      {/* Info Note (optional) */}
-      {note && (
-        <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-          <p className="text-xs text-blue-800 dark:text-blue-300">
-            <strong>Note:</strong> {note}
-          </p>
-        </div>
-      )}
 
       {/* Navigation Links (conditional based on context) */}
       {(categoryLink || fullDatasetLink) && (

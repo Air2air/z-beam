@@ -1,7 +1,7 @@
 /**
  * @component RegulatoryStandards
  * @purpose Displays regulatory standards and compliance information
- * @dependencies @/types (RegulatoryStandardsProps), Image, Link
+ * @dependencies SectionContainer, @/types (RegulatoryStandardsProps), Image, Link
  * @related Layout.tsx
  * @complexity Medium (displays standards with logos and descriptions)
  * @aiContext Pass frontmatter.regulatoryStandards array. Component renders standards
@@ -13,7 +13,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandard } from '@/types';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 
 export interface RegulatoryStandardsProps {
   standards: RegulatoryStandard[];
@@ -38,24 +38,18 @@ export function RegulatoryStandards({
   if (validStandards.length === 0) return null;
 
   return (
-    <section 
-      className={className}
-      aria-labelledby="regulatory-standards-heading"
+    <SectionContainer 
+      title={title}
+      bgColor="transparent"
+      radius={false}
     >
-      {showTitle && (
-        <SectionTitle 
-          title={title}
-          id="regulatory-standards-heading"
-        />
-      )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none">
         {validStandards.map((standard, index) => (
-          <div
+          <li
             key={`${standard.name}-${index}`}
             className="card-background rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"
           >
-            <div className="flex items-start gap-4">
+            <article className="flex items-start gap-4">
               {/* Logo */}
               {standard.image && (
                 <div className="flex-shrink-0 w-16 h-16 relative">
@@ -79,7 +73,7 @@ export function RegulatoryStandards({
                 </p>
                 
                 {/* Action Links */}
-                <div className="flex flex-col gap-2">
+                <nav className="flex flex-col gap-2" aria-label={`${standard.name} actions`}>
                   {/* Search Materials Link */}
                   <Link
                     href={`/search?q=${encodeURIComponent(standard.name)}`}
@@ -128,12 +122,12 @@ export function RegulatoryStandards({
                       <span className="sr-only">(opens in new tab)</span>
                     </Link>
                   )}
-                </div>
+                </nav>
               </div>
-            </div>
-          </div>
+            </article>
+          </li>
         ))}
-      </div>
-    </section>
+      </ul>
+    </SectionContainer>
   );
 }

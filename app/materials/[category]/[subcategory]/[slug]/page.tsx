@@ -135,13 +135,14 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
       <>
         <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
         <Layout components={components as any} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
-        <RelatedMaterials 
-          currentSlug={slug}
-          category={category}
-          subcategory={subcategory}
-          className={`${CONTAINER_STYLES.main} mb-16`}
-          maxItems={6}
-        />
+        <div className={`${CONTAINER_STYLES.main} mb-16`}>
+          <RelatedMaterials 
+            currentSlug={slug}
+            category={category}
+            subcategory={subcategory}
+            maxItems={6}
+          />
+        </div>
         <div className={CONTAINER_STYLES.main}>
           <SectionContainer title={`${(article.metadata.title as string) || slug} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
             <MaterialDatasetCardWrapper 

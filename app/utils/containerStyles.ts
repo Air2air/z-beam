@@ -4,21 +4,21 @@
 /**
  * Responsive container styles with mobile-first approach
  * Consistent spacing and width constraints across all breakpoints
- * Standardized to max-w-5xl for uniform layout width
+ * Standardized to max-w-6xl for uniform layout width
  */
 // Standard container used across most pages
-export const STANDARD_CONTAINER = 'mx-auto max-w-5xl px-4 sm:px-6';
+export const STANDARD_CONTAINER = 'mx-auto max-w-6xl px-4 sm:px-6';
 
 /**
- * Container styles - standardized to max-w-5xl for consistent layouts
+ * Container styles - standardized to max-w-6xl for consistent layouts
  * Reduced padding on mobile devices for better space utilization
  */
 export const CONTAINER_STYLES = {
-  // Standard container - optimal reading width for all content (standardized to 5xl)
-  standard: "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8",
+  // Standard container - optimal reading width for all content (standardized to 6xl)
+  standard: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8",
   
   // Main container - used by Layout component
-  main: "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8",
+  main: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8",
   
   // Article container - optimized for long-form content
   article: "max-w-4xl mx-auto px-4 sm:px-6",
@@ -30,10 +30,10 @@ export const CONTAINER_STYLES = {
   fullWidth: "w-full px-4 sm:px-6 lg:px-8 py-6 md:py-8",
   
   // Content only - no vertical padding
-  contentOnly: 'mx-auto max-w-5xl px-4 sm:px-6',
+  contentOnly: 'mx-auto max-w-6xl px-4 sm:px-6',
   
   // Section - standard with reduced mobile padding
-  section: 'mx-auto max-w-5xl px-4 sm:px-4',
+  section: 'mx-auto max-w-6xl px-4 sm:px-4',
 } as const;
 
 /**

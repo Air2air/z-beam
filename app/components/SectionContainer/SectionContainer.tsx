@@ -15,7 +15,7 @@
  * 
  * // Home page - featured section with background
  * <SectionContainer title="Featured Solutions" bgColor="navbar">
- *   <CardGridSSR items={featuredItems} columns={2} variant="featured" />
+ *   <CardGridSSR items={featuredItems} columns={2} />
  * </SectionContainer>
  */
 import React from 'react';

@@ -9,7 +9,6 @@ import { SITE_CONFIG } from '../../utils/constants';
 import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
-import { extractSafeValue } from '../../utils/safeValueExtractor';
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
 import { MetricsGrid } from '../MetricsCard/MetricsGrid';
@@ -19,15 +18,25 @@ import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
+import { DateMetadata } from '../DateMetadata/DateMetadata';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
 
 // Helper: Extract material name from metadata or slug
-const getMaterialName = (metadata: any, slug?: string) => {
-  const subject = extractSafeValue(metadata?.subject, 'subject', '') || '';
-  return subject.toLowerCase() ||
-    (slug?.includes('-') ? (slug.split('-')[0] || '').toLowerCase() : slug?.toLowerCase() || '');
+const getMaterialName = (metadata: any, slug?: string): string => {
+  const subject = (metadata?.subject || '') as string;
+  if (subject) return subject.toLowerCase();
+  if (!slug) return '';
+  return slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase();
+};
+
+// Helper: Check if hero content exists
+const hasHeroContent = (metadata: any, materialName?: string) => {
+  return metadata?.image || 
+    metadata?.images?.hero?.url || 
+    metadata?.video || 
+    materialName;
 };
 
 // Helper: Render article header section
@@ -39,16 +48,11 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
   const breadcrumbData = generateBreadcrumbs(metadata, pathname);
   
   // Check if we have hero image/video from markdown or material-based hero
-  // Hero renders automatically if any hero content exists
-  const hasHeroContent = 
-    metadata?.image || 
-    metadata?.images?.hero?.url || 
-    metadata?.video || 
-    materialName;
+  const showHero = hasHeroContent(metadata, materialName);
   
   return (
-    <div className="header-section mb-6">
-      {hasHeroContent ? (
+    <header className="header-section mb-6">
+      {showHero ? (
         <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
@@ -67,104 +71,54 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
         className="mt-2 mb-4"
       />
 
-      {/* Article date metadata */}
-      {(metadata?.datePublished || metadata?.lastModified) && (
-        <div className="article-dates text-sm text-gray-600 dark:text-gray-400 mb-6 flex flex-wrap gap-2">
-          {metadata?.datePublished && (
-            <time 
-              dateTime={metadata.datePublished}
-              itemProp="datePublished"
-              className="flex items-center"
-            >
-              <span className="sr-only">Published: </span>
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              {new Date(metadata.datePublished).toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
-            </time>
-          )}
-          {metadata?.lastModified && metadata.lastModified !== metadata.datePublished && (
-            <>
-              <span className="text-gray-400 dark:text-gray-600" aria-hidden="true">•</span>
-              <time 
-                dateTime={metadata.lastModified}
-                itemProp="dateModified"
-                className="flex items-center"
-              >
-                <span className="sr-only">Last updated: </span>
-                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-                Updated {new Date(metadata.lastModified).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </time>
-            </>
-          )}
-        </div>
-      )}
+      <DateMetadata 
+        datePublished={metadata?.datePublished}
+        lastModified={metadata?.lastModified}
+      />
 
       {metadata?.materialProperties && (
-        <section aria-label="Material properties" className="my-8">
-          <MetricsGrid 
-            metadata={metadata} 
-            dataSource="materialProperties" 
-            titleFormat="comparison" 
-            layout="auto" 
-            showTitle 
-            searchable
-            defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-          />
-        </section>
+        <MetricsGrid 
+          metadata={metadata} 
+          dataSource="materialProperties" 
+          titleFormat="comparison" 
+          layout="auto" 
+          showTitle 
+          searchable
+          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+        />
       )}
 
       {metadata?.machineSettings && (
-        <section aria-label="Machine settings" className="my-8">
-          <MetricsGrid metadata={metadata} dataSource="machineSettings" titleFormat="comparison"
-            layout="auto" showTitle searchable />
-        </section>
+        <MetricsGrid 
+          metadata={metadata} 
+          dataSource="machineSettings" 
+          titleFormat="comparison"
+          layout="auto" 
+          showTitle 
+          searchable 
+        />
       )}
 
       {metadata?.caption && (
-        <section aria-label="Image caption and metadata" className="mb-2">
-          <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
-        </section>
+        <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
       )}
 
       {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
-        <section aria-label="Environmental impact assessment" className="my-8">
-          <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
-        </section>
+        <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
       )}
 
       {/* Material-specific FAQ section - from frontmatter */}
-      {metadata?.name && metadata?.faq && (() => {
-        // Support both array format and nested questions format
-        const faqArray = Array.isArray(metadata.faq) 
-          ? metadata.faq 
-          : (metadata.faq as any)?.questions || [];
-        return faqArray.length > 0 ? (
-          <section aria-label="Frequently asked questions" className="my-8">
-            <MaterialFAQ
-              materialName={metadata.name}
-              faq={faqArray}
-            />
-          </section>
-        ) : null;
-      })()}
+      {metadata?.name && metadata?.faq && (
+        <MaterialFAQ
+          materialName={metadata.name}
+          faq={Array.isArray(metadata.faq) ? metadata.faq : (metadata.faq as any)?.questions || []}
+        />
+      )}
 
       {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
-        <section aria-label="Regulatory standards and certifications" className="my-8">
-          <RegulatoryStandards standards={metadata.regulatoryStandards} />
-        </section>
+        <RegulatoryStandards standards={metadata.regulatoryStandards} />
       )}
-    </div>
+    </header>
   );
 };
 
@@ -173,37 +127,44 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   if (!component) return null;
 
   if (type === 'metricsmachinesettings' && component.config) {
-    const metricsMetadata = { slug: metadata?.slug || '', title: component.config.title || '', 
-      description: component.config.description || '', machineSettings: component.config.machineSettings || {} };
+    const metricsMetadata = { 
+      slug: metadata?.slug || '', 
+      title: component.config.title || '', 
+      description: component.config.description || '', 
+      machineSettings: component.config.machineSettings || {} 
+    };
     return (
-      <section key={type} aria-label="Machine settings visualization">
-        <MetricsGrid metadata={metricsMetadata} dataSource="machineSettings" 
-          title={component.config.title} className={component.config.className} searchable />
-      </section>
+      <MetricsGrid 
+        key={type}
+        metadata={metricsMetadata} 
+        dataSource="machineSettings" 
+        title={component.config.title} 
+        className={component.config.className} 
+        searchable 
+      />
     );
   }
 
   if (type === 'metricsproperties' && component.config) {
-    // NEW: Support both component.config.properties AND metadata.properties (from frontmatter)
+    // Support both component.config.properties AND metadata.properties (from frontmatter)
     const properties = component.config.properties || metadata?.properties || {};
     const propertiesMetadata = { 
       slug: metadata?.slug || '', 
       title: component.config.title || metadata?.title || '',
       description: component.config.description || '', 
-      materialProperties: component.config.materialProperties,  // Legacy categorized structure
-      properties: properties  // NEW flat structure from frontmatter
+      materialProperties: component.config.materialProperties,
+      properties: properties
     };
     return (
-      <section key={type} aria-label="Material properties visualization">
-        <MetricsGrid 
-          metadata={propertiesMetadata} 
-          dataSource="materialProperties"
-          title={component.config.title} 
-          className={component.config.className} 
-          searchable
-          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-        />
-      </section>
+      <MetricsGrid 
+        key={type}
+        metadata={propertiesMetadata} 
+        dataSource="materialProperties"
+        title={component.config.title} 
+        className={component.config.className} 
+        searchable
+        defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+      />
     );
   }
 
@@ -211,14 +172,12 @@ const renderComponent = (type: string, component: any, metadata: any) => {
   
   if (type === 'content' && content) {
     return (
-      <section key={type} aria-label="Main content" className="max-w-none">
-        <MarkdownRenderer content={content} convertMarkdown={false} />
-      </section>
+      <MarkdownRenderer key={type} content={content} convertMarkdown={false} />
     );
   }
   
   if (type === 'tags') {
-    return <section key={type} aria-label="Tags and categories"><Tags frontmatter={metadata} /></section>;
+    return <Tags key={type} frontmatter={metadata} />;
   }
   
   return null;
@@ -273,20 +232,17 @@ export function Layout(props: LayoutProps) {
 
   // Regular page layout
   // Check if we have hero content to render
-  const hasHeroContent = 
-    metadata?.image || 
-    metadata?.images?.hero?.url || 
-    metadata?.video;
+  const showHero = hasHeroContent(metadata);
   
   // Generate breadcrumbs for regular pages
   const pathname = slug ? `/${slug}` : '/';
   const breadcrumbData = generateBreadcrumbs(metadata || null, pathname);
-  const isHomePage = !slug || slug === '' || pathname === '/';
+  const isHomePage = !slug || pathname === '/';
 
   return (
     <main className={containerClass} id="main-content" role="main">
       {/* Hero renders if content exists, otherwise spacer maintains consistent vertical rhythm */}
-      {hasHeroContent ? (
+      {showHero ? (
         <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
@@ -302,14 +258,12 @@ export function Layout(props: LayoutProps) {
       {/* Title renders consistently for all pages - fullWidth pages need container */}
       {title && (
         <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
-          <div className="w-full">
-            <Title 
-              level="page" 
-              title={title} 
-              subtitle={props.subtitle} 
-              rightContent={props.rightContent}
-            />
-          </div>
+          <Title 
+            level="page" 
+            title={title} 
+            subtitle={props.subtitle} 
+            rightContent={props.rightContent}
+          />
         </div>
       )}
       
