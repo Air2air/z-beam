@@ -5,7 +5,7 @@
  * Tests that JSON-LD schemas are properly rendered in HTML for all page types
  */
 
-const { spawn } = require('child_process');
+const { spawn, execSync } = require('child_process');
 const http = require('http');
 
 const TEST_PAGES = [
@@ -33,60 +33,131 @@ const TEST_PAGES = [
 
 let serverProcess;
 let serverReady = false;
+let usingExistingServer = false;
 const PORT = 3010;
+const SERVER_TIMEOUT = 30000; // Reduced from 60s to 30s
 
-function startServer() {
-  return new Promise((resolve, reject) => {
-    console.log('🚀 Starting Next.js dev server on port', PORT);
-    
-    // Check if port is already in use
-    const testConnection = http.get(`http://localhost:${PORT}`, (res) => {
-      console.log('✅ Server already running on port', PORT);
-      serverReady = true;
-      resolve();
-    }).on('error', () => {
-      // Port is free, start the server
-      serverProcess = spawn('npm', ['run', 'dev', '--', '-p', PORT], {
-        cwd: process.cwd(),
-        env: { ...process.env, PORT: PORT.toString() },
-        stdio: ['ignore', 'pipe', 'pipe']
-      });
+function killPortProcesses(port) {
+  try {
+    console.log(`🧹 Cleaning up processes on port ${port}...`);
+    execSync(`lsof -ti:${port} | xargs kill -9 2>/dev/null || true`, { stdio: 'pipe' });
+    console.log(`✅ Port ${port} cleaned`);
+    return true;
+  } catch (error) {
+    // Port was already free
+    return true;
+  }
+}
 
-      let output = '';
-      
-      const dataHandler = (data) => {
-        const text = data.toString();
-        output += text;
-        // Look for success indicators
-        if (text.includes('Local:') || text.includes('Ready in') || text.includes('started server')) {
-          serverReady = true;
-          console.log('✅ Server started successfully');
-          setTimeout(() => resolve(), 3000); // Wait 3s for full startup
-        }
-      };
-
-      serverProcess.stdout.on('data', dataHandler);
-      serverProcess.stderr.on('data', dataHandler);
-
-      serverProcess.on('error', (err) => {
-        reject(new Error(`Failed to start server: ${err.message}`));
-      });
-
-      // Increased timeout to 60s for slower systems
-      setTimeout(() => {
-        if (!serverReady) {
-          console.error('Server output:', output);
-          reject(new Error('Server failed to start within 60s timeout'));
-        }
-      }, 60000);
+function checkServerReady(port) {
+  return new Promise((resolve) => {
+    const req = http.get(`http://localhost:${port}`, (res) => {
+      resolve(true);
+    });
+    req.on('error', () => resolve(false));
+    req.setTimeout(2000, () => {
+      req.destroy();
+      resolve(false);
     });
   });
 }
 
+async function startServer() {
+  console.log('🚀 Starting Next.js dev server on port', PORT);
+  
+  // First, check if server is already running and responsive
+  const isRunning = await checkServerReady(PORT);
+  
+  if (isRunning) {
+    console.log('✅ Server already running on port', PORT);
+    usingExistingServer = true;
+    serverReady = true;
+    return;
+  }
+  
+  // Kill any stuck processes on the port
+  killPortProcesses(PORT);
+  
+  // Wait a moment for port to be released
+  await new Promise(resolve => setTimeout(resolve, 1000));
+  
+  // Verify port is now free
+  const stillRunning = await checkServerReady(PORT);
+  if (stillRunning) {
+    throw new Error(`Port ${PORT} still in use after cleanup. Please manually stop the process.`);
+  }
+  
+  return new Promise((resolve, reject) => {
+    // Start the server
+    serverProcess = spawn('npm', ['run', 'dev', '--', '-p', PORT], {
+      cwd: process.cwd(),
+      env: { ...process.env, PORT: PORT.toString() },
+      stdio: ['ignore', 'pipe', 'pipe']
+    });
+
+    let output = '';
+    let resolved = false;
+    
+    const dataHandler = (data) => {
+      const text = data.toString();
+      output += text;
+      
+      // Look for success indicators
+      if (!resolved && (text.includes('Local:') || text.includes('Ready in') || text.includes('started server'))) {
+        serverReady = true;
+        resolved = true;
+        console.log('✅ Server started successfully');
+        setTimeout(() => resolve(), 3000); // Wait 3s for full startup
+      }
+    };
+
+    serverProcess.stdout.on('data', dataHandler);
+    serverProcess.stderr.on('data', dataHandler);
+
+    serverProcess.on('error', (err) => {
+      if (!resolved) {
+        resolved = true;
+        reject(new Error(`Failed to start server: ${err.message}`));
+      }
+    });
+    
+    serverProcess.on('exit', (code) => {
+      if (!resolved && code !== 0) {
+        resolved = true;
+        reject(new Error(`Server exited with code ${code}`));
+      }
+    });
+
+    // Timeout handler
+    const timeoutId = setTimeout(() => {
+      if (!resolved) {
+        resolved = true;
+        console.error('❌ Server output:', output.substring(0, 500));
+        reject(new Error(`Server failed to start within ${SERVER_TIMEOUT/1000}s timeout. Port may be in use or build may have failed.`));
+      }
+    }, SERVER_TIMEOUT);
+    
+    // Clear timeout if resolved early
+    serverProcess.once('close', () => clearTimeout(timeoutId));
+  });
+}
+
 function stopServer() {
-  if (serverProcess) {
+  if (serverProcess && !usingExistingServer) {
     console.log('\n🛑 Stopping server...');
-    serverProcess.kill();
+    try {
+      serverProcess.kill('SIGTERM');
+      // Give it time to clean up
+      setTimeout(() => {
+        if (serverProcess && !serverProcess.killed) {
+          serverProcess.kill('SIGKILL');
+        }
+      }, 2000);
+    } catch (error) {
+      console.warn('⚠️  Error stopping server:', error.message);
+    }
+  } else if (usingExistingServer) {
+    console.log('\n✅ Leaving existing server running');
   }
 }
 
@@ -115,9 +186,9 @@ function fetchPage(path) {
     });
 
     req.on('error', reject);
-    req.setTimeout(10000, () => {
+    req.setTimeout(30000, () => {
       req.destroy();
-      reject(new Error('Request timeout'));
+      reject(new Error('Request timeout after 30s'));
     });
     req.end();
   });
@@ -203,9 +274,16 @@ async function main() {
   console.log('  JSON-LD Rendering Validation');
   console.log('═══════════════════════════════════════════════════════\n');
   
+  let serverStarted = false;
+  
   try {
     await startServer();
+    serverStarted = true;
     console.log('✅ Server ready\n');
+    
+    // Wait longer for server to be fully ready (first build takes time)
+    console.log('⏳ Waiting for server to fully initialize...');
+    await new Promise(resolve => setTimeout(resolve, 10000));
     
     const results = [];
     for (const page of TEST_PAGES) {
@@ -232,6 +310,10 @@ async function main() {
     
   } catch (error) {
     console.error('\n❌ Fatal error:', error.message);
+    if (!serverStarted) {
+      console.error('\n💡 Tip: Make sure no other dev server is running on port', PORT);
+      console.error('    Run: lsof -ti:' + PORT + ' | xargs kill -9');
+    }
     process.exit(1);
   } finally {
     stopServer();
