@@ -533,8 +533,7 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
         'name': app
       }))
     }),
-    // E-E-A-T: Add expertise indicators
-    ...(frontmatter.subtitle && { 'abstract': frontmatter.subtitle }),
+    // E-E-A-T: Add expertise indicators (removed abstract - not in Schema.org Article spec)
     ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords })
   };
 }
