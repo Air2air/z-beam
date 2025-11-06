@@ -175,7 +175,6 @@ function createTechnicalArticleSchema(data: any) {
     '@id': `${pageUrl}#article`,
     headline: title,
     description: description || subtitle,
-    abstract: subtitle,
     articleBody: caption?.beforeText ? `${caption.beforeText}\n\n${caption.afterText}` : description,
     
     // E-E-A-T: Author Expertise

@@ -70,7 +70,6 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     '@id': `${pageUrl}#article`,
     headline: title,
     description: description,
-    ...(subtitle && { abstract: subtitle }),
     ...(articleBody && { articleBody }),
     url: pageUrl,
     datePublished: pubDate,
