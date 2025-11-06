@@ -1022,7 +1022,6 @@ export interface CardGridProps {
   
   // Layout modes
   mode?: 'simple' | 'category-grouped' | 'search-results';
-  variant?: 'default' | 'compact' | 'featured';
   
   // Category grouping options (for mode: 'category-grouped')
   showSearch?: boolean;
@@ -1707,7 +1706,6 @@ export interface CardGridSSRProps {
   
   // Layout modes
   mode?: 'simple' | 'category-grouped';
-  variant?: 'default' | 'compact' | 'featured';
   
   // Category grouping options (for mode: 'category-grouped')
   maxItemsPerCategory?: number;
@@ -1724,6 +1722,7 @@ export interface CardGridSSRProps {
   // Styling
   className?: string;
   cardClassName?: string;
+  variant?: "default" | "featured";
 }
 
 // ===============================
@@ -2239,7 +2238,7 @@ export interface CardProps {
   href: string;
   badge?: BadgeData | null;
   className?: string;
-  variant?: 'standard' | 'compact' | 'featured' | 'preview';
+  variant?: "default" | "featured";
 }
 
 /**
@@ -2287,7 +2286,6 @@ export interface DatasetCardProps {
   href: string;
   badge?: BadgeData | null;
   className?: string;
-  variant?: 'standard' | 'featured';
   
   // Dataset-specific props
   formats?: FormatBadge[];
@@ -2345,6 +2343,25 @@ export interface SectionContainerProps {
   horizPadding?: boolean;
   radius?: boolean;
   children: React.ReactNode;
+}
+
+/**
+ * Featured service item for ServicesSection
+ */
+export interface FeaturedServiceItem {
+  slug: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+}
+
+/**
+ * ServicesSection component props
+ */
+export interface ServicesSectionProps {
+  items: FeaturedServiceItem[];
+  title?: string;
+  columns?: GridColumns;
 }
 
 /**

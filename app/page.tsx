@@ -3,6 +3,7 @@
 import { CardGridSSR } from "./components/CardGrid";
 import { Layout } from "./components/Layout/Layout";
 import { SectionContainer } from "./components/SectionContainer";
+import { ServicesSection } from "./components/ServicesSection";
 import { loadComponentData } from "./utils/contentAPI";
 import { createMetadata } from "./utils/metadata";
 import { CONTAINER_STYLES } from "./utils/containerStyles";
@@ -77,21 +78,7 @@ export default async function HomePage() {
       <div className={CONTAINER_STYLES.main}>
         {/* Featured Solutions Section */}
         {featuredSections.length > 0 && (
-          <SectionContainer title="Featured Solutions" bgColor="transparent" radius={false}>
-            <CardGridSSR
-              items={featuredSections.map((section: any) => ({
-                slug: section.slug,
-                title: section.title,
-                description: section.description,
-                href: `/${section.slug}`,
-                imageUrl: section.imageUrl,
-                imageAlt: section.title,
-                badge: undefined,
-              }))}
-              columns={2}
-              variant="featured"
-            />
-          </SectionContainer>
+          <ServicesSection items={featuredSections} />
         )}
 
         {/* Material Categories Section */}

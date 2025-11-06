@@ -3,8 +3,8 @@
  * @purpose Material article card with thumbnail image, badge, and metadata display
  * @dependencies @/types (CardProps, ArticleMetadata, BadgeData), Thumbnail, BadgeSymbol
  * @related CardGrid.tsx, Thumbnail/Thumbnail.tsx, BadgeSymbol/BadgeSymbol.tsx
- * @complexity Low (140 lines, 4 variants: standard, compact, featured, preview)
- * @aiContext Import CardProps from @/types. Use variant prop for styling. Badge is optional.
+ * @complexity Low (140 lines, single standard variant)
+ * @aiContext Import CardProps from @/types. Badge is optional.
  *           frontmatter contains article metadata. href is required for navigation.
  */
 // app/components/Card/Card.tsx
@@ -17,24 +17,13 @@ import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { BadgeData, ArticleMetadata, CardProps } from "@/types";
 import { SITE_CONFIG } from "../../utils/constants";
 
-// MaterialCard variant configurations
-type CardVariantKey = 'standard' | 'featured';
-const CARD_VARIANTS: Record<CardVariantKey, {
-  padding: string;
-  imageHeight: string;
-  cardHeight: string;
-  titleClass: string;
-  descriptionClass: string;
-  cardClass: string;
-  hoverEffect: string;
-  titleBarClass: string;
-  transitionClass: string;
-}> = {
-  standard: {
+// MaterialCard configuration with variant support
+const CARD_CONFIG = {
+  default: {
     // Layout
     padding: "px-2 py-2 md:px-3 md:py-1.5",
-    imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Responsive image - 25% reduction
-    cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]", // Responsive card height - 25% reduction
+    imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Fixed height for default cards
+    cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]", // Default height
     
     // Typography
     titleClass: "card-title text-base text-white truncate",
@@ -50,36 +39,33 @@ const CARD_VARIANTS: Record<CardVariantKey, {
   },
   featured: {
     // Layout
-    padding: "px-3 py-2.5 md:px-4 md:py-2",
-    imageHeight: "h-full", // Full height image
-    cardHeight: "h-full min-h-[9.75rem]", // Fixed min-height - 25% reduction (156px)
+    padding: "px-2 py-2 md:px-3 md:py-1.5",
+    imageHeight: "h-full", // Full height for featured cards - image expands to fill card
+    cardHeight: "h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem]", // Increased height for featured cards (Services/Equipment Rental)
     
     // Typography
-    titleClass: "card-title text-xl text-white truncate",
-    descriptionClass: "text-gray-200 text-sm line-clamp-3",
+    titleClass: "card-title text-base text-white truncate",
+    descriptionClass: "text-gray-200 text-xs line-clamp-2",
     
     // Appearance
-    cardClass: "rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600",
+    cardClass: "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700",
     hoverEffect: "card-enhanced-hover",
     titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
-    transitionClass: "transition-all duration-400 ease-out",
-  },
+    transitionClass: "transition-all duration-300 ease-out",
+  }
 } as const;
-
-type CardVariant = keyof typeof CARD_VARIANTS;
 
 export function MaterialCard({
   frontmatter,
   href,
   badge, // Re-enabled for BadgeSymbol support
   className = "",
-  variant = "standard", // Default to standard variant
+  variant = "default",
 }: CardProps) {
-  // Get variant configuration - fallback to standard if variant not found
-  const variantKey = variant in CARD_VARIANTS ? (variant as CardVariantKey) : 'standard';
-  const config = CARD_VARIANTS[variantKey];
+  // Select configuration based on variant
+  const config = CARD_CONFIG[variant];
   
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';

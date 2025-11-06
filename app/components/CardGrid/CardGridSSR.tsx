@@ -54,13 +54,13 @@ export async function CardGridSSR({
   columns = 3,
   gap = "md",
   mode = 'simple',
-  variant = 'default',
   maxItemsPerCategory,
   categoryOrder = DEFAULT_CATEGORY_ORDER,
   filterBy = 'all',
   showBadgeSymbols = true,
   loadBadgeSymbolData = false,
-  className = ""
+  className = "",
+  variant = "default"
 }: CardGridSSRProps) {
   
   // Process input data into unified format
@@ -261,6 +261,7 @@ export async function CardGridSSR({
                       } as ArticleMetadata}
                       badge={showBadgeSymbols ? item.badge : undefined}
                       className="h-full"
+                      variant={variant}
                     />
                   ))}
                 </div>
@@ -315,8 +316,8 @@ export async function CardGridSSR({
               ...item.metadata
             } as ArticleMetadata}
             badge={showBadgeSymbols ? item.badge : undefined}
-            variant={variant === 'featured' ? 'featured' : 'standard'}
             className={`card-enhanced-hover`}
+            variant={variant}
           />
         ))}
       </div>
