@@ -1,6 +1,6 @@
 /**
- * @component Card
- * @purpose Individual article card with thumbnail, badge, and metadata display
+ * @component MaterialCard
+ * @purpose Material article card with thumbnail image, badge, and metadata display
  * @dependencies @/types (CardProps, ArticleMetadata, BadgeData), Thumbnail, BadgeSymbol
  * @related CardGrid.tsx, Thumbnail/Thumbnail.tsx, BadgeSymbol/BadgeSymbol.tsx
  * @complexity Low (140 lines, 4 variants: standard, compact, featured, preview)
@@ -17,7 +17,7 @@ import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { BadgeData, ArticleMetadata, CardProps } from "@/types";
 import { SITE_CONFIG } from "../../utils/constants";
 
-// Card variant configurations
+// MaterialCard variant configurations
 type CardVariantKey = 'standard' | 'featured';
 const CARD_VARIANTS: Record<CardVariantKey, {
   padding: string;
@@ -70,7 +70,7 @@ const CARD_VARIANTS: Record<CardVariantKey, {
 
 type CardVariant = keyof typeof CARD_VARIANTS;
 
-export function Card({
+export function MaterialCard({
   frontmatter,
   href,
   badge, // Re-enabled for BadgeSymbol support
@@ -204,3 +204,6 @@ export function Card({
     </Link>
   );
 }
+
+// Export with semantic name and maintain backwards compatibility
+export { MaterialCard as Card };
