@@ -304,10 +304,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         slug={`materials/${category}`}
         fullWidth
       >
-        <div className={CONTAINER_STYLES.standard}>
+        <div className={`materials-listing-container ${CONTAINER_STYLES.standard}`}>
           {/* Group materials by subcategory */}
           {categoryData.subcategories.map((subcategory) => (
-            <section key={subcategory.slug} className="mb-12" aria-labelledby={`subcategory-${subcategory.slug}`}>
+            <section key={subcategory.slug} className="subcategory-section mb-12" aria-labelledby={`subcategory-${subcategory.slug}`}>
               <h2 
                 id={`subcategory-${subcategory.slug}`}
                 className="subcategory-title text-xl font-semibold text-gray-900 dark:text-white mb-4"
@@ -327,7 +327,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
         
         {/* Category Dataset Section at bottom */}
-        <div className={`${CONTAINER_STYLES.main} mt-16 mb-16`}>
+        <div className={`category-dataset-wrapper ${CONTAINER_STYLES.main} mt-16 mb-16`}>
           <CategoryDatasetCardWrapper 
             category={category}
             categoryLabel={categoryDisplayName}
