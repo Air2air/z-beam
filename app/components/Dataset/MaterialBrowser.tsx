@@ -8,10 +8,44 @@ import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
 import type { MaterialBrowserProps, DatasetMaterial } from '@/types/centralized';
 
-export default function MaterialBrowser({ materials }: MaterialBrowserProps) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [sortBy, setSortBy] = useState<'name' | 'category'>('name');
+interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
+  showFilters?: boolean;
+  searchTerm?: string;
+  selectedCategory?: string;
+  sortBy?: 'name' | 'category';
+  onSearchChange?: (term: string) => void;
+  onCategoryChange?: (category: string) => void;
+  onSortChange?: (sort: 'name' | 'category') => void;
+}
+
+export default function MaterialBrowser({ 
+  materials, 
+  showFilters = true,
+  searchTerm: externalSearchTerm,
+  selectedCategory: externalCategory,
+  sortBy: externalSortBy,
+  onSearchChange,
+  onCategoryChange,
+  onSortChange
+}: MaterialBrowserExtendedProps) {
+  const [searchTerm, setSearchTerm] = useState(externalSearchTerm || '');
+  const [selectedCategory, setSelectedCategory] = useState<string>(externalCategory || 'all');
+  const [sortBy, setSortBy] = useState<'name' | 'category'>(externalSortBy || 'name');
+
+  const handleSearchChange = (term: string) => {
+    setSearchTerm(term);
+    onSearchChange?.(term);
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    onCategoryChange?.(category);
+  };
+
+  const handleSortChange = (sort: 'name' | 'category') => {
+    setSortBy(sort);
+    onSortChange?.(sort);
+  };
 
   // Get unique categories
   const categories = useMemo(() => {
@@ -57,69 +91,74 @@ export default function MaterialBrowser({ materials }: MaterialBrowserProps) {
       .join(' ');
   };
 
-  return (
-    <div id="materials" className="space-y-6">
-      {/* Filters */}
-      <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 md:p-6 space-y-4">
-        {/* Search */}
-        <div className="relative">
-          <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-          <input
-            type="text"
-            placeholder="Search materials..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
-          {searchTerm && (
-            <button
-              onClick={() => setSearchTerm('')}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-            >
-              <FiX className="w-5 h-5" />
-            </button>
-          )}
-        </div>
+  // Expose search/filter UI separately
+  const filtersUI = (
+    <div className="material-browser-filters space-y-4">
+      {/* Search */}
+      <div className="relative">
+        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <input
+          type="text"
+          placeholder="Search materials..."
+          value={searchTerm}
+          onChange={(e) => handleSearchChange(e.target.value)}
+          className="w-full pl-10 pr-10 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        />
+        {searchTerm && (
+          <button
+            onClick={() => handleSearchChange('')}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+          >
+            <FiX className="w-5 h-5" />
+          </button>
+        )}
+      </div>
 
-        {/* Category Filter & Sort */}
-        <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              <FiFilter className="inline w-4 h-4 mr-1" />
-              Category
-            </label>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              {categories.map(cat => (
-                <option key={cat} value={cat}>
-                  {cat === 'all' ? 'All Categories' : formatCategoryName(cat)}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex-1">
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Sort By
-            </label>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as 'name' | 'category')}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option value="name">Name (A-Z)</option>
-              <option value="category">Category</option>
-            </select>
-          </div>
+      {/* Category Filter & Sort */}
+      <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex-1">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <FiFilter className="inline w-4 h-4 mr-1" />
+            Category
+          </label>
+          <select
+            value={selectedCategory}
+            onChange={(e) => handleCategoryChange(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+            {categories.map(cat => (
+              <option key={cat} value={cat}>
+                {cat === 'all' ? 'All Categories' : formatCategoryName(cat)}
+              </option>
+            ))}
+          </select>
         </div>
-
-        {/* Results count */}
-        <div className="text-sm text-gray-600 dark:text-gray-400">
-          Showing {filteredMaterials.length} of {materials.length} materials
+        <div className="flex-1">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Sort By
+          </label>
+          <select
+            value={sortBy}
+            onChange={(e) => handleSortChange(e.target.value as 'name' | 'category')}
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+            <option value="name">Name (A-Z)</option>
+            <option value="category">Category</option>
+          </select>
         </div>
       </div>
+
+      {/* Results count */}
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        Showing {filteredMaterials.length} of {materials.length} materials
+      </div>
+    </div>
+  );
+
+  return (
+    <div id="materials" className="space-y-6">
+      {/* Filters - only show if enabled */}
+      {showFilters && filtersUI}
 
       {/* Materials Grid - Using centralized grid configuration */}
       <div className={getGridClasses({ columns: 3, gap: "md" })}>
@@ -136,7 +175,7 @@ export default function MaterialBrowser({ materials }: MaterialBrowserProps) {
                 subcategory: material.subcategory,
                 images: {
                   hero: {
-                    url: `/images/material/${material.slug}-laser-cleaning-hero.jpg`,
+                    url: `/images/material/${material.slug}-hero.jpg`,
                     alt: material.name
                   }
                 }

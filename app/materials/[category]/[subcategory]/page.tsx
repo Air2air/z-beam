@@ -2,6 +2,7 @@
 import { notFound } from "next/navigation";
 import { getAllCategories, getSubcategoryInfo } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
+import { SectionContainer } from "@/app/components/SectionContainer";
 import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { CardGridSSR } from "@/app/components/CardGrid";
@@ -306,16 +307,17 @@ export default async function SubcategoryPage({ params }: PageProps) {
         slug={`materials/${category}/${subcategory}`}
         fullWidth
       >
-        {/* Materials Grid */}
-        <section className={CONTAINER_STYLES.standard}>
-          <CardGridSSR
-            slugs={materialSlugs}
-            columns={3}
-            mode="simple"
-            showBadgeSymbols={true}
-            loadBadgeSymbolData={true}
-          />
-        </section>
+        <div className={CONTAINER_STYLES.main}>
+          <SectionContainer title={subcategoryInfo.label} bgColor="transparent" radius={false}>
+            <CardGridSSR
+              slugs={materialSlugs}
+              columns={3}
+              mode="simple"
+              showBadgeSymbols={true}
+              loadBadgeSymbolData={true}
+            />
+          </SectionContainer>
+        </div>
       </Layout>
     </>
   );

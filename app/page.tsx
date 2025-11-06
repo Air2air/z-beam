@@ -2,6 +2,7 @@
 
 import { CardGridSSR } from "./components/CardGrid";
 import { Layout } from "./components/Layout/Layout";
+import { SectionContainer } from "./components/SectionContainer";
 import { loadComponentData } from "./utils/contentAPI";
 import { createMetadata } from "./utils/metadata";
 import { CONTAINER_STYLES } from "./utils/containerStyles";
@@ -73,47 +74,49 @@ export default async function HomePage() {
       metadata={heroFrontmatter}
       customHeroOverlay={true}
     >
-      {/* Featured Solutions Section */}
-      {featuredSections.length > 0 && (
-        <section className={CONTAINER_STYLES.standard}>
-          <CardGridSSR
-            items={featuredSections.map((section: any) => ({
-              slug: section.slug,
-              title: section.title,
-              description: section.description,
-              href: `/${section.slug}`,
-              imageUrl: section.imageUrl,
-              imageAlt: section.title,
-              badge: undefined,
-            }))}
-            columns={2}
-            variant="featured"
-          />
-        </section>
-      )}
+      <div className={CONTAINER_STYLES.main}>
+        {/* Featured Solutions Section */}
+        {featuredSections.length > 0 && (
+          <SectionContainer title="Featured Solutions" bgColor="transparent" radius={false}>
+            <CardGridSSR
+              items={featuredSections.map((section: any) => ({
+                slug: section.slug,
+                title: section.title,
+                description: section.description,
+                href: `/${section.slug}`,
+                imageUrl: section.imageUrl,
+                imageAlt: section.title,
+                badge: undefined,
+              }))}
+              columns={2}
+              variant="featured"
+            />
+          </SectionContainer>
+        )}
 
-      {/* Material Categories Section */}
-      {featuredMaterials.length > 0 && (
-        <section className={CONTAINER_STYLES.standard}>
-          <CardGridSSR
-            items={featuredMaterials.map((category: any) => ({
-              slug: category.slug,
-              title: category.title,
-              description: category.description,
-              href: `/${category.slug}`,
-              imageUrl: category.imageUrl,
-              imageAlt: category.title,
-              badge: {
-                materialType: category.materialType as any,
-                symbol: "",
-                formula: "",
-              },
-            }))}
-            columns={3}
-            variant="default"
-          />
-        </section>
-      )}
+        {/* Material Categories Section */}
+        {featuredMaterials.length > 0 && (
+          <SectionContainer title="Material Categories" bgColor="transparent" radius={false}>
+            <CardGridSSR
+              items={featuredMaterials.map((category: any) => ({
+                slug: category.slug,
+                title: category.title,
+                description: category.description,
+                href: `/${category.slug}`,
+                imageUrl: category.imageUrl,
+                imageAlt: category.title,
+                badge: {
+                  materialType: category.materialType as any,
+                  symbol: "",
+                  formula: "",
+                },
+              }))}
+              columns={3}
+              variant="default"
+            />
+          </SectionContainer>
+        )}
+      </div>
     </Layout>
     );
   } catch (error) {
@@ -121,9 +124,9 @@ export default async function HomePage() {
     // Return minimal fallback page
     return (
       <Layout title={SITE_CONFIG.name} subtitle="Advanced laser surface treatment solutions" fullWidth>
-        <section className={CONTAINER_STYLES.standard}>
+        <div className={CONTAINER_STYLES.main}>
           <p>Welcome to Z-Beam. Content is loading...</p>
-        </section>
+        </div>
       </Layout>
     );
   }

@@ -53,17 +53,12 @@ export default function DatasetSection({
   const directLink = getDirectLink?.(downloadFormat);
 
   return (
-    <div className="dataset-card bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-      {/* Header */}
+    <div className="dataset-content">
+      {/* Description and Copy Link */}
       <div className="dataset-header flex items-start justify-between mb-4">
-        <div className="flex-1">
-          <h3 className="dataset-title text-lg font-semibold text-gray-900 dark:text-white mb-1">
-            {title}
-          </h3>
-          <p className="dataset-description text-sm text-gray-600 dark:text-gray-400">
-            {description}
-          </p>
-        </div>
+        <p className="dataset-description text-sm text-gray-600 dark:text-gray-400 flex-1">
+          {description}
+        </p>
         {directLink && (
           <Button
             onClick={copyDownloadUrl}

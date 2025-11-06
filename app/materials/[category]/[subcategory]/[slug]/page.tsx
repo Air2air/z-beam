@@ -8,6 +8,7 @@ import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
+import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -141,22 +142,24 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           className={`${CONTAINER_STYLES.main} mb-16`}
           maxItems={6}
         />
-        <div className={`${CONTAINER_STYLES.main} mb-16`}>
-          <MaterialDatasetCardWrapper 
-            material={{
-              name: (article.metadata.title as string) || slug,
-              slug: slug,
-              category: category,
-              subcategory: subcategory,
-              parameters: (article.metadata as any).parameters,
-              materialProperties: (article.metadata as any).materialProperties,
-              applications: (article.metadata as any).applications,
-              faq: (article.metadata as any).faq,
-              regulatoryStandards: (article.metadata as any).regulatoryStandards,
-              machineSettings: (article.metadata as any).machineSettings
-            }}
-            showFullDataset={true}
-          />
+        <div className={CONTAINER_STYLES.main}>
+          <SectionContainer title={`${(article.metadata.title as string) || slug} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
+            <MaterialDatasetCardWrapper 
+              material={{
+                name: (article.metadata.title as string) || slug,
+                slug: slug,
+                category: category,
+                subcategory: subcategory,
+                parameters: (article.metadata as any).parameters,
+                materialProperties: (article.metadata as any).materialProperties,
+                applications: (article.metadata as any).applications,
+                faq: (article.metadata as any).faq,
+                regulatoryStandards: (article.metadata as any).regulatoryStandards,
+                machineSettings: (article.metadata as any).machineSettings
+              }}
+              showFullDataset={true}
+            />
+          </SectionContainer>
         </div>
       </>
     );

@@ -10,6 +10,8 @@ import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
+import SubcategoryDatasetCards from '@/app/components/Dataset/SubcategoryDatasetCards';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
 
 // Static generation for all category pages
@@ -304,17 +306,15 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         slug={`materials/${category}`}
         fullWidth
       >
-        <div className={`materials-listing-container ${CONTAINER_STYLES.standard}`}>
+        <div className={CONTAINER_STYLES.main}>
           {/* Group materials by subcategory */}
           {categoryData.subcategories.map((subcategory) => (
-            <section key={subcategory.slug} className="subcategory-section mb-12" aria-labelledby={`subcategory-${subcategory.slug}`}>
-              <h2 
-                id={`subcategory-${subcategory.slug}`}
-                className="subcategory-title text-xl font-semibold text-gray-900 dark:text-white mb-4"
-              >
-                {subcategory.label}
-              </h2>
-              
+            <SectionContainer
+              key={subcategory.slug}
+              title={subcategory.label}
+              bgColor="transparent"
+              radius={false}
+            >
               <CardGridSSR
                 slugs={subcategory.materials.map(m => m.slug)}
                 columns={3}
@@ -322,18 +322,18 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 showBadgeSymbols={true}
                 loadBadgeSymbolData={true}
               />
-            </section>
+            </SectionContainer>
           ))}
-        </div>
         
         {/* Category Dataset Section at bottom */}
-        <div className={`category-dataset-wrapper ${CONTAINER_STYLES.main} mt-16 mb-16`}>
-          <CategoryDatasetCardWrapper 
-            category={category}
-            categoryLabel={categoryDisplayName}
-            materials={allMaterials}
-            subcategoryCount={categoryData.subcategories.length}
-          />
+          <SectionContainer title={`${categoryDisplayName} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
+            <CategoryDatasetCardWrapper 
+              category={category}
+              categoryLabel={categoryDisplayName}
+              materials={allMaterials}
+              subcategoryCount={categoryData.subcategories.length}
+            />
+          </SectionContainer>
         </div>
       </Layout>
     </>

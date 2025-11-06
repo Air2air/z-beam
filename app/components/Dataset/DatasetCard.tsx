@@ -91,16 +91,19 @@ export function DatasetCard({
         {formats.length > 0 && (
           <div className="absolute top-2 left-2 flex gap-1 pointer-events-auto z-20">
             {formats.map((format, index) => (
-              <Button
+              <div
                 key={`${format.format}-${index}`}
-                variant="primary"
-                size="md"
-                onClick={() => handleFormatClick({} as React.MouseEvent, format.format, format.url)}
-                className="px-2 py-1 text-xs font-semibold min-h-0"
-                aria-label={`Download ${format.format} format${format.size ? ` (${format.size})` : ''}`}
+                onClick={(e) => handleFormatClick(e, format.format, format.url)}
               >
-                {format.format}
-              </Button>
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="px-2 py-1 text-xs font-semibold min-h-0"
+                  aria-label={`Download ${format.format} format${format.size ? ` (${format.size})` : ''}`}
+                >
+                  {format.format}
+                </Button>
+              </div>
             ))}
           </div>
         )}

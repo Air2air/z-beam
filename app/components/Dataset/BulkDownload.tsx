@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import { FiDownload, FiPackage, FiCode, FiFileText } from 'react-icons/fi';
 import { BsFiletypeJson, BsFiletypeCsv } from 'react-icons/bs';
 import { Button } from '@/app/components/Button';
+import { DatasetCard } from './DatasetCard';
+import { getGridClasses } from '@/app/config/site';
 import type { BulkDownloadProps } from '@/types/centralized';
 
 export default function BulkDownload({ materials, categoryStats }: BulkDownloadProps) {
@@ -211,51 +213,57 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
         </div>
       </div>
 
-      {/* Category Bundles */}
+      {/* Category Bundles - Using DatasetCard */}
       <div>
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
           Category Bundles
         </h3>
-        <div className="grid md:grid-cols-2 gap-4">
-          {categories.map(([category, count]) => (
-            <div
-              key={category}
-              className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6"
-            >
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    {formatCategoryName(category)}
-                  </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {count} materials
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                <Button
-                  onClick={() => handleBulkDownload(category, 'json')}
-                  disabled={downloading === `${category}-json`}
-                  variant="primary"
-                  size="md"
-                  iconLeft={<BsFiletypeJson className="w-4 h-4" />}
-                  className="flex-1"
-                >
-                  {downloading === `${category}-json` ? 'Downloading...' : 'JSON'}
-                </Button>
-                <Button
-                  onClick={() => handleBulkDownload(category, 'csv')}
-                  disabled={downloading === `${category}-csv`}
-                  variant="primary"
-                  size="md"
-                  iconLeft={<BsFiletypeCsv className="w-4 h-4" />}
-                  className="flex-1"
-                >
-                  {downloading === `${category}-csv` ? 'Downloading...' : 'CSV'}
-                </Button>
-              </div>
-            </div>
-          ))}
+        <div className={getGridClasses({ columns: 3, gap: "md" })}>
+          {categories.map(([category, count]) => {
+            // Get first material from category for hero image
+            const categoryMaterials = materials.filter(m => m.category === category);
+            const firstMaterial = categoryMaterials[0];
+            
+            // Construct the hero image URL using the material's slug
+            // Note: slug already includes "-laser-cleaning" suffix
+            const heroImageUrl = firstMaterial?.slug 
+              ? `/images/material/${firstMaterial.slug}-hero.jpg`
+              : `/images/categories/${category}-category.jpg`;
+            
+            return (
+              <DatasetCard
+                key={category}
+                frontmatter={{
+                  title: formatCategoryName(category),
+                  subject: formatCategoryName(category),
+                  slug: category,
+                  description: `${count} materials in ${formatCategoryName(category)} category`,
+                  category: category,
+                  subcategory: '',
+                  images: {
+                    hero: {
+                      url: heroImageUrl,
+                      alt: firstMaterial?.name || formatCategoryName(category)
+                    }
+                  }
+                }}
+                href={`/materials/${category}`}
+                formats={[
+                  { format: 'JSON', url: '#' },
+                  { format: 'CSV', url: '#' }
+                ]}
+                category={formatCategoryName(category)}
+                subcategory={`${count} materials`}
+                onQuickDownload={(format: string) => {
+                  if (format.toLowerCase() === 'json') {
+                    handleBulkDownload(category, 'json');
+                  } else if (format.toLowerCase() === 'csv') {
+                    handleBulkDownload(category, 'csv');
+                  }
+                }}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

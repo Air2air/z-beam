@@ -2320,6 +2320,34 @@ export interface MaterialBrowserProps {
 }
 
 /**
+ * MaterialFilters component props
+ * Used for search and filtering controls in MaterialBrowser
+ */
+export interface MaterialFiltersProps {
+  searchTerm: string;
+  selectedCategory: string;
+  sortBy: 'name' | 'category';
+  categories: string[];
+  resultCount: number;
+  totalCount: number;
+  onSearchChange: (term: string) => void;
+  onCategoryChange: (category: string) => void;
+  onSortChange: (sort: 'name' | 'category') => void;
+}
+
+/**
+ * SectionContainer component props
+ * Reusable container for sections with integrated title and styling
+ */
+export interface SectionContainerProps {
+  title: string;
+  bgColor?: 'transparent' | 'navbar' | 'body' | 'gray-50' | 'gray-100';
+  horizPadding?: boolean;
+  radius?: boolean;
+  children: React.ReactNode;
+}
+
+/**
  * BulkDownload component props
  */
 export interface BulkDownloadProps {

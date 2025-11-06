@@ -1,9 +1,7 @@
 // app/datasets/page.tsx
 import { Layout } from '@/app/components/Layout/Layout';
-import { Breadcrumbs } from '@/app/components/Navigation/breadcrumbs';
-import DatasetHero from '@/app/components/Dataset/DatasetHero';
-import CategoryGrid from '@/app/components/Dataset/CategoryGrid';
-import MaterialBrowser from '@/app/components/Dataset/MaterialBrowser';
+import { SectionContainer } from '@/app/components/SectionContainer';
+import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
 import BulkDownload from '@/app/components/Dataset/BulkDownload';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 
@@ -105,42 +103,23 @@ export default async function DatasetsPage() {
         }}
       />
 
-      <Layout fullWidth>
-        <div className={CONTAINER_STYLES.standard}>
-          {/* Breadcrumb */}
-          <Breadcrumbs breadcrumbData={[
-            { label: 'Home', href: '/' },
-            { label: 'Datasets', href: '/datasets' }
-          ]} />
-
-          {/* Material Browser */}
-          <section>
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                All Materials
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
-                Search and filter {totalDatasets} materials
-              </p>
-            </div>
-            <MaterialBrowser materials={materials} />
-          </section>
+      <Layout 
+        title="Materials Database"
+        subtitle={`${totalDatasets} materials with comprehensive laser cleaning specifications`}
+        slug="datasets"
+        fullWidth
+      >
+        <div className={CONTAINER_STYLES.main}>
+          {/* Search & Filter + Results - rendered in two separate SectionContainers */}
+          <MaterialBrowserWithFilters materials={materials} />
 
           {/* Bulk Download */}
-          <section className="mt-16">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                Bulk Downloads
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400">
-                Download complete datasets or category bundles
-              </p>
-            </div>
+          <SectionContainer title="Bulk Downloads" bgColor="transparent" radius={false}>
             <BulkDownload 
               materials={materials}
               categoryStats={categoryStats}
             />
-          </section>
+          </SectionContainer>
         </div>
       </Layout>
     </>
