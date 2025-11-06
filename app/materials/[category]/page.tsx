@@ -310,7 +310,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             <section key={subcategory.slug} className="mb-12" aria-labelledby={`subcategory-${subcategory.slug}`}>
               <h2 
                 id={`subcategory-${subcategory.slug}`}
-                className="subcategory-title text-2xl font-semibold text-gray-900 dark:text-white mb-6"
+                className="subcategory-title text-xl font-semibold text-gray-900 dark:text-white mb-4"
               >
                 {subcategory.label}
               </h2>
