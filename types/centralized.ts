@@ -2286,6 +2286,7 @@ export interface DatasetCardProps {
   href: string;
   badge?: BadgeData | null;
   className?: string;
+  variant?: "default" | "featured";
   
   // Dataset-specific props
   formats?: FormatBadge[];

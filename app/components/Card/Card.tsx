@@ -64,8 +64,8 @@ export function MaterialCard({
   className = "",
   variant = "default",
 }: CardProps) {
-  // Select configuration based on variant
-  const config = CARD_CONFIG[variant];
+  // Select configuration based on variant with fallback to default
+  const config = CARD_CONFIG[variant] || CARD_CONFIG.default;
   
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';

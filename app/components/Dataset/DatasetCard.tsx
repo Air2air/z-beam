@@ -34,7 +34,7 @@ export function DatasetCard({
   href,
   badge,
   className = '',
-  variant = 'standard',
+  variant = 'default', // Changed from 'standard' to 'default' to match Card component
   formats = [],
   dataPoints,
   category,
