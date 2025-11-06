@@ -2,8 +2,9 @@
 import { Layout } from '@/app/components/Layout/Layout';
 import { SectionContainer } from '@/app/components/SectionContainer';
 import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
-import BulkDownload from '@/app/components/Dataset/BulkDownload';
+import DatasetsContent from '@/app/components/Dataset/DatasetsContent';
 import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
+import { loadPageData } from '@/app/utils/contentAPI';
 
 export const metadata = {
   title: 'Materials Database - Laser Cleaning Parameters | Z-Beam',
@@ -25,6 +26,9 @@ export const metadata = {
 };
 
 export default async function DatasetsPage() {
+  // Load page data including breadcrumb from datasets.yaml
+  const pageData = await loadPageData('datasets');
+  
   // Fetch the index file at build time
   const indexData = await fetch(
     `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/datasets/materials/index.json`,
@@ -104,22 +108,17 @@ export default async function DatasetsPage() {
       />
 
       <Layout 
-        title="Materials Database"
+        title="Materials Database for Laser Cleaning"
         subtitle={`${totalDatasets} materials with comprehensive laser cleaning specifications`}
         slug="datasets"
+        metadata={pageData.metadata as any}
         fullWidth
       >
         <div className={CONTAINER_STYLES.main}>
-          {/* Search & Filter + Results - rendered in two separate SectionContainers */}
-          <MaterialBrowserWithFilters materials={materials} />
-
-          {/* Bulk Download */}
-          <SectionContainer title="Bulk Downloads" bgColor="transparent" radius={false}>
-            <BulkDownload 
-              materials={materials}
-              categoryStats={categoryStats}
-            />
-          </SectionContainer>
+          <DatasetsContent 
+            materials={materials}
+            categoryStats={categoryStats}
+          />
         </div>
       </Layout>
     </>

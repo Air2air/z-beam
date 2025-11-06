@@ -9,6 +9,7 @@ import { CardGridSSR } from "@/app/components/CardGrid";
 import { createMetadata } from "@/app/utils/metadata";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import SubcategoryDatasetWrapper from "@/app/components/Dataset/SubcategoryDatasetWrapper";
+import { FiPackage } from "react-icons/fi";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -320,7 +321,13 @@ export default async function SubcategoryPage({ params }: PageProps) {
           </SectionContainer>
           
           {/* Subcategory Dataset Section */}
-          <SectionContainer title={`${subcategoryInfo.label} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
+          <SectionContainer 
+            title={`${subcategoryInfo.label} Dataset Download`} 
+            bgColor="navbar" 
+            horizPadding={true} 
+            radius={true}
+            icon={<FiPackage className="w-6 h-6 text-white" />}
+          >
             <SubcategoryDatasetWrapper
               category={category}
               categoryLabel={categoryLabel}

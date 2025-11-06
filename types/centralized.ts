@@ -2343,6 +2343,7 @@ export interface SectionContainerProps {
   bgColor?: 'transparent' | 'navbar' | 'body' | 'gray-50' | 'gray-100';
   horizPadding?: boolean;
   radius?: boolean;
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }
 

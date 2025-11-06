@@ -12,6 +12,7 @@ import { SectionContainer } from "@/app/components/SectionContainer/SectionConta
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
+import { FiPackage } from "react-icons/fi";
 import type { PageProps } from "@/types";
 
 export const dynamic = 'force-static';
@@ -144,7 +145,13 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           />
         </div>
         <div className={CONTAINER_STYLES.main}>
-          <SectionContainer title={`${(article.metadata.title as string) || slug} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
+          <SectionContainer 
+            title={`${(article.metadata.title as string) || slug} Dataset Download`} 
+            bgColor="navbar" 
+            horizPadding={true} 
+            radius={true}
+            icon={<FiPackage className="w-6 h-6 text-white" />}
+          >
             <MaterialDatasetCardWrapper 
               material={{
                 name: (article.metadata.title as string) || slug,

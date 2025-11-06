@@ -43,7 +43,7 @@ export default function MaterialBrowserWithFilters({ materials }: MaterialBrowse
   return (
     <>
       {/* Search & Filters Section */}
-      <SectionContainer title="Search & Filter" bgColor="navbar" horizPadding={true} radius={true}>
+      <SectionContainer title="Or, search & filter" bgColor="navbar" horizPadding={true} radius={true}>
         <MaterialFilters
           searchTerm={searchTerm}
           selectedCategory={selectedCategory}

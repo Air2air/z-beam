@@ -26,6 +26,7 @@ export function SectionContainer({
   bgColor = 'transparent',
   horizPadding = false,
   radius = false,
+  icon,
   children,
 }: SectionContainerProps) {
   
@@ -42,7 +43,7 @@ export function SectionContainer({
   const sectionId = title.toLowerCase().replace(/\s+/g, '-');
   
   // Title classes
-  const titleClasses = 'section-title text-xl font-semibold text-gray-900 dark:text-white mb-6';
+  const titleClasses = 'section-title text-xl font-semibold text-gray-900 dark:text-white';
   
   return (
     <section
@@ -55,12 +56,19 @@ export function SectionContainer({
       `.trim().replace(/\s+/g, ' ')}
       aria-labelledby={`section-${sectionId}`}
     >
-      <h2
-        id={`section-${sectionId}`}
-        className={titleClasses}
-      >
-        {title}
-      </h2>
+      <div className="flex items-center space-x-3 mb-6">
+        {icon && (
+          <div className="p-3 bg-blue-600 rounded-lg">
+            {icon}
+          </div>
+        )}
+        <h2
+          id={`section-${sectionId}`}
+          className={titleClasses}
+        >
+          {title}
+        </h2>
+      </div>
       
       {children}
     </section>

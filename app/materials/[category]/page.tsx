@@ -13,6 +13,7 @@ import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import SubcategoryDatasetCards from '@/app/components/Dataset/SubcategoryDatasetCards';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
+import { FiPackage } from 'react-icons/fi';
 
 // Static generation for all category pages
 export async function generateStaticParams() {
@@ -338,7 +339,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           ))}
         
         {/* Category Dataset Section at bottom */}
-          <SectionContainer title={`${categoryDisplayName} Dataset Download`} bgColor="navbar" horizPadding={true} radius={true}>
+          <SectionContainer 
+            title={`${categoryDisplayName} Dataset Download`} 
+            bgColor="navbar" 
+            horizPadding={true} 
+            radius={true}
+            icon={<FiPackage className="w-6 h-6 text-white" />}
+          >
             <CategoryDatasetCardWrapper 
               category={category}
               categoryLabel={categoryDisplayName}

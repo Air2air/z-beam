@@ -54,24 +54,6 @@ export default function DatasetSection({
 
   return (
     <div className="dataset-content">
-      {/* Description and Copy Link */}
-      <div className="dataset-header flex items-start justify-between mb-4">
-        <p className="dataset-description text-sm text-gray-600 dark:text-gray-400 flex-1">
-          {description}
-        </p>
-        {directLink && (
-          <Button
-            onClick={copyDownloadUrl}
-            variant="outline"
-            size="sm"
-            iconLeft={copied ? <FiCheckCircle className="text-green-500" /> : <FiInfo />}
-            className="ml-4"
-          >
-            {copied ? 'Copied!' : 'Copy Link'}
-          </Button>
-        )}
-      </div>
-
       {/* Stats Grid */}
       <div className="dataset-stats-grid hidden sm:grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 gap-2 mb-6">
         {stats.map((stat, index) => (
