@@ -140,6 +140,7 @@ export function generateHowToSchema(options: HowToSchemaOptions) {
     '@id': `${pageUrl}#howto`,
     name: `How to Clean ${name} with Laser`,
     description: howToDescription,
+    inLanguage: 'en-US',
     
     // E-E-A-T: Author reference
     author: createAuthorReference(baseUrl, author.id || 'expert'),

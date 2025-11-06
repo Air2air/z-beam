@@ -80,6 +80,7 @@ export function generateFAQSchema(options: FAQSchemaOptions) {
     '@type': 'FAQPage',
     '@id': `${pageUrl}#faq`,
     name: `${name} - Frequently Asked Questions`,
+    inLanguage: 'en-US',
     mainEntity: items.map(item => ({
       '@type': 'Question',
       name: item.question,

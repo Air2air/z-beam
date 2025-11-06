@@ -97,6 +97,7 @@ export function generateProductSchema(options: ProductSchemaOptions) {
     name,
     description,
     category: `${category}${subcategory ? ` - ${subcategory}` : ''}`,
+    inLanguage: 'en-US',
     
     // E-E-A-T: Author reference
     author: createAuthorReference(baseUrl, author.id || 'expert'),
