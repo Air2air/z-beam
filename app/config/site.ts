@@ -727,15 +727,9 @@ export function generateOrganizationSchema() {
           "description": "Free and open-source database of laser cleaning parameters for 132+ materials"
         }
       }
-    ],
+    ]
     
-    ...(BUSINESS_CONFIG.credentials.length > 0 && {
-      "hasCredential": BUSINESS_CONFIG.credentials.map(cred => ({
-        "@type": "EducationalOccupationalCredential",
-        "name": cred.name,
-        "credentialCategory": cred.category
-      }))
-    })
+    // Note: hasCredential removed - it's a Person property, not valid for Organization per Schema.org
   };
 }
 
