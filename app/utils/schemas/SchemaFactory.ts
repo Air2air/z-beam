@@ -1054,9 +1054,13 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     '@type': 'Dataset',
     '@id': `${pageUrl}#dataset`,
     'name': `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
-    'description': `Comprehensive laser cleaning parameters and material properties for ${frontmatter.name || 'material'}`,
+    'description': `Comprehensive laser cleaning parameters and material properties for ${frontmatter.name || 'material'}. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.`,
     'version': '1.0',
-    'license': 'https://creativecommons.org/licenses/by/4.0/',
+    'license': {
+      '@type': 'CreativeWork',
+      'name': 'Creative Commons Attribution 4.0 International',
+      'url': 'https://creativecommons.org/licenses/by/4.0/'
+    },
     'creator': creator,
     // E-E-A-T: Also add author field for better E-E-A-T scoring
     ...(authorPerson && { 'author': authorPerson }),
