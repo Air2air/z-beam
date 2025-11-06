@@ -41,6 +41,24 @@ export const SITE_CONFIG = {
   email: 'info@z-beam.com',
   phone: '(650) 241-8510',
   
+  // Service Pricing (hourly rates in USD)
+  pricing: {
+    professionalCleaning: {
+      hourlyRate: 390,
+      currency: 'USD',
+      label: 'Professional Laser Cleaning',
+      unit: 'hour',
+      description: 'On-site professional laser cleaning service with experienced technicians'
+    },
+    equipmentRental: {
+      hourlyRate: 320,
+      currency: 'USD',
+      label: 'Equipment Rental',
+      unit: 'hour',
+      description: 'Self-service equipment rental with training and support included'
+    }
+  },
+  
   address: {
     company: 'Z-Beam LLC',
     street: '', // Physical address private - contact for service location
