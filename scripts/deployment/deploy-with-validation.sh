@@ -155,12 +155,10 @@ run_pre_deployment_validations() {
     run_validation "Content integrity" "npm run validate:content" false
     run_validation "Startup validation" "npm run validate:startup" false
     
-    # 8. JSON-LD Schema Validation
-    section "8. JSON-LD SCHEMA VALIDATION"
+    # 8. JSON-LD Schema Validation (Pre-Build)
+    section "8. JSON-LD SCHEMA VALIDATION (PRE-BUILD)"
     run_validation "JSON-LD architecture" "npm run validate:jsonld" true
-    run_validation "JSON-LD rendering" "node scripts/validate-jsonld-rendering.js" true
     run_validation "JSON-LD syntax" "node scripts/validate-jsonld-syntax.js" true
-    run_validation "JSON-LD URLs" "node scripts/validate-jsonld-urls.js" false
     
     # 9. Component Architecture
     section "9. COMPONENT ARCHITECTURE"
@@ -224,9 +222,10 @@ run_pre_deployment_validations() {
         ((VALIDATIONS_FAILED++))
     fi
     
-    # 18. Post-Build URL Validation
+    # 18. Post-Build Validation
     section "18. POST-BUILD VALIDATION"
-    log "Running post-build URL validation..."
+    log "Running post-build validations..."
+    run_validation "JSON-LD rendering" "node scripts/validate-jsonld-static.js" true
     run_validation "URL validation" "npm run validate:urls" true
     
     # 19. Dataset Generation Check
