@@ -83,7 +83,7 @@ export default async function HomePage() {
 
         {/* Material Categories Section */}
         {featuredMaterials.length > 0 && (
-          <SectionContainer title="Material Categories" bgColor="transparent" radius={false} className="mb-12">
+          <SectionContainer title="Material Categories" bgColor="transparent" radius={false} className="mb-8">
             <CardGridSSR
               items={featuredMaterials.map((category: any) => ({
                 slug: category.slug,

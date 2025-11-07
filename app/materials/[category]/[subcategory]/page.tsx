@@ -314,7 +314,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
         fullWidth
       >
         <div className={CONTAINER_STYLES.main}>
-          <SectionContainer title={subcategoryInfo.label} bgColor="transparent" radius={false} className="mb-12">
+          <SectionContainer title={subcategoryInfo.label} bgColor="transparent" radius={false} className="mb-8">
             <CardGridSSR
               slugs={materialSlugs}
               columns={3}
@@ -330,7 +330,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
             bgColor="navbar" 
             horizPadding={true} 
             radius={true}
-            className="mb-12"
+            className="mb-8"
             icon={<FiPackage className="w-6 h-6 text-white" />}
           >
             <SubcategoryDatasetWrapper

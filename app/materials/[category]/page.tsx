@@ -330,7 +330,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               title={subcategory.label}
               bgColor="transparent"
               radius={false}
-              className="mb-12"
+              className="mb-8"
             >
               <CardGridSSR
                 slugs={subcategory.materials.map(m => m.slug)}
@@ -348,7 +348,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             bgColor="navbar" 
             horizPadding={true} 
             radius={true}
-            className="mb-12"
+            className="mb-8"
             icon={<FiPackage className="w-6 h-6 text-white" />}
           >
             <CategoryDatasetCardWrapper 

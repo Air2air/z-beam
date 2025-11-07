@@ -80,7 +80,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       {metadata?.materialProperties && (
         <SectionContainer 
           title={metadata.title ? `${metadata.title} Properties` : 'Material Properties'}
-          className="mb-12"
+          className="mb-8"
         >
           <MetricsGrid 
             metadata={metadata} 
@@ -96,7 +96,7 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       {metadata?.machineSettings && (
         <SectionContainer 
           title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
-          className="mb-12"
+          className="mb-8"
         >
           <MetricsGrid 
             metadata={metadata} 
@@ -142,7 +142,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       <SectionContainer 
         key={type}
         title={component.config.title || 'Machine Settings'}
-        className="mb-12"
+        className="mb-8"
       >
         <MetricsGrid 
           metadata={metricsMetadata} 
@@ -169,7 +169,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       <SectionContainer 
         key={type}
         title={component.config.title || 'Material Properties'}
-        className="mb-12"
+        className="mb-8"
       >
         <MetricsGrid 
           metadata={propertiesMetadata} 
