@@ -27,6 +27,7 @@ export function SectionContainer({
   horizPadding = false,
   radius = false,
   icon,
+  className,
   children,
 }: SectionContainerProps) {
   
@@ -53,6 +54,7 @@ export function SectionContainer({
         ${horizPadding ? 'px-4 md:px-5' : ''}
         ${radius ? 'rounded-lg' : ''}
         ${bgColor !== 'transparent' ? 'py-4 md:py-5' : 'py-4'}
+        ${className || ''}
       `.trim().replace(/\s+/g, ' ')}
       aria-labelledby={`section-${sectionId}`}
     >

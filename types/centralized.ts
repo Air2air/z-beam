@@ -2344,6 +2344,7 @@ export interface SectionContainerProps {
   horizPadding?: boolean;
   radius?: boolean;
   icon?: React.ReactNode;
+  className?: string;
   children: React.ReactNode;
 }
 

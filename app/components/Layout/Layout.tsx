@@ -19,6 +19,7 @@ import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 import { DateMetadata } from '../DateMetadata/DateMetadata';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
@@ -130,14 +131,18 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       machineSettings: component.config.machineSettings || {} 
     };
     return (
-      <MetricsGrid 
+      <SectionContainer 
         key={type}
-        metadata={metricsMetadata} 
-        dataSource="machineSettings" 
-        title={component.config.title} 
-        className={`${component.config.className || ''} mb-16`}
-        searchable 
-      />
+        title={component.config.title || 'Machine Settings'}
+        className="mb-16"
+      >
+        <MetricsGrid 
+          metadata={metricsMetadata} 
+          dataSource="machineSettings" 
+          className={component.config.className || ''}
+          searchable 
+        />
+      </SectionContainer>
     );
   }
 
@@ -152,15 +157,19 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       properties: properties
     };
     return (
-      <MetricsGrid 
+      <SectionContainer 
         key={type}
-        metadata={propertiesMetadata} 
-        dataSource="materialProperties"
-        title={component.config.title} 
-        className={`${component.config.className || ''} mb-16`}
-        searchable
-        defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-      />
+        title={component.config.title || 'Material Properties'}
+        className="mb-16"
+      >
+        <MetricsGrid 
+          metadata={propertiesMetadata} 
+          dataSource="materialProperties"
+          className={component.config.className || ''}
+          searchable
+          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+        />
+      </SectionContainer>
     );
   }
 
