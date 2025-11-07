@@ -212,6 +212,12 @@ export default async function SubcategoryPage({ params }: PageProps) {
             'encodingFormat': 'text/csv',
             'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}-${subcategory}.csv`,
             'description': `CSV format dataset with ${subcategoryInfo.materials.length} materials`
+          },
+          {
+            '@type': 'DataDownload',
+            'encodingFormat': 'text/plain',
+            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}-${subcategory}.txt`,
+            'description': `Plain text format dataset with ${subcategoryInfo.materials.length} materials`
           }
         ],
         'hasPart': subcategoryInfo.materials.map((material) => ({
@@ -286,11 +292,10 @@ export default async function SubcategoryPage({ params }: PageProps) {
   const materialSlugs = subcategoryInfo.materials.map(m => m.slug);
   
   // Prepare metadata for Layout
-  const schemaData = {
+  const metadata = {
     title: `${pageTitle} Laser Cleaning`,
+    subtitle: `${subcategoryInfo.materials.length} materials available for laser cleaning`,
     description: `Laser cleaning solutions for ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials`,
-    category: category,
-    subcategory: subcategory,
     breadcrumb: [
       { label: "Home", href: "/" },
       { label: categoryLabel, href: `/materials/${category}` },
@@ -304,8 +309,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
       <Layout
         title={`${subcategoryInfo.label} ${categoryLabel}`}
         subtitle={`${subcategoryInfo.materials.length} materials available for laser cleaning`}
-        description={`Explore laser cleaning solutions for ${subcategoryInfo.label.toLowerCase()} ${categoryLabel.toLowerCase()} materials`}
-        metadata={schemaData as any}
+        metadata={metadata as any}
         slug={`materials/${category}/${subcategory}`}
         fullWidth
       >

@@ -10,10 +10,12 @@ import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import SubcategoryDatasetCards from '@/app/components/Dataset/SubcategoryDatasetCards';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
 import { FiPackage } from 'react-icons/fi';
+
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 // Static generation for all category pages
 export async function generateStaticParams() {
@@ -186,6 +188,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           'url': 'https://creativecommons.org/licenses/by/4.0/',
           'identifier': 'CC BY 4.0'
         },
+        'inLanguage': 'en-US',
         'keywords': [category, 'laser cleaning', 'material properties', 'machine settings', 'industrial parameters'],
         'temporalCoverage': '2024/..',
         'spatialCoverage': 'Global',
