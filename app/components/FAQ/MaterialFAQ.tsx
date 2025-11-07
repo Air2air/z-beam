@@ -27,6 +27,13 @@ interface FAQItem {
 }
 
 /**
+ * Convert simple Markdown bold syntax (**text**) to HTML
+ */
+function parseSimpleMarkdown(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
+/**
  * Displays material-specific FAQ from frontmatter data
  */
 export function MaterialFAQ({
@@ -43,7 +50,7 @@ export function MaterialFAQ({
       bgColor="transparent"
       radius={false}
     >
-      <div className="space-y-4" role="list">
+      <div className="space-y-2" role="list">
         {faq.map((item, index) => (
           <div key={index} role="listitem">
             <details
@@ -51,9 +58,12 @@ export function MaterialFAQ({
             >
               <summary 
                 className="cursor-pointer px-6 py-4 font-normal text-gray-900 dark:text-gray-100 flex items-center justify-between group-open:border-b group-open:border-gray-200 dark:group-open:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-white dark:hover:bg-gray-800 group-open:bg-white dark:group-open:bg-gray-800 list-none"
-                aria-label={`FAQ: ${item.question}`}
+                aria-label={`FAQ: ${item.question.replace(/\*\*/g, '')}`}
               >
-                <span className="text-sm pr-4 leading-relaxed font-medium">{item.question}</span>
+                <span 
+                  className="text-sm pr-4 leading-relaxed font-light [&_strong]:font-semibold"
+                  dangerouslySetInnerHTML={{ __html: '<strong>Q:</strong> ' + parseSimpleMarkdown(item.question) }}
+                />
                 <svg
                   className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 transition-transform duration-200 group-open:rotate-180"
                   fill="none"
@@ -69,9 +79,10 @@ export function MaterialFAQ({
                   />
                 </svg>
               </summary>
-              <div className="px-6 py-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed bg-white dark:bg-gray-800">
-                {item.answer}
-              </div>
+              <div 
+                className="px-6 py-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold"
+                dangerouslySetInnerHTML={{ __html: '<strong>A:</strong> ' + parseSimpleMarkdown(item.answer) }}
+              />
             </details>
           </div>
         ))}

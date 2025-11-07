@@ -222,27 +222,26 @@ machineSettings:
     min: 10
     max: 90
 faq:
-  questions:
-  - answer: The bright white sparks result from cerium's pyrophoric nature, where fine particles combust instantly with oxygen when heated by your 1064 nm laser. This reaction is hazardous, requiring robust fume extraction and spark containment systems, especially since the ablation threshold is only 1.2 J/cm².
-    question: Why does cerium oxide create bright white sparks during laser cleaning, and is this dangerous?
-  - answer: For cerium's thermal sensitivity, use 1064nm wavelength with fluence below 1.2 J/cm² to prevent melting. Nanosecond pulses around 10ns minimize oxidation risk below 150°C. Begin testing at 50μm spot size with 500mm/s scan speed, verifying surface integrity after each pass.
-    question: What is the safest laser parameter (wavelength, power, pulse width) for cleaning cerium or cerium-coated surfaces without damaging the substrate?
-  - answer: Start with a low fluence pass below 1.2 J/cm² to gently dislodge the bulk residue, then use a subsequent pass at ~5.1 J/cm² to remove the tenacious film. This two-step approach prevents laser-induced hazing by managing thermal input.
-    question: How do you effectively remove cerium oxide slurry/polishing compound residues from optical surfaces with a laser without leaving a hazy film?
-  - answer: Laser cleaning cerium generates highly toxic nanoparticles requiring HEPA/ULPA filtration with spark arrestance, especially given its low 1068K melting point. Operators need fitted respirators, as the 50 µm spot size at 5.1 J/cm² creates respirable cerium oxide fumes.
-    question: What are the specific health risks from the fumes and nanoparticles generated when laser cleaning cerium, and what type of filtration is required?
-  - answer: Given cerium's low ablation threshold of 1.2 J/cm², a fiber laser at 1064 nm can selectively remove the infused coating. Precise control below 5.1 J/cm² fluence is critical to avoid damaging the underlying nickel superalloy substrate.
-    question: Can a fiber laser safely and effectively clean a cerium-infused thermal barrier coating from a turbine blade?
-  - answer: Cerium forms an exceptionally stable CeO₂ layer with an ablation threshold around 1.2 J/cm². This tenacious oxide is highly reflective and resistant to thermal breakdown, requiring higher laser fluence—often over 5 J/cm²—for effective removal compared to other metals.
-    question: Why is cerium sometimes added to alloys or coatings specifically to make them *more difficult* to laser clean?
-  - answer: For cerium-contaminated tools, use a 1064nm laser at 5.1 J/cm² fluence. This effectively ablates the dried slurry while minimizing heat transfer to substrates like aluminum or plastics, preventing surface damage.
-    question: What is the best method for laser cleaning cerium-contaminated tools or components from the glass polishing industry?
-  - answer: Yes, laser cleaning can significantly alter catalytic properties. The 5.1 J/cm² fluence can reduce CeO₂ to Ce₂O₃ and induce surface roughening. These phase and morphological changes directly impact oxygen vacancy concentration, which is critical for the material's catalytic activity.
-    question: Does laser cleaning alter the catalytic properties of a cerium oxide (CeO2) catalyst substrate?
-  - answer: We implement a nitrogen assist gas jet at 45° to actively evacuate the cerium vapor plume, preventing re-deposition. This is critical given cerium's high IR absorption and low 1.2 J/cm² ablation threshold. Optimizing the scan direction away from cleaned zones further minimizes cross-contamination of adjacent surfaces.
-    question: How do you prevent the re-deposition of vaporized cerium onto adjacent clean areas during the laser cleaning process?
-  - answer: For thick cerium oxide scale, dry laser cleaning at 5.1 J/cm² is superior. The direct ablation mechanism efficiently removes the tenacious oxide layer, whereas the plasma confinement in wet methods can be less effective against such significant, hard (270 HV) deposits. This approach ensures complete scale removal with excellent post-process cleanliness.
-    question: Is wet laser cleaning or dry laser cleaning more effective for removing thick layers of cerium oxide scale?
+- question: Why does cerium oxide create **bright white sparks** during laser cleaning, and is this dangerous?
+  answer: '**Pyrophoric nature causes combustion**. The bright white sparks result from cerium''s pyrophoric nature, where fine particles combust instantly with oxygen when heated by your 1064 nm laser. This reaction is hazardous, requiring robust fume extraction and spark containment systems, especially since the ablation threshold is only 1.2 J/cm².'
+- question: What is the safest laser parameter (wavelength, power, pulse width) for cleaning cerium or **cerium-coated surfaces** without damaging the substrate?
+  answer: '**1064nm low fluence nanosecond pulses**. For cerium''s thermal sensitivity, use 1064nm wavelength with fluence below 1.2 J/cm² to prevent melting. Nanosecond pulses around 10ns minimize oxidation risk below 150°C. Begin testing at 50μm spot size with 500mm/s scan speed, verifying surface integrity after each pass.'
+- question: How do you effectively remove **cerium oxide slurry**/polishing compound residues from optical surfaces with a laser without leaving a hazy film?
+  answer: '**Two-step fluence prevents hazing**. Start with a low fluence pass below 1.2 J/cm² to gently dislodge the bulk residue, then use a subsequent pass at ~5.1 J/cm² to remove the tenacious film. This two-step approach prevents laser-induced hazing by managing thermal input.'
+- question: What are the specific health risks from the **fumes and nanoparticles** generated when laser cleaning cerium, and what type of filtration is required?
+  answer: '**Requires HEPA/ULPA filtration respirators**. Laser cleaning cerium generates highly toxic nanoparticles requiring HEPA/ULPA filtration with spark arrestance, especially given its low 1068K melting point. Operators need fitted respirators, as the 50 µm spot size at 5.1 J/cm² creates respirable cerium oxide fumes.'
+- question: Can a fiber laser safely and effectively clean a **cerium-infused thermal barrier coating** from a turbine blade?
+  answer: '**Requires fluence below 5.1 J/cm²**. Given cerium''s low ablation threshold of 1.2 J/cm², a fiber laser at 1064 nm can selectively remove the infused coating. Precise control below 5.1 J/cm² fluence is critical to avoid damaging the underlying nickel superalloy substrate.'
+- question: Why is cerium sometimes added to alloys or coatings specifically to make them *more difficult* to laser clean?
+  answer: Cerium forms an exceptionally stable CeO₂ layer with an ablation threshold around 1.2 J/cm². This tenacious oxide is highly reflective and resistant to thermal breakdown, requiring higher laser fluence—often over 5 J/cm²—for effective removal compared to other metals.
+- question: What is the best method for laser cleaning **cerium-contaminated tools** or components from the glass polishing industry?
+  answer: '**1064nm laser 5.1 J/cm²**. For cerium-contaminated tools, use a 1064nm laser at 5.1 J/cm² fluence. This effectively ablates the dried slurry while minimizing heat transfer to substrates like aluminum or plastics, preventing surface damage.'
+- question: Does laser cleaning alter the **catalytic properties** of a cerium oxide (CeO2) catalyst substrate?
+  answer: '**Alters oxygen vacancy concentration**. Yes, laser cleaning can significantly alter catalytic properties. The 5.1 J/cm² fluence can reduce CeO₂ to Ce₂O₃ and induce surface roughening. These phase and morphological changes directly impact oxygen vacancy concentration, which is critical for the material''s catalytic activity.'
+- question: How do you prevent the **re-deposition of vaporized cerium** onto adjacent clean areas during the laser cleaning process?
+  answer: '**Nitrogen jet evacuates vapor plume**. We implement a nitrogen assist gas jet at 45° to actively evacuate the cerium vapor plume, preventing re-deposition. This is critical given cerium''s high IR absorption and low 1.2 J/cm² ablation threshold. Optimizing the scan direction away from cleaned zones further minimizes cross-contamination of adjacent surfaces.'
+- question: Is wet laser cleaning or dry laser cleaning more effective for removing thick layers of **cerium oxide scale**?
+  answer: '**Dry ablation removes tenacious oxide**. For thick cerium oxide scale, dry laser cleaning at 5.1 J/cm² is superior. The direct ablation mechanism efficiently removes the tenacious oxide layer, whereas the plasma confinement in wet methods can be less effective against such significant, hard (270 HV) deposits. This approach ensures complete scale removal with excellent post-process cleanliness.'
 material_metadata:
   industryTags:
   - Electronics Manufacturing
