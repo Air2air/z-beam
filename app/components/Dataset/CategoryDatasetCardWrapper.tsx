@@ -1,6 +1,7 @@
 // app/components/Dataset/CategoryDatasetCardWrapper.tsx
 'use client';
 
+import { useState, useEffect } from 'react';
 import DatasetSection from './DatasetSection';
 import type { CategoryDatasetCardWrapperProps } from '@/types/centralized';
 
@@ -10,8 +11,85 @@ export default function CategoryDatasetCardWrapper({
   materials,
   subcategoryCount
 }: CategoryDatasetCardWrapperProps) {
+  const [aggregateStats, setAggregateStats] = useState({
+    totalVariables: 0,
+    totalParameters: 0,
+    totalFAQs: 0
+  });
+
+  // Calculate aggregate statistics by sampling a few materials
+  useEffect(() => {
+    const calculateStats = async () => {
+      try {
+        // Sample first 3 materials to estimate averages
+        const sampleSize = Math.min(3, materials.length);
+        const sampleMaterials = materials.slice(0, sampleSize);
+        
+        let totalVars = 0;
+        let totalParams = 0;
+        let totalFAQs = 0;
+        
+        for (const material of sampleMaterials) {
+          try {
+            const fullSlug = material.slug.endsWith('-laser-cleaning') 
+              ? material.slug 
+              : `${material.slug}-laser-cleaning`;
+            const response = await fetch(`/datasets/materials/${fullSlug}.json`);
+            
+            if (response.ok) {
+              const data = await response.json();
+              
+              // Count variables (machine settings)
+              if (data.machineSettings) {
+                totalVars += Object.keys(data.machineSettings).length;
+              }
+              
+              // Count parameters (material properties)
+              if (data.materialProperties) {
+                Object.values(data.materialProperties).forEach((category: any) => {
+                  if (category && typeof category === 'object') {
+                    totalParams += Object.keys(category).length;
+                  }
+                });
+              }
+              
+              // Count FAQs
+              if (data.faq) {
+                totalFAQs += Array.isArray(data.faq) 
+                  ? data.faq.length 
+                  : (data.faq.questions?.length || 0);
+              }
+            }
+          } catch (error) {
+            console.error(`Error fetching ${material.slug}:`, error);
+          }
+        }
+        
+        // Calculate averages and extrapolate to all materials
+        const avgVars = Math.round(totalVars / sampleSize);
+        const avgParams = Math.round(totalParams / sampleSize);
+        const avgFAQs = Math.round(totalFAQs / sampleSize);
+        
+        setAggregateStats({
+          totalVariables: avgVars * materials.length,
+          totalParameters: avgParams * materials.length,
+          totalFAQs: avgFAQs * materials.length
+        });
+      } catch (error) {
+        console.error('Error calculating aggregate stats:', error);
+        // Fallback to estimates if fetch fails
+        setAggregateStats({
+          totalVariables: materials.length * 9,
+          totalParameters: materials.length * 17,
+          totalFAQs: materials.length * 7
+        });
+      }
+    };
+    
+    calculateStats();
+  }, [materials]);
   
-  const handleDownload = async (format: 'json' | 'csv' | 'txt') => {
+  const handleDownload = async (format: 'json' | 'csv' | 'txt') {
     // Fetch full data for all materials in parallel
     const materialDataPromises = materials.map(async (m) => {
       try {
@@ -192,15 +270,15 @@ export default function CategoryDatasetCardWrapper({
       label: 'Subcategories'
     },
     {
-      value: materials.length * 17, // Average 17 variables per material
+      value: aggregateStats.totalVariables,
       label: 'Variables'
     },
     {
-      value: materials.length * 9, // Average 9 parameters per material
+      value: aggregateStats.totalParameters,
       label: 'Parameters'
     },
     {
-      value: materials.length * 7, // Average 7 FAQs per material
+      value: aggregateStats.totalFAQs,
       label: 'FAQs'
     },
     {
