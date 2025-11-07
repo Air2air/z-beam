@@ -114,10 +114,6 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
           faq={Array.isArray(metadata.faq) ? metadata.faq : (metadata.faq as any)?.questions || []}
         />
       )}
-
-      {metadata?.regulatoryStandards && metadata.regulatoryStandards.length > 0 && (
-        <RegulatoryStandards standards={metadata.regulatoryStandards} />
-      )}
     </header>
   );
 };
@@ -134,14 +130,15 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       machineSettings: component.config.machineSettings || {} 
     };
     return (
-      <MetricsGrid 
-        key={type}
-        metadata={metricsMetadata} 
-        dataSource="machineSettings" 
-        title={component.config.title} 
-        className={component.config.className} 
-        searchable 
-      />
+      <div key={type} className="mb-16">
+        <MetricsGrid 
+          metadata={metricsMetadata} 
+          dataSource="machineSettings" 
+          title={component.config.title} 
+          className={component.config.className} 
+          searchable 
+        />
+      </div>
     );
   }
 
@@ -156,15 +153,16 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       properties: properties
     };
     return (
-      <MetricsGrid 
-        key={type}
-        metadata={propertiesMetadata} 
-        dataSource="materialProperties"
-        title={component.config.title} 
-        className={component.config.className} 
-        searchable
-        defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-      />
+      <div key={type} className="mb-16">
+        <MetricsGrid 
+          metadata={propertiesMetadata} 
+          dataSource="materialProperties"
+          title={component.config.title} 
+          className={component.config.className} 
+          searchable
+          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+        />
+      </div>
     );
   }
 
@@ -203,44 +201,23 @@ export function Layout(props: LayoutProps) {
       );
     }
 
-    // Debug logging for metadata structure
-    if (process.env.NODE_ENV === 'development' || (slug && slug.includes('porphyry'))) {
-      console.log('[Layout DEBUG]', {
-        slug,
-        hasMetadata: !!metadata,
-        hasImages: !!(metadata as any)?.images,
-        hasHero: !!(metadata as any)?.images?.hero,
-        hasHeroUrl: !!(metadata as any)?.images?.hero?.url,
-        heroUrl: (metadata as any)?.images?.hero?.url,
-        hasLegacyImage: !!metadata?.image,
-        legacyImage: metadata?.image,
-        metadataKeys: metadata ? Object.keys(metadata).slice(0, 20) : []
-      });
-    }
-
-    // Generate JSON-LD structured data
-    const jsonLdData = metadata?.title && metadata?.description ? 
-      schemas.technicalArticle({
-        headline: metadata.title,
-        description: metadata.description,
-        author: typeof metadata.author === 'string' 
-          ? metadata.author 
-          : metadata.author?.name || SITE_CONFIG.author,
-        datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
-        dateModified: metadata.lastModified,
-        url: `${SITE_CONFIG.url}/${slug}`,
-        image: (metadata as any).images?.hero?.url ? `${SITE_CONFIG.url}${(metadata as any).images.hero.url}` : metadata.image,
-        keywords: metadata.keywords
-      }) : null;
+    // NOTE: Material pages use MaterialJsonLD component which includes Article schema in @graph
+    // No need to generate duplicate Article schema here - MaterialJsonLD handles it
 
     return (
       <main className={containerClass} id="main-content" role="main">
-        {jsonLdData && <JsonLD data={jsonLdData} />}
         <ArticleHeader title={title} metadata={metadata} slug={slug} customHeroOverlay={customHeroOverlay} />
         
         <article role="article" className="space-y-8">
           {ARTICLE_COMPONENT_ORDER.map(type => renderComponent(type, components[type], metadata))}
         </article>
+        
+        {/* Additional sections like RelatedMaterials, RegulatoryStandards, Dataset */}
+        {props.children && (
+          <div className="mt-8 space-y-8">
+            {props.children}
+          </div>
+        )}
       </main>
     );
   }

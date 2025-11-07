@@ -7,6 +7,7 @@ import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
+import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
 import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
 import { SITE_CONFIG } from "@/app/utils/constants";
@@ -135,16 +136,26 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     return (
       <>
         <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
-        <Layout components={components as any} metadata={article.metadata as unknown as ArticleMetadata} slug={`materials/${category}/${subcategory}/${slug}`} />
-        <div className={`${CONTAINER_STYLES.main} mb-16`}>
-          <RelatedMaterials 
-            currentSlug={slug}
-            category={category}
-            subcategory={subcategory}
-            maxItems={6}
-          />
-        </div>
-        <div className={CONTAINER_STYLES.main}>
+        <Layout 
+          components={components as any} 
+          metadata={article.metadata as unknown as ArticleMetadata} 
+          slug={`materials/${category}/${subcategory}/${slug}`}
+        >
+          <div className="mb-16">
+            <RelatedMaterials 
+              currentSlug={slug}
+              category={category}
+              subcategory={subcategory}
+              maxItems={6}
+            />
+          </div>
+          
+          {(article.metadata as any).regulatoryStandards && (article.metadata as any).regulatoryStandards.length > 0 && (
+            <div className="mb-16">
+              <RegulatoryStandards standards={(article.metadata as any).regulatoryStandards} />
+            </div>
+          )}
+          
           <SectionContainer 
             title={`${(article.metadata.title as string) || slug} Dataset Download`} 
             bgColor="navbar" 
@@ -168,7 +179,7 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
               showFullDataset={true}
             />
           </SectionContainer>
-        </div>
+        </Layout>
       </>
     );
   } catch (error) {
