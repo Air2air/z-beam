@@ -466,39 +466,13 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   
   if (!title) return null;
 
-  // Enhanced author with E-E-A-T credentials
-  const authorData = frontmatter.author || { name: '' };
-  const enhancedAuthor = generatePersonObject(authorData, baseUrl);
+  // Check if author exists
+  const authorData = frontmatter.author || data.author;
   
-  // Add E-E-A-T signals to author
-  if (typeof enhancedAuthor === 'object' && enhancedAuthor['@type'] === 'Person') {
-    // Type guard: check if authorData is an object (AuthorInfo)
-    const isAuthorObject = typeof authorData === 'object' && authorData !== null && 'name' in authorData;
-    
-    // Add jobTitle if available
-    if (isAuthorObject && 'title' in authorData && authorData.title) {
-      enhancedAuthor.jobTitle = authorData.title;
-    }
-    
-    // Add affiliation (worksFor)
-    if (!enhancedAuthor.worksFor) {
-      enhancedAuthor.worksFor = {
-        '@type': 'Organization',
-        'name': SITE_CONFIG.name,
-        'url': baseUrl
-      };
-    }
-    
-    // Add expertise areas (knowsAbout)
-    if (isAuthorObject && 'expertise' in authorData && authorData.expertise) {
-      enhancedAuthor.knowsAbout = authorData.expertise;
-    }
-    
-    // Add country/nationality for geographic authority
-    if (isAuthorObject && 'country' in authorData && authorData.country) {
-      enhancedAuthor.nationality = authorData.country;
-    }
-  }
+  // Only include author field if author exists
+  const authorField = authorData && (authorData.name || (typeof authorData === 'string' && authorData))
+    ? { '@id': `${pageUrl}#person-author` }
+    : undefined;
 
   return {
     '@type': 'Article',
@@ -514,7 +488,7 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
       '@type': 'WebPage',
       '@id': pageUrl
     },
-    'author': enhancedAuthor,
+    ...(authorField && { 'author': authorField }),
     'publisher': {
       '@type': 'Organization',
       'name': SITE_CONFIG.name,
@@ -1021,7 +995,14 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
   const author = frontmatter.author || data.author;
   if (!author) return null;
 
-  return generatePersonObject(author, context.baseUrl);
+  const personObj = generatePersonObject(author, context.baseUrl);
+  
+  // Add @id for referencing from Article schema
+  if (personObj) {
+    personObj['@id'] = `${context.pageUrl}#person-author`;
+  }
+  
+  return personObj;
 }
 
 /**
@@ -1250,6 +1231,18 @@ function generatePersonObject(author: any, _baseUrl: string): any {
     // E-E-A-T: Add organizational affiliation (P1 enhancement - supports object structure)
     ...(author.affiliation && {
       'affiliation': typeof author.affiliation === 'string' 
+        ? {
+            '@type': 'Organization',
+            'name': author.affiliation
+          }
+        : {
+            '@type': author.affiliation.type || 'Organization',
+            'name': author.affiliation.name
+          }
+    }),
+    // E-E-A-T: Add worksFor (same as affiliation for Google Rich Results)
+    ...(author.affiliation && {
+      'worksFor': typeof author.affiliation === 'string' 
         ? {
             '@type': 'Organization',
             'name': author.affiliation
