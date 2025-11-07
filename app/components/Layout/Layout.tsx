@@ -78,26 +78,34 @@ const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
       />
 
       {metadata?.materialProperties && (
-        <MetricsGrid 
-          metadata={metadata} 
-          dataSource="materialProperties" 
-          titleFormat="comparison" 
-          layout="auto" 
-          showTitle 
-          searchable
-          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-        />
+        <SectionContainer 
+          title={metadata.title ? `${metadata.title} Properties` : 'Material Properties'}
+          className="mb-8"
+        >
+          <MetricsGrid 
+            metadata={metadata} 
+            dataSource="materialProperties" 
+            layout="auto" 
+            showTitle={false}
+            searchable
+            defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+          />
+        </SectionContainer>
       )}
 
       {metadata?.machineSettings && (
-        <MetricsGrid 
-          metadata={metadata} 
-          dataSource="machineSettings" 
-          titleFormat="comparison"
-          layout="auto" 
-          showTitle 
-          searchable 
-        />
+        <SectionContainer 
+          title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
+          className="mb-8"
+        >
+          <MetricsGrid 
+            metadata={metadata} 
+            dataSource="machineSettings" 
+            layout="auto" 
+            showTitle={false}
+            searchable 
+          />
+        </SectionContainer>
       )}
 
       {metadata?.caption && (
@@ -139,6 +147,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
         <MetricsGrid 
           metadata={metricsMetadata} 
           dataSource="machineSettings" 
+          showTitle={false}
           className={component.config.className || ''}
           searchable 
         />
@@ -165,6 +174,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
         <MetricsGrid 
           metadata={propertiesMetadata} 
           dataSource="materialProperties"
+          showTitle={false}
           className={component.config.className || ''}
           searchable
           defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
