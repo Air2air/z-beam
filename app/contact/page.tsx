@@ -21,6 +21,10 @@ import { Title } from "../components/Title";
 export const metadata = {
   title: 'Contact Z-Beam',
   description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: `${SITE_CONFIG.url}/contact`,
   },

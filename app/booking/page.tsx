@@ -19,6 +19,10 @@ const BookingCalendar = dynamic(() => import('../components/Booking/BookingCalen
 export const metadata = {
   title: 'Book a Consultation - Z-Beam Laser Cleaning',
   description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts. Get personalized advice on laser cleaning solutions for your industrial applications.',
+  robots: {
+    index: false,
+    follow: true,
+  },
   alternates: {
     canonical: `${SITE_CONFIG.url}/booking`,
   },
