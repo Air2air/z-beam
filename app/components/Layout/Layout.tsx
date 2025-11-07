@@ -203,6 +203,21 @@ export function Layout(props: LayoutProps) {
       );
     }
 
+    // Debug logging for metadata structure
+    if (process.env.NODE_ENV === 'development' || (slug && slug.includes('porphyry'))) {
+      console.log('[Layout DEBUG]', {
+        slug,
+        hasMetadata: !!metadata,
+        hasImages: !!(metadata as any)?.images,
+        hasHero: !!(metadata as any)?.images?.hero,
+        hasHeroUrl: !!(metadata as any)?.images?.hero?.url,
+        heroUrl: (metadata as any)?.images?.hero?.url,
+        hasLegacyImage: !!metadata?.image,
+        legacyImage: metadata?.image,
+        metadataKeys: metadata ? Object.keys(metadata).slice(0, 20) : []
+      });
+    }
+
     // Generate JSON-LD structured data
     const jsonLdData = metadata?.title && metadata?.description ? 
       schemas.technicalArticle({
