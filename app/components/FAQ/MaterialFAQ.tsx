@@ -11,6 +11,8 @@
 "use client";
 
 import { SectionContainer } from "../SectionContainer/SectionContainer";
+import { trackFAQClick } from "@/app/utils/analytics";
+import { useRef } from "react";
 
 export interface MaterialFAQProps {
   materialName: string;
@@ -44,6 +46,19 @@ export function MaterialFAQ({
   // Use FAQ data from frontmatter
   if (!faq || faq.length === 0) return null;
 
+  // Track FAQ clicks
+  const handleFAQClick = (question: string, index: number, detailsElement: HTMLDetailsElement) => {
+    // Check if FAQ is being expanded or collapsed
+    const isExpanding = !detailsElement.open;
+    
+    trackFAQClick({
+      materialName,
+      question: question.replace(/\*\*/g, ''), // Remove markdown formatting
+      questionIndex: index,
+      isExpanding,
+    });
+  };
+
   return (
     <SectionContainer 
       title={`${materialName} Laser Cleaning FAQs`}
@@ -59,6 +74,10 @@ export function MaterialFAQ({
               <summary 
                 className="cursor-pointer px-6 py-4 font-normal text-gray-900 dark:text-gray-100 flex items-center justify-between group-open:border-b group-open:border-gray-200 dark:group-open:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-white dark:hover:bg-gray-800 group-open:bg-white dark:group-open:bg-gray-800 list-none"
                 aria-label={`FAQ: ${item.question.replace(/\*\*/g, '')}`}
+                onClick={(e) => {
+                  const detailsElement = e.currentTarget.parentElement as HTMLDetailsElement;
+                  handleFAQClick(item.question, index, detailsElement);
+                }}
               >
                 <span 
                   className="text-base pr-4 leading-relaxed font-light [&_strong]:font-semibold"

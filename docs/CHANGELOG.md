@@ -4,6 +4,41 @@ All notable changes to the Z-Beam documentation will be recorded in this file.
 
 ---
 
+## [2.3.1] - 2025-11-07 - FAQ Interaction Tracking
+
+### 🎯 Updates
+
+**FAQ Analytics**: Added event tracking for FAQ interactions to measure content engagement.
+
+### ✨ New Features
+
+**Analytics Utility** (`app/utils/analytics.ts`):
+- `trackFAQClick()` - Tracks FAQ expand/collapse interactions
+- Captures question text, position, and action (expand/collapse)
+- Enables analysis of most engaging questions and material-specific FAQ performance
+
+**MaterialFAQ Component** (`app/components/FAQ/MaterialFAQ.tsx`):
+- Added click handler to track FAQ expansions and collapses
+- Strips markdown formatting from question text before tracking
+- Minimal performance impact - single function call per interaction
+
+**Event Parameters**:
+- `material_name`: Material context for FAQ
+- `question`: Full question text without markdown
+- `question_index`: Position in FAQ list (0-based)
+- `action`: "expand" or "collapse"
+- `value`: 1 for expand, 0 for collapse (engagement metric)
+
+### 📊 Analytics Insights
+
+New reporting capabilities:
+- Most frequently expanded FAQ questions
+- Materials with highest FAQ engagement
+- Questions that may need improvement (low expansion rate)
+- User journey analysis (FAQ interaction → downloads)
+
+---
+
 ## [2.3.0] - 2025-11-07 - Google Analytics 4 Event Tracking
 
 ### 🎯 Major Changes

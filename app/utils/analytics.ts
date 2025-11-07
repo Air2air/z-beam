@@ -61,3 +61,30 @@ export const trackDatasetDownload = ({
     value: 1, // For conversion tracking
   });
 };
+
+/**
+ * Track FAQ interactions
+ */
+export interface FAQClickParams {
+  materialName: string;
+  question: string;
+  questionIndex: number;
+  isExpanding: boolean;
+}
+
+export const trackFAQClick = ({
+  materialName,
+  question,
+  questionIndex,
+  isExpanding,
+}: FAQClickParams) => {
+  trackEvent('faq_interaction', {
+    event_category: 'FAQ',
+    event_label: materialName,
+    material_name: materialName,
+    question,
+    question_index: questionIndex,
+    action: isExpanding ? 'expand' : 'collapse',
+    value: isExpanding ? 1 : 0, // Track expansions for engagement
+  });
+};

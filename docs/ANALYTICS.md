@@ -22,6 +22,14 @@ trackDatasetDownload({
   materialName?: string,
   fileSize?: number
 })
+
+// FAQ interaction tracking
+trackFAQClick({
+  materialName: string,
+  question: string,
+  questionIndex: number,
+  isExpanding: boolean
+})
 ```
 
 ### Integration Points
@@ -44,12 +52,17 @@ All dataset download components track downloads automatically:
    - Tracks downloads of the entire materials database
    - Includes bundle downloads by category
 
+5. **FAQ interactions** (`MaterialFAQ.tsx`)
+   - Tracks when users expand/collapse FAQ items
+   - Captures question text and position for engagement analysis
+
 ## Event Structure
 
-### Event Name
-`dataset_download`
+### Dataset Download Event
 
-### Event Parameters
+**Event Name:** `dataset_download`
+
+**Event Parameters:**
 
 | Parameter | Type | Description | Example |
 |-----------|------|-------------|---------|
@@ -61,6 +74,22 @@ All dataset download components track downloads automatically:
 | `material_name` | string | Specific material name | `"Porphyry"`, `"Complete Database"` |
 | `file_size` | number | File size in bytes | `45821` |
 | `value` | number | Always 1 for conversion tracking | `1` |
+
+### FAQ Interaction Event
+
+**Event Name:** `faq_interaction`
+
+**Event Parameters:**
+
+| Parameter | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `event_category` | string | Always "FAQ" | `"FAQ"` |
+| `event_label` | string | Material name | `"Porphyry"` |
+| `material_name` | string | Material name | `"Porphyry"` |
+| `question` | string | FAQ question text (no markdown) | `"What laser wavelength works best?"` |
+| `question_index` | number | Position in FAQ list (0-based) | `0`, `1`, `2` |
+| `action` | string | User action | `"expand"`, `"collapse"` |
+| `value` | number | 1 for expand, 0 for collapse | `1`, `0` |
 
 ## GA4 Configuration
 
@@ -96,6 +125,12 @@ To track downloads as conversions:
 2. Find `dataset_download` event (appears after first event received)
 3. Toggle **Mark as conversion**
 
+To track FAQ engagement as conversions:
+
+1. Go to **Admin → Events**
+2. Find `faq_interaction` event
+3. Toggle **Mark as conversion** (optional - useful for measuring content effectiveness)
+
 ## Reporting
 
 ### Real-time Monitoring
@@ -111,6 +146,9 @@ Create explorations to analyze:
 - **Material popularity**: Most downloaded materials and categories
 - **Download patterns**: Time-based trends and user behavior
 - **File size distribution**: Understanding data usage patterns
+- **FAQ engagement**: Which questions users expand most frequently
+- **Content effectiveness**: Materials with high FAQ interaction rates
+- **User journey**: FAQ expansions that lead to downloads
 
 ### Example Queries
 
@@ -136,6 +174,23 @@ Secondary dimension: format
 Metric: Event count, Total file size
 ```
 
+**Most Engaged FAQs:**
+```
+Event name: faq_interaction
+Filter: action = "expand"
+Dimension: question
+Secondary dimension: material_name
+Metric: Event count
+```
+
+**FAQ Engagement by Material:**
+```
+Event name: faq_interaction
+Dimension: material_name
+Metric: Event count, Unique users
+Sort by: Event count descending
+```
+
 ## Development Mode
 
 When `NODE_ENV=development`, events are logged to browser console instead of GA4:
@@ -146,6 +201,13 @@ When `NODE_ENV=development`, events are logged to browser console instead of GA4
   category: "stone",
   material_name: "Porphyry",
   file_size: 45821
+}
+
+[Analytics] faq_interaction {
+  material_name: "Porphyry",
+  question: "What laser wavelength works best?",
+  question_index: 0,
+  action: "expand"
 }
 ```
 
