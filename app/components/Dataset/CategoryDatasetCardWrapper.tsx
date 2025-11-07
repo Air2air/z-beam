@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import DatasetSection from './DatasetSection';
 import type { CategoryDatasetCardWrapperProps } from '@/types/centralized';
 import { calculateAggregateStats, loadMaterialDatasets } from '@/app/utils/datasetAggregator';
+import { trackDatasetDownload } from '@/app/utils/analytics';
 
 export default function CategoryDatasetCardWrapper({
   category,
@@ -177,6 +178,15 @@ export default function CategoryDatasetCardWrapper({
 
     // Trigger download
     const blob = new Blob([content], { type: mimeType });
+    
+    // Track download event
+    trackDatasetDownload({
+      format,
+      category,
+      materialName: undefined,
+      fileSize: blob.size
+    });
+    
     const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = blobUrl;

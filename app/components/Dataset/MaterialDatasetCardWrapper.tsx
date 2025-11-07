@@ -3,6 +3,7 @@
 
 import DatasetSection from './DatasetSection';
 import type { MaterialDatasetCardWrapperProps, MaterialDatasetData } from '@/types/centralized';
+import { trackDatasetDownload } from '@/app/utils/analytics';
 
 export default function MaterialDatasetCardWrapper({
   material,
@@ -82,6 +83,15 @@ export default function MaterialDatasetCardWrapper({
         const filePath = `/datasets/materials/${fileName}`;
         
         console.log('Download Debug:', { slug, baseSlug, fileName, filePath });
+        
+        // Track download event
+        trackDatasetDownload({
+          format,
+          category,
+          subcategory,
+          materialName: name,
+          fileSize: undefined // File size not available for direct links
+        });
         
         const link = document.createElement('a');
         link.href = filePath;

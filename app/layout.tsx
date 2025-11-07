@@ -17,6 +17,11 @@ const Analytics = dynamic(() => import("@vercel/analytics/react").then(mod => ({
   loading: () => null,
 });
 
+const GoogleAnalytics = dynamic(() => import("@next/third-parties/google").then(mod => ({ default: mod.GoogleAnalytics })), {
+  ssr: false,
+  loading: () => null,
+});
+
 const Footer = dynamic(() => import("./components/Navigation/footer").then(mod => ({ default: mod.default })), {
   ssr: false,
   loading: () => null,
@@ -155,20 +160,6 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TZF55CB5XC"></script>
-        <script
-          id="google-analytics"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-TZF55CB5XC');
-            `,
-          }}
-        />
-        
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/images/favicon/favicon-350.png" type="image/png" />
         <link rel="manifest" href="/manifest.json" />
@@ -202,6 +193,7 @@ export default async function RootLayout({
           <ConditionalCTA />
           <Footer />
         </ErrorBoundary>
+        <GoogleAnalytics gaId="G-TZF55CB5XC" />
         <SpeedInsights />
         <Analytics />
       </body>

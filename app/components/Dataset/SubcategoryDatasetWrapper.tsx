@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import DatasetSection from './DatasetSection';
+import { trackDatasetDownload } from '@/app/utils/analytics';
 
 interface Material {
   name: string;
@@ -96,6 +97,16 @@ export default function SubcategoryDatasetWrapper({
 
     // Trigger download
     const blob = new Blob([content], { type: mimeType });
+    
+    // Track download event
+    trackDatasetDownload({
+      format,
+      category,
+      subcategory,
+      materialName: undefined,
+      fileSize: blob.size
+    });
+    
     const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = blobUrl;

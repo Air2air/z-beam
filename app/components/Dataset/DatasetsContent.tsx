@@ -7,6 +7,7 @@ import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowser
 import DatasetSection from '@/app/components/Dataset/DatasetSection';
 import CategoryBundles from '@/app/components/Dataset/CategoryBundles';
 import { FiPackage } from 'react-icons/fi';
+import { trackDatasetDownload } from '@/app/utils/analytics';
 
 interface DatasetsContentProps {
   materials: any[];
@@ -217,6 +218,16 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
 
       // Create and trigger download
       const blob = new Blob([content], { type: mimeType });
+      
+      // Track download event
+      trackDatasetDownload({
+        format,
+        category: type === 'all' ? 'complete-database' : type,
+        subcategory: undefined,
+        materialName: type === 'all' ? 'Complete Database' : `${formatCategoryName(type)} Bundle`,
+        fileSize: blob.size
+      });
+      
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
