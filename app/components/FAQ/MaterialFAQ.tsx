@@ -61,7 +61,7 @@ export function MaterialFAQ({
                 aria-label={`FAQ: ${item.question.replace(/\*\*/g, '')}`}
               >
                 <span 
-                  className="text-sm pr-4 leading-relaxed font-light [&_strong]:font-semibold"
+                  className="text-base pr-4 leading-relaxed font-light [&_strong]:font-semibold"
                   dangerouslySetInnerHTML={{ __html: '<strong>Q:</strong> ' + parseSimpleMarkdown(item.question) }}
                 />
                 <svg
@@ -80,7 +80,7 @@ export function MaterialFAQ({
                 </svg>
               </summary>
               <div 
-                className="px-6 py-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold"
+                className="px-6 py-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold"
                 dangerouslySetInnerHTML={{ __html: '<strong>A:</strong> ' + parseSimpleMarkdown(item.answer) }}
               />
             </details>
