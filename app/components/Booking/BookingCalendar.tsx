@@ -7,10 +7,10 @@ import { trackEvent } from '@/app/utils/analytics';
 export function BookingCalendar() {
   const [isLoading, setIsLoading] = useState(true);
   
-  // Replace with your actual Google Calendar Appointment Scheduling URL
-  // Get this from: https://calendar.google.com/calendar/appointments
-  const BOOKING_URL = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_BOOKING_URL || 
-    'https://calendar.google.com/calendar/appointments/schedules/REPLACE_WITH_YOUR_SCHEDULE_ID';
+  // Calendly booking URL - configure in environment variables
+  // Get this from: https://calendly.com/event_types/user/me
+  const BOOKING_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || 
+    'https://calendly.com/z-beam-info/30min';
 
   useEffect(() => {
     // Track when users view the booking calendar
