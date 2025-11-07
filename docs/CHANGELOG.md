@@ -4,6 +4,58 @@ All notable changes to the Z-Beam documentation will be recorded in this file.
 
 ---
 
+## [2.3.0] - 2025-11-07 - Google Analytics 4 Event Tracking
+
+### 🎯 Major Changes
+
+**Analytics Implementation**: Added comprehensive GA4 custom event tracking for dataset downloads across all download interfaces.
+
+### ✨ New Features
+
+**Analytics Utility** (`app/utils/analytics.ts`):
+- `trackEvent()` - Generic GA4 event tracking function with window.gtag integration
+- `trackDatasetDownload()` - Specialized dataset download tracking with rich parameters
+- Automatic fallback to console.log in development for debugging
+- TypeScript interfaces for type-safe event parameters
+
+**Event Parameters Tracked**:
+- `format`: Download format (json/csv/txt)
+- `category`: Material category
+- `subcategory`: Material subcategory
+- `material_name`: Specific material or bundle name
+- `file_size`: Generated file size in bytes
+- `event_category`: "Dataset" for filtering
+- `event_label`: Material/category name for reporting
+- `value`: 1 for conversion tracking
+
+### 🔧 Component Updates
+
+**Dataset Download Components**:
+- `CategoryDatasetCardWrapper.tsx`: Added tracking for category-level aggregate downloads
+- `SubcategoryDatasetWrapper.tsx`: Added tracking for subcategory-level downloads
+- `MaterialDatasetCardWrapper.tsx`: Added tracking for individual material downloads
+- `DatasetsContent.tsx`: Added tracking for complete database and category bundle downloads
+
+**Root Layout** (`app/layout.tsx`):
+- Installed `@next/third-parties` package for official GA4 integration
+- Replaced manual GA4 script tags with `GoogleAnalytics` component
+- Component dynamically loaded to avoid impacting Core Web Vitals
+- Maintains existing GA ID: G-TZF55CB5XC
+
+### 📊 Analytics Configuration
+
+**GA4 Setup**:
+- Events automatically logged to GA4 property
+- Custom parameters auto-discovered within 24-48 hours
+- Optional custom dimensions can be created in GA4 Admin for advanced reporting
+- Conversion tracking ready (mark `dataset_download` as conversion in GA4)
+
+**Development Mode**:
+- Events logged to browser console when `NODE_ENV=development`
+- Prevents pollution of production analytics during local testing
+
+---
+
 ## [2.2.0] - 2025-11-04 - Frontmatter Structure & Layout Standardization
 
 ### 🎯 Major Changes
