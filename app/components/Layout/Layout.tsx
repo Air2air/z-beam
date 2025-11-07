@@ -130,15 +130,14 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       machineSettings: component.config.machineSettings || {} 
     };
     return (
-      <div key={type} className="mb-16">
-        <MetricsGrid 
-          metadata={metricsMetadata} 
-          dataSource="machineSettings" 
-          title={component.config.title} 
-          className={component.config.className} 
-          searchable 
-        />
-      </div>
+      <MetricsGrid 
+        key={type}
+        metadata={metricsMetadata} 
+        dataSource="machineSettings" 
+        title={component.config.title} 
+        className={`${component.config.className || ''} mb-16`}
+        searchable 
+      />
     );
   }
 
@@ -153,16 +152,15 @@ const renderComponent = (type: string, component: any, metadata: any) => {
       properties: properties
     };
     return (
-      <div key={type} className="mb-16">
-        <MetricsGrid 
-          metadata={propertiesMetadata} 
-          dataSource="materialProperties"
-          title={component.config.title} 
-          className={component.config.className} 
-          searchable
-          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-        />
-      </div>
+      <MetricsGrid 
+        key={type}
+        metadata={propertiesMetadata} 
+        dataSource="materialProperties"
+        title={component.config.title} 
+        className={`${component.config.className || ''} mb-16`}
+        searchable
+        defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+      />
     );
   }
 
