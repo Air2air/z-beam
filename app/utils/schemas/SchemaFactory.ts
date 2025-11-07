@@ -576,9 +576,12 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
     });
   });
 
-  // Material products
+  // Material products - disabled to avoid invalid Product schema
+  // Material pages should use Article/TechnicalArticle schema instead of Product
+  // since they are informational content, not products for sale
   const meta = getMetadata(data);
-  if (meta.materialProperties) {
+  if (meta.materialProperties && false) { // Disabled: causes invalid Product schema
+    const mainImage = getMainImage(data);
     products.push({
       '@type': 'Product',
       '@id': `${pageUrl}#material-product`,
@@ -588,7 +591,18 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
       'brand': {
         '@type': 'Brand',
         'name': SITE_CONFIG.name
-      }
+      },
+      'offers': {
+        '@type': 'Offer',
+        'availability': 'https://schema.org/InStock',
+        'priceCurrency': 'USD',
+        'seller': {
+          '@type': 'Organization',
+          'name': SITE_CONFIG.name,
+          'url': baseUrl
+        }
+      },
+      ...(mainImage && { 'image': mainImage })
     });
   }
 
