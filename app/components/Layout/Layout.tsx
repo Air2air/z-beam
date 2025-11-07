@@ -214,7 +214,7 @@ export function Layout(props: LayoutProps) {
         datePublished: metadata.datePublished || new Date().toISOString().split('T')[0],
         dateModified: metadata.lastModified,
         url: `${SITE_CONFIG.url}/${slug}`,
-        image: metadata.image,
+        image: (metadata as any).images?.hero?.url ? `${SITE_CONFIG.url}${(metadata as any).images.hero.url}` : metadata.image,
         keywords: metadata.keywords
       }) : null;
 
