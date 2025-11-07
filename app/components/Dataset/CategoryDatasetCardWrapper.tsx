@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import DatasetSection from './DatasetSection';
 import type { CategoryDatasetCardWrapperProps } from '@/types/centralized';
+import { calculateAggregateStats, loadMaterialDatasets } from '@/app/utils/datasetAggregator';
 
 export default function CategoryDatasetCardWrapper({
   category,
@@ -17,95 +18,21 @@ export default function CategoryDatasetCardWrapper({
     totalFAQs: 0
   });
 
-  // Calculate aggregate statistics by sampling a few materials
+  // Calculate aggregate statistics using utility
   useEffect(() => {
-    const calculateStats = async () => {
-      try {
-        // Sample first 3 materials to estimate averages
-        const sampleSize = Math.min(3, materials.length);
-        const sampleMaterials = materials.slice(0, sampleSize);
-        
-        let totalVars = 0;
-        let totalParams = 0;
-        let totalFAQs = 0;
-        
-        for (const material of sampleMaterials) {
-          try {
-            const fullSlug = material.slug.endsWith('-laser-cleaning') 
-              ? material.slug 
-              : `${material.slug}-laser-cleaning`;
-            const response = await fetch(`/datasets/materials/${fullSlug}.json`);
-            
-            if (response.ok) {
-              const data = await response.json();
-              
-              // Count variables (machine settings)
-              if (data.machineSettings) {
-                totalVars += Object.keys(data.machineSettings).length;
-              }
-              
-              // Count parameters (material properties)
-              if (data.materialProperties) {
-                Object.values(data.materialProperties).forEach((category: any) => {
-                  if (category && typeof category === 'object') {
-                    totalParams += Object.keys(category).length;
-                  }
-                });
-              }
-              
-              // Count FAQs
-              if (data.faq) {
-                totalFAQs += Array.isArray(data.faq) 
-                  ? data.faq.length 
-                  : (data.faq.questions?.length || 0);
-              }
-            }
-          } catch (error) {
-            console.error(`Error fetching ${material.slug}:`, error);
-          }
-        }
-        
-        // Calculate averages and extrapolate to all materials
-        const avgVars = Math.round(totalVars / sampleSize);
-        const avgParams = Math.round(totalParams / sampleSize);
-        const avgFAQs = Math.round(totalFAQs / sampleSize);
-        
-        setAggregateStats({
-          totalVariables: avgVars * materials.length,
-          totalParameters: avgParams * materials.length,
-          totalFAQs: avgFAQs * materials.length
-        });
-      } catch (error) {
-        console.error('Error calculating aggregate stats:', error);
-        // Fallback to estimates if fetch fails
-        setAggregateStats({
-          totalVariables: materials.length * 9,
-          totalParameters: materials.length * 17,
-          totalFAQs: materials.length * 7
-        });
-      }
+    const loadStats = async () => {
+      const materialSlugs = materials.map(m => m.slug);
+      const stats = await calculateAggregateStats(materialSlugs, 3);
+      setAggregateStats(stats);
     };
     
-    calculateStats();
+    loadStats();
   }, [materials]);
   
-  const handleDownload = async (format: 'json' | 'csv' | 'txt') {
-    // Fetch full data for all materials in parallel
-    const materialDataPromises = materials.map(async (m) => {
-      try {
-        // Ensure slug has -laser-cleaning suffix
-        const fullSlug = m.slug.endsWith('-laser-cleaning') ? m.slug : `${m.slug}-laser-cleaning`;
-        const response = await fetch(`/datasets/materials/${fullSlug}.json`);
-        if (!response.ok) throw new Error(`Failed to fetch ${fullSlug}`);
-        return await response.json();
-      } catch (error) {
-        console.error(`Error fetching data for ${m.name}:`, error);
-        return null;
-      }
-    });
-
-    const materialsData = await Promise.all(materialDataPromises);
-    const validMaterialsData = materialsData.filter(d => d !== null);
+  const handleDownload = async (format: 'json' | 'csv' | 'txt') => {
+    // Use utility to fetch all material datasets
+    const materialSlugs = materials.map(m => m.slug);
+    const validMaterialsData = await loadMaterialDatasets(materialSlugs);
 
     // Generate aggregated dataset on the fly
     let content = '';
