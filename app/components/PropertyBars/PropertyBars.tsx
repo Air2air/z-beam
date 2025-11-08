@@ -12,7 +12,14 @@ interface PropertyData {
 }
 
 interface PropertyBarsProps {
-  properties: PropertyData[];
+  // Direct properties array
+  properties?: PropertyData[];
+  
+  // OR use metadata with dataSource (MetricsGrid-compatible API)
+  metadata?: any;
+  dataSource?: 'materialProperties' | 'machineSettings';
+  
+  // Display options
   columns?: {
     mobile?: number;
     tablet?: number;
@@ -20,25 +27,47 @@ interface PropertyBarsProps {
   };
   height?: number;
   className?: string;
+  showTitle?: boolean; // For compatibility, not used
+  searchable?: boolean; // For compatibility, not used
 }
 
 /**
- * PropertyBars - Compact three-bar visualization for material properties
+ * PropertyBars - Compact three-bar visualization for properties
  * 
- * Displays properties with min/value/max bars for quick visual comparison.
- * Replaces traditional MetricsCard grid with more compact, data-dense display.
+ * Can be used as a drop-in replacement for MetricsGrid with same API:
+ *   <PropertyBars metadata={metadata} dataSource="materialProperties" />
+ *   <PropertyBars metadata={metadata} dataSource="machineSettings" />
+ * 
+ * Or with direct properties array:
+ *   <PropertyBars properties={extractPropertiesFromMetadata(metadata)} />
  * 
  * @param properties - Array of properties with value, min, max, optional unit
+ * @param metadata - Material/machine metadata (alternative to properties)
+ * @param dataSource - Which properties to extract from metadata
  * @param columns - Responsive column counts (default: 3/4/6)
  * @param height - Bar height in pixels (default: 70px)
  * @param className - Additional CSS classes
  */
 export function PropertyBars({ 
-  properties, 
+  properties: propsProperties,
+  metadata,
+  dataSource = 'materialProperties',
   columns = { mobile: 3, tablet: 4, desktop: 6 },
   height = 70,
   className = ''
 }: PropertyBarsProps) {
+  
+  // Extract properties from metadata if not provided directly
+  const properties = propsProperties || 
+    (metadata ? extractPropertiesFromMetadata(metadata, dataSource) : []);
+  
+  if (!properties || properties.length === 0) {
+    return (
+      <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <p>No properties available</p>
+      </div>
+    );
+  }
   
   const gridClasses = `grid-cols-${columns.mobile} md:grid-cols-${columns.tablet} lg:grid-cols-${columns.desktop}`;
   
@@ -122,22 +151,32 @@ export function PropertyBars({
 
 /**
  * Helper function to extract properties from metadata
- * Converts metadata.properties object to PropertyData array
+ * Supports both materialProperties and machineSettings data sources
  */
 export function extractPropertiesFromMetadata(
   metadata: any,
+  dataSource: 'materialProperties' | 'machineSettings' = 'materialProperties',
   selectedProperties?: string[]
 ): PropertyData[] {
-  const properties = metadata.properties || metadata.materialProperties || {};
-  const propertyKeys = selectedProperties || Object.keys(properties);
+  let sourceData: Record<string, any> = {};
+  
+  // Extract based on data source
+  if (dataSource === 'machineSettings') {
+    sourceData = metadata.machineSettings || metadata.settings || {};
+  } else {
+    // materialProperties - support both flat and categorized structures
+    sourceData = metadata.properties || metadata.materialProperties || {};
+  }
+  
+  const propertyKeys = selectedProperties || Object.keys(sourceData);
   
   return propertyKeys
     .filter((key) => {
-      const prop = properties[key];
+      const prop = sourceData[key];
       return prop && typeof prop.value === 'number';
     })
     .map((key) => {
-      const prop = properties[key];
+      const prop = sourceData[key];
       
       return {
         name: formatPropertyName(key),
@@ -145,7 +184,7 @@ export function extractPropertiesFromMetadata(
         min: prop.min || 0,
         max: prop.max || prop.value * 2,
         unit: prop.unit === 'dimensionless' ? undefined : prop.unit,
-        color: getColorForProperty(key)
+        color: getColorForProperty(key, dataSource)
       } as PropertyData;
     });
 }
@@ -158,18 +197,40 @@ function formatPropertyName(key: string): string {
     .join(' ');
 }
 
-// Assign colors based on property type
-function getColorForProperty(key: string): string {
+// Assign colors based on property type and data source
+function getColorForProperty(key: string, dataSource: 'materialProperties' | 'machineSettings' = 'materialProperties'): string {
+  // Machine settings get gold/amber colors
+  if (dataSource === 'machineSettings') {
+    const machineColorMap: Record<string, string> = {
+      powerRange: 'from-amber-500 to-yellow-500',
+      wavelength: 'from-yellow-500 to-orange-500',
+      spotSize: 'from-orange-500 to-amber-500',
+      repetitionRate: 'from-amber-600 to-yellow-600',
+      pulseWidth: 'from-yellow-600 to-amber-600',
+      scanSpeed: 'from-orange-600 to-yellow-600',
+      fluence: 'from-amber-500 to-orange-500',
+      overlapRatio: 'from-yellow-500 to-amber-500',
+      passCount: 'from-orange-500 to-yellow-500',
+    };
+    return machineColorMap[key] || 'from-amber-500 to-yellow-500';
+  }
+  
+  // Material properties get varied colors
   const colorMap: Record<string, string> = {
     density: 'from-purple-500 to-pink-500',
     hardness: 'from-blue-500 to-cyan-500',
     thermal_conductivity: 'from-orange-500 to-red-500',
+    thermalConductivity: 'from-orange-500 to-red-500',
     laser_absorption: 'from-green-500 to-emerald-500',
+    laserAbsorption: 'from-green-500 to-emerald-500',
     specific_heat: 'from-indigo-500 to-purple-500',
+    specificHeat: 'from-indigo-500 to-purple-500',
     laser_damage_threshold: 'from-yellow-500 to-orange-500',
+    laserDamageThreshold: 'from-yellow-500 to-orange-500',
     porosity: 'from-pink-500 to-rose-500',
     reflectivity: 'from-cyan-500 to-blue-500',
     thermal_expansion: 'from-red-500 to-orange-500',
+    thermalExpansion: 'from-red-500 to-orange-500',
   };
   
   return colorMap[key] || 'from-gray-500 to-gray-600';

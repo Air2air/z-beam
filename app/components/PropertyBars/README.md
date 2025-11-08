@@ -13,11 +13,35 @@ Compact three-bar visualization for material properties that replaces the tradit
 
 ## Basic Usage
 
+### Drop-in Replacement for MetricsGrid
+
+PropertyBars supports the exact same API as MetricsGrid:
+
+```tsx
+import { PropertyBars } from '@/app/components/PropertyBars/PropertyBars';
+
+// Material Properties (same as MetricsGrid)
+<PropertyBars 
+  metadata={metadata} 
+  dataSource="materialProperties" 
+/>
+
+// Machine Settings (same as MetricsGrid)
+<PropertyBars 
+  metadata={metadata} 
+  dataSource="machineSettings" 
+/>
+```
+
+### Direct Properties Array
+
+For more control, extract and pass properties directly:
+
 ```tsx
 import { PropertyBars, extractPropertiesFromMetadata } from '@/app/components/PropertyBars/PropertyBars';
 
 // Extract from metadata
-const properties = extractPropertiesFromMetadata(metadata);
+const properties = extractPropertiesFromMetadata(metadata, 'materialProperties');
 
 // Display
 <PropertyBars properties={properties} />
