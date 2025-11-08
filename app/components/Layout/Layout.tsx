@@ -20,6 +20,7 @@ import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 import { DateMetadata } from '../DateMetadata/DateMetadata';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { SafetyWarning } from '../SafetyWarning';
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
@@ -235,6 +236,9 @@ export function Layout(props: LayoutProps) {
             {props.children}
           </div>
         )}
+        
+        {/* Safety Warning - appears at bottom of all pages */}
+        <SafetyWarning className="mt-12" />
       </main>
     );
   }
@@ -279,6 +283,9 @@ export function Layout(props: LayoutProps) {
       <div className={fullWidth ? "space-y-0" : "space-y-6"}>
         {props.children}
       </div>
+      
+      {/* Safety Warning - appears at bottom of all pages */}
+      <SafetyWarning className="mt-12" />
     </main>
   );
 }
