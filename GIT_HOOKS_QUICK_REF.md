@@ -74,11 +74,14 @@ git push --no-verify
 **Run:**
 ```bash
 ./scripts/deployment/deploy-with-validation.sh
+
+# With auto-confirmation (no prompts)
+./scripts/deployment/deploy-with-validation.sh -y
 ```
 
 **Skip (document reason):**
 ```bash
-./scripts/deployment/deploy-with-validation.sh --skip-validation
+./scripts/deployment/deploy-with-validation.sh --skip-validation -y
 ```
 
 ---

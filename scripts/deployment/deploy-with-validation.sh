@@ -309,12 +309,17 @@ deploy_with_monitoring() {
 main() {
     local skip_validation=false
     local with_monitoring=false
+    local auto_confirm=false
     
     # Parse arguments
     while [[ $# -gt 0 ]]; do
         case $1 in
             --skip-validation)
                 skip_validation=true
+                shift
+                ;;
+            --auto-confirm|-y|--yes)
+                auto_confirm=true
                 shift
                 ;;
             --monitor)
@@ -357,14 +362,19 @@ main() {
     # Ask for confirmation before deploying
     echo ""
     section "DEPLOYMENT CONFIRMATION"
-    echo -e "${YELLOW}You are about to deploy to PRODUCTION.${NC}"
-    echo ""
-    read -p "Do you want to proceed? (yes/no): " -r
-    echo ""
     
-    if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
-        warning "Deployment cancelled by user"
-        exit 0
+    if [ "$auto_confirm" = true ]; then
+        info "Auto-confirm enabled, proceeding with deployment..."
+    else
+        echo -e "${YELLOW}You are about to deploy to PRODUCTION.${NC}"
+        echo ""
+        read -p "Do you want to proceed? (yes/no): " -r
+        echo ""
+        
+        if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
+            warning "Deployment cancelled by user"
+            exit 0
+        fi
     fi
     
     # Deploy
@@ -402,6 +412,8 @@ show_help() {
     echo ""
     echo "Options:"
     echo "  --skip-validation    Skip all pre-deployment validations (not recommended)"
+    echo "  --auto-confirm, -y   Skip deployment confirmation prompt"
+    echo "  --yes                Same as --auto-confirm"
     echo "  --monitor           Start monitoring after deployment"
     echo "  --help, -h          Show this help message"
     echo ""
@@ -452,8 +464,10 @@ show_help() {
     echo ""
     echo "Examples:"
     echo "  $0                      # Run full validation and deploy"
+    echo "  $0 -y                   # Run validation and deploy without confirmation"
+    echo "  $0 --auto-confirm       # Same as -y"
     echo "  $0 --monitor            # Deploy with monitoring"
-    echo "  $0 --skip-validation    # Deploy without validation (emergency only)"
+    echo "  $0 --skip-validation -y # Deploy without validation or confirmation (emergency)"
     echo ""
     echo "Estimated time: 3-7 minutes for full validation"
     echo ""

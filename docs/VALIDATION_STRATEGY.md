@@ -86,11 +86,15 @@ git push --no-verify  # Emergency only
 **Run with:**
 ```bash
 ./scripts/deployment/deploy-with-validation.sh
+
+# Or with auto-confirmation (CI/CD friendly)
+./scripts/deployment/deploy-with-validation.sh -y
+./scripts/deployment/deploy-with-validation.sh --auto-confirm
 ```
 
 **Skip validations (emergency):**
 ```bash
-./scripts/deployment/deploy-with-validation.sh --skip-validation
+./scripts/deployment/deploy-with-validation.sh --skip-validation -y
 ```
 
 ---
