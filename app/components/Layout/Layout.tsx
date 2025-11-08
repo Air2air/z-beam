@@ -25,20 +25,9 @@ import { SafetyWarning } from '../SafetyWarning';
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
 
-// Helper: Extract material name from metadata or slug
-const getMaterialName = (metadata: any, slug?: string): string => {
-  const subject = (metadata?.subject || '') as string;
-  if (subject) return subject.toLowerCase();
-  if (!slug) return '';
-  return slug.includes('-') ? slug.split('-')[0].toLowerCase() : slug.toLowerCase();
-};
-
 // Helper: Check if hero content exists
-const hasHeroContent = (metadata: any, materialName?: string) => {
-  return metadata?.image || 
-    metadata?.images?.hero?.url || 
-    metadata?.video || 
-    materialName;
+const hasHeroContent = (metadata: any) => {
+  return metadata?.images?.hero?.url || metadata?.video?.url;
 };
 
 // Helper: Render article component
@@ -120,8 +109,7 @@ export function Layout(props: LayoutProps) {
   const pathname = slug ? `/${slug}` : '/';
   const breadcrumbData = generateBreadcrumbs(metadata || null, pathname);
   const isHomePage = !slug || pathname === '/';
-  const materialName = getMaterialName(metadata, slug);
-  const showHero = hasHeroContent(metadata, materialName);
+  const showHero = hasHeroContent(metadata);
 
   // Handle empty article content
   if (components && Object.keys(components).length === 0) {

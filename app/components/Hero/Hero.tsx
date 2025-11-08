@@ -64,22 +64,20 @@ export function Hero({
   // Remove Intersection Observer - Hero is always above fold, should load immediately
   // This reduces JavaScript execution before LCP
   
-  // Get video ID from frontmatter
-  const videoId = frontmatter?.video;
+  // Get video URL from frontmatter
+  const videoUrl = frontmatter?.video?.url;
   
   // Get image source from frontmatter
-  const imageSource = frontmatter?.images?.hero?.url || frontmatter?.image;
+  const imageSource = frontmatter?.images?.hero?.url;
 
-  // Build YouTube URL with maximum branding removal
-  const buildYouTubeUrl = (id: string) => {
-    const params = new URLSearchParams({
-      ...SITE_CONFIG.media.youtube.defaultParams,
-      playlist: id, // Required for looping
-    });
-    return `${SITE_CONFIG.media.youtube.baseUrl}${id}?${params.toString()}`;
+  // Extract YouTube video ID from URL for thumbnail
+  const getYouTubeVideoId = (url: string): string | null => {
+    if (!url) return null;
+    const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+    return match ? match[1] : null;
   };
 
-  const videoUrl = videoId ? buildYouTubeUrl(videoId) : null;
+  const videoId = videoUrl ? getYouTubeVideoId(videoUrl) : null;
   
   // Simplified accessibility text generation - only from frontmatter
   const getAccessibleAlt = (): string => {
@@ -98,7 +96,12 @@ export function Hero({
   // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
   // Container classes for responsive layout
   const containerClasses = `mx-auto max-w-6xl px-4 sm:px-5`;
-  const aspectRatioClasses = "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-lg");
+  
+  // If no video and no image, show shortened empty hero
+  const hasContent = videoUrl || imageSource;
+  const aspectRatioClasses = hasContent 
+    ? "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-lg")
+    : "relative w-full h-16"; // Shortened empty hero
   const backgroundClasses = "absolute top-0 left-0 w-full h-full bg-center bg-cover bg-no-repeat overflow-hidden";
   const videoClasses = "absolute top-0 left-0 w-full h-full object-cover z-[1]";
   const contentClasses = variant === 'fullwidth'
@@ -201,22 +204,7 @@ export function Hero({
             itemProp="thumbnail"
           />
         </div>
-      ) : (
-        /* Default fallback */
-        <div 
-          className={`${backgroundClasses} flex items-center justify-center bg-gray-700`}
-          aria-label="Default hero background with logo"
-        >
-          <Image
-            src={SITE_CONFIG.media.logo.default}
-            alt={`${SITE_CONFIG.shortName} company logo`}
-            width={SITE_CONFIG.media.logo.width}
-            height={SITE_CONFIG.media.logo.height}
-            className="opacity-30 object-contain"
-            priority={false}
-          />
-        </div>
-      )}
+      ) : null}
 
       {/* Custom homepage overlay - left side, 42% width, gray-700 background at 50% opacity, text at 100% */}
       {customOverlay && (
