@@ -26,7 +26,7 @@ interface ComparisonPageProps {
 
 export function ComparisonPage({ data, category, subcategory, materialSlug }: ComparisonPageProps) {
   const [selectedProperties, setSelectedProperties] = useState<string[]>([
-    'density', 'hardness', 'thermal_conductivity', 'laser_absorption'
+    'density', 'hardness', 'thermal_conductivity', 'specific_heat', 'thermal_expansion', 'laser_absorption'
   ]);
   const [selectedMaterials, setSelectedMaterials] = useState<string[]>(
     data.comparison_materials?.map((m: any) => m.name) || []
@@ -37,6 +37,9 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
   const [speedWeight, setSpeedWeight] = useState(33);
   const [qualityWeight, setQualityWeight] = useState(33);
   const [costWeight, setCostWeight] = useState(34);
+  
+  // Tooltip state
+  const [hoveredBar, setHoveredBar] = useState<{material: string, property: string, value: string, x: number, y: number} | null>(null);
 
   const granite = data.granite_baseline;
   const materials = data.comparison_materials || [];
@@ -245,216 +248,199 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
         </div>
       </SectionContainer>
 
-      {/* Property Comparison Bars - Chart 1 */}
-      <SectionContainer
-        title="Property Comparison"
-        icon={<FiBarChart2 className="w-6 h-6" />}
-        bgColor="gray-50"
-        horizPadding={true}
-        radius={true}
-      >
-        <div className="space-y-8">
-          {selectedProperties.map((propKey) => {
-            const graniteProp = granite.properties[propKey];
-            if (!graniteProp) return null;
-
-            const allMaterials = [
-              { name: granite.name, ...graniteProp, isBaseline: true },
-              ...materials
-                .filter((m: any) => selectedMaterials.includes(m.name))
-                .map((m: any) => ({
-                  name: m.name,
-                  ...m.properties[propKey],
-                  isBaseline: false
-                }))
-            ];
-
-            const maxValue = Math.max(...allMaterials.map((m: any) => m.value || 0));
-
-            return (
-              <div key={propKey} className="space-y-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 capitalize">
-                  {propKey.replace(/_/g, ' ')}
-                  {graniteProp.unit && <span className="text-sm font-normal text-gray-500 ml-2">({graniteProp.unit})</span>}
-                </h3>
-                
-                {allMaterials.map((material: any) => {
-                  const percentage = (material.value / maxValue) * 100;
-                  const vsGranite = material.vs_granite;
-                  
-                  return (
-                    <div key={material.name} className="space-y-1">
-                      <div className="flex items-center justify-between text-sm">
-                        <span className={`font-medium ${material.isBaseline ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'}`}>
-                          {material.name}
-                        </span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-gray-900 dark:text-gray-100 font-semibold">
-                            {material.value} {material.unit}
-                          </span>
-                          {vsGranite && viewMode === 'relative' && (
-                            <Badge 
-                              variant={
-                                material.advantage === 'granite' ? 'danger' :
-                                material.advantage === 'neutral' ? 'secondary' :
-                                'success'
-                              }
-                              size="sm"
-                            >
-                              {vsGranite}
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
-                        <div 
-                          className={`h-3 rounded-full transition-all ${
-                            material.isBaseline
-                              ? 'bg-blue-600 dark:bg-blue-400'
-                              : material.advantage === 'granite'
-                              ? 'bg-red-500 dark:bg-red-400'
-                              : material.advantage === 'neutral'
-                              ? 'bg-gray-400 dark:bg-gray-500'
-                              : 'bg-green-500 dark:bg-green-400'
-                          }`}
-                          style={{ width: `${percentage}%` }}
-                        />
-                      </div>
-                      {material.notes && viewMode === 'relative' && (
-                        <p className="text-xs text-gray-600 dark:text-gray-400 italic">
-                          {material.notes}
-                        </p>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })}
-        </div>
-      </SectionContainer>
-
-      {/* Thermal Properties Grouped Bar Chart - Chart 4 */}
-      {data.comparison_charts?.thermal_properties_comparison && (
+      {/* Grouped Property Comparison - Works with ALL selected properties */}
+      {selectedProperties.length > 0 && (
         <SectionContainer
-          title="Thermal Properties Impact on Laser Cleaning"
-          icon={<FiZap className="w-6 h-6" />}
+          title="Grouped Property Comparison"
+          icon={<FiBarChart2 className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
         >
           <p className="text-gray-700 dark:text-gray-300 mb-6">
-            {data.comparison_charts.thermal_properties_comparison.description}
+            Compare multiple properties side-by-side for each material. Each material shows bars for all selected properties.
           </p>
           
-          {/* Grouped Bar Chart - All materials side by side for each property */}
-          <div className="space-y-12">
-            {data.comparison_charts.thermal_properties_comparison.properties?.map((prop: any, propIndex: number) => {
-              // Build material data array with proper value extraction
-              const allMaterialsData = [
-                { name: granite.name, value: prop.granite || 0, isBaseline: true },
-                ...data.comparison_materials
-                  .filter((m: any) => selectedMaterials.includes(m.name))
-                  .map((m: any) => {
-                    // The YAML has lowercase material names as keys (e.g., "marble", "steel")
-                    const key = m.name.toLowerCase();
-                    let value = prop[key] || 0;
+          {/* Grouped bars - All selected materials with multiple properties per material */}
+          <div className="relative bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+            {/* Tooltip */}
+            {hoveredBar && (
+              <div 
+                className="absolute z-50 bg-gray-900 text-white px-3 py-2 rounded-lg shadow-lg text-sm pointer-events-none"
+                style={{ 
+                  left: `${hoveredBar.x}px`, 
+                  top: `${hoveredBar.y}px`,
+                  transform: 'translate(-50%, -100%)',
+                  marginTop: '-8px'
+                }}
+              >
+                <div className="font-semibold">{hoveredBar.material}</div>
+                <div className="text-xs">{hoveredBar.property}</div>
+                <div className="text-xs font-bold">{hoveredBar.value}</div>
+              </div>
+            )}
+            
+            <div className="flex items-end justify-around gap-8" style={{ height: '320px' }}>
+              {/* Baseline Material */}
+              <div className="flex flex-col items-center flex-1 min-w-0">
+                <div className="relative w-full h-full flex items-end justify-center gap-0.5">
+                  {selectedProperties.map((propKey, propIndex) => {
+                    const propData = granite.properties?.[propKey];
+                    if (!propData) return null;
                     
-                    return {
-                      name: m.name,
-                      value: value,
-                      isBaseline: false
-                    };
-                  })
-              ];
-              
-              // Find max value for scaling
-              let maxValue = Math.max(...allMaterialsData.map((m: any) => m.value || 0), 1); // Ensure at least 1
-              
-              // Special handling for extreme values
-              const hasExtreme = prop.property === 'thermal_conductivity' && maxValue > 100;
-              let displayMaxValue = maxValue;
-              if (hasExtreme) {
-                const filteredValues = allMaterialsData.filter((m: any) => m.value < 100).map((m: any) => m.value);
-                displayMaxValue = filteredValues.length > 0 ? Math.max(...filteredValues) : maxValue;
-              }
-              
-              const barColor = propIndex === 0 ? 'purple' : propIndex === 1 ? 'green' : 'orange';
-              
-              return (
-                <div key={propIndex}>
-                  <div className="mb-4">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                      {prop.label}
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Unit: {prop.unit}
-                    </p>
-                  </div>
-                  
-                  {/* Grouped bars - horizontal layout */}
-                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-end justify-around gap-2" style={{ height: '320px' }}>
-                      {allMaterialsData.map((material: any) => {
-                        const isExtreme = hasExtreme && material.value > 100;
-                        const heightPercent = isExtreme ? 100 : (material.value / displayMaxValue) * 100;
-                        // Convert percentage to pixels for proper display
-                        const heightPx = (heightPercent / 100) * 280; // 280px max height (320 - padding for labels)
+                    const value = propData.value || 0;
+                    
+                    let normalizedHeight, heightPx;
+                    
+                    if (viewMode === 'relative') {
+                      // Relative mode: Baseline is always 100% (full height)
+                      normalizedHeight = 100;
+                      heightPx = 280;
+                    } else {
+                      // Absolute mode: Use percentile for display
+                      normalizedHeight = propData.percentile || 50;
+                      heightPx = (normalizedHeight / 100) * 280;
+                    }
+                    
+                    // Cycle through colors
+                    const colors = ['purple', 'green', 'orange', 'blue', 'red', 'yellow', 'pink', 'indigo'];
+                    const barColor = colors[propIndex % colors.length];
+                    const colorClass = barColor === 'purple' ? 'bg-purple-600 dark:bg-purple-500' :
+                                      barColor === 'green' ? 'bg-green-600 dark:bg-green-500' :
+                                      barColor === 'orange' ? 'bg-orange-600 dark:bg-orange-500' :
+                                      barColor === 'blue' ? 'bg-blue-600 dark:bg-blue-500' :
+                                      barColor === 'red' ? 'bg-red-600 dark:bg-red-500' :
+                                      barColor === 'yellow' ? 'bg-yellow-600 dark:bg-yellow-500' :
+                                      barColor === 'pink' ? 'bg-pink-600 dark:bg-pink-500' :
+                                      'bg-indigo-600 dark:bg-indigo-500';
+                      
+                    return (
+                      <div key={propKey} className="flex flex-col items-center flex-1">
+                        <div 
+                          className={`w-full rounded-lg transition-all hover:opacity-80 cursor-pointer border-2 border-blue-800 dark:border-blue-300 ${colorClass}`}
+                          style={{ height: `${Math.max(heightPx, 4)}px`, minWidth: '6px', maxWidth: '12px' }}
+                          onMouseEnter={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const containerRect = e.currentTarget.closest('.relative.bg-white')?.getBoundingClientRect();
+                            if (containerRect) {
+                              setHoveredBar({
+                                material: granite.name,
+                                property: propKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                                value: `${value}${propData.unit && propData.unit !== 'dimensionless' ? ` ${propData.unit}` : ''}`,
+                                x: rect.left + rect.width / 2 - containerRect.left,
+                                y: rect.top - containerRect.top
+                              });
+                            }
+                          }}
+                          onMouseLeave={() => setHoveredBar(null)}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="text-xs font-bold text-center mt-2 px-1 break-words text-blue-600 dark:text-blue-400">
+                  {granite.name}
+                </div>
+              </div>
+
+              {/* Comparison Materials */}
+              {data.comparison_materials
+                .filter((m: any) => selectedMaterials.includes(m.name))
+                .map((material: any) => (
+                  <div key={material.name} className="flex flex-col items-center flex-1 min-w-0">
+                    <div className="relative w-full h-full flex items-end justify-center gap-0.5">
+                      {selectedProperties.map((propKey, propIndex) => {
+                        const propData = material.properties?.[propKey];
+                        const baselineData = granite.properties?.[propKey];
+                        if (!propData || !baselineData) return null;
+                        
+                        const value = propData.value || 0;
+                        const baselineValue = baselineData.value || 1;
+                        
+                        let normalizedHeight: number, heightPx: number, relativePercent: number | undefined;
+                        
+                        if (viewMode === 'relative') {
+                          // Relative mode: Calculate height as percentage of baseline (capped at 0-150%)
+                          relativePercent = Math.min(Math.max((value / baselineValue) * 100, 0), 150);
+                          // Then normalize to 0-100 for display (150% baseline = 100% height)
+                          normalizedHeight = (relativePercent / 150) * 100;
+                          heightPx = (normalizedHeight / 100) * 280;
+                        } else {
+                          // Absolute mode: Use percentile if available, otherwise calculate from all values
+                          if (propData.percentile) {
+                            normalizedHeight = propData.percentile;
+                          } else {
+                            // Fallback: use same relative calculation but show as absolute
+                            relativePercent = (value / baselineValue) * 100;
+                            normalizedHeight = Math.min(Math.max(relativePercent, 0), 100);
+                          }
+                          heightPx = (normalizedHeight / 100) * 280;
+                        }
+                        
+                        // Cycle through colors (same as baseline)
+                        const colors = ['purple', 'green', 'orange', 'blue', 'red', 'yellow', 'pink', 'indigo'];
+                        const barColor = colors[propIndex % colors.length];
+                        const colorClass = barColor === 'purple' ? 'bg-purple-500 dark:bg-purple-400' :
+                                          barColor === 'green' ? 'bg-green-500 dark:bg-green-400' :
+                                          barColor === 'orange' ? 'bg-orange-500 dark:bg-orange-400' :
+                                          barColor === 'blue' ? 'bg-blue-500 dark:bg-blue-400' :
+                                          barColor === 'red' ? 'bg-red-500 dark:bg-red-400' :
+                                          barColor === 'yellow' ? 'bg-yellow-500 dark:bg-yellow-400' :
+                                          barColor === 'pink' ? 'bg-pink-500 dark:bg-pink-400' :
+                                          'bg-indigo-500 dark:bg-indigo-400';
                         
                         return (
-                          <div key={material.name} className="flex flex-col items-center flex-1 min-w-0">
-                            {/* Value label on top */}
-                            <div className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1 text-center">
-                              {material.value}
-                              {isExtreme && (
-                                <div className="text-[10px] text-orange-600 dark:text-orange-400">⚠️ Extreme</div>
-                              )}
-                            </div>
-                            
-                            {/* Bar */}
-                            <div className="relative w-full h-full flex items-end">
-                              <div 
-                                className={`w-full rounded-t-lg transition-all hover:opacity-80 cursor-pointer ${
-                                  material.isBaseline
-                                    ? 'bg-blue-600 dark:bg-blue-500'
-                                    : barColor === 'purple'
-                                    ? 'bg-purple-500 dark:bg-purple-400'
-                                    : barColor === 'green'
-                                    ? 'bg-green-500 dark:bg-green-400'
-                                    : 'bg-orange-500 dark:bg-orange-400'
-                                } ${material.isBaseline ? 'border-2 border-blue-800 dark:border-blue-300' : ''}`}
-                                style={{ 
-                                  height: `${Math.max(heightPx, 4)}px`
-                                }}
-                              />
-                            </div>
-                            
-                            {/* Material name label */}
-                            <div className={`text-xs font-medium text-center mt-2 px-1 break-words ${
-                              material.isBaseline 
-                                ? 'text-blue-600 dark:text-blue-400 font-bold' 
-                                : 'text-gray-700 dark:text-gray-300'
-                            }`}>
-                              {material.name}
-                              {material.isBaseline && (
-                                <div className="text-[9px] text-blue-500 dark:text-blue-400">BASELINE</div>
-                              )}
-                            </div>
+                          <div key={propKey} className="flex flex-col items-center flex-1">
+                            <div 
+                              className={`w-full rounded-lg transition-all hover:opacity-80 cursor-pointer ${colorClass}`}
+                              style={{ height: `${Math.max(heightPx, 4)}px`, minWidth: '6px', maxWidth: '12px' }}
+                              onMouseEnter={(e) => {
+                                const rect = e.currentTarget.getBoundingClientRect();
+                                const containerRect = e.currentTarget.closest('.relative.bg-white')?.getBoundingClientRect();
+                                if (containerRect) {
+                                  setHoveredBar({
+                                    material: material.name,
+                                    property: propKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                                    value: `${value}${propData.unit && propData.unit !== 'dimensionless' ? ` ${propData.unit}` : ''}${viewMode === 'relative' && relativePercent ? ` (${relativePercent.toFixed(0)}% of baseline)` : ''}`,
+                                    x: rect.left + rect.width / 2 - containerRect.left,
+                                    y: rect.top - containerRect.top
+                                  });
+                                }
+                              }}
+                              onMouseLeave={() => setHoveredBar(null)}
+                            />
                           </div>
                         );
                       })}
                     </div>
-                  </div>
-                  
-                  {/* Interpretation */}
-                  <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                    <div className="flex items-start gap-2">
-                      <FiInfo className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-blue-900 dark:text-blue-200">
-                        <strong>Interpretation:</strong> {prop.interpretation}
-                      </p>
+                    <div className="text-xs font-medium text-center mt-2 px-1 break-words text-gray-700 dark:text-gray-300">
+                      {material.name}
                     </div>
                   </div>
+                ))}
+            </div>
+          </div>
+
+          {/* Legend - Dynamic based on selected properties */}
+          <div className="mt-6 flex items-center justify-center flex-wrap gap-4 text-sm">
+            {selectedProperties.map((propKey, propIndex) => {
+              const colors = ['purple', 'green', 'orange', 'blue', 'red', 'yellow', 'pink', 'indigo'];
+              const barColor = colors[propIndex % colors.length];
+              const bgClass = barColor === 'purple' ? 'bg-purple-500' :
+                            barColor === 'green' ? 'bg-green-500' :
+                            barColor === 'orange' ? 'bg-orange-500' :
+                            barColor === 'blue' ? 'bg-blue-500' :
+                            barColor === 'red' ? 'bg-red-500' :
+                            barColor === 'yellow' ? 'bg-yellow-500' :
+                            barColor === 'pink' ? 'bg-pink-500' :
+                            'bg-indigo-500';
+              
+              return (
+                <div key={propKey} className="flex items-center gap-2">
+                  <div className={`w-4 h-4 ${bgClass} rounded`}></div>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    {propKey.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                  </span>
                 </div>
               );
             })}
@@ -462,7 +448,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
         </SectionContainer>
       )}
 
-      {/* Laser Parameter Matrix - Chart 4 */}
+      {/* Laser Parameter Matrix */}
       {data.comparison_charts?.laser_parameters_heatmap && (
         <SectionContainer
           title="Laser Parameter Requirements"
