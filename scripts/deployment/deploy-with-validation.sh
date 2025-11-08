@@ -233,8 +233,24 @@ run_pre_deployment_validations() {
     run_validation "JSON-LD rendering" "node scripts/validate-jsonld-static.js" true
     run_validation "URL validation" "npm run validate:urls" true
     
-    # 19. Dataset Generation Check
-    section "19. DATASET GENERATION"
+    # 19. WCAG 2.2 AA Compliance (Phase 1)
+    section "19. WCAG 2.2 AA COMPLIANCE"
+    log "Validating WCAG 2.2 accessibility standards..."
+    run_validation "WCAG 2.2 comprehensive" "npm run validate:wcag-2.2" true
+    
+    # 20. Accessibility Tree Validation (Phase 1)
+    section "20. ACCESSIBILITY TREE"
+    log "Validating accessibility tree with aXe-core..."
+    run_validation "Accessibility tree" "npm run validate:a11y-tree" true
+    
+    # 21. Core Web Vitals Validation (Phase 1)
+    section "21. CORE WEB VITALS"
+    log "Validating Core Web Vitals performance metrics..."
+    info "Note: This requires dev server running on http://localhost:3000"
+    run_validation "Core Web Vitals" "npm run validate:core-web-vitals" false
+    
+    # 22. Dataset Generation Check
+    section "22. DATASET GENERATION"
     if [ -d "public/datasets" ]; then
         local dataset_count=$(find public/datasets -name "*.json" 2>/dev/null | wc -l | tr -d ' ')
         info "Generated datasets: $dataset_count"
