@@ -62,35 +62,21 @@ pageData = {
     // Pass hero fields from frontmatter
     image: data.heroImage || data.image,
     video: data.heroVideo || data.video,
-    images: data.heroImage ? {
-      hero: {
+    images: {
+      hero: data.heroImage ? {
         url: data.heroImage,
         alt: data.heroAlt || `Hero image for ${data.title || title}`
-      }
-    } : data.images
+      } : data.images?.hero
+    }
   },
   components: { content: { content: htmlContent } }
 };
 ```
 
-**Layout.tsx ArticleHeader** (lines 28-35):
+**Layout.tsx hasHeroContent** (simplified):
 ```typescript
-const ArticleHeader = ({ title, metadata, showHero, slug }: any) => {
-  const materialName = getMaterialName(metadata, slug);
-  
-  // Check if we have hero image/video from markdown or material-based hero
-  const hasHeroContent = showHero && (metadata?.image || metadata?.video || materialName);
-  
-  return (
-    <div className="header-section mb-6">
-      {hasHeroContent ? (
-        <Hero frontmatter={metadata} theme="dark" />
-      ) : (
-        <div className={SPACER_CLASSES} aria-hidden="true" />
-      )}
-      {/* ... rest of header ... */}
-    </div>
-  );
+const hasHeroContent = (metadata: any) => {
+  return metadata?.images?.hero?.url || metadata?.video?.id;
 };
 ```
 

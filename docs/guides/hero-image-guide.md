@@ -46,7 +46,8 @@ slug: "my-page"
 showHero: true
 
 # YouTube video ID (will loop as background)
-video: "dQw4w9WgXcQ"
+video:
+  id: "dQw4w9WgXcQ"
 
 # Fallback image (shown while video loads)
 images:
