@@ -11,7 +11,7 @@ import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import { Caption } from "../Caption/Caption";
 import { Tags } from "../Tags/Tags";
-import { MetricsGrid } from '../MetricsCard/MetricsGrid';
+import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
@@ -47,7 +47,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
         title={component.config.title || 'Machine Settings'}
         className="mb-8"
       >
-        <MetricsGrid 
+        <PropertyBars 
           metadata={metricsMetadata} 
           dataSource="machineSettings" 
           showTitle={false}
@@ -74,13 +74,12 @@ const renderComponent = (type: string, component: any, metadata: any) => {
         title={component.config.title || 'Material Properties'}
         className="mb-8"
       >
-        <MetricsGrid 
+        <PropertyBars 
           metadata={propertiesMetadata} 
           dataSource="materialProperties"
           showTitle={false}
           className={component.config.className || ''}
           searchable
-          defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
         />
       </SectionContainer>
     );
@@ -160,13 +159,11 @@ export function Layout(props: LayoutProps) {
               title={metadata.title ? `${metadata.title} Properties` : 'Material Properties'}
               className="mb-8"
             >
-              <MetricsGrid 
+              <PropertyBars 
                 metadata={metadata} 
                 dataSource="materialProperties" 
-                layout="auto" 
                 showTitle={false}
                 searchable
-                defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
               />
             </SectionContainer>
           )}
@@ -176,10 +173,9 @@ export function Layout(props: LayoutProps) {
               title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
               className="mb-8"
             >
-              <MetricsGrid 
+              <PropertyBars 
                 metadata={metadata} 
                 dataSource="machineSettings" 
-                layout="auto" 
                 showTitle={false}
                 searchable 
               />
