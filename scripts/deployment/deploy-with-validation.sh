@@ -251,8 +251,18 @@ run_pre_deployment_validations() {
     success "Core Web Vitals check deferred to post-deployment"
     ((VALIDATIONS_PASSED++))
     
-    # 22. Dataset Generation Check
-    section "22. DATASET GENERATION"
+    # 22. Modern SEO Validation (Phase 2)
+    section "22. MODERN SEO"
+    log "Validating modern SEO best practices..."
+    run_validation "Modern SEO" "npm run validate:seo" true
+    
+    # 23. Schema Richness Validation (Phase 2)
+    section "23. SCHEMA RICHNESS"
+    log "Validating schema richness and structured data opportunities..."
+    run_validation "Schema richness" "npm run validate:schema-richness" true
+    
+    # 24. Dataset Generation Check
+    section "24. DATASET GENERATION"
     if [ -d "public/datasets" ]; then
         local dataset_count=$(find public/datasets -name "*.json" 2>/dev/null | wc -l | tr -d ' ')
         info "Generated datasets: $dataset_count"
@@ -263,7 +273,7 @@ run_pre_deployment_validations() {
         ((VALIDATIONS_WARNED++))
     fi
     
-    # 20. Show final summary
+    # 25. Show final summary
     show_summary
     return $?
 }
