@@ -58,6 +58,16 @@ module.exports = {
           'orange-dark': '#e67700',
         },
       },
+      // Animation for FAQ dropdowns and other transitions
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.2s ease-out forwards',
+      },
       // Typography config removed - using custom CSS for better performance
     },
   },
