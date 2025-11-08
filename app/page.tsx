@@ -6,7 +6,6 @@ import { SectionContainer } from "./components/SectionContainer";
 import { ServicesSection } from "./components/ServicesSection";
 import { loadComponentData } from "./utils/contentAPI";
 import { createMetadata } from "./utils/metadata";
-import { CONTAINER_STYLES } from "./utils/containerStyles";
 import { SITE_CONFIG } from "./utils/constants";
 import fs from 'fs/promises';
 import path from 'path';
@@ -71,49 +70,44 @@ export default async function HomePage() {
     <Layout 
       title={pageTitle}
       subtitle={pageSubtitle}
-      fullWidth
       metadata={heroFrontmatter}
       customHeroOverlay={true}
     >
-      <div className={CONTAINER_STYLES.main}>
-        {/* Featured Solutions Section */}
-        {featuredSections.length > 0 && (
-          <ServicesSection items={featuredSections} />
-        )}
+      {/* Featured Solutions Section */}
+      {featuredSections.length > 0 && (
+        <ServicesSection items={featuredSections} />
+      )}
 
-        {/* Material Categories Section */}
-        {featuredMaterials.length > 0 && (
-          <SectionContainer title="Material Categories" bgColor="transparent" radius={false} className="mb-8">
-            <CardGridSSR
-              items={featuredMaterials.map((category: any) => ({
-                slug: category.slug,
-                title: category.title,
-                description: category.description,
-                href: `/${category.slug}`,
-                imageUrl: category.imageUrl,
-                imageAlt: category.title,
-                badge: {
-                  materialType: category.materialType as any,
-                  symbol: "",
-                  formula: "",
-                },
-              }))}
-              columns={3}
-              variant="default"
-            />
-          </SectionContainer>
-        )}
-      </div>
+      {/* Material Categories Section */}
+      {featuredMaterials.length > 0 && (
+        <SectionContainer title="Material Categories" bgColor="transparent" radius={false} className="mb-8">
+          <CardGridSSR
+            items={featuredMaterials.map((category: any) => ({
+              slug: category.slug,
+              title: category.title,
+              description: category.description,
+              href: `/${category.slug}`,
+              imageUrl: category.imageUrl,
+              imageAlt: category.title,
+              badge: {
+                materialType: category.materialType as any,
+                symbol: "",
+                formula: "",
+              },
+            }))}
+            columns={3}
+            variant="default"
+          />
+        </SectionContainer>
+      )}
     </Layout>
     );
   } catch (error) {
     console.error('Error loading home page content:', error);
     // Return minimal fallback page
     return (
-      <Layout title={SITE_CONFIG.name} subtitle="Advanced laser surface treatment solutions" fullWidth>
-        <div className={CONTAINER_STYLES.main}>
-          <p>Welcome to Z-Beam. Content is loading...</p>
-        </div>
+      <Layout title={SITE_CONFIG.name} subtitle="Advanced laser surface treatment solutions">
+        <p>Welcome to Z-Beam. Content is loading...</p>
       </Layout>
     );
   }

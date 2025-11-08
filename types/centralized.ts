@@ -672,7 +672,6 @@ export interface LayoutProps {
   rightContent?: React.ReactNode;
   description?: string;
   className?: string;
-  fullWidth?: boolean; // For pages that need full-width sections
   customHeroOverlay?: boolean; // Enable custom overlay on Hero (homepage only)
 }
 

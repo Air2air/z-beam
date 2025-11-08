@@ -7,10 +7,8 @@ import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { CardGridSSR } from "@/app/components/CardGrid";
 import { createMetadata } from "@/app/utils/metadata";
-import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import SubcategoryDatasetWrapper from "@/app/components/Dataset/SubcategoryDatasetWrapper";
 import { FiPackage } from "react-icons/fi";
-import { SafetyWarning } from "@/app/components/SafetyWarning";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -312,40 +310,34 @@ export default async function SubcategoryPage({ params }: PageProps) {
         subtitle={`${subcategoryInfo.materials.length} materials available for laser cleaning`}
         metadata={metadata as any}
         slug={`materials/${category}/${subcategory}`}
-        fullWidth
       >
-        <div className={CONTAINER_STYLES.main}>
-          <SectionContainer title={subcategoryInfo.label} bgColor="transparent" radius={false} className="mb-8">
-            <CardGridSSR
-              slugs={materialSlugs}
-              columns={3}
-              mode="simple"
-              showBadgeSymbols={true}
-              loadBadgeSymbolData={true}
-            />
-          </SectionContainer>
-          
-          {/* Subcategory Dataset Section */}
-          <SectionContainer 
-            title={`${subcategoryInfo.label} Dataset Download`} 
-            bgColor="navbar" 
-            horizPadding={true} 
-            radius={true}
-            className="mb-8"
-            icon={<FiPackage className="w-6 h-6 text-white" />}
-          >
-            <SubcategoryDatasetWrapper
-              category={category}
-              categoryLabel={categoryLabel}
-              subcategory={subcategory}
-              subcategoryLabel={subcategoryInfo.label}
-              materials={subcategoryInfo.materials}
-            />
-          </SectionContainer>
-          
-          {/* Safety Warning */}
-          <SafetyWarning className="mt-12" />
-        </div>
+        <SectionContainer title={subcategoryInfo.label} bgColor="transparent" radius={false} className="mb-8">
+          <CardGridSSR
+            slugs={materialSlugs}
+            columns={3}
+            mode="simple"
+            showBadgeSymbols={true}
+            loadBadgeSymbolData={true}
+          />
+        </SectionContainer>
+        
+        {/* Subcategory Dataset Section */}
+        <SectionContainer 
+          title={`${subcategoryInfo.label} Dataset Download`} 
+          bgColor="navbar" 
+          horizPadding={true} 
+          radius={true}
+          className="mb-8"
+          icon={<FiPackage className="w-6 h-6 text-white" />}
+        >
+          <SubcategoryDatasetWrapper
+            category={category}
+            categoryLabel={categoryLabel}
+            subcategory={subcategory}
+            subcategoryLabel={subcategoryInfo.label}
+            materials={subcategoryInfo.materials}
+          />
+        </SectionContainer>
       </Layout>
     </>
   );

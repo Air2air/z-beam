@@ -3,7 +3,6 @@ import { Layout } from '@/app/components/Layout/Layout';
 import { SectionContainer } from '@/app/components/SectionContainer';
 import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
 import DatasetsContent from '@/app/components/Dataset/DatasetsContent';
-import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { loadPageData } from '@/app/utils/contentAPI';
 
 export const metadata = {
@@ -112,14 +111,11 @@ export default async function DatasetsPage() {
         subtitle={`${totalDatasets} materials with comprehensive laser cleaning specifications`}
         slug="datasets"
         metadata={pageData.metadata as any}
-        fullWidth
       >
-        <div className={CONTAINER_STYLES.main}>
-          <DatasetsContent 
-            materials={materials}
-            categoryStats={categoryStats}
-          />
-        </div>
+        <DatasetsContent 
+          materials={materials}
+          categoryStats={categoryStats}
+        />
       </Layout>
     </>
   );

@@ -6,14 +6,12 @@ import { CardGridSSR } from '@/app/components/CardGrid';
 import { Layout } from '@/app/components/Layout/Layout';
 import { createMetadata } from '@/app/utils/metadata';
 import { CATEGORY_METADATA, VALID_CATEGORIES } from '@/app/metadata';
-import { CONTAINER_STYLES } from '@/app/utils/containerStyles';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
 import { FiPackage } from 'react-icons/fi';
-import { SafetyWarning } from '@/app/components/SafetyWarning';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -321,48 +319,42 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         subtitle={pageSubtitle} 
         metadata={metadata as any}
         slug={`materials/${category}`}
-        fullWidth
       >
-        <div className={CONTAINER_STYLES.main}>
-          {/* Group materials by subcategory */}
-          {categoryData.subcategories.map((subcategory) => (
-            <SectionContainer
-              key={subcategory.slug}
-              title={subcategory.label}
-              bgColor="transparent"
-              radius={false}
-              className="mb-8"
-            >
-              <CardGridSSR
-                slugs={subcategory.materials.map(m => m.slug)}
-                columns={3}
-                mode="simple"
-                showBadgeSymbols={true}
-                loadBadgeSymbolData={true}
-              />
-            </SectionContainer>
-          ))}
-        
-        {/* Category Dataset Section at bottom */}
-          <SectionContainer 
-            title={`${categoryDisplayName} Dataset Download`} 
-            bgColor="navbar" 
-            horizPadding={true} 
-            radius={true}
+        {/* Group materials by subcategory */}
+        {categoryData.subcategories.map((subcategory) => (
+          <SectionContainer
+            key={subcategory.slug}
+            title={subcategory.label}
+            bgColor="transparent"
+            radius={false}
             className="mb-8"
-            icon={<FiPackage className="w-6 h-6 text-white" />}
           >
-            <CategoryDatasetCardWrapper 
-              category={category}
-              categoryLabel={categoryDisplayName}
-              materials={allMaterials}
-              subcategoryCount={categoryData.subcategories.length}
+            <CardGridSSR
+              slugs={subcategory.materials.map(m => m.slug)}
+              columns={3}
+              mode="simple"
+              showBadgeSymbols={true}
+              loadBadgeSymbolData={true}
             />
           </SectionContainer>
-          
-          {/* Safety Warning */}
-          <SafetyWarning className="mt-12" />
-        </div>
+        ))}
+      
+        {/* Category Dataset Section at bottom */}
+        <SectionContainer 
+          title={`${categoryDisplayName} Dataset Download`} 
+          bgColor="navbar" 
+          horizPadding={true} 
+          radius={true}
+          className="mb-8"
+          icon={<FiPackage className="w-6 h-6 text-white" />}
+        >
+          <CategoryDatasetCardWrapper 
+            category={category}
+            categoryLabel={categoryDisplayName}
+            materials={allMaterials}
+            subcategoryCount={categoryData.subcategories.length}
+          />
+        </SectionContainer>
       </Layout>
     </>
   );

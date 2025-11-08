@@ -200,8 +200,8 @@ const renderComponent = (type: string, component: any, metadata: any) => {
 };
 
 export function Layout(props: LayoutProps) {
-  const { title, components, metadata, slug, fullWidth, customHeroOverlay } = props;
-  const containerClass = props.className || (fullWidth ? "w-full" : CONTAINER_STYLES.main);
+  const { title, components, metadata, slug, customHeroOverlay } = props;
+  const containerClass = props.className || CONTAINER_STYLES.main;
 
   // Article layout with components
   if (components) {
@@ -237,8 +237,8 @@ export function Layout(props: LayoutProps) {
           </div>
         )}
         
-        {/* Safety Warning - appears at bottom of all pages (not for fullWidth, they handle it internally) */}
-        {!fullWidth && <SafetyWarning className="mt-12" />}
+        {/* Safety Warning - appears at bottom of all pages */}
+        <SafetyWarning className="mt-12" />
       </main>
     );
   }
@@ -263,33 +263,28 @@ export function Layout(props: LayoutProps) {
       
       {/* Breadcrumbs - hide on homepage */}
       {!isHomePage && (
-        <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
-          <Breadcrumbs breadcrumbData={breadcrumbData} />
-        </div>
+        <Breadcrumbs breadcrumbData={breadcrumbData} />
       )}
       
-      {/* Title renders consistently for all pages - fullWidth pages need container */}
+      {/* Title renders consistently for all pages */}
       {title && (
-        <div className={fullWidth ? CONTAINER_STYLES.contentOnly : ""}>
-          <Title 
-            level="page" 
-            title={title} 
-            subtitle={props.subtitle} 
-            rightContent={props.rightContent}
-          />
-        </div>
+        <Title 
+          level="page" 
+          title={title} 
+          subtitle={props.subtitle} 
+          rightContent={props.rightContent}
+        />
       )}
       
-      <div className={fullWidth ? "space-y-0" : "space-y-6"}>
+      <div className="space-y-6">
         {props.children}
       </div>
       
-      {/* Safety Warning - appears at bottom of all pages (not for fullWidth, they handle it internally) */}
-      {!fullWidth && <SafetyWarning className="mt-12" />}
+      {/* Safety Warning - appears at bottom of all pages */}
+      <SafetyWarning className="mt-12" />
     </main>
   );
 }
 
-// Export for existing LayoutSystem usage
-export const UnifiedLayout = Layout;
-export const UniversalLayout = Layout;
+// Simplified exports - one Layout component
+export default Layout;
