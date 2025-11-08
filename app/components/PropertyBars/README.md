@@ -6,10 +6,20 @@ Compact three-bar visualization for material properties that replaces the tradit
 
 - **Compact Design**: 70px height vs 640px for 5 MetricsCards (89% space savings)
 - **Visual Comparison**: Min/Value/Max bars show value position in range instantly
+- **Grouped Properties**: Automatically detects and renders property groups in separate sections
 - **Responsive Grid**: 3/4/6 columns on mobile/tablet/desktop
-- **Unit Badges**: Units displayed as overlay badges (no wrapping)
+- **Unit Badges**: Units displayed as overlay badges with value (no wrapping)
 - **Color-Coded**: Each property gets a distinct gradient color
+- **Equal Spacing**: Bars distributed evenly with flex-1 for uniform appearance
 - **Type-Safe**: Full TypeScript support
+
+## Visual Specifications
+
+- **Bar Width**: Ultra-thin at 8px (w-2)
+- **Spacing**: flexbox justify-between with px-4 padding + flex-1 for equal distribution
+- **Badge**: bg-gray-600 with white text, shows value (text-sm) + unit (text-[9px])
+- **Labels**: font-normal weight, whitespace-nowrap, center-aligned in flex-col structure
+- **Height**: Fixed at 70px per row
 
 ## Basic Usage
 
@@ -31,6 +41,42 @@ import { PropertyBars } from '@/app/components/PropertyBars/PropertyBars';
   metadata={metadata} 
   dataSource="machineSettings" 
 />
+```
+
+### Grouped Properties (Automatic Section Detection)
+
+PropertyBars automatically detects grouped properties and renders them in separate `SectionContainer` components:
+
+```yaml
+# frontmatter/materials/silicon-carbide.yaml
+materialProperties:
+  Material Characteristics:
+    label: 'Material Characteristics'
+    density:
+      value: 3210
+      min: 3100
+      max: 3300
+      unit: 'kg/m³'
+    hardness:
+      value: 9.5
+      min: 9
+      max: 10
+      unit: 'Mohs'
+  
+  Laser-Material Interaction:
+    label: 'Laser-Material Interaction'
+    absorptionCoefficient:
+      value: 104
+      min: 100
+      max: 108
+      unit: 'cm⁻¹'
+```
+
+When rendered, this automatically creates two sections:
+- **Material Characteristics** (with density and hardness bars)
+- **Laser-Material Interaction** (with absorption coefficient bar)
+
+No code changes needed - the component detects the structure and handles it automatically!
 ```
 
 ### Direct Properties Array
@@ -129,10 +175,33 @@ extractPropertiesFromMetadata(
 ```
 
 - Handles both `properties` and `materialProperties` structures
+- Handles grouped properties (nested with labels)
 - Filters out non-numeric values
 - Auto-assigns colors based on property names
 - Removes "dimensionless" units
 - Formats property names (snake_case → Title Case)
+
+### hasGroupedProperties
+
+Detects if properties are organized into groups:
+
+```tsx
+hasGroupedProperties(properties: Record<string, any>): boolean
+```
+
+Returns `true` if properties contain nested groups with labels, `false` for flat property structures.
+
+### extractGroupedProperties
+
+Extracts properties organized by group:
+
+```tsx
+extractGroupedProperties(
+  properties: Record<string, any>
+): Array<{ label: string; properties: PropertyData[] }>
+```
+
+Returns array of groups, each containing a label and array of properties.
 
 ## Migration from MetricsGrid
 
@@ -157,6 +226,17 @@ const properties = extractPropertiesFromMetadata(metadata);
   <PropertyBars properties={properties} />
 </SectionContainer>
 ```
+
+**Note**: For grouped properties, PropertyBars renders its own `SectionContainer` elements automatically. In Layout.tsx, only wrap `machineSettings` in a SectionContainer - `materialProperties` handles its own sections when grouped.
+
+### Section Ordering in Layout.tsx
+
+The current section order is:
+1. **Machine Settings** (always in a SectionContainer)
+2. **Material Characteristics** (auto-rendered if grouped)
+3. **Laser-Material Interaction** (auto-rendered if grouped)
+
+This order prioritizes practical machine settings first, followed by material property groups.
 
 ## Space Comparison
 

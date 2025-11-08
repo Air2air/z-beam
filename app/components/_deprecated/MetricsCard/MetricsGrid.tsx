@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import { MetricsCard as SingleMetricsCard } from './MetricsCard';
-import { ArticleMetadata, PropertyCategory, MetricsCardProps, MetricsGridProps } from '../../../types';
-import { getIntelligentSectionHeader } from '../../utils/gridTitleMapping';
-import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { ArticleMetadata, PropertyCategory, MetricsCardProps, MetricsGridProps } from '@/types';
+import { getIntelligentSectionHeader } from '../../../utils/gridTitleMapping';
+import { SectionTitle } from '../../SectionTitle/SectionTitle';
 import './accessibility.css';
 
 // Category configuration for visual distinction

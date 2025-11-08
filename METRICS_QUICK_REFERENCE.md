@@ -9,12 +9,39 @@
 ```tsx
 import { PropertyBars } from '@/app/components/PropertyBars/PropertyBars';
 
-// Material Properties
+// Material Properties (automatically handles grouped properties)
 <PropertyBars metadata={metadata} dataSource="materialProperties" />
 
 // Machine Settings
 <PropertyBars metadata={metadata} dataSource="machineSettings" />
 ```
+
+## Grouped Properties Support
+
+PropertyBars automatically detects and renders grouped properties in separate sections:
+
+```yaml
+materialProperties:
+  Material Characteristics:
+    label: 'Material Characteristics'
+    density:
+      value: 3210
+      unit: 'kg/m³'
+  
+  Laser-Material Interaction:
+    label: 'Laser-Material Interaction'
+    absorptionCoefficient:
+      value: 104
+      unit: 'cm⁻¹'
+```
+
+**Result**: Two sections rendered automatically with titled `SectionContainer` wrappers.
+
+## Section Order in Layout
+
+1. **Machine Settings** (top)
+2. **Material Characteristics** (if grouped)
+3. **Laser-Material Interaction** (if grouped)
 
 ## Component Status
 
@@ -31,6 +58,9 @@ import { PropertyBars } from '@/app/components/PropertyBars/PropertyBars';
 - **Single API**: No confusion about which component to use
 - **Drop-in replacement**: Same API as MetricsGrid
 - **Better performance**: Simpler DOM, faster render
+- **Auto-grouped sections**: Detects and renders property groups automatically
+- **Ultra-thin bars**: 8px width with equal spacing distribution
+- **Smart badges**: Value + unit display with gray-600 background
 
 ## Data Format
 
@@ -62,6 +92,13 @@ properties:
 ### Basic Usage
 ```tsx
 <PropertyBars metadata={metadata} dataSource="materialProperties" />
+```
+
+### Grouped Properties (Automatic)
+```tsx
+// No special code needed - grouping is detected automatically!
+<PropertyBars metadata={metadata} dataSource="materialProperties" />
+// Renders multiple sections if properties are grouped
 ```
 
 ### Custom Grid

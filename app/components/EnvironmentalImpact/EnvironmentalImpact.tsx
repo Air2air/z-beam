@@ -1,17 +1,18 @@
 /**
  * @component EnvironmentalImpact
  * @purpose Displays environmental impact metrics and safety data
- * @dependencies SectionContainer, @/types (EnvironmentalImpactProps), MetricsCard
- * @related Layout.tsx, MetricsGrid.tsx
+ * @dependencies SectionContainer, @/types (EnvironmentalImpactProps), MetricsCard (deprecated)
+ * @related Layout.tsx
  * @complexity Medium (categorized metrics with icons and descriptions)
  * @aiContext Pass frontmatter.environmentalImpact object. Component renders
  *           categorized environmental metrics including emissions, energy, and safety.
+ * @todo Refactor to use PropertyBars instead of deprecated MetricsCard
  */
 // app/components/EnvironmentalImpact/EnvironmentalImpact.tsx
 "use client";
 
 import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { MetricsCard } from '../MetricsCard/MetricsCard';
+import { MetricsCard } from '../_deprecated/MetricsCard/MetricsCard';
 
 interface PropertyValue {
   value: number;

@@ -99,9 +99,13 @@ export function MaterialFAQ({
                 </svg>
               </summary>
               <div 
-                className="px-6 py-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold animate-fadeIn"
-                dangerouslySetInnerHTML={{ __html: '<strong>A:</strong> ' + parseSimpleMarkdown(item.answer) }}
-              />
+                className="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[500px] group-open:opacity-100"
+              >
+                <div 
+                  className="px-6 py-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold"
+                  dangerouslySetInnerHTML={{ __html: '<strong>A:</strong> ' + parseSimpleMarkdown(item.answer) }}
+                />
+              </div>
             </details>
           </div>
         ))}

@@ -18,10 +18,10 @@
 import React, { useEffect, useRef, useState, memo } from 'react';
 import Link from 'next/link';
 import { MetricsCardProps } from '@/types';
-import { cleanupFloat } from '../../utils/formatting';
-import { generateSearchUrl } from '../../utils/searchUtils';
-import { ProgressBar } from '../ProgressBar/ProgressBar';
-import { SITE_CONFIG } from '../../utils/constants';
+import { cleanupFloat } from '../../../utils/formatting';
+import { generateSearchUrl } from '../../../utils/searchUtils';
+import { ProgressBar } from '../../ProgressBar/ProgressBar';
+import { SITE_CONFIG } from '../../../utils/constants';
 import './accessibility.css';
 
 // Color theme configuration - New vibrant palette complementing bg-gray-700

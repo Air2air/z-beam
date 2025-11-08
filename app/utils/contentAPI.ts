@@ -20,7 +20,8 @@ import {
   normalizeRegulatoryStandards,
   normalizeCategoryFields,
   normalizeAllTextFields,
-  normalizeFreshnessTimestamps
+  normalizeFreshnessTimestamps,
+  normalizeNumericValues
 } from './normalizers';
 // Import centralized types instead of defining our own
 import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType } from '@/types';
@@ -110,7 +111,10 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
       // 3. Ensure freshness timestamps (datePublished, dateModified)
       data = normalizeFreshnessTimestamps(data);
       
-      // 4. Process all image URLs to strip parentheses
+      // 4. Normalize numeric values in property objects (materialProperties, machineSettings, etc.)
+      data = normalizeNumericValues(data);
+      
+      // 5. Process all image URLs to strip parentheses
       if (data.images && typeof data.images === 'object') {
         Object.keys(data.images as Record<string, unknown>).forEach(imageType => {
           const imageData = (data.images as any)[imageType];
@@ -120,7 +124,7 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
         });
       }
       
-      // 5. Normalize regulatory standards to resolve "Unknown" names
+      // 6. Normalize regulatory standards to resolve "Unknown" names
       if (data.regulatoryStandards) {
         data.regulatoryStandards = normalizeRegulatoryStandards(data.regulatoryStandards);
       }

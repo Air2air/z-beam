@@ -117,3 +117,101 @@ export function normalizeRegulatoryStandards(standards: RegulatoryStandard[]): R
     return standard;
   });
 }
+
+/**
+ * Normalize numeric values to handle edge cases
+ * - Converts scientific notation strings to numbers (e.g., "2.65e-08" → 2.65e-08)
+ * - Handles NaN, Infinity, and extremely small values (< 1e-20)
+ * - Preserves valid numbers as-is
+ */
+export function normalizeNumericValue(value: unknown): number | null {
+  // Handle null/undefined
+  if (value == null) return null;
+  
+  // Already a valid number
+  if (typeof value === 'number') {
+    if (!isFinite(value)) return null; // NaN, Infinity, -Infinity
+    if (Math.abs(value) < 1e-20) return null; // Extremely small values
+    return value;
+  }
+  
+  // Try to parse string values
+  if (typeof value === 'string') {
+    // Trim whitespace
+    const trimmed = value.trim();
+    if (trimmed === '') return null;
+    
+    // Try parsing as number (handles scientific notation)
+    const parsed = Number(trimmed);
+    
+    if (!isFinite(parsed)) return null; // NaN, Infinity
+    if (Math.abs(parsed) < 1e-20) return null; // Extremely small values
+    
+    return parsed;
+  }
+  
+  // For any other type, return null
+  return null;
+}
+
+/**
+ * Recursively normalize all numeric values in nested property objects
+ * Commonly used for materialProperties, machineSettings, etc.
+ */
+export function normalizeNumericValues<T>(data: T | null | undefined): T | null | undefined {
+  if (!data) return data;
+  
+  const normalize = (obj: unknown): unknown => {
+    // Handle arrays
+    if (Array.isArray(obj)) {
+      return obj.map(normalize);
+    }
+    
+    // Handle objects
+    if (obj && typeof obj === 'object') {
+      const normalized: Record<string, unknown> = {};
+      
+      for (const [key, value] of Object.entries(obj)) {
+        // Check if the value looks like a property object with min/value/max/unit
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+          const propObj = value as Record<string, unknown>;
+          
+          // If it has min/value/max fields, normalize them
+          if ('min' in propObj || 'value' in propObj || 'max' in propObj) {
+            const normalizedMin = propObj.min !== undefined ? normalizeNumericValue(propObj.min) : undefined;
+            const normalizedValue = propObj.value !== undefined ? normalizeNumericValue(propObj.value) : undefined;
+            const normalizedMax = propObj.max !== undefined ? normalizeNumericValue(propObj.max) : undefined;
+            
+            const result: Record<string, unknown> = { ...propObj };
+            
+            // Only set normalized values if they're not null (normalization succeeded)
+            if (normalizedMin !== null && normalizedMin !== undefined) {
+              result.min = normalizedMin;
+            }
+            if (normalizedValue !== null && normalizedValue !== undefined) {
+              result.value = normalizedValue;
+            }
+            if (normalizedMax !== null && normalizedMax !== undefined) {
+              result.max = normalizedMax;
+            }
+            
+            normalized[key] = result;
+          } else {
+            // Recursively normalize nested objects
+            normalized[key] = normalize(value);
+          }
+        } else {
+          // Pass through other values as-is
+          normalized[key] = value;
+        }
+      }
+      
+      return normalized as T;
+    }
+    
+    // Return primitives as-is
+    return obj;
+  };
+  
+  return normalize(data) as T;
+}

@@ -1,0 +1,40 @@
+/* Note: .sr-only and .focus:not-sr-only are provided by Tailwind by default */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .metrics-card {
+    border: 2px solid currentColor;
+  }
+  
+  .progress-bar {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .metrics-card,
+  .progress-bar,
+  .metric-transition {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Focus management for keyboard users */
+.metrics-grid:focus-within {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Ensure minimum touch targets */
+.metrics-card {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Progress bar accessibility enhancements */
+.progress-bar[role="progressbar"]:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}

@@ -1,6 +1,83 @@
 'use client';
 
 import React from 'react';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
+
+// Helper function to sanitize numeric values
+// Note: Most sanitization now happens at frontmatter loading stage via normalizeNumericValues()
+// This is a lightweight fallback for any edge cases that slip through
+function sanitizeValue(value: any, fallback: number = 0): number {
+  if (value === null || value === undefined) {
+    return fallback;
+  }
+  
+  const num = typeof value === 'number' ? value : Number(value);
+  
+  // Check for invalid numbers (should be rare after normalization)
+  if (!isFinite(num) || isNaN(num)) {
+    return fallback;
+  }
+  
+  return num;
+}
+
+// Helper function to format display values with smart precision
+function formatDisplayValue(value: number): string {
+  // Handle zero
+  if (value === 0) {
+    return '0';
+  }
+  
+  const absValue = Math.abs(value);
+  
+  // For very small numbers (scientific notation)
+  if (absValue < 0.0001) {
+    // Format in scientific notation, removing trailing zeros and unnecessary decimals
+    const formatted = value.toExponential(1);
+    // Remove .0 from mantissa (e.g., "1.0e-8" -> "1e-8")
+    return formatted.replace(/\.0e/, 'e').replace('e+', 'e').replace('e-0', 'e-');
+  }
+  
+  // For very large numbers >= 10,000 (use compact scientific notation)
+  if (absValue >= 10000) {
+    // Format with minimal precision, remove trailing zeros
+    const formatted = value.toExponential(1);
+    // Clean up: "1.0e+10" -> "1e10", but keep "1.2e+10" -> "1.2e10"
+    return formatted
+      .replace(/\.0e/, 'e')  // Remove .0
+      .replace('e+', 'e')     // Remove + sign
+      .replace(/e0+/, 'e');   // Simplify e01 to e1
+  }
+  
+  // For numbers between 1000 and 10K, use locale formatting with commas (no decimals)
+  if (absValue >= 1000) {
+    return value.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  }
+  
+  // For integers or numbers very close to integers
+  if (Number.isInteger(value) || Math.abs(value - Math.round(value)) < 0.001) {
+    return Math.round(value).toString();
+  }
+  
+  // For decimal numbers, use appropriate precision and remove trailing zeros
+  let formatted: string;
+  if (absValue >= 100) {
+    formatted = value.toFixed(0);
+  } else if (absValue >= 10) {
+    formatted = value.toFixed(1);
+  } else if (absValue >= 1) {
+    formatted = value.toFixed(2);
+  } else if (absValue >= 0.01) {
+    // For small decimals (0.01 to 1), show 2-3 decimal places
+    formatted = value.toFixed(3);
+  } else {
+    // For very small decimals (0.0001 to 0.01), show 4 decimal places
+    formatted = value.toFixed(4);
+  }
+  
+  // Remove trailing zeros after decimal point
+  return formatted.replace(/(\.\d*?)0+$/, '$1').replace(/\.$/, '');
+}
 
 interface PropertyData {
   name: string;
@@ -57,10 +134,87 @@ export function PropertyBars({
   className = ''
 }: PropertyBarsProps) {
   
-  // Extract properties from metadata if not provided directly
+  // Check if we have grouped properties in metadata
+  let sourceData: Record<string, any> = {};
+  if (metadata && !propsProperties) {
+    if (dataSource === 'machineSettings') {
+      sourceData = metadata.machineSettings || metadata.settings || {};
+    } else {
+      sourceData = metadata.properties || metadata.materialProperties || {};
+    }
+  }
+  
+  // Check if source data has grouped properties with labels
+  const isGrouped = !propsProperties && hasGroupedProperties(sourceData);
+  
+  if (isGrouped) {
+    // Render grouped properties in separate SectionContainers
+    const groups = extractGroupedProperties(sourceData, dataSource);
+    
+    if (groups.length === 0) {
+      return (
+        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+          <p>No properties available</p>
+        </div>
+      );
+    }
+    
+    return (
+      <>
+        {groups.map((group, groupIndex) => (
+          <SectionContainer 
+            key={groupIndex}
+            title={group.label}
+            className="mb-8"
+          >
+            <PropertyBarsGrid 
+              properties={group.properties}
+              columns={columns}
+              height={height}
+              className={className}
+            />
+          </SectionContainer>
+        ))}
+      </>
+    );
+  }
+  
+  // Extract properties from metadata if not provided directly (non-grouped)
   const properties = propsProperties || 
     (metadata ? extractPropertiesFromMetadata(metadata, dataSource) : []);
   
+  if (!properties || properties.length === 0) {
+    return (
+      <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <p>No properties available</p>
+      </div>
+    );
+  }
+  
+  return (
+    <PropertyBarsGrid 
+      properties={properties}
+      columns={columns}
+      height={height}
+      className={className}
+    />
+  );
+}
+
+/**
+ * PropertyBarsGrid - Internal component that renders the grid of property bars
+ */
+function PropertyBarsGrid({ 
+  properties,
+  columns = { mobile: 3, tablet: 4, desktop: 6 },
+  height = 70,
+  className = ''
+}: {
+  properties: PropertyData[];
+  columns?: { mobile?: number; tablet?: number; desktop?: number };
+  height?: number;
+  className?: string;
+}) {
   if (!properties || properties.length === 0) {
     return (
       <div className="text-center py-8 text-gray-500 dark:text-gray-400">
@@ -74,71 +228,101 @@ export function PropertyBars({
   return (
     <div className={`grid gap-4 ${gridClasses} ${className}`}>
       {properties.map((prop, index) => {
-        // Calculate percentage within range for the value bar
-        const percentage = ((prop.value - prop.min) / (prop.max - prop.min)) * 100;
+        // Sanitize values - ensure they're valid numbers
+        const sanitizedValue = sanitizeValue(prop.value);
+        const sanitizedMin = sanitizeValue(prop.min, 0);
+        // Don't override max if it's already a valid number from property extraction
+        const sanitizedMax = typeof prop.max === 'number' && isFinite(prop.max) && prop.max > 0
+          ? prop.max 
+          : sanitizeValue(prop.max, Math.max(sanitizedValue * 2, sanitizedMin + 1));
+        
+        // Calculate range with sanitized values
+        const range = sanitizedMax - sanitizedMin;
+        
+        // Avoid division by zero or invalid range
+        if (range <= 0 || !isFinite(range)) {
+          return null;
+        }
+        
+        // Calculate percentages for each bar relative to the full range
+        // Min bar shows at the min value position (always 0% of range)
+        const minPercentage = 5; // Minimum visible height for min indicator
+        
+        // Value position within the range - clamp between min and 100%
+        const rawPercentage = ((sanitizedValue - sanitizedMin) / range) * 100;
+        const valuePercentage = Math.max(
+          Math.min(rawPercentage, 100),
+          minPercentage
+        );
+        
+        // Max is always at 100%
+        const maxPercentage = 100;
         
         // Default color if not provided
         const colorClass = prop.color || 'from-blue-500 to-cyan-500';
         
+        // Extract the darkest color (the "to" color) from the gradient for the badge
+        // Match patterns like "to-cyan-500" or "to-blue-600"
+        const badgeColorMatch = colorClass.match(/to-([\w-]+)/);
+        const badgeColor = badgeColorMatch ? `bg-${badgeColorMatch[1]}` : 'bg-blue-500';
+        
+        // Get background color for the value label based on the gradient
+        const bgColorClass = getBackgroundColorFromGradient(colorClass);
+        
         return (
           <div 
             key={index}
-            className="relative bg-white dark:bg-gray-800 p-2"
+            className="relative bg-white dark:bg-gray-800 p-2 rounded"
           >
             {/* Property name at top */}
             <h4 className="text-xs font-semibold text-center text-gray-900 dark:text-gray-100 mb-1.5">
               {prop.name}
             </h4>
             
-            {/* Three-bar visualization with unit badge */}
-            <div className="relative flex items-end justify-center gap-3 mb-1" style={{ height: `${height}px` }}>
-              {/* Unit badge overlay */}
-              {prop.unit && (
-                <div className="absolute top-1 left-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-[9px] px-1.5 py-0.5 rounded font-medium">
-                  {prop.unit}
-                </div>
-              )}
-              
-              {/* Min bar */}
-              <div className="flex items-end h-full">
-                <div 
-                  className="w-6 bg-gray-400 dark:bg-gray-500 rounded transition-all duration-700"
-                  style={{ height: '40%' }}
-                />
+            {/* Three-bar visualization with unit badge and labels */}
+            <div className="relative flex items-end justify-between px-4" style={{ height: `${height + 20}px` }}>
+              {/* Value badge overlay - uses gray-600 background with min-width */}
+              <div className="absolute top-1 left-1 bg-gray-600 px-1 py-0.5 rounded font-medium shadow-sm z-10 flex flex-col items-center leading-tight min-w-[2.5rem]">
+                <div className="text-sm font-semibold text-white">{formatDisplayValue(sanitizedValue)}</div>
+                {prop.unit && <div className="text-[9px] opacity-80 text-white">{prop.unit}</div>}
               </div>
               
-              {/* Value bar (current) */}
-              <div className="flex items-end h-full">
-                <div 
-                  className={`w-6 bg-gradient-to-t ${colorClass} rounded transition-all duration-700`}
-                  style={{ height: `${Math.max(percentage, 5)}%` }}
-                />
+              {/* Min bar with label */}
+              <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
+                <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
+                  <div 
+                    className="w-3 bg-gray-400 dark:bg-gray-500 rounded-md transition-all duration-700"
+                    style={{ height: `${minPercentage}%` }}
+                  />
+                </div>
+                <div className="text-xs font-normal text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  {formatDisplayValue(sanitizedMin)}
+                </div>
               </div>
               
-              {/* Max bar */}
-              <div className="flex items-end h-full">
-                <div 
-                  className="w-6 bg-gray-400 dark:bg-gray-500 rounded transition-all duration-700"
-                  style={{ height: '100%' }}
-                />
-              </div>
-            </div>
-            
-            {/* Labels below bars */}
-            <div className="flex items-start justify-center gap-3">
-              <div className="w-6 text-center">
-                <div className="text-xs font-bold text-gray-700 dark:text-gray-300">
-                  {prop.min}
+              {/* Value bar (current) with label */}
+              <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
+                <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
+                  <div 
+                    className={`w-3 bg-gradient-to-t ${colorClass} rounded-md transition-all duration-700`}
+                    style={{ height: `${valuePercentage}%` }}
+                  />
+                </div>
+                <div className="text-xs font-normal text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                  {formatDisplayValue(sanitizedValue)}
                 </div>
               </div>
-              <div className="w-6 text-center">
-                <div className="text-xs font-bold text-gray-900 dark:text-gray-100">
-                  {prop.value}
+              
+              {/* Max bar with label */}
+              <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
+                <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
+                  <div 
+                    className="w-3 bg-gray-400 dark:bg-gray-500 rounded-md transition-all duration-700"
+                    style={{ height: `${maxPercentage}%` }}
+                  />
                 </div>
-              </div>
-              <div className="w-6 text-center">
-                <div className="text-xs font-bold text-gray-700 dark:text-gray-300">
-                  {prop.max}
+                <div className="text-xs font-normal text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  {formatDisplayValue(sanitizedMax)}
                 </div>
               </div>
             </div>
@@ -147,6 +331,134 @@ export function PropertyBars({
       })}
     </div>
   );
+}
+
+/**
+ * Helper type for grouped properties
+ */
+interface PropertyGroup {
+  label: string;
+  properties: PropertyData[];
+}
+
+/**
+ * Check if metadata has grouped properties (with labels)
+ */
+function hasGroupedProperties(sourceData: Record<string, any>): boolean {
+  return Object.keys(sourceData).some((key) => {
+    const group = sourceData[key];
+    return group && typeof group === 'object' && 'label' in group;
+  });
+}
+
+/**
+ * Extract grouped properties from metadata
+ */
+function extractGroupedProperties(
+  sourceData: Record<string, any>,
+  dataSource: 'materialProperties' | 'machineSettings' = 'materialProperties'
+): PropertyGroup[] {
+  const groups: PropertyGroup[] = [];
+  
+  Object.keys(sourceData).forEach((groupKey) => {
+    const group = sourceData[groupKey];
+    if (group && typeof group === 'object' && 'label' in group) {
+      const properties: PropertyData[] = [];
+      
+      Object.keys(group).forEach((propKey) => {
+        // Skip metadata fields like 'label' and 'percentage'
+        if (propKey === 'label' || propKey === 'percentage') return;
+        
+        const prop = group[propKey];
+        if (prop && (typeof prop.value === 'number' || !isNaN(Number(prop.value)))) {
+          const propertyData = extractSingleProperty(propKey, prop, dataSource);
+          if (propertyData) {
+            properties.push(propertyData);
+          }
+        }
+      });
+      
+      if (properties.length > 0) {
+        groups.push({
+          label: group.label,
+          properties
+        });
+      }
+    }
+  });
+  
+  return groups;
+}
+
+/**
+ * Extract a single property with all validation logic
+ */
+function extractSingleProperty(
+  key: string,
+  prop: any,
+  dataSource: 'materialProperties' | 'machineSettings' = 'materialProperties'
+): PropertyData | null {
+  // Use sanitizeValue for all numeric conversions
+  const value = sanitizeValue(prop.value, 0);
+  let min = sanitizeValue(prop.min, 0);
+  let max = sanitizeValue(prop.max, null as any);
+  
+  // Check if we have valid min/max from YAML
+  const hasValidMax = max !== null && max > 0 && max !== min;
+  const hasValidMin = typeof prop.min === 'number' && isFinite(prop.min);
+  
+  // Only apply corrections if we have invalid ranges
+  if (!hasValidMax || value < min || value > max) {
+    // Detect and fix invalid min/max ranges where value falls outside range
+    if (value < min || value > max) {
+      // Value is outside the stated range - recalculate sensible bounds
+      if (value < 1 && min > 1) {
+        // Likely a 0-1 normalized value with wrong absolute scale
+        min = 0;
+        max = 1;
+      } else {
+        // Use value-centered range
+        min = Math.min(value * 0.5, value - Math.abs(value) * 0.5, 0);
+        max = value * 2;
+      }
+    } else if (!hasValidMax) {
+      // For max, use a smart default if not provided or invalid
+      // Property-specific max defaults for common edge cases
+      if (key.toLowerCase().includes('absorption') && value < 1) {
+        // Absorption coefficients or rates often 0-1 range
+        max = 1;
+      } else if (key.toLowerCase().includes('resistivity')) {
+        // Electrical resistivity can vary widely
+        max = value * 10;
+      } else if (key.toLowerCase().includes('reflectivity') && value < 1) {
+        // Reflectivity is typically 0-1
+        max = 1;
+      } else {
+        // General fallback
+        max = Math.max(value * 2, value + 1, min + 1);
+      }
+    }
+  }
+  
+  // Final safety check: ensure max > min and max >= value
+  if (max <= min) {
+    max = min + (min === 0 ? 1 : Math.abs(min));
+  }
+  if (max < value) {
+    max = value * 1.2;
+  }
+  if (min > value) {
+    min = Math.min(0, value * 0.5);
+  }
+
+  return {
+    name: formatPropertyName(key),
+    value: value,
+    min: min,
+    max: max,
+    unit: prop.unit === 'dimensionless' ? undefined : prop.unit,
+    color: getColorForProperty(key, dataSource)
+  } as PropertyData;
 }
 
 /**
@@ -168,33 +480,84 @@ export function extractPropertiesFromMetadata(
     sourceData = metadata.properties || metadata.materialProperties || {};
   }
   
+  // If the top-level sourceData does not contain direct property entries
+  // (i.e., entries with a numeric `value`), it's common for `materialProperties`
+  // to be organized into categories (e.g. material_characteristics, thermal_data).
+  // In that case, flatten the nested groups into a single map of properties.
+  const hasDirectValues = Object.keys(sourceData).some((k) => {
+    const v = sourceData[k];
+    return v && (typeof v.value === 'number' || !isNaN(Number(v?.value)));
+  });
+
+  if (!hasDirectValues) {
+    const flattened: Record<string, any> = {};
+    Object.keys(sourceData).forEach((groupKey) => {
+      const group = sourceData[groupKey];
+      if (group && typeof group === 'object') {
+        Object.keys(group).forEach((propKey) => {
+          // Skip metadata fields like 'label' and 'percentage'
+          if (propKey === 'label' || propKey === 'percentage') return;
+          // Avoid overwriting if duplicate keys exist across groups - later groups win
+          flattened[propKey] = group[propKey];
+        });
+      }
+    });
+    sourceData = flattened;
+  }
+
   const propertyKeys = selectedProperties || Object.keys(sourceData);
-  
+
   return propertyKeys
-    .filter((key) => {
-      const prop = sourceData[key];
-      return prop && typeof prop.value === 'number';
-    })
     .map((key) => {
       const prop = sourceData[key];
-      
-      return {
-        name: formatPropertyName(key),
-        value: prop.value,
-        min: prop.min || 0,
-        max: prop.max || prop.value * 2,
-        unit: prop.unit === 'dimensionless' ? undefined : prop.unit,
-        color: getColorForProperty(key, dataSource)
-      } as PropertyData;
-    });
+      if (!prop || !(typeof prop.value === 'number' || !isNaN(Number(prop.value)))) {
+        return null;
+      }
+      return extractSingleProperty(key, prop, dataSource);
+    })
+    .filter((prop): prop is PropertyData => prop !== null);
 }
 
 // Format property names for display
 function formatPropertyName(key: string): string {
-  return key
-    .split('_')
+  // Convert camelCase to space separated, then handle underscores
+  const splitCamel = key.replace(/([a-z])([A-Z])/g, '$1 $2');
+  return splitCamel
+    .split(/[_\s]+/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+// Get lighter background color variant from gradient color
+function getBackgroundColorFromGradient(gradientClass: string): string {
+  // Extract the primary color from the gradient (e.g., 'from-purple-500 to-pink-500' -> 'purple')
+  const match = gradientClass.match(/from-(\w+)-/);
+  if (!match) return 'bg-blue-50 dark:bg-blue-900/30';
+  
+  const color = match[1];
+  
+  // Map gradient colors to their light background variants
+  const bgColorMap: Record<string, string> = {
+    purple: 'bg-purple-50 dark:bg-purple-900/30',
+    blue: 'bg-blue-50 dark:bg-blue-900/30',
+    orange: 'bg-orange-50 dark:bg-orange-900/30',
+    green: 'bg-green-50 dark:bg-green-900/30',
+    indigo: 'bg-indigo-50 dark:bg-indigo-900/30',
+    yellow: 'bg-yellow-50 dark:bg-yellow-900/30',
+    pink: 'bg-pink-50 dark:bg-pink-900/30',
+    cyan: 'bg-cyan-50 dark:bg-cyan-900/30',
+    red: 'bg-red-50 dark:bg-red-900/30',
+    amber: 'bg-amber-50 dark:bg-amber-900/30',
+    emerald: 'bg-emerald-50 dark:bg-emerald-900/30',
+    teal: 'bg-teal-50 dark:bg-teal-900/30',
+    rose: 'bg-rose-50 dark:bg-rose-900/30',
+    violet: 'bg-violet-50 dark:bg-violet-900/30',
+    lime: 'bg-lime-50 dark:bg-lime-900/30',
+    sky: 'bg-sky-50 dark:bg-sky-900/30',
+    gray: 'bg-gray-50 dark:bg-gray-900/30',
+  };
+  
+  return bgColorMap[color] || 'bg-blue-50 dark:bg-blue-900/30';
 }
 
 // Assign colors based on property type and data source
@@ -217,20 +580,46 @@ function getColorForProperty(key: string, dataSource: 'materialProperties' | 'ma
   
   // Material properties get varied colors
   const colorMap: Record<string, string> = {
+    // Structural/Mechanical Properties
     density: 'from-purple-500 to-pink-500',
     hardness: 'from-blue-500 to-cyan-500',
+    youngsModulus: 'from-indigo-500 to-blue-500',
+    compressiveStrength: 'from-blue-600 to-indigo-600',
+    tensileStrength: 'from-cyan-500 to-blue-500',
+    flexuralStrength: 'from-blue-500 to-purple-500',
+    fractureToughness: 'from-purple-600 to-indigo-600',
+    porosity: 'from-pink-500 to-rose-500',
+    
+    // Thermal Properties
     thermal_conductivity: 'from-orange-500 to-red-500',
     thermalConductivity: 'from-orange-500 to-red-500',
-    laser_absorption: 'from-green-500 to-emerald-500',
-    laserAbsorption: 'from-green-500 to-emerald-500',
     specific_heat: 'from-indigo-500 to-purple-500',
     specificHeat: 'from-indigo-500 to-purple-500',
-    laser_damage_threshold: 'from-yellow-500 to-orange-500',
-    laserDamageThreshold: 'from-yellow-500 to-orange-500',
-    porosity: 'from-pink-500 to-rose-500',
-    reflectivity: 'from-cyan-500 to-blue-500',
     thermal_expansion: 'from-red-500 to-orange-500',
     thermalExpansion: 'from-red-500 to-orange-500',
+    thermalDiffusivity: 'from-orange-600 to-red-600',
+    thermalDestruction: 'from-red-600 to-orange-600',
+    thermalShockResistance: 'from-orange-500 to-amber-500',
+    thermalDestructionPoint: 'from-red-500 to-rose-500',
+    
+    // Optical/Laser Properties
+    laser_absorption: 'from-green-500 to-emerald-500',
+    laserAbsorption: 'from-green-500 to-emerald-500',
+    absorptionCoefficient: 'from-emerald-500 to-green-500',
+    absorptivity: 'from-green-600 to-teal-600',
+    laser_damage_threshold: 'from-yellow-500 to-orange-500',
+    laserDamageThreshold: 'from-yellow-500 to-orange-500',
+    ablationThreshold: 'from-amber-500 to-yellow-500',
+    reflectivity: 'from-cyan-500 to-blue-500',
+    laserReflectivity: 'from-cyan-600 to-blue-600',
+    
+    // Electrical Properties
+    electricalResistivity: 'from-violet-500 to-purple-500',
+    
+    // Chemical/Environmental Properties
+    corrosionResistance: 'from-teal-500 to-cyan-500',
+    oxidationResistance: 'from-lime-500 to-green-500',
+    vaporPressure: 'from-sky-500 to-cyan-500',
   };
   
   return colorMap[key] || 'from-gray-500 to-gray-600';

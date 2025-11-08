@@ -181,6 +181,11 @@ run_pre_deployment_validations() {
     section "13. COMPONENT TESTS"
     run_validation "Component tests" "npm run test:components" false
     
+    # 13.5. Component Enhancements (PropertyBars, Layout)
+    section "13.5. COMPONENT ENHANCEMENTS"
+    run_validation "PropertyBars enhancements" "npm run test:propertybars" true
+    run_validation "Layout section ordering" "npm run test:layout" true
+    
     # 14. Sitemap Tests
     section "14. SITEMAP TESTS"
     run_validation "Sitemap tests" "npm run test:sitemap" true

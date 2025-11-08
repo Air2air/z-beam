@@ -154,20 +154,6 @@ export function Layout(props: LayoutProps) {
             lastModified={metadata?.lastModified}
           />
 
-          {metadata?.materialProperties && (
-            <SectionContainer 
-              title={metadata.title ? `${metadata.title} Properties` : 'Material Properties'}
-              className="mb-8"
-            >
-              <PropertyBars 
-                metadata={metadata} 
-                dataSource="materialProperties" 
-                showTitle={false}
-                searchable
-              />
-            </SectionContainer>
-          )}
-
           {metadata?.machineSettings && (
             <SectionContainer 
               title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
@@ -180,6 +166,15 @@ export function Layout(props: LayoutProps) {
                 searchable 
               />
             </SectionContainer>
+          )}
+
+          {metadata?.materialProperties && (
+            <PropertyBars 
+              metadata={metadata} 
+              dataSource="materialProperties" 
+              showTitle={false}
+              searchable
+            />
           )}
 
           {metadata?.caption && (

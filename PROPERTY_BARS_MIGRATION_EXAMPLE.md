@@ -86,6 +86,29 @@ import { PropertyBars } from '../PropertyBars/PropertyBars';
 - **MetricsGrid**: 160px per row × 5 properties = 800px
 - **PropertyBars**: 70px total for ALL properties = **91% savings**
 
+### Automatic Section Grouping
+PropertyBars detects grouped properties and renders them in separate sections automatically:
+
+```yaml
+# Grouped structure
+materialProperties:
+  Material Characteristics:
+    label: 'Material Characteristics'
+    density: { value: 3210, min: 3100, max: 3300, unit: 'kg/m³' }
+  
+  Laser-Material Interaction:
+    label: 'Laser-Material Interaction'
+    absorptionCoefficient: { value: 104, min: 100, max: 108, unit: 'cm⁻¹' }
+```
+
+**Result**: Two `SectionContainer` components with titles, no extra code needed!
+
+### Layout Section Order
+In `Layout.tsx`, sections render in this order:
+1. Machine Settings (wrapped in SectionContainer)
+2. Material Characteristics (auto-wrapped if grouped)
+3. Laser-Material Interaction (auto-wrapped if grouped)
+
 ### Same Data Structure
 Both components work with the same metadata structure:
 
@@ -98,6 +121,13 @@ properties:
     max: 2.8
     unit: "g/cm³"
 ```
+
+### Visual Design
+- **Bar Width**: Ultra-thin at 8px (w-2 Tailwind class)
+- **Spacing**: Equal distribution with flex-1 containers
+- **Badge**: Gray-600 background with white text
+- **Badge Content**: Value (text-sm) above unit (text-[9px])
+- **Labels**: Center-aligned, normal weight, no wrapping
 
 ### Color Coding
 - **Material Properties**: Varied colors (purple, blue, orange, green, etc.)
@@ -127,7 +157,7 @@ node scripts/migrate-to-property-bars.js --file=app/components/Layout/Layout.tsx
 
 | Prop | MetricsGrid | PropertyBars | Notes |
 |------|-------------|--------------|-------|
-| `metadata` | ✅ | ✅ | Same structure |
+| `metadata` | ✅ | ✅ | Same structure, supports grouped properties |
 | `dataSource` | ✅ | ✅ | 'materialProperties' \| 'machineSettings' |
 | `className` | ✅ | ✅ | Custom CSS classes |
 | `showTitle` | ✅ | ✅ | Accepted but not used (add SectionTitle separately) |
@@ -135,6 +165,16 @@ node scripts/migrate-to-property-bars.js --file=app/components/Layout/Layout.tsx
 | `properties` | ❌ | ✅ | Direct array (PropertyBars only) |
 | `columns` | ❌ | ✅ | Responsive grid config (PropertyBars only) |
 | `height` | ❌ | ✅ | Bar height (PropertyBars only) |
+
+## Grouped Properties Detection
+
+PropertyBars automatically detects grouped properties by checking for:
+- Nested objects with a `label` property
+- Property objects nested under group keys
+
+**When detected**: Renders each group in its own `SectionContainer` with the label as title.
+
+**When not detected**: Renders all properties in a single grid without section wrappers.
 
 ## Zero Breaking Changes
 
