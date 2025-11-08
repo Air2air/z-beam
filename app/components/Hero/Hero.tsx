@@ -64,20 +64,22 @@ export function Hero({
   // Remove Intersection Observer - Hero is always above fold, should load immediately
   // This reduces JavaScript execution before LCP
   
-  // Get video URL from frontmatter
-  const videoUrl = frontmatter?.video?.url;
+  // Get video ID from frontmatter
+  const videoId = frontmatter?.video?.id;
   
   // Get image source from frontmatter
   const imageSource = frontmatter?.images?.hero?.url;
 
-  // Extract YouTube video ID from URL for thumbnail
-  const getYouTubeVideoId = (url: string): string | null => {
-    if (!url) return null;
-    const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
-    return match ? match[1] : null;
+  // Build YouTube URL with maximum branding removal
+  const buildYouTubeUrl = (id: string) => {
+    const params = new URLSearchParams({
+      ...SITE_CONFIG.media.youtube.defaultParams,
+      playlist: id, // Required for looping
+    });
+    return `${SITE_CONFIG.media.youtube.baseUrl}${id}?${params.toString()}`;
   };
 
-  const videoId = videoUrl ? getYouTubeVideoId(videoUrl) : null;
+  const videoUrl = videoId ? buildYouTubeUrl(videoId) : null;
   
   // Simplified accessibility text generation - only from frontmatter
   const getAccessibleAlt = (): string => {

@@ -27,7 +27,7 @@ const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tight
 
 // Helper: Check if hero content exists
 const hasHeroContent = (metadata: any) => {
-  return metadata?.images?.hero?.url || metadata?.video?.url;
+  return metadata?.images?.hero?.url || metadata?.video?.id;
 };
 
 // Helper: Render article component
