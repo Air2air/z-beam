@@ -577,7 +577,7 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
   });
 
   // Material products - disabled to avoid invalid Product schema
-  // Material pages should use Article/TechnicalArticle schema instead of Product
+  // Material pages should use Article schema instead of Product
   // since they are informational content, not products for sale
   const meta = getMetadata(data);
   if (meta.materialProperties && false) { // Disabled: causes invalid Product schema
