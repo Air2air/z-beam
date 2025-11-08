@@ -32,6 +32,11 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
     data.comparison_materials?.map((m: any) => m.name) || []
   );
   const [viewMode, setViewMode] = useState<'absolute' | 'relative'>('relative');
+  
+  // Material Suitability Score state
+  const [speedWeight, setSpeedWeight] = useState(33);
+  const [qualityWeight, setQualityWeight] = useState(33);
+  const [costWeight, setCostWeight] = useState(34);
 
   const granite = data.granite_baseline;
   const materials = data.comparison_materials || [];
@@ -51,6 +56,31 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
         ? prev.filter(m => m !== material)
         : [...prev, material]
     );
+  };
+
+  // Calculate material suitability scores based on weights
+  const calculateSuitabilityScore = (material: any) => {
+    // Speed score (0-100): based on scan speed and ease of cleaning
+    const speedScore = material.name === granite.name ? 70 :
+      material.properties?.laser_absorption?.value > 0.5 ? 85 :
+      material.properties?.laser_absorption?.value > 0.4 ? 70 :
+      material.properties?.laser_absorption?.value > 0.3 ? 55 : 40;
+    
+    // Quality score (0-100): based on damage threshold and durability
+    const qualityScore = material.name === granite.name ? 90 :
+      material.properties?.laser_damage_threshold?.value > 8 ? 95 :
+      material.properties?.laser_damage_threshold?.value > 5 ? 80 :
+      material.properties?.laser_damage_threshold?.value > 3 ? 60 : 35;
+    
+    // Cost score (0-100): inverse of power requirements (lower power = better cost)
+    const costScore = material.name === granite.name ? 70 :
+      material.laser_settings?.power_range?.value < 70 ? 90 :
+      material.laser_settings?.power_range?.value < 90 ? 75 :
+      material.laser_settings?.power_range?.value < 110 ? 60 : 45;
+    
+    // Weighted average
+    const total = (speedScore * speedWeight + qualityScore * qualityWeight + costScore * costWeight) / 100;
+    return Math.round(total);
   };
 
   return (
@@ -304,6 +334,134 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
         </div>
       </SectionContainer>
 
+      {/* Thermal Properties Grouped Bar Chart - Chart 4 */}
+      {data.comparison_charts?.thermal_properties_comparison && (
+        <SectionContainer
+          title="Thermal Properties Impact on Laser Cleaning"
+          icon={<FiZap className="w-6 h-6" />}
+          bgColor="gray-50"
+          horizPadding={true}
+          radius={true}
+        >
+          <p className="text-gray-700 dark:text-gray-300 mb-6">
+            {data.comparison_charts.thermal_properties_comparison.description}
+          </p>
+          
+          {/* Grouped Bar Chart - All materials side by side for each property */}
+          <div className="space-y-12">
+            {data.comparison_charts.thermal_properties_comparison.properties?.map((prop: any, propIndex: number) => {
+              // Build material data array with proper value extraction
+              const allMaterialsData = [
+                { name: granite.name, value: prop.granite || 0, isBaseline: true },
+                ...data.comparison_materials
+                  .filter((m: any) => selectedMaterials.includes(m.name))
+                  .map((m: any) => {
+                    // The YAML has lowercase material names as keys (e.g., "marble", "steel")
+                    const key = m.name.toLowerCase();
+                    let value = prop[key] || 0;
+                    
+                    return {
+                      name: m.name,
+                      value: value,
+                      isBaseline: false
+                    };
+                  })
+              ];
+              
+              // Find max value for scaling
+              let maxValue = Math.max(...allMaterialsData.map((m: any) => m.value || 0), 1); // Ensure at least 1
+              
+              // Special handling for extreme values
+              const hasExtreme = prop.property === 'thermal_conductivity' && maxValue > 100;
+              let displayMaxValue = maxValue;
+              if (hasExtreme) {
+                const filteredValues = allMaterialsData.filter((m: any) => m.value < 100).map((m: any) => m.value);
+                displayMaxValue = filteredValues.length > 0 ? Math.max(...filteredValues) : maxValue;
+              }
+              
+              const barColor = propIndex === 0 ? 'purple' : propIndex === 1 ? 'green' : 'orange';
+              
+              return (
+                <div key={propIndex}>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+                      {prop.label}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">
+                      Unit: {prop.unit}
+                    </p>
+                  </div>
+                  
+                  {/* Grouped bars - horizontal layout */}
+                  <div className="relative bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div className="flex items-end justify-around gap-2" style={{ height: '320px' }}>
+                      {allMaterialsData.map((material: any) => {
+                        const isExtreme = hasExtreme && material.value > 100;
+                        const heightPercent = isExtreme ? 100 : (material.value / displayMaxValue) * 100;
+                        // Convert percentage to pixels for proper display
+                        const heightPx = (heightPercent / 100) * 280; // 280px max height (320 - padding for labels)
+                        
+                        return (
+                          <div key={material.name} className="flex flex-col items-center flex-1 min-w-0">
+                            {/* Value label on top */}
+                            <div className="text-xs font-bold text-gray-900 dark:text-gray-100 mb-1 text-center">
+                              {material.value}
+                              {isExtreme && (
+                                <div className="text-[10px] text-orange-600 dark:text-orange-400">⚠️ Extreme</div>
+                              )}
+                            </div>
+                            
+                            {/* Bar */}
+                            <div className="relative w-full h-full flex items-end">
+                              <div 
+                                className={`w-full rounded-t-lg transition-all hover:opacity-80 cursor-pointer ${
+                                  material.isBaseline
+                                    ? 'bg-blue-600 dark:bg-blue-500'
+                                    : barColor === 'purple'
+                                    ? 'bg-purple-500 dark:bg-purple-400'
+                                    : barColor === 'green'
+                                    ? 'bg-green-500 dark:bg-green-400'
+                                    : 'bg-orange-500 dark:bg-orange-400'
+                                } ${material.isBaseline ? 'border-2 border-blue-800 dark:border-blue-300' : ''}`}
+                                style={{ 
+                                  height: `${Math.max(heightPx, 4)}px`
+                                }}
+                              />
+                            </div>
+                            
+                            {/* Material name label */}
+                            <div className={`text-xs font-medium text-center mt-2 px-1 break-words ${
+                              material.isBaseline 
+                                ? 'text-blue-600 dark:text-blue-400 font-bold' 
+                                : 'text-gray-700 dark:text-gray-300'
+                            }`}>
+                              {material.name}
+                              {material.isBaseline && (
+                                <div className="text-[9px] text-blue-500 dark:text-blue-400">BASELINE</div>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  
+                  {/* Interpretation */}
+                  <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                    <div className="flex items-start gap-2">
+                      <FiInfo className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-blue-900 dark:text-blue-200">
+                        <strong>Interpretation:</strong> {prop.interpretation}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </SectionContainer>
+      )}
+
       {/* Laser Parameter Matrix - Chart 4 */}
       {data.comparison_charts?.laser_parameters_heatmap && (
         <SectionContainer
@@ -423,6 +581,294 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
           </div>
         </SectionContainer>
       )}
+
+      {/* Material Suitability Score Timeline */}
+      <SectionContainer
+        title="Material Suitability Score Calculator"
+        icon={<FiTrendingUp className="w-6 h-6" />}
+        bgColor="gray-50"
+        horizPadding={true}
+        radius={true}
+      >
+        <div className="space-y-6">
+          {/* Weight Sliders */}
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+              Adjust Priority Factors
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
+              Move the sliders to weight factors based on your application needs. Scores update in real-time.
+            </p>
+            
+            <div className="space-y-6">
+              {/* Speed Weight */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Processing Speed Priority
+                  </label>
+                  <span className="text-lg font-bold text-purple-600 dark:text-purple-400">
+                    {speedWeight}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={speedWeight}
+                  onChange={(e) => {
+                    const newSpeed = parseInt(e.target.value);
+                    const remaining = 100 - newSpeed;
+                    setSpeedWeight(newSpeed);
+                    // Distribute remaining between quality and cost proportionally
+                    const currentQualityCostTotal = qualityWeight + costWeight;
+                    if (currentQualityCostTotal > 0) {
+                      const qualityRatio = qualityWeight / currentQualityCostTotal;
+                      setQualityWeight(Math.round(remaining * qualityRatio));
+                      setCostWeight(remaining - Math.round(remaining * qualityRatio));
+                    } else {
+                      setQualityWeight(Math.round(remaining / 2));
+                      setCostWeight(remaining - Math.round(remaining / 2));
+                    }
+                  }}
+                  className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                />
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Higher = Faster cleaning time more important
+                </p>
+              </div>
+
+              {/* Quality Weight */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Result Quality Priority
+                  </label>
+                  <span className="text-lg font-bold text-green-600 dark:text-green-400">
+                    {qualityWeight}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={qualityWeight}
+                  onChange={(e) => {
+                    const newQuality = parseInt(e.target.value);
+                    const remaining = 100 - newQuality;
+                    setQualityWeight(newQuality);
+                    const currentSpeedCostTotal = speedWeight + costWeight;
+                    if (currentSpeedCostTotal > 0) {
+                      const speedRatio = speedWeight / currentSpeedCostTotal;
+                      setSpeedWeight(Math.round(remaining * speedRatio));
+                      setCostWeight(remaining - Math.round(remaining * speedRatio));
+                    } else {
+                      setSpeedWeight(Math.round(remaining / 2));
+                      setCostWeight(remaining - Math.round(remaining / 2));
+                    }
+                  }}
+                  className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-600"
+                />
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Higher = Surface quality and durability more important
+                </p>
+              </div>
+
+              {/* Cost Weight */}
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    Operating Cost Priority
+                  </label>
+                  <span className="text-lg font-bold text-orange-600 dark:text-orange-400">
+                    {costWeight}%
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={costWeight}
+                  onChange={(e) => {
+                    const newCost = parseInt(e.target.value);
+                    const remaining = 100 - newCost;
+                    setCostWeight(newCost);
+                    const currentSpeedQualityTotal = speedWeight + qualityWeight;
+                    if (currentSpeedQualityTotal > 0) {
+                      const speedRatio = speedWeight / currentSpeedQualityTotal;
+                      setSpeedWeight(Math.round(remaining * speedRatio));
+                      setQualityWeight(remaining - Math.round(remaining * speedRatio));
+                    } else {
+                      setSpeedWeight(Math.round(remaining / 2));
+                      setQualityWeight(remaining - Math.round(remaining / 2));
+                    }
+                  }}
+                  className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-600"
+                />
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Higher = Energy efficiency and power consumption more important
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Presets */}
+            <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+              <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+                Quick Presets:
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  onClick={() => {
+                    setSpeedWeight(33);
+                    setQualityWeight(33);
+                    setCostWeight(34);
+                  }}
+                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-medium transition-colors"
+                >
+                  Balanced
+                </button>
+                <button
+                  onClick={() => {
+                    setSpeedWeight(60);
+                    setQualityWeight(25);
+                    setCostWeight(15);
+                  }}
+                  className="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-900/50 text-sm font-medium transition-colors"
+                >
+                  Speed Focus
+                </button>
+                <button
+                  onClick={() => {
+                    setSpeedWeight(15);
+                    setQualityWeight(70);
+                    setCostWeight(15);
+                  }}
+                  className="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg hover:bg-green-200 dark:hover:bg-green-900/50 text-sm font-medium transition-colors"
+                >
+                  Quality Focus
+                </button>
+                <button
+                  onClick={() => {
+                    setSpeedWeight(15);
+                    setQualityWeight(20);
+                    setCostWeight(65);
+                  }}
+                  className="px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-lg hover:bg-orange-200 dark:hover:bg-orange-900/50 text-sm font-medium transition-colors"
+                >
+                  Cost Focus
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Score Results */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
+              Material Rankings (Based on Your Priorities)
+            </h3>
+            
+            <div className="space-y-3">
+              {[
+                { name: granite.name, ...granite, isBaseline: true },
+                ...materials.filter((m: any) => selectedMaterials.includes(m.name))
+              ]
+                .map(material => ({
+                  ...material,
+                  score: calculateSuitabilityScore(material)
+                }))
+                .sort((a, b) => b.score - a.score)
+                .map((material, index) => {
+                  const rankColors = [
+                    'bg-gradient-to-r from-yellow-400 to-yellow-500 border-yellow-500',
+                    'bg-gradient-to-r from-gray-300 to-gray-400 border-gray-400',
+                    'bg-gradient-to-r from-orange-400 to-orange-500 border-orange-500',
+                  ];
+                  const rankColor = index < 3 ? rankColors[index] : 'bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600';
+                  
+                  return (
+                    <div
+                      key={material.name}
+                      className={`p-4 rounded-lg border-2 ${rankColor} ${
+                        material.isBaseline ? 'ring-2 ring-blue-500 ring-offset-2' : ''
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className={`text-3xl font-bold ${
+                            index === 0 ? 'text-yellow-900 dark:text-yellow-100' :
+                            index === 1 ? 'text-gray-700 dark:text-gray-200' :
+                            index === 2 ? 'text-orange-900 dark:text-orange-100' :
+                            'text-gray-600 dark:text-gray-400'
+                          }`}>
+                            #{index + 1}
+                          </div>
+                          <div>
+                            <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                              {material.name}
+                              {material.isBaseline && (
+                                <Badge variant="primary" size="sm">BASELINE</Badge>
+                              )}
+                            </h4>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
+                              {material.category} • {material.subcategory}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="text-right">
+                          <div className="text-4xl font-bold text-gray-900 dark:text-gray-100">
+                            {material.score}
+                          </div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400">
+                            Suitability Score
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Score breakdown bar */}
+                      <div className="mt-3 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden flex">
+                        <div 
+                          className="bg-purple-500"
+                          style={{ width: `${speedWeight}%` }}
+                          title={`Speed: ${speedWeight}%`}
+                        />
+                        <div 
+                          className="bg-green-500"
+                          style={{ width: `${qualityWeight}%` }}
+                          title={`Quality: ${qualityWeight}%`}
+                        />
+                        <div 
+                          className="bg-orange-500"
+                          style={{ width: `${costWeight}%` }}
+                          title={`Cost: ${costWeight}%`}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+
+          {/* Interpretation Guide */}
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
+            <div className="flex items-start gap-3">
+              <FiInfo className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+              <div className="space-y-2">
+                <h4 className="font-semibold text-blue-900 dark:text-blue-200">
+                  How to Use This Tool:
+                </h4>
+                <ul className="text-sm text-blue-800 dark:text-blue-300 space-y-1">
+                  <li>• <strong>Speed Priority</strong>: Higher scores favor materials with better laser absorption and faster processing</li>
+                  <li>• <strong>Quality Priority</strong>: Higher scores favor materials with high damage thresholds and durability</li>
+                  <li>• <strong>Cost Priority</strong>: Higher scores favor materials requiring lower power settings (less energy consumption)</li>
+                  <li>• Rankings update instantly as you adjust the sliders</li>
+                  <li>• Use quick presets for common scenarios or fine-tune manually</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SectionContainer>
 
       {/* FAQ Section */}
       {data.faq && data.faq.length > 0 && (
