@@ -13,6 +13,7 @@ import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
 import { FiPackage } from 'react-icons/fi';
+import { SafetyWarning } from '@/app/components/SafetyWarning';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -358,6 +359,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               subcategoryCount={categoryData.subcategories.length}
             />
           </SectionContainer>
+          
+          {/* Safety Warning */}
+          <SafetyWarning className="mt-12" />
         </div>
       </Layout>
     </>

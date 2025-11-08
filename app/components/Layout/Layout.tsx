@@ -237,8 +237,8 @@ export function Layout(props: LayoutProps) {
           </div>
         )}
         
-        {/* Safety Warning - appears at bottom of all pages */}
-        <SafetyWarning className="mt-12" />
+        {/* Safety Warning - appears at bottom of all pages (not for fullWidth, they handle it internally) */}
+        {!fullWidth && <SafetyWarning className="mt-12" />}
       </main>
     );
   }
@@ -284,8 +284,8 @@ export function Layout(props: LayoutProps) {
         {props.children}
       </div>
       
-      {/* Safety Warning - appears at bottom of all pages */}
-      <SafetyWarning className="mt-12" />
+      {/* Safety Warning - appears at bottom of all pages (not for fullWidth, they handle it internally) */}
+      {!fullWidth && <SafetyWarning className="mt-12" />}
     </main>
   );
 }

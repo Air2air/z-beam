@@ -10,6 +10,7 @@ import { createMetadata } from "@/app/utils/metadata";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import SubcategoryDatasetWrapper from "@/app/components/Dataset/SubcategoryDatasetWrapper";
 import { FiPackage } from "react-icons/fi";
+import { SafetyWarning } from "@/app/components/SafetyWarning";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -341,6 +342,9 @@ export default async function SubcategoryPage({ params }: PageProps) {
               materials={subcategoryInfo.materials}
             />
           </SectionContainer>
+          
+          {/* Safety Warning */}
+          <SafetyWarning className="mt-12" />
         </div>
       </Layout>
     </>
