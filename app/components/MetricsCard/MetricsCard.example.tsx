@@ -1,7 +1,9 @@
 // MetricsCard Usage Examples
+// ⚠️ DEPRECATED: These components have been replaced by PropertyBars
+// See: app/components/PropertyBars/README.md
 import React from 'react';
-import { MetricsCard } from './MetricsCard';
-import { MetricsGrid } from './MetricsGrid';
+import { MetricsCard } from '../_deprecated/MetricsCard/MetricsCard';
+import { MetricsGrid } from '../_deprecated/MetricsCard/MetricsGrid';
 import { ArticleMetadata } from '@/types';
 
 // Example metadata with machine settings
