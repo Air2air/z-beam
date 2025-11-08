@@ -83,37 +83,14 @@ async function runAxeAudit(url) {
     
     const results = await page.evaluate(() => {
       return new Promise((resolve, reject) => {
-        // Configure aXe to check for accessibility tree issues
-        const config = {
-          rules: [
-            // Accessible names
-            { id: 'button-name', enabled: true },
-            { id: 'link-name', enabled: true },
-            { id: 'input-button-name', enabled: true },
-            { id: 'image-alt', enabled: true },
-            { id: 'label', enabled: true },
-            
-            // ARIA usage
-            { id: 'aria-valid-attr', enabled: true },
-            { id: 'aria-valid-attr-value', enabled: true },
-            { id: 'aria-required-attr', enabled: true },
-            { id: 'aria-required-children', enabled: true },
-            { id: 'aria-required-parent', enabled: true },
-            { id: 'aria-roles', enabled: true },
-            { id: 'aria-allowed-attr', enabled: true },
-            
-            // Focus management
-            { id: 'focus-order-semantics', enabled: true },
-            { id: 'tabindex', enabled: true },
-            
-            // Semantic structure
-            { id: 'landmark-one-main', enabled: true },
-            { id: 'page-has-heading-one', enabled: true },
-            { id: 'heading-order', enabled: true },
-          ],
-        };
-        
-        window.axe.run(config, (err, results) => {
+        // Run aXe with default configuration (all rules)
+        // Focus on accessibility tree specific checks
+        window.axe.run({
+          runOnly: {
+            type: 'tag',
+            values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']
+          }
+        }, (err, results) => {
           if (err) {
             reject(err);
           } else {

@@ -72,7 +72,7 @@ function checkLighthouseAvailable() {
  * Run Lighthouse audit
  */
 async function runLighthouse(url, strategy = 'mobile') {
-  const lighthouse = require('lighthouse');
+  const { default: lighthouse } = await import('lighthouse');
   const chromeLauncher = require('chrome-launcher');
   
   console.log(`${colors.cyan}Running Lighthouse audit (${strategy})...${colors.reset}`);
