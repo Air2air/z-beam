@@ -41,93 +41,6 @@ const hasHeroContent = (metadata: any, materialName?: string) => {
     materialName;
 };
 
-// Helper: Render article header section
-const ArticleHeader = ({ title, metadata, slug, customHeroOverlay }: any) => {
-  const materialName = getMaterialName(metadata, slug);
-  
-  // Generate breadcrumbs from frontmatter or category/subcategory
-  const pathname = slug ? `/${slug}` : '/';
-  const breadcrumbData = generateBreadcrumbs(metadata, pathname);
-  
-  // Check if we have hero image/video from markdown or material-based hero
-  const showHero = hasHeroContent(metadata, materialName);
-  
-  return (
-    <header className="header-section mb-6">
-      {showHero ? (
-        <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
-      ) : (
-        <div className={SPACER_CLASSES} aria-hidden="true" />
-      )}
-
-      <Breadcrumbs breadcrumbData={breadcrumbData} />
-
-      <Title 
-        level="page" 
-        title={title || metadata?.title || 'Article'} 
-        subtitle={metadata?.subtitle}
-      />
-      <Author 
-        frontmatter={metadata}
-        showAvatar showCredentials showCountry showSpecialties
-        className="mt-2 mb-4"
-      />
-
-      <DateMetadata 
-        datePublished={metadata?.datePublished}
-        lastModified={metadata?.lastModified}
-      />
-
-      {metadata?.materialProperties && (
-        <SectionContainer 
-          title={metadata.title ? `${metadata.title} Properties` : 'Material Properties'}
-          className="mb-8"
-        >
-          <MetricsGrid 
-            metadata={metadata} 
-            dataSource="materialProperties" 
-            layout="auto" 
-            showTitle={false}
-            searchable
-            defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
-          />
-        </SectionContainer>
-      )}
-
-      {metadata?.machineSettings && (
-        <SectionContainer 
-          title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
-          className="mb-8"
-        >
-          <MetricsGrid 
-            metadata={metadata} 
-            dataSource="machineSettings" 
-            layout="auto" 
-            showTitle={false}
-            searchable 
-          />
-        </SectionContainer>
-      )}
-
-      {metadata?.caption && (
-        <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
-      )}
-
-      {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
-        <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
-      )}
-
-      {/* Material-specific FAQ section - from frontmatter */}
-      {metadata?.name && metadata?.faq && (
-        <MaterialFAQ
-          materialName={metadata.name}
-          faq={Array.isArray(metadata.faq) ? metadata.faq : (metadata.faq as any)?.questions || []}
-        />
-      )}
-    </header>
-  );
-};
-
 // Helper: Render article component
 const renderComponent = (type: string, component: any, metadata: any) => {
   if (!component) return null;
@@ -202,86 +115,132 @@ const renderComponent = (type: string, component: any, metadata: any) => {
 export function Layout(props: LayoutProps) {
   const { title, components, metadata, slug, customHeroOverlay } = props;
   const containerClass = props.className || CONTAINER_STYLES.main;
+  
+  // Common page setup
+  const pathname = slug ? `/${slug}` : '/';
+  const breadcrumbData = generateBreadcrumbs(metadata || null, pathname);
+  const isHomePage = !slug || pathname === '/';
+  const materialName = getMaterialName(metadata, slug);
+  const showHero = hasHeroContent(metadata, materialName);
 
-  // Article layout with components
-  if (components) {
-    // Handle empty content
-    if (Object.keys(components).length === 0) {
-      return (
-        <main className={containerClass} id="main-content" role="main">
-          <div className="text-center py-12">
-            <Title level="page" title={title || 'Content Not Available'} />
-            <p className="text-gray-600 dark:text-gray-400">
-              This page is currently being prepared. Please check back later.
-            </p>
-          </div>
-        </main>
-      );
-    }
-
-    // NOTE: Material pages use MaterialJsonLD component which includes Article schema in @graph
-    // No need to generate duplicate Article schema here - MaterialJsonLD handles it
-
+  // Handle empty article content
+  if (components && Object.keys(components).length === 0) {
     return (
       <main className={containerClass} id="main-content" role="main">
-        <ArticleHeader title={title} metadata={metadata} slug={slug} customHeroOverlay={customHeroOverlay} />
-        
-        <article role="article" className="space-y-8">
-          {ARTICLE_COMPONENT_ORDER.map(type => renderComponent(type, components[type], metadata))}
-        </article>
-        
-        {/* Additional sections like RelatedMaterials, RegulatoryStandards, Dataset */}
-        {props.children && (
-          <div className="mt-8 space-y-8">
-            {props.children}
-          </div>
-        )}
-        
-        {/* Safety Warning - appears at bottom of all pages */}
-        <SafetyWarning className="mt-12" />
+        <div className="text-center py-12">
+          <Title level="page" title={title || 'Content Not Available'} />
+          <p className="text-gray-600 dark:text-gray-400">
+            This page is currently being prepared. Please check back later.
+          </p>
+        </div>
       </main>
     );
   }
 
-  // Regular page layout
-  // Check if we have hero content to render
-  const showHero = hasHeroContent(metadata);
-  
-  // Generate breadcrumbs for regular pages
-  const pathname = slug ? `/${slug}` : '/';
-  const breadcrumbData = generateBreadcrumbs(metadata || null, pathname);
-  const isHomePage = !slug || pathname === '/';
-
   return (
     <main className={containerClass} id="main-content" role="main">
-      {/* Hero renders if content exists, otherwise spacer maintains consistent vertical rhythm */}
+      {/* Hero Section - common to both layouts */}
       {showHero ? (
         <Hero frontmatter={metadata} theme="dark" customOverlay={customHeroOverlay} />
       ) : (
         <div className={SPACER_CLASSES} aria-hidden="true" />
       )}
-      
-      {/* Breadcrumbs - hide on homepage */}
-      {!isHomePage && (
-        <Breadcrumbs breadcrumbData={breadcrumbData} />
+
+      {/* Breadcrumbs - skip on homepage */}
+      {!isHomePage && <Breadcrumbs breadcrumbData={breadcrumbData} />}
+
+      {/* Article Header - only for pages with components */}
+      {components ? (
+        <header className="header-section mb-6">
+          <Title 
+            level="page" 
+            title={title || metadata?.title || 'Article'} 
+            subtitle={metadata?.subtitle}
+          />
+          <Author 
+            frontmatter={metadata}
+            showAvatar showCredentials showCountry showSpecialties
+            className="mt-2 mb-4"
+          />
+          <DateMetadata 
+            datePublished={metadata?.datePublished}
+            lastModified={metadata?.lastModified}
+          />
+
+          {metadata?.materialProperties && (
+            <SectionContainer 
+              title={metadata.title ? `${metadata.title} Properties` : 'Material Properties'}
+              className="mb-8"
+            >
+              <MetricsGrid 
+                metadata={metadata} 
+                dataSource="materialProperties" 
+                layout="auto" 
+                showTitle={false}
+                searchable
+                defaultExpandedCategories={['thermal', 'mechanical', 'optical_laser']}
+              />
+            </SectionContainer>
+          )}
+
+          {metadata?.machineSettings && (
+            <SectionContainer 
+              title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
+              className="mb-8"
+            >
+              <MetricsGrid 
+                metadata={metadata} 
+                dataSource="machineSettings" 
+                layout="auto" 
+                showTitle={false}
+                searchable 
+              />
+            </SectionContainer>
+          )}
+
+          {metadata?.caption && (
+            <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
+          )}
+
+          {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
+            <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
+          )}
+
+          {metadata?.name && metadata?.faq && (
+            <MaterialFAQ
+              materialName={metadata.name}
+              faq={Array.isArray(metadata.faq) ? metadata.faq : (metadata.faq as any)?.questions || []}
+            />
+          )}
+        </header>
+      ) : (
+        /* Regular page title */
+        title && (
+          <Title 
+            level="page" 
+            title={title} 
+            subtitle={props.subtitle} 
+            rightContent={props.rightContent}
+          />
+        )
+      )}
+
+      {/* Article Content - render components */}
+      {components && (
+        <article role="article" className="space-y-8">
+          {ARTICLE_COMPONENT_ORDER.map(type => renderComponent(type, components[type], metadata))}
+        </article>
+      )}
+
+      {/* Children - additional sections or page content */}
+      {props.children && (
+        <div className={components ? "mt-8 space-y-8" : "space-y-6"}>
+          {props.children}
+        </div>
       )}
       
-      {/* Title renders consistently for all pages */}
-      {title && (
-        <Title 
-          level="page" 
-          title={title} 
-          subtitle={props.subtitle} 
-          rightContent={props.rightContent}
-        />
-      )}
-      
-      <div className="space-y-6">
-        {props.children}
-      </div>
-      
-      {/* Safety Warning - appears at bottom of all pages */}
-      <SafetyWarning className="mt-12" />
+      {/* Safety Warning - disabled temporarily */}
+      {/* <SafetyWarning className="mt-12" /> */}
     </main>
   );
 }
