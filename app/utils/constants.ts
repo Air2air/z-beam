@@ -89,19 +89,23 @@ const SITE_CONFIG_OLD = {
   // Media Configuration
   media: {
     youtube: {
-      baseUrl: 'https://www.youtube.com/embed/',
+      baseUrl: 'https://www.youtube-nocookie.com/embed/', // Privacy-enhanced mode
       defaultParams: {
-        autoplay: '1',
-        mute: '1',
-        loop: '1',
-        controls: '0',
-        showinfo: '0',
-        rel: '0',
-        modestbranding: '1',
-        iv_load_policy: '3',
-        disablekb: '1',
-        fs: '0',
-        playsinline: '1'
+        autoplay: '1',           // Auto-play video
+        mute: '1',               // Muted by default (required for autoplay)
+        loop: '1',               // Loop video continuously
+        controls: '0',           // Hide player controls completely
+        showinfo: '0',           // Hide video title and uploader (deprecated but kept)
+        rel: '0',                // Don't show related videos at end
+        modestbranding: '1',     // Remove YouTube logo from control bar
+        iv_load_policy: '3',     // Hide video annotations
+        disablekb: '1',          // Disable keyboard controls
+        fs: '0',                 // Hide fullscreen button
+        playsinline: '1',        // Play inline on iOS (no fullscreen)
+        cc_load_policy: '0',     // Hide closed captions by default
+        color: 'white',          // Use white progress bar (less branding)
+        enablejsapi: '0',        // Disable JS API (cleaner embed)
+        origin: typeof window !== 'undefined' ? window.location.origin : undefined
       }
     },
     logo: {
