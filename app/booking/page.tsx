@@ -26,6 +26,26 @@ export const metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/booking`,
   },
+  openGraph: {
+    title: 'Book a Consultation - Z-Beam Laser Cleaning',
+    description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts. Get personalized advice on laser cleaning solutions for your industrial applications.',
+    url: `${SITE_CONFIG.url}/booking`,
+    siteName: SITE_CONFIG.name,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/og-booking.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Book a Consultation with Z-Beam',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Book a Consultation - Z-Beam Laser Cleaning',
+    description: 'Schedule a free consultation with Z-Beam\'s laser cleaning experts.',
+  },
 };
 
 export default async function BookingPage() {

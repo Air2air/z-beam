@@ -28,6 +28,26 @@ export const metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
+  openGraph: {
+    title: 'Contact Z-Beam',
+    description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
+    url: `${SITE_CONFIG.url}/contact`,
+    siteName: SITE_CONFIG.name,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/og-contact.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Contact Z-Beam',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Z-Beam',
+    description: 'Get in touch with Z-Beam\'s team of laser cleaning experts.',
+  },
 };
 
 // Default export - the page component

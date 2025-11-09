@@ -104,7 +104,7 @@ After completing type system consolidation (removing 8 duplicate type exports), 
 
 2. "should not double-slash URLs"  
    - Updated to validate protocol format separately
-   - Accepts `http://` or `https://` prefixes
+   - Accepts `https://` or `https://` prefixes
 
 3. "should use absolute URLs in generated breadcrumbs"
    - Changed from `/^https:\/\//` to `/^https?:\/\//`

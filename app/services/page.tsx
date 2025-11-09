@@ -12,6 +12,26 @@ export const metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/services`,
   },
+  openGraph: {
+    title: `Professional Laser Cleaning Services | ${SITE_CONFIG.name}`,
+    description: `Professional on-site laser cleaning services. Expert technicians, state-of-the-art equipment, and comprehensive industrial cleaning solutions.`,
+    url: `${SITE_CONFIG.url}/services`,
+    siteName: SITE_CONFIG.name,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/og-services.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Professional Laser Cleaning Services',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Professional Laser Cleaning Services | ${SITE_CONFIG.name}`,
+    description: `Professional on-site laser cleaning with expert technicians.`,
+  },
 };
 
 export default async function ServicesPage() {

@@ -189,7 +189,7 @@ describe('Breadcrumbs Component - Schema.org URL Generation', () => {
       
       itemMetas.forEach(meta => {
         const content = meta.getAttribute('content') || '';
-        // Allow http:// or https:// protocol (no other double slashes)
+        // Allow https:// or https:// protocol (no other double slashes)
         const protocolRegex = /^https?:\/\//;
         expect(content).toMatch(protocolRegex);
         // Remove protocol and check no other double slashes

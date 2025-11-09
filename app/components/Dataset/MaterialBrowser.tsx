@@ -55,7 +55,7 @@ export default function MaterialBrowser({
 
   // Filter and sort materials
   const filteredMaterials = useMemo(() => {
-    let filtered = materials.filter(material => {
+    const filtered = materials.filter(material => {
       const matchesSearch = material.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           material.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           material.subcategory.toLowerCase().includes(searchTerm.toLowerCase());

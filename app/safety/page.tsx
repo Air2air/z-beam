@@ -17,6 +17,26 @@ export const metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/safety`,
   },
+  openGraph: {
+    title: 'Laser Cleaning Safety Guidelines - Z-Beam',
+    description: 'Comprehensive safety protocols, hazard information, and best practices for industrial laser cleaning operations.',
+    url: `${SITE_CONFIG.url}/safety`,
+    siteName: SITE_CONFIG.name,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/og-safety.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Laser Cleaning Safety Guidelines',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Laser Cleaning Safety Guidelines - Z-Beam',
+    description: 'Comprehensive safety protocols and best practices for industrial laser cleaning.',
+  },
 };
 
 export default async function SafetyPage() {

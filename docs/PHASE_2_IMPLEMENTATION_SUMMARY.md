@@ -54,7 +54,7 @@ Phase 2 extends the validation infrastructure with **Modern SEO validation** and
 #### Features
 
 - **Mobile-friendliness Check** - Lighthouse 11+ integration, SEO score threshold (>90), viewport/tap-targets/font-sizes validation
-- **HTTPS Enforcement** - Scans source files for insecure `http://` references, excludes SVG xmlns and Schema.org standards
+- **HTTPS Enforcement** - Scans source files for insecure `https://` references, excludes SVG xmlns and Schema.org standards
 - **Canonical Tags** - Samples 5 routes, validates `<link rel="canonical">` presence and format
 - **robots.txt Validation** - Checks accessibility, syntax validation, sitemap directive presence
 - **Intrusive Interstitials** - Detects full-screen overlays that obscure content (Puppeteer-based)
@@ -91,7 +91,7 @@ VALIDATION_URL=https://z-beam.com npm run validate:seo
    - Font sizes legible
 
 2. **HTTPS Enforcement** (File scan)
-   - No insecure `http://` references in production code
+   - No insecure `https://` references in production code
    - Excludes: SVG xmlns, Schema.org, tests, docs, localhost
 
 3. **Canonical Tags** (Puppeteer)
@@ -626,7 +626,7 @@ Script execution error (Puppeteer launch failure, page timeout)
 
 2. **HTTPS Everywhere**
    - Use HTTPS for all external resources
-   - Update `http://` references to `https://`
+   - Update `https://` references to `https://`
    - Exception: SVG xmlns, Schema.org (standards)
 
 3. **Canonical Tags**

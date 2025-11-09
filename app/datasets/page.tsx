@@ -21,7 +21,11 @@ export const metadata = {
     title: 'Materials Database - Laser Cleaning Parameters',
     description: '132 materials with comprehensive laser cleaning specifications',
     type: 'website',
-  }
+  
+  alternates: {
+    canonical: 'https://www.z-beam.com/datasets',
+  },
+}
 };
 
 export default async function DatasetsPage() {

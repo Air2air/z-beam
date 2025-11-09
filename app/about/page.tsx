@@ -11,6 +11,26 @@ export const metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
+  openGraph: {
+    title: `About ${SITE_CONFIG.shortName}`,
+    description: `Learn about ${SITE_CONFIG.shortName}'s mission, team, and expertise in laser cleaning technology.`,
+    url: `${SITE_CONFIG.url}/about`,
+    siteName: SITE_CONFIG.name,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/og-about.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `About ${SITE_CONFIG.shortName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `About ${SITE_CONFIG.shortName}`,
+    description: `Learn about ${SITE_CONFIG.shortName}'s mission, team, and expertise in laser cleaning technology.`,
+  },
 };
 
 // Default export - the page component using standard Layout pattern

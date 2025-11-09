@@ -369,7 +369,7 @@ node scripts/pagespeed-audit.js https://z-beam.com desktop
 - **Gap:** No automated check for mixed content or HTTP resources
 - **Priority:** 🟡 MEDIUM (likely compliant)
 - **Validation Needed:**
-  - Scan built site for http:// references
+  - Scan built site for https:// references
   - Check for insecure resources (images, scripts, styles)
   - Validate HSTS headers
 - **Tier Placement:** Post-build validation
@@ -635,7 +635,7 @@ node scripts/pagespeed-audit.js https://z-beam.com desktop
 - Metadata sync (existing)
 - ➕ **NEW: WCAG 2.2 static checks** (focus indicator CSS, target sizes, modern feature detection)
 - ➕ **NEW: Modern image format check** (WebP/AVIF usage)
-- ➕ **NEW: HTTPS enforcement** (scan for http:// references)
+- ➕ **NEW: HTTPS enforcement** (scan for https:// references)
 
 **Tier 3 (Pre-deployment, 2-3 min):**
 - All existing validations (22 steps)
@@ -745,7 +745,7 @@ async function validateCoreWebVitals(url) {
 
 **Checks:**
 1. Mobile PageSpeed score > 90
-2. No mixed content (http:// resources)
+2. No mixed content (https:// resources)
 3. All pages have canonical tags
 4. robots.txt accessible and valid
 5. Structured data richness (FAQPage, HowTo, VideoObject where applicable)
@@ -759,7 +759,7 @@ const checks = {
     // Check tap target sizes, viewport, text readability
   },
   validateHTTPS: (buildDir) => {
-    // Scan HTML/CSS/JS for http:// references
+    // Scan HTML/CSS/JS for https:// references
     // Check for insecure resource loads
   },
   validateCanonicals: (buildDir) => {

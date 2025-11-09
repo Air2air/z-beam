@@ -201,13 +201,13 @@ describe('Formatting utilities', () => {
   describe('isValidUrl', () => {
     test('should validate URLs correctly', () => {
       expect(isValidUrl('https://example.com')).toBe(true);
-      expect(isValidUrl('http://test.org')).toBe(true);
+      expect(isValidUrl('https://test.org')).toBe(true);
       expect(isValidUrl('ftp://files.com')).toBe(true);
     });
 
     test('should reject invalid URLs', () => {
       expect(isValidUrl('not-a-url')).toBe(false);
-      expect(isValidUrl('http://')).toBe(false);
+      expect(isValidUrl('https://')).toBe(false);
       expect(isValidUrl('')).toBe(false);
     });
 

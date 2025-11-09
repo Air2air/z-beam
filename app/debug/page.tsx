@@ -159,7 +159,7 @@ export default function DebugPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {debugData?.images.map((img, index) => (
                 <div key={index} className="border rounded-lg p-4">
-                  <img src={img.src} alt="Test" className="w-full h-48 object-cover rounded" />
+                  <img src={img.src} alt={`Debug test image ${index + 1} - ${img.width}x${img.height}`} className="w-full h-48 object-cover rounded" />
                   <p className="mt-2 text-sm">
                     <span className="font-medium">Dimensions:</span> {img.width} x {img.height}
                   </p>

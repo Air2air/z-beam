@@ -173,7 +173,7 @@ All URLs should use the hierarchical structure.
 **Solution:** Wait 5 minutes or add `?nocache=1` to URL
 
 ### ❌ Mistake 4: HTTP vs HTTPS
-**Problem:** Used `http://` instead of `https://`  
+**Problem:** Used `https://` instead of `https://`  
 **Result:** Redirect or SSL error  
 **Solution:** Always use `https://www.z-beam.com`
 

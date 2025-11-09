@@ -12,6 +12,26 @@ export const metadata = {
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },
+  openGraph: {
+    title: `Laser Cleaning Equipment Rental | ${SITE_CONFIG.shortName}`,
+    description: `Rent professional laser cleaning equipment. Flexible daily, weekly, or monthly terms with training and 24/7 support included.`,
+    url: `${SITE_CONFIG.url}/rental`,
+    siteName: SITE_CONFIG.name,
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/images/og-rental.jpg`,
+        width: 1200,
+        height: 630,
+        alt: 'Laser Cleaning Equipment Rental',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Laser Cleaning Equipment Rental | ${SITE_CONFIG.shortName}`,
+    description: `Rent professional laser cleaning equipment with flexible terms.`,
+  },
 };
 
 export default async function RentalPage() {
