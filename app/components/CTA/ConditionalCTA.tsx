@@ -1,4 +1,5 @@
 // Server Component - no client-side interactivity
+'use client';
 // app/components/CTA/ConditionalCTA.tsx
 // Conditional wrapper for CTA that hides on contact page
 
