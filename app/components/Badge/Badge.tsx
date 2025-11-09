@@ -1,5 +1,4 @@
-'use client';
-
+// Server Component - no client-side interactivity
 import React from 'react';
 
 interface BadgeProps {

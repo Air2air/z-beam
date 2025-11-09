@@ -1,5 +1,5 @@
 // app/components/Dataset/DatasetsContent.tsx
-'use client';
+// Server Component - no client-side interactivity
 
 import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer';

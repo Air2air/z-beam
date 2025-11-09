@@ -1,5 +1,5 @@
 // app/components/Dataset/CategoryBundles.tsx
-'use client';
+// Server Component - no client-side interactivity
 
 import React from 'react';
 import { DatasetCard } from './DatasetCard';

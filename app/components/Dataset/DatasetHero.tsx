@@ -1,5 +1,5 @@
 // app/components/Dataset/DatasetHero.tsx
-'use client';
+// Server Component - no client-side interactivity
 
 import React from 'react';
 import { FiDatabase, FiLayers, FiDownload } from 'react-icons/fi';

@@ -1,4 +1,4 @@
-'use client';
+// Server Component - no client-side interactivity
 
 import React from 'react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';

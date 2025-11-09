@@ -1,5 +1,5 @@
 // app/components/Dataset/CategoryGrid.tsx
-'use client';
+// Server Component - no client-side interactivity
 
 import React from 'react';
 import Link from 'next/link';
