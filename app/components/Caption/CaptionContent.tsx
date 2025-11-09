@@ -19,7 +19,14 @@ interface CaptionContentProps {
   };
 }
 
-export function CaptionContent({ content, beforeText, afterText, materialName, frontmatter, seoData }: CaptionContentProps) {
+export default function CaptionContent({
+  beforeText: _beforeText,
+  afterText: _afterText,
+  content,
+  materialName: _materialName,
+  frontmatter,
+  seoData,
+}: CaptionContentProps) {
   const captionTextRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

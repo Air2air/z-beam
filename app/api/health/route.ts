@@ -30,7 +30,7 @@ export async function GET(_request: NextRequest) {
     try {
       const fs = require('fs');
       fs.accessSync(process.cwd(), fs.constants.R_OK);
-    } catch (error) {
+    } catch (_error) {
       healthStatus.checks.filesystem = 'fail';
       healthStatus.status = 'degraded';
     }
