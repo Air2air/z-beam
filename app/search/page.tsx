@@ -5,8 +5,17 @@ import { loadComponent } from "../utils/contentAPI";
 import { safeMatch, extractSafeValue } from "../utils/stringHelpers";
 import { MaterialType } from "@/types";
 import { Suspense } from "react";
+import { SITE_CONFIG } from "../utils/constants";
 
 export const dynamic = 'force-dynamic';
+
+export const metadata = {
+  title: `Search Materials | ${SITE_CONFIG.shortName}`,
+  description: 'Search our comprehensive database of laser cleaning materials, processes, and technical specifications.',
+  alternates: {
+    canonical: `${SITE_CONFIG.url}/search`
+  }
+};
 
 // Helper function to safely cast material types
 function toMaterialType(value?: string): MaterialType {
