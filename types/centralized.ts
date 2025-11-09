@@ -148,7 +148,7 @@ export interface ArticleMetadata {
   slug: string;
   category?: string;
   tags?: string[];
-  author?: AuthorInfo | string; // Support both object and string formats
+  author?: AuthorInfo; // Author object from YAML
   lastModified?: string;
   datePublished?: string;
   image?: string;
@@ -188,7 +188,10 @@ export interface ArticleMetadata {
   
   // Legacy compatibility fields
   subject?: string; // Legacy field for older components
-  video?: string; // For video metadata (YouTube ID)
+  video?: {
+    id?: string; // YouTube video ID
+    url?: string; // Legacy: direct video URL
+  };
   chemicalSymbol?: string;
   chemicalFormula?: string;
   atomicNumber?: number;
@@ -197,15 +200,17 @@ export interface ArticleMetadata {
   compatibility?: string[];
   outcomes?: string[];
   prompt_chain_verification?: VerificationSystem;
-  author_object?: AuthorInfo; // Support both field names
   technical_specifications?: Record<string, PropertyWithUnits>;
   safety_considerations?: string[];
-  environmental_impact?: Record<string, PropertyWithUnits>;
+  environmental_impact?: Record<string, PropertyCategory>;
   cost_analysis?: Record<string, PropertyWithUnits>;
   quality_metrics?: Record<string, PropertyWithUnits>;
   
   // Caption integration - frontmatter.caption support
   caption?: CaptionDataStructure;
+  
+  // FAQ support for material pages
+  faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> };
   
   // Unified content cards - replaces callouts and workflow
   contentCards?: ContentCardItem[];
@@ -390,6 +395,34 @@ export interface CaptionDataStructure {
   before?: string;
   /** Description of material AFTER laser cleaning */
   after?: string;
+  /** Page title */
+  title?: string;
+  /** Meta description */
+  description?: string;
+  /** Material name */
+  material?: string;
+  /** Material images */
+  images?: {
+    micro?: {
+      url?: string;
+      alt?: string;
+    };
+    hero?: {
+      url?: string;
+      alt?: string;
+    };
+  };
+  /** Image URL (alternative format) */
+  imageUrl?: {
+    url?: string;
+    alt?: string;
+  };
+  /** Before treatment text (parsed) */
+  beforeText?: string;
+  /** After treatment text (parsed) */
+  afterText?: string;
+  /** Quality metrics data */
+  quality_metrics?: Record<string, string | number>;
 }
 
 /**
@@ -416,8 +449,8 @@ export interface FrontmatterType {
   description?: string;
   /** SEO keywords array */
   keywords?: string[];
-  /** Author can be string (name) or full AuthorInfo object */
-  author?: string | AuthorInfo;
+  /** Author object from YAML */
+  author?: AuthorInfo;
   /** Material name (e.g., "Alumina", "Bamboo") */
   name?: string;
   /** Material images - hero and micro views */
@@ -431,13 +464,6 @@ export interface FrontmatterType {
       alt?: string;
     };
   };
-  author_object?: {
-    name: string;
-    email?: string;
-    affiliation?: string;
-    title?: string;
-    expertise?: string[];
-  };
   technicalSpecifications?: {
     wavelength?: string;
     power?: string;
@@ -445,16 +471,7 @@ export interface FrontmatterType {
     scanning_speed?: string;
     material?: string;
   };
-  chemicalProperties?: {
-    composition?: string;
-    surface_treatment?: string;
-    contamination_type?: string;
-    materialType?: string;
-    formula?: string;
-    density?: string;
-    meltingPoint?: string;
-    thermalConductivity?: string;
-  };
+  chemicalProperties?: ChemicalProperties;
   
   // Material properties from YAML frontmatter
   materialProperties?: {
@@ -1583,7 +1600,10 @@ export interface Article {
   type?: string;
   // Additional fields for component compatibility
   subject?: string; // For Card component compatibility
-  video?: string; // For Hero component compatibility
+  video?: {
+    id?: string; // YouTube video ID
+    url?: string; // Legacy: direct video URL
+  };
 }
 
 // Search-ready article with guaranteed required fields

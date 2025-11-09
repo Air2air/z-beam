@@ -181,8 +181,8 @@ export function Layout(props: LayoutProps) {
             <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
           )}
 
-          {metadata?.environmentalImpact && Object.keys(metadata.environmentalImpact).length > 0 && (
-            <EnvironmentalImpact environmentalImpact={metadata.environmentalImpact} />
+          {metadata?.environmental_impact && Object.keys(metadata.environmental_impact).length > 0 && (
+            <EnvironmentalImpact environmentalImpact={metadata.environmental_impact} />
           )}
 
           {metadata?.name && metadata?.faq && (

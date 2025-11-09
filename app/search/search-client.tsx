@@ -382,7 +382,6 @@ export default function SearchClient({ initialArticles }: SearchClientProps) {
             metadata: article.metadata as unknown as Record<string, unknown>,
           }))}
           columns={3}
-          variant="default"
         />
       )}
     </>

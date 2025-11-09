@@ -38,7 +38,6 @@ export function SearchResults({
       <CardGrid 
         searchResults={searchResults}
         mode="search-results"
-        variant="default"
         columns={columns}
         className="w-full"
       />

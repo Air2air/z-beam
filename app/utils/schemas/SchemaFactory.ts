@@ -505,28 +505,28 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
     ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords }),
     
     // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
-    ...(frontmatter.eeat?.reviewedBy && {
+    ...((frontmatter.eeat as any)?.reviewedBy && {
       'reviewedBy': {
         '@type': 'Person',
         '@id': `${baseUrl}#reviewer-technical`,
-        'name': typeof frontmatter.eeat.reviewedBy === 'string' ? frontmatter.eeat.reviewedBy : frontmatter.eeat.reviewedBy.name || 'Technical Review Team',
+        'name': typeof (frontmatter.eeat as any).reviewedBy === 'string' ? (frontmatter.eeat as any).reviewedBy : (frontmatter.eeat as any).reviewedBy.name || 'Technical Review Team',
         'jobTitle': 'Quality Assurance Specialist'
       }
     }),
     
-    ...(frontmatter.eeat?.citations && frontmatter.eeat.citations.length > 0 && {
-      'citation': frontmatter.eeat.citations.map((cite: any) => ({
+    ...((frontmatter.eeat as any)?.citations && (frontmatter.eeat as any).citations.length > 0 && {
+      'citation': (frontmatter.eeat as any).citations.map((cite: any) => ({
         '@type': 'CreativeWork',
         'name': typeof cite === 'string' ? cite : cite.name || cite.title,
         ...(typeof cite === 'object' && cite.url && { 'url': cite.url })
       }))
     }),
     
-    ...(frontmatter.eeat?.isBasedOn && {
+    ...((frontmatter.eeat as any)?.isBasedOn && {
       'isBasedOn': {
         '@type': 'CreativeWork',
-        'name': typeof frontmatter.eeat.isBasedOn === 'string' ? frontmatter.eeat.isBasedOn : frontmatter.eeat.isBasedOn.name,
-        ...(typeof frontmatter.eeat.isBasedOn === 'object' && frontmatter.eeat.isBasedOn.url && { 'url': frontmatter.eeat.isBasedOn.url })
+        'name': typeof (frontmatter.eeat as any).isBasedOn === 'string' ? (frontmatter.eeat as any).isBasedOn : (frontmatter.eeat as any).isBasedOn.name,
+        ...((frontmatter.eeat as any).isBasedOn && typeof (frontmatter.eeat as any).isBasedOn === 'object' && (frontmatter.eeat as any).isBasedOn.url && { 'url': (frontmatter.eeat as any).isBasedOn.url })
       }
     })
   };
