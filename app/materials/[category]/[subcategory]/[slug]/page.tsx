@@ -1,20 +1,34 @@
 // app/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from "next/navigation";
+import dynamicImport from "next/dynamic";
 import { getArticle, getAllArticleSlugs } from "@/app/utils/contentAPI";
 import { getAllCategories } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
 import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
-import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
-import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
-import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
 import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
 import { FiPackage } from "react-icons/fi";
 import type { PageProps } from "@/types";
+
+// Dynamically load heavy components below the fold
+const RelatedMaterials = dynamicImport(() => import("@/app/components/RelatedMaterials/RelatedMaterials").then(mod => ({ default: mod.RelatedMaterials })), {
+  ssr: true,
+  loading: () => null,
+});
+
+const RegulatoryStandards = dynamicImport(() => import("@/app/components/RegulatoryStandards").then(mod => ({ default: mod.RegulatoryStandards })), {
+  ssr: true,
+  loading: () => null,
+});
+
+const MaterialDatasetCardWrapper = dynamicImport(() => import("@/app/components/Dataset/MaterialDatasetCardWrapper"), {
+  ssr: true,
+  loading: () => null,
+});
 
 export const dynamic = 'force-static';
 export const revalidate = false;
