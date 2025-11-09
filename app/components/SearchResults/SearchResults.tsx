@@ -1,6 +1,5 @@
-"use client";
-
-import { useMemo } from "react";
+// app/components/SearchResults/SearchResults.tsx
+// Server Component - no client-side interactivity
 import React from "react";
 import Link from "next/link";
 import { SearchResultItem, SearchResultsProps } from "@/types";
@@ -16,8 +15,7 @@ export function SearchResults({
 }: SearchResultsProps) {
   
   // Convert SearchableArticle to SearchResultItem format
-  const searchResults: SearchResultItem[] = useMemo(() => 
-    items.map(item => ({
+  const searchResults: SearchResultItem[] = items.map(item => ({
       id: item.id || item.slug || 'unknown',
       slug: item.slug || 'unknown',
       title: item.title || 'Untitled',
@@ -31,7 +29,7 @@ export function SearchResults({
       imageAlt: item.imageAlt || item.title || 'Image',
       metadata: item.metadata,
       badge: item.badge
-    } as SearchResultItem)), [items]);
+    } as SearchResultItem));
 
   return (
     <div className={`space-y-6 ${className}`}>

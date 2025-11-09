@@ -6,9 +6,9 @@
  * @complexity Medium (displays standards with logos and descriptions)
  * @aiContext Pass frontmatter.regulatoryStandards array. Component renders standards
  *           with official logos, descriptions, and links to official documentation.
+ * @note Server Component - no client-side interactivity needed
  */
 // app/components/RegulatoryStandards/RegulatoryStandards.tsx
-"use client";
 
 import Image from 'next/image';
 import Link from 'next/link';
