@@ -1,5 +1,5 @@
+'use client';
 // app/components/Dataset/MaterialDatasetCardWrapper.tsx
-// Server Component - no client-side interactivity
 
 import DatasetSection from './DatasetSection';
 import type { MaterialDatasetCardWrapperProps, MaterialDatasetData } from '@/types/centralized';
