@@ -157,7 +157,9 @@ export function SEOOptimizedCaption({
             <div className="property-item">
               <span className="property-label">Density:</span>
               <span className="property-value ml-1" itemProp="density">
-                {frontmatter.chemicalProperties.density}
+                {typeof frontmatter.chemicalProperties.density === 'object' 
+                  ? `${frontmatter.chemicalProperties.density.numeric || frontmatter.chemicalProperties.density.text}${frontmatter.chemicalProperties.density.units || ''}` 
+                  : frontmatter.chemicalProperties.density}
               </span>
             </div>
           )}
@@ -183,7 +185,9 @@ export function SEOOptimizedCaption({
               <span className="property-value ml-1" itemProp={thermalProperty.property}>
                 {frontmatter?.materialProperties?.thermalDestructionPoint?.value 
                   ? `${frontmatter.materialProperties.thermalDestructionPoint.value}${frontmatter.materialProperties.thermalDestructionPoint.unit || '°C'}`
-                  : frontmatter?.chemicalProperties?.meltingPoint}
+                  : (typeof frontmatter?.chemicalProperties?.meltingPoint === 'object'
+                    ? `${frontmatter.chemicalProperties.meltingPoint.numeric || frontmatter.chemicalProperties.meltingPoint.text}${frontmatter.chemicalProperties.meltingPoint.units || ''}`
+                    : frontmatter?.chemicalProperties?.meltingPoint)}
               </span>
             </div>
           )}
@@ -192,7 +196,9 @@ export function SEOOptimizedCaption({
             <div className="property-item">
               <span className="property-label">Thermal Conductivity:</span>
               <span className="property-value ml-1" itemProp="thermalConductivity">
-                {frontmatter.chemicalProperties.thermalConductivity}
+                {typeof frontmatter.chemicalProperties.thermalConductivity === 'object'
+                  ? `${frontmatter.chemicalProperties.thermalConductivity.numeric || frontmatter.chemicalProperties.thermalConductivity.text}${frontmatter.chemicalProperties.thermalConductivity.units || ''}`
+                  : frontmatter.chemicalProperties.thermalConductivity}
               </span>
             </div>
           )}

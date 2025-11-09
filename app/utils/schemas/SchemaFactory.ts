@@ -500,9 +500,9 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
         'height': SITE_CONFIG.media.logo.height
       }
     },
-    ...(getMainImage(data) && { 'image': getMainImage(data) }),
+    ...((getMainImage(data) && typeof getMainImage(data) === 'object') ? { 'image': getMainImage(data) } as Record<string, any> : {}),
     // E-E-A-T: Add expertise indicators (removed abstract - not in Schema.org Article spec)
-    ...(frontmatter.keywords && { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords }),
+    ...(frontmatter.keywords ? { 'keywords': Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : frontmatter.keywords } : {}),
     
     // Phase 2 E-E-A-T: Advanced Trust & Authoritativeness signals
     ...((frontmatter.eeat as any)?.reviewedBy && {
@@ -916,12 +916,12 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
       }
     },
     // E-E-A-T: Add subject matter for context
-    ...(frontmatter.category && {
+    ...(frontmatter.category ? {
       'about': {
         '@type': 'Thing',
         'name': `${frontmatter.category} laser cleaning`
       }
-    })
+    } : {})
   };
 }
 
@@ -1168,7 +1168,7 @@ function getMainImage(data: any): any | null {
   }
 
   // From frontmatter images - prioritize hero, then micro
-  const frontmatter = getMetadata(data);
+  const frontmatter = getMetadata(data) as any;
   
   if (frontmatter.images?.hero?.url) {
     const hero = frontmatter.images.hero;
@@ -1177,7 +1177,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}${hero.url}`,
       'width': hero.width || 1200,  // P0 enhancement: default dimensions for rich snippets
       'height': hero.height || 630,  // P0 enhancement: default dimensions for rich snippets
-      'caption': hero.alt || frontmatter.caption?.before || data.caption?.before || data.title,
+      'caption': hero.alt || (frontmatter as any).caption?.before || (data as any).caption?.before || data.title,
       'isMicro': false,
       // Pass through license metadata if present
       ...(hero.license && { 'license': hero.license }),
@@ -1196,7 +1196,7 @@ function getMainImage(data: any): any | null {
       'url': `${SITE_CONFIG.url}${micro.url}`,
       'width': micro.width || 1200,  // P0 enhancement: default dimensions for rich snippets
       'height': micro.height || 630,  // P0 enhancement: default dimensions for rich snippets
-      'caption': micro.alt || frontmatter.caption?.before || data.caption?.before || data.title,
+      'caption': micro.alt || (frontmatter as any).caption?.before || (data as any).caption?.before || data.title,
       'isMicro': true,
       // Pass through license metadata if present
       ...(micro.license && { 'license': micro.license }),

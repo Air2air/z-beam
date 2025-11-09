@@ -178,7 +178,7 @@ export function Layout(props: LayoutProps) {
           )}
 
           {metadata?.caption && (
-            <Caption frontmatter={metadata} config={{ showTechnicalDetails: true, showMetadata: true }} />
+            <Caption frontmatter={metadata as any} config={{ showTechnicalDetails: true, showMetadata: true }} />
           )}
 
           {metadata?.environmental_impact && Object.keys(metadata.environmental_impact).length > 0 && (
