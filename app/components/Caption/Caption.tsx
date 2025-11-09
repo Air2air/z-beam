@@ -12,8 +12,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { useCaptionParsing, CaptionData } from './useCaptionParsing';
-import { CaptionDataStructure, FrontmatterType, CaptionProps } from '@/types';
+import { useCaptionParsing } from './useCaptionParsing';
+import { CaptionDataStructure, CaptionProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { SITE_CONFIG } from '../../utils/constants';
@@ -40,19 +40,12 @@ function emphasizeFirstSentence(text: string): string {
 export function Caption({ frontmatter, config }: CaptionProps) {
   const captionContent = frontmatter?.caption;
   
-  if (!captionContent) {
-    return null;
-  }
-  
+  // Call hooks unconditionally - MUST be before any early returns
   const parsedCaption = useCaptionParsing(captionContent as any);
-  const { className = '' } = config || {};
-  
-  // Simplified state - only what's essential
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
-  
   const captionRef = useRef<HTMLElement>(null);
-
+  
   // Intersection Observer for lazy loading
   useEffect(() => {
     if (!captionRef.current) return;
@@ -70,6 +63,13 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     observer.observe(captionRef.current);
     return () => observer.disconnect();
   }, []);
+  
+  // Early return AFTER all hooks
+  if (!captionContent) {
+    return null;
+  }
+  
+  const { className = '' } = config || {};
 
   // Simplified caption data - use parsed caption data
   const captionData: CaptionDataStructure = {

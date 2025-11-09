@@ -12,12 +12,11 @@ interface BadgeSymbolProps {
   };
 }
 
-export function BadgeSymbol({ content, config }: BadgeSymbolProps) {
+export function BadgeSymbol({ config }: BadgeSymbolProps) {
   if (!config) return null;
 
   const { 
     symbol, 
-    materialType, 
     atomicNumber, 
     formula, 
     variant = "card", 

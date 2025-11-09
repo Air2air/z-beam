@@ -7,7 +7,7 @@ import { CacheMonitor } from '../../../utils/performanceCache';
 import { validateEnvironment, ApiError } from '../../../utils/errorSystem';
 import { logger } from '../../../utils/logger';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const startTime = performance.now();
   
   try {

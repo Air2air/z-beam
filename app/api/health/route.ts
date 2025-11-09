@@ -1,13 +1,13 @@
 // app/api/health/route.ts
 // Health check endpoint with GROK-compliant error handling demonstration
 import { NextRequest, NextResponse } from 'next/server';
-import { validateEnvironment, ConfigurationError, isZBeamError, getErrorDetails } from '../../utils/errorSystem';
+import { validateEnvironment, isZBeamError, getErrorDetails } from '../../utils/errorSystem';
 import { logger } from '../../utils/logger';
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const startTime = Date.now();
   
   try {
