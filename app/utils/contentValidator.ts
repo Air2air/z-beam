@@ -1,4 +1,6 @@
 // app/utils/contentValidator.ts
+import 'server-only';
+
 // Simple performance logging
 const logPerformance = (operation: string, duration: number, context?: any) => {
   if (duration > 1000) {

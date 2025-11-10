@@ -36,15 +36,21 @@
  * ❌ Dynamic routes with parameters ([slug], [category])
  */
 // app/components/StaticPage/StaticPage.tsx
+import dynamic from 'next/dynamic';
 import { Layout } from "../Layout/Layout";
 import { ContentCard, ContentSection } from "../ContentCard";
 import { BenefitsSection } from "../BenefitsSection/BenefitsSection";
 import { EquipmentSection } from "../EquipmentSection/EquipmentSection";
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Table } from '../Table/Table';
-import { ComparisonTable } from '../ComparisonTable/ComparisonTable';
 import { JsonLD } from '../JsonLD/JsonLD';
 import { SchemaFactory } from '@/app/utils/schemas/SchemaFactory';
+
+// Dynamic import for ComparisonTable (only used on specific pages)
+const ComparisonTable = dynamic(
+  () => import('../ComparisonTable/ComparisonTable').then(mod => mod.ComparisonTable),
+  { ssr: true }
+);
 import { loadComponent } from '@/app/utils/contentAPI';
 import { SITE_CONFIG } from '@/app/config';
 import fs from 'fs/promises';

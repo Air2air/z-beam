@@ -1,10 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { ComparisonTable } from '../ComparisonTable/ComparisonTable';
 import { Badge } from '../Badge/Badge';
+
+// Dynamic import for ComparisonTable (below fold, reduces initial bundle)
+const ComparisonTable = dynamic(
+  () => import('../ComparisonTable/ComparisonTable').then(mod => mod.ComparisonTable),
+  { ssr: false, loading: () => <div className="h-96 animate-pulse bg-gray-100 rounded-lg" /> }
+);
 import Link from 'next/link';
 import { 
   FiInfo, 

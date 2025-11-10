@@ -1,3 +1,5 @@
+import 'server-only';
+
 /**
  * Unified Schema Factory - Centralized JSON-LD Schema Generation
  * 
