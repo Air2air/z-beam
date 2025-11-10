@@ -2,6 +2,7 @@
 // Single, simplified layout system for maximum reusability and responsiveness
 
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
@@ -9,7 +10,7 @@ import { SITE_CONFIG } from '../../utils/constants';
 import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
-import { Caption } from "../Caption/Caption";
+import CaptionSkeleton from '../Caption/CaptionSkeleton';
 import { Tags } from "../Tags/Tags";
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
@@ -21,6 +22,16 @@ import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 import { DateMetadata } from '../DateMetadata/DateMetadata';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SafetyWarning } from '../SafetyWarning';
+
+// Dynamic import Caption component for code-splitting (reduces initial bundle by ~15-20 KB)
+// Below-fold content, no SEO impact from ssr: false
+const Caption = dynamic(
+  () => import('../Caption/Caption').then(mod => mod.Caption),
+  {
+    loading: () => <CaptionSkeleton />,
+    ssr: false,
+  }
+);
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
