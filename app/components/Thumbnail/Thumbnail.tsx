@@ -44,6 +44,7 @@ export function Thumbnail({
           height={height}
           className={objectFitClass}
           priority={priority}
+          loading={priority ? undefined : "lazy"}
           quality={priority ? 85 : 75}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
