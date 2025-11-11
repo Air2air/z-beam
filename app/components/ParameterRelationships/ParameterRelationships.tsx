@@ -772,7 +772,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
                     const isHovered = hoveredNode === param.id;
                     const isHighlighted =
                       isSelected || isConnected || isHovered;
-                    const opacity = selectedParam && !isHighlighted ? 0.4 : 1;
+                    const opacity = selectedParam && !isHighlighted ? 0.3 : 1;
                     const nodeColor = getNodeColor(param);
 
                     return (

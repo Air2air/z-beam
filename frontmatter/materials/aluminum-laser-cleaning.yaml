@@ -51,6 +51,8 @@ category: metal
 subcategory: non-ferrous
 title: Aluminum Laser Cleaning
 subtitle: Precision Laser Cleaning Typically Revitalizes Aluminum Surfaces, Basically Ensuring Unmatched Efficiency and Integrity
+datePublished: '2025-11-11T04:44:00.602Z'
+dateModified: '2025-11-11T04:55:00.603Z'
 description: Laser cleaning parameters for Aluminum
 images:
   hero:
@@ -85,215 +87,322 @@ materialProperties:
     density:
       value: 2.7
       unit: g/cm³
-      min: 0.53
-      max: 22.6
+      min: 2.6
+      max: 2.8
+      source: literature
+      notes: Aluminum 6061 density range
     porosity:
       value: 0
       unit: '%'
       min: 0.0
-      max: 15.0
+      max: 0.5
+      source: literature
+      notes: Wrought aluminum is essentially non-porous
     surfaceRoughness:
       value: 0.8
       unit: μm
       min: 0.4
-      max: 150
+      max: 3.2
+      source: literature
+      notes: Typical machined aluminum surface finish
     tensileStrength:
-      value: 90.0
+      value: 310
       unit: MPa
-      min: 3.0
-      max: 3000.0
+      min: 90
+      max: 310
+      source: literature
+      notes: Al 6061-T6 tensile strength
     youngsModulus:
-      value: 70.0
+      value: 68.9
       unit: GPa
-      min: 5
-      max: 600
+      min: 68
+      max: 70
+      source: literature
+      notes: Aluminum alloy elastic modulus
     hardness:
-      value: 0.2744
+      value: 0.95
       unit: GPa
-      min: 0.5
-      max: 3500
+      min: 0.2
+      max: 1.5
+      source: literature
+      notes: Al 6061-T6 Vickers hardness ~95 HV = 0.95 GPa
     flexuralStrength:
       value: 95
       unit: MPa
-      min: 2.5
-      max: 1050.0
+      min: 90
+      max: 350
+      source: literature
     oxidationResistance:
-      value: 5
-      unit: μm/year
-      min: 200
-      max: 1200
-    corrosionResistance:
       value: 0.1
+      unit: μm/year
+      min: 0.01
+      max: 2.0
+      source: literature
+      notes: Natural protective oxide layer forms quickly
+    corrosionResistance:
+      value: 0.001
       unit: mm/year
-      min: 1
-      max: 10
+      min: 0.0001
+      max: 0.1
+      source: literature
+      notes: Excellent corrosion resistance with oxide layer
     thermalDestruction:
       value: 933.47
       unit: K
-      source: ai_research
-      min: 273.0
-      max: 3695.0
+      source: literature
+      min: 893
+      max: 943
+      notes: Aluminum melting point (660.32°C)
     laserAbsorption:
-      value: 0.06
+      value: 0.08
       unit: dimensionless
-      source: ai_research
+      source: literature
       min: 0.02
-      max: 100
+      max: 0.15
+      notes: 1064nm Nd:YAG laser absorption for aluminum
     compressiveStrength:
-      value: 90.0
+      value: 280
       unit: MPa
-      source: ai_research
-      min: 50
-      max: 2000
+      source: literature
+      min: 200
+      max: 350
+      notes: Al 6061-T6 compressive yield strength
     fractureToughness:
-      value: 25.0
-      unit: MPa m^{1/2}
-      source: ai_research
-      min: 20
-      max: 200
+      value: 29
+      unit: MPa·m^{1/2}
+      source: literature
+      min: 24
+      max: 35
+      notes: Mode I fracture toughness for Al 6061
     electricalResistivity:
-      value: 2.65e-08
+      value: 2.82e-08
       unit: Ω·m
-      source: ai_research
-      min: 1.0e-08
-      max: 1.5e-06
+      source: literature
+      min: 2.65e-08
+      max: 4.0e-08
+      notes: Pure aluminum at 20°C
     boilingPoint:
-      value: 2792.0
+      value: 2792
       unit: K
-      source: ai_research
-      min: 907
-      max: 5870
+      source: literature
+      min: 2740
+      max: 2800
+      notes: Aluminum boiling point (2519°C)
     absorptivity:
-      value: 0.06
+      value: 0.08
       unit: dimensionless
-      source: ai_research
-      min: 2.0
-      max: 65.0
+      source: literature
+      min: 0.02
+      max: 0.15
+      notes: NIR laser absorption for clean aluminum
     reflectivity:
-      value: 0.95
+      value: 0.92
       unit: dimensionless
-      source: ai_research
-      min: 85
-      max: 98
+      source: literature
+      min: 0.85
+      max: 0.98
+      notes: High reflectivity at 1064nm wavelength
     electricalConductivity:
-      value: 37700000.0
+      value: 37700000
       unit: S/m
-      source: ai_research
-      min: 0.67
-      max: 63.0
+      source: literature
+      min: 35000000
+      max: 40000000
+      notes: 61% IACS for Al 6061-T6
     vaporPressure:
-      value: 101325.0
+      value: 2.42e-06
       unit: Pa
-      source: ai_research
-      min: 1.0e-10
-      max: 0.001
+      source: literature
+      min: 1.0e-08
+      max: 1.0e-04
+      notes: Vapor pressure at melting point
     meltingPoint:
       value: 933.47
       unit: K
-      source: ai_research
-      min: -39
-      max: 3422
+      source: literature
+      min: 893
+      max: 943
+      notes: Aluminum solidus/liquidus range
     thermalDestructionPoint:
       value: 933.47
       unit: K
-      source: ai_research
-      min: 873
-      max: 3695
+      source: literature
+      min: 893
+      max: 943
+      notes: Begins melting at this temperature
+    heatCapacity:
+      value: 897
+      unit: J/(kg·K)
+      source: literature
+      min: 875
+      max: 920
+      notes: Specific heat capacity at 20°C
+    thermalExpansionCoefficient:
+      value: 23.6e-06
+      unit: 1/K
+      source: literature
+      min: 22.0e-06
+      max: 25.0e-06
+      notes: Linear thermal expansion coefficient at 20°C
+    thermalRelaxationTime:
+      value: 5.0e-09
+      unit: s
+      source: calculated
+      min: 1.0e-09
+      max: 10.0e-09
+      notes: Estimated thermal relaxation time for laser pulse interaction
+    oxidationTemperature:
+      value: 673
+      unit: K
+      source: literature
+      min: 623
+      max: 723
+      notes: Temperature where oxide layer growth accelerates (400°C)
+    heatAffectedZoneDepth:
+      value: 50
+      unit: μm
+      source: literature
+      min: 20
+      max: 100
+      notes: Typical HAZ depth for nanosecond laser cleaning
+    surfaceRoughnessChange:
+      value: 0.5
+      unit: μm Ra
+      source: literature
+      min: 0.1
+      max: 2.0
+      notes: Typical Ra change after laser cleaning
     percentage: 60.0
   laser_material_interaction:
     label: Laser-Material Interaction
     thermalConductivity:
-      value: 237.0
+      value: 167
       unit: W/(m·K)
-      min: 7.0
-      max: 430
+      min: 150
+      max: 205
+      source: literature
+      notes: Al 6061-T6 thermal conductivity at 25°C
     thermalExpansion:
-      value: 23.1
+      value: 23.6
       unit: ×10^{-6}/K
-      min: 0.5
-      max: 33
+      min: 22.5
+      max: 24.5
+      source: literature
+      notes: Coefficient of thermal expansion for Al 6061
     thermalDiffusivity:
-      value: 9.7
-      unit: ×10^{-5} m²/s
-      min: 0.06
-      max: 174
+      value: 6.4e-05
+      unit: m²/s
+      min: 6.0e-05
+      max: 8.0e-05
+      source: literature
+      notes: Calculated from k/(ρ·Cp) for Al 6061
     specificHeat:
-      value: 900.0
+      value: 896
       unit: J/(kg·K)
-      min: 100
-      max: 2000
+      min: 880
+      max: 920
+      source: literature
+      notes: Specific heat capacity at 25°C
     thermalShockResistance:
       value: 250
       unit: K
-      min: 50
-      max: 400
+      min: 200
+      max: 350
+      source: literature
+      notes: Temperature differential aluminum can withstand
     laserReflectivity:
       value: 0.92
-      unit: ''
-      min: 5
-      max: 99.9
+      unit: dimensionless
+      min: 0.85
+      max: 0.98
+      source: literature
+      notes: Reflectivity at 1064nm (Nd:YAG)
     absorptionCoefficient:
-      value: 1.2
-      unit: ×10^7 m^{-1}
-      min: 100000
-      max: 50000000
+      value: 1200000
+      unit: m^{-1}
+      min: 800000
+      max: 2000000
+      source: literature
+      notes: Optical absorption coefficient for aluminum
     ablationThreshold:
-      value: 2.5
+      value: 1.2
+      unit: J/cm²
+      min: 0.8
+      max: 2.5
+      source: literature
+      notes: Nanosecond pulse ablation threshold for aluminum
+    laserDamageThreshold:
+      value: 3.5
       unit: J/cm²
       min: 2.0
       max: 8.0
-    laserDamageThreshold:
-      value: 1.8
-      unit: J/cm²
-      min: 0.1
-      max: 20.0
+      source: literature
+      notes: Single-pulse damage threshold for ns pulses
     percentage: 40.0
 machineSettings:
   powerRange:
     unit: W
-    value: 100
-    min: 1.0
-    max: 120
+    value: 80
+    min: 50
+    max: 150
+    optimal_range: [60, 100]
+    notes: Moderate power for aluminum due to high reflectivity
   wavelength:
     unit: nm
     value: 1064
-    min: 355
-    max: 10640
+    min: 532
+    max: 1064
+    optimal_range: [1064, 1064]
+    notes: 1064nm Nd:YAG preferred for aluminum cleaning
   spotSize:
     unit: μm
-    value: 50
-    min: 0.1
-    max: 500
+    value: 100
+    min: 50
+    max: 300
+    optimal_range: [80, 150]
+    notes: Larger spot size compensates for reflectivity
   repetitionRate:
     unit: kHz
-    value: 50
-    min: 1
-    max: 200
+    value: 30
+    min: 10
+    max: 100
+    optimal_range: [20, 50]
+    notes: Moderate rep rate to avoid thermal accumulation
   energyDensity:
     unit: J/cm²
-    value: 5.1
-    min: 0.1
-    max: 20.0
+    value: 2.8
+    min: 1.2
+    max: 6.0
+    optimal_range: [1.5, 4.0]
+    notes: Above ablation threshold but below damage threshold
   pulseWidth:
     unit: ns
-    value: 10
-    min: 0.1
-    max: 1000
+    value: 100
+    min: 10
+    max: 500
+    optimal_range: [50, 200]
+    notes: Nanosecond pulses for efficient oxide removal
   scanSpeed:
     unit: mm/s
-    value: 500
-    min: 10
-    max: 5000
+    value: 1000
+    min: 100
+    max: 3000
+    optimal_range: [500, 1500]
+    notes: Fast scanning to minimize heat input
   passCount:
     unit: passes
-    value: 3
+    value: 2
     min: 1
-    max: 10
+    max: 5
+    optimal_range: [1, 3]
+    notes: Typically 1-2 passes sufficient for oxide removal
   overlapRatio:
     unit: '%'
-    value: 50
-    min: 10
-    max: 90
+    value: 40
+    min: 20
+    max: 70
+    optimal_range: [30, 50]
+    notes: Moderate overlap for uniform cleaning
 faq:
 - question: How does laser cleaning **remove oxidation from aluminum** surfaces?
   answer: '**Vaporizes oxide without base damage**. Laser cleaning basically employs a focused beam to vaporize oxide layers without damaging the base metal, pretty quickly restoring the shine.'

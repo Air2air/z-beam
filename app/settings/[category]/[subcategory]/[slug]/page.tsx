@@ -1,7 +1,7 @@
 // app/settings/[category]/[subcategory]/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { getAllCategories } from '@/app/utils/materialCategories';
-import { getSettingsArticle } from '@/app/utils/contentAPI';
+import { getSettingsArticle, getArticleBySlug } from '@/app/utils/contentAPI';
 import { Layout } from '@/app/components/Layout/Layout';
 import { SettingsJsonLD } from '@/app/components/JsonLD/SettingsJsonLD';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
@@ -69,6 +69,10 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
   if (!settings) {
     notFound();
   }
+
+  // Load material properties from frontmatter for data interpolation
+  const materialArticle = await getArticleBySlug(`materials/${category}/${subcategory}/${settingsSlug}`) as any;
+  const materialProps = materialArticle?.materialProperties;
 
   // Prepare metadata for Layout (no components - we'll use children instead)
   const metadata = {
@@ -160,6 +164,32 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
                   settings.machineSettings.essential_parameters.pulseWidth.min,
                   settings.machineSettings.essential_parameters.pulseWidth.max
                 ]}
+                materialProperties={{
+                  // Core thermal properties
+                  thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                  thermalDiffusivity: materialProps?.laser_material_interaction?.thermalDiffusivity?.value || materialProps?.physical_properties?.thermalDiffusivity?.value,
+                  heatCapacity: materialProps?.physical_properties?.heatCapacity?.value,
+                  specificHeat: materialProps?.laser_material_interaction?.specificHeat?.value || materialProps?.physical_properties?.specificHeat?.value,
+                  
+                  // Temperature thresholds
+                  meltingPoint: materialProps?.physical_properties?.meltingPoint?.value,
+                  boilingPoint: materialProps?.physical_properties?.boilingPoint?.value,
+                  oxidationTemperature: materialProps?.physical_properties?.oxidationTemperature?.value,
+                  thermalDestructionPoint: materialProps?.physical_properties?.thermalDestructionPoint?.value,
+                  
+                  // Laser interaction
+                  ablationThreshold: materialProps?.laser_material_interaction?.ablationThreshold?.value || materialProps?.physical_properties?.ablationThreshold?.value,
+                  laserDamageThreshold: materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
+                  absorptivity: materialProps?.laser_material_interaction?.absorptivity?.value || materialProps?.physical_properties?.absorptivity?.value,
+                  absorptionCoefficient: materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
+                  laserReflectivity: materialProps?.laser_material_interaction?.laserReflectivity?.value || materialProps?.physical_properties?.reflectivity?.value,
+                  
+                  // Thermal dynamics
+                  thermalRelaxationTime: materialProps?.physical_properties?.thermalRelaxationTime?.value,
+                  thermalExpansionCoefficient: materialProps?.physical_properties?.thermalExpansionCoefficient?.value,
+                  thermalShockResistance: materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                  heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
+                }}
               />
             </SectionContainer>
           )}
