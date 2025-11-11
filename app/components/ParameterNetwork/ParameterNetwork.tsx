@@ -506,10 +506,179 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
           )}
         </div>
 
-        {/* Info Panel - Full Width at Top */}
-        <div className="space-y-4">
-          {/* Selected Parameter Info with Role Analysis */}
-          {selectedParam && (() => {
+        {/* Two-column layout: Network Graph (left) and Info Panel (right) on >XS */}
+        <div className="flex flex-col sm:flex-row gap-6">
+          {/* Network Graph - Left Side on sm+, bottom on mobile */}
+          <div className="w-full sm:w-1/2 order-2 sm:order-1">
+            <svg
+              viewBox="0 0 400 400"
+              className="w-full h-auto"
+              role="img"
+              aria-label="Parameter interaction network visualization"
+              style={{
+                isolation: 'isolate'
+              }}
+            >
+              {/* Network graph stage - rotating container */}
+              <g
+                className="network-graph-stage"
+                transform={`rotate(${(rotationOffset * 180) / Math.PI} 200 200)`}
+                style={{
+                  transition: 'transform 1.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                  willChange: 'transform'
+                }}
+              >
+                {/* Relationship edges layer */}
+                <g className="relationship-layer">
+                  {relationships.map((rel, index) => {
+                  const from = paramPositions[rel.from];
+                  const to = paramPositions[rel.to];
+                  
+                  if (!from || !to) return null;
+
+                  const isActive = selectedParam === rel.from || selectedParam === rel.to;
+                  const opacity = selectedParam && !isActive ? 0.15 : isActive ? 0.9 : 0.6;
+                  
+                  // Calculate arrow path
+                  const dx = to.x - from.x;
+                  const dy = to.y - from.y;
+                  const dist = Math.sqrt(dx * dx + dy * dy);
+                  const unitX = dx / dist;
+                  const unitY = dy / dist;
+                  
+                  // Shorten line to stop at node edge (radius 40)
+                  const startX = from.x + unitX * 40;
+                  const startY = from.y + unitY * 40;
+                  const endX = to.x - unitX * 45;
+                  const endY = to.y - unitY * 45;
+
+                  return (
+                    <g key={index} className="relationship-edge" data-type={rel.type}>
+                      {/* Connection line */}
+                      <line
+                        className="edge-line"
+                        x1={startX}
+                        y1={startY}
+                        x2={endX}
+                        y2={endY}
+                        stroke={getRelationshipColor(rel.type)}
+                        strokeWidth={2}
+                        opacity={opacity}
+                        style={{ 
+                          transition: 'opacity 0.3s ease'
+                        }}
+                        onMouseEnter={() => setHoveredRelation(rel)}
+                        onMouseLeave={() => setHoveredRelation(null)}
+                      />
+                      
+                      {/* Arrowhead */}
+                      <polygon
+                        className="edge-arrow"
+                        points={`${endX},${endY} ${endX - 8 * unitX + 5 * unitY},${endY - 8 * unitY - 5 * unitX} ${endX - 8 * unitX - 5 * unitY},${endY - 8 * unitY + 5 * unitX}`}
+                        fill={getRelationshipColor(rel.type)}
+                        opacity={opacity}
+                        style={{ 
+                          transition: 'opacity 0.3s ease'
+                        }}
+                      />
+                    </g>
+                  );
+                })}
+                </g>
+
+                {/* Parameter nodes layer */}
+                <g className="parameter-nodes-layer">
+                  {parameters.map((param) => {
+                  const pos = paramPositions[param.id];
+                  if (!pos) return null;
+
+                  const isSelected = selectedParam === param.id;
+                  const isConnected = connectedParams.has(param.id);
+                  const isHovered = hoveredNode === param.id;
+                  const isHighlighted = isSelected || isConnected || isHovered;
+                  const opacity = selectedParam && !isHighlighted ? 0.4 : 1;
+                  const nodeColor = getNodeColor(param);
+
+                  return (
+                    <g key={param.id} className="parameter-node" data-id={param.id}>
+                      {/* Glow effect for selected */}
+                      {isSelected && (
+                        <circle
+                          className="node-glow animate-pulse"
+                          cx={pos.x}
+                          cy={pos.y}
+                          r={45}
+                          fill={nodeColor}
+                          opacity={0.3}
+                        />
+                      )}
+                      
+                      {/* Node circle */}
+                      <circle
+                        className="node-body"
+                        cx={pos.x}
+                        cy={pos.y}
+                        r={35}
+                        fill={nodeColor}
+                        opacity={opacity}
+                        onClick={() => setSelectedParam(selectedParam === param.id ? null : param.id)}
+                        onMouseEnter={() => setHoveredNode(param.id)}
+                        onMouseLeave={() => setHoveredNode(null)}
+                        style={{ 
+                          transition: 'opacity 0.3s ease, fill 0.3s ease',
+                          cursor: 'pointer'
+                        }}
+                      />
+                      
+                      {/* Node label - counter-rotated to stay upright */}
+                      <text
+                        className="node-label"
+                        x={pos.x}
+                        y={pos.y}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="white"
+                        fontSize="12"
+                        fontWeight="500"
+                        opacity={opacity}
+                        transform={`rotate(${-(rotationOffset * 180) / Math.PI} ${pos.x} ${pos.y})`}
+                        style={{ 
+                          transition: 'opacity 0.3s ease, transform 1.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                          pointerEvents: 'none',
+                          willChange: 'transform'
+                        }}
+                      >
+                        {formatKeyAsTitle(param.id).split(' ').map((word, i, arr) => {
+                          // Calculate vertical offset to center multi-line text
+                          const totalLines = arr.length;
+                          const lineHeight = 13;
+                          const totalHeight = (totalLines - 1) * lineHeight;
+                          const startOffset = -totalHeight / 2;
+                          
+                          return (
+                            <tspan 
+                              key={i}
+                              className="label-line"
+                              x={pos.x} 
+                              dy={i === 0 ? startOffset : lineHeight}
+                            >
+                              {word}
+                            </tspan>
+                          );
+                        })}
+                      </text>
+                    </g>
+                  );
+                })}
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          {/* Info Panel - Right Side on sm+, top on mobile */}
+          <div className="w-full sm:w-1/2 order-1 sm:order-2 space-y-4">
+            {/* Selected Parameter Info with Role Analysis */}
+            {selectedParam && (() => {
             const param = parameters.find(p => p.id === selectedParam);
             const role = getParameterRole(selectedParam);
             const nodeColor = getNodeColor(param!);
@@ -615,173 +784,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
               </div>
             </div>
           )}
-        </div>
-
-        {/* Network Graph - Full Width */}
-        <div className="w-full max-w-full sm:max-w-[60%] mx-auto">
-          <svg
-            viewBox="0 0 400 400"
-            className="w-full h-auto"
-            role="img"
-            aria-label="Parameter interaction network visualization"
-            style={{
-              isolation: 'isolate'
-            }}
-          >
-            {/* Network graph stage - rotating container */}
-            <g
-              className="network-graph-stage"
-              transform={`rotate(${(rotationOffset * 180) / Math.PI} 200 200)`}
-              style={{
-                transition: 'transform 1.8s cubic-bezier(0.4, 0, 0.2, 1)',
-                willChange: 'transform'
-              }}
-            >
-              {/* Relationship edges layer */}
-              <g className="relationship-layer">
-                {relationships.map((rel, index) => {
-                const from = paramPositions[rel.from];
-                const to = paramPositions[rel.to];
-                
-                if (!from || !to) return null;
-
-                const isActive = selectedParam === rel.from || selectedParam === rel.to;
-                const opacity = selectedParam && !isActive ? 0.15 : isActive ? 0.9 : 0.6;
-                
-                // Calculate arrow path
-                const dx = to.x - from.x;
-                const dy = to.y - from.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                const unitX = dx / dist;
-                const unitY = dy / dist;
-                
-                // Shorten line to stop at node edge (radius 40)
-                const startX = from.x + unitX * 40;
-                const startY = from.y + unitY * 40;
-                const endX = to.x - unitX * 45;
-                const endY = to.y - unitY * 45;
-
-                return (
-                  <g key={index} className="relationship-edge" data-type={rel.type}>
-                    {/* Connection line */}
-                    <line
-                      className="edge-line"
-                      x1={startX}
-                      y1={startY}
-                      x2={endX}
-                      y2={endY}
-                      stroke={getRelationshipColor(rel.type)}
-                      strokeWidth={2}
-                      opacity={opacity}
-                      style={{ 
-                        transition: 'opacity 0.3s ease'
-                      }}
-                      onMouseEnter={() => setHoveredRelation(rel)}
-                      onMouseLeave={() => setHoveredRelation(null)}
-                    />
-                    
-                    {/* Arrowhead */}
-                    <polygon
-                      className="edge-arrow"
-                      points={`${endX},${endY} ${endX - 8 * unitX + 5 * unitY},${endY - 8 * unitY - 5 * unitX} ${endX - 8 * unitX - 5 * unitY},${endY - 8 * unitY + 5 * unitX}`}
-                      fill={getRelationshipColor(rel.type)}
-                      opacity={opacity}
-                      style={{ 
-                        transition: 'opacity 0.3s ease'
-                      }}
-                    />
-                  </g>
-                );
-              })}
-              </g>
-
-              {/* Parameter nodes layer */}
-              <g className="parameter-nodes-layer">
-                {parameters.map((param) => {
-                const pos = paramPositions[param.id];
-                if (!pos) return null;
-
-                const isSelected = selectedParam === param.id;
-                const isConnected = connectedParams.has(param.id);
-                const isHovered = hoveredNode === param.id;
-                const isHighlighted = isSelected || isConnected || isHovered;
-                const opacity = selectedParam && !isHighlighted ? 0.4 : 1;
-                const nodeColor = getNodeColor(param);
-
-                return (
-                  <g key={param.id} className="parameter-node" data-id={param.id}>
-                    {/* Glow effect for selected */}
-                    {isSelected && (
-                      <circle
-                        className="node-glow animate-pulse"
-                        cx={pos.x}
-                        cy={pos.y}
-                        r={45}
-                        fill={nodeColor}
-                        opacity={0.3}
-                      />
-                    )}
-                    
-                    {/* Node circle */}
-                    <circle
-                      className="node-body"
-                      cx={pos.x}
-                      cy={pos.y}
-                      r={35}
-                      fill={nodeColor}
-                      opacity={opacity}
-                      onClick={() => setSelectedParam(selectedParam === param.id ? null : param.id)}
-                      onMouseEnter={() => setHoveredNode(param.id)}
-                      onMouseLeave={() => setHoveredNode(null)}
-                      style={{ 
-                        transition: 'opacity 0.3s ease, fill 0.3s ease',
-                        cursor: 'pointer'
-                      }}
-                    />
-                    
-                    {/* Node label - counter-rotated to stay upright */}
-                    <text
-                      className="node-label"
-                      x={pos.x}
-                      y={pos.y}
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      fill="white"
-                      fontSize="12"
-                      fontWeight="500"
-                      opacity={opacity}
-                      transform={`rotate(${-(rotationOffset * 180) / Math.PI} ${pos.x} ${pos.y})`}
-                      style={{ 
-                        transition: 'opacity 0.3s ease, transform 1.8s cubic-bezier(0.4, 0, 0.2, 1)',
-                        pointerEvents: 'none',
-                        willChange: 'transform'
-                      }}
-                    >
-                      {formatKeyAsTitle(param.id).split(' ').map((word, i, arr) => {
-                        // Calculate vertical offset to center multi-line text
-                        const totalLines = arr.length;
-                        const lineHeight = 13;
-                        const totalHeight = (totalLines - 1) * lineHeight;
-                        const startOffset = -totalHeight / 2;
-                        
-                        return (
-                          <tspan 
-                            key={i}
-                            className="label-line"
-                            x={pos.x} 
-                            dy={i === 0 ? startOffset : lineHeight}
-                          >
-                            {word}
-                          </tspan>
-                        );
-                      })}
-                    </text>
-                  </g>
-                );
-              })}
-              </g>
-            </g>
-          </svg>
+          </div>
         </div>
       </div>
     </SectionContainer>
