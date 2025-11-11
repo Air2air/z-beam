@@ -2692,9 +2692,9 @@ export interface TroubleshootingIssue {
 }
 
 /**
- * Quality metrics for expected outcomes
+ * Quality metrics for expected outcomes (detailed structure)
  */
-export interface QualityMetrics {
+export interface DetailedQualityMetrics {
   surface_roughness?: {
     target: string;
     tolerance: string;
@@ -2731,7 +2731,7 @@ export interface EnhancedMachineSettings {
     overlapRatio?: EnhancedParameter;
   };
   material_challenges?: MaterialChallenges;
-  expected_outcomes?: QualityMetrics;
+  expected_outcomes?: DetailedQualityMetrics;
   common_issues?: TroubleshootingIssue[];
 }
 
