@@ -50,7 +50,7 @@ The metadata system has been enhanced to provide comprehensive E-E-A-T (Experien
     article: {
       publishedTime: "2024-01-15T10:00:00Z",
       modifiedTime: "2024-06-20T14:30:00Z",
-      authors: ["Dr. Emily Chen"],
+      authors: ["Todd Dunning"],
       section: "conservation",
       tags: ["limestone", "conservation", "laser"]
     }
@@ -66,7 +66,7 @@ The metadata system has been enhanced to provide comprehensive E-E-A-T (Experien
   
   other: {
     // E-E-A-T: Expertise
-    "author": "Dr. Emily Chen",
+    "author": "Todd Dunning",
     "author-title": "Ph.D.",
     "author-expertise": "Materials Science",
     
@@ -145,7 +145,7 @@ While JSON-LD provides structured data for search engines, meta tags serve multi
 #### 1. Experience & Expertise
 
 ```html
-<meta name="author" content="Dr. Emily Chen">
+<meta name="author" content="Todd Dunning">
 <meta name="author-title" content="Ph.D.">
 <meta name="author-expertise" content="Materials Science and Engineering">
 ```

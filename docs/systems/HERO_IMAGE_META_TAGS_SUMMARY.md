@@ -134,7 +134,7 @@ Three destinations:
 <meta property="og:image:height" content="630">
 <meta property="og:article:published_time" content="2024-01-15">
 <meta property="og:article:modified_time" content="2024-06-20">
-<meta property="og:article:author" content="Dr. Emily Chen">
+<meta property="og:article:author" content="Todd Dunning">
 <meta property="og:article:section" content="conservation">
 
 <!-- Twitter Cards -->
@@ -145,7 +145,7 @@ Three destinations:
 <meta name="twitter:creator" content="@Dr.EmilyChen">
 
 <!-- E-E-A-T Signals -->
-<meta name="author" content="Dr. Emily Chen">
+<meta name="author" content="Todd Dunning">
 <meta name="author-title" content="Ph.D.">
 <meta name="author-expertise" content="Materials Science and Engineering">
 <meta name="article:published_time" content="2024-01-15T10:00:00Z">
@@ -273,9 +273,9 @@ images:
 datePublished: "2024-01-15"
 dateModified: "2024-06-20"
 author:
-  name: "Dr. Emily Chen"
-  title: "Ph.D."
-  expertise: "Materials Science and Engineering"
+  name: "Todd Dunning"
+  title: "MA in Optical Materials"
+  expertise: "Laser Cleaning Applications"
 ```
 
 ---

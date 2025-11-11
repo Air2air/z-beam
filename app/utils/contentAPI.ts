@@ -24,7 +24,7 @@ import {
   normalizeNumericValues
 } from './normalizers';
 // Import centralized types instead of defining our own
-import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType } from '@/types';
+import { Article, ArticleMetadata, ContentItem, ComponentData, PageData, FrontmatterType, SettingsMetadata } from '@/types';
 
 // Simple replacement for safeContentOperation
 const safeContentOperation = async (op: () => Promise<any>, fallback: any, name: string, slug?: string) => {
@@ -909,3 +909,55 @@ export const loadComponentData = cache(async (type: string, slug: string): Promi
 
 // Note: extractSafeValue is available from './stringHelpers' - 
 // cannot re-export sync functions from server action files
+
+/**
+ * SETTINGS PAGE LOADER - Load enhanced machine settings YAML files
+ * Loads settings files from /content/settings/ directory
+ * Returns SettingsMetadata with enhanced parameter structure
+ */
+export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMetadata | null> => {
+  return safeContentOperation(async () => {
+    // Secure path construction
+    const settingsDir = path.join(process.cwd(), 'content', 'settings');
+    const settingsPath = path.join(settingsDir, `${slug}.yaml`);
+    
+    // Validate constructed path for security
+    validateFilePath(settingsPath, [settingsDir]);
+    
+    if (!existsSync(settingsPath)) {
+      console.warn(`Settings file not found: ${slug}.yaml`);
+      return null;
+    }
+    
+    const fileContent = readFileSync(settingsPath, 'utf8');
+    
+    try {
+      // Parse as pure YAML
+      const yaml = await import('js-yaml');
+      const data = yaml.load(fileContent) as any;
+      
+      if (!data) {
+        console.warn(`Empty settings file: ${slug}.yaml`);
+        return null;
+      }
+      
+      // Return as SettingsMetadata type
+      return {
+        name: data.name,
+        category: data.category,
+        subcategory: data.subcategory,
+        title: data.title,
+        subtitle: data.subtitle,
+        description: data.description,
+        slug,
+        author: data.author,
+        machineSettings: data.machineSettings,
+        seo_settings_page: data.seo_settings_page
+      } as SettingsMetadata;
+      
+    } catch (parseError) {
+      console.error(`Failed to parse settings YAML for ${slug}:`, parseError);
+      return null;
+    }
+  }, null, 'getSettingsArticle', slug);
+});

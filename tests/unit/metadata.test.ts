@@ -186,7 +186,7 @@ describe('Enhanced Metadata Generation', () => {
         category: 'conservation',
         datePublished: '2024-01-15',
         keywords: ['limestone', 'conservation', 'laser cleaning'],
-        author: 'Dr. Sarah Johnson',
+        author: 'Todd Dunning',
         images: {
           hero: {
             url: '/images/limestone-hero.jpg',
@@ -199,7 +199,7 @@ describe('Enhanced Metadata Generation', () => {
       expect(result.openGraph.type).toBe('article');
       expect(result.openGraph.article).toBeDefined();
       expect(result.openGraph.article.publishedTime).toBe('2024-01-15');
-      expect(result.openGraph.article.authors).toContain('Dr. Sarah Johnson');
+      expect(result.openGraph.article.authors).toContain('Todd Dunning');
       expect(result.openGraph.article.section).toBe('conservation');
       expect(result.openGraph.article.tags).toEqual(['limestone', 'conservation', 'laser cleaning']);
     });
@@ -256,20 +256,19 @@ describe('Enhanced Metadata Generation', () => {
         slug: 'advanced-material-science',
         description: 'Expert analysis',
         author: {
-          name: 'Dr. Emily Chen',
-          title: 'Ph.D.',
-          expertise: 'Materials Science and Engineering',
-          affiliation: 'MIT',
-          credentials: ['Ph.D. in Materials Science', '15+ years experience'],
+          name: 'Todd Dunning',
+          title: 'MA in Optical Materials',
+          expertise: 'Laser Cleaning Applications',
+          credentials: ['MA in Optical Materials', 'Laser cleaning specialist'],
         },
       };
 
       const result = createMetadata(metadata);
 
       expect(result.other).toBeDefined();
-      expect(result.other['author']).toBe('Dr. Emily Chen');
-      expect(result.other['author-title']).toBe('Ph.D.');
-      expect(result.other['author-expertise']).toBe('Materials Science and Engineering');
+      expect(result.other['author']).toBe('Todd Dunning');
+      expect(result.other['author-title']).toBe('MA in Optical Materials');
+      expect(result.other['author-expertise']).toBe('Laser Cleaning Applications');
     });
 
     it('should include publication timestamps for trustworthiness', () => {

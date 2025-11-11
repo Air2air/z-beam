@@ -158,13 +158,13 @@ describe('Caption Component Centralized Types', () => {
 
   test('should extract author name from object for React rendering', () => {
     const authorObject = {
-      id: 'author123',
-      name: 'Dr. Sarah Chen',
-      sex: 'F',
-      title: 'Research Director',
-      country: 'Canada',
-      expertise: ['Surface Treatment', 'Laser Physics'],
-      image: 'sarah-chen.jpg'
+      id: 'todd-dunning',
+      name: 'Todd Dunning',
+      sex: 'M',
+      title: 'Laser Cleaning Specialist',
+      country: 'United States',
+      expertise: ['Surface Treatment', 'Laser Cleaning'],
+      image: 'todd-dunning.jpg'
     };
 
     // Simulate the fix logic: extract name or provide fallback
@@ -172,7 +172,7 @@ describe('Caption Component Centralized Types', () => {
       ? authorObject 
       : authorObject.name || 'Unknown Author';
 
-    expect(authorContent).toBe('Dr. Sarah Chen');
+    expect(authorContent).toBe('Todd Dunning');
 
     // Test caption data structure
     const caption = {

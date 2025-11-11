@@ -188,9 +188,9 @@ description: "Precision laser cleaning for aluminum surfaces..."
 category: "metal"
 keywords: ["aluminum", "laser cleaning", "surface preparation"]
 author:
-  name: "Dr. Sarah Chen"
-  title: "Ph.D."
-  expertise: "Materials Science"
+  name: "Todd Dunning"
+  title: "MA in Optical Materials"
+  expertise: "Laser Cleaning Applications"
 images:
   hero:
     url: "/images/material/aluminum-hero.jpg"
@@ -204,9 +204,9 @@ dateModified: "2025-10-20"
 <title>Aluminum Laser Cleaning | Z-Beam</title>
 <meta name="description" content="Precision laser cleaning for aluminum surfaces..." />
 <meta name="keywords" content="aluminum, laser cleaning, surface preparation" />
-<meta name="author" content="Dr. Sarah Chen" />
-<meta name="author-title" content="Ph.D." />
-<meta name="author-expertise" content="Materials Science" />
+<meta name="author" content="Todd Dunning" />
+<meta name="author-title" content="MA in Optical Materials" />
+<meta name="author-expertise" content="Laser Cleaning Applications" />
 <meta property="og:title" content="Aluminum Laser Cleaning" />
 <meta property="og:image" content="https://z-beam.com/images/material/aluminum-hero.jpg" />
 <meta property="article:published_time" content="2024-01-15" />

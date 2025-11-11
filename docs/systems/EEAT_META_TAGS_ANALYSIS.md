@@ -45,7 +45,7 @@
 
 **Example:**
 ```html
-<meta name="author" content="Dr. Emily Chen">
+<meta name="author" content="Todd Dunning">
 <meta name="author-title" content="Ph.D.">
 <meta name="author-expertise" content="Materials Science">
 ```
@@ -103,17 +103,13 @@
   "@type": "TechnicalArticle",
   "author": {
     "@type": "Person",
-    "name": "Dr. Emily Chen",
-    "jobTitle": "Materials Science Researcher",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "MIT"
-    },
+    "name": "Todd Dunning",
+    "jobTitle": "Laser Cleaning Specialist",
     "credential": [
-      "Ph.D. in Materials Science",
-      "15+ years experience"
+      "MA in Optical Materials",
+      "Laser cleaning expertise"
     ],
-    "expertise": "Materials Science and Engineering"
+    "expertise": "Laser Cleaning Applications"
   },
   "citation": [
     {
@@ -147,7 +143,7 @@
 
 ```html
 <!-- Author Expertise (Simplified) -->
-<meta name="author" content="Dr. Emily Chen">
+<meta name="author" content="Todd Dunning">
 <meta name="author-title" content="Ph.D.">
 <meta name="author-expertise" content="Materials Science and Engineering">
 
@@ -187,7 +183,7 @@
 
 ### 3. User Experience
 
-**Good:** `Dr. Emily Chen, Ph.D.` in social preview  
+**Good:** `Todd Dunning, Ph.D.` in social preview  
 **Bad:** `Author confidence: 0.95, citations: 15, h-index: 42` (too technical)
 
 **Good:** "Updated June 2024" in snippet  
@@ -236,8 +232,8 @@
 **Meta Tags:**
 ```html
 <title>Limestone Conservation Techniques | Z-Beam</title>
-<meta name="description" content="Expert guide to limestone conservation using laser cleaning. Updated June 2024 by Dr. Emily Chen, Ph.D.">
-<meta name="author" content="Dr. Emily Chen">
+<meta name="description" content="Expert guide to limestone conservation using laser cleaning. Updated June 2024 by Todd Dunning, Ph.D.">
+<meta name="author" content="Todd Dunning">
 <meta name="author-title" content="Ph.D.">
 <meta name="author-expertise" content="Materials Science and Engineering">
 <meta property="og:article:published_time" content="2024-01-15">
@@ -249,7 +245,7 @@
 **User sees in social share:**
 ```
 Limestone Conservation Techniques
-Dr. Emily Chen, Ph.D. • Updated June 2024
+Todd Dunning, Ph.D. • Updated June 2024
 Expert guide to limestone conservation using laser cleaning...
 [Hero image showing limestone restoration]
 ```
@@ -265,8 +261,8 @@ Expert guide to limestone conservation using laser cleaning...
 **Meta Tags:**
 ```html
 <title>Alabaster Laser Cleaning Guide | Z-Beam</title>
-<meta name="description" content="Comprehensive technical analysis of alabaster laser cleaning. By Dr. Sarah Johnson, Materials Science Researcher.">
-<meta name="author" content="Dr. Sarah Johnson">
+<meta name="description" content="Comprehensive technical analysis of alabaster laser cleaning. By Todd Dunning, Materials Science Researcher.">
+<meta name="author" content="Todd Dunning">
 <meta name="author-title" content="Ph.D.">
 <meta property="og:article:section" content="technical-guides">
 <meta name="material-name" content="Alabaster">
@@ -276,7 +272,7 @@ Expert guide to limestone conservation using laser cleaning...
 **Google Search Result:**
 ```
 Alabaster Laser Cleaning Guide | Z-Beam
-Dr. Sarah Johnson, Ph.D. • Mar 2024
+Todd Dunning, Ph.D. • Mar 2024
 Comprehensive technical analysis of alabaster laser cleaning...
 ```
 

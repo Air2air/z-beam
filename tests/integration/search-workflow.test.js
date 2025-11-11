@@ -257,7 +257,7 @@ describe('Search Workflow Integration', () => {
         slug: 'zirconium-oxide-biomedical-applications',
         title: 'Zirconium Oxide in Biomedical Applications: Surface Treatment for Implant Components',
         description: 'Comprehensive analysis of ZrO₂ ceramic surface modification using laser cleaning techniques for enhanced biocompatibility in surgical implants.',
-        author: 'Dr. Sarah Chen',
+        author: 'Todd Dunning',
         frontmatter: {
           subject: 'zirconium oxide',
           category: 'ceramic',
@@ -287,7 +287,7 @@ describe('Search Workflow Integration', () => {
       expect(searchableArticle.href).toBe('/zirconium-oxide-biomedical-applications');
       
       // Verify comprehensive tagging
-      expect(searchableArticle.tags).toContain('Dr. Sarah Chen');
+      expect(searchableArticle.tags).toContain('Todd Dunning');
       expect(searchableArticle.tags).toContain('Biomedical');
       expect(searchableArticle.tags).toContain('Medical'); // Inferred
       expect(searchableArticle.tags).toContain('Surface Treatment'); // Inferred

@@ -271,11 +271,11 @@ function parseNumericFromString(text: string): { numeric?: number; unit?: string
 /**
  * Format a camelCase or snake_case key as a human-readable title
  */
-function formatKeyAsTitle(key: string): string {
-  return key
-    // Handle dot notation
-    .split('.')
-    .pop() || key
+export function formatKeyAsTitle(key: string): string {
+  // Handle dot notation first
+  const cleaned = key.split('.').pop() || key;
+  
+  return cleaned
     // Handle camelCase and snake_case  
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/_/g, ' ')

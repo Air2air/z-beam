@@ -1,0 +1,589 @@
+# TEMPLATE: Enhanced Machine Settings for Authority Page
+# This file shows the COMPLETE structure your Python generator should populate
+# Location: /content/settings/[material-name]-laser-cleaning-settings.yaml
+
+# ============================================================
+# IMPLEMENTATION STANDARDS
+# ============================================================
+# CRITICAL: Follow materials page implementation pattern
+# - Author metadata REQUIRED (E-E-A-T signals)
+# - Layout component auto-includes: Nav, Title, Footer, Breadcrumbs, DateMetadata, Author
+# - Use SectionContainer for all major sections
+# - Use PropertyBars for displaying parameters
+# - Use MarkdownRenderer for markdown content
+# Reference: /app/materials/[category]/[subcategory]/[slug]/page.tsx
+
+# ============================================================
+# EXISTING FIELDS (Keep as-is, already working)
+# ============================================================
+name: "[Material Name]"
+category: "[metal|ceramic|composite|glass|polymer|stone|wood|rare-earth]"
+subcategory: "[specific subcategory]"
+title: "[Material] Laser Cleaning Machine Settings"
+subtitle: "Research-backed parameters for optimal [material] laser cleaning"
+description: "Comprehensive machine settings and scientific justification for [material] laser cleaning"
+
+# ============================================================
+# AUTHOR METADATA (REQUIRED - Standardized Across Project)
+# ============================================================
+# E-E-A-T signals for Google ranking and backlink credibility
+# Automatically rendered by Layout component
+author:
+  name: "Todd Dunning"
+  jobTitle: "[Laser Systems Engineer|Materials Scientist|Industrial Process Engineer]"  # REQUIRED
+  description: "[2-3 sentence bio with credentials and experience]"  # REQUIRED
+  expertise:
+    - "[Primary expertise area 1]"
+    - "[Primary expertise area 2]"
+    - "[Primary expertise area 3]"
+  url: "https://z-beam.com/about"
+  email: "todd@z-beam.com"
+  image: "/images/authors/todd-dunning.jpg"
+  
+  # Optional additional fields for enhanced credibility
+  credentials:
+    - "[Relevant certification or degree]"
+    - "[Professional membership]"
+  publications:
+    - "[Relevant publication or patent]"
+  yearsExperience: 15
+
+# ============================================================
+# ENHANCED MACHINE SETTINGS (NEW STRUCTURE)
+# ============================================================
+machineSettings:
+  
+  # ----------------------------------------------------------
+  # ESSENTIAL PARAMETERS (Expanded from current 9 parameters)
+  # ----------------------------------------------------------
+  essential_parameters:
+    
+    powerRange:
+      # Basic values (ALREADY EXISTS in current YAML)
+      value: 100
+      unit: W
+      min: 50
+      max: 150
+      
+      # NEW: Enhanced metadata for authority page
+      optimal_range: [80, 120]
+      precision: ±5
+      criticality: high  # Options: critical, high, medium, low
+      
+      # NEW: Scientific justification
+      rationale: |
+        [Material]'s thermal conductivity ([XX] W/m·K) requires 
+        moderate power to achieve selective ablation without 
+        substrate heating beyond [XX]°C threshold. Power below 
+        [XX]W fails to overcome oxide binding energy; above [XX]W 
+        risks substrate melting ([XXX]°C).
+      
+      # NEW: Boundary conditions
+      damage_threshold:
+        too_low: "[Describe what happens with insufficient power]"
+        too_high: "[Describe damage risk with excessive power]"
+        warning_signs:
+          - "[Visual/measurable indicator 1]"
+          - "[Visual/measurable indicator 2]"
+      
+      # NEW: Material interaction science
+      material_interaction:
+        mechanism: "[Photomechanical|Photothermal|Photochemical]"
+        dominant_factor: "[Key physical property affecting this parameter]"
+        critical_parameter: "[Related parameter that must be coordinated]"
+        energy_coupling: 0.XX  # Absorption coefficient
+      
+      # NEW: Research citations
+      research_basis:
+        citations:
+          - author: "[Last name], [First initial]., et al."
+            year: 202X
+            title: "[Full paper title]"
+            journal: "[Journal name]"
+            volume: XX
+            issue: X
+            pages: "[Page range]"
+            doi: "10.XXXX/journal.XXXX.XXXXXX"
+            key_finding: "[One-sentence summary of relevant result]"
+            sample_size: XXX
+            confidence_level: XX  # Percentage
+            
+        validation:
+          method: "[Measurement technique used]"
+          equipment: "[Specific instruments]"
+          confidence: XX  # Percentage
+          sample_size: XXX
+          date_verified: "YYYY-MM-DD"
+          verified_by: "Z-Beam Research Lab"
+          revalidation_interval: "[Time period]"
+    
+    wavelength:
+      # Basic values
+      value: 1064
+      unit: nm
+      min: 532
+      max: 10640
+      
+      # Enhanced metadata
+      optimal_range: [1030, 1090]
+      criticality: critical
+      
+      rationale: |
+        [Wavelength] matches [material] oxide absorption peak 
+        ([XX]%) while minimizing substrate absorption ([XX]%), 
+        providing [X.X]x selectivity ratio.
+      
+      # NEW: Spectroscopy data
+      absorption_data:
+        substrate_reflectivity: 0.XX
+        substrate_absorption: 0.XX
+        oxide_layer_absorption: 0.XX
+        selectivity_ratio: X.X
+        penetration_depth: XX  # micrometers
+        
+      # NEW: Alternative wavelength analysis
+      wavelength_alternatives:
+        355nm_uv:
+          pros: 
+            - "[Advantage 1]"
+            - "[Advantage 2]"
+          cons:
+            - "[Disadvantage 1]"
+            - "[Disadvantage 2]"
+          use_case: "[When to use this wavelength]"
+          recommended: true|false
+          
+        532nm_green:
+          pros: []
+          cons: []
+          use_case: ""
+          recommended: "conditional"
+          
+        10600nm_co2:
+          pros: []
+          cons: []
+          use_case: ""
+          recommended: false
+      
+      research_basis:
+        citations: []  # Same structure as powerRange
+    
+    spotSize:
+      value: 50
+      unit: μm
+      min: 10
+      max: 200
+      optimal_range: [40, 60]
+      criticality: high
+      
+      rationale: |
+        [XX]μm spot size balances energy density (fluence) with 
+        processing throughput. Smaller spots exceed damage 
+        threshold; larger spots reduce cleaning efficiency.
+      
+      fluence_relationship:
+        formula: "Fluence = Energy / (π × (spotSize/2)²)"
+        current_fluence: X.X  # J/cm²
+        critical_notes: |
+          [Explain relationship between spot size and other parameters]
+    
+    repetitionRate:
+      value: 50
+      unit: kHz
+      min: 10
+      max: 200
+      optimal_range: [40, 60]
+      criticality: medium
+      
+      rationale: |
+        [XX]-[XX] kHz provides optimal balance between cumulative 
+        heating effect and thermal relaxation.
+      
+      thermal_analysis:
+        thermal_relaxation_time: XX  # microseconds
+        pulse_interval_current: XX   # microseconds
+        overlap_parameter: X.XX      # Ratio for cumulative effect
+    
+    energyDensity:
+      value: 5.1
+      unit: J/cm²
+      min: 0.5
+      max: 10.0
+      optimal_range: [2.0, 5.5]
+      criticality: critical
+      
+      rationale: |
+        Energy density (fluence) must exceed oxide binding 
+        energy ([X.X] J/cm²) while remaining below [material] 
+        damage threshold ([X.X] J/cm²).
+      
+      threshold_data:
+        oxide_ablation_threshold: X.X   # J/cm²
+        substrate_damage_threshold: X.X  # J/cm²
+        safety_factor: X.X               # Recommended margin
+        working_range: [X.X, X.X]        # Safe + effective
+    
+    pulseWidth:
+      value: 10
+      unit: ns
+      min: 1
+      max: 1000
+      optimal_range: [8, 100]
+      criticality: high
+      
+      rationale: |
+        Nanosecond pulses ([X]-[XX] ns) enable photomechanical 
+        ablation regime, minimizing thermal effects.
+      
+      regime_analysis:
+        current_regime: "[Photomechanical|Thermal|Hybrid]"
+        thermal_relaxation_time: XXXXX  # nanoseconds
+        heat_affected_zone: X.X         # micrometers
+        comparison:
+          picosecond: "[Advantages/disadvantages]"
+          microsecond: "[Advantages/disadvantages]"
+    
+    scanSpeed:
+      value: 500
+      unit: mm/s
+      min: 100
+      max: 2000
+      optimal_range: [400, 600]
+      criticality: medium
+      
+      rationale: |
+        [XXX] mm/s provides optimal throughput while maintaining 
+        required fluence and spot overlap.
+      
+      throughput_analysis:
+        area_coverage: XXX    # cm²/min
+        vs_slow_300: "+XX%"   # Throughput comparison
+        vs_fast_800: "-XX% quality"  # Quality tradeoff
+    
+    passCount:
+      value: 3
+      unit: passes
+      min: 1
+      max: 10
+      optimal_range: [2, 4]
+      criticality: medium
+      
+      rationale: |
+        Multiple low-fluence passes prevent substrate overheating 
+        while achieving complete contamination removal.
+      
+      multi_pass_strategy:
+        per_pass_fluence: X.X     # J/cm²
+        cumulative_fluence: X.X   # J/cm²
+        removal_per_pass: X       # micrometers
+        cooling_interval: X       # seconds
+        substrate_temp_max: XXX   # °C
+    
+    overlapRatio:
+      value: 50
+      unit: "%"
+      min: 10
+      max: 90
+      optimal_range: [40, 60]
+      criticality: high
+      
+      rationale: |
+        [XX]% overlap ensures complete coverage without excessive 
+        heat accumulation.
+      
+      coverage_analysis:
+        effective_removal: XX     # %
+        vs_30_overlap: "XX%"      # Coverage comparison
+        vs_70_overlap: "+XX°C"    # Temperature impact
+
+  # ----------------------------------------------------------
+  # MATERIAL-SPECIFIC CHALLENGES (NEW SECTION)
+  # ----------------------------------------------------------
+  material_challenges:
+    
+    surface_characteristics:
+      category_description: "[Material]'s unique surface properties and their parameter implications"
+      
+      challenges:
+        - challenge: "[Specific surface characteristic]"
+          severity: high|medium|low
+          priority: 1|2|3|4|5
+          impact: |
+            [Describe how this characteristic affects laser cleaning process]
+          
+          solution: |
+            [Describe parameter adjustments or techniques to address]
+          
+          parameter_adjustments:
+            powerRange: "[Specific adjustment guidance]"
+            wavelength: "[Specific adjustment guidance]"
+            # List any parameters that need adjustment
+          
+          verification:
+            method: "[Measurement/inspection technique]"
+            success_criteria: "[Quantitative pass/fail criteria]"
+    
+    thermal_management:
+      category_description: "[Material]'s thermal properties and heat management"
+      
+      challenges:
+        - challenge: "[Thermal characteristic, e.g., low melting point]"
+          severity: critical|high|medium|low
+          priority: 1
+          impact: "[Describe thermal damage risk]"
+          
+          solution: "[Thermal management strategy]"
+          
+          critical_threshold: "[Temperature or energy threshold]"
+          warning_temperature: "[Conservative operating limit]"
+          
+          parameter_adjustments:
+            energyDensity: "[Specific range]"
+            passCount: "[Strategy for heat distribution]"
+          
+          damage_indicators:
+            visual_signs:
+              - "[What operators should watch for]"
+            measurement:
+              method: "[Inspection/testing method]"
+              acceptable_criteria: "[Pass criteria]"
+    
+    contamination_challenges:
+      category_description: "Different contaminant types and required adjustments"
+      
+      challenges:
+        - challenge: "[Specific contaminant type]"
+          severity: medium
+          priority: 2
+          impact: "[How contaminant affects cleaning]"
+          
+          solution: |
+            [Strategy to address this contaminant]
+          
+          parameter_adjustments:
+            wavelength_alternative: "[If different wavelength helps]"
+            energyDensity: "[Adjusted range]"
+          
+          pre_treatment:
+            recommended: "[Any pre-cleaning steps]"
+            procedure: "[Step-by-step if needed]"
+    
+    safety_compliance:
+      category_description: "Safety hazards and regulatory requirements"
+      
+      challenges:
+        - challenge: "[Safety hazard, e.g., dust, fumes]"
+          severity: high
+          priority: 1
+          impact: "[Safety risk description]"
+          
+          solution: "[Required safety controls]"
+          
+          regulatory:
+            standards:
+              - "[OSHA/ANSI/NFPA standard number and name]"
+            
+            required_controls:
+              - type: "[Control type, e.g., ventilation]"
+                specification: "[Technical spec]"
+          
+          equipment_requirements:
+            fume_extraction: "[CFM rating]"
+            filtration: "[Type and spec]"
+            monitoring: "[Required sensors/alarms]"
+
+  # ----------------------------------------------------------
+  # PROCESS OPTIMIZATION (NEW SECTION)
+  # ----------------------------------------------------------
+  process_parameters:
+    
+    scan_pattern:
+      recommended: "[Pattern type]"
+      alternatives: 
+        - "[Alternative 1]"
+        - "[Alternative 2]"
+      
+      justification: |
+        [Why this pattern is recommended for this material]
+      
+      pattern_comparison:
+        unidirectional:
+          pros: []
+          cons: []
+          recommended_for: "[Use cases]"
+        
+        bidirectional:
+          pros: []
+          cons: []
+          recommended_for: "[Use cases]"
+    
+    focus_position:
+      optimal_offset: 0     # mm
+      tolerance: ±0.5       # mm
+      adjustment_reason: "[When/why to adjust]"
+      
+      defocus_effects:
+        positive_defocus: "[Impact of positive defocus]"
+        negative_defocus: "[Impact of negative defocus]"
+    
+    environmental_controls:
+      ambient_temperature:
+        optimal: "[Range]"
+        max: "[Maximum]"
+        impact: "[How temperature affects process]"
+      
+      humidity:
+        optimal: "[Range]"
+        impact: "[How humidity affects process]"
+
+  # ----------------------------------------------------------
+  # EQUIPMENT REQUIREMENTS (NEW SECTION)
+  # ----------------------------------------------------------
+  equipment_requirements:
+    
+    laser_system:
+      type: "[Laser type]"
+      alternatives: []
+      not_recommended: []
+      
+      specifications:
+        pulse_duration: "[Range and regime]"
+        beam_quality: "[M² specification]"
+        power_stability: "[Stability requirement]"
+    
+    cooling_system:
+      type: "[Cooling type]"
+      temperature: "[Operating temp]"
+      flow_rate: "[Required flow]"
+      capacity: "[Heat load capacity]"
+    
+    fume_extraction:
+      flow_rate: "[CFM minimum]"
+      filtration:
+        primary: "[Filter type and spec]"
+        secondary: "[Additional filtration]"
+    
+    safety_equipment:
+      laser_safety: []
+      operator_ppe: []
+    
+    metrology:
+      required: []
+      recommended: []
+
+  # ----------------------------------------------------------
+  # EXPECTED OUTCOMES (NEW SECTION)
+  # ----------------------------------------------------------
+  expected_outcomes:
+    
+    surface_quality:
+      surface_roughness:
+        before: "[Ra range before cleaning]"
+        after: "[Ra range after cleaning]"
+        measurement: "[Standard method]"
+        acceptance_criteria: "[Pass criteria]"
+      
+      visual_inspection:
+        before: "[Description]"
+        after: "[Description]"
+        standard: "[Inspection standard]"
+    
+    contamination_removal:
+      oxide_layer:
+        removal_efficiency: "[Percentage]"
+        measurement: "[Analysis method]"
+        verification: "[Pass criteria]"
+      
+      oil_residue:
+        removal_efficiency: "[Percentage]"
+        measurement: "[Analysis method]"
+      
+      particulate:
+        removal_efficiency: "[Percentage]"
+        measurement: "[Analysis method]"
+    
+    substrate_integrity:
+      microstructure:
+        change: "[Expected change description]"
+        measurement: "[Analysis method]"
+      
+      hardness:
+        change: "[Acceptable variation]"
+        measurement: "[Test method and load]"
+      
+      dimensional_accuracy:
+        tolerance: "[Dimension change]"
+        measurement: "[Measurement method]"
+    
+    process_efficiency:
+      area_coverage_rate:
+        typical: "[cm²/min]"
+        factors: "[Variables affecting rate]"
+      
+      first_pass_yield:
+        target: "[Percentage]"
+        definition: "[What constitutes passing]"
+
+  # ----------------------------------------------------------
+  # TROUBLESHOOTING GUIDE (NEW SECTION)
+  # ----------------------------------------------------------
+  common_issues:
+    
+    - symptom: "[Observable problem]"
+      severity: critical|medium|low
+      frequency: common|uncommon|rare
+      
+      possible_causes:
+        - cause: "[Root cause 1]"
+          diagnostic: "[How to verify this is the cause]"
+          
+        - cause: "[Root cause 2]"
+          diagnostic: "[Diagnostic procedure]"
+      
+      solutions:
+        - action: "[Corrective action]"
+          priority: 1|2|3
+          verification: "[How to verify fix worked]"
+          
+        - action: "[Alternative solution]"
+          priority: 2
+          verification: "[Verification method]"
+
+  # ----------------------------------------------------------
+  # PARAMETER INTERACTION MATRIX (NEW SECTION)
+  # ----------------------------------------------------------
+  parameter_interactions:
+    description: |
+      [Explanation of how parameters are interdependent for this material]
+    
+    primary_relationships:
+      - parameters: ["param1", "param2"]
+        relationship: "inverse_square|direct|multiplicative"
+        formula: "[Mathematical relationship]"
+        rule: "[Plain language explanation]"
+    
+    compensation_examples:
+      - scenario: "[Description of parameter change]"
+        compensations:
+          - parameter: "[Parameter to adjust]"
+            adjustment: "[How much to adjust]"
+            reason: "[Why this compensation is needed]"
+
+# ============================================================
+# SEO METADATA FOR /settings PAGE
+# ============================================================
+seo_settings_page:
+  title: "[Material] Laser Cleaning Machine Settings & Parameters | Z-Beam"
+  description: |
+    Comprehensive, research-backed laser cleaning parameters for [material]. 
+    Includes power settings, wavelength selection, troubleshooting guide, 
+    and material-specific challenges with scientific justification.
+  
+  keywords:
+    - "[material] laser cleaning parameters"
+    - "laser power settings [material]"
+    - "[material] oxide removal wavelength"
+    - "laser cleaning machine settings [material]"
+    - "[material] surface treatment parameters"
+  
+  # Schema.org structured data will be auto-generated from machineSettings

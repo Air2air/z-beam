@@ -232,7 +232,7 @@ materialProperties:
 Add peer review metadata:
 ```yaml
 reviewedBy:
-  name: "Dr. Maria Chen"
+  name: "Todd Dunning"
   affiliation: "MIT Materials Lab"
   reviewDate: "2024-10-15"
 ```

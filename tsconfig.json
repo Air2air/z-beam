@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2020", // Modern baseline - no unnecessary transpilation
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -17,7 +21,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": [
+        "./*"
+      ]
     },
     "incremental": true,
     "plugins": [
@@ -26,8 +32,25 @@
       }
     ],
     "strictNullChecks": true,
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", ".next", "**/__tests__/**", "**/*.test.ts", "**/*.test.tsx", "**/*.test.skip.ts", "**/*.test.skip.tsx", "tests/**", "archive/**"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "**/__tests__/**",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.test.skip.ts",
+    "**/*.test.skip.tsx",
+    "tests/**",
+    "archive/**"
+  ]
 }

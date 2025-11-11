@@ -143,7 +143,7 @@ To reach 50%+ E-E-A-T, consider adding:
 1. **`reviewedBy`** (10 points): Technical reviewer Person schema
    ```yaml
    reviewedBy:
-     name: Dr. Maria Chen
+     name: Todd Dunning
      jobTitle: Senior Materials Scientist
      affiliation:
        name: MIT Materials Lab

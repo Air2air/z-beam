@@ -2673,9 +2673,9 @@ export interface ParameterRelationship {
 }
 
 /**
- * Props for ParameterNetwork component
+ * Props for ParameterRelationships component
  */
-export interface ParameterNetworkProps {
+export interface ParameterRelationshipsProps {
   parameters: NetworkParameter[];
   materialName?: string;
 }
