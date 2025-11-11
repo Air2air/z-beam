@@ -321,6 +321,48 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
   const [selectedParam, setSelectedParam] = useState<string | null>(getDefaultSelection);
   const [hoveredRelation, setHoveredRelation] = useState<ParameterRelationship | null>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const [autoCycling, setAutoCycling] = useState(true); // Track if auto-cycling is active
+  const [userInteracted, setUserInteracted] = useState(false); // Track if user has clicked
+
+  // Auto-cycle through connected nodes on initial load
+  React.useEffect(() => {
+    if (!autoCycling || !selectedParam || userInteracted) return;
+
+    const connectedNodes = relationships
+      .filter(rel => rel.from === selectedParam || rel.to === selectedParam)
+      .map(rel => rel.from === selectedParam ? rel.to : rel.from)
+      .sort((a, b) => {
+        const aIndex = parameters.findIndex(p => p.id === a);
+        const bIndex = parameters.findIndex(p => p.id === b);
+        return aIndex - bIndex;
+      });
+
+    if (connectedNodes.length === 0) {
+      setAutoCycling(false);
+      return;
+    }
+
+    // Include the selected node in the cycle
+    const nodesToCycle = [selectedParam, ...connectedNodes];
+
+    let currentIndex = 0;
+    const cycleInterval = setInterval(() => {
+      setHoveredNode(nodesToCycle[currentIndex]);
+      currentIndex = (currentIndex + 1) % nodesToCycle.length; // Loop back to start
+    }, 3000); // 3 seconds per node
+
+    return () => clearInterval(cycleInterval);
+  }, [autoCycling, selectedParam, relationships, parameters, userInteracted]);
+
+  // Handle user click on node - stops auto-cycling
+  const handleNodeClick = (paramId: string) => {
+    setUserInteracted(true);
+    setAutoCycling(false);
+    const newSelectedParam = selectedParam === paramId ? null : paramId;
+    setSelectedParam(newSelectedParam);
+    // Highlight the newly selected parameter
+    setHoveredNode(newSelectedParam);
+  };
 
   // Layout parameters in a circle
   const centerX = 200;
@@ -358,6 +400,37 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
       case 'enables': return '#3B82F6'; // blue - opens possibilities
       default: return '#6B7280';
     }
+  };
+
+  const darkenColor = (hex: string, percent: number = 30): string => {
+    // Remove # if present
+    hex = hex.replace('#', '');
+    
+    // Parse RGB
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    // Darken by percentage
+    const factor = (100 - percent) / 100;
+    const newR = Math.round(r * factor);
+    const newG = Math.round(g * factor);
+    const newB = Math.round(b * factor);
+    
+    // Convert back to hex
+    return `#${newR.toString(16).padStart(2, '0')}${newG.toString(16).padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
+  };
+
+  const hexToRgba = (hex: string, alpha: number): string => {
+    // Remove # if present
+    hex = hex.replace('#', '');
+    
+    // Parse RGB
+    const r = parseInt(hex.substring(0, 2), 16);
+    const g = parseInt(hex.substring(2, 4), 16);
+    const b = parseInt(hex.substring(4, 6), 16);
+    
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
   };
 
   const getRelationshipIcon = (type: RelationshipType): string => {
@@ -486,6 +559,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
       title="Parameter Interaction"
       bgColor="transparent"
       className="card-background rounded-lg"
+      horizPadding={true}
     >
       <div className="space-y-6">
         {/* Header Description */}
@@ -499,19 +573,19 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
             Shows how changing one parameter physically affects others. 
             <span className="text-blue-300 font-medium"> Click any node</span> to see its downstream impacts and role.
           </p>
-          {relationships.length > 0 && (
+          {/* {relationships.length > 0 && (
             <div className="mt-2 text-xs text-green-400">
               ✓ {relationships.length} physics-based relationship{relationships.length !== 1 ? 's' : ''} identified from parameter data
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Two-column layout: Network Graph (left) and Info Panel (right) on >XS */}
         <div className="flex flex-col sm:flex-row gap-6">
           {/* Network Graph - Left Side on sm+, bottom on mobile */}
-          <div className="w-full sm:w-1/2 order-2 sm:order-1">
+          <div className="w-full sm:w-3/5 order-2 sm:order-1">
             <svg
-              viewBox="0 0 400 400"
+              viewBox="0 20 400 360"
               className="w-full h-auto"
               role="img"
               aria-label="Parameter interaction network visualization"
@@ -601,8 +675,8 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
 
                   return (
                     <g key={param.id} className="parameter-node" data-id={param.id}>
-                      {/* Glow effect for selected */}
-                      {isSelected && (
+                      {/* Glow effect for selected or hovered (during auto-cycle) */}
+                      {(isSelected || isHovered) && (
                         <circle
                           className="node-glow animate-pulse"
                           cx={pos.x}
@@ -621,9 +695,9 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
                         r={35}
                         fill={nodeColor}
                         opacity={opacity}
-                        onClick={() => setSelectedParam(selectedParam === param.id ? null : param.id)}
-                        onMouseEnter={() => setHoveredNode(param.id)}
-                        onMouseLeave={() => setHoveredNode(null)}
+                        onClick={() => handleNodeClick(param.id)}
+                        onMouseEnter={() => !autoCycling && setHoveredNode(param.id)}
+                        onMouseLeave={() => !autoCycling && setHoveredNode(null)}
                         style={{ 
                           transition: 'opacity 0.3s ease, fill 0.3s ease',
                           cursor: 'pointer'
@@ -676,110 +750,146 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
           </div>
 
           {/* Info Panel - Right Side on sm+, top on mobile */}
-          <div className="w-full sm:w-1/2 order-1 sm:order-2 space-y-4">
-            {/* Selected Parameter Info with Role Analysis */}
+          <div className="parameter-info-panel w-full sm:w-2/5 order-1 sm:order-2 space-y-4">
+            {/* Selected Parameter Card - Top of Stack */}
             {selectedParam && (() => {
             const param = parameters.find(p => p.id === selectedParam);
             const role = getParameterRole(selectedParam);
             const nodeColor = getNodeColor(param!);
             
+            // Generate role-based description with connected parameter names
+            const getRoleDescription = (): string => {
+              const outgoingRels = relationships.filter(rel => rel.from === selectedParam);
+              const incomingRels = relationships.filter(rel => rel.to === selectedParam);
+              const outgoing = outgoingRels.length;
+              const incoming = incomingRels.length;
+              const totalConnections = outgoing + incoming;
+              
+              if (totalConnections === 0) {
+                return 'Independent parameter with no direct connections.';
+              }
+              
+              // Helper to format parameter names
+              const formatParamNames = (rels: ParameterRelationship[], isOutgoing: boolean): string => {
+                const ids = rels.map(r => isOutgoing ? r.to : r.from);
+                if (ids.length === 0) return '';
+                if (ids.length === 1) return formatKeyAsTitle(ids[0]);
+                if (ids.length === 2) return `${formatKeyAsTitle(ids[0])} and ${formatKeyAsTitle(ids[1])}`;
+                return `${formatKeyAsTitle(ids[0])}, ${formatKeyAsTitle(ids[1])}, and ${ids.length - 2} more`;
+              };
+              
+              // Build description based on role with parameter names
+              if (role.primaryRole === 'Upstream Driver') {
+                const names = formatParamNames(outgoingRels, true);
+                return `Directly affects ${names}. Increase this to amplify downstream effects.`;
+              } else if (role.primaryRole === 'Downstream Effect') {
+                const names = formatParamNames(incomingRels, false);
+                return `Controlled by ${names}. Adjust upstream parameters to change this.`;
+              } else if (role.primaryRole === 'Hub') {
+                return `Central node with ${totalConnections} connections. Changes cascade through entire network.`;
+              } else if (role.primaryRole === 'Risk Amplifier') {
+                const amplifyRels = outgoingRels.filter(r => r.type === 'amplifies');
+                const names = formatParamNames(amplifyRels, true);
+                return `Amplifies damage risk in ${names}. Keep low to maintain safety margins.`;
+              } else if (role.primaryRole === 'Safety Control') {
+                const reduceRels = outgoingRels.filter(r => r.type === 'reduces');
+                const names = formatParamNames(reduceRels, true);
+                return `Reduces risk in ${names}. Increase this for safer operation.`;
+              } else if (role.primaryRole === 'Bottleneck') {
+                const constrainRels = outgoingRels.filter(r => r.type === 'constrains');
+                const names = formatParamNames(constrainRels, true);
+                return `Limits ${names}. Adjust this first to expand available options.`;
+              } else if (role.primaryRole === 'Enabler') {
+                const enableRels = outgoingRels.filter(r => r.type === 'enables');
+                const names = formatParamNames(enableRels, true);
+                return `Enables ${names}. Increase this to unlock more possibilities.`;
+              } else if (role.primaryRole === 'Mediator') {
+                return `Bridge between ${incoming} inputs and ${outgoing} outputs. Balances competing influences.`;
+              } else {
+                return `Connected to ${totalConnections} parameter${totalConnections !== 1 ? 's' : ''} in network.`;
+              }
+            };
+            
+            const isHovered = hoveredNode === selectedParam;
+            // After user interaction, selected card should always be full opacity
+            const cardOpacity = userInteracted ? 1 : (isHovered ? 1 : 0.4);
+            
             return (
-              <div className="rounded-lg p-6 border border-purple-500/50 animate-fadeIn">
-                {/* Selected Parameter Header */}
-                <div className="flex items-center gap-4 mb-6 pb-4 border-b border-gray-700">
-                  <div 
-                    className="w-12 h-12 rounded-full flex items-center justify-center text-2xl"
-                    style={{ backgroundColor: nodeColor }}
-                  >
-                    {role.roleIcon}
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-white mb-1">
-                      {formatKeyAsTitle(selectedParam)}
-                    </h4>
-                    <div className="text-sm text-gray-400">
-                      {param?.value}{param?.unit} • {param?.criticality} criticality • {role.primaryRole}
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs text-gray-500">Connections</div>
-                    <div className="text-2xl font-bold text-white">{role.outgoing + role.incoming}</div>
-                  </div>
-                </div>
-
-                {/* Connected Nodes - Colored Sections */}
-                <div className="space-y-2">
-                  <div className="text-sm font-semibold text-gray-400 mb-3">
-                    Connected Parameters
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {relationships
-                      .filter(rel => rel.from === selectedParam || rel.to === selectedParam)
-                      .map((rel, idx) => {
-                        const isOutgoing = rel.from === selectedParam;
-                        const otherParamId = isOutgoing ? rel.to : rel.from;
-                        const otherParam = parameters.find(p => p.id === otherParamId);
-                        const otherNodeColor = getNodeColor(otherParam!);
-                        const relationColor = getRelationshipColor(rel.type);
-                        
-                        return (
-                          <div 
-                            key={idx} 
-                            className="rounded-lg p-4 border-l-4 border transition-all hover:scale-[1.02]"
-                            style={{ 
-                              borderLeftColor: relationColor,
-                              backgroundColor: `${otherNodeColor}15`
-                            }}
-                          >
-                            <div className="flex items-start gap-3">
-                              <div 
-                                className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm"
-                                style={{ backgroundColor: otherNodeColor }}
-                              >
-                                {formatKeyAsTitle(otherParamId).split(' ').map(w => w[0]).join('').slice(0, 2)}
-                              </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2 mb-1">
-                                  <span className="text-sm font-semibold text-white">
-                                    {formatKeyAsTitle(otherParamId)}
-                                  </span>
-                                  <span className="text-xs text-gray-500">
-                                    {isOutgoing ? '→' : '←'}
-                                  </span>
-                                </div>
-                                <div className="flex items-center gap-2 mb-2">
-                                  <span className="text-xs px-2 py-0.5 rounded" style={{ 
-                                    backgroundColor: `${relationColor}30`,
-                                    color: relationColor 
-                                  }}>
-                                    {getRelationshipIcon(rel.type)} {rel.type}
-                                  </span>
-                                  <span className="text-xs text-gray-500">{rel.strength}</span>
-                                </div>
-                                <p className="text-xs text-gray-400 leading-relaxed">
-                                  {rel.description}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                  </div>
-                </div>
+              <div 
+                className="parameter-detail-card rounded-lg p-4 animate-fadeIn transition-colors duration-300"
+                style={{ 
+                  backgroundColor: hexToRgba(nodeColor, cardOpacity)
+                }}
+              >
+                <h4 className="parameter-name text-base font-bold text-white">
+                  {formatKeyAsTitle(selectedParam)}
+                </h4>
+                <p className="connection-description text-sm text-white/90 leading-relaxed">
+                  {getRoleDescription()}
+                </p>
               </div>
             );
           })()}
 
+            {/* Connected Parameter Cards - Stacked Below in Clockwise Order */}
+            {selectedParam && (() => {
+              // Get connected parameters and sort by their clockwise position
+              const connectedRels = relationships
+                .filter(rel => rel.from === selectedParam || rel.to === selectedParam);
+              
+              // Sort by the index of the other parameter in the parameters array (clockwise order)
+              const sortedRels = connectedRels.sort((a, b) => {
+                const aParamId = a.from === selectedParam ? a.to : a.from;
+                const bParamId = b.from === selectedParam ? b.to : b.from;
+                const aIndex = parameters.findIndex(p => p.id === aParamId);
+                const bIndex = parameters.findIndex(p => p.id === bParamId);
+                return aIndex - bIndex;
+              });
+              
+              return sortedRels.map((rel, idx) => {
+                const isOutgoing = rel.from === selectedParam;
+                const otherParamId = isOutgoing ? rel.to : rel.from;
+                const otherParam = parameters.find(p => p.id === otherParamId);
+                const otherNodeColor = getNodeColor(otherParam!);
+                const relationColor = getRelationshipColor(rel.type);
+                const description = getRelationshipDescription(
+                  rel.from, 
+                  rel.to, 
+                  rel.type, 
+                  rel.description
+                );
+                const isHovered = hoveredNode === otherParamId;
+                
+                return (
+                  <div 
+                    key={idx} 
+                    className="parameter-detail-card rounded-lg p-4 animate-fadeIn transition-colors duration-300 cursor-pointer"
+                    style={{ 
+                      backgroundColor: hexToRgba(otherNodeColor, isHovered ? 1 : 0.4)
+                    }}
+                    onClick={() => handleNodeClick(otherParamId)}
+                  >
+                    <h4 className="parameter-name text-base font-bold text-white">
+                      {formatKeyAsTitle(otherParamId)}
+                    </h4>
+                    <p className="connection-description text-sm text-white/90 leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                );
+              });
+            })()}
+
           {/* Hovered Relationship Info */}
           {hoveredRelation && (
-            <div className="rounded-lg p-4 border border-blue-500/50 animate-fadeIn">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-lg">{getRelationshipIcon(hoveredRelation.type)}</span>
-                <h4 className="text-sm font-semibold text-blue-300">
+            <div className="relationship-tooltip rounded-lg p-4 border border-blue-500/50 animate-fadeIn">
+              <div className="tooltip-header flex items-center gap-2 mb-2">
+                <span className="tooltip-icon text-lg">{getRelationshipIcon(hoveredRelation.type)}</span>
+                <h4 className="tooltip-title text-sm font-semibold text-blue-300">
                   {hoveredRelation.type.charAt(0).toUpperCase() + hoveredRelation.type.slice(1)}
                 </h4>
               </div>
-              <div className="text-xs text-gray-300">
+              <div className="tooltip-description text-xs text-gray-300">
                 {hoveredRelation.description}
               </div>
             </div>
