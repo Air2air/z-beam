@@ -4,34 +4,12 @@
 import React, { useState, useMemo } from 'react';
 import { formatKeyAsTitle } from '@/app/utils/metricsCardHelpers';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
-
-interface Parameter {
-  id: string;
-  name: string;
-  value: number;
-  unit: string;
-  criticality: 'critical' | 'high' | 'medium' | 'low';
-  rationale?: string;
-  material_interaction?: {
-    mechanism?: string;
-    dominant_factor?: string;
-    critical_parameter?: string;
-    energy_coupling?: number | string; // Can be number in YAML or string description
-  };
-}
-
-interface Relationship {
-  from: string;
-  to: string;
-  type: 'amplifies' | 'reduces' | 'constrains' | 'enables';
-  strength: 'strong' | 'moderate' | 'weak';
-  description: string;
-}
-
-interface ParameterNetworkProps {
-  parameters: Parameter[];
-  materialName?: string; // For display context
-}
+import type { 
+  NetworkParameter, 
+  ParameterRelationship, 
+  ParameterNetworkProps,
+  RelationshipType 
+} from '@/types/centralized';
 
 /**
  * Pre-filled relationship descriptions for clarity
@@ -103,8 +81,8 @@ const getRelationshipDescription = (from: string, to: string, type: string, fall
  */
 export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, materialName }) => {
   // Derive material-specific relationships from parameter data
-  const relationships: Relationship[] = useMemo(() => {
-    const relations: Relationship[] = [];
+  const relationships: ParameterRelationship[] = useMemo(() => {
+    const relations: ParameterRelationship[] = [];
     
     // Helper to find parameter by ID
     const findParam = (id: string) => parameters.find(p => p.id === id);
@@ -341,13 +319,13 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
   }, [parameters, relationships]);
 
   const [selectedParam, setSelectedParam] = useState<string | null>(getDefaultSelection);
-  const [hoveredRelation, setHoveredRelation] = useState<Relationship | null>(null);
+  const [hoveredRelation, setHoveredRelation] = useState<ParameterRelationship | null>(null);
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   // Layout parameters in a circle
-  const centerX = 250;
-  const centerY = 250;
-  const radius = 150;
+  const centerX = 200;
+  const centerY = 200;
+  const radius = 130;
   
   // Calculate rotation offset to position selected node at top
   const rotationOffset = useMemo(() => {
@@ -372,7 +350,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
     return acc;
   }, {} as Record<string, { x: number; y: number }>);
 
-  const getRelationshipColor = (type: Relationship['type']): string => {
+  const getRelationshipColor = (type: RelationshipType): string => {
     switch (type) {
       case 'amplifies': return '#EF4444'; // red - increases risk
       case 'reduces': return '#10B981'; // green - reduces risk
@@ -382,7 +360,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
     }
   };
 
-  const getRelationshipIcon = (type: Relationship['type']): string => {
+  const getRelationshipIcon = (type: RelationshipType): string => {
     switch (type) {
       case 'amplifies': return '⚠️';
       case 'reduces': return '✓';
@@ -392,7 +370,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
     }
   };
 
-  const getCriticalityColor = (criticality: Parameter['criticality']): string => {
+  const getCriticalityColor = (criticality: NetworkParameter['criticality']): string => {
     switch (criticality) {
       case 'critical': return '#DC2626';
       case 'high': return '#F97316';
@@ -402,7 +380,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
     }
   };
 
-  const getDominantRelationshipType = (paramId: string): Relationship['type'] | null => {
+  const getDominantRelationshipType = (paramId: string): RelationshipType | null => {
     const outgoing = relationships.filter(rel => rel.from === paramId);
     if (outgoing.length === 0) return null;
     
@@ -413,10 +391,10 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
     }, {} as Record<string, number>);
     
     // Return most common type
-    return Object.entries(counts).sort(([,a], [,b]) => b - a)[0][0] as Relationship['type'];
+    return Object.entries(counts).sort(([,a], [,b]) => (b as number) - (a as number))[0][0] as RelationshipType;
   };
 
-  const getNodeColor = (param: Parameter): string => {
+  const getNodeColor = (param: NetworkParameter): string => {
     const dominantType = getDominantRelationshipType(param.id);
     if (!dominantType) return '#6B7280';
     return getRelationshipColor(dominantType);
@@ -642,7 +620,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
         {/* Network Graph - Full Width */}
         <div className="w-full max-w-full sm:max-w-[60%] mx-auto">
           <svg
-            viewBox="0 0 500 500"
+            viewBox="0 0 400 400"
             className="w-full h-auto"
             role="img"
             aria-label="Parameter interaction network visualization"
@@ -653,7 +631,7 @@ export const ParameterNetwork: React.FC<ParameterNetworkProps> = ({ parameters, 
             {/* Network graph stage - rotating container */}
             <g
               className="network-graph-stage"
-              transform={`rotate(${(rotationOffset * 180) / Math.PI} 250 250)`}
+              transform={`rotate(${(rotationOffset * 180) / Math.PI} 200 200)`}
               style={{
                 transition: 'transform 1.8s cubic-bezier(0.4, 0, 0.2, 1)',
                 willChange: 'transform'

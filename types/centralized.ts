@@ -2524,6 +2524,238 @@ export interface RegulatoryStandard {
 }
 
 // ============================================================================
+// SETTINGS PAGE TYPES (Enhanced Machine Settings)
+// ============================================================================
+
+/**
+ * Research citation for settings parameters
+ */
+export interface ResearchCitation {
+  author: string;
+  year: number;
+  title: string;
+  journal: string;
+  volume?: number;
+  issue?: number;
+  pages?: string;
+  doi: string;
+  key_finding: string;
+  sample_size?: number;
+  confidence_level?: number;
+}
+
+/**
+ * Validation metadata for research
+ */
+export interface ValidationMetadata {
+  method: string;
+  equipment: string;
+  confidence: number;
+  sample_size: number;
+  date_verified: string;
+  verified_by: string;
+  revalidation_interval: string;
+}
+
+/**
+ * Research basis with citations and validation
+ */
+export interface ResearchBasis {
+  citations: ResearchCitation[];
+  validation?: ValidationMetadata;
+}
+
+/**
+ * Damage threshold information
+ */
+export interface DamageThreshold {
+  too_low: string;
+  too_high: string;
+  warning_signs: string[];
+}
+
+/**
+ * Material interaction physics
+ */
+export interface MaterialInteraction {
+  mechanism: string;
+  dominant_factor: string;
+  critical_parameter: string;
+  energy_coupling: number;
+}
+
+/**
+ * Enhanced laser parameter (expanded from basic PropertyWithUnits)
+ */
+export interface EnhancedParameter {
+  // Basic values (existing)
+  value: number;
+  unit: string;
+  min: number;
+  max: number;
+  
+  // Enhanced metadata
+  optimal_range: [number, number];
+  precision?: string;
+  criticality: 'critical' | 'high' | 'medium' | 'low';
+  
+  // Scientific justification
+  rationale: string;
+  
+  // Boundary conditions
+  damage_threshold?: DamageThreshold;
+  
+  // Material interaction
+  material_interaction?: MaterialInteraction;
+  
+  // Research backing
+  research_basis?: ResearchBasis;
+}
+
+/**
+ * Material challenge with severity and solutions
+ */
+export interface MaterialChallenge {
+  challenge: string;
+  severity: 'critical' | 'high' | 'medium' | 'low';
+  impact: string;
+  solutions: string[];
+  prevention?: string[];
+}
+
+/**
+ * Categorized material challenges
+ */
+export interface MaterialChallenges {
+  surface_characteristics: MaterialChallenge[];
+  thermal_management: MaterialChallenge[];
+  contamination_challenges: MaterialChallenge[];
+  safety_compliance: MaterialChallenge[];
+}
+
+/**
+ * Parameter Network Visualization Types
+ */
+
+/**
+ * Network parameter with criticality and interaction metadata
+ */
+export interface NetworkParameter {
+  id: string;
+  name: string;
+  value: number;
+  unit: string;
+  criticality: 'critical' | 'high' | 'medium' | 'low';
+  rationale?: string;
+  material_interaction?: {
+    mechanism?: string;
+    dominant_factor?: string;
+    critical_parameter?: string;
+    energy_coupling?: number | string;
+  };
+}
+
+/**
+ * Parameter relationship types for network visualization
+ */
+export type RelationshipType = 'amplifies' | 'reduces' | 'constrains' | 'enables';
+export type RelationshipStrength = 'strong' | 'moderate' | 'weak';
+
+/**
+ * Parameter relationship edge in network graph
+ */
+export interface ParameterRelationship {
+  from: string;
+  to: string;
+  type: RelationshipType;
+  strength: RelationshipStrength;
+  description: string;
+}
+
+/**
+ * Props for ParameterNetwork component
+ */
+export interface ParameterNetworkProps {
+  parameters: NetworkParameter[];
+  materialName?: string;
+}
+
+/**
+ * Troubleshooting issue with diagnostic steps
+ */
+export interface TroubleshootingIssue {
+  symptom: string;
+  causes: string[];
+  solutions: string[];
+  verification: string;
+  prevention: string[];
+}
+
+/**
+ * Quality metrics for expected outcomes
+ */
+export interface QualityMetrics {
+  surface_roughness?: {
+    target: string;
+    tolerance: string;
+    measurement_method: string;
+  };
+  contamination_removal?: {
+    target_removal: string;
+    acceptable_range: string;
+    verification_method: string;
+  };
+  substrate_integrity?: {
+    no_damage_threshold: string;
+    inspection_method: string;
+  };
+  process_efficiency?: {
+    cleaning_rate: string;
+    area_coverage: string;
+  };
+}
+
+/**
+ * Enhanced machine settings for authority pages
+ */
+export interface EnhancedMachineSettings {
+  essential_parameters: {
+    powerRange?: EnhancedParameter;
+    wavelength?: EnhancedParameter;
+    spotSize?: EnhancedParameter;
+    repetitionRate?: EnhancedParameter;
+    energyDensity?: EnhancedParameter;
+    pulseWidth?: EnhancedParameter;
+    scanSpeed?: EnhancedParameter;
+    passCount?: EnhancedParameter;
+    overlapRatio?: EnhancedParameter;
+  };
+  material_challenges?: MaterialChallenges;
+  expected_outcomes?: QualityMetrics;
+  common_issues?: TroubleshootingIssue[];
+}
+
+/**
+ * Settings page metadata (separate from ArticleMetadata to avoid conflicts)
+ */
+export interface SettingsMetadata {
+  name: string;
+  category: string;
+  subcategory: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  slug?: string;
+  author?: AuthorInfo;
+  machineSettings?: EnhancedMachineSettings;
+  seo_settings_page?: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+}
+
+// ============================================================================
 // PERFORMANCE CACHE TYPES
 // ============================================================================
 
