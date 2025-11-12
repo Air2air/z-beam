@@ -64,6 +64,12 @@ export default function sitemap(): SitemapEntry[] {
       changeFrequency: 'daily' as const,
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/materials`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
   ];
 
   // Material category and subcategory routes
