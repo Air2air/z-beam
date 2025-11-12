@@ -9,7 +9,7 @@ import { ChallengeSeverityMatrix } from '@/app/components/ChallengeSeverityMatri
 import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/components/Heatmap';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
 import { ThermalAccumulationSimulator } from '@/app/components/ThermalAccumulationSimulator/ThermalAccumulationSimulator';
-import { OverlapPatternVisualizer } from '@/app/components/OverlapPatternVisualizer/OverlapPatternVisualizer';
+import { ScanPattern } from '@/app/components/ScanPattern';
 
 interface SettingsPageProps {
   params: Promise<{
@@ -240,12 +240,12 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
               />
           )}
 
-          {/* Overlap Pattern Visualizer - Scan Geometry */}
+          {/* Scan Pattern Calculator - Interactive Optimization Tool */}
             {settings.machineSettings?.essential_parameters?.spotSize &&
               settings.machineSettings?.essential_parameters?.scanSpeed &&
               settings.machineSettings?.essential_parameters?.repetitionRate &&
               settings.machineSettings?.essential_parameters?.overlapRatio && (
-                <OverlapPatternVisualizer
+                <ScanPattern
                   spotSize={settings.machineSettings.essential_parameters.spotSize.value} // Already in mm
                   scanSpeed={settings.machineSettings.essential_parameters.scanSpeed.value}
                   repRate={settings.machineSettings.essential_parameters.repetitionRate.value * 1000} // Convert kHz to Hz

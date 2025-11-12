@@ -1,9 +1,9 @@
-// app/components/OverlapPatternVisualizer/OverlapPatternVisualizer.tsx
+// app/components/ScanPattern/ScanPattern.tsx
 'use client';
 
 import React, { useState } from 'react';
 
-interface OverlapPatternVisualizerProps {
+interface ScanPatternProps {
   spotSize: number; // mm
   scanSpeed: number; // mm/s
   repRate: number; // Hz
@@ -11,11 +11,10 @@ interface OverlapPatternVisualizerProps {
 }
 
 /**
- * Interactive visualization of laser spot overlap patterns
- * Shows actual pulse positions and coverage uniformity
- * Allows real-time parameter adjustment
+ * Interactive scan pattern calculator and visualizer
+ * Allows real-time parameter adjustment and optimization
  */
-export const OverlapPatternVisualizer: React.FC<OverlapPatternVisualizerProps> = ({
+export const ScanPattern: React.FC<ScanPatternProps> = ({
   spotSize: initialSpotSize,
   scanSpeed: initialScanSpeed,
   repRate: initialRepRate,
@@ -120,14 +119,14 @@ export const OverlapPatternVisualizer: React.FC<OverlapPatternVisualizerProps> =
   const uniformity = maxCoverage > 0 ? ((1 - (maxCoverage - minCoverage) / maxCoverage) * 100) : 0;
 
   return (
-    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-6">
+    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-6 mb-8">
       {/* Header */}
       <div className="mb-6">
         <h3 className="text-xl font-bold text-white mb-2">
-          Scan Pattern Visualizer
+          Scan Pattern Calculator
         </h3>
         <p className="text-sm text-gray-400">
-          See actual laser pulse positions and coverage uniformity for your scan parameters
+          Interactive tool to visualize and optimize laser scan parameters for uniform coverage
         </p>
       </div>
 
