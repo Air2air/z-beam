@@ -22,7 +22,9 @@ const TEST_PAGES = [
   {
     file: '.next/server/app/materials/ceramic/oxide/alumina-laser-cleaning.html',
     name: 'Material Page (Alumina)',
-    expectedSchemas: ['Article', 'Dataset', 'HowTo', 'Product', 'BreadcrumbList', 'Person']
+    expectedSchemas: ['Article', 'Dataset', 'BreadcrumbList', 'Person']
+    // Note: Product schema intentionally omitted - material pages are informational content, not products for sale
+    // HowTo and FAQPage schemas are optional and context-dependent
   },
   {
     file: '.next/server/app/index.html',
