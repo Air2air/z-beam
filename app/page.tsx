@@ -1,10 +1,7 @@
 // app/page.tsx - Static optimized home page
 
-import { CardGridSSR } from "./components/CardGrid";
 import { Layout } from "./components/Layout/Layout";
-import { SectionContainer } from "./components/SectionContainer";
-import { ServicesSection } from "./components/ServicesSection";
-import { loadComponentData } from "./utils/contentAPI";
+import { HomePageGrid } from "./components/HomePageGrid";
 import { createMetadata } from "./utils/metadata";
 import { SITE_CONFIG } from "./utils/constants";
 import fs from 'fs/promises';
@@ -58,9 +55,8 @@ export default async function HomePage() {
     images: homeConfig.images, // Include hero images from YAML
   };
 
-    // Extract featured sections and materials from YAML
+    // Extract featured sections from YAML
     const featuredSections = homeConfig.featuredSections || [];
-    const featuredMaterials = homeConfig.featuredMaterials || [];
     
     // Page title and subtitle for consistent Title component display
     const pageTitle = homeConfig.title || SITE_CONFIG.name;
@@ -75,30 +71,7 @@ export default async function HomePage() {
     >
       {/* Featured Solutions Section */}
       {featuredSections.length > 0 && (
-        <ServicesSection items={featuredSections} />
-      )}
-
-      {/* Material Categories Section */}
-      {featuredMaterials.length > 0 && (
-        <SectionContainer title="Material Categories" bgColor="transparent" radius={false} className="mb-8">
-          <CardGridSSR
-            items={featuredMaterials.map((category: any) => ({
-              slug: category.slug,
-              title: category.title,
-              description: category.description,
-              href: `/${category.slug}`,
-              imageUrl: category.imageUrl,
-              imageAlt: category.title,
-              badge: {
-                materialType: category.materialType as any,
-                symbol: "",
-                formula: "",
-              },
-            }))}
-            columns={3}
-            variant="default"
-          />
-        </SectionContainer>
+        <HomePageGrid items={featuredSections} />
       )}
     </Layout>
     );

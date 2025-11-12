@@ -2359,7 +2359,7 @@ export interface MaterialFiltersProps {
  */
 export interface SectionContainerProps {
   title: string;
-  bgColor?: 'transparent' | 'navbar' | 'body' | 'gray-50' | 'gray-100';
+  bgColor?: 'transparent' | 'navbar' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
   radius?: boolean;
   icon?: React.ReactNode;
@@ -2368,9 +2368,9 @@ export interface SectionContainerProps {
 }
 
 /**
- * Featured service item for ServicesSection
+ * Featured item for HomePageGrid
  */
-export interface FeaturedServiceItem {
+export interface FeaturedItem {
   slug: string;
   title: string;
   description: string;
@@ -2378,13 +2378,17 @@ export interface FeaturedServiceItem {
 }
 
 /**
- * ServicesSection component props
+ * HomePageGrid component props
  */
-export interface ServicesSectionProps {
-  items: FeaturedServiceItem[];
+export interface HomePageGridProps {
+  items: FeaturedItem[];
   title?: string;
   columns?: GridColumns;
 }
+
+// Legacy aliases for backward compatibility
+export type FeaturedServiceItem = FeaturedItem;
+export type ServicesSectionProps = HomePageGridProps;
 
 /**
  * BulkDownload component props

@@ -1,23 +1,23 @@
 /**
- * @component ServicesSection
- * @purpose Displays featured services section (Services + Equipment Rental)
+ * @component HomePageGrid
+ * @purpose Displays featured sections on home page (Services + Equipment Rental)
  * @dependencies SectionContainer, CardGridSSR
- * @aiContext Reusable section for featured services on home page
+ * @aiContext Reusable grid for featured items on home page
  *           Uses SectionContainer wrapper for consistent styling
  * 
  * @usage
- * <ServicesSection items={featuredSections} />
+ * <HomePageGrid items={featuredSections} />
  */
 import React from 'react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { CardGridSSR } from '../CardGrid';
-import type { ServicesSectionProps, CardItem, GridColumns } from '@/types/centralized';
+import type { HomePageGridProps, CardItem, GridColumns } from '@/types/centralized';
 
-export function ServicesSection({ 
+export function HomePageGrid({ 
   items,
   title = "",
   columns = 2
-}: ServicesSectionProps) {
+}: HomePageGridProps) {
   
   if (!items || items.length === 0) {
     return null;
@@ -56,4 +56,4 @@ export function ServicesSection({
   );
 }
 
-export default ServicesSection;
+export default HomePageGrid;

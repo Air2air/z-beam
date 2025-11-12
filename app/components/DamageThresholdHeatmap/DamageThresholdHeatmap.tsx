@@ -61,6 +61,7 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
 
   /**
    * Calculate interpolated outcome score based on material properties
+   * Uses RANGE-DEPENDENT property weighting - different factors dominate in different regions
    * Returns a score from 1-25 representing processing quality/safety
    */
   const calculateInterpolatedScore = useMemo(() => {
@@ -71,121 +72,174 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
       }
 
       // ===== ENERGY CALCULATIONS =====
-      // Calculate pulse energy (J) - simplified model
-      const pulseEnergyJ = (power * (pulse / 1e9)); // Convert ns to s, assume 1kHz rep rate
+      // Power is average power (W), pulse is pulse width (ns)
+      // For pulsed fiber lasers used in cleaning:
+      // - High rep rate (50-100 kHz) keeps fluence manageable
+      // - Larger spot sizes (200-500μm) for safe cleaning
+      const repRateHz = 80000; // 80 kHz - high rep rate for cleaning
+      const pulseDurationSeconds = pulse / 1e9; // Convert ns to seconds
+      const pulseEnergyJ = power / repRateHz; // Energy per pulse = Avg Power / Rep Rate
       
-      // Calculate fluence (J/cm²) - assuming normalized spot size
-      const assumedSpotSize = 0.05; // 50μm diameter = 0.005cm radius
-      const spotArea = Math.PI * Math.pow(assumedSpotSize / 2, 2); // cm²
-      const fluence = pulseEnergyJ / spotArea;
+      // Calculate fluence (J/cm²) - energy density on surface
+      // Use realistic larger spot size for safe laser cleaning
+      const spotDiameterUm = 300; // 300μm diameter for cleaning applications
+      const spotDiameterCm = spotDiameterUm / 10000; // Convert μm to cm
+      const spotAreaCm2 = Math.PI * Math.pow(spotDiameterCm / 2, 2); // Area in cm²
+      const fluence = pulseEnergyJ / spotAreaCm2; // J/cm²
 
-      // ===== THERMAL FACTORS =====
+      // ===== RANGE-DEPENDENT PROPERTY ANALYSIS =====
+      // Calculate how far we are from optimal in each dimension
+      const optimalPowerCenter = (optimalPower[0] + optimalPower[1]) / 2;
+      const optimalPulseCenter = (optimalPulse[0] + optimalPulse[1]) / 2;
       
-      // Factor 1: Thermal diffusion efficiency
-      // High thermal conductivity = better heat dissipation = safer
+      const powerDeviation = Math.abs(power - optimalPowerCenter) / (powerRange.max - powerRange.min);
+      const pulseDeviation = Math.abs(pulse - optimalPulseCenter) / (pulseRange.max - pulseRange.min);
+      
+      // HIGH POWER regions: Thermal properties dominate
       const thermalK = materialProperties.thermalConductivity || 100;
       const thermalDiff = materialProperties.thermalDiffusivity || 1e-5;
-      const thermalDiffusionFactor = Math.min(1, thermalDiff / 1e-4); // Normalize
-      const conductionFactor = Math.min(1, thermalK / 200); // Better heat removal
+      const heatCap = materialProperties.heatCapacity || materialProperties.specificHeat || 900;
+      
+      const thermalDiffusionFactor = Math.min(1, thermalDiff / 1e-4);
+      const conductionFactor = Math.min(1, thermalK / 200);
       const thermalManagementScore = (thermalDiffusionFactor * 0.4 + conductionFactor * 0.6);
 
-      // Factor 2: Thermal accumulation risk
-      // Short pulse + good diffusivity = less heat buildup
-      const heatCap = materialProperties.heatCapacity || materialProperties.specificHeat || 900;
-      const thermalMass = heatCap * thermalDiff; // Effective thermal mass
-      const pulseDuration = pulse / 1e9; // Convert to seconds
+      // LONG PULSE regions: Heat accumulation matters most
+      const pulseDuration = pulse / 1e9;
       const relaxationTime = materialProperties.thermalRelaxationTime || 5e-9;
-      
-      // If pulse is longer than relaxation time, more heat accumulates
       const accumulationRisk = Math.min(1, pulseDuration / relaxationTime);
-      const accumulationFactor = 1 - (accumulationRisk * 0.5); // Penalize long pulses
+      const accumulationFactor = 1 - (accumulationRisk * 0.5);
 
-      // Factor 3: Temperature rise estimation
-      // ΔT ≈ Fluence / (ρ·c·d) where d is absorption depth
+      // HIGH FLUENCE regions: Temperature and damage thresholds critical
       const absorptionDepth = materialProperties.absorptionCoefficient 
-        ? 1 / materialProperties.absorptionCoefficient * 1e6 // Convert to μm
-        : 10; // Default 10μm
-      const volumetricHeat = fluence / (heatCap * absorptionDepth * 1e-4); // Simplified
+        ? 1 / materialProperties.absorptionCoefficient * 1e6
+        : 10;
+      const volumetricHeat = fluence / (heatCap * absorptionDepth * 1e-4);
       
-      // Check against thermal thresholds
       const meltPoint = materialProperties.meltingPoint || 1000;
       const oxidationTemp = materialProperties.oxidationTemperature || meltPoint * 0.7;
       const thermalDestruction = materialProperties.thermalDestructionPoint || meltPoint;
       
       let temperatureSafetyFactor = 1.0;
       if (volumetricHeat > thermalDestruction * 0.8) {
-        temperatureSafetyFactor = 0.1; // Very dangerous - near melting
+        temperatureSafetyFactor = 0.1;
       } else if (volumetricHeat > oxidationTemp) {
-        temperatureSafetyFactor = 0.5; // Risk of oxidation
+        temperatureSafetyFactor = 0.5;
       } else if (volumetricHeat > oxidationTemp * 0.7) {
-        temperatureSafetyFactor = 0.8; // Caution zone
+        temperatureSafetyFactor = 0.8;
       }
 
-      // Factor 4: Ablation efficiency
+      // OPTIMAL region: Ablation efficiency matters
       const ablationThresh = materialProperties.ablationThreshold || 1.0;
       const ablationRatio = fluence / ablationThresh;
-      
       let ablationFactor = 0.5;
       if (ablationRatio >= 0.8 && ablationRatio <= 2.0) {
-        // Sweet spot: near ablation threshold for cleaning
         ablationFactor = 1.0 - Math.abs(ablationRatio - 1.2) / 2;
       } else if (ablationRatio < 0.8) {
-        // Below threshold - ineffective cleaning
         ablationFactor = ablationRatio / 0.8 * 0.6;
       } else {
-        // Too high - risk of damage
         ablationFactor = Math.max(0.1, 1.0 / (ablationRatio - 1.0));
       }
 
-      // Factor 5: Damage threshold proximity
+      // ALL REGIONS: Damage threshold proximity
       const damageThresh = materialProperties.laserDamageThreshold || 5.0;
-      const damageMargin = damageThresh - fluence;
       let damageFactor = 1.0;
-      
       if (fluence >= damageThresh) {
-        damageFactor = 0.05; // Critical damage risk
+        damageFactor = 0.05;
       } else if (fluence >= damageThresh * 0.9) {
-        damageFactor = 0.3; // Very close to damage
+        damageFactor = 0.3;
       } else if (fluence >= damageThresh * 0.7) {
-        damageFactor = 0.6; // Approaching limits
+        damageFactor = 0.6;
       } else {
-        damageFactor = Math.min(1.0, damageMargin / damageThresh);
+        damageFactor = Math.min(1.0, (damageThresh - fluence) / damageThresh);
       }
 
-      // Factor 6: Absorption efficiency
+      // Absorption and thermal stress
       const absorption = materialProperties.absorptivity || 0.1;
       const reflectivity = materialProperties.laserReflectivity || (1 - absorption);
-      const absorptionFactor = absorption / (1 - reflectivity + 0.01); // Effective absorption
-
-      // Factor 7: Thermal shock resistance
+      const absorptionFactor = absorption / (1 - reflectivity + 0.01);
+      
       const thermalShock = materialProperties.thermalShockResistance || 200;
-      const thermalExpansion = materialProperties.thermalExpansionCoefficient || 10e-6;
-      const thermalStressFactor = Math.min(1, thermalShock / 300); // Higher is better
+      const thermalStressFactor = Math.min(1, thermalShock / 300);
 
-      // ===== COMBINE ALL FACTORS =====
+      // ===== ADAPTIVE WEIGHTING BASED ON PARAMETER REGION =====
+      // In high-power regions, thermal management dominates
+      const thermalWeight = 0.15 + (powerDeviation * 0.25); // 15-40%
+      // In long-pulse regions, accumulation matters more
+      const accumulationWeight = 0.05 + (pulseDeviation * 0.20); // 5-25%
+      // In extreme fluence regions, temperature safety is critical
+      const fluenceRatio = Math.min(1, fluence / damageThresh);
+      const temperatureWeight = 0.15 + (fluenceRatio * 0.25); // 15-40%
+      // Near optimal, ablation efficiency matters
+      const distanceFromOptimal = Math.sqrt(powerDeviation * powerDeviation + pulseDeviation * pulseDeviation);
+      const ablationWeight = 0.25 * (1 - distanceFromOptimal); // 0-25%, highest at center
+      // Damage always important
+      const damageWeight = 0.20; // constant 20%
+      // Others fill remaining
+      const remainingWeight = Math.max(0.05, 1.0 - (thermalWeight + accumulationWeight + temperatureWeight + ablationWeight + damageWeight));
+      const absorptionWeight = remainingWeight * 0.5;
+      const stressWeight = remainingWeight * 0.5;
+
       const physicsScore = (
-        thermalManagementScore * 0.20 +    // Heat dissipation
-        accumulationFactor * 0.10 +        // Pulse duration appropriateness
-        temperatureSafetyFactor * 0.25 +   // Temperature limits
-        ablationFactor * 0.20 +            // Cleaning effectiveness
-        damageFactor * 0.15 +              // Damage avoidance
-        absorptionFactor * 0.05 +          // Energy coupling
-        thermalStressFactor * 0.05         // Mechanical stability
+        thermalManagementScore * thermalWeight +
+        accumulationFactor * accumulationWeight +
+        temperatureSafetyFactor * temperatureWeight +
+        ablationFactor * ablationWeight +
+        damageFactor * damageWeight +
+        absorptionFactor * absorptionWeight +
+        thermalStressFactor * stressWeight
       );
 
-      // Also consider distance from optimal to bias toward known good parameters
+      // Also get distance from optimal for spatial context
       const distanceScore = calculateDistanceBasedScore(power, pulse);
+      const distanceNormalized = (distanceScore - 1) / 24; // 0-1 scale
       
-      // Blend physics-based score with distance-based score
-      // Weight physics more heavily when we have good material data
-      const dataQuality = Object.keys(materialProperties).length / 20; // 0-1 scale
-      const physicsWeight = 0.5 + (dataQuality * 0.3); // 0.5 to 0.8
-      const distanceWeight = 1 - physicsWeight;
+      // PURE PHYSICS-DRIVEN MODEL with distance modulation
+      // The physics score (0-1) determines safety, distance creates spatial structure
       
-      const blendedScore = physicsScore * physicsWeight + (distanceScore / 25) * distanceWeight;
+      // Use distance to modulate the physics score slightly
+      // Near optimal: trust physics more, allow higher scores
+      // Far from optimal: apply safety penalty even if physics says it's okay
+      const distanceModulation = 0.85 + (distanceNormalized * 0.15); // 0.85 to 1.0 (lighter penalty)
+      
+      //Final score is physics-driven but spatially aware
+      const finalScore = physicsScore * distanceModulation;
 
-      // Map to 1-25 scale
-      return Math.max(1, Math.min(25, Math.round(blendedScore * 25)));
+      // BIDIRECTIONAL RISK MODEL - both extremes are bad!
+      // - Too LOW fluence = ineffective cleaning (yellow/orange)
+      // - Too HIGH fluence = material damage (red/orange)
+      // - OPTIMAL fluence = safe and effective (green/emerald)
+      
+      const fluenceToThresholdRatio = fluence / damageThresh;
+      
+      // Calculate distance from optimal ablation threshold (sweet spot at ~34% of damage threshold)
+      const optimalFluenceRatio = ablationThresh / damageThresh; // ~0.34 for aluminum (1.2/3.5)
+      const deviationFromOptimal = Math.abs(fluenceToThresholdRatio - optimalFluenceRatio);
+      
+      let amplificationFactor;
+      
+      if (fluenceToThresholdRatio >= 0.70) {
+        // TOO HIGH: Damage danger zone (RED/ORANGE)
+        const excessRatio = (fluenceToThresholdRatio - 0.70) / 0.30;
+        amplificationFactor = 16 - (excessRatio * 8); // 16 → 8 (RED)
+      } else if (fluenceToThresholdRatio >= 0.50) {
+        // MODERATE-HIGH: Acceptable but risky (YELLOW/ORANGE)
+        const t = (fluenceToThresholdRatio - 0.50) / 0.20;
+        amplificationFactor = 32 - (t * 16); // 32 → 16 (YELLOW/ORANGE)
+      } else if (fluenceToThresholdRatio >= 0.25) {
+        // OPTIMAL RANGE: Safe and effective (GREEN/CYAN)
+        // Peak at ~0.34 (ablation threshold), graceful degradation
+        const distFromPeak = Math.abs(fluenceToThresholdRatio - 0.34) / 0.09;
+        amplificationFactor = 65 - (distFromPeak * 33); // Peak 65, edges 32 (GREEN/CYAN)
+      } else {
+        // TOO LOW: Ineffective cleaning (YELLOW/ORANGE)
+        const inefficiencyRatio = (0.25 - fluenceToThresholdRatio) / 0.25;
+        amplificationFactor = 32 - (inefficiencyRatio * 16); // 32 → 16 (YELLOW/ORANGE)
+      }
+      
+      const level = Math.max(1, Math.min(25, Math.pow(finalScore, 2) * amplificationFactor));
+      
+      return Math.round(level);
     };
   }, [materialProperties, powerRange, pulseRange, optimalPower, optimalPulse]);
 
@@ -196,44 +250,31 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
     
     if (inOptimalPower && inOptimalPulse) return 25;
     
-    // Calculate distance from optimal range
-    const powerDist = Math.min(
-      Math.abs(power - optimalPower[0]),
-      Math.abs(power - optimalPower[1])
-    ) / (powerRange.max - powerRange.min);
+    // Calculate distance from optimal CENTER (not edges) for radial pattern
+    const optimalPowerCenter = (optimalPower[0] + optimalPower[1]) / 2;
+    const optimalPulseCenter = (optimalPulse[0] + optimalPulse[1]) / 2;
     
-    const pulseDist = Math.min(
-      Math.abs(pulse - optimalPulse[0]),
-      Math.abs(pulse - optimalPulse[1])
-    ) / (pulseRange.max - pulseRange.min);
+    // Normalized distances (0 to 1)
+    const powerDist = Math.abs(power - optimalPowerCenter) / (powerRange.max - powerRange.min);
+    const pulseDist = Math.abs(pulse - optimalPulseCenter) / (pulseRange.max - pulseRange.min);
     
-    const totalDist = powerDist + pulseDist;
+    // Use Euclidean distance for circular/radial pattern
+    const totalDist = Math.sqrt(powerDist * powerDist + pulseDist * pulseDist);
     
-    // 25 levels for ultra-smooth interpolation
-    if (totalDist < 0.025) return 24;
-    if (totalDist < 0.050) return 23;
-    if (totalDist < 0.075) return 22;
-    if (totalDist < 0.100) return 21;
-    if (totalDist < 0.125) return 20;
-    if (totalDist < 0.150) return 19;
-    if (totalDist < 0.175) return 18;
-    if (totalDist < 0.200) return 17;
-    if (totalDist < 0.225) return 16;
-    if (totalDist < 0.250) return 15;
-    if (totalDist < 0.275) return 14;
-    if (totalDist < 0.300) return 13;
-    if (totalDist < 0.325) return 12;
-    if (totalDist < 0.350) return 11;
-    if (totalDist < 0.375) return 10;
-    if (totalDist < 0.400) return 9;
-    if (totalDist < 0.425) return 8;
-    if (totalDist < 0.450) return 7;
-    if (totalDist < 0.475) return 6;
-    if (totalDist < 0.500) return 5;
-    if (totalDist < 0.525) return 4;
-    if (totalDist < 0.550) return 3;
-    if (totalDist < 0.575) return 2;
-    return 1;
+    // Adjusted thresholds for Euclidean distance (creates smaller values than Manhattan)
+    // ULTRA aggressive - tiny safe zone, massive red danger zones
+    if (totalDist < 0.02) return 24;   // Micro green zone
+    if (totalDist < 0.04) return 21;   // Small cyan
+    if (totalDist < 0.06) return 18;
+    if (totalDist < 0.08) return 15;   // Yellow
+    if (totalDist < 0.10) return 12;
+    if (totalDist < 0.12) return 9;    // Orange/amber
+    if (totalDist < 0.14) return 7;    // Orange
+    if (totalDist < 0.16) return 5;    // Red
+    if (totalDist < 0.18) return 4;
+    if (totalDist < 0.20) return 3;    // Dark red
+    if (totalDist < 0.25) return 2;    // Darker red
+    return 1;  // Deep red/near-black for far edges
   };
 
   const getSafetyLevel = (power: number, pulse: number): number => {
@@ -261,38 +302,91 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
   };
 
   const getSafetyColor = (level: number): string => {
-    const green = '#10B981';         // green-500 - Pure safe
-    const lightGreen = '#34D399';    // green-400 - Still safe
-    const yellow = '#FBBF24';        // yellow-400 - Caution zone
-    const orange = '#F97316';        // orange-500 - Risk zone
-    const deepOrange = '#EA580C';    // orange-600 - High risk
-    const red = '#EF4444';           // red-500 - Danger
-    const darkRed = '#DC2626';       // red-600 - Extreme danger
-    const deepRed = '#B91C1C';       // red-700 - Critical
-    const veryDarkRed = '#991B1B';   // red-800 - Catastrophic
-    const nearBlack = '#7F1D1D';     // red-900 - Immediate damage
+    // Define anchor colors for continuous gradient - many more stops for ultra-smooth radial blending
+    const colorStops = [
+      { level: 25, color: '#047857' },  // emerald-700 - Peak optimal
+      { level: 24.5, color: '#059669' },// green-600
+      { level: 24, color: '#10B981' },  // green-500
+      { level: 23.5, color: '#1FC995' },// green-cyan blend
+      { level: 23, color: '#27D399' }, // 
+      { level: 22.5, color: '#34D399' },// green-400
+      { level: 22, color: '#42DA9F' }, // 
+      { level: 21.5, color: '#4FDEA5' },// 
+      { level: 21, color: '#5DE4B4' }, // mint
+      { level: 20.5, color: '#6BE7C2' },// teal
+      { level: 20, color: '#79EBD0' }, // 
+      { level: 19.5, color: '#87EFDE' },// cyan
+      { level: 19, color: '#95F3EC' }, // pale cyan
+      { level: 18.5, color: '#A3F5E8' },// 
+      { level: 18, color: '#B1F7E4' }, // very pale cyan
+      { level: 17.5, color: '#C0F8E0' },// 
+      { level: 17, color: '#CEF9DC' }, // cyan-yellow transition
+      { level: 16.5, color: '#DCFAD8' },// 
+      { level: 16, color: '#E9FBD4' }, // yellow-green
+      { level: 15.5, color: '#F2FCC8' },// 
+      { level: 15, color: '#FEF08A' }, // yellow-200
+      { level: 14.5, color: '#FEF180' },// 
+      { level: 14, color: '#FDE876' }, // 
+      { level: 13.5, color: '#FDE66C' },// 
+      { level: 13, color: '#FDE047' }, // yellow-300
+      { level: 12.5, color: '#FCD840' },// 
+      { level: 12, color: '#FBCF38' }, // 
+      { level: 11.5, color: '#FBC730' },// 
+      { level: 11, color: '#FBBF24' }, // yellow-400
+      { level: 10.5, color: '#FAB520' },// 
+      { level: 10, color: '#F9AB1C' }, // 
+      { level: 9.5, color: '#F7A218' }, // 
+      { level: 9, color: '#F59E0B' },  // amber-500
+      { level: 8.5, color: '#F6941A' },// 
+      { level: 8, color: '#F78A29' },  // 
+      { level: 7.5, color: '#F88038' },// 
+      { level: 7, color: '#FB923C' },  // orange-400
+      { level: 6.5, color: '#FA8539' },// 
+      { level: 6, color: '#F97316' },  // orange-500
+      { level: 5.5, color: '#F56511' },// 
+      { level: 5, color: '#EA580C' },  // orange-600
+      { level: 4.5, color: '#EF4E3E' },// 
+      { level: 4, color: '#EF4444' },  // red-500
+      { level: 3.5, color: '#E63E3E' },// 
+      { level: 3, color: '#DC2626' },  // red-600
+      { level: 2.5, color: '#C72020' },// 
+      { level: 2, color: '#B91C1C' },  // red-700
+      { level: 1.5, color: '#A51C1C' },// 
+      { level: 1, color: '#991B1B' },  // red-800
+    ];
     
-    // Keep pure green for truly safe range (14-25)
-    if (level >= 14) return green;
-    if (level >= 12) return interpolateColor(green, lightGreen, (14 - level) / 2);
-    if (level >= 10) return interpolateColor(lightGreen, yellow, (12 - level) / 2);
-    if (level >= 9) return interpolateColor(yellow, orange, (10 - level) / 1);
-    if (level >= 7) return interpolateColor(orange, deepOrange, (9 - level) / 2);
-    if (level >= 5) return interpolateColor(deepOrange, red, (7 - level) / 2);
-    if (level >= 4) return interpolateColor(red, darkRed, (5 - level) / 1);
-    if (level >= 3) return interpolateColor(darkRed, deepRed, (4 - level) / 1);
-    if (level >= 2) return interpolateColor(deepRed, veryDarkRed, (3 - level) / 1);
-    if (level >= 1) return interpolateColor(veryDarkRed, nearBlack, (2 - level) / 1);
-    return nearBlack;
+    // Find the two color stops to interpolate between for silky-smooth gradients
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      const upper = colorStops[i];
+      const lower = colorStops[i + 1];
+      
+      if (level >= lower.level && level <= upper.level) {
+        // Calculate interpolation factor (0 to 1) with high precision
+        const range = upper.level - lower.level;
+        const position = level - lower.level;
+        const factor = position / range;
+        
+        return interpolateColor(lower.color, upper.color, factor);
+      }
+    }
+    
+    // Edge cases
+    if (level >= 25) return colorStops[0].color;
+    return colorStops[colorStops.length - 1].color;
   };
 
   const getSafetyLabel = (level: number): string => {
-    if (level >= 14) return 'SAFE - Optimal Range';
-    if (level >= 12) return 'SAFE - Near Optimal';
-    if (level >= 10) return 'CAUTION - Monitor Closely';
-    if (level >= 7) return 'RISKY - High Damage Risk';
-    if (level >= 4) return 'DANGER - Substrate Damage Likely';
-    if (level >= 2) return 'EXTREME DANGER - Material Failure';
+    if (level >= 23) return 'OPTIMAL - Peak Performance Zone';
+    if (level >= 21) return 'SAFE - Excellent Parameters';
+    if (level >= 19) return 'SAFE - Good Parameters';
+    if (level >= 17) return 'ACCEPTABLE - Minor Caution';
+    if (level >= 15) return 'CAUTION - Monitor Closely';
+    if (level >= 13) return 'CAUTION - Elevated Risk';
+    if (level >= 11) return 'WARNING - Significant Risk';
+    if (level >= 9) return 'RISKY - High Damage Risk';
+    if (level >= 7) return 'DANGER - Material Stress';
+    if (level >= 5) return 'DANGER - Substrate Damage Likely';
+    if (level >= 3) return 'EXTREME DANGER - Material Failure';
     return 'CATASTROPHIC - Immediate Damage';
   };
 
@@ -347,13 +441,21 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
                     const isCurrentSetting = Math.abs(colIdx - currentPowerIndex) <= 1 && 
                                             Math.abs(rowIdx - (gridRows - currentPulseIndex)) <= 1;
                     
+                    // Get the base safety color
+                    const safetyColor = getSafetyColor(level);
+                    
+                    // If current setting, blend with blue-cyan for smooth integration
+                    const displayColor = isCurrentSetting 
+                      ? interpolateColor(safetyColor, '#3B82F6', 0.5) // 50-50 blend
+                      : safetyColor;
+                    
                     return (
                       <div
                         key={`${rowIdx}-${colIdx}`}
                         className="aspect-square relative group cursor-pointer transition-transform hover:scale-125 hover:z-10"
                         style={{ 
-                          backgroundColor: isCurrentSetting ? '#3B82F6' : getSafetyColor(level), // blue-500 for current
-                          opacity: isCurrentSetting ? 1 : 0.85
+                          backgroundColor: displayColor,
+                          opacity: 0.9
                         }}
                         onMouseEnter={() => setHoveredCell({ power, pulse })}
                         onMouseLeave={() => setHoveredCell(null)}
@@ -365,12 +467,16 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
                               {power.toFixed(0)}W × {pulse.toFixed(1)}ns
                             </div>
                             <div className={`font-medium ${
-                              level >= 14 ? 'text-green-400' :
-                              level >= 12 ? 'text-green-300' :
-                              level >= 10 ? 'text-yellow-400' :
-                              level >= 7 ? 'text-orange-400' :
-                              level >= 4 ? 'text-red-400' :
-                              level >= 2 ? 'text-red-600' : 'text-red-800'
+                              level >= 21 ? 'text-green-400' :
+                              level >= 19 ? 'text-green-300' :
+                              level >= 17 ? 'text-lime-400' :
+                              level >= 15 ? 'text-yellow-300' :
+                              level >= 13 ? 'text-yellow-400' :
+                              level >= 11 ? 'text-amber-500' :
+                              level >= 9 ? 'text-orange-400' :
+                              level >= 7 ? 'text-red-400' :
+                              level >= 5 ? 'text-red-500' :
+                              level >= 3 ? 'text-red-600' : 'text-red-800'
                             }`}>
                               {getSafetyLabel(level)}
                             </div>
@@ -417,12 +523,17 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
               <div className="pt-2 border-t border-blue-500/30">
                 <div className="text-xs text-gray-400 mb-1">Safety Status:</div>
                 <div className={`font-semibold ${
-                  getSafetyLevel(powerRange.current, pulseRange.current) >= 14 ? 'text-green-400' :
-                  getSafetyLevel(powerRange.current, pulseRange.current) >= 12 ? 'text-green-300' :
-                  getSafetyLevel(powerRange.current, pulseRange.current) >= 10 ? 'text-yellow-400' :
-                  getSafetyLevel(powerRange.current, pulseRange.current) >= 7 ? 'text-orange-400' :
-                  getSafetyLevel(powerRange.current, pulseRange.current) >= 4 ? 'text-red-400' :
-                  getSafetyLevel(powerRange.current, pulseRange.current) >= 2 ? 'text-red-600' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 23 ? 'text-emerald-400' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 21 ? 'text-green-400' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 19 ? 'text-green-300' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 17 ? 'text-lime-400' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 15 ? 'text-yellow-300' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 13 ? 'text-yellow-400' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 11 ? 'text-amber-500' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 9 ? 'text-orange-400' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 7 ? 'text-red-400' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 5 ? 'text-red-500' :
+                  getSafetyLevel(powerRange.current, pulseRange.current) >= 3 ? 'text-red-600' :
                   'text-red-800'
                 }`}>
                   {getSafetyLabel(getSafetyLevel(powerRange.current, pulseRange.current))}
@@ -437,6 +548,66 @@ export const DamageThresholdHeatmap: React.FC<HeatmapProps> = ({
               <span className="font-semibold">💡 Tip:</span> Hover over cells to see exact values and safety ratings for different parameter combinations.
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Physics-Based Model Features */}
+      <div className="mt-8 pt-6 border-t border-gray-700">
+        <h4 className="text-sm font-semibold text-gray-300 mb-3">Pure Physics-Driven Model</h4>
+        <div className="grid md:grid-cols-2 gap-4 text-xs text-gray-400">
+          <div>
+            <h5 className="font-semibold text-gray-300 mb-2">Range-Dependent Factors</h5>
+            <ul className="space-y-1 ml-4">
+              <li className="flex items-start gap-2">
+                <span className="text-red-400">•</span>
+                <span><strong className="text-gray-300">High Power Regions (15-40%):</strong> Thermal management dominates</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-orange-400">•</span>
+                <span><strong className="text-gray-300">Long Pulse Regions (5-25%):</strong> Heat accumulation risk increases</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-yellow-400">•</span>
+                <span><strong className="text-gray-300">High Fluence Regions (15-40%):</strong> Temperature safety critical</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h5 className="font-semibold text-gray-300 mb-2">Universal Factors</h5>
+            <ul className="space-y-1 ml-4">
+              <li className="flex items-start gap-2">
+                <span className="text-green-400">•</span>
+                <span><strong className="text-gray-300">Near Optimal (0-25%):</strong> Ablation efficiency matters most</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-400">•</span>
+                <span><strong className="text-gray-300">Damage Threshold (constant 20%):</strong> Safety always matters</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-gray-400">•</span>
+                <span><strong className="text-gray-300">Spatial Modulation (70-100%):</strong> Distance provides context</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-4 p-3 bg-gray-800/50 rounded text-xs text-gray-400">
+          <p><strong className="text-gray-300">How it works:</strong> Physics calculations evaluate thermal management, heat accumulation, temperature safety, ablation effectiveness, and damage risk. Each factor's weight adapts based on parameter location. Distance from optimal provides 0-30% penalty for spatial awareness.</p>
+        </div>
+        
+        <div className="mt-4 p-3 bg-gray-800/50 rounded border border-gray-700">
+          <p className="text-xs text-gray-400 mb-2">
+            <span className="font-semibold text-gray-300">Material Properties:</span> Thermal conductivity ({materialProperties?.thermalConductivity?.toFixed(0) || 'N/A'} W/m·K), 
+            reflectivity ({materialProperties?.laserReflectivity?.toFixed(2) || 'N/A'}), 
+            ablation threshold ({materialProperties?.ablationThreshold?.toFixed(2) || 'N/A'} J/cm²), 
+            damage threshold ({materialProperties?.laserDamageThreshold?.toFixed(1) || 'N/A'} J/cm²)
+          </p>
+          <p className="text-xs text-gray-400">
+            <span className="font-semibold text-gray-300">Physics-Driven:</span> Material properties drive the entire visualization.
+            Different factors dominate in different parameter regions (power, pulse, fluence).
+            Spatial distance modulates physics score by 0-30% based on proximity to optimal.
+          </p>
         </div>
       </div>
     </SectionContainer>

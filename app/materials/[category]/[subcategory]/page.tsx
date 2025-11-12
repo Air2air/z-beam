@@ -116,12 +116,18 @@ export default async function SubcategoryPage({ params }: PageProps) {
           {
             '@type': 'ListItem',
             'position': 2,
+            'name': 'Materials',
+            'item': `${SITE_CONFIG.url}/materials`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
             'name': categoryLabel,
             'item': `${SITE_CONFIG.url}/materials/${category}`
           },
           {
             '@type': 'ListItem',
-            'position': 3,
+            'position': 4,
             'name': subcategoryInfo.label,
             'item': pageUrl
           }

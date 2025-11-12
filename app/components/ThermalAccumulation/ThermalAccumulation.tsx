@@ -1,9 +1,9 @@
-// app/components/ThermalAccumulationSimulator/ThermalAccumulationSimulator.tsx
+// app/components/ThermalAccumulation/ThermalAccumulation.tsx
 'use client';
 
 import React, { useState, useEffect } from 'react';
 
-interface ThermalAccumulationSimulatorProps {
+interface ThermalAccumulationProps {
   power: number; // W
   repRate: number; // Hz
   scanSpeed: number; // mm/s
@@ -15,7 +15,7 @@ interface ThermalAccumulationSimulatorProps {
  * Simulates thermal accumulation across multiple laser passes
  * Shows temperature buildup and cooling between passes
  */
-export const ThermalAccumulationSimulator: React.FC<ThermalAccumulationSimulatorProps> = ({
+export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
   power,
   repRate,
   scanSpeed,
@@ -793,8 +793,8 @@ export const ThermalAccumulationSimulator: React.FC<ThermalAccumulationSimulator
                   </div>
                   <div className="text-gray-300">
                     {currentTemp > damageTemp
-                      ? 'Substrate damage likely occurring. Increase cooling time or reduce power/rep rate.'
-                      : 'Approaching damage threshold. Monitor carefully for oxidation or surface changes.'}
+                      ? 'Material damage is likely. Reduce pass count or increase cooling time.'
+                      : 'Approaching damage threshold. Consider adjusting parameters.'}
                   </div>
                 </div>
               </div>

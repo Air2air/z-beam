@@ -83,6 +83,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     description: categoryMetadata.description,
     breadcrumb: [
       { label: 'Home', href: '/' },
+      { label: 'Materials', href: '/materials' },
       { label: categoryDisplayName, href: `/materials/${category}` }
     ]
   };
@@ -129,6 +130,12 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           {
             '@type': 'ListItem',
             'position': 2,
+            'name': 'Materials',
+            'item': `${SITE_CONFIG.url}/materials`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
             'name': categoryDisplayName,
             'item': `${SITE_CONFIG.url}/materials/${category}`
           }

@@ -38,6 +38,7 @@ export function SectionContainer({
     body: 'bg-gray-50 dark:bg-gray-900',
     'gray-50': 'bg-gray-50 dark:bg-gray-800',
     'gray-100': 'bg-gray-100 dark:bg-gray-700',
+    'gradient-dark': 'bg-gradient-to-b from-gray-900 to-gray-700',
   };
   
   // Generate unique ID from title for accessibility

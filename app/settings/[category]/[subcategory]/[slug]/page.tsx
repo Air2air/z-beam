@@ -8,7 +8,7 @@ import { SectionContainer } from '@/app/components/SectionContainer/SectionConta
 import { ChallengeSeverityMatrix } from '@/app/components/ChallengeSeverityMatrix/ChallengeSeverityMatrix';
 import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/components/Heatmap';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
-import { ThermalAccumulationSimulator } from '@/app/components/ThermalAccumulationSimulator/ThermalAccumulationSimulator';
+import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
 import { ScanPattern } from '@/app/components/ScanPattern';
 
 interface SettingsPageProps {
@@ -232,7 +232,7 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
            settings.machineSettings?.essential_parameters?.repetitionRate &&
            settings.machineSettings?.essential_parameters?.scanSpeed &&
            settings.machineSettings?.essential_parameters?.passCount && (
-            <ThermalAccumulationSimulator 
+            <ThermalAccumulation 
                 power={settings.machineSettings.essential_parameters.powerRange.value}
                 repRate={settings.machineSettings.essential_parameters.repetitionRate.value}
                 scanSpeed={settings.machineSettings.essential_parameters.scanSpeed.value}
