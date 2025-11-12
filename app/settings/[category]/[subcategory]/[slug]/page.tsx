@@ -6,9 +6,8 @@ import { Layout } from '@/app/components/Layout/Layout';
 import { SettingsJsonLD } from '@/app/components/JsonLD/SettingsJsonLD';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { ChallengeSeverityMatrix } from '@/app/components/ChallengeSeverityMatrix/ChallengeSeverityMatrix';
-import { DamageThresholdHeatmap } from '@/app/components/DamageThresholdHeatmap/DamageThresholdHeatmap';
+import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/components/Heatmap';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
-import { ParameterSliderLab } from '@/app/components/ParameterSliderLab/ParameterSliderLab';
 import { ThermalAccumulationSimulator } from '@/app/components/ThermalAccumulationSimulator/ThermalAccumulationSimulator';
 import { OverlapPatternVisualizer } from '@/app/components/OverlapPatternVisualizer/OverlapPatternVisualizer';
 
@@ -104,26 +103,9 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
         {/* Settings page content */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           
-          {/* Remove success banner for production - keeping for prototype validation only */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="bg-green-900/20 border border-green-700/50 rounded p-3 mb-6 text-sm">
-              <div className="font-semibold text-green-400 mb-1">✅ Prototype Active</div>
-              <div className="text-green-300 text-xs">
-                Data: <code className="bg-green-950/50 px-1 rounded">{settingsSlug}.yaml</code> • 
-                Author: {settings.author?.name} • 
-                {Object.keys(settings.machineSettings?.essential_parameters || {}).length} params • 
-                {Object.keys(settings.machineSettings?.material_challenges || {}).length} challenges
-              </div>
-            </div>
-          )}
-
           {/* Parameter Interaction Network - Physics-Based Dependencies */}
           {settings.machineSettings?.essential_parameters && (
-            <SectionContainer 
-              title="Parameter Relationships" 
-              className="mb-8"
-            >
-              <ParameterRelationships 
+            <ParameterRelationships 
                 parameters={Object.entries(settings.machineSettings.essential_parameters).map(([key, param]) => ({
                   id: key,
                   name: key,
@@ -135,85 +117,114 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
                 }))}
                 materialName={settings.name}
               />
-            </SectionContainer>
           )}
 
-          {/* Damage Threshold Heatmap - 2D Parameter Safety Map */}
+          {/* Material Safety & Process Effectiveness - Dual Heatmaps */}
           {settings.machineSettings?.essential_parameters?.powerRange && 
            settings.machineSettings?.essential_parameters?.pulseWidth && (
-            <SectionContainer 
-              title="Safety Zone Map" 
-              className="mb-8"
-            >
-              <DamageThresholdHeatmap 
-                powerRange={{
-                  min: settings.machineSettings.essential_parameters.powerRange.min,
-                  max: settings.machineSettings.essential_parameters.powerRange.max,
-                  current: settings.machineSettings.essential_parameters.powerRange.value,
-                }}
-                pulseRange={{
-                  min: settings.machineSettings.essential_parameters.pulseWidth.min,
-                  max: settings.machineSettings.essential_parameters.pulseWidth.max,
-                  current: settings.machineSettings.essential_parameters.pulseWidth.value,
-                }}
-                optimalPower={settings.machineSettings.essential_parameters.powerRange.optimal_range || [
-                  settings.machineSettings.essential_parameters.powerRange.min,
-                  settings.machineSettings.essential_parameters.powerRange.max
-                ]}
-                optimalPulse={settings.machineSettings.essential_parameters.pulseWidth.optimal_range || [
-                  settings.machineSettings.essential_parameters.pulseWidth.min,
-                  settings.machineSettings.essential_parameters.pulseWidth.max
-                ]}
-                materialProperties={{
-                  // Core thermal properties
-                  thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
-                  thermalDiffusivity: materialProps?.laser_material_interaction?.thermalDiffusivity?.value || materialProps?.physical_properties?.thermalDiffusivity?.value,
-                  heatCapacity: materialProps?.physical_properties?.heatCapacity?.value,
-                  specificHeat: materialProps?.laser_material_interaction?.specificHeat?.value || materialProps?.physical_properties?.specificHeat?.value,
-                  
-                  // Temperature thresholds
-                  meltingPoint: materialProps?.physical_properties?.meltingPoint?.value,
-                  boilingPoint: materialProps?.physical_properties?.boilingPoint?.value,
-                  oxidationTemperature: materialProps?.physical_properties?.oxidationTemperature?.value,
-                  thermalDestructionPoint: materialProps?.physical_properties?.thermalDestructionPoint?.value,
-                  
-                  // Laser interaction
-                  ablationThreshold: materialProps?.laser_material_interaction?.ablationThreshold?.value || materialProps?.physical_properties?.ablationThreshold?.value,
-                  laserDamageThreshold: materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
-                  absorptivity: materialProps?.laser_material_interaction?.absorptivity?.value || materialProps?.physical_properties?.absorptivity?.value,
-                  absorptionCoefficient: materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
-                  laserReflectivity: materialProps?.laser_material_interaction?.laserReflectivity?.value || materialProps?.physical_properties?.reflectivity?.value,
-                  
-                  // Thermal dynamics
-                  thermalRelaxationTime: materialProps?.physical_properties?.thermalRelaxationTime?.value,
-                  thermalExpansionCoefficient: materialProps?.physical_properties?.thermalExpansionCoefficient?.value,
-                  thermalShockResistance: materialProps?.laser_material_interaction?.thermalShockResistance?.value,
-                  heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
-                }}
-              />
-            </SectionContainer>
-          )}
+            <>
+              {/* Material Safety Heatmap - Damage Risk Only */}
+              <div className="mb-8">
+                <MaterialSafetyHeatmap 
+                  materialName={settings.name}
+                  powerRange={{
+                    min: settings.machineSettings.essential_parameters.powerRange.min,
+                    max: settings.machineSettings.essential_parameters.powerRange.max,
+                    current: settings.machineSettings.essential_parameters.powerRange.value,
+                  }}
+                  pulseRange={{
+                    min: settings.machineSettings.essential_parameters.pulseWidth.min,
+                    max: settings.machineSettings.essential_parameters.pulseWidth.max,
+                    current: settings.machineSettings.essential_parameters.pulseWidth.value,
+                  }}
+                  optimalPower={settings.machineSettings.essential_parameters.powerRange.optimal_range || [
+                    settings.machineSettings.essential_parameters.powerRange.min,
+                    settings.machineSettings.essential_parameters.powerRange.max
+                  ]}
+                  optimalPulse={settings.machineSettings.essential_parameters.pulseWidth.optimal_range || [
+                    settings.machineSettings.essential_parameters.pulseWidth.min,
+                    settings.machineSettings.essential_parameters.pulseWidth.max
+                  ]}
+                  materialProperties={{
+                    // Core thermal properties
+                    thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                    thermalDiffusivity: materialProps?.laser_material_interaction?.thermalDiffusivity?.value || materialProps?.physical_properties?.thermalDiffusivity?.value,
+                    heatCapacity: materialProps?.physical_properties?.heatCapacity?.value,
+                    specificHeat: materialProps?.laser_material_interaction?.specificHeat?.value || materialProps?.physical_properties?.specificHeat?.value,
+                    
+                    // Temperature thresholds
+                    meltingPoint: materialProps?.physical_properties?.meltingPoint?.value,
+                    boilingPoint: materialProps?.physical_properties?.boilingPoint?.value,
+                    oxidationTemperature: materialProps?.physical_properties?.oxidationTemperature?.value,
+                    thermalDestructionPoint: materialProps?.physical_properties?.thermalDestructionPoint?.value,
+                    
+                    // Laser interaction
+                    ablationThreshold: materialProps?.laser_material_interaction?.ablationThreshold?.value || materialProps?.physical_properties?.ablationThreshold?.value,
+                    laserDamageThreshold: materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
+                    absorptivity: materialProps?.laser_material_interaction?.absorptivity?.value || materialProps?.physical_properties?.absorptivity?.value,
+                    absorptionCoefficient: materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
+                    laserReflectivity: materialProps?.laser_material_interaction?.laserReflectivity?.value || materialProps?.physical_properties?.reflectivity?.value,
+                    
+                    // Thermal dynamics
+                    thermalRelaxationTime: materialProps?.physical_properties?.thermalRelaxationTime?.value,
+                    thermalExpansionCoefficient: materialProps?.physical_properties?.thermalExpansionCoefficient?.value,
+                    thermalShockResistance: materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                    heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
+                  }}
+                />
+              </div>
 
-          {/* Interactive Parameter Slider Lab - What-If Analysis */}
-          {settings.machineSettings?.essential_parameters && (
-            <SectionContainer 
-              title="Interactive Parameter Lab" 
-              className="mb-8"
-            >
-              <ParameterSliderLab 
-                parameters={Object.entries(settings.machineSettings.essential_parameters).map(([key, param]) => ({
-                  id: key,
-                  name: key.replace(/([A-Z])/g, ' $1').trim(),
-                  value: param.value,
-                  min: param.min,
-                  max: param.max,
-                  optimal_min: param.optimal_range?.[0] || param.min,
-                  optimal_max: param.optimal_range?.[1] || param.max,
-                  unit: param.unit,
-                  criticality: param.criticality as 'critical' | 'high' | 'medium' | 'low'
-                }))}
-              />
-            </SectionContainer>
+              {/* Process Effectiveness Heatmap - Cleaning Performance Only */}
+              <div className="mb-8">
+                <ProcessEffectivenessHeatmap 
+                  materialName={settings.name}
+                  powerRange={{
+                    min: settings.machineSettings.essential_parameters.powerRange.min,
+                    max: settings.machineSettings.essential_parameters.powerRange.max,
+                    current: settings.machineSettings.essential_parameters.powerRange.value,
+                  }}
+                  pulseRange={{
+                    min: settings.machineSettings.essential_parameters.pulseWidth.min,
+                    max: settings.machineSettings.essential_parameters.pulseWidth.max,
+                    current: settings.machineSettings.essential_parameters.pulseWidth.value,
+                  }}
+                  optimalPower={settings.machineSettings.essential_parameters.powerRange.optimal_range || [
+                    settings.machineSettings.essential_parameters.powerRange.min,
+                    settings.machineSettings.essential_parameters.powerRange.max
+                  ]}
+                  optimalPulse={settings.machineSettings.essential_parameters.pulseWidth.optimal_range || [
+                    settings.machineSettings.essential_parameters.pulseWidth.min,
+                    settings.machineSettings.essential_parameters.pulseWidth.max
+                  ]}
+                  materialProperties={{
+                    // Core thermal properties
+                    thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
+                    thermalDiffusivity: materialProps?.laser_material_interaction?.thermalDiffusivity?.value || materialProps?.physical_properties?.thermalDiffusivity?.value,
+                    heatCapacity: materialProps?.physical_properties?.heatCapacity?.value,
+                    specificHeat: materialProps?.laser_material_interaction?.specificHeat?.value || materialProps?.physical_properties?.specificHeat?.value,
+                    
+                    // Temperature thresholds
+                    meltingPoint: materialProps?.physical_properties?.meltingPoint?.value,
+                    boilingPoint: materialProps?.physical_properties?.boilingPoint?.value,
+                    oxidationTemperature: materialProps?.physical_properties?.oxidationTemperature?.value,
+                    thermalDestructionPoint: materialProps?.physical_properties?.thermalDestructionPoint?.value,
+                    
+                    // Laser interaction
+                    ablationThreshold: materialProps?.laser_material_interaction?.ablationThreshold?.value || materialProps?.physical_properties?.ablationThreshold?.value,
+                    laserDamageThreshold: materialProps?.laser_material_interaction?.laserDamageThreshold?.value,
+                    absorptivity: materialProps?.laser_material_interaction?.absorptivity?.value || materialProps?.physical_properties?.absorptivity?.value,
+                    absorptionCoefficient: materialProps?.laser_material_interaction?.absorptionCoefficient?.value,
+                    laserReflectivity: materialProps?.laser_material_interaction?.laserReflectivity?.value || materialProps?.physical_properties?.reflectivity?.value,
+                    
+                    // Thermal dynamics
+                    thermalRelaxationTime: materialProps?.physical_properties?.thermalRelaxationTime?.value,
+                    thermalExpansionCoefficient: materialProps?.physical_properties?.thermalExpansionCoefficient?.value,
+                    thermalShockResistance: materialProps?.laser_material_interaction?.thermalShockResistance?.value,
+                    heatAffectedZoneDepth: materialProps?.physical_properties?.heatAffectedZoneDepth?.value,
+                  }}
+                />
+              </div>
+            </>
           )}
 
           {/* Thermal Accumulation Simulator - Multi-Pass Heat Buildup */}
@@ -221,17 +232,12 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
            settings.machineSettings?.essential_parameters?.repetitionRate &&
            settings.machineSettings?.essential_parameters?.scanSpeed &&
            settings.machineSettings?.essential_parameters?.passCount && (
-            <SectionContainer 
-              title="Thermal Accumulation Simulator" 
-              className="mb-8"
-            >
-              <ThermalAccumulationSimulator 
+            <ThermalAccumulationSimulator 
                 power={settings.machineSettings.essential_parameters.powerRange.value}
                 repRate={settings.machineSettings.essential_parameters.repetitionRate.value}
                 scanSpeed={settings.machineSettings.essential_parameters.scanSpeed.value}
                 passCount={settings.machineSettings.essential_parameters.passCount.value}
               />
-            </SectionContainer>
           )}
 
           {/* Overlap Pattern Visualizer - Scan Geometry */}
@@ -239,38 +245,12 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
            settings.machineSettings?.essential_parameters?.scanSpeed &&
            settings.machineSettings?.essential_parameters?.repetitionRate &&
            settings.machineSettings?.essential_parameters?.overlapRatio && (
-            <SectionContainer 
-              title="Scan Pattern Visualizer" 
-              className="mb-8"
-            >
-              <OverlapPatternVisualizer 
+            <OverlapPatternVisualizer 
                 spotSize={settings.machineSettings.essential_parameters.spotSize.value}
                 scanSpeed={settings.machineSettings.essential_parameters.scanSpeed.value}
                 repRate={settings.machineSettings.essential_parameters.repetitionRate.value}
                 overlapRatio={settings.machineSettings.essential_parameters.overlapRatio.value}
               />
-            </SectionContainer>
-          )}
-
-          {/* Challenge Severity Matrix - Visual Overview */}
-          {settings.machineSettings?.material_challenges && (
-            <SectionContainer 
-              title="Challenge Severity Matrix" 
-              className="mb-8"
-            >
-              <ChallengeSeverityMatrix 
-                challenges={Object.entries(settings.machineSettings.material_challenges)
-                  .flatMap(([category, challengeList]) =>
-                    Array.isArray(challengeList)
-                      ? challengeList.map((challenge: any) => ({
-                          ...challenge,
-                          category,
-                        }))
-                      : []
-                  )}
-                categories={Object.keys(settings.machineSettings.material_challenges)}
-              />
-            </SectionContainer>
           )}
 
           {/* Material Challenges - Enhanced Visual Display */}

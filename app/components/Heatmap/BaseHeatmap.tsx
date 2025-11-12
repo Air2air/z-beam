@@ -149,7 +149,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
     <SectionContainer
       title={title}
       bgColor="transparent"
-      className="card-background rounded-lg"
+      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}
     >
       {description && (

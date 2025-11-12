@@ -657,7 +657,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
     <SectionContainer
       title="Parameter Relationships"
       bgColor="transparent"
-      className="card-background rounded-lg"
+      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}
     >
       <div className="space-y-6">
