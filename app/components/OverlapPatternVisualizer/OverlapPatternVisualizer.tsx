@@ -24,7 +24,9 @@ export const OverlapPatternVisualizer: React.FC<OverlapPatternVisualizerProps> =
   const [zoom, setZoom] = useState(1);
 
   // Calculate pulse spacing
-  const pulseSpacing = (scanSpeed / (repRate / 1000)); // mm between pulses
+  // scanSpeed is in mm/s, repRate is in Hz (pulses/s)
+  // pulseSpacing = distance / (pulses/time) = mm/s ÷ (1/s) = mm
+  const pulseSpacing = scanSpeed / repRate; // mm between pulses
   const calculatedOverlap = (1 - pulseSpacing / spotSize) * 100;
   
   // Determine if overlap is correct

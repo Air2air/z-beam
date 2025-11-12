@@ -241,19 +241,17 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
           )}
 
           {/* Overlap Pattern Visualizer - Scan Geometry */}
-          {settings.machineSettings?.essential_parameters?.spotSize &&
-           settings.machineSettings?.essential_parameters?.scanSpeed &&
-           settings.machineSettings?.essential_parameters?.repetitionRate &&
-           settings.machineSettings?.essential_parameters?.overlapRatio && (
-            <OverlapPatternVisualizer 
-                spotSize={settings.machineSettings.essential_parameters.spotSize.value}
-                scanSpeed={settings.machineSettings.essential_parameters.scanSpeed.value}
-                repRate={settings.machineSettings.essential_parameters.repetitionRate.value}
-                overlapRatio={settings.machineSettings.essential_parameters.overlapRatio.value}
-              />
-          )}
-
-          {/* Material Challenges - Enhanced Visual Display */}
+            {settings.machineSettings?.essential_parameters?.spotSize &&
+              settings.machineSettings?.essential_parameters?.scanSpeed &&
+              settings.machineSettings?.essential_parameters?.repetitionRate &&
+              settings.machineSettings?.essential_parameters?.overlapRatio && (
+                <OverlapPatternVisualizer
+                  spotSize={settings.machineSettings.essential_parameters.spotSize.value} // Already in mm
+                  scanSpeed={settings.machineSettings.essential_parameters.scanSpeed.value}
+                  repRate={settings.machineSettings.essential_parameters.repetitionRate.value * 1000} // Convert kHz to Hz
+                  overlapRatio={settings.machineSettings.essential_parameters.overlapRatio.value}
+                />
+              )}          {/* Material Challenges - Enhanced Visual Display */}
           {settings.machineSettings?.material_challenges && (
             <section className="mb-8">
               <h2 className="text-2xl font-bold text-white mb-3">Material-Specific Challenges</h2>
