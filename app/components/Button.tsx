@@ -39,7 +39,7 @@ export function Button({
   // Fixed sizes for consistency - no responsive variations
   const sizeClasses = {
     sm: 'px-1.5 py-0.5 text-xs min-h-[32px]',
-    md: 'px-3 py-1.5 text-sm min-h-[44px]',
+    md: 'px-2.5 py-1 text-sm min-h-[40px]',
     lg: 'px-5 py-2 text-base min-h-[48px]'
   };
   
