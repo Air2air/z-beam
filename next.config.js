@@ -51,7 +51,7 @@ const nextConfig = {
           {
             key: 'Link',
             // Preload critical resources to break dependency chains
-            value: '</images/logo/logo-.png>; rel=preload; as=image; fetchpriority=high'
+            value: '</images/logo/logo-zbeam.png>; rel=preload; as=image; fetchpriority=high'
           }
         ]
       },

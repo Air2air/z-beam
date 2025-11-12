@@ -125,7 +125,7 @@ export function Navbar() {
               className="block transition-transform duration-300 ease-in-out hover:scale-[1.03]"
             >
               <Image
-                src="/images/logo/logo-.png"
+                src="/images/logo/logo-zbeam.png"
                 alt={`${SITE_CONFIG.shortName} Logo`}
                 width={150}
                 height={50}

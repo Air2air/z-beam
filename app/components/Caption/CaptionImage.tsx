@@ -28,7 +28,7 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
     return (
       <div className="flex items-center justify-center bg-gray-600 h-[450px] rounded-lg">
         <Image
-          src="/images/logo/logo-.png"
+          src="/images/logo/logo-zbeam.png"
           alt={`${SITE_CONFIG.shortName} logo`}
           width={60}
           height={60}

@@ -109,7 +109,7 @@ const SITE_CONFIG_OLD = {
       }
     },
     logo: {
-      default: '/images/logo/logo-.png',
+      default: '/images/logo/logo-zbeam.png',
       width: 200,
       height: 120
     },

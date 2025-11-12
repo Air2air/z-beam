@@ -213,7 +213,7 @@ const BUSINESS_CONFIG_OLD = {
   // === BRAND ASSETS ===
   assets: {
     logo: {
-      primary: "https://z-beam.com/images/logo-.png", // Company brand logo
+      primary: "https://z-beam.com/images/logo-zbeam.png", // Company brand logo
       width: 400,
       height: 100
     },

@@ -51,7 +51,7 @@ export function Thumbnail({
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-600">
           <Image
-            src="/images/logo/logo-.png"
+            src="/images/logo/logo-zbeam.png"
             alt="No image available"
             width={60}
             height={60}
