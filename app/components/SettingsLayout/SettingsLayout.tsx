@@ -235,7 +235,7 @@ export function SettingsLayout({
       metadata={metadata}
       slug={slug}
       title={settings.title}
-      components={{}} // Prevent Layout from rendering article structure
+      components={undefined} // Settings page - render children instead of article structure
     >
       {/* Settings-specific visualizations below */}
       
