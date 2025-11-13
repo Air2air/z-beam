@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { formatKeyAsTitle } from "@/app/utils/metricsCardHelpers";
+import { formatKeyAsTitle } from "@/app/utils/formatting";
 import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import { darkenColor } from "@/app/utils/colorUtils";

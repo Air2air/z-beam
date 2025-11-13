@@ -296,3 +296,25 @@ export function formatWithUnit(value: number | string, unit: string = ''): strin
   const cleaned = cleanupFloat(value);
   return unit ? `${cleaned} ${unit}` : cleaned;
 }
+
+/**
+ * Format a camelCase or snake_case key as a human-readable title
+ * 
+ * @param key - Key to format (e.g., "powerRange" or "scan_speed")
+ * @returns Formatted title (e.g., "Power Range" or "Scan Speed")
+ * 
+ * @example
+ * formatKeyAsTitle("powerRange") // "Power Range"
+ * formatKeyAsTitle("scan_speed") // "Scan Speed"
+ * formatKeyAsTitle("machineSettings.wavelength") // "Wavelength"
+ */
+export function formatKeyAsTitle(key: string): string {
+  // Handle dot notation first (take last segment)
+  const cleaned = key.split('.').pop() || key;
+  
+  return cleaned
+    // Handle camelCase and snake_case  
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase());
+}
