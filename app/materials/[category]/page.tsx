@@ -10,6 +10,9 @@ import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
+import { generateCategoryAuthorSchema } from '@/app/utils/schemas/personSchemas';
+import { generateCollectionPageSchema, generateWebPageSchema, generateItemListSchema } from '@/app/utils/schemas/collectionPageSchema';
+import { generateDatasetSchema, generateDatasetDistributions } from '@/app/utils/schemas/datasetSchema';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -86,66 +89,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     ]
   };
 
-  // Generate comprehensive JSON-LD schemas using @graph pattern
+  const categoryUrl = `${SITE_CONFIG.url}/materials/${category}`;
+  
+  // Generate comprehensive JSON-LD schemas using @graph pattern with utilities
   const schemas = {
     '@context': 'https://schema.org',
     '@graph': [
       // 1. CollectionPage schema
-      {
-        '@type': 'CollectionPage',
-        '@id': `${SITE_CONFIG.url}/materials/${category}#webpage`,
-        'name': pageTitle,
-        'description': categoryMetadata.description,
-        'url': `${SITE_CONFIG.url}/materials/${category}`,
-        'author': {
-          '@id': `${SITE_CONFIG.url}#author-technical-team`
-        },
-        'publisher': {
-          '@type': 'Organization',
-          '@id': `${SITE_CONFIG.url}#organization`,
-          'name': SITE_CONFIG.name,
-          'url': SITE_CONFIG.url
-        },
-        'breadcrumb': {
-          '@id': `${SITE_CONFIG.url}/materials/${category}#breadcrumb`
-        },
-        'mainEntity': {
-          '@id': `${SITE_CONFIG.url}/materials/${category}#itemlist`
-        }
-      },
-      
-      // 2. BreadcrumbList schema (separate for better discovery)
-      {
-        '@type': 'BreadcrumbList',
-        '@id': `${SITE_CONFIG.url}/materials/${category}#breadcrumb`,
-        'itemListElement': [
-          {
-            '@type': 'ListItem',
-            'position': 1,
-            'name': 'Home',
-            'item': SITE_CONFIG.url
-          },
-          {
-            '@type': 'ListItem',
-            'position': 2,
-            'name': 'Materials',
-            'item': `${SITE_CONFIG.url}/materials`
-          },
-          {
-            '@type': 'ListItem',
-            'position': 3,
-            'name': categoryDisplayName,
-            'item': `${SITE_CONFIG.url}/materials/${category}`
-          }
-        ]
-      },
-      
-      // 3. ItemList schema for materials
-      {
-        '@type': 'ItemList',
-        '@id': `${SITE_CONFIG.url}/materials/${category}#itemlist`,
-        'numberOfItems': categoryData.materials.length,
-        'itemListElement': categoryData.subcategories.flatMap((subcategory, subIndex) => 
+      generateCollectionPageSchema({
+        url: categoryUrl,
+        name: pageTitle,
+        description: categoryMetadata.description,
+        numberOfItems: categoryData.materials.length,
+        itemListElement: categoryData.subcategories.flatMap((subcategory, subIndex) => 
           subcategory.materials.map((material, matIndex) => ({
             '@type': 'ListItem',
             'position': subIndex * 100 + matIndex + 1,
@@ -159,74 +115,52 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             }
           }))
         )
+      }),
+      
+      // 2. BreadcrumbList schema
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${categoryUrl}#breadcrumb`,
+        'itemListElement': [
+          { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': SITE_CONFIG.url },
+          { '@type': 'ListItem', 'position': 2, 'name': 'Materials', 'item': `${SITE_CONFIG.url}/materials` },
+          { '@type': 'ListItem', 'position': 3, 'name': categoryDisplayName, 'item': categoryUrl }
+        ]
       },
+      
+      // 3. ItemList schema for materials
+      generateItemListSchema({
+        url: categoryUrl,
+        name: pageTitle,
+        description: categoryMetadata.description,
+        items: categoryData.subcategories.flatMap(sub => 
+          sub.materials.map(mat => ({
+            name: mat.name,
+            url: `${SITE_CONFIG.url}/materials/${category}/${sub.slug}/${mat.slug}`
+          }))
+        )
+      }),
       
       // 4. Dataset schema for category-level data aggregation
       {
-        '@type': 'Dataset',
-        '@id': `${SITE_CONFIG.url}/materials/${category}#dataset`,
-        'name': `${categoryDisplayName} Laser Cleaning Parameters Dataset`,
-        'description': `Comprehensive dataset of ${categoryData.materials.length} ${category} materials with laser cleaning parameters, machine settings, and material properties for industrial applications. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.`,
+        ...generateDatasetSchema({
+          url: categoryUrl,
+          name: `${categoryDisplayName} Laser Cleaning Parameters Dataset`,
+          description: `Comprehensive dataset of ${categoryData.materials.length} ${category} materials with laser cleaning parameters, machine settings, and material properties for industrial applications. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.`,
+          keywords: [category, 'laser cleaning', 'material properties', 'machine settings', 'industrial parameters'],
+          distribution: generateDatasetDistributions({
+            baseUrl: SITE_CONFIG.url,
+            slug: category,
+            name: `${categoryDisplayName} Materials`
+          }),
+          spatialCoverage: 'Global',
+          temporalCoverage: '2024/..',
+          variableMeasured: [
+            'wavelength', 'power', 'fluence', 'pulse duration', 'repetition rate',
+            'scan speed', 'thermal conductivity', 'hardness', 'ablation threshold'
+          ]
+        }),
         'alternateName': `${categoryDisplayName} Materials Database`,
-        'url': `${SITE_CONFIG.url}/materials/${category}`,
-        'identifier': `${SITE_CONFIG.url}/materials/${category}#dataset`,
-        'author': {
-          '@id': `${SITE_CONFIG.url}#author-technical-team`
-        },
-        'creator': {
-          '@type': 'Organization',
-          '@id': `${SITE_CONFIG.url}#organization`,
-          'name': SITE_CONFIG.name,
-          'url': SITE_CONFIG.url,
-          'sameAs': SITE_CONFIG.social.linkedin
-        },
-        'publisher': {
-          '@type': 'Organization',
-          '@id': `${SITE_CONFIG.url}#organization`,
-          'name': SITE_CONFIG.name,
-          'url': SITE_CONFIG.url
-        },
-        'license': {
-          '@type': 'CreativeWork',
-          'name': 'Creative Commons Attribution 4.0 International',
-          'url': 'https://creativecommons.org/licenses/by/4.0/',
-          'identifier': 'CC BY 4.0'
-        },
-        'inLanguage': 'en-US',
-        'keywords': [category, 'laser cleaning', 'material properties', 'machine settings', 'industrial parameters'],
-        'temporalCoverage': '2024/..',
-        'spatialCoverage': 'Global',
-        'variableMeasured': [
-          'wavelength',
-          'power',
-          'fluence',
-          'pulse duration',
-          'repetition rate',
-          'scan speed',
-          'thermal conductivity',
-          'hardness',
-          'ablation threshold'
-        ],
-        'distribution': [
-          {
-            '@type': 'DataDownload',
-            'encodingFormat': 'application/json',
-            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}.json`,
-            'description': `JSON format dataset with ${categoryData.materials.length} ${category} materials`
-          },
-          {
-            '@type': 'DataDownload',
-            'encodingFormat': 'text/csv',
-            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}.csv`,
-            'description': `CSV format dataset with ${categoryData.materials.length} ${category} materials`
-          },
-          {
-            '@type': 'DataDownload',
-            'encodingFormat': 'text/plain',
-            'contentUrl': `${SITE_CONFIG.url}/data/datasets/${category}.txt`,
-            'description': `Plain text format dataset with ${categoryData.materials.length} ${category} materials`
-          }
-        ],
         'hasPart': categoryData.materials.map((material) => ({
           '@type': 'Dataset',
           'name': material.name,
@@ -247,63 +181,16 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       },
       
       // 5. WebPage schema
-      {
-        '@type': 'WebPage',
-        '@id': `${SITE_CONFIG.url}/materials/${category}`,
-        'name': pageTitle,
-        'description': categoryMetadata.description,
-        'url': `${SITE_CONFIG.url}/materials/${category}`,
-        'author': {
-          '@id': `${SITE_CONFIG.url}#author-technical-team`
-        },
-        'isPartOf': {
-          '@type': 'WebSite',
-          '@id': `${SITE_CONFIG.url}#website`,
-          'name': SITE_CONFIG.name,
-          'url': SITE_CONFIG.url
-        },
-        'breadcrumb': {
-          '@id': `${SITE_CONFIG.url}/materials/${category}#breadcrumb`
-        },
-        'mainEntity': {
-          '@id': `${SITE_CONFIG.url}/materials/${category}#dataset`
-        }
-      },
+      generateWebPageSchema({
+        url: categoryUrl,
+        name: pageTitle,
+        description: categoryMetadata.description,
+        breadcrumbId: `${categoryUrl}#breadcrumb`,
+        authorId: `${SITE_CONFIG.url}#author-technical-team`
+      }),
       
       // 6. Person schema - Technical author with E-E-A-T enhancements
-      {
-        '@type': 'Person',
-        '@id': `${SITE_CONFIG.url}#author-technical-team`,
-        'name': 'Z-Beam Technical Team',
-        'jobTitle': 'Laser Cleaning Specialists',
-        'email': SITE_CONFIG.contact.general.email,
-        'url': `${SITE_CONFIG.url}/about`,
-        'knowsAbout': [
-          `${categoryDisplayName} laser cleaning`,
-          'Material science and surface treatment',
-          'Industrial laser systems',
-          'Laser ablation parameters',
-          'Material properties and characteristics'
-        ],
-        'worksFor': {
-          '@type': 'Organization',
-          '@id': `${SITE_CONFIG.url}#organization`,
-          'name': SITE_CONFIG.name
-        },
-        'hasCredential': [
-          {
-            '@type': 'EducationalOccupationalCredential',
-            'name': 'Laser Safety Certification',
-            'credentialCategory': 'Professional Certification'
-          },
-          {
-            '@type': 'EducationalOccupationalCredential',
-            'name': 'Materials Science Expertise',
-            'credentialCategory': 'Professional Expertise'
-          }
-        ],
-        'description': `Expert team specializing in laser cleaning research, material analysis, and industrial surface treatment applications for ${category} materials.`
-      }
+      generateCategoryAuthorSchema(category, categoryDisplayName)
     ]
   };
 
