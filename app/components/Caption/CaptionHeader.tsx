@@ -4,7 +4,7 @@
 import { FrontmatterType, ParsedCaptionData } from '@/types';
 import React from 'react';
 import { CaptionData } from './useCaptionParsing';
-import { capitalizeWords } from '../../utils/formatting';
+import { capitalizeWords, capitalizeFirst } from '../../utils/formatting';
 import { Title } from '../Title';
 
 interface CaptionHeaderProps {
@@ -14,7 +14,7 @@ interface CaptionHeaderProps {
 }
 
 export function CaptionHeader({ materialName, frontmatter, captionData }: CaptionHeaderProps) {
-  const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1).toLowerCase();
+  const capitalizedMaterial = capitalizeFirst(materialName);
   const materialType = frontmatter?.chemicalProperties?.materialType || 'material';
 
   return (

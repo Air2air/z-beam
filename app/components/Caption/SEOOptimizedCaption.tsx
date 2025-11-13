@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { CaptionData } from './useCaptionParsing';
 import { Title } from '../Title';
 import { SITE_CONFIG } from '../../utils/constants';
+import { capitalizeFirst } from '@/app/utils/formatting';
 
 /**
  * Determines the appropriate thermal property label based on material type
@@ -63,7 +64,7 @@ export function SEOOptimizedCaption({
   captionData, 
   imageData 
 }: SEOCaptionProps) {
-  const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
+  const capitalizedMaterial = capitalizeFirst(materialName);
   const processId = `laser-cleaning-${materialName}-${Date.now()}`;
   const thermalProperty = getThermalPropertyLabel(materialName);
   

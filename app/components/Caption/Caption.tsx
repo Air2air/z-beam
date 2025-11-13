@@ -17,6 +17,7 @@ import { CaptionDataStructure, CaptionProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { SITE_CONFIG } from '../../utils/constants';
+import { capitalizeFirst } from '@/app/utils/formatting';
 import './seo-caption.css';
 import './caption-accessibility.css';
 
@@ -84,7 +85,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
   };
 
   const materialName = captionData.material || 'material';
-  const capitalizedMaterial = materialName.charAt(0).toUpperCase() + materialName.slice(1);
+  const capitalizedMaterial = capitalizeFirst(materialName);
   const imageSource = frontmatter?.images?.micro?.url || captionData.images?.micro?.url || captionData.imageUrl?.url;
 
   return (
