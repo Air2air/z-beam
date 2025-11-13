@@ -1,8 +1,6 @@
 // app/components/SettingsLayout/SettingsLayout.tsx
 import React from 'react';
 import { Layout } from '@/app/components/Layout/Layout';
-import { Title } from '@/app/components/Title';
-import { Author } from '@/app/components/Author/Author';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
 import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/components/Heatmap';
 import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
@@ -10,7 +8,6 @@ import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
 import SettingsDatasetCardWrapper from '@/app/components/Dataset/SettingsDatasetCardWrapper';
 import { SettingsMetadata } from '@/types/centralized';
-import { prepareSettingsData } from '@/app/utils/settings/prepareSettingsData';
 
 interface SettingsLayoutProps {
   settings: SettingsMetadata;
@@ -22,18 +19,101 @@ interface SettingsLayoutProps {
 }
 
 /**
- * SettingsLayout - Reusable template for all settings pages
+ * Infer criticality level from parameter key
+ */
+function inferCriticality(key: string): 'critical' | 'high' | 'medium' | 'low' {
+  const criticalKeys = ['powerRange', 'energyDensity', 'pulseWidth'];
+  return criticalKeys.includes(key) ? 'high' : 'medium';
+}
+
+/**
+ * Extract and prepare settings data for components
+ * Supports both hybrid format (components.parameter_relationships) 
+ * and legacy format (machineSettings.essential_parameters)
+ */
+function prepareSettingsData(
+  settings: SettingsMetadata,
+  materialProperties?: any
+) {
+  // Extract parameters from hybrid or legacy format
+  const parametersRaw = settings.components?.parameter_relationships?.parameters 
+    || settings.machineSettings?.essential_parameters;
+  
+  // Use materialRef-loaded properties or passed properties
+  const materialProps = settings._materialProperties || materialProperties;
+  
+  // Extract component-specific configs
+  const safetyHeatmapConfig = settings.components?.safety_heatmap;
+  const thermalConfig = settings.components?.thermal_accumulation;
+  const diagnosticConfig = settings.components?.diagnostic_center;
+
+  // Convert parameters to consistent array format
+  const paramData = parametersRaw ? (
+    Array.isArray(parametersRaw) 
+      ? parametersRaw 
+      : Object.entries(parametersRaw).map(([key, param]: [string, any]) => ({
+          id: key,
+          name: param.name || key,
+          value: param.value,
+          unit: param.unit,
+          criticality: param.criticality as 'critical' | 'high' | 'medium' | 'low',
+          rationale: param.rationale,
+          material_interaction: param.material_interaction || null,
+          ...param
+        }))
+  ) : (
+    // Fallback: Convert simple machineSettings to parameter format
+    settings.machineSettings 
+      ? Object.entries(settings.machineSettings).map(([key, param]: [string, any]) => ({
+          id: key,
+          name: param.name || key,
+          value: param.value,
+          unit: param.unit,
+          min: param.min,
+          max: param.max,
+          criticality: inferCriticality(key),
+          rationale: `Operating range: ${param.min}-${param.max} ${param.unit}`,
+          material_interaction: null
+        })) 
+      : null
+  );
+
+  // Helper function to find parameter by id
+  const findParam = (id: string) => {
+    if (parametersRaw) {
+      if (Array.isArray(parametersRaw)) {
+        return parametersRaw.find((p: any) => p.id === id);
+      }
+      return (parametersRaw as any)[id];
+    }
+    // Fallback: Check simple machineSettings
+    if (settings.machineSettings) {
+      return (settings.machineSettings as any)[id];
+    }
+    return null;
+  };
+
+  return {
+    parametersRaw,
+    materialProps,
+    safetyHeatmapConfig,
+    thermalConfig,
+    diagnosticConfig,
+    paramData,
+    findParam
+  };
+}
+
+/**
+ * SettingsLayout - Simplified wrapper adding settings-specific visualizations
  * 
- * Provides consistent structure and automatic rendering of standard components:
+ * Leverages base Layout component for header/metadata, adds:
  * - Parameter Relationships visualization
  * - Material Safety & Process Effectiveness Heatmaps
  * - Thermal Accumulation Simulator
  * - Diagnostic & Prevention Center (tabbed)
  * - Research Citations (if research_library present)
- * 
- * NEW: Supports Hybrid Approach with component-specific data structure
- * NEW: Auto-loads material properties via materialRef
- * NEW: Renders Citations component for research library
+ * - Dataset download card
  * 
  * Usage:
  * ```tsx
@@ -51,20 +131,13 @@ export function SettingsLayout({
   children
 }: SettingsLayoutProps) {
   
-  // Prepare metadata for Layout component
+  // Prepare enriched metadata for Layout component (includes all fields Layout expects)
   const metadata = {
-    name: settings.name,
-    title: settings.title,
-    subtitle: settings.subtitle,
-    description: settings.description,
-    author: settings.author,
-    datePublished: settings.datePublished,
-    dateModified: settings.dateModified,
-    breadcrumb: settings.breadcrumb,
+    ...settings,
     slug,
     category,
     subcategory,
-  };
+  } as any;
 
   // Extract and prepare settings data using utility
   const {
@@ -161,21 +234,11 @@ export function SettingsLayout({
     <Layout 
       metadata={metadata}
       slug={slug}
+      title={settings.title}
+      components={{}} // Prevent Layout from rendering article structure
     >
-      {/* Header - Title and Author (matching materials pages) */}
-      <header className="header-section mb-6">
-        <Title 
-          level="page" 
-          title={settings.title} 
-          subtitle={settings.subtitle}
-        />
-        <Author 
-          frontmatter={metadata}
-          showAvatar showCredentials showCountry showSpecialties
-          className="mt-2 mb-4"
-        />
-      </header>
-
+      {/* Settings-specific visualizations below */}
+      
       {/* Parameter Interaction Network */}
       {paramData && paramData.length > 0 && (
         <ParameterRelationships 
