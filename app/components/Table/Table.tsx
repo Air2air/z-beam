@@ -2,7 +2,6 @@
 import React from 'react';
 import { SmartTable } from './SmartTable';
 import { TableProps, SmartTableData } from '@/types';
-import './styles.css';
 
 /**
  * Enhanced Table component with intelligent frontmatter organization
