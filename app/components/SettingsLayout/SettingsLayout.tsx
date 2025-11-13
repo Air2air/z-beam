@@ -1,11 +1,14 @@
 // app/components/SettingsLayout/SettingsLayout.tsx
 import React from 'react';
 import { Layout } from '@/app/components/Layout/Layout';
+import { Title } from '@/app/components/Title';
+import { Author } from '@/app/components/Author/Author';
 import { ParameterRelationships } from '@/app/components/ParameterRelationships/ParameterRelationships';
 import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/components/Heatmap';
 import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
 import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
+import SettingsDatasetCardWrapper from '@/app/components/Dataset/SettingsDatasetCardWrapper';
 import { SettingsMetadata } from '@/types/centralized';
 
 interface SettingsLayoutProps {
@@ -54,6 +57,7 @@ export function SettingsLayout({
     subtitle: settings.subtitle,
     description: settings.description,
     author: settings.author,
+    breadcrumb: settings.breadcrumb,
     slug,
     category,
     subcategory,
@@ -82,65 +86,160 @@ export function SettingsLayout({
       rationale: param.rationale,
       material_interaction: param.material_interaction
     }))
-  ) : null;
+  ) : (
+    // FALLBACK: Convert simple machineSettings to parameter format
+    settings.machineSettings ? Object.entries(settings.machineSettings).map(([key, param]: [string, any]) => ({
+      id: key,
+      name: param.name || key,
+      value: param.value,
+      unit: param.unit,
+      min: param.min,
+      max: param.max,
+      criticality: (key === 'powerRange' || key === 'energyDensity' || key === 'pulseWidth' ? 'high' : 'medium') as 'critical' | 'high' | 'medium' | 'low',
+      rationale: `Operating range: ${param.min}-${param.max} ${param.unit}`,
+      material_interaction: null
+    })) : null
+  );
 
   // Helper function to find parameter by id
   const findParam = (id: string) => {
-    if (!parametersRaw) return null;
-    if (Array.isArray(parametersRaw)) {
-      return parametersRaw.find((p: any) => p.id === id);
+    if (parametersRaw) {
+      if (Array.isArray(parametersRaw)) {
+        return parametersRaw.find((p: any) => p.id === id);
+      }
+      return (parametersRaw as any)[id];
     }
-    return (parametersRaw as any)[id];
+    // FALLBACK: Check simple machineSettings
+    if (settings.machineSettings) {
+      return (settings.machineSettings as any)[id];
+    }
+    return null;
   };
 
-  // Extract heatmap configuration (check hybrid format first, then legacy)
+  // Extract heatmap configuration (check hybrid format first, then legacy, then simple machineSettings)
   const powerParam = safetyHeatmapConfig?.power_range || findParam('powerRange');
-  const pulseParam = safetyHeatmapConfig?.pulse_range || findParam('pulseWidth');
+  const pulseParam = safetyHeatmapConfig?.pulse_range || findParam('pulseWidth') || findParam('pulseDuration');
 
   // Extract thermal simulation parameters
   const thermalParams = thermalConfig?.defaults || {
-    power: findParam('powerRange')?.value,
-    rep_rate: findParam('repetitionRate')?.value,
-    scan_speed: findParam('scanSpeed')?.value,
-    pass_count: findParam('passCount')?.value
+    power: findParam('powerRange')?.value || 100,
+    rep_rate: findParam('repetitionRate')?.value || 50,
+    scan_speed: findParam('scanSpeed')?.value || 500,
+    pass_count: findParam('passCount')?.value || 2
   };
 
   // Extract diagnostic data
   const challenges = diagnosticConfig?.challenges || settings.machineSettings?.material_challenges;
   const issues = diagnosticConfig?.troubleshooting || settings.machineSettings?.common_issues;
+  
+  // Generate default challenges if none provided
+  const defaultChallenges = !challenges && settings.machineSettings ? {
+    thermal_management: [
+      {
+        challenge: 'Heat accumulation',
+        severity: 'medium',
+        impact: 'Excessive heat can damage substrate or alter material properties',
+        solutions: [
+          'Reduce repetition rate',
+          'Increase scan speed',
+          'Add cooling time between passes'
+        ],
+        prevention: 'Monitor surface temperature and adjust parameters accordingly'
+      }
+    ],
+    surface_characteristics: [
+      {
+        challenge: 'Variable surface roughness',
+        severity: 'medium',
+        impact: 'Inconsistent cleaning results across different surface textures',
+        solutions: [
+          'Adjust energy density based on surface condition',
+          'Use multiple passes with progressive settings',
+          'Pre-characterize surface before cleaning'
+        ],
+        prevention: 'Standardize surface preparation procedures'
+      }
+    ]
+  } : challenges;
+  
+  // Generate default issues if none provided
+  const defaultIssues = !issues && settings.machineSettings ? [
+    {
+      symptom: 'Incomplete contamination removal',
+      causes: [
+        'Energy density too low',
+        'Insufficient overlap',
+        'Scan speed too high'
+      ],
+      solutions: [
+        'Increase laser power by 10-20%',
+        'Reduce scan speed by 20-30%',
+        'Add an additional pass'
+      ],
+      verification: 'Visual inspection under magnification',
+      prevention: 'Verify parameters on test piece before production'
+    },
+    {
+      symptom: 'Surface discoloration or damage',
+      causes: [
+        'Power too high',
+        'Excessive energy density',
+        'Too many passes'
+      ],
+      solutions: [
+        'Reduce laser power by 15-20%',
+        'Increase scan speed',
+        'Limit to 2-3 passes maximum'
+      ],
+      verification: 'Surface inspection and roughness measurement',
+      prevention: 'Start with conservative parameters and increase gradually'
+    }
+  ] : issues;
 
   return (
     <Layout 
       metadata={metadata}
       slug={slug}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        
-        {/* Parameter Interaction Network */}
-        {paramData && paramData.length > 0 && (
-          <ParameterRelationships 
-            parameters={paramData}
-            materialName={settings.name}
-          />
-        )}
+      {/* Header - Title and Author (matching materials pages) */}
+      <header className="header-section mb-6">
+        <Title 
+          level="page" 
+          title={settings.title} 
+          subtitle={settings.subtitle}
+        />
+        <Author 
+          frontmatter={metadata}
+          showAvatar showCredentials showCountry showSpecialties
+          className="mt-2 mb-4"
+        />
+      </header>
 
-        {/* Material Safety Heatmap */}
-        {powerParam && pulseParam && (
-          <div className="mb-8">
-            <MaterialSafetyHeatmap 
+      {/* Parameter Interaction Network */}
+      {paramData && paramData.length > 0 && (
+        <ParameterRelationships 
+          parameters={paramData}
+          materialName={settings.name}
+        />
+      )}
+
+      {/* Material Safety Heatmap */}
+      {powerParam && pulseParam && (
+        <div className="mb-8">
+          <MaterialSafetyHeatmap 
               materialName={settings.name}
               powerRange={{
-                min: powerParam.min,
-                max: powerParam.max,
-                current: powerParam.current || powerParam.value,
+                min: powerParam.min || 0,
+                max: powerParam.max || 200,
+                current: powerParam.current || powerParam.value || 100,
               }}
               pulseRange={{
-                min: pulseParam.min,
-                max: pulseParam.max,
-                current: pulseParam.current || pulseParam.value,
+                min: pulseParam.min || 0,
+                max: pulseParam.max || 1000,
+                current: pulseParam.current || pulseParam.value || 100,
               }}
-              optimalPower={powerParam.optimal_range || [powerParam.min, powerParam.max]}
-              optimalPulse={pulseParam.optimal_range || [pulseParam.min, pulseParam.max]}
+              optimalPower={powerParam.optimal_range || [powerParam.min || 50, powerParam.max || 150]}
+              optimalPulse={pulseParam.optimal_range || [pulseParam.min || 10, pulseParam.max || 500]}
               materialProperties={{
                 // Core thermal properties
                 thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
@@ -177,17 +276,17 @@ export function SettingsLayout({
             <ProcessEffectivenessHeatmap 
               materialName={settings.name}
               powerRange={{
-                min: powerParam.min,
-                max: powerParam.max,
-                current: powerParam.current || powerParam.value,
+                min: powerParam.min || 0,
+                max: powerParam.max || 200,
+                current: powerParam.current || powerParam.value || 100,
               }}
               pulseRange={{
-                min: pulseParam.min,
-                max: pulseParam.max,
-                current: pulseParam.current || pulseParam.value,
+                min: pulseParam.min || 0,
+                max: pulseParam.max || 1000,
+                current: pulseParam.current || pulseParam.value || 100,
               }}
-              optimalPower={powerParam.optimal_range || [powerParam.min, powerParam.max]}
-              optimalPulse={pulseParam.optimal_range || [pulseParam.min, pulseParam.max]}
+              optimalPower={powerParam.optimal_range || [powerParam.min || 50, powerParam.max || 150]}
+              optimalPulse={pulseParam.optimal_range || [pulseParam.min || 10, pulseParam.max || 500]}
               materialProperties={{
                 // Same properties as MaterialSafetyHeatmap
                 thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
@@ -213,8 +312,9 @@ export function SettingsLayout({
         )}
 
         {/* Thermal Accumulation Simulator */}
-        {thermalParams.power && thermalParams.rep_rate && thermalParams.scan_speed && thermalParams.pass_count && (
+        {settings.machineSettings && (
           <ThermalAccumulation 
+            materialName={settings.name}
             power={thermalParams.power}
             repRate={thermalParams.rep_rate}
             scanSpeed={thermalParams.scan_speed}
@@ -223,26 +323,38 @@ export function SettingsLayout({
         )}
 
         {/* Diagnostic & Prevention Center - Tabbed Interface */}
-        {challenges && issues && (
+        {(defaultChallenges || defaultIssues) && (
           <DiagnosticCenter 
             materialName={settings.name}
-            challenges={challenges}
-            issues={issues}
+            challenges={defaultChallenges!}
+            issues={defaultIssues!}
           />
         )}
 
-        {/* Research Citations - NEW */}
-        {settings.research_library && (
-          <Citations 
-            research_library={settings.research_library}
-            materialName={settings.name}
-          />
-        )}
+      {/* Research Citations - NEW */}
+      {settings.research_library && (
+        <Citations 
+          research_library={settings.research_library}
+          materialName={settings.name}
+        />
+      )}
 
-        {/* Custom content slot */}
-        {children}
-        
-      </div>
+      {/* Dataset Download Section */}
+      <SettingsDatasetCardWrapper
+        settings={{
+          name: settings.name,
+          slug,
+          category,
+          subcategory,
+          machineSettings: settings.machineSettings,
+          research_library: settings.research_library,
+          components: settings.components
+        }}
+        showFullDataset={true}
+      />
+
+      {/* Custom content slot */}
+      {children}
     </Layout>
   );
 }

@@ -1,23 +1,30 @@
 // app/components/JsonLD/SettingsJsonLD.tsx
 import React from 'react';
-import { SITE_CONFIG } from '../../config/site';
+import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
 import { validateAndLogSchema } from '../../utils/validators';
 import type { SettingsMetadata } from '@/types';
 
 /**
  * Enhanced JSON-LD component for Settings Authority Pages
  * 
- * Generates comprehensive schema.org structured data for machine settings pages:
- * - HowTo: Step-by-step laser cleaning process with research-validated parameters
- * - TechnicalArticle: Authority content with E-E-A-T signals
+ * Now uses SchemaFactory for comprehensive schema.org structured data generation:
+ * - TechnicalArticle: Authority content with E-E-A-T signals (citations, reviewedBy)
+ * - Dataset: Research-validated parameters with provenance
+ * - HowTo: Step-by-step laser cleaning process
+ * - FAQPage: Auto-generated from material_challenges
+ * - VideoObject: Default demonstration video
+ * - ImageObject: Licensed images with proper attribution
  * - Person: Author credentials with expertise
+ * - Organization: Publisher identity
  * - BreadcrumbList: Navigation hierarchy
  * - WebPage: Page metadata
+ * 
+ * Uses same SchemaFactory as materials pages for consistency and extensibility.
  * 
  * @param settings - SettingsMetadata from getSettingsArticle()
  * @param category - Material category (metal, ceramic, polymer, etc.)
  * @param subcategory - Material subcategory (ferrous, non-ferrous, oxide, etc.)
- * @param slug - Page slug (aluminum-laser-cleaning, etc.)
+ * @param slug - Page slug (aluminum-settings, etc.)
  * @returns Script tag with comprehensive @graph JSON-LD structure
  * 
  * @example
@@ -26,7 +33,7 @@ import type { SettingsMetadata } from '@/types';
  *   settings={settings} 
  *   category="metal" 
  *   subcategory="non-ferrous"
- *   slug="aluminum-laser-cleaning" 
+ *   slug="aluminum-settings" 
  * />
  * ```
  */
@@ -45,120 +52,19 @@ export function SettingsJsonLD({
     return null;
   }
 
-  const siteUrl = SITE_CONFIG.url;
-  const pageUrl = `${siteUrl}/settings/${category}/${subcategory}/${slug}`;
-  const currentDate = new Date().toISOString();
+  // Transform settings data to match SchemaFactory expectations
+  const schemaData = prepareSchemaData(settings, category, subcategory);
   
-  // Build @graph with multiple schema types
-  const graph: any[] = [];
+  // Build full slug path for SchemaFactory
+  const fullSlug = `settings/${category}/${subcategory}/${slug}`;
+  
+  // Generate comprehensive schemas using SchemaFactory
+  const factory = new SchemaFactory(schemaData, fullSlug);
+  const jsonLdSchema = factory.generate();
 
-  // 1. HOWTO SCHEMA - Core laser cleaning process
-  const howToSteps = buildHowToSteps(settings);
-  if (howToSteps.length > 0) {
-    graph.push({
-      '@type': 'HowTo',
-      '@id': `${pageUrl}#howto`,
-      name: settings.title,
-      description: settings.description,
-      totalTime: 'PT30M',
-      estimatedCost: {
-        '@type': 'MonetaryAmount',
-        currency: 'USD',
-        value: '0'
-      },
-      step: howToSteps
-    });
+  if (!jsonLdSchema) {
+    return null;
   }
-
-  // 2. TECHNICAL ARTICLE SCHEMA - Authority content
-  graph.push({
-    '@type': 'TechnicalArticle',
-    '@id': `${pageUrl}#article`,
-    headline: settings.title,
-    description: settings.description,
-    author: settings.author ? {
-      '@type': 'Person',
-      name: settings.author.name
-    } : undefined,
-    datePublished: currentDate,
-    dateModified: currentDate,
-    url: pageUrl,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': pageUrl
-    },
-    about: {
-      '@type': 'Thing',
-      name: `${settings.name} Laser Processing`,
-      description: `Machine settings and parameters for laser cleaning of ${settings.name}`
-    },
-    keywords: settings.seo_settings_page?.keywords?.join(', '),
-    articleSection: 'Laser Processing Technology'
-  });
-
-  // 3. PERSON SCHEMA - Author credentials
-  if (settings.author) {
-    graph.push({
-      '@type': 'Person',
-      '@id': `${siteUrl}#${settings.author.name.toLowerCase().replace(/\s+/g, '-')}`,
-      name: settings.author.name
-    });
-  }
-
-  // 4. BREADCRUMB SCHEMA
-  graph.push({
-    '@type': 'BreadcrumbList',
-    '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Settings',
-        item: `${siteUrl}/settings`
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: category.charAt(0).toUpperCase() + category.slice(1),
-        item: `${siteUrl}/settings/${category}`
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: subcategory.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),
-        item: `${siteUrl}/settings/${category}/${subcategory}`
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        name: settings.name,
-        item: pageUrl
-      }
-    ]
-  });
-
-  // 5. WEBPAGE SCHEMA
-  graph.push({
-    '@type': 'WebPage',
-    '@id': pageUrl,
-    url: pageUrl,
-    name: settings.title,
-    description: settings.description,
-    isPartOf: {
-      '@type': 'WebSite',
-      '@id': `${siteUrl}#website`
-    },
-    about: {
-      '@type': 'Thing',
-      name: 'Laser Cleaning Technology'
-    }
-  });
-
-  // Complete schema with @graph
-  const jsonLdSchema = {
-    '@context': 'https://schema.org',
-    '@graph': graph
-  };
 
   // Validate schema in development
   if (process.env.NODE_ENV === 'development') {
@@ -177,44 +83,146 @@ export function SettingsJsonLD({
 }
 
 /**
- * Helper Functions
+ * Transform SettingsMetadata into SchemaFactory-compatible format
+ * Enriches settings data with E-E-A-T signals and structured content
  */
-
-function buildHowToSteps(settings: SettingsMetadata): any[] {
-  if (!settings.machineSettings?.essential_parameters) return [];
-
-  const steps: any[] = [];
-  const params = settings.machineSettings.essential_parameters;
-
-  // Step 1: Parameter Configuration
-  steps.push({
-    '@type': 'HowToStep',
-    position: 1,
-    name: 'Configure Laser Parameters',
-    text: 'Set essential parameters for safe and effective cleaning',
-    itemListElement: Object.entries(params).map(([key, param]: [string, any]) => ({
-      '@type': 'HowToDirection',
-      text: `${key}: ${param.value} ${param.unit} (optimal range: ${param.optimal_range?.join(' to ') || 'N/A'})`
-    }))
-  });
-
-  // Step 2: Processing
-  steps.push({
-    '@type': 'HowToStep',
-    position: 2,
-    name: 'Execute Cleaning Process',
-    text: `Perform ${params.passCount?.value || 2} passes with ${params.overlapRatio?.value || 60}% overlap`
-  });
-
-  // Step 3: Quality Verification
-  if (settings.machineSettings.expected_outcomes) {
-    steps.push({
-      '@type': 'HowToStep',
-      position: 3,
-      name: 'Verify Quality',
-      text: 'Inspect cleaned surface against quality metrics'
+function prepareSchemaData(settings: SettingsMetadata, category: string, subcategory: string): any {
+  // Extract citations from research_library (it's a Record, not an array)
+  const citations: any[] = [];
+  if (settings.research_library) {
+    Object.values(settings.research_library).forEach((citation: any) => {
+      if (citation.title && citation.url) {
+        citations.push({
+          name: citation.title,
+          url: citation.url
+        });
+      }
     });
   }
 
-  return steps;
+  // Transform diagnostic challenges into FAQ format
+  const faq = transformChallengesIntoFAQ(settings.components?.diagnostic_center?.challenges);
+
+  // Build enhanced E-E-A-T signals for TechnicalArticle
+  const eeat: any = {};
+  
+  if (citations.length > 0) {
+    eeat.citations = citations;
+  }
+  
+  // Add reviewer information if available (not in current type but can be extended)
+  if ((settings as any).reviewedBy) {
+    eeat.reviewedBy = (settings as any).reviewedBy;
+  }
+  
+  // Add source research if available
+  if ((settings as any).basedOn) {
+    eeat.isBasedOn = (settings as any).basedOn;
+  }
+
+  return {
+    // Core metadata
+    metadata: {
+      title: settings.title,
+      description: settings.description,
+      name: settings.name,
+      category: settings.category || category,
+      subcategory: settings.subcategory || subcategory,
+      author: settings.author,
+      datePublished: settings.datePublished,
+      dateModified: settings.dateModified,
+      keywords: settings.seo_settings_page?.keywords || [],
+      
+      // Settings-specific data
+      machineSettings: settings.machineSettings,
+      materialProperties: {
+        // Include machine settings as "properties" for Dataset schema
+        parameters: settings.machineSettings
+      },
+      
+      // Enhanced E-E-A-T signals
+      eeat,
+      
+      // FAQ from challenges
+      faq,
+      
+      // Images for ImageObject schema (from extended type)
+      images: (settings as any).images,
+      
+      // Default video for VideoObject schema
+      video: 't8fB3tJCfQw', // Default Z-Beam demo video
+      
+      // Breadcrumb structure
+      breadcrumb: settings.breadcrumb || buildDefaultBreadcrumb(settings, category, subcategory)
+    },
+    
+    // Frontmatter alias for SchemaFactory compatibility
+    frontmatter: {
+      title: settings.title,
+      description: settings.description,
+      name: settings.name,
+      category: settings.category || category,
+      subcategory: settings.subcategory || subcategory,
+      author: settings.author,
+      machineSettings: settings.machineSettings,
+      materialProperties: { parameters: settings.machineSettings },
+      eeat,
+      faq,
+      images: (settings as any).images, // Images loaded from YAML but not in type definition
+      keywords: settings.seo_settings_page?.keywords || []
+    }
+  };
+}
+
+/**
+ * Transform material_challenges into FAQ schema format
+ */
+function transformChallengesIntoFAQ(challenges: any): any[] {
+  if (!challenges || typeof challenges !== 'object') return [];
+  
+  const faqs: any[] = [];
+  
+  Object.entries(challenges).forEach(([key, value]: [string, any]) => {
+    if (typeof value === 'object' && value.challenge && value.solution) {
+      faqs.push({
+        question: `How do you handle ${formatChallengeKey(key)}?`,
+        answer: `Challenge: ${value.challenge}. Solution: ${value.solution}`
+      });
+    }
+  });
+  
+  return faqs;
+}
+
+/**
+ * Format challenge key into readable text
+ */
+function formatChallengeKey(key: string): string {
+  return key
+    .replace(/_/g, ' ')
+    .replace(/([A-Z])/g, ' $1')
+    .toLowerCase()
+    .trim();
+}
+
+/**
+ * Build default breadcrumb structure
+ */
+function buildDefaultBreadcrumb(settings: SettingsMetadata, category: string, subcategory: string): any[] {
+  return [
+    { label: 'Home', href: '/' },
+    { label: 'Settings', href: '/settings' },
+    { 
+      label: category.charAt(0).toUpperCase() + category.slice(1), 
+      href: `/materials/${category}` 
+    },
+    { 
+      label: subcategory.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '), 
+      href: `/materials/${category}/${subcategory}` 
+    },
+    { 
+      label: settings.name, 
+      href: `/settings/${category}/${subcategory}/${settings.slug}` 
+    }
+  ];
 }

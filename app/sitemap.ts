@@ -76,6 +76,10 @@ export default function sitemap(): SitemapEntry[] {
   const materialRoutes: SitemapEntry[] = [];
   const materialPageRoutes: SitemapEntry[] = [];
   
+  // Settings routes (parallel to materials)
+  const settingsRoutes: SitemapEntry[] = [];
+  const settingsPageRoutes: SitemapEntry[] = [];
+  
   try {
     const frontmatterDir = path.join(process.cwd(), 'frontmatter/materials');
     const files = fs.readdirSync(frontmatterDir);
@@ -140,5 +144,55 @@ export default function sitemap(): SitemapEntry[] {
     console.error('Error generating material routes:', error);
   }
 
-  return [...staticRoutes, ...materialRoutes, ...materialPageRoutes];
+  // Settings pages - mirror the materials structure
+  try {
+    const settingsDir = path.join(process.cwd(), 'frontmatter/settings');
+    const settingsFiles = fs.readdirSync(settingsDir);
+    const settingsYamlFiles = settingsFiles.filter(f => f.endsWith('.yaml'));
+    
+    // Track categories and subcategories for settings
+    const settingsCategorySet = new Set<string>();
+    const settingsSubcategorySet = new Set<string>();
+    
+    settingsYamlFiles.forEach((file) => {
+      const filePath = path.join(settingsDir, file);
+      const stats = fs.statSync(filePath);
+      const fileContent = fs.readFileSync(filePath, 'utf8');
+      
+      // Simple YAML parsing to extract category and subcategory
+      const categoryMatch = fileContent.match(/^category:\s*(.+)$/m);
+      const subcategoryMatch = fileContent.match(/^subcategory:\s*(.+)$/m);
+      
+      if (categoryMatch) {
+        const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
+        const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
+        
+        // Extract base slug (remove -settings or -laser-cleaning suffix)
+        let slug = file.replace('.yaml', '');
+        if (slug.endsWith('-settings')) {
+          slug = slug.replace('-settings', '');
+        } else if (slug.endsWith('-laser-cleaning')) {
+          slug = slug.replace('-laser-cleaning', '');
+        }
+        
+        // Skip if category is empty
+        if (!category) return;
+        
+        // Settings pages don't have category/subcategory index pages, only material pages
+        // Add setting page with full path
+        if (subcategory && subcategory.length > 0) {
+          settingsPageRoutes.push({
+            url: buildUrlFromMetadata({ rootPath: 'settings', category, subcategory, slug }, true),
+            lastModified: stats.mtime,
+            changeFrequency: 'weekly' as const,
+            priority: 0.7, // Slightly lower priority than materials pages
+          });
+        }
+      }
+    });
+  } catch (error) {
+    console.error('Error generating settings routes:', error);
+  }
+
+  return [...staticRoutes, ...materialRoutes, ...materialPageRoutes, ...settingsRoutes, ...settingsPageRoutes];
 }
