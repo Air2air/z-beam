@@ -3,7 +3,7 @@
 
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/metricsCardHelpers";
-import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
+import { SectionContainerDark } from "@/app/components/SectionContainer/SectionContainerDark";
 import type {
   NetworkParameter,
   ParameterRelationship,
@@ -654,11 +654,8 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
   };
 
   return (
-    <SectionContainer
+    <SectionContainerDark
       title="Parameter Relationships"
-      bgColor="transparent"
-      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
-      horizPadding={true}
     >
       <div className="space-y-6">
         {/* Header Description */}
@@ -1046,6 +1043,6 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
           </div>
         </div>
       </div>
-    </SectionContainer>
+    </SectionContainerDark>
   );
 };

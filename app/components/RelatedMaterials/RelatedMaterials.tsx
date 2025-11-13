@@ -10,8 +10,7 @@
 
 import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { Button } from '../Button';
+import { SectionContainerDefault } from '../SectionContainer/SectionContainerDefault';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 
 export interface RelatedMaterialsProps {
@@ -51,21 +50,11 @@ export async function RelatedMaterials({
     .join(' ');
   
   return (
-    <SectionContainer 
+    <SectionContainerDefault
       title={`Related ${formattedCategory} › ${formattedSubcategory} Materials`}
       icon={getSectionIcon('related-materials')}
-      action={
-        <Button
-          variant="primary"
-          size="md"
-          href={`/search?q=${encodeURIComponent(category)}`}
-          showIcon={true}
-        >
-          Show all
-        </Button>
-      }
-      bgColor="transparent"
-      radius={false}
+      actionText="Show all"
+      actionUrl={`/search?q=${encodeURIComponent(category)}`}
     >
       <CardGridSSR
         slugs={relatedSlugs}
@@ -74,6 +63,6 @@ export async function RelatedMaterials({
         showBadgeSymbols={true}
         loadBadgeSymbolData={true}
       />
-    </SectionContainer>
+    </SectionContainerDefault>
   );
 }
