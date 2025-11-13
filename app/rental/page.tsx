@@ -1,7 +1,12 @@
 // app/rental/page.tsx
-import { StaticPage } from "../components/StaticPage/StaticPage";
+import { Layout } from "../components/Layout/Layout";
+import { ContentSection } from "../components/ContentCard";
 import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
+import fs from 'fs/promises';
+import path from 'path';
+import yaml from 'js-yaml';
+import type { ArticleMetadata } from '@/types';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -198,14 +203,25 @@ export default async function RentalPage() {
     ]
   };
   
+  // Load rental page configuration from YAML
+  const yamlPath = path.join(process.cwd(), 'static-pages', 'rental.yaml');
+  const yamlContent = await fs.readFile(yamlPath, 'utf8');
+  const pageConfig = yaml.load(yamlContent) as ArticleMetadata & { contentCards?: any[] };
+  
   return (
     <>
       <JsonLD data={rentalSchema} />
-      <StaticPage 
-        slug="rental" 
-        fallbackTitle="Laser Cleaning Equipment Rental"
-        fallbackDescription={metadata.description}
-      />
+      <Layout
+        title={pageConfig.title || "Laser Cleaning Equipment Rental"}
+        subtitle={pageConfig.subtitle}
+        description={pageConfig.description || metadata.description}
+        metadata={pageConfig}
+        slug="rental"
+      >
+        {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
+          <ContentSection items={pageConfig.contentCards} />
+        )}
+      </Layout>
     </>
   );
 }
