@@ -3,6 +3,7 @@
 
 import React, { useMemo } from 'react';
 import { BaseHeatmap } from './BaseHeatmap';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { BaseHeatmapProps, MaterialProperties, HeatmapRange, CellAnalysis } from './types';
 
 interface ProcessEffectivenessHeatmapProps {
@@ -331,8 +332,9 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
 
   const baseHeatmapProps: Omit<BaseHeatmapProps, 'calculateScore' | 'colorAnchors' | 'getScoreLabel' | 'legendItems' | 'renderAnalysisPanel'> = {
     ...props,
-    title: props.materialName || "Process Effectiveness Analysis",
-    description: "Shows cleaning performance across parameter space. Green = optimal effectiveness, Red = ineffective."
+    title: props.materialName ? `${props.materialName} Cleaning Efficiency` : "Cleaning Efficiency Analysis",
+    description: "Shows cleaning performance across parameter space. Green = optimal effectiveness, Red = ineffective.",
+    icon: getSectionIcon('effectiveness')
   };
 
   return (

@@ -1031,6 +1031,7 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       author: data.author,
       datePublished: data.datePublished,
       dateModified: data.dateModified,
+      breadcrumb: data.breadcrumb,
       
       // Component-specific data
       components: data.components,

@@ -180,6 +180,11 @@ export function Layout(props: LayoutProps) {
               dataSource="materialProperties" 
               showTitle={false}
               searchable
+              actionText="Settings"
+              actionUrl={metadata?.category && metadata?.subcategory && metadata?.slug 
+                ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '')}`
+                : undefined
+              }
             />
           )}
 

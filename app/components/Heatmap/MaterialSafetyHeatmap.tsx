@@ -3,6 +3,7 @@
 
 import React, { useMemo } from 'react';
 import { BaseHeatmap } from './BaseHeatmap';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { BaseHeatmapProps, MaterialProperties, HeatmapRange, CellAnalysis, HoveredCell } from './types';
 
 interface MaterialSafetyHeatmapProps {
@@ -337,8 +338,9 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
 
   const baseHeatmapProps: Omit<BaseHeatmapProps, 'calculateScore' | 'colorAnchors' | 'getScoreLabel' | 'legendItems'> = {
     ...props,
-    title: props.materialName || "Material Safety Analysis",
+    title: props.materialName ? `${props.materialName} Material Safety` : "Material Safety Analysis",
     description: "Shows damage risk across parameter space. Green = safe, Red = damage danger.",
+    icon: getSectionIcon('safety'),
     renderAnalysisPanel
   };
 

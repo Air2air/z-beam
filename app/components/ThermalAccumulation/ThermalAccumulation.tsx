@@ -2,8 +2,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 interface ThermalAccumulationProps {
+  materialName?: string;
   power: number; // W
   repRate: number; // Hz
   scanSpeed: number; // mm/s
@@ -16,6 +19,7 @@ interface ThermalAccumulationProps {
  * Shows temperature buildup and cooling between passes
  */
 export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
+  materialName,
   power,
   repRate,
   scanSpeed,
@@ -155,18 +159,19 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
     temp: calculateTemperature(i * timeStep),
   }));
 
+  const title = materialName ? `${materialName} Thermal Accumulation` : "Thermal Accumulation Simulator";
+  
   return (
-    <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-6 mb-8">
-      {/* Header */}
-      <div className="mb-6">
-        <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-          <span className="animate-pulse">🔥</span>
-          Thermal Accumulation Simulator
-        </h3>
-        <p className="text-sm text-gray-400">
-          See if your multi-pass cleaning will overheat and damage the material
-        </p>
-      </div>
+    <SectionContainer
+      title={title}
+      icon={getSectionIcon('technical')}
+      bgColor="transparent"
+      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
+      horizPadding={true}
+    >
+      <p className="text-sm text-gray-300 mb-6">
+        See if your multi-pass cleaning will overheat and damage the material
+      </p>
 
       <div className="grid lg:grid-cols-[1fr,350px] gap-6">
         {/* Temperature Graph */}
@@ -802,6 +807,6 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
           )}
         </div>
       </div>
-    </div>
+    </SectionContainer>
   );
 };

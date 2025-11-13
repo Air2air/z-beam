@@ -3,7 +3,9 @@
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import { BaseHeatmapProps, HoveredCell } from './types';
+import { interpolateColor } from '@/app/utils/colorUtils';
 
 /**
  * BaseHeatmap - Reusable heatmap visualization component
@@ -28,6 +30,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   materialProperties,
   title,
   description,
+  icon,
   gridRows = 20,
   gridCols = 20,
   calculateScore,
@@ -93,28 +96,6 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   };
 
   /**
-   * Color interpolation between two hex colors
-   */
-  const interpolateColor = (color1: string, color2: string, factor: number): string => {
-    const c1 = parseInt(color1.slice(1), 16);
-    const c2 = parseInt(color2.slice(1), 16);
-    
-    const r1 = (c1 >> 16) & 0xff;
-    const g1 = (c1 >> 8) & 0xff;
-    const b1 = c1 & 0xff;
-    
-    const r2 = (c2 >> 16) & 0xff;
-    const g2 = (c2 >> 8) & 0xff;
-    const b2 = c2 & 0xff;
-    
-    const r = Math.round(r1 + (r2 - r1) * factor);
-    const g = Math.round(g1 + (g2 - g1) * factor);
-    const b = Math.round(b1 + (b2 - b1) * factor);
-    
-    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
-  };
-
-  /**
    * Map level (1-25) to color using configured anchors
    * Smoothly interpolates between anchor points
    */
@@ -148,6 +129,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   return (
     <SectionContainer
       title={title}
+      icon={icon}
       bgColor="transparent"
       className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}

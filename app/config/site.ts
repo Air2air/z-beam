@@ -285,6 +285,7 @@ export const BUSINESS_CONFIG = {
     facebook: "https://www.facebook.com/profile.php?id=61573280533272",
     twitter: "https://x.com/ZBeamLaser",
     youtube: "https://www.youtube.com/@Z-Beam",
+    yelp: "https://www.yelp.com/biz/z-beam-belmont",
     
     handles: {
       twitter: "ZBeamLaser",
@@ -700,7 +701,8 @@ export function generateOrganizationSchema() {
       BUSINESS_CONFIG.social.linkedin,
       BUSINESS_CONFIG.social.facebook,
       BUSINESS_CONFIG.social.twitter,
-      BUSINESS_CONFIG.social.youtube
+      BUSINESS_CONFIG.social.youtube,
+      BUSINESS_CONFIG.social.yelp
     ].filter(Boolean),
     
     "foundingDate": BUSINESS_CONFIG.legal.foundingDate,

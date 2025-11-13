@@ -2,7 +2,7 @@
 
 **Complete documentation for the Z-Beam laser cleaning application.**
 
-Last Updated: October 15, 2025 | [Changelog](CHANGELOG.md) | [Consolidation Plan](DOCUMENTATION_CONSOLIDATION_PLAN.md)
+Last Updated: November 12, 2025 | [Changelog](CHANGELOG.md) | [Security](SECURITY.md) | [Analytics](ANALYTICS.md)
 
 ---
 
@@ -10,8 +10,9 @@ Last Updated: October 15, 2025 | [Changelog](CHANGELOG.md) | [Consolidation Plan
 
 **New to Z-Beam?** Start here:
 - **[Quick Start Guide](./quick-start/README.md)** - Get up and running in 5 minutes
-- **[Development Setup](./development/README.md)** - Set up your development environment  
-- **[Deployment Guide](./deployment/README.md)** - Deploy to production
+- **[Development Setup](./development/)** - Set up your development environment  
+- **[Deployment Guide](./deployment/)** - Deploy to production
+- **[Analytics](./ANALYTICS.md)** - Google Analytics 4 event tracking
 
 ---
 
@@ -31,18 +32,24 @@ Major application features:
 ### 🏗️ [Architecture](./architecture/)  
 System design and patterns:
 - **[Static Pages](./architecture/static-pages/)** - Page architecture
+- **[JSON-LD Schemas](./architecture/jsonld/)** - Structured data
+- **[Frontmatter](./architecture/frontmatter/)** - Content metadata
+- **[URLs](./architecture/urls/)** - URL structure and routing
 - **[Type System](./architecture/)** - TypeScript types
-- **[CSS Architecture](./architecture/)** - Styling system
 
 ### 🎨 [Systems](./systems/)
 Core utilities:
 - **[Font System](./systems/fonts/)** - Typography  
 - **[Semantic HTML](./systems/semantic/)** - Markup patterns
+- **[Performance](./systems/performance/)** - Core Web Vitals optimization
+- **[SEO](./systems/seo/)** - Rich results and web standards
+- **[Monitoring](./systems/monitoring/)** - Process monitoring
 - **[Tag System](./tag-system/)** - Content tagging
 
 ### 📖 [Guides](./guides/)
 How-to documentation:
 - **[Accessibility](./guides/accessibility/)** - WCAG 2.1 AA compliance
+- **[Booking Integration](./guides/)** - Calendar booking setup
 - **[Development](./development/)** - Developer workflows
 - **[Deployment](./deployment/)** - Deployment procedures
 
@@ -66,21 +73,22 @@ Test documentation:
 - [Naming Conventions](./NAMING_QUICK_REFERENCE.md)
 
 ### Recent Updates
+- **Nov 12, 2025**: Documentation cleanup (74 → 4 root files, 95% reduction)
+- **Nov 12, 2025**: Analytics docs updated with booking events
+- **Nov 12, 2025**: Test suite: 1,867 passing (91.9% pass rate)
 - **Oct 15, 2025**: MetricsCard vertical redesign complete
-- **Oct 15, 2025**: Documentation consolidation (256 → organized structure)
-- **Oct 15, 2025**: 1,270 tests passing
 
 ---
 
 ## 📊 Documentation Stats
 
-- **Total Documents**: ~240 markdown files
-- **Root Files**: 4 (clean!)
-- **Archived**: 160+ historical documents
-- **Components**: 16 documented
-- **Features**: 13 documented  
-- **Systems**: 10 documented
-- **Guides**: 17 guides available
+- **Total Documents**: 283 markdown files
+- **Root Files**: 4 (95% reduction from 74)
+- **Archived**: 40+ historical documents in organized structure
+- **Component Docs**: 16 documented components
+- **Feature Docs**: Categorized properties, thermal properties, breadcrumbs
+- **System Docs**: Fonts, semantic, performance, SEO, monitoring
+- **Guides**: Accessibility, booking, development, deployment
 
 ---
 
@@ -89,9 +97,9 @@ Test documentation:
 ```
 docs/
 ├── README.md                           # This file
-├── NAMING_QUICK_REFERENCE.md           # Property naming conventions
-├── GROK_INSTRUCTIONS.md                # AI assistant guidelines
-├── DOCUMENTATION_CONSOLIDATION_PLAN.md # Consolidation details
+├── CHANGELOG.md                        # Documentation changelog
+├── SECURITY.md                         # Security guidelines
+├── ANALYTICS.md                        # Google Analytics setup
 │
 ├── components/                         # Component documentation
 │   ├── MetricsCard/docs/              # MetricsCard system
@@ -105,11 +113,17 @@ docs/
 │
 ├── architecture/                       # Architecture docs
 │   ├── static-pages/                  # Page architecture
+│   ├── jsonld/                        # JSON-LD schemas
+│   ├── frontmatter/                   # Frontmatter structure
+│   ├── urls/                          # URL architecture
 │   └── ...
 │
 ├── systems/                            # System documentation
 │   ├── fonts/                         # Font system
 │   ├── semantic/                      # Semantic HTML
+│   ├── performance/                   # Core Web Vitals
+│   ├── seo/                           # SEO & rich results
+│   ├── monitoring/                    # Process monitoring
 │   └── ...
 │
 ├── guides/                             # How-to guides
@@ -123,11 +137,14 @@ docs/
 ├── reference/                          # API references
 ├── tag-system/                         # Tag documentation
 │
+├── implementations/                    # Implementation guides
+├── pages/                              # Page-specific docs
+│
 └── archived/                           # Historical documents
     ├── phase-reports/                 # Project phases
-    ├── naming-project/                # Naming project
-    ├── evaluations/                   # Analyses
-    └── migrations/                    # Migrations
+    ├── summaries/                     # Completion summaries
+    ├── evaluations/                   # Analyses & audits
+    └── 2025-proposals/                # Archived proposals
 ```
 
 ---
@@ -176,13 +193,16 @@ docs/
 
 ## 📧 Need Help?
 
-- Can't find docs? Check [archived/](./archived/)
-- Quick lookup? See [NAMING_QUICK_REFERENCE.md](./NAMING_QUICK_REFERENCE.md)
-- Component info? Browse [components/](./components/)
-- System details? Check [systems/](./systems/) or [architecture/](./architecture/)
+- **Can't find docs?** Check [archived/](./archived/)
+- **Quick references?** Browse [reference/](./reference/)
+- **Component info?** See [components/](./components/)
+- **System details?** Check [systems/](./systems/) or [architecture/](./architecture/)
+- **Analytics setup?** Read [ANALYTICS.md](./ANALYTICS.md)
+- **Security?** See [SECURITY.md](./SECURITY.md)
 
 ---
 
-**Version**: 2.0 (Post-consolidation)  
+**Version**: 2.1 (Post-cleanup)  
 **Status**: ✅ Organized & Maintained  
-**Last Major Update**: October 15, 2025
+**Last Major Cleanup**: November 12, 2025  
+**Root Files**: 4 (ANALYTICS, CHANGELOG, README, SECURITY)

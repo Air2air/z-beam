@@ -4,6 +4,8 @@
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/metricsCardHelpers";
 import { SectionContainerDark } from "@/app/components/SectionContainer/SectionContainerDark";
+import { getSectionIcon } from "@/app/config/sectionIcons";
+import { darkenColor } from "@/app/utils/colorUtils";
 import type {
   NetworkParameter,
   ParameterRelationship,
@@ -469,27 +471,6 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
     }
   };
 
-  const darkenColor = (hex: string, percent: number = 30): string => {
-    // Remove # if present
-    hex = hex.replace("#", "");
-
-    // Parse RGB
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    // Darken by percentage
-    const factor = (100 - percent) / 100;
-    const newR = Math.round(r * factor);
-    const newG = Math.round(g * factor);
-    const newB = Math.round(b * factor);
-
-    // Convert back to hex
-    return `#${newR.toString(16).padStart(2, "0")}${newG
-      .toString(16)
-      .padStart(2, "0")}${newB.toString(16).padStart(2, "0")}`;
-  };
-
   const hexToRgba = (hex: string, alpha: number): string => {
     // Remove # if present
     hex = hex.replace("#", "");
@@ -656,6 +637,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
   return (
     <SectionContainerDark
       title="Parameter Relationships"
+      icon={getSectionIcon('machine-settings')}
     >
       <div className="space-y-6">
         {/* Header Description */}

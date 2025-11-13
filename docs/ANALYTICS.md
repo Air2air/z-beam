@@ -249,6 +249,36 @@ If parameters don't appear in GA4:
 2. Wait 24-48 hours for auto-discovery
 3. Create custom dimensions manually if needed
 
+### Booking Event
+
+**Event Name:** `booking_cta_clicked`
+
+**Event Parameters:**
+
+| Parameter | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `event_category` | string | Always "Booking" | `"Booking"` |
+| `location` | string | Where the CTA appears | `"material-page"`, `"homepage"` |
+| `material` | string | Material context (if applicable) | `"Porphyry"` |
+| `cta_text` | string | Button text clicked | `"Schedule Consultation"` |
+
+**Event Name:** `booking_calendar_viewed`
+
+**Event Parameters:**
+
+| Parameter | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `event_category` | string | Always "Booking" | `"Booking"` |
+
+**Event Name:** `booking_calendar_loaded`
+
+**Event Parameters:**
+
+| Parameter | Type | Description | Example |
+|-----------|------|-------------|---------|
+| `event_category` | string | Always "Booking" | `"Booking"` |
+| `status` | string | Load status | `"success"`, `"error"` |
+
 ## Future Enhancements
 
 Potential additions:
@@ -256,6 +286,7 @@ Potential additions:
 - Search query tracking (what users search before downloading)
 - Download completion rate (initiated vs completed)
 - Dataset quality metrics (user feedback integration)
+- Booking conversion funnel (CTA click → calendar view → calendar load → submission)
 
 ## References
 

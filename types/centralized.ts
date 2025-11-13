@@ -2755,6 +2755,7 @@ export interface SettingsMetadata {
   author?: AuthorInfo;
   datePublished?: string;
   dateModified?: string;
+  breadcrumb?: BreadcrumbItem[];
   
   // Legacy format support (machineSettings.essential_parameters)
   machineSettings?: EnhancedMachineSettings;
@@ -2950,6 +2951,82 @@ export interface HeatmapProps {
   optimalPower: [number, number];
   optimalPulse: [number, number];
   materialProperties?: HeatmapMaterialProperties;
+}
+
+/**
+ * Range specification for heatmap axes
+ */
+export interface HeatmapRange {
+  min: number;
+  max: number;
+  current: number;
+}
+
+/**
+ * Analysis data for a heatmap cell
+ */
+export interface HeatmapCellAnalysis {
+  level: number;
+  finalScore: number;
+  [key: string]: any; // Allow arbitrary analysis data
+}
+
+/**
+ * Currently hovered cell in heatmap
+ */
+export interface HeatmapHoveredCell {
+  power: number;
+  pulse: number;
+  analysis?: HeatmapCellAnalysis;
+}
+
+/**
+ * Color anchor point for heatmap gradient
+ */
+export interface HeatmapColorAnchor {
+  level: number;
+  color: string;
+}
+
+/**
+ * Legend item for heatmap
+ */
+export interface HeatmapLegendItem {
+  color: string;
+  label: string;
+  range?: string;
+}
+
+/**
+ * Base props for heatmap components
+ */
+export interface BaseHeatmapProps {
+  powerRange: HeatmapRange;
+  pulseRange: HeatmapRange;
+  optimalPower: [number, number];
+  optimalPulse: [number, number];
+  materialProperties?: HeatmapMaterialProperties;
+  title: string;
+  description?: string;
+  icon?: React.ReactNode;
+  gridRows?: number;
+  gridCols?: number;
+  
+  // Required callback for calculating cell scores
+  calculateScore: (power: number, pulse: number, materialProperties?: HeatmapMaterialProperties) => { level: number; analysis: HeatmapCellAnalysis };
+  
+  // Color mapping configuration
+  colorAnchors: HeatmapColorAnchor[];
+  
+  // UI customization
+  getScoreLabel: (level: number) => string;
+  legendItems: HeatmapLegendItem[];
+  
+  // Optional: Custom analysis panel renderer
+  renderAnalysisPanel?: (hoveredCell: HeatmapHoveredCell | null, currentPower: number, currentPulse: number) => React.ReactNode;
+  
+  // Optional: Footer description
+  footerDescription?: React.ReactNode;
 }
 
 // ============================================================================

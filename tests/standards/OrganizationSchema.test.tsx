@@ -125,7 +125,7 @@ describe('Organization Schema Implementation', () => {
       schema.sameAs.forEach((url: string) => {
         expect(url).toMatch(/^https?:\/\//);
         // Should be from known social platforms (including X.com for Twitter)
-        expect(url).toMatch(/linkedin|instagram|facebook|twitter|youtube|x\.com/i);
+        expect(url).toMatch(/linkedin|instagram|facebook|twitter|youtube|x\.com|yelp/i);
       });
     });
 

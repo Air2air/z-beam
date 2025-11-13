@@ -107,6 +107,10 @@ interface PropertyBarsProps {
   className?: string;
   showTitle?: boolean; // For compatibility, not used
   searchable?: boolean; // For compatibility, not used
+  
+  // Action button for section header
+  actionText?: string;
+  actionUrl?: string;
 }
 
 /**
@@ -132,7 +136,9 @@ export function PropertyBars({
   dataSource = 'materialProperties',
   columns = { mobile: 3, tablet: 4, desktop: 6 },
   height = 70,
-  className = ''
+  className = '',
+  actionText,
+  actionUrl
 }: PropertyBarsProps) {
   
   // Check if we have grouped properties in metadata
@@ -168,6 +174,8 @@ export function PropertyBars({
             title={group.label}
             icon={getSectionIcon('material-properties')}
             className="mb-8"
+            actionText={actionText}
+            actionUrl={actionUrl}
           >
             <PropertyBarsGrid 
               properties={group.properties}

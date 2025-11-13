@@ -5,6 +5,7 @@ import React, { useState, useMemo } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import type { HeatmapProps } from '@/types/centralized';
+import { interpolateColor } from '@/app/utils/colorUtils';
 
 /**
  * Process Effectiveness Heatmap - Shows CLEANING PERFORMANCE ONLY
@@ -116,25 +117,6 @@ export const ProcessEffectivenessHeatmap: React.FC<HeatmapProps> = ({
       return Math.round(level);
     };
   }, [materialProperties, powerRange, pulseRange, optimalPower, optimalPulse]);
-
-  const interpolateColor = (color1: string, color2: string, factor: number): string => {
-    const c1 = parseInt(color1.slice(1), 16);
-    const c2 = parseInt(color2.slice(1), 16);
-    
-    const r1 = (c1 >> 16) & 0xff;
-    const g1 = (c1 >> 8) & 0xff;
-    const b1 = c1 & 0xff;
-    
-    const r2 = (c2 >> 16) & 0xff;
-    const g2 = (c2 >> 8) & 0xff;
-    const b2 = c2 & 0xff;
-    
-    const r = Math.round(r1 + (r2 - r1) * factor);
-    const g = Math.round(g1 + (g2 - g1) * factor);
-    const b = Math.round(b1 + (b2 - b1) * factor);
-    
-    return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, '0')}`;
-  };
 
   const getEffectivenessColor = (level: number): string => {
     // RED (ineffective) → YELLOW (suboptimal) → GREEN (optimal)

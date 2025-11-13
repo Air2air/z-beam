@@ -285,14 +285,14 @@ describe('Hero Component', () => {
       render(
         <Hero 
           frontmatter={{
-            video: 'valid-id',
-            image: '/fallback.jpg'
+            video: { id: 'valid-id' },
+            images: { hero: { url: '/fallback.jpg', alt: 'Test' } }
           }}
         />
       );
       
       // Should show video, not image
-      const iframe = screen.getByTitle(/Video content/);
+      const iframe = screen.getByTitle(/Video content/i);
       expect(iframe).toBeInTheDocument();
       expect(iframe).toHaveAttribute('src', expect.stringContaining('youtube.com/embed/valid-id'));
       expect(screen.queryByTestId('next-image')).not.toBeInTheDocument();
