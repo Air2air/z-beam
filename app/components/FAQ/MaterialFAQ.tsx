@@ -10,7 +10,7 @@
 // app/components/FAQ/MaterialFAQ.tsx
 "use client";
 
-import { SectionContainer } from "../SectionContainer/SectionContainer";
+import { SectionContainerDefault } from "../SectionContainer/SectionContainerDefault";
 import { trackFAQClick } from "@/app/utils/analytics";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import { useRef } from "react";
@@ -61,11 +61,9 @@ export function MaterialFAQ({
   };
 
   return (
-    <SectionContainer 
+    <SectionContainerDefault
       title={`${materialName} Laser Cleaning FAQs`}
       icon={getSectionIcon('faq')}
-      bgColor="transparent"
-      radius={false}
     >
       <div className="space-y-2" role="list">
         {faq.map((item, index) => (
@@ -112,7 +110,7 @@ export function MaterialFAQ({
           </div>
         ))}
       </div>
-    </SectionContainer>
+    </SectionContainerDefault>
   );
 }
 

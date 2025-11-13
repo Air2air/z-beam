@@ -19,7 +19,6 @@ import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
-import { DateMetadata } from '../DateMetadata/DateMetadata';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { SafetyWarning } from '../SafetyWarning';
 
@@ -159,10 +158,6 @@ export function Layout(props: LayoutProps) {
             frontmatter={metadata}
             showAvatar showCredentials showCountry showSpecialties
             className="mt-2 mb-4"
-          />
-          <DateMetadata 
-            datePublished={metadata?.datePublished}
-            lastModified={metadata?.lastModified}
           />
 
           {metadata?.machineSettings && (

@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { SectionContainerDark } from '@/app/components/SectionContainer/SectionContainerDark';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import { trackDatasetDownload } from '@/app/utils/analytics';
@@ -132,11 +132,8 @@ export default function SubcategoryDatasetWrapper({
   ];
 
   return (
-    <SectionContainer 
+    <SectionContainerDark
       title={`${subcategoryLabel} Dataset Download`}
-      bgColor="navbar" 
-      horizPadding={true} 
-      radius={true}
       icon={getSectionIcon('dataset')}
     >
       <DatasetSection
