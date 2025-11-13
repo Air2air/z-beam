@@ -9,11 +9,9 @@ import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
-import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
-import { FiPackage } from "react-icons/fi";
 import type { PageProps } from "@/types";
 
 export const dynamic = 'force-static';
@@ -156,29 +154,21 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
             </div>
           )}
           
-          <SectionContainer 
-            title={`${(article.metadata.title as string) || slug} Dataset Download`} 
-            bgColor="navbar" 
-            horizPadding={true} 
-            radius={true}
-            icon={<FiPackage className="w-6 h-6 text-white" />}
-          >
-            <MaterialDatasetCardWrapper 
-              material={{
-                name: (article.metadata.title as string) || slug,
-                slug: slug,
-                category: category,
-                subcategory: subcategory,
-                parameters: (article.metadata as any).parameters,
-                materialProperties: (article.metadata as any).materialProperties,
-                applications: (article.metadata as any).applications,
-                faq: (article.metadata as any).faq,
-                regulatoryStandards: (article.metadata as any).regulatoryStandards,
-                machineSettings: (article.metadata as any).machineSettings
-              }}
-              showFullDataset={true}
-            />
-          </SectionContainer>
+          <MaterialDatasetCardWrapper 
+            material={{
+              name: (article.metadata.title as string) || slug,
+              slug: slug,
+              category: category,
+              subcategory: subcategory,
+              parameters: (article.metadata as any).parameters,
+              materialProperties: (article.metadata as any).materialProperties,
+              applications: (article.metadata as any).applications,
+              faq: (article.metadata as any).faq,
+              regulatoryStandards: (article.metadata as any).regulatoryStandards,
+              machineSettings: (article.metadata as any).machineSettings
+            }}
+            showFullDataset={true}
+          />
         </Layout>
       </>
     );

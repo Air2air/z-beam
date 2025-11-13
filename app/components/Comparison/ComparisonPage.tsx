@@ -7,16 +7,16 @@ import { Badge } from '../Badge/Badge';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import Link from 'next/link';
 import { 
-  FiInfo, 
-  FiTrendingUp, 
-  FiLayers, 
-  FiZap, 
-  FiBarChart2,
-  FiFilter,
-  FiDownload,
-  FiCheck,
-  FiAlertCircle
-} from 'react-icons/fi';
+  InfoIcon, 
+  TrendingUpIcon, 
+  LayersIcon, 
+  ZapIcon, 
+  BarChartIcon,
+  FilterIcon,
+  DownloadIcon,
+  CheckCircleIcon,
+  AlertCircleIcon
+} from '@/app/components/Buttons';
 
 interface ComparisonPageProps {
   data: any;
@@ -112,7 +112,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-4">
           <Badge variant="primary">
-            <FiBarChart2 className="w-4 h-4" />
+            <BarChartIcon className="w-4 h-4" />
             Material Comparison
           </Badge>
           {data.comparison_version && (
@@ -158,7 +158,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
       {/* Filters & Controls */}
       <SectionContainer
         title="Comparison Controls"
-        icon={<FiFilter className="w-6 h-6" />}
+        icon={<FilterIcon className="w-6 h-6" />}
         bgColor="gray-50"
         horizPadding={true}
         radius={true}
@@ -180,7 +180,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
                       : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400'
                   }`}
                 >
-                  {selectedProperties.includes(prop) && <FiCheck className="inline w-4 h-4 mr-1" />}
+                  {selectedProperties.includes(prop) && <CheckCircleIcon className="inline w-4 h-4 mr-1" />}
                   {prop.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
                 </button>
               ))}
@@ -197,7 +197,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
               <button
                 className="px-4 py-2 rounded-lg border-2 bg-blue-600 border-blue-600 text-white cursor-not-allowed"
               >
-                <FiCheck className="inline w-4 h-4 mr-1" />
+                <CheckCircleIcon className="inline w-4 h-4 mr-1" />
                 {granite.name} (Baseline)
               </button>
               
@@ -211,7 +211,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
                       : 'bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-400'
                   }`}
                 >
-                  {selectedMaterials.includes(material.name) && <FiCheck className="inline w-4 h-4 mr-1" />}
+                  {selectedMaterials.includes(material.name) && <CheckCircleIcon className="inline w-4 h-4 mr-1" />}
                   {material.name}
                 </button>
               ))}
@@ -253,7 +253,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
       {selectedProperties.length > 0 && (
         <SectionContainer
           title="Grouped Property Comparison"
-          icon={<FiBarChart2 className="w-6 h-6" />}
+          icon={<BarChartIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
@@ -453,7 +453,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
       {data.comparison_charts?.laser_parameters_heatmap && (
         <SectionContainer
           title="Laser Parameter Requirements"
-          icon={<FiZap className="w-6 h-6" />}
+          icon={<ZapIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
@@ -572,7 +572,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
       {/* Material Suitability Score Timeline */}
       <SectionContainer
         title="Material Suitability Score Calculator"
-        icon={<FiTrendingUp className="w-6 h-6" />}
+        icon={<TrendingUpIcon className="w-6 h-6" />}
         bgColor="gray-50"
         horizPadding={true}
         radius={true}
@@ -839,7 +839,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
           {/* Interpretation Guide */}
           <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
             <div className="flex items-start gap-3">
-              <FiInfo className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+              <InfoIcon className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
               <div className="space-y-2">
                 <h4 className="font-semibold text-blue-900 dark:text-blue-200">
                   How to Use This Tool:
@@ -868,7 +868,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
           {/* Introduction */}
           <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-lg border border-purple-200 dark:border-purple-800">
             <div className="flex items-start gap-4">
-              <FiLayers className="w-6 h-6 text-purple-600 dark:text-purple-400 mt-1 flex-shrink-0" />
+              <LayersIcon className="w-6 h-6 text-purple-600 dark:text-purple-400 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="text-xl font-semibold text-purple-900 dark:text-purple-200 mb-3">
                   Proposal: System-Wide Adoption of Grouped Property Charts
@@ -904,7 +904,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
             {/* Current State */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
               <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-                <FiBarChart2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                <BarChartIcon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                 Current: MetricsCard Grid
               </h4>
               <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
@@ -938,32 +938,32 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
             {/* Proposed State */}
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
               <h4 className="text-lg font-semibold text-green-900 dark:text-green-100 mb-4 flex items-center gap-2">
-                <FiTrendingUp className="w-5 h-5 text-green-600 dark:text-green-400" />
+                <TrendingUpIcon className="w-5 h-5 text-green-600 dark:text-green-400" />
                 Proposed: Grouped Property Charts
               </h4>
               <div className="space-y-3 text-sm text-green-800 dark:text-green-300">
                 <div className="flex items-start gap-2">
-                  <FiCheck className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircleIcon className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                   <span><strong>Same properties</strong> = 200px vertical space (-68%)</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FiCheck className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircleIcon className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Multi-material comparison built-in</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FiCheck className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircleIcon className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Interactive tooltips with detailed values</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FiCheck className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircleIcon className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                   <span>View mode toggle (absolute/relative)</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FiCheck className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircleIcon className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Dynamic property selection (unlimited)</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <FiCheck className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                  <CheckCircleIcon className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                   <span>Good for: comparisons, analytics, property exploration</span>
                 </div>
               </div>
@@ -973,7 +973,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
           {/* Implementation Plan */}
           <div className="bg-white dark:bg-gray-800 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
             <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-              <FiZap className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+              <ZapIcon className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
               4-Phase Implementation Plan
             </h4>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1050,7 +1050,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
           {/* Recommendation */}
           <div className="bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 p-6 rounded-lg border border-blue-200 dark:border-blue-800">
             <div className="flex items-start gap-4">
-              <FiAlertCircle className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
+              <AlertCircleIcon className="w-6 h-6 text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0" />
               <div>
                 <h4 className="text-lg font-semibold text-blue-900 dark:text-blue-200 mb-3">
                   Hybrid Approach Recommendation
@@ -1085,7 +1085,7 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
           {/* Creative Design Alternative */}
           <div className="mt-12 pt-12 border-t-2 border-gray-200 dark:border-gray-700">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 flex items-center gap-3">
-              <FiZap className="w-7 h-7 text-yellow-500" />
+              <ZapIcon className="w-7 h-7 text-yellow-500" />
               PropertyBars Component: Compact Three-Bar Visualization
             </h3>
             
@@ -1108,35 +1108,35 @@ export function ComparisonPage({ data, category, subcategory, materialSlug }: Co
             {/* Design notes */}
             <div className="mt-8 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-lg border border-indigo-200 dark:border-indigo-800">
               <h4 className="font-semibold text-indigo-900 dark:text-indigo-200 mb-3 flex items-center gap-2">
-                <FiInfo className="w-5 h-5" />
+                <InfoIcon className="w-5 h-5" />
                 Design Features
               </h4>
               <div className="grid md:grid-cols-2 gap-4 text-sm text-indigo-800 dark:text-indigo-300">
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <FiCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span><strong>Three-bar design</strong> shows min/value/max instantly</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <FiCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span><strong>Color gradients</strong> distinguish properties at a glance</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <FiCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span><strong>Unit badges</strong> overlay prevents text wrapping</span>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <FiCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span><strong>89% space savings</strong> vs traditional MetricsCard grid</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <FiCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span><strong>Responsive grid</strong> adapts to 3/4/6 columns</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <FiCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <CheckCircleIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-400 mt-0.5 flex-shrink-0" />
                     <span><strong>Drop-in replacement</strong> for MetricsGrid component</span>
                   </div>
                 </div>

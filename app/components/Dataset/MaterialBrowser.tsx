@@ -2,8 +2,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { FiSearch, FiDownload, FiFilter, FiX } from 'react-icons/fi';
-import { BsFiletypeJson, BsFiletypeCsv, BsFiletypeTxt } from 'react-icons/bs';
+import { SearchIcon, DownloadIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
 import type { MaterialBrowserProps, DatasetMaterial } from '@/types/centralized';
@@ -96,7 +95,7 @@ export default function MaterialBrowser({
     <div className="material-browser-filters space-y-4">
       {/* Search */}
       <div className="relative">
-        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         <input
           type="text"
           placeholder="Search materials..."
@@ -109,7 +108,7 @@ export default function MaterialBrowser({
             onClick={() => handleSearchChange('')}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
           >
-            <FiX className="w-5 h-5" />
+            <XIcon className="w-5 h-5" />
           </button>
         )}
       </div>
@@ -118,7 +117,7 @@ export default function MaterialBrowser({
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            <FiFilter className="inline w-4 h-4 mr-1" />
+            <FilterIcon className="inline w-4 h-4 mr-1" />
             Category
           </label>
           <select
@@ -200,7 +199,7 @@ export default function MaterialBrowser({
       {filteredMaterials.length === 0 && (
         <div className="text-center py-12 col-span-full">
           <div className="text-gray-400 dark:text-gray-600 mb-4">
-            <FiSearch className="w-16 h-16 mx-auto" />
+            <SearchIcon className="w-16 h-16 mx-auto" />
           </div>
           <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
             No materials found

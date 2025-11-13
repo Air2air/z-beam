@@ -7,7 +7,6 @@ import { createMetadata } from '@/app/utils/metadata';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -207,18 +206,13 @@ export default async function MaterialsPage() {
         metadata={metadata as any}
         slug="materials"
       >
-        <SectionContainer 
-          title="" 
-          bgColor="transparent" 
-          radius={false} 
-          className="mb-8"
-        >
+        <div className="mb-8">
           <CardGridSSR
             items={categoryCards}
             columns={3}
             variant="default"
           />
-        </SectionContainer>
+        </div>
       </Layout>
     </>
   );

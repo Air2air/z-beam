@@ -911,53 +911,154 @@ export const loadComponentData = cache(async (type: string, slug: string): Promi
 // cannot re-export sync functions from server action files
 
 /**
- * SETTINGS PAGE LOADER - Load enhanced machine settings YAML files
- * Loads settings files from /content/settings/ directory
- * Returns SettingsMetadata with enhanced parameter structure
+ * SETTINGS PAGE LOADER - Enhanced for HYBRID frontmatter approach
+ * 
+ * Supports two loading strategies:
+ * 1. Separate settings file: /frontmatter/settings/{material}-settings.yaml
+ * 2. Hybrid materials file: /frontmatter/materials/{material}.yaml with settings_page section
+ * 
+ * Priority: Checks separate settings file first, falls back to materials file settings_page data
+ * 
+ * Returns SettingsMetadata with enhanced parameter structure including:
+ * - Essential parameters for ParameterRelationships component
+ * - Heatmap configuration data
+ * - Material challenges for DiagnosticCenter
+ * - Research library for Citations component
+ * - Material properties (from materials file)
  */
 export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMetadata | null> => {
   return safeContentOperation(async () => {
-    // Secure path construction
-    const settingsDir = path.join(process.cwd(), 'content', 'settings');
+    let data: any = null;
+    let materialProperties: any = null;
+    let sourceType: 'settings' | 'hybrid' = 'settings';
+    
+    // STRATEGY 1: Try loading separate settings file first
+    const settingsDir = path.join(process.cwd(), 'frontmatter', 'settings');
     const settingsPath = path.join(settingsDir, `${slug}.yaml`);
     
-    // Validate constructed path for security
-    validateFilePath(settingsPath, [settingsDir]);
-    
-    if (!existsSync(settingsPath)) {
-      console.warn(`Settings file not found: ${slug}.yaml`);
-      return null;
+    if (existsSync(settingsPath)) {
+      validateFilePath(settingsPath, [settingsDir]);
+      const fileContent = readFileSync(settingsPath, 'utf8');
+      
+      try {
+        const yaml = await import('js-yaml');
+        data = yaml.load(fileContent) as any;
+        
+        // If materialRef is present, load referenced material properties
+        if (data?.materialRef) {
+          console.log(`[Settings] Loading material reference: ${data.materialRef}`);
+          try {
+            const materialArticle = await getArticleBySlug(`materials/${data.materialRef}`) as any;
+            if (materialArticle?.materialProperties) {
+              materialProperties = materialArticle.materialProperties;
+              console.log(`[Settings] Successfully loaded material properties from ${data.materialRef}`);
+            }
+          } catch (matError) {
+            console.error(`[Settings] Failed to load material reference ${data.materialRef}:`, matError);
+          }
+        }
+        
+        console.log(`[Settings] Loaded from separate settings file: ${slug}.yaml`);
+      } catch (parseError) {
+        console.error(`Failed to parse settings YAML for ${slug}:`, parseError);
+      }
     }
     
-    const fileContent = readFileSync(settingsPath, 'utf8');
-    
-    try {
-      // Parse as pure YAML
-      const yaml = await import('js-yaml');
-      const data = yaml.load(fileContent) as any;
+    // STRATEGY 2: If no separate settings file, check materials file for settings_page data
+    if (!data) {
+      console.log(`[Settings] No separate settings file found, checking materials file for hybrid data`);
       
-      if (!data) {
-        console.warn(`Empty settings file: ${slug}.yaml`);
+      try {
+        // Load the materials file frontmatter
+        const materialsData = await loadFrontmatterDataInline(slug);
+        
+        if (materialsData && materialsData.settings_page) {
+          console.log(`[Settings] Found settings_page data in materials file: ${slug}.yaml`);
+          
+          // Extract settings data from materials file
+          data = {
+            name: materialsData.name,
+            category: materialsData.category,
+            subcategory: materialsData.subcategory,
+            author: materialsData.author,
+            datePublished: materialsData.datePublished,
+            dateModified: materialsData.dateModified,
+            // Settings-specific metadata from settings_page section
+            title: (materialsData.settings_page as any).title,
+            subtitle: (materialsData.settings_page as any).subtitle,
+            description: (materialsData.settings_page as any).description,
+            // Component data from materials file
+            essential_parameters: materialsData.essential_parameters,
+            heatmap_config: materialsData.heatmap_config,
+            thermal_accumulation: materialsData.thermal_accumulation,
+            material_challenges: materialsData.material_challenges,
+            common_issues: materialsData.common_issues,
+            research_library: materialsData.research_library,
+            // Legacy machine settings for backward compatibility
+            machineSettings: materialsData.machineSettings,
+          };
+          
+          // Material properties are already in the same file
+          materialProperties = materialsData.materialProperties;
+          sourceType = 'hybrid';
+          
+          console.log(`[Settings] Hybrid approach: Loaded settings data from materials file`);
+        } else {
+          console.warn(`[Settings] No settings data found for ${slug} (checked both locations)`);
+          return null;
+        }
+      } catch (matError) {
+        console.error(`[Settings] Failed to load materials file for hybrid approach:`, matError);
         return null;
       }
-      
-      // Return as SettingsMetadata type
-      return {
-        name: data.name,
-        category: data.category,
-        subcategory: data.subcategory,
-        title: data.title,
-        subtitle: data.subtitle,
-        description: data.description,
-        slug,
-        author: data.author,
-        machineSettings: data.machineSettings,
-        seo_settings_page: data.seo_settings_page
-      } as SettingsMetadata;
-      
-    } catch (parseError) {
-      console.error(`Failed to parse settings YAML for ${slug}:`, parseError);
+    }
+    
+    if (!data) {
+      console.warn(`Settings data not found: ${slug}`);
       return null;
     }
+    
+    // Construct SettingsMetadata with all available data
+    return {
+      name: data.name,
+      materialRef: data.materialRef,
+      category: data.category,
+      subcategory: data.subcategory,
+      title: data.title,
+      subtitle: data.subtitle,
+      description: data.description,
+      slug,
+      author: data.author,
+      datePublished: data.datePublished,
+      dateModified: data.dateModified,
+      
+      // Component-specific data
+      components: data.components,
+      essential_parameters: data.essential_parameters,
+      heatmap_config: data.heatmap_config,
+      thermal_accumulation: data.thermal_accumulation,
+      material_challenges: data.material_challenges,
+      common_issues: data.common_issues,
+      
+      // Research and documentation
+      research_library: data.research_library,
+      equipment_requirements: data.equipment_requirements,
+      expected_outcomes: data.expected_outcomes,
+      
+      // Legacy support
+      machineSettings: data.machineSettings,
+      
+      // SEO and E-E-A-T
+      seo: data.seo || data.seo_settings_page,
+      eeat: data.eeat,
+      
+      // Attached data
+      _materialProperties: materialProperties,
+      _metadata: {
+        ...(data._metadata || {}),
+        sourceType, // Track whether data came from separate file or hybrid
+      }
+    } as SettingsMetadata;
+    
   }, null, 'getSettingsArticle', slug);
 });

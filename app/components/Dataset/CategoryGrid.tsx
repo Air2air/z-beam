@@ -4,29 +4,25 @@
 import React from 'react';
 import Link from 'next/link';
 import { 
-  FiBox, 
-  FiFeather, 
-  FiHexagon, 
-  FiSquare,
-  FiLayers,
-  FiGrid,
-  FiPackage,
-  FiZap,
-  FiCircle
-} from 'react-icons/fi';
+  PackageIcon, 
+  FileIcon, 
+  LayersIcon, 
+  ZapIcon,
+  InfoIcon
+} from '@/app/components/Buttons';
 import type { CategoryGridProps } from '@/types/centralized';
 
 const categoryIcons: Record<string, any> = {
-  metal: FiBox,
-  wood: FiFeather,
-  stone: FiHexagon,
-  glass: FiSquare,
-  composite: FiLayers,
-  ceramic: FiGrid,
-  plastic: FiPackage,
-  masonry: FiCircle,
-  'rare-earth': FiZap,
-  semiconductor: FiCircle
+  metal: PackageIcon,
+  wood: FileIcon,
+  stone: LayersIcon,
+  glass: FileIcon,
+  composite: LayersIcon,
+  ceramic: LayersIcon,
+  plastic: PackageIcon,
+  masonry: InfoIcon,
+  'rare-earth': ZapIcon,
+  semiconductor: InfoIcon
 };
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
@@ -55,7 +51,7 @@ export default function CategoryGrid({ categoryStats, materials }: CategoryGridP
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       {categories.map(([category, count]) => {
-        const Icon = categoryIcons[category] || FiBox;
+        const Icon = categoryIcons[category] || PackageIcon;
         const colors = categoryColors[category] || categoryColors.metal;
         
         return (

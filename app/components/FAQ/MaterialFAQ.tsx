@@ -12,6 +12,7 @@
 
 import { SectionContainer } from "../SectionContainer/SectionContainer";
 import { trackFAQClick } from "@/app/utils/analytics";
+import { getSectionIcon } from "@/app/config/sectionIcons";
 import { useRef } from "react";
 
 export interface MaterialFAQProps {
@@ -62,6 +63,7 @@ export function MaterialFAQ({
   return (
     <SectionContainer 
       title={`${materialName} Laser Cleaning FAQs`}
+      icon={getSectionIcon('faq')}
       bgColor="transparent"
       radius={false}
     >

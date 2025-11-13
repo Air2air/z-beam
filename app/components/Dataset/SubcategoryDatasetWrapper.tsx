@@ -2,6 +2,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import { trackDatasetDownload } from '@/app/utils/analytics';
 
@@ -130,17 +132,25 @@ export default function SubcategoryDatasetWrapper({
   ];
 
   return (
-    <DatasetSection
-      title={`${subcategoryLabel} ${categoryLabel} Dataset`}
-      description={`Download comprehensive laser cleaning parameters for ${materials.length} ${subcategoryLabel.toLowerCase()} ${categoryLabel.toLowerCase()} materials. Includes wavelength, power, fluence, thermal properties, and machine settings.`}
-      stats={stats}
-      formats={['json', 'csv', 'txt']}
-      onDownload={handleDownload}
-      getDirectLink={getDirectLink}
-      categoryLink={{
-        href: `/materials/${category}`,
-        label: `View all ${categoryLabel} materials`
-      }}
-    />
+    <SectionContainer 
+      title={`${subcategoryLabel} Dataset Download`}
+      bgColor="navbar" 
+      horizPadding={true} 
+      radius={true}
+      icon={getSectionIcon('dataset')}
+    >
+      <DatasetSection
+        title={`${subcategoryLabel} ${categoryLabel} Dataset`}
+        description={`Download comprehensive laser cleaning parameters for ${materials.length} ${subcategoryLabel.toLowerCase()} ${categoryLabel.toLowerCase()} materials. Includes wavelength, power, fluence, thermal properties, and machine settings.`}
+        stats={stats}
+        formats={['json', 'csv', 'txt']}
+        onDownload={handleDownload}
+        getDirectLink={getDirectLink}
+        categoryLink={{
+          href: `/materials/${category}`,
+          label: `View all ${categoryLabel} materials`
+        }}
+      />
+    </SectionContainer>
   );
 }

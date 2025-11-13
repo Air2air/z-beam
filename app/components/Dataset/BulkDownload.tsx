@@ -2,8 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FiDownload, FiPackage, FiCode, FiFileText } from 'react-icons/fi';
-import { BsFiletypeJson, BsFiletypeCsv } from 'react-icons/bs';
+import { DownloadIcon, PackageIcon, CodeIcon, FileTextIcon, FileIcon } from '@/app/components/Buttons';
 import { Button } from '@/app/components/Button';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
@@ -173,7 +172,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center space-x-3">
             <div className="p-3 bg-blue-600 rounded-lg">
-              <FiPackage className="w-6 h-6 text-white" />
+              <PackageIcon className="w-6 h-6" />
             </div>
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -197,7 +196,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
             disabled={downloading === 'all-json'}
             variant="primary"
             size="md"
-            iconLeft={<BsFiletypeJson className="w-5 h-5" />}
+            iconLeft={<FileIcon className="w-5 h-5" />}
           >
             {downloading === 'all-json' ? 'Downloading...' : 'Download JSON'}
           </Button>
@@ -206,7 +205,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
             disabled={downloading === 'all-csv'}
             variant="primary"
             size="md"
-            iconLeft={<BsFiletypeCsv className="w-5 h-5" />}
+            iconLeft={<FileIcon className="w-5 h-5" />}
           >
             {downloading === 'all-csv' ? 'Downloading...' : 'Download CSV'}
           </Button>

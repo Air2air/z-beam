@@ -2363,6 +2363,7 @@ export interface SectionContainerProps {
   horizPadding?: boolean;
   radius?: boolean;
   icon?: React.ReactNode;
+  action?: React.ReactNode; // Optional action button/element on right side of title
   className?: string;
   children: React.ReactNode;
 }
@@ -2744,6 +2745,7 @@ export interface EnhancedMachineSettings {
  */
 export interface SettingsMetadata {
   name: string;
+  materialRef?: string; // NEW: Reference to material frontmatter for property inheritance
   category: string;
   subcategory: string;
   title: string;
@@ -2751,11 +2753,122 @@ export interface SettingsMetadata {
   description: string;
   slug?: string;
   author?: AuthorInfo;
+  datePublished?: string;
+  dateModified?: string;
+  
+  // Legacy format support (machineSettings.essential_parameters)
   machineSettings?: EnhancedMachineSettings;
+  
+  // NEW: Hybrid approach component-specific structure
+  components?: {
+    parameter_relationships?: {
+      parameters: Array<{
+        id: string;
+        name: string;
+        value: number;
+        unit: string;
+        optimal_range: [number, number];
+        criticality: 'critical' | 'high' | 'medium' | 'low';
+        rationale: string;
+        damage_threshold?: {
+          too_low: string;
+          too_high: string;
+          warning_signs?: string[];
+        };
+        material_interaction?: {
+          mechanism: string;
+          dominant_factor: string;
+          critical_parameter?: string;
+          energy_coupling?: string;
+        };
+        research?: string[]; // References to research_library keys
+      }>;
+    };
+    safety_heatmap?: {
+      power_range: { min: number; max: number; current: number };
+      pulse_range: { min: number; max: number; current: number };
+    };
+    thermal_accumulation?: {
+      defaults: {
+        power: number;
+        rep_rate: number;
+        scan_speed: number;
+        pass_count: number;
+      };
+    };
+    diagnostic_center?: {
+      challenges: Record<string, Array<{
+        challenge: string;
+        severity: string;
+        impact: string;
+        solutions: string[];
+        prevention: string;
+      }>>;
+      troubleshooting: Array<{
+        symptom: string;
+        causes: string[];
+        solutions: string[];
+        verification: string;
+        prevention: string;
+      }>;
+    };
+  };
+  
+  // NEW: Research citations library
+  research_library?: Record<string, {
+    id: string;
+    author: string;
+    year: number;
+    title: string;
+    journal: string;
+    volume?: string;
+    issue?: string;
+    doi: string;
+    url: string;
+    key_finding: string;
+    relevance: string;
+    validation?: {
+      method: string;
+      equipment: string;
+      confidence: string;
+      sample_size: string;
+    };
+  }>;
+  
+  // NEW: Equipment and outcomes (settings-specific)
+  equipment_requirements?: any;
+  expected_outcomes?: any;
+  
+  // SEO (consolidated)
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+  };
   seo_settings_page?: {
     title: string;
     description: string;
     keywords: string[];
+  };
+  
+  // E-E-A-T signals
+  eeat?: {
+    reviewedBy?: string;
+    citations?: string[];
+    isBasedOn?: {
+      name: string;
+      type?: string;
+      url?: string;
+    };
+  };
+  
+  // Internal: Loaded material properties from materialRef
+  _materialProperties?: any;
+  _metadata?: {
+    structure_version?: string;
+    optimization_applied?: boolean;
+    last_updated?: string;
+    size_reduction?: string;
   };
 }
 

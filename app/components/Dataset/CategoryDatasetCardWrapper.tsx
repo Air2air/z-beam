@@ -2,6 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import type { CategoryDatasetCardWrapperProps } from '@/types/centralized';
 import { calculateAggregateStats, loadMaterialDatasets } from '@/app/utils/datasetAggregator';
@@ -225,14 +227,22 @@ export default function CategoryDatasetCardWrapper({
   ];
 
   return (
-    <DatasetSection
-      title={`${categoryLabel} Category Dataset`}
-      description="Download complete aggregated data for all materials in this category"
-      stats={stats}
-      formats={['json', 'csv', 'txt']}
-      onDownload={handleDownload}
-      note="This aggregated dataset includes full data for all materials in this category, combining properties, specifications, and parameters into a single comprehensive file."
-      fullDatasetLink={true}
-    />
+    <SectionContainer 
+      title={`${categoryLabel} Dataset Download`}
+      bgColor="navbar" 
+      horizPadding={true} 
+      radius={true}
+      icon={getSectionIcon('dataset')}
+    >
+      <DatasetSection
+        title={`${categoryLabel} Category Dataset`}
+        description="Download complete aggregated data for all materials in this category"
+        stats={stats}
+        formats={['json', 'csv', 'txt']}
+        onDownload={handleDownload}
+        note="This aggregated dataset includes full data for all materials in this category, combining properties, specifications, and parameters into a single comprehensive file."
+        fullDatasetLink={true}
+      />
+    </SectionContainer>
   );
 }

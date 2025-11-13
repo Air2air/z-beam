@@ -37,7 +37,7 @@ function testNewComponentTypes() {
   }
   
   // Test reading YAML and MD files to verify structure
-  const testYamlFile = path.join(metricsMachineSettingsDir, 'aluminum-laser-cleaning.yaml');
+  const testYamlFile = path.join(__dirname, '..', 'frontmatter', 'settings', 'aluminum-laser-cleaning.yaml');
   if (fs.existsSync(testYamlFile)) {
     console.log(`\n🔍 Testing YAML structure (aluminum-laser-cleaning.yaml):`);
     try {

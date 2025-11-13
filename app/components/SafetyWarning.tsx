@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FiAlertTriangle } from 'react-icons/fi';
+import { AlertTriangleIcon } from '@/app/components/Buttons';
 import { SectionContainer } from './SectionContainer';
 
 interface SafetyWarningProps {
@@ -29,7 +29,7 @@ export function SafetyWarning({
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 mt-1">
             <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded-full">
-              <FiAlertTriangle className="text-red-600 dark:text-red-400 text-2xl" aria-hidden="true" />
+              <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-2xl" aria-hidden="true" />
             </div>
           </div>
           

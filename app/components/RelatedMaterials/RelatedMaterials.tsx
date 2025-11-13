@@ -12,6 +12,7 @@ import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { Button } from '../Button';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 export interface RelatedMaterialsProps {
   currentSlug: string;
@@ -38,7 +39,12 @@ export async function RelatedMaterials({
   // Don't render if no related materials
   if (relatedSlugs.length === 0) return null;
   
-  // Format subcategory name for display (e.g., "elemental" -> "Elemental")
+  // Format category and subcategory names for display (e.g., "elemental" -> "Elemental")
+  const formattedCategory = category
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+  
   const formattedSubcategory = subcategory
     .split('-')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
@@ -46,11 +52,9 @@ export async function RelatedMaterials({
   
   return (
     <SectionContainer 
-      title={`Related ${formattedSubcategory} Materials`}
-      bgColor="transparent"
-      radius={false}
-    >
-      <div className="flex justify-end mb-4 -mt-12">
+      title={`Related ${formattedCategory} › ${formattedSubcategory} Materials`}
+      icon={getSectionIcon('related-materials')}
+      action={
         <Button
           variant="primary"
           size="md"
@@ -59,8 +63,10 @@ export async function RelatedMaterials({
         >
           Show all
         </Button>
-      </div>
-      
+      }
+      bgColor="transparent"
+      radius={false}
+    >
       <CardGridSSR
         slugs={relatedSlugs}
         columns={3}

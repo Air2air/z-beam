@@ -76,9 +76,9 @@ Become the #1 backlink destination for laser cleaning industry peers seeking aut
 ```
 
 ### Content Type: `settings`
-- **Content Location**: `/content/settings/*.yaml`
+- **Content Location**: `/frontmatter/settings/*.yaml`
 - **Route Location**: `/app/settings/[category]/[subcategory]/[slug]/page.tsx`
-- **File Naming**: `{material-name}-laser-cleaning-settings.yaml`
+- **File Naming**: `{material-name}-laser-cleaning.yaml`
 
 ### Information Hierarchy
 
@@ -1067,8 +1067,8 @@ seo_settings_page:
 └── utils/
     └── parameterHelpers.ts    # Data processing utilities
 
-/content/settings/
-└── aluminum-laser-cleaning-settings.yaml  # Enhanced settings data
+/frontmatter/settings/
+└── aluminum-laser-cleaning.yaml  # Enhanced settings data
 ```
 
 ## 📊 Success Metrics

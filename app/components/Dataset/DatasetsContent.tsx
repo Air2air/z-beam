@@ -6,7 +6,7 @@ import { SectionContainer } from '@/app/components/SectionContainer';
 import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
 import DatasetSection from '@/app/components/Dataset/DatasetSection';
 import CategoryBundles from '@/app/components/Dataset/CategoryBundles';
-import { FiPackage } from 'react-icons/fi';
+import { PackageIcon } from '@/app/components/Buttons';
 import { trackDatasetDownload } from '@/app/utils/analytics';
 
 interface DatasetsContentProps {
@@ -289,7 +289,7 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
           bgColor="navbar" 
           horizPadding={true} 
           radius={true}
-          icon={<FiPackage className="w-6 h-6 text-white" />}
+          icon={<PackageIcon className="w-6 h-6" />}
         >
           <DatasetSection
             title="Complete Materials Database"

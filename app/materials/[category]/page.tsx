@@ -9,9 +9,7 @@ import { CATEGORY_METADATA, VALID_CATEGORIES } from '@/app/metadata';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
-import { FiPackage } from 'react-icons/fi';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -329,13 +327,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       >
         {/* Group materials by subcategory */}
         {categoryData.subcategories.map((subcategory) => (
-          <SectionContainer
-            key={subcategory.slug}
-            title={subcategory.label}
-            bgColor="transparent"
-            radius={false}
-            className="mb-8"
-          >
+          <div key={subcategory.slug} className="mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{subcategory.label}</h2>
             <CardGridSSR
               slugs={subcategory.materials.map(m => m.slug)}
               columns={3}
@@ -343,25 +336,16 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               showBadgeSymbols={true}
               loadBadgeSymbolData={true}
             />
-          </SectionContainer>
+          </div>
         ))}
       
         {/* Category Dataset Section at bottom */}
-        <SectionContainer 
-          title={`${categoryDisplayName} Dataset Download`} 
-          bgColor="navbar" 
-          horizPadding={true} 
-          radius={true}
-          className="mb-8"
-          icon={<FiPackage className="w-6 h-6 text-white" />}
-        >
-          <CategoryDatasetCardWrapper 
-            category={category}
-            categoryLabel={categoryDisplayName}
-            materials={allMaterials}
-            subcategoryCount={categoryData.subcategories.length}
-          />
-        </SectionContainer>
+        <CategoryDatasetCardWrapper 
+          category={category}
+          categoryLabel={categoryDisplayName}
+          materials={allMaterials}
+          subcategoryCount={categoryData.subcategories.length}
+        />
       </Layout>
     </>
   );

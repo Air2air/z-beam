@@ -14,6 +14,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { RegulatoryStandard } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 export interface RegulatoryStandardsProps {
   standards: RegulatoryStandard[];
@@ -40,6 +41,7 @@ export function RegulatoryStandards({
   return (
     <SectionContainer 
       title={title}
+      icon={getSectionIcon('regulatory')}
       bgColor="transparent"
       radius={false}
     >

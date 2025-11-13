@@ -2,13 +2,11 @@
 import { notFound } from "next/navigation";
 import { getAllCategories, getSubcategoryInfo } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
-import { SectionContainer } from "@/app/components/SectionContainer";
 import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { CardGridSSR } from "@/app/components/CardGrid";
 import { createMetadata } from "@/app/utils/metadata";
 import SubcategoryDatasetWrapper from "@/app/components/Dataset/SubcategoryDatasetWrapper";
-import { FiPackage } from "react-icons/fi";
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -317,7 +315,8 @@ export default async function SubcategoryPage({ params }: PageProps) {
         metadata={metadata as any}
         slug={`materials/${category}/${subcategory}`}
       >
-        <SectionContainer title={subcategoryInfo.label} bgColor="transparent" radius={false} className="mb-8">
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{subcategoryInfo.label}</h2>
           <CardGridSSR
             slugs={materialSlugs}
             columns={3}
@@ -325,25 +324,16 @@ export default async function SubcategoryPage({ params }: PageProps) {
             showBadgeSymbols={true}
             loadBadgeSymbolData={true}
           />
-        </SectionContainer>
+        </div>
         
         {/* Subcategory Dataset Section */}
-        <SectionContainer 
-          title={`${subcategoryInfo.label} Dataset Download`} 
-          bgColor="navbar" 
-          horizPadding={true} 
-          radius={true}
-          className="mb-8"
-          icon={<FiPackage className="w-6 h-6 text-white" />}
-        >
-          <SubcategoryDatasetWrapper
-            category={category}
-            categoryLabel={categoryLabel}
-            subcategory={subcategory}
-            subcategoryLabel={subcategoryInfo.label}
-            materials={subcategoryInfo.materials}
-          />
-        </SectionContainer>
+        <SubcategoryDatasetWrapper
+          category={category}
+          categoryLabel={categoryLabel}
+          subcategory={subcategory}
+          subcategoryLabel={subcategoryInfo.label}
+          materials={subcategoryInfo.materials}
+        />
       </Layout>
     </>
   );

@@ -2,8 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FiInfo, FiCheckCircle } from 'react-icons/fi';
-import { BsFileEarmarkSpreadsheet } from 'react-icons/bs';
+import { InfoIcon, CheckCircleIcon, FileIcon } from '@/app/components/Buttons';
 import { Button } from '@/app/components/Button';
 import DatasetDownloadControls from './DatasetDownloadControls';
 import type { DatasetSectionProps } from '@/types/centralized';
@@ -89,7 +88,7 @@ export default function DatasetSection({
               href={categoryLink.href}
               className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1"
             >
-              <BsFileEarmarkSpreadsheet className="w-4 h-4" />
+              <FileIcon className="w-4 h-4" />
               <span>{categoryLink.label}</span>
             </a>
           )}
@@ -100,7 +99,7 @@ export default function DatasetSection({
               href="/datasets"
               className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1"
             >
-              <BsFileEarmarkSpreadsheet className="w-4 h-4" />
+              <FileIcon className="w-4 h-4" />
               <span>View complete materials database (138+ materials)</span>
             </a>
           )}

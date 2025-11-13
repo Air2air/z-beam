@@ -5,7 +5,7 @@ import { loadPageData } from '../utils/contentAPI';
 import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
 import { SectionContainer } from '../components/SectionContainer';
-import { FiAlertTriangle, FiShield, FiCheckCircle, FiPhone } from 'react-icons/fi';
+import { AlertTriangleIcon, ShieldIcon, CheckCircleIcon, PhoneIcon } from '@/app/components/Buttons';
 
 export const metadata = {
   title: 'Laser Cleaning Safety Guidelines - Z-Beam',
@@ -66,7 +66,7 @@ export default async function SafetyPage() {
             </p>
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
               <div className="flex items-start gap-3">
-                <FiShield className="text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0 mt-1" />
+                <ShieldIcon className="text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
                     Professional Guidance Available
@@ -93,7 +93,7 @@ export default async function SafetyPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
                 <div className="flex items-start gap-3 mb-3">
-                  <FiAlertTriangle className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
+                  <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Laser Radiation</h4>
                 </div>
                 <p className="text-sm text-red-800 dark:text-red-200">
@@ -104,7 +104,7 @@ export default async function SafetyPage() {
 
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
                 <div className="flex items-start gap-3 mb-3">
-                  <FiAlertTriangle className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
+                  <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Toxic Fumes</h4>
                 </div>
                 <p className="text-sm text-red-800 dark:text-red-200">
@@ -115,7 +115,7 @@ export default async function SafetyPage() {
 
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
                 <div className="flex items-start gap-3 mb-3">
-                  <FiAlertTriangle className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
+                  <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Fire Risk</h4>
                 </div>
                 <p className="text-sm text-red-800 dark:text-red-200">
@@ -126,7 +126,7 @@ export default async function SafetyPage() {
 
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
                 <div className="flex items-start gap-3 mb-3">
-                  <FiAlertTriangle className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
+                  <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
                   <h4 className="font-semibold text-red-900 dark:text-red-100">Electrical Hazards</h4>
                 </div>
                 <p className="text-sm text-red-800 dark:text-red-200">
@@ -148,7 +148,7 @@ export default async function SafetyPage() {
             <div className="space-y-6">
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
-                  <FiCheckCircle className="text-green-600" />
+                  <CheckCircleIcon className="text-green-600" />
                   Personal Protective Equipment (PPE)
                 </h4>
                 <ul className="space-y-2 ml-8 text-gray-700 dark:text-gray-300">
@@ -173,7 +173,7 @@ export default async function SafetyPage() {
 
               <div>
                 <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
-                  <FiCheckCircle className="text-green-600" />
+                  <CheckCircleIcon className="text-green-600" />
                   Facility Requirements
                 </h4>
                 <ul className="space-y-2 ml-8 text-gray-700 dark:text-gray-300">
@@ -306,37 +306,37 @@ export default async function SafetyPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Laser physics and safety fundamentals</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Equipment operation and maintenance</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Material-specific hazard recognition</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>PPE selection and proper use</span>
                 </li>
               </ul>
               <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Emergency response procedures</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Fume extraction system operation</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Regulatory compliance requirements</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <FiCheckCircle className="text-green-600 flex-shrink-0 mt-1" />
+                  <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />
                   <span>Hazard communication (OSHA 1910.1200)</span>
                 </li>
               </ul>
@@ -359,7 +359,7 @@ export default async function SafetyPage() {
             horizPadding={true}
           >
             <div className="text-center py-6">
-              <FiPhone className="text-4xl text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+              <PhoneIcon className="text-4xl text-blue-600 dark:text-blue-400 mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
                 Questions About Laser Safety?
               </h3>
@@ -372,7 +372,7 @@ export default async function SafetyPage() {
                   href="tel:+16502418510"
                   className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
                 >
-                  <FiPhone />
+                  <PhoneIcon />
                   Call (650) 241-8510
                 </a>
                 <a 

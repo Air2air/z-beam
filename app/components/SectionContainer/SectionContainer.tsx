@@ -27,6 +27,7 @@ export function SectionContainer({
   horizPadding = false,
   radius = false,
   icon,
+  action,
   className,
   children,
 }: SectionContainerProps) {
@@ -59,18 +60,21 @@ export function SectionContainer({
       `.trim().replace(/\s+/g, ' ')}
       aria-labelledby={`section-${sectionId}`}
     >
-      <div className="flex items-center space-x-3 mb-6">
-        {icon && (
-          <div className="p-3 bg-blue-600 rounded-lg">
-            {icon}
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center space-x-3">
+          {icon}
+          <h2
+            id={`section-${sectionId}`}
+            className={titleClasses}
+          >
+            {title}
+          </h2>
+        </div>
+        {action && (
+          <div className="flex-shrink-0">
+            {action}
           </div>
         )}
-        <h2
-          id={`section-${sectionId}`}
-          className={titleClasses}
-        >
-          {title}
-        </h2>
       </div>
       
       {children}

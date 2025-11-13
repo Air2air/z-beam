@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { FiSearch, FiFilter, FiX } from 'react-icons/fi';
+import { SearchIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import type { MaterialFiltersProps } from '@/types/centralized';
 
 export default function MaterialFilters({
@@ -27,7 +27,7 @@ export default function MaterialFilters({
     <div className="material-filters space-y-4">
       {/* Search */}
       <div className="relative">
-        <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         <input
           type="text"
           placeholder="Search materials..."
@@ -40,7 +40,7 @@ export default function MaterialFilters({
             onClick={() => onSearchChange('')}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
           >
-            <FiX className="w-5 h-5" />
+            <XIcon className="w-5 h-5" />
           </button>
         )}
       </div>
@@ -49,7 +49,7 @@ export default function MaterialFilters({
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            <FiFilter className="inline w-4 h-4 mr-1" />
+            <FilterIcon className="inline w-4 h-4 mr-1" />
             Category
           </label>
           <select

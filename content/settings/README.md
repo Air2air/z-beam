@@ -72,8 +72,8 @@ The settings content type supplements material pages with in-depth technical gui
 Settings files follow the same naming as their corresponding material:
 
 ```
-/content/settings/aluminum-laser-cleaning-settings.yaml
-/content/settings/stainless-steel-laser-cleaning-settings.yaml
+/frontmatter/settings/aluminum-laser-cleaning.yaml
+/frontmatter/settings/stainless-steel-laser-cleaning.yaml
 ```
 
 ## URL Structure
@@ -175,7 +175,7 @@ Use `_TEMPLATE_settings.yaml` as the starting point for new settings files. All 
 
 Settings content is **supplementary** to materials content:
 - **Materials** (`/frontmatter/materials/`): Overview, applications, benefits, safety
-- **Settings** (`/content/settings/`): Technical parameters, research, troubleshooting
+- **Settings** (`/frontmatter/settings/`): Technical parameters, research, troubleshooting
 
 Both reference the same material but serve different user needs:
 - Materials: Discovery, understanding, use cases

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
+import { getSectionIcon } from '@/app/config/sectionIcons';
 
 // Helper function to sanitize numeric values
 // Note: Most sanitization now happens at frontmatter loading stage via normalizeNumericValues()
@@ -165,6 +166,7 @@ export function PropertyBars({
           <SectionContainer 
             key={groupIndex}
             title={group.label}
+            icon={getSectionIcon('material-properties')}
             className="mb-8"
           >
             <PropertyBarsGrid 

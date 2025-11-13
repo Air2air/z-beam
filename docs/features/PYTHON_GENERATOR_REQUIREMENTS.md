@@ -53,8 +53,8 @@ Generated YAML must be compatible with:
 - Reference to existing material YAML file (for context)
 
 ### Output
-- New settings YAML file in `/content/settings/` directory
-- File naming: `{material-name}-laser-cleaning-settings.yaml`
+- New settings YAML file in `/frontmatter/settings/` directory
+- File naming: `{material-name}-laser-cleaning.yaml`
 - Complete settings structure with research citations
 - Material-specific challenges categorized
 - Troubleshooting guides
@@ -399,7 +399,7 @@ def generate_enhanced_yaml(material_name, data):
     validate_yaml_structure(yaml_content, template='_TEMPLATE_settings.yaml')
     
     # Write to file
-    output_path = f"content/settings/{material_name.lower()}-laser-cleaning-settings.yaml"
+    output_path = f"frontmatter/settings/{material_name.lower()}-laser-cleaning.yaml"
     with open(output_path, 'w') as f:
         yaml.dump(yaml_content, f, default_flow_style=False, allow_unicode=True)
     
@@ -596,10 +596,10 @@ Generated YAML → Automated Validation → Expert Review → Production Deploym
 
 ### Output Format
 ```
-/content/settings/
-├── aluminum-laser-cleaning-settings.yaml
-├── copper-laser-cleaning-settings.yaml
-├── titanium-laser-cleaning-settings.yaml
+/frontmatter/settings/
+├── aluminum-laser-cleaning.yaml
+├── copper-laser-cleaning.yaml
+├── titanium-laser-cleaning.yaml
 └── ... (132 total settings files)
 
 /docs/research-metadata/

@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FiCalendar } from 'react-icons/fi';
+import { CalendarIcon } from '@/app/components/Buttons';
 import { trackEvent } from '@/app/utils/analytics';
 
 interface BookingCTAProps {
@@ -26,7 +26,7 @@ export function BookingCTA({ variant = 'default', className = '' }: BookingCTAPr
         onClick={handleClick}
         className={`inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors ${className}`}
       >
-        <FiCalendar className="w-5 h-5" />
+        <CalendarIcon className="w-5 h-5" />
         Book Consultation
       </Link>
     );
@@ -34,7 +34,7 @@ export function BookingCTA({ variant = 'default', className = '' }: BookingCTAPr
 
   return (
     <div className={`bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-lg p-8 text-center ${className}`}>
-      <FiCalendar className="w-12 h-12 mx-auto mb-4" />
+      <CalendarIcon className="w-12 h-12 mx-auto mb-4" />
       <h3 className="text-2xl font-bold mb-2">
         Ready to Get Started?
       </h3>

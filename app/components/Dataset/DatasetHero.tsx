@@ -2,7 +2,7 @@
 // Server Component - no client-side interactivity
 
 import React from 'react';
-import { FiDatabase, FiLayers, FiDownload } from 'react-icons/fi';
+import { DatabaseIcon, LayersIcon, DownloadIcon } from '@/app/components/Buttons';
 import type { DatasetHeroProps } from '@/types/centralized';
 
 export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHeroProps) {
@@ -20,7 +20,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
           <div className="text-center space-y-6">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-            <FiDatabase className="w-4 h-4" />
+            <DatabaseIcon className="w-4 h-4" />
             <span className="text-sm font-medium">Open Dataset</span>
           </div>
 
@@ -58,14 +58,14 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
               href="#materials"
               className="inline-flex items-center space-x-2 bg-white text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg transition-colors shadow-lg"
             >
-              <FiLayers className="w-5 h-5" />
+              <LayersIcon className="w-5 h-5" />
               <span>Browse Materials</span>
             </a>
             <a
               href="#bulk-downloads"
               className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white text-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
-              <FiDownload className="w-5 h-5" />
+              <DownloadIcon className="w-5 h-5" />
               <span>Bulk Download</span>
             </a>
           </div>

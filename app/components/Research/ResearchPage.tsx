@@ -13,18 +13,17 @@ const ComparisonTable = dynamic(
 );
 import Link from 'next/link';
 import { 
-  FiInfo, 
-  FiTrendingUp, 
-  FiLayers, 
-  FiZap, 
-  FiCheckCircle, 
-  FiBookOpen,
-  FiDownload,
-  FiBarChart2,
-  FiAlertTriangle,
-  FiChevronDown,
-  FiChevronUp
-} from 'react-icons/fi';
+  InfoIcon, 
+  TrendingUpIcon, 
+  LayersIcon, 
+  ZapIcon, 
+  CheckCircleIcon, 
+  FileTextIcon,
+  DownloadIcon,
+  BarChartIcon,
+  AlertTriangleIcon,
+  ChevronRightIcon
+} from '@/app/components/Buttons';
 
 interface ResearchPageProps {
   data: any;
@@ -83,7 +82,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-4">
           <Badge variant="primary">
-            <FiBookOpen className="w-4 h-4" />
+            <FileTextIcon className="w-4 h-4" />
             {data.pageType === 'property-drill-down' ? 'Property Research' : 'Research'}
           </Badge>
           {data.research_version && (
@@ -102,7 +101,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.research?.primary && (
         <SectionContainer
           title="Recommended Value"
-          icon={<FiCheckCircle className="w-6 h-6" />}
+          icon={<CheckCircleIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
@@ -157,7 +156,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.research?.sources && (
         <SectionContainer
           title={`Multi-Source Analysis (${data.research.sources.length} Sources)`}
-          icon={<FiLayers className="w-6 h-6" />}
+          icon={<LayersIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
@@ -189,9 +188,9 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                     </p>
                   </div>
                   {expandedSources.has(index) ? (
-                    <FiChevronUp className="w-6 h-6 text-gray-400" />
+                    <ChevronRightIcon className="w-6 h-6 text-gray-400" />
                   ) : (
-                    <FiChevronDown className="w-6 h-6 text-gray-400" />
+                    <ChevronRightIcon className="w-6 h-6 text-gray-400" />
                   )}
                 </button>
                 
@@ -276,7 +275,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.research?.geological_variations && (
         <SectionContainer
           title="Material Variations & Types"
-          icon={<FiTrendingUp className="w-6 h-6" />}
+          icon={<TrendingUpIcon className="w-6 h-6" />}
           bgColor="gray-100"
           horizPadding={true}
           radius={true}
@@ -358,7 +357,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.laser_implications && (
         <SectionContainer
           title="Laser Cleaning Parameter Optimization"
-          icon={<FiZap className="w-6 h-6" />}
+          icon={<ZapIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
@@ -368,7 +367,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
             {data.laser_implications.summary && (
               <div className="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg border border-yellow-200 dark:border-yellow-800">
                 <div className="flex items-start gap-3">
-                  <FiAlertTriangle className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-1" />
+                  <AlertTriangleIcon className="w-6 h-6 text-yellow-600 dark:text-yellow-400 flex-shrink-0 mt-1" />
                   <p className="text-gray-800 dark:text-gray-200 leading-relaxed">
                     {data.laser_implications.summary}
                   </p>
@@ -470,7 +469,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.comparative?.similar_materials && (
         <SectionContainer
           title="Material Comparison"
-          icon={<FiBarChart2 className="w-6 h-6" />}
+          icon={<BarChartIcon className="w-6 h-6" />}
           bgColor="gray-100"
           horizPadding={true}
           radius={true}
@@ -522,7 +521,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.methodology && (
         <SectionContainer
           title="Research Methodology"
-          icon={<FiInfo className="w-6 h-6" />}
+          icon={<InfoIcon className="w-6 h-6" />}
           bgColor="gray-50"
           horizPadding={true}
           radius={true}
@@ -547,9 +546,9 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                     >
                       <div className="flex items-center gap-2 mb-2">
                         {gate.status === 'passed' ? (
-                          <FiCheckCircle className="w-5 h-5 text-green-600" />
+                          <CheckCircleIcon className="w-5 h-5 text-green-600" />
                         ) : (
-                          <FiAlertTriangle className="w-5 h-5 text-red-600" />
+                          <AlertTriangleIcon className="w-5 h-5 text-red-600" />
                         )}
                         <h4 className="font-semibold text-gray-900 dark:text-gray-100">
                           {gate.name}
@@ -607,7 +606,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
       {data.dataset?.enabled && (
         <SectionContainer
           title="Download Research Dataset"
-          icon={<FiDownload className="w-6 h-6" />}
+          icon={<DownloadIcon className="w-6 h-6" />}
           bgColor="gray-100"
           horizPadding={true}
           radius={true}
@@ -632,7 +631,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                     {format.description}
                   </p>
                   <button className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors flex items-center justify-center gap-2">
-                    <FiDownload className="w-4 h-4" />
+                    <DownloadIcon className="w-4 h-4" />
                     Download {format.format}
                   </button>
                 </div>
