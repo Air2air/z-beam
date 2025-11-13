@@ -1,1 +1,0 @@
-export { ScanPattern } from './ScanPattern';
