@@ -57,6 +57,8 @@ export function SettingsLayout({
     subtitle: settings.subtitle,
     description: settings.description,
     author: settings.author,
+    datePublished: settings.datePublished,
+    dateModified: settings.dateModified,
     breadcrumb: settings.breadcrumb,
     slug,
     category,
