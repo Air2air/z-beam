@@ -18,7 +18,6 @@ import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { SITE_CONFIG } from '../../utils/constants';
 import { capitalizeFirst } from '@/app/utils/formatting';
-import './seo-caption.css';
 import './caption-accessibility.css';
 
 // Utility function to wrap first sentence in markdown bold syntax
