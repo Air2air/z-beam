@@ -12,12 +12,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
+import { getThemeClasses } from '@/app/config/themeConfig';
 import type { WorkflowItem } from '@/types';
+import type { ThemeVariant } from '@/app/config/themeConfig';
 
 export interface WorkflowSectionProps {
   workflow: WorkflowItem[];
   title?: string;
-  theme?: 'body' | 'navbar';
+  theme?: ThemeVariant;
 }
 
 export function WorkflowSection({ 
@@ -28,21 +30,12 @@ export function WorkflowSection({
   // Sort by order to ensure correct sequence
   const sortedWorkflow = [...workflow].sort((a, b) => a.order - b.order);
 
-  // Theme-based styling matching Callout component with gradient backgrounds
-  const themeClasses = {
-    body: {
-      container: 'bg-gradient-to-b from-gray-700 to-gray-700',
-      heading: 'text-white',
-      text: 'text-gray-100',
-    },
-    navbar: {
-      container: 'bg-gradient-to-b from-white to-gray-700 dark:from-gray-800 dark:to-gray-700',
-      heading: 'text-gray-900 dark:text-white',
-      text: 'text-gray-700 dark:text-gray-300',
-    },
-  };
-
-  const currentTheme = themeClasses[theme];
+  const currentTheme = getThemeClasses(theme);
+  
+  // Custom gradient backgrounds for workflow (different from standard theme)
+  const workflowContainer = theme === 'body' 
+    ? 'bg-gradient-to-b from-gray-700 to-gray-700'
+    : 'bg-gradient-to-b from-white to-gray-700 dark:from-gray-800 dark:to-gray-700';
 
   return (
     <section className="workflow-section py-12">
@@ -54,7 +47,7 @@ export function WorkflowSection({
           return (
             <div 
               key={index} 
-              className={`workflow-card p-4 md:p-6 ${currentTheme.container} rounded-lg`}
+              className={`workflow-card p-4 md:p-6 ${workflowContainer} rounded-lg`}
             >
               {/* Header - Spans full width across top */}
               <div className="flex items-center gap-4 mb-6">

@@ -32,6 +32,7 @@ import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
+import { getThemeClasses, type ThemeVariant } from '@/app/config/themeConfig';
 
 export interface ContentCardProps {
   // Core content
@@ -49,7 +50,7 @@ export interface ContentCardProps {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  theme?: 'body' | 'navbar';
+  theme?: ThemeVariant;
   variant?: 'default' | 'inline';
 }
 
@@ -82,21 +83,12 @@ export function ContentCard({
     return url.startsWith('http') ? url : `https://${url}`;
   }, [details]);
   
-  // Theme-based styling with gradient backgrounds
-  const themeClasses = {
-    body: {
-      container: 'bg-gray-700',
-      heading: 'text-white',
-      text: 'text-gray-100',
-    },
-    navbar: {
-      container: 'card-background',
-      heading: 'text-gray-900 dark:text-white',
-      text: 'text-gray-700 dark:text-gray-300',
-    },
+  // Get theme classes and override container for navbar theme (uses card-background)
+  const baseTheme = getThemeClasses(theme);
+  const currentTheme = {
+    ...baseTheme,
+    container: theme === 'navbar' ? 'card-background' : baseTheme.container,
   };
-
-  const currentTheme = themeClasses[theme];
   const isImageLeft = imagePosition === 'left';
   const hasOrder = order !== undefined;
   const hasDetails = details && details.length > 0;

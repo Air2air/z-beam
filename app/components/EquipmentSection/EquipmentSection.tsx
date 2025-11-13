@@ -11,12 +11,14 @@
  */
 import React from 'react';
 import { SectionTitle } from '@/app/components/SectionTitle/SectionTitle';
+import { getThemeClasses } from '@/app/config/themeConfig';
 import type { EquipmentItem } from '@/types';
+import type { ThemeVariant } from '@/app/config/themeConfig';
 
 export interface EquipmentSectionProps {
   equipment: EquipmentItem[];
   title?: string;
-  theme?: 'body' | 'navbar';
+  theme?: ThemeVariant;
 }
 
 export function EquipmentSection({ 
@@ -24,21 +26,7 @@ export function EquipmentSection({
   title = "Available Equipment",
   theme = 'navbar'
 }: EquipmentSectionProps) {
-  // Theme-based styling matching Callout component
-  const themeClasses = {
-    body: {
-      container: 'bg-gray-700',
-      heading: 'text-white',
-      text: 'text-gray-100',
-    },
-    navbar: {
-      container: 'bg-white dark:bg-gray-800',
-      heading: 'text-gray-900 dark:text-white',
-      text: 'text-gray-700 dark:text-gray-300',
-    },
-  };
-
-  const currentTheme = themeClasses[theme];
+  const currentTheme = getThemeClasses(theme);
 
   return (
     <section className="equipment-section py-12">
