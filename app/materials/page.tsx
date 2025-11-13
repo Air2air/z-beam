@@ -7,6 +7,7 @@ import { createMetadata } from '@/app/utils/metadata';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
+import { getCategoryDescription, getCategoryMaterialType } from '@/app/config/categoryDescriptions';
 
 export const dynamic = 'force-static';
 export const revalidate = false;
@@ -154,29 +155,11 @@ export default async function MaterialsPage() {
 
   // Map categories to card format
   const categoryCards = categories.map(category => {
-    // Determine material type based on category
-    let materialType: 'alloy' | 'ceramic' | 'composite' | 'semiconductor' | 'polymer' | 'element' | 'other' = 'other';
+    // Get material type from config
+    const materialType = getCategoryMaterialType(category.slug);
     
-    if (category.slug === 'metal') materialType = 'alloy';
-    else if (category.slug === 'ceramic') materialType = 'ceramic';
-    else if (category.slug === 'composite') materialType = 'composite';
-    else if (category.slug === 'semiconductor') materialType = 'semiconductor';
-    else if (category.slug === 'plastic') materialType = 'polymer';
-    else if (category.slug === 'rare-earth') materialType = 'element';
-    
-    // Get description from existing metadata or generate one
-    const descriptions: Record<string, string> = {
-      'metal': 'Precision laser cleaning for aluminum, steel, titanium, and precious metals in aerospace and automotive applications.',
-      'ceramic': 'Advanced ceramic materials like alumina and silicon nitride for high-temperature and semiconductor applications.',
-      'composite': 'High-performance polymer composites and fiber-reinforced materials for aerospace and marine industries.',
-      'semiconductor': 'Ultra-precision cleaning of semiconductor materials for microelectronics and photovoltaic applications.',
-      'glass': 'Optical and technical glass materials requiring precision cleaning for laboratory and industrial use.',
-      'stone': 'Natural stone materials including granite, marble, and slate for architectural and heritage restoration.',
-      'wood': 'Delicate laser cleaning of hardwoods and softwoods for furniture restoration and heritage conservation.',
-      'masonry': 'Restoration of brick, cement, and masonry structures using gentle laser cleaning techniques.',
-      'plastic': 'Specialized cleaning of thermoplastics and polymer materials for industrial and consumer applications.',
-      'rare-earth': 'Precision cleaning of lanthanides and rare-earth elements including cerium, neodymium, and yttrium for high-tech applications.',
-    };
+    // Get description from config
+    const description = getCategoryDescription(category.slug, category.label);
     
     // Get image URL based on first material in category or default
     const firstMaterial = category.materials[0];
@@ -185,7 +168,7 @@ export default async function MaterialsPage() {
     return {
       slug: `materials/${category.slug}`,
       title: category.label,
-      description: descriptions[category.slug] || `Comprehensive laser cleaning parameters for ${category.label.toLowerCase()} materials.`,
+      description,
       href: `/materials/${category.slug}`,
       imageUrl,
       imageAlt: `${category.label} laser cleaning`,
