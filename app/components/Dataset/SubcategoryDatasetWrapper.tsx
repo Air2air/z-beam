@@ -148,6 +148,6 @@ export default function SubcategoryDatasetWrapper({
           label: `View all ${categoryLabel} materials`
         }}
       />
-    </SectionContainer>
+    </SectionContainerDark>
   );
 }
