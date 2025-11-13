@@ -4,41 +4,7 @@
 import React, { useState, useMemo } from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
-
-interface MaterialProperties {
-  // Core thermal properties
-  thermalConductivity?: number;  // W/m·K
-  thermalDiffusivity?: number;    // m²/s
-  heatCapacity?: number;          // J/(kg·K) or specificHeat
-  specificHeat?: number;          // J/(kg·K) - alternative name
-  
-  // Temperature thresholds
-  meltingPoint?: number;          // K
-  boilingPoint?: number;          // K
-  oxidationTemperature?: number;  // K
-  thermalDestructionPoint?: number; // K
-  
-  // Laser interaction properties
-  ablationThreshold?: number;     // J/cm²
-  laserDamageThreshold?: number;  // J/cm²
-  absorptivity?: number;          // dimensionless
-  absorptionCoefficient?: number; // m^-1
-  laserReflectivity?: number;     // dimensionless
-  
-  // Thermal dynamics
-  thermalRelaxationTime?: number; // s
-  thermalExpansionCoefficient?: number; // 1/K
-  thermalShockResistance?: number; // K
-  heatAffectedZoneDepth?: number; // μm
-}
-
-interface HeatmapProps {
-  powerRange: { min: number; max: number; current: number };
-  pulseRange: { min: number; max: number; current: number };
-  optimalPower: [number, number];
-  optimalPulse: [number, number];
-  materialProperties?: MaterialProperties;
-}
+import type { HeatmapProps } from '@/types/centralized';
 
 /**
  * Process Effectiveness Heatmap - Shows CLEANING PERFORMANCE ONLY

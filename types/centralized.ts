@@ -2904,3 +2904,103 @@ export interface CacheReport {
   totalMemoryUsage: number;
   recommendations: string[];
 }
+
+// ============================================================================
+// HEATMAP TYPES - For visualization components
+// ============================================================================
+
+/**
+ * Material properties specific to heatmap calculations
+ * Subset of MaterialProperties focused on thermal and laser interactions
+ */
+export interface HeatmapMaterialProperties {
+  // Core thermal properties
+  thermalConductivity?: number;  // W/m·K
+  thermalDiffusivity?: number;    // m²/s
+  heatCapacity?: number;          // J/(kg·K) or specificHeat
+  specificHeat?: number;          // J/(kg·K) - alternative name
+  
+  // Temperature thresholds
+  meltingPoint?: number;          // K
+  boilingPoint?: number;          // K
+  oxidationTemperature?: number;  // K
+  thermalDestructionPoint?: number; // K
+  
+  // Laser interaction properties
+  ablationThreshold?: number;     // J/cm²
+  laserDamageThreshold?: number;  // J/cm²
+  absorptivity?: number;          // dimensionless
+  absorptionCoefficient?: number; // m^-1
+  laserReflectivity?: number;     // dimensionless
+  
+  // Thermal dynamics
+  thermalRelaxationTime?: number; // s
+  thermalExpansionCoefficient?: number; // 1/K
+  thermalShockResistance?: number; // K
+  heatAffectedZoneDepth?: number; // μm
+}
+
+/**
+ * Props for heatmap visualization components
+ * Used by MaterialSafetyHeatmap, ProcessEffectivenessHeatmap, DamageThresholdHeatmap
+ */
+export interface HeatmapProps {
+  powerRange: { min: number; max: number; current: number };
+  pulseRange: { min: number; max: number; current: number };
+  optimalPower: [number, number];
+  optimalPulse: [number, number];
+  materialProperties?: HeatmapMaterialProperties;
+}
+
+// ============================================================================
+// CITATION TYPES - For research citations and references
+// ============================================================================
+
+/**
+ * Key finding from research citation
+ */
+export interface CitationKeyFinding {
+  finding: string;
+  specific_value?: string;
+  confidence: number;
+}
+
+/**
+ * Quality indicators for research citation
+ */
+export interface CitationQualityIndicators {
+  peer_reviewed?: boolean;
+  impact_factor?: number;
+  citation_count?: number;
+  authority?: string;
+}
+
+/**
+ * Research citation structure
+ * Used in research_library and Citations component
+ */
+export interface Citation {
+  type?: 'journal_article' | 'industry_standard' | 'government_database' | 'textbook' | 'ai_research';
+  author: string;
+  year: number;
+  title: string;
+  journal?: string;
+  volume?: string;
+  issue?: string;
+  doi?: string;
+  url?: string;
+  key_findings?: CitationKeyFinding[];
+  quality_indicators?: CitationQualityIndicators;
+  relevance_to_our_work?: string;
+  // Legacy fields for backward compatibility
+  key_finding?: string;
+  relevance?: string;
+}
+
+/**
+ * Props for Citations component
+ */
+export interface CitationsProps {
+  research_library: Record<string, Citation>;
+  materialName?: string;
+}

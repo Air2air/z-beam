@@ -2,42 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-
-interface KeyFinding {
-  finding: string;
-  specific_value?: string;
-  confidence: number;
-}
-
-interface QualityIndicators {
-  peer_reviewed?: boolean;
-  impact_factor?: number;
-  citation_count?: number;
-  authority?: string;
-}
-
-interface Citation {
-  type?: 'journal_article' | 'industry_standard' | 'government_database' | 'textbook' | 'ai_research';
-  author: string;
-  year: number;
-  title: string;
-  journal?: string;
-  volume?: string;
-  issue?: string;
-  doi?: string;
-  url?: string;
-  key_findings?: KeyFinding[];
-  quality_indicators?: QualityIndicators;
-  relevance_to_our_work?: string;
-  // Legacy fields for backward compatibility
-  key_finding?: string;
-  relevance?: string;
-}
-
-interface CitationsProps {
-  research_library: Record<string, Citation>;
-  materialName?: string;
-}
+import type { Citation, CitationsProps } from '@/types/centralized';
 
 /**
  * Citations Component - Display research citations with expandable details
