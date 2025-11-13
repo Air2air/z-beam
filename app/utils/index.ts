@@ -40,7 +40,6 @@ export {
 export * from './tags';
 export * from './tagManager';
 export * from './tagDebug';
-export * from './tagIntegration';
 
 // =============================================================================
 // DATA PROCESSING (Formatting and validation)
