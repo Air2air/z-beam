@@ -12,6 +12,7 @@ import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
 import { SectionContainerDefault } from '../SectionContainer/SectionContainerDefault';
 import { getSectionIcon } from '@/app/config/sectionIcons';
+import { capitalizeWords } from '@/app/utils/formatting';
 
 export interface RelatedMaterialsProps {
   currentSlug: string;
@@ -39,15 +40,8 @@ export async function RelatedMaterials({
   if (relatedSlugs.length === 0) return null;
   
   // Format category and subcategory names for display (e.g., "elemental" -> "Elemental")
-  const formattedCategory = category
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-  
-  const formattedSubcategory = subcategory
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  const formattedCategory = capitalizeWords(category.replace(/-/g, ' '));
+  const formattedSubcategory = capitalizeWords(subcategory.replace(/-/g, ' '));
   
   return (
     <SectionContainerDefault

@@ -2,6 +2,7 @@
 import React from 'react';
 import { SchemaFactory } from '../../utils/schemas/SchemaFactory';
 import { validateAndLogSchema } from '../../utils/validators';
+import { capitalizeFirst, capitalizeWords } from '@/app/utils/formatting';
 import type { SettingsMetadata } from '@/types';
 
 /**
@@ -213,11 +214,11 @@ function buildDefaultBreadcrumb(settings: SettingsMetadata, category: string, su
     { label: 'Home', href: '/' },
     { label: 'Settings', href: '/settings' },
     { 
-      label: category.charAt(0).toUpperCase() + category.slice(1), 
+      label: capitalizeFirst(category), 
       href: `/materials/${category}` 
     },
     { 
-      label: subcategory.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '), 
+      label: capitalizeWords(subcategory.replace(/-/g, ' ')), 
       href: `/materials/${category}/${subcategory}` 
     },
     { 

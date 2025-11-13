@@ -270,6 +270,22 @@ export function cleanupFloat(value: number | string): string {
 }
 
 /**
+ * Format large counts as human-readable (K/M abbreviations with 1 decimal)
+ * Ideal for data point counts, statistics, metrics
+ * 
+ * @param count - Number to format
+ * @returns Formatted string (e.g., "1.2K", "3.5M")
+ */
+export function formatDataPointCount(count: number): string {
+  if (count >= 1_000_000) {
+    return `${(count / 1_000_000).toFixed(1)}M`;
+  } else if (count >= 1_000) {
+    return `${(count / 1_000).toFixed(1)}K`;
+  }
+  return count.toString();
+}
+
+/**
  * Format number with unit
  * 
  * @param value - Number to format

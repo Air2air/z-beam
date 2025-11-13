@@ -3,6 +3,7 @@
 import React from 'react';
 import { Card } from '@/app/components/Card/Card';
 import { Button } from '@/app/components/Button';
+import { formatDataPointCount } from '@/app/utils/formatting';
 import type { DatasetCardProps } from '@/types/centralized';
 
 /**
@@ -60,18 +61,6 @@ export function DatasetCard({
       link.click();
       document.body.removeChild(link);
     }
-  };
-
-  /**
-   * Format data point count for display
-   */
-  const formatDataPoints = (count: number): string => {
-    if (count >= 1000000) {
-      return `${(count / 1000000).toFixed(1)}M`;
-    } else if (count >= 1000) {
-      return `${(count / 1000).toFixed(1)}K`;
-    }
-    return count.toString();
   };
 
   return (
@@ -136,7 +125,7 @@ export function DatasetCard({
                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" 
                   />
                 </svg>
-                <span>{formatDataPoints(dataPoints)}</span>
+                <span>{formatDataPointCount(dataPoints)}</span>
               </span>
             </div>
           </div>

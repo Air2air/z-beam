@@ -4,6 +4,7 @@
 import React from 'react';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
+import { capitalizeWords } from '@/app/utils/formatting';
 
 interface SubcategoryData {
   slug: string;
@@ -29,10 +30,7 @@ export default function SubcategoryDatasetCards({
 }: SubcategoryDatasetCardsProps) {
   
   const formatCategoryName = (name: string) => {
-    return name
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(name.replace(/-/g, ' '));
   };
 
   const handleQuickDownload = async (subcategorySlug: string, format: string, materials: any[]) => {

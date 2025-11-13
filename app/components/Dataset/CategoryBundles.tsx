@@ -4,6 +4,7 @@
 import React from 'react';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
+import { capitalizeWords } from '@/app/utils/formatting';
 
 interface CategoryBundlesProps {
   materials: any[];
@@ -13,10 +14,7 @@ interface CategoryBundlesProps {
 
 export default function CategoryBundles({ materials, categoryStats, onDownload }: CategoryBundlesProps) {
   const formatCategoryName = (category: string) => {
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(category.replace(/-/g, ' '));
   };
 
   const handleQuickDownload = async (category: string, format: string) => {

@@ -3,6 +3,7 @@
 import React from 'react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
+import { capitalizeWords } from '@/app/utils/formatting';
 
 // Helper function to sanitize numeric values
 // Note: Most sanitization now happens at frontmatter loading stage via normalizeNumericValues()
@@ -532,10 +533,7 @@ export function extractPropertiesFromMetadata(
 function formatPropertyName(key: string): string {
   // Convert camelCase to space separated, then handle underscores
   const splitCamel = key.replace(/([a-z])([A-Z])/g, '$1 $2');
-  return splitCamel
-    .split(/[_\s]+/)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  return capitalizeWords(splitCamel.replace(/[_\s]+/g, ' '));
 }
 
 // Get lighter background color variant from gradient color

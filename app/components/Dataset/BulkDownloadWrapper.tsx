@@ -2,6 +2,7 @@
 // Server Component - no client-side interactivity
 
 import React from 'react';
+import { capitalizeWords } from '@/app/utils/formatting';
 
 interface BulkDownloadWrapperProps {
   materials: any[];
@@ -151,10 +152,7 @@ export default function BulkDownloadWrapper({ materials, children }: BulkDownloa
   };
 
   const formatCategoryName = (category: string) => {
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(category.replace(/-/g, ' '));
   };
 
   return <>{children(handleBulkDownload)}</>;

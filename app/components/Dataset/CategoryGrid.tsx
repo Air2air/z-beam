@@ -10,6 +10,7 @@ import {
   ZapIcon,
   InfoIcon
 } from '@/app/components/Buttons';
+import { capitalizeWords } from '@/app/utils/formatting';
 import type { CategoryGridProps } from '@/types/centralized';
 
 const categoryIcons: Record<string, any> = {
@@ -42,10 +43,7 @@ export default function CategoryGrid({ categoryStats, materials }: CategoryGridP
   const categories = Object.entries(categoryStats).sort((a, b) => b[1] - a[1]);
 
   const formatCategoryName = (category: string) => {
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(category.replace(/-/g, ' '));
   };
 
   return (

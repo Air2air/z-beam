@@ -5,6 +5,7 @@ import React, { useState, useMemo } from 'react';
 import { SearchIcon, DownloadIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
+import { capitalizeWords } from '@/app/utils/formatting';
 import type { MaterialBrowserProps, DatasetMaterial } from '@/types/centralized';
 
 interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
@@ -84,10 +85,7 @@ export default function MaterialBrowser({
   };
 
   const formatCategoryName = (category: string) => {
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(category.replace(/-/g, ' '));
   };
 
   // Expose search/filter UI separately
