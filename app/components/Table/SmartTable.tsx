@@ -4,7 +4,6 @@
 import React, { useState } from 'react';
 import { TableProps, SmartTableData, SmartField, TableSection, DisplayMode } from '@/types';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
-import './styles.css';
 
 /**
  * Enhanced Smart Table component with intelligent frontmatter organization
