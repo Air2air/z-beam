@@ -6,6 +6,7 @@ import { SearchIcon, DownloadIcon, FilterIcon, XIcon } from '@/app/components/Bu
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
+import { triggerDownload } from '@/app/utils/downloadUtils';
 import type { MaterialBrowserProps, DatasetMaterial } from '@/types/centralized';
 
 interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
@@ -74,15 +75,6 @@ export default function MaterialBrowser({
 
     return filtered;
   }, [materials, searchTerm, selectedCategory, sortBy]);
-
-  const handleDownload = (url: string, filename: string) => {
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   const formatCategoryName = (category: string) => {
     return capitalizeWords(category.replace(/-/g, ' '));
@@ -186,7 +178,7 @@ export default function MaterialBrowser({
               category={formatCategoryName(material.category)}
               subcategory={formatCategoryName(material.subcategory)}
               onQuickDownload={(format: string, url: string) => {
-                handleDownload(url, `${material.slug}.${format.toLowerCase()}`);
+                triggerDownload(url, `${material.slug}.${format.toLowerCase()}`);
               }}
             />
           );

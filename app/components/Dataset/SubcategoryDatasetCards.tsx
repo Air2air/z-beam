@@ -5,6 +5,7 @@ import React from 'react';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
+import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 
 interface SubcategoryData {
   slug: string;
@@ -104,15 +105,7 @@ export default function SubcategoryDatasetCards({
     }
 
     // Trigger download
-    const blob = new Blob([content], { type: mimeType });
-    const blobUrl = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = blobUrl;
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(blobUrl);
+    triggerBlobDownload(content, fileName, mimeType);
   };
 
   return (

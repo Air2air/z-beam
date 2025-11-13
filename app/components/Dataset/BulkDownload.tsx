@@ -6,6 +6,8 @@ import { DownloadIcon, PackageIcon, CodeIcon, FileTextIcon, FileIcon } from '@/a
 import { Button } from '@/app/components/Button';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
+import { capitalizeWords } from '@/app/utils/formatting';
+import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 import type { BulkDownloadProps } from '@/types/centralized';
 
 export default function BulkDownload({ materials, categoryStats }: BulkDownloadProps) {
@@ -139,15 +141,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
       }
 
       // Create and trigger download
-      const blob = new Blob([content], { type: mimeType });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      triggerBlobDownload(content, filename, mimeType);
     } catch (error) {
       console.error('Download failed:', error);
       alert('Download failed. Please try again.');
@@ -157,10 +151,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
   };
 
   const formatCategoryName = (category: string) => {
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(category.replace(/-/g, ' '));
   };
 
   const categories = Object.entries(categoryStats).sort((a, b) => b[1] - a[1]);

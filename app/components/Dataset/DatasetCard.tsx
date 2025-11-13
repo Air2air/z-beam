@@ -4,6 +4,7 @@ import React from 'react';
 import { Card } from '@/app/components/Card/Card';
 import { Button } from '@/app/components/Button';
 import { formatDataPointCount } from '@/app/utils/formatting';
+import { triggerDownload } from '@/app/utils/downloadUtils';
 import type { DatasetCardProps } from '@/types/centralized';
 
 /**
@@ -54,12 +55,7 @@ export function DatasetCard({
       onQuickDownload(format, url);
     } else {
       // Default behavior: trigger download
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = url.split('/').pop() || `dataset.${format.toLowerCase()}`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      triggerDownload(url, url.split('/').pop() || `dataset.${format.toLowerCase()}`);
     }
   };
 

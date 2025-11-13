@@ -6,6 +6,7 @@ import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import type { MaterialDatasetCardWrapperProps, MaterialDatasetData } from '@/types/centralized';
 import { trackDatasetDownload } from '@/app/utils/analytics';
+import { triggerDownload } from '@/app/utils/downloadUtils';
 
 export default function MaterialDatasetCardWrapper({
   material,
@@ -99,12 +100,7 @@ export default function MaterialDatasetCardWrapper({
           fileSize: undefined // File size not available for direct links
         });
         
-        const link = document.createElement('a');
-        link.href = filePath;
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        triggerDownload(filePath, fileName);
       }}
       getDirectLink={(format: 'json' | 'csv' | 'txt') => {
         const baseSlug = slug.endsWith('-laser-cleaning') ? slug : `${slug}-laser-cleaning`;

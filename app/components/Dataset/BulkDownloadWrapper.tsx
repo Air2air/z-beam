@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { capitalizeWords } from '@/app/utils/formatting';
+import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 
 interface BulkDownloadWrapperProps {
   materials: any[];
@@ -136,15 +137,7 @@ export default function BulkDownloadWrapper({ materials, children }: BulkDownloa
       }
 
       // Create and trigger download
-      const blob = new Blob([content], { type: mimeType });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      triggerBlobDownload(content, filename, mimeType);
     } catch (error) {
       console.error('Download failed:', error);
       alert('Download failed. Please try again.');

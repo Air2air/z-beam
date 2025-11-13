@@ -8,6 +8,8 @@ import DatasetSection from '@/app/components/Dataset/DatasetSection';
 import CategoryBundles from '@/app/components/Dataset/CategoryBundles';
 import { PackageIcon } from '@/app/components/Buttons';
 import { trackDatasetDownload } from '@/app/utils/analytics';
+import { capitalizeWords } from '@/app/utils/formatting';
+import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 
 interface DatasetsContentProps {
   materials: any[];
@@ -228,14 +230,7 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
         fileSize: blob.size
       });
       
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
+      triggerBlobDownload(content, filename, mimeType);
     } catch (error) {
       console.error('Download failed:', error);
       alert('Download failed. Please try again.');
@@ -243,10 +238,7 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
   };
 
   const formatCategoryName = (category: string) => {
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    return capitalizeWords(category.replace(/-/g, ' '));
   };
 
   const completeDbStats = [

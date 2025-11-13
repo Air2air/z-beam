@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { InfoIcon, CheckCircleIcon, FileIcon } from '@/app/components/Buttons';
 import { Button } from '@/app/components/Button';
 import DatasetDownloadControls from './DatasetDownloadControls';
+import { copyToClipboard } from '@/app/utils/downloadUtils';
 import type { DatasetSectionProps } from '@/types/centralized';
 
 export default function DatasetSection({
@@ -37,14 +38,12 @@ export default function DatasetSection({
   };
 
   // Copy download URL
-  const copyDownloadUrl = () => {
-    if (!getDirectLink) {
-      const message = `${title} - ${description}`;
-      navigator.clipboard.writeText(message);
-    } else {
-      const fullUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}${getDirectLink(downloadFormat)}`;
-      navigator.clipboard.writeText(fullUrl);
-    }
+  const copyDownloadUrl = async () => {
+    const textToCopy = !getDirectLink
+      ? `${title} - ${description}`
+      : `${typeof window !== 'undefined' ? window.location.origin : ''}${getDirectLink(downloadFormat)}`;
+    
+    await copyToClipboard(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

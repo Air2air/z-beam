@@ -5,6 +5,7 @@ import { SectionContainerDark } from '@/app/components/SectionContainer/SectionC
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import { trackDatasetDownload } from '@/app/utils/analytics';
+import { triggerDownload } from '@/app/utils/downloadUtils';
 
 interface SettingsDatasetCardWrapperProps {
   settings: {
@@ -110,12 +111,7 @@ export default function SettingsDatasetCardWrapper({
             fileSize: undefined // File size not available for direct links
           });
           
-          const link = document.createElement('a');
-          link.href = filePath;
-          link.download = fileName;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+          triggerDownload(filePath, fileName);
         }}
         getDirectLink={(format: 'json' | 'csv' | 'txt') => {
           const baseSlug = slug.endsWith('-settings') ? slug : `${slug}-settings`;

@@ -8,6 +8,7 @@ import DatasetSection from './DatasetSection';
 import type { CategoryDatasetCardWrapperProps } from '@/types/centralized';
 import { calculateAggregateStats, loadMaterialDatasets } from '@/app/utils/datasetAggregator';
 import { trackDatasetDownload } from '@/app/utils/analytics';
+import { triggerBlobDownload } from '@/app/utils/downloadUtils';
 
 export default function CategoryDatasetCardWrapper({
   category,
@@ -189,14 +190,7 @@ export default function CategoryDatasetCardWrapper({
       fileSize: blob.size
     });
     
-    const blobUrl = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = blobUrl;
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(blobUrl);
+    triggerBlobDownload(content, fileName, mimeType);
   };
 
   const stats = [
