@@ -10,6 +10,7 @@ import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
 import SettingsDatasetCardWrapper from '@/app/components/Dataset/SettingsDatasetCardWrapper';
 import { SettingsMetadata } from '@/types/centralized';
+import { prepareSettingsData } from '@/app/utils/settings/prepareSettingsData';
 
 interface SettingsLayoutProps {
   settings: SettingsMetadata;
@@ -65,58 +66,16 @@ export function SettingsLayout({
     subcategory,
   };
 
-  // NEW: Support both legacy (machineSettings.essential_parameters) and hybrid (components.parameter_relationships)
-  const parametersRaw = settings.components?.parameter_relationships?.parameters 
-    || settings.machineSettings?.essential_parameters;
-  
-  // NEW: Use materialRef-loaded properties or passed properties
-  const materialProps = settings._materialProperties || materialProperties;
-  
-  // NEW: Extract component-specific configs
-  const safetyHeatmapConfig = settings.components?.safety_heatmap;
-  const thermalConfig = settings.components?.thermal_accumulation;
-  const diagnosticConfig = settings.components?.diagnostic_center;
-
-  // Extract data for components (support both formats)
-  const paramData = parametersRaw ? (
-    Array.isArray(parametersRaw) ? parametersRaw : Object.entries(parametersRaw).map(([key, param]: [string, any]) => ({
-      id: key,
-      name: param.name || key,
-      value: param.value,
-      unit: param.unit,
-      criticality: param.criticality as 'critical' | 'high' | 'medium' | 'low',
-      rationale: param.rationale,
-      material_interaction: param.material_interaction
-    }))
-  ) : (
-    // FALLBACK: Convert simple machineSettings to parameter format
-    settings.machineSettings ? Object.entries(settings.machineSettings).map(([key, param]: [string, any]) => ({
-      id: key,
-      name: param.name || key,
-      value: param.value,
-      unit: param.unit,
-      min: param.min,
-      max: param.max,
-      criticality: (key === 'powerRange' || key === 'energyDensity' || key === 'pulseWidth' ? 'high' : 'medium') as 'critical' | 'high' | 'medium' | 'low',
-      rationale: `Operating range: ${param.min}-${param.max} ${param.unit}`,
-      material_interaction: null
-    })) : null
-  );
-
-  // Helper function to find parameter by id
-  const findParam = (id: string) => {
-    if (parametersRaw) {
-      if (Array.isArray(parametersRaw)) {
-        return parametersRaw.find((p: any) => p.id === id);
-      }
-      return (parametersRaw as any)[id];
-    }
-    // FALLBACK: Check simple machineSettings
-    if (settings.machineSettings) {
-      return (settings.machineSettings as any)[id];
-    }
-    return null;
-  };
+  // Extract and prepare settings data using utility
+  const {
+    parametersRaw,
+    materialProps,
+    safetyHeatmapConfig,
+    thermalConfig,
+    diagnosticConfig,
+    paramData,
+    findParam
+  } = prepareSettingsData(settings, materialProperties);
 
   // Extract heatmap configuration (check hybrid format first, then legacy, then simple machineSettings)
   const powerParam = safetyHeatmapConfig?.power_range || findParam('powerRange');
