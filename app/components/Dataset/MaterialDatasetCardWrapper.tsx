@@ -1,7 +1,7 @@
 'use client';
 // app/components/Dataset/MaterialDatasetCardWrapper.tsx
 
-import { SectionContainerDark } from '@/app/components/SectionContainer/SectionContainerDark';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import type { MaterialDatasetCardWrapperProps, MaterialDatasetData } from '@/types/centralized';
@@ -49,7 +49,8 @@ export default function MaterialDatasetCardWrapper({
   const sectionsCount = Object.keys(materialProperties).length;
 
   return (
-    <SectionContainerDark
+    <SectionContainer
+      variant="dark"
       title={`${name} Dataset Download`}
       icon={getSectionIcon('dataset')}
     >
@@ -118,6 +119,6 @@ export default function MaterialDatasetCardWrapper({
         label: `View all ${category.charAt(0).toUpperCase() + category.slice(1)} datasets`
       }}
     />
-    </SectionContainerDark>
+    </SectionContainer>
   );
 }

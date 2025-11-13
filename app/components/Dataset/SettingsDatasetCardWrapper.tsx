@@ -1,7 +1,7 @@
 'use client';
 // app/components/Dataset/SettingsDatasetCardWrapper.tsx
 
-import { SectionContainerDark } from '@/app/components/SectionContainer/SectionContainerDark';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSection from './DatasetSection';
 import { trackDatasetDownload } from '@/app/utils/analytics';
@@ -60,7 +60,8 @@ export default function SettingsDatasetCardWrapper({
   const totalDataPoints = parametersCount + challengesCount + issuesCount + citationsCount + outcomesCount;
 
   return (
-    <SectionContainerDark
+    <SectionContainer
+      variant="dark"
       title={`${name} Settings Dataset Download`}
       icon={getSectionIcon('dataset')}
     >
@@ -129,6 +130,6 @@ export default function SettingsDatasetCardWrapper({
           label: `View all ${category.charAt(0).toUpperCase() + category.slice(1)} datasets`
         }}
       />
-    </SectionContainerDark>
+    </SectionContainer>
   );
 }

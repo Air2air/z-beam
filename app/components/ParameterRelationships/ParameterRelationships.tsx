@@ -3,7 +3,7 @@
 
 import React, { useState, useMemo } from "react";
 import { formatKeyAsTitle } from "@/app/utils/metricsCardHelpers";
-import { SectionContainerDark } from "@/app/components/SectionContainer/SectionContainerDark";
+import { SectionContainer } from "@/app/components/SectionContainer/SectionContainer";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import { darkenColor } from "@/app/utils/colorUtils";
 import type {
@@ -635,7 +635,8 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
   };
 
   return (
-    <SectionContainerDark
+    <SectionContainer
+      variant="dark"
       title="Parameter Relationships"
       icon={getSectionIcon('machine-settings')}
     >
@@ -1025,6 +1026,6 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
           </div>
         </div>
       </div>
-    </SectionContainerDark>
+    </SectionContainer>
   );
 };

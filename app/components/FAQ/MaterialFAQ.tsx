@@ -10,7 +10,7 @@
 // app/components/FAQ/MaterialFAQ.tsx
 "use client";
 
-import { SectionContainerDefault } from "../SectionContainer/SectionContainerDefault";
+import { SectionContainer } from "../SectionContainer/SectionContainer";
 import { trackFAQClick } from "@/app/utils/analytics";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import { useRef } from "react";
@@ -61,7 +61,8 @@ export function MaterialFAQ({
   };
 
   return (
-    <SectionContainerDefault
+    <SectionContainer
+      variant="default"
       title={`${materialName} Laser Cleaning FAQs`}
       icon={getSectionIcon('faq')}
     >
@@ -110,7 +111,7 @@ export function MaterialFAQ({
           </div>
         ))}
       </div>
-    </SectionContainerDefault>
+    </SectionContainer>
   );
 }
 

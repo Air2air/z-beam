@@ -13,10 +13,10 @@
  *   <CardGridSSR slugs={lanthanideSlugs} columns={3} />
  * </SectionContainer>
  * 
- * // Preferred: Use variants
- * <SectionContainerDefault title="Related Materials">
+ * // Preferred: Use explicit variant prop
+ * <SectionContainer variant="default" title="Related Materials">
  *   <CardGridSSR slugs={slugs} />
- * </SectionContainerDefault>
+ * </SectionContainer>
  */
 import React from 'react';
 import { Button } from '../Button';

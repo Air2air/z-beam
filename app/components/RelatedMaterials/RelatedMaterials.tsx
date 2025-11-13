@@ -10,7 +10,7 @@
 
 import { getMaterialsBySubcategory } from '@/app/utils/materialCategories';
 import { CardGridSSR } from '../CardGrid';
-import { SectionContainerDefault } from '../SectionContainer/SectionContainerDefault';
+import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { capitalizeWords } from '@/app/utils/formatting';
 
@@ -44,7 +44,8 @@ export async function RelatedMaterials({
   const formattedSubcategory = capitalizeWords(subcategory.replace(/-/g, ' '));
   
   return (
-    <SectionContainerDefault
+    <SectionContainer
+      variant="default"
       title={`Related ${formattedCategory} › ${formattedSubcategory} Materials`}
       icon={getSectionIcon('related-materials')}
       actionText="Show all"
@@ -57,6 +58,6 @@ export async function RelatedMaterials({
         showBadgeSymbols={true}
         loadBadgeSymbolData={true}
       />
-    </SectionContainerDefault>
+    </SectionContainer>
   );
 }

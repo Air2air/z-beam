@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { SectionContainerDark } from '@/app/components/SectionContainer/SectionContainerDark';
+import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import MaterialDatasetCardWrapper from './MaterialDatasetCardWrapper';
 import type { MaterialDatasetCardWrapperProps } from '@/types/centralized';
@@ -25,7 +25,8 @@ export default function DatasetDownload({
   const displayTitle = title || `${material.name} Dataset Download`;
 
   return (
-    <SectionContainerDark
+    <SectionContainer
+      variant="dark"
       title={displayTitle}
       icon={getSectionIcon('dataset')}
     >
@@ -33,6 +34,6 @@ export default function DatasetDownload({
         material={material}
         showFullDataset={showFullDataset}
       />
-    </SectionContainerDark>
+    </SectionContainer>
   );
 }
