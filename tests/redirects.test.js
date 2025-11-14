@@ -201,13 +201,13 @@ describe('301 Redirects Validation', () => {
     "from": "/carbon-fiber-reinforced-polymer-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Carbon Fiber Reinforced Polymer"
+    "material": "CFRP"
   },
   {
     "from": "/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Carbon Fiber Reinforced Polymer"
+    "material": "CFRP"
   },
   {
     "from": "/cast-iron-laser-cleaning",
@@ -249,13 +249,13 @@ describe('301 Redirects Validation', () => {
     "from": "/ceramic-matrix-composites-cmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Ceramic Matrix Composites CMCs"
+    "material": "CMCs"
   },
   {
     "from": "/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/ceramic-matrix-composites-cmcs-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Ceramic Matrix Composites CMCs"
+    "material": "CMCs"
   },
   {
     "from": "/cerium-laser-cleaning",
@@ -381,13 +381,13 @@ describe('301 Redirects Validation', () => {
     "from": "/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Fiber Reinforced Polyurethane FRPU"
+    "material": "FRPU"
   },
   {
     "from": "/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Fiber Reinforced Polyurethane FRPU"
+    "material": "FRPU"
   },
   {
     "from": "/fiberglass-laser-cleaning",
@@ -465,13 +465,13 @@ describe('301 Redirects Validation', () => {
     "from": "/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Glass Fiber Reinforced Polymers GFRP"
+    "material": "GFRP"
   },
   {
     "from": "/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Glass Fiber Reinforced Polymers GFRP"
+    "material": "GFRP"
   },
   {
     "from": "/gold-laser-cleaning",
@@ -729,13 +729,13 @@ describe('301 Redirects Validation', () => {
     "from": "/metal-matrix-composites-mmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Metal Matrix Composites MMCs"
+    "material": "MMCs"
   },
   {
     "from": "/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning",
     "to": "/materials/composite/fiber-reinforced/metal-matrix-composites-mmcs-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Metal Matrix Composites MMCs"
+    "material": "MMCs"
   },
   {
     "from": "/molybdenum-laser-cleaning",
@@ -957,25 +957,25 @@ describe('301 Redirects Validation', () => {
     "from": "/polytetrafluoroethylene-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polytetrafluoroethylene-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Polytetrafluoroethylene"
+    "material": "PTFE"
   },
   {
     "from": "/plastic/thermoplastic/polytetrafluoroethylene-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polytetrafluoroethylene-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Polytetrafluoroethylene"
+    "material": "PTFE"
   },
   {
     "from": "/polyvinyl-chloride-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning",
     "type": "flat-to-hierarchical",
-    "material": "Polyvinyl Chloride"
+    "material": "PVC"
   },
   {
     "from": "/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning",
     "to": "/materials/plastic/thermoplastic/polyvinyl-chloride-laser-cleaning",
     "type": "root-to-materials",
-    "material": "Polyvinyl Chloride"
+    "material": "PVC"
   },
   {
     "from": "/poplar-laser-cleaning",

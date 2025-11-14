@@ -523,7 +523,19 @@ async function generateAllDatasets() {
   console.log(`   ✅ Success: ${successCount} materials`);
   console.log(`   ❌ Errors: ${errorCount} materials`);
   console.log(`   📁 Output: ${outputDir}`);
+  
+  if (errorCount > 0) {
+    console.log(`\n❌ Dataset generation completed with ${errorCount} error(s)\n`);
+    process.exit(1);
+  }
+  
+  if (successCount === 0) {
+    console.log(`\n⚠️  No datasets generated!\n`);
+    process.exit(1);
+  }
+  
   console.log(`\n✨ Done!\n`);
+  process.exit(0);
 }
 
 // Generate index.json with all materials metadata

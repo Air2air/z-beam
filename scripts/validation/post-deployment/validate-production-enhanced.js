@@ -109,6 +109,10 @@ async function runPageSpeedInsights() {
       console.log(`  Analyzing ${strategy}...`);
       const data = await fetchJSON(apiUrl);
       
+      if (!data.lighthouseResult || !data.lighthouseResult.categories) {
+        throw new Error('Invalid PageSpeed API response');
+      }
+      
       const lighthouseResult = data.lighthouseResult;
       const categories = lighthouseResult.categories;
       const audits = lighthouseResult.audits;
@@ -207,6 +211,7 @@ async function checkSecurityHeaders() {
       }
     } catch (observatoryError) {
       console.log('  ⚠️  Mozilla Observatory check failed (may need to trigger scan first)');
+      addResult('security-external', 'Mozilla Observatory', 'warning', 'Check needs manual trigger');
     }
     
   } catch (error) {
@@ -228,6 +233,10 @@ async function validateHTML() {
   try {
     const validatorUrl = `https://validator.w3.org/nu/?out=json&doc=${encodeURIComponent(TARGET_URL)}`;
     const data = await fetchJSON(validatorUrl);
+    
+    if (!data || !data.messages) {
+      throw new Error('Invalid W3C validator response');
+    }
     
     const errors = data.messages.filter(m => m.type === 'error');
     const warnings = data.messages.filter(m => m.type === 'info' || m.type === 'warning');

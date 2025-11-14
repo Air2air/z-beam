@@ -20,6 +20,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 
 /**
  * Convert settings YAML to structured dataset
+ * @returns {object} Result with success flag and details
  */
 function processSettingsFile(filePath) {
   try {
@@ -175,6 +176,20 @@ function main() {
     console.log(`✗ Errors: ${errorCount} files`);
   }
   console.log(`Output directory: ${OUTPUT_DIR}`);
+  console.log('='.repeat(60) + '\n');
+  
+  if (errorCount > 0) {
+    console.error('❌ Settings dataset generation completed with errors');
+    process.exit(1);
+  }
+  
+  if (successCount === 0) {
+    console.error('⚠️  No settings datasets generated!');
+    process.exit(1);
+  }
+  
+  console.log('✅ Settings datasets generated successfully\n');
+  process.exit(0);
 }
 
 main();

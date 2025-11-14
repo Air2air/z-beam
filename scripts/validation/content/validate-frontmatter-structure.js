@@ -13,7 +13,9 @@ const fs = require('fs');
 const path = require('path');
 
 const FRONTMATTER_DIR = path.join(process.cwd(), 'frontmatter/materials');
-const SAMPLE_COUNT = 10; // Check first 10 files
+const args = process.argv.slice(2);
+const FULL_VALIDATION = args.includes('--full');
+const SAMPLE_COUNT = FULL_VALIDATION ? Infinity : 10; // Check all files with --full flag
 
 // Properties that should NOT exist (common mistakes)
 const FORBIDDEN_PROPERTIES = [
@@ -50,11 +52,10 @@ function validateFrontmatter() {
   console.log('🔍 Validating Frontmatter Structure\n');
   
   // Get YAML files
-  const files = fs.readdirSync(FRONTMATTER_DIR)
-    .filter(f => f.endsWith('.yaml'))
-    .slice(0, SAMPLE_COUNT);
+  const allFiles = fs.readdirSync(FRONTMATTER_DIR).filter(f => f.endsWith('.yaml'));
+  const files = FULL_VALIDATION ? allFiles : allFiles.slice(0, SAMPLE_COUNT);
   
-  console.log(`📁 Checking ${files.length} sample files...\n`);
+  console.log(`📁 Checking ${files.length}${FULL_VALIDATION ? '' : ' sample'} files (${allFiles.length} total)...\n`);
   
   let errors = [];
   let warnings = [];

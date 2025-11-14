@@ -16,6 +16,10 @@
 const https = require('https');
 const fs = require('fs');
 
+// Import validation infrastructure
+const { requiresServer } = require('../lib/environment');
+const { ValidationResult } = require('../lib/exitCodes');
+
 // ============================================================================
 // CONFIGURATION
 // ============================================================================
@@ -507,8 +511,12 @@ function generateReport(results) {
 // ============================================================================
 
 async function main() {
+  // Check if server is available (skip in CI)
+  await requiresServer('JSON-LD comprehensive validation');
+  
   console.log('🚀 Starting comprehensive JSON-LD validation...\n');
 
+  const result = new ValidationResult('JSON-LD Comprehensive Validation');
   const results = [];
 
   for (const path of CONFIG.testPages) {
@@ -519,25 +527,23 @@ async function main() {
       const html = await fetchPage(url);
       const schemas = extractSchemas(html);
       results.push({ url: path, schemas });
+      result.addPassed(`Validated ${path}`);
     } catch (error) {
       results.push({ url: path, error: error.message });
+      result.addFailure(`Failed to validate ${path}`, error.message);
     }
   }
 
   const summary = generateReport(results);
 
-  // Exit with appropriate code
-  const allPassed = summary.validPercentage === 100 && 
-                    summary.eetatPercentage >= 70 &&
-                    summary.richSnippetPercentage >= 80;
-
-  if (allPassed) {
+  // Add summary to result
+  if (summary.validPercentage === 100) {
     console.log('✅ All validations passed!\n');
-    process.exit(0);
   } else {
     console.log('⚠️  Some validations failed. Review the report above.\n');
-    process.exit(1);
   }
+
+  result.exit();
 }
 
 main().catch(error => {

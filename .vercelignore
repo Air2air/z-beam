@@ -32,9 +32,15 @@ tmp/
 temp/
 *.tmp
 
-# Scripts (except deployment)
-scripts/*
+# Scripts (except deployment and validation)
+scripts/audit/
+scripts/content/
+scripts/migration/
+scripts/fixes/
 !scripts/deployment/
+!scripts/generate-datasets.ts
+!scripts/generate-settings-datasets.js
+!scripts/sitemap/
 
 # Archive
 archive/

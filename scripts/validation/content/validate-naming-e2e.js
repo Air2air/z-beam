@@ -18,6 +18,11 @@ const path = require('path');
 const yaml = require('js-yaml');
 const { glob } = require('glob');
 
+// Import validation infrastructure
+const ValidationCache = require('../lib/cache');
+const { ValidationResult } = require('../lib/exitCodes');
+const config = require('../config');
+
 // Naming convention rules
 const RULES = {
   slug: /^[a-z0-9-]+$/,
@@ -40,13 +45,16 @@ const IMAGE_PATTERNS = {
 
 class NamingValidator {
   constructor() {
+    this.result = new ValidationResult('Naming Validation');
+    this.cache = new ValidationCache('naming');
     this.errors = [];
     this.warnings = [];
     this.stats = {
       filesChecked: 0,
       imagesValidated: 0,
       slugsValidated: 0,
-      namingErrors: 0
+      namingErrors: 0,
+      cached: 0
     };
   }
 
@@ -447,7 +455,14 @@ class NamingValidator {
     console.log(`   Found ${frontmatterFiles.length} files\n`);
     
     for (const filePath of frontmatterFiles) {
-      await this.validateFrontmatterFile(filePath);
+      // Check cache first
+      if (this.cache.isCached(filePath)) {
+        this.stats.cached++;
+        continue;
+      }
+      
+      const isValid = await this.validateFrontmatterFile(filePath);
+      this.cache.set(filePath, isValid);
     }
 
     // Validate image files
@@ -456,17 +471,40 @@ class NamingValidator {
     console.log(`   Found ${imageFiles.length} images\n`);
     
     for (const filePath of imageFiles) {
-      await this.validateImageFile(filePath);
+      if (this.cache.isCached(filePath)) {
+        this.stats.cached++;
+        continue;
+      }
+      
+      const isValid = await this.validateImageFile(filePath);
+      this.cache.set(filePath, isValid);
     }
 
     // Validate cross-references
     await this.validateCrossReferences();
 
-    // Generate and display report
-    const success = this.generateReport();
+    // Generate report
+    this.generateReport();
+    
+    // Add stats to result
+    if (this.stats.cached > 0) {
+      console.log(`\n💾 Used ${this.stats.cached} cached validations`);
+    }
+    
+    // Use new exit handling
+    if (this.errors.length === 0) {
+      this.result.addPassed(`All ${this.stats.filesChecked} files validated`);
+    } else {
+      this.errors.forEach(error => {
+        this.result.addFailure(error.message, error.context);
+      });
+    }
+    
+    this.warnings.forEach(warning => {
+      this.result.addWarning(warning.message);
+    });
 
-    // Exit with appropriate code for CI/CD
-    process.exit(success ? 0 : 1);
+    this.result.exit();
   }
 }
 

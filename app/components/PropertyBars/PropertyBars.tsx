@@ -100,9 +100,10 @@ interface PropertyBarsProps {
   
   // Display options
   columns?: {
-    mobile?: number;
-    tablet?: number;
-    desktop?: number;
+    xs?: number;     // Extra small (mobile)
+    sm?: number;     // Small (phablet)
+    md?: number;     // Medium (tablet)
+    lg?: number;     // Large (desktop)
   };
   height?: number;
   className?: string;
@@ -127,7 +128,7 @@ interface PropertyBarsProps {
  * @param properties - Array of properties with value, min, max, optional unit
  * @param metadata - Material/machine metadata (alternative to properties)
  * @param dataSource - Which properties to extract from metadata
- * @param columns - Responsive column counts (default: 3/4/6)
+ * @param columns - Responsive column counts (default: xs:3, sm:4, md:5, lg:6)
  * @param height - Bar height in pixels (default: 70px)
  * @param className - Additional CSS classes
  */
@@ -135,7 +136,7 @@ export function PropertyBars({
   properties: propsProperties,
   metadata,
   dataSource = 'materialProperties',
-  columns = { mobile: 3, tablet: 4, desktop: 6 },
+  columns = { xs: 3, sm: 4, md: 5, lg: 6 },
   height = 70,
   className = '',
   actionText,
@@ -217,12 +218,12 @@ export function PropertyBars({
  */
 function PropertyBarsGrid({ 
   properties,
-  columns = { mobile: 3, tablet: 4, desktop: 6 },
+  columns = { xs: 3, sm: 4, md: 5, lg: 6 },
   height = 70,
   className = ''
 }: {
   properties: PropertyData[];
-  columns?: { mobile?: number; tablet?: number; desktop?: number };
+  columns?: { xs?: number; sm?: number; md?: number; lg?: number };
   height?: number;
   className?: string;
 }) {
@@ -234,7 +235,49 @@ function PropertyBarsGrid({
     );
   }
   
-  const gridClasses = `grid-cols-${columns.mobile} md:grid-cols-${columns.tablet} lg:grid-cols-${columns.desktop}`;
+  // Map column numbers to explicit Tailwind classes (required for purge/JIT)
+  const xsColsMap: Record<number, string> = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-2',
+    3: 'grid-cols-3',
+    4: 'grid-cols-4',
+    5: 'grid-cols-5',
+    6: 'grid-cols-6',
+  };
+  
+  const smColsMap: Record<number, string> = {
+    1: 'sm:grid-cols-1',
+    2: 'sm:grid-cols-2',
+    3: 'sm:grid-cols-3',
+    4: 'sm:grid-cols-4',
+    5: 'sm:grid-cols-5',
+    6: 'sm:grid-cols-6',
+  };
+  
+  const mdColsMap: Record<number, string> = {
+    1: 'md:grid-cols-1',
+    2: 'md:grid-cols-2',
+    3: 'md:grid-cols-3',
+    4: 'md:grid-cols-4',
+    5: 'md:grid-cols-5',
+    6: 'md:grid-cols-6',
+  };
+  
+  const lgColsMap: Record<number, string> = {
+    1: 'lg:grid-cols-1',
+    2: 'lg:grid-cols-2',
+    3: 'lg:grid-cols-3',
+    4: 'lg:grid-cols-4',
+    5: 'lg:grid-cols-5',
+    6: 'lg:grid-cols-6',
+  };
+  
+  const xsClass = xsColsMap[columns.xs || 3] || 'grid-cols-3';
+  const smClass = smColsMap[columns.sm || 4] || 'sm:grid-cols-4';
+  const mdClass = mdColsMap[columns.md || 5] || 'md:grid-cols-5';
+  const lgClass = lgColsMap[columns.lg || 6] || 'lg:grid-cols-6';
+  
+  const gridClasses = `${xsClass} ${smClass} ${mdClass} ${lgClass}`;
   
   return (
     <div className={`grid gap-4 ${gridClasses} ${className}`}>

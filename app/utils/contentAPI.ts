@@ -193,6 +193,11 @@ const loadSingleArticle = cache(async (slug: string): Promise<Article | null> =>
     
     for (const dir of directories) {
       try {
+        // Skip directory if it doesn't exist
+        if (!existsSync(dir)) {
+          continue;
+        }
+        
         // First try the exact slug
         let filePath = path.join(dir, `${slug}.md`);
         

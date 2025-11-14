@@ -164,7 +164,12 @@ describe('Pre-Deployment Error Prevention', () => {
       const vercelConfig = JSON.parse(fs.readFileSync(vercelConfigPath, 'utf-8'));
       
       if (vercelConfig.buildCommand) {
-        expect(vercelConfig.buildCommand).toContain('next build');
+        // Accept both 'next build' and 'npm run build' patterns
+        const validBuildPatterns = ['next build', 'npm run build', 'yarn build', 'pnpm build'];
+        const hasValidBuild = validBuildPatterns.some(pattern => 
+          vercelConfig.buildCommand.includes(pattern)
+        );
+        expect(hasValidBuild).toBe(true);
         
         // Should NOT include production-predeploy.js (removed to fix builds)
         expect(vercelConfig.buildCommand).not.toContain('production-predeploy.js');
