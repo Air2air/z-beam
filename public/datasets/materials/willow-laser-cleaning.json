@@ -31,7 +31,7 @@
   "keywords": [
     "willow",
     "laser cleaning",
-    "wood",
+    "Wood",
     "hardwood",
     "laser cleaning",
     "material properties",
@@ -89,16 +89,18 @@
     "name": "Willow",
     "slug": "willow-laser-cleaning",
     "classification": {
-      "category": "wood",
+      "category": "Wood",
       "subcategory": "hardwood"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "thermalDestruction": {
           "value": 623,
           "unit": "K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 273,
           "max": 600
@@ -106,6 +108,7 @@
         "specificHeat": {
           "value": 1460,
           "unit": "J/(kg·K)",
+          "confidence": 100,
           "source": "ai_research",
           "min": 800,
           "max": 2500
@@ -113,6 +116,7 @@
         "youngsModulus": {
           "value": 10.2,
           "unit": "GPa",
+          "confidence": 100,
           "source": "ai_research",
           "min": 5,
           "max": 20000
@@ -120,6 +124,7 @@
         "oxidationResistance": {
           "value": 0.72,
           "unit": "dimensionless (relative resistance index)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 82,
           "max": 204
@@ -127,6 +132,7 @@
         "laserReflectivity": {
           "value": 0.12,
           "unit": "fraction",
+          "confidence": 92,
           "source": "ai_research",
           "min": 10,
           "max": 60
@@ -134,6 +140,7 @@
         "thermalConductivity": {
           "value": 0.14,
           "unit": "W/m·K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.04,
           "max": 0.4
@@ -141,6 +148,7 @@
         "thermalExpansion": {
           "value": 0.000045,
           "unit": "K^{-1}",
+          "confidence": 95,
           "source": "ai_research",
           "min": 3,
           "max": 60
@@ -148,6 +156,7 @@
         "density": {
           "value": 420,
           "unit": "kg/m³",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.12,
           "max": 1.5
@@ -155,6 +164,7 @@
         "hardness": {
           "value": 430,
           "unit": "lbf",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1,
           "max": 5000
@@ -162,6 +172,7 @@
         "corrosionResistance": {
           "value": 0.2,
           "unit": "dimensionless (durability class normalized 0-1)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 2,
           "max": 8
@@ -169,6 +180,7 @@
         "laserAbsorption": {
           "value": 0.92,
           "unit": "dimensionless (absorptivity)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1,
           "max": 50
@@ -176,6 +188,7 @@
         "compressiveStrength": {
           "value": 35,
           "unit": "MPa",
+          "confidence": 100,
           "source": "ai_research",
           "min": 20,
           "max": 80
@@ -183,6 +196,7 @@
         "thermalDiffusivity": {
           "value": 1.52e-7,
           "unit": "m²/s",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.0001,
           "max": 0.4
@@ -190,6 +204,7 @@
         "flexuralStrength": {
           "value": 46.9,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 40,
           "max": 150
@@ -197,6 +212,7 @@
         "tensileStrength": {
           "value": 92.4,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 200
@@ -204,6 +220,7 @@
         "fractureToughness": {
           "value": 0.32,
           "unit": "MPa·m^{1/2}",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.33,
           "max": 4.4
@@ -211,15 +228,17 @@
         "porosity": {
           "value": 0.75,
           "unit": "fraction",
+          "confidence": 95,
           "source": "ai_research",
           "min": 12,
           "max": 65
         },
-        "percentage": 60
+        "percentage": 70.8
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 29.2,
         "absorptivity": {
           "value": 0.9,
           "unit": "dimensionless",

@@ -31,7 +31,7 @@
   "keywords": [
     "serpentine",
     "laser cleaning",
-    "stone",
+    "Stone",
     "sedimentary",
     "laser cleaning",
     "material properties",
@@ -89,18 +89,20 @@
     "name": "Serpentine",
     "slug": "serpentine-laser-cleaning",
     "classification": {
-      "category": "stone",
+      "category": "Stone",
       "subcategory": "sedimentary"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 70.8,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "fractureToughness": 1.2,
         "thermalDestruction": {
           "value": 973,
           "unit": "K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 273,
           "max": 2300
@@ -108,6 +110,7 @@
         "specificHeat": {
           "value": 962,
           "unit": "J/(kg·K)",
+          "confidence": 98,
           "source": "ai_research",
           "min": 400,
           "max": 1200
@@ -115,6 +118,7 @@
         "youngsModulus": {
           "value": 48.3,
           "unit": "GPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 10,
           "max": 100
@@ -122,6 +126,7 @@
         "oxidationResistance": {
           "value": 0.92,
           "unit": "dimensionless (scale 0-1)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 400,
           "max": 870
@@ -129,6 +134,7 @@
         "laserReflectivity": {
           "value": 0.058,
           "unit": "dimensionless (fraction)",
+          "confidence": 93,
           "source": "ai_research",
           "min": 5,
           "max": 80
@@ -136,6 +142,7 @@
         "thermalConductivity": {
           "value": 2.82,
           "unit": "W/m·K",
+          "confidence": 98,
           "source": "ai_research",
           "min": 0.2,
           "max": 8
@@ -143,6 +150,7 @@
         "thermalExpansion": {
           "value": 0.0000085,
           "unit": "K^{-1}",
+          "confidence": 95,
           "source": "ai_research",
           "min": 3,
           "max": 30
@@ -150,6 +158,7 @@
         "density": {
           "value": 2650,
           "unit": "kg/m³",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1.5,
           "max": 6
@@ -157,6 +166,7 @@
         "hardness": {
           "value": 3.5,
           "unit": "Mohs",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1,
           "max": 7
@@ -164,6 +174,7 @@
         "corrosionResistance": {
           "value": 0.87,
           "unit": "dimensionless (normalized resistance scale 0-1)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 2,
           "max": 9
@@ -171,6 +182,7 @@
         "laserAbsorption": {
           "value": 45000,
           "unit": "m^{-1}",
+          "confidence": 92,
           "source": "ai_research",
           "min": 0.1,
           "max": 100
@@ -178,6 +190,7 @@
         "compressiveStrength": {
           "value": 100,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 500
@@ -185,6 +198,7 @@
         "thermalDiffusivity": {
           "value": 0.0000012,
           "unit": "m²/s",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.2,
           "max": 2.5
@@ -192,6 +206,7 @@
         "flexuralStrength": {
           "value": 9.8,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 5,
           "max": 50
@@ -199,6 +214,7 @@
         "tensileStrength": {
           "value": 5.2,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 2,
           "max": 25
@@ -206,6 +222,7 @@
         "porosity": {
           "value": 0.8,
           "unit": "%",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.5,
           "max": 25
@@ -213,7 +230,8 @@
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40,
+        "percentage": 29.2,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
         "absorptivity": {
           "value": 0.8,
           "unit": "dimensionless",

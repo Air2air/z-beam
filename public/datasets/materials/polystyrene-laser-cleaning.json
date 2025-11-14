@@ -31,7 +31,7 @@
   "keywords": [
     "polystyrene",
     "laser cleaning",
-    "plastic",
+    "Plastic",
     "thermoplastic",
     "laser cleaning",
     "material properties",
@@ -89,17 +89,19 @@
     "name": "Polystyrene",
     "slug": "polystyrene-laser-cleaning",
     "classification": {
-      "category": "plastic",
+      "category": "Plastic",
       "subcategory": "thermoplastic"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 70.8,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
           "value": 100000000000000,
           "unit": "Ω·m",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1000000000000,
           "max": 10000000000000000
@@ -107,6 +109,7 @@
         "fractureToughness": {
           "value": 0.9,
           "unit": "MPa m^{1/2}",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1,
           "max": 10
@@ -114,6 +117,7 @@
         "thermalDestruction": {
           "value": 623,
           "unit": "K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 273,
           "max": 700
@@ -121,6 +125,7 @@
         "specificHeat": {
           "value": 1300,
           "unit": "J/(kg·K)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 1,
           "max": 2500
@@ -128,6 +133,7 @@
         "youngsModulus": {
           "value": 3.3,
           "unit": "GPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.01,
           "max": 5000
@@ -135,6 +141,7 @@
         "oxidationResistance": {
           "value": 523,
           "unit": "K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 60,
           "max": 260
@@ -142,6 +149,7 @@
         "laserReflectivity": {
           "value": 0.052,
           "unit": "dimensionless",
+          "confidence": 95,
           "source": "ai_research",
           "min": 4,
           "max": 95
@@ -149,6 +157,7 @@
         "thermalConductivity": {
           "value": 0.12,
           "unit": "W/m·K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.02,
           "max": 3
@@ -156,6 +165,7 @@
         "thermalExpansion": {
           "value": 0.00007,
           "unit": "K^{-1}",
+          "confidence": 100,
           "source": "ai_research",
           "min": 10,
           "max": 200
@@ -163,6 +173,7 @@
         "density": {
           "value": 1.05,
           "unit": "g/cm³",
+          "confidence": 100,
           "source": "ai_research",
           "min": 0.85,
           "max": 2.2
@@ -170,13 +181,15 @@
         "hardness": {
           "value": 77,
           "unit": "Shore D",
+          "confidence": 98,
           "source": "ai_research",
-          "min": "Shore A 10",
-          "max": "Shore D 90"
+          "min": 61.6,
+          "max": 92.39999999999999
         },
         "corrosionResistance": {
           "value": 0.65,
           "unit": "dimensionless (normalized resistance index)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 5,
           "max": 9
@@ -184,6 +197,7 @@
         "laserAbsorption": {
           "value": 100,
           "unit": "m^{-1}",
+          "confidence": 92,
           "source": "ai_research",
           "min": 0.1,
           "max": 100
@@ -191,6 +205,7 @@
         "compressiveStrength": {
           "value": 70,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 200
@@ -198,6 +213,7 @@
         "thermalDiffusivity": {
           "value": 1.02e-7,
           "unit": "m²/s",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.08,
           "max": 1
@@ -205,6 +221,7 @@
         "flexuralStrength": {
           "value": 50,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 30,
           "max": 200
@@ -212,6 +229,7 @@
         "tensileStrength": {
           "value": 40,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 10,
           "max": 400
@@ -219,7 +237,8 @@
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40,
+        "percentage": 29.2,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
         "absorptivity": {
           "value": 0.15,
           "unit": "dimensionless",
@@ -393,8 +412,8 @@
       "description": "Hardness - material characteristics",
       "value": 77,
       "unitText": "Shore D",
-      "minValue": "Shore A 10",
-      "maxValue": "Shore D 90",
+      "minValue": 61.6,
+      "maxValue": 92.39999999999999,
       "measurementTechnique": "ai_research"
     },
     {

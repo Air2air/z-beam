@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "@id": "http://localhost:3000/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning#dataset",
-  "name": "Fiber Reinforced Polyurethane FRPU Laser Cleaning Dataset",
-  "description": "Comprehensive laser cleaning parameters and material properties for Fiber Reinforced Polyurethane FRPU. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
+  "name": "FRPU Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for FRPU. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
   "dateModified": "2025-11-14",
   "datePublished": "2025-11-14",
@@ -29,9 +29,9 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "fiber reinforced polyurethane frpu",
+    "frpu",
     "laser cleaning",
-    "composite",
+    "Composite",
     "fiber-reinforced",
     "laser cleaning",
     "material properties",
@@ -57,19 +57,19 @@
       "@type": "DataDownload",
       "encodingFormat": "application/json",
       "contentUrl": "http://localhost:3000/datasets/materials/fiber-reinforced-polyurethane-frpu-laser-cleaning.json",
-      "name": "Fiber Reinforced Polyurethane FRPU Dataset (JSON)"
+      "name": "FRPU Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
       "contentUrl": "http://localhost:3000/datasets/materials/fiber-reinforced-polyurethane-frpu-laser-cleaning.csv",
-      "name": "Fiber Reinforced Polyurethane FRPU Dataset (CSV)"
+      "name": "FRPU Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
       "contentUrl": "http://localhost:3000/datasets/materials/fiber-reinforced-polyurethane-frpu-laser-cleaning.txt",
-      "name": "Fiber Reinforced Polyurethane FRPU Dataset (TXT)"
+      "name": "FRPU Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
@@ -86,20 +86,22 @@
     "lastVerified": "2025-11-14"
   },
   "material": {
-    "name": "Fiber Reinforced Polyurethane FRPU",
+    "name": "FRPU",
     "slug": "fiber-reinforced-polyurethane-frpu-laser-cleaning",
     "classification": {
-      "category": "composite",
+      "category": "Composite",
       "subcategory": "fiber-reinforced"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 40,
+        "percentage": 70.8,
+        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
         "electricalResistivity": {
           "value": 1200000000000,
           "unit": "Ω·m",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.001,
           "max": 100000000000000
@@ -107,6 +109,7 @@
         "fractureToughness": {
           "value": 2.1,
           "unit": "MPa m^{1/2}",
+          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 100
@@ -114,6 +117,7 @@
         "thermalDestruction": {
           "value": 573,
           "unit": "K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 273,
           "max": 900
@@ -121,6 +125,7 @@
         "density": {
           "value": 1.2,
           "unit": "g/cm³",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.5,
           "max": 8
@@ -128,6 +133,7 @@
         "oxidationResistance": {
           "value": 0.02,
           "unit": "%/hour",
+          "confidence": 95,
           "source": "ai_research",
           "min": 80,
           "max": 1650
@@ -135,6 +141,7 @@
         "laserReflectivity": {
           "value": 0.32,
           "unit": "dimensionless",
+          "confidence": 95,
           "source": "ai_research",
           "min": 2,
           "max": 80
@@ -142,6 +149,7 @@
         "thermalExpansion": {
           "value": 0.000035,
           "unit": "1/K",
+          "confidence": 95,
           "source": "ai_research",
           "min": -1,
           "max": 250
@@ -149,6 +157,7 @@
         "thermalConductivity": {
           "value": 0.32,
           "unit": "W/m·K",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.03,
           "max": 400
@@ -156,6 +165,7 @@
         "youngsModulus": {
           "value": 3.2,
           "unit": "GPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.001,
           "max": 3000
@@ -163,6 +173,7 @@
         "hardness": {
           "value": 65,
           "unit": "Shore D",
+          "confidence": 95,
           "source": "ai_research",
           "min": 5,
           "max": 120
@@ -170,6 +181,7 @@
         "specificHeat": {
           "value": 1120,
           "unit": "J/(kg·K)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 500,
           "max": 2500
@@ -177,6 +189,7 @@
         "laserAbsorption": {
           "value": 0.87,
           "unit": "dimensionless",
+          "confidence": 92,
           "source": "ai_research",
           "min": 0.05,
           "max": 200
@@ -184,6 +197,7 @@
         "compressiveStrength": {
           "value": 145,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 50,
           "max": 1000
@@ -191,6 +205,7 @@
         "tensileStrength": {
           "value": 48,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 6000
@@ -198,6 +213,7 @@
         "thermalDiffusivity": {
           "value": 1.28e-7,
           "unit": "m²/s",
+          "confidence": 95,
           "source": "ai_research",
           "min": 0.08,
           "max": 180
@@ -205,6 +221,7 @@
         "flexuralStrength": {
           "value": 115,
           "unit": "MPa",
+          "confidence": 95,
           "source": "ai_research",
           "min": 100,
           "max": 2000
@@ -212,6 +229,7 @@
         "corrosionResistance": {
           "value": 9.2,
           "unit": "dimensionless (corrosion resistance rating scale 0-10)",
+          "confidence": 95,
           "source": "ai_research",
           "min": 5,
           "max": 9
@@ -219,7 +237,8 @@
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 40,
+        "percentage": 29.2,
+        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
         "absorptivity": {
           "value": 0.2,
           "unit": "dimensionless",
@@ -541,5 +560,5 @@
       "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). Fiber Reinforced Polyurethane FRPU Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning"
+  "citation": "Z-Beam (2025). FRPU Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/fiber-reinforced-polyurethane-frpu-laser-cleaning"
 }
