@@ -14,6 +14,7 @@ import CaptionSkeleton from '../Caption/CaptionSkeleton';
 import { Tags } from "../Tags/Tags";
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
+import { Settings } from 'lucide-react';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
@@ -162,7 +163,17 @@ export function Layout(props: LayoutProps) {
 
           {metadata?.machineSettings && (
             <SectionContainer 
-              title={metadata.title ? `${metadata.title} Machine Settings` : 'Machine Settings'}
+              title={metadata.title && metadata.title.toLowerCase().includes('settings') 
+                ? metadata.title 
+                : metadata.title 
+                  ? `${metadata.title} Machine Settings` 
+                  : 'Machine Settings'}
+              icon={<Settings className="w-5 h-5 text-gray-600 dark:text-gray-400" />}
+              actionText="Materials"
+              actionUrl={metadata?.category && metadata?.subcategory && metadata?.slug
+                ? `/materials/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-settings', '-laser-cleaning')}`
+                : undefined
+              }
               className="mb-8"
             >
               <PropertyBars 

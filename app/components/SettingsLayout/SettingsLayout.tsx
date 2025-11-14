@@ -235,7 +235,7 @@ export function SettingsLayout({
       metadata={metadata}
       slug={slug}
       title={settings.title}
-      components={undefined} // Settings page - render children instead of article structure
+      components={{ _settings: { content: '' } }} // Enable author section with dummy component
     >
       {/* Settings-specific visualizations below */}
       

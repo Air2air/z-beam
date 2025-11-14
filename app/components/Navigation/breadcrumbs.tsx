@@ -61,6 +61,17 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 >
                   <span itemProp="name">{crumb.label}</span>
                 </Link>
+              ) : crumb.isCrossNav ? (
+                // Cross-navigation link (e.g., Materials → Settings): distinct styling
+                <Link
+                  href={crumb.href}
+                  className="text-base text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
+                             transition-colors duration-150 font-medium"
+                  title={`View ${crumb.label}`}
+                >
+                  <span itemProp="name">{crumb.label}</span>
+                </Link>
               ) : crumb.href ? (
                 // Other items are normal links
                 <Link

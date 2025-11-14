@@ -1419,6 +1419,7 @@ export interface ContentItem {
 export interface BreadcrumbItem {
   label: string;
   href: string; // Always required for breadcrumb navigation
+  isCrossNav?: boolean; // Optional flag for cross-navigation links (e.g., Materials → Settings)
 }
 
 /**
