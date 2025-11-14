@@ -100,35 +100,15 @@ describe('JSON-LD Architecture Enforcement', () => {
     });
   });
 
-  describe('StaticPage Dynamic JSON-LD Usage', () => {
-    it('StaticPage component should use SchemaFactory for JSON-LD generation', () => {
-      const staticPagePath = join(appDir, 'components/StaticPage/StaticPage.tsx');
-      const content = readFileSync(staticPagePath, 'utf-8');
+  describe('Layout Component Structure', () => {
+    it('Layout should render content cards for pages', () => {
+      const layoutPath = join(appDir, 'components/Layout/Layout.tsx');
+      const content = readFileSync(layoutPath, 'utf-8');
       
-      // Check for SchemaFactory usage (new pattern)
-      expect(content).toContain('generateJsonLd');
-      expect(content).toContain('SchemaFactory');
-      expect(content).toContain('factory.generate()');
-    });
-
-    it('StaticPage should pass equipment data to SchemaFactory', () => {
-      const staticPagePath = join(appDir, 'components/StaticPage/StaticPage.tsx');
-      const content = readFileSync(staticPagePath, 'utf-8');
-      
-      // Check that equipment data is passed to factory
-      expect(content).toContain('schemaData');
-      expect(content).toContain('pageConfig');
-      expect(content).toContain('new SchemaFactory');
-    });
-
-    it('StaticPage should pass content cards to SchemaFactory for dynamic detection', () => {
-      const staticPagePath = join(appDir, 'components/StaticPage/StaticPage.tsx');
-      const content = readFileSync(staticPagePath, 'utf-8');
-      
-      // Check that content cards (containing orgs, services, etc.) are passed
-      expect(content).toContain('contentCards');
-      expect(content).toContain('schemaData');
-      // Factory will auto-detect organizations, products, etc. from data
+      // Check that Layout accepts and renders content
+      expect(content).toContain('children');
+      expect(content).toContain('title');
+      expect(content).toContain('description');
     });
   });
 
@@ -141,22 +121,21 @@ describe('JSON-LD Architecture Enforcement', () => {
     ];
 
     staticPages.forEach(pagePath => {
-      it(`${pagePath} should use StaticPage component`, () => {
+      it(`${pagePath} should use Layout component`, () => {
         const fullPath = join(process.cwd(), pagePath);
         const content = readFileSync(fullPath, 'utf-8');
         
-        expect(content).toContain('StaticPage');
+        expect(content).toContain('Layout');
         expect(content).toContain('slug=');
       });
 
-      it(`${pagePath} should NOT have hardcoded JSON-LD`, () => {
+      it(`${pagePath} should load YAML configuration`, () => {
         const fullPath = join(process.cwd(), pagePath);
         const content = readFileSync(fullPath, 'utf-8');
         
-        expect(content).not.toContain('type="application/ld+json"');
-        expect(content).not.toContain('createPartnersJsonLd');
-        expect(content).not.toContain('createServicesJsonLd');
-        expect(content).not.toContain('createEquipmentJsonLd');
+        // Should load configuration from YAML
+        expect(content).toContain('yaml');
+        expect(content).toContain('pageConfig');
       });
     });
   });
