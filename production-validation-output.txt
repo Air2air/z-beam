@@ -1,0 +1,79 @@
+
+> validate:production:enhanced
+> node scripts/validation/post-deployment/validate-production-enhanced.js
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 ENHANCED POST-DEPLOYMENT VALIDATION
+════════════════════════════════════════════════════════════════════════════════
+
+📍 Target: https://www.z-beam.com
+📅 Time: 11/13/2025, 6:40:46 PM
+🔑 API Key: Not provided (rate limited)
+⏩ Skip External: false
+════════════════════════════════════════════════════════════════════════════════
+🚀 POST-DEPLOYMENT PRODUCTION VALIDATION
+════════════════════════════════════════════════════════════════════════════════
+
+📍 Target: https://www.z-beam.com
+📅 Time: 11/13/2025, 6:40:46 PM
+📋 Category: all
+
+🚀 Validating Performance...
+
+🚀 Running Google PageSpeed Insights...
+  Analyzing mobile...
+  ✓ Response time: 120ms
+  ✓ TTFB: 76ms
+  ✓ Compression: none
+
+🔒 Validating Security...
+  ✓ Security headers checked
+
+🔍 Validating SEO...
+  ✓ SEO elements checked
+
+♿ Validating Accessibility...
+  ✓ Accessibility elements checked
+
+📊 Validating Structured Data...
+  ✗ PageSpeed Insights failed: Cannot read properties of undefined (reading 'categories')
+
+🔒 Checking Security Headers (securityheaders.com)...
+  ℹ️  Note: Manual check recommended at https://securityheaders.com/?q=https%3A%2F%2Fwww.z-beam.com
+  ✓ 3 valid JSON-LD schemas
+
+🎯 Additional Validations...
+  ⚠️  Mozilla Observatory check failed (may need to trigger scan first)
+
+✔️  Checking W3C HTML Validation...
+  ✓ Additional checks completed
+
+════════════════════════════════════════════════════════════════════════════════
+📊 VALIDATION SUMMARY
+════════════════════════════════════════════════════════════════════════════════
+
+✅ Passed: 32
+❌ Failed: 3
+⚠️  Warnings: 0
+📈 Score: 91/100
+
+📋 Category Breakdown:
+  🟡 performance: 80% (4/5 passed)
+  🟡 security: 89% (8/9 passed)
+  🟡 seo: 89% (8/9 passed)
+  🟢 accessibility: 100% (3/3 passed)
+  🟢 jsonld: 100% (6/6 passed)
+  🟢 additional: 100% (3/3 passed)
+
+❌ Failed Tests:
+
+  performance:
+    ✗ Content Compression: No compression detected
+
+  security:
+    ✗ Mixed Content: Found 2 HTTP resources
+
+  seo:
+    ✗ Meta Description: Description length: 221 characters
+
+════════════════════════════════════════════════════════════════════════════════
