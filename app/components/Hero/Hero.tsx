@@ -64,11 +64,15 @@ export function Hero({
   // Remove Intersection Observer - Hero is always above fold, should load immediately
   // This reduces JavaScript execution before LCP
   
-  // Get video ID from frontmatter
-  const videoId = frontmatter?.video?.id;
+  // Get video ID from frontmatter - support both string and object formats
+  const videoId = typeof frontmatter?.video === 'string' 
+    ? frontmatter.video 
+    : frontmatter?.video?.id;
   
-  // Get image source from frontmatter
-  const imageSource = frontmatter?.images?.hero?.url;
+  // Get image source from frontmatter - support both string and object formats
+  const imageSource = typeof frontmatter?.images === 'string'
+    ? frontmatter.images
+    : (frontmatter?.image || frontmatter?.images?.hero?.url);
 
   // Build YouTube URL with maximum branding removal
   const buildYouTubeUrl = (id: string) => {

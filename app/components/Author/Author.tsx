@@ -38,7 +38,10 @@ export function Author({
   return (
     <div className={`rounded-lg px-4 py-3 bg-gray-800/30 dark:bg-gray-800/50 ${className}`}>
       <div className="flex items-start justify-between gap-4">
-        <div className="flex items-center gap-4 flex-1 min-w-0">
+        <Link
+          href={`/search?q=${encodedAuthorName}`}
+          className="flex items-center gap-4 rounded-lg flex-1 min-w-0 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        >
           {showAvatar && authorImage && (
             <Image
               src={authorImage}
@@ -50,17 +53,14 @@ export function Author({
           )}
           
           <div className="flex-1 min-w-0">
-            <Link
-              href={`/search?q=${encodedAuthorName}`}
-              className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
+            <div>
               {authorName}
               {showCredentials && credentials && (
                 <span className="ml-1 text-gray-600 dark:text-gray-400">
                   {credentials}
                 </span>
               )}
-            </Link>
+            </div>
 
             {showSpecialties && field && (
               <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
@@ -74,7 +74,7 @@ export function Author({
               </div>
             )}
           </div>
-        </div>
+        </Link>
 
         {/* Date panel on right */}
         {hasDateInfo && (

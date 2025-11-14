@@ -43,14 +43,6 @@ jest.mock('../../app/components/JsonLD/JsonLD', () => ({
   },
 }));
 
-jest.mock('../../app/components/Content/Content', () => ({
-  Content: ({ content, config }: any) => (
-    <div data-testid="content-component" data-config={JSON.stringify(config)}>
-      {content}
-    </div>
-  ),
-}));
-
 jest.mock('../../app/components/Caption/Caption', () => ({
   Caption: ({ content, frontmatter, config }: any) => (
     <div data-testid="caption-component" data-content={content}>

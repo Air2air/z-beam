@@ -161,7 +161,8 @@ describe('CardGrid - Unified Grid System', () => {
   });
 
   describe('Backward Compatibility', () => {
-    test('works as SearchResultsGrid', () => {
+    // SearchResultsGrid component was removed - CardGrid is the unified component
+    test.skip('works as SearchResultsGrid', () => {
       const { SearchResultsGrid } = require('../../app/components/SearchResults/SearchResultsGrid');
       render(<SearchResultsGrid searchResults={mockSearchResults} />);
       expect(screen.getByText('Search Result 1')).toBeDefined();

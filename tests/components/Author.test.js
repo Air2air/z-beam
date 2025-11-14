@@ -235,22 +235,21 @@ describe('Author Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
-        'hover:bg-gray-50',
-        'dark:hover:bg-gray-900',
+        'hover:text-blue-600',
+        'dark:hover:text-blue-400',
         'transition-colors'
       );
     });
 
-    test.skip('link is properly structured', () => {
-      // SKIPPED: Link class expectations may not match current implementation
+    test('link is properly structured', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('block', 'rounded-lg', 'px-4', 'py-1');
+      expect(link).toHaveClass('flex', 'items-center', 'gap-4', 'rounded-lg');
       
-      // Check that the author component is inside the link
-      const authorComponent = link.querySelector('.author-component');
-      expect(authorComponent).toBeInTheDocument();
+      // Check that the image is inside the link
+      const image = screen.getByAltText('Test Author');
+      expect(link).toContainElement(image);
     });
   });
 

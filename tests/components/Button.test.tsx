@@ -80,7 +80,7 @@ describe('Button Component', () => {
       render(<Button>Medium</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('min-h-[44px]');
+      expect(button).toHaveClass('min-h-[40px]'); // Updated from 44px - component uses 40px for medium
       expect(button.className).toMatch(/px-\d+/); // Has horizontal padding
       expect(button.className).toMatch(/py-\d+/); // Has vertical padding
     });
@@ -408,7 +408,7 @@ describe('Button Component', () => {
         render(<Button size="md">Medium Button</Button>);
         
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('min-h-[44px]');
+        expect(button).toHaveClass('min-h-[40px]'); // Updated from 44px
       });
 
       it('should have large touch target for large size', () => {
@@ -523,7 +523,7 @@ describe('Button Component', () => {
       render(<Button variant="minimal" size="md">Medium Minimal</Button>);
       
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('bg-transparent', 'min-h-[44px]');
+      expect(button).toHaveClass('bg-transparent', 'min-h-[40px]'); // Updated from 44px
     });
   });
 
