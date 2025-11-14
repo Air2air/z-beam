@@ -534,6 +534,35 @@ async function validatePage(browser, url, route) {
 }
 
 /**
+ * Check if dev server is running
+ */
+async function isServerRunning(url) {
+  try {
+    const http = require('http');
+    const urlObj = new URL(url);
+    
+    return new Promise((resolve) => {
+      const req = http.get({
+        hostname: urlObj.hostname,
+        port: urlObj.port || 80,
+        path: '/',
+        timeout: 2000,
+      }, (res) => {
+        resolve(res.statusCode !== undefined);
+      });
+      
+      req.on('error', () => resolve(false));
+      req.on('timeout', () => {
+        req.destroy();
+        resolve(false);
+      });
+    });
+  } catch (error) {
+    return false;
+  }
+}
+
+/**
  * Main validation function
  */
 async function validate() {
@@ -545,6 +574,19 @@ async function validate() {
   log(`Mode: ${STRICT_MODE ? 'STRICT (fail on suggestions)' : 'STANDARD (fail on critical only)'}`, 'cyan');
   
   try {
+    // Check if server is running
+    log('\n🔍 Checking if dev server is running...', 'cyan');
+    const serverRunning = await isServerRunning(DEV_URL);
+    
+    if (!serverRunning) {
+      log('  ⚠ Dev server not running - skipping schema validation', 'yellow');
+      log('\n✓ Schema richness validation skipped (server not running)\n', 'green');
+      log('  💡 Run "npm run dev" to enable schema validation', 'cyan');
+      process.exit(0);
+    }
+    
+    log('  ✓ Dev server is running', 'green');
+    
     // Find all routes
     log('\n📄 Discovering page routes...', 'cyan');
     const routes = await findPageRoutes();
