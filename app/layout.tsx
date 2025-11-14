@@ -153,6 +153,16 @@ export default async function RootLayout({
         {/* Critical resource hints for better LCP and TTFB */}
         <link rel="preconnect" href="https://vercel.live" crossOrigin="anonymous" />
         
+        {/* Preload hero image for LCP - critical for mobile performance */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/images/pages/operator.jpg" 
+          fetchPriority="high"
+          imageSrcSet="/images/pages/operator.jpg 1920w"
+          imageSizes="100vw"
+        />
+        
         {/* Defer non-critical third-party connections */}
         <link rel="dns-prefetch" href="https://img.youtube.com" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
