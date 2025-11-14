@@ -2,6 +2,7 @@
 
 import { Layout } from "./components/Layout/Layout";
 import { HomePageGrid } from "./components/HomePageGrid";
+import { JsonLD } from "./components/JsonLD/JsonLD";
 import { createMetadata } from "./utils/metadata";
 import { SITE_CONFIG } from "./utils/constants";
 import fs from 'fs/promises';
@@ -62,18 +63,62 @@ export default async function HomePage() {
     const pageTitle = homeConfig.title || SITE_CONFIG.name;
     const pageSubtitle = homeConfig.subtitle || "Advanced laser surface treatment solutions for industrial applications";
 
+    // Generate JSON-LD schemas for homepage
+    const breadcrumbs = homeConfig.breadcrumb || [
+      { label: 'Home', href: '/' }
+    ];
+    
+    const jsonLdSchema = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        // BreadcrumbList
+        {
+          '@type': 'BreadcrumbList',
+          '@id': `${SITE_CONFIG.url}/#breadcrumb`,
+          itemListElement: breadcrumbs.map((crumb: any, index: number) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: crumb.label,
+            item: index < breadcrumbs.length - 1 ? `${SITE_CONFIG.url}${crumb.href}` : undefined
+          }))
+        },
+        // WebPage
+        {
+          '@type': 'WebPage',
+          '@id': `${SITE_CONFIG.url}/#webpage`,
+          url: SITE_CONFIG.url,
+          name: pageTitle,
+          description: homeConfig.description || SITE_CONFIG.description,
+          isPartOf: {
+            '@id': `${SITE_CONFIG.url}/#website`
+          },
+          breadcrumb: {
+            '@id': `${SITE_CONFIG.url}/#breadcrumb`
+          },
+          inLanguage: 'en-US',
+          potentialAction: {
+            '@type': 'ReadAction',
+            target: [SITE_CONFIG.url]
+          }
+        }
+      ]
+    };
+
     return (
-    <Layout 
-      title={pageTitle}
-      subtitle={pageSubtitle}
-      metadata={heroFrontmatter}
-      customHeroOverlay={true}
-    >
-      {/* Featured Solutions Section */}
-      {featuredSections.length > 0 && (
-        <HomePageGrid items={featuredSections} />
-      )}
-    </Layout>
+      <>
+        <JsonLD data={jsonLdSchema} />
+        <Layout 
+          title={pageTitle}
+          subtitle={pageSubtitle}
+          metadata={heroFrontmatter}
+          customHeroOverlay={true}
+        >
+          {/* Featured Solutions Section */}
+          {featuredSections.length > 0 && (
+            <HomePageGrid items={featuredSections} />
+          )}
+        </Layout>
+      </>
     );
   } catch (error) {
     console.error('Error loading home page content:', error);
