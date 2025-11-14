@@ -47,7 +47,9 @@ export async function generateMetadata({ params }: SettingsPageProps) {
   }
   
   try {
-    const settings = await getSettingsArticle(`${slug}-settings`);
+    // Strip -laser-cleaning suffix if present to get base material name
+    const baseMaterialSlug = slug.replace(/-laser-cleaning$/, '');
+    const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
 
     if (!settings) {
       return {
@@ -102,9 +104,12 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
   }
   
   try {
+    // Strip -laser-cleaning suffix if present to get base material name
+    const baseMaterialSlug = slug.replace(/-laser-cleaning$/, '');
+    
     // Load settings using {material}-settings naming convention
-    const settings = await getSettingsArticle(`${slug}-settings`);
-    const settingsSlug = `${slug}-settings`;
+    const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
+    const settingsSlug = `${baseMaterialSlug}-settings`;
 
     if (!settings) {
       notFound();
