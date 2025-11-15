@@ -22,6 +22,11 @@ const GoogleAnalytics = dynamic(() => import("@next/third-parties/google").then(
   loading: () => null,
 });
 
+const WebVitalsReporter = dynamic(() => import("./components/WebVitalsReporter").then(mod => ({ default: mod.WebVitalsReporter })), {
+  ssr: false,
+  loading: () => null,
+});
+
 const Footer = dynamic(() => import("./components/Navigation/footer").then(mod => ({ default: mod.default })), {
   ssr: false,
   loading: () => null,
@@ -193,6 +198,7 @@ export default async function RootLayout({
           <ConditionalCTA />
           <Footer />
         </ErrorBoundary>
+        <WebVitalsReporter />
         <GoogleAnalytics gaId="G-TZF55CB5XC" />
         <SpeedInsights />
         <Analytics />

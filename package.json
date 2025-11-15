@@ -9,13 +9,11 @@
     "build": "next build",
     "start": "next start",
     "clean": "rm -rf .next node_modules/.cache tsconfig.tsbuildinfo .vercel .validation-cache",
-    
     "check": "node scripts/validation/lib/run-checks.js",
     "type-check": "tsc --noEmit",
     "lint": "eslint app/ --ext .ts,.tsx",
     "lint:fix": "eslint app/ --ext .ts,.tsx --fix",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,md}\"",
-    
     "test": "jest",
     "test:unit": "jest tests/utils tests/lib --coverage=false",
     "test:integration": "jest tests/integration --coverage=false",
@@ -23,38 +21,30 @@
     "test:all": "jest --coverage",
     "test:watch": "jest --watch",
     "test:ci": "jest --coverage --watchAll=false --passWithNoTests",
-    
     "validate:content": "node scripts/validation/lib/run-content-validation.js",
     "validate:frontmatter": "node scripts/validation/content/validate-frontmatter-structure.js",
     "validate:metadata": "node scripts/validation/content/validate-metadata-sync.js",
     "validate:naming": "node scripts/validation/content/validate-naming-e2e.js",
     "validate:breadcrumbs": "tsx scripts/validation/content/validate-breadcrumbs.ts",
-    
     "prebuild": "npm run validate:content && npm run generate:datasets",
     "postbuild": "npm run validate:urls",
     "build:analyze": "ANALYZE=true npm run build",
-    
     "generate:datasets": "tsx scripts/generate-datasets.ts && node scripts/generate-settings-datasets.js",
     "verify:sitemap": "bash scripts/sitemap/verify-sitemap.sh",
-    
     "deploy": "bash scripts/deployment/deploy.sh",
     "deploy:monitored": "node scripts/deployment/deploy-monitored.js",
     "deploy:preview": "vercel",
-    
     "validate:production": "node scripts/validation/post-deployment/validate-production-simple.js",
     "validate:production:enhanced": "node scripts/validation/post-deployment/validate-production-enhanced.js",
     "validate:a11y": "node scripts/validation/accessibility/validate-wcag-2.2.js",
     "validate:seo": "node scripts/validation/seo/validate-modern-seo.js",
     "validate:performance": "node scripts/validation/seo/validate-core-web-vitals.js",
     "validate:urls": "node scripts/validation/jsonld/validate-jsonld-urls.js",
-    
     "cache:clear": "rm -rf .validation-cache",
     "cache:stats": "node -e \"const ValidationCache = require('./scripts/validation/lib/cache'); console.log(ValidationCache.getStats());\"",
     "logs:view": "ls -lht .terminal-logs/**/*.log 2>/dev/null | head -20 || echo 'No logs yet'",
     "logs:clean": "find .terminal-logs -name '*.log' -mtime +7 -delete 2>/dev/null && echo '✅ Old logs cleaned' || echo 'No old logs to clean'",
-    
     "vercel-build": "next build",
-    
     "logs": "vercel logs --follow",
     "status": "vercel ls"
   },
@@ -87,7 +77,8 @@
     "sass": "^1.89.2",
     "server-only": "^0.0.1",
     "tailwindcss": "^3.4.17",
-    "ts-jest": "^29.4.1"
+    "ts-jest": "^29.4.1",
+    "web-vitals": "^5.1.0"
   },
   "overrides": {
     "react": "^18.3.1",
