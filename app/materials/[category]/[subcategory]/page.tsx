@@ -6,7 +6,6 @@ import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import { CardGridSSR } from "@/app/components/CardGrid";
 import { createMetadata } from "@/app/utils/metadata";
-import SubcategoryDatasetWrapper from "@/app/components/Dataset/SubcategoryDatasetWrapper";
 import { generateSubcategoryAuthorSchema } from '@/app/utils/schemas/personSchemas';
 import { generateCollectionPageSchema, generateWebPageSchema, generateItemListSchema } from '@/app/utils/schemas/collectionPageSchema';
 import { generateDatasetSchema, generateDatasetDistributions } from '@/app/utils/schemas/datasetSchema';
@@ -198,15 +197,6 @@ export default async function SubcategoryPage({ params }: PageProps) {
             loadBadgeSymbolData={true}
           />
         </div>
-        
-        {/* Subcategory Dataset Section */}
-        <SubcategoryDatasetWrapper
-          category={category}
-          categoryLabel={categoryLabel}
-          subcategory={subcategory}
-          subcategoryLabel={subcategoryInfo.label}
-          materials={subcategoryInfo.materials}
-        />
       </Layout>
     </>
   );

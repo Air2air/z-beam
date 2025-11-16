@@ -9,7 +9,6 @@ import { CATEGORY_METADATA, VALID_CATEGORIES } from '@/app/metadata';
 import { SITE_CONFIG } from '@/app/config';
 import { getAllCategories } from '@/app/utils/materialCategories';
 import { JsonLD } from '@/app/components/JsonLD/JsonLD';
-import CategoryDatasetCardWrapper from '@/app/components/Dataset/CategoryDatasetCardWrapper';
 import { generateCategoryAuthorSchema } from '@/app/utils/schemas/personSchemas';
 import { generateCollectionPageSchema, generateWebPageSchema, generateItemListSchema } from '@/app/utils/schemas/collectionPageSchema';
 import { generateDatasetSchema, generateDatasetDistributions } from '@/app/utils/schemas/datasetSchema';
@@ -194,15 +193,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     ]
   };
 
-  // Collect all materials in this category for dataset
-  const allMaterials = categoryData.subcategories.flatMap(sub => 
-    sub.materials.map(mat => ({
-      ...mat,
-      subcategory: sub.slug,
-      subcategoryLabel: sub.label
-    }))
-  );
-
   return (
     <>
       <JsonLD data={schemas} />
@@ -225,14 +215,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             />
           </div>
         ))}
-      
-        {/* Category Dataset Section at bottom */}
-        <CategoryDatasetCardWrapper 
-          category={category}
-          categoryLabel={categoryDisplayName}
-          materials={allMaterials}
-          subcategoryCount={categoryData.subcategories.length}
-        />
       </Layout>
     </>
   );
