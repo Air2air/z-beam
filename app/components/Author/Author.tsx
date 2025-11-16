@@ -27,8 +27,8 @@ export function Author({
     ? authorInfo.expertise.join(', ') 
     : authorInfo?.expertise || '';
 
-  // Generate URL-encoded author name for search
-  const encodedAuthorName = encodeURIComponent(authorName);
+  // Generate URL-encoded author name for search (null-safe)
+  const encodedAuthorName = authorInfo ? encodeURIComponent(authorName) : '';
   
   // Check if we have date information to display
   // Support both lastModified (type definition) and dateModified (YAML field)

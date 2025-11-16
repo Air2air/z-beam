@@ -137,7 +137,7 @@ export async function CardGridSSR({
               slug,
               title: String(itemTitle),
               ...article
-            } as Article : undefined,
+            } as Article : null,
           } as GridItemSSR;
         } catch (error) {
           console.warn(`Failed to enrich item ${slug}:`, error);
