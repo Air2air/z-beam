@@ -1,208 +1,131 @@
 # Z-Beam Documentation
 
-**Complete documentation for the Z-Beam laser cleaning application.**
+> **For AI Assistants**: Start with `01-core/` to understand the system, then navigate to specific sections as needed.
 
-Last Updated: November 12, 2025 | [Changelog](CHANGELOG.md) | [Security](SECURITY.md) | [Analytics](ANALYTICS.md)
+## 📚 Documentation Structure
 
----
+### 🎯 [01-core/](./01-core/) - Core System Documentation
+**Read this first for system understanding**
 
-## 🚀 Quick Start
+Essential architecture, conventions, and foundational concepts:
+- **Frontmatter Architecture** - Content structure and organization
+- **Category System** - Three-category material classification
+- **Type System** - Centralized TypeScript types (`/types/centralized.ts`)
+- **Naming Conventions** - File and content naming rules
+- **Code Standards** - Development standards and patterns
+- **Breadcrumb System** - Navigation and structured data
+- **Section Icons** - UI icon patterns
+- **CSS Architecture** - Styling organization
 
-**New to Z-Beam?** Start here:
-- **[Quick Start Guide](./quick-start/README.md)** - Get up and running in 5 minutes
-- **[Development Setup](./development/)** - Set up your development environment  
-- **[Deployment Guide](./deployment/)** - Deploy to production
-- **[Analytics](./ANALYTICS.md)** - Google Analytics 4 event tracking
+### 🚀 [02-features/](./02-features/) - Feature Documentation
+Implementation details for specific features:
 
----
+#### Components
+- Component optimization and patterns
+- Component API documentation
+- Component compatibility matrix
 
-## 📚 Main Documentation Sections
+#### Content
+- Machine settings authority
+- Partners page features
+- Search implementation
+- Content strategy
 
-### 🧩 [Components](./components/)
-Reusable UI components:
-- **[MetricsCard](./components/MetricsCard/docs/)** - Vertical metrics display ([Redesign Details](./components/MetricsCard/docs/METRICSCARD_VERTICAL_REDESIGN.md))
-- **[Caption](./components/Caption/)** - Image captions with SEO
-- **[All Components →](./components/)**
+#### SEO
+- E-E-A-T meta tags
+- JSON-LD structured data
+- SEO optimization patterns
 
-### ✨ [Features](./features/)
-Major application features:
-- **[Categorized Properties](./features/categorized-properties/)** - Material property organization
-- **[Thermal Properties](./features/thermal-properties/)** - Thermal data handling
+#### Deployment
+- Deployment workflows
+- Auto-deploy configuration
+- Validation processes
 
-### 🏗️ [Architecture](./architecture/)  
-System design and patterns:
-- **[Static Pages](./architecture/static-pages/)** - Page architecture
-- **[JSON-LD Schemas](./architecture/jsonld/)** - Structured data
-- **[Frontmatter](./architecture/frontmatter/)** - Content metadata
-- **[URLs](./architecture/urls/)** - URL structure and routing
-- **[Type System](./architecture/)** - TypeScript types
+### 📖 [03-guides/](./03-guides/) - How-to Guides
+Practical guides for development and operations:
+- **Getting Started** - Quick onboarding
+- **Accessibility Guide** - WCAG compliance
+- **Booking Integration** - Booking system setup
+- **Business Configuration** - Settings and configuration
+- **Build Process** - Build and compilation
+- **Deployment Workflow** - Deployment procedures
+- **Freshness Timestamps** - Content freshness system
 
-### 🎨 [Systems](./systems/)
-Core utilities:
-- **[Font System](./systems/fonts/)** - Typography  
-- **[Semantic HTML](./systems/semantic/)** - Markup patterns
-- **[Performance](./systems/performance/)** - Core Web Vitals optimization
-- **[SEO](./systems/seo/)** - Rich results and web standards
-- **[Monitoring](./systems/monitoring/)** - Process monitoring
-- **[Tag System](./tag-system/)** - Content tagging
+### 📋 [04-reference/](./04-reference/) - Technical Reference
+Detailed technical documentation and API references:
+- **Breadcrumb Standard** - Breadcrumb implementation specs
+- **Build Requirements** - Build time requirements
+- **Deployment Reference** - Deployment quick reference
+- **Datasets** - Dataset documentation
+- **Testing** - E2E testing and validation
+- **Scripts** - Script documentation
 
-### 📖 [Guides](./guides/)
-How-to documentation:
-- **[Accessibility](./guides/accessibility/)** - WCAG 2.1 AA compliance
-- **[Booking Integration](./guides/)** - Calendar booking setup
-- **[Development](./development/)** - Developer workflows
-- **[Deployment](./deployment/)** - Deployment procedures
-
-### 🧪 [Testing](./testing/)
-Test documentation:
-- **[Testing Overview](./testing/)** - Test strategies
-- **[Test Coverage](./testing/)** - Coverage reports
-
----
-
-## 🔍 Quick Links
-
-### Component Documentation
-- [MetricsCard Vertical Redesign](./components/MetricsCard/docs/METRICSCARD_VERTICAL_REDESIGN.md) ⭐ NEW
-- [MetricsCard Quick Reference](./components/MetricsCard/docs/METRICSCARD_VERTICAL_QUICK_REFERENCE.md)
-- [Caption Quick Start](./components/Caption/CAPTION_QUICK_START.md)
-
-### System Guides  
-- [Accessibility Guide](./guides/accessibility/README.md)
-- [Font System](./systems/fonts/)
-- [Naming Conventions](./NAMING_QUICK_REFERENCE.md)
-
-### Recent Updates
-- **Nov 12, 2025**: Documentation cleanup (74 → 4 root files, 95% reduction)
-- **Nov 12, 2025**: Analytics docs updated with booking events
-- **Nov 12, 2025**: Test suite: 1,867 passing (91.9% pass rate)
-- **Oct 15, 2025**: MetricsCard vertical redesign complete
+### 📝 [05-changelog/](./05-changelog/) - History & Migrations
+Release history and migration guides:
+- **CHANGELOG.md** - Release notes and changes
+- **migrations/** - Historical analysis and migration guides
 
 ---
 
-## 📊 Documentation Stats
+## 🤖 Quick Navigation for AI Assistants
 
-- **Total Documents**: 283 markdown files
-- **Root Files**: 4 (95% reduction from 74)
-- **Archived**: 40+ historical documents in organized structure
-- **Component Docs**: 16 documented components
-- **Feature Docs**: Categorized properties, thermal properties, breadcrumbs
-- **System Docs**: Fonts, semantic, performance, SEO, monitoring
-- **Guides**: Accessibility, booking, development, deployment
+### Understanding the System
+1. Start: `01-core/frontmatter-architecture.md`
+2. Then: `01-core/category-system.md`
+3. Reference: `01-core/naming-conventions.md`
 
----
+### Implementing Features
+1. Check: `02-features/components/` for component patterns
+2. Review: `02-features/seo/` for SEO requirements
+3. Follow: `03-guides/` for implementation steps
 
-## 🗂️ Directory Structure
+### Deploying Changes
+1. Read: `02-features/deployment/DEPLOYMENT.md`
+2. Validate: `04-reference/DEPLOYMENT_QUICK_REFERENCE.md`
+3. Execute: `03-guides/DEPLOYMENT_WORKFLOW.md`
 
-```
-docs/
-├── README.md                           # This file
-├── CHANGELOG.md                        # Documentation changelog
-├── SECURITY.md                         # Security guidelines
-├── ANALYTICS.md                        # Google Analytics setup
-│
-├── components/                         # Component documentation
-│   ├── MetricsCard/docs/              # MetricsCard system
-│   ├── Caption/                        # Caption component
-│   └── ...
-│
-├── features/                           # Feature documentation
-│   ├── categorized-properties/        # Property system
-│   ├── thermal-properties/            # Thermal data
-│   └── ...
-│
-├── architecture/                       # Architecture docs
-│   ├── static-pages/                  # Page architecture
-│   ├── jsonld/                        # JSON-LD schemas
-│   ├── frontmatter/                   # Frontmatter structure
-│   ├── urls/                          # URL architecture
-│   └── ...
-│
-├── systems/                            # System documentation
-│   ├── fonts/                         # Font system
-│   ├── semantic/                      # Semantic HTML
-│   ├── performance/                   # Core Web Vitals
-│   ├── seo/                           # SEO & rich results
-│   ├── monitoring/                    # Process monitoring
-│   └── ...
-│
-├── guides/                             # How-to guides
-│   ├── accessibility/                 # Accessibility guide
-│   └── ...
-│
-├── testing/                            # Testing docs
-├── development/                        # Developer guides
-├── deployment/                         # Deployment guides
-├── quick-start/                        # Getting started
-├── reference/                          # API references
-├── tag-system/                         # Tag documentation
-│
-├── implementations/                    # Implementation guides
-├── pages/                              # Page-specific docs
-│
-└── archived/                           # Historical documents
-    ├── phase-reports/                 # Project phases
-    ├── summaries/                     # Completion summaries
-    ├── evaluations/                   # Analyses & audits
-    └── 2025-proposals/                # Archived proposals
-```
+### Finding Specific Info
+- **Types**: See `types/centralized.ts` (project root)
+- **Components**: `02-features/components/COMPONENT_MAP.md`
+- **Standards**: `01-core/code-standards.md`
+- **Testing**: `04-reference/E2E_CLEANUP_COMPLETE.md`
 
 ---
 
-## 💡 Finding Documentation
+## 📊 Documentation Statistics
 
-### By Task
-- **Getting Started**: [quick-start/](./quick-start/)
-- **Developing**: [development/](./development/)
-- **Building Components**: [components/](./components/)  
-- **Testing**: [testing/](./testing/)
-- **Deploying**: [deployment/](./deployment/)
-- **Accessibility**: [guides/accessibility/](./guides/accessibility/)
-
-### By Component
-- **MetricsCard**: [components/MetricsCard/docs/](./components/MetricsCard/docs/)
-- **Caption**: [components/Caption/](./components/Caption/)
-- **All Components**: [components/](./components/)
-
-### By System
-- **Fonts**: [systems/fonts/](./systems/fonts/)
-- **Semantic HTML**: [systems/semantic/](./systems/semantic/)
-- **Tags**: [tag-system/](./tag-system/)
+- **Total Documents**: ~150 (consolidated from 290+)
+- **Core Docs**: 8 essential architecture documents
+- **Features**: 30+ feature-specific guides
+- **Guides**: 15+ how-to guides
+- **Reference**: 20+ technical references
+- **Components**: 81 React components documented
 
 ---
 
-## 🤝 Contributing
+## 📌 Key Files
 
-### Adding Documentation
-1. Create docs in appropriate directory
-2. Follow naming conventions (README.md for main, specific names for details)
-3. Link from this index
-4. Update CHANGELOG.md
-
-### Updating Documentation  
-1. Edit current docs (not archived versions)
-2. Update "Last Updated" dates
-3. Add significant changes to CHANGELOG.md
-
-### Archiving Documentation
-1. Move completed projects to archived/
-2. Add links to current docs
-3. Update this index
+| Document | Location | Purpose |
+|----------|----------|---------|
+| System Architecture | `01-core/frontmatter-architecture.md` | Core content model |
+| Component Map | `02-features/components/COMPONENT_MAP.md` | All components |
+| Getting Started | `03-guides/getting-started.md` | Quick start guide |
+| Deployment Guide | `02-features/deployment/DEPLOYMENT.md` | Deploy process |
+| Code Standards | `01-core/code-standards.md` | Coding conventions |
+| Type System | `types/centralized.ts` | All TypeScript types |
 
 ---
 
-## 📧 Need Help?
+## 🏗️ Project Root Documentation
 
-- **Can't find docs?** Check [archived/](./archived/)
-- **Quick references?** Browse [reference/](./reference/)
-- **Component info?** See [components/](./components/)
-- **System details?** Check [systems/](./systems/) or [architecture/](./architecture/)
-- **Analytics setup?** Read [ANALYTICS.md](./ANALYTICS.md)
-- **Security?** See [SECURITY.md](./SECURITY.md)
+Key files in the project root:
+- `GROK_INSTRUCTIONS.md` - Instructions for Grok AI assistant
+- `METRICS_QUICK_REFERENCE.md` - Metrics visualization guide
+- `PREBUILD_QUICK_REFERENCE.md` - Pre-build validation reference
+- `README.md` - Project README
 
 ---
 
-**Version**: 2.1 (Post-cleanup)  
-**Status**: ✅ Organized & Maintained  
-**Last Major Cleanup**: November 12, 2025  
-**Root Files**: 4 (ANALYTICS, CHANGELOG, README, SECURITY)
+**Last Updated**: November 16, 2025  
+**Documentation Version**: 3.0 (Reorganized & Cleaned)  
+**Cleanup**: Removed 760KB archives, 44KB completed docs, deprecated scripts
