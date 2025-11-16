@@ -10,6 +10,7 @@ const path = require('path');
 const yaml = require('js-yaml');
 
 const SETTINGS_DIR = path.join(__dirname, '../frontmatter/settings');
+const MATERIALS_DIR = path.join(__dirname, '../frontmatter/materials');
 const OUTPUT_DIR = path.join(__dirname, '../public/datasets/settings');
 
 // Ensure output directory exists
@@ -20,6 +21,7 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 
 /**
  * Convert settings YAML to structured dataset
+ * Merges data from settings YAML (structure) and materials YAML (descriptions)
  * @returns {object} Result with success flag and details
  */
 function processSettingsFile(filePath) {
@@ -37,6 +39,30 @@ function processSettingsFile(filePath) {
     }
     
     const outputSlug = `${baseSlug}-settings`;
+    
+    // Try to load corresponding material YAML for descriptions
+    const materialPath = path.join(MATERIALS_DIR, `${baseSlug}-laser-cleaning.yaml`);
+    let materialData = null;
+    if (fs.existsSync(materialPath)) {
+      try {
+        const materialContent = fs.readFileSync(materialPath, 'utf8');
+        materialData = yaml.load(materialContent);
+      } catch (e) {
+        console.warn(`  ⚠ Could not load material data for ${baseSlug}: ${e.message}`);
+      }
+    }
+    
+    // Merge machine settings: use material descriptions if available
+    if (materialData && materialData.machineSettings) {
+      Object.keys(data.machineSettings || {}).forEach(param => {
+        if (materialData.machineSettings[param]?.description) {
+          data.machineSettings[param] = {
+            ...data.machineSettings[param],
+            description: materialData.machineSettings[param].description
+          };
+        }
+      });
+    }
     
     // Build structured dataset
     const dataset = {
@@ -60,21 +86,23 @@ function processSettingsFile(filePath) {
     const jsonPath = path.join(OUTPUT_DIR, `${outputSlug}.json`);
     fs.writeFileSync(jsonPath, JSON.stringify(dataset, null, 2));
     
-    // Generate CSV (flatten essential parameters)
-    const csvRows = ['Parameter,Value,Unit,Min,Max,Optimal_Min,Optimal_Max,Criticality'];
-    if (dataset.machineSettings?.essential_parameters) {
-      Object.entries(dataset.machineSettings.essential_parameters).forEach(([key, param]) => {
-        const row = [
-          key,
-          param.value || '',
-          param.unit || '',
-          param.min || '',
-          param.max || '',
-          param.optimal_range?.[0] || '',
-          param.optimal_range?.[1] || '',
-          param.criticality || ''
-        ].map(v => `"${v}"`).join(',');
-        csvRows.push(row);
+    // Generate CSV (flatten all machine settings parameters)
+    const csvRows = ['Parameter,Value,Unit,Min,Max,Description'];
+    if (dataset.machineSettings) {
+      // Always include all parameters: powerRange, wavelength, spotSize, repetitionRate, 
+      // energyDensity, pulseWidth, scanSpeed, passCount, overlapRatio
+      Object.entries(dataset.machineSettings).forEach(([key, param]) => {
+        if (typeof param === 'object' && param !== null) {
+          const row = [
+            key,
+            param.value || '',
+            param.unit || '',
+            param.min || '',
+            param.max || '',
+            (param.description || '').replace(/"/g, '""') // Escape quotes for CSV
+          ].map(v => `"${v}"`).join(',');
+          csvRows.push(row);
+        }
       });
     }
     const csvPath = path.join(OUTPUT_DIR, `${outputSlug}.csv`);
@@ -82,33 +110,65 @@ function processSettingsFile(filePath) {
     
     // Generate TXT (human-readable format)
     const txtLines = [
-      `${data.name} LASER CLEANING SETTINGS`,
+      `${data.name.toUpperCase()} LASER CLEANING SETTINGS`,
       '='.repeat(60),
       '',
       `Category: ${data.category} > ${data.subcategory}`,
       `Title: ${data.title}`,
       `Description: ${data.description}`,
       '',
-      'ESSENTIAL PARAMETERS',
-      '-'.repeat(60)
+      'MACHINE SETTINGS - ALL PARAMETERS',
+      '-'.repeat(60),
+      '',
+      'The following parameters must ALL be configured for optimal laser cleaning.',
+      'These values are scientifically derived from material properties and research.'
     ];
     
-    if (dataset.machineSettings?.essential_parameters) {
-      Object.entries(dataset.machineSettings.essential_parameters).forEach(([key, param]) => {
-        txtLines.push('');
-        txtLines.push(`${key}:`);
-        txtLines.push(`  Value: ${param.value} ${param.unit}`);
-        if (param.min && param.max) {
-          txtLines.push(`  Range: ${param.min}-${param.max} ${param.unit}`);
+    if (dataset.machineSettings) {
+      // Always include ALL parameters in consistent order
+      const paramOrder = [
+        'powerRange', 'wavelength', 'spotSize', 'repetitionRate',
+        'energyDensity', 'pulseWidth', 'scanSpeed', 'passCount', 'overlapRatio'
+      ];
+      
+      paramOrder.forEach(key => {
+        const param = dataset.machineSettings[key];
+        if (param && typeof param === 'object') {
+          txtLines.push('');
+          txtLines.push(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}:`);
+          txtLines.push(`  Value: ${param.value} ${param.unit}`);
+          if (param.min !== undefined && param.max !== undefined) {
+            txtLines.push(`  Range: ${param.min}-${param.max} ${param.unit}`);
+          }
+          if (param.description) {
+            // Wrap description at 70 chars
+            const words = param.description.split(' ');
+            let line = '  Description: ';
+            words.forEach(word => {
+              if (line.length + word.length > 70 && line.length > 15) {
+                txtLines.push(line);
+                line = '               ' + word + ' ';
+              } else {
+                line += word + ' ';
+              }
+            });
+            if (line.trim().length > 15) txtLines.push(line.trimEnd());
+          }
         }
-        if (param.optimal_range) {
-          txtLines.push(`  Optimal: ${param.optimal_range[0]}-${param.optimal_range[1]} ${param.unit}`);
-        }
-        if (param.criticality) {
-          txtLines.push(`  Criticality: ${param.criticality.toUpperCase()}`);
-        }
-        if (param.rationale) {
-          txtLines.push(`  Rationale: ${param.rationale.substring(0, 200)}...`);
+      });
+      
+      // Add any additional parameters not in the standard order
+      Object.entries(dataset.machineSettings).forEach(([key, param]) => {
+        if (!paramOrder.includes(key) && typeof param === 'object' && param !== null) {
+          txtLines.push('');
+          txtLines.push(`${key.replace(/([A-Z])/g, ' $1').toUpperCase()}:`);
+          txtLines.push(`  Value: ${param.value} ${param.unit}`);
+          if (param.min !== undefined && param.max !== undefined) {
+            txtLines.push(`  Range: ${param.min}-${param.max} ${param.unit}`);
+          }
+          if (param.description) {
+            txtLines.push(`  Description: ${param.description}`);
+          }
         }
       });
     }
