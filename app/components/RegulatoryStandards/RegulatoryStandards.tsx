@@ -12,16 +12,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { RegulatoryStandard } from '@/types';
+import type { RegulatoryStandard, RegulatoryStandardsProps } from '@/types';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
-
-export interface RegulatoryStandardsProps {
-  standards: RegulatoryStandard[];
-  className?: string;
-  showTitle?: boolean;
-  title?: string;
-}
 
 export function RegulatoryStandards({
   standards,

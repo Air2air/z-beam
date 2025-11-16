@@ -14,15 +14,7 @@ import { SectionContainer } from "../SectionContainer/SectionContainer";
 import { trackFAQClick } from "@/app/utils/analytics";
 import { getSectionIcon } from "@/app/config/sectionIcons";
 import { useRef } from "react";
-
-export interface MaterialFAQProps {
-  materialName: string;
-  faq?: Array<{
-    question: string;
-    answer: string;
-  }>;
-  className?: string;
-}
+import type { MaterialFAQProps } from '@/types';
 
 interface FAQItem {
   question: string;

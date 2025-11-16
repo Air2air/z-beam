@@ -33,26 +33,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
 import { getThemeClasses, type ThemeVariant } from '@/app/config/themeConfig';
-
-export interface ContentCardProps {
-  // Core content
-  heading: string;
-  text: string;
-  
-  // Optional features
-  order?: number;        // Workflow step number
-  category?: string;     // Benefit category label
-  details?: string[];    // Detail list
-  
-  // Visual options
-  image?: {
-    url: string;
-    alt?: string;
-  };
-  imagePosition?: 'left' | 'right';
-  theme?: ThemeVariant;
-  variant?: 'default' | 'inline';
-}
+import type { ContentCardProps } from '@/types';
 
 export function ContentCard({
   heading,

@@ -1122,6 +1122,61 @@ export interface ThumbnailProps {
   frontmatter?: ArticleMetadata;
 }
 
+/**
+ * RelatedMaterials component props
+ */
+export interface RelatedMaterialsProps {
+  currentSlug: string;
+  category: string;
+  subcategory: string;
+  maxItems?: number;
+}
+
+/**
+ * MaterialFAQ component props
+ */
+export interface MaterialFAQProps {
+  materialName: string;
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
+  className?: string;
+}
+
+/**
+ * RegulatoryStandards component props
+ */
+export interface RegulatoryStandardsProps {
+  standards: RegulatoryStandard[];
+  className?: string;
+  showTitle?: boolean;
+  title?: string;
+}
+
+/**
+ * ContentCard component props
+ */
+export interface ContentCardProps {
+  // Core content
+  heading: string;
+  text: string;
+  
+  // Optional features
+  order?: number;        // Workflow step number
+  category?: string;     // Benefit category label
+  details?: string[];    // Detail list
+  
+  // Visual options
+  image?: {
+    url: string;
+    alt?: string;
+  };
+  imagePosition?: 'left' | 'right';
+  theme?: 'body' | 'navbar';
+  variant?: 'default' | 'inline';
+}
+
 // ===============================
 // PAGE & API TYPES
 // ===============================

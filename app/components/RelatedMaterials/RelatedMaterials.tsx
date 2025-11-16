@@ -13,13 +13,7 @@ import { CardGridSSR } from '../CardGrid';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { capitalizeWords } from '@/app/utils/formatting';
-
-export interface RelatedMaterialsProps {
-  currentSlug: string;
-  category: string;
-  subcategory: string;
-  maxItems?: number;
-}
+import type { RelatedMaterialsProps } from '@/types';
 
 export async function RelatedMaterials({
   currentSlug,

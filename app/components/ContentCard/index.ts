@@ -8,7 +8,7 @@
 
 export { ContentCard } from './ContentCard';
 export { ContentSection } from './ContentSection';
-export type { ContentCardProps } from './ContentCard';
+export type { ContentCardProps } from '@/types';
 export type { ContentSectionProps } from './ContentSection';
 
 // Backward compatibility aliases
