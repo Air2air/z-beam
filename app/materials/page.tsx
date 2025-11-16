@@ -190,7 +190,7 @@ export default async function MaterialsPage() {
         slug="materials"
       >
         <div className="mb-8">
-          {/* @ts-ignore - Async Server Component (React 19 type limitation) */}
+          {/* @ts-expect-error - Async Server Component (React 19 type limitation) */}
           <CardGridSSR
             items={categoryCards}
             columns={3}
