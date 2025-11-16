@@ -1668,33 +1668,7 @@ export interface SearchableArticle extends Article {
   href: string;
 }
 
-/**
- * Tags component interfaces
- */
-export interface TagsData {
-  tags?: string[];
-  showAll?: boolean;
-  maxTags?: number;
-  material?: string;
-  count?: number;
-  categories?: Record<string, string[]>;
-  metadata?: {
-    format?: string;
-    version?: string;
-    generated?: string;
-    material?: string;
-  };
-}
 
-export interface TagsProps {
-  frontmatter?: ArticleMetadata;
-  content?: string | TagsData;
-  config?: Record<string, any>;
-  tags?: string[];
-  showAll?: boolean;
-  maxTags?: number;
-  className?: string;
-}
 
 /**
  * Contact form data interface

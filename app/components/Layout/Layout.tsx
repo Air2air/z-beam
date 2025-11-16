@@ -11,7 +11,6 @@ import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
 import CaptionSkeleton from '../Caption/CaptionSkeleton';
-import { Tags } from "../Tags/Tags";
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
@@ -33,7 +32,7 @@ const Caption = dynamic(
   }
 );
 
-const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties', 'tags'] as const;
+const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties'] as const;
 const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
 
 // Helper: Check if hero content exists
@@ -102,10 +101,6 @@ const renderComponent = (type: string, component: any, metadata: any) => {
     return (
       <MarkdownRenderer key={type} content={content} convertMarkdown={false} />
     );
-  }
-  
-  if (type === 'tags') {
-    return <Tags key={type} frontmatter={metadata} />;
   }
   
   return null;
