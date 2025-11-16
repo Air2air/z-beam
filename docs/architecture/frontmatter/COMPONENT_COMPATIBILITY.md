@@ -229,17 +229,7 @@ Wood Property Ranges  [Category Data]
 
 **Compatibility:** ✅ No changes required - uses top-level fields only
 
-### 5. Tags Component ✅ **COMPATIBLE**
-
-**Location:** `app/components/Tags/Tags.tsx`
-
-**How it uses frontmatter:**
-- Reads `frontmatter.tags` array
-- Reads `frontmatter.category`
-
-**Compatibility:** ✅ No changes required - uses top-level fields only
-
-### 6. Author Component ✅ **COMPATIBLE**
+### 5. Author Component ✅ **COMPATIBLE**
 
 **Location:** `app/components/Author/Author.tsx`
 

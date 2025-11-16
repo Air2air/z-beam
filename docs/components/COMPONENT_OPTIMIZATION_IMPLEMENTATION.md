@@ -250,12 +250,7 @@ app/
 
 ### Medium Priority
 
-4. **Analyze Tags Component** (325 lines)
-   - Apply same optimization patterns
-   - Identify state management issues
-   - Look for duplicate functionality
-
-5. **Evaluate CardGrid Component** (495 lines)
+4. **Evaluate CardGrid Component** (495 lines)
    - Consider splitting into focused components
    - SimpleCardGrid (200 lines)
    - CategoryCardGrid (150 lines)
@@ -263,7 +258,7 @@ app/
 
 ### Low Priority
 
-6. **Analyze Remaining Components**
+5. **Analyze Remaining Components**
    - Header (285 lines) - likely already optimized
    - Card (145 lines) - likely already optimized
    - UniversalPage (128 lines) - likely already optimized

@@ -51,14 +51,6 @@ jest.mock('../../app/components/Caption/Caption', () => ({
   ),
 }));
 
-jest.mock('../../app/components/Tags/Tags', () => ({
-  Tags: ({ content, config }: any) => (
-    <div data-testid="tags-component" data-content={content}>
-      Tags Component
-    </div>
-  ),
-}));
-
 jest.mock('../../app/components/Table/Table', () => ({
   Table: ({ content, config }: any) => (
     <div data-testid="table-component" data-content={content}>
