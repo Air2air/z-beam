@@ -43,6 +43,13 @@ npm run validate:content || {
     exit 1
 }
 
+echo -e "${CYAN}Generating datasets...${NC}"
+npm run generate:datasets || {
+    echo -e "${RED}❌ Dataset generation failed!${NC}"
+    echo -e "${YELLOW}Fix the errors above before deploying${NC}"
+    exit 1
+}
+
 echo -e "${CYAN}Running component tests...${NC}"
 npm run test:components || {
     echo -e "${RED}❌ Component tests failed!${NC}"

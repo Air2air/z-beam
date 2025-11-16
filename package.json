@@ -45,7 +45,7 @@
     "cache:stats": "node -e \"const ValidationCache = require('./scripts/validation/lib/cache'); console.log(ValidationCache.getStats());\"",
     "logs:view": "ls -lht .terminal-logs/**/*.log 2>/dev/null | head -20 || echo 'No logs yet'",
     "logs:clean": "find .terminal-logs -name '*.log' -mtime +7 -delete 2>/dev/null && echo '✅ Old logs cleaned' || echo 'No old logs to clean'",
-    "vercel-build": "next build",
+    "vercel-build": "npm run validate:content && npm run generate:datasets && next build",
     "logs": "vercel logs --follow",
     "status": "vercel ls"
   },
