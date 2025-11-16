@@ -186,8 +186,7 @@ describe('Layout Component', () => {
       // Hero component is not rendered in the current Layout implementation
       expect(screen.getAllByText('Test Article').length).toBeGreaterThan(0); // Text appears in breadcrumb and title
       expect(screen.getByTestId('author')).toBeInTheDocument();
-      // Note: Caption is rendered from metadata.caption, not components.caption
-      expect(screen.getByTestId('tags-component')).toBeInTheDocument();
+      // Note: Tags component was deprecated and removed
     });
 
     it('should render empty state when no components provided', () => {
