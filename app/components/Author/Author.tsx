@@ -24,7 +24,7 @@ export function Author({
   const credentials = authorInfo?.title || '';
   const country = authorInfo?.country || '';
   const field = Array.isArray(authorInfo?.expertise) 
-    ? authorInfo.expertise.join(', ') 
+    ? (authorInfo?.expertise || []).join(', ') 
     : authorInfo?.expertise || '';
 
   // Generate URL-encoded author name for search (null-safe)

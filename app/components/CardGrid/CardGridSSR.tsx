@@ -130,7 +130,7 @@ export async function CardGridSSR({
             imageUrl: String(itemImageUrl),
             imageAlt: String(itemTitle),
             badge: badgeSymbolData,
-            tags: Array.isArray(article?.metadata?.tags) ? article.metadata.tags : [],
+            tags: Array.isArray(article?.metadata?.tags) ? (article?.metadata?.tags || []) : [],
             category,
             metadata: article?.metadata as Record<string, unknown> || {},
             article: article ? {
