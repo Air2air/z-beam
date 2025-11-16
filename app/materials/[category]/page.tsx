@@ -206,7 +206,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         {categoryData.subcategories.map((subcategory) => (
           <div key={subcategory.slug} className="mb-8">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{subcategory.label}</h2>
-            {/* @ts-expect-error - Async Server Component (React 19 type limitation) */}
             <CardGridSSR
               slugs={subcategory.materials.map(m => m.slug)}
               columns={3}

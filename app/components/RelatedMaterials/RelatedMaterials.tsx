@@ -45,7 +45,6 @@ export async function RelatedMaterials({
       actionText="Show all"
       actionUrl={`/search?q=${encodeURIComponent(category)}`}
     >
-      {/* @ts-expect-error - Async Server Component (React 19 type limitation) */}
       <CardGridSSR
         slugs={relatedSlugs}
         columns={3}

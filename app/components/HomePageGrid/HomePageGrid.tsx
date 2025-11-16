@@ -37,7 +37,6 @@ export function HomePageGrid({
   // If no title, render CardGridSSR directly without SectionContainer
   if (!title) {
     return (
-      /* @ts-expect-error - Async Server Component (React 19 type limitation) */
       <CardGridSSR
         items={cardItems}
         columns={columns}
@@ -48,7 +47,6 @@ export function HomePageGrid({
   
   return (
     <SectionContainer title={title} bgColor="transparent" radius={false}>
-      {/* @ts-expect-error - Async Server Component (React 19 type limitation) */}
       <CardGridSSR
         items={cardItems}
         columns={columns}

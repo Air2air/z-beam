@@ -140,7 +140,6 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           slug={`materials/${category}/${subcategory}/${slug}`}
         >
           <div className="mb-16">
-            {/* @ts-expect-error - Async Server Component (React 19 type limitation) */}
             <RelatedMaterials 
               currentSlug={slug}
               category={category}
