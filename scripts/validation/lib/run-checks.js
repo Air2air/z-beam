@@ -8,9 +8,9 @@ const { runParallel, validation, exitWithResults } = require('./parallel');
 
 async function main() {
   const validations = [
-    validation('Type check', 'tsc --noEmit'),
-    validation('Linting', 'eslint app/ --ext .ts,.tsx'),
-    validation('Unit tests', 'jest tests/utils tests/lib --coverage=false --passWithNoTests'),
+    validation('Type check', 'npx tsc --noEmit'),
+    validation('Linting', 'npx eslint app/ --ext .ts,.tsx'),
+    validation('Unit tests', 'npx jest tests/utils tests/lib --coverage=false --passWithNoTests'),
     validation('Naming conventions', 'node scripts/validation/content/validate-naming-e2e.js'),
     validation('Metadata sync', 'node scripts/validation/content/validate-metadata-sync.js')
   ];
