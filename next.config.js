@@ -7,9 +7,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const nextConfig = {
   // Production optimizations
   reactStrictMode: true,
-  compress: true,
+  compress: true, // Enables gzip compression
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
+  
+  // Enable compression headers for Vercel
+  generateBuildId: async () => {
+    return process.env.VERCEL_GIT_COMMIT_SHA || 'development'
+  },
 
   // Disable type checking during build (we do it in predeploy)
   typescript: {

@@ -742,8 +742,8 @@ export function generateOrganizationSchema() {
           "@type": "EntryPoint",
           "urlTemplate": `${BUSINESS_CONFIG.contact.website}/datasets`,
           "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
+            "https://schema.org/DesktopWebPlatform",
+            "https://schema.org/MobileWebPlatform"
           ]
         },
         "object": {
