@@ -210,6 +210,8 @@ export function PropertyBars({
       columns={columns}
       height={height}
       className={className}
+      metadata={metadata}
+      dataSource={dataSource}
     />
   );
 }
@@ -221,12 +223,16 @@ function PropertyBarsGrid({
   properties,
   columns = { xs: 3, sm: 4, md: 5, lg: 6 },
   height = 70,
-  className = ''
+  className = '',
+  metadata,
+  dataSource = 'materialProperties'
 }: {
   properties: PropertyData[];
   columns?: { xs?: number; sm?: number; md?: number; lg?: number };
   height?: number;
   className?: string;
+  metadata?: any;
+  dataSource?: 'materialProperties' | 'machineSettings';
 }) {
   if (!properties || properties.length === 0) {
     return (
