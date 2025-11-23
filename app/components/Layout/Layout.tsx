@@ -146,15 +146,15 @@ export function Layout(props: LayoutProps) {
       {/* Article Header - only for pages with components */}
       {components ? (
         <header className="header-section mb-6">
+          <Author 
+            frontmatter={metadata}
+            showAvatar showCredentials showCountry showSpecialties
+            className="mb-4"
+          />
           <Title 
             level="page" 
             title={title || metadata?.title || 'Article'} 
             description={metadata?.material_description || metadata?.settings_description || metadata?.description}
-          />
-          <Author 
-            frontmatter={metadata}
-            showAvatar showCredentials showCountry showSpecialties
-            className="mt-2 mb-4"
           />
 
           {metadata?.machineSettings && (

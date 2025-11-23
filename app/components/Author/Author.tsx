@@ -36,12 +36,12 @@ export function Author({
   const hasDateInfo = frontmatter?.datePublished || modifiedDate;
 
   return (
-    <div className={`rounded-lg px-4 py-3 bg-gray-800/30 dark:bg-gray-800/50 ${className}`}>
-      <div className="flex items-start justify-between gap-4">
-        <Link
-          href={`/search?q=${encodedAuthorName}`}
-          className="flex items-center gap-4 rounded-lg flex-1 min-w-0 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-        >
+    <Link
+      href={`/search?q=${encodedAuthorName}`}
+      className={`block rounded-lg px-4 py-3 bg-gray-800/30 dark:bg-gray-800/50 hover:bg-gray-800/40 dark:hover:bg-gray-800/60 transition-colors ${className}`}
+    >
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4 flex-1 min-w-0 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {showAvatar && authorImage && (
             <Image
               src={authorImage}
@@ -53,11 +53,18 @@ export function Author({
           )}
           
           <div className="flex-1 min-w-0">
-            <div>
-              {authorName}
-              {showCredentials && credentials && (
-                <span className="ml-1 text-gray-600 dark:text-gray-400">
-                  {credentials}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span>
+                {authorName}
+                {showCredentials && credentials && (
+                  <span className="ml-1 text-gray-600 dark:text-gray-400">
+                    {credentials}
+                  </span>
+                )}
+              </span>
+              {showCountry && country && (
+                <span className="text-sm text-gray-500">
+                  {country}
                 </span>
               )}
             </div>
@@ -67,14 +74,8 @@ export function Author({
                 {field}
               </div>
             )}
-
-            {showCountry && country && (
-              <div className="text-sm text-gray-500 mt-0.5">
-                {country}
-              </div>
-            )}
           </div>
-        </Link>
+        </div>
 
         {/* Date panel on right */}
         {hasDateInfo && (
@@ -91,6 +92,6 @@ export function Author({
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }
