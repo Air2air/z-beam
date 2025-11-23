@@ -169,8 +169,8 @@ export default async function SubcategoryPage({ params }: PageProps) {
   // Prepare metadata for Layout
   const metadata = {
     title: `${pageTitle} Laser Cleaning`,
-    subtitle: `${subcategoryInfo.materials.length} materials available for laser cleaning`,
-    description: pageDescription,
+    description: `${subcategoryInfo.materials.length} materials available for laser cleaning`,
+    metaDescription: pageDescription,
     breadcrumb: [
       { label: "Home", href: "/" },
       { label: categoryLabel, href: `/materials/${category}` },
@@ -183,7 +183,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
       <JsonLD data={schemas} />
       <Layout
         title={`${subcategoryInfo.label} ${categoryLabel}`}
-        subtitle={`${subcategoryInfo.materials.length} materials available for laser cleaning`}
+        description={`${subcategoryInfo.materials.length} materials available for laser cleaning`}
         metadata={metadata as any}
         slug={`materials/${category}/${subcategory}`}
       >

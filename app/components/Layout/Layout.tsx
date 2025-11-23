@@ -149,7 +149,7 @@ export function Layout(props: LayoutProps) {
           <Title 
             level="page" 
             title={title || metadata?.title || 'Article'} 
-            subtitle={metadata?.subtitle}
+            description={metadata?.material_description || metadata?.settings_description || metadata?.description}
           />
           <Author 
             frontmatter={metadata}
@@ -238,7 +238,7 @@ export function Layout(props: LayoutProps) {
           <Title 
             level="page" 
             title={title} 
-            subtitle={props.subtitle} 
+            description={props.description} 
             rightContent={props.rightContent}
           />
         )

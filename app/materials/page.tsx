@@ -28,13 +28,13 @@ export default async function MaterialsPage() {
   const categories = await getAllCategories();
   
   const pageTitle = 'Material Categories';
-  const pageSubtitle = 'Explore laser cleaning parameters and machine settings for every material type';
+  const pageDescription = 'Explore laser cleaning parameters and machine settings for every material type';
 
   // Create metadata object with breadcrumb configuration
   const metadata = {
     title: pageTitle,
-    subtitle: pageSubtitle,
-    description: 'Browse our comprehensive collection of materials including metals, ceramics, composites, semiconductors, and more.',
+    description: pageDescription,
+    metaDescription: 'Browse our comprehensive collection of materials including metals, ceramics, composites, semiconductors, and more.',
     breadcrumb: [
       { label: 'Home', href: '/' },
       { label: 'Materials', href: '/materials' }
@@ -185,7 +185,7 @@ export default async function MaterialsPage() {
       <JsonLD data={schemas} />
       <Layout 
         title={pageTitle} 
-        subtitle={pageSubtitle} 
+        description={pageDescription} 
         metadata={metadata as any}
         slug="materials"
       >

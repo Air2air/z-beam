@@ -25,7 +25,7 @@ export function Title({
   alignment = 'left',
   className = '',
   id,
-  subtitle,
+  description,
   rightContent,
   
   // WCAG & Accessibility Props
@@ -93,7 +93,7 @@ export function Title({
   const titleId = id || `${level}-title-${normalizedTitle}-${titleHash}`;
   
   // Generate IDs for related elements
-  const subtitleId = subtitle ? `${titleId}-subtitle` : undefined;
+  const descriptionId = description ? `${titleId}-description` : undefined;
   const skipLinkId = skipLink ? `${titleId}-skip` : undefined;
   
   // Base classes for all titles with enhanced accessibility
@@ -165,7 +165,7 @@ export function Title({
     '@type': 'WebPageElement',
     '@id': `#${titleId}`,
     'name': title,
-    'description': subtitle,
+    'description': description,
     'headline': level === 'page' ? title : undefined,
     'about': context,
     'keywords': searchKeywords.join(', '),
@@ -198,7 +198,7 @@ export function Title({
         existingScript?.remove();
       };
     }
-  }, [titleId, searchKeywords, title, subtitle]);
+  }, [titleId, searchKeywords, title, description]);
   
   return (
     <>
@@ -231,7 +231,7 @@ export function Title({
               role={role || config.role}
               aria-level={config.ariaLevel}
               aria-label={ariaLabel}
-              aria-describedby={subtitle ? subtitleId : ariaDescribedby}
+              aria-describedby={description ? descriptionId : ariaDescribedby}
               aria-labelledby={ariaLabelledby}
               tabIndex={tabIndex !== undefined ? tabIndex : level === 'page' ? 0 : -1}
               onFocus={onFocus}
@@ -243,13 +243,13 @@ export function Title({
               {title}
             </Tag>
             
-            {subtitle && (
-              <h3 
-                id={subtitleId}
+            {description && (
+              <p 
+                id={descriptionId}
                 className="text-gray-400 tracking-tight mt-3 text-sm sm:text-base lg:text-xl"
               >
-                {subtitle}
-              </h3>
+                {description}
+              </p>
             )}
           </div>
           

@@ -143,8 +143,9 @@ export interface EquipmentItem {
 export interface ArticleMetadata {
   id?: string;
   title: string;
-  subtitle?: string;
   description?: string;
+  material_description?: string;  // Added for materials
+  settings_description?: string;  // Added for settings
   slug: string;
   category?: string;
   tags?: string[];
@@ -652,7 +653,7 @@ export interface TitleProps {
   alignment?: 'left' | 'center' | 'right';
   className?: string;
   id?: string;
-  subtitle?: string;
+  description?: string;
   rightContent?: React.ReactNode;
   
   // WCAG & Accessibility Props
@@ -691,9 +692,8 @@ export interface LayoutProps {
   slug?: string;
   children?: ReactNode;
   title?: string;
-  subtitle?: string;
-  rightContent?: React.ReactNode;
   description?: string;
+  rightContent?: React.ReactNode;
   className?: string;
   customHeroOverlay?: boolean; // Enable custom overlay on Hero (homepage only)
 }

@@ -74,13 +74,13 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   // Capitalize category name for display
   const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
   const pageTitle = `${categoryDisplayName} Laser Cleaning`;
-  const pageSubtitle = categoryMetadata.subtitle;
+  const pageDescription = categoryMetadata.description;
 
   // Create metadata object with breadcrumb configuration
   const metadata = {
     title: pageTitle,
-    subtitle: pageSubtitle,
-    description: categoryMetadata.description,
+    description: pageDescription,
+    metaDescription: categoryMetadata.description,
     breadcrumb: [
       { label: 'Home', href: '/' },
       { label: 'Materials', href: '/materials' },
@@ -198,7 +198,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
       <JsonLD data={schemas} />
       <Layout 
         title={pageTitle} 
-        subtitle={pageSubtitle} 
+        description={pageDescription} 
         metadata={metadata as any}
         slug={`materials/${category}`}
       >
