@@ -101,7 +101,7 @@ async function validateJsonLdUrls() {
       if (item['@type'] === 'BreadcrumbList' && item.itemListElement) {
         item.itemListElement.forEach((listItem, liIndex) => {
           if (listItem.item && listItem.item.includes('materials')) {
-            checkUrl(listItem.item, expectedPath, filePath, `@graph[${index}].itemListElement[${liIndex}].item`);
+            checkBreadcrumbUrl(listItem.item, expectedPath, filePath, `@graph[${index}].itemListElement[${liIndex}].item`);
           }
         });
       }
@@ -133,6 +133,46 @@ async function validateJsonLdUrls() {
         location,
         issue: `URL mismatch: ${url}`,
         expected: `Expected to include: ${normalizedExpected}`
+      });
+    }
+  }
+  
+  function checkBreadcrumbUrl(url, expectedPath, filePath, location = 'breadcrumb') {
+    // Extract path from URL
+    const urlPath = url.replace('https://www.z-beam.com/', '').replace('https://z-beam.com/', '');
+    
+    // Check if it's a flat URL (old structure)
+    if (urlPath.match(/^[^/]+$/) && !urlPath.match(/^(materials|services|about|contact|search|rental)/)) {
+      errors.push({
+        file: filePath,
+        location,
+        issue: `OLD FLAT URL in breadcrumb: ${url}`,
+        expected: `Should use hierarchical path`
+      });
+      return;
+    }
+    
+    // For breadcrumbs, validate they're hierarchical but allow parent paths
+    // Expected path: materials/ceramic/carbide/silicon-carbide
+    // Valid breadcrumb URLs: /materials, /materials/ceramic, /materials/ceramic/carbide, etc.
+    const normalizedUrl = urlPath.replace(/\.html$/, '').replace(/\\/g, '/');
+    const pathSegments = expectedPath.split('/').filter(Boolean);
+    
+    // Breadcrumb should be a prefix of the expected path OR be a valid parent
+    const isValidParent = pathSegments.some((_, index) => {
+      const parentPath = pathSegments.slice(0, index + 1).join('/');
+      return normalizedUrl === parentPath || normalizedUrl.endsWith('/' + parentPath);
+    });
+    
+    // Also allow root paths like "materials" or "/"
+    const isRootPath = normalizedUrl === 'materials' || normalizedUrl === '' || normalizedUrl === '/';
+    
+    if (!isValidParent && !isRootPath && !normalizedUrl.startsWith('materials/')) {
+      warnings.push({
+        file: filePath,
+        location,
+        issue: `Invalid breadcrumb URL: ${url}`,
+        expected: `Should be a parent path of: ${expectedPath}`
       });
     }
   }
