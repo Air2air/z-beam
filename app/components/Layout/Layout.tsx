@@ -223,7 +223,9 @@ export function Layout(props: LayoutProps) {
                   : metadata.author.expertise ? [metadata.author.expertise] : undefined,
                 affiliation: typeof metadata.author.affiliation === 'string' 
                   ? metadata.author.affiliation 
-                  : metadata.author.affiliation?.name,
+                  : (metadata.author.affiliation && typeof metadata.author.affiliation === 'object' && 'name' in metadata.author.affiliation) 
+                    ? (metadata.author.affiliation as { name: string }).name 
+                    : undefined,
                 image: metadata.author.image,
                 email: metadata.author.email
               } : undefined}
