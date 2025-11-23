@@ -246,7 +246,7 @@ export function Title({
             {description && (
               <p 
                 id={descriptionId}
-                className="text-white mt-3 text-sm sm:text-base lg:text-xl leading-relaxed"
+                className="text-white mt-3 leading-relaxed"
               >
                 {description}
               </p>
