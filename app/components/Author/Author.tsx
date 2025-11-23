@@ -88,15 +88,6 @@ export function Author({
                 </div>
               </div>
             )}
-            {modifiedDate && (
-              <div className="flex items-center gap-1.5 whitespace-nowrap">
-                <Clock className="w-3.5 h-3.5" />
-                <div>
-                  <div className="text-gray-500 dark:text-gray-500 text-[10px] uppercase tracking-wide">Updated</div>
-                  <div className="font-medium">{getRelativeTime(modifiedDate)}</div>
-                </div>
-              </div>
-            )}
           </div>
         )}
       </div>

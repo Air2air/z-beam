@@ -34,7 +34,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
   
   return (
     <nav className="flex py-2 sm:py-3" aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
-      <ol className="inline-flex items-center breadcrumb-list">
+      <ol className="inline-flex flex-wrap items-center breadcrumb-list">
         {allBreadcrumbs.map((crumb, index) => {
           const isLast = index === allBreadcrumbs.length - 1;
           
