@@ -67,7 +67,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('flex', 'items-center', 'gap-4', 'rounded-lg');
+      expect(link).toHaveClass('block', 'rounded-lg', 'px-4', 'py-3');
       
       // Check image classes
       const image = screen.getByAltText('Test Author');
@@ -84,8 +84,8 @@ describe('Author Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/search?q=Test%20Author');
-      // Link wraps entire author component with flex layout
-      expect(link).toHaveClass('flex', 'items-center', 'rounded-lg');
+      // Link wraps entire author component as block element
+      expect(link).toHaveClass('block', 'rounded-lg');
     });
   });
 
@@ -235,8 +235,7 @@ describe('Author Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
-        'hover:text-blue-600',
-        'dark:hover:text-blue-400',
+        'hover:bg-gray-800/40',
         'transition-colors'
       );
     });
@@ -245,7 +244,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('flex', 'items-center', 'gap-4', 'rounded-lg');
+      expect(link).toHaveClass('block', 'rounded-lg');
       
       // Check that the image is inside the link
       const image = screen.getByAltText('Test Author');
@@ -258,7 +257,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: mockAuthorInfo }} />);
       
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('flex', 'items-center', 'gap-4');
+      expect(link).toHaveClass('block', 'rounded-lg');
       
       // Check for image
       const image = screen.getByAltText('Test Author');
@@ -279,8 +278,8 @@ describe('Author Component', () => {
       const link = screen.getByRole('link');
       expect(link).toBeInTheDocument();
       
-      // Check for flex layout
-      expect(link).toHaveClass('flex', 'items-center');
+      // Check for block layout
+      expect(link).toHaveClass('block');
     });
 
     test('image has descriptive alt text', () => {
