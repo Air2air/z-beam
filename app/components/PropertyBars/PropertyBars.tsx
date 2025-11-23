@@ -335,6 +335,18 @@ function PropertyBarsGrid({
           ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '')}`
           : undefined;
         
+        // Debug: Log to console (remove in production)
+        if (index === 0) {
+          console.log('PropertyBars Debug:', {
+            dataSource,
+            hasMetadata: !!metadata,
+            category: metadata?.category,
+            subcategory: metadata?.subcategory,
+            slug: metadata?.slug,
+            settingsUrl
+          });
+        }
+        
         const CardContent = (
           <>
             {/* Property name at top */}
@@ -396,7 +408,7 @@ function PropertyBarsGrid({
           <Link
             key={index}
             href={settingsUrl}
-            className="relative bg-white dark:bg-gray-800 p-2 rounded block transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-750 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            className="relative bg-white dark:bg-gray-800 p-2 rounded block cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-750 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             aria-label={`View ${prop.name} settings`}
           >
             {CardContent}
