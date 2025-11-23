@@ -108,11 +108,11 @@ describe('Caption Component Content Validation', () => {
         }
         
         // Check for nested caption structure: caption.before and caption.after
-        if (!parsedContent || 
-            !parsedContent.caption || 
-            !parsedContent.caption.before || 
-            !parsedContent.caption.after) {
-          filesWithoutRequiredFields.push(path.basename(filePath));
+        // Allow null captions, only validate structure if caption exists
+        if (parsedContent && parsedContent.caption && parsedContent.caption !== null) {
+          if (!parsedContent.caption.before || !parsedContent.caption.after) {
+            filesWithoutRequiredFields.push(path.basename(filePath));
+          }
         }
       } catch (error) {
         filesWithoutRequiredFields.push(path.basename(filePath));

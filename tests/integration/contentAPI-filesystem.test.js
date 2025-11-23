@@ -106,7 +106,7 @@ describe('ContentAPI File System Integration', () => {
       const article = await getArticle('granite-laser-cleaning');
       
       expect(article.metadata).toHaveProperty('title');
-      expect(article.metadata).toHaveProperty('description');
+      expect(article.metadata).toHaveProperty('material_description');
       expect(article.metadata).toHaveProperty('category');
       expect(article.metadata).toHaveProperty('subcategory');
       expect(article.metadata).toHaveProperty('name');
