@@ -121,9 +121,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   }
   
   // Enhanced description with material_description/settings_description for better context
-  const contextDescription = material_description || settings_description || description;
+  const contextDescription = material_description || settings_description;
   const fullDescription = contextDescription && typeof contextDescription === 'string'
-    ? `${extractSafeValue(contextDescription)}. ${enhancedDescription}`
+    ? extractSafeValue(contextDescription)
     : enhancedDescription;
   
   // Get author details for E-E-A-T

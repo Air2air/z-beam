@@ -1,7 +1,7 @@
 // Test the exact alabaster data structure provided by the user
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Tags } from '../app/components/Tags/Tags';
+import Tag from '../app/components/Tag/Tag';
 
 // Mock dependencies
 jest.mock('next/navigation', () => ({

@@ -165,7 +165,7 @@ describe('Pre-Deployment Error Prevention', () => {
       
       if (vercelConfig.buildCommand) {
         // Accept both 'next build' and 'npm run build' patterns
-        const validBuildPatterns = ['next build', 'npm run build', 'yarn build', 'pnpm build'];
+        const validBuildPatterns = ['next build', 'npm run build', 'npm run vercel-build', 'yarn build', 'pnpm build'];
         const hasValidBuild = validBuildPatterns.some(pattern => 
           vercelConfig.buildCommand.includes(pattern)
         );
