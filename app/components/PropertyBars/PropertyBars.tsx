@@ -1,6 +1,7 @@
 // Server Component - no client-side interactivity
 
 import React from 'react';
+import Link from 'next/link';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import { capitalizeWords } from '@/app/utils/formatting';
@@ -323,11 +324,13 @@ function PropertyBarsGrid({
         // Get background color for the value label based on the gradient
         const bgColorClass = getBackgroundColorFromGradient(colorClass);
         
-        return (
-          <div 
-            key={index}
-            className="relative bg-white dark:bg-gray-800 p-2 rounded"
-          >
+        // Generate settings URL for this property if we're showing material properties
+        const settingsUrl = (dataSource === 'materialProperties' && metadata?.category && metadata?.subcategory && metadata?.slug)
+          ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '')}`
+          : undefined;
+        
+        const CardContent = (
+          <>
             {/* Property name at top */}
             <h4 className="text-xs font-semibold text-center text-gray-900 dark:text-gray-100 mb-1.5">
               {prop.name}
@@ -380,6 +383,24 @@ function PropertyBarsGrid({
                 </div>
               </div>
             </div>
+          </>
+        );
+        
+        return settingsUrl ? (
+          <Link
+            key={index}
+            href={settingsUrl}
+            className="relative bg-white dark:bg-gray-800 p-2 rounded block transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-750 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            aria-label={`View ${prop.name} settings`}
+          >
+            {CardContent}
+          </Link>
+        ) : (
+          <div 
+            key={index}
+            className="relative bg-white dark:bg-gray-800 p-2 rounded"
+          >
+            {CardContent}
           </div>
         );
       })}
