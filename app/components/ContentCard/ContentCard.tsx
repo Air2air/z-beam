@@ -218,7 +218,7 @@ export function ContentCard({
           
           {/* Text/Description */}
           <p 
-            className={`text-base ${hasDetails ? 'leading-relaxed mb-4' : 'leading-normal'} ${currentTheme.text}`}
+            className={`text-base ${hasDetails ? 'mb-4' : ''} ${currentTheme.text}`}
             itemProp="description"
             dangerouslySetInnerHTML={{ __html: text }}
           />
@@ -260,7 +260,7 @@ export function ContentCard({
                       ✓
                     </span>
                     {hasLink && (isInternalLink || isExternalLink) ? (
-                      <span className="leading-relaxed" itemProp="name">
+                      <span itemProp="name">
                         {linkLabel}:{' '}
                         {isInternalLink ? (
                           <Link 
@@ -282,7 +282,7 @@ export function ContentCard({
                         )}
                       </span>
                     ) : (
-                      <span className="leading-relaxed" itemProp="name">{detail}</span>
+                      <span itemProp="name">{detail}</span>
                     )}
                     <meta itemProp="position" content={String(idx + 1)} />
                   </li>
