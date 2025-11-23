@@ -114,9 +114,8 @@ const categories = getAllCategories();
 // Get subcategory metadata
 const subcategoryInfo = getSubcategoryInfo('metal', 'non-ferrous');
 
-import { getAllAuthors, getAuthorBySlug, getAllTags, getTagStats } from '@/app/utils/utils';
+import { getAllAuthors, getAuthorBySlug } from '@/app/utils/utils';
 const authors = getAllAuthors();
-const tagStats = getTagStats();
 
 // Environment variables (centralized)
 import { ENV, isProduction } from '@/app/config/env';
@@ -128,7 +127,6 @@ if (isProduction()) {
 ### Components
 - `List` - Displays a list of articles
 - `AuthorArticles` - Shows articles by author
-- `TagDirectory` - Shows all tags with counts
 - `Table` - Enhanced Smart Table component with intelligent frontmatter organization, multiple display modes (content/technical/hybrid), and centralized type system
 - `Caption` - Before/after text content for laser cleaning descriptions
 - `MetricsCard` - **Individual metric card component** - Displays single metrics with progress bars and smart value positioning

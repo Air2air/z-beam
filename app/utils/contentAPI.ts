@@ -45,7 +45,6 @@ const CONTENT_DIRS = {
     table: path.join(process.cwd(), 'content', 'components', 'table-yaml'), // Use table-yaml for new tables
     badgesymbol: path.join(process.cwd(), 'content', 'components', 'badgesymbol'),
     author: path.join(process.cwd(), 'content', 'components', 'author'),
-    tags: path.join(process.cwd(), 'content', 'components', 'tags'),
     text: path.join(process.cwd(), 'content', 'components', 'text'),
     jsonld: path.join(process.cwd(), 'content', 'components', 'jsonld'),
     metricsmachinesettings: path.join(process.cwd(), 'content', 'components', 'metricsmachinesettings'),
@@ -866,11 +865,11 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
     const components: Record<string, ComponentData> = {};
     
     // Load standard components that Layout looks for
-    const componentTypes = ['text', 'caption', 'table', 'tags', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
+    const componentTypes = ['text', 'caption', 'table', 'badgesymbol', 'metricsproperties', 'metricsmachinesettings'];
     
     for (const type of componentTypes) {
       try {
-        const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'tags' && type !== 'caption' });
+        const componentData = await loadComponent(type, slug, { convertMarkdown: type !== 'caption' });
         if (componentData && (componentData.content || componentData.config)) {
           components[type] = componentData;
         }
@@ -896,8 +895,8 @@ export const getArticle = cache(async (slug: string): Promise<{ metadata: Record
  */
 export const loadComponentData = cache(async (type: string, slug: string): Promise<{ content: string; config?: Record<string, unknown> } | null> => {
   return safeContentOperation(async () => {
-    // Skip markdown conversion for tags and caption (which may contain YAML data structures)
-    const shouldConvertMarkdown = type !== 'tags' && type !== 'caption';
+    // Skip markdown conversion for caption (which may contain YAML data structures)
+    const shouldConvertMarkdown = type !== 'caption';
     const componentData = await loadComponent(type, slug, { convertMarkdown: shouldConvertMarkdown });
     
     if (!componentData) {

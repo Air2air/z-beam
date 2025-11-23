@@ -37,9 +37,6 @@ export {
   getBadgeFromItem, 
   getChemicalProperties 
 } from './searchUtils';
-export * from './tags';
-export * from './tagManager';
-export * from './tagDebug';
 
 // =============================================================================
 // DATA PROCESSING (Formatting and validation)

@@ -443,17 +443,6 @@ class MockFactory {
     };
   }
 
-  static createTagsMock() {
-    return {
-      getTagsContentWithMatchCounts: jest.fn().mockResolvedValue({
-        content: ['test', 'mock'],
-        counts: { test: 1, mock: 1 }
-      }),
-      parseTagsFromContent: jest.fn().mockReturnValue(['test']),
-      articleMatchesTag: jest.fn().mockReturnValue(true)
-    };
-  }
-
   static createLayoutMock() {
     return {
       Layout: ({ children, components, metadata, slug }) => ({
@@ -498,7 +487,6 @@ export const generateMockArticle = (overrides = {}) => ({
     description: 'Test description',
     author: 'Test Author',
     date: '2025-01-01',
-    tags: ['test', 'mock'],
     ...overrides.metadata
   },
   components: {
@@ -513,7 +501,6 @@ export const generateMockComponentData = (type, overrides = {}) => {
   const baseComponents = {
     hero: { type: 'hero', data: { title: 'Hero Title', material_description: 'Hero Description' } },
     content: { type: 'content', data: { body: 'Content body' } },
-    tags: { type: 'tags', data: { tags: ['tag1', 'tag2'] } },
     author: { type: 'author', data: { name: 'Author Name' } }
   };
 

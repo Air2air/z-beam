@@ -1,6 +1,5 @@
 // app/api/debug/route.ts
 import { NextResponse } from 'next/server';
-import { debugTagSystem } from '../../utils/tagDebug';
 import { logger } from '../../utils/logger';
 
 // Force dynamic rendering for this route
@@ -24,10 +23,6 @@ export async function GET(request: Request) {
     
     // Add category-specific data
     switch (category) {
-      case 'tags':
-        debugData.tags = await debugTagSystem();
-        break;
-        
       case 'thumbnails':
         debugData.thumbnails = [
           { slug: 'test-1', url: '/images/test-1.jpg', alt: 'Test image 1' },
@@ -65,7 +60,6 @@ export async function GET(request: Request) {
         
       case 'all':
         // Include sample data from all categories for overview
-        debugData.tags = await debugTagSystem();
         debugData.thumbnails = [{ slug: 'test-1', url: '/images/test-1.jpg', alt: 'Test image 1' }];
         debugData.images = [{ id: 1, src: '/images/sample-1.jpg', width: 800, height: 600 }];
         debugData.materials = [{ name: 'Steel', fallback: 'metal-generic', status: 'active' }];

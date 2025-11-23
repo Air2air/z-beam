@@ -855,7 +855,7 @@ export interface PageData {
 // ===============================
 
 export type ComponentSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'settings' | 'table' | 'tags' | 'text';
+export type ComponentType = 'author' | 'badgesymbol' | 'caption' | 'content' | 'frontmatter' | 'jsonld' | 'metatags' | 'metricsmachinesettings' | 'metricsproperties' | 'settings' | 'table' | 'text';
 export type BadgeVariant = 'outline' | 'subtle' | 'solid' | 'card';
 export type BadgeSize = 'card' | 'large' | 'small' | 'inline';
 export type BadgeColor = 'blue' | 'green' | 'purple' | 'orange' | 'red' | 'gray';

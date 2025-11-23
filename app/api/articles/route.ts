@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
-import { getArticlesWithTags } from '../../utils/tags';
+import { loadAllArticles } from '../../utils/contentAPI';
 import { logger } from '../../utils/logger';
 
 export async function GET() {
   try {
-    // Get all articles with their tags
-    const articles = await getArticlesWithTags();
+    // Get all articles
+    const articles = await loadAllArticles();
     
     // Return the articles
     return NextResponse.json({ articles });

@@ -5,7 +5,6 @@ import { getAllCategories } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
 import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
-import { getTagsContentWithMatchCounts } from "@/app/utils/tags";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import { FAQMaterial } from "@/app/components/FAQ/FAQMaterial";
@@ -115,22 +114,8 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
       }
     }
     
-    // Load tags content with match counts
-    const { content: tagsContent, counts: tagCounts } = await getTagsContentWithMatchCounts(slug);
-    
-    // Prepare components with tags
+    // Prepare components
     const components = article.components || {};
-    
-    if (tagsContent && components.tags) {
-      components.tags = {
-        ...components.tags,
-        content: tagsContent,
-        config: {
-          ...(components.tags.config || {}),
-          articleMatchCount: tagCounts
-        }
-      };
-    }
     
     return (
       <>
