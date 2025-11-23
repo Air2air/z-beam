@@ -35,7 +35,6 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const {
     title: rawTitle,
     description: rawDescription,
-    subtitle,
     keywords = [],
     image: ogImage,
     slug: rawSlug,
@@ -122,7 +121,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   }
   
   // Enhanced description with material_description/settings_description for better context
-  const contextDescription = material_description || settings_description || subtitle;
+  const contextDescription = material_description || settings_description || description;
   const fullDescription = contextDescription && typeof contextDescription === 'string'
     ? `${extractSafeValue(contextDescription)}. ${enhancedDescription}`
     : enhancedDescription;

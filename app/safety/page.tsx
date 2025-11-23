@@ -47,7 +47,7 @@ export default async function SafetyPage() {
       <MaterialJsonLD article={{ metadata: pageMetadata }} slug="safety" />
       <Layout
         title="Laser Cleaning Safety Guidelines"
-        subtitle="Professional safety protocols and best practices for industrial laser cleaning operations"
+        description="Professional safety protocols and best practices for industrial laser cleaning operations"
         rightContent={null}
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="safety"

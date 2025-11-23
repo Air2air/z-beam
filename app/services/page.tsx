@@ -165,7 +165,6 @@ export default async function ServicesPage() {
       <JsonLD data={serviceSchema} />
       <Layout
         title={pageConfig.title || "Professional Laser Cleaning Services"}
-        subtitle={pageConfig.subtitle}
         description={pageConfig.description || metadata.description}
         metadata={pageConfig}
         slug="services"
