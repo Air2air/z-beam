@@ -17,8 +17,7 @@ comparison_category: stone
 comparison_scope: construction_materials
 
 title: "Granite vs. Other Materials: Comprehensive Laser Cleaning Comparison"
-subtitle: "Compare Granite's Properties and Laser Settings Against Marble, Limestone, Concrete, and Steel"
-description: "Side-by-side comparison of granite against 8 common construction materials. Analyze density, thermal properties, laser absorption, and optimal cleaning parameters to select the best material for your application."
+material_description: "Compare Granite's Properties and Laser Settings Against Marble, Limestone, Concrete, and Steel"
 
 generated: '2025-11-07T15:00:00Z'
 last_updated: '2025-11-07T15:00:00Z'
@@ -81,7 +80,6 @@ granite_baseline:
   url: /materials/granite-laser-cleaning
   
   summary:
-    description: "Dense, hard igneous rock composed of quartz, feldspar, and mica. Excellent durability for monuments, countertops, and architectural facades."
     typical_applications:
     - "Monument construction and restoration"
     - "Kitchen and bathroom countertops"
@@ -195,7 +193,6 @@ comparison_materials:
   url: /materials/marble-laser-cleaning
   
   summary:
-    description: "Metamorphic limestone with crystalline structure. Softer than granite but prized for sculpture and luxury applications."
     similarity_to_granite: 85%  # Very similar
     key_differences:
     - "Softer (Mohs 3-4 vs 6.5)"
@@ -287,7 +284,6 @@ comparison_materials:
   url: /materials/limestone-laser-cleaning
   
   summary:
-    description: "Sedimentary calcium carbonate rock. Softer and more porous than granite, easier to clean but less durable."
     similarity_to_granite: 60%
     key_differences:
     - "Much softer (Mohs 3)"
@@ -365,7 +361,6 @@ comparison_materials:
   url: /materials/sandstone-laser-cleaning
   
   summary:
-    description: "Sedimentary quartz-based rock. Highly porous and variable in hardness depending on cementation."
     similarity_to_granite: 55%
     key_differences:
     - "Much more porous (5-25%)"
@@ -444,7 +439,6 @@ comparison_materials:
   url: /materials/basalt-laser-cleaning
   
   summary:
-    description: "Dense mafic igneous rock. Harder and denser than granite, common in volcanic regions."
     similarity_to_granite: 75%
     key_differences:
     - "Denser (2900 kg/m³)"
@@ -524,7 +518,6 @@ comparison_materials:
   url: /materials/concrete-laser-cleaning
   
   summary:
-    description: "Cement-based composite material. Highly variable properties depending on mix design and curing."
     similarity_to_granite: 45%
     key_differences:
     - "More porous (5-15%)"
@@ -602,7 +595,6 @@ comparison_materials:
   url: /materials/brick-laser-cleaning
   
   summary:
-    description: "Fired clay ceramic. Common in historical buildings, moderate hardness and high porosity."
     similarity_to_granite: 40%
     key_differences:
     - "Much more porous (8-20%)"
@@ -682,7 +674,6 @@ comparison_materials:
   url: /materials/steel-laser-cleaning
   
   summary:
-    description: "Iron-carbon alloy. Completely different material class - high density, conductivity, and laser absorption."
     similarity_to_granite: 15%
     key_differences:
     - "Much denser (7850 kg/m³)"
@@ -762,7 +753,6 @@ comparison_materials:
   url: /materials/aluminum-laser-cleaning
   
   summary:
-    description: "Lightweight metal with excellent thermal conductivity. Highly reflective, requires careful wavelength selection."
     similarity_to_granite: 20%
     key_differences:
     - "Equal density but metal"
@@ -846,7 +836,6 @@ comparison_charts:
   physical_properties_radar:
     type: radar
     title: "Physical Properties Comparison"
-    description: "Multi-dimensional view of density, hardness, strength, and porosity"
     dimensions:
     - property: density_normalized
       label: "Density (0-100)"
@@ -902,7 +891,6 @@ comparison_charts:
   thermal_properties_comparison:
     type: grouped_bar
     title: "Thermal Properties: Impact on Laser Cleaning"
-    description: "How different materials handle heat during laser processing"
     
     properties:
     - property: thermal_conductivity
@@ -951,32 +939,27 @@ comparison_charts:
   laser_interaction_comparison:
     type: scatter_plot
     title: "Laser Absorption vs. Damage Threshold"
-    description: "Material positioning for laser cleaning difficulty"
     x_axis: laser_absorption
     y_axis: laser_damage_threshold
     
     quadrants:
       easy_cleaning:
         label: "Easy Cleaning"
-        description: "High absorption + High threshold = Ideal"
         position: "upper right"
         materials: [basalt, concrete]
         
       careful_power:
         label: "Careful Power Control"
-        description: "High absorption + Low threshold = Gentle approach"
         position: "lower right"
         materials: [brick, sandstone]
         
       challenging_reflective:
         label: "Challenging (Reflective)"
-        description: "Low absorption + High threshold = Need high power"
         position: "upper left"
         materials: [granite, marble, aluminum]
         
       very_difficult:
         label: "Very Difficult"
-        description: "Low absorption + Low threshold = Narrow parameter window"
         position: "lower left"
         materials: [limestone, steel]
     
@@ -1040,7 +1023,6 @@ comparison_charts:
   laser_parameters_heatmap:
     type: heatmap
     title: "Optimal Laser Settings by Material"
-    description: "Color intensity shows relative power/fluence requirements"
     
     rows: [Granite, Marble, Limestone, Sandstone, Basalt, Concrete, Brick, Steel, Aluminum]
     columns: [Power, Fluence, Speed, Wavelength_Preference]
@@ -1109,7 +1091,6 @@ comparison_charts:
   cost_performance_matrix:
     type: bubble_chart
     title: "Material Selection: Durability vs. Laser Cleaning Ease"
-    description: "Help users choose materials based on long-term performance"
     x_axis: cleaning_difficulty_score
     y_axis: material_durability_score
     bubble_size: typical_cost_index
@@ -1117,22 +1098,18 @@ comparison_charts:
     quadrants:
       optimal:
         label: "Optimal Choice"
-        description: "Durable + Easy to clean"
         position: "upper left"
         
       high_maintenance:
         label: "High Maintenance"
-        description: "Durable but difficult to clean"
         position: "upper right"
         
       budget_friendly:
         label: "Budget-Friendly"
-        description: "Easy to clean but less durable"
         position: "lower left"
         
       challenging:
         label: "Challenging"
-        description: "Low durability + Difficult cleaning"
         position: "lower right"
     
     data:
@@ -1333,34 +1310,27 @@ related_pages:
   parent_material:
     title: "Granite Laser Cleaning"
     url: /materials/granite-laser-cleaning
-    description: "Return to main granite page"
   
   property_research:
   - title: "Granite Density Research"
     url: /materials/granite/research/density
-    description: "Deep dive into granite density with geological variations"
     
   - title: "Granite Thermal Conductivity Analysis"
     url: /materials/granite/research/thermal-conductivity
-    description: "How granite's low thermal conductivity affects laser processing"
   
   similar_comparisons:
   - title: "Marble vs. Limestone: Stone Comparison"
     url: /research/comparisons/marble-vs-limestone
-    description: "Compare sedimentary vs. metamorphic stones"
     
   - title: "Metal vs. Stone: Laser Cleaning Differences"
     url: /research/comparisons/metal-vs-stone-laser-cleaning
-    description: "Fundamental differences in laser-material interactions"
   
   application_guides:
   - title: "Monument Restoration Material Selection"
     url: /guides/monument-material-selection
-    description: "Choose optimal materials for outdoor monuments"
     
   - title: "Historical Building Facade Cleaning"
     url: /guides/historical-facade-laser-cleaning
-    description: "Best practices for fragile historical materials"
 
 # ------------------------------------------------------------------------------
 # SECTION 10: E-E-A-T & SEO
@@ -1407,7 +1377,6 @@ seo:
 dataset:
   enabled: true
   title: "Granite Multi-Material Comparison Dataset"
-  description: "Complete comparison data for 9 materials across 25+ properties"
   
   variables_count: 25
   materials_count: 9

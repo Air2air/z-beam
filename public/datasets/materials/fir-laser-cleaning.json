@@ -5,8 +5,8 @@
   "name": "Fir Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Fir. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-16",
-  "datePublished": "2025-11-16",
+  "dateModified": "2025-11-23",
+  "datePublished": "2025-11-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "fir",
     "laser cleaning",
-    "Wood",
+    "wood",
     "softwood",
     "laser cleaning",
     "material properties",
@@ -83,66 +83,59 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-16"
+    "lastVerified": "2025-11-23"
   },
   "material": {
     "name": "Fir",
     "slug": "fir-laser-cleaning",
     "classification": {
-      "category": "Wood",
+      "category": "wood",
       "subcategory": "softwood"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 70.8,
-        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "percentage": 40,
         "fractureToughness": 3.2,
         "thermalDestruction": {
           "value": 573,
           "unit": "K",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 273,
-          "max": 600
+          "min": 226.1,
+          "max": 641.9
         },
         "density": {
           "value": 450,
           "unit": "kg/m³",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.12,
-          "max": 1.5
+          "min": 0.399,
+          "max": 955.479
         },
         "oxidationResistance": {
           "value": 20.7,
           "unit": "%",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 82,
-          "max": 204
+          "min": 0.095,
+          "max": 549.145
         },
         "laserReflectivity": {
           "value": 0.065,
           "unit": "dimensionless (fraction)",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 10,
-          "max": 60
+          "min": 0.01575,
+          "max": 0.43925
         },
         "thermalExpansion": {
           "value": 0.000051,
           "unit": "K^{-1}",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 3,
-          "max": 60
+          "min": 0.000001,
+          "max": 0.000058
         },
         "thermalConductivity": {
           "value": 0.112,
           "unit": "W/(m·K)",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.04,
           "max": 0.4
@@ -150,39 +143,34 @@
         "youngsModulus": {
           "value": 13.4,
           "unit": "GPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 5,
-          "max": 20000
+          "min": 3.2775,
+          "max": 11234.8275
         },
         "hardness": {
           "value": 660,
           "unit": "lbf",
-          "confidence": 100,
           "source": "ai_research",
-          "min": 1,
-          "max": 5000
+          "min": 399,
+          "max": 12589.5
         },
         "specificHeat": {
           "value": 1380,
           "unit": "J/(kg·K)",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 800,
-          "max": 2500
+          "min": 1.311,
+          "max": 1553.931
         },
         "laserAbsorption": {
           "value": 0.88,
           "unit": "dimensionless",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 1,
-          "max": 50
+          "min": 0.779,
+          "max": 335999.959
         },
         "compressiveStrength": {
           "value": 44.8,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
           "min": 20,
           "max": 80
@@ -190,48 +178,42 @@
         "tensileStrength": {
           "value": 85.5,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 20,
-          "max": 200
+          "min": 9.53,
+          "max": 209.07
         },
         "thermalDiffusivity": {
           "value": 1.3e-7,
           "unit": "m^2/s",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.0001,
-          "max": 0.4
+          "min": 0,
+          "max": 0
         },
         "flexuralStrength": {
           "value": 85.5,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 40,
-          "max": 150
+          "min": 19.15,
+          "max": 147.85
         },
         "corrosionResistance": {
           "value": 0.65,
           "unit": "",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 2,
-          "max": 8
+          "min": 0,
+          "max": 4.725
         },
         "porosity": {
           "value": 0.7,
           "unit": "fraction",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 12,
-          "max": 65
+          "min": 0.38885,
+          "max": 0.78815
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 29.2,
-        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 40,
         "absorptivity": {
           "value": 0.85,
           "unit": "dimensionless",
@@ -295,8 +277,8 @@
       "description": "Thermal Destruction - material characteristics",
       "value": 573,
       "unitText": "K",
-      "minValue": 273,
-      "maxValue": 600,
+      "minValue": 226.1,
+      "maxValue": 641.9,
       "measurementTechnique": "ai_research"
     },
     {
@@ -306,8 +288,8 @@
       "description": "Density - material characteristics",
       "value": 450,
       "unitText": "kg/m³",
-      "minValue": 0.12,
-      "maxValue": 1.5,
+      "minValue": 0.399,
+      "maxValue": 955.479,
       "measurementTechnique": "ai_research"
     },
     {
@@ -317,8 +299,8 @@
       "description": "Oxidation Resistance - material characteristics",
       "value": 20.7,
       "unitText": "%",
-      "minValue": 82,
-      "maxValue": 204,
+      "minValue": 0.095,
+      "maxValue": 549.145,
       "measurementTechnique": "ai_research"
     },
     {
@@ -328,8 +310,8 @@
       "description": "Laser Reflectivity - material characteristics",
       "value": 0.065,
       "unitText": "dimensionless (fraction)",
-      "minValue": 10,
-      "maxValue": 60,
+      "minValue": 0.01575,
+      "maxValue": 0.43925,
       "measurementTechnique": "ai_research"
     },
     {
@@ -339,8 +321,8 @@
       "description": "Thermal Expansion - material characteristics",
       "value": 0.000051,
       "unitText": "K^{-1}",
-      "minValue": 3,
-      "maxValue": 60,
+      "minValue": 0.000001,
+      "maxValue": 0.000058,
       "measurementTechnique": "ai_research"
     },
     {
@@ -361,8 +343,8 @@
       "description": "Youngs Modulus - material characteristics",
       "value": 13.4,
       "unitText": "GPa",
-      "minValue": 5,
-      "maxValue": 20000,
+      "minValue": 3.2775,
+      "maxValue": 11234.8275,
       "measurementTechnique": "ai_research"
     },
     {
@@ -372,8 +354,8 @@
       "description": "Hardness - material characteristics",
       "value": 660,
       "unitText": "lbf",
-      "minValue": 1,
-      "maxValue": 5000,
+      "minValue": 399,
+      "maxValue": 12589.5,
       "measurementTechnique": "ai_research"
     },
     {
@@ -383,8 +365,8 @@
       "description": "Specific Heat - material characteristics",
       "value": 1380,
       "unitText": "J/(kg·K)",
-      "minValue": 800,
-      "maxValue": 2500,
+      "minValue": 1.311,
+      "maxValue": 1553.931,
       "measurementTechnique": "ai_research"
     },
     {
@@ -394,8 +376,8 @@
       "description": "Laser Absorption - material characteristics",
       "value": 0.88,
       "unitText": "dimensionless",
-      "minValue": 1,
-      "maxValue": 50,
+      "minValue": 0.779,
+      "maxValue": 335999.959,
       "measurementTechnique": "ai_research"
     },
     {
@@ -416,8 +398,8 @@
       "description": "Tensile Strength - material characteristics",
       "value": 85.5,
       "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 200,
+      "minValue": 9.53,
+      "maxValue": 209.07,
       "measurementTechnique": "ai_research"
     },
     {
@@ -427,8 +409,8 @@
       "description": "Thermal Diffusivity - material characteristics",
       "value": 1.3e-7,
       "unitText": "m^2/s",
-      "minValue": 0.0001,
-      "maxValue": 0.4,
+      "minValue": 0,
+      "maxValue": 0,
       "measurementTechnique": "ai_research"
     },
     {
@@ -438,8 +420,8 @@
       "description": "Flexural Strength - material characteristics",
       "value": 85.5,
       "unitText": "MPa",
-      "minValue": 40,
-      "maxValue": 150,
+      "minValue": 19.15,
+      "maxValue": 147.85,
       "measurementTechnique": "ai_research"
     },
     {
@@ -449,8 +431,8 @@
       "description": "Corrosion Resistance - material characteristics",
       "value": 0.65,
       "unitText": "",
-      "minValue": 2,
-      "maxValue": 8,
+      "minValue": 0,
+      "maxValue": 4.725,
       "measurementTechnique": "ai_research"
     },
     {
@@ -460,8 +442,8 @@
       "description": "Porosity - material characteristics",
       "value": 0.7,
       "unitText": "fraction",
-      "minValue": 12,
-      "maxValue": 65,
+      "minValue": 0.38885,
+      "maxValue": 0.78815,
       "measurementTechnique": "ai_research"
     },
     {

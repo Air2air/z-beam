@@ -73,7 +73,8 @@ export async function generateMetadata({ params }: SettingsPageProps) {
     // Use createMetadata for enhanced OpenGraph, Twitter cards, canonical URLs
     return createMetadata({
       title: settings.seo_settings_page?.title || settings.title,
-      description: settings.seo_settings_page?.description || settings.description,
+      description: settings.seo_settings_page?.description || settings.settings_description || settings.description,
+      settings_description: settings.settings_description,
       keywords: settings.seo_settings_page?.keywords || [],
       slug: `settings/${category}/${subcategory}/${slug}-settings`,
       canonical: `${SITE_CONFIG.url}/settings/${category}/${subcategory}/${slug}`,

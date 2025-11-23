@@ -516,13 +516,10 @@ License:
 
 **Metadata Tracking:**
 ```yaml
-subtitle_metadata:
-  author_country: "United States (California)"
-  author_name: "Todd Dunning"
-  voice_enhanced: true  # Materials page
-
-subtitle_metadata:
-  voice_enhanced: false  # Settings page (technical)
+# Note: subtitle_metadata field has been deprecated
+# Material descriptions now use material_description field
+# Settings descriptions now use settings_description field
+# Voice enhancement metadata tracked separately
 ```
 
 **Score:** 10/10

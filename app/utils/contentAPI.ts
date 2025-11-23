@@ -1032,6 +1032,7 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
+      settings_description: data.settings_description,
       slug,
       author: data.author,
       datePublished: data.datePublished,
@@ -1050,6 +1051,9 @@ export const getSettingsArticle = cache(async (slug: string): Promise<SettingsMe
       research_library: data.research_library,
       equipment_requirements: data.equipment_requirements,
       expected_outcomes: data.expected_outcomes,
+      
+      // Expert answers for E-E-A-T
+      expertAnswers: data.expertAnswers,
       
       // Legacy support
       machineSettings: data.machineSettings,

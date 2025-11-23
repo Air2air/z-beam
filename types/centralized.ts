@@ -212,6 +212,12 @@ export interface ArticleMetadata {
   // FAQ support for material pages
   faq?: Array<{question: string; answer: string}> | { questions?: Array<{question: string; answer: string}> };
   
+  // Unified help system (FAQ and troubleshooting)
+  help?: HelpSection[];
+  
+  // Expert answers for E-E-A-T enhanced troubleshooting (settings pages)
+  expertAnswers?: ExpertAnswerItem[];
+  
   // Unified content cards - replaces callouts and workflow
   contentCards?: ContentCardItem[];
   
@@ -1133,7 +1139,73 @@ export interface RelatedMaterialsProps {
 }
 
 /**
- * MaterialFAQ component props
+ * Unified help system types for FAQ and Troubleshooting
+ */
+export type HelpItemType = 'faq' | 'troubleshooting';
+export type HelpContext = 'material' | 'settings' | 'general';
+export type HelpSeverity = 'low' | 'medium' | 'high';
+
+export interface HelpItem {
+  question: string;
+  answer: string;
+  severity?: HelpSeverity;
+  category?: string;
+  propertyValue?: string;
+  solutions?: string[];
+  relatedTopics?: string[];
+  keywords?: string[];
+}
+
+export interface HelpSection {
+  type: HelpItemType;
+  context: HelpContext;
+  items: HelpItem[];
+}
+
+/**
+ * Expert information for QAPage schema and ExpertAnswers component
+ */
+export interface ExpertInfo {
+  name: string;
+  title?: string;
+  credentials?: string[];
+  expertise?: string[];
+  affiliation?: string;
+  image?: string;
+  email?: string;
+}
+
+/**
+ * Expert answer item with E-E-A-T signals
+ */
+export interface ExpertAnswerItem {
+  question: string;
+  answer: string;
+  expert?: ExpertInfo; // Optional - falls back to page author
+  dateAnswered: string;
+  lastReviewed?: string;
+  severity?: HelpSeverity;
+  category?: string;
+  propertyValue?: string;
+  solutions?: string[];
+  sources?: string[];
+  relatedTopics?: string[];
+  upvoteCount?: number;
+  acceptedAnswer?: boolean;
+}
+
+/**
+ * ExpertAnswers component props
+ */
+export interface ExpertAnswersProps {
+  materialName: string;
+  answers: ExpertAnswerItem[];
+  defaultExpert?: ExpertInfo; // Global expert for all answers
+  className?: string;
+}
+
+/**
+ * MaterialFAQ component props (legacy - will be replaced by BaseFAQProps)
  */
 export interface MaterialFAQProps {
   materialName: string;
@@ -1141,6 +1213,15 @@ export interface MaterialFAQProps {
     question: string;
     answer: string;
   }>;
+  className?: string;
+}
+
+/**
+ * BaseFAQ component props (unified help system)
+ */
+export interface BaseFAQProps {
+  sections: HelpSection[];
+  materialName: string;
   className?: string;
 }
 
@@ -2781,11 +2862,15 @@ export interface SettingsMetadata {
   title: string;
   subtitle?: string;
   description: string;
+  settings_description?: string;
   slug?: string;
   author?: AuthorInfo;
   datePublished?: string;
   dateModified?: string;
   breadcrumb?: BreadcrumbItem[];
+  
+  // Unified help system (FAQ and troubleshooting)
+  help?: HelpSection[];
   
   // Legacy format support (machineSettings.essential_parameters)
   machineSettings?: EnhancedMachineSettings;
@@ -2865,6 +2950,9 @@ export interface SettingsMetadata {
       sample_size: string;
     };
   }>;
+  
+  // NEW: Expert answers for E-E-A-T enhanced troubleshooting
+  expertAnswers?: ExpertAnswerItem[];
   
   // NEW: Equipment and outcomes (settings-specific)
   equipment_requirements?: any;

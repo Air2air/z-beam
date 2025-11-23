@@ -201,9 +201,9 @@ async function updateFrontmatterFile(file, updates) {
   // Find insertion points for datePublished and dateModified
   let datePublishedLine = -1;
   let dateModifiedLine = -1;
-  let subtitleLine = -1;
+  let materialDescriptionLine = -1;
   let descriptionLine = -1;
-  let nextTopLevelAfterSubtitle = -1;
+  let nextTopLevelAfterMaterialDescription = -1;
   let nextTopLevelAfterDescription = -1;
   
   for (let i = 0; i < lines.length; i++) {
@@ -218,16 +218,16 @@ async function updateFrontmatterFile(file, updates) {
     if (line.startsWith('dateModified:')) {
       dateModifiedLine = i;
     }
-    if (line.startsWith('subtitle:')) {
-      subtitleLine = i;
+    if (line.startsWith('material_description:')) {
+      materialDescriptionLine = i;
     }
     if (line.startsWith('description:')) {
       descriptionLine = i;
     }
     
-    // Find next top-level key after subtitle
-    if (subtitleLine >= 0 && nextTopLevelAfterSubtitle === -1 && isTopLevel && i > subtitleLine) {
-      nextTopLevelAfterSubtitle = i;
+    // Find next top-level key after material_description
+    if (materialDescriptionLine >= 0 && nextTopLevelAfterMaterialDescription === -1 && isTopLevel && i > materialDescriptionLine) {
+      nextTopLevelAfterMaterialDescription = i;
     }
     
     // Find next top-level key after description
@@ -243,14 +243,14 @@ async function updateFrontmatterFile(file, updates) {
     if (datePublishedLine >= 0) {
       updatedLines[datePublishedLine] = publishedLine;
     } else {
-      // Insert before next top-level key after subtitle/description
+      // Insert before next top-level key after material_description/description
       let insertBefore = -1;
-      if (nextTopLevelAfterSubtitle >= 0) {
-        insertBefore = nextTopLevelAfterSubtitle;
+      if (nextTopLevelAfterMaterialDescription >= 0) {
+        insertBefore = nextTopLevelAfterMaterialDescription;
       } else if (nextTopLevelAfterDescription >= 0) {
         insertBefore = nextTopLevelAfterDescription;
-      } else if (subtitleLine >= 0) {
-        insertBefore = subtitleLine + 1;
+      } else if (materialDescriptionLine >= 0) {
+        insertBefore = materialDescriptionLine + 1;
       } else if (descriptionLine >= 0) {
         insertBefore = descriptionLine + 1;
       } else {
@@ -260,10 +260,10 @@ async function updateFrontmatterFile(file, updates) {
       updatedLines.splice(insertBefore, 0, publishedLine);
       
       // Adjust line numbers after insertion
-      if (dateModifiedLine >= insertBefore) dateModifiedLine++;
-      if (subtitleLine >= insertBefore) subtitleLine++;
+      if (datePublishedLine >= insertBefore) datePublishedLine++;
+      if (materialDescriptionLine >= insertBefore) materialDescriptionLine++;
       if (descriptionLine >= insertBefore) descriptionLine++;
-      if (nextTopLevelAfterSubtitle >= insertBefore) nextTopLevelAfterSubtitle++;
+      if (nextTopLevelAfterMaterialDescription >= insertBefore) nextTopLevelAfterMaterialDescription++;
       if (nextTopLevelAfterDescription >= insertBefore) nextTopLevelAfterDescription++;
     }
   }

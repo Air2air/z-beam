@@ -18,7 +18,7 @@ jest.mock('../../app/components/Hero/Hero', () => ({
 
 jest.mock('../../app/components/Title/Title', () => ({
   Title: ({ frontmatter, title, children }: any) => (
-    <div data-testid="title" data-title={frontmatter?.title || title} data-subtitle={frontmatter?.description}>
+    <div data-testid="title" data-title={frontmatter?.title || title} data-description={frontmatter?.description}>
       {frontmatter?.title || title || children}
     </div>
   ),

@@ -2,11 +2,11 @@
   "@context": "https://schema.org",
   "@type": "Dataset",
   "@id": "http://localhost:3000/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning#dataset",
-  "name": "GFRP Laser Cleaning Dataset",
-  "description": "Comprehensive laser cleaning parameters and material properties for GFRP. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
+  "name": "Glass Fiber Reinforced Polymers GFRP Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Glass Fiber Reinforced Polymers GFRP. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-16",
-  "datePublished": "2025-11-16",
+  "dateModified": "2025-11-23",
+  "datePublished": "2025-11-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -29,9 +29,9 @@
     "url": "https://www.z-beam.com"
   },
   "keywords": [
-    "gfrp",
+    "glass fiber reinforced polymers gfrp",
     "laser cleaning",
-    "Composite",
+    "composite",
     "fiber-reinforced",
     "laser cleaning",
     "material properties",
@@ -57,19 +57,19 @@
       "@type": "DataDownload",
       "encodingFormat": "application/json",
       "contentUrl": "http://localhost:3000/datasets/materials/glass-fiber-reinforced-polymers-gfrp-laser-cleaning.json",
-      "name": "GFRP Dataset (JSON)"
+      "name": "Glass Fiber Reinforced Polymers GFRP Dataset (JSON)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/csv",
       "contentUrl": "http://localhost:3000/datasets/materials/glass-fiber-reinforced-polymers-gfrp-laser-cleaning.csv",
-      "name": "GFRP Dataset (CSV)"
+      "name": "Glass Fiber Reinforced Polymers GFRP Dataset (CSV)"
     },
     {
       "@type": "DataDownload",
       "encodingFormat": "text/plain",
       "contentUrl": "http://localhost:3000/datasets/materials/glass-fiber-reinforced-polymers-gfrp-laser-cleaning.txt",
-      "name": "GFRP Dataset (TXT)"
+      "name": "Glass Fiber Reinforced Polymers GFRP Dataset (TXT)"
     }
   ],
   "isAccessibleForFree": true,
@@ -83,73 +83,65 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-16"
+    "lastVerified": "2025-11-23"
   },
   "material": {
-    "name": "GFRP",
+    "name": "Glass Fiber Reinforced Polymers GFRP",
     "slug": "glass-fiber-reinforced-polymers-gfrp-laser-cleaning",
     "classification": {
-      "category": "Composite",
+      "category": "composite",
       "subcategory": "fiber-reinforced"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 70.8,
-        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "percentage": 40,
         "electricalResistivity": {
           "value": 1000000000000,
           "unit": "Ω·m",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.001,
-          "max": 100000000000000
+          "min": 0,
+          "max": 105000000000000
         },
         "fractureToughness": {
           "value": 2.1,
           "unit": "MPa m^{0.5}",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 20,
-          "max": 100
+          "min": 0.01,
+          "max": 26.19
         },
         "thermalDestruction": {
           "value": 623,
           "unit": "K",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 273,
-          "max": 900
+          "min": 205.6,
+          "max": 1952.4
         },
         "density": {
           "value": 1.85,
           "unit": "g/cm³",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.5,
-          "max": 8
+          "min": 0.9975,
+          "max": 2519.9475
         },
         "oxidationResistance": {
           "value": 220,
           "unit": "°C",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 80,
-          "max": 1650
+          "min": 0,
+          "max": 1668.45
         },
         "laserReflectivity": {
           "value": 0.05,
           "unit": "",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 2,
-          "max": 80
+          "min": 0.0043,
+          "max": 0.9217
         },
         "thermalExpansion": {
           "value": 0.000017,
           "unit": "K^{-1}",
-          "confidence": 95,
           "source": "ai_research",
           "min": -1,
           "max": 250
@@ -157,7 +149,6 @@
         "thermalConductivity": {
           "value": 0.35,
           "unit": "W/m·K",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.03,
           "max": 400
@@ -165,15 +156,13 @@
         "youngsModulus": {
           "value": 38,
           "unit": "GPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.001,
-          "max": 3000
+          "min": 0.00475,
+          "max": 144899999999.99976
         },
         "hardness": {
           "value": 85,
           "unit": "Shore D",
-          "confidence": 95,
           "source": "ai_research",
           "min": 5,
           "max": 120
@@ -181,7 +170,6 @@
         "specificHeat": {
           "value": 930,
           "unit": "J/(kg·K)",
-          "confidence": 95,
           "source": "ai_research",
           "min": 500,
           "max": 2500
@@ -189,56 +177,49 @@
         "laserAbsorption": {
           "value": 4500,
           "unit": "m^{-1}",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.05,
-          "max": 200
+          "min": 0.1425,
+          "max": 524999.9925
         },
         "compressiveStrength": {
           "value": 280,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 50,
-          "max": 1000
+          "min": 6.55025,
+          "max": 1259.65525
         },
         "tensileStrength": {
           "value": 570,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 20,
-          "max": 6000
+          "min": 16.15,
+          "max": 1626.65
         },
         "thermalDiffusivity": {
           "value": 1.04e-7,
           "unit": "m²/s",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.08,
-          "max": 180
+          "min": 0,
+          "max": 0.000076
         },
         "flexuralStrength": {
           "value": 450,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 100,
-          "max": 2000
+          "min": 4.56,
+          "max": 1196.76
         },
         "corrosionResistance": {
           "value": 0.95,
           "unit": "dimensionless (retention factor)",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 5,
-          "max": 9
+          "min": 0,
+          "max": 4725
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 29.2,
-        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 40,
         "absorptivity": {
           "value": 0.05,
           "unit": "dimensionless",
@@ -302,8 +283,8 @@
       "description": "Electrical Resistivity - material characteristics",
       "value": 1000000000000,
       "unitText": "Ω·m",
-      "minValue": 0.001,
-      "maxValue": 100000000000000,
+      "minValue": 0,
+      "maxValue": 105000000000000,
       "measurementTechnique": "ai_research"
     },
     {
@@ -313,8 +294,8 @@
       "description": "Fracture Toughness - material characteristics",
       "value": 2.1,
       "unitText": "MPa m^{0.5}",
-      "minValue": 20,
-      "maxValue": 100,
+      "minValue": 0.01,
+      "maxValue": 26.19,
       "measurementTechnique": "ai_research"
     },
     {
@@ -324,8 +305,8 @@
       "description": "Thermal Destruction - material characteristics",
       "value": 623,
       "unitText": "K",
-      "minValue": 273,
-      "maxValue": 900,
+      "minValue": 205.6,
+      "maxValue": 1952.4,
       "measurementTechnique": "ai_research"
     },
     {
@@ -335,8 +316,8 @@
       "description": "Density - material characteristics",
       "value": 1.85,
       "unitText": "g/cm³",
-      "minValue": 0.5,
-      "maxValue": 8,
+      "minValue": 0.9975,
+      "maxValue": 2519.9475,
       "measurementTechnique": "ai_research"
     },
     {
@@ -346,8 +327,8 @@
       "description": "Oxidation Resistance - material characteristics",
       "value": 220,
       "unitText": "°C",
-      "minValue": 80,
-      "maxValue": 1650,
+      "minValue": 0,
+      "maxValue": 1668.45,
       "measurementTechnique": "ai_research"
     },
     {
@@ -357,8 +338,8 @@
       "description": "Laser Reflectivity - material characteristics",
       "value": 0.05,
       "unitText": "",
-      "minValue": 2,
-      "maxValue": 80,
+      "minValue": 0.0043,
+      "maxValue": 0.9217,
       "measurementTechnique": "ai_research"
     },
     {
@@ -390,8 +371,8 @@
       "description": "Youngs Modulus - material characteristics",
       "value": 38,
       "unitText": "GPa",
-      "minValue": 0.001,
-      "maxValue": 3000,
+      "minValue": 0.00475,
+      "maxValue": 144899999999.99976,
       "measurementTechnique": "ai_research"
     },
     {
@@ -423,8 +404,8 @@
       "description": "Laser Absorption - material characteristics",
       "value": 4500,
       "unitText": "m^{-1}",
-      "minValue": 0.05,
-      "maxValue": 200,
+      "minValue": 0.1425,
+      "maxValue": 524999.9925,
       "measurementTechnique": "ai_research"
     },
     {
@@ -434,8 +415,8 @@
       "description": "Compressive Strength - material characteristics",
       "value": 280,
       "unitText": "MPa",
-      "minValue": 50,
-      "maxValue": 1000,
+      "minValue": 6.55025,
+      "maxValue": 1259.65525,
       "measurementTechnique": "ai_research"
     },
     {
@@ -445,8 +426,8 @@
       "description": "Tensile Strength - material characteristics",
       "value": 570,
       "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 6000,
+      "minValue": 16.15,
+      "maxValue": 1626.65,
       "measurementTechnique": "ai_research"
     },
     {
@@ -456,8 +437,8 @@
       "description": "Thermal Diffusivity - material characteristics",
       "value": 1.04e-7,
       "unitText": "m²/s",
-      "minValue": 0.08,
-      "maxValue": 180,
+      "minValue": 0,
+      "maxValue": 0.000076,
       "measurementTechnique": "ai_research"
     },
     {
@@ -467,8 +448,8 @@
       "description": "Flexural Strength - material characteristics",
       "value": 450,
       "unitText": "MPa",
-      "minValue": 100,
-      "maxValue": 2000,
+      "minValue": 4.56,
+      "maxValue": 1196.76,
       "measurementTechnique": "ai_research"
     },
     {
@@ -478,8 +459,8 @@
       "description": "Corrosion Resistance - material characteristics",
       "value": 0.95,
       "unitText": "dimensionless (retention factor)",
-      "minValue": 5,
-      "maxValue": 9,
+      "minValue": 0,
+      "maxValue": 4725,
       "measurementTechnique": "ai_research"
     },
     {
@@ -560,5 +541,5 @@
       "measurementTechnique": "ai_research"
     }
   ],
-  "citation": "Z-Beam (2025). GFRP Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning"
+  "citation": "Z-Beam (2025). Glass Fiber Reinforced Polymers GFRP Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/composite/fiber-reinforced/glass-fiber-reinforced-polymers-gfrp-laser-cleaning"
 }

@@ -6,6 +6,7 @@ import { MaterialSafetyHeatmap, ProcessEffectivenessHeatmap } from '@/app/compon
 import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
 import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
+import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
 import SettingsDatasetCardWrapper from '@/app/components/Dataset/SettingsDatasetCardWrapper';
 import { SettingsMetadata } from '@/types/centralized';
 
@@ -361,6 +362,17 @@ export function SettingsLayout({
           research_library={settings.research_library}
           materialName={settings.name}
         />
+      )}
+
+      {/* Settings FAQ and Troubleshooting */}
+      {(settings.help || settings.machineSettings?.material_challenges) && (
+        <div className="mb-8">
+          <FAQSettings
+            materialName={settings.name}
+            help={settings.help}
+            material_challenges={settings.machineSettings?.material_challenges}
+          />
+        </div>
       )}
 
       {/* Dataset Download Section */}

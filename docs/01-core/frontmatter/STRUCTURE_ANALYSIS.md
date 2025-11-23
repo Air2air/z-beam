@@ -30,8 +30,8 @@ name: String                           # Material name (e.g., "Aluminum")
 category: String                       # Capitalized (Metal, Ceramic, Wood, etc.)
 subcategory: String                    # Type (alloy, hardwood, etc.)
 title: String                          # Page title
-subtitle: String                       # Descriptive subtitle
-description: String                    # Brief description
+material_description: String           # Material-specific description (materials)
+settings_description: String           # Settings-specific description (settings)
 
 # ============================================================================
 # AUTHOR INFORMATION
@@ -276,8 +276,7 @@ name: Aluminum
 category: Metal
 subcategory: alloy
 title: Aluminum Laser Cleaning
-subtitle: Laser cleaning parameters and specifications for Aluminum
-description: Laser cleaning parameters for Aluminum
+material_description: Laser cleaning parameters and specifications for Aluminum
 
 author:
   country: Germany

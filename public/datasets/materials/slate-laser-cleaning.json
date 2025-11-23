@@ -5,8 +5,8 @@
   "name": "Slate Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Slate. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-16",
-  "datePublished": "2025-11-16",
+  "dateModified": "2025-11-23",
+  "datePublished": "2025-11-23",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -31,7 +31,7 @@
   "keywords": [
     "slate",
     "laser cleaning",
-    "Stone",
+    "stone",
     "metamorphic",
     "laser cleaning",
     "material properties",
@@ -83,33 +83,30 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-16"
+    "lastVerified": "2025-11-23"
   },
   "material": {
     "name": "Slate",
     "slug": "slate-laser-cleaning",
     "classification": {
-      "category": "Stone",
+      "category": "stone",
       "subcategory": "metamorphic"
     },
     "laserParameters": {},
     "materialProperties": {
       "material_characteristics": {
         "label": "Material Characteristics",
-        "percentage": 70.8,
-        "description": "Intrinsic physical, mechanical, chemical, and structural properties affecting cleaning outcomes and material integrity",
+        "percentage": 40,
         "fractureToughness": {
           "value": 0.92,
           "unit": "MPa√m",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.5,
-          "max": 5
+          "min": 0.133,
+          "max": 2.047
         },
         "thermalDestruction": {
           "value": 1273,
           "unit": "K",
-          "confidence": 95,
           "source": "ai_research",
           "min": 273,
           "max": 2300
@@ -117,7 +114,6 @@
         "specificHeat": {
           "value": 880,
           "unit": "J/(kg·K)",
-          "confidence": 95,
           "source": "ai_research",
           "min": 400,
           "max": 1200
@@ -125,31 +121,27 @@
         "youngsModulus": {
           "value": 45,
           "unit": "GPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 10,
-          "max": 100
+          "min": 9.785,
+          "max": 78749999999.485
         },
         "oxidationResistance": {
           "value": 0.002,
           "unit": "mm/year",
-          "confidence": 92,
           "source": "ai_research",
-          "min": 400,
-          "max": 870
+          "min": 0.000095,
+          "max": 1546.649995
         },
         "laserReflectivity": {
           "value": 0.12,
           "unit": "dimensionless",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 5,
-          "max": 80
+          "min": 0.0252,
+          "max": 0.4388
         },
         "thermalConductivity": {
           "value": 2,
           "unit": "W/m·K",
-          "confidence": 95,
           "source": "ai_research",
           "min": 0.2,
           "max": 8
@@ -157,88 +149,77 @@
         "thermalExpansion": {
           "value": 0.0000085,
           "unit": "K^{-1}",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 3,
-          "max": 30
+          "min": 0.000006,
+          "max": 11.97
         },
         "density": {
           "value": 2750,
           "unit": "kg/m³",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 1.5,
-          "max": 6
+          "min": 2.204,
+          "max": 3044.884
         },
         "hardness": {
           "value": 3.5,
           "unit": "Mohs",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 1,
-          "max": 7
+          "min": 0.7,
+          "max": 7.3
         },
         "corrosionResistance": {
           "value": 0.95,
           "unit": "dimensionless",
-          "confidence": 96,
           "source": "ai_research",
-          "min": 2,
-          "max": 9
+          "min": 0.000066,
+          "max": 20.999997
         },
         "laserAbsorption": {
           "value": 0.88,
           "unit": "dimensionless (absorptivity at 1064 nm)",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.1,
-          "max": 100
+          "min": 0.057,
+          "max": 1259999.997
         },
         "compressiveStrength": {
           "value": 150,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 20,
-          "max": 500
+          "min": 2.1,
+          "max": 219.9
         },
         "thermalDiffusivity": {
           "value": 9.6e-7,
           "unit": "m²/s",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.2,
-          "max": 2.5
+          "min": 0,
+          "max": 0.000002
         },
         "flexuralStrength": {
           "value": 42.5,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 5,
-          "max": 50
+          "min": 2.24,
+          "max": 36.56
         },
         "tensileStrength": {
           "value": 14,
           "unit": "MPa",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 2,
-          "max": 25
+          "min": 1.35,
+          "max": 15.65
         },
         "porosity": {
           "value": 0.8,
           "unit": "%",
-          "confidence": 95,
           "source": "ai_research",
-          "min": 0.5,
-          "max": 25
+          "min": 0,
+          "max": 19.425
         }
       },
       "laser_material_interaction": {
         "label": "Laser-Material Interaction",
-        "percentage": 29.2,
-        "description": "Optical and thermal properties governing laser energy absorption, reflection, propagation, and ablation thresholds",
+        "percentage": 40,
         "absorptivity": {
           "value": 0.85,
           "unit": "dimensionless",
@@ -302,8 +283,8 @@
       "description": "Fracture Toughness - material characteristics",
       "value": 0.92,
       "unitText": "MPa√m",
-      "minValue": 0.5,
-      "maxValue": 5,
+      "minValue": 0.133,
+      "maxValue": 2.047,
       "measurementTechnique": "ai_research"
     },
     {
@@ -335,8 +316,8 @@
       "description": "Youngs Modulus - material characteristics",
       "value": 45,
       "unitText": "GPa",
-      "minValue": 10,
-      "maxValue": 100,
+      "minValue": 9.785,
+      "maxValue": 78749999999.485,
       "measurementTechnique": "ai_research"
     },
     {
@@ -346,8 +327,8 @@
       "description": "Oxidation Resistance - material characteristics",
       "value": 0.002,
       "unitText": "mm/year",
-      "minValue": 400,
-      "maxValue": 870,
+      "minValue": 0.000095,
+      "maxValue": 1546.649995,
       "measurementTechnique": "ai_research"
     },
     {
@@ -357,8 +338,8 @@
       "description": "Laser Reflectivity - material characteristics",
       "value": 0.12,
       "unitText": "dimensionless",
-      "minValue": 5,
-      "maxValue": 80,
+      "minValue": 0.0252,
+      "maxValue": 0.4388,
       "measurementTechnique": "ai_research"
     },
     {
@@ -379,8 +360,8 @@
       "description": "Thermal Expansion - material characteristics",
       "value": 0.0000085,
       "unitText": "K^{-1}",
-      "minValue": 3,
-      "maxValue": 30,
+      "minValue": 0.000006,
+      "maxValue": 11.97,
       "measurementTechnique": "ai_research"
     },
     {
@@ -390,8 +371,8 @@
       "description": "Density - material characteristics",
       "value": 2750,
       "unitText": "kg/m³",
-      "minValue": 1.5,
-      "maxValue": 6,
+      "minValue": 2.204,
+      "maxValue": 3044.884,
       "measurementTechnique": "ai_research"
     },
     {
@@ -401,8 +382,8 @@
       "description": "Hardness - material characteristics",
       "value": 3.5,
       "unitText": "Mohs",
-      "minValue": 1,
-      "maxValue": 7,
+      "minValue": 0.7,
+      "maxValue": 7.3,
       "measurementTechnique": "ai_research"
     },
     {
@@ -412,8 +393,8 @@
       "description": "Corrosion Resistance - material characteristics",
       "value": 0.95,
       "unitText": "dimensionless",
-      "minValue": 2,
-      "maxValue": 9,
+      "minValue": 0.000066,
+      "maxValue": 20.999997,
       "measurementTechnique": "ai_research"
     },
     {
@@ -423,8 +404,8 @@
       "description": "Laser Absorption - material characteristics",
       "value": 0.88,
       "unitText": "dimensionless (absorptivity at 1064 nm)",
-      "minValue": 0.1,
-      "maxValue": 100,
+      "minValue": 0.057,
+      "maxValue": 1259999.997,
       "measurementTechnique": "ai_research"
     },
     {
@@ -434,8 +415,8 @@
       "description": "Compressive Strength - material characteristics",
       "value": 150,
       "unitText": "MPa",
-      "minValue": 20,
-      "maxValue": 500,
+      "minValue": 2.1,
+      "maxValue": 219.9,
       "measurementTechnique": "ai_research"
     },
     {
@@ -445,8 +426,8 @@
       "description": "Thermal Diffusivity - material characteristics",
       "value": 9.6e-7,
       "unitText": "m²/s",
-      "minValue": 0.2,
-      "maxValue": 2.5,
+      "minValue": 0,
+      "maxValue": 0.000002,
       "measurementTechnique": "ai_research"
     },
     {
@@ -456,8 +437,8 @@
       "description": "Flexural Strength - material characteristics",
       "value": 42.5,
       "unitText": "MPa",
-      "minValue": 5,
-      "maxValue": 50,
+      "minValue": 2.24,
+      "maxValue": 36.56,
       "measurementTechnique": "ai_research"
     },
     {
@@ -467,8 +448,8 @@
       "description": "Tensile Strength - material characteristics",
       "value": 14,
       "unitText": "MPa",
-      "minValue": 2,
-      "maxValue": 25,
+      "minValue": 1.35,
+      "maxValue": 15.65,
       "measurementTechnique": "ai_research"
     },
     {
@@ -478,8 +459,8 @@
       "description": "Porosity - material characteristics",
       "value": 0.8,
       "unitText": "%",
-      "minValue": 0.5,
-      "maxValue": 25,
+      "minValue": 0,
+      "maxValue": 19.425,
       "measurementTechnique": "ai_research"
     },
     {

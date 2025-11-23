@@ -11,7 +11,8 @@ export interface ArticleSchemaOptions {
   context: SchemaContext;
   title: string;
   description: string;
-  subtitle?: string;
+  material_description?: string;
+  subtitle?: string; // Legacy compatibility
   publishDate?: string;
   modifiedDate?: string;
   author?: AuthorData;
@@ -40,6 +41,7 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
     context,
     title,
     description,
+    material_description,
     subtitle,
     publishDate,
     modifiedDate,

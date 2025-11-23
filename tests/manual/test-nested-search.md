@@ -368,7 +368,8 @@ const deepSearch = (obj: any, searchTerm: string, maxDepth = 10, currentDepth = 
 const deepSearchFields = [
   'machineSettings',      // ← All machine parameters
   'materialProperties',   // ← All material properties
-  'subtitle',
+  'material_description',
+  'settings_description',
   'applications',
   'environmentalImpact',
   'outcomeMetrics',

@@ -215,6 +215,13 @@ export class SchemaFactory {
       priority: 55,
       condition: (data) => hasFAQData(data)
     });
+    this.register('QAPage', generateQAPageSchema, {
+      priority: 54,
+      condition: (data) => {
+        const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
+        return !!(fm?.expertAnswers && Array.isArray(fm.expertAnswers) && fm.expertAnswers.length > 0);
+      }
+    });
     this.register('Event', generateEventSchema, {
       priority: 50,
       condition: (data) => !!data.eventData
@@ -464,7 +471,7 @@ function generateArticleSchema(data: any, context: SchemaContext): SchemaOrgBase
   const { pageUrl, baseUrl, currentDate } = context;
   
   const title = frontmatter.title || data.title || '';
-  const description = frontmatter.description || data.description || '';
+  const description = frontmatter.description || frontmatter.material_description || frontmatter.settings_description || data.description || '';
   
   if (!title) return null;
 
@@ -867,6 +874,118 @@ function generateFAQSchema(data: any, context: SchemaContext): SchemaOrgBase | n
 }
 
 /**
+ * QAPage Schema - Expert Q&A with E-E-A-T signals
+ * For troubleshooting with expert attribution, credentials, and authority
+ */
+function generateQAPageSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
+  const frontmatter = getMetadata(data);
+  const expertAnswers = frontmatter.expertAnswers;
+  
+  if (!expertAnswers || !Array.isArray(expertAnswers) || expertAnswers.length === 0) {
+    return null;
+  }
+
+  // Get accepted answer (if any) or first answer
+  const mainAnswer = expertAnswers.find((a: any) => a.acceptedAnswer) || expertAnswers[0];
+  
+  if (!mainAnswer || !mainAnswer.question || !mainAnswer.answer || !mainAnswer.expert) {
+    return null;
+  }
+
+  // Build expert person object
+  const expertPerson: any = {
+    '@type': 'Person',
+    'name': mainAnswer.expert.name
+  };
+
+  if (mainAnswer.expert.image) {
+    expertPerson.image = `${SITE_CONFIG.url}${mainAnswer.expert.image}`;
+  }
+  
+  if (mainAnswer.expert.title) {
+    expertPerson.jobTitle = mainAnswer.expert.title;
+  }
+  
+  if (mainAnswer.expert.expertise && mainAnswer.expert.expertise.length > 0) {
+    expertPerson.knowsAbout = mainAnswer.expert.expertise;
+  }
+  
+  if (mainAnswer.expert.affiliation) {
+    expertPerson.worksFor = {
+      '@type': 'Organization',
+      'name': mainAnswer.expert.affiliation
+    };
+  }
+
+  // Build accepted answer
+  const acceptedAnswer: any = {
+    '@type': 'Answer',
+    'text': mainAnswer.answer,
+    'author': expertPerson,
+    'dateCreated': mainAnswer.dateAnswered
+  };
+
+  if (mainAnswer.upvoteCount) {
+    acceptedAnswer.upvoteCount = mainAnswer.upvoteCount;
+  }
+
+  if (mainAnswer.lastReviewed) {
+    acceptedAnswer.dateModified = mainAnswer.lastReviewed;
+  }
+
+  // Add sources as citations
+  if (mainAnswer.sources && mainAnswer.sources.length > 0) {
+    acceptedAnswer.citation = mainAnswer.sources.map((source: string) => ({
+      '@type': 'CreativeWork',
+      'name': source
+    }));
+  }
+
+  // Build main question
+  const mainEntity: any = {
+    '@type': 'Question',
+    'name': mainAnswer.question,
+    'text': mainAnswer.question,
+    'acceptedAnswer': acceptedAnswer,
+    'author': expertPerson,
+    'dateCreated': mainAnswer.dateAnswered
+  };
+
+  if (mainAnswer.upvoteCount) {
+    mainEntity.upvoteCount = mainAnswer.upvoteCount;
+  }
+
+  // Add suggested answers (other expert answers)
+  const otherAnswers = expertAnswers.filter((a: any) => a !== mainAnswer && a.question === mainAnswer.question);
+  if (otherAnswers.length > 0) {
+    mainEntity.suggestedAnswer = otherAnswers.map((ans: any) => {
+      const suggestedExpert: any = {
+        '@type': 'Person',
+        'name': ans.expert.name
+      };
+      
+      if (ans.expert.image) {
+        suggestedExpert.image = `${SITE_CONFIG.url}${ans.expert.image}`;
+      }
+      
+      return {
+        '@type': 'Answer',
+        'text': ans.answer,
+        'author': suggestedExpert,
+        'dateCreated': ans.dateAnswered,
+        ...(ans.upvoteCount && { 'upvoteCount': ans.upvoteCount })
+      };
+    });
+  }
+
+  return {
+    '@type': 'QAPage',
+    '@id': `${context.pageUrl}#qa`,
+    'mainEntity': mainEntity
+  };
+}
+
+/**
  * VideoObject Schema - Enhanced for material demonstrations
  */
 function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
@@ -892,8 +1011,9 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
   // Enhanced material-specific video title and description
   const materialName = frontmatter.name || frontmatter.subject || data.title || 'this material';
   const videoTitle = `${materialName} Laser Cleaning - Professional Demonstration`;
-  const videoDescription = frontmatter.description 
-    ? `See how laser cleaning effectively processes ${materialName}. ${frontmatter.description}`
+  const materialDesc = frontmatter.material_description || frontmatter.settings_description || frontmatter.description;
+  const videoDescription = materialDesc
+    ? `See how laser cleaning effectively processes ${materialName}. ${materialDesc}`
     : `Professional demonstration of laser cleaning process for ${materialName}. Watch how our advanced laser technology safely and effectively removes contaminants without damaging the material surface.`;
 
   return {

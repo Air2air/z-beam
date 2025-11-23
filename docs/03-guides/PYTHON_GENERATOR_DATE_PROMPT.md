@@ -35,10 +35,9 @@ name: Aluminum
 category: metal
 subcategory: non-ferrous
 title: Aluminum Laser Cleaning
-subtitle: Precision Laser Cleaning...
+material_description: Precision Laser Cleaning...
 datePublished: '2025-10-30T15:30:08-07:00'
 dateModified: '2025-11-12T16:21:27-08:00'
-description: Laser cleaning parameters for Aluminum
 ```
 
 4. **Fallback Handling**
@@ -121,10 +120,9 @@ author:
 category: metal
 subcategory: non-ferrous
 title: Copper Laser Cleaning
-subtitle: Advanced Laser Cleaning for Copper Surfaces
+material_description: Advanced Laser Cleaning for Copper Surfaces
 datePublished: '2025-10-30T15:30:08-07:00'
 dateModified: '2025-11-12T16:21:27-08:00'
-description: Comprehensive laser cleaning parameters for copper and copper alloys
 ```
 
 ### Integration with Existing Script

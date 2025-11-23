@@ -99,7 +99,7 @@ Implement automated timestamp management for 132 frontmatter YAML files to maint
 ```yaml
 # frontmatter/materials/aluminum-laser-cleaning.yaml
 title: Aluminum Laser Cleaning
-subtitle: Precision surface preparation...
+material_description: Precision surface preparation...
 
 caption:
   generated: '2025-10-25T13:53:55.449239Z'  # Internal only
@@ -109,7 +109,7 @@ caption:
 ```yaml
 # frontmatter/materials/aluminum-laser-cleaning.yaml
 title: Aluminum Laser Cleaning
-subtitle: Precision surface preparation...
+material_description: Precision surface preparation...
 datePublished: '2025-10-25T13:53:55.449239Z'  # ← NEW (from caption.generated)
 dateModified: '2025-11-15T14:22:33.891234Z'   # ← NEW (current time)
 

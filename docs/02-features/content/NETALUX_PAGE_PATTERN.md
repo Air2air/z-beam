@@ -35,8 +35,7 @@ The Netalux page pattern combines:
 ```yaml
 # static-pages/netalux.yaml
 title: "Netalux Laser Cleaning Equipment"
-subtitle: "Award-winning precision laser cleaning systems"
-description: "Comprehensive specifications for Netalux systems"
+description: "Award-winning precision laser cleaning systems"
 slug: "netalux"
 
 # Model 1 specifications

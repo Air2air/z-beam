@@ -17,6 +17,7 @@ import { Settings } from 'lucide-react';
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
+import { ExpertAnswers } from '../ExpertAnswers/ExpertAnswers';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
@@ -206,6 +207,26 @@ export function Layout(props: LayoutProps) {
             <MaterialFAQ
               materialName={metadata.name}
               faq={Array.isArray(metadata.faq) ? metadata.faq : (metadata.faq as any)?.questions || []}
+            />
+          )}
+
+          {metadata?.name && metadata?.expertAnswers && (
+            <ExpertAnswers
+              materialName={metadata.name}
+              answers={metadata.expertAnswers}
+              defaultExpert={metadata.author ? {
+                name: metadata.author.name,
+                title: metadata.author.title,
+                credentials: metadata.author.credentials,
+                expertise: Array.isArray(metadata.author.expertise) 
+                  ? metadata.author.expertise 
+                  : metadata.author.expertise ? [metadata.author.expertise] : undefined,
+                affiliation: typeof metadata.author.affiliation === 'string' 
+                  ? metadata.author.affiliation 
+                  : metadata.author.affiliation?.name,
+                image: metadata.author.image,
+                email: metadata.author.email
+              } : undefined}
             />
           )}
         </header>

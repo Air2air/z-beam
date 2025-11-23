@@ -22,8 +22,8 @@ name: String                    # Material name
 category: String                # Primary category (metal, wood, stone, plastic, glass, composite, ceramic)
 subcategory: String            # Specific classification within category
 title: String                   # Full page title
-description: String             # Material description
-subtitle: String                # Distinctive characteristic summary
+material_description: String    # Material-specific description (for materials)
+settings_description: String    # Settings-specific description (for settings)
 ```
 
 ### Primary Data Sections

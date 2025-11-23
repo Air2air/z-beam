@@ -49,6 +49,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const dateModified = 'dateModified' in metadata ? metadata.dateModified : undefined;
   const materialName = 'name' in metadata ? (metadata as any).name : undefined;
   const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
+  const material_description = 'material_description' in metadata ? (metadata as any).material_description : undefined;
+  const settings_description = 'settings_description' in metadata ? (metadata as any).settings_description : undefined;
   
   // Determine Open Graph type dynamically
   const ogType: 'article' | 'website' = (datePublished || category) ? 'article' : 'website';
@@ -119,9 +121,10 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     }
   }
   
-  // Enhanced description with subtitle for better context
-  const fullDescription = subtitle && typeof subtitle === 'string'
-    ? `${extractSafeValue(subtitle)}. ${enhancedDescription}`
+  // Enhanced description with material_description/settings_description for better context
+  const contextDescription = material_description || settings_description || subtitle;
+  const fullDescription = contextDescription && typeof contextDescription === 'string'
+    ? `${extractSafeValue(contextDescription)}. ${enhancedDescription}`
     : enhancedDescription;
   
   // Get author details for E-E-A-T

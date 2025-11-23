@@ -50,7 +50,9 @@ export type SectionType =
   | 'regulatory'
   | 'research'
   | 'technical'
-  | 'overview';
+  | 'overview'
+  | 'warning'
+  | 'expert-qa';
 
 /**
  * Icon mapping configuration
@@ -69,6 +71,8 @@ const SECTION_ICONS: Record<SectionType, React.ReactNode> = {
   'research': <ZapIcon className={SECTION_ICON_CLASS} />,
   'technical': <CodeIcon className={SECTION_ICON_CLASS} />,
   'overview': <InfoIcon className={SECTION_ICON_CLASS} />,
+  'warning': <AlertCircleIcon className={SECTION_ICON_CLASS} />,
+  'expert-qa': <InfoIcon className={SECTION_ICON_CLASS} />,
 };
 
 /**
