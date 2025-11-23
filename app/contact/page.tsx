@@ -59,7 +59,7 @@ export default async function ContactPage() {
       <MaterialJsonLD article={{ metadata: pageMetadata }} slug="contact" />
       <Layout
         title="Send us a Z-mail"
-        subtitle=""
+        description=""
         rightContent={null}
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="contact"

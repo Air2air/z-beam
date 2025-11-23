@@ -56,7 +56,7 @@ export default async function BookingPage() {
       <MaterialJsonLD article={{ metadata: pageMetadata }} slug="booking" />
       <Layout
         title="Book Your Consultation"
-        subtitle="Schedule a free 30-minute session with our laser cleaning experts"
+        description="Schedule a free 30-minute session with our laser cleaning experts"
         rightContent={null}
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="booking"

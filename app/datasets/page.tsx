@@ -112,7 +112,7 @@ export default async function DatasetsPage() {
 
       <Layout 
         title="Materials Database for Laser Cleaning"
-        subtitle={`${totalDatasets} materials with comprehensive laser cleaning specifications`}
+        description={`${totalDatasets} materials with comprehensive laser cleaning specifications`}
         slug="datasets"
         metadata={pageData.metadata as any}
       >
