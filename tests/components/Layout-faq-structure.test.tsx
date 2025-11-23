@@ -50,7 +50,6 @@ describe('Layout Component - Nested FAQ Structure', () => {
 
           // Check for flat array structure: faq (only if faq exists and is not null)
           if (parsed.faq && parsed.faq !== null) {
-            filesWithFAQ++;
             if (!Array.isArray(parsed.faq)) {
               filesWithInvalidStructure.push(`${file} (faq is not an array)`);
             } else {
