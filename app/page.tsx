@@ -61,7 +61,7 @@ export default async function HomePage() {
     
     // Page title and subtitle for consistent Title component display
     const pageTitle = homeConfig.title || SITE_CONFIG.name;
-    const pageSubtitle = homeConfig.subtitle || "Advanced laser surface treatment solutions for industrial applications";
+    const pageDescription = homeConfig.description || "Advanced laser surface treatment solutions for industrial applications";
 
     // Generate JSON-LD schemas for homepage
     const breadcrumbs = homeConfig.breadcrumb || [
@@ -109,7 +109,7 @@ export default async function HomePage() {
         <JsonLD data={jsonLdSchema} />
         <Layout 
           title={pageTitle}
-          subtitle={pageSubtitle}
+          description={pageDescription}
           metadata={heroFrontmatter}
           customHeroOverlay={true}
         >
@@ -124,7 +124,7 @@ export default async function HomePage() {
     console.error('Error loading home page content:', error);
     // Return minimal fallback page
     return (
-      <Layout title={SITE_CONFIG.name} subtitle="Advanced laser surface treatment solutions">
+      <Layout title={SITE_CONFIG.name} description="Advanced laser surface treatment solutions">
         <p>Welcome to Z-Beam. Content is loading...</p>
       </Layout>
     );
