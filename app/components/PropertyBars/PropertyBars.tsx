@@ -185,6 +185,8 @@ export function PropertyBars({
               columns={columns}
               height={height}
               className={className}
+              metadata={metadata}
+              dataSource={dataSource}
             />
           </SectionContainer>
         ))}
