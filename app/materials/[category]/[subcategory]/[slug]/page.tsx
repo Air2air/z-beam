@@ -7,7 +7,6 @@ import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
-import { FAQMaterial } from "@/app/components/FAQ/FAQMaterial";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
@@ -137,16 +136,6 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           {(article.metadata as any).regulatoryStandards && (article.metadata as any).regulatoryStandards.length > 0 && (
             <div className="mb-16">
               <RegulatoryStandards standards={(article.metadata as any).regulatoryStandards} />
-            </div>
-          )}
-          
-          {((article.metadata as any).help || (article.metadata as any).faq) && (
-            <div className="mb-16">
-              <FAQMaterial
-                materialName={(article.metadata.title as string) || slug}
-                help={(article.metadata as any).help}
-                faq={(article.metadata as any).faq}
-              />
             </div>
           )}
           
