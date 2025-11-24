@@ -25,7 +25,7 @@ export function DownloadCard({
   className = '',
 }: DownloadCardProps) {
   return (
-    <div className={`bg-gradient-to-br from-blue-50 to-indigo-50800900 rounded-xl border border-blue-200700 p-6 md:p-8 ${className}`}>
+    <div className={`bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl border border-blue-200 dark:border-gray-700 p-6 md:p-8 ${className}`}>
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center space-x-3">
           <div className="p-3 bg-blue-600 rounded-lg">
