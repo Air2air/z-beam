@@ -62,10 +62,10 @@ export function MaterialFAQ({
         {faq.map((item, index) => (
           <div key={index} role="listitem">
             <details
-              className="group bg-secondary rounded-lg border overflow-hidden transition-all duration-200 hover:shadow-md"
+              className="group bg-secondary rounded-lg overflow-hidden transition-all duration-200 hover:shadow-md"
             >
               <summary 
-                className="cursor-pointer px-6 py-4 font-normal flex items-center justify-between group-open:border-b group-open:border-gray-200:border-gray-700 bg-primary hover:bg-secondary group-open:bg-white:bg-secondary list-none transition-colors duration-200"
+                className="cursor-pointer px-6 py-4 font-normal flex items-center justify-between bg-primary hover:bg-secondary list-none transition-colors duration-200"
                 aria-label={`FAQ: ${item.question.replace(/\*\*/g, '')}`}
                 onClick={(e) => {
                   const detailsElement = e.currentTarget.parentElement as HTMLDetailsElement;
@@ -77,7 +77,7 @@ export function MaterialFAQ({
                   dangerouslySetInnerHTML={{ __html: '<strong>Q:</strong> ' + parseSimpleMarkdown(item.question) }}
                 />
                 <svg
-                  className="w-5 h-5 text-blue-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
+                  className="w-5 h-5 text-primary flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
