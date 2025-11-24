@@ -58,11 +58,20 @@ export default function DatasetSection({
           <div 
             key={index} 
             className="dataset-stat-card bg-primary rounded-lg p-1 h-[60px] flex flex-col items-center justify-center"
+            style={{ color: 'var(--text-primary)' }}
           >
-            <div className="dataset-stat-value text-lg md:text-xl font-bold text-muted text-center">
+            <div 
+              className="dataset-stat-value text-lg md:text-xl font-bold text-center"
+              style={{ color: 'var(--text-primary)' }}
+            >
               {stat.value}
             </div>
-            <div className="dataset-stat-label text-xs text-muted text-center mt-0.5">{stat.label}</div>
+            <div 
+              className="dataset-stat-label text-xs text-center mt-0.5"
+              style={{ color: 'var(--text-tertiary)' }}
+            >
+              {stat.label}
+            </div>
           </div>
         ))}
       </div>
@@ -80,7 +89,7 @@ export default function DatasetSection({
 
       {/* Navigation Links (conditional based on context) */}
       {(categoryLink || fullDatasetLink) && (
-        <div className="mt-4 pt-4 border-t space-y-2">
+        <div className="mt-4 pt-4 space-y-2">
           {/* Category Link (shown on material pages) */}
           {categoryLink && (
             <a
@@ -106,7 +115,7 @@ export default function DatasetSection({
       )}
 
       {/* License Info */}
-      <div className="mt-4 pt-3 border-t">
+      <div className="mt-4 pt-3">
         <p className="text-xs text-muted">
           <span className="font-medium">License:</span> Creative Commons BY 4.0 • 
           Free to use with attribution • 

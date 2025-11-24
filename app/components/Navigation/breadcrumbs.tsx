@@ -33,7 +33,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
   }
   
   return (
-    <nav className="flex py-2 sm:py-3" aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
+    <nav className="flex py-4 sm:py-6" aria-label="Breadcrumb" itemScope itemType="https://schema.org/BreadcrumbList">
       <ol className="inline-flex flex-wrap items-center breadcrumb-list">
         {allBreadcrumbs.map((crumb, index) => {
           const isLast = index === allBreadcrumbs.length - 1;
@@ -54,7 +54,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Last item: link with aria-current="page" per W3C spec
                 <Link
                   href={crumb.href}
-                  className="text-base text-brand-orange font-medium"
+                  className="text-base text-brand-orange font-medium px-1 py-1 rounded hover:bg-primary transition-colors duration-150"
                   aria-current="page"
                   onClick={(e) => e.preventDefault()} // Prevent navigation on current page
                 >
@@ -64,9 +64,9 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Cross-navigation link (e.g., Materials → Settings): distinct styling
                 <Link
                   href={crumb.href}
-                  className="text-base text-primary hover:text-white
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
-                             transition-colors duration-150 font-medium"
+                  className="text-base text-primary hover:text-white hover:bg-primary
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded
+                             transition-colors duration-150 font-medium px-1 py-1"
                   title={`View ${crumb.label}`}
                 >
                   <span itemProp="name">{crumb.label}</span>
@@ -75,15 +75,15 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Other items are normal links
                 <Link
                   href={crumb.href}
-                  className="text-base text-primary hover:text-white
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
-                             transition-colors duration-150"
+                  className="text-base text-primary hover:text-white hover:bg-primary
+                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded
+                             transition-colors duration-150 px-1 py-1"
                 >
                   <span itemProp="name">{crumb.label}</span>
                 </Link>
               ) : (
                 // Item without href (fallback)
-                <span className="text-base text-primary" itemProp="name">
+                <span className="text-base text-primary px-1 py-1" itemProp="name">
                   {crumb.label}
                 </span>
               )}
@@ -101,7 +101,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
         
         .breadcrumb-item:not(:last-child)::after {
           content: '›';
-          margin: 0 0.5rem;
+          margin: 0 0.25rem;
           color: rgb(156, 163, 175); /* gray-400 */
           font-size: 1.25rem;
           display: inline-block;

@@ -64,35 +64,34 @@ const socialLinks: SocialLink[] = [
 export default function Footer() {
   return (
     <footer 
-      className="bg-secondary border-t mt-0"
+      className="bg-secondary mt-0"
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-6 md:py-12 lg:py-20') + ' flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-12'}>
-        {/* Logo and Copyright */}
-        <div className="flex flex-col items-center md:items-start gap-6">
-          <Link 
-            href="/" 
-            className="block focus-visible:outline-none rounded-md"
-            aria-label={`${SITE_CONFIG.name} home page`}
-          >
-            <Image
-              src="/images/logo/logo-zbeam.png"
-              alt={`${SITE_CONFIG.shortName} Logo`}
-              width={150}
-              height={50}
-              className="h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto"
-              priority
-            />
-          </Link>
-          <span className="text-muted text-sm">
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.address.company}. All rights reserved.
-          </span>
-        </div>
+      <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-6 md:py-12 lg:py-20') + ' flex flex-col gap-6 md:gap-8'}>
+        {/* Top row: Logo, Navigation, Social */}
+        <div className="flex flex-col md:flex-row md:items-center gap-6">
+          {/* Logo */}
+          <div className="flex flex-col items-center md:flex-1">
+            <Link 
+              href="/" 
+              className="block focus-visible:outline-none rounded-md"
+              aria-label={`${SITE_CONFIG.name} home page`}
+            >
+              <Image
+                src="/images/logo/logo-zbeam.png"
+                alt={`${SITE_CONFIG.shortName} Logo`}
+                width={150}
+                height={50}
+                className="h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto"
+                priority
+              />
+            </Link>
+          </div>
 
         {/* Navigation */}
         <nav 
-          className="flex flex-row items-center justify-center gap-6 flex-wrap"
+          className="flex flex-row items-center justify-center gap-6 flex-wrap md:flex-1"
           role="navigation"
           aria-label="Footer navigation"
         >
@@ -102,7 +101,7 @@ export default function Footer() {
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-muted hover:text-muted:text-primary 
+              className="text-secondary hover:text-primary 
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
                          rounded-md px-2 py-1 transition-colors"
             >
@@ -116,7 +115,7 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div 
-          className="flex items-center justify-center gap-6"
+          className="flex items-center justify-center gap-6 md:flex-1"
           role="navigation"
           aria-label="Social media links"
         >
@@ -127,7 +126,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Follow us on ${social.name} (opens in new window)`}
-              className="text-tertiary hover:text-muted:text-primary 
+              className="text-secondary hover:text-primary 
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
                          rounded-md p-2 min-w-[44px] min-h-[44px] 
                          inline-flex items-center justify-center
@@ -137,6 +136,14 @@ export default function Footer() {
               {social.icon}
             </a>
           ))}
+        </div>
+        </div>
+
+        {/* Bottom row: Copyright - centered */}
+        <div className="flex justify-center">
+          <span className="text-secondary text-sm">
+            &copy; {new Date().getFullYear()} {SITE_CONFIG.address.company}. All rights reserved.
+          </span>
         </div>
       </div>
     </footer>
