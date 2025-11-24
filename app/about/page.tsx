@@ -6,13 +6,13 @@ import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
 
 export const metadata = {
-  title: `About ${SITE_CONFIG.shortName}`,
+  title: 'Bay Area Laser Cleaning Experts Since 2020 | Z-Beam',
   description: `Bay Area precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process. Trusted for critical applications.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,
   },
   openGraph: {
-    title: `About ${SITE_CONFIG.shortName}`,
+    title: 'Bay Area Laser Cleaning Experts Since 2020 | Z-Beam',
     description: `Bay Area precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process.`,
     url: `${SITE_CONFIG.url}/about`,
     siteName: SITE_CONFIG.name,
@@ -28,7 +28,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `About ${SITE_CONFIG.shortName}`,
+    title: 'Bay Area Laser Cleaning Experts Since 2020 | Z-Beam',
     description: `Precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste.`,
   },
 };

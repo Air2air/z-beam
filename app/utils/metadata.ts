@@ -48,6 +48,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const dateModified = 'dateModified' in metadata ? metadata.dateModified : undefined;
   const materialName = 'name' in metadata ? (metadata as any).name : undefined;
   const canonical = 'canonical' in metadata ? (metadata as any).canonical : undefined;
+  const meta_description = 'meta_description' in metadata ? (metadata as any).meta_description : undefined;
   const material_description = 'material_description' in metadata ? (metadata as any).material_description : undefined;
   const settings_description = 'settings_description' in metadata ? (metadata as any).settings_description : undefined;
   
@@ -120,8 +121,9 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     }
   }
   
-  // Enhanced description with material_description/settings_description for better context
-  const contextDescription = material_description || settings_description;
+  // Enhanced description with meta_description (SEO-optimized) taking priority
+  // Falls back to material_description/settings_description, then enhancedDescription
+  const contextDescription = meta_description || material_description || settings_description;
   const fullDescription = contextDescription && typeof contextDescription === 'string'
     ? extractSafeValue(contextDescription)
     : enhancedDescription;

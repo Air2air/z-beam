@@ -12,14 +12,14 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata = {
-  title: `Laser Cleaning Equipment Rental | ${SITE_CONFIG.shortName}`,
-  description: `Rent professional laser cleaning equipment. Flexible daily, weekly, or monthly terms with training and 24/7 support included.`,
+  title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
+  description: 'Rent Netalux laser cleaning equipment. Daily/weekly/monthly Bay Area delivery. Training included, no long-term commitment. Try before you buy.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/rental`,
   },
   openGraph: {
-    title: `Laser Cleaning Equipment Rental | ${SITE_CONFIG.shortName}`,
-    description: `Rent professional laser cleaning equipment. Flexible daily, weekly, or monthly terms with training and 24/7 support included.`,
+    title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
+    description: 'Rent Netalux laser cleaning equipment. Daily/weekly/monthly Bay Area delivery. Training included, no long-term commitment.',
     url: `${SITE_CONFIG.url}/rental`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -34,8 +34,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Laser Cleaning Equipment Rental | ${SITE_CONFIG.shortName}`,
-    description: `Rent professional laser cleaning equipment with flexible terms.`,
+    title: 'Laser Equipment Rental | Bay Area & California | Z-Beam',
+    description: 'Rent Netalux laser equipment. Bay Area delivery, training included. Try before you buy.',
   },
 };
 

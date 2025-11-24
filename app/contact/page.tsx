@@ -19,7 +19,7 @@ import { ContactInfo } from "../components/Contact/ContactInfo";
 import { Title } from "../components/Title";
 
 export const metadata = {
-  title: 'Contact Z-Beam',
+  title: 'Get a Free Quote | Bay Area Laser Cleaning | Z-Beam',
   description: 'Precision laser cleaning quotes for aerospace, marine, automotive & heritage projects. No chemicals, no substrate damage. Same-day response. Bay Area mobile service.',
   robots: {
     index: false,
@@ -29,7 +29,7 @@ export const metadata = {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
   openGraph: {
-    title: 'Contact Z-Beam',
+    title: 'Get a Free Quote | Bay Area Laser Cleaning | Z-Beam',
     description: 'Precision laser cleaning quotes for aerospace, marine, automotive & heritage. No chemicals, no substrate damage. Same-day response.',
     url: `${SITE_CONFIG.url}/contact`,
     siteName: SITE_CONFIG.name,
@@ -45,7 +45,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Z-Beam',
+    title: 'Get a Free Quote | Bay Area Laser Cleaning | Z-Beam',
     description: 'Precision laser cleaning for aerospace, marine, automotive & heritage. No chemicals, no damage. Same-day response.',
   },
 };

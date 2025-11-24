@@ -11,8 +11,8 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata = {
-  title: `Laser Cleaning Partners | ${SITE_CONFIG.shortName}`,
-  description: 'Authorized laser cleaning partners across North America and Europe. Laserverse (Canada), MacK Laser Restoration (California), and Netalux (Belgium) provide equipment, services, and training.',
+  title: 'Laser Cleaning Partners | North America & Europe | Z-Beam',
+  description: 'Authorized laser cleaning partners: Laserverse (Canada), MacK Laser (California), Netalux (Belgium). Equipment sales, training & professional services.',
   keywords: [
     'laser cleaning partners',
     'Laserverse Canada',
@@ -29,8 +29,8 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: `${SITE_CONFIG.url}/partners`,
-    title: 'Laser Cleaning Partners - North America & Europe',
-    description: 'Trusted laser cleaning partners: Laserverse (Equipment Distribution), MacK Laser (Professional Services), Netalux (Manufacturing).',
+    title: 'Laser Cleaning Partners | North America & Europe | Z-Beam',
+    description: 'Authorized laser cleaning partners: Laserverse (Canada), MacK Laser (California), Netalux (Belgium). Equipment sales, training & services.',
     siteName: SITE_CONFIG.name,
     images: [
       {

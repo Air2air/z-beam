@@ -13,8 +13,8 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata = {
-  title: `Netalux Laser Cleaning Equipment | ${SITE_CONFIG.shortName}`,
-  description: 'Comprehensive specifications and comparison of Netalux Needle® and Jango® laser cleaning systems. Industry-leading technology for precision cleaning and large-scale industrial applications.',
+  title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
+  description: 'Netalux Needle® (100-300W precision) & Jango® (7500W industrial) laser cleaning systems. Belgian engineering, award-winning technology. Bay Area dealer.',
   keywords: [
     'Netalux laser cleaning',
     'Needle laser system',
@@ -31,8 +31,8 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: `${SITE_CONFIG.url}/netalux`,
-    title: 'Netalux Laser Cleaning Equipment - Needle® & Jango® Series',
-    description: 'Award-winning precision laser cleaning systems from Belgium. Compare Needle® (100-300W) and Jango® (7500W) models for industrial applications.',
+    title: 'Netalux Needle & Jango Laser Systems | Belgian Tech | Z-Beam',
+    description: 'Netalux Needle® (100-300W) & Jango® (7500W) laser systems. Belgian engineering, award-winning technology. Bay Area authorized dealer.',
     siteName: SITE_CONFIG.name,
     images: [
       {
