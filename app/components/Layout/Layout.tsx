@@ -123,7 +123,7 @@ export function Layout(props: LayoutProps) {
       <main className={containerClass} id="main-content" role="main">
         <div className="text-center py-12">
           <Title level="page" title={title || 'Content Not Available'} />
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-muted">
             This page is currently being prepared. Please check back later.
           </p>
         </div>
@@ -164,7 +164,7 @@ export function Layout(props: LayoutProps) {
                 : metadata.title 
                   ? `${metadata.title} Machine Settings` 
                   : 'Machine Settings'}
-              icon={<Settings className="w-5 h-5 text-gray-600 dark:text-gray-400" />}
+              icon={<Settings className="w-5 h-5 text-muted" />}
               actionText="Materials"
               actionUrl={metadata?.category && metadata?.subcategory && metadata?.slug
                 ? `/materials/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-settings', '-laser-cleaning')}`

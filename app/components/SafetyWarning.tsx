@@ -28,21 +28,21 @@ export function SafetyWarning({
       >
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 mt-1">
-            <div className="bg-red-100 dark:bg-red-900/30 p-3 rounded-full">
-              <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-2xl" aria-hidden="true" />
+            <div className="bg-red-900/30 p-3 rounded-full">
+              <AlertTriangleIcon className="text-red-600400 text-2xl" aria-hidden="true" />
             </div>
           </div>
           
           <div className="flex-1">
-            <h3 className="text-red-900 dark:text-red-100 font-bold text-lg mb-2">
+            <h3 className="text-secondary font-bold text-lg text-secondary mb-2">
               Important Safety Notice
             </h3>
-            <p className="text-red-800 dark:text-red-200 text-base mb-4">
+            <p className="text-red-800200 text-base mb-4">
               {warningText || defaultWarning}
             </p>
             <Link 
               href="/safety"
-              className="inline-flex items-center gap-2 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 font-semibold underline transition-colors"
+              className="inline-flex items-center gap-2 text-red-600400 hover:text-red-700:text-red-300 font-semibold underline transition-colors"
             >
               View Safety Guidelines
               <span aria-hidden="true">→</span>

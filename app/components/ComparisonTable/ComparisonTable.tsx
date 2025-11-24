@@ -105,8 +105,8 @@ export function ComparisonTable({
     
     return (
       <React.Fragment key={sectionName}>
-        <tr className="bg-gray-100 dark:bg-gray-800">
-          <td colSpan={3} className={`${isCompact ? 'px-4 py-2' : 'px-6 py-3'} text-sm font-semibold text-gray-900 dark:text-gray-100`}>
+        <tr className="bg-gray-100">
+          <td colSpan={3} className={`${isCompact ? 'px-4 py-2' : 'px-6 py-3'} text-sm font-semibold`}>
             {sectionName}
           </td>
         </tr>
@@ -118,15 +118,15 @@ export function ComparisonTable({
           return (
             <tr 
               key={key} 
-              className={index % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}
+              className={index % 2 === 0 ? 'bg-tertiary' : 'bg-secondary'}
             >
-              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap`}>
+              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm font-medium whitespace-nowrap`}>
                 {label}
               </td>
-              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm text-gray-700 dark:text-gray-300`}>
+              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm`}>
                 {renderValue(value1)}
               </td>
-              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm text-gray-700 dark:text-gray-300`}>
+              <td className={`${isCompact ? 'px-4 py-2' : 'px-6 py-4'} text-sm`}>
                 {renderValue(value2)}
               </td>
             </tr>
@@ -142,22 +142,22 @@ export function ComparisonTable({
         <SectionTitle title={title || caption || 'Comparison'} className="mb-4" />
       )}
       
-      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <div className="bg-tertiary rounded-lg shadow-sm border overflow-hidden">
         <table className="w-full">
-          <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+          <thead className="bg-secondary border-b">
             <tr>
-              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3`}>
+              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium uppercase tracking-wider w-1/3`}>
                 Property
               </th>
-              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3`}>
+              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium uppercase tracking-wider w-1/3`}>
                 {model1Name}
               </th>
-              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider w-1/3`}>
+              <th className={`${variant === 'compact' ? 'px-4 py-2' : 'px-6 py-3'} text-left text-xs font-medium uppercase tracking-wider w-1/3`}>
                 {model2Name}
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+          <tbody className="divide-y divide-gray-200700">
             {renderGroup('Material Properties', groupedKeys['Material Properties'])}
             {renderGroup('Machine Settings', groupedKeys['Machine Settings'])}
             {renderGroup('Other', groupedKeys['Other'])}

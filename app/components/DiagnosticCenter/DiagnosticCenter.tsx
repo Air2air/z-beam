@@ -30,21 +30,21 @@ export function DiagnosticCenter({
   
   return (
     <section className="mb-8">
-      <h2 className="text-2xl font-bold text-white mb-3">
+      <h2 className="text-2xl text-secondary font-bold mb-3">
         🛡️ Diagnostic & Prevention Center
       </h2>
-      <p className="text-gray-400 text-sm mb-4">
+      <p className="text-tertiary text-sm mb-4">
         Proactive strategies and reactive solutions for {materialName.toLowerCase()}
       </p>
       
       {/* Tab Navigation */}
-      <div className="flex flex-wrap gap-2 mb-4 border-b border-gray-700">
+      <div className="flex flex-wrap gap-2 mb-4 border-b">
         <button
           onClick={() => setActiveTab('prevention')}
           className={`px-4 py-2 font-medium transition-all min-h-[44px] ${
             activeTab === 'prevention'
               ? 'text-blue-400 border-b-2 border-blue-400 bg-blue-500/10'
-              : 'text-gray-400 hover:text-gray-300 hover:bg-gray-800'
+              : 'text-tertiary hover:text-secondary hover:bg-secondary'
           }`}
           aria-pressed={activeTab === 'prevention'}
           aria-label="View prevention strategies"
@@ -62,7 +62,7 @@ export function DiagnosticCenter({
           className={`px-4 py-2 font-medium transition-all min-h-[44px] ${
             activeTab === 'troubleshooting'
               ? 'text-orange-400 border-b-2 border-orange-400 bg-orange-500/10'
-              : 'text-gray-400 hover:text-gray-300 hover:bg-gray-800'
+              : 'text-tertiary hover:text-secondary hover:bg-secondary'
           }`}
           aria-pressed={activeTab === 'troubleshooting'}
           aria-label="View troubleshooting guide"
@@ -80,7 +80,7 @@ export function DiagnosticCenter({
           className={`px-4 py-2 font-medium transition-all min-h-[44px] ${
             activeTab === 'reference'
               ? 'text-purple-400 border-b-2 border-purple-400 bg-purple-500/10'
-              : 'text-gray-400 hover:text-gray-300 hover:bg-gray-800'
+              : 'text-tertiary hover:text-secondary hover:bg-secondary'
           }`}
           aria-pressed={activeTab === 'reference'}
           aria-label="View quick reference guide"

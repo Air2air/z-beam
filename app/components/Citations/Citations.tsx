@@ -42,15 +42,15 @@ export function Citations({ research_library, materialName }: CitationsProps) {
 
   return (
     <section className="my-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-700 overflow-hidden">
+      <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border overflow-hidden">
         
         {/* Header */}
-        <div className="bg-gray-900/50 px-6 py-4 border-b border-gray-700">
-          <h2 className="text-2xl font-bold text-white flex items-center gap-3">
+        <div className="bg-tertiary px-6 py-4 border-b">
+          <h2 className="text-2xl text-secondary font-bold flex items-center gap-3">
             <span className="text-blue-400">📚</span>
             <span>Research Citations</span>
           </h2>
-          <p className="text-sm text-gray-400 mt-1">
+          <p className="text-sm text-tertiary mt-1">
             {citations.length} peer-reviewed {citations.length === 1 ? 'source' : 'sources'} validating {materialName || 'these'} settings
           </p>
         </div>
@@ -74,12 +74,12 @@ export function Citations({ research_library, materialName }: CitationsProps) {
               <div
                 key={citationId}
                 id={`citation-${citationId}`}
-                className="bg-gray-800 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors overflow-hidden scroll-mt-20"
+                className="bg-secondary rounded-lg border hover:border-gray-600 transition-colors overflow-hidden scroll-mt-20"
               >
                 {/* Citation Header (Always Visible) */}
                 <button
                   onClick={() => toggleCitation(citationId)}
-                  className="w-full text-left p-4 flex items-start gap-4 hover:bg-gray-800/50 transition-colors"
+                  className="w-full text-left p-4 flex items-start gap-4 hover:bg-secondary transition-colors"
                   aria-expanded={isExpanded}
                   aria-controls={`citation-${citationId}-details`}
                 >
@@ -104,18 +104,18 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                     </div>
                     
                     {/* Author & Year */}
-                    <div className="text-sm font-semibold text-gray-300 mb-1">
+                    <div className="text-sm font-semibold mb-1">
                       {citation.author} ({citation.year})
                     </div>
                     
                     {/* Title */}
-                    <div className="text-base font-medium text-white mb-2 leading-snug">
+                    <div className="text-base font-medium mb-2 leading-snug">
                       {citation.title}
                     </div>
                     
                     {/* Journal/Source */}
                     {citation.journal && (
-                      <div className="text-sm text-gray-400 italic mb-2">
+                      <div className="text-sm text-tertiary italic mb-2">
                         {citation.journal}
                         {citation.volume && `, ${citation.volume}`}
                         {citation.issue && `(${citation.issue})`}
@@ -142,7 +142,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                   {/* Expand Icon */}
                   <div className="flex-shrink-0">
                     <svg
-                      className={`w-5 h-5 text-gray-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                      className={`w-5 h-5 text-tertiary transition-transform ${isExpanded ? 'rotate-180' : ''}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -156,7 +156,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                 {isExpanded && (
                   <div
                     id={`citation-${citationId}-details`}
-                    className="px-4 pb-4 space-y-3 border-t border-gray-700/50"
+                    className="px-4 pb-4 space-y-3 border-t/50"
                   >
                     {/* Key Findings (new format) */}
                     {citation.key_findings && citation.key_findings.length > 0 && (
@@ -167,12 +167,12 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                         <div className="space-y-3">
                           {citation.key_findings.map((finding, idx) => (
                             <div key={idx} className="space-y-1">
-                              <div className="text-sm text-gray-300 leading-relaxed italic">
+                              <div className="text-sm leading-relaxed italic">
                                 "{finding.finding}"
                               </div>
                               {finding.specific_value && (
-                                <div className="text-xs text-gray-400 pl-4">
-                                  → Value: <span className="text-gray-300 font-mono">{finding.specific_value}</span>
+                                <div className="text-xs text-tertiary pl-4">
+                                  → Value: <span className="text-secondary font-mono">{finding.specific_value}</span>
                                 </div>
                               )}
                               <div className="text-xs">
@@ -197,7 +197,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                         <div className="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-1">
                           Key Finding
                         </div>
-                        <div className="text-sm text-gray-300 leading-relaxed">
+                        <div className="text-sm leading-relaxed">
                           {citation.key_finding}
                         </div>
                       </div>
@@ -209,7 +209,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                         <div className="text-xs font-semibold text-green-400 uppercase tracking-wide mb-1">
                           Relevance to Our Work
                         </div>
-                        <div className="text-sm text-gray-300 leading-relaxed">
+                        <div className="text-sm leading-relaxed">
                           {citation.relevance_to_our_work || citation.relevance}
                         </div>
                       </div>
@@ -248,8 +248,8 @@ export function Citations({ research_library, materialName }: CitationsProps) {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-900/50 px-6 py-3 border-t border-gray-700">
-          <p className="text-xs text-gray-400">
+        <div className="bg-tertiary px-6 py-3 border-t">
+          <p className="text-xs text-tertiary">
             All citations are from peer-reviewed journals indexed in Web of Science or Scopus. 
             Click any citation to expand details and validation methodology.
           </p>

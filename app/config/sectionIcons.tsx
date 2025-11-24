@@ -30,9 +30,9 @@ import {
 
 /**
  * Standard icon size and color for section headers
- * White at 50% opacity for consistent, subtle appearance
+ * Muted text color for consistent, subtle appearance
  */
-const SECTION_ICON_CLASS = "w-5 h-5 text-white opacity-50";
+const SECTION_ICON_CLASS = "w-5 h-5 text-muted";
 
 /**
  * Section type definitions

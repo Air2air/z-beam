@@ -29,9 +29,9 @@ function SeverityBadge({ severity }: { severity?: 'low' | 'medium' | 'high' }) {
   if (!severity) return null;
   
   const colors = {
-    low: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-    medium: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-    high: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+    low: 'bg-blue-900 text-blue-200',
+    medium: 'bg-yellow-900 text-yellow-200',
+    high: 'bg-red-900 text-red-200'
   };
   
   return (
@@ -69,10 +69,10 @@ function HelpItemCard({
   return (
     <div role="listitem">
       <details
-        className="group bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md"
+        className="group bg-secondary rounded-lg border overflow-hidden transition-all duration-200 hover:shadow-md"
       >
         <summary 
-          className="cursor-pointer px-6 py-4 font-normal text-gray-900 dark:text-gray-100 flex items-center justify-between group-open:border-b group-open:border-gray-200 dark:group-open:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-white dark:hover:bg-gray-800 group-open:bg-white dark:group-open:bg-gray-800 list-none transition-colors duration-200"
+          className="cursor-pointer px-6 py-4 font-normal flex items-center justify-between group-open:border-b group-open:border-gray-200:border-gray-700 bg-primary hover:bg-secondary group-open:bg-white:bg-secondary list-none transition-colors duration-200"
           aria-label={`${type === 'faq' ? 'FAQ' : 'Troubleshooting'}: ${item.question.replace(/\*\*/g, '')}`}
           onClick={(e) => {
             const detailsElement = e.currentTarget.parentElement as HTMLDetailsElement;
@@ -88,7 +88,7 @@ function HelpItemCard({
             {item.severity && <SeverityBadge severity={item.severity} />}
           </span>
           <svg
-            className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
+            className="w-5 h-5 text-blue-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -105,7 +105,7 @@ function HelpItemCard({
         <div 
           className="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[1000px] group-open:opacity-100"
         >
-          <div className="px-6 py-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold">
+          <div className="px-6 py-4 text-base leading-relaxed bg-secondary font-light [&_strong]:font-semibold">
             <div
               dangerouslySetInnerHTML={{ 
                 __html: `<strong>${type === 'faq' ? 'A:' : 'Solution:'}</strong> ${parseSimpleMarkdown(item.answer)}` 
@@ -114,7 +114,7 @@ function HelpItemCard({
             
             {/* Property value badge */}
             {item.propertyValue && (
-              <div className="mt-3 inline-flex items-center px-3 py-1 rounded-md text-sm bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+              <div className="mt-3 inline-flex items-center px-3 py-1 rounded-md text-sm bg-blue-900/30 text-blue-700300 border border-blue-200800">
                 <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
@@ -125,10 +125,10 @@ function HelpItemCard({
             {/* Solutions list */}
             {item.solutions && item.solutions.length > 0 && (
               <div className="mt-4">
-                <p className="font-semibold text-sm text-gray-900 dark:text-gray-100 mb-2">Recommended Actions:</p>
+                <p className="font-semibold text-sm mb-2">Recommended Actions:</p>
                 <ul className="list-disc list-inside space-y-1 text-sm">
                   {item.solutions.map((solution, idx) => (
-                    <li key={idx} className="text-gray-700 dark:text-gray-300">
+                    <li key={idx} className="text-primary">
                       {solution}
                     </li>
                   ))}
@@ -138,8 +138,8 @@ function HelpItemCard({
             
             {/* Related topics */}
             {item.relatedTopics && item.relatedTopics.length > 0 && (
-              <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+              <div className="mt-4 pt-3 border-t">
+                <p className="text-xs text-muted">
                   <strong>Related:</strong> {item.relatedTopics.join(', ')}
                 </p>
               </div>

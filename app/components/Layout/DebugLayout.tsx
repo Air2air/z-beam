@@ -85,7 +85,7 @@ export function DebugLayout({
       <header className="bg-white shadow-sm">
         <div className={CONTAINER_STYLES.standard}>
           <div className="flex items-center justify-between">
-            <h1 className="text-gray-900 flex items-center">
+            <h1 className="text-secondary flex items-center">
               <span className="mr-2">🛠️</span> Z-Beam Debug Console
             </h1>
             
@@ -93,7 +93,7 @@ export function DebugLayout({
               <button 
                 type="button"
                 onClick={() => setShowMenu(!showMenu)}
-                className="p-2 rounded-md text-gray-500 focus-visible:outline-none"
+                className="p-2 rounded-md text-muted focus-visible:outline-none"
                 aria-label={showMenu ? "Close menu" : "Open menu"}
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -103,16 +103,16 @@ export function DebugLayout({
             </div>
             
             <div className="hidden md:flex items-center space-x-4">
-              <Link href="/" className="text-gray-600 flex items-center">
+              <Link href="/" className="text-muted flex items-center">
                 <span>Home</span>
               </Link>
-              <Link href="/api/debug" target="_blank" className="text-gray-600 flex items-center">
+              <Link href="/api/debug" target="_blank" className="text-muted flex items-center">
                 <span>API</span>
               </Link>
               <Link 
                 href="#" 
                 onClick={() => window.location.reload()}
-                className="text-gray-600 flex items-center"
+                className="text-muted flex items-center"
               >
                 <span>Refresh</span>
               </Link>
@@ -128,7 +128,7 @@ export function DebugLayout({
               <li key={section.id}>
                 <Link 
                   href={`/debug/${section.id !== 'overview' ? section.id : ''}`}
-                  className={`block px-3 py-2 rounded-md ${currentSection === section.id ? 'bg-blue-50 text-blue-700' : 'text-gray-700'}`}
+                  className={`block px-3 py-2 rounded-md ${currentSection === section.id ? 'bg-blue-50 text-blue-700' : 'text-muted'}`}
                   onClick={() => setShowMenu(false)}
                 >
                   <div className="flex items-center">
@@ -140,17 +140,17 @@ export function DebugLayout({
             ))}
           </ul>
           
-          <div className="mt-4 pt-4 border-t border-gray-100">
-            <Link href="/" className="block px-3 py-2 text-gray-700 rounded-md">
+          <div className="mt-4 pt-4 border-t">
+            <Link href="/" className="block px-3 py-2 text-muted rounded-md">
               Home
             </Link>
-            <Link href="/api/debug" target="_blank" className="block px-3 py-2 text-gray-700 rounded-md">
+            <Link href="/api/debug" target="_blank" className="block px-3 py-2 text-muted rounded-md">
               API
             </Link>
             <Link 
               href="#" 
               onClick={() => window.location.reload()}
-              className="block px-3 py-2 text-gray-700 rounded-md"
+              className="block px-3 py-2 text-muted rounded-md"
             >
               Refresh
             </Link>
@@ -162,7 +162,7 @@ export function DebugLayout({
         <div className="flex flex-col md:flex-row">
           <div className="hidden md:block w-full md:w-64 flex-shrink-0 mr-6">
             <div className="bg-white rounded-lg shadow-sm p-4">
-              <h2 className="text-gray-700 mb-3">Debug Tools</h2>
+              <h2 className="text-secondary mb-3">Debug Tools</h2>
               
               <nav>
                 <ul className="space-y-1">
@@ -173,7 +173,7 @@ export function DebugLayout({
                         className={`flex items-center px-3 py-2 rounded-md text-sm ${
                           currentSection === section.id 
                             ? 'bg-blue-50 text-blue-700' 
-                            : 'text-gray-700'
+                            : 'text-muted'
                         }`}
                       >
                         <span className="mr-2">{section.icon}</span>
@@ -184,8 +184,8 @@ export function DebugLayout({
                 </ul>
               </nav>
               
-              <div className="mt-6 pt-4 border-t border-gray-100">
-                <h3 className="text-gray-500 uppercase tracking-wider mb-2">
+              <div className="mt-6 pt-4 border-t">
+                <h3 className="text-secondary uppercase tracking-wider mb-2">
                   Actions
                 </h3>
                 
@@ -194,7 +194,7 @@ export function DebugLayout({
                     <Link 
                       href="#" 
                       onClick={() => window.location.reload()}
-                      className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md"
+                      className="flex items-center px-3 py-2 text-sm text-muted rounded-md"
                     >
                       <span className="mr-2">🔄</span>
                       <span>Refresh</span>
@@ -204,7 +204,7 @@ export function DebugLayout({
                     <Link 
                       href="/api/debug" 
                       target="_blank"
-                      className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md"
+                      className="flex items-center px-3 py-2 text-sm text-muted rounded-md"
                     >
                       <span className="mr-2">🔌</span>
                       <span>API Endpoint</span>
@@ -213,7 +213,7 @@ export function DebugLayout({
                   <li>
                     <Link 
                       href="/" 
-                      className="flex items-center px-3 py-2 text-sm text-gray-700 rounded-md"
+                      className="flex items-center px-3 py-2 text-sm text-muted rounded-md"
                     >
                       <span className="mr-2">🏠</span>
                       <span>Return to Site</span>
@@ -222,8 +222,8 @@ export function DebugLayout({
                 </ul>
               </div>
               
-              <div className="mt-6 pt-4 border-t border-gray-100">
-                <div className="bg-gray-50 rounded p-3 text-xs text-gray-500">
+              <div className="mt-6 pt-4 border-t">
+                <div className="bg-gray-50 rounded p-3 text-xs text-muted">
                   <p className="mb-1">Environment</p>
                   <p>Mode: {process.env.NODE_ENV || 'development'}</p>
                   <p>Time: {new Date().toLocaleString()}</p>
@@ -239,10 +239,10 @@ export function DebugLayout({
                 if (section.id === currentSection) {
                   return (
                     <div key={section.id}>
-                      <h2 className="text-gray-900 flex items-center">
+                      <h2 className="text-muted flex items-center">
                         <span className="mr-2">{section.icon}</span> {section.title}
                       </h2>
-                      <p className="mt-1 text-gray-600">{section.description}</p>
+                      <p className="mt-1 text-muted">{section.description}</p>
                     </div>
                   );
                 }
@@ -258,9 +258,9 @@ export function DebugLayout({
         </div>
       </div>
       
-      <footer className="bg-white mt-6 border-t border-gray-200">
+      <footer className="bg-white mt-6 border-t">
         <div className={CONTAINER_STYLES.standard.replace('py-8', 'py-3')}>
-          <p className="text-center text-sm text-gray-500">
+          <p className="text-center text-sm text-muted">
             Z-Beam Debug Console • {new Date().toLocaleDateString()}
           </p>
         </div>

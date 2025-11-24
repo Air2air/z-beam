@@ -26,7 +26,7 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
 
   if (!imageSource) {
     return (
-      <div className="flex items-center justify-center bg-gray-600 h-[450px] rounded-lg">
+      <div className="flex items-center justify-center bg-tertiary h-[450px] rounded-lg">
         <Image
           src="/images/logo/logo-zbeam.png"
           alt={`${SITE_CONFIG.shortName} logo`}
@@ -48,7 +48,7 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
       {/* Loading indicator */}
       {imageLoading && !imageError && (
         <div 
-          className="absolute inset-0 flex items-center justify-center bg-gray-600 z-10 rounded-lg"
+          className="absolute inset-0 flex items-center justify-center bg-tertiary z-10 rounded-lg"
           role="status"
         >
           <div className="rounded-full h-8 w-8 border-b-2 border-white animate-spin" />
@@ -59,10 +59,10 @@ export function CaptionImage({ imageSource, materialName, alt, seoData }: Captio
       {/* Error state */}
       {imageError && (
         <div 
-          className="absolute inset-0 flex items-center justify-center bg-gray-700 z-10 rounded-lg"
+          className="absolute inset-0 flex items-center justify-center bg-primary z-10 rounded-lg"
           role="alert"
         >
-          <span className="text-white text-sm">Image failed to load</span>
+          <span className="text-primary text-sm">Image failed to load</span>
         </div>
       )}
 

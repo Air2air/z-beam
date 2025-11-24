@@ -135,7 +135,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
       horizPadding={true}
     >
       {description && (
-        <p className="mb-6 text-gray-300">{description}</p>
+        <p className="mb-6">{description}</p>
       )}
 
       <div className="flex flex-col sm:flex-row gap-6">
@@ -144,13 +144,13 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
           <div className="flex gap-2">
             {/* Y-axis label - rotated vertically */}
             <div className="flex items-center justify-center" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>
-              <div className="text-sm text-gray-100 font-bold whitespace-nowrap">
+              <div className="text-sm font-bold whitespace-nowrap">
                 Pulse Duration (ns)
               </div>
             </div>
 
             {/* Y-axis scale */}
-            <div className="flex flex-col justify-between text-sm text-gray-100 font-semibold w-12 text-right pr-2" role="list" aria-label="Pulse duration scale">
+            <div className="flex flex-col justify-between text-sm font-semibold w-12 text-right pr-2" role="list" aria-label="Pulse duration scale">
               {Array.from({ length: 5 }).map((_, i) => {
                 const value = pulseRange.max - (i * (pulseRange.max - pulseRange.min)) / 4;
                 return <div key={i} role="listitem">{value.toFixed(0)}</div>;
@@ -211,7 +211,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
             
             {/* X-axis scale values */}
             <div className="flex-1">
-              <div className="flex justify-between text-sm text-gray-100 font-semibold px-1 mt-1" role="list" aria-label="Power scale">
+              <div className="flex justify-between text-sm font-semibold px-1 mt-1" role="list" aria-label="Power scale">
                 {Array.from({ length: 5 }).map((_, i) => {
                   const value = powerRange.min + (i * (powerRange.max - powerRange.min)) / 4;
                   return <div key={i} role="listitem">{value.toFixed(0)}</div>;
@@ -219,7 +219,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
               </div>
               
               {/* X-axis label */}
-              <figcaption className="text-center text-sm text-gray-100 font-bold mt-1">
+              <figcaption className="text-center text-sm font-bold mt-1">
                 Power (W)
               </figcaption>
             </div>
@@ -233,8 +233,8 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
           {renderAnalysisPanel ? (
             renderAnalysisPanel(debouncedCell, powerRange.current, pulseRange.current)
           ) : (
-            <section className="bg-gray-800/80 rounded-lg p-4 border border-gray-700" aria-labelledby="default-analysis-heading">
-              <h4 id="default-analysis-heading" className="text-xs font-semibold text-gray-300 mb-3 flex items-center gap-2">
+            <section className="bg-secondary/80 rounded-lg p-4 border" aria-labelledby="default-analysis-heading">
+              <h4 id="default-analysis-heading" className="text-xs text-secondary font-semibold mb-3 flex items-center gap-2">
                 <span className="text-purple-400" aria-hidden="true">⚙️</span>
                 Analysis
               </h4>
@@ -252,8 +252,8 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
               }`}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2 text-sm">
-                    <span className="text-gray-400">📍</span>
-                    <span className="text-white font-semibold">
+                    <span className="text-tertiary">📍</span>
+                    <span className="text-primary font-semibold">
                       {debouncedCell ? debouncedCell.power.toFixed(0) : powerRange.current}W
                       {' × '}
                       {debouncedCell ? debouncedCell.pulse.toFixed(1) : pulseRange.current}ns
@@ -274,7 +274,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
                 </div>
                 
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-gray-400 text-xs">📊</span>
+                  <span className="text-tertiary text-xs">📊</span>
                   <span className={`text-sm font-semibold ${
                     (() => {
                       const analysis = debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis;
@@ -303,7 +303,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
                     style={{ width: `${((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore * 100)}%` }}
                   />
                 </div>
-                <div className="text-[10px] text-gray-400 mt-1 text-right">
+                <div className="text-[10px] text-tertiary mt-1 text-right">
                   {Math.round((debouncedCell?.analysis || calculateScore(powerRange.current, pulseRange.current, materialProperties).analysis).finalScore * 100)}% score
                 </div>
               </div>
@@ -311,13 +311,13 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
           )}
 
           {/* Color Legend - Commented Out */}
-          {/* <aside className="bg-gray-800 rounded-lg p-4 border border-gray-700" role="complementary" aria-labelledby="legend-heading">
-            <h4 id="legend-heading" className="text-xs font-semibold text-gray-300 mb-2">Color Legend</h4>
+          {/* <aside className="bg-secondary rounded-lg p-4 border" role="complementary" aria-labelledby="legend-heading">
+            <h4 id="legend-heading" className="text-xs text-secondary font-semibold mb-2">Color Legend</h4>
             <div className="space-y-2 text-xs">
               {legendItems.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2">
                   <div className="w-4 h-4 rounded" style={{ backgroundColor: item.color }}></div>
-                  <span className="text-gray-400">
+                  <span className="text-tertiary">
                     {item.label} {item.range && `(${item.range})`}
                   </span>
                 </div>

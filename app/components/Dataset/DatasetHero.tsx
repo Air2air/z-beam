@@ -7,7 +7,7 @@ import type { DatasetHeroProps } from '@/types/centralized';
 
 export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHeroProps) {
   return (
-    <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 text-white overflow-hidden">
+    <div className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -25,7 +25,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-secondary font-bold mb-6">
             Materials Database
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
@@ -63,7 +63,7 @@ export default function DatasetHero({ totalMaterials, categoryCount }: DatasetHe
             </a>
             <a
               href="#bulk-downloads"
-              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white font-semibold px-6 py-3 rounded-lg transition-colors"
             >
               <DownloadIcon className="w-5 h-5" />
               <span>Bulk Download</span>

@@ -16,13 +16,11 @@ import type { ContentCardItem, WorkflowItem, CalloutProps, BenefitItem } from '@
 export interface ContentSectionProps {
   title?: string;
   items: (ContentCardItem | WorkflowItem | CalloutProps | BenefitItem)[];
-  theme?: 'body' | 'navbar';
 }
 
 export function ContentSection({ 
   title, 
-  items,
-  theme = 'navbar'
+  items
 }: ContentSectionProps) {
   // Sort items: those with order property first (by order), others maintain YAML order
   const sortedItems = [...items].sort((a, b) => {
@@ -52,7 +50,6 @@ export function ContentSection({
           const details = 'details' in item ? item.details : undefined;
           const image = 'image' in item ? item.image : undefined;
           const imagePosition = 'imagePosition' in item ? item.imagePosition : undefined;
-          const itemTheme = ('theme' in item ? item.theme : undefined) || theme;
           const variant = 'variant' in item ? item.variant : undefined;
           
           return (
@@ -65,7 +62,6 @@ export function ContentSection({
               details={details}
               image={image}
               imagePosition={imagePosition}
-              theme={itemTheme}
               variant={variant}
             />
           );

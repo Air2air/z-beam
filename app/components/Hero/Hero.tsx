@@ -127,7 +127,7 @@ export function Hero({
           {isMobile && !videoLoaded ? (
             /* YouTube Facade - Poster image with play button */
             <div 
-              className={`${backgroundClasses} bg-gray-700 cursor-pointer group`}
+              className={`${backgroundClasses} bg-primary cursor-pointer group`}
               onClick={() => setVideoLoaded(true)}
               role="button"
               tabIndex={0}
@@ -150,19 +150,19 @@ export function Hero({
               {/* Play button - higher z-index to appear on top */}
               <div className="absolute inset-0 flex items-center justify-center z-20">
                 <div className="w-20 h-20 md:w-24 md:h-24 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
-                  <svg className="w-10 h-10 md:w-12 md:h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-10 h-10 md:w-12 md:h-12 ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
               {/* "Click to play" text */}
-              <div className="absolute bottom-4 left-0 right-0 text-center text-white text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-0 right-0 text-center text-sm md:text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                 Click to play video
               </div>
             </div>
           ) : (
             /* Actual YouTube iframe - only loads after user clicks */
-            <div className={`${backgroundClasses} bg-gray-700`}>
+            <div className={`${backgroundClasses} bg-primary`}>
               <iframe
                 src={videoUrl}
                 className={videoClasses}
@@ -223,7 +223,7 @@ export function Hero({
         >
           {/* Background layer with reduced opacity */}
           <div 
-            className="absolute inset-0 bg-gray-700"
+            className="absolute inset-0 bg-primary"
             style={{ 
               backgroundColor: 'rgb(15, 23, 42)', // slate-900
               opacity: 0.5
@@ -233,13 +233,13 @@ export function Hero({
           
           {/* Text content at full opacity */}
           <div className="relative z-10 w-full flex flex-col items-center justify-center font-sans">
-            <p className="text-white w-full text-center uppercase font-sans" style={{ fontSize: 'clamp(0.5rem, 11cqw, 12rem)' }}>
+            <p className="text-primary w-full text-center uppercase font-sans" style={{ fontSize: 'clamp(0.5rem, 11cqw, 12rem)' }}>
               <strong>THE BAY AREA IS</strong>
             </p>
-            <div className="text-white w-full text-center py-2 font-sans" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
+            <div className="text-primary w-full text-center py-2 font-sans" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
               LASER
             </div>
-            <div className="text-white w-full text-center py-2 font-sans" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
+            <div className="text-primary w-full text-center py-2 font-sans" style={{ fontSize: 'clamp(3rem, 30cqw, 40rem)', lineHeight: '0.8' }}>
               CLEAN
             </div>
           </div>

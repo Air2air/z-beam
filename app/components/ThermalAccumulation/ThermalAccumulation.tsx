@@ -169,23 +169,23 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
       className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}
     >
-      <p className="text-sm text-gray-300 mb-6">
+      <p className="text-sm mb-6">
         See if your multi-pass cleaning will overheat and damage the material
       </p>
 
       <div className="grid lg:grid-cols-[1fr,350px] gap-6">
         {/* Temperature Graph */}
-        <div className="bg-gray-900/50 rounded-lg p-6 border border-gray-700">
+        <div className="bg-tertiary rounded-lg p-6 border">
           <div className="mb-4 flex items-center justify-between">
-            <h4 className="text-sm font-semibold text-white">Temperature vs. Time</h4>
+            <h4 className="text-sm text-secondary font-semibold">Temperature vs. Time</h4>
             <div className="flex gap-2 text-xs">
               <div className="flex items-center gap-1">
                 <div className="w-3 h-3 bg-green-500 rounded"></div>
-                <span className="text-gray-400">Safe (&lt;{maxSafeTemp}°C)</span>
+                <span className="text-tertiary">Safe (&lt;{maxSafeTemp}°C)</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="w-3 h-3 bg-red-500 rounded"></div>
-                <span className="text-gray-400">Damage (&gt;{damageTemp}°C)</span>
+                <span className="text-tertiary">Damage (&gt;{damageTemp}°C)</span>
               </div>
             </div>
           </div>
@@ -574,13 +574,13 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
         {/* Controls & Info Panel */}
         <div className="space-y-4">
           {/* Process Parameters - MOVED TO TOP */}
-          <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-            <h4 className="text-sm font-semibold text-white mb-3">⚙️ Process Parameters</h4>
+          <div className="bg-tertiary rounded-lg p-4 border">
+            <h4 className="text-sm text-secondary font-semibold mb-3">⚙️ Process Parameters</h4>
             <div className="space-y-3">
               {/* Power */}
               <div>
-                <label className="text-xs text-gray-400 block mb-1">
-                  Power: <span className="text-white font-semibold">{editablePower}W</span>
+                <label className="text-xs text-tertiary block mb-1">
+                  Power: <span className="text-primary font-semibold">{editablePower}W</span>
                 </label>
                 <input
                   type="range"
@@ -594,7 +594,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -602,8 +602,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
               {/* Rep Rate */}
               <div>
-                <label className="text-xs text-gray-400 block mb-1">
-                  Rep Rate: <span className="text-white font-semibold">{(editableRepRate / 1000).toFixed(0)} kHz</span>
+                <label className="text-xs text-tertiary block mb-1">
+                  Rep Rate: <span className="text-primary font-semibold">{(editableRepRate / 1000).toFixed(0)} kHz</span>
                 </label>
                 <input
                   type="range"
@@ -617,7 +617,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -625,8 +625,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
               {/* Scan Speed */}
               <div>
-                <label className="text-xs text-gray-400 block mb-1">
-                  Scan Speed: <span className="text-white font-semibold">{editableScanSpeed} mm/s</span>
+                <label className="text-xs text-tertiary block mb-1">
+                  Scan Speed: <span className="text-primary font-semibold">{editableScanSpeed} mm/s</span>
                 </label>
                 <input
                   type="range"
@@ -640,7 +640,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -648,8 +648,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
               {/* Pass Count */}
               <div>
-                <label className="text-xs text-gray-400 block mb-1">
-                  Pass Count: <span className="text-white font-semibold">{editablePassCount}</span>
+                <label className="text-xs text-tertiary block mb-1">
+                  Pass Count: <span className="text-primary font-semibold">{editablePassCount}</span>
                 </label>
                 <input
                   type="range"
@@ -663,7 +663,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
@@ -671,8 +671,8 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
               {/* Cooling Time */}
               <div>
-                <label className="text-xs text-gray-400 block mb-1">
-                  Cooling Time: <span className="text-white font-semibold">{editableCoolingTime}s</span>
+                <label className="text-xs text-tertiary block mb-1">
+                  Cooling Time: <span className="text-primary font-semibold">{editableCoolingTime}s</span>
                 </label>
                 <input
                   type="range"
@@ -686,21 +686,21 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                     setCurrentPass(0);
                     setIsPlaying(false);
                   }}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer 
+                  className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
                     [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                     [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
                 />
               </div>
 
               {/* Calculated values */}
-              <div className="pt-2 border-t border-gray-700 space-y-1 text-xs">
-                <div className="flex justify-between text-gray-400">
+              <div className="pt-2 border-t space-y-1 text-xs">
+                <div className="flex justify-between text-tertiary">
                   <span>Pulse Energy:</span>
-                  <span className="text-white">{pulseEnergy.toFixed(2)} mJ</span>
+                  <span className="text-primary">{pulseEnergy.toFixed(2)} mJ</span>
                 </div>
-                <div className="flex justify-between text-gray-400">
+                <div className="flex justify-between text-tertiary">
                   <span>Total Sim Time:</span>
-                  <span className="text-white">{totalSimTime.toFixed(1)}s</span>
+                  <span className="text-primary">{totalSimTime.toFixed(1)}s</span>
                 </div>
               </div>
             </div>
@@ -734,31 +734,31 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
               }`}>
                 {tempStatus}
               </div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-tertiary">
                 Pass {currentPass + 1} of {editablePassCount}
               </div>
-              <div className="text-xs text-gray-500 mt-2">
+              <div className="text-xs text-muted mt-2">
                 Time: {currentTime.toFixed(1)}s / {totalSimTime.toFixed(1)}s
               </div>
             </div>
           </div>
 
           {/* Controls */}
-          <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700 space-y-3">
+          <div className="bg-tertiary rounded-lg p-4 border space-y-3">
             <div className="flex gap-2">
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
                 className={`flex-1 px-4 py-3 rounded-lg font-semibold text-sm transition-colors ${
                   isPlaying
-                    ? 'bg-orange-600 hover:bg-orange-500 text-white'
-                    : 'bg-green-600 hover:bg-green-500 text-white'
+                    ? 'bg-orange-600 hover:bg-orange-500'
+                    : 'bg-green-600 hover:bg-green-500'
                 }`}
               >
                 {isPlaying ? '⏸️ Pause' : '▶️ Play'}
               </button>
               <button
                 onClick={handleReset}
-                className="px-4 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm font-semibold transition-colors"
+                className="px-4 py-3 bg-primary hover:bg-tertiary rounded-lg text-sm font-semibold transition-colors"
               >
                 🔄 Reset
               </button>
@@ -766,7 +766,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
 
             {/* Speed Control */}
             <div>
-              <label className="text-xs text-gray-400 block mb-2">Animation Speed: {speed}×</label>
+              <label className="text-xs text-tertiary block mb-2">Animation Speed: {speed}×</label>
               <input
                 type="range"
                 min={0.5}
@@ -774,7 +774,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                 step={0.5}
                 value={speed}
                 onChange={(e) => setSpeed(parseFloat(e.target.value))}
-                className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer 
+                className="w-full h-2 bg-primary rounded-lg appearance-none cursor-pointer 
                   [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 
                   [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500"
               />
@@ -796,7 +796,7 @@ export const ThermalAccumulation: React.FC<ThermalAccumulationProps> = ({
                   }`}>
                     {currentTemp > damageTemp ? 'Damage Temperature Exceeded!' : 'Above Safe Temperature'}
                   </div>
-                  <div className="text-gray-300">
+                  <div className="text-secondary">
                     {currentTemp > damageTemp
                       ? 'Material damage is likely. Reduce pass count or increase cooling time.'
                       : 'Approaching damage threshold. Consider adjusting parameters.'}

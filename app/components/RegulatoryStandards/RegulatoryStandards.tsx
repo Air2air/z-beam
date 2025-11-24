@@ -42,7 +42,7 @@ export function RegulatoryStandards({
         {validStandards.map((standard, index) => (
           <li
             key={`${standard.name}-${index}`}
-            className="card-background rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-md transition-shadow duration-200"
+            className="card-background rounded-lg border p-4 hover:shadow-md transition-shadow duration-200"
           >
             <article className="flex items-start gap-4">
               {/* Logo */}
@@ -60,10 +60,10 @@ export function RegulatoryStandards({
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                <h3 className="text-lg text-secondary font-semibold mb-1">
                   {standard.name}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                <p className="text-sm text-muted mb-3">
                   {standard.description}
                 </p>
                 
@@ -72,7 +72,7 @@ export function RegulatoryStandards({
                   {/* Search Materials Link */}
                   <Link
                     href={`/search?q=${encodeURIComponent(standard.name)}`}
-                    className="inline-flex items-center text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                    className="inline-flex items-center text-sm text-blue-600400 hover:text-blue-700:text-blue-300 transition-colors"
                   >
                     <svg 
                       className="w-4 h-4 mr-1" 
@@ -97,7 +97,7 @@ export function RegulatoryStandards({
                       href={standard.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
+                      className="inline-flex items-center text-sm text-muted hover:text-muted:text-secondary transition-colors"
                     >
                       <span>View Official Documentation</span>
                       <svg 

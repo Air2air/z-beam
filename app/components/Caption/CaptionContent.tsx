@@ -45,13 +45,13 @@ export default function CaptionContent({
         paragraphs.forEach((p, index) => {
           if (index === 0) {
             const div = document.createElement('div');
-            div.className = 'caption-before text-gray-300 mb-3';
+            div.className = 'caption-before mb-3';
             div.innerHTML = p.innerHTML;
             div.setAttribute('itemProp', 'beforeText');
             p.replaceWith(div);
           } else if (index === 1) {
             const div = document.createElement('div');
-            div.className = 'caption-after text-gray-300';
+            div.className = 'caption-after';
             div.innerHTML = p.innerHTML;
             div.setAttribute('itemProp', 'afterText');
             p.replaceWith(div);

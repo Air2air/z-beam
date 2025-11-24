@@ -26,13 +26,13 @@ const CARD_CONFIG = {
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]", // Default height
     
     // Typography
-    titleClass: "card-title text-base text-white truncate",
-    descriptionClass: "text-gray-200 text-xs line-clamp-2",
+    titleClass: "card-title text-base truncate text-primary",
+    descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
-    cardClass: "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700",
+    cardClass: "rounded-lg shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
     transitionClass: "transition-all duration-300 ease-out",
@@ -44,13 +44,13 @@ const CARD_CONFIG = {
     cardHeight: "h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem]", // Increased height for featured cards (Services/Equipment Rental)
     
     // Typography
-    titleClass: "card-title text-base text-white truncate",
-    descriptionClass: "text-gray-200 text-xs line-clamp-2",
+    titleClass: "card-title text-base truncate text-primary",
+    descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
-    cardClass: "rounded-lg shadow-md overflow-hidden border border-gray-100 dark:border-gray-700",
+    cardClass: "rounded-lg shadow-md overflow-hidden",
     hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm",
+    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
     
     // Enhanced transitions - targeting multiple properties for smooth hover effects
     transitionClass: "transition-all duration-300 ease-out",
@@ -127,7 +127,7 @@ export function MaterialCard({
         )}
         
         {/* Full Height Image Container */}
-        <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-gray-50 dark:bg-gray-800`} aria-label="Material image">
+        <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-secondary`} aria-label="Material image">
           <Thumbnail
             alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
             frontmatter={frontmatter}
@@ -168,7 +168,7 @@ export function MaterialCard({
               
               {/* Navigation arrow indicator */}
               <svg 
-                className="w-4 h-4 text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out flex-shrink-0" 
+                className="w-4 h-4 text-primary opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out flex-shrink-0" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"

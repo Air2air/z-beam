@@ -62,10 +62,10 @@ export function MaterialFAQ({
         {faq.map((item, index) => (
           <div key={index} role="listitem">
             <details
-              className="group bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-md"
+              className="group bg-secondary rounded-lg border overflow-hidden transition-all duration-200 hover:shadow-md"
             >
               <summary 
-                className="cursor-pointer px-6 py-4 font-normal text-gray-900 dark:text-gray-100 flex items-center justify-between group-open:border-b group-open:border-gray-200 dark:group-open:border-gray-700 bg-gray-50 dark:bg-gray-700/50 hover:bg-white dark:hover:bg-gray-800 group-open:bg-white dark:group-open:bg-gray-800 list-none transition-colors duration-200"
+                className="cursor-pointer px-6 py-4 font-normal flex items-center justify-between group-open:border-b group-open:border-gray-200:border-gray-700 bg-primary hover:bg-secondary group-open:bg-white:bg-secondary list-none transition-colors duration-200"
                 aria-label={`FAQ: ${item.question.replace(/\*\*/g, '')}`}
                 onClick={(e) => {
                   const detailsElement = e.currentTarget.parentElement as HTMLDetailsElement;
@@ -77,7 +77,7 @@ export function MaterialFAQ({
                   dangerouslySetInnerHTML={{ __html: '<strong>Q:</strong> ' + parseSimpleMarkdown(item.question) }}
                 />
                 <svg
-                  className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
+                  className="w-5 h-5 text-blue-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -95,7 +95,7 @@ export function MaterialFAQ({
                 className="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[500px] group-open:opacity-100"
               >
                 <div 
-                  className="px-6 py-4 text-gray-700 dark:text-gray-300 text-base leading-relaxed bg-white dark:bg-gray-800 font-light [&_strong]:font-semibold"
+                  className="px-6 py-4 text-base leading-relaxed bg-secondary font-light [&_strong]:font-semibold"
                   dangerouslySetInnerHTML={{ __html: '<strong>A:</strong> ' + parseSimpleMarkdown(item.answer) }}
                 />
               </div>

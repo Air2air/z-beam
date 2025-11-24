@@ -205,7 +205,7 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
         }`} aria-label="Effectiveness status summary">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 text-base">
-              <span className="text-white font-bold">
+              <span className="text-primary font-bold">
                 {hoveredCell ? hoveredCell.power.toFixed(0) : currentPower}W
                 {' × '}
                 {hoveredCell ? hoveredCell.pulse.toFixed(1) : currentPulse}ns
@@ -243,26 +243,26 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
               style={{ width: `${result.finalScore * 100}%` }}
             />
           </div>
-          <div className="text-[10px] text-gray-400 mt-1 text-right">
+          <div className="text-[10px] text-tertiary mt-1 text-right">
             {Math.round(result.finalScore * 100)}% effective
           </div>
         </article>
         
         {/* Ablation Effectiveness Factor */}
-        <article className="bg-gray-900/50 rounded p-2 border border-green-500/30 text-xs" aria-label="Ablation effectiveness factor analysis">
+        <article className="bg-tertiary rounded p-2 border border-green-500/30 text-xs" aria-label="Ablation effectiveness factor analysis">
           <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-400 font-medium">Ablation</span>
+                  <span className="text-tertiary font-medium">Ablation</span>
                   <span className="text-green-400 font-bold">50%</span>
                 </div>
-                <div className="text-[10px] text-gray-500 mb-1.5">
+                <div className="text-[10px] text-muted mb-1.5">
                   Fluence vs ablation threshold effectiveness
                 </div>
                 <div className="flex justify-between text-[10px]">
-                  <span className="text-gray-500">Fluence:</span>
-                  <span className="text-white">{result.fluence?.toFixed(3)} J/cm²</span>
+                  <span className="text-muted">Fluence:</span>
+                  <span className="text-primary">{result.fluence?.toFixed(3)} J/cm²</span>
                 </div>
                 <div className="flex justify-between text-[10px]">
-                  <span className="text-gray-500">vs Threshold:</span>
+                  <span className="text-muted">vs Threshold:</span>
                   <span className={`font-semibold ${
                     result.fluenceRatio > 1.0 && result.fluenceRatio < 1.5 ? 'text-green-400' :
                     result.fluenceRatio > 0.7 && result.fluenceRatio < 2.0 ? 'text-lime-400' :
@@ -286,12 +286,12 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
             </article>
 
             {/* Removal Rate Factor */}
-            <article className="bg-gray-900/50 rounded p-2 border border-blue-500/30 text-xs mt-2.5" aria-label="Removal rate factor analysis">
+            <article className="bg-tertiary rounded p-2 border border-blue-500/30 text-xs mt-2.5" aria-label="Removal rate factor analysis">
               <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-400 font-medium">Removal Rate</span>
+                  <span className="text-tertiary font-medium">Removal Rate</span>
                   <span className="text-blue-400 font-bold">30%</span>
                 </div>
-                <div className="text-[10px] text-gray-500 mb-1.5">
+                <div className="text-[10px] text-muted mb-1.5">
                   Speed of material removal
                 </div>
                 <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
@@ -307,12 +307,12 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
             </article>
 
             {/* Process Efficiency Factor */}
-            <article className="bg-gray-900/50 rounded p-2 border border-yellow-500/30 text-xs mt-2.5" aria-label="Process efficiency factor analysis">
+            <article className="bg-tertiary rounded p-2 border border-yellow-500/30 text-xs mt-2.5" aria-label="Process efficiency factor analysis">
               <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-400 font-medium">Efficiency</span>
+                  <span className="text-tertiary font-medium">Efficiency</span>
                   <span className="text-yellow-400 font-bold">20%</span>
                 </div>
-                <div className="text-[10px] text-gray-500 mb-1.5">
+                <div className="text-[10px] text-muted mb-1.5">
                   Energy optimization
                 </div>
                 <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">

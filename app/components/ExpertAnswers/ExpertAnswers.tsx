@@ -31,15 +31,15 @@ function SeverityBadge({ severity }: { severity?: 'low' | 'medium' | 'high' }) {
   
   const config = {
     low: { 
-      color: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 border-blue-300 dark:border-blue-700',
+      color: 'bg-blue-900 text-blue-200 border-blue-300700',
       icon: 'ℹ️'
     },
     medium: { 
-      color: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 border-yellow-300 dark:border-yellow-700',
+      color: 'bg-yellow-900 text-yellow-200 border-yellow-300700',
       icon: '⚠️'
     },
     high: { 
-      color: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 border-red-300 dark:border-red-700',
+      color: 'bg-red-900 text-red-200 border-red-300700',
       icon: '🔴'
     }
   };
@@ -69,11 +69,11 @@ function ExpertCard({ expert, dateAnswered, upvoteCount }: {
   });
 
   return (
-    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+    <div className="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50900/20900/20 rounded-lg border border-blue-200800">
       {/* Expert photo */}
       {expert.image && (
         <div className="flex-shrink-0">
-          <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-blue-400 dark:ring-blue-600">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden ring-2 ring-blue-400600">
             <Image
               src={expert.image}
               alt={expert.name}
@@ -88,27 +88,27 @@ function ExpertCard({ expert, dateAnswered, upvoteCount }: {
       {/* Expert info */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+          <h4 className="text-base text-secondary font-semibold">
             {expert.name}
           </h4>
           {expert.credentials && expert.credentials.length > 0 && (
-            <span className="text-sm text-gray-600 dark:text-gray-400">
+            <span className="text-sm text-muted">
               {expert.credentials.join(', ')}
             </span>
           )}
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-900 text-green-200">
             ✓ Verified Expert
           </span>
         </div>
         
         {expert.title && (
-          <p className="text-sm text-gray-700 dark:text-gray-300 mt-0.5">
+          <p className="text-sm mt-0.5">
             {expert.title}
           </p>
         )}
         
         {expert.affiliation && (
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+          <p className="text-sm text-muted mt-0.5">
             {expert.affiliation}
           </p>
         )}
@@ -118,7 +118,7 @@ function ExpertCard({ expert, dateAnswered, upvoteCount }: {
             {expert.expertise.slice(0, 3).map((skill, idx) => (
               <span 
                 key={idx}
-                className="inline-flex items-center px-2 py-0.5 rounded text-xs bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600"
+                className="inline-flex items-center px-2 py-0.5 rounded text-xs bg-secondary border"
               >
                 {skill}
               </span>
@@ -127,7 +127,7 @@ function ExpertCard({ expert, dateAnswered, upvoteCount }: {
         )}
         
         {/* Date and upvotes */}
-        <div className="flex items-center gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
+        <div className="flex items-center gap-4 mt-2 text-sm text-muted">
           <span className="flex items-center gap-1">
             📅 {formattedDate}
           </span>
@@ -172,11 +172,11 @@ function ExpertAnswerCard({
   return (
     <div role="listitem" id={`qa-${index}`}>
       <details
-        className="group bg-white dark:bg-gray-800 rounded-lg border-2 border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600"
+        className="group bg-secondary rounded-lg border-2 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-blue-300:border-blue-600"
         open={answer.acceptedAnswer && index === 0} // Auto-open first accepted answer
       >
         <summary 
-          className="cursor-pointer px-6 py-5 font-normal text-gray-900 dark:text-gray-100 flex items-start justify-between group-open:border-b-2 group-open:border-gray-200 dark:group-open:border-gray-700 bg-gradient-to-r from-gray-50 to-white dark:from-gray-700/50 dark:to-gray-800 hover:from-blue-50 hover:to-indigo-50 dark:hover:from-blue-900/20 dark:hover:to-indigo-900/20 list-none transition-all duration-200"
+          className="cursor-pointer px-6 py-5 font-normal flex items-start justify-between group-open:border-b-2 group-open:border-gray-200:border-gray-700 bg-gradient-to-r from-gray-50 to-white700/50800 hover:from-blue-50 hover:to-indigo-50:from-blue-900/20:to-indigo-900/20 list-none transition-all duration-200"
           onClick={(e) => {
             const detailsElement = e.currentTarget.parentElement as HTMLDetailsElement;
             handleClick(detailsElement);
@@ -186,7 +186,7 @@ function ExpertAnswerCard({
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">❓</span>
               {answer.acceptedAnswer && (
-                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 border border-green-300 dark:border-green-700">
+                <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-green-900 text-green-200 border border-green-300700">
                   ✓ Accepted Answer
                 </span>
               )}
@@ -197,13 +197,13 @@ function ExpertAnswerCard({
               dangerouslySetInnerHTML={{ __html: parseSimpleMarkdown(answer.question) }}
             />
             {answer.category && (
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              <p className="text-sm text-muted mt-1">
                 Category: {answer.category.replace(/_/g, ' ')}
               </p>
             )}
           </div>
           <svg
-            className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
+            className="w-6 h-6 text-blue-600400 flex-shrink-0 transition-transform duration-300 ease-in-out group-open:rotate-180"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -229,15 +229,15 @@ function ExpertAnswerCard({
             )}
             
             {/* Answer content */}
-            <div className="prose prose-sm dark:prose-invert max-w-none">
+            <div className="prose prose-sm max-w-none">
               <div className="flex items-start gap-3">
                 <span className="text-2xl flex-shrink-0 mt-1">💡</span>
                 <div className="flex-1">
-                  <h4 className="text-base font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                  <h4 className="text-base text-secondary font-semibold mb-2">
                     Expert Answer:
                   </h4>
                   <div 
-                    className="text-gray-700 dark:text-gray-300 leading-relaxed [&_strong]:font-semibold"
+                    className="text-primary leading-relaxed [&_strong]:font-semibold"
                     dangerouslySetInnerHTML={{ __html: parseSimpleMarkdown(answer.answer) }}
                   />
                 </div>
@@ -246,11 +246,11 @@ function ExpertAnswerCard({
             
             {/* Property value badge */}
             {answer.propertyValue && (
-              <div className="flex items-center gap-2 p-3 bg-blue-50 dark:bg-blue-900/30 rounded-md border border-blue-200 dark:border-blue-800">
-                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2 p-3 bg-blue-900/30 rounded-md border border-blue-200800">
+                <svg className="w-5 h-5 text-blue-600400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
-                <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
+                <span className="text-sm font-medium text-blue-700300">
                   Technical Value: {answer.propertyValue}
                 </span>
               </div>
@@ -258,15 +258,15 @@ function ExpertAnswerCard({
             
             {/* Solutions list */}
             {answer.solutions && answer.solutions.length > 0 && (
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
-                <h4 className="font-semibold text-green-900 dark:text-green-100 mb-3 flex items-center gap-2">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50900/20900/20 rounded-lg p-4 border border-green-200800">
+                <h4 className="font-semibold text-secondary mb-3 flex items-center gap-2">
                   <span>✓</span>
                   Recommended Solutions:
                 </h4>
                 <ul className="space-y-2">
                   {answer.solutions.map((solution, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm text-green-800 dark:text-green-200">
-                      <span className="text-green-600 dark:text-green-400 font-bold">•</span>
+                    <li key={idx} className="flex items-start gap-2 text-sm text-green-800200">
+                      <span className="text-green-600400 font-bold">•</span>
                       <span>{solution}</span>
                     </li>
                   ))}
@@ -276,13 +276,13 @@ function ExpertAnswerCard({
             
             {/* Sources */}
             {answer.sources && answer.sources.length > 0 && (
-              <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1">
+              <div className="pt-4 border-t">
+                <h4 className="text-xs text-secondary font-semibold mb-2 flex items-center gap-1">
                   📚 Sources & References:
                 </h4>
                 <ul className="space-y-1">
                   {answer.sources.map((source, idx) => (
-                    <li key={idx} className="text-xs text-gray-600 dark:text-gray-400">
+                    <li key={idx} className="text-xs text-muted">
                       • {source}
                     </li>
                   ))}
@@ -292,8 +292,8 @@ function ExpertAnswerCard({
             
             {/* Related topics */}
             {answer.relatedTopics && answer.relatedTopics.length > 0 && (
-              <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-                <p className="text-xs text-gray-500 dark:text-gray-400">
+              <div className="pt-3 border-t">
+                <p className="text-xs text-muted">
                   <strong>Related Topics:</strong> {answer.relatedTopics.join(' • ')}
                 </p>
               </div>
@@ -301,7 +301,7 @@ function ExpertAnswerCard({
             
             {/* Last reviewed date */}
             {answer.lastReviewed && (
-              <div className="text-xs text-gray-500 dark:text-gray-400 italic">
+              <div className="text-xs text-muted italic">
                 Last reviewed: {new Date(answer.lastReviewed).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
@@ -353,11 +353,11 @@ export function ExpertAnswers({
       </div>
       
       {/* Trust signals footer */}
-      <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm text-gray-600 dark:text-gray-400 text-center">
+      <div className="mt-6 p-4 bg-secondary rounded-lg text-sm text-muted text-center">
         <p>
           All answers provided by verified laser cleaning experts with industry credentials.
           {' '}
-          <strong>Need personalized help?</strong> <a href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">Contact our team</a>
+          <strong>Need personalized help?</strong> <a href="/contact" className="text-blue-600400 hover:underline">Contact our team</a>
         </p>
       </div>
     </SectionContainer>

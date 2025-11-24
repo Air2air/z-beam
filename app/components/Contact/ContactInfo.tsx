@@ -5,7 +5,7 @@ import { Title } from '../Title';
 
 export function ContactInfo() {
   return (
-    <div className=" dark:bg-gray-800 p-6 mb-6 rounded-lg shadow-md">
+    <div className=" p-6 mb-6 rounded-lg shadow-md">
       {/* <Title level="section" title="Contact Information" /> */}
       
       <div className="space-y-6">
@@ -13,20 +13,20 @@ export function ContactInfo() {
         <div>
           <Title level="card" title="General Inquiries" />
           <div className="space-y-2">
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-muted">
               <strong>Email:</strong>{' '}
               <a 
                 href={`mailto:${SITE_CONFIG.contact.general.email}`}
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-blue-600400 hover:underline"
               >
                 {SITE_CONFIG.contact.general.email}
               </a>
             </p>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-muted">
               <strong>Phone:</strong>{' '}
               <a 
                 href={SITE_CONFIG.contact.general.phoneHref}
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-blue-600400 hover:underline"
               >
                 {SITE_CONFIG.contact.general.phone}
               </a>
@@ -40,20 +40,20 @@ export function ContactInfo() {
         <div>
           <Title level="card" title="Technical Support" />
           <div className="space-y-2">
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-muted">
               <strong>Support Email:</strong>{' '}
               <a 
                 href={`mailto:${SITE_CONFIG.contact.support.email}`}
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-blue-600400 hover:underline"
               >
                 {SITE_CONFIG.contact.support.email}
               </a>
             </p>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-muted">
               <strong>Support Hotline:</strong>{' '}
               <a 
                 href={SITE_CONFIG.contact.support.phoneHref}
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-blue-600400 hover:underline"
               >
                 {SITE_CONFIG.contact.support.phone}
               </a>
@@ -64,7 +64,7 @@ export function ContactInfo() {
         {/* Address Section */}
         <div>
           <Title level="card" title="Business Address" />
-          <div className="text-gray-600 dark:text-gray-300">
+          <div className="text-muted">
             {/* <p>{SITE_CONFIG.address.company}</p>
             <p>{SITE_CONFIG.address.street}</p> */}
             <p>{SITE_CONFIG.address.city}, {SITE_CONFIG.address.state} {SITE_CONFIG.address.zipCode}</p>
@@ -75,11 +75,11 @@ export function ContactInfo() {
         {/* Hours Section */}
         <div>
           <Title level="card" title="Office Hours" />
-          <div className="space-y-1 text-gray-600 dark:text-gray-300">
+          <div className="space-y-1 text-muted">
             <p>{SITE_CONFIG.hours.weekday}</p>
             <p>{SITE_CONFIG.hours.saturday}</p>
             <p>{SITE_CONFIG.hours.sunday}</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+            <p className="text-sm text-muted mt-2">
               Emergency support available {SITE_CONFIG.contact.support.emergency}
             </p>
           </div>

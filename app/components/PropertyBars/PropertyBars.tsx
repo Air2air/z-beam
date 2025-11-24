@@ -163,7 +163,7 @@ export function PropertyBars({
     
     if (groups.length === 0) {
       return (
-        <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+        <div className="text-center py-8 text-muted">
           <p>No properties available</p>
         </div>
       );
@@ -200,7 +200,7 @@ export function PropertyBars({
   
   if (!properties || properties.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+      <div className="text-center py-8 text-muted">
         <p>No properties available</p>
       </div>
     );
@@ -238,7 +238,7 @@ function PropertyBarsGrid({
 }) {
   if (!properties || properties.length === 0) {
     return (
-      <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+      <div className="text-center py-8 text-muted">
         <p>No properties available</p>
       </div>
     );
@@ -352,27 +352,27 @@ function PropertyBarsGrid({
         const CardContent = (
           <>
             {/* Property name at top */}
-            <h4 className="text-xs font-semibold text-center text-gray-900 dark:text-gray-100 mb-1.5">
+            <h4 className="text-xs text-secondary font-semibold text-center mb-1.5 text-primary">
               {prop.name}
             </h4>
             
             {/* Three-bar visualization with unit badge and labels */}
             <div className="relative flex items-end justify-between px-4" style={{ height: `${height + 20}px` }}>
-              {/* Value badge overlay - uses gray-600 background with min-width */}
-              <div className="absolute top-1 left-1 bg-gray-600 px-1 py-0.5 rounded font-medium shadow-sm z-10 flex flex-col items-center leading-tight min-w-[2.5rem]">
-                <div className="text-sm font-semibold text-white">{formatDisplayValue(sanitizedValue)}</div>
-                {prop.unit && <div className="text-[9px] opacity-80 text-white">{prop.unit}</div>}
+              {/* Value badge overlay - uses secondary background with min-width */}
+              <div className="absolute top-1 left-1 bg-secondary px-1 py-0.5 rounded font-medium shadow-sm z-10 flex flex-col items-center leading-tight min-w-[2.5rem]">
+                <div className="text-sm font-semibold text-primary">{formatDisplayValue(sanitizedValue)}</div>
+                {prop.unit && <div className="text-[9px] opacity-80 text-secondary">{prop.unit}</div>}
               </div>
               
               {/* Min bar with label */}
               <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
                 <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
                   <div 
-                    className="w-3 bg-gray-400 dark:bg-gray-500 rounded-md transition-all duration-700"
+                    className="w-3 bg-secondary rounded-md transition-all duration-700"
                     style={{ height: `${minPercentage}%` }}
                   />
                 </div>
-                <div className="text-xs font-normal text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                <div className="text-xs font-normal whitespace-nowrap text-secondary">
                   {formatDisplayValue(sanitizedMin)}
                 </div>
               </div>
@@ -385,7 +385,7 @@ function PropertyBarsGrid({
                     style={{ height: `${valuePercentage}%` }}
                   />
                 </div>
-                <div className="text-xs font-normal text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                <div className="text-xs font-normal whitespace-nowrap text-primary">
                   {formatDisplayValue(sanitizedValue)}
                 </div>
               </div>
@@ -394,11 +394,11 @@ function PropertyBarsGrid({
               <div className="flex flex-col items-center gap-1 flex-1" style={{ height: '100%' }}>
                 <div className="flex items-end justify-center w-full" style={{ height: `${height}px` }}>
                   <div 
-                    className="w-3 bg-gray-400 dark:bg-gray-500 rounded-md transition-all duration-700"
+                    className="w-3 bg-secondary rounded-md transition-all duration-700"
                     style={{ height: `${maxPercentage}%` }}
                   />
                 </div>
-                <div className="text-xs font-normal text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                <div className="text-xs font-normal whitespace-nowrap text-secondary">
                   {formatDisplayValue(sanitizedMax)}
                 </div>
               </div>
@@ -410,7 +410,7 @@ function PropertyBarsGrid({
           <Link
             key={index}
             href={settingsUrl}
-            className="relative bg-white dark:bg-gray-800 p-2 rounded block cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-750 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            className="relative bg-primary p-2 rounded block cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-lg hover:bg-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             aria-label={`View ${prop.name} settings`}
           >
             {CardContent}
@@ -418,7 +418,7 @@ function PropertyBarsGrid({
         ) : (
           <div 
             key={index}
-            className="relative bg-white dark:bg-gray-800 p-2 rounded"
+            className="relative bg-primary p-2 rounded"
           >
             {CardContent}
           </div>
@@ -624,32 +624,32 @@ function formatPropertyName(key: string): string {
 function getBackgroundColorFromGradient(gradientClass: string): string {
   // Extract the primary color from the gradient (e.g., 'from-purple-500 to-pink-500' -> 'purple')
   const match = gradientClass.match(/from-(\w+)-/);
-  if (!match) return 'bg-blue-50 dark:bg-blue-900/30';
+  if (!match) return 'bg-blue-900/30';
   
   const color = match[1];
   
   // Map gradient colors to their light background variants
   const bgColorMap: Record<string, string> = {
-    purple: 'bg-purple-50 dark:bg-purple-900/30',
-    blue: 'bg-blue-50 dark:bg-blue-900/30',
-    orange: 'bg-orange-50 dark:bg-orange-900/30',
-    green: 'bg-green-50 dark:bg-green-900/30',
-    indigo: 'bg-indigo-50 dark:bg-indigo-900/30',
-    yellow: 'bg-yellow-50 dark:bg-yellow-900/30',
-    pink: 'bg-pink-50 dark:bg-pink-900/30',
-    cyan: 'bg-cyan-50 dark:bg-cyan-900/30',
-    red: 'bg-red-50 dark:bg-red-900/30',
-    amber: 'bg-amber-50 dark:bg-amber-900/30',
-    emerald: 'bg-emerald-50 dark:bg-emerald-900/30',
-    teal: 'bg-teal-50 dark:bg-teal-900/30',
-    rose: 'bg-rose-50 dark:bg-rose-900/30',
-    violet: 'bg-violet-50 dark:bg-violet-900/30',
-    lime: 'bg-lime-50 dark:bg-lime-900/30',
-    sky: 'bg-sky-50 dark:bg-sky-900/30',
-    gray: 'bg-gray-50 dark:bg-gray-900/30',
+    purple: 'bg-purple-900/30',
+    blue: 'bg-blue-900/30',
+    orange: 'bg-orange-50',
+    green: 'bg-green-900/30',
+    indigo: 'bg-indigo-900/30',
+    yellow: 'bg-yellow-900/30',
+    pink: 'bg-pink-900/30',
+    cyan: 'bg-cyan-900/30',
+    red: 'bg-red-900/30',
+    amber: 'bg-amber-50',
+    emerald: 'bg-emerald-900/30',
+    teal: 'bg-teal-900/30',
+    rose: 'bg-rose-900/30',
+    violet: 'bg-violet-900/30',
+    lime: 'bg-lime-50',
+    sky: 'bg-sky-900/30',
+    gray: 'bg-gray-50',
   };
   
-  return bgColorMap[color] || 'bg-blue-50 dark:bg-blue-900/30';
+  return bgColorMap[color] || 'bg-blue-900/30';
 }
 
 // Assign colors based on property type and data source

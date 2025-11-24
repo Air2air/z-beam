@@ -59,16 +59,16 @@ export function SectionContainer({
   };
   
   // Title color based on variant
-  const titleColor = variant === 'dark' ? 'text-white' : 'text-gray-900 dark:text-white';
+  const titleColor = variant === 'dark' ? 'text-primary' : 'text-secondary';
   
   // Legacy support: if bgColor/horizPadding/radius provided, use old logic
   if (bgColor !== undefined || horizPadding !== undefined || radius !== undefined) {
     const bgColorClasses = {
       transparent: '',
-      navbar: 'bg-white dark:bg-gray-800',
-      body: 'bg-gray-50 dark:bg-gray-900',
-      'gray-50': 'bg-gray-50 dark:bg-gray-800',
-      'gray-100': 'bg-gray-100 dark:bg-gray-700',
+      default: 'bg-secondary',
+      body: 'bg-gray-50',
+      'gray-50': 'bg-secondary',
+      'gray-100': 'bg-primary',
       'gradient-dark': 'bg-gradient-to-b from-gray-900 to-gray-700',
     };
     

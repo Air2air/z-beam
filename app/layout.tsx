@@ -187,7 +187,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className={`${primaryFont.className} antialiased flex flex-col min-h-screen bg-gray-700 text-gray-100 overflow-x-hidden`}>
+      <body className={`${primaryFont.className} antialiased flex flex-col min-h-screen bg-gray-700 overflow-x-hidden`} style={{ color: 'var(--text-primary)' }}>
         <ErrorBoundary componentName="Layout">
           <Navbar />
           <main className="flex-grow w-full max-w-full py-0 pb-32 md:pb-0 overflow-x-hidden" id="main-content">

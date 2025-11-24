@@ -96,7 +96,6 @@ export interface ContentCardItem {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  theme?: 'body' | 'navbar';
   variant?: 'default' | 'inline';
 }
 
@@ -254,7 +253,6 @@ export interface CalloutConfig {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  theme?: 'body' | 'navbar';
   variant?: 'default' | 'inline';
 }
 
@@ -269,7 +267,6 @@ export interface CalloutProps {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  theme?: 'body' | 'navbar';
   variant?: 'default' | 'inline';
 }
 
@@ -1254,7 +1251,6 @@ export interface ContentCardProps {
     alt?: string;
   };
   imagePosition?: 'left' | 'right';
-  theme?: 'body' | 'navbar';
   variant?: 'default' | 'inline';
 }
 
@@ -2470,7 +2466,7 @@ export interface MaterialFiltersProps {
  */
 export interface SectionContainerProps {
   title: string;
-  bgColor?: 'transparent' | 'navbar' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
+  bgColor?: 'transparent' | 'default' | 'body' | 'gray-50' | 'gray-100' | 'gradient-dark';
   horizPadding?: boolean;
   radius?: boolean;
   icon?: React.ReactNode;

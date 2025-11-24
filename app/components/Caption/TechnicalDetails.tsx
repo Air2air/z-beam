@@ -22,7 +22,7 @@ export function TechnicalDetails({ laserParams, show, frontmatter }: TechnicalDe
 
   return (
     <div 
-      className="text-xs text-gray-400 border-l-2 border-gray-600 pl-3 mt-2"
+      className="text-xs text-tertiary border-l-2 pl-3 mt-2"
       itemScope
       itemType={`${SITE_CONFIG.schema.context}/TechnicalSpecification`}
       role="complementary"

@@ -57,12 +57,12 @@ export default function DatasetSection({
         {stats.map((stat, index) => (
           <div 
             key={index} 
-            className="dataset-stat-card bg-gray-50 dark:bg-gray-700/50 rounded-lg p-1 h-[60px] flex flex-col items-center justify-center"
+            className="dataset-stat-card bg-primary rounded-lg p-1 h-[60px] flex flex-col items-center justify-center"
           >
-            <div className="dataset-stat-value text-lg md:text-xl font-bold text-gray-900 dark:text-white text-center">
+            <div className="dataset-stat-value text-lg md:text-xl font-bold text-muted text-center">
               {stat.value}
             </div>
-            <div className="dataset-stat-label text-xs text-gray-600 dark:text-gray-400 text-center mt-0.5">{stat.label}</div>
+            <div className="dataset-stat-label text-xs text-muted text-center mt-0.5">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -80,12 +80,12 @@ export default function DatasetSection({
 
       {/* Navigation Links (conditional based on context) */}
       {(categoryLink || fullDatasetLink) && (
-        <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700 space-y-2">
+        <div className="mt-4 pt-4 border-t space-y-2">
           {/* Category Link (shown on material pages) */}
           {categoryLink && (
             <a
               href={categoryLink.href}
-              className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1"
+              className="text-sm text-blue-600400 hover:underline flex items-center space-x-1"
             >
               <FileIcon className="w-4 h-4" />
               <span>{categoryLink.label}</span>
@@ -96,7 +96,7 @@ export default function DatasetSection({
           {fullDatasetLink && (
             <a
               href="/datasets"
-              className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-1"
+              className="text-sm text-blue-600400 hover:underline flex items-center space-x-1"
             >
               <FileIcon className="w-4 h-4" />
               <span>View complete materials database (138+ materials)</span>
@@ -106,15 +106,15 @@ export default function DatasetSection({
       )}
 
       {/* License Info */}
-      <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700">
-        <p className="text-xs text-gray-600 dark:text-gray-400">
+      <div className="mt-4 pt-3 border-t">
+        <p className="text-xs text-muted">
           <span className="font-medium">License:</span> Creative Commons BY 4.0 • 
           Free to use with attribution • 
           <a 
             href="https://creativecommons.org/licenses/by/4.0/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline ml-1"
+            className="text-blue-600400 hover:underline ml-1"
           >
             Learn more
           </a>

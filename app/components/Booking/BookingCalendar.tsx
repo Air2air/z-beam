@@ -33,10 +33,10 @@ export function BookingCalendar() {
   return (
     <div className="relative">
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg">
+        <div className="absolute inset-0 flex items-center justify-center bg-secondary rounded-lg">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-            <p className="text-gray-600 dark:text-gray-400">Loading calendar...</p>
+            <p className="text-muted">Loading calendar...</p>
           </div>
         </div>
       )}
@@ -60,7 +60,7 @@ export function BookingCalendar() {
           </p>
           <a 
             href="/contact" 
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700"
+            className="inline-block bg-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700"
           >
             Contact Us Instead
           </a>

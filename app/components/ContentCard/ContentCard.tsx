@@ -14,7 +14,6 @@
  *   text="This is important information."
  *   image={{ url: "/images/callout.jpg", alt: "Descriptive text" }}
  *   imagePosition="right"
- *   theme="navbar"
  *   variant="default"
  * />
  * 
@@ -25,14 +24,12 @@
  *   text="Description of the step"
  *   details={["Detail 1", "Detail 2"]}
  *   image={{ url: "/images/step.jpg", alt: "Step image" }}
- *   theme="navbar"
  * />
  */
 import React, { useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SectionTitle } from '../SectionTitle/SectionTitle';
-import { getThemeClasses, type ThemeVariant } from '@/app/config/themeConfig';
 import type { ContentCardProps } from '@/types';
 
 export function ContentCard({
@@ -43,7 +40,6 @@ export function ContentCard({
   details,
   image,
   imagePosition = 'right',
-  theme = 'navbar',
   variant = 'default',
 }: ContentCardProps) {
   // Generate unique IDs for ARIA relationships
@@ -64,12 +60,6 @@ export function ContentCard({
     return url.startsWith('http') ? url : `https://${url}`;
   }, [details]);
   
-  // Get theme classes and override container for navbar theme (uses card-background)
-  const baseTheme = getThemeClasses(theme);
-  const currentTheme = {
-    ...baseTheme,
-    container: theme === 'navbar' ? 'card-background' : baseTheme.container,
-  };
   const isImageLeft = imagePosition === 'left';
   const hasOrder = order !== undefined;
   const hasDetails = details && details.length > 0;
@@ -85,7 +75,7 @@ export function ContentCard({
   // Variant-based outer spacing and styling
   const variantClasses = {
     default: {
-      container: currentTheme.container,
+      container: 'card-background',
       outer: 'p-6 md:p-8 mb-6 rounded-lg',
     },
     inline: {
@@ -123,7 +113,7 @@ export function ContentCard({
         <header className="flex items-center gap-4 mb-6">
           {/* Order Number Badge */}
           <div 
-            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl text-blue-600 dark:text-blue-400 bg-gray-700 dark:bg-gray-700 rounded-full"
+            className="flex-shrink-0 w-12 h-12 flex items-center justify-center text-2xl text-primary bg-primary rounded-full"
             role="status"
             aria-label={`Step ${order}`}
           >
@@ -145,7 +135,7 @@ export function ContentCard({
       {category && !hasOrder && (
         <div 
           id={categoryId}
-          className="text-sm text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-2"
+          className="text-sm text-primary uppercase tracking-wide mb-2"
           role="doc-subtitle"
           itemProp="category"
         >
@@ -218,7 +208,7 @@ export function ContentCard({
           
           {/* Text/Description */}
           <p 
-            className={`text-base ${hasDetails ? 'mb-4' : ''} ${currentTheme.text}`}
+            className={`text-base ${hasDetails ? 'mb-4' : ''}`}
             itemProp="description"
             dangerouslySetInnerHTML={{ __html: text }}
           />
@@ -247,14 +237,14 @@ export function ContentCard({
                 return (
                   <li 
                     key={idx} 
-                    className={`flex items-start gap-2 ${currentTheme.text}`}
+                    className="flex items-start gap-2"
                     role="listitem"
                     itemProp="itemListElement"
                     itemScope
                     itemType="https://schema.org/ListItem"
                   >
                     <span 
-                      className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0"
+                      className="text-primary mt-1 flex-shrink-0"
                       role="presentation"
                     >
                       ✓
@@ -265,7 +255,7 @@ export function ContentCard({
                         {isInternalLink ? (
                           <Link 
                             href={linkUrl}
-                            className="text-blue-600 dark:text-blue-400 hover:underline"
+                            className="text-primary hover:underline"
                             aria-label={`View ${linkLabel}`}
                           >
                             {linkUrl}
@@ -274,7 +264,7 @@ export function ContentCard({
                           <a 
                             href={linkUrl.startsWith('http') ? linkUrl : `https://${linkUrl}`}
                             target="_blank"
-                            className="text-blue-600 dark:text-blue-400 hover:underline"
+                            className="text-primary hover:underline"
                             aria-label={`Visit ${linkUrl} (opens in new tab)`}
                           >
                             {linkUrl}

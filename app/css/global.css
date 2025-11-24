@@ -73,8 +73,16 @@
 @import './colors.css';
 
 @layer utilities {
+  .bg-body {
+    background-color: var(--bg-body);
+  }
+  
   .bg-primary {
     background-color: var(--bg-primary);
+  }
+  
+  .bg-primary-hover {
+    background-color: var(--bg-primary-hover);
   }
   
   .bg-secondary {
@@ -85,62 +93,85 @@
     background-color: var(--bg-tertiary);
   }
   
+  .text-white {
+    color: var(--text-white) !important;
+  }
+  
   .text-primary {
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
   }
   
   .text-secondary {
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
   }
   
   .text-tertiary {
-    color: var(--text-tertiary);
+    color: var(--text-tertiary) !important;
   }
   
   .text-muted {
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
+  }
+  
+  .text-brand-orange {
+    color: var(--brand-orange) !important;
+  }
+  
+  .bg-brand-orange {
+    background-color: var(--brand-orange) !important;
+  }
+  
+  .bg-brand-orange-dark {
+    background-color: var(--brand-orange-dark) !important;
   }
 }
 
 @layer base {
   /* Body background */
   body {
-    @apply bg-gray-800 text-gray-200 font-normal;
+    background-color: var(--bg-body);
+    @apply font-normal;
+    color: var(--text-primary);
   }
   
   /* Headings - Semantic font weights and colors with responsive sizing */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-secondary) !important;
+  }
+  
   h1 {
-    @apply text-xl sm:text-2xl md:text-3xl font-bold text-gray-50;
+    @apply text-xl sm:text-2xl md:text-3xl font-bold;
   }
   
   h2 {
-    @apply text-base sm:text-lg md:text-xl font-bold text-gray-100;
+    @apply text-base sm:text-lg md:text-xl font-bold;
   }
   
   h3 {
-    @apply text-lg sm:text-xl md:text-2xl font-medium text-gray-200 leading-snug;
+    @apply text-lg sm:text-xl md:text-2xl font-medium leading-snug;
   }
   
   h4 {
-    @apply text-base sm:text-lg md:text-xl font-medium text-gray-200;
+    @apply text-base sm:text-lg md:text-xl font-medium;
   }
   
   h5 {
-    @apply text-base sm:text-lg font-medium text-gray-300;
+    @apply text-base sm:text-lg font-medium;
   }
   
   h6 {
-    @apply text-sm sm:text-base font-medium text-gray-300;
+    @apply text-sm sm:text-base font-medium;
   }
   
   /* Semantic elements */
   strong, b {
-    @apply font-bold text-gray-50;
+    @apply font-bold;
   }
   
   /* Paragraph text */
   p {
-    @apply text-gray-200 leading-relaxed;
+    @apply leading-relaxed;
+    color: var(--text-primary);
   }
   
   /* Links */
@@ -189,11 +220,7 @@
   
   /* Card background gradient */
   .card-background {
-    @apply bg-gradient-to-b from-gray-100 to-gray-700;
-  }
-  
-  .dark .card-background {
-    @apply from-gray-800/50 to-gray-700;
+    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-tertiary));
   }
 }
 

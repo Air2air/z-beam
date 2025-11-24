@@ -643,7 +643,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
       <div className="space-y-6">
         {/* Header Description */}
 
-        <p className=" text-white">
+        <p className="">
           Shows how changing one parameter physically affects others.
           <span className="text-blue-300 font-medium"> Click any node</span> to
           see its downstream impacts and role.
@@ -939,10 +939,10 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
                       backgroundColor: hexToRgba(nodeColor, cardOpacity),
                     }}
                   >
-                    <h4 className="parameter-name text-base font-bold text-white">
+                    <h4 className="parameter-name text-base text-secondary font-bold">
                       {formatKeyAsTitle(selectedParam)}
                     </h4>
-                    <p className="connection-description text-sm text-white/90 leading-relaxed">
+                    <p className="connection-description text-sm/90 leading-relaxed">
                       {getRoleDescription()}
                     </p>
                   </div>
@@ -995,10 +995,10 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
                       }}
                       onClick={() => handleNodeClick(otherParamId)}
                     >
-                      <h4 className="parameter-name text-base font-bold text-white">
+                      <h4 className="parameter-name text-base text-secondary font-bold">
                         {formatKeyAsTitle(otherParamId)}
                       </h4>
-                      <p className="connection-description text-sm text-white/90 leading-relaxed">
+                      <p className="connection-description text-sm/90 leading-relaxed">
                         {description}
                       </p>
                     </div>
@@ -1013,12 +1013,12 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
                   <span className="tooltip-icon text-lg">
                     {getRelationshipIcon(hoveredRelation.type)}
                   </span>
-                  <h4 className="tooltip-title text-sm font-semibold text-blue-300">
+                  <h4 className="tooltip-title text-sm text-secondary font-semibold text-secondary">
                     {hoveredRelation.type.charAt(0).toUpperCase() +
                       hoveredRelation.type.slice(1)}
                   </h4>
                 </div>
-                <div className="tooltip-description text-xs text-gray-300">
+                <div className="tooltip-description text-xs">
                   {hoveredRelation.description}
                 </div>
               </div>

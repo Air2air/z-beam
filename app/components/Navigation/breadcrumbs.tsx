@@ -51,11 +51,10 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
               <meta itemProp="position" content={String(index + 1)} />
               
               {isLast ? (
-                // Last item: link with aria-current="page" per W3C spec (orange brand color)
-                // Note: href="" or href{crumb.href} both valid, using href for consistency
+                // Last item: link with aria-current="page" per W3C spec
                 <Link
                   href={crumb.href}
-                  className="text-base text-brand-orange dark:text-brand-orange font-medium"
+                  className="text-base text-brand-orange font-medium"
                   aria-current="page"
                   onClick={(e) => e.preventDefault()} // Prevent navigation on current page
                 >
@@ -65,7 +64,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Cross-navigation link (e.g., Materials → Settings): distinct styling
                 <Link
                   href={crumb.href}
-                  className="text-base text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300
+                  className="text-base text-primary hover:text-white
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
                              transition-colors duration-150 font-medium"
                   title={`View ${crumb.label}`}
@@ -76,7 +75,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Other items are normal links
                 <Link
                   href={crumb.href}
-                  className="text-base text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-white
+                  className="text-base text-primary hover:text-white
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm
                              transition-colors duration-150"
                 >
@@ -84,7 +83,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 </Link>
               ) : (
                 // Item without href (fallback)
-                <span className="text-base text-gray-500 dark:text-gray-400" itemProp="name">
+                <span className="text-base text-primary" itemProp="name">
                   {crumb.label}
                 </span>
               )}

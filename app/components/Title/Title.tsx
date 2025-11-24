@@ -62,21 +62,21 @@ export function Title({
   const levelConfig = {
     'page': {
       tag: 'h1' as const,
-      classes: 'tracking-tight text-white',
+      classes: 'tracking-tight',
       ariaLevel: 1,
       role: 'heading',
       landmark: 'banner'
     },
     'section': {
       tag: 'h2' as const,
-      classes: 'tracking-tight text-gray-100',
+      classes: 'tracking-tight',
       ariaLevel: 2,
       role: 'heading',
       landmark: 'region'
     },
     'card': {
       tag: 'h3' as const,
-      classes: 'tracking-tight text-gray-200',
+      classes: 'tracking-tight',
       ariaLevel: 3,
       role: 'heading',
       landmark: null
@@ -97,7 +97,7 @@ export function Title({
   const skipLinkId = skipLink ? `${titleId}-skip` : undefined;
   
   // Base classes for all titles with enhanced accessibility
-  const baseClasses = 'text-white transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900';
+  const baseClasses = 'text-primary transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900';
   
   // Alignment classes
   const alignmentClasses = {
@@ -207,7 +207,7 @@ export function Title({
         <a 
           href={`#${titleId}`} 
           id={skipLinkId}
-          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 rounded-md z-50 transition-all"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 p-2 rounded-md z-50 transition-all"
           onClick={(e) => {
             e.preventDefault();
             titleRef.current?.focus();
@@ -246,7 +246,7 @@ export function Title({
             {description && (
               <p 
                 id={descriptionId}
-                className="text-white mt-3 leading-relaxed"
+                className="text-primary mt-3 leading-relaxed"
               >
                 {description}
               </p>
@@ -254,7 +254,7 @@ export function Title({
           </div>
           
           {(rightContent !== undefined ? rightContent : level === 'page') && (
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 self-start">
               {rightContent !== undefined ? rightContent : (
                 <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
               )}

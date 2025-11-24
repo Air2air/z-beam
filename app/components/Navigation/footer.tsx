@@ -64,7 +64,7 @@ const socialLinks: SocialLink[] = [
 export default function Footer() {
   return (
     <footer 
-      className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-800 mt-0"
+      className="bg-secondary border-t mt-0"
       role="contentinfo"
       aria-label="Site footer"
     >
@@ -85,7 +85,7 @@ export default function Footer() {
               priority
             />
           </Link>
-          <span className="text-gray-500 dark:text-gray-400 text-sm">
+          <span className="text-muted text-sm">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.address.company}. All rights reserved.
           </span>
         </div>
@@ -102,7 +102,7 @@ export default function Footer() {
               href={item.href}
               target={item.external ? "_blank" : "_self"}
               rel={item.external ? "noopener noreferrer" : undefined}
-              className="text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white 
+              className="text-muted hover:text-muted:text-primary 
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
                          rounded-md px-2 py-1 transition-colors"
             >
@@ -127,7 +127,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Follow us on ${social.name} (opens in new window)`}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 
+              className="text-tertiary hover:text-muted:text-primary 
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
                          rounded-md p-2 min-w-[44px] min-h-[44px] 
                          inline-flex items-center justify-center

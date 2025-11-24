@@ -92,14 +92,14 @@ export function Navbar() {
       {/* Skip Navigation Link */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white px-4 py-2 z-[100] rounded-md m-2 focus-visible:outline-none"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 px-4 py-2 z-[100] rounded-md m-2 focus-visible:outline-none"
         onFocus={(e) => e.target.scrollIntoView()}
       >
         Skip to main content
       </a>
       
       {/* The main container for the entire header/navbar, spans full width */}
-      <header className="w-full bg-white dark:bg-gray-800 shadow-md z-50 relative md:h-20" role="banner">{/* Role for better screen reader support */}
+      <header className="w-full bg-secondary shadow-md z-50 relative md:h-20" role="banner">{/* Role for better screen reader support */}
         {/* Van image superimposed over nav bar - clickable link to contact */}
         <Link 
           href="/contact" 
@@ -173,8 +173,8 @@ export function Navbar() {
                             focus-visible:outline-none transition-colors duration-200
                             ${
                               isActive
-                                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                                : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                                ? "text-blue-600400 bg-blue-900/20"
+                                : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
                             }
                           `}
                           role="menuitem"
@@ -188,7 +188,7 @@ export function Navbar() {
                         </button>
                         {openDropdown === item.name && item.dropdown && (
                           <div 
-                            className={`absolute ${isLastItem ? 'right-0' : 'left-0'} bg-white dark:bg-gray-800 rounded-b-md shadow-lg py-1 z-50`}
+                            className={`absolute ${isLastItem ? 'right-0' : 'left-0'} bg-secondary rounded-b-md shadow-lg py-1 z-50`}
                             style={{ top: 'calc(100% + 1px)' }}
                             onMouseEnter={() => handleMouseEnter(item.name)}
                             onMouseLeave={handleMouseLeave}
@@ -203,8 +203,8 @@ export function Navbar() {
                                     block px-4 py-2 text-base
                                     ${
                                       isDropdownActive
-                                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                                        : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                        ? "text-blue-600400 bg-blue-900/20"
+                                        : "text-secondary hover:bg-gray-100:bg-primary"
                                     }
                                   `}
                                 >
@@ -229,8 +229,8 @@ export function Navbar() {
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
-                              ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                              ? "text-blue-600400 bg-blue-900/20"
+                              : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
                           }
                         `}
                         aria-current={isActive ? "page" : undefined}
@@ -250,7 +250,7 @@ export function Navbar() {
           {/* Mobile: Hamburger on the right */}
           <button
             ref={menuButtonRef}
-            className="md:hidden text-gray-800 dark:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md p-2 min-w-[44px] min-h-[44px]"
+            className="md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-md p-2 min-w-[44px] min-h-[44px]"
             onClick={toggleMenu}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -297,7 +297,7 @@ export function Navbar() {
             md:hidden
             flex-col
             absolute top-full left-0 w-full
-            bg-white dark:bg-gray-800 shadow
+            bg-secondary shadow
             py-4 px-4
             items-center justify-center
           `}
@@ -328,8 +328,8 @@ export function Navbar() {
                           focus-visible:outline-none transition-colors duration-200
                           ${
                             isActive
-                              ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                              : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                              ? "text-blue-600400 bg-blue-900/20"
+                              : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
                           }
                         `}
                         role="menuitem"
@@ -359,8 +359,8 @@ export function Navbar() {
                                   block px-4 py-2 text-base
                                   ${
                                     isDropdownActive
-                                      ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                                      : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                                      ? "text-blue-600400 bg-blue-900/20"
+                                      : "text-secondary hover:bg-gray-100:bg-primary"
                                   }
                                 `}
                               >
@@ -390,8 +390,8 @@ export function Navbar() {
                         focus-visible:outline-none transition-colors duration-200
                         ${
                           isActive
-                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400"
+                            ? "text-blue-600400 bg-blue-900/20"
+                            : "text-secondary hover:bg-gray-100:bg-primary hover:text-blue-600:text-blue-400"
                         }
                       `}
                       role="menuitem"

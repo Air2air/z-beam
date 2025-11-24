@@ -31,7 +31,7 @@ export function Button({
   const variantClasses = {
     primary: 'bg-brand-orange text-white hover:bg-brand-orange-dark focus-visible:ring-brand-orange focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
     secondary: 'bg-white text-brand-orange hover:bg-gray-100 focus-visible:ring-white focus-visible:ring-offset-brand-orange shadow-lg hover:shadow-xl transform hover:scale-[1.03]',
-    outline: 'bg-transparent border border-opacity-50 hover:border-opacity-100 focus-visible:ring-2 focus-visible:ring-offset-gray-100 transition-all',
+    outline: 'bg-transparent text-white border border-opacity-50 hover:border-opacity-100 focus-visible:ring-2 focus-visible:ring-offset-gray-100 transition-all',
     danger: 'bg-red-600 text-white hover:bg-red-700 focus-visible:ring-red-500 focus-visible:ring-offset-gray-900 shadow-lg hover:shadow-xl',
     minimal: 'bg-transparent text-blue-600 hover:text-blue-700 hover:underline focus-visible:ring-blue-500 shadow-none hover:shadow-none transform-none hover:scale-100'
   };

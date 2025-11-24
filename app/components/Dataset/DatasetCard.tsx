@@ -99,8 +99,8 @@ export function DatasetCard({
             <div 
               className="
                 px-2 py-1 text-xs font-medium rounded
-                bg-white/90 dark:bg-gray-800/90
-                text-gray-700 dark:text-gray-200
+                bg-secondary/90
+                text-muted
                 backdrop-blur-sm
                 shadow-sm
               "
@@ -133,8 +133,8 @@ export function DatasetCard({
             <div 
               className="
                 px-2 py-1 text-xs font-medium rounded
-                bg-white/90 dark:bg-gray-800/90
-                text-gray-700 dark:text-gray-200
+                bg-secondary/90
+                text-muted
                 backdrop-blur-sm
                 shadow-sm
                 text-right

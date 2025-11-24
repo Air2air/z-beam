@@ -187,7 +187,7 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
         }`} aria-label="Safety status summary">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2 text-base">
-              <span className="text-white font-bold">
+              <span className="text-primary font-bold">
                 {hoveredCell ? hoveredCell.power.toFixed(0) : currentPower}W
                 {' × '}
                 {hoveredCell ? hoveredCell.pulse.toFixed(1) : currentPulse}ns
@@ -225,18 +225,18 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
               style={{ width: `${result.finalScore * 100}%` }}
             />
           </div>
-          <div className="text-[10px] text-gray-400 mt-1 text-right">
+          <div className="text-[10px] text-tertiary mt-1 text-right">
             {Math.round(result.finalScore * 100)}% safe
           </div>
         </article>
         
         {/* Damage Risk Factor */}
-        <article className="bg-gray-900/50 rounded p-2 border border-red-500/30 text-xs" aria-label="Damage risk factor analysis">
+        <article className="bg-tertiary rounded p-2 border border-red-500/30 text-xs" aria-label="Damage risk factor analysis">
           <div className="flex justify-between items-center mb-1">
-            <span className="text-gray-400 font-medium">Damage Risk</span>
+            <span className="text-tertiary font-medium">Damage Risk</span>
             <span className="text-red-400 font-bold">50%</span>
           </div>
-          <div className="text-[10px] text-gray-500 mb-1.5">
+          <div className="text-[10px] text-muted mb-1.5">
             Will this damage the material?
           </div>
           
@@ -254,12 +254,12 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
           </div>
           
           <div className="flex justify-between text-[10px] mb-0.5">
-            <span className="text-gray-500">Current Energy:</span>
-            <span className="text-white">{result.fluence.toFixed(2)} J/cm²</span>
+            <span className="text-muted">Current Energy:</span>
+            <span className="text-primary">{result.fluence.toFixed(2)} J/cm²</span>
           </div>
           <div className="flex justify-between text-[10px]">
-            <span className="text-gray-500">Damage Threshold:</span>
-            <span className="text-gray-400">{(result.fluence / result.fluenceRatio).toFixed(2)} J/cm²</span>
+            <span className="text-muted">Damage Threshold:</span>
+            <span className="text-tertiary">{(result.fluence / result.fluenceRatio).toFixed(2)} J/cm²</span>
           </div>
           
           <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
@@ -275,12 +275,12 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
         </article>
 
         {/* Power Factor */}
-        <article className="bg-gray-900/50 rounded p-2 border border-orange-500/30 text-xs mt-2.5" aria-label="Power factor analysis">
+        <article className="bg-tertiary rounded p-2 border border-orange-500/30 text-xs mt-2.5" aria-label="Power factor analysis">
           <div className="flex justify-between items-center mb-1">
-            <span className="text-gray-400 font-medium">Power Factor</span>
+            <span className="text-tertiary font-medium">Power Factor</span>
             <span className="text-orange-400 font-bold">25%</span>
           </div>
-          <div className="text-[10px] text-gray-500 mb-1.5">
+          <div className="text-[10px] text-muted mb-1.5">
             Spatial power distribution effects
           </div>
           <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
@@ -296,12 +296,12 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
         </article>
 
         {/* Pulse Duration Factor */}
-        <article className="bg-gray-900/50 rounded p-2 border border-yellow-500/30 text-xs mt-2.5" aria-label="Pulse duration factor analysis">
+        <article className="bg-tertiary rounded p-2 border border-yellow-500/30 text-xs mt-2.5" aria-label="Pulse duration factor analysis">
           <div className="flex justify-between items-center mb-1">
-            <span className="text-gray-400 font-medium">Pulse Factor</span>
+            <span className="text-tertiary font-medium">Pulse Factor</span>
             <span className="text-yellow-400 font-bold">20%</span>
           </div>
-          <div className="text-[10px] text-gray-500 mb-1.5">
+          <div className="text-[10px] text-muted mb-1.5">
             Thermal accumulation effects
           </div>
           <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">
@@ -317,12 +317,12 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
         </article>
 
         {/* Thermal Shock Resistance Factor */}
-        <article className="bg-gray-900/50 rounded p-2 border border-blue-500/30 text-xs mt-2.5" aria-label="Thermal shock resistance factor analysis">
+        <article className="bg-tertiary rounded p-2 border border-blue-500/30 text-xs mt-2.5" aria-label="Thermal shock resistance factor analysis">
           <div className="flex justify-between items-center mb-1">
-            <span className="text-gray-400 font-medium">Shock Resistance</span>
+            <span className="text-tertiary font-medium">Shock Resistance</span>
             <span className="text-blue-400 font-bold">5%</span>
           </div>
-          <div className="text-[10px] text-gray-500 mb-1.5">
+          <div className="text-[10px] text-muted mb-1.5">
             Material thermal shock tolerance
           </div>
           <div className="mt-1.5 bg-gray-950 rounded-full h-1.5 overflow-hidden">

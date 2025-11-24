@@ -278,7 +278,7 @@ export default function DatasetsContent({ materials, categoryStats }: DatasetsCo
       <div className="mb-8">
         <SectionContainer 
           title="Complete Database" 
-          bgColor="navbar" 
+          bgColor="default" 
           horizPadding={true} 
           radius={true}
           icon={<PackageIcon className="w-6 h-6" />}

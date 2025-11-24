@@ -184,7 +184,7 @@ export function CardGrid({
 
   if (!processedItems.length) {
     return (
-      <div className="text-center py-12 text-gray-600 dark:text-gray-400">
+      <div className="text-center py-12 text-muted">
         No articles available.
       </div>
     );
@@ -200,7 +200,7 @@ export function CardGrid({
         {displayTitle && (
           <div className="mb-8">
             <SectionTitle title={displayTitle} />
-            <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+            <div className="w-16 h-1 bg-blue-400 rounded"></div>
           </div>
         )}
 
@@ -220,8 +220,8 @@ export function CardGrid({
                     placeholder="Search articles..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full px-4 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg 
-                               bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+                    className="w-full px-4 py-2 pr-10 border rounded-lg 
+                               bg-secondary
                                focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
                     aria-label="Search articles"
                   />
@@ -231,7 +231,7 @@ export function CardGrid({
                       size="md"
                       onClick={() => setSearchTerm('')}
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 
-                                 text-gray-500 text-xl leading-none p-0 min-h-0"
+                                 text-muted text-xl leading-none p-0 min-h-0"
                       aria-label="Clear search"
                     >
                       ×
@@ -249,8 +249,8 @@ export function CardGrid({
                   size="md"
                   onClick={() => setSelectedCategory('all')}
                   className={selectedCategory === 'all' 
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
-                    : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                    ? 'bg-blue-600 border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
+                    : 'bg-primary hover:bg-gray-300:bg-tertiary'
                   }
                 >
                   All Categories ({processedItems.length})
@@ -262,8 +262,8 @@ export function CardGrid({
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={selectedCategory === category 
-                      ? 'bg-blue-600 text-white border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
-                      : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                      ? 'bg-blue-600 border-blue-600 shadow-md hover:bg-blue-700 hover:border-blue-700' 
+                      : 'bg-primary'
                     }
                   >
                     {category} ({groupedItems[category]?.length || 0})
@@ -274,15 +274,15 @@ export function CardGrid({
 
             {/* Active filters indicator */}
             {(searchTerm || selectedCategory !== 'all') && (
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-2 text-sm text-muted">
                 <span>Active filters:</span>
                 {searchTerm && (
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+                  <span className="bg-blue-100 text-blue-800200 px-2 py-1 rounded">
                     Search: "{searchTerm}"
                   </span>
                 )}
                 {selectedCategory !== 'all' && (
-                  <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded">
+                  <span className="bg-green-100 text-green-800200 px-2 py-1 rounded">
                     Category: {selectedCategory}
                   </span>
                 )}
@@ -290,7 +290,7 @@ export function CardGrid({
                   variant="minimal"
                   size="md"
                   onClick={clearFilters}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700"
+                  className="text-blue-600400 hover:text-blue-700"
                 >
                   Clear all
                 </Button>
@@ -323,14 +323,14 @@ export function CardGrid({
                     <div>
                       <h3 
                         id={categoryId}
-                        className="text-gray-900 dark:text-gray-100 mb-2"
+                        className="text-primary mb-2"
                         itemProp="name"
                       >
                         <strong>{category}</strong>
                       </h3>
                       <meta itemProp="numberOfItems" content={String(categoryItems.length)} />
-                      <div className="w-12 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
-                      <p className="text-gray-600 dark:text-gray-400 mt-2">
+                      <div className="w-12 h-1 bg-blue-400 rounded"></div>
+                      <p className="text-muted mt-2">
                         {categoryItems.length} {categoryItems.length === 1 ? 'article' : 'articles'}
                       </p>
                     </div>
@@ -350,8 +350,8 @@ export function CardGrid({
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                           </svg>
                         }
-                        className="flex items-center gap-2 text-blue-600 dark:text-blue-400 
-                                   hover:bg-blue-50 dark:hover:bg-blue-900"
+                        className="flex items-center gap-2 text-blue-600400 
+                                   hover:bg-blue-50:bg-blue-900"
                       >
                         {isExpanded ? 'Show Less' : `View All ${categoryItems.length}`}
                       </Button>
@@ -390,13 +390,13 @@ export function CardGrid({
           // Filtered results display
           <div>
             <div className="flex justify-between items-center mb-6">
-              <h3 className="text-gray-900 dark:text-gray-100">
+              <h3 className="text-primary">
                 {searchTerm 
                   ? `Search Results for "${searchTerm}"` 
                   : `${selectedCategory} Articles`
                 }
               </h3>
-              <span className="text-sm text-gray-500 dark:text-gray-400">
+              <span className="text-sm text-muted">
                 {filteredItems.length} {filteredItems.length === 1 ? 'article' : 'articles'}
               </span>
             </div>
@@ -427,14 +427,14 @@ export function CardGrid({
               </div>
             ) : (
               <div className="text-center py-12">
-                <div className="text-gray-500 dark:text-gray-400 mb-4">
+                <div className="text-muted mb-4">
                   No articles found {searchTerm ? `for "${searchTerm}"` : 'in this category'}.
                 </div>
                 <Button
                   variant="minimal"
                   size="md"
                   onClick={clearFilters}
-                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700"
+                  className="text-blue-600400 hover:text-blue-700"
                 >
                   Clear filters and view all articles
                 </Button>
@@ -453,7 +453,7 @@ export function CardGrid({
       {displayTitle && (
         <div className="mb-8">
           <Title level="section" title={title || heading || "Articles"} />
-          <div className="w-16 h-1 bg-blue-600 dark:bg-blue-400 rounded"></div>
+          <div className="w-16 h-1 bg-blue-400 rounded"></div>
         </div>
       )}
 

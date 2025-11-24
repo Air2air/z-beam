@@ -169,7 +169,7 @@ export async function CardGridSSR({
 
   if (!filteredItems.length) {
     return (
-      <div className="text-center py-12 text-gray-600 dark:text-gray-400">
+      <div className="text-center py-12 text-muted">
         No articles available.
       </div>
     );
@@ -228,13 +228,13 @@ export async function CardGridSSR({
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <Title level="card" title={slugToDisplayName(category)} />
-                    <p className="text-gray-600 dark:text-gray-400 mt-2">
+                    <p className="text-muted mt-2">
                       {categoryItems.length} {categoryItems.length === 1 ? 'article' : 'articles'}
                     </p>
                   </div>
                   
                   {hasMore && (
-                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                    <div className="text-sm text-muted">
                       Showing {displayItems.length} of {categoryItems.length}
                     </div>
                   )}
@@ -269,8 +269,8 @@ export async function CardGridSSR({
                 {/* View More Link */}
                 {hasMore && (
                   <div className="mt-6 text-center">
-                    <div className="inline-flex items-center px-4 py-2 text-blue-600 dark:text-blue-400 
-                                    border border-blue-600 dark:border-blue-400 rounded-lg">
+                    <div className="inline-flex items-center px-4 py-2 text-blue-600400 
+                                    border border-blue-600400 rounded-lg">
                       <span>View All {category} Articles ({categoryItems.length})</span>
                       <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />

@@ -38,10 +38,10 @@ export function Author({
   return (
     <Link
       href={`/search?q=${encodedAuthorName}`}
-      className={`block rounded-lg px-4 py-3 bg-gray-800/30 dark:bg-gray-800/50 hover:bg-gray-800/40 dark:hover:bg-gray-800/60 transition-colors ${className}`}
+      className={`block rounded-lg px-4 py-3 bg-primary hover:bg-primary-hover transition-colors ${className}`}
     >
       <div className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-4 flex-1 min-w-0 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+        <div className="flex items-center gap-4 flex-1 min-w-0 text-muted group-hover:text-blue-400 transition-colors">
           {showAvatar && authorImage && (
             <Image
               src={authorImage}
@@ -54,23 +54,23 @@ export function Author({
           
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <span>
-                {authorName}
+              <span className="text-primary">
+                <b>{authorName}</b>
                 {showCredentials && credentials && (
-                  <span className="ml-1 text-gray-600 dark:text-gray-400">
+                  <span className="ml-1 text-secondary">
                     {credentials}
                   </span>
                 )}
               </span>
               {showCountry && country && (
-                <span className="text-sm text-gray-500">
+                <span className="text-tertiary">
                   {country}
                 </span>
               )}
             </div>
 
             {showSpecialties && field && (
-              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              <div className="text-sm text-tertiary mt-1">
                 {field}
               </div>
             )}
@@ -79,12 +79,12 @@ export function Author({
 
         {/* Date panel on right */}
         {hasDateInfo && (
-          <div className="flex flex-col gap-2 text-xs text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-700/50 rounded px-3 py-2 flex-shrink-0">
+          <div className="flex flex-col gap-2 text-xs text-muted bg-primary rounded px-3 py-2 flex-shrink-0">
             {frontmatter?.datePublished && (
               <div className="flex items-center gap-1.5 whitespace-nowrap">
                 <Calendar className="w-3.5 h-3.5" />
                 <div>
-                  <div className="text-gray-500 dark:text-gray-500 text-[10px] uppercase tracking-wide">Published</div>
+                  <div className="text-muted text-[10px] uppercase tracking-wide">Published</div>
                   <div className="font-medium">{formatDate(frontmatter.datePublished)}</div>
                 </div>
               </div>

@@ -658,31 +658,31 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
     return (
       <div 
         key={section.id}
-        className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden"
+        className="bg-tertiary rounded-lg shadow-sm border overflow-hidden"
       >
         {/* Section Header */}
         <div 
-          className="px-4 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700"
+          className="px-4 py-3 bg-secondary border-b"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">
+              <h3 className="text-sm text-secondary font-semibold">
                 {section.title}
               </h3>
               {section.badge && (
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-900 text-blue-200">
                   {section.badge}
                 </span>
               )}
             </div>
             <div className="flex items-center space-x-2">
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-xs text-muted">
                 {section.fields.length} {section.fields.length === 1 ? 'field' : 'fields'}
               </span>
             </div>
           </div>
           {section.description && (
-            <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+            <p className="text-xs text-muted mt-1">
               {section.description}
             </p>
           )}
@@ -702,7 +702,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
   const renderField = (field: SmartField) => {
     const renderValue = (value: any) => {
       if (value === null || value === undefined) {
-        return <span className="text-gray-400 italic">Not specified</span>;
+        return <span className="text-tertiary italic">Not specified</span>;
       }
 
       if (Array.isArray(value)) {
@@ -711,28 +711,28 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           return (
             <div className="space-y-3">
               {value.map((metric: any, index: number) => (
-                <div key={index} className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800 hover:shadow-sm transition-shadow">
-                  <div className="font-medium text-blue-900 dark:text-blue-100 mb-2 flex items-center gap-2">
+                <div key={index} className="bg-blue-900/20 p-3 rounded-lg border border-blue-200800 hover:shadow-sm transition-shadow">
+                  <div className="font-medium text-blue-900100 mb-2 flex items-center gap-2">
                     <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                     {metric.metric}
                   </div>
                   {metric.description && (
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                    <p className="text-sm mb-2">
                       {metric.description}
                     </p>
                   )}
                   {metric.typicalRanges && (
-                    <div className="text-xs text-gray-600 dark:text-gray-400 mb-2">
+                    <div className="text-xs text-muted mb-2">
                       <strong>Range:</strong> {metric.typicalRanges}
                     </div>
                   )}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-xs">
                     {metric.units && metric.units.length > 0 && (
                       <div>
-                        <strong className="text-gray-700 dark:text-gray-300">Units:</strong>
+                        <strong className="text-secondary">Units:</strong>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {metric.units.map((unit: string, i: number) => (
-                            <span key={i} className="bg-gray-200 dark:bg-gray-700 px-1.5 py-0.5 rounded text-xs">
+                            <span key={i} className="bg-primary px-1.5 py-0.5 rounded text-xs">
                               {unit}
                             </span>
                           ))}
@@ -741,20 +741,20 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
                     )}
                     {metric.measurementMethods && metric.measurementMethods.length > 0 && (
                       <div>
-                        <strong className="text-gray-700 dark:text-gray-300">Methods:</strong>
+                        <strong className="text-secondary">Methods:</strong>
                         <div className="mt-1">
                           {metric.measurementMethods.map((method: string, i: number) => (
-                            <div key={i} className="text-gray-600 dark:text-gray-400">• {method}</div>
+                            <div key={i} className="text-muted">• {method}</div>
                           ))}
                         </div>
                       </div>
                     )}
                     {metric.factorsAffecting && metric.factorsAffecting.length > 0 && (
                       <div>
-                        <strong className="text-gray-700 dark:text-gray-300">Factors:</strong>
+                        <strong className="text-secondary">Factors:</strong>
                         <div className="mt-1">
                           {metric.factorsAffecting.map((factor: string, i: number) => (
-                            <div key={i} className="text-gray-600 dark:text-gray-400">• {factor}</div>
+                            <div key={i} className="text-muted">• {factor}</div>
                           ))}
                         </div>
                       </div>
@@ -775,18 +775,18 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
                 if (!title) return null;
                 
                 return (
-                  <div key={index} className="bg-green-50 dark:bg-green-900/20 p-2 rounded border border-green-200 dark:border-green-800">
-                    <div className="font-medium text-green-900 dark:text-green-100 text-sm flex items-center gap-1">
+                  <div key={index} className="bg-green-900/20 p-2 rounded border border-green-200800">
+                    <div className="font-medium text-green-900100 text-sm flex items-center gap-1">
                       <span className="text-green-600">🌱</span>
                       {title}
                     </div>
                     {item.description && (
-                      <p className="text-xs text-green-700 dark:text-green-300 mt-1">
+                      <p className="text-xs text-green-700300 mt-1">
                         {item.description}
                       </p>
                     )}
                     {item.quantifiedBenefits && (
-                      <p className="text-xs font-medium text-green-800 dark:text-green-200 mt-1">
+                      <p className="text-xs font-medium text-green-800200 mt-1">
                         📊 {item.quantifiedBenefits}
                       </p>
                     )}
@@ -803,7 +803,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             {value.map((item, index) => (
               <span 
                 key={index}
-                className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gray-100 text-muted hover:bg-gray-200:bg-tertiary transition-colors"
               >
                 {typeof item === 'object' ? JSON.stringify(item) : String(item)}
               </span>
@@ -816,17 +816,17 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         // Special handling for single outcome metric objects
         if (value && 'metric' in value) {
           return (
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
-              <div className="font-medium text-blue-900 dark:text-blue-100 mb-2">
+            <div className="bg-blue-900/20 p-3 rounded-lg border border-blue-200800">
+              <div className="font-medium text-blue-900100 mb-2">
                 {value.metric}
               </div>
               {value.description && (
-                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                <p className="text-sm mb-2">
                   {value.description}
                 </p>
               )}
               {value.typicalRanges && (
-                <div className="text-xs text-gray-600 dark:text-gray-400">
+                <div className="text-xs text-muted">
                   <strong>Range:</strong> {value.typicalRanges}
                 </div>
               )}
@@ -836,7 +836,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         
         // Default object handling
         return (
-          <div className="text-sm font-mono bg-gray-50 dark:bg-gray-800 p-2 rounded border">
+          <div className="text-sm font-mono bg-secondary p-2 rounded border">
             <pre className="whitespace-pre-wrap text-xs">
               {JSON.stringify(value, null, 2)}
             </pre>
@@ -848,33 +848,33 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         return (
           <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
             value 
-              ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' 
-              : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+              ? 'bg-green-900 text-green-200' 
+              : 'bg-red-900 text-red-200'
           }`}>
             {value ? 'Yes' : 'No'}
           </span>
         );
       }
 
-      return <span className="text-gray-900 dark:text-gray-100">{String(value)}</span>;
+      return <span className="text-primary">{String(value)}</span>;
     };
 
     return (
-      <div key={field.key} className="flex items-start justify-between py-2 border-b border-gray-100 dark:border-gray-700 last:border-b-0">
+      <div key={field.key} className="flex items-start justify-between py-2 border-b last:border-b-0">
         <div className="flex-1 min-w-0 mr-4">
           <div className="flex items-center space-x-2">
-            <dt className="text-sm font-medium text-gray-600 dark:text-gray-300">
+            <dt className="text-sm font-medium text-muted">
               {field.label}
             </dt>
             {field.unit && (
-              <span className="text-xs text-gray-500 dark:text-gray-400">
+              <span className="text-xs text-muted">
                 ({field.unit})
               </span>
             )}
             {field.confidence && (
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1">
-                  <div className="w-16 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                  <div className="w-16 h-2 bg-primary rounded-full overflow-hidden">
                     <div 
                       className={`h-full transition-all duration-300 rounded-full ${
                         field.confidence >= 0.95 ? 'bg-green-500' :
@@ -884,9 +884,9 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
                     ></div>
                   </div>
                   <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium ${
-                    field.confidence >= 0.95 ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' :
-                    field.confidence >= 0.90 ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' :
-                    'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                    field.confidence >= 0.95 ? 'bg-green-900 text-green-200' :
+                    field.confidence >= 0.90 ? 'bg-yellow-900 text-yellow-200' :
+                    'bg-red-900 text-red-200'
                   }`}>
                     {Math.round(field.confidence * 100)}% confidence
                   </span>
@@ -895,7 +895,7 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
             )}
           </div>
           {field.description && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-xs text-muted mt-1">
               {field.description}
             </p>
           )}
@@ -915,8 +915,8 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           {sectionTitle && (
             <SectionTitle title={sectionTitle} className="mb-4" />
           )}
-          <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-            <p className="text-gray-500 dark:text-gray-400 text-center">
+          <div className="bg-tertiary rounded-lg shadow-sm border p-6">
+            <p className="text-muted text-center">
               No table data available
             </p>
           </div>
@@ -960,25 +960,25 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
           <SectionTitle title={sectionTitle} className="mb-4" />
         )}
         
-        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <div className="bg-tertiary rounded-lg shadow-sm border overflow-hidden">
           <table className="w-full">
-            <thead className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+            <thead className="bg-secondary border-b">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                   Property
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
                   Value
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+            <tbody className="divide-y divide-gray-200700">
               {rows.map((row, index) => (
-                <tr key={row.key} className={index % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800/50'}>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap">
+                <tr key={row.key} className={index % 2 === 0 ? 'bg-tertiary' : 'bg-secondary'}>
+                  <td className="px-6 py-4 text-sm font-medium whitespace-nowrap">
                     {row.label}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                  <td className="px-6 py-4 text-sm">
                     {Array.isArray(row.value) ? row.value.join(', ') : String(row.value)}
                   </td>
                 </tr>
@@ -1003,8 +1003,8 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
         {showHeader && caption && (
           <SectionTitle title={caption} className="mb-4" />
         )}
-        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
-          <p className="text-gray-500 dark:text-gray-400 text-center">
+        <div className="bg-tertiary rounded-lg shadow-sm border p-6">
+          <p className="text-muted text-center">
             No table data available
           </p>
         </div>
@@ -1014,8 +1014,8 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
     console.error('Error rendering Smart Table:', error);
     return (
       <div className={`enhanced-table-container ${className}`}>
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
-          <p className="text-red-800 dark:text-red-200 text-sm">
+        <div className="bg-red-900/20 border border-red-200800 rounded-lg p-4">
+          <p className="text-red-800200 text-sm">
             Error rendering table data. Please check the console for details.
           </p>
         </div>

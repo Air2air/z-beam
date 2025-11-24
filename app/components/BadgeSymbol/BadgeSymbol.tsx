@@ -84,8 +84,8 @@ export function BadgeSymbol({ config }: BadgeSymbolProps) {
 
   // Default text colors - consistent styling
   const textColorConfig = {
-    default: "text-gray-100", // Light text for red background
-    number: "text-gray-200"
+    default: "text-primary", // Light text for red background
+    number: "text-primary"
   };
 
   // Utility function to format chemical formula with subscripts
@@ -114,14 +114,14 @@ export function BadgeSymbol({ config }: BadgeSymbolProps) {
     <div className={containerClasses}>
       {/* Atomic number if available */}
       {atomicNumber && (
-        <span className={`${sizes.number} ${textColorConfig.number} relative z-[100] opacity-100 text-white`}>
+        <span className={`${sizes.number} ${textColorConfig.number} relative z-[100] opacity-100`}>
           {atomicNumber}
         </span>
       )}
 
       {/* Symbol or Formula - Use subscripts for numbers in formulas */}
       <span
-        className={`${sizes.symbol} ${textColorConfig.default} leading-tight relative z-[100] opacity-100 text-white`}
+        className={`${sizes.symbol} ${textColorConfig.default} leading-tight relative z-[100] opacity-100`}
       >
         {isComplexFormula ? (
           <span

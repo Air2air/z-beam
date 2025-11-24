@@ -7,7 +7,7 @@ import React from 'react';
  */
 
 export const H1: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h1 className={`tracking-tight mt-6 mb-2 text-neutral-900 dark:text-neutral-100 ${className}`}>
+  <h1 className={`tracking-tight mt-6 mb-2 ${className}`}>
     {children}
   </h1>
 );
@@ -43,7 +43,7 @@ export const H6: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 export const P: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <p className={`my-6 text-neutral-800 dark:text-neutral-200 ${className}`}>
+  <p className={`my-6 ${className}`}>
     {children}
   </p>
 );
@@ -60,7 +60,7 @@ export const A: React.FC<{
   return (
     <a 
       href={href}
-      className={`underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 ${className}`}
+      className={`underline transition-all decoration-neutral-400600 underline-offset-2 ${className}`}
       target={target || (isExternal ? '_blank' : undefined)}
       rel={rel || (isExternal ? 'noopener noreferrer' : undefined)}
     >
@@ -90,19 +90,19 @@ export const LI: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 export const Code: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <code className={`px-1 py-0.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 font-mono text-sm ${className}`}>
+  <code className={`px-1 py-0.5 rounded-lg bg-neutral-100 font-mono text-sm ${className}`}>
     {children}
   </code>
 );
 
 export const Pre: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <pre className={`bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-700 py-2 px-3 text-sm my-6 ${className}`}>
+  <pre className={`bg-neutral-50 rounded-lg overflow-x-auto border py-2 px-3 text-sm my-6 ${className}`}>
     {children}
   </pre>
 );
 
 export const Blockquote: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <blockquote className={`border-l-4 border-neutral-300 dark:border-neutral-700 pl-4 my-6 italic text-neutral-700 dark:text-neutral-300 ${className}`}>
+  <blockquote className={`border-l-4 pl-4 my-6 italic ${className}`}>
     {children}
   </blockquote>
 );

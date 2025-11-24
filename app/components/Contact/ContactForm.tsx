@@ -132,12 +132,12 @@ export const ContactForm = memo(function ContactForm() {
           tabIndex={-1}
           role="alert"
           aria-labelledby="error-summary-title"
-          className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg"
+          className="p-4 bg-red-900/20 border border-red-200800 rounded-lg"
         >
-          <h3 id="error-summary-title" className="text-red-800 dark:text-red-300 mb-2">
+          <h3 id="error-summary-title" className="text-secondary mb-2">
             Please correct the following errors:
           </h3>
-          <ul className="list-disc list-inside space-y-1 text-sm text-red-700 dark:text-red-400">
+          <ul className="list-disc list-inside space-y-1 text-sm text-red-700400">
             {Object.entries(errors).map(([field, error]) => (
               <li key={field}>
                 <a href={`#${field}`} className="underline hover:no-underline">
@@ -152,7 +152,7 @@ export const ContactForm = memo(function ContactForm() {
       {/* Name and Email Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="name" className="block text-sm mb-2">
               Full Name <span aria-label="required">*</span>
             </label>
             <input
@@ -165,20 +165,20 @@ export const ContactForm = memo(function ContactForm() {
               aria-required="true"
               aria-invalid={errors.name ? 'true' : 'false'}
               aria-describedby={errors.name ? 'name-error' : undefined}
-              className={`w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
-                errors.name ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'
+              className={`w-full px-4 py-2 border rounded-lg bg-secondary placeholder-gray-500400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
+                errors.name ? 'border-red-500400' : 'border-gray-600'
               }`}
               placeholder="Your full name"
             />
             {errors.name && (
-              <p id="name-error" role="alert" className="mt-1 text-sm text-red-600 dark:text-red-400">
+              <p id="name-error" role="alert" className="mt-1 text-sm text-red-600400">
                 {errors.name}
               </p>
             )}
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-sm mb-2">
               Email Address <span aria-label="required">*</span>
             </label>
             <input
@@ -191,13 +191,13 @@ export const ContactForm = memo(function ContactForm() {
               aria-required="true"
               aria-invalid={errors.email ? 'true' : 'false'}
               aria-describedby={errors.email ? 'email-error' : undefined}
-              className={`w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
-                errors.email ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'
+              className={`w-full px-4 py-2 border rounded-lg bg-secondary placeholder-gray-500400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
+                errors.email ? 'border-red-500400' : 'border-gray-600'
               }`}
               placeholder="your@email.com"
             />
             {errors.email && (
-              <p id="email-error" role="alert" className="mt-1 text-sm text-red-600 dark:text-red-400">
+              <p id="email-error" role="alert" className="mt-1 text-sm text-red-600400">
                 {errors.email}
               </p>
             )}
@@ -206,8 +206,8 @@ export const ContactForm = memo(function ContactForm() {
 
         {/* Phone Number */}
         <div>
-          <label htmlFor="phone" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
-            Phone Number <span className="text-gray-500 text-xs">(optional)</span>
+          <label htmlFor="phone" className="block text-sm mb-2">
+            Phone Number <span className="text-muted text-xs">(optional)</span>
           </label>
           <input
             type="tel"
@@ -216,14 +216,14 @@ export const ContactForm = memo(function ContactForm() {
             autoComplete="tel"
             value={formData.phone}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none"
+            className="w-full px-4 py-2 border bg-secondary placeholder-gray-500400 rounded-lg focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none"
             placeholder="(650) 241-8510"
           />
         </div>
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="block text-sm text-gray-700 dark:text-gray-300 mb-2">
+          <label htmlFor="message" className="block text-sm mb-2">
             Message <span aria-label="required">*</span>
           </label>
           <textarea
@@ -235,16 +235,16 @@ export const ContactForm = memo(function ContactForm() {
             aria-required="true"
             aria-invalid={errors.message ? 'true' : 'false'}
             aria-describedby={errors.message ? 'message-error' : 'message-hint'}
-            className={`w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
-              errors.message ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'
+            className={`w-full px-4 py-2 border rounded-lg bg-secondary placeholder-gray-500400 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent focus-visible:outline-none ${
+              errors.message ? 'border-red-500400' : 'border-gray-600'
             }`}
             placeholder="Please provide details about your inquiry, including any specific requirements or questions you have about our laser cleaning solutions."
           />
-          <p id="message-hint" className="mt-1 text-xs text-gray-500 dark:text-gray-400">
+          <p id="message-hint" className="mt-1 text-xs text-muted">
             Minimum 10 characters required
           </p>
           {errors.message && (
-            <p id="message-error" role="alert" className="mt-1 text-sm text-red-600 dark:text-red-400">
+            <p id="message-error" role="alert" className="mt-1 text-sm text-red-600400">
               {errors.message}
             </p>
           )}
@@ -260,8 +260,8 @@ export const ContactForm = memo(function ContactForm() {
             aria-atomic="true"
             className={`p-4 rounded-lg ${
               submitStatus.type === 'success' 
-                ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-800 dark:text-green-300' 
-                : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-800 dark:text-red-300'
+                ? 'bg-green-900/20 border border-green-200800 text-green-800300' 
+                : 'bg-red-900/20 border border-red-200800 text-red-800300'
             }`}
           >
             {submitStatus.message}
@@ -283,7 +283,7 @@ export const ContactForm = memo(function ContactForm() {
           </Button>
         </div>
 
-        <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
+        <p className="text-sm text-muted text-center">
           * Required fields. We typically respond within 24 hours during business days.
         </p>
       </form>

@@ -123,12 +123,12 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                       .map(([key, value]) => (
                         <div 
                           key={key} 
-                          className="bg-gray-800 bg-opacity-90 p-3 rounded-lg backdrop-blur-sm"
+                          className="bg-secondary bg-opacity-90 p-3 rounded-lg backdrop-blur-sm"
                         >
-                          <dt className="text-xs text-gray-400 uppercase mb-1">
+                          <dt className="text-xs text-tertiary uppercase mb-1">
                             {key.replace(/_/g, ' ')}
                           </dt>
-                          <dd className="text-sm text-white">
+                          <dd className="text-sm">
                             <data 
                               value={value}
                               data-property={key}
@@ -161,7 +161,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                 <h4>
                   Before Treatment
                 </h4>
-                <div className="text-gray-300 text-sm leading-relaxed">
+                <div className="text-secondary text-sm leading-relaxed">
                   <MarkdownRenderer content={emphasizeFirstSentence(captionData.beforeText)} />
                 </div>
               </div>
@@ -171,7 +171,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                 <h4>
                   After Treatment
                 </h4>
-                <div className="text-gray-300 text-sm leading-relaxed">
+                <div className="text-secondary text-sm leading-relaxed">
                   <MarkdownRenderer content={emphasizeFirstSentence(captionData.afterText)} />
                 </div>
               </div>

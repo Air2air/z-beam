@@ -19,7 +19,7 @@ export default function CallToAction() {
           <div className="flex items-center justify-center h-[80px]">
             <a
               href={SITE_CONFIG.contact.general.phoneHref}
-              className="text-sm sm:text-base md:text-xl lg:text-2xl text-white hover:text-gray-100 active:text-gray-200 transition-colors duration-200 inline-block touch-manipulation
+              className="text-sm sm:text-base md:text-xl lg:text-2xl hover:text-primary active:text-primary transition-colors duration-200 inline-block touch-manipulation
                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-orange rounded-md px-2 py-1"
               aria-label={`Call us at ${SITE_CONFIG.contact.general.phone} for immediate assistance`}
             >

@@ -188,7 +188,7 @@ export default function BulkDownload({ materials, categoryStats }: BulkDownloadP
 
       {/* Category Bundles - Using DatasetCard */}
       <div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-xl text-secondary font-bold mb-4">
           Category Bundles
         </h3>
         <div className={getGridClasses({ columns: 3, gap: "md" })}>
