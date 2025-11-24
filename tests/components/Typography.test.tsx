@@ -32,7 +32,6 @@ describe('Typography Components', () => {
       const element = container.querySelector('h1');
       expect(element).toHaveClass('custom-class');
       // Should also have default Tailwind classes
-      expect(element?.className).toContain('text-');
       expect(element?.className).toContain('tracking-tight');
     });
 

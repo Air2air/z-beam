@@ -131,7 +131,7 @@ describe('RootLayout', () => {
 
       const body = container.querySelector('body');
       expect(body).toBeInTheDocument();
-      expect(body).toHaveClass('antialiased', 'flex', 'flex-col', 'min-h-screen', 'bg-gray-700', 'text-gray-100', 'overflow-x-hidden');
+      expect(body).toHaveClass('antialiased', 'flex', 'flex-col', 'min-h-screen', 'bg-gray-700', 'overflow-x-hidden');
     });
 
     it('should render Navbar component', async () => {

@@ -127,7 +127,7 @@ describe('Author Component', () => {
         );
         
         expect(screen.getByText(title)).toBeInTheDocument();
-        expect(screen.getByText(title)).toHaveClass('text-gray-600', 'dark:text-gray-400');
+        expect(screen.getByText(title)).toHaveClass('text-secondary');
         
         unmount();
       });
@@ -163,7 +163,7 @@ describe('Author Component', () => {
         );
         
         expect(screen.getByText(country)).toBeInTheDocument();
-        expect(screen.getByText(country)).toHaveClass('text-sm', 'text-gray-500');
+        expect(screen.getByText(country)).toHaveClass('text-tertiary');
         
         unmount();
       });
@@ -181,7 +181,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: longExpertiseAuthor }} />);
       
       expect(screen.getByText(longExpertise)).toBeInTheDocument();
-      expect(screen.getByText(longExpertise)).toHaveClass('text-sm', 'text-gray-600', 'dark:text-gray-400');
+      expect(screen.getByText(longExpertise)).toHaveClass('text-sm', 'text-tertiary');
     });
 
     test('handles short expertise descriptions', () => {
@@ -235,7 +235,7 @@ describe('Author Component', () => {
       
       const link = screen.getByRole('link');
       expect(link).toHaveClass(
-        'hover:bg-gray-800/40',
+        'hover:bg-primary-hover',
         'transition-colors'
       );
     });

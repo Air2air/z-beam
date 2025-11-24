@@ -239,8 +239,8 @@ describe('PropertyBars Component', () => {
 
       const { container } = render(<PropertyBars metadata={metadata} dataSource="materialProperties" />);
 
-      // Check for gray-600 background class on badge
-      const badges = container.querySelectorAll('.bg-gray-600');
+      // Check for secondary background class on badge
+      const badges = container.querySelectorAll('.bg-secondary');
       expect(badges.length).toBeGreaterThan(0);
     });
   });
