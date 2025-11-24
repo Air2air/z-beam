@@ -20,7 +20,7 @@ import { Title } from "../components/Title";
 
 export const metadata = {
   title: 'Contact Z-Beam',
-  description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
+  description: 'Precision laser cleaning quotes for aerospace, marine, automotive & heritage projects. No chemicals, no substrate damage. Same-day response. Bay Area mobile service.',
   robots: {
     index: false,
     follow: true,
@@ -30,7 +30,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'Contact Z-Beam',
-    description: 'Get in touch with Z-Beam\'s team of laser cleaning experts for consultations, demonstrations, or information about our industrial cleaning solutions.',
+    description: 'Precision laser cleaning quotes for aerospace, marine, automotive & heritage. No chemicals, no substrate damage. Same-day response.',
     url: `${SITE_CONFIG.url}/contact`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -46,7 +46,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Z-Beam',
-    description: 'Get in touch with Z-Beam\'s team of laser cleaning experts.',
+    description: 'Precision laser cleaning for aerospace, marine, automotive & heritage. No chemicals, no damage. Same-day response.',
   },
 };
 

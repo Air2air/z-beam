@@ -470,6 +470,7 @@ async function validateJSONLD() {
       return [schema['@type']];
     }).filter(Boolean);
     
+    // Core schemas expected on all pages
     const expectedTypes = ['WebSite', 'WebPage', 'Organization', 'BreadcrumbList'];
     expectedTypes.forEach(type => {
       const present = schemaTypes.some(t => 
@@ -482,12 +483,119 @@ async function validateJSONLD() {
       );
     });
     
+    // Check if this is a material page by URL pattern
+    const isMaterialPage = TARGET_URL.includes('/materials/');
+    if (isMaterialPage) {
+      // Material-specific schemas that should be present
+      const materialSchemas = ['Article', 'FAQPage', 'Dataset', 'Person', 'ImageObject'];
+      materialSchemas.forEach(type => {
+        const present = schemaTypes.some(t => 
+          Array.isArray(t) ? t.includes(type) : t === type
+        );
+        addResult('jsonld', `Material Schema: ${type}`,
+          present,
+          present ? `${type} schema present on material page` : `Missing ${type} schema on material page`,
+          { schemaType: type, present, critical: type === 'Article' }
+        );
+      });
+      
+      // Check for @graph structure on material pages
+      const hasGraphStructure = schemas.some(s => s['@graph'] && s['@graph'].length > 5);
+      addResult('jsonld', '@graph Structure',
+        hasGraphStructure,
+        hasGraphStructure ? '@graph with multiple schemas found' : 'Missing @graph structure',
+        { hasGraph: hasGraphStructure }
+      );
+    }
+    
     console.log(`  ✓ ${validSchemas} valid JSON-LD schemas`);
     
   } catch (error) {
     console.error(`  ✗ JSON-LD validation failed: ${error.message}`);
     addResult('jsonld', 'JSON-LD Check', false, error.message);
   }
+}
+
+// ============================================================================
+// CATEGORY: Material Page Schema Validation
+// ============================================================================
+async function validateMaterialPageSchemas() {
+  console.log('\\n🔬 Validating Material Page Schemas...');
+  
+  // Sample material pages to test
+  const materialPages = [
+    '/materials/metal/non-ferrous/aluminum-laser-cleaning',
+    '/materials/metal/ferrous/stainless-steel-laser-cleaning',
+    '/materials/composite/fiber-reinforced-polymer-laser-cleaning'
+  ];
+  
+  const requiredSchemas = ['Article', 'FAQPage', 'Dataset', 'Person', 'ImageObject'];
+  let testedPages = 0;
+  let pagesWithAllSchemas = 0;
+  
+  for (const pagePath of materialPages) {
+    try {
+      const pageUrl = new URL(pagePath, TARGET_URL).toString();
+      const response = await fetchUrl(pageUrl);
+      
+      if (response.statusCode !== 200) {
+        console.log(`  ⚠️  Skipping ${pagePath} (status: ${response.statusCode})`);
+        continue;
+      }
+      
+      const html = response.body;
+      const jsonldMatches = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi) || [];
+      
+      const schemaTypes = [];
+      jsonldMatches.forEach(match => {
+        try {
+          const jsonContent = match.replace(/<script[^>]*>/, '').replace(/<\/script>/, '').trim();
+          const schema = JSON.parse(jsonContent);
+          
+          if (schema['@graph']) {
+            schema['@graph'].forEach(item => {
+              if (item['@type']) schemaTypes.push(item['@type']);
+            });
+          } else if (schema['@type']) {
+            schemaTypes.push(schema['@type']);
+          }
+        } catch (e) {
+          // Skip invalid JSON
+        }
+      });
+      
+      testedPages++;
+      const missingSchemas = requiredSchemas.filter(type => !schemaTypes.includes(type));
+      
+      if (missingSchemas.length === 0) {
+        pagesWithAllSchemas++;
+        console.log(`  ✓ ${pagePath.split('/').pop()} - All schemas present`);
+      } else {
+        console.log(`  ✗ ${pagePath.split('/').pop()} - Missing: ${missingSchemas.join(', ')}`);
+      }
+      
+      // Add result for this page
+      addResult('material-schemas', `Page: ${pagePath.split('/').pop()}`,
+        missingSchemas.length === 0,
+        missingSchemas.length === 0 ? 'All required schemas present' : `Missing: ${missingSchemas.join(', ')}`,
+        { pagePath, schemaTypes, missingSchemas }
+      );
+      
+    } catch (error) {
+      console.log(`  ✗ Error testing ${pagePath}: ${error.message}`);
+      addResult('material-schemas', `Page: ${pagePath}`, false, error.message);
+    }
+  }
+  
+  // Overall material schema consistency check
+  const consistencyRate = testedPages > 0 ? Math.round((pagesWithAllSchemas / testedPages) * 100) : 0;
+  addResult('material-schemas', 'Schema Consistency',
+    consistencyRate >= 80,
+    `${pagesWithAllSchemas}/${testedPages} pages have all required schemas (${consistencyRate}%)`,
+    { testedPages, pagesWithAllSchemas, consistencyRate }
+  );
+  
+  console.log(`  📊 Consistency: ${consistencyRate}% (${pagesWithAllSchemas}/${testedPages} pages)`);
 }
 
 // ============================================================================
@@ -571,6 +679,11 @@ async function main() {
     }
     if (CATEGORY === 'all' || CATEGORY === 'jsonld' || CATEGORY === 'structured-data') {
       await validateJSONLD();
+      
+      // Additionally test material pages for comprehensive schema coverage
+      if (CATEGORY === 'all') {
+        await validateMaterialPageSchemas();
+      }
     }
     if (CATEGORY === 'all') {
       await validateAdditional();

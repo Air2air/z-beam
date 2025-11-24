@@ -43,6 +43,7 @@
     "validate:seo": "node scripts/validation/seo/validate-modern-seo.js",
     "validate:performance": "node scripts/validation/seo/validate-core-web-vitals.js",
     "validate:urls": "node scripts/validation/jsonld/validate-jsonld-urls.js",
+    "validate:schemas:live": "node scripts/validation/validate-schemas-live.js",
     "cache:clear": "rm -rf .validation-cache",
     "cache:stats": "node -e \"const ValidationCache = require('./scripts/validation/lib/cache'); console.log(ValidationCache.getStats());\"",
     "logs:view": "ls -lht .terminal-logs/**/*.log 2>/dev/null | head -20 || echo 'No logs yet'",

@@ -13,13 +13,13 @@ export const revalidate = false;
 
 export const metadata = {
   title: `Professional Laser Cleaning Services | ${SITE_CONFIG.name}`,
-  description: `Professional on-site laser cleaning services. Expert technicians, state-of-the-art equipment, and comprehensive industrial cleaning solutions.`,
+  description: `Precision laser cleaning: no chemicals, no abrasives, no substrate damage. Faster setup than sandblasting, zero hazardous waste. Bay Area mobile service.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/services`,
   },
   openGraph: {
     title: `Professional Laser Cleaning Services | ${SITE_CONFIG.name}`,
-    description: `Professional on-site laser cleaning services. Expert technicians, state-of-the-art equipment, and comprehensive industrial cleaning solutions.`,
+    description: `Precision laser cleaning: no chemicals, no abrasives, no substrate damage. Faster setup than sandblasting, zero hazardous waste. Bay Area mobile service.`,
     url: `${SITE_CONFIG.url}/services`,
     siteName: SITE_CONFIG.name,
     type: 'website',
@@ -35,7 +35,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: `Professional Laser Cleaning Services | ${SITE_CONFIG.name}`,
-    description: `Professional on-site laser cleaning with expert technicians.`,
+    description: `Precision laser cleaning: no chemicals, no substrate damage. Faster than sandblasting. Bay Area service.`,
   },
 };
 
