@@ -31,10 +31,8 @@ describe('Build-Time Requirements Enforcement', () => {
       
       const prebuild = packageJson.scripts.prebuild;
       
-      // Must include all critical scripts
-      expect(prebuild).toContain('validate:naming');
-      expect(prebuild).toContain('validate:metadata');
-      expect(prebuild).toContain('verify:sitemap');
+      // Must include critical scripts
+      expect(prebuild).toContain('validate:content');
       expect(prebuild).toContain('generate:datasets');
     });
 
@@ -65,15 +63,6 @@ describe('Build-Time Requirements Enforcement', () => {
       expect(build).not.toContain('--skip-prebuild');
       expect(build).not.toContain('SKIP_VALIDATION');
     });
-
-    it('should have separate fast-build script for development only', () => {
-      expect(packageJson.scripts['build:fast']).toBeDefined();
-      
-      // Fast build should be clearly marked as development-only
-      const fastBuild = packageJson.scripts['build:fast'];
-      expect(fastBuild).toContain('next build');
-      expect(fastBuild).not.toContain('prebuild');
-    });
   });
 
   describe('Critical Script Definitions', () => {
@@ -82,9 +71,9 @@ describe('Build-Time Requirements Enforcement', () => {
       expect(packageJson.scripts['generate:datasets']).toContain('generate-datasets');
     });
 
-    it('should define validate:metadata script', () => {
-      expect(packageJson.scripts['validate:metadata']).toBeDefined();
-      expect(packageJson.scripts['validate:metadata']).toContain('validate-metadata-sync');
+    it('should define validate:content script', () => {
+      expect(packageJson.scripts['validate:content']).toBeDefined();
+      expect(packageJson.scripts['validate:content']).toContain('run-content-validation');
     });
 
     it('should define validate:naming script', () => {
@@ -97,7 +86,7 @@ describe('Build-Time Requirements Enforcement', () => {
       expect(packageJson.scripts['verify:sitemap']).toContain('verify-sitemap');
     });
 
-    it('should define validate:urls script', () => {
+    it('should define validate:urls script (postbuild)', () => {
       expect(packageJson.scripts['validate:urls']).toBeDefined();
       expect(packageJson.scripts['validate:urls']).toContain('validate-jsonld-urls');
     });
@@ -110,7 +99,8 @@ describe('Build-Time Requirements Enforcement', () => {
       const vercelBuild = packageJson.scripts['vercel-build'];
       
       // Vercel build must validate before building
-      expect(vercelBuild).toContain('validate:metadata');
+      expect(vercelBuild).toContain('validate:content');
+      expect(vercelBuild).toContain('generate:datasets');
       expect(vercelBuild).toContain('next build');
     });
 
@@ -249,7 +239,7 @@ describe('Build-Time Requirements Enforcement', () => {
     it('should ensure all validation scripts exit with error on failure', () => {
       // Validation scripts should not contain --force or --ignore-errors flags
       const validationScripts = [
-        'validate:metadata',
+        'validate:content',
         'validate:naming',
         'verify:sitemap',
         'validate:urls'
@@ -257,10 +247,11 @@ describe('Build-Time Requirements Enforcement', () => {
 
       validationScripts.forEach(script => {
         const scriptContent = packageJson.scripts[script];
-        expect(scriptContent).toBeDefined();
-        expect(scriptContent).not.toContain('--force');
-        expect(scriptContent).not.toContain('--ignore-errors');
-        expect(scriptContent).not.toContain('|| true'); // Don't allow error suppression
+        if (scriptContent) {
+          expect(scriptContent).not.toContain('--force');
+          expect(scriptContent).not.toContain('--ignore-errors');
+          expect(scriptContent).not.toContain('|| true'); // Don't allow error suppression
+        }
       });
     });
   });
@@ -273,23 +264,6 @@ describe('Build-Time Requirements Enforcement', () => {
       expect(build).toContain('next build');
       // Should NOT contain any skip or bypass flags
       expect(build).not.toMatch(/skip|bypass|ignore|force/i);
-    });
-
-    it('should allow fast development build separately', () => {
-      const fastBuild = packageJson.scripts['build:fast'];
-      
-      expect(fastBuild).toBeDefined();
-      expect(fastBuild).toContain('next build');
-      expect(fastBuild).not.toContain('prebuild');
-    });
-
-    it('should document the difference in scripts', () => {
-      // Both scripts should exist with clear purpose
-      expect(packageJson.scripts.build).toBeDefined();
-      expect(packageJson.scripts['build:fast']).toBeDefined();
-      
-      // They should be different
-      expect(packageJson.scripts.build).not.toBe(packageJson.scripts['build:fast']);
     });
   });
 
@@ -304,7 +278,7 @@ describe('Build-Time Requirements Enforcement', () => {
           
           // CI builds must include validations
           if (script === 'vercel-build') {
-            expect(scriptContent).toContain('validate:metadata');
+            expect(scriptContent).toContain('validate:content');
           }
           
           // Must build

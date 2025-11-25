@@ -19,12 +19,12 @@ jest.mock('../../app/search/search-client', () => {
   };
 });
 
-// Mock Layout component to capture title and subtitle
+// Mock Layout component to capture title and description
 jest.mock('../../app/components/Layout/Layout', () => ({
-  Layout: ({ title, subtitle, children }: any) => (
+  Layout: ({ title, description, children }: any) => (
     <div data-testid="layout">
       <h1 data-testid="layout-title">{title}</h1>
-      <p data-testid="layout-subtitle">{subtitle}</p>
+      <p data-testid="layout-description">{description}</p>
       {children}
     </div>
   ),
@@ -32,7 +32,7 @@ jest.mock('../../app/components/Layout/Layout', () => ({
 
 const { useSearchParams } = require('next/navigation');
 
-describe('SearchWrapper Subtitle Tests', () => {
+describe('SearchWrapper Description Tests', () => {
   const mockArticles: Article[] = [
     {
       slug: 'material-1',
@@ -54,8 +54,8 @@ describe('SearchWrapper Subtitle Tests', () => {
     jest.clearAllMocks();
   });
 
-  describe('Property Search Subtitle Format', () => {
-    it('should display subtitle with ± symbol for property searches', () => {
+  describe('Property Search Description Format', () => {
+    it('should display description with ± symbol for property searches', () => {
       useSearchParams.mockReturnValue({
         get: (key: string) => {
           if (key === 'property') return 'specificHeat';
@@ -66,7 +66,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       
       // Should contain ± symbol
       expect(subtitle.textContent).toContain('±');
@@ -89,7 +89,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       
       // "specificHeat" should become "Specific Heat"
       expect(subtitle.textContent).toContain('Specific Heat');
@@ -113,7 +113,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       window.dispatchEvent(event);
 
       await waitFor(() => {
-        const subtitle = screen.getByTestId('layout-subtitle');
+        const subtitle = screen.getByTestId('layout-description');
         expect(subtitle.textContent).toContain('W/m·K');
         expect(subtitle.textContent).toMatch(/5 materials found with .+ of ± 52 W\/m·K:/);
       });
@@ -137,7 +137,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       window.dispatchEvent(event);
 
       await waitFor(() => {
-        const subtitle = screen.getByTestId('layout-subtitle');
+        const subtitle = screen.getByTestId('layout-description');
         expect(subtitle.textContent).toContain('1 material found');
         expect(subtitle.textContent).not.toContain('1 materials');
       });
@@ -149,7 +149,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       window.dispatchEvent(event);
 
       await waitFor(() => {
-        const subtitle = screen.getByTestId('layout-subtitle');
+        const subtitle = screen.getByTestId('layout-description');
         expect(subtitle.textContent).toContain('7 materials found');
       });
     });
@@ -165,7 +165,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       expect(subtitle.textContent).toMatch(/:$/);
     });
 
@@ -180,7 +180,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       
       // Should properly space capitals
       expect(subtitle.textContent).toContain('C O2 Absorption');
@@ -198,7 +198,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       expect(subtitle.textContent).toBe('Search results for "aluminum"');
       expect(subtitle.textContent).not.toContain('±');
     });
@@ -212,7 +212,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       expect(subtitle.textContent).toBe('Browse all available materials and articles');
     });
   });
@@ -279,7 +279,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       window.dispatchEvent(event);
 
       await waitFor(() => {
-        const subtitle = screen.getByTestId('layout-subtitle');
+        const subtitle = screen.getByTestId('layout-description');
         expect(subtitle.textContent).toContain('12 materials found');
       });
     });
@@ -300,7 +300,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       render(<SearchWrapper initialArticles={manyArticles} />);
 
       // Should show browse message, not count
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       expect(subtitle.textContent).toBe('Browse all available materials and articles');
     });
   });
@@ -317,7 +317,7 @@ describe('SearchWrapper Subtitle Tests', () => {
 
       render(<SearchWrapper initialArticles={mockArticles} />);
 
-      const subtitle = screen.getByTestId('layout-subtitle');
+      const subtitle = screen.getByTestId('layout-description');
       expect(subtitle.textContent).toContain('± 11.5');
     });
 
@@ -339,7 +339,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       window.dispatchEvent(event);
 
       await waitFor(() => {
-        const subtitle = screen.getByTestId('layout-subtitle');
+        const subtitle = screen.getByTestId('layout-description');
         expect(subtitle.textContent).toContain('J/(kg·K)');
         expect(subtitle.textContent).toContain('±');
       });
@@ -362,7 +362,7 @@ describe('SearchWrapper Subtitle Tests', () => {
       window.dispatchEvent(event);
 
       await waitFor(() => {
-        const subtitle = screen.getByTestId('layout-subtitle');
+        const subtitle = screen.getByTestId('layout-description');
         // Should still show ± without extra space before colon
         expect(subtitle.textContent).toMatch(/± 180:/);
       });

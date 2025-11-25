@@ -56,6 +56,8 @@ machineSettings:
 
 **NOTE:** Parameters are stored directly under `machineSettings`, NOT under a nested `essential_parameters` key.
 
+**Data Completeness:** The `min`, `max`, and `description` fields are populated by the **external Python generator system** (Z-Beam content generation pipeline). This JavaScript dataset generator reads pre-populated values from the YAML frontmatter files.
+
 **Description Merging:** The generation script reads from two sources:
 - `frontmatter/settings/*.yaml` - Structure and values
 - `frontmatter/materials/*-laser-cleaning.yaml` - Parameter descriptions
@@ -221,6 +223,17 @@ Settings data accessible via:
 1. Verify source YAML has all 9 parameters
 2. Check script loops through all parameters without filtering
 3. Ensure paramOrder array includes all 9 parameters
+
+### Missing Min/Max Ranges or Descriptions
+**Symptom:** CSV/TXT files show empty Min, Max, or Description fields
+
+**Cause:** Source YAML files missing these fields (not populated by Python generator)
+
+**Fix:** 
+1. These fields are managed by the **external Python generator system**
+2. Run the Python content generation pipeline to populate missing data
+3. The JavaScript dataset generator only reads existing values from YAML
+4. Do not manually edit YAML files - they are generated content
 
 ### Incorrect Values
 **Symptom:** Parameter values don't match source YAML

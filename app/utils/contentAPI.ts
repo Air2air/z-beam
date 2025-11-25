@@ -36,6 +36,32 @@ const safeContentOperation = async (op: () => Promise<any>, fallback: any, name:
   }
 };
 
+/**
+ * Check if a YAML file has all required fields for article page generation
+ * Required fields: name, title, material_description, category, images, author
+ */
+function isYamlComplete(data: any): boolean {
+  const requiredFields = ['name', 'title', 'material_description', 'category', 'images', 'author'];
+  
+  for (const field of requiredFields) {
+    const value = field.split('.').reduce((obj, key) => obj?.[key], data);
+    if (!value) {
+      return false;
+    }
+  }
+  
+  // Additional validation for nested fields
+  if (!data.author?.name || !data.author?.expertise || !data.author?.country) {
+    return false;
+  }
+  
+  if (!data.images?.hero?.url || !data.images?.micro?.url) {
+    return false;
+  }
+  
+  return true;
+}
+
 // Content directories configuration
 const CONTENT_DIRS = {
   components: {
@@ -138,6 +164,7 @@ const loadFrontmatterDataInline = cache(async (slug: string): Promise<Record<str
 
 /**
  * UNIFIED ARTICLE SLUG GETTER - Consolidates getAllArticleSlugs from contentUtils.ts
+ * FILTERS OUT incomplete YAML files to prevent article page generation
  */
 export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
   return safeContentOperation(async () => {
@@ -148,10 +175,26 @@ export const getAllArticleSlugs = cache(async (): Promise<string[]> => {
     
     if (existsSync(frontmatterDir)) {
       const files = await fs.readdir(frontmatterDir);
-      files
-        .filter(file => file.endsWith('.yaml'))
-        .map(file => stripParenthesesFromSlug(file.replace('.yaml', '')))
-        .forEach(slug => slugs.add(slug));
+      
+      // Filter to only include complete YAML files
+      for (const file of files.filter(f => f.endsWith('.yaml'))) {
+        try {
+          const filePath = path.join(frontmatterDir, file);
+          const content = await fs.readFile(filePath, 'utf8');
+          const parsed = safeMatterParse(content, { excerpt: false, engines: { yaml: (s: string) => require('js-yaml').load(s, { schema: require('js-yaml').JSON_SCHEMA }) } });
+          
+          // Only add slug if YAML is complete
+          if (isYamlComplete(parsed.data)) {
+            const slug = stripParenthesesFromSlug(file.replace('.yaml', ''));
+            slugs.add(slug);
+          } else {
+            console.warn(`[getAllArticleSlugs] Skipping incomplete YAML: ${file}`);
+          }
+        } catch (err) {
+          console.error(`[getAllArticleSlugs] Error validating ${file}:`, err);
+          // Skip this file if validation fails
+        }
+      }
     }
     
     return Array.from(slugs);

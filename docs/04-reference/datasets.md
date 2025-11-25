@@ -100,6 +100,8 @@ Datasets should be regenerated whenever frontmatter data changes:
   - Safety considerations
   - Optimal operating conditions
 
+**Data Completeness:** Min/Max ranges and parameter descriptions are populated by the external Python generator system (Z-Beam content generation pipeline). The JavaScript generator reads these values from the YAML frontmatter files that are pre-populated by the Python system.
+
 ## Automatic Regeneration
 
 Datasets are automatically regenerated during the build process:

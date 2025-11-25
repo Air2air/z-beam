@@ -22,13 +22,6 @@ jest.mock('next/server', () => ({
   })),
 }));
 
-// Mock utils
-jest.mock('../../app/utils/tags', () => ({
-  getAllTags: jest.fn(),
-}));
-
-const mockTagsUtils = require('../../app/utils/tags');
-
 describe('API Routes Tests', () => {
   // Helper function for creating mock requests
   const createMockRequest = (searchParams: Record<string, string>) => {
@@ -46,44 +39,6 @@ describe('API Routes Tests', () => {
       status: options?.status || 200,
       ok: options?.status ? options.status < 400 : true,
     }));
-  });
-
-  describe('Tags API (/api/tags)', () => {
-    it('should return tags successfully', async () => {
-      const mockTagsData = ['aluminum', 'cleaning', 'laser', 'industrial'];
-      mockTagsUtils.getAllTags.mockResolvedValue(mockTagsData);
-
-      const { GET } = require('../../app/api/tags/route');
-      const response = await GET();
-
-      expect(mockTagsUtils.getAllTags).toHaveBeenCalled();
-      expect(mockNextResponse.json).toHaveBeenCalledWith({ tags: mockTagsData });
-      expect(response.data).toEqual({ tags: mockTagsData });
-      expect(response.status).toBe(200);
-    });
-
-    it('should handle getAllTags errors', async () => {
-      mockTagsUtils.getAllTags.mockRejectedValue(new Error('Database error'));
-
-      const { GET } = require('../../app/api/tags/route');
-      const response = await GET();
-
-      expect(mockNextResponse.json).toHaveBeenCalledWith(
-        { error: 'Failed to fetch tags' },
-        { status: 500 }
-      );
-      expect(response.status).toBe(500);
-    });
-
-    it('should handle empty tags array', async () => {
-      mockTagsUtils.getAllTags.mockResolvedValue([]);
-
-      const { GET } = require('../../app/api/tags/route');
-      const response = await GET();
-
-      expect(response.data).toEqual({ tags: [] });
-      expect(response.status).toBe(200);
-    });
   });
 
   describe('Search API (/api/search)', () => {
@@ -178,19 +133,6 @@ describe('API Routes Tests', () => {
   });
 
   describe('API Error Handling', () => {
-    it('should handle unexpected errors gracefully', async () => {
-      // Test tags API with unexpected error
-      mockTagsUtils.getAllTags.mockImplementation(() => {
-        throw new TypeError('Unexpected error');
-      });
-
-      const { GET } = require('../../app/api/tags/route');
-      const response = await GET();
-
-      expect(response.data.error).toBe('Failed to fetch tags');
-      expect(response.status).toBe(500);
-    });
-
     it('should handle malformed requests', async () => {
       const { GET } = require('../../app/api/search/route');
       
@@ -203,16 +145,6 @@ describe('API Routes Tests', () => {
   });
 
   describe('API Response Format', () => {
-    it('should return consistent JSON format for tags', async () => {
-      mockTagsUtils.getAllTags.mockResolvedValue(['tag1', 'tag2']);
-
-      const { GET } = require('../../app/api/tags/route');
-      const response = await GET();
-
-      expect(response.data).toHaveProperty('tags');
-      expect(Array.isArray(response.data.tags)).toBe(true);
-    });
-
     it('should return consistent JSON format for search', async () => {
       const { GET } = require('../../app/api/search/route');
       const request = createMockRequest({ q: 'test' });
@@ -224,50 +156,9 @@ describe('API Routes Tests', () => {
       expect(Array.isArray(response.data.results)).toBe(true);
       expect(typeof response.data.totalCount).toBe('number');
     });
-
-    it('should return proper HTTP status codes', async () => {
-      // Success case
-      mockTagsUtils.getAllTags.mockResolvedValue(['tag1']);
-      const { GET: tagsGET } = require('../../app/api/tags/route');
-      const successResponse = await tagsGET();
-      expect(successResponse.status).toBe(200);
-
-      // Error case
-      mockTagsUtils.getAllTags.mockRejectedValue(new Error('Test error'));
-      const errorResponse = await tagsGET();
-      expect(errorResponse.status).toBe(500);
-    });
   });
 
   describe('Performance', () => {
-    it('should respond to tags API quickly', async () => {
-      mockTagsUtils.getAllTags.mockResolvedValue(['aluminum', 'cleaning']);
-
-      const { GET } = require('../../app/api/tags/route');
-      
-      const startTime = performance.now();
-      await GET();
-      const endTime = performance.now();
-
-      // API should respond quickly (under 100ms in test environment)
-      expect(endTime - startTime).toBeLessThan(100);
-    });
-
-    it('should handle large tag datasets efficiently', async () => {
-      const largeTags = Array.from({ length: 1000 }, (_, i) => `tag-${i}`);
-      mockTagsUtils.getAllTags.mockResolvedValue(largeTags);
-
-      const { GET } = require('../../app/api/tags/route');
-      
-      const startTime = performance.now();
-      const response = await GET();
-      const endTime = performance.now();
-
-      expect(response.data.tags).toHaveLength(1000);
-      // Should handle large datasets efficiently
-      expect(endTime - startTime).toBeLessThan(200);
-    });
-
     it('should handle search with reasonable performance', async () => {
       const { GET } = require('../../app/api/search/route');
       const request = createMockRequest({ q: 'aluminum cleaning laser' });

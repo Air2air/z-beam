@@ -59,6 +59,13 @@ npm run logs:clean          # Clean old logs (>7 days)
 - Content validation + build + URL validation
 - **3.3x faster than before**
 
+### 4. Article Page Generation Filter (Automatic)
+- **Incomplete YAML files are automatically excluded from website**
+- Required fields: name, title, material_description, category, images, author
+- Materials with missing fields will not generate article pages
+- Warnings logged during build: `Skipping incomplete YAML: {filename}`
+- Fix by completing all required metadata fields
+
 ## 💾 Caching
 
 Validations now cache unchanged files:

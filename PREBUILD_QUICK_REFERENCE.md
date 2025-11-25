@@ -116,12 +116,14 @@ npm run postbuild  # or npm run validate:urls
 **Dependencies:** js-yaml, glob
 
 **Checks:**
-- Required fields (name, title, category, images, author)
+- Required fields (name, title, material_description, category, images, author)
 - Image file existence
 - Author data completeness
 - Generation timestamps
 
 **Fix:** Add missing fields or correct image paths
+
+**⚠️ IMPORTANT:** Incomplete YAML files (missing required fields) will be automatically excluded from article page generation. These materials will not appear on the website until all required fields are populated.
 
 ### 5. verify:sitemap
 

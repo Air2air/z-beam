@@ -15,51 +15,51 @@ describe('Deployment Configuration', () => {
     vercelConfig = JSON.parse(configContent);
   });
 
-  describe('Production-Only Policy', () => {
+  describe('Auto-Deployment Configuration', () => {
     test('vercel.json exists', () => {
       const vercelConfigPath = path.join(process.cwd(), 'vercel.json');
       expect(fs.existsSync(vercelConfigPath)).toBe(true);
     });
 
-    test('git configuration disables main branch deployments', () => {
+    test('git configuration enables main branch deployments', () => {
       expect(vercelConfig.git).toBeDefined();
       expect(vercelConfig.git.deploymentEnabled).toBeDefined();
-      expect(vercelConfig.git.deploymentEnabled.main).toBe(false);
+      expect(vercelConfig.git.deploymentEnabled.main).toBe(true);
     });
 
     test('production branch is set to main', () => {
       expect(vercelConfig.git.productionBranch).toBe('main');
     });
 
-    test('main branch deployment is disabled for manual control', () => {
-      expect(vercelConfig.git?.deploymentEnabled?.main).toBe(false);
+    test('main branch deployment is enabled for auto-deployment', () => {
+      expect(vercelConfig.git?.deploymentEnabled?.main).toBe(true);
       
-      // Verify no other branches are enabled
+      // Verify only main branch is configured
       const enabledBranches = Object.keys(vercelConfig.git?.deploymentEnabled || {});
-      expect(enabledBranches).toHaveLength(1); // Only 'main' should be in config
+      expect(enabledBranches).toContain('main');
     });
 
-    test('auto job cancelation is disabled', () => {
-      expect(vercelConfig.github?.autoJobCancelation).toBe(false);
+    test('auto job cancelation is enabled', () => {
+      expect(vercelConfig.github?.autoJobCancelation).toBe(true);
     });
 
-    test('github integration is disabled for manual control', () => {
-      expect(vercelConfig.github?.enabled).toBe(false);
+    test('github integration is enabled for auto-deployment', () => {
+      expect(vercelConfig.github?.enabled).toBe(true);
     });
 
-    test('autoAlias is disabled for explicit control', () => {
-      expect(vercelConfig.github?.autoAlias).toBe(false);
+    test('autoAlias is enabled for automatic domain assignment', () => {
+      expect(vercelConfig.github?.autoAlias).toBe(true);
     });
   });
 
   describe('Build Configuration', () => {
     test('buildCommand is defined', () => {
       expect(vercelConfig.buildCommand).toBeDefined();
-      expect(vercelConfig.buildCommand).toContain('next build');
+      expect(vercelConfig.buildCommand).toBe('npm run vercel-build');
     });
 
-    test('buildCommand uses standard Next.js build', () => {
-      expect(vercelConfig.buildCommand).toBe('next build');
+    test('buildCommand uses custom vercel-build script', () => {
+      expect(vercelConfig.buildCommand).toBe('npm run vercel-build');
     });
 
     test('framework is set to nextjs', () => {

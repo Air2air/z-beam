@@ -343,8 +343,7 @@ describe('Pre-Deployment Error Prevention', () => {
     test('documentation exists for deployment system', () => {
       const docs = [
         'DEPLOYMENT.md',
-        'docs/deployment/SMART_DEPLOY_SYSTEM.md',
-        'docs/deployment/PRODUCTION_ONLY_POLICY.md'
+        'docs/deployment/VALIDATION_GUIDE.md'
       ];
       
       docs.forEach(doc => {
