@@ -63,19 +63,6 @@ export function MaterialJsonLD({
   // Try new SchemaFactory first, fallback to legacy if needed
   let jsonLdSchema;
   
-  // Debug: Log what properties are available
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[MaterialJsonLD Debug]', {
-      slug,
-      hasMetadata: !!article.metadata,
-      hasFrontmatter: !!article.frontmatter,
-      hasMaterialProperties: !!(article.metadata?.materialProperties || article.frontmatter?.materialProperties),
-      hasMachineSettings: !!(article.metadata?.machineSettings || article.frontmatter?.machineSettings),
-      hasAuthor: !!(article.metadata?.author || article.frontmatter?.author),
-      metadataKeys: article.metadata ? Object.keys(article.metadata).slice(0, 10) : [],
-    });
-  }
-  
   try {
     // Use SchemaFactory for enhanced schema generation
     const factory = new SchemaFactory(article, slug);

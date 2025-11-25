@@ -101,8 +101,6 @@ export default function SettingsDatasetCardWrapper({
           const fileName = `${baseSlug}.${format}`;
           const filePath = `/datasets/settings/${fileName}`;
           
-          console.log('Settings Download Debug:', { slug, baseSlug, fileName, filePath });
-          
           // Track download event
           trackDatasetDownload({
             format,

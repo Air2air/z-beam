@@ -99,7 +99,7 @@ export function Navbar() {
       </a>
       
       {/* The main container for the entire header/navbar, spans full width */}
-      <header className="w-full bg-secondary shadow-md z-50 relative md:h-20" role="banner">{/* Role for better screen reader support */}
+      <header className="w-full shadow-md z-50 relative md:h-20" style={{ backgroundColor: '#2d3441' }} role="banner">{/* Role for better screen reader support */}
         {/* Van image superimposed over nav bar - clickable link to contact */}
         <Link 
           href="/contact" 
@@ -188,8 +188,8 @@ export function Navbar() {
                         </button>
                         {openDropdown === item.name && item.dropdown && (
                           <div 
-                            className={`absolute ${isLastItem ? 'right-0' : 'left-0'} bg-secondary rounded-b-md shadow-lg py-1 z-50`}
-                            style={{ top: 'calc(100% + 1px)' }}
+                            className={`absolute ${isLastItem ? 'right-0' : 'left-0'} rounded-b-md shadow-lg py-1 z-50`}
+                            style={{ top: 'calc(100% + 1px)', backgroundColor: '#2d3441' }}
                             onMouseEnter={() => handleMouseEnter(item.name)}
                             onMouseLeave={handleMouseLeave}
                           >
@@ -297,10 +297,11 @@ export function Navbar() {
             md:hidden
             flex-col
             absolute top-full left-0 w-full
-            bg-secondary shadow
+            shadow
             py-4 px-4
             items-center justify-center
           `}
+          style={{ backgroundColor: '#2d3441' }}
           id="mobile-navigation"
           role="navigation"
           aria-label="Mobile navigation"

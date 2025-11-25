@@ -337,18 +337,6 @@ function PropertyBarsGrid({
           ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '')}`
           : undefined;
         
-        // Debug: Log to console (remove in production)
-        if (index === 0) {
-          console.log('PropertyBars Debug:', {
-            dataSource,
-            hasMetadata: !!metadata,
-            category: metadata?.category,
-            subcategory: metadata?.subcategory,
-            slug: metadata?.slug,
-            settingsUrl
-          });
-        }
-        
         const CardContent = (
           <>
             {/* Property name at top */}

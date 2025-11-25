@@ -90,8 +90,6 @@ export default function MaterialDatasetCardWrapper({
         const fileName = `${baseSlug}.${format}`;
         const filePath = `/datasets/materials/${fileName}`;
         
-        console.log('Download Debug:', { slug, baseSlug, fileName, filePath });
-        
         // Track download event
         trackDatasetDownload({
           format,
