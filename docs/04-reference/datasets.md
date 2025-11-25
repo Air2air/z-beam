@@ -4,84 +4,170 @@
 
 Z-Beam maintains comprehensive **unified datasets** for all materials that combine both material properties and machine settings in multiple formats (JSON, CSV, TXT) for data portability, research integration, and third-party applications.
 
-**Key Feature:** Each material has **one consolidated dataset** that includes both material properties AND machine settings, accessible from both Materials and Settings pages.
+**Key Feature:** Each material has **one consolidated dataset** that includes both material properties AND machine settings prominently positioned at the top, accessible from both Materials and Settings pages.
 
 ## Architecture
 
-### Unified Dataset Approach
+### Unified Dataset Approach (November 2025)
 
 - **One dataset per material** (e.g., `oak-laser-cleaning.json`)
+- **Machine settings appear FIRST** in all formats (JSON, CSV, TXT)
 - **Includes both:**
+  - **Machine settings** (power, wavelength, spot size, etc.) - **AT TOP**
   - Material properties (thermal, optical, mechanical)
-  - Machine settings (power, wavelength, spot size, etc.)
 - **Available from:**
   - Materials pages: `/materials/wood/hardwood/oak-laser-cleaning`
   - Settings pages: `/settings/wood/hardwood/oak`
 - **Schema.org Dataset** with comprehensive `variableMeasured` arrays
+- **Single generation script**: `scripts/generate-datasets.ts` (TypeScript)
 
 ### Dataset Consolidation
 
 ```yaml
-# Before: Separate datasets
+# Before: Separate datasets (deprecated)
 materials/oak-laser-cleaning.json  # Material properties only
 settings/oak-settings.json         # Machine settings only
 
-# After: Unified dataset
-datasets/materials/oak-laser-cleaning.json  # Both properties + settings
+# After: Unified dataset (current architecture)
+datasets/materials/oak-laser-cleaning.json  # Machine settings FIRST + material properties
 ```
 
-Both pages reference the same unified dataset URL.
+Both page types reference the same unified dataset URL.
+
+### Machine Settings First
+
+All formats now prioritize machine settings for operator convenience:
+
+**JSON:** `variableMeasured` array starts with machine settings
+```json
+{
+  "variableMeasured": [
+    { "name": "Machine Setting: Power Range", "value": 100, "unitText": "W" },
+    { "name": "Machine Setting: Wavelength", "value": 1064, "unitText": "nm" },
+    // ... 10 machine settings first, then material properties
+  ]
+}
+```
+
+**CSV:** Machine,Settings rows appear after basic info
+```csv
+Basic,Info,Name,Oak
+Machine,Settings,powerRange,100,W
+Machine,Settings,wavelength,1064,nm
+Property,material_characteristics,thermalDestruction,280,°C
+```
+
+**TXT:** Dedicated MACHINE SETTINGS section before LASER PARAMETERS
+```text
+================================================================================
+MACHINE SETTINGS
+================================================================================
+
+powerRange:
+  Value:  100 W
+  
+wavelength:
+  Value:  1064 nm
+```
 
 ## Quick Start
 
-**Regenerate all datasets:**
+**Regenerate all unified datasets:**
 ```bash
-npm run regenerate:datasets
+npm run generate:datasets
 ```
 
-This command regenerates both materials and settings datasets from the current frontmatter YAML files.
+This command runs `scripts/generate-datasets.ts` which:
+1. Loads material data from `/frontmatter/materials/`
+2. Loads machine settings from `/frontmatter/settings/`
+3. Merges data with machine settings first
+4. Generates JSON, CSV, and TXT formats
+5. Outputs to `/public/datasets/materials/`
 
-## When to Regenerate Datasets
+## When Does Dataset Generation Run?
 
-Datasets should be regenerated whenever frontmatter data changes:
+Datasets are automatically regenerated in these scenarios:
+
+### 1. Automatic During Build (Most Common)
+- ✅ **prebuild script** (`npm run prebuild`) → runs before every build
+- ✅ **vercel-build** → runs during Vercel deployment
+- ✅ Part of standard build process
+
+### 2. Manual Regeneration
+- ✅ `npm run generate:datasets` → regenerate all unified datasets
+- ✅ `npx tsx scripts/generate-datasets.ts` → direct script execution
+
+### 3. When to Manually Regenerate
+
+Regenerate datasets whenever frontmatter data changes:
 
 - ✅ **After updating breadcrumbs** (navigation structure changes)
 - ✅ **After adding/editing material properties** (parameters, properties, etc.)
 - ✅ **After modifying machine settings** (laser parameters, ranges, etc.)
 - ✅ **After updating metadata** (titles, descriptions, authors)
-- ✅ **Before production deployment** (automatic via prebuild)
 - ✅ **After bulk frontmatter updates** (batch processing scripts)
 
 **Note:** Unified datasets automatically combine data from both `/frontmatter/materials/` and `/frontmatter/settings/` directories.
 
 ## Available Commands
 
-### Unified Commands
+### Primary Command
 
-| Command | Description |
-|---------|-------------|
-| `npm run regenerate:datasets` | Regenerate all datasets (materials + settings) |
-| `npm run generate:datasets` | Alias for regenerate:datasets |
+| Command | Description | Output |
+|---------|-------------|--------|
+| `npm run generate:datasets` | Regenerate all unified datasets | 396 files (132 materials × 3 formats) |
 
-### Individual Generators
+### Direct Script Execution
 
-| Command | Description |
-|---------|-------------|
-| `npm run generate:datasets:materials` | Regenerate only materials datasets (132 materials) |
-| `npm run generate:datasets:settings` | Regenerate only settings datasets (132 settings) |
+```bash
+# Run TypeScript script directly
+npx tsx scripts/generate-datasets.ts
+
+# Output shows:
+# 🚀 Generating material datasets...
+#    📋 Loaded machine settings for oak
+# ✅ Generated: Oak (oak)
+# ... (132 materials)
+# 📊 Summary:
+#    ✅ Success: 132 materials
+#    📁 Output: /public/datasets/materials
+```
+
+### Legacy Commands (Deprecated)
+
+These commands are no longer needed with unified datasets:
+- ~~`npm run generate:datasets:materials`~~ (merged into main command)
+- ~~`npm run generate:datasets:settings`~~ (merged into main command)
+- ~~`node scripts/generate-settings-datasets.js`~~ (replaced by TypeScript script)
 
 ## Output Locations
 
-### Unified Datasets
+### Unified Datasets (Current Architecture)
 - **Directory:** `public/datasets/materials/`
-- **Formats:** JSON, CSV, TXT
-- **Content:** Material properties + machine settings (consolidated)
+- **Formats:** JSON (Schema.org), CSV, TXT
+- **Content:** Machine settings (first) + material properties (comprehensive)
 - **Count:** 132 materials × 3 formats = 396 files
 - **Index:** `public/datasets/materials/index.json`
-- **Example:** `oak-laser-cleaning.json` (includes both properties and settings)
+- **Example:** `oak-laser-cleaning.json` (includes both settings and properties)
+- **Machine Settings:** Appear first in all formats for operator convenience
+
+### Directory Structure
+```
+public/datasets/
+└── materials/
+    ├── index.json                         # Catalog of all 132 materials
+    ├── oak-laser-cleaning.json           # Schema.org Dataset with variableMeasured
+    ├── oak-laser-cleaning.csv            # Machine,Settings rows first
+    ├── oak-laser-cleaning.txt            # MACHINE SETTINGS section first
+    ├── aluminum-laser-cleaning.json
+    ├── aluminum-laser-cleaning.csv
+    ├── aluminum-laser-cleaning.txt
+    └── ... (132 materials × 3 formats)
+```
 
 ### Total Dataset Files
 - **396 unified files** + 1 index = **397 dataset files**
+- All generated by single script: `scripts/generate-datasets.ts`
 
 ## Schema Generation
 
@@ -152,10 +238,10 @@ Each unified dataset includes:
 }
 ```
 
-### Machine Settings Included
+### Machine Settings Included (Appear First in All Formats)
 
-All datasets include these machine parameters (when available):
-- Power Range (W)
+All unified datasets include these machine parameters at the top:
+- Power Range (W) - **FIRST in all formats**
 - Wavelength (nm)
 - Spot Size (μm)
 - Repetition Rate (kHz)
@@ -165,6 +251,8 @@ All datasets include these machine parameters (when available):
 - Pass Count (passes)
 - Overlap Ratio (%)
 - Dwell Time (μs)
+
+**Positioning:** Machine settings appear before material properties in JSON `variableMeasured` array, CSV rows, and TXT sections for immediate operator reference.
 
 ### Material Properties Included
 

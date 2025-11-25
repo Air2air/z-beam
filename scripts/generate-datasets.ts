@@ -1,5 +1,6 @@
 // scripts/generate-datasets.ts
-// Generates static dataset files (JSON, CSV, TXT) for each material at build time
+// Generates unified static dataset files (JSON, CSV, TXT) combining material properties AND machine settings
+// Machine settings appear FIRST in all formats for easy reference
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -11,7 +12,24 @@ import { SITE_CONFIG } from '../app/config/site.js';
 // Extended interface for script processing
 interface MaterialData extends MaterialDatasetData {
   safetyConsiderations?: string[];
+  machineSettings?: any;
   [key: string]: any;
+}
+
+// Load machine settings from settings file
+function loadMachineSettings(materialSlug: string): any {
+  const settingsPath = path.join(process.cwd(), 'frontmatter', 'settings', `${materialSlug}-settings.yaml`);
+  if (fs.existsSync(settingsPath)) {
+    try {
+      const content = fs.readFileSync(settingsPath, 'utf8');
+      const data = yaml.load(content) as any;
+      return data.machineSettings || null;
+    } catch (error) {
+      console.warn(`  ⚠ Could not load machine settings for ${materialSlug}`);
+      return null;
+    }
+  }
+  return null;
 }
 
 // Convert material to JSON format
@@ -119,7 +137,7 @@ function generateJSON(material: MaterialData, slug: string): string {
       lastVerified: config.quality.lastVerified
     },
     
-    // Material data
+    // Material data (with machine settings FIRST)
     material: {
       name: material.name,
       slug: slug,
@@ -127,6 +145,9 @@ function generateJSON(material: MaterialData, slug: string): string {
         category: material.category,
         subcategory: material.subcategory
       },
+      // Machine settings at the top
+      machineSettings: material.machineSettings || {},
+      // Then material properties
       laserParameters: material.parameters || {},
       materialProperties: material.materialProperties || {},
       applications: material.applications || [],
@@ -161,6 +182,25 @@ function extractVariables(material: MaterialData): any[] {
       .replace(/^./, str => str.toUpperCase())
       .trim();
   };
+  
+  // MACHINE SETTINGS FIRST
+  if (material.machineSettings) {
+    Object.entries(material.machineSettings).forEach(([key, value]: [string, any]) => {
+      if (typeof value === 'object' && value !== null) {
+        variables.push({
+          '@type': 'PropertyValue',
+          propertyID: `machine_${key}`,
+          name: `Machine Setting: ${formatPropertyName(key)}`,
+          value: value.value || 'N/A',
+          unitText: value.unit || '',
+          ...(value.min !== undefined && { minValue: value.min }),
+          ...(value.max !== undefined && { maxValue: value.max }),
+          ...(value.source && { measurementTechnique: value.source }),
+          ...(value.description && { description: value.description })
+        });
+      }
+    });
+  }
   
   // Extract laser parameters
   if (material.parameters) {
@@ -254,6 +294,25 @@ function generateCSV(material: MaterialData, slug: string): string {
   rows.push(['Basic', 'Info', 'Category', material.category || '', '', '', '', '', 'Material category']);
   rows.push(['Basic', 'Info', 'Subcategory', material.subcategory || '', '', '', '', '', 'Material subcategory']);
   rows.push(['Basic', 'Info', 'Slug', slug, '', '', '', '', 'URL identifier']);
+  
+  // MACHINE SETTINGS FIRST
+  if (material.machineSettings) {
+    Object.entries(material.machineSettings).forEach(([key, value]: [string, any]) => {
+      if (typeof value === 'object' && value !== null) {
+        rows.push([
+          'Machine',
+          'Settings',
+          key,
+          String(value.value || ''),
+          value.unit || '',
+          value.min !== undefined ? String(value.min) : '',
+          value.max !== undefined ? String(value.max) : '',
+          value.source || '',
+          value.description || `Machine setting: ${key}`
+        ]);
+      }
+    });
+  }
   
   // Laser parameters
   if (material.parameters) {
@@ -367,6 +426,24 @@ function generateTXT(material: MaterialData, slug: string): string {
   txt += `Category:       ${material.category}\n`;
   txt += `Subcategory:    ${material.subcategory || 'N/A'}\n`;
   txt += `Identifier:     ${slug}\n\n`;
+  
+  // MACHINE SETTINGS FIRST
+  if (material.machineSettings && Object.keys(material.machineSettings).length > 0) {
+    txt += `${headerBar}\n`;
+    txt += `MACHINE SETTINGS\n`;
+    txt += `${headerBar}\n\n`;
+    Object.entries(material.machineSettings).forEach(([key, value]: [string, any]) => {
+      if (typeof value === 'object' && value !== null) {
+        txt += `${key}:\n`;
+        txt += `  Value:  ${value.value || 'N/A'} ${value.unit || ''}\n`;
+        if (value.min !== undefined) txt += `  Min:    ${value.min} ${value.unit || ''}\n`;
+        if (value.max !== undefined) txt += `  Max:    ${value.max} ${value.unit || ''}\n`;
+        if (value.source) txt += `  Source: ${value.source}\n`;
+        if (value.description) txt += `  Note:   ${value.description}\n`;
+        txt += '\n';
+      }
+    });
+  }
   
   // Laser Parameters
   if (material.parameters && Object.keys(material.parameters).length > 0) {
@@ -493,6 +570,13 @@ async function generateAllDatasets() {
       if (!material.name) {
         console.warn(`⚠️  Skipping ${file}: Missing name field`);
         continue;
+      }
+      
+      // Load machine settings from settings file
+      const machineSettings = loadMachineSettings(slug);
+      if (machineSettings) {
+        material.machineSettings = machineSettings;
+        console.log(`   📋 Loaded machine settings for ${slug}`);
       }
       
       // Generate JSON

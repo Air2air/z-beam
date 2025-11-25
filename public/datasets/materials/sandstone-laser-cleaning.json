@@ -5,8 +5,8 @@
   "name": "Sandstone Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Sandstone. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-23",
-  "datePublished": "2025-11-23",
+  "dateModified": "2025-11-25",
+  "datePublished": "2025-11-25",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-23"
+    "lastVerified": "2025-11-25"
   },
   "material": {
     "name": "Sandstone",
@@ -91,6 +91,44 @@
     "classification": {
       "category": "stone",
       "subcategory": "sedimentary"
+    },
+    "machineSettings": {
+      "powerRange": {
+        "unit": "W",
+        "value": 100
+      },
+      "wavelength": {
+        "unit": "nm",
+        "value": 1064
+      },
+      "spotSize": {
+        "unit": "μm",
+        "value": 100
+      },
+      "repetitionRate": {
+        "unit": "kHz",
+        "value": 50
+      },
+      "fluenceThreshold": {
+        "unit": "J/cm²",
+        "value": 2.5
+      },
+      "pulseWidth": {
+        "unit": "ns",
+        "value": 10
+      },
+      "scanSpeed": {
+        "unit": "mm/s",
+        "value": 500
+      },
+      "passCount": {
+        "unit": "passes",
+        "value": 3
+      },
+      "overlapRatio": {
+        "unit": "%",
+        "value": 50
+      }
     },
     "laserParameters": {},
     "materialProperties": {
@@ -276,6 +314,69 @@
     "faqs": []
   },
   "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_powerRange",
+      "name": "Machine Setting: Power Range",
+      "value": 100,
+      "unitText": "W"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_wavelength",
+      "name": "Machine Setting: Wavelength",
+      "value": 1064,
+      "unitText": "nm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spotSize",
+      "name": "Machine Setting: Spot Size",
+      "value": 100,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetitionRate",
+      "name": "Machine Setting: Repetition Rate",
+      "value": 50,
+      "unitText": "kHz"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_fluenceThreshold",
+      "name": "Machine Setting: Fluence Threshold",
+      "value": 2.5,
+      "unitText": "J/cm²"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulseWidth",
+      "name": "Machine Setting: Pulse Width",
+      "value": 10,
+      "unitText": "ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_scanSpeed",
+      "name": "Machine Setting: Scan Speed",
+      "value": 500,
+      "unitText": "mm/s"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_passCount",
+      "name": "Machine Setting: Pass Count",
+      "value": 3,
+      "unitText": "passes"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlapRatio",
+      "name": "Machine Setting: Overlap Ratio",
+      "value": 50,
+      "unitText": "%"
+    },
     {
       "@type": "PropertyValue",
       "propertyID": "fractureToughness",

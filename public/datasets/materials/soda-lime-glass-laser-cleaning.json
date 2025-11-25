@@ -5,8 +5,8 @@
   "name": "Soda-Lime Glass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Soda-Lime Glass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-23",
-  "datePublished": "2025-11-23",
+  "dateModified": "2025-11-25",
+  "datePublished": "2025-11-25",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-23"
+    "lastVerified": "2025-11-25"
   },
   "material": {
     "name": "Soda-Lime Glass",
@@ -91,6 +91,20 @@
     "classification": {
       "category": "glass",
       "subcategory": "specialty-glass"
+    },
+    "machineSettings": {
+      "energyDensity": {
+        "unit": "J/cm²",
+        "value": 5
+      },
+      "passCount": {
+        "unit": "passes",
+        "value": 3
+      },
+      "overlapRatio": {
+        "unit": "%",
+        "value": 50
+      }
     },
     "laserParameters": {},
     "materialProperties": {
@@ -283,6 +297,27 @@
     "faqs": []
   },
   "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energyDensity",
+      "name": "Machine Setting: Energy Density",
+      "value": 5,
+      "unitText": "J/cm²"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_passCount",
+      "name": "Machine Setting: Pass Count",
+      "value": 3,
+      "unitText": "passes"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlapRatio",
+      "name": "Machine Setting: Overlap Ratio",
+      "value": 50,
+      "unitText": "%"
+    },
     {
       "@type": "PropertyValue",
       "propertyID": "thermalDestruction",

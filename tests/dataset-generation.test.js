@@ -1,8 +1,12 @@
 /**
- * Settings Dataset Generation Tests
+ * Unified Dataset Generation Tests
  * 
- * Verifies that all 8 machine parameters are correctly generated
- * in JSON, CSV, and TXT formats for all materials.
+ * Verifies that unified datasets correctly combine material properties
+ * AND machine settings, with machine settings appearing FIRST in all formats.
+ * 
+ * Architecture: One dataset per material includes both:
+ * - Material properties (thermal, optical, mechanical)
+ * - Machine settings (power, wavelength, spot size, etc.)
  */
 
 const fs = require('fs');
@@ -22,7 +26,8 @@ const REQUIRED_PARAMETERS = [
 ];
 
 const SETTINGS_DIR = path.join(__dirname, '../frontmatter/settings');
-const OUTPUT_DIR = path.join(__dirname, '../public/datasets/settings');
+const MATERIALS_DIR = path.join(__dirname, '../frontmatter/materials');
+const OUTPUT_DIR = path.join(__dirname, '../public/datasets/materials');
 
 // Known incomplete datasets (missing 5+ parameters) - skip validation
 const INCOMPLETE_FILES = ['soda-lime-glass-settings'];
@@ -33,7 +38,7 @@ const isIncompleteFile = (filename) => {
   return INCOMPLETE_FILES.includes(baseName);
 };
 
-describe('Settings Dataset Generation', () => {
+describe('Unified Dataset Generation', () => {
   
   describe('Source YAML Files', () => {
     let yamlFiles;
@@ -138,11 +143,11 @@ describe('Settings Dataset Generation', () => {
         .filter(f => f.endsWith('.txt'));
     });
     
-    test('should generate 132 TXT files', () => {
+    test('should generate 132 unified TXT files', () => {
       expect(txtFiles.length).toBe(132);
     });
     
-    test('TXT files should not have empty MACHINE SETTINGS section', () => {
+    test('TXT files should have MACHINE SETTINGS section before other sections', () => {
       const errors = [];
       
       txtFiles.forEach(file => {
@@ -155,8 +160,15 @@ describe('Settings Dataset Generation', () => {
           return;
         }
         
+        // Verify MACHINE SETTINGS appears before LASER PARAMETERS (if present)
+        const machineIndex = content.indexOf('MACHINE SETTINGS');
+        const laserIndex = content.indexOf('LASER PARAMETERS');
+        if (laserIndex !== -1 && machineIndex > laserIndex) {
+          errors.push(`${file}: MACHINE SETTINGS should appear BEFORE LASER PARAMETERS`);
+        }
+        
         // Extract section content
-        const sectionMatch = content.match(/MACHINE SETTINGS[^\n]*\n-+\n(.*?)(?:\n\n[A-Z]|\nGenerated:)/s);
+        const sectionMatch = content.match(/MACHINE SETTINGS[^\n]*\n=+\n(.*?)(?:\n\n=+|$)/s);
         if (!sectionMatch) {
           errors.push(`${file}: Cannot parse MACHINE SETTINGS section`);
           return;
@@ -169,7 +181,7 @@ describe('Settings Dataset Generation', () => {
       });
       
       if (errors.length > 0) {
-        console.error('TXT Empty Section Errors:\n' + errors.join('\n'));
+        console.error('TXT Machine Settings Position Errors:\n' + errors.join('\n'));
       }
       expect(errors).toEqual([]);
     });
@@ -258,14 +270,13 @@ describe('Settings Dataset Generation', () => {
         .filter(f => f.endsWith('.csv'));
     });
     
-    test('should generate 132 CSV files', () => {
+    test('should generate 132 unified CSV files', () => {
       expect(csvFiles.length).toBe(132);
     });
     
-    test('CSV files should have correct header', () => {
+    test('CSV files should have Machine Settings rows before material properties', () => {
       const errors = [];
       let skippedCount = 0;
-      const expectedHeader = '"Parameter","Value","Unit","Min","Max","Description"';
       
       csvFiles.forEach(file => {
         if (isIncompleteFile(file)) {
@@ -275,10 +286,25 @@ describe('Settings Dataset Generation', () => {
         
         const filePath = path.join(OUTPUT_DIR, file);
         const content = fs.readFileSync(filePath, 'utf8');
-        const lines = content.split('\n');
+        const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('#'));
         
-        if (lines[0] !== expectedHeader) {
-          errors.push(`${file}: Incorrect header. Expected: ${expectedHeader}`);
+        // Find first Machine,Settings row and first Property row
+        let firstMachineRow = -1;
+        let firstPropertyRow = -1;
+        
+        lines.forEach((line, index) => {
+          if (line.startsWith('Machine,Settings') && firstMachineRow === -1) {
+            firstMachineRow = index;
+          }
+          if (line.startsWith('Property,') && firstPropertyRow === -1) {
+            firstPropertyRow = index;
+          }
+        });
+        
+        if (firstMachineRow === -1) {
+          errors.push(`${file}: No Machine,Settings rows found`);
+        } else if (firstPropertyRow !== -1 && firstMachineRow > firstPropertyRow) {
+          errors.push(`${file}: Machine settings should appear BEFORE material properties`);
         }
       });
       
@@ -286,10 +312,13 @@ describe('Settings Dataset Generation', () => {
         console.warn(`⚠️  Skipped ${skippedCount} incomplete CSV files`);
       }
       
+      if (errors.length > 0) {
+        console.error('CSV Machine Settings Position Errors:\n' + errors.join('\n'));
+      }
       expect(errors).toEqual([]);
     });
     
-    test('CSV files should have 9 rows (header + 8 parameters)', () => {
+    test('CSV files should have 15+ rows (header + basic info + 10 machine settings + properties)', () => {
       const errors = [];
       let skippedCount = 0;
       
@@ -301,11 +330,10 @@ describe('Settings Dataset Generation', () => {
         
         const filePath = path.join(OUTPUT_DIR, file);
         const content = fs.readFileSync(filePath, 'utf8');
-        const lines = content.split('\n').filter(l => l.trim());
+        const lines = content.split('\n').filter(l => l.trim() && !l.startsWith('#'));
         
-        // Allow 9-11 rows: header + 8 required params + optional energyDensity + possible extras
-        if (lines.length < 9 || lines.length > 11) {
-          errors.push(`${file}: Expected 9-11 rows, found ${lines.length}`);
+        if (lines.length < 15) {
+          errors.push(`${file}: Expected at least 15 rows, found ${lines.length}`);
         }
       });
       
@@ -359,14 +387,18 @@ describe('Settings Dataset Generation', () => {
         .filter(f => f.endsWith('.json'));
     });
     
-    test('should generate 132 JSON files', () => {
-      expect(jsonFiles.length).toBe(132);
+    test('should generate 132 unified JSON files (plus index)', () => {
+      // 132 material datasets + 1 index.json
+      expect(jsonFiles.length).toBe(133);
     });
     
-    test('JSON files should have valid structure', () => {
+    test('JSON files should have Schema.org structure with machine settings in variableMeasured', () => {
       const errors = [];
       
       jsonFiles.forEach(file => {
+        // Skip index.json - it has different structure
+        if (file === 'index.json') return;
+        
         const filePath = path.join(OUTPUT_DIR, file);
         const content = fs.readFileSync(filePath, 'utf8');
         
@@ -378,14 +410,35 @@ describe('Settings Dataset Generation', () => {
           return;
         }
         
-        if (!data.metadata) {
-          errors.push(`${file}: Missing metadata object`);
+        // Check Schema.org structure
+        if (data['@type'] !== 'Dataset') {
+          errors.push(`${file}: Missing or incorrect @type (expected Dataset)`);
         }
-        if (!data.machineSettings) {
-          errors.push(`${file}: Missing machineSettings object`);
+        
+        if (!data.variableMeasured || !Array.isArray(data.variableMeasured)) {
+          errors.push(`${file}: Missing variableMeasured array`);
+          return;
+        }
+        
+        // Check for machine settings in variableMeasured
+        const machineSettings = data.variableMeasured.filter(v => 
+          v.name && v.name.includes('Machine Setting')
+        );
+        
+        if (machineSettings.length === 0) {
+          errors.push(`${file}: No machine settings found in variableMeasured`);
+        }
+        
+        // Verify machine settings appear FIRST in variableMeasured
+        const firstVariable = data.variableMeasured[0];
+        if (firstVariable && !firstVariable.name.includes('Machine Setting')) {
+          errors.push(`${file}: First variable should be a machine setting, found: ${firstVariable.name}`);
         }
       });
       
+      if (errors.length > 0) {
+        console.error('JSON Schema.org Structure Errors:\n' + errors.join('\n'));
+      }
       expect(errors).toEqual([]);
     });
     
@@ -434,7 +487,7 @@ describe('Settings Dataset Generation', () => {
   });
   
   describe('File Count Validation', () => {
-    test('should have exactly 396 output files (132 materials × 3 formats)', () => {
+    test('should have exactly 397 output files (132 materials × 3 formats + index.json)', () => {
       if (!fs.existsSync(OUTPUT_DIR)) {
         console.warn('Output directory does not exist. Run: npm run generate:datasets');
         return;
@@ -443,7 +496,7 @@ describe('Settings Dataset Generation', () => {
       const allFiles = fs.readdirSync(OUTPUT_DIR)
         .filter(f => f.endsWith('.txt') || f.endsWith('.csv') || f.endsWith('.json'));
       
-      expect(allFiles.length).toBe(396);
+      expect(allFiles.length).toBe(397);
     });
   });
 });
