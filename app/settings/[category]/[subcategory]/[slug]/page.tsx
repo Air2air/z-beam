@@ -129,7 +129,8 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
 
     // NEW: Material properties are auto-loaded via materialRef, but we can override
     // Load material data for complete schema generation (Dataset, FAQ, HowTo)
-    const materialArticle = await getArticleBySlug(`materials/${category}/${subcategory}/${slug}-laser-cleaning`) as any;
+    // Note: getArticleBySlug searches in frontmatter/materials/, so no path prefix needed
+    const materialArticle = await getArticleBySlug(`${baseMaterialSlug}-laser-cleaning`) as any;
     const materialProps = materialArticle?.materialProperties;
     
     // Merge material data into settings for complete schemas
