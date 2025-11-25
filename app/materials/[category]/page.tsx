@@ -205,7 +205,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         {/* Group materials by subcategory */}
         {categoryData.subcategories.map((subcategory) => (
           <div key={subcategory.slug} className="mb-8">
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{subcategory.label}</h2>
+            <h2 className="text-xl font-semibold mb-4">{subcategory.label}</h2>
             <CardGridSSR
               slugs={subcategory.materials.map(m => m.slug)}
               columns={3}

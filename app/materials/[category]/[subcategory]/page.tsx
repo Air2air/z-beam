@@ -188,7 +188,7 @@ export default async function SubcategoryPage({ params }: PageProps) {
         slug={`materials/${category}/${subcategory}`}
       >
         <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">{subcategoryInfo.label}</h2>
+          <h2 className="text-xl font-semibold mb-4">{subcategoryInfo.label}</h2>
           <CardGridSSR
             slugs={materialSlugs}
             columns={3}

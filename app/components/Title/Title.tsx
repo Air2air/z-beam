@@ -97,7 +97,7 @@ export function Title({
   const skipLinkId = skipLink ? `${titleId}-skip` : undefined;
   
   // Base classes for all titles with enhanced accessibility
-  const baseClasses = 'text-primary transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900';
+  const baseClasses = 'transition-all duration-200 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900';
   
   // Alignment classes
   const alignmentClasses = {
@@ -246,7 +246,7 @@ export function Title({
             {description && (
               <p 
                 id={descriptionId}
-                className="text-primary mt-3"
+                className="mt-3"
               >
                 {description}
               </p>

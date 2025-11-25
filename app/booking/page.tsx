@@ -152,7 +152,7 @@ export default async function BookingPage() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                <h4 className="font-semibold mb-2">
                   Do I need to prepare anything?
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
@@ -161,7 +161,7 @@ export default async function BookingPage() {
               </div>
               
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                <h4 className="font-semibold mb-2">
                   What if I need to reschedule?
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
@@ -170,7 +170,7 @@ export default async function BookingPage() {
               </div>
               
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                <h4 className="font-semibold mb-2">
                   Is this really free?
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
@@ -179,7 +179,7 @@ export default async function BookingPage() {
               </div>
               
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                <h4 className="font-semibold mb-2">
                   Will I get a quote during the call?
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">

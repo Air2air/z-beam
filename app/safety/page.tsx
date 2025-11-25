@@ -68,7 +68,7 @@ export default async function SafetyPage() {
               <div className="flex items-start gap-3">
                 <ShieldIcon className="text-blue-600 dark:text-blue-400 text-2xl flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                  <h3 className="font-semibold mb-2">
                     Professional Guidance Available
                   </h3>
                   <p className="text-blue-800 dark:text-blue-200 text-sm">
@@ -147,7 +147,7 @@ export default async function SafetyPage() {
           >
             <div className="space-y-6">
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold mb-3 flex items-center gap-2">
                   <CheckCircleIcon className="text-green-600" />
                   Personal Protective Equipment (PPE)
                 </h4>
@@ -254,7 +254,7 @@ export default async function SafetyPage() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">OSHA Requirements</h4>
+                <h4 className="font-semibold mb-3">OSHA Requirements</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
@@ -272,7 +272,7 @@ export default async function SafetyPage() {
               </div>
 
               <div>
-                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">ANSI Standards</h4>
+                <h4 className="font-semibold mb-3">ANSI Standards</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 mt-1">•</span>
