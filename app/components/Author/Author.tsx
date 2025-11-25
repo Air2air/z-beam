@@ -77,9 +77,9 @@ export function Author({
           </div>
         </div>
 
-        {/* Date panel on right */}
+        {/* Date panel on right - hidden at XS */}
         {hasDateInfo && (
-          <div className="flex flex-col gap-2 text-xs text-muted bg-primary rounded px-3 py-2 flex-shrink-0">
+          <div className="hidden sm:flex flex-col gap-2 text-xs text-muted bg-primary rounded px-3 py-2 flex-shrink-0">
             {frontmatter?.datePublished && (
               <div className="flex items-center gap-1.5 whitespace-nowrap">
                 <Calendar className="w-3.5 h-3.5" />

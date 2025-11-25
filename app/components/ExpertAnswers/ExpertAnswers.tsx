@@ -193,7 +193,7 @@ function ExpertAnswerCard({
               {answer.severity && <SeverityBadge severity={answer.severity} />}
             </div>
             <h3 
-              className="text-lg font-medium leading-relaxed [&_strong]:font-semibold"
+              className="text-lg font-medium [&_strong]:font-semibold"
               dangerouslySetInnerHTML={{ __html: parseSimpleMarkdown(answer.question) }}
             />
             {answer.category && (
@@ -237,7 +237,7 @@ function ExpertAnswerCard({
                     Expert Answer:
                   </h4>
                   <div 
-                    className="text-primary leading-relaxed [&_strong]:font-semibold"
+                    className="text-primary [&_strong]:font-semibold"
                     dangerouslySetInnerHTML={{ __html: parseSimpleMarkdown(answer.answer) }}
                   />
                 </div>

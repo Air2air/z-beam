@@ -22,7 +22,7 @@ export default function DatasetDownloadControls({
         Download Format
       </label>
       
-      <div className="flex flex-col sm:flex-row sm:items-start gap-3">
+      <div className="flex flex-row items-start justify-between gap-3">
         {/* Format Selection Buttons */}
         <div className="flex flex-wrap gap-2">
           {formats.includes('json') && (
@@ -86,7 +86,7 @@ export default function DatasetDownloadControls({
           variant="primary"
           size="md"
           iconLeft={<DownloadIcon className="w-4 h-4" />}
-          className="w-full sm:w-auto sm:ml-auto"
+          className="flex-shrink-0"
         >
           {isDownloading ? 'Downloading...' : `Download ${selectedFormat.toUpperCase()}`}
         </Button>

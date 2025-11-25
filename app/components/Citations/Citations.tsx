@@ -109,7 +109,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                     </div>
                     
                     {/* Title */}
-                    <div className="text-base font-medium mb-2 leading-snug">
+                    <div className="text-base font-medium mb-2">
                       {citation.title}
                     </div>
                     
@@ -167,7 +167,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                         <div className="space-y-3">
                           {citation.key_findings.map((finding, idx) => (
                             <div key={idx} className="space-y-1">
-                              <div className="text-sm leading-relaxed italic">
+                              <div className="text-sm italic">
                                 "{finding.finding}"
                               </div>
                               {finding.specific_value && (
@@ -197,7 +197,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                         <div className="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-1">
                           Key Finding
                         </div>
-                        <div className="text-sm leading-relaxed">
+                        <div className="text-sm">
                           {citation.key_finding}
                         </div>
                       </div>
@@ -209,7 +209,7 @@ export function Citations({ research_library, materialName }: CitationsProps) {
                         <div className="text-xs font-semibold text-green-400 uppercase tracking-wide mb-1">
                           Relevance to Our Work
                         </div>
-                        <div className="text-sm leading-relaxed">
+                        <div className="text-sm">
                           {citation.relevance_to_our_work || citation.relevance}
                         </div>
                       </div>

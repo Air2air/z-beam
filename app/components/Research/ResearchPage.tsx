@@ -368,7 +368,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
               <div className="bg-yellow-900/20 p-6 rounded-lg border border-yellow-200800">
                 <div className="flex items-start gap-3">
                   <AlertTriangleIcon className="w-6 h-6 text-yellow-600400 flex-shrink-0 mt-1" />
-                  <p className="text-primary leading-relaxed">
+                  <p className="text-primary">
                     {data.laser_implications.summary}
                   </p>
                 </div>
@@ -593,7 +593,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                 <h3 className="text-lg text-secondary font-semibold mb-3 text-secondary">
                   {item.question}
                 </h3>
-                <p className="text-secondary leading-relaxed">
+                <p className="text-secondary">
                   {item.answer}
                 </p>
               </div>

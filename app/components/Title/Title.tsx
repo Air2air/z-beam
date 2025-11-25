@@ -222,7 +222,7 @@ export function Title({
         role={landmark ? config.landmark || undefined : undefined}
         aria-labelledby={titleId}
       >
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex-1">
             <Tag
               ref={titleRef}
@@ -246,7 +246,7 @@ export function Title({
             {description && (
               <p 
                 id={descriptionId}
-                className="text-primary mt-3 leading-relaxed"
+                className="text-primary mt-3"
               >
                 {description}
               </p>
@@ -254,7 +254,7 @@ export function Title({
           </div>
           
           {(rightContent !== undefined ? rightContent : level === 'page') && (
-            <div className="flex-shrink-0 self-start">
+            <div className="hidden sm:flex flex-shrink-0 sm:self-start">
               {rightContent !== undefined ? rightContent : (
                 <Button variant="primary" size="md" href="/contact" showIcon={true}>Let's talk</Button>
               )}

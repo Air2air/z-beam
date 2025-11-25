@@ -942,7 +942,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
                     <h4 className="parameter-name text-base text-secondary font-bold">
                       {formatKeyAsTitle(selectedParam)}
                     </h4>
-                    <p className="connection-description text-sm/90 leading-relaxed">
+                    <p className="connection-description text-sm/90">
                       {getRoleDescription()}
                     </p>
                   </div>
@@ -998,7 +998,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
                       <h4 className="parameter-name text-base text-secondary font-bold">
                         {formatKeyAsTitle(otherParamId)}
                       </h4>
-                      <p className="connection-description text-sm/90 leading-relaxed">
+                      <p className="connection-description text-sm/90">
                         {description}
                       </p>
                     </div>
