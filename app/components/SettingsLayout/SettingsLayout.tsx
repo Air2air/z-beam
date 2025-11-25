@@ -51,7 +51,7 @@ function prepareSettingsData(
   const diagnosticConfig = settings.components?.diagnostic_center;
 
   // Convert parameters to consistent array format
-  let paramData = parametersRaw ? (
+  const paramData = parametersRaw ? (
     Array.isArray(parametersRaw) 
       ? parametersRaw 
       : Object.entries(parametersRaw).map(([key, param]: [string, any]) => ({
