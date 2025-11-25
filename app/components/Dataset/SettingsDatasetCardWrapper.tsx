@@ -96,10 +96,10 @@ export default function SettingsDatasetCardWrapper({
         ]}
         formats={['json', 'csv', 'txt']}
         onDownload={(format: 'json' | 'csv' | 'txt') => {
-          // Settings files use -settings suffix
-          const baseSlug = slug.endsWith('-settings') ? slug : `${slug}-settings`;
-          const fileName = `${baseSlug}.${format}`;
-          const filePath = `/datasets/settings/${fileName}`;
+          // Unified dataset: use material naming convention (consolidated Nov 2025)
+          const baseSlug = slug.replace('-settings', '');
+          const fileName = `${baseSlug}-laser-cleaning.${format}`;
+          const filePath = `/datasets/materials/${fileName}`;
           
           // Track download event
           trackDatasetDownload({
@@ -113,8 +113,8 @@ export default function SettingsDatasetCardWrapper({
           triggerDownload(filePath, fileName);
         }}
         getDirectLink={(format: 'json' | 'csv' | 'txt') => {
-          const baseSlug = slug.endsWith('-settings') ? slug : `${slug}-settings`;
-          return `/datasets/settings/${baseSlug}.${format}`;
+          const baseSlug = slug.replace('-settings', '');
+          return `/datasets/materials/${baseSlug}-laser-cleaning.${format}`;
         }}
         includes={[
           'Essential laser parameters with optimal ranges',
