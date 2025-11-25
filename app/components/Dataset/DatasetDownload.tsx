@@ -5,12 +5,18 @@ import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import MaterialDatasetCardWrapper from './MaterialDatasetCardWrapper';
-import type { MaterialDatasetCardWrapperProps } from '@/types/centralized';
 
-interface DatasetDownloadProps extends MaterialDatasetCardWrapperProps {
+interface DatasetDownloadProps {
+  materialName: string;
+  slug: string;
+  category: string;
+  subcategory: string;
+  machineSettings?: Record<string, any>;
+  materialProperties?: Record<string, any>;
+  faq?: any[];
+  regulatoryStandards?: any[];
+  showFullDataset?: boolean;
   title?: string;
-  iconColor?: string;
-  iconBgColor?: string;
 }
 
 /**
@@ -18,11 +24,18 @@ interface DatasetDownloadProps extends MaterialDatasetCardWrapperProps {
  * Wraps MaterialDatasetCardWrapper with SectionContainer styling
  */
 export default function DatasetDownload({
-  material,
+  materialName,
+  slug,
+  category,
+  subcategory,
+  machineSettings,
+  materialProperties,
+  faq,
+  regulatoryStandards,
   showFullDataset = false,
   title,
-}: Omit<DatasetDownloadProps, 'iconColor' | 'iconBgColor'>) {
-  const displayTitle = title || `${material.name} Dataset Download`;
+}: DatasetDownloadProps) {
+  const displayTitle = title || `${materialName} Dataset Download`;
 
   return (
     <SectionContainer
@@ -31,7 +44,14 @@ export default function DatasetDownload({
       icon={getSectionIcon('dataset')}
     >
       <MaterialDatasetCardWrapper 
-        material={material}
+        materialName={materialName}
+        slug={slug}
+        category={category}
+        subcategory={subcategory}
+        machineSettings={machineSettings}
+        materialProperties={materialProperties}
+        faq={faq}
+        regulatoryStandards={regulatoryStandards}
         showFullDataset={showFullDataset}
       />
     </SectionContainer>
