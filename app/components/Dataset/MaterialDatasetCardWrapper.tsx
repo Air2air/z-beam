@@ -10,7 +10,8 @@ import { triggerDownload } from '@/app/utils/downloadUtils';
 
 export default function MaterialDatasetCardWrapper({
   material,
-  showFullDataset = false
+  showFullDataset = false,
+  pageType // Optional: 'material' or 'settings' (auto-detected from slug if not provided)
 }: MaterialDatasetCardWrapperProps) {
   const { 
     name, 
@@ -22,6 +23,9 @@ export default function MaterialDatasetCardWrapper({
     regulatoryStandards = [],
     machineSettings = {}
   } = material;
+
+  // Auto-detect page type from slug if not explicitly provided
+  const isSettingsPage = pageType === 'settings' || slug.endsWith('-settings');
 
   // Count total properties from all nested sections
   const totalProperties = Object.values(materialProperties).reduce((total, section: any) => {
@@ -105,7 +109,13 @@ export default function MaterialDatasetCardWrapper({
         const baseSlug = slug.endsWith('-laser-cleaning') ? slug : `${slug}-laser-cleaning`;
         return `/datasets/materials/${baseSlug}.${format}`;
       }}
-      includes={[
+      includes={isSettingsPage ? [
+        'Essential laser parameters with optimal ranges',
+        'Material-specific damage thresholds',
+        'Troubleshooting guides and solutions',
+        'Research citations and validation data',
+        'Safety warnings and prevention strategies'
+      ] : [
         'Material properties with full specifications',
         'Processing parameters and recommended settings',
         'Application examples and use cases',
@@ -113,7 +123,7 @@ export default function MaterialDatasetCardWrapper({
         'Source references and validation data'
       ]}
       categoryLink={{
-        href: `/materials/${category}`,
+        href: isSettingsPage ? `/settings/${category}` : `/materials/${category}`,
         label: `View all ${category.charAt(0).toUpperCase() + category.slice(1)} datasets`
       }}
     />

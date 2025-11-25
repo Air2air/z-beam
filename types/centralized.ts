@@ -2532,6 +2532,7 @@ export interface CategoryDatasetCardWrapperProps {
 export interface MaterialDatasetCardWrapperProps {
   material: MaterialDatasetData;
   showFullDataset?: boolean;
+  pageType?: 'material' | 'settings'; // Auto-detected from slug if not provided
 }
 
 /**
