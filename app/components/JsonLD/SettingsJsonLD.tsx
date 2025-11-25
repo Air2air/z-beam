@@ -101,8 +101,8 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
     });
   }
 
-  // Transform diagnostic challenges into FAQ format
-  const faq = transformChallengesIntoFAQ(settings.components?.diagnostic_center?.challenges);
+  // Transform diagnostic challenges into FAQ format, or use existing FAQ
+  const faq = (settings as any).faq || transformChallengesIntoFAQ(settings.components?.diagnostic_center?.challenges);
 
   // Build enhanced E-E-A-T signals for TechnicalArticle
   const eeat: any = {};
@@ -165,7 +165,10 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
       eeat,
       faq,
       images: (settings as any).images, // Images loaded from YAML but not in type definition
-      keywords: settings.seo_settings_page?.keywords || []
+      keywords: settings.seo_settings_page?.keywords || [],
+      // Pass through optional fields for FAQ generation
+      environmentalImpact: (settings as any).environmentalImpact,
+      outcomeMetrics: (settings as any).outcomeMetrics
     }
   };
 }

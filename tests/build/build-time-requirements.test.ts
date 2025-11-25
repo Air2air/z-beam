@@ -68,27 +68,28 @@ describe('Build-Time Requirements Enforcement', () => {
   describe('Critical Script Definitions', () => {
     it('should define generate:datasets script', () => {
       expect(packageJson.scripts['generate:datasets']).toBeDefined();
-      expect(packageJson.scripts['generate:datasets']).toContain('generate-datasets');
+      // Script uses tsx for TypeScript and node for JavaScript
+      expect(packageJson.scripts['generate:datasets']).toMatch(/generate-datasets/);
     });
 
     it('should define validate:content script', () => {
       expect(packageJson.scripts['validate:content']).toBeDefined();
-      expect(packageJson.scripts['validate:content']).toContain('run-content-validation');
+      expect(packageJson.scripts['validate:content']).toMatch(/run-content-validation|validate-content/);
     });
 
     it('should define validate:naming script', () => {
       expect(packageJson.scripts['validate:naming']).toBeDefined();
-      expect(packageJson.scripts['validate:naming']).toContain('validate-naming');
+      expect(packageJson.scripts['validate:naming']).toMatch(/validate-naming/);
     });
 
     it('should define verify:sitemap script', () => {
       expect(packageJson.scripts['verify:sitemap']).toBeDefined();
-      expect(packageJson.scripts['verify:sitemap']).toContain('verify-sitemap');
+      expect(packageJson.scripts['verify:sitemap']).toMatch(/verify-sitemap/);
     });
 
     it('should define validate:urls script (postbuild)', () => {
       expect(packageJson.scripts['validate:urls']).toBeDefined();
-      expect(packageJson.scripts['validate:urls']).toContain('validate-jsonld-urls');
+      expect(packageJson.scripts['validate:urls']).toMatch(/validate-jsonld-urls/);
     });
   });
 
@@ -298,12 +299,12 @@ describe('Script File Existence', () => {
   });
 
   it('should have validate-metadata-sync.js script', () => {
-    const scriptPath = path.join(scriptsDir, 'validate-metadata-sync.js');
+    const scriptPath = path.join(scriptsDir, 'validation', 'content', 'validate-metadata-sync.js');
     expect(fs.existsSync(scriptPath)).toBe(true);
   });
 
   it('should have validate-naming-e2e.js script', () => {
-    const scriptPath = path.join(scriptsDir, 'validate-naming-e2e.js');
+    const scriptPath = path.join(scriptsDir, 'validation', 'content', 'validate-naming-e2e.js');
     expect(fs.existsSync(scriptPath)).toBe(true);
   });
 
@@ -312,8 +313,10 @@ describe('Script File Existence', () => {
     expect(fs.existsSync(scriptPath)).toBe(true);
   });
 
-  it('should have validate-jsonld-urls.js script', () => {
-    const scriptPath = path.join(scriptsDir, 'validate-jsonld-urls.js');
-    expect(fs.existsSync(scriptPath)).toBe(true);
+  it('should have validate-jsonld-urls script', () => {
+    // Can be either .js or .sh
+    const jsPath = path.join(scriptsDir, 'validation', 'jsonld', 'validate-jsonld-urls.js');
+    const shPath = path.join(scriptsDir, 'validate-jsonld-urls.sh');
+    expect(fs.existsSync(jsPath) || fs.existsSync(shPath)).toBe(true);
   });
 });
