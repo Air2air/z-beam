@@ -2530,9 +2530,15 @@ export interface CategoryDatasetCardWrapperProps {
  * MaterialDatasetCardWrapper component props
  */
 export interface MaterialDatasetCardWrapperProps {
-  material: MaterialDatasetData;
+  materialName: string;
+  slug: string;
+  category: string;
+  subcategory: string;
+  machineSettings?: Record<string, any>;
+  materialProperties?: Record<string, any>;
+  faq?: any[];
+  regulatoryStandards?: any[];
   showFullDataset?: boolean;
-  pageType?: 'material' | 'settings'; // Auto-detected from slug if not provided
 }
 
 /**

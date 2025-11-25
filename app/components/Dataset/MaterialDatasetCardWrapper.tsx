@@ -3,18 +3,7 @@
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import DatasetSectionClient from './DatasetSectionClient';
-
-interface MaterialDatasetCardWrapperProps {
-  materialName: string;
-  slug: string;
-  category: string;
-  subcategory: string;
-  machineSettings?: Record<string, any>;
-  materialProperties?: Record<string, any>;
-  faq?: any[];
-  regulatoryStandards?: any[];
-  showFullDataset?: boolean;
-}
+import type { MaterialDatasetCardWrapperProps } from '@/types/centralized';
 
 /**
  * Server component that calculates dataset stats at build time

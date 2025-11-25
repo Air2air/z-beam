@@ -5,17 +5,9 @@ import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer/SectionContainer';
 import { getSectionIcon } from '@/app/config/sectionIcons';
 import MaterialDatasetCardWrapper from './MaterialDatasetCardWrapper';
+import type { MaterialDatasetCardWrapperProps } from '@/types/centralized';
 
-interface DatasetDownloadProps {
-  materialName: string;
-  slug: string;
-  category: string;
-  subcategory: string;
-  machineSettings?: Record<string, any>;
-  materialProperties?: Record<string, any>;
-  faq?: any[];
-  regulatoryStandards?: any[];
-  showFullDataset?: boolean;
+interface DatasetDownloadProps extends MaterialDatasetCardWrapperProps {
   title?: string;
 }
 
