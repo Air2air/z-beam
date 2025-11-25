@@ -65,10 +65,10 @@ deploy_production() {
     local commit=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
     log "📝 Deploying commit: $commit"
     
-    # Deploy directly to production with force flag
-    log "⚡ Deploying with --prod --force --yes"
+    # Deploy directly to production with force flag and archive to avoid file limits
+    log "⚡ Deploying with --prod --force --yes --archive=tgz"
     
-    if vercel --prod --force --yes; then
+    if vercel --prod --force --yes --archive=tgz; then
         success "Production deployment complete!"
         log "🌐 Your site is live at:"
         log "   • https://z-beam.com"
