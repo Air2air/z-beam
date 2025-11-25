@@ -7,7 +7,7 @@ import { ThermalAccumulation } from '@/app/components/ThermalAccumulation';
 import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
 import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
-import SettingsDatasetCardWrapper from '@/app/components/Dataset/SettingsDatasetCardWrapper';
+import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDatasetCardWrapper';
 import { SettingsMetadata } from '@/types/centralized';
 
 interface SettingsLayoutProps {
@@ -376,15 +376,16 @@ export function SettingsLayout({
       )}
 
       {/* Dataset Download Section */}
-      <SettingsDatasetCardWrapper
-        settings={{
+      <MaterialDatasetCardWrapper
+        material={{
           name: settings.name,
           slug,
           category,
           subcategory,
           machineSettings: settings.machineSettings,
-          research_library: settings.research_library,
-          components: settings.components
+          materialProperties: (settings as any).materialProperties || materialProps,
+          faq: (settings as any).faq,
+          regulatoryStandards: (settings as any).regulatoryStandards
         }}
         showFullDataset={true}
       />

@@ -13,12 +13,13 @@ export interface DatasetSchemaOptions {
   description?: string;
   author?: AuthorData;
   materialProperties?: Record<string, Record<string, PropertyValue>>;
+  machineSettings?: Record<string, any>; // For Settings pages
   modifiedDate?: string;
   license?: string;
 }
 
 /**
- * Generate Dataset schema for material properties
+ * Generate Dataset schema for material properties or machine settings
  */
 export function generateDatasetSchema(options: DatasetSchemaOptions) {
   const {
@@ -27,6 +28,7 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
     description,
     author = {},
     materialProperties = {},
+    machineSettings,
     modifiedDate,
     license = 'https://creativecommons.org/licenses/by/4.0/'
   } = options;
@@ -37,6 +39,36 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
   // Calculate property count and build measurements
   let propertyCount = 0;
   const measurements: any[] = [];
+  
+  // Handle machine settings (for Settings pages)
+  if (machineSettings) {
+    const settingsMap: Record<string, { label: string; description: string }> = {
+      powerRange: { label: 'Power Range', description: 'Laser power output' },
+      wavelength: { label: 'Wavelength', description: 'Laser beam wavelength' },
+      spotSize: { label: 'Spot Size', description: 'Focused laser beam diameter' },
+      repetitionRate: { label: 'Repetition Rate', description: 'Laser pulse frequency' },
+      energyDensity: { label: 'Energy Density', description: 'Energy per unit area (fluence)' },
+      pulseWidth: { label: 'Pulse Width', description: 'Laser pulse duration' },
+      scanSpeed: { label: 'Scan Speed', description: 'Beam travel velocity' },
+      passCount: { label: 'Pass Count', description: 'Number of cleaning passes' },
+      overlapRatio: { label: 'Overlap Ratio', description: 'Beam overlap percentage' },
+      dwellTime: { label: 'Dwell Time', description: 'Time laser spends per location' }
+    };
+    
+    Object.entries(machineSettings).forEach(([key, data]: [string, any]) => {
+      if (settingsMap[key] && data?.value !== undefined && data?.unit) {
+        propertyCount++;
+        measurements.push({
+          '@type': 'PropertyValue',
+          propertyID: key,
+          name: settingsMap[key].label,
+          value: data.value,
+          unitText: data.unit,
+          description: settingsMap[key].description
+        });
+      }
+    });
+  }
   
   Object.entries(materialProperties).forEach(([_categoryKey, categoryData]) => {
     const propsToProcess = categoryData?.properties || categoryData;
@@ -83,13 +115,16 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
   // Return null if no measurements
   if (propertyCount === 0) return null;
   
+  const isSettingsPage = !!machineSettings;
   const datasetDescription = description || 
-    `Comprehensive dataset of ${propertyCount} material properties for ${name} laser cleaning`;
+    (isSettingsPage 
+      ? `Research-validated laser cleaning machine parameters for ${name}` 
+      : `Comprehensive dataset of ${propertyCount} material properties for ${name} laser cleaning`);
   
   return {
     '@type': 'Dataset',
     '@id': `${pageUrl}#dataset`,
-    name: `${name} Material Properties Dataset`,
+    name: isSettingsPage ? `${name} Laser Cleaning Parameters` : `${name} Material Properties Dataset`,
     description: datasetDescription,
     
     // E-E-A-T: Author reference
@@ -124,11 +159,15 @@ export function generateDatasetSchema(options: DatasetSchemaOptions) {
     variableMeasured: measurements,
     
     // Metadata
-    measurementTechnique: 'Laser-induced breakdown spectroscopy (LIBS), Surface profilometry',
+    measurementTechnique: isSettingsPage 
+      ? 'Fiber laser system with adjustable parameters' 
+      : 'Laser-induced breakdown spectroscopy (LIBS), Surface profilometry',
     isAccessibleForFree: true,
     
     // Size
-    keywords: `${propertyCount} material properties`,
+    keywords: isSettingsPage 
+      ? `${propertyCount} machine parameters` 
+      : `${propertyCount} material properties`,
     size: {
       '@type': 'QuantitativeValue',
       value: propertyCount,

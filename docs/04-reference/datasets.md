@@ -2,7 +2,35 @@
 
 ## Overview
 
-Z-Beam maintains comprehensive datasets for all materials and settings in multiple formats (JSON, CSV, TXT) for data portability, research integration, and third-party applications.
+Z-Beam maintains comprehensive **unified datasets** for all materials that combine both material properties and machine settings in multiple formats (JSON, CSV, TXT) for data portability, research integration, and third-party applications.
+
+**Key Feature:** Each material has **one consolidated dataset** that includes both material properties AND machine settings, accessible from both Materials and Settings pages.
+
+## Architecture
+
+### Unified Dataset Approach
+
+- **One dataset per material** (e.g., `oak-laser-cleaning.json`)
+- **Includes both:**
+  - Material properties (thermal, optical, mechanical)
+  - Machine settings (power, wavelength, spot size, etc.)
+- **Available from:**
+  - Materials pages: `/materials/wood/hardwood/oak-laser-cleaning`
+  - Settings pages: `/settings/wood/hardwood/oak`
+- **Schema.org Dataset** with comprehensive `variableMeasured` arrays
+
+### Dataset Consolidation
+
+```yaml
+# Before: Separate datasets
+materials/oak-laser-cleaning.json  # Material properties only
+settings/oak-settings.json         # Machine settings only
+
+# After: Unified dataset
+datasets/materials/oak-laser-cleaning.json  # Both properties + settings
+```
+
+Both pages reference the same unified dataset URL.
 
 ## Quick Start
 
@@ -24,6 +52,8 @@ Datasets should be regenerated whenever frontmatter data changes:
 - ✅ **Before production deployment** (automatic via prebuild)
 - ✅ **After bulk frontmatter updates** (batch processing scripts)
 
+**Note:** Unified datasets automatically combine data from both `/frontmatter/materials/` and `/frontmatter/settings/` directories.
+
 ## Available Commands
 
 ### Unified Commands
@@ -42,21 +72,145 @@ Datasets should be regenerated whenever frontmatter data changes:
 
 ## Output Locations
 
-### Materials Datasets
+### Unified Datasets
 - **Directory:** `public/datasets/materials/`
 - **Formats:** JSON, CSV, TXT
+- **Content:** Material properties + machine settings (consolidated)
 - **Count:** 132 materials × 3 formats = 396 files
 - **Index:** `public/datasets/materials/index.json`
-
-### Settings Datasets
-- **Directory:** `public/datasets/settings/`
-- **Formats:** JSON, CSV, TXT
-- **Count:** 132 settings × 3 formats = 396 files
+- **Example:** `oak-laser-cleaning.json` (includes both properties and settings)
 
 ### Total Dataset Files
-- **792 individual files** + 1 index = **793 dataset files**
+- **396 unified files** + 1 index = **397 dataset files**
 
-## Dataset Formats
+## Schema Generation
+
+### Schema.org Dataset, HowTo, and FAQPage
+
+Settings pages automatically generate **three key schemas** by merging data from both material and settings files:
+
+1. **Dataset Schema** - Comprehensive data with material properties + machine settings
+2. **HowTo Schema** - Step-by-step instructions from machine settings
+3. **FAQPage Schema** - Frequently asked questions from material FAQ data
+
+### Data Loading Pattern
+
+```typescript
+// In /app/settings/[category]/[subcategory]/[slug]/page.tsx
+
+// Load settings file (has machineSettings)
+const settings = await getSettingsArticle(`${material}-settings`);
+
+// Load material file (has materialProperties, faq, etc.)
+const materialArticle = await getArticleBySlug(`${material}-laser-cleaning`);
+
+// Merge for complete schema generation
+settings.materialProperties = materialArticle.materialProperties;
+settings.faq = materialArticle.faq;
+settings.outcomeMetrics = materialArticle.outcomeMetrics;
+settings.applications = materialArticle.applications;
+settings.environmentalImpact = materialArticle.environmentalImpact;
+```
+
+### Dataset Schema Structure
+
+Each unified dataset includes:
+
+```json
+{
+  "@type": "Dataset",
+  "@id": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning#dataset",
+  "name": "Oak Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning dataset for Oak. Includes validated machine parameters and material properties for optimal cleaning results.",
+  "variableMeasured": [
+    // Machine Settings (from settings file)
+    {
+      "@type": "PropertyValue",
+      "propertyID": "powerRange",
+      "name": "Power Range",
+      "value": 100,
+      "unitText": "W",
+      "description": "Laser power output"
+    },
+    // Material Properties (from materials file)
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "density",
+      "value": 0.75,
+      "unitText": "g/cm³"
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning.json"
+    }
+  ],
+  "url": "https://www.z-beam.com/datasets/materials/oak-laser-cleaning"
+}
+```
+
+### Machine Settings Included
+
+All datasets include these machine parameters (when available):
+- Power Range (W)
+- Wavelength (nm)
+- Spot Size (μm)
+- Repetition Rate (kHz)
+- Energy Density / Fluence Threshold (J/cm²)
+- Pulse Width (ns)
+- Scan Speed (mm/s)
+- Pass Count (passes)
+- Overlap Ratio (%)
+- Dwell Time (μs)
+
+### Material Properties Included
+
+All datasets include comprehensive material properties:
+- Thermal properties (density, melting point, thermal conductivity)
+- Optical properties (reflectivity, absorption coefficient)
+- Mechanical properties (hardness, tensile strength)
+- Laser interaction data
+
+## Data Loading
+
+### Materials Pages
+```typescript
+// /app/materials/[category]/[subcategory]/[slug]/page.tsx
+// Automatically loads machine settings from settings file
+const settings = await getSettingsArticle(`${material}-settings`);
+if (settings?.machineSettings) {
+  article.metadata.machineSettings = settings.machineSettings;
+}
+```
+
+### Settings Pages
+```typescript
+// /app/settings/[category]/[subcategory]/[slug]/page.tsx
+// Automatically loads ALL material data for complete schemas
+const materialArticle = await getArticleBySlug(`${material}-laser-cleaning`);
+
+// For Dataset schema
+settings.materialProperties = materialArticle.materialProperties;
+
+// For FAQPage schema
+settings.faq = materialArticle.faq;
+settings.outcomeMetrics = materialArticle.outcomeMetrics;
+settings.applications = materialArticle.applications;
+settings.environmentalImpact = materialArticle.environmentalImpact;
+```
+
+Both pages generate the same unified Dataset schema, plus HowTo and FAQPage schemas.
+
+### Schema Generation Summary
+
+| Schema | Generated On | Data Source |
+|--------|-------------|-------------|
+| **Dataset** | Both pages | machineSettings + materialProperties |
+| **HowTo** | Both pages | machineSettings (generates steps) |
+| **FAQPage** | Both pages | faq, environmentalImpact (merged from material) |
 
 ### JSON Format
 - **Purpose:** Schema.org structured data, API consumption
@@ -76,7 +230,7 @@ Datasets should be regenerated whenever frontmatter data changes:
 - **Size:** ~5-20 KB per file
 - **Example:** `aluminum-laser-cleaning.txt`
 
-## Generator Scripts
+## Dataset Formats
 
 ### Materials Generator
 - **File:** `scripts/generate-datasets.ts`
@@ -102,7 +256,27 @@ Datasets should be regenerated whenever frontmatter data changes:
 
 **Data Completeness:** Min/Max ranges and parameter descriptions are populated by the external Python generator system (Z-Beam content generation pipeline). The JavaScript generator reads these values from the YAML frontmatter files that are pre-populated by the Python system.
 
-## Automatic Regeneration
+## Download Component
+
+Both Materials and Settings pages use the same **MaterialDatasetCardWrapper** component:
+
+```tsx
+<MaterialDatasetCardWrapper
+  material={{
+    name: "Oak",
+    slug: "oak",
+    category: "wood",
+    subcategory: "hardwood",
+    machineSettings: { /* loaded dynamically */ },
+    materialProperties: { /* loaded dynamically */ }
+  }}
+  showFullDataset={true}
+/>
+```
+
+This ensures consistent dataset presentation across all pages.
+
+## Generator Scripts
 
 Datasets are automatically regenerated during the build process:
 

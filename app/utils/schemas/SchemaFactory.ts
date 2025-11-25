@@ -252,7 +252,7 @@ export class SchemaFactory {
       priority: 20,
       condition: (data) => {
         const fm = (data.frontmatter || data.metadata) as Record<string, unknown> | undefined;
-        return !!fm?.materialProperties;
+        return !!(fm?.materialProperties || fm?.machineSettings);
       }
     });
     this.register('Certification', generateCertificationSchema, {
@@ -1143,6 +1143,7 @@ function generatePersonSchema(data: any, context: SchemaContext): SchemaOrgBase 
 
 /**
  * Dataset Schema - Enhanced with E-E-A-T author signals
+ * Includes both material properties AND machine settings for comprehensive datasets
  */
 function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
   const frontmatter = getMetadata(data);
@@ -1153,10 +1154,9 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   // Extract material slug from the full slug path (e.g., "materials/metal/non-ferrous/titanium" -> "titanium")
   const materialSlug = slug.split('/').pop() || slug;
   
-  // Check if slug already ends with "-laser-cleaning"
-  const datasetName = materialSlug.endsWith('-laser-cleaning') 
-    ? materialSlug 
-    : `${materialSlug}-laser-cleaning`;
+  // Normalize slug: remove -laser-cleaning or -settings suffix for unified dataset naming
+  const baseMaterialSlug = materialSlug.replace(/-laser-cleaning$/, '').replace(/-settings$/, '');
+  const datasetName = `${baseMaterialSlug}-laser-cleaning`;
 
   // E-E-A-T Enhancement: Use page author as dataset creator for authority
   const author = frontmatter.author || data.author;
@@ -1167,11 +1167,90 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
     'url': SITE_CONFIG.url
   };
 
+  // Build variableMeasured array from both material properties and machine settings
+  const measurements: any[] = [];
+  
+  // Add machine settings if present
+  if (frontmatter.machineSettings) {
+    const settingsMap: Record<string, { label: string; description: string }> = {
+      powerRange: { label: 'Power Range', description: 'Laser power output' },
+      wavelength: { label: 'Wavelength', description: 'Laser beam wavelength' },
+      spotSize: { label: 'Spot Size', description: 'Focused laser beam diameter' },
+      repetitionRate: { label: 'Repetition Rate', description: 'Laser pulse frequency' },
+      energyDensity: { label: 'Energy Density', description: 'Energy per unit area (fluence)' },
+      fluenceThreshold: { label: 'Fluence Threshold', description: 'Minimum energy density for ablation' },
+      pulseWidth: { label: 'Pulse Width', description: 'Laser pulse duration' },
+      scanSpeed: { label: 'Scan Speed', description: 'Beam travel velocity' },
+      passCount: { label: 'Pass Count', description: 'Number of cleaning passes' },
+      overlapRatio: { label: 'Overlap Ratio', description: 'Beam overlap percentage' },
+      dwellTime: { label: 'Dwell Time', description: 'Time laser spends per location' }
+    };
+    
+    Object.entries(frontmatter.machineSettings as Record<string, any>).forEach(([key, settingData]: [string, any]) => {
+      if (settingsMap[key] && settingData?.value !== undefined && settingData?.unit) {
+        measurements.push({
+          '@type': 'PropertyValue',
+          'propertyID': key,
+          'name': settingsMap[key].label,
+          'value': settingData.value,
+          'unitText': settingData.unit,
+          'description': settingsMap[key].description
+        });
+      }
+    });
+  }
+  
+  // Add material properties if present
+  if (frontmatter.materialProperties) {
+    Object.entries(frontmatter.materialProperties as Record<string, any>).forEach(([categoryKey, categoryData]: [string, any]) => {
+      const propsToProcess = categoryData?.properties || categoryData;
+      
+      if (typeof propsToProcess === 'object' && !Array.isArray(propsToProcess)) {
+        Object.entries(propsToProcess).forEach(([propKey, propData]: [string, any]) => {
+          // Skip metadata fields
+          if (['label', 'description', 'percentage'].includes(propKey)) return;
+          
+          if (propData?.value !== undefined) {
+            measurements.push({
+              '@type': 'PropertyValue',
+              'propertyID': propKey,
+              'name': propKey,
+              'value': propData.value,
+              'unitText': propData.unit || '',
+              // E-E-A-T: Trustworthiness - verification metadata
+              ...(propData.metadata?.last_verified && {
+                'dateModified': propData.metadata.last_verified
+              }),
+              ...(propData.metadata?.source && {
+                'citation': {
+                  '@type': 'CreativeWork',
+                  'name': propData.metadata.source
+                }
+              })
+            });
+          }
+        });
+      }
+    });
+  }
+
+  const hasMachineSettings = !!(frontmatter.machineSettings && Object.keys(frontmatter.machineSettings).length > 0);
+  const hasMaterialProps = !!(frontmatter.materialProperties && Object.keys(frontmatter.materialProperties).length > 0);
+  
+  let datasetDescription = `Comprehensive laser cleaning dataset for ${frontmatter.name || 'material'}.`;
+  if (hasMachineSettings && hasMaterialProps) {
+    datasetDescription += ' Includes validated machine parameters and material properties for optimal cleaning results.';
+  } else if (hasMachineSettings) {
+    datasetDescription += ' Includes validated machine parameters for optimal cleaning results.';
+  } else if (hasMaterialProps) {
+    datasetDescription += ' Includes validated material properties for laser cleaning applications.';
+  }
+
   return {
     '@type': 'Dataset',
-    '@id': `${pageUrl}#dataset`,
+    '@id': `${baseUrl}/datasets/materials/${datasetName}#dataset`,
     'name': `${frontmatter.name || 'Material'} Laser Cleaning Dataset`,
-    'description': `Comprehensive laser cleaning parameters and material properties for ${frontmatter.name || 'material'}. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.`,
+    'description': datasetDescription,
     'version': '1.0',
     'license': {
       '@type': 'CreativeWork',
@@ -1201,11 +1280,13 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
         'name': 'Plain Text Dataset'
       }
     ],
+    ...(measurements.length > 0 && { 'variableMeasured': measurements }),
     'temporalCoverage': '2025',
     'spatialCoverage': {
       '@type': 'Place',
       'name': 'Global'
-    }
+    },
+    'url': `${baseUrl}/datasets/materials/${datasetName}`
   };
 }
 

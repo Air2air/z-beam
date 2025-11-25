@@ -215,9 +215,26 @@ describe('MaterialJsonLD Component', () => {
     expect(howto.step.length).toBeGreaterThan(0);
   });
 
-  it.skip('should include Dataset schema with verification metadata', () => {
+  it('should include Dataset schema with both material properties and machine settings', () => {
+    const articleWithBothData = {
+      ...baseArticle,
+      metadata: {
+        ...baseArticle.metadata,
+        materialProperties: {
+          thermal: {
+            density: { value: 2.7, unit: 'g/cm³' },
+            meltingPoint: { value: 660, unit: '°C' }
+          }
+        },
+        machineSettings: {
+          powerRange: { value: 100, unit: 'W' },
+          wavelength: { value: 1064, unit: 'nm' }
+        }
+      }
+    };
+
     const { container } = render(
-      <MaterialJsonLD article={baseArticle} slug="test-material" />
+      <MaterialJsonLD article={articleWithBothData} slug="materials/metal/non-ferrous/aluminum-laser-cleaning" />
     );
 
     const script = container.querySelector('script[type="application/ld+json"]');
@@ -228,6 +245,16 @@ describe('MaterialJsonLD Component', () => {
     expect(dataset.name).toContain('Test Material');
     expect(dataset.variableMeasured).toBeDefined();
     expect(Array.isArray(dataset.variableMeasured)).toBe(true);
+    
+    // Should have both material properties and machine settings
+    const hasMaterialProperty = dataset.variableMeasured.some((v: any) => v.propertyID === 'density');
+    const hasMachineSetting = dataset.variableMeasured.some((v: any) => v.propertyID === 'powerRange');
+    expect(hasMaterialProperty).toBe(true);
+    expect(hasMachineSetting).toBe(true);
+    
+    // Should use unified dataset URL
+    expect(dataset['@id']).toContain('/datasets/materials/');
+    expect(dataset.url).toContain('/datasets/materials/aluminum-laser-cleaning');
   });
 
   it.skip('should include Person schema with author credentials', () => {

@@ -16,11 +16,16 @@ export interface HowToStep {
  * Machine settings for HowTo steps (different from MachineSettings in centralized types)
  */
 export interface HowToMachineSettings {
-  powerRange?: { value: string; unit: string; description?: string };
-  wavelength?: { value: string; unit: string; description?: string };
-  spotSize?: { value: string; unit: string; description?: string };
-  scanSpeed?: { value: string; unit: string; description?: string };
-  pulseFrequency?: { value: string; unit: string; description?: string };
+  powerRange?: { value: string | number; unit: string; description?: string };
+  wavelength?: { value: string | number; unit: string; description?: string };
+  spotSize?: { value: string | number; unit: string; description?: string };
+  repetitionRate?: { value: string | number; unit: string; description?: string };
+  energyDensity?: { value: string | number; unit: string; description?: string };
+  pulseWidth?: { value: string | number; unit: string; description?: string };
+  scanSpeed?: { value: string | number; unit: string; description?: string };
+  passCount?: { value: string | number; unit: string; description?: string };
+  overlapRatio?: { value: string | number; unit: string; description?: string };
+  dwellTime?: { value: string | number; unit: string; description?: string };
 }
 
 export interface HowToSchemaOptions {
@@ -105,6 +110,42 @@ export function generateHowToSchema(options: HowToSchemaOptions) {
       });
     }
     
+    if (machineSettings.repetitionRate) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Repetition Rate',
+        text: `Configure repetition rate to ${machineSettings.repetitionRate.value} ${machineSettings.repetitionRate.unit}`,
+        ...(machineSettings.repetitionRate.description && { 
+          description: machineSettings.repetitionRate.description 
+        })
+      });
+    }
+    
+    if (machineSettings.energyDensity) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Energy Density',
+        text: `Configure energy density to ${machineSettings.energyDensity.value} ${machineSettings.energyDensity.unit}`,
+        ...(machineSettings.energyDensity.description && { 
+          description: machineSettings.energyDensity.description 
+        })
+      });
+    }
+    
+    if (machineSettings.pulseWidth) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Pulse Width',
+        text: `Configure pulse width to ${machineSettings.pulseWidth.value} ${machineSettings.pulseWidth.unit}`,
+        ...(machineSettings.pulseWidth.description && { 
+          description: machineSettings.pulseWidth.description 
+        })
+      });
+    }
+    
     if (machineSettings.scanSpeed) {
       steps.push({
         '@type': 'HowToStep',
@@ -117,14 +158,38 @@ export function generateHowToSchema(options: HowToSchemaOptions) {
       });
     }
     
-    if (machineSettings.pulseFrequency) {
+    if (machineSettings.passCount) {
       steps.push({
         '@type': 'HowToStep',
         position: stepNumber++,
-        name: 'Set Pulse Frequency',
-        text: `Configure pulse frequency to ${machineSettings.pulseFrequency.value} ${machineSettings.pulseFrequency.unit}`,
-        ...(machineSettings.pulseFrequency.description && { 
-          description: machineSettings.pulseFrequency.description 
+        name: 'Execute Cleaning Passes',
+        text: `Perform ${machineSettings.passCount.value} cleaning ${machineSettings.passCount.value === 1 ? 'pass' : 'passes'}`,
+        ...(machineSettings.passCount.description && { 
+          description: machineSettings.passCount.description 
+        })
+      });
+    }
+    
+    if (machineSettings.overlapRatio) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Overlap Ratio',
+        text: `Configure beam overlap to ${machineSettings.overlapRatio.value}${machineSettings.overlapRatio.unit}`,
+        ...(machineSettings.overlapRatio.description && { 
+          description: machineSettings.overlapRatio.description 
+        })
+      });
+    }
+    
+    if (machineSettings.dwellTime) {
+      steps.push({
+        '@type': 'HowToStep',
+        position: stepNumber++,
+        name: 'Set Dwell Time',
+        text: `Configure dwell time to ${machineSettings.dwellTime.value} ${machineSettings.dwellTime.unit}`,
+        ...(machineSettings.dwellTime.description && { 
+          description: machineSettings.dwellTime.description 
         })
       });
     }

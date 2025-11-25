@@ -1,6 +1,6 @@
 // app/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from "next/navigation";
-import { getArticle, getAllArticleSlugs } from "@/app/utils/contentAPI";
+import { getArticle, getAllArticleSlugs, getSettingsArticle } from "@/app/utils/contentAPI";
 import { getAllCategories } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
 import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
@@ -115,6 +115,21 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     
     // Prepare components
     const components = article.components || {};
+    
+    // Load machine settings from corresponding settings file for complete Dataset schema
+    try {
+      const baseMaterialSlug = slug.replace(/-laser-cleaning$/, '');
+      const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
+      if (settings?.machineSettings) {
+        // Merge machineSettings into article metadata for Dataset schema
+        article.metadata = {
+          ...article.metadata,
+          machineSettings: settings.machineSettings
+        };
+      }
+    } catch (error) {
+      // Settings file doesn't exist - continue without machine settings
+    }
     
     return (
       <>

@@ -125,7 +125,7 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
     // Core metadata
     metadata: {
       title: settings.title,
-      description: settings.description,
+      description: settings.settings_description || settings.description,
       name: settings.name,
       category: settings.category || category,
       subcategory: settings.subcategory || subcategory,
@@ -134,12 +134,8 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
       dateModified: settings.dateModified,
       keywords: settings.seo_settings_page?.keywords || [],
       
-      // Settings-specific data
+      // Settings-specific data - pass machineSettings directly for Dataset schema
       machineSettings: settings.machineSettings,
-      materialProperties: {
-        // Include machine settings as "properties" for Dataset schema
-        parameters: settings.machineSettings
-      },
       
       // Enhanced E-E-A-T signals
       eeat,
@@ -160,13 +156,12 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
     // Frontmatter alias for SchemaFactory compatibility
     frontmatter: {
       title: settings.title,
-      description: settings.description,
+      description: settings.settings_description || settings.description,
       name: settings.name,
       category: settings.category || category,
       subcategory: settings.subcategory || subcategory,
       author: settings.author,
       machineSettings: settings.machineSettings,
-      materialProperties: { parameters: settings.machineSettings },
       eeat,
       faq,
       images: (settings as any).images, // Images loaded from YAML but not in type definition
@@ -177,17 +172,36 @@ function prepareSchemaData(settings: SettingsMetadata, category: string, subcate
 
 /**
  * Transform material_challenges into FAQ schema format
+ * Handles nested structure: material_challenges.category[].challenge
  */
 function transformChallengesIntoFAQ(challenges: any): any[] {
   if (!challenges || typeof challenges !== 'object') return [];
   
   const faqs: any[] = [];
   
-  Object.entries(challenges).forEach(([key, value]: [string, any]) => {
-    if (typeof value === 'object' && value.challenge && value.solution) {
+  // Handle nested challenge categories (thermal_management, surface_characteristics, etc.)
+  Object.entries(challenges).forEach(([categoryKey, categoryValue]: [string, any]) => {
+    if (Array.isArray(categoryValue)) {
+      // Handle array of challenges
+      categoryValue.forEach((item: any) => {
+        if (item.challenge && item.solutions) {
+          const solutions = Array.isArray(item.solutions) 
+            ? item.solutions.join(' ') 
+            : item.solutions;
+          faqs.push({
+            question: `How do you handle ${item.challenge.toLowerCase()}?`,
+            answer: `${item.impact || ''} Solutions: ${solutions}`.trim()
+          });
+        }
+      });
+    } else if (typeof categoryValue === 'object' && categoryValue.challenge) {
+      // Handle single challenge object
+      const solutions = Array.isArray(categoryValue.solutions) 
+        ? categoryValue.solutions.join(' ') 
+        : categoryValue.solutions;
       faqs.push({
-        question: `How do you handle ${formatChallengeKey(key)}?`,
-        answer: `Challenge: ${value.challenge}. Solution: ${value.solution}`
+        question: `How do you handle ${categoryValue.challenge.toLowerCase()}?`,
+        answer: `${categoryValue.impact || ''} Solutions: ${solutions}`.trim()
       });
     }
   });

@@ -128,9 +128,31 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
     }
 
     // NEW: Material properties are auto-loaded via materialRef, but we can override
-    // Load material properties from frontmatter for data interpolation (backward compatibility)
+    // Load material data for complete schema generation (Dataset, FAQ, HowTo)
     const materialArticle = await getArticleBySlug(`materials/${category}/${subcategory}/${slug}-laser-cleaning`) as any;
     const materialProps = materialArticle?.materialProperties;
+    
+    // Merge material data into settings for complete schemas
+    if (materialArticle) {
+      // For Dataset schema
+      if (materialProps) {
+        (settings as any).materialProperties = materialProps;
+      }
+      
+      // For FAQPage schema (hasFAQData checks for faq, outcomeMetrics, applications, environmentalImpact)
+      if (materialArticle.faq) {
+        (settings as any).faq = materialArticle.faq;
+      }
+      if (materialArticle.outcomeMetrics) {
+        (settings as any).outcomeMetrics = materialArticle.outcomeMetrics;
+      }
+      if (materialArticle.applications) {
+        (settings as any).applications = materialArticle.applications;
+      }
+      if (materialArticle.environmentalImpact) {
+        (settings as any).environmentalImpact = materialArticle.environmentalImpact;
+      }
+    }
 
     return (
       <>
