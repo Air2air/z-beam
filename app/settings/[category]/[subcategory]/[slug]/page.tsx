@@ -129,16 +129,37 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
 
     // NEW: Material properties are auto-loaded via materialRef, but we can override
     // Load material data for complete schema generation (Dataset, FAQ, HowTo)
-    // Note: getArticleBySlug searches in frontmatter/materials/, so no path prefix needed
-    const materialArticle = await getArticleBySlug(`${baseMaterialSlug}-laser-cleaning`) as any;
-    const materialProps = materialArticle?.materialProperties;
+    // Load YAML file directly since getArticleBySlug only handles .md files
+    let materialArticle: any = null;
+    let materialProps: any = null;
+    
+    try {
+      const fs = await import('fs');
+      const path = await import('path');
+      const yaml = await import('js-yaml');
+      
+      const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${baseMaterialSlug}-laser-cleaning.yaml`);
+      
+      if (fs.existsSync(materialPath)) {
+        const fileContent = fs.readFileSync(materialPath, 'utf8');
+        materialArticle = yaml.load(fileContent) as any;
+        materialProps = materialArticle?.materialProperties;
+        console.log(`[Settings Page] Material YAML loaded: ${!!materialArticle}`);
+        console.log(`[Settings Page] Material properties:`, materialProps ? Object.keys(materialProps).length + ' sections' : 'none');
+      } else {
+        console.log(`[Settings Page] Material YAML not found: ${materialPath}`);
+      }
+    } catch (error) {
+      console.error(`[Settings Page] Error loading material YAML:`, error);
+    }
+    
+    console.log(`[Settings Page] Material article loaded: ${!!materialArticle}`);
+    console.log(`[Settings Page] Material properties:`, materialProps ? Object.keys(materialProps).length + ' sections' : 'none');
     
     // Merge material data into settings for complete schemas
     if (materialArticle) {
-      // For Dataset schema
-      if (materialProps) {
-        (settings as any).materialProperties = materialProps;
-      }
+      // For Dataset schema - ALWAYS set materialProperties even if undefined to avoid errors
+      (settings as any).materialProperties = materialProps || {};
       
       // For FAQPage schema (hasFAQData checks for faq, outcomeMetrics, applications, environmentalImpact)
       if (materialArticle.faq) {
@@ -153,6 +174,14 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
       if (materialArticle.environmentalImpact) {
         (settings as any).environmentalImpact = materialArticle.environmentalImpact;
       }
+      if (materialArticle.regulatoryStandards) {
+        (settings as any).regulatoryStandards = materialArticle.regulatoryStandards;
+      }
+    } else {
+      // Even if materialArticle doesn't exist, initialize empty properties to avoid undefined errors
+      (settings as any).materialProperties = {};
+      (settings as any).faq = [];
+      (settings as any).regulatoryStandards = [];
     }
 
     return (

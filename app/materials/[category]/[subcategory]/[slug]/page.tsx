@@ -155,18 +155,14 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           )}
           
           <MaterialDatasetCardWrapper 
-            material={{
-              name: (article.metadata.title as string) || slug,
-              slug: slug,
-              category: category,
-              subcategory: subcategory,
-              parameters: (article.metadata as any).parameters,
-              materialProperties: (article.metadata as any).materialProperties,
-              applications: (article.metadata as any).applications,
-              faq: (article.metadata as any).faq,
-              regulatoryStandards: (article.metadata as any).regulatoryStandards,
-              machineSettings: (article.metadata as any).machineSettings
-            }}
+            materialName={(article.metadata.title as string) || slug}
+            slug={slug}
+            category={category}
+            subcategory={subcategory}
+            machineSettings={(article.metadata as any).machineSettings}
+            materialProperties={(article.metadata as any).materialProperties}
+            faq={(article.metadata as any).faq}
+            regulatoryStandards={(article.metadata as any).regulatoryStandards}
             showFullDataset={true}
           />
         </Layout>

@@ -40,6 +40,8 @@ function prepareSettingsData(
   const parametersRaw = settings.components?.parameter_relationships?.parameters 
     || settings.machineSettings?.essential_parameters;
   
+  console.log('SettingsLayout machineSettings:', JSON.stringify(settings.machineSettings, null, 2));
+  
   // Use materialRef-loaded properties or passed properties
   const materialProps = settings._materialProperties || materialProperties;
   
@@ -49,7 +51,7 @@ function prepareSettingsData(
   const diagnosticConfig = settings.components?.diagnostic_center;
 
   // Convert parameters to consistent array format
-  const paramData = parametersRaw ? (
+  let paramData = parametersRaw ? (
     Array.isArray(parametersRaw) 
       ? parametersRaw 
       : Object.entries(parametersRaw).map(([key, param]: [string, any]) => ({
@@ -65,19 +67,30 @@ function prepareSettingsData(
   ) : (
     // Fallback: Convert simple machineSettings to parameter format
     settings.machineSettings 
-      ? Object.entries(settings.machineSettings).map(([key, param]: [string, any]) => ({
-          id: key,
-          name: param.name || key,
-          value: param.value,
-          unit: param.unit,
-          min: param.min,
-          max: param.max,
-          criticality: inferCriticality(key),
-          rationale: `Operating range: ${param.min}-${param.max} ${param.unit}`,
-          material_interaction: null
-        })) 
-      : null
+      ? Object.entries(settings.machineSettings)
+          .filter(([key]) => !['material_challenges', 'common_issues'].includes(key))
+          .map(([key, param]: [string, any]) => {
+            // Only process if param has value and unit (actual parameters)
+            if (param && typeof param === 'object' && param.value !== undefined && param.unit) {
+              return {
+                id: key,
+                name: param.name || key,
+                value: param.value,
+                unit: param.unit,
+                min: param.min,
+                max: param.max,
+                criticality: inferCriticality(key),
+                rationale: `Operating range: ${param.min || 0}-${param.max || param.value * 2} ${param.unit}`,
+                material_interaction: null
+              };
+            }
+            return null;
+          })
+          .filter(Boolean) 
+      : []
   );
+  
+  console.log('SettingsLayout paramData:', paramData?.length, 'items');
 
   // Helper function to find parameter by id
   const findParam = (id: string) => {
@@ -138,6 +151,8 @@ export function SettingsLayout({
     slug,
     category,
     subcategory,
+    machineSettings: settings.machineSettings, // Explicitly ensure machineSettings is passed
+    materialProperties: materialProperties || settings._materialProperties, // Explicitly pass material properties
   } as any;
 
   // Extract and prepare settings data using utility
@@ -241,17 +256,14 @@ export function SettingsLayout({
       {/* Settings-specific visualizations below */}
       
       {/* Parameter Interaction Network */}
-      {paramData && paramData.length > 0 && (
-        <ParameterRelationships 
-          parameters={paramData}
-          materialName={settings.name}
-        />
-      )}
+      <ParameterRelationships 
+        parameters={paramData || []}
+        materialName={settings.name}
+      />
 
       {/* Material Safety Heatmap */}
-      {powerParam && pulseParam && (
-        <div className="mb-8">
-          <MaterialSafetyHeatmap 
+      <div className="mb-8">
+        <MaterialSafetyHeatmap 
               materialName={settings.name}
               powerRange={{
                 min: powerParam.min || 0,
@@ -293,11 +305,9 @@ export function SettingsLayout({
               }}
             />
           </div>
-        )}
 
         {/* Process Effectiveness Heatmap */}
-        {powerParam && pulseParam && (
-          <div className="mb-8">
+        <div className="mb-8">
             <ProcessEffectivenessHeatmap 
               materialName={settings.name}
               powerRange={{
@@ -334,27 +344,22 @@ export function SettingsLayout({
               }}
             />
           </div>
-        )}
 
         {/* Thermal Accumulation Simulator */}
-        {settings.machineSettings && (
-          <ThermalAccumulation 
+        <ThermalAccumulation 
             materialName={settings.name}
             power={thermalParams.power}
             repRate={thermalParams.rep_rate}
             scanSpeed={thermalParams.scan_speed}
             passCount={thermalParams.pass_count}
           />
-        )}
 
         {/* Diagnostic & Prevention Center - Tabbed Interface */}
-        {(defaultChallenges || defaultIssues) && (
-          <DiagnosticCenter 
+        <DiagnosticCenter 
             materialName={settings.name}
             challenges={defaultChallenges!}
             issues={defaultIssues!}
           />
-        )}
 
       {/* Research Citations - NEW */}
       {settings.research_library && (
@@ -377,16 +382,14 @@ export function SettingsLayout({
 
       {/* Dataset Download Section */}
       <MaterialDatasetCardWrapper
-        material={{
-          name: settings.name,
-          slug,
-          category,
-          subcategory,
-          machineSettings: settings.machineSettings,
-          materialProperties: (settings as any).materialProperties || materialProps,
-          faq: (settings as any).faq,
-          regulatoryStandards: (settings as any).regulatoryStandards
-        }}
+        materialName={settings.name}
+        slug={slug}
+        category={category}
+        subcategory={subcategory}
+        machineSettings={settings.machineSettings}
+        materialProperties={materialProps || {}}
+        faq={(settings as any).faq || []}
+        regulatoryStandards={(settings as any).regulatoryStandards || []}
         showFullDataset={true}
       />
 
