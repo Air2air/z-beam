@@ -239,7 +239,7 @@ export function DebugLayout({
                 if (section.id === currentSection) {
                   return (
                     <div key={section.id}>
-                      <h2 className="text-muted flex items-center">
+                      <h2 className="flex items-center">
                         <span className="mr-2">{section.icon}</span> {section.title}
                       </h2>
                       <p className="mt-1 text-muted">{section.description}</p>

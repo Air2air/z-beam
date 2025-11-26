@@ -1,6 +1,7 @@
 // app/services/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
+import { Services } from "../components/Services/Services";
 import { SITE_CONFIG } from "@/app/config";
 import { JsonLD } from "@/app/components/JsonLD/JsonLD";
 import fs from 'fs/promises';
@@ -172,6 +173,11 @@ export default async function ServicesPage() {
         {pageConfig.contentCards && pageConfig.contentCards.length > 0 && (
           <ContentSection items={pageConfig.contentCards} />
         )}
+        
+        {/* Services Component */}
+        <div className="mb-16">
+          <Services />
+        </div>
       </Layout>
     </>
   );

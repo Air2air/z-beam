@@ -179,13 +179,6 @@ export function Layout(props: LayoutProps) {
             <EnvironmentalImpact environmentalImpact={metadata.environmental_impact} />
           )}
 
-          {metadata?.name && metadata?.faq && (
-            <MaterialFAQ
-              materialName={metadata.name}
-              faq={Array.isArray(metadata.faq) ? metadata.faq : (metadata.faq as any)?.questions || []}
-            />
-          )}
-
           {metadata?.name && metadata?.expertAnswers && (
             <ExpertAnswers
               materialName={metadata.name}

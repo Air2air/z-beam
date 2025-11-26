@@ -1,17 +1,10 @@
 // app/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from "next/navigation";
-import dynamicImport from "next/dynamic";
 import { getArticle, getAllArticleSlugs, getSettingsArticle } from "@/app/utils/contentAPI";
 import { getAllCategories } from "@/app/utils/materialCategories";
-import { Layout } from "@/app/components/Layout/Layout";
+import { MaterialsLayout } from "@/app/components/MaterialsLayout/MaterialsLayout";
 import { MaterialJsonLD } from "@/app/components/JsonLD/JsonLD";
 import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
-import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
-import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
-import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
-import { Pricing } from "@/app/components/Pricing/Pricing";
-import { LaserMaterialInteraction } from "@/app/components/LaserMaterialInteraction/LaserMaterialInteraction";
-import { MaterialCharacteristics } from "@/app/components/MaterialCharacteristics/MaterialCharacteristics";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -23,12 +16,6 @@ export const revalidate = false;
 interface MaterialPageProps {
   params: Promise<{ category: string; subcategory: string; slug: string }>;
 }
-
-// Dynamic import Caption for code-splitting
-const Caption = dynamicImport(
-  () => import('@/app/components/Caption/Caption').then(mod => mod.Caption),
-  { ssr: true }
-);
 
 // Generate static params for all materials
 export async function generateStaticParams() {
@@ -144,72 +131,13 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
     return (
       <>
         <MaterialJsonLD article={article} slug={`materials/${category}/${subcategory}/${slug}`} />
-        <Layout 
+        <MaterialsLayout 
           components={components as any} 
           metadata={article.metadata as unknown as ArticleMetadata} 
-          slug={`materials/${category}/${subcategory}/${slug}`}
-        >
-          <div className="mb-16">
-            <Pricing 
-              materialName={(article.metadata.title as string) || slug}
-              materialSlug={slug}
-            />
-          </div>
-          
-          {(article.metadata as any).materialProperties && (
-            <div className="mb-16">
-              <LaserMaterialInteraction
-                materialName={(article.metadata.title as string) || slug}
-                materialProperties={(article.metadata as any).materialProperties}
-              />
-            </div>
-          )}
-          
-          {(article.metadata as any).materialProperties && (
-            <div className="mb-16">
-              <MaterialCharacteristics
-                materialName={(article.metadata.title as string) || slug}
-                materialProperties={(article.metadata as any).materialProperties}
-              />
-            </div>
-          )}
-          
-          {(article.metadata as any).caption && (
-            <div className="mb-16">
-              <Caption 
-                frontmatter={article.metadata as any} 
-                config={{ showTechnicalDetails: true, showMetadata: true }} 
-              />
-            </div>
-          )}
-          
-          {(article.metadata as any).regulatoryStandards && (article.metadata as any).regulatoryStandards.length > 0 && (
-            <div className="mb-16">
-              <RegulatoryStandards standards={(article.metadata as any).regulatoryStandards} />
-            </div>
-          )}
-          
-          <div className="mb-16">
-            <RelatedMaterials 
-              currentSlug={slug}
-              category={category}
-              subcategory={subcategory}
-              maxItems={6}
-            />
-          </div>
-          
-          <MaterialDatasetCardWrapper 
-            materialName={(article.metadata.title as string) || slug}
-            slug={slug}
-            category={category}
-            subcategory={subcategory}
-            machineSettings={(article.metadata as any).machineSettings}
-            materialProperties={(article.metadata as any).materialProperties}
-            faq={(article.metadata as any).faq}
-            regulatoryStandards={(article.metadata as any).regulatoryStandards}
-            showFullDataset={true}
-          />
-        </Layout>
+          slug={slug}
+          category={category}
+          subcategory={subcategory}
+        />
       </>
     );
   } catch (error) {
