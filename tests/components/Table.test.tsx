@@ -1,21 +1,20 @@
 /**
  * Test Suite: Table Component
- * Testing simplified Smart Table rendering and frontmatter flattening
+ * Testing simplified table rendering
  */
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { SmartTableData } from '@/types';
 
-// Mock the simplified SmartTable component
+// Mock the simplified Table component
 const MockTable = ({ content, config, frontmatterData }: {
   content?: string;
   config?: {
     caption?: string;
     showHeader?: boolean;
   };
-  frontmatterData?: SmartTableData;
+  frontmatterData?: any;
 }) => {
   if (!frontmatterData) {
     return (
@@ -130,7 +129,7 @@ const LegacyTable = ({ data, columns, sortable, filterable, onSort, onFilter, va
 );
 
 describe('Smart Table Component', () => {
-  const sampleFrontmatterData: SmartTableData = {
+  const sampleFrontmatterData: any = {
     name: 'Aluminum 6061',
     category: 'metal',
     subcategory: 'Aluminum Alloy',
@@ -252,8 +251,8 @@ describe('Smart Table Component', () => {
   });
 
   describe('Type Safety and Interfaces', () => {
-    test.skip('should handle SmartTableData interface correctly', () => {
-      const typedData: SmartTableData = {
+    test.skip('should handle table data interface correctly', () => {
+      const typedData: any = {
         name: 'Test Material',
         category: 'Test Category',
         materialProperties: {

@@ -777,47 +777,6 @@ export interface TableProps {
 }
 
 /**
- * Smart Table display modes
- */
-export type DisplayMode = 'auto' | 'content' | 'technical' | 'hybrid';
-
-/**
- * Smart Table data structure
- */
-export interface SmartTableData {
-  [key: string]: any;
-}
-
-/**
- * Smart field for intelligent table rendering
- */
-export interface SmartField {
-  key: string;
-  label: string;
-  value: any;
-  type: 'text' | 'array' | 'object' | 'number' | 'boolean';
-  category: 'identity' | 'content' | 'technical' | 'reference';
-  confidence?: number;
-  source?: string;
-  description?: string;
-  unit?: string;
-  displayMode?: DisplayMode[];
-}
-
-/**
- * Table section for organized display
- */
-export interface TableSection {
-  id: string;
-  title: string;
-  description?: string;
-  priority: number;
-  fields: SmartField[];
-  badge?: string;
-  modes: DisplayMode[];
-}
-
-/**
  * Hero component props - Uses frontmatter as 100% data source
  */
 export interface HeroProps {

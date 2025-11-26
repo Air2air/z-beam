@@ -1,8 +1,6 @@
 // app/netalux/page.tsx
 import { Layout } from "../components/Layout/Layout";
 import { ContentSection } from "../components/ContentCard";
-import { ComparisonTable } from "../components/ComparisonTable/ComparisonTable";
-import { Table } from "../components/Table/Table";
 import { SITE_CONFIG } from "@/app/config";
 import fs from 'fs/promises';
 import path from 'path';
@@ -97,36 +95,11 @@ export default async function NetaluxPage() {
       metadata={pageConfig}
       slug="netalux"
     >
-      {/* Needle® Section: Card followed by comparison table */}
-      {needleCard && (
-        <>
-          <ContentSection items={[needleCard]} />
-          {pageConfig.needle100_150 && pageConfig.needle200_300 && (
-            <div className="my-12">
-              <ComparisonTable
-                title="Needle® Model Comparison"
-                model1Data={pageConfig.needle100_150}
-                model2Data={pageConfig.needle200_300}
-                model1Name="Needle® 100/150"
-                model2Name="Needle® 200/300"
-                variant="compact"
-              />
-            </div>
-          )}
-        </>
-      )}
+      {/* Needle® Section */}
+      {needleCard && <ContentSection items={[needleCard]} />}
       
-      {/* Jango® Section: Card followed by specs table */}
-      {jangoCard && (
-        <>
-          <ContentSection items={[jangoCard]} />
-          {pageConfig.jangoSpecs && (
-            <div className="my-12">
-              <Table content="" frontmatterData={pageConfig.jangoSpecs} config={{}} />
-            </div>
-          )}
-        </>
-      )}
+      {/* Jango® Section */}
+      {jangoCard && <ContentSection items={[jangoCard]} />}
       
       {/* Other content cards */}
       {otherCards.length > 0 && <ContentSection items={otherCards} />}

@@ -1,19 +1,11 @@
 // app/components/Table/Table.tsx
 import React from 'react';
-import { SmartTable } from './SmartTable';
-import { TableProps, SmartTableData } from '@/types';
+import { TableProps } from '@/types';
 
 /**
- * Enhanced Table component with intelligent frontmatter organization
- * Supports Content, Technical, and Hybrid view modes
+ * Table component - deprecated, scheduled for removal
  */
-export function Table({ content, config, frontmatterData }: TableProps & { frontmatterData?: SmartTableData }) {
-  // Use the SmartTable implementation
-  return (
-    <SmartTable 
-      content={content} 
-      config={config} 
-      frontmatterData={frontmatterData} 
-    />
-  );
+export function Table({ content, config, frontmatterData }: TableProps & { frontmatterData?: any }) {
+  // Component removed - returning null
+  return null;
 }
