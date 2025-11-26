@@ -2,7 +2,6 @@
 
 import { Layout } from "./components/Layout/Layout";
 import { HomePageGrid } from "./components/HomePageGrid";
-import { Services } from "./components/Services/Services";
 import { JsonLD } from "./components/JsonLD/JsonLD";
 import { createMetadata } from "./utils/metadata";
 import { SITE_CONFIG } from "./utils/constants";
@@ -118,9 +117,6 @@ export default async function HomePage() {
           {featuredSections.length > 0 && (
             <HomePageGrid items={featuredSections} />
           )}
-          
-          {/* Services Section */}
-          <Services />
         </Layout>
       </>
     );

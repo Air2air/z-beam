@@ -21,12 +21,12 @@ import { SITE_CONFIG } from "../../utils/constants";
 const CARD_CONFIG = {
   default: {
     // Layout
-    padding: "px-2 py-3 md:px-3 md:py-2.5",
+    padding: "px-3 py-3 md:px-4 md:py-2.5",
     imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Fixed height for default cards
     cardHeight: "h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem]", // Default height
     
     // Typography
-    titleClass: "card-title text-lg truncate text-primary",
+    titleClass: "card-title text-lg truncate text-primary font-medium",
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
@@ -39,12 +39,12 @@ const CARD_CONFIG = {
   },
   featured: {
     // Layout
-    padding: "px-2 py-3 md:px-3 md:py-2.5",
+    padding: "px-3 py-3 md:px-4 md:py-2.5",
     imageHeight: "h-full", // Full height for featured cards - image expands to fill card
     cardHeight: "h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem]", // Increased height for featured cards (Services/Equipment Rental)
     
     // Typography
-    titleClass: "card-title text-lg truncate text-primary",
+    titleClass: "card-title text-lg truncate text-primary font-medium",
     descriptionClass: "text-primary text-xs line-clamp-2",
     
     // Appearance
