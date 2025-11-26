@@ -163,7 +163,7 @@ describe('Author Component', () => {
         );
         
         expect(screen.getByText(country)).toBeInTheDocument();
-        expect(screen.getByText(country)).toHaveClass('text-tertiary');
+        expect(screen.getByText(country)).toHaveClass('text-secondary');
         
         unmount();
       });
@@ -181,7 +181,7 @@ describe('Author Component', () => {
       render(<Author frontmatter={{ author: longExpertiseAuthor }} />);
       
       expect(screen.getByText(longExpertise)).toBeInTheDocument();
-      expect(screen.getByText(longExpertise)).toHaveClass('text-sm', 'text-tertiary');
+      expect(screen.getByText(longExpertise)).toHaveClass('text-sm', 'text-secondary');
     });
 
     test('handles short expertise descriptions', () => {
