@@ -38,8 +38,8 @@ describe('MaterialJsonLD Component', () => {
         }
       },
       caption: {
-        beforeText: 'Contaminated surface',
-        afterText: 'Clean surface',
+        before: 'Contaminated surface',
+        after: 'Clean surface',
         description: 'Surface analysis shows improved cleanliness'
       },
       applications: [
