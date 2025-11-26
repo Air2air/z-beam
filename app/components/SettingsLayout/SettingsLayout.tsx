@@ -8,6 +8,7 @@ import { DiagnosticCenter } from '@/app/components/DiagnosticCenter';
 import { Citations } from '@/app/components/Citations';
 import { FAQSettings } from '@/app/components/FAQ/FAQSettings';
 import MaterialDatasetCardWrapper from '@/app/components/Dataset/MaterialDatasetCardWrapper';
+import { MachineSettings } from '@/app/components/MachineSettings/MachineSettings';
 import { SettingsMetadata } from '@/types/centralized';
 
 interface SettingsLayoutProps {
@@ -256,6 +257,12 @@ export function SettingsLayout({
       components={{ _settings: { content: '' } }} // Enable author section with dummy component
     >
       {/* Settings-specific visualizations below */}
+      
+      {/* Machine Settings Parameters Table */}
+      <MachineSettings 
+        metadata={metadata}
+        materialName={settings.name}
+      />
       
       {/* Parameter Interaction Network */}
       <ParameterRelationships 
