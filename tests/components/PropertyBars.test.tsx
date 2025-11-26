@@ -1,21 +1,11 @@
 /**
  * PropertyBars Component Tests
- * Tests the three-bar visualization component including grouped properties and section rendering
+ * Tests the three-bar visualization component - pure chart component without sectioning
  */
 
 import { render, screen } from '@testing-library/react';
 import { PropertyBars } from '@/app/components/PropertyBars/PropertyBars';
 import { ArticleMetadata } from '@/types/centralized';
-
-// Mock SectionContainer to verify section rendering
-jest.mock('../../app/components/SectionContainer/SectionContainer', () => ({
-  SectionContainer: ({ title, children }: any) => (
-    <div data-testid="section-container" data-title={title}>
-      <h2>{title}</h2>
-      {children}
-    </div>
-  ),
-}));
 
 describe('PropertyBars Component', () => {
   describe('Basic Rendering', () => {
@@ -129,53 +119,6 @@ describe('PropertyBars Component', () => {
         },
       },
     };
-
-    it('should detect grouped properties', () => {
-      render(<PropertyBars metadata={groupedMetadata} dataSource="materialProperties" />);
-
-      // Should render section containers for each group
-      const sections = screen.getAllByTestId('section-container');
-      expect(sections).toHaveLength(2);
-    });
-
-    it('should render section titles for grouped properties', () => {
-      render(<PropertyBars metadata={groupedMetadata} dataSource="materialProperties" />);
-
-      expect(screen.getByText('Material Characteristics')).toBeInTheDocument();
-      expect(screen.getByText('Laser-Material Interaction')).toBeInTheDocument();
-    });
-
-    it('should render properties within their respective sections', () => {
-      render(<PropertyBars metadata={groupedMetadata} dataSource="materialProperties" />);
-
-      // Material Characteristics properties
-      expect(screen.getByText('Density')).toBeInTheDocument();
-      expect(screen.getByText('Hardness')).toBeInTheDocument();
-
-      // Laser-Material Interaction properties
-      expect(screen.getByText('Absorption Coefficient')).toBeInTheDocument();
-      expect(screen.getByText('Laser Absorption')).toBeInTheDocument();
-    });
-
-    it('should not render section containers for non-grouped properties', () => {
-      const simpleMetadata: ArticleMetadata = {
-        slug: 'test',
-        title: 'Test',
-        materialProperties: {
-          density: {
-            value: 2650,
-            min: 1800,
-            max: 3200,
-            unit: 'kg/m³',
-          },
-        },
-      };
-
-      render(<PropertyBars metadata={simpleMetadata} dataSource="materialProperties" />);
-
-      // Should not find any section containers
-      expect(screen.queryByTestId('section-container')).not.toBeInTheDocument();
-    });
   });
 
   describe('Visual Elements', () => {
