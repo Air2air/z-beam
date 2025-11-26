@@ -60,6 +60,7 @@ This document defines the naming conventions for images used throughout the Z-Be
 4. **Consistent suffixes**: Use standard suffixes (hero, before, after, etc.)
 5. **No spaces**: Use hyphens instead of spaces
 6. **No special characters**: Only alphanumeric and hyphens
+7. **No parentheses**: Remove parentheses from chemical formulas (see [Filename Policy](../01-core/FILENAME_POLICY.md))
 
 ## Directory Structure
 

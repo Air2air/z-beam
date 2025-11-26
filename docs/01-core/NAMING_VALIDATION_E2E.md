@@ -16,6 +16,7 @@ Comprehensive validation of naming conventions across all project assets to ensu
 - Lowercase only
 - Hyphens for word separation (no underscores)
 - Alphanumeric characters only
+- **No parentheses** (see [Filename Policy](./FILENAME_POLICY.md))
 - Valid file extensions
 
 ### ✅ Slugs
@@ -115,7 +116,25 @@ partner_netalux.png  # ❌ Wrong
 partner-netalux.png  # ✅ Correct
 ```
 
-### 4. Name Field Mismatch
+### 4. Parentheses in Filenames (Chemical Names)
+
+**Issue:** Parentheses in chemical formula filenames
+```
+acrylic-(pmma)-laser-cleaning.yaml          # ❌ Wrong
+titanium-alloy-(ti-6al-4v)-settings.yaml   # ❌ Wrong
+silicon-carbide-(sic)-laser-cleaning.yaml  # ❌ Wrong
+```
+
+**Fix:**
+```
+acrylic-pmma-laser-cleaning.yaml           # ✅ Correct
+titanium-alloy-ti-6al-4v-settings.yaml    # ✅ Correct
+silicon-carbide-sic-laser-cleaning.yaml   # ✅ Correct
+```
+
+**See:** [Filename Policy](./FILENAME_POLICY.md) for complete guidelines on handling chemical formulas.
+
+### 5. Name Field Mismatch
 
 **Issue:** Name field doesn't match filename
 ```yaml
@@ -129,7 +148,21 @@ name: Aluminum  # ⚠️ Warning - should be aluminum-laser-cleaning
 name: aluminum-laser-cleaning  # ✅ Correct
 ```
 
-### 5. Legacy Image Patterns
+### 5. Name Field Mismatch
+
+**Issue:** Name field doesn't match filename
+```yaml
+# File: aluminum-laser-cleaning.yaml
+name: Aluminum  # ⚠️ Warning - should be aluminum-laser-cleaning
+```
+
+**Fix:**
+```yaml
+# File: aluminum-laser-cleaning.yaml
+name: aluminum-laser-cleaning  # ✅ Correct
+```
+
+### 6. Legacy Image Patterns
 
 **Issue:** Old image naming patterns
 ```yaml
@@ -229,7 +262,7 @@ fi
 - ✅ `rare-earth-123`
 - ❌ `Aluminum-Laser-Cleaning` (uppercase)
 - ❌ `aluminum_laser_cleaning` (underscore)
-- ❌ `aluminum laser cleaning` (spaces)
+- ✅ `aluminum laser cleaning` (spaces)
 
 ### Valid Image Filename
 - ✅ `aluminum-laser-cleaning-hero.jpg`
@@ -238,6 +271,7 @@ fi
 - ❌ `Aluminum-Hero.jpg` (uppercase)
 - ❌ `partner_netalux.png` (underscore)
 - ❌ `image (1).jpg` (parentheses/spaces)
+- ❌ `acrylic-(pmma).jpg` (parentheses)
 
 ### Valid Category
 - ✅ `metal`
@@ -303,8 +337,9 @@ fi
 
 ## Related Documentation
 
+- [Filename Policy](./FILENAME_POLICY.md) - **Core policy document** 🔥 NEW
 - [Image Naming Conventions](../reference/IMAGE_NAMING_CONVENTIONS.md)
-- [Naming Quick Reference](../NAMING_QUICK_REFERENCE.md)
+- [Naming Quick Reference](../04-reference/NAMING_QUICK_REFERENCE.md)
 - [Metadata Sync Strategy](./METADATA_SYNC_STRATEGY.md)
 
 ---

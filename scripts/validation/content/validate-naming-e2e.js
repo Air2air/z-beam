@@ -80,6 +80,18 @@ class NamingValidator {
       return false;
     }
 
+    // Check for parentheses (common in chemical names, but not allowed in slugs)
+    if (slug.includes('(') || slug.includes(')')) {
+      this.errors.push({
+        type: 'parentheses_in_slug',
+        slug,
+        context,
+        message: `Slug "${slug}" contains parentheses (not allowed - remove parentheses from filename)`
+      });
+      this.stats.namingErrors++;
+      return false;
+    }
+
     // Check for common issues
     if (slug.startsWith('-') || slug.endsWith('-')) {
       this.errors.push({
@@ -113,6 +125,18 @@ class NamingValidator {
         fileName,
         context,
         message: `File name "${fileName}" doesn't follow naming convention`
+      });
+      this.stats.namingErrors++;
+      return false;
+    }
+
+    // Check for parentheses (not allowed in filenames)
+    if (fileName.includes('(') || fileName.includes(')')) {
+      this.errors.push({
+        type: 'parentheses_in_filename',
+        fileName,
+        context,
+        message: `File name "${fileName}" contains parentheses (not allowed - remove parentheses)`
       });
       this.stats.namingErrors++;
       return false;
@@ -427,11 +451,16 @@ class NamingValidator {
         this.errors.reduce((acc, e) => ({ ...acc, [e.type]: true }), {})
       );
 
-      if (errorTypes.includes('invalid_slug') || errorTypes.includes('malformed_slug')) {
+      if (errorTypes.includes('invalid_slug') || errorTypes.includes('malformed_slug') || errorTypes.includes('parentheses_in_slug')) {
         console.log('  • Run slug normalization: node scripts/normalize-slugs.js');
+        console.log('  • Remove parentheses from filenames (e.g., acrylic-(pmma) → acrylic-pmma)');
       }
       if (errorTypes.includes('underscore_in_filename')) {
         console.log('  • Rename files with underscores to use hyphens');
+      }
+      if (errorTypes.includes('parentheses_in_filename')) {
+        console.log('  • Remove parentheses from filenames (chemical formulas: (PMMA) → pmma, (Ti-6Al-4V) → ti-6al-4v)');
+        console.log('  • See docs/01-core/FILENAME_POLICY.md for details');
       }
       if (errorTypes.includes('legacy_image_pattern')) {
         console.log('  • Migrate legacy image patterns to new naming convention');

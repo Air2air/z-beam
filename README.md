@@ -204,7 +204,7 @@ npm run build  # Production build
 
 **Executes**:
 1. **prebuild** (automatic):
-   - `validate:naming` - Enforce file naming conventions
+   - `validate:naming` - Enforce file naming conventions (see [Filename Policy](docs/01-core/FILENAME_POLICY.md))
    - `validate:metadata` - Validate frontmatter structure
    - `verify:sitemap` - Check sitemap configuration
    - `generate:datasets` - Generate static dataset files (JSON/CSV/TXT)
