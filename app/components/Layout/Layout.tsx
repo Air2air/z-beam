@@ -150,7 +150,11 @@ export function Layout(props: LayoutProps) {
           <Title 
             level="page" 
             title={title || metadata?.title || 'Article'} 
-            description={metadata?.material_description || metadata?.settings_description || metadata?.description}
+            description={
+              typeof (metadata?.material_description || metadata?.settings_description || metadata?.description) === 'object'
+                ? (metadata?.material_description || metadata?.settings_description || metadata?.description)?.before
+                : (metadata?.material_description || metadata?.settings_description || metadata?.description)
+            }
           />
 
           {metadata?.machineSettings && !metadata?.materialProperties && (
