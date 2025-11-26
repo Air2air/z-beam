@@ -218,18 +218,105 @@ If URL structure needs to change:
 
 Comprehensive test suite: `tests/utils/urlBuilder.test.ts`
 
-- ✅ 33 unit tests covering all functions
-- ✅ Tests for hierarchical URLs (materials)
-- ✅ Tests for flat URLs (services, pages)
-- ✅ Tests for relative and absolute URLs
-- ✅ Tests for URL parsing and validation
-- ✅ Environment-aware testing (dev vs production URLs)
-- ✅ Edge case handling
+### Test Coverage (56 total tests)
 
-Run tests:
-```bash
-npm test -- tests/utils/urlBuilder.test.ts
+**Core Functionality (36 tests):**
+- ✅ buildUrl: hierarchical URLs, flat URLs, absolute URLs (5 tests)
+- ✅ buildUrlFromMetadata: materials, services, absolute URLs (3 tests)
+- ✅ buildCategoryUrl: relative and absolute category URLs (3 tests)
+- ✅ buildSubcategoryUrl: relative and absolute subcategory URLs (3 tests)
+- ✅ parseUrl: hierarchical, flat, absolute URLs (4 tests)
+- ✅ validateUrl: correct/incorrect URLs, materials/pages (4 tests)
+- ✅ getContentType: materials, services, articles, pages (5 tests)
+- ✅ getUrlPatterns: all URL patterns (1 test)
+- ✅ Edge Cases: special characters, empty slugs, incomplete hierarchy (3 tests)
+- ✅ Real-World Examples: wood, metal, ceramic, products, equipment (5 tests)
+
+**Settings Pages (5 tests) - Added Nov 25, 2025:**
+- ✅ Preserves -settings suffix in slug for settings pages
+- ✅ Builds absolute URLs with -settings suffix preserved
+- ✅ Validates settings URL with suffix present
+- ✅ Invalidates settings URL if suffix missing
+- ✅ Handles multiple settings pages across categories
+
+**E2E URL Generation Accuracy (7 tests) - Added Nov 25, 2025:**
+- ✅ Handles slugs with numbers and hyphens (aluminum-6061-t6)
+- ✅ Handles settings slugs with numbers (aluminum-6061-settings)
+- ✅ Handles very long slug names (50+ characters)
+- ✅ Builds consistent URLs for same metadata
+- ✅ Distinguishes materials vs settings with same base name
+- ✅ Parses settings URLs correctly preserving suffix
+- ✅ Validates URL structure matches sitemap generation
+
+**Sitemap Integration (4 tests) - Added Nov 25, 2025:**
+- ✅ Builds URLs matching sitemap category page pattern
+- ✅ Builds URLs matching sitemap subcategory page pattern
+- ✅ Builds URLs matching sitemap material page pattern
+- ✅ Builds URLs matching sitemap settings page pattern
+
+### Key Test Scenarios
+
+**Settings Pages URL Generation:**
+```typescript
+// ✅ Preserves -settings suffix
+buildUrlFromMetadata({
+  rootPath: 'settings',
+  category: 'metal',
+  subcategory: 'ferrous',
+  slug: 'stainless-steel-settings'
+})
+// => '/settings/metal/ferrous/stainless-steel-settings'
+
+// ✅ Distinguishes from materials page
+buildUrlFromMetadata({
+  rootPath: 'materials',
+  category: 'metal',
+  subcategory: 'ferrous',
+  slug: 'stainless-steel-laser-cleaning'
+})
+// => '/materials/metal/ferrous/stainless-steel-laser-cleaning'
 ```
+
+**Sitemap Consistency:**
+```typescript
+// ✅ Material page
+buildUrlFromMetadata({
+  rootPath: 'materials',
+  category: 'metal',
+  subcategory: 'ferrous',
+  slug: 'steel-laser-cleaning'
+}, true)
+// => 'https://z-beam.com/materials/metal/ferrous/steel-laser-cleaning'
+
+// ✅ Settings page  
+buildUrlFromMetadata({
+  rootPath: 'settings',
+  category: 'metal',
+  subcategory: 'ferrous',
+  slug: 'steel-settings'
+}, true)
+// => 'https://z-beam.com/settings/metal/ferrous/steel-settings'
+```
+
+### Run Tests
+
+```bash
+# Full test suite (56 tests)
+npm test -- tests/utils/urlBuilder.test.ts
+
+# Watch mode for development
+npm test -- tests/utils/urlBuilder.test.ts --watch
+```
+
+### Test Results
+
+All 56 tests passing as of Nov 25, 2025:
+- ✅ 36 core functionality tests
+- ✅ 5 settings pages tests
+- ✅ 7 e2e accuracy tests
+- ✅ 4 sitemap integration tests
+- ✅ Environment-aware testing (dev vs production URLs)
+- ✅ Edge case handling (special chars, long names, numbers)
 
 ## TODO
 

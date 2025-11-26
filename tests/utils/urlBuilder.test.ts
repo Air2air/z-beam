@@ -326,4 +326,194 @@ describe('urlBuilder', () => {
       });
     });
   });
+
+  describe('Settings Pages with -settings Suffix', () => {
+    it('preserves -settings suffix in slug for settings pages', () => {
+      const metadata = {
+        rootPath: 'settings',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'stainless-steel-settings'
+      };
+      const url = buildUrlFromMetadata(metadata);
+      expect(url).toBe('/settings/metal/ferrous/stainless-steel-settings');
+      expect(url).toContain('-settings');
+    });
+
+    it('builds absolute URL for settings page with -settings suffix', () => {
+      const metadata = {
+        rootPath: 'settings',
+        category: 'wood',
+        subcategory: 'hardwood',
+        slug: 'oak-settings'
+      };
+      const url = buildUrlFromMetadata(metadata, true);
+      expect(url).toMatch(/^https?:\/\/.+\/settings\/wood\/hardwood\/oak-settings$/);
+      expect(url).toContain('-settings');
+    });
+
+    it('validates settings URL preserves -settings suffix', () => {
+      const metadata = {
+        rootPath: 'settings',
+        category: 'ceramic',
+        subcategory: 'oxide',
+        slug: 'alumina-settings'
+      };
+      const url = '/settings/ceramic/oxide/alumina-settings';
+      expect(validateUrl(url, metadata)).toBe(true);
+    });
+
+    it('invalidates settings URL if -settings suffix is missing', () => {
+      const metadata = {
+        rootPath: 'settings',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-settings'
+      };
+      const url = '/settings/metal/ferrous/steel'; // Missing -settings
+      expect(validateUrl(url, metadata)).toBe(false);
+    });
+
+    it('handles multiple settings pages with different categories', () => {
+      const testCases = [
+        {
+          metadata: { rootPath: 'settings', category: 'metal', subcategory: 'ferrous', slug: 'carbon-steel-settings' },
+          expected: '/settings/metal/ferrous/carbon-steel-settings'
+        },
+        {
+          metadata: { rootPath: 'settings', category: 'wood', subcategory: 'softwood', slug: 'pine-settings' },
+          expected: '/settings/wood/softwood/pine-settings'
+        },
+        {
+          metadata: { rootPath: 'settings', category: 'composite', subcategory: 'fiber-reinforced', slug: 'carbon-fiber-settings' },
+          expected: '/settings/composite/fiber-reinforced/carbon-fiber-settings'
+        }
+      ];
+
+      testCases.forEach(({ metadata, expected }) => {
+        const url = buildUrlFromMetadata(metadata);
+        expect(url).toBe(expected);
+      });
+    });
+  });
+
+  describe('E2E URL Generation Accuracy', () => {
+    it('handles slug with numbers and hyphens', () => {
+      const metadata = {
+        rootPath: 'materials',
+        category: 'metal',
+        subcategory: 'non-ferrous',
+        slug: 'aluminum-6061-t6-laser-cleaning'
+      };
+      const url = buildUrlFromMetadata(metadata);
+      expect(url).toBe('/materials/metal/non-ferrous/aluminum-6061-t6-laser-cleaning');
+    });
+
+    it('handles settings slug with numbers and complex hyphens', () => {
+      const metadata = {
+        rootPath: 'settings',
+        category: 'metal',
+        subcategory: 'non-ferrous',
+        slug: 'aluminum-6061-settings'
+      };
+      const url = buildUrlFromMetadata(metadata);
+      expect(url).toBe('/settings/metal/non-ferrous/aluminum-6061-settings');
+    });
+
+    it('handles very long slug names', () => {
+      const metadata = {
+        rootPath: 'materials',
+        category: 'composite',
+        subcategory: 'fiber-reinforced',
+        slug: 'carbon-fiber-reinforced-polymer-with-epoxy-resin-laser-cleaning'
+      };
+      const url = buildUrlFromMetadata(metadata);
+      expect(url).toBe('/materials/composite/fiber-reinforced/carbon-fiber-reinforced-polymer-with-epoxy-resin-laser-cleaning');
+    });
+
+    it('builds consistent URLs for same metadata', () => {
+      const metadata = {
+        rootPath: 'materials',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-laser-cleaning'
+      };
+      const url1 = buildUrlFromMetadata(metadata);
+      const url2 = buildUrlFromMetadata(metadata);
+      expect(url1).toBe(url2);
+    });
+
+    it('distinguishes between materials and settings with same base name', () => {
+      const materialUrl = buildUrlFromMetadata({
+        rootPath: 'materials',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-laser-cleaning'
+      });
+      const settingsUrl = buildUrlFromMetadata({
+        rootPath: 'settings',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-settings'
+      });
+      expect(materialUrl).toBe('/materials/metal/ferrous/steel-laser-cleaning');
+      expect(settingsUrl).toBe('/settings/metal/ferrous/steel-settings');
+      expect(materialUrl).not.toBe(settingsUrl);
+    });
+
+    it('parses settings URL correctly preserving -settings suffix', () => {
+      const result = parseUrl('/settings/metal/ferrous/stainless-steel-settings');
+      // Note: parseUrl currently only handles materials path, this test documents current behavior
+      // If parseUrl needs to handle settings, it would need updating
+      expect(result.slug).toBe('stainless-steel-settings');
+    });
+
+    it('validates URL structure matches sitemap generation', () => {
+      // Test that our URL building matches what sitemap.ts does
+      const metadata = {
+        rootPath: 'materials',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-laser-cleaning'
+      };
+      const relativeUrl = buildUrlFromMetadata(metadata, false);
+      const absoluteUrl = buildUrlFromMetadata(metadata, true);
+      
+      // Sitemap uses absolute URLs
+      expect(absoluteUrl).toContain(relativeUrl);
+      expect(absoluteUrl).toMatch(/^https?:\/\//);
+    });
+  });
+
+  describe('Sitemap Integration', () => {
+    it('builds URLs matching sitemap category page pattern', () => {
+      const categoryUrl = buildCategoryUrl('materials', 'metal', true);
+      expect(categoryUrl).toMatch(/^https?:\/\/.+\/materials\/metal$/);
+    });
+
+    it('builds URLs matching sitemap subcategory page pattern', () => {
+      const subcategoryUrl = buildSubcategoryUrl('materials', 'metal', 'ferrous', true);
+      expect(subcategoryUrl).toMatch(/^https?:\/\/.+\/materials\/metal\/ferrous$/);
+    });
+
+    it('builds URLs matching sitemap material page pattern', () => {
+      const materialUrl = buildUrlFromMetadata({
+        rootPath: 'materials',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-laser-cleaning'
+      }, true);
+      expect(materialUrl).toMatch(/^https?:\/\/.+\/materials\/metal\/ferrous\/steel-laser-cleaning$/);
+    });
+
+    it('builds URLs matching sitemap settings page pattern', () => {
+      const settingsUrl = buildUrlFromMetadata({
+        rootPath: 'settings',
+        category: 'metal',
+        subcategory: 'ferrous',
+        slug: 'steel-settings'
+      }, true);
+      expect(settingsUrl).toMatch(/^https?:\/\/.+\/settings\/metal\/ferrous\/steel-settings$/);
+    });
+  });
 });
