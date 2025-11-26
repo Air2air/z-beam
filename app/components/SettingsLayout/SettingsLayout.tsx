@@ -77,10 +77,12 @@ function prepareSettingsData(
                 name: param.name || key,
                 value: param.value,
                 unit: param.unit,
-                min: param.min,
-                max: param.max,
+                min: param.min ?? null,
+                max: param.max ?? null,
                 criticality: inferCriticality(key),
-                rationale: `Operating range: ${param.min || 0}-${param.max || param.value * 2} ${param.unit}`,
+                rationale: param.min && param.max 
+                  ? `Operating range: ${param.min}-${param.max} ${param.unit}`
+                  : `Typical value: ${param.value} ${param.unit}`,
                 material_interaction: null
               };
             }

@@ -1,12 +1,14 @@
 // app/settings/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from 'next/navigation';
-import { getAllCategories } from '@/app/utils/materialCategories';
 import { getSettingsArticle, getArticleBySlug } from '@/app/utils/contentAPI';
 import { SettingsLayout } from '@/app/components/SettingsLayout';
 import { SettingsJsonLD } from '@/app/components/JsonLD/SettingsJsonLD';
 import { createMetadata, type ArticleMetadata } from '@/app/utils/metadata';
 import { SITE_CONFIG } from '@/app/config/site';
 import { normalizeForUrl } from '@/app/utils/urlBuilder';
+import fs from 'fs';
+import path from 'path';
+import yaml from 'js-yaml';
 
 interface SettingsPageProps {
   params: Promise<{
@@ -17,20 +19,36 @@ interface SettingsPageProps {
 }
 
 /**
- * Generate static paths for all settings pages (mirrors materials taxonomy)
+ * Generate static paths for all settings pages by reading settings directory
+ * Routes: /settings/{category}/{subcategory}/{material}-settings
  */
 export async function generateStaticParams() {
-  const categories = await getAllCategories();
+  const settingsDir = path.join(process.cwd(), 'frontmatter', 'settings');
+  const files = fs.readdirSync(settingsDir).filter(f => f.endsWith('.yaml'));
   
-  return categories.flatMap((cat) =>
-    cat.subcategories.flatMap((subcat) =>
-      subcat.materials.map((material) => ({
-        category: cat.slug,
-        subcategory: subcat.slug,
-        slug: material.slug,
-      }))
-    )
-  );
+  const params: Array<{ category: string; subcategory: string; slug: string }> = [];
+  
+  for (const file of files) {
+    try {
+      const content = fs.readFileSync(path.join(settingsDir, file), 'utf8');
+      const data = yaml.load(content) as any;
+      
+      // Only include active settings with proper taxonomy
+      // File format: {material}-settings.yaml
+      // Route format: /settings/{category}/{subcategory}/{material}-settings
+      if (data.active && data.category && data.subcategory && data.slug) {
+        params.push({
+          category: normalizeForUrl(data.category),
+          subcategory: normalizeForUrl(data.subcategory),
+          slug: `${data.slug}-settings`  // Add -settings suffix to slug for URL
+        });
+      }
+    } catch (error) {
+      console.error(`Error reading settings file ${file}:`, error);
+    }
+  }
+  
+  return params;
 }
 
 /**
@@ -47,9 +65,8 @@ export async function generateMetadata({ params }: SettingsPageProps) {
   }
   
   try {
-    // Strip -laser-cleaning suffix if present to get base material name
-    const baseMaterialSlug = slug.replace(/-laser-cleaning$/, '');
-    const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
+    // slug already includes -settings suffix from generateStaticParams
+    const settings = await getSettingsArticle(slug);
 
     if (!settings) {
       return {
@@ -105,12 +122,9 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
   }
   
   try {
-    // Strip -laser-cleaning suffix if present to get base material name
-    const baseMaterialSlug = slug.replace(/-laser-cleaning$/, '');
-    
-    // Load settings using {material}-settings naming convention
-    const settings = await getSettingsArticle(`${baseMaterialSlug}-settings`);
-    const settingsSlug = `${baseMaterialSlug}-settings`;
+    // slug already includes -settings suffix from generateStaticParams
+    const settings = await getSettingsArticle(slug);
+    const settingsSlug = slug;
 
     if (!settings) {
       notFound();
@@ -138,6 +152,8 @@ export default async function SettingsPage({ params }: SettingsPageProps) {
       const path = await import('path');
       const yaml = await import('js-yaml');
       
+      // Extract base material name from slug (remove -settings suffix)
+      const baseMaterialSlug = slug.replace(/-settings$/, '');
       const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${baseMaterialSlug}-laser-cleaning.yaml`);
       
       if (fs.existsSync(materialPath)) {
