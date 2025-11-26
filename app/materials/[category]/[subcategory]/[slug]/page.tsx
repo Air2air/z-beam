@@ -1,5 +1,6 @@
 // app/[category]/[subcategory]/[slug]/page.tsx
 import { notFound, redirect } from "next/navigation";
+import dynamicImport from "next/dynamic";
 import { getArticle, getAllArticleSlugs, getSettingsArticle } from "@/app/utils/contentAPI";
 import { getAllCategories } from "@/app/utils/materialCategories";
 import { Layout } from "@/app/components/Layout/Layout";
@@ -11,7 +12,6 @@ import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDataset
 import { Pricing } from "@/app/components/Pricing/Pricing";
 import { LaserMaterialInteraction } from "@/app/components/LaserMaterialInteraction/LaserMaterialInteraction";
 import { MaterialCharacteristics } from "@/app/components/MaterialCharacteristics/MaterialCharacteristics";
-import { Caption } from "@/app/components/Caption/Caption";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -23,6 +23,12 @@ export const revalidate = false;
 interface MaterialPageProps {
   params: Promise<{ category: string; subcategory: string; slug: string }>;
 }
+
+// Dynamic import Caption for code-splitting
+const Caption = dynamicImport(
+  () => import('@/app/components/Caption/Caption').then(mod => mod.Caption),
+  { ssr: true }
+);
 
 // Generate static params for all materials
 export async function generateStaticParams() {
