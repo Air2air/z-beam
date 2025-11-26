@@ -240,7 +240,7 @@ function buildDefaultBreadcrumb(settings: SettingsMetadata, category: string, su
     },
     { 
       label: settings.name, 
-      href: `/settings/${category}/${subcategory}/${settings.slug}` 
+      href: `/settings/${category}/${subcategory}/${settings.slug}-settings` 
     }
   ];
 }

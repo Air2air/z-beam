@@ -334,7 +334,7 @@ function PropertyBarsGrid({
         
         // Generate settings URL for this property if we're showing material properties
         const settingsUrl = (dataSource === 'materialProperties' && metadata?.category && metadata?.subcategory && metadata?.slug)
-          ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '')}`
+          ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '-settings')}`
           : undefined;
         
         const CardContent = (
