@@ -39,6 +39,9 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
           <LaserMaterialInteraction
             materialName={materialName}
             materialProperties={(metadata as any).materialProperties}
+            category={category}
+            subcategory={subcategory}
+            slug={slug}
           />
         </div>
       )}
@@ -49,6 +52,9 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
           <MaterialCharacteristics
             materialName={materialName}
             materialProperties={(metadata as any).materialProperties}
+            category={category}
+            subcategory={subcategory}
+            slug={slug}
           />
         </div>
       )}

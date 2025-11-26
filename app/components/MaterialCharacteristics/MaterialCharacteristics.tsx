@@ -7,6 +7,9 @@ import { getSectionIcon } from '@/app/config/sectionIcons';
 interface MaterialCharacteristicsProps {
   materialProperties: any;
   materialName?: string;
+  category?: string;
+  subcategory?: string;
+  slug?: string;
 }
 
 /**
@@ -25,7 +28,7 @@ interface MaterialCharacteristicsProps {
  * @param materialProperties - Material metadata containing material_characteristics data
  * @param materialName - Optional material name for title context
  */
-export function MaterialCharacteristics({ materialProperties, materialName }: MaterialCharacteristicsProps) {
+export function MaterialCharacteristics({ materialProperties, materialName, category, subcategory, slug }: MaterialCharacteristicsProps) {
   // Check if we have material characteristics data
   const hasMaterialCharacteristics = materialProperties?.material_characteristics && 
     Object.keys(materialProperties.material_characteristics).length > 0;
@@ -38,14 +41,29 @@ export function MaterialCharacteristics({ materialProperties, materialName }: Ma
     ? `${materialName} Material Characteristics`
     : 'Material Characteristics';
 
+  // Generate settings URL if we have the required info
+  const settingsUrl = (category && subcategory && slug)
+    ? `/settings/${category}/${subcategory}/${slug.replace('-laser-cleaning', '')}-settings`
+    : undefined;
+
+  // Prepare metadata with routing info for clickable property bars
+  const metadata = {
+    properties: materialProperties,
+    category: category || '',
+    subcategory: subcategory || '',
+    slug: slug || ''
+  };
+
   return (
     <SectionContainer
       title={title}
       icon={getSectionIcon('material-properties')}
+      actionText={settingsUrl ? "Settings" : undefined}
+      actionUrl={settingsUrl}
       className="mb-8"
     >
       <PropertyBars 
-        metadata={{ properties: materialProperties }}
+        metadata={metadata}
         dataSource="materialProperties"
         columns={{ xs: 3, sm: 4, md: 5, lg: 6 }}
         height={70}
