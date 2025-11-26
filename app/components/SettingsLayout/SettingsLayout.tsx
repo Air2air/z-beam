@@ -268,17 +268,17 @@ export function SettingsLayout({
         <MaterialSafetyHeatmap 
               materialName={settings.name}
               powerRange={{
-                min: powerParam.min || 0,
-                max: powerParam.max || 200,
-                current: powerParam.current || powerParam.value || 100,
+                min: powerParam?.min || 0,
+                max: powerParam?.max || 200,
+                current: powerParam?.current || powerParam?.value || 100,
               }}
               pulseRange={{
-                min: pulseParam.min || 0,
-                max: pulseParam.max || 1000,
-                current: pulseParam.current || pulseParam.value || 100,
+                min: pulseParam?.min || 0,
+                max: pulseParam?.max || 1000,
+                current: pulseParam?.current || pulseParam?.value || 100,
               }}
-              optimalPower={powerParam.optimal_range || [powerParam.min || 50, powerParam.max || 150]}
-              optimalPulse={pulseParam.optimal_range || [pulseParam.min || 10, pulseParam.max || 500]}
+              optimalPower={powerParam?.optimal_range || [powerParam?.min || 50, powerParam?.max || 150]}
+              optimalPulse={pulseParam?.optimal_range || [pulseParam?.min || 10, pulseParam?.max || 500]}
               materialProperties={{
                 // Core thermal properties
                 thermalConductivity: materialProps?.laser_material_interaction?.thermalConductivity?.value,
