@@ -170,12 +170,17 @@ function createTechnicalArticleSchema(data: any) {
     }
   })) : [];
   
+  // Get caption text safely - handle both {beforeText, afterText} and {before, after} formats
+  const captionText = caption?.beforeText || caption?.before;
+  const captionAfterText = caption?.afterText || caption?.after;
+  const articleBodyText = captionText ? `${captionText}\n\n${captionAfterText || ''}` : description;
+  
   return {
     '@type': 'Article',
     '@id': `${pageUrl}#article`,
     headline: title,
     description: description || material_description,
-    articleBody: caption?.beforeText ? `${caption.beforeText}\n\n${caption.afterText}` : description,
+    articleBody: articleBodyText,
     
     // E-E-A-T: Author Expertise
     author: {

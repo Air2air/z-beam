@@ -60,9 +60,11 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
   const pubDate = publishDate || currentDate || new Date().toISOString();
   const modDate = modifiedDate || pubDate;
   
-  // Build article body from caption
-  const articleBody = caption?.beforeText 
-    ? `${caption.beforeText}\n\n${caption.afterText || ''}`
+  // Build article body from caption - handle both {before, after} and {beforeText, afterText} formats
+  const captionBefore = (caption as any)?.beforeText || (caption as any)?.before;
+  const captionAfter = (caption as any)?.afterText || (caption as any)?.after;
+  const articleBody = captionBefore 
+    ? `${captionBefore}\n\n${captionAfter || ''}`
     : description;
   
   // Build image object with dimensions (P0 enhancement for rich snippets)

@@ -65,13 +65,22 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     return () => observer.disconnect();
   }, []);
   
-  // Early return AFTER all hooks
+  // Early return AFTER all hooks - check if caption is just a string with before/after structure
   if (!captionContent) {
     return null;
   }
   
+  // Handle case where caption might be just {before: "text", after: "text"} without other fields
+  const isCaptionObject = typeof captionContent === 'object' && captionContent !== null;
+  const hasImageData = isCaptionObject && (
+    (captionContent as any).images?.micro?.url || 
+    (captionContent as any).imageUrl?.url
+  );
+  
   // Also return null if image failed to load
-  const imageSource = frontmatter?.images?.micro?.url || (captionContent as CaptionDataStructure).images?.micro?.url || (captionContent as CaptionDataStructure).imageUrl?.url;
+  const imageSource = frontmatter?.images?.micro?.url || 
+    (isCaptionObject && hasImageData ? ((captionContent as CaptionDataStructure).images?.micro?.url || (captionContent as CaptionDataStructure).imageUrl?.url) : null);
+  
   if (imageSource && imageError) {
     return null;
   }
@@ -80,10 +89,10 @@ export function Caption({ frontmatter, config }: CaptionProps) {
 
   // Simplified caption data - use parsed caption data
   const captionData: CaptionDataStructure = {
-    ...(captionContent as CaptionDataStructure),
-    title: (captionContent as CaptionDataStructure).title || frontmatter?.title,
-    description: (captionContent as CaptionDataStructure).description || frontmatter?.description,
-    material: (captionContent as CaptionDataStructure).material || frontmatter?.name,
+    ...(isCaptionObject ? (captionContent as CaptionDataStructure) : {}),
+    title: (isCaptionObject ? (captionContent as CaptionDataStructure).title : undefined) || frontmatter?.title,
+    description: (isCaptionObject ? (captionContent as CaptionDataStructure).description : undefined) || frontmatter?.description,
+    material: (isCaptionObject ? (captionContent as CaptionDataStructure).material : undefined) || frontmatter?.name,
     // Add parsed before/after text from the hook
     beforeText: parsedCaption.beforeText,
     afterText: parsedCaption.afterText,
