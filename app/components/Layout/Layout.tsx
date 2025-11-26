@@ -175,10 +175,6 @@ export function Layout(props: LayoutProps) {
             </SectionContainer>
           )}
 
-          {metadata?.caption && (
-            <Caption frontmatter={metadata as any} config={{ showTechnicalDetails: true, showMetadata: true }} />
-          )}
-
           {metadata?.environmental_impact && Object.keys(metadata.environmental_impact).length > 0 && (
             <EnvironmentalImpact environmentalImpact={metadata.environmental_impact} />
           )}

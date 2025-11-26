@@ -11,6 +11,7 @@ import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDataset
 import { Pricing } from "@/app/components/Pricing/Pricing";
 import { LaserMaterialInteraction } from "@/app/components/LaserMaterialInteraction/LaserMaterialInteraction";
 import { MaterialCharacteristics } from "@/app/components/MaterialCharacteristics/MaterialCharacteristics";
+import { Caption } from "@/app/components/Caption/Caption";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -163,6 +164,15 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
               <MaterialCharacteristics
                 materialName={(article.metadata.title as string) || slug}
                 materialProperties={(article.metadata as any).materialProperties}
+              />
+            </div>
+          )}
+          
+          {(article.metadata as any).caption && (
+            <div className="mb-16">
+              <Caption 
+                frontmatter={article.metadata as any} 
+                config={{ showTechnicalDetails: true, showMetadata: true }} 
               />
             </div>
           )}
