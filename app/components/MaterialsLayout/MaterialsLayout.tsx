@@ -55,13 +55,15 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
       
       {/* Caption - hidden if no micro image */}
       {metadata?.images?.micro?.url && (
-        <Caption 
-          frontmatter={metadata as any}
-          config={{}}
-        />
+        <div className="mb-16">
+          <Caption 
+            frontmatter={metadata as any}
+            config={{}}
+          />
+        </div>
       )}
       
-      {/* Regulatory Standards */
+      {/* Regulatory Standards */}
       <div className="mb-16">
         <RegulatoryStandards standards={(metadata as any)?.regulatoryStandards} />
       </div>
