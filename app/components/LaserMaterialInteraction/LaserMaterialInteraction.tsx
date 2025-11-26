@@ -1,4 +1,5 @@
 import React from 'react';
+import { Zap } from 'lucide-react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 
@@ -45,6 +46,7 @@ export function LaserMaterialInteraction({
   return (
     <SectionContainer
       title="Laser-Material Interaction"
+      icon={<Zap className="w-5 h-5 text-muted" />}
       className={`mb-8 ${className}`}
     >
       <PropertyBars
