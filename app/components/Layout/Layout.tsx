@@ -175,13 +175,6 @@ export function Layout(props: LayoutProps) {
             </SectionContainer>
           )}
 
-          {metadata?.materialProperties && (
-            <PropertyBars 
-              metadata={metadata} 
-              dataSource="materialProperties" 
-            />
-          )}
-
           {metadata?.caption && (
             <Caption frontmatter={metadata as any} config={{ showTechnicalDetails: true, showMetadata: true }} />
           )}

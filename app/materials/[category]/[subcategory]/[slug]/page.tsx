@@ -143,15 +143,6 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           slug={`materials/${category}/${subcategory}/${slug}`}
         >
           <div className="mb-16">
-            <RelatedMaterials 
-              currentSlug={slug}
-              category={category}
-              subcategory={subcategory}
-              maxItems={6}
-            />
-          </div>
-          
-          <div className="mb-16">
             <Pricing 
               materialName={(article.metadata.title as string) || slug}
               materialSlug={slug}
@@ -181,6 +172,15 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
               <RegulatoryStandards standards={(article.metadata as any).regulatoryStandards} />
             </div>
           )}
+          
+          <div className="mb-16">
+            <RelatedMaterials 
+              currentSlug={slug}
+              category={category}
+              subcategory={subcategory}
+              maxItems={6}
+            />
+          </div>
           
           <MaterialDatasetCardWrapper 
             materialName={(article.metadata.title as string) || slug}
