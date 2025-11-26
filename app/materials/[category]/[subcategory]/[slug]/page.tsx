@@ -71,8 +71,10 @@ export async function generateMetadata({ params }: MaterialPageProps) {
       };
     }
     
+    // Ensure material_description is passed for proper truncation in meta description
     return createMetadata({
       ...article.metadata,
+      material_description: (article.metadata as any).material_description,
       canonical: `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`
     } as unknown as ArticleMetadata);
   } catch (error) {

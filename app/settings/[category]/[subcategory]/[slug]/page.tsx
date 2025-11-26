@@ -98,6 +98,9 @@ export async function generateMetadata({ params }: SettingsPageProps) {
       author: settings.author,
       category: settings.category,
       name: settings.name,
+      images: settings.images,
+      content_type: settings.content_type,
+      machineSettings: settings.machineSettings,
     } as unknown as ArticleMetadata);
   } catch (error) {
     console.error(`Error generating metadata for settings ${slug}:`, error);

@@ -2867,10 +2867,25 @@ export interface SettingsMetadata {
   description: string;
   settings_description?: string;
   slug?: string;
+  content_type?: string;
+  schema_version?: string;
+  active?: boolean;
   author?: AuthorInfo;
   datePublished?: string;
   dateModified?: string;
   breadcrumb?: BreadcrumbItem[];
+  images?: {
+    hero?: {
+      url: string;
+      alt: string;
+      width?: number;
+      height?: number;
+    };
+    micro?: {
+      url: string;
+      alt: string;
+    };
+  };
   
   // Unified help system (FAQ and troubleshooting)
   help?: HelpSection[];
