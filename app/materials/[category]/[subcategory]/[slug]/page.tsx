@@ -8,6 +8,7 @@ import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
+import { MaterialPricing } from "@/app/components/MaterialPricing/MaterialPricing";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -145,6 +146,13 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
               category={category}
               subcategory={subcategory}
               maxItems={6}
+            />
+          </div>
+          
+          <div className="mb-16">
+            <MaterialPricing 
+              materialName={(article.metadata.title as string) || slug}
+              materialSlug={slug}
             />
           </div>
           

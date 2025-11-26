@@ -585,32 +585,124 @@ function generateProductSchema(data: any, context: SchemaContext): SchemaOrgBase
     });
   });
 
-  // Material products - disabled to avoid invalid Product schema
-  // Material pages should use Article schema instead of Product
-  // since they are informational content, not products for sale
+  // Material-specific service products
   const meta = getMetadata(data);
-  if (meta.materialProperties && false) { // Disabled: causes invalid Product schema
+  if (meta.materialProperties) {
     const mainImage = getMainImage(data);
+    const materialName = meta.name || data.title || 'Material';
+    const materialCategory = meta.category || 'Material';
+    
+    // Professional cleaning service for this material
     products.push({
       '@type': 'Product',
-      '@id': `${pageUrl}#material-product`,
-      'name': meta.name || data.title || 'Material',
-      'description': meta.description || data.description || '',
-      'category': meta.category || 'Material',
+      '@id': `${pageUrl}#service-professional`,
+      'name': `Professional ${materialName} Laser Cleaning Service`,
+      'description': `Expert laser cleaning service for ${materialName.toLowerCase()} surfaces. Professional technicians, on-site service, guaranteed results. Removes rust, oxidation, coatings, and contaminants without damaging the base material.`,
+      'category': `Industrial Cleaning Services / Laser Cleaning / ${materialCategory} Cleaning`,
       'brand': {
         '@type': 'Brand',
         'name': SITE_CONFIG.name
       },
+      'provider': {
+        '@type': 'Organization',
+        'name': SITE_CONFIG.name,
+        'url': baseUrl,
+        'telephone': SITE_CONFIG.contact.general.phone,
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': SITE_CONFIG.address.city,
+          'addressRegion': SITE_CONFIG.address.state,
+          'addressCountry': SITE_CONFIG.address.country
+        }
+      },
       'offers': {
         '@type': 'Offer',
+        'price': SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+        'priceCurrency': SITE_CONFIG.pricing.professionalCleaning.currency,
+        'priceSpecification': {
+          '@type': 'UnitPriceSpecification',
+          'price': SITE_CONFIG.pricing.professionalCleaning.hourlyRate,
+          'priceCurrency': SITE_CONFIG.pricing.professionalCleaning.currency,
+          'unitText': SITE_CONFIG.pricing.professionalCleaning.unit,
+          'referenceQuantity': {
+            '@type': 'QuantitativeValue',
+            'value': 1,
+            'unitText': 'hour'
+          }
+        },
         'availability': 'https://schema.org/InStock',
-        'priceCurrency': 'USD',
+        'availableDeliveryMethod': 'https://schema.org/OnSitePickup',
+        'businessFunction': 'https://schema.org/ProvideService',
+        'itemCondition': 'https://schema.org/NewCondition',
+        'url': pageUrl,
         'seller': {
           '@type': 'Organization',
           'name': SITE_CONFIG.name,
           'url': baseUrl
         }
       },
+      'areaServed': [
+        {
+          '@type': 'Country',
+          'name': 'United States'
+        },
+        {
+          '@type': 'Country',
+          'name': 'Canada'
+        }
+      ],
+      'serviceType': 'Industrial Laser Cleaning',
+      ...(mainImage && { 'image': mainImage })
+    });
+    
+    // Equipment rental service for this material
+    products.push({
+      '@type': 'Product',
+      '@id': `${pageUrl}#service-rental`,
+      'name': `${materialName} Laser Cleaning Equipment Rental`,
+      'description': `Self-service laser cleaning equipment rental for ${materialName.toLowerCase()}. Includes training, safety equipment, and technical support. Cost-effective solution for larger projects.`,
+      'category': `Equipment Rental / Laser Cleaning Equipment / ${materialCategory} Applications`,
+      'brand': {
+        '@type': 'Brand',
+        'name': SITE_CONFIG.name
+      },
+      'offers': {
+        '@type': 'Offer',
+        'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+        'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
+        'priceSpecification': {
+          '@type': 'UnitPriceSpecification',
+          'price': SITE_CONFIG.pricing.equipmentRental.hourlyRate,
+          'priceCurrency': SITE_CONFIG.pricing.equipmentRental.currency,
+          'unitText': SITE_CONFIG.pricing.equipmentRental.unit,
+          'referenceQuantity': {
+            '@type': 'QuantitativeValue',
+            'value': 1,
+            'unitText': 'hour'
+          }
+        },
+        'availability': 'https://schema.org/InStock',
+        'availableDeliveryMethod': 'https://schema.org/OnSitePickup',
+        'businessFunction': 'https://schema.org/LeaseOut',
+        'itemCondition': 'https://schema.org/NewCondition',
+        'url': pageUrl,
+        'seller': {
+          '@type': 'Organization',
+          'name': SITE_CONFIG.name,
+          'url': baseUrl
+        }
+      },
+      'areaServed': [
+        {
+          '@type': 'Country',
+          'name': 'United States'
+        },
+        {
+          '@type': 'Country',
+          'name': 'Canada'
+        }
+      ],
+      'serviceType': 'Equipment Rental',
       ...(mainImage && { 'image': mainImage })
     });
   }
