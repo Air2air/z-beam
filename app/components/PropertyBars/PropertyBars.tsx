@@ -2,8 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { getSectionIcon } from '@/app/config/sectionIcons';
 import { capitalizeWords } from '@/app/utils/formatting';
 
 // Helper function to sanitize numeric values
@@ -108,23 +106,21 @@ interface PropertyBarsProps {
   };
   height?: number;
   className?: string;
-  showTitle?: boolean; // For compatibility, not used
-  searchable?: boolean; // For compatibility, not used
-  
-  // Action button for section header
-  actionText?: string;
-  actionUrl?: string;
 }
 
 /**
  * PropertyBars - Compact three-bar visualization for properties
  * 
- * Can be used as a drop-in replacement for MetricsGrid with same API:
+ * Pure reusable chart component that renders a grid of property bars.
+ * Used by MachineSettings, LaserMaterialInteraction, and MaterialCharacteristics
+ * components which handle sectioning and organization.
+ * 
+ * Can be used with direct properties array:
+ *   <PropertyBars properties={extractPropertiesFromMetadata(metadata)} />
+ * 
+ * Or with metadata extraction:
  *   <PropertyBars metadata={metadata} dataSource="materialProperties" />
  *   <PropertyBars metadata={metadata} dataSource="machineSettings" />
- * 
- * Or with direct properties array:
- *   <PropertyBars properties={extractPropertiesFromMetadata(metadata)} />
  * 
  * @param properties - Array of properties with value, min, max, optional unit
  * @param metadata - Material/machine metadata (alternative to properties)
@@ -139,62 +135,10 @@ export function PropertyBars({
   dataSource = 'materialProperties',
   columns = { xs: 3, sm: 4, md: 5, lg: 6 },
   height = 70,
-  className = '',
-  actionText,
-  actionUrl
+  className = ''
 }: PropertyBarsProps) {
   
-  // Check if we have grouped properties in metadata
-  let sourceData: Record<string, any> = {};
-  if (metadata && !propsProperties) {
-    if (dataSource === 'machineSettings') {
-      sourceData = metadata.machineSettings || metadata.settings || {};
-    } else {
-      sourceData = metadata.properties || metadata.materialProperties || {};
-    }
-  }
-  
-  // Check if source data has grouped properties with labels
-  const isGrouped = !propsProperties && hasGroupedProperties(sourceData);
-  
-  if (isGrouped) {
-    // Render grouped properties in separate SectionContainers
-    const groups = extractGroupedProperties(sourceData, dataSource);
-    
-    if (groups.length === 0) {
-      return (
-        <div className="text-center py-8 text-muted">
-          <p>No properties available</p>
-        </div>
-      );
-    }
-    
-    return (
-      <>
-        {groups.map((group, groupIndex) => (
-          <SectionContainer 
-            key={groupIndex}
-            title={group.label}
-            icon={getSectionIcon('material-properties')}
-            className="mb-8"
-            actionText={actionText}
-            actionUrl={actionUrl}
-          >
-            <PropertyBarsGrid 
-              properties={group.properties}
-              columns={columns}
-              height={height}
-              className={className}
-              metadata={metadata}
-              dataSource={dataSource}
-            />
-          </SectionContainer>
-        ))}
-      </>
-    );
-  }
-  
-  // Extract properties from metadata if not provided directly (non-grouped)
+  // Extract properties from metadata if not provided directly
   const properties = propsProperties || 
     (metadata ? extractPropertiesFromMetadata(metadata, dataSource) : []);
   
@@ -419,60 +363,6 @@ function PropertyBarsGrid({
 /**
  * Helper type for grouped properties
  */
-interface PropertyGroup {
-  label: string;
-  properties: PropertyData[];
-}
-
-/**
- * Check if metadata has grouped properties (with labels)
- */
-function hasGroupedProperties(sourceData: Record<string, any>): boolean {
-  return Object.keys(sourceData).some((key) => {
-    const group = sourceData[key];
-    return group && typeof group === 'object' && 'label' in group;
-  });
-}
-
-/**
- * Extract grouped properties from metadata
- */
-function extractGroupedProperties(
-  sourceData: Record<string, any>,
-  dataSource: 'materialProperties' | 'machineSettings' = 'materialProperties'
-): PropertyGroup[] {
-  const groups: PropertyGroup[] = [];
-  
-  Object.keys(sourceData).forEach((groupKey) => {
-    const group = sourceData[groupKey];
-    if (group && typeof group === 'object' && 'label' in group) {
-      const properties: PropertyData[] = [];
-      
-      Object.keys(group).forEach((propKey) => {
-        // Skip metadata fields like 'label' and 'percentage'
-        if (propKey === 'label' || propKey === 'percentage') return;
-        
-        const prop = group[propKey];
-        if (prop && (typeof prop.value === 'number' || !isNaN(Number(prop.value)))) {
-          const propertyData = extractSingleProperty(propKey, prop, dataSource);
-          if (propertyData) {
-            properties.push(propertyData);
-          }
-        }
-      });
-      
-      if (properties.length > 0) {
-        groups.push({
-          label: group.label,
-          properties
-        });
-      }
-    }
-  });
-  
-  return groups;
-}
-
 /**
  * Extract a single property with all validation logic
  */

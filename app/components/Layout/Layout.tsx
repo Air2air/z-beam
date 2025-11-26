@@ -61,9 +61,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
         <PropertyBars 
           metadata={metricsMetadata} 
           dataSource="machineSettings" 
-          showTitle={false}
           className={component.config.className || ''}
-          searchable 
         />
       </SectionContainer>
     );
@@ -88,9 +86,7 @@ const renderComponent = (type: string, component: any, metadata: any) => {
         <PropertyBars 
           metadata={propertiesMetadata} 
           dataSource="materialProperties"
-          showTitle={false}
           className={component.config.className || ''}
-          searchable
         />
       </SectionContainer>
     );
@@ -175,8 +171,6 @@ export function Layout(props: LayoutProps) {
               <PropertyBars 
                 metadata={metadata} 
                 dataSource="machineSettings" 
-                showTitle={false}
-                searchable 
               />
             </SectionContainer>
           )}
@@ -185,13 +179,6 @@ export function Layout(props: LayoutProps) {
             <PropertyBars 
               metadata={metadata} 
               dataSource="materialProperties" 
-              showTitle={false}
-              searchable
-              actionText="Settings"
-              actionUrl={metadata?.category && metadata?.subcategory && metadata?.slug 
-                ? `/settings/${metadata.category}/${metadata.subcategory}/${metadata.slug.replace('-laser-cleaning', '-settings')}`
-                : undefined
-              }
             />
           )}
 

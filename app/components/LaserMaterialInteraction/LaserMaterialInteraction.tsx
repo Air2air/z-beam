@@ -50,8 +50,6 @@ export function LaserMaterialInteraction({
       <PropertyBars
         metadata={metadata}
         dataSource="materialProperties"
-        showTitle={false}
-        searchable
       />
     </SectionContainer>
   );
