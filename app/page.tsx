@@ -19,11 +19,11 @@ export async function generateMetadata() {
   try {
     const yamlPath = path.join(process.cwd(), 'static-pages', 'home.yaml');
     const yamlContent = await fs.readFile(yamlPath, 'utf8');
-    const homeConfig = yaml.load(yamlContent) as ArticleMetadata;
+    const homeConfig = yaml.load(yamlContent) as any;
 
     return createMetadata({
       title: homeConfig?.title || SITE_CONFIG.name,
-      description: homeConfig?.description || SITE_CONFIG.description,
+      description: homeConfig?.meta_description || homeConfig?.description || SITE_CONFIG.description,
       keywords: homeConfig?.keywords || [...SITE_CONFIG.keywords],
       image: "/images/home-og.jpg",
       slug: "home",
