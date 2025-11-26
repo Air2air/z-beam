@@ -114,7 +114,7 @@ export function formatSettingsTitle(config: MetadataConfig): string {
 
 /**
  * Format material page description for optimal CTR
- * Structure: [Material property] + [Technical spec] + [Page features] + [Application context]
+ * Structure: Use authored materialDescription (first 155-160 chars) or fallback to specs
  * Target: 155-160 characters (no mobile truncation)
  */
 export function formatMaterialDescription(config: MetadataConfig): string {
@@ -129,13 +129,16 @@ export function formatMaterialDescription(config: MetadataConfig): string {
     subcategory
   } = config;
   
+  // PRIORITY: Use authored material description if available (truncate to 160 chars)
+  if (materialDescription && materialDescription.trim().length > 0) {
+    return truncateDescription(materialDescription, 160);
+  }
+  
+  // FALLBACK: Generate technical description if no authored content
   // Extract key data points
   const density = materialProperties?.material_characteristics?.density?.value;
   const wavelength = machineSettings?.wavelength?.value;
   const power = machineSettings?.powerRange?.value;
-  
-  // Extract key property from material_description
-  const keyProperty = extractKeyProperty(materialDescription);
   
   // Build description with page features
   let desc = materialName;
@@ -143,11 +146,6 @@ export function formatMaterialDescription(config: MetadataConfig): string {
   // Add density if available
   if (density) {
     desc += ` at ${density}g/cm³`;
-  }
-  
-  // Add key property
-  if (keyProperty && desc.length < 60) {
-    desc += `: ${keyProperty}`;
   }
   
   // Add what's on the page (material properties, parameters, challenges)
@@ -175,7 +173,7 @@ export function formatMaterialDescription(config: MetadataConfig): string {
 
 /**
  * Format settings page description for optimal CTR
- * Structure: [Machine specs] + [Page features] + [Pass/overlap info] + [Application details]
+ * Structure: Use authored settingsDescription (first 155-160 chars) or fallback to specs
  * Target: 155-160 characters
  */
 export function formatSettingsDescription(config: MetadataConfig): string {
@@ -189,6 +187,12 @@ export function formatSettingsDescription(config: MetadataConfig): string {
     subcategory
   } = config;
   
+  // PRIORITY: Use authored settings description if available (truncate to 160 chars)
+  if (settingsDescription && settingsDescription.trim().length > 0) {
+    return truncateDescription(settingsDescription, 160);
+  }
+  
+  // FALLBACK: Generate technical description if no authored content
   // Extract machine settings
   const power = machineSettings?.powerRange?.value;
   const wavelength = machineSettings?.wavelength?.value;
