@@ -29,6 +29,7 @@ export function Hero({
 }: HeroProps) {
   // Minimal state - only what's essential
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const [isInView, setIsInView] = useState(true); // Hero is above-fold, always visible
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -103,8 +104,8 @@ export function Hero({
   // Container classes for responsive layout
   const containerClasses = `mx-auto max-w-6xl px-4 sm:px-5`;
   
-  // If no video and no image, show shortened empty hero
-  const hasContent = videoUrl || imageSource;
+  // If no video and no image (or image failed to load), show shortened empty hero
+  const hasContent = videoUrl || (imageSource && !imageError);
   const aspectRatioClasses = hasContent 
     ? "relative w-full" + (variant === 'fullwidth' ? "" : " aspect-video overflow-hidden rounded-lg")
     : "relative w-full h-16"; // Shortened empty hero
@@ -178,7 +179,7 @@ export function Hero({
             </div>
           )}
         </>
-      ) : imageSource ? (
+      ) : imageSource && !imageError ? (
         /* Image Background - Next.js Image handles preloading, errors, loading states */
         <div 
           className={backgroundClasses}
@@ -205,6 +206,7 @@ export function Hero({
             quality={90}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
             onLoad={() => setImageLoaded(true)}
+            onError={() => setImageError(true)}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Ss="
             itemProp="thumbnail"

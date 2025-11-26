@@ -43,6 +43,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
   // Call hooks unconditionally - MUST be before any early returns
   const parsedCaption = useCaptionParsing(captionContent as any);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const captionRef = useRef<HTMLElement>(null);
   
@@ -69,6 +70,12 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     return null;
   }
   
+  // Also return null if image failed to load
+  const imageSource = frontmatter?.images?.micro?.url || (captionContent as CaptionDataStructure).images?.micro?.url || (captionContent as CaptionDataStructure).imageUrl?.url;
+  if (imageSource && imageError) {
+    return null;
+  }
+  
   const { className = '' } = config || {};
 
   // Simplified caption data - use parsed caption data
@@ -85,7 +92,6 @@ export function Caption({ frontmatter, config }: CaptionProps) {
 
   const materialName = captionData.material || 'material';
   const capitalizedMaterial = capitalizeFirst(materialName);
-  const imageSource = frontmatter?.images?.micro?.url || captionData.images?.micro?.url || captionData.imageUrl?.url;
 
   return (
     <SectionContainer 
@@ -112,6 +118,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
                 priority={false}
                 quality={85}
                 onLoad={() => setImageLoaded(true)}
+                onError={() => setImageError(true)}
               />
 
               {/* Quality Metrics Overlay */}

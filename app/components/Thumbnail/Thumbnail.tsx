@@ -1,6 +1,7 @@
 // app/components/Thumbnail/Thumbnail.tsx
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Article, ArticleMetadata, ThumbnailProps } from "@/types";
 
@@ -15,6 +16,8 @@ export function Thumbnail({
   height,
   frontmatter
 }: ThumbnailProps) {
+  const [imageError, setImageError] = useState(false);
+  
   // Get image URL directly without state/useEffect delay
   const imageUrl = frontmatter?.images?.hero?.url || "";
 
@@ -27,6 +30,9 @@ export function Thumbnail({
     "scale-down": "object-scale-down"
   }[objectFit];
 
+  // Show default logo if no URL or image failed to load
+  const showDefault = !imageUrl || imageError;
+
   return (
     <div
       className={`relative overflow-hidden ${className}`}
@@ -35,7 +41,7 @@ export function Thumbnail({
         height: "100%",
       }}
     >
-      {imageUrl ? (
+      {!showDefault ? (
         <Image
           src={imageUrl}
           alt={alt}
@@ -47,6 +53,7 @@ export function Thumbnail({
           loading={priority ? undefined : "lazy"}
           quality={priority ? 85 : 75}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          onError={() => setImageError(true)}
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-tertiary">
