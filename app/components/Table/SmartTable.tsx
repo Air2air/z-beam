@@ -22,8 +22,8 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
   } = config || {};
 
   // Handle caption - extract string if it's an object with {before, after}
-  const caption = typeof rawCaption === 'object' && rawCaption !== null && 'before' in rawCaption
-    ? rawCaption.before
+  const caption = typeof rawCaption === 'object' && rawCaption !== null && 'before' in (rawCaption as any)
+    ? (rawCaption as any).before
     : rawCaption;
 
   // Enhanced display mode with hybrid option

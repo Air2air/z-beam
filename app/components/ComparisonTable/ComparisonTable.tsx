@@ -30,9 +30,9 @@ export function ComparisonTable({
   }
 
   // Handle caption - extract string if it's an object with {before, after}
-  const caption = typeof rawCaption === 'object' && rawCaption !== null && 'before' in rawCaption
+  const caption: string | undefined = typeof rawCaption === 'object' && rawCaption !== null && 'before' in rawCaption
     ? rawCaption.before
-    : rawCaption;
+    : typeof rawCaption === 'string' ? rawCaption : undefined;
 
   const formatFieldLabel = (key: string): string => {
     return key
