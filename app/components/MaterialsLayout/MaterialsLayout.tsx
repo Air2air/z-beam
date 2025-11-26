@@ -14,12 +14,6 @@ import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetCardWrapper from '../Dataset/MaterialDatasetCardWrapper';
 import type { LayoutProps } from '@/types';
 
-// Dynamic import Caption for code-splitting
-const Caption = dynamic(
-  () => import('../Caption/Caption').then(mod => mod.Caption),
-  { ssr: true }
-);
-
 interface MaterialsLayoutProps extends LayoutProps {
   slug?: string;
   category?: string;
@@ -54,14 +48,6 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
           />
         </div>
       )}
-      
-      {/* Caption */}
-      <div className="mb-16">
-        <Caption 
-          frontmatter={metadata as any} 
-          config={{ showTechnicalDetails: true, showMetadata: true }} 
-        />
-      </div>
       
       {/* Regulatory Standards */}
       <div className="mb-16">
