@@ -167,13 +167,8 @@ export default function sitemap(): SitemapEntry[] {
         const category = categoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '');
         const subcategory = subcategoryMatch ? subcategoryMatch[1].trim().toLowerCase().replace(/\s+/g, '-').replace(/'/g, '') : '';
         
-        // Extract base slug (remove -settings or -laser-cleaning suffix)
-        let slug = file.replace('.yaml', '');
-        if (slug.endsWith('-settings')) {
-          slug = slug.replace('-settings', '');
-        } else if (slug.endsWith('-laser-cleaning')) {
-          slug = slug.replace('-laser-cleaning', '');
-        }
+        // Keep the full slug including -settings suffix
+        const slug = file.replace('.yaml', '');
         
         // Skip if category is empty
         if (!category) return;
