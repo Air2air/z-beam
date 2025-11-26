@@ -1143,7 +1143,7 @@ function generateVideoObjectSchema(data: any, context: SchemaContext): SchemaOrg
  * ImageObject Schema - Enhanced with License Metadata
  * Implements Google's image license structured data
  * Uses page author as default creator if not explicitly specified
- * Uses caption.beforeText for image descriptions
+ * Uses caption.before for image descriptions
  * @see https://developers.google.com/search/docs/appearance/structured-data/image-license-metadata
  */
 function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrgBase | null {
@@ -1152,8 +1152,8 @@ function generateImageObjectSchema(data: any, context: SchemaContext): SchemaOrg
 
   // Get caption from multiple sources (priority order)
   const caption = mainImage.caption 
-    || data.frontmatter?.caption?.beforeText 
-    || data.caption?.beforeText
+    || data.frontmatter?.caption?.before 
+    || data.caption?.before
     || data.title 
     || '';
 
@@ -1457,7 +1457,7 @@ function getMainImage(data: any): any | null {
       return {
         '@type': 'ImageObject',
         'url': `${SITE_CONFIG.url}${cardWithImage.image.url}`,
-        'caption': cardWithImage.image.alt || data.frontmatter?.caption?.beforeText || data.caption?.beforeText || data.title
+        'caption': cardWithImage.image.alt || data.frontmatter?.caption?.before || data.caption?.before || data.title
       };
     }
   }
@@ -1507,7 +1507,7 @@ function getMainImage(data: any): any | null {
     return {
       '@type': 'ImageObject',
       'url': typeof data.image === 'string' ? data.image : `${SITE_CONFIG.url}${data.image.url}`,
-      'caption': data.frontmatter?.caption?.beforeText || data.caption?.beforeText || data.title
+      'caption': data.frontmatter?.caption?.before || data.caption?.before || data.title
     };
   }
 

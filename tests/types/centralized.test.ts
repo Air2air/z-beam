@@ -59,8 +59,8 @@ describe('Centralized Types - Caption System', () => {
     const captionProps: CaptionProps = {
       frontmatter: {
         caption: {
-          beforeText: 'Before text content',
-          afterText: 'After text content'
+          before: 'Before text content',
+          after: 'After text content'
         },
         images: {
           micro: {
@@ -74,8 +74,8 @@ describe('Centralized Types - Caption System', () => {
       }
     };
 
-    expect(captionProps.frontmatter.caption?.beforeText).toBe('Before text content');
-    expect(captionProps.frontmatter.caption?.afterText).toBe('After text content');
+    expect(captionProps.frontmatter.caption?.before).toBe('Before text content');
+    expect(captionProps.frontmatter.caption?.after).toBe('After text content');
     expect(captionProps.frontmatter?.images?.micro?.url).toBe('test-image.jpg');
     expect(captionProps.config?.showTechnicalDetails).toBe(true);
   });
@@ -106,8 +106,8 @@ describe('Centralized Types - Caption System', () => {
   test('ParsedCaptionData should support parsing results', () => {
     const parsedData: ParsedCaptionData = {
       renderedContent: 'Rendered caption content',
-      beforeText: 'Before text',
-      afterText: 'After text',
+      before: 'Before text',
+      after: 'After text',
       material: 'aluminum',
       isEnhanced: true,
       qualityMetrics: {
@@ -216,14 +216,14 @@ describe('Centralized Types - Type Safety', () => {
     const minimalProps: CaptionProps = {
       frontmatter: {
         caption: {
-          beforeText: 'Minimal content'
+          before: 'Minimal content'
         }
       }
       // Config is optional
     };
 
     expect(minimalCaption).toBeDefined();
-    expect(minimalProps.frontmatter.caption?.beforeText).toBe('Minimal content');
+    expect(minimalProps.frontmatter.caption?.before).toBe('Minimal content');
   });
 
   test('should maintain interface inheritance', () => {
@@ -260,8 +260,8 @@ describe('Centralized Types - Export Validation', () => {
 
   test('should support complex type combinations', () => {
     const complexCaption: CaptionDataStructure = {
-      beforeText: 'Complex before text',
-      afterText: 'Complex after text',
+      before: 'Complex before text',
+      after: 'Complex after text',
       quality_metrics: {
         contamination_removal: '95%',
         surface_roughness_before: '10μm'

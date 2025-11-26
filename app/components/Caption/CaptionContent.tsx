@@ -7,8 +7,8 @@ import { FrontmatterType } from '@/types';
 import { SITE_CONFIG } from '../../utils/constants';
 
 interface CaptionContentProps {
-  beforeText: string;
-  afterText: string;
+  before: string;
+  after: string;
   content: string;
   materialName?: string;
   frontmatter?: FrontmatterType;
@@ -20,8 +20,8 @@ interface CaptionContentProps {
 }
 
 export default function CaptionContent({
-  beforeText: _beforeText,
-  afterText: _afterText,
+  before: _before,
+  after: _after,
   content,
   materialName: _materialName,
   frontmatter,
@@ -47,13 +47,13 @@ export default function CaptionContent({
             const div = document.createElement('div');
             div.className = 'caption-before mb-3';
             div.innerHTML = p.innerHTML;
-            div.setAttribute('itemProp', 'beforeText');
+            div.setAttribute('itemProp', 'before');
             p.replaceWith(div);
           } else if (index === 1) {
             const div = document.createElement('div');
             div.className = 'caption-after';
             div.innerHTML = p.innerHTML;
-            div.setAttribute('itemProp', 'afterText');
+            div.setAttribute('itemProp', 'after');
             p.replaceWith(div);
           }
         });

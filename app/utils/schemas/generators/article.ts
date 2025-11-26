@@ -21,8 +21,8 @@ export interface ArticleSchemaOptions {
     micro?: ImageData;
   };
   caption?: {
-    beforeText?: string;
-    afterText?: string;
+    before?: string;
+    after?: string;
   };
   applications?: string[];
   keywords?: string | string[];
@@ -60,9 +60,9 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
   const pubDate = publishDate || currentDate || new Date().toISOString();
   const modDate = modifiedDate || pubDate;
   
-  // Build article body from caption - handle both {before, after} and {beforeText, afterText} formats
-  const captionBefore = (caption as any)?.beforeText || (caption as any)?.before;
-  const captionAfter = (caption as any)?.afterText || (caption as any)?.after;
+  // Build article body from caption using {before, after} format
+  const captionBefore = (caption as any)?.before;
+  const captionAfter = (caption as any)?.after;
   const articleBody = captionBefore 
     ? `${captionBefore}\n\n${captionAfter || ''}`
     : description;

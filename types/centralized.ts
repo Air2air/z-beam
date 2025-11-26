@@ -421,10 +421,9 @@ export interface CaptionDataStructure {
     url?: string;
     alt?: string;
   };
-  /** Before treatment text (parsed) */
-  beforeText?: string;
-  /** After treatment text (parsed) */
-  afterText?: string;
+  // DEPRECATED: beforeText and afterText are deprecated. Use before/after instead.
+  // beforeText?: string;
+  // afterText?: string;
   /** Quality metrics data */
   quality_metrics?: Record<string, string | number>;
 }
@@ -606,8 +605,11 @@ export interface MetricsGridProps {
  */
 export interface ParsedCaptionData {
   renderedContent: string;
-  beforeText?: string;
-  afterText?: string;
+  before?: string;
+  after?: string;
+  // DEPRECATED: beforeText and afterText are deprecated. Use before/after instead.
+  // beforeText?: string;
+  // afterText?: string;
   laserParams?: any; // CaptionYamlData['laser_parameters']
   metadata?: any; // CaptionYamlData['metadata']
   material?: string;

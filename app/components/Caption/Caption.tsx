@@ -94,8 +94,8 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     description: (isCaptionObject ? (captionContent as CaptionDataStructure).description : undefined) || frontmatter?.description,
     material: (isCaptionObject ? (captionContent as CaptionDataStructure).material : undefined) || frontmatter?.name,
     // Add parsed before/after text from the hook
-    beforeText: parsedCaption.beforeText,
-    afterText: parsedCaption.afterText,
+    before: parsedCaption.before,
+    after: parsedCaption.after,
     quality_metrics: parsedCaption.qualityMetrics,
   };
 
@@ -170,25 +170,25 @@ export function Caption({ frontmatter, config }: CaptionProps) {
       )}
 
         {/* Before/After Content */}
-        {(captionData.beforeText || captionData.afterText) && (
+        {(captionData.before || captionData.after) && (
           <div className="grid md:grid-cols-2 gap-6">
-            {captionData.beforeText && (
+            {captionData.before && (
               <div className="p-6 md:p-8 card-background rounded-lg">
                 <h4>
                   Before Treatment
                 </h4>
                 <div className="text-secondary text-sm">
-                  <MarkdownRenderer content={emphasizeFirstSentence(captionData.beforeText)} />
+                  <MarkdownRenderer content={emphasizeFirstSentence(captionData.before)} />
                 </div>
               </div>
             )}
-            {captionData.afterText && (
+            {captionData.after && (
               <div className="p-6 md:p-8 card-background rounded-lg">
                 <h4>
                   After Treatment
                 </h4>
                 <div className="text-secondary text-sm">
-                  <MarkdownRenderer content={emphasizeFirstSentence(captionData.afterText)} />
+                  <MarkdownRenderer content={emphasizeFirstSentence(captionData.after)} />
                 </div>
               </div>
             )}

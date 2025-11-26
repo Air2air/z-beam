@@ -161,8 +161,8 @@ export function useCaptionParsing(content: string | CaptionData): ParsedCaptionD
     
     return {
       renderedContent,
-      beforeText,
-      afterText,
+      before: beforeText,
+      after: afterText,
       laserParams: yamlData.laser_parameters,
       metadata: yamlData.metadata,
       material: yamlData.material,
