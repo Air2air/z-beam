@@ -150,12 +150,22 @@ export function Layout(props: LayoutProps) {
           <Title 
             level="page" 
             title={title || metadata?.title || 'Article'} 
-            description={
-              typeof (metadata?.material_description || metadata?.settings_description || metadata?.description) === 'object'
-                ? (metadata?.material_description || metadata?.settings_description || metadata?.description)?.before
-                : (metadata?.material_description || metadata?.settings_description || metadata?.description)
-            }
+            description={(() => {
+              const desc = metadata?.material_description || metadata?.settings_description || metadata?.description;
+              if (typeof desc === 'object' && desc !== null && 'before' in desc) {
+                return (desc as { before?: string }).before;
+              }
+              return typeof desc === 'string' ? desc : undefined;
+            })()}
           />
+
+          {/* Caption - hidden if no micro image */}
+          {metadata?.images?.micro?.url && (
+            <Caption 
+              frontmatter={metadata as any}
+              config={{}}
+            />
+          )}
 
           {metadata?.machineSettings && !metadata?.materialProperties && (
             <SectionContainer 
