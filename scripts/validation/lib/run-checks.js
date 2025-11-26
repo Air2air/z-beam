@@ -3,8 +3,8 @@
  * Run Comprehensive Pre-Push Validation
  * Fast validations that don't require running server (runs in parallel)
  * 
- * Excludes server-dependent checks (JSON-LD rendering, SEO, accessibility)
- * which run during deployment validation instead.
+ * Includes static accessibility checks that don't require a running server.
+ * Server-dependent checks (JSON-LD rendering, dynamic SEO) run during deployment.
  */
 
 const { runParallel, validation, exitWithResults } = require('./parallel');
@@ -29,7 +29,10 @@ async function main() {
     validation('JSON-LD syntax', 'node scripts/validation/jsonld/validate-jsonld-syntax.js'),
     
     // Sitemap (critical)
-    validation('Sitemap structure', 'bash scripts/sitemap/verify-sitemap.sh')
+    validation('Sitemap structure', 'bash scripts/sitemap/verify-sitemap.sh'),
+    
+    // Accessibility (critical)
+    validation('Static accessibility', 'node scripts/validation/accessibility/validate-static-a11y.js')
   ];
   
   const results = await runParallel(validations);
