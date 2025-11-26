@@ -65,12 +65,16 @@ export const SITE_CONFIG = {
     city: 'Belmont',
     state: 'CA',
     zipCode: '94002',
-    country: 'United States'
+    country: 'United States',
+    geo: {
+      latitude: 37.5202,
+      longitude: -122.2758
+    }
   },
   
   hours: {
-    weekday: 'Monday - Friday: 8:00 AM - 6:00 PM PST',
-    saturday: 'Saturday: 9:00 AM - 2:00 PM PST',
+    weekday: 'Monday - Friday: 9:00 AM - 5:00 PM PST',
+    saturday: 'Saturday: Closed',
     sunday: 'Sunday: Closed'
   },
   
@@ -254,30 +258,6 @@ export const BUSINESS_CONFIG = {
     industry: "Laser Cleaning",
     naicsCode: "561790",
     employeeCount: "2-10"
-  },
-
-  contact: {
-    address: {
-      street: "",
-      city: "Belmont",
-      state: "CA",
-      zipCode: "94002",
-      country: "US"
-    },
-    
-    phone: {
-      main: "+1-650-241-8510",
-      sales: "+1-650-241-8510",
-      support: "+1-650-241-8510"
-    },
-    
-    email: {
-      main: "info@z-beam.com",
-      sales: "info@z-beam.com",
-      support: "info@z-beam.com"
-    },
-
-    website: "https://www.z-beam.com"
   },
 
   social: {
@@ -653,46 +633,52 @@ export const BREAKPOINTS = {
 export function generateOrganizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${BUSINESS_CONFIG.contact.website}#organization`,
-    "name": "Z-Beam Laser Cleaning",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_CONFIG.url}#organization`,
+    "name": SITE_CONFIG.name,
     "legalName": BUSINESS_CONFIG.legal.name,
-    "url": BUSINESS_CONFIG.contact.website,
+    "url": SITE_CONFIG.url,
     "logo": {
       "@type": "ImageObject",
       "url": BUSINESS_CONFIG.assets.logo.primary.startsWith('http') 
         ? BUSINESS_CONFIG.assets.logo.primary 
-        : `${BUSINESS_CONFIG.contact.website}${BUSINESS_CONFIG.assets.logo.primary}`,
+        : `${SITE_CONFIG.url}${BUSINESS_CONFIG.assets.logo.primary}`,
       "width": BUSINESS_CONFIG.assets.logo.width,
       "height": BUSINESS_CONFIG.assets.logo.height
     },
     "image": BUSINESS_CONFIG.assets.images.ogImage.startsWith('http')
       ? BUSINESS_CONFIG.assets.images.ogImage
-      : `${BUSINESS_CONFIG.contact.website}${BUSINESS_CONFIG.assets.images.ogImage}`,
-    "description": "Professional laser cleaning company specializing in industrial surface preparation, rust removal, metal restoration, and eco-friendly cleaning solutions.",
+      : `${SITE_CONFIG.url}${BUSINESS_CONFIG.assets.images.ogImage}`,
+    "description": SITE_CONFIG.description,
     
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": BUSINESS_CONFIG.contact.address.street,
-      "addressLocality": BUSINESS_CONFIG.contact.address.city,
-      "addressRegion": BUSINESS_CONFIG.contact.address.state,
-      "postalCode": BUSINESS_CONFIG.contact.address.zipCode,
-      "addressCountry": BUSINESS_CONFIG.contact.address.country
+      "streetAddress": SITE_CONFIG.address.street,
+      "addressLocality": SITE_CONFIG.address.city,
+      "addressRegion": SITE_CONFIG.address.state,
+      "postalCode": SITE_CONFIG.address.zipCode,
+      "addressCountry": SITE_CONFIG.address.country
+    },
+    
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": SITE_CONFIG.address.geo.latitude,
+      "longitude": SITE_CONFIG.address.geo.longitude
     },
     
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": BUSINESS_CONFIG.contact.phone.main,
+        "telephone": SITE_CONFIG.contact.general.phoneHref,
         "contactType": "customer service",
-        "email": BUSINESS_CONFIG.contact.email.main,
+        "email": SITE_CONFIG.contact.general.email,
         "availableLanguage": BUSINESS_CONFIG.operations.languages
       },
       {
         "@type": "ContactPoint",
-        "telephone": BUSINESS_CONFIG.contact.phone.sales,
+        "telephone": SITE_CONFIG.contact.sales.phoneHref,
         "contactType": "sales", 
-        "email": BUSINESS_CONFIG.contact.email.sales,
+        "email": SITE_CONFIG.contact.sales.email,
         "availableLanguage": BUSINESS_CONFIG.operations.languages
       }
     ],
@@ -727,12 +713,31 @@ export function generateOrganizationSchema() {
       "name": area.name
     })),
     
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": BUSINESS_CONFIG.hours.monday.open,
+        "closes": BUSINESS_CONFIG.hours.monday.close
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": BUSINESS_CONFIG.hours.saturday.open,
+        "closes": BUSINESS_CONFIG.hours.saturday.close
+      }
+    ],
+    
+    "priceRange": BUSINESS_CONFIG.operations.priceRange,
+    "currenciesAccepted": BUSINESS_CONFIG.operations.currency,
+    "paymentAccepted": BUSINESS_CONFIG.operations.paymentMethods.join(", "),
+    
     "potentialAction": [
       {
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": `${BUSINESS_CONFIG.contact.website}/search?q={search_term_string}`
+          "urlTemplate": `${SITE_CONFIG.url}/search?q={search_term_string}`
         },
         "query-input": "required name=search_term_string"
       },
@@ -740,7 +745,7 @@ export function generateOrganizationSchema() {
         "@type": "DownloadAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": `${BUSINESS_CONFIG.contact.website}/datasets`,
+          "urlTemplate": `${SITE_CONFIG.url}/datasets`,
           "actionPlatform": [
             "https://schema.org/DesktopWebPlatform",
             "https://schema.org/MobileWebPlatform"
