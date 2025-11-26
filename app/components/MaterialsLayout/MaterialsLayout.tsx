@@ -5,10 +5,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Layout } from '../Layout/Layout';
-
-const Caption = dynamic(() => import('../Caption/Caption').then(mod => ({ default: mod.Caption })), {
-  ssr: true
-});
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Services } from '../Services/Services';
@@ -17,6 +13,10 @@ import { MaterialCharacteristics } from '../MaterialCharacteristics/MaterialChar
 import { RelatedMaterials } from '../RelatedMaterials/RelatedMaterials';
 import MaterialDatasetCardWrapper from '../Dataset/MaterialDatasetCardWrapper';
 import type { LayoutProps } from '@/types';
+
+const Caption = dynamic(() => import('../Caption/Caption').then(mod => ({ default: mod.Caption })), {
+  ssr: true
+});
 
 interface MaterialsLayoutProps extends LayoutProps {
   slug?: string;
