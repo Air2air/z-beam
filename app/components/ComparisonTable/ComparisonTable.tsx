@@ -5,7 +5,7 @@ import { SectionTitle } from '../SectionTitle/SectionTitle';
 
 interface ComparisonTableProps {
   title?: string;
-  caption?: string;
+  caption?: string | { before?: string; after?: string; };
   model1Data: any;
   model2Data: any;
   model1Name?: string;
@@ -18,7 +18,7 @@ interface ComparisonTableProps {
  */
 export function ComparisonTable({ 
   title, 
-  caption, 
+  caption: rawCaption, 
   model1Data, 
   model2Data,
   model1Name = 'Model 1',
@@ -28,6 +28,11 @@ export function ComparisonTable({
   if (!model1Data || !model2Data) {
     return null;
   }
+
+  // Handle caption - extract string if it's an object with {before, after}
+  const caption = typeof rawCaption === 'object' && rawCaption !== null && 'before' in rawCaption
+    ? rawCaption.before
+    : rawCaption;
 
   const formatFieldLabel = (key: string): string => {
     return key

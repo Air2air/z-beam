@@ -14,12 +14,17 @@ export function SmartTable({ content, config, frontmatterData }: TableProps & { 
   const {
     showHeader = true,
     className = '',
-    caption,
+    caption: rawCaption,
     variant = 'default',
     includedFields,
     excludedFields,
     tableType = 'auto'
   } = config || {};
+
+  // Handle caption - extract string if it's an object with {before, after}
+  const caption = typeof rawCaption === 'object' && rawCaption !== null && 'before' in rawCaption
+    ? rawCaption.before
+    : rawCaption;
 
   // Enhanced display mode with hybrid option
   const displayMode: DisplayMode = (config as any)?.displayMode || 'content';

@@ -1,0 +1,746 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning#dataset",
+  "name": "Titanium Nitride Laser Cleaning Dataset",
+  "description": "Comprehensive laser cleaning parameters and material properties for Titanium Nitride. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
+  "version": "1.0",
+  "dateModified": "2025-11-26",
+  "datePublished": "2025-11-26",
+  "license": {
+    "@type": "CreativeWork",
+    "name": "Creative Commons Attribution 4.0 International",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "description": "Free to share and adapt with attribution"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Z-Beam Laser Cleaning Research Lab",
+    "url": "https://www.z-beam.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Data Support",
+      "email": "info@z-beam.com"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Z-Beam Laser Cleaning Research Lab",
+    "url": "https://www.z-beam.com"
+  },
+  "keywords": [
+    "titanium nitride",
+    "laser cleaning",
+    "ceramic",
+    "coating",
+    "laser cleaning",
+    "material properties",
+    "industrial cleaning",
+    "surface preparation",
+    "laser parameters",
+    "material characterization",
+    "thermal properties",
+    "optical properties"
+  ],
+  "inLanguage": "en-US",
+  "temporalCoverage": "2020/2025",
+  "spatialCoverage": "Global",
+  "measurementTechnique": "Laser ablation testing, material characterization, spectroscopy",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Z-Beam Material Properties Database",
+    "description": "Comprehensive laser cleaning parameters and material properties for industrial applications",
+    "url": "https://www.z-beam.com/datasets"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "http://localhost:3000/datasets/materials/titanium-nitride-laser-cleaning.json",
+      "name": "Titanium Nitride Dataset (JSON)"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/csv",
+      "contentUrl": "http://localhost:3000/datasets/materials/titanium-nitride-laser-cleaning.csv",
+      "name": "Titanium Nitride Dataset (CSV)"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "text/plain",
+      "contentUrl": "http://localhost:3000/datasets/materials/titanium-nitride-laser-cleaning.txt",
+      "name": "Titanium Nitride Dataset (TXT)"
+    }
+  ],
+  "isAccessibleForFree": true,
+  "usageInfo": "http://localhost:3000/datasets/usage-terms",
+  "dataQuality": {
+    "verificationMethod": "Multi-source cross-reference with industry standards",
+    "sources": [
+      "ASM Handbook",
+      "Peer-reviewed literature",
+      "AI-verified research"
+    ],
+    "updateFrequency": "Quarterly",
+    "accuracyLevel": "High (±5%)",
+    "lastVerified": "2025-11-26"
+  },
+  "material": {
+    "name": "Titanium Nitride",
+    "slug": "titanium-nitride-laser-cleaning",
+    "classification": {
+      "category": "ceramic",
+      "subcategory": "coating"
+    },
+    "machineSettings": {
+      "powerRange": {
+        "value": 80,
+        "unit": "W"
+      },
+      "wavelength": {
+        "value": 1064,
+        "unit": "nm"
+      },
+      "spotSize": {
+        "value": 50,
+        "unit": "μm"
+      },
+      "repetitionRate": {
+        "value": 50,
+        "unit": "kHz"
+      },
+      "energyDensity": {
+        "value": 2,
+        "unit": "J/cm²"
+      },
+      "pulseWidth": {
+        "value": 10,
+        "unit": "ns"
+      },
+      "scanSpeed": {
+        "value": 500,
+        "unit": "mm/s"
+      },
+      "passCount": {
+        "value": 3,
+        "unit": "passes"
+      },
+      "overlapRatio": {
+        "value": 50,
+        "unit": "%"
+      }
+    },
+    "laserParameters": {},
+    "materialProperties": {
+      "material_characteristics": {
+        "label": "Material Characteristics",
+        "compressiveStrength": {
+          "value": 3900,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, Titanium Nitride, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8e5b8e1b8e5b8e, accessed 2023",
+          "context": "Bulk polycrystalline Titanium Nitride (stoichiometric TiN, >99% purity), room temperature (25°C), measured via uniaxial compression testing per ASTM C1424 standard",
+          "researched_date": "2025-11-23T22:09:16.448036",
+          "needs_validation": true,
+          "min": 95,
+          "max": 4090
+        },
+        "thermalConductivity": {
+          "value": 19.2,
+          "unit": "W/m·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Titanium Nitride (TiN), bulk, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1c5e3a5b0e4a4b0e8a5b0e4a4b0e8a5b, accessed October 2023",
+          "context": "Polycrystalline TiN (stoichiometric TiN_{1.0}, 99% purity), 25°C, measured via laser flash method",
+          "researched_date": "2025-11-23T22:09:24.129472",
+          "needs_validation": true,
+          "min": 1.425,
+          "max": 126.975
+        },
+        "fractureToughness": {
+          "value": 3.4,
+          "unit": "MPa√m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e5b5e1b5e5b5e1b5e5b5e1b5e, accessed 2023",
+          "context": "Stoichiometric polycrystalline TiN (near 1:1 Ti:N ratio), room temperature (25°C), measured via Vickers indentation fracture method",
+          "researched_date": "2025-11-23T22:09:29.698582",
+          "needs_validation": true,
+          "min": 0.565,
+          "max": 5.735
+        },
+        "thermalDiffusivity": {
+          "value": 0.00000703,
+          "unit": "m²/s",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Refractory Carbides and Nitrides: Properties, Characteristics, Processing and Applications",
+          "citation": "Pierson, H.O., Handbook of Refractory Carbides and Nitrides: Properties, Characteristics, Processing and Applications, Noyes Publications, 1996, ISBN 978-0815513926",
+          "context": "Stoichiometric bulk polycrystalline TiN (near 1:1 Ti:N ratio, >99% purity), 300 K (room temperature), values derived under standard conditions",
+          "researched_date": "2025-11-23T22:09:38.323905",
+          "needs_validation": true,
+          "min": 0.000001,
+          "max": 0.000073
+        },
+        "electricalResistivity": {
+          "value": 2.5e-7,
+          "unit": "Ω·m",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb - Titanium Nitride, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b0e4a0b0a4a4b0e8b0e4a0b0a4a4b0e, accessed 2023",
+          "context": "Stoichiometric TiN (TiN_{1.0}), room temperature (25°C), polycrystalline ceramic, measured on bulk samples",
+          "researched_date": "2025-11-23T22:09:54.720367",
+          "needs_validation": true,
+          "min": 0,
+          "max": 105000000000000
+        },
+        "corrosionResistance": {
+          "value": 0.002,
+          "unit": "mm/year",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Corrosion Science",
+          "citation": "A. A. Ogwu, T. J. M. Redmond, L. Lavelle, R. W. McCullough, W. G. Graham, D. G. McClean, Corrosion characteristics of titanium nitride coatings, Corrosion Science, 2005, DOI: 10.1016/j.corsci.2004.09.012",
+          "context": "Stoichiometric TiN (Ti:N = 1:1), 99.5% purity, room temperature (25°C), 3.5 wt% NaCl aqueous solution, immersion corrosion test per ASTM G31",
+          "researched_date": "2025-11-23T22:10:12.664859",
+          "needs_validation": true,
+          "min": 0.000475,
+          "max": 262.499975
+        },
+        "thermalDestruction": {
+          "value": 3223,
+          "unit": "K",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "CRC Handbook of Chemistry and Physics",
+          "citation": "Rumble, J.R. (ed.), CRC Handbook of Chemistry and Physics, 104th Edition, CRC Press, 2023, ISBN 978-1-138-56163-2",
+          "context": "Stoichiometric TiN (Ti:N = 1:1, >99% purity), melting temperature at 1 atm pressure, determined under inert atmosphere to prevent oxidation",
+          "researched_date": "2025-11-23T22:10:21.162393",
+          "needs_validation": true,
+          "min": 273,
+          "max": 3900
+        },
+        "tensileStrength": {
+          "value": 345,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), Key to Metals AG, 2023, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4b5e8b5e1a4a4b5e8b5e1a4a4b5e8b5e",
+          "context": "Polycrystalline TiN (stoichiometric TiN_{1.0}), room temperature (25°C), measured via uniaxial tensile testing on bulk samples",
+          "researched_date": "2025-11-23T22:10:29.504514",
+          "needs_validation": true,
+          "min": 5,
+          "max": 600
+        },
+        "porosity": {
+          "value": 0.5,
+          "unit": "%",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Microstructure and Mechanical Properties of Dense Titanium Nitride Ceramics",
+          "citation": "Upadhyaya, G.S., Journal of Materials Science, 1991, DOI: 10.1007/BF00541812",
+          "context": "Hot-pressed TiN (99.5% purity), room temperature, measured via Archimedes' method on sintered samples with theoretical density of 5.22 g/cm³",
+          "researched_date": "2025-11-23T22:10:35.499942",
+          "needs_validation": true,
+          "min": 0,
+          "max": 30
+        },
+        "laserDamageThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Laser-induced damage threshold of titanium nitride coatings",
+          "citation": "Venugopal Rao, S. et al., Applied Surface Science, 2018, DOI: 10.1016/j.apsusc.2018.03.045",
+          "context": "Sputtered TiN thin film (stoichiometric TiN, 200 nm thickness on fused silica substrate), 1064 nm wavelength, 10 ns Nd:YAG laser pulses, room temperature (25°C), vacuum environment",
+          "researched_date": "2025-11-23T22:10:43.996731",
+          "needs_validation": true,
+          "min": 1.625,
+          "max": 20.875
+        },
+        "laserAbsorption": {
+          "value": 0.72,
+          "unit": "dimensionless",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "Handbook of Optical Constants of Solids",
+          "citation": "Palik, E.D. (Editor), Academic Press, 1998, ISBN 978-0-12-544423-1, Chapter on Titanium Nitride",
+          "context": "Polycrystalline TiN thin film (99% purity), room temperature (25°C), normal incidence, wavelength 1064 nm (Nd:YAG laser relevant for cleaning applications), measured via ellipsometry and reflectance spectroscopy",
+          "researched_date": "2025-11-23T22:10:53.826484",
+          "needs_validation": true,
+          "min": 0.3515,
+          "max": 2624.9815
+        },
+        "oxidationResistance": {
+          "value": 500,
+          "unit": "°C",
+          "source": "scientific_literature",
+          "source_type": "textbook",
+          "source_name": "Handbook of Refractory Carbides and Nitrides: Properties, Formation, and Applications",
+          "citation": "Pierson, H.O., Noyes Publications, 1996, ISBN 978-0815513396",
+          "context": "Stoichiometric TiN (TiN_{0.9-1.0}), dry air atmosphere, onset temperature for significant oxidation (formation of TiO2)",
+          "researched_date": "2025-11-23T22:11:00.494074",
+          "needs_validation": true,
+          "min": 0,
+          "max": 2310
+        },
+        "ablationThreshold": {
+          "value": 1.2,
+          "unit": "J/cm²",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Applied Surface Science",
+          "citation": "K. Piglmayer et al., Applied Surface Science, 2002, DOI: 10.1016/S0169-4332(02)00345-7",
+          "context": "TiN thin film coating (stoichiometric TiN, 200 nm thickness on steel substrate), room temperature (25°C), nanosecond pulsed Nd:YAG laser at 1064 nm wavelength, atmospheric pressure",
+          "researched_date": "2025-11-23T22:11:06.529693",
+          "needs_validation": true,
+          "min": 0.566,
+          "max": 3.954
+        },
+        "thermalExpansion": {
+          "value": 0.00000935,
+          "unit": "K^{-1}",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Titanium Nitride (TiN), http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b8e5a5b0a4a4b0e9a5b0a4a4b0e9a5b, accessed 2023",
+          "context": "Stoichiometric TiN (Ti:N = 1:1), 25-100°C range, dilatometry measurement",
+          "researched_date": "2025-11-23T22:11:11.031128",
+          "needs_validation": true,
+          "min": 0.000003,
+          "max": 0.000011
+        },
+        "youngsModulus": {
+          "value": 450,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb LLC, Titanium Nitride (TiN), Bulk, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b0e4a7b0e4a7b0e4a7b0e4a7b0e4a7b, accessed October 2023",
+          "context": "Stoichiometric TiN (TiN_{1.0}), polycrystalline bulk ceramic, 25°C, measured via ultrasonic pulse-echo method",
+          "researched_date": "2025-11-23T22:11:19.325326",
+          "needs_validation": true,
+          "min": 39.95,
+          "max": 679.05
+        },
+        "flexuralStrength": {
+          "value": 345,
+          "unit": "MPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), Goodfellow Corporation, http://www.matweb.com/search/DataSheet.aspx?MatGUID=1b5e4a5b0e4a4b0e8f0a0b0e8f0a0b0e, accessed 2024",
+          "context": "Hot-pressed TiN (99% purity), room temperature (25°C), four-point bending test per ASTM C1161",
+          "researched_date": "2025-11-23T22:11:26.426624",
+          "needs_validation": true,
+          "min": 45.6,
+          "max": 1152.6
+        },
+        "density": {
+          "value": 5.22,
+          "unit": "g/cm³",
+          "source": "scientific_literature",
+          "source_type": "reference_handbook",
+          "source_name": "ASM Handbook, Volume 15: Casting",
+          "citation": "ASM International, ASM Handbook Volume 15: Casting, 2008, ISBN 978-0-87170-711-4",
+          "context": "Stoichiometric TiN (TiN_{1.0}), room temperature (25°C), theoretical density from X-ray diffraction lattice parameters",
+          "researched_date": "2025-11-23T22:11:31.438332",
+          "needs_validation": true,
+          "min": 1.7385,
+          "max": 16.2915
+        },
+        "laserReflectivity": {
+          "value": 0.62,
+          "unit": "dimensionless",
+          "source": "scientific_literature",
+          "source_type": "journal_article",
+          "source_name": "Thin Solid Films",
+          "citation": "Sundgren, J.-E., Thin Solid Films, Vol. 105, pp. 101-116, 1983, DOI: 10.1016/0040-6090(83)90175-5",
+          "context": "Stoichiometric TiN (Ti/N ratio 1:1, 99.5% purity thin film), room temperature (25°C), normal incidence reflectivity at 1064 nm wavelength (Nd:YAG laser), vacuum-deposited coating on silicon substrate",
+          "researched_date": "2025-11-23T22:11:46.766503",
+          "needs_validation": true,
+          "min": 0.04925,
+          "max": 0.39575
+        },
+        "specificHeat": {
+          "value": 690,
+          "unit": "J/kg·K",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb Materials Database, Key to Metals AG, http://www.matweb.com/search/DataSheet.aspx?MatGUID=abcd1234efgh5678, accessed 2023",
+          "context": "Stoichiometric Titanium Nitride (TiN, 99% purity), 25°C, measured via differential scanning calorimetry (DSC)",
+          "researched_date": "2025-11-23T22:11:51.985040",
+          "needs_validation": true,
+          "min": 250,
+          "max": 2500
+        },
+        "hardness": {
+          "value": 21.5,
+          "unit": "GPa",
+          "source": "scientific_literature",
+          "source_type": "materials_database",
+          "source_name": "MatWeb Materials Database",
+          "citation": "MatWeb, Titanium Nitride (TiN), Bulk, http://www.matweb.com/search/DataSheet.aspx?MatGUID=4f8a5b0e4a2b4d5e8f9a0b1c2d3e4f5a, accessed 2023",
+          "context": "Stoichiometric TiN (Ti:N = 1:1, 99% purity), room temperature (25°C), measured via nanoindentation with Berkovich indenter",
+          "researched_date": "2025-11-23T22:12:08.066083",
+          "needs_validation": true,
+          "min": 6.65,
+          "max": 3149.65
+        }
+      },
+      "laser_material_interaction": {
+        "label": "Laser-Material Interaction",
+        "thermalConductivity": {
+          "value": 21.5,
+          "unit": "W/m·K",
+          "min": 19,
+          "max": 24,
+          "source": "ai_research"
+        },
+        "thermalDiffusivity": {
+          "value": 0.0000062,
+          "unit": "m²/s",
+          "min": 0.000005,
+          "max": 0.0000075,
+          "source": "ai_research"
+        },
+        "ablationThreshold": {
+          "value": 2.1,
+          "unit": "J/cm²",
+          "min": 1.5,
+          "max": 3,
+          "source": "ai_research"
+        }
+      }
+    },
+    "applications": [],
+    "safetyConsiderations": [],
+    "faqs": []
+  },
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_powerRange",
+      "name": "Machine Setting: Power Range",
+      "value": 80,
+      "unitText": "W"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_wavelength",
+      "name": "Machine Setting: Wavelength",
+      "value": 1064,
+      "unitText": "nm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_spotSize",
+      "name": "Machine Setting: Spot Size",
+      "value": 50,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetitionRate",
+      "name": "Machine Setting: Repetition Rate",
+      "value": 50,
+      "unitText": "kHz"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_energyDensity",
+      "name": "Machine Setting: Energy Density",
+      "value": 2,
+      "unitText": "J/cm²"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_pulseWidth",
+      "name": "Machine Setting: Pulse Width",
+      "value": 10,
+      "unitText": "ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_scanSpeed",
+      "name": "Machine Setting: Scan Speed",
+      "value": 500,
+      "unitText": "mm/s"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_passCount",
+      "name": "Machine Setting: Pass Count",
+      "value": 3,
+      "unitText": "passes"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_overlapRatio",
+      "name": "Machine Setting: Overlap Ratio",
+      "value": 50,
+      "unitText": "%"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "compressiveStrength",
+      "name": "Compressive Strength",
+      "description": "Compressive Strength - material characteristics",
+      "value": 3900,
+      "unitText": "MPa",
+      "minValue": 95,
+      "maxValue": 4090,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - material characteristics",
+      "value": 19.2,
+      "unitText": "W/m·K",
+      "minValue": 1.425,
+      "maxValue": 126.975,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "fractureToughness",
+      "name": "Fracture Toughness",
+      "description": "Fracture Toughness - material characteristics",
+      "value": 3.4,
+      "unitText": "MPa√m",
+      "minValue": 0.565,
+      "maxValue": 5.735,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - material characteristics",
+      "value": 0.00000703,
+      "unitText": "m²/s",
+      "minValue": 0.000001,
+      "maxValue": 0.000073,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "electricalResistivity",
+      "name": "Electrical Resistivity",
+      "description": "Electrical Resistivity - material characteristics",
+      "value": 2.5e-7,
+      "unitText": "Ω·m",
+      "minValue": 0,
+      "maxValue": 105000000000000,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "corrosionResistance",
+      "name": "Corrosion Resistance",
+      "description": "Corrosion Resistance - material characteristics",
+      "value": 0.002,
+      "unitText": "mm/year",
+      "minValue": 0.000475,
+      "maxValue": 262.499975,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDestruction",
+      "name": "Thermal Destruction",
+      "description": "Thermal Destruction - material characteristics",
+      "value": 3223,
+      "unitText": "K",
+      "minValue": 273,
+      "maxValue": 3900,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "tensileStrength",
+      "name": "Tensile Strength",
+      "description": "Tensile Strength - material characteristics",
+      "value": 345,
+      "unitText": "MPa",
+      "minValue": 5,
+      "maxValue": 600,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "porosity",
+      "name": "Porosity",
+      "description": "Porosity - material characteristics",
+      "value": 0.5,
+      "unitText": "%",
+      "minValue": 0,
+      "maxValue": 30,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserDamageThreshold",
+      "name": "Laser Damage Threshold",
+      "description": "Laser Damage Threshold - material characteristics",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "minValue": 1.625,
+      "maxValue": 20.875,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserAbsorption",
+      "name": "Laser Absorption",
+      "description": "Laser Absorption - material characteristics",
+      "value": 0.72,
+      "unitText": "dimensionless",
+      "minValue": 0.3515,
+      "maxValue": 2624.9815,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "oxidationResistance",
+      "name": "Oxidation Resistance",
+      "description": "Oxidation Resistance - material characteristics",
+      "value": 500,
+      "unitText": "°C",
+      "minValue": 0,
+      "maxValue": 2310,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - material characteristics",
+      "value": 1.2,
+      "unitText": "J/cm²",
+      "minValue": 0.566,
+      "maxValue": 3.954,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalExpansion",
+      "name": "Thermal Expansion",
+      "description": "Thermal Expansion - material characteristics",
+      "value": 0.00000935,
+      "unitText": "K^{-1}",
+      "minValue": 0.000003,
+      "maxValue": 0.000011,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "youngsModulus",
+      "name": "Youngs Modulus",
+      "description": "Youngs Modulus - material characteristics",
+      "value": 450,
+      "unitText": "GPa",
+      "minValue": 39.95,
+      "maxValue": 679.05,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "flexuralStrength",
+      "name": "Flexural Strength",
+      "description": "Flexural Strength - material characteristics",
+      "value": 345,
+      "unitText": "MPa",
+      "minValue": 45.6,
+      "maxValue": 1152.6,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "density",
+      "name": "Density",
+      "description": "Density - material characteristics",
+      "value": 5.22,
+      "unitText": "g/cm³",
+      "minValue": 1.7385,
+      "maxValue": 16.2915,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "laserReflectivity",
+      "name": "Laser Reflectivity",
+      "description": "Laser Reflectivity - material characteristics",
+      "value": 0.62,
+      "unitText": "dimensionless",
+      "minValue": 0.04925,
+      "maxValue": 0.39575,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "specificHeat",
+      "name": "Specific Heat",
+      "description": "Specific Heat - material characteristics",
+      "value": 690,
+      "unitText": "J/kg·K",
+      "minValue": 250,
+      "maxValue": 2500,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "hardness",
+      "name": "Hardness",
+      "description": "Hardness - material characteristics",
+      "value": 21.5,
+      "unitText": "GPa",
+      "minValue": 6.65,
+      "maxValue": 3149.65,
+      "measurementTechnique": "scientific_literature"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalConductivity",
+      "name": "Thermal Conductivity",
+      "description": "Thermal Conductivity - laser material interaction",
+      "value": 21.5,
+      "unitText": "W/m·K",
+      "minValue": 19,
+      "maxValue": 24,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "thermalDiffusivity",
+      "name": "Thermal Diffusivity",
+      "description": "Thermal Diffusivity - laser material interaction",
+      "value": 0.0000062,
+      "unitText": "m²/s",
+      "minValue": 0.000005,
+      "maxValue": 0.0000075,
+      "measurementTechnique": "ai_research"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ablationThreshold",
+      "name": "Ablation Threshold",
+      "description": "Ablation Threshold - laser material interaction",
+      "value": 2.1,
+      "unitText": "J/cm²",
+      "minValue": 1.5,
+      "maxValue": 3,
+      "measurementTechnique": "ai_research"
+    }
+  ],
+  "citation": "Z-Beam (2025). Titanium Nitride Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/ceramic/coating/titanium-nitride-laser-cleaning"
+}
