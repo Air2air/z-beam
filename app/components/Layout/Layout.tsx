@@ -159,14 +159,6 @@ export function Layout(props: LayoutProps) {
             })()}
           />
 
-          {/* Caption - hidden if no micro image */}
-          {metadata?.images?.micro?.url && (
-            <Caption 
-              frontmatter={metadata as any}
-              config={{}}
-            />
-          )}
-
           {metadata?.machineSettings && !metadata?.materialProperties && (
             <SectionContainer 
               title={metadata.title && metadata.title.toLowerCase().includes('settings') 

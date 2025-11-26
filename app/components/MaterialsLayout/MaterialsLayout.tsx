@@ -5,6 +5,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Layout } from '../Layout/Layout';
+
+const Caption = dynamic(() => import('../Caption/Caption').then(mod => ({ default: mod.Caption })), {
+  ssr: true
+});
 import { RegulatoryStandards } from '../RegulatoryStandards';
 import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { Services } from '../Services/Services';
@@ -49,7 +53,15 @@ export function MaterialsLayout(props: MaterialsLayoutProps) {
         </div>
       )}
       
-      {/* Regulatory Standards */}
+      {/* Caption - hidden if no micro image */}
+      {metadata?.images?.micro?.url && (
+        <Caption 
+          frontmatter={metadata as any}
+          config={{}}
+        />
+      )}
+      
+      {/* Regulatory Standards */
       <div className="mb-16">
         <RegulatoryStandards standards={(metadata as any)?.regulatoryStandards} />
       </div>
