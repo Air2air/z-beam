@@ -42,7 +42,7 @@ export function RegulatoryStandards({
         {validStandards.map((standard, index) => (
           <li
             key={`${standard.name}-${index}`}
-            className="card-background rounded-lg border p-4 hover:shadow-md transition-shadow duration-200"
+            className="card-background rounded-lg p-4 hover:shadow-md transition-shadow duration-200"
           >
             <article className="flex items-start gap-4">
               {/* Logo */}
@@ -63,7 +63,7 @@ export function RegulatoryStandards({
                 <h3 className="text-lg text-secondary font-semibold mb-1">
                   {standard.name}
                 </h3>
-                <p className="text-sm text-muted mb-3">
+                <p className="text-sm text-secondary  mb-3">
                   {standard.description}
                 </p>
                 
@@ -97,7 +97,7 @@ export function RegulatoryStandards({
                       href={standard.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-muted hover:text-muted:text-secondary transition-colors"
+                      className="inline-flex items-center text-sm text-secondary  hover:text-tertiary:text-secondary transition-colors"
                     >
                       <span>View Official Documentation</span>
                       <svg 

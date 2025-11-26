@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AuthorProps } from "@/types";
 import { SITE_CONFIG } from "../../utils/constants";
-import { Calendar, Clock } from "lucide-react";
-import { formatDate, getRelativeTime } from "../../utils/dateFormatting";
+import { DatePanel } from "../DatePanel/DatePanel";
 
 export function Author({
   frontmatter,
@@ -29,11 +28,6 @@ export function Author({
 
   // Generate URL-encoded author name for search (null-safe)
   const encodedAuthorName = authorInfo ? encodeURIComponent(authorName) : '';
-  
-  // Check if we have date information to display
-  // Support both lastModified (type definition) and dateModified (YAML field)
-  const modifiedDate = (frontmatter as any)?.dateModified || frontmatter?.lastModified;
-  const hasDateInfo = frontmatter?.datePublished || modifiedDate;
 
   return (
     <Link
@@ -63,34 +57,21 @@ export function Author({
                 )}
               </span>
               {showCountry && country && (
-                <span className="text-tertiary">
+                <span className="text-secondary">
                   {country}
                 </span>
               )}
             </div>
 
             {showSpecialties && field && (
-              <div className="text-sm text-tertiary mt-1">
+              <i className="text-sm text-secondary mt-1">
                 {field}
-              </div>
+              </i>
             )}
           </div>
         </div>
 
-        {/* Date panel on right - hidden at XS */}
-        {hasDateInfo && (
-          <div className="hidden sm:flex flex-col gap-2 text-xs text-muted bg-primary rounded px-3 py-2 flex-shrink-0">
-            {frontmatter?.datePublished && (
-              <div className="flex items-center gap-1.5 whitespace-nowrap">
-                <Calendar className="w-3.5 h-3.5" />
-                <div>
-                  <div className="text-muted text-[10px] uppercase tracking-wide">Published</div>
-                  <div className="font-medium">{formatDate(frontmatter.datePublished)}</div>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
+        <DatePanel datePublished={frontmatter?.datePublished} />
       </div>
     </Link>
   );
