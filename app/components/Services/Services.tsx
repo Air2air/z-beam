@@ -21,7 +21,7 @@ export function Services() {
       title: 'Professional Services',
       description: 'Expert technicians, on-site service',
       href: '/services',
-      imageUrl: '/images/pages/operator.jpg',
+      imageUrl: '/images/pages/laser.jpg',
       imageAlt: 'Professional Service',
       badge: undefined,
     },
