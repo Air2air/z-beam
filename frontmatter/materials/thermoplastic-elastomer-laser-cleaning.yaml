@@ -60,7 +60,9 @@ images:
   micro:
     alt: Microscopic view of Thermoplastic Elastomer surface after laser cleaning showing detailed surface structure
     url: /images/material/thermoplastic-elastomer-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: The contaminated surface appears rough and dotted with dark specks. Clumps of debris cling tightly to the uneven texture. Fine particles scatter across the material, hiding its natural form.
+  after: Laser treatment reveals a smooth and uniform layer underneath. The surface now looks clear and even, free from any clinging residues. Clean ridges emerge, showing the material's true structure.
 faq:
 - question: Can thermoplastic elastomer (TPE) surfaces be cleaned with fiber lasers without causing **thermal degradation or melting**?
   answer: '**Requires multi-pass low fluence**. Yes, you can pretty safely clean thermoplastic elastomer surfaces using fiber lasers at 1064 nm, basically avoiding thermal degradation by capping fluence at 1.2 J/cm² with 10 ns pulses at 100 W. TPE''s low heat tolerance typically calls for this level of precision, as automotive parts cases from manufacturing forums demonstrate effective contaminant removal across two passes at 500 mm/s without any melting.'
@@ -82,7 +84,22 @@ faq:
   answer: When laser cleaning thermoplastic elastomer (TPE) parts for food contact, it's pretty essential to prioritize FDA 21 CFR 177 guidelines and prevent migration of any laser-induced residues. Run overall migration testing under EU 10/2011 standards, keeping fluence below 1.2 J/cm² at 1064 nm to basically avoid substrate degradation that might leach additives into packaging. Check TPE safety data sheets to confirm post-cleaning compliance.
 - question: In online discussions, what common handling mistakes occur when preparing TPE surfaces for laser cleaning, such as **pre-treatment steps**?
   answer: '**Degrease to prevent uneven ablation**. Online forums typically highlight how skipping oil residues on TPE surfaces results in pretty ineffective cleaning at 1.2 J/cm² fluence, since they absorb laser energy unevenly. Dust contamination ranks as another common error, leading to irregular ablation in 100 W runs. A gentle degreasing with isopropyl alcohol beforehand preserves the material''s integrity.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/en/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -249,4 +266,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:33.862386'
+    generated_date: '2025-11-26T08:42:29.794702'

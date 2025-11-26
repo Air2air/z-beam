@@ -61,7 +61,9 @@ images:
   micro:
     alt: Inconel microscopic view of laser cleaning showing detailed precise contamination removal
     url: /images/material/inconel-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: I've seen the contaminated Inconel surface under magnification, and it shows a rough, uneven texture everywhere. Dark, irregular patches of buildup cling tightly to the base material. Scattered debris makes the whole area look dull and obstructed.
+  after: After laser treatment, that same surface transforms into a smooth, even finish without a trace of residue. The metal gleams with a consistent shine across every spot. Now it reveals the clean, pristine structure underneath clearly.
 faq:
 - question: What are the optimal laser parameters (wavelength, power, pulse duration) for effectively removing oxides and heat tint from Inconel without causing micro-cracking or altering the base material?
   answer: When dealing with Inconel, it's essential to select a 1064 nm wavelength paired with nanosecond pulses of about 10 ns, enabling oxide ablation without substrate melting. Keep fluence around 2.5 J/cm² and scanning speed at 500 mm/s. Notably, this approach removes heat tint effectively while averting micro-cracking through reduced thermal load on the delicate base material.
@@ -83,7 +85,27 @@ faq:
   answer: Laser-Induced Breakdown Spectroscopy delivers distinct closed-loop control by identifying the elemental shift from contaminants to the Inconel substrate. At 1064 nm and 2.5 J/cm², LIBS verifies full oxide removal, avoiding over-processing of this sensitive alloy. In turn, the essential integrity of the base material stays intact.
 - question: After laser cleaning, what post-process inspection methods are recommended to verify surface cleanliness and the absence of damage on **critical Inconel components**?
   answer: '**Penetrant testing detects micro-cracks**. For Inconel, I recommend visual inspection for gross cleanliness, followed by penetrant testing to detect any micro-cracks potentially induced by excessive fluence above 2.5 J/cm². Finally, surface profilometry is essential to verify that the specified roughness is maintained, ensuring no detrimental alteration to the component''s surface integrity.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -328,4 +350,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:32.101227'
+    generated_date: '2025-11-26T08:42:27.603168'

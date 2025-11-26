@@ -60,7 +60,9 @@ images:
   micro:
     alt: Gallium microscopic view of laser cleaning showing detailed precise contamination removal
     url: /images/material/gallium-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: When examining the contaminated Gallium surface at 1000x magnification, you notice scattered dark spots and uneven patches across the material. These irregularities make the surface look rough and dull under close inspection. Contaminants cling tightly, obscuring the underlying texture completely.
+  after: After laser treatment, the same surface appears smooth and uniform at 1000x magnification. The process removes all visible residues, revealing a consistent metallic sheen. This cleaning restores clarity, exposing the material's natural, even finish without
 faq:
 - question: Can laser cleaning safely remove **gallium contamination** from aluminum surfaces without causing damage?
   answer: '**Prevents liquid metal embrittlement**. Yeah, laser cleaning can pretty safely remove gallium contamination from aluminum. Basically, a 1064 nm wavelength at ~1.2 J/cm² fluence selectively ablates the gallium without etching the substrate. Typically, post-process EDS verification confirms complete removal and prevents liquid metal embrittlement.'
@@ -82,7 +84,27 @@ faq:
   answer: '**Chilling prevents liquefaction**. Keep gallium under its 29.8°C melting point with active chilling to avoid liquefaction. For containment, basically apply a low-fluence (~1.2 J/cm²) laser at 1064 nm to vaporize oxides without melting the base metal. Pretty much, pre-clean parts via cryogenic cooling to freeze surface contaminants, keeping them brittle for precise removal.'
 - question: Are there specific laser cleaning protocols for removing gallium from **sensitive electronic components** or connectors?
   answer: '**Thermal management prevents smearing**. For delicate electronics, basically stick to low-power nanosecond pulses at the 1064nm wavelength, keeping fluence fairly below 1.2 J/cm². Gallium''s 29.76°C melting point demands careful thermal management to avoid smearing. Then, follow up with an isopropyl alcohol rinse to clear residual conductive particles, and confirm cleanliness via electrical testing.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -327,4 +349,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:31.880990'
+    generated_date: '2025-11-26T08:42:27.273906'

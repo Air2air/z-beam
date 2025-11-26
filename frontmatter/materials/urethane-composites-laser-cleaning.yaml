@@ -60,7 +60,9 @@ images:
   micro:
     alt: Microscopic view of Urethane Composites surface after laser cleaning showing detailed surface structure
     url: /images/material/urethane-composites-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: At 1000x magnification, the contaminated urethane composite surface shows scattered dark residues clinging tightly to the material's uneven texture. We've found that these irregular patches create a mottled appearance across the entire field of view. Deeper inspection reveals fine particles embedded within the surface layers, disrupting the overall uniformity.
+  after: After laser treatment at the same magnification, the urethane composite surface appears smooth and reveals a consistent matrix free of residues. We've observed that the treatment exposes the clean underlying structure with sharp
 faq:
 - question: What laser parameters, like power density and pulse duration, are recommended to avoid thermal damage when cleaning urethane composites?
   answer: When dealing with urethane composites, aim to keep fluence fairly under 2.5 J/cm² at 1064 nm to avoid charring the polyurethane matrix during cleaning. Typically, employ 100 W average power with 10 ns pulses at 50 kHz, scanning at 500 mm/s across three passes—this setup basically balances effective contaminant removal against minimal heat accumulation for aerospace or automotive components.
@@ -80,7 +82,22 @@ faq:
   answer: High humidity pretty much promotes moisture uptake in hydrophilic urethane composites, causing surface swelling that hinders consistent ablation during laser cleaning at the 2.5 J/cm² fluence threshold. This leads to uneven contaminant removal and risks thermal damage with 1064 nm pulses. Typically, keep relative humidity under 40% for reliable results.
 - question: What post-cleaning inspections are needed for urethane composites after laser treatment to ensure no **subsurface damage**?
   answer: '**Ultrasonic and optical inspections**. After laser cleaning urethane composites at a 2.5 J/cm² fluence threshold, run ultrasonic testing to detect delamination and optical microscopy to spot microcracks from localized heating. These checks basically ensure the polymer matrix stays intact, particularly in aerospace applications where subsurface integrity is pretty critical. Typically, scanning at 500 mm/s during treatment prevents such damage.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/en/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.95
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -246,4 +263,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:34.068459'
+    generated_date: '2025-11-26T08:42:30.013483'

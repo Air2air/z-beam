@@ -61,7 +61,9 @@ images:
   micro:
     alt: Sapphire Glass microscopic view of laser cleaning showing detailed precise contamination removal
     url: /images/material/sapphire-glass-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: At 1000x magnification, the sapphire glass surface looks rough and cluttered with dark specks scattered everywhere. Fine particles cling tightly to the texture, creating uneven patches that block the smooth underlying shine. Dirt streaks run across the area, making the whole view hazy and obscured.
+  after: After laser treatment, the same sapphire glass surface appears crisp and uniform under 1000x magnification. The once-cluttered spots now reveal a flawless, mirror-like polish without any residue. Clear edges emerge sharply
 faq:
 - question: Can fiber lasers safely clean contaminants from sapphire glass without causing **thermal damage**?
   answer: '**Low absorption avoids heating**. Yes, fiber lasers at 1064 nm efficiently remove contaminants from sapphire glass, using its low absorption to avoid excessive heating. This process works straightforward for precise ablation—stick to 5 J/cm² fluence and 100 W power to prevent cracks or pitting on this durable material.'
@@ -83,7 +85,27 @@ faq:
   answer: '**Requires spectroscopic analysis adjustment**. Trace impurities such as iron or titanium in synthetic sapphire boost absorption at 1064 nm, which lowers ablation thresholds and risks uneven cleaning or substrate damage. Practically, this variability calls for pre-process spectroscopic analysis to adjust energy density around 5 J/cm², ensuring efficient contaminant removal while safeguarding the material''s integrity.'
 - question: What safety standards apply to laser cleaning of sapphire in **high-volume electronics assembly**?
   answer: '**Prevent micro-fractures from brittleness**. A practical step for laser cleaning sapphire glass in high-volume electronics assembly is adhering to ANSI Z136 standards, which mitigate eye and skin hazards from the 1064 nm wavelength. Train operators on sapphire''s brittleness to avoid micro-fractures at 5 J/cm² fluence, and efficiently use HEPA-filtered enclosures for particulate control under 100 W power.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -257,4 +279,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:33.336354'
+    generated_date: '2025-11-26T08:42:29.235515'

@@ -61,7 +61,9 @@ images:
   micro:
     alt: Pyrex microscopic view of laser cleaning showing detailed precise contamination removal
     url: /images/material/pyrex-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: "You see the Pyrex surface rough and dotted with dark specks of grime.  \nContaminants form thick, uneven layers that hide the underlying texture completely.  \nScattered debris clings tightly, creating a cluttered and dull appearance overall."
+  after: "After cleaning, the Pyrex surface appears smooth and free from any specks.  \nNo layers of contaminants remain to obscure the natural glass texture.  \nThe view shows a uniform, clear finish that gleams brightly throughout."
 faq:
 - question: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning contaminants from Pyrex without damaging the surface?
   answer: For cleaning Pyrex, opt for a notable 1064 nm wavelength at ~25 W average power with 100 ns pulses. It's essential to limit fluence below 2.5 J/cm², enabling selective removal of organics and particulates while avoiding substrate micro-cracking—given this wavelength's poor absorption in pristine glass. A 50 μm spot scanned at 500 mm/s yields distinct, effective, non-damaging results.
@@ -81,7 +83,27 @@ faq:
   answer: '**Inspect, interferometry, leak test**. Begin by examining under 50× magnification to spot micro-cracks. For optics'' critical flatness, it''s essential to apply white-light interferometry, confirming surface roughness stays below 10 nm Ra. Lastly, perform a helium leak test to verify vacuum system integrity, ensuring the 2.5 J/cm² fluence left no notable compromise.'
 - question: How do you clean deeply embedded metallic stains or **diffusion layers** from Pyrex with a laser?
   answer: '**Multi-step below ablation threshold**. To address deeply embedded metallic stains in Pyrex, a multi-step approach proves essential. We begin with a 1064 nm wavelength at 2.5 J/cm² fluence for distinct selective vaporization of the surface contaminant. A gentler follow-up pass then eliminates any residual diffusion layer, staying below the ablation threshold of the Pyrex substrate.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -253,4 +275,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:33.085185'
+    generated_date: '2025-11-26T08:42:28.955128'

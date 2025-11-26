@@ -60,7 +60,9 @@ images:
   micro:
     alt: Ruthenium microscopic view of laser cleaning showing detailed precise contamination removal
     url: /images/material/ruthenium-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: "Under 1000x magnification, the ruthenium surface looks rough and covered in dark, sticky patches that scatter across the view.  \nIrregular clumps of grime cling tightly, dulling the metal's natural gleam and creating bumpy textures everywhere.  \nThese contaminants build up unevenly, hiding the underlying structure from clear sight."
+  after: "After laser treatment at 1000x magnification, the ruthenium surface appears smooth and free of all dark patches that once cluttered it.  \nClean lines emerge"
 faq:
 - question: What laser wavelengths are most effective for cleaning ruthenium-coated mirrors without **causing delamination**?
   answer: '**1064 nm minimizes delamination**. Notably, for ruthenium-coated mirrors, the 1064 nm near-IR laser wavelength excels in oxide removal at 2.3 J/cm² fluence. It minimizes delamination by targeting the thin film''s absorption, thus preventing substrate harm. The 532 nm green light serves as an alternative, but specifically demands stricter pulse control to preserve coating adhesion. This method achieves uniform cleaning across two passes at 500 mm/s scan speed.'
@@ -80,7 +82,27 @@ faq:
   answer: '**Classifies as hazardous toxic waste**. When managing ruthenium dust produced by laser cleaning, adherence to EPA standards for toxic metal waste is crucial, designating it as hazardous for safe disposal while capping airborne exposure at under 0.1 mg/m³ per OSHA PEL. Particularly under REACH, EU operators must register ruthenium particulates and ensure ventilation during 2.3 J/cm² fluence operations, thus reducing inhalation hazards in electronics or aerospace settings.'
 - question: Can laser cleaning restore the optical properties of ruthenium-coated EUV lithography mirrors after contamination?
   answer: Yes, laser cleaning notably restores ruthenium-coated EUV lithography mirrors, recovering reflectivity above 95% at 13.5 nm following contamination. Specifically, a 1064 nm wavelength with 2.3 J/cm² fluence and 45 W power ablates oxides cleanly without substrate damage, thus preserving low surface roughness per ASML protocols.
-regulatoryStandards: null
+regulatoryStandards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -324,4 +346,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:33.285300'
+    generated_date: '2025-11-26T08:42:29.178354'

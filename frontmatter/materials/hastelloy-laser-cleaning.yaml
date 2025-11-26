@@ -60,7 +60,9 @@ images:
   micro:
     alt: Hastelloy microscopic view of laser cleaning showing detailed precise contamination removal
     url: /images/material/hastelloy-laser-cleaning-micro.jpg
-caption: null
+caption:
+  before: At 1000x magnification, the Hastelloy surface looks rough and uneven from thick layers of grime. Dark particles cling tightly to every crevice, hiding the metal's true form below. Scattered pits and streaks make the whole area appear dull and cluttered.
+  after: After laser treatment at the same magnification, the surface emerges smooth and uniform across its expanse. Clean metal grains stand out clearly, free from any clinging debris. The texture now feels even and restored, revealing the alloy's
 faq:
 - question: What are the optimal laser parameters (wavelength, power, pulse duration) for cleaning oxides and contaminants from Hastelloy C-276 without causing micro-cracking or **elemental depletion**?
   answer: '**5.1 J/cm² prevents depletion**. For Hastelloy C-276, go with a 1064 nm fiber laser using nanosecond pulses to pretty much avoid micro-cracking. Aim for a fluence around 5.1 J/cm², which ablates oxides without stripping the protective Cr and Mo. Basically, that controlled heat input keeps the alloy''s corrosion resistance intact.'
@@ -82,7 +84,27 @@ faq:
   answer: Yes, laser cleaning can pretty selectively remove coatings from Hastelloy. We tune the 1064 nm wavelength and 5.1 J/cm² fluence to basically target the contaminant's absorption, as the substrate's thermal conductivity dissipates energy. Controlling the 10 ns pulse width precisely stays critical to prevent changes in the underlying material's metallurgy.
 - question: What non-destructive testing (NDT) methods are recommended to inspect Hastelloy for **subsurface damage** after an aggressive laser cleaning process?
   answer: '**Liquid penetrant detects micro-cracks**. For Hastelloy cleaned at 5.1 J/cm², visual inspection is basically insufficient. I''d recommend liquid penetrant testing to detect micro-cracks from thermal stress. When evaluating near-surface property changes, especially from the 100 µs dwell time, eddy current testing provides pretty excellent sensitivity.'
-regulatoryStandards: null
+regulatoryStandards:
+- description: FDA 21 CFR 1040.10 - Laser Product Performance Standards
+  image: /images/logo/logo-org-fda.png
+  longName: Food and Drug Administration
+  name: FDA
+  url: https://www.ecfr.gov/current/title-21/chapter-I/subchapter-J/part-1040/section-1040.10
+- description: ANSI Z136.1 - Safe Use of Lasers
+  image: /images/logo/logo-org-ansi.png
+  longName: American National Standards Institute
+  name: ANSI
+  url: https://webstore.ansi.org/standards/lia/ansiz1362022
+- description: IEC 60825 - Safety of Laser Products
+  image: /images/logo/logo-org-iec.png
+  longName: International Electrotechnical Commission
+  name: IEC
+  url: https://webstore.iec.ch/publication/3587
+- description: OSHA 29 CFR 1926.95 - Personal Protective Equipment
+  image: /images/logo/logo-org-osha.png
+  longName: Occupational Safety and Health Administration
+  name: OSHA
+  url: https://www.osha.gov/laws-regs/regulations/standardnumber/1926/1926.102
 materialProperties:
   material_characteristics:
     label: Material Characteristics
@@ -328,4 +350,4 @@ material_metadata:
   structure_version: '2.0'
 preservedData:
   generationMetadata:
-    generated_date: '2025-11-22T23:32:32.052294'
+    generated_date: '2025-11-26T08:42:27.544653'
