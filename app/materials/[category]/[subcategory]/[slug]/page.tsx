@@ -9,6 +9,7 @@ import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMater
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
 import { Pricing } from "@/app/components/Pricing/Pricing";
+import { LaserMaterialInteraction } from "@/app/components/LaserMaterialInteraction/LaserMaterialInteraction";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -155,6 +156,15 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
               materialSlug={slug}
             />
           </div>
+          
+          {(article.metadata as any).materialProperties && (
+            <div className="mb-16">
+              <LaserMaterialInteraction
+                materialName={(article.metadata.title as string) || slug}
+                materialProperties={(article.metadata as any).materialProperties}
+              />
+            </div>
+          )}
           
           {(article.metadata as any).regulatoryStandards && (article.metadata as any).regulatoryStandards.length > 0 && (
             <div className="mb-16">
