@@ -1,11 +1,11 @@
 import { SITE_CONFIG } from '@/app/config/site';
 
-interface MaterialPricingProps {
+interface PricingProps {
   materialName: string;
   materialSlug: string;
 }
 
-export function MaterialPricing({ materialName, materialSlug }: MaterialPricingProps) {
+export function Pricing({ materialName, materialSlug }: PricingProps) {
   const { professionalCleaning, equipmentRental } = SITE_CONFIG.pricing;
   
   return (

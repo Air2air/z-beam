@@ -8,7 +8,7 @@ import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
-import { MaterialPricing } from "@/app/components/MaterialPricing/MaterialPricing";
+import { Pricing } from "@/app/components/MaterialPricing/Pricing";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
@@ -150,7 +150,7 @@ export default async function MaterialPage({ params }: MaterialPageProps) {
           </div>
           
           <div className="mb-16">
-            <MaterialPricing 
+            <Pricing 
               materialName={(article.metadata.title as string) || slug}
               materialSlug={slug}
             />
