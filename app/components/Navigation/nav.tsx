@@ -111,7 +111,7 @@ export function Navbar() {
             alt={`${SITE_CONFIG.shortName} service van`}
             width={130}
             height={80}
-            className="w-full h-auto"
+            style={{ width: '100%', height: 'auto' }}
             priority
           />
         </Link>

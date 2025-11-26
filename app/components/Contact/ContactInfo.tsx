@@ -5,7 +5,7 @@ import { Title } from '../Title';
 
 export function ContactInfo() {
   return (
-    <div className=" p-6 mb-6 rounded-lg shadow-md">
+    <div className="bg-gray-800 p-6 mb-6 rounded-lg shadow-md">
       {/* <Title level="section" title="Contact Information" /> */}
       
       <div className="space-y-6">
@@ -17,7 +17,7 @@ export function ContactInfo() {
               <strong>Email:</strong>{' '}
               <a 
                 href={`mailto:${SITE_CONFIG.contact.general.email}`}
-                className="text-blue-600400 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 {SITE_CONFIG.contact.general.email}
               </a>
@@ -26,7 +26,7 @@ export function ContactInfo() {
               <strong>Phone:</strong>{' '}
               <a 
                 href={SITE_CONFIG.contact.general.phoneHref}
-                className="text-blue-600400 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 {SITE_CONFIG.contact.general.phone}
               </a>
@@ -44,7 +44,7 @@ export function ContactInfo() {
               <strong>Support Email:</strong>{' '}
               <a 
                 href={`mailto:${SITE_CONFIG.contact.support.email}`}
-                className="text-blue-600400 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 {SITE_CONFIG.contact.support.email}
               </a>
@@ -53,7 +53,7 @@ export function ContactInfo() {
               <strong>Support Hotline:</strong>{' '}
               <a 
                 href={SITE_CONFIG.contact.support.phoneHref}
-                className="text-blue-600400 hover:underline"
+                className="text-blue-400 hover:underline"
               >
                 {SITE_CONFIG.contact.support.phone}
               </a>

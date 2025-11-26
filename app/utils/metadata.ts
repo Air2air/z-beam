@@ -16,6 +16,12 @@ type NextMetadata = any;
 import { ArticleMetadata, AuthorInfo } from '@/types';
 import { extractSafeValue, safeIncludes } from './stringHelpers';
 import { SITE_CONFIG } from './constants';
+import { 
+  formatMaterialTitle, 
+  formatMaterialDescription, 
+  formatSettingsTitle, 
+  formatSettingsDescription 
+} from './seoMetadataFormatter';
 
 // Re-export centralized types
 export type { ArticleMetadata, AuthorInfo };
@@ -91,17 +97,68 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   const getAuthorName = (author: AuthorInfo | string | undefined): string | undefined => {
     if (typeof author === 'string') return author;
     return author?.name;
-  };  // Use title directly
-  const actualTitle = title || '';
+  };
+  
+  const authorName = getAuthorName(metadata.author);
+  const contentType = 'content_type' in metadata ? (metadata as any).content_type : undefined;
+  
+  // SEO-optimized title and description for material/settings pages
+  let seoTitle = title || '';
+  let seoDescription = description || '';
+  
+  // Apply SEO formatting for material pages
+  if (contentType === 'unified_material') {
+    seoTitle = formatMaterialTitle({
+      pageType: 'material',
+      materialName: materialName || title || '',
+      category: extractSafeValue(category),
+      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+      materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
+      materialDescription: material_description
+    });
+    
+    seoDescription = formatMaterialDescription({
+      pageType: 'material',
+      materialName: materialName || title || '',
+      category: extractSafeValue(category),
+      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+      materialProperties: 'materialProperties' in metadata ? (metadata as any).materialProperties : undefined,
+      materialDescription: material_description
+    });
+  }
+  
+  // Apply SEO formatting for settings pages
+  if (contentType === 'unified_settings') {
+    seoTitle = formatSettingsTitle({
+      pageType: 'settings',
+      materialName: materialName || title || '',
+      category: extractSafeValue(category),
+      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+      settingsDescription: settings_description
+    });
+    
+    seoDescription = formatSettingsDescription({
+      pageType: 'settings',
+      materialName: materialName || title || '',
+      category: extractSafeValue(category),
+      subcategory: 'subcategory' in metadata ? extractSafeValue((metadata as any).subcategory) : undefined,
+      machineSettings: 'machineSettings' in metadata ? (metadata as any).machineSettings : undefined,
+      settingsDescription: settings_description
+    });
+  }
+  
+  // Use title directly
+  const actualTitle = seoTitle || title || '';
   
   const formattedTitle = actualTitle && !safeIncludes(actualTitle, SITE_CONFIG.shortName) 
     ? `${actualTitle} | ${SITE_CONFIG.shortName}` 
     : actualTitle || SITE_CONFIG.shortName;
   
-  const authorName = getAuthorName(metadata.author);
-  
   // Enhanced description with subtitle and technical details for better SEO
-  let enhancedDescription = description;
+  let enhancedDescription = seoDescription || description;
   
   // For material pages, add key technical specifications
   if ('machineSettings' in metadata || 'materialProperties' in metadata) {
@@ -122,11 +179,15 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
   }
   
   // Enhanced description with meta_description (SEO-optimized) taking priority
-  // Falls back to material_description/settings_description, then enhancedDescription
-  const contextDescription = meta_description || material_description || settings_description;
-  const fullDescription = contextDescription && typeof contextDescription === 'string'
-    ? extractSafeValue(contextDescription)
-    : enhancedDescription;
+  // For material/settings pages, use SEO formatter output; otherwise use contextDescription
+  let fullDescription = enhancedDescription;
+  
+  if (contentType !== 'unified_material' && contentType !== 'unified_settings') {
+    const contextDescription = meta_description || material_description || settings_description;
+    fullDescription = contextDescription && typeof contextDescription === 'string'
+      ? extractSafeValue(contextDescription)
+      : enhancedDescription;
+  }
   
   // Get author details for E-E-A-T
   const authorDetails = typeof author === 'object' && author !== null ? author : null;

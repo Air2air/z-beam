@@ -34,7 +34,8 @@ export default function CallToAction() {
                 src="/images/van/van.png"
                 alt={`${SITE_CONFIG.shortName} service van`}
                 fill
-                className="object-contain drop-shadow-2xl"
+                style={{ objectFit: 'contain' }}
+                className="drop-shadow-2xl"
                 priority={false}
               />
             </div>

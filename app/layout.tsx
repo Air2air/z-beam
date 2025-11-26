@@ -172,7 +172,7 @@ export default async function RootLayout({
         {/* Global Organization Schema */}
         <script
           type="application/ld+json"
-          nonce={nonce}
+          {...(nonce ? { nonce } : {})}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema)
           }}
@@ -181,7 +181,7 @@ export default async function RootLayout({
         {/* Website Schema */}
         <script
           type="application/ld+json"
-          nonce={nonce}
+          {...(nonce ? { nonce } : {})}
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteSchema)
           }}

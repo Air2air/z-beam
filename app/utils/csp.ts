@@ -19,10 +19,13 @@ export function generateNonce(): string {
 /**
  * Get the current request's nonce from headers
  * This is set by Next.js middleware
+ * 
+ * Returns undefined because we're using 'unsafe-inline' CSP policy
+ * instead of nonce-based CSP to avoid Next.js hydration conflicts
  */
 export async function getNonce(): Promise<string | undefined> {
-  const headersList = await headers();
-  return headersList.get('x-nonce') || undefined;
+  // Always return undefined - nonces not used with 'unsafe-inline' CSP
+  return undefined;
 }
 
 /**
