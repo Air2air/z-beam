@@ -8,7 +8,7 @@ import { createMetadata, type ArticleMetadata } from "@/app/utils/metadata";
 import { RelatedMaterials } from "@/app/components/RelatedMaterials/RelatedMaterials";
 import { RegulatoryStandards } from "@/app/components/RegulatoryStandards";
 import MaterialDatasetCardWrapper from "@/app/components/Dataset/MaterialDatasetCardWrapper";
-import { Pricing } from "@/app/components/MaterialPricing/Pricing";
+import { Pricing } from "@/app/components/Pricing/Pricing";
 import { SITE_CONFIG } from "@/app/utils/constants";
 import { CONTAINER_STYLES } from "@/app/utils/containerStyles";
 import { normalizeForUrl } from "@/app/utils/urlBuilder";
