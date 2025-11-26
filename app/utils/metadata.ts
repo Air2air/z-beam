@@ -210,7 +210,7 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
       description: fullDescription,
       type: ogType,
       url: canonical || (slug ? `${SITE_CONFIG.url}/${slug}` : undefined),
-      siteName: SITE_CONFIG.name,
+      siteName: SITE_CONFIG.shortName,
       locale: 'en_US',
       determiner: 'auto', // Improves how the link appears in social shares
       
