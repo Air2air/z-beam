@@ -5,8 +5,8 @@
   "name": "Soda-Lime Glass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Soda-Lime Glass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-26",
-  "datePublished": "2025-11-26",
+  "dateModified": "2025-11-27",
+  "datePublished": "2025-11-27",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-26"
+    "lastVerified": "2025-11-27"
   },
   "material": {
     "name": "Soda-Lime Glass",
@@ -93,17 +93,25 @@
       "subcategory": "specialty-glass"
     },
     "machineSettings": {
-      "energyDensity": {
-        "unit": "J/cm²",
-        "value": 5
+      "powerRange": {
+        "unit": "W",
+        "value": 100
       },
-      "passCount": {
-        "unit": "passes",
-        "value": 3
+      "wavelength": {
+        "unit": "nm",
+        "value": 1064
       },
-      "overlapRatio": {
-        "unit": "%",
+      "spotSize": {
+        "unit": "μm",
+        "value": 100
+      },
+      "repetitionRate": {
+        "unit": "kHz",
         "value": 50
+      },
+      "scanSpeed": {
+        "unit": "mm/s",
+        "value": 1150
       }
     },
     "laserParameters": {},
@@ -299,24 +307,38 @@
   "variableMeasured": [
     {
       "@type": "PropertyValue",
-      "propertyID": "machine_energyDensity",
-      "name": "Machine Setting: Energy Density",
-      "value": 5,
-      "unitText": "J/cm²"
+      "propertyID": "machine_powerRange",
+      "name": "Machine Setting: Power Range",
+      "value": 100,
+      "unitText": "W"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "machine_passCount",
-      "name": "Machine Setting: Pass Count",
-      "value": 3,
-      "unitText": "passes"
+      "propertyID": "machine_wavelength",
+      "name": "Machine Setting: Wavelength",
+      "value": 1064,
+      "unitText": "nm"
     },
     {
       "@type": "PropertyValue",
-      "propertyID": "machine_overlapRatio",
-      "name": "Machine Setting: Overlap Ratio",
+      "propertyID": "machine_spotSize",
+      "name": "Machine Setting: Spot Size",
+      "value": 100,
+      "unitText": "μm"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_repetitionRate",
+      "name": "Machine Setting: Repetition Rate",
       "value": 50,
-      "unitText": "%"
+      "unitText": "kHz"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "machine_scanSpeed",
+      "name": "Machine Setting: Scan Speed",
+      "value": 1150,
+      "unitText": "mm/s"
     },
     {
       "@type": "PropertyValue",
