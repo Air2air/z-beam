@@ -1,125 +1,131 @@
 /**
- * Test Suite: Container Styles - Width Consistency
- * Tests that all container styles use standardized max-w-6xl width
+ * Test Suite: Container Styles - Responsive CSS Architecture
+ * Tests that container styles use centralized responsive.css classes
+ * Post-migration from inline Tailwind to named CSS classes
  */
 
 import { STANDARD_CONTAINER, CONTAINER_STYLES } from '@/app/utils/containerStyles';
 
-describe('Container Styles - Width Consistency', () => {
-  const EXPECTED_MAX_WIDTH = 'max-w-6xl';
-  const EXPECTED_PADDING = 'px-4';
+describe('Container Styles - Responsive CSS Architecture', () => {
+  // Valid responsive CSS class names (defined in app/css/responsive.css)
+  const VALID_CONTAINER_CLASSES = [
+    'container-standard',   // max-w-6xl mx-auto px-4 sm:px-6
+    'container-full',       // max-w-6xl mx-auto px-4 sm:px-6 lg:px-8
+    'container-narrow',     // max-w-4xl mx-auto px-4 sm:px-6
+    'container-centered',   // max-w-2xl mx-auto px-4 sm:px-6
+    'container-hero',       // max-w-6xl mx-auto px-4 sm:px-5
+  ];
 
-  test('STANDARD_CONTAINER should use max-w-6xl', () => {
-    expect(STANDARD_CONTAINER).toContain(EXPECTED_MAX_WIDTH);
+  const VALID_UTILITY_CLASSES = [
+    'section-padding',      // py-6 md:py-8
+    'px-responsive',        // px-4 sm:px-6 lg:px-8
+    'w-full',              // Full width (exception)
+  ];
+
+  test('STANDARD_CONTAINER should use centralized responsive class', () => {
+    expect(VALID_CONTAINER_CLASSES).toContain(STANDARD_CONTAINER);
   });
 
-  test('STANDARD_CONTAINER should have consistent padding', () => {
-    expect(STANDARD_CONTAINER).toContain(EXPECTED_PADDING);
+  test('STANDARD_CONTAINER should not contain inline responsive patterns', () => {
+    const inlinePatterns = ['sm:', 'md:', 'lg:', 'xl:', 'max-w-', 'px-', 'py-', 'mx-'];
+    const hasInlinePattern = inlinePatterns.some(pattern => STANDARD_CONTAINER.includes(pattern));
+    expect(hasInlinePattern).toBe(false);
   });
 
-  test('all primary CONTAINER_STYLES entries should use max-w-6xl', () => {
-    // These styles should use max-w-6xl for content pages
+  test('all primary CONTAINER_STYLES should use centralized responsive classes', () => {
     const primaryStyles = ['standard', 'main', 'contentOnly', 'section'];
-    
-    // These styles have legitimate exceptions
-    const exceptions = ['article', 'centered', 'fullWidth'];
-    
     const invalidStyles: string[] = [];
 
-    Object.entries(CONTAINER_STYLES).forEach(([key, styleClasses]) => {
-      // Skip known exceptions
-      if (exceptions.includes(key)) return;
+    primaryStyles.forEach(key => {
+      const styleClasses = CONTAINER_STYLES[key as keyof typeof CONTAINER_STYLES];
+      const classes = styleClasses.split(' ');
       
-      // Primary styles must use max-w-6xl
-      if (primaryStyles.includes(key) && !styleClasses.includes(EXPECTED_MAX_WIDTH)) {
+      // Should contain at least one valid container class
+      const hasValidContainer = classes.some(cls => 
+        VALID_CONTAINER_CLASSES.includes(cls) || VALID_UTILITY_CLASSES.includes(cls)
+      );
+      
+      if (!hasValidContainer) {
         invalidStyles.push(`${key}: ${styleClasses}`);
       }
     });
 
     expect(invalidStyles).toHaveLength(0);
-
-    if (invalidStyles.length > 0) {
-      console.error('Primary container styles not using max-w-6xl:', invalidStyles);
-    }
   });
 
-  test('CONTAINER_STYLES.standard should use max-w-6xl', () => {
-    expect(CONTAINER_STYLES.standard).toContain(EXPECTED_MAX_WIDTH);
+  test('CONTAINER_STYLES.standard should use responsive classes', () => {
+    const classes = CONTAINER_STYLES.standard.split(' ');
+    const hasResponsiveClass = classes.some(cls => 
+      VALID_CONTAINER_CLASSES.includes(cls) || VALID_UTILITY_CLASSES.includes(cls)
+    );
+    expect(hasResponsiveClass).toBe(true);
   });
 
-  test('CONTAINER_STYLES.main should use max-w-6xl', () => {
-    expect(CONTAINER_STYLES.main).toContain(EXPECTED_MAX_WIDTH);
+  test('CONTAINER_STYLES.main should use responsive classes', () => {
+    const classes = CONTAINER_STYLES.main.split(' ');
+    const hasResponsiveClass = classes.some(cls => VALID_CONTAINER_CLASSES.includes(cls));
+    expect(hasResponsiveClass).toBe(true);
   });
 
-  test('CONTAINER_STYLES.contentOnly should use max-w-6xl', () => {
-    expect(CONTAINER_STYLES.contentOnly).toContain(EXPECTED_MAX_WIDTH);
+  test('CONTAINER_STYLES.contentOnly should use responsive classes', () => {
+    const classes = CONTAINER_STYLES.contentOnly.split(' ');
+    const hasResponsiveClass = classes.some(cls => VALID_CONTAINER_CLASSES.includes(cls));
+    expect(hasResponsiveClass).toBe(true);
   });
 
-  test('CONTAINER_STYLES.section should use max-w-6xl', () => {
-    expect(CONTAINER_STYLES.section).toContain(EXPECTED_MAX_WIDTH);
+  test('CONTAINER_STYLES.section should use responsive classes', () => {
+    const classes = CONTAINER_STYLES.section.split(' ');
+    const hasResponsiveClass = classes.some(cls => VALID_CONTAINER_CLASSES.includes(cls));
+    expect(hasResponsiveClass).toBe(true);
   });
 
-  test('no container styles should use deprecated widths', () => {
-    const oldWidths = ['max-w-7xl'];
-    const stylesWithOldWidths: string[] = [];
+  test('no container styles should use inline responsive patterns', () => {
+    const inlinePatterns = ['sm:', 'md:', 'lg:', 'xl:'];
+    const stylesWithInlinePatterns: string[] = [];
 
     // Check STANDARD_CONTAINER
-    oldWidths.forEach(width => {
-      if (STANDARD_CONTAINER.includes(width)) {
-        stylesWithOldWidths.push(`STANDARD_CONTAINER contains ${width}`);
+    inlinePatterns.forEach(pattern => {
+      if (STANDARD_CONTAINER.includes(pattern)) {
+        stylesWithInlinePatterns.push(`STANDARD_CONTAINER contains ${pattern}`);
       }
     });
 
-    // Check all CONTAINER_STYLES entries (except exceptions)
-    const exceptions = ['article', 'centered', 'fullWidth'];
+    // Check all CONTAINER_STYLES entries
     Object.entries(CONTAINER_STYLES).forEach(([key, styleClasses]) => {
-      if (exceptions.includes(key)) return;
-      
-      oldWidths.forEach(width => {
-        if (styleClasses.includes(width)) {
-          stylesWithOldWidths.push(`${key} contains ${width}`);
+      inlinePatterns.forEach(pattern => {
+        if (styleClasses.includes(pattern)) {
+          stylesWithInlinePatterns.push(`${key} contains ${pattern}`);
         }
       });
     });
 
-    expect(stylesWithOldWidths).toHaveLength(0);
-
-    if (stylesWithOldWidths.length > 0) {
-      console.error('Container styles using deprecated widths:', stylesWithOldWidths);
-    }
+    expect(stylesWithInlinePatterns).toHaveLength(0);
   });
 
-  test('container styles should have consistent structure', () => {
-    const requiredClasses = [
-      'mx-auto',      // Center the container
-      'max-w-6xl',    // Standard width
-      'px-4'          // Standard padding
-    ];
-
+  test('container styles should use centralized responsive classes', () => {
     const missingClasses: string[] = [];
 
-    // Check STANDARD_CONTAINER
-    requiredClasses.forEach(className => {
-      if (!STANDARD_CONTAINER.includes(className)) {
-        missingClasses.push(`STANDARD_CONTAINER missing ${className}`);
-      }
-    });
+    // STANDARD_CONTAINER should be a valid responsive class
+    if (!VALID_CONTAINER_CLASSES.includes(STANDARD_CONTAINER)) {
+      missingClasses.push(`STANDARD_CONTAINER (${STANDARD_CONTAINER}) is not a valid responsive class`);
+    }
 
-    // Check critical CONTAINER_STYLES entries
-    ['standard', 'main', 'contentOnly'].forEach(key => {
+    // Check critical CONTAINER_STYLES use responsive classes
+    const criticalStyles = ['standard', 'main', 'contentOnly', 'section'];
+    criticalStyles.forEach(key => {
       const styleClasses = CONTAINER_STYLES[key as keyof typeof CONTAINER_STYLES];
-      requiredClasses.forEach(className => {
-        if (!styleClasses.includes(className)) {
-          missingClasses.push(`${key} missing ${className}`);
-        }
-      });
+      const classes = styleClasses.split(' ');
+      
+      const hasContainerClass = classes.some(cls => 
+        VALID_CONTAINER_CLASSES.includes(cls) || VALID_UTILITY_CLASSES.includes(cls)
+      );
+      
+      if (!hasContainerClass) {
+        missingClasses.push(`${key} (${styleClasses}) missing responsive class`);
+      }
     });
 
     expect(missingClasses).toHaveLength(0);
-
-    if (missingClasses.length > 0) {
-      console.error('Container styles missing required classes:', missingClasses);
-    }
   });
 
   test('all container styles should be strings', () => {
@@ -136,5 +142,13 @@ describe('Container Styles - Width Consistency', () => {
     Object.entries(CONTAINER_STYLES).forEach(([key, value]) => {
       expect(value.trim()).toBe(value);
     });
+  });
+
+  test('article and centered containers should use specialized responsive classes', () => {
+    // Article should use container-narrow (max-w-4xl)
+    expect(CONTAINER_STYLES.article).toContain('container-narrow');
+    
+    // Centered should use container-centered (max-w-2xl)
+    expect(CONTAINER_STYLES.centered).toContain('container-centered');
   });
 });

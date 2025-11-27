@@ -133,7 +133,8 @@ describe('Layout Component', () => {
       );
 
       const main = screen.getByRole('main');
-      expect(main).toHaveClass('max-w-6xl');
+      // Uses container-full class from responsive.css (CONTAINER_STYLES.main default)
+      expect(main).toHaveClass('container-full');
     });
   });
 
