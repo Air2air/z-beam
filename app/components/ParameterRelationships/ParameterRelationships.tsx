@@ -650,7 +650,7 @@ export const ParameterRelationships: React.FC<ParameterRelationshipsProps> = ({
         </p>
 
         {/* Two-column layout: Network Graph (left) and Info Panel (right) on >XS */}
-        <div className="flex flex-col sm:flex-row gap-6">
+        <div className="parameter-relationships flex-stack-row gap-6">
           {/* Network Graph - Left Side on sm+, bottom on mobile */}
           <div className="w-full sm:w-3/5 order-2 sm:order-1">
             <svg

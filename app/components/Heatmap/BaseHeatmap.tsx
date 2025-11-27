@@ -131,14 +131,14 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
       title={title}
       icon={icon}
       bgColor="transparent"
-      className="bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
+      className="heatmap bg-gradient-to-br from-gray-800 to-gray-700 rounded-lg mb-8"
       horizPadding={true}
     >
       {description && (
         <p className="mb-6">{description}</p>
       )}
 
-      <div className="flex flex-col sm:flex-row gap-6">
+      <div className="flex-stack-row gap-6">
         {/* Heatmap Grid */}
         <figure className="w-full sm:w-3/5 order-2 sm:order-1 max-w-2xl" aria-label={`${title} interactive heatmap`}>
           <div className="flex gap-2">
