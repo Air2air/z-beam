@@ -102,7 +102,7 @@ export function Hero({
   
   // Responsive classes with 16:9 aspect ratio - always use constrained width for consistency
   // Container classes for responsive layout
-  const containerClasses = `mx-auto max-w-6xl px-4 sm:px-5`;
+  const containerClasses = `container-hero`;
   
   // If no video and no image (or image failed to load), show shortened empty hero
   const hasContent = videoUrl || (imageSource && !imageError);
@@ -150,8 +150,8 @@ export function Hero({
               <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity z-10" />
               {/* Play button - higher z-index to appear on top */}
               <div className="absolute inset-0 flex items-center justify-center z-20">
-                <div className="w-20 h-20 md:w-24 md:h-24 bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
-                  <svg className="w-10 h-10 md:w-12 md:h-12 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <div className="icon-md bg-red-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                  <svg className="icon-sm ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>

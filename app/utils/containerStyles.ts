@@ -7,7 +7,7 @@
  * Standardized to max-w-6xl for uniform layout width
  */
 // Standard container used across most pages
-export const STANDARD_CONTAINER = 'mx-auto max-w-6xl px-4 sm:px-6';
+export const STANDARD_CONTAINER = 'container-standard';
 
 /**
  * Container styles - standardized to max-w-6xl for consistent layouts
@@ -15,25 +15,25 @@ export const STANDARD_CONTAINER = 'mx-auto max-w-6xl px-4 sm:px-6';
  */
 export const CONTAINER_STYLES = {
   // Standard container - optimal reading width for all content (standardized to 6xl)
-  standard: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8",
+  standard: "container-full section-padding",
   
   // Main container - used by Layout component
-  main: "max-w-6xl mx-auto px-4 sm:px-6 lg:px-8",
+  main: "container-full",
   
   // Article container - optimized for long-form content
-  article: "max-w-4xl mx-auto px-4 sm:px-6",
+  article: "container-narrow",
   
   // Centered container - narrow for focused content
-  centered: "max-w-2xl mx-auto px-4 sm:px-6",
+  centered: "container-centered",
   
     // Full width - for hero sections, full-bleed content
-  fullWidth: "w-full px-4 sm:px-6 lg:px-8 py-6 md:py-8",
+  fullWidth: "w-full px-responsive section-padding",
   
   // Content only - no vertical padding
-  contentOnly: 'mx-auto max-w-6xl px-4 sm:px-6',
+  contentOnly: 'container-standard',
   
   // Section - standard with reduced mobile padding
-  section: 'mx-auto max-w-6xl px-4 sm:px-4',
+  section: 'container-standard',
 } as const;
 
 /**
@@ -58,10 +58,10 @@ export const PROSE_STYLES = {
  * Smaller gaps on mobile, larger on desktop
  */
 export const GRID_STYLES = {
-  auto: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6",
-  twoColumn: "grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-8",
-  threeColumn: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6",
-  fourColumn: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6",
+  auto: "grid-3col gap-3-responsive",
+  twoColumn: "grid grid-cols-1 lg:grid-cols-2 gap-3-responsive",
+  threeColumn: "grid-3col gap-3-responsive",
+  fourColumn: "grid-4col gap-3-responsive",
 } as const;
 
 /**
@@ -71,9 +71,9 @@ export const GRID_STYLES = {
  */
 export const GRID_CLASSES = {
   1: 'grid-cols-1',
-  2: 'grid-cols-1 sm:grid-cols-2',
-  3: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  4: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
+  2: 'grid-2col',
+  3: 'grid-3col',
+  4: 'grid-4col'
 } as const;
 
 /**

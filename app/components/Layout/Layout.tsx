@@ -34,7 +34,7 @@ const Caption = dynamic(
 );
 
 const ARTICLE_COMPONENT_ORDER = ['content', 'metricsmachinesettings', 'metricsproperties'] as const;
-const SPACER_CLASSES = "h-8 sm:h-12 md:h-16"; // Reduced spacer height for tighter layout
+const SPACER_CLASSES = "spacer"; // Responsive spacer height from responsive.css
 
 // Helper: Check if hero content exists
 const hasHeroContent = (metadata: any) => {
