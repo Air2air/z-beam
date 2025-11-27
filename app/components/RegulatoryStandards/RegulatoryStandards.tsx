@@ -37,8 +37,9 @@ export function RegulatoryStandards({
       icon={getSectionIcon('regulatory')}
       bgColor="transparent"
       radius={false}
+      className="regulatory-standards"
     >
-      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none">
+      <ul className="grid-2col gap-4 list-none">
         {validStandards.map((standard, index) => (
           <li
             key={`${standard.name}-${index}`}

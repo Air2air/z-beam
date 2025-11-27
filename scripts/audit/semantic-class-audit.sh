@@ -51,6 +51,9 @@ known_classes=(
   "caption-after"
   "seo-caption"
   "card-container"
+  "card-height-default"
+  "card-height-featured"
+  "card-padding"
   "article-grid"
   "cta"
   "cta-text"
@@ -60,6 +63,7 @@ known_classes=(
   "heatmap-main"
   "heatmap-sidebar"
   "parameter-relationships"
+  "regulatory-standards"
   "icon-sm"
   "icon-md"
 )
