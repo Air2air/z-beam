@@ -90,7 +90,7 @@ export default async function SafetyPage() {
             radius={true}
             horizPadding={true}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid-2col-md gap-6">
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-5">
                 <div className="flex items-start gap-3 mb-3">
                   <AlertTriangleIcon className="text-red-600 dark:text-red-400 text-xl flex-shrink-0 mt-1" />
@@ -252,7 +252,7 @@ export default async function SafetyPage() {
             bgColor="transparent"
             radius={false}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid-2col-md gap-6">
               <div>
                 <h4 className="font-semibold mb-3">OSHA Requirements</h4>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
@@ -303,7 +303,7 @@ export default async function SafetyPage() {
             <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
               All laser cleaning operators must complete comprehensive training covering:
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid-2col-md gap-4">
               <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-2">
                   <CheckCircleIcon className="text-green-600 flex-shrink-0 mt-1" />

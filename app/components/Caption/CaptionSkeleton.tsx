@@ -19,7 +19,7 @@ export default function CaptionSkeleton() {
       </div>
       
       {/* Before/After text skeleton - matches Caption's grid layout */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid-2col-md gap-6">
         {/* Before section */}
         <div className="p-6 md:p-8 bg-gray-100 rounded-lg space-y-3">
           <div className="h-6 bg-gray-300 rounded w-1/3" />

@@ -101,7 +101,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
           radius={true}
         >
           <div className="bg-secondary rounded-lg p-8 border-2 border-green-200800">
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid-2col-md gap-8">
               <div>
                 <div className="text-6xl font-bold text-green-600400 mb-4">
                   {data.research.primary.value}
@@ -205,7 +205,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                           <h4 className="font-semibold text-secondary mb-2 text-secondary">
                             Geological Context
                           </h4>
-                          <div className="grid md:grid-cols-2 gap-3 text-sm">
+                          <div className="grid-2col-md gap-3 text-sm">
                             <div>
                               <strong className="text-amber-800300">Formation:</strong>
                               <div className="text-secondary">
@@ -274,7 +274,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
           horizPadding={true}
           radius={true}
         >
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid-2col-md gap-6">
             {data.research.geological_variations.map((variation: any, index: number) => (
               <div 
                 key={index}
@@ -317,7 +317,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                         <div className="text-sm font-semibold text-muted mb-2">
                           Mineral Composition
                         </div>
-                        <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="grid-2col gap-2 text-xs">
                           {Object.entries(variation.mineral_composition).map(([mineral, percent]) => (
                             <div key={mineral} className="flex justify-between">
                               <span className="capitalize text-muted">
@@ -371,7 +371,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
             
             {/* Parameter Recommendations */}
             {data.laser_implications.parameter_recommendations && (
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid-2col-md gap-6">
                 {Object.entries(data.laser_implications.parameter_recommendations).map(([param, details]: any) => (
                   <div 
                     key={param}
@@ -419,7 +419,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
                 <h3 className="text-xl text-secondary font-semibold mb-4 text-secondary">
                   Type-Specific Adjustments
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid-2col-md gap-4">
                   {Object.entries(data.laser_implications.geological_variation_impact).map(([type, impact]: any) => (
                     <div 
                       key={type}
@@ -528,7 +528,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
             {data.methodology.quality_gates && (
               <div className="mt-8">
                 <h3 className="text-xl text-secondary font-semibold mb-4 text-secondary">Quality Assurance</h3>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid-2col-md gap-4">
                   {data.methodology.quality_gates.map((gate: any, index: number) => (
                     <div 
                       key={index}
@@ -609,7 +609,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
             <p className="text-secondary mb-6">
               {data.dataset.description}
             </p>
-            <div className="grid md:grid-cols-3 gap-4 mb-6">
+            <div className="grid-3col-md gap-4 mb-6">
               {data.dataset.formats?.map((format: any, index: number) => (
                 <div 
                   key={index}
@@ -649,7 +649,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
           horizPadding={true}
           radius={true}
         >
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid-2col-md gap-6">
             {data.related_research.same_material && (
               <div>
                 <h3 className="text-lg text-secondary font-semibold mb-3 text-secondary">

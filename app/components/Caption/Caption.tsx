@@ -133,7 +133,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
               {/* Quality Metrics Overlay */}
               {captionData.quality_metrics && imageLoaded && (
                 <div className="absolute bottom-4 left-0 right-0 px-4">
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                  <div className="grid-caption gap-2">
                     {Object.entries(captionData.quality_metrics)
                       .filter(([key]) => key !== 'substrate_integrity')
                       .map(([key, value]) => (
@@ -171,7 +171,7 @@ export function Caption({ frontmatter, config }: CaptionProps) {
 
         {/* Before/After Content */}
         {(captionData.before || captionData.after) && (
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid-2col-md gap-6">
             {captionData.before && (
               <div className="p-6 md:p-8 card-background rounded-lg">
                 <h4>

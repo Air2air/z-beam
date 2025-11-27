@@ -61,7 +61,7 @@ export default async function BookingPage() {
         metadata={pageMetadata as unknown as ArticleMetadata}
         slug="booking"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
+        <div className="grid-booking gap-8 mt-8">
           {/* Left Column - Calendar */}
           <div className="lg:col-span-2">
             <SectionContainer
@@ -150,7 +150,7 @@ export default async function BookingPage() {
             bgColor="transparent"
             radius={false}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div className="grid-2col-md gap-6 text-sm">
               <div>
                 <h4 className="font-semibold mb-2">
                   Do I need to prepare anything?
