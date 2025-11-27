@@ -39,9 +39,23 @@ module.exports = {
       // ============================================
       // BASE FONT SIZE CONFIGURATION
       // ============================================
-      // Override default base font size (16px -> 15px)
+      // Custom font size scale - reduced for better mobile readability
+      // SM: Reduced by one unit from default Tailwind
+      // XS: Reduced by two units from default Tailwind
       fontSize: {
-        base: '15px',
+        'xs': ['0.625rem', { lineHeight: '1rem' }],      // 10px (was 12px)
+        'sm': ['0.75rem', { lineHeight: '1.25rem' }],     // 12px (was 14px)
+        'base': ['0.8125rem', { lineHeight: '1.5rem' }],  // 13px (was 15px)
+        'lg': ['0.9375rem', { lineHeight: '1.75rem' }],   // 15px (was 18px)
+        'xl': ['1.0625rem', { lineHeight: '1.75rem' }],   // 17px (was 20px)
+        '2xl': ['1.25rem', { lineHeight: '2rem' }],       // 20px (was 24px)
+        '3xl': ['1.5rem', { lineHeight: '2.25rem' }],     // 24px (was 30px)
+        '4xl': ['1.875rem', { lineHeight: '2.5rem' }],    // 30px (was 36px)
+        '5xl': ['2.25rem', { lineHeight: '2.5rem' }],     // 36px (was 48px)
+        '6xl': ['2.75rem', { lineHeight: '1' }],          // 44px (was 60px)
+        '7xl': ['3.5rem', { lineHeight: '1' }],           // 56px (was 72px)
+        '8xl': ['4.5rem', { lineHeight: '1' }],           // 72px (was 96px)
+        '9xl': ['6rem', { lineHeight: '1' }],             // 96px (was 128px)
       },
       // ============================================
       // CENTRALIZED FONT FAMILY CONFIGURATION
