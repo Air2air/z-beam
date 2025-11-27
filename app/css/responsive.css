@@ -465,31 +465,136 @@
   
   /* ============================================
    * COMPONENT-SPECIFIC CLASSES
+   * ============================================
+   * 
+   * SEMANTIC CLASS POLICY:
+   * - Every component should have a root semantic class (e.g., .cta, .hero, .nav)
+   * - Format: kebab-case, descriptive, unique
+   * - Purpose: Easy browser DevTools identification & CSS organization
+   * - See: docs/SEMANTIC_CLASS_POLICY.md
+   * 
+   * Organization:
+   * 1. Navigation Components
+   * 2. Content Components
+   * 3. Interactive Components
+   * 4. Data Visualization Components
    * ============================================ */
   
-  /* Footer logo sizing */
-  .footer-logo {
-    @apply h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto;
-  }
+  /* ============================================
+   * NAVIGATION COMPONENTS
+   * ============================================ */
   
-  /* Navigation logo sizing */
+  /* Nav - Main navigation component */
   .nav-logo {
     @apply h-auto max-h-8 sm:max-h-10 md:max-h-14 w-auto;
   }
   
-  /* CTA text sizing */
+  /* Footer - Site footer component */
+  .footer-logo {
+    @apply h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto;
+  }
+  
+  /* Breadcrumbs - Breadcrumb navigation component */
+  .breadcrumb-item {
+    /* Styles handled inline - ready for migration */
+  }
+  
+  /* ============================================
+   * CONTENT COMPONENTS
+   * ============================================ */
+  
+  /* DatePanel - Publication date display component */
+  .date-panel {
+    @apply hidden sm:flex flex-col gap-2;
+  }
+  
+  /* Caption - Image caption component with quality metrics */
+  .caption {
+    /* Root class - ready to add */
+  }
+  
+  .caption-before {
+    /* Before content section - handled by CaptionContent.tsx */
+  }
+  
+  .caption-after {
+    /* After content section - handled by CaptionContent.tsx */
+  }
+  
+  .seo-caption {
+    /* SEO-optimized caption wrapper - used in Caption.tsx */
+  }
+  
+  /* Card - Material and content cards */
+  .card-container {
+    /* Card wrapper - used in Card.tsx */
+  }
+  
+  /* CardGrid - Article grid layouts */
+  .article-grid {
+    /* Base article grid - used in CardGridSSR.tsx */
+  }
+  
+  .article-grid--category-grouped-ssr {
+    /* Category-grouped variant */
+  }
+  
+  .article-grid--simple-ssr {
+    /* Simple grid variant */
+  }
+  
+  /* ============================================
+   * INTERACTIVE COMPONENTS
+   * ============================================ */
+  
+  /* CTA (CallToAction) - Full-width call-to-action component */
+  .cta {
+    /* Root class - NEEDS TO BE ADDED to CallToAction.tsx */
+  }
+  
   .cta-text {
     @apply text-sm sm:text-base md:text-xl lg:text-2xl;
   }
   
-  /* CTA icon positioning */
   .cta-icon {
     @apply absolute top-1/2 -translate-y-[calc(50%+10px)] sm:-translate-y-1/2 md:-translate-y-1/2 lg:-translate-y-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-36 md:h-36 lg:w-44 lg:h-44;
   }
   
-  /* DatePanel visibility */
-  .date-panel {
-    @apply hidden sm:flex flex-col gap-2;
+  /* Hero - Hero section component */
+  .hero {
+    /* Root class - NEEDS TO BE ADDED to Hero.tsx */
+  }
+  
+  /* ============================================
+   * DATA VISUALIZATION COMPONENTS
+   * ============================================ */
+  
+  /* Heatmap - Base heatmap component */
+  .heatmap {
+    /* Root class - NEEDS TO BE ADDED to heatmap components */
+  }
+  
+  .heatmap-main {
+    @apply w-full sm:w-3/5 order-2 sm:order-1 max-w-2xl;
+  }
+  
+  .heatmap-sidebar {
+    @apply w-full sm:w-2/5 order-1 sm:order-2 space-y-4;
+  }
+  
+  /* ProcessEffectivenessHeatmap - Cleaning performance visualization */
+  .process-effectiveness-heatmap {
+    /* Root class - ready to add */
+  }
+  
+  /* MaterialSafetyHeatmap - Safety hazard visualization */
+  .material-safety-heatmap {
+    /* Root class - ready to add */
+  }
+  
+  /* ParameterRelationships - Parameter correlation visualization */
+  .parameter-relationships {
+    /* Root class - ready to add */
   }
   
   /* ============================================
