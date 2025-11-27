@@ -52,10 +52,8 @@ describe('DatePanel Component', () => {
       const { container } = render(<DatePanel datePublished="2024-11-26" />);
       const panel = container.firstChild;
       
-      expect(panel).toHaveClass('hidden');
-      expect(panel).toHaveClass('sm:flex');
-      expect(panel).toHaveClass('flex-col');
-      expect(panel).toHaveClass('gap-2');
+      // Uses date-panel class from responsive.css for responsive behavior
+      expect(panel).toHaveClass('date-panel');
       expect(panel).toHaveClass('text-xs');
       expect(panel).toHaveClass('text-tertiary');
       expect(panel).toHaveClass('bg-primary');
@@ -109,18 +107,12 @@ describe('DatePanel Component', () => {
   });
 
   describe('4. Responsive Behavior', () => {
-    test('is hidden on mobile screens', () => {
+    test('uses date-panel responsive class', () => {
       const { container } = render(<DatePanel datePublished="2024-11-26" />);
       const panel = container.firstChild;
       
-      expect(panel).toHaveClass('hidden');
-    });
-
-    test('displays flex on sm+ screens', () => {
-      const { container } = render(<DatePanel datePublished="2024-11-26" />);
-      const panel = container.firstChild;
-      
-      expect(panel).toHaveClass('sm:flex');
+      // Uses date-panel class from responsive.css (hidden sm:flex flex-col gap-2)
+      expect(panel).toHaveClass('date-panel');
     });
   });
 
