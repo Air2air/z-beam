@@ -176,4 +176,328 @@
   .py-responsive {
     @apply py-4 sm:py-6 md:py-8 lg:py-12;
   }
+  
+  /* ============================================
+   * GRID SYSTEMS - Responsive Column Layouts
+   * ============================================ */
+  
+  /* 2-column grid: mobile stacks, tablet 2 cols */
+  .grid-2col {
+    @apply grid grid-cols-1 sm:grid-cols-2;
+  }
+  
+  /* 3-column grid: mobile 1, tablet 2, desktop 3 */
+  .grid-3col {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  /* 4-column grid: mobile 1, tablet 2, desktop 3, large 4 */
+  .grid-4col {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  }
+  
+  /* 5-column grid: mobile 2, tablet 3, desktop 4, large 5 (materials) */
+  .grid-5col {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+  }
+  
+  /* 2-column grid with specific MD breakpoint */
+  .grid-2col-md {
+    @apply grid md:grid-cols-2;
+  }
+  
+  /* 3-column grid with MD breakpoint */
+  .grid-3col-md {
+    @apply grid md:grid-cols-3;
+  }
+  
+  /* Special grid layouts */
+  .grid-caption {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+  }
+  
+  .grid-booking {
+    @apply grid grid-cols-1 lg:grid-cols-3;
+  }
+  
+  /* ============================================
+   * FLEX LAYOUTS - Stack to Row Transitions
+   * ============================================ */
+  
+  /* Stack on mobile, row on SM+ */
+  .flex-stack-row {
+    @apply flex flex-col sm:flex-row;
+  }
+  
+  /* Stack on mobile, row on MD+ */
+  .flex-stack-row-md {
+    @apply flex flex-col md:flex-row;
+  }
+  
+  /* Stack on mobile, row on MD with items-center */
+  .flex-stack-row-md-center {
+    @apply flex flex-col md:flex-row md:items-center;
+  }
+  
+  /* Stack on mobile, row on LG+ */
+  .flex-stack-row-lg {
+    @apply flex flex-col lg:flex-row;
+  }
+  
+  /* ============================================
+   * VISIBILITY - Show/Hide at Breakpoints
+   * ============================================ */
+  
+  /* Hide on mobile, show block SM+ */
+  .hide-mobile {
+    @apply hidden sm:block;
+  }
+  
+  /* Hide on mobile, show flex SM+ */
+  .hide-mobile-flex {
+    @apply hidden sm:flex;
+  }
+  
+  /* Show only on mobile (hide MD+) */
+  .show-mobile-only {
+    @apply md:hidden;
+  }
+  
+  /* Desktop navigation pattern: hide mobile, flex MD+ with items-center */
+  .desktop-nav {
+    @apply hidden md:flex items-center;
+  }
+  
+  /* Desktop block: hide on mobile, show block MD+ */
+  .desktop-block {
+    @apply hidden md:block;
+  }
+  
+  /* ============================================
+   * COMPONENT DIMENSIONS - Heights & Widths
+   * ============================================ */
+  
+  /* Card heights - default cards */
+  .card-height-default {
+    @apply h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem];
+  }
+  
+  /* Card heights - featured cards (Services/Rental) */
+  .card-height-featured {
+    @apply h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem];
+  }
+  
+  /* Card heights - metrics cards */
+  .card-height-metrics {
+    @apply h-32 md:h-40;
+  }
+  
+  /* Image heights for cards */
+  .img-height-card {
+    @apply h-[6.75rem] md:h-[7.5rem];
+  }
+  
+  /* Spacer heights (Layout component) */
+  .spacer {
+    @apply h-8 sm:h-12 md:h-16;
+  }
+  
+  /* Icon sizes - small */
+  .icon-sm {
+    @apply w-10 h-10 md:w-12 md:h-12;
+  }
+  
+  /* Icon sizes - medium */
+  .icon-md {
+    @apply w-20 h-20 md:w-24 md:h-24;
+  }
+  
+  /* CTA minimum height */
+  .cta-height {
+    @apply min-h-[80px] md:min-h-[80px];
+  }
+  
+  /* ============================================
+   * CONTAINER PATTERNS - Width & Padding
+   * ============================================ */
+  
+  /* Standard container: max-w-6xl with responsive padding */
+  .container-standard {
+    @apply mx-auto max-w-6xl px-4 sm:px-6;
+  }
+  
+  /* Container with full padding range */
+  .container-full {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Narrow container for articles */
+  .container-narrow {
+    @apply mx-auto max-w-4xl px-4 sm:px-6;
+  }
+  
+  /* Centered container (max-w-2xl) */
+  .container-centered {
+    @apply mx-auto max-w-2xl px-4 sm:px-6;
+  }
+  
+  /* Hero container pattern */
+  .container-hero {
+    @apply mx-auto max-w-6xl px-4 sm:px-5;
+  }
+  
+  /* Citations container */
+  .container-citations {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* ============================================
+   * SPACING - Responsive Gaps
+   * ============================================ */
+  
+  /* Small gap (constant) */
+  .gap-sm-responsive {
+    @apply gap-2;
+  }
+  
+  /* Medium gap progression */
+  .gap-md-responsive {
+    @apply gap-2 md:gap-4 lg:gap-6;
+  }
+  
+  /* Large gap progression */
+  .gap-lg-responsive {
+    @apply gap-2 md:gap-6 lg:gap-8;
+  }
+  
+  /* Extra large gap progression */
+  .gap-xl-responsive {
+    @apply gap-2 md:gap-8 lg:gap-12;
+  }
+  
+  /* Standard gaps (used across many components) */
+  .gap-3-responsive {
+    @apply gap-3 md:gap-6;
+  }
+  
+  .gap-4-responsive {
+    @apply gap-4 md:gap-6;
+  }
+  
+  .gap-6-responsive {
+    @apply gap-6 md:gap-8;
+  }
+  
+  /* ============================================
+   * CARD PADDING - Component Specific
+   * ============================================ */
+  
+  /* Standard card padding */
+  .card-padding {
+    @apply px-3 py-3 md:px-4 md:py-2.5;
+  }
+  
+  /* Large card padding (Caption, Research) */
+  .card-padding-lg {
+    @apply p-6 md:p-8;
+  }
+  
+  /* ============================================
+   * SECTION PADDING - Vertical Spacing
+   * ============================================ */
+  
+  /* Standard section padding */
+  .section-padding {
+    @apply py-6 md:py-8;
+  }
+  
+  /* Footer section padding */
+  .footer-padding {
+    @apply py-6 md:py-12 lg:py-20;
+  }
+  
+  /* Main content bottom padding (CTA space) */
+  .main-bottom-padding {
+    @apply pb-32 md:pb-0;
+  }
+  
+  /* Breadcrumbs padding */
+  .breadcrumb-padding {
+    @apply py-4 sm:py-6;
+  }
+  
+  /* ============================================
+   * POSITIONING - Fixed/Relative Patterns
+   * ============================================ */
+  
+  /* Fixed on mobile, relative on desktop (CTA pattern) */
+  .fixed-mobile {
+    @apply fixed md:relative bottom-0 left-0 right-0;
+  }
+  
+  /* Flex order reversal patterns */
+  .order-reverse-sm {
+    @apply order-2 sm:order-1;
+  }
+  
+  .order-forward-sm {
+    @apply order-1 sm:order-2;
+  }
+  
+  /* ============================================
+   * LAYOUT PATTERNS - Complex Components
+   * ============================================ */
+  
+  /* Heatmap main area (left side) */
+  .heatmap-main {
+    @apply w-full sm:w-3/5 order-2 sm:order-1 max-w-2xl;
+  }
+  
+  /* Heatmap sidebar (right side) */
+  .heatmap-sidebar {
+    @apply w-full sm:w-2/5 order-1 sm:order-2 space-y-4;
+  }
+  
+  /* Grid column spanning */
+  .span-2-lg {
+    @apply lg:col-span-2;
+  }
+  
+  /* ============================================
+   * COMPONENT-SPECIFIC CLASSES
+   * ============================================ */
+  
+  /* Footer logo sizing */
+  .footer-logo {
+    @apply h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto;
+  }
+  
+  /* CTA text sizing */
+  .cta-text {
+    @apply text-sm sm:text-base md:text-xl lg:text-2xl;
+  }
+  
+  /* CTA icon positioning */
+  .cta-icon {
+    @apply absolute top-1/2 -translate-y-[calc(50%+10px)] sm:-translate-y-1/2 md:-translate-y-1/2 lg:-translate-y-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-36 md:h-36 lg:w-44 lg:h-44;
+  }
+  
+  /* DatePanel visibility */
+  .date-panel {
+    @apply hidden sm:flex flex-col gap-2;
+  }
+  
+  /* ============================================
+   * UTILITY COMBINATIONS - Common Patterns
+   * ============================================ */
+  
+  /* Center items with responsive gap */
+  .center-gap-responsive {
+    @apply flex items-center justify-center gap-6;
+  }
+  
+  /* Flex wrap with responsive gap */
+  .flex-wrap-gap {
+    @apply flex flex-row items-center justify-center gap-6 flex-wrap;
+  }
 }
