@@ -129,7 +129,7 @@ export function Navbar() {
                 alt={`${SITE_CONFIG.shortName} Logo`}
                 width={150}
                 height={50}
-                className="h-auto max-h-8 sm:max-h-10 md:max-h-14 w-auto"
+                className="nav-logo"
                 priority
               />
             </Link>

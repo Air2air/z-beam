@@ -11,7 +11,7 @@ export function DatePanel({ datePublished, className = "" }: DatePanelProps) {
   if (!datePublished) return null;
 
   return (
-    <div className={`hidden sm:flex flex-col gap-2 text-tertiary text-xs bg-primary rounded px-3 py-2 flex-shrink-0 ${className}`}>
+    <div className={`date-panel text-tertiary text-xs bg-primary rounded px-3 py-2 flex-shrink-0 ${className}`}>
       <div className="flex items-center gap-1.5 whitespace-nowrap">
         <Calendar className="w-3.5 h-3.5" />
         <div>

@@ -68,9 +68,9 @@ export default function Footer() {
       role="contentinfo"
       aria-label="Site footer"
     >
-      <div className={CONTAINER_STYLES.standard.replace('py-6 md:py-8', 'py-6 md:py-12 lg:py-20') + ' flex flex-col gap-6 md:gap-8'}>
+      <div className={CONTAINER_STYLES.standard.replace('section-padding', 'footer-padding') + ' flex flex-col gap-6-responsive'}>
         {/* Top row: Logo, Navigation, Social */}
-        <div className="flex flex-col md:flex-row md:items-center gap-6">
+        <div className="flex-stack-row-md-center gap-6">
           {/* Logo */}
           <div className="flex flex-col items-center md:flex-1">
             <Link 
@@ -83,7 +83,7 @@ export default function Footer() {
                 alt={`${SITE_CONFIG.shortName} Logo`}
                 width={150}
                 height={50}
-                className="h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto"
+                className="footer-logo"
                 priority
               />
             </Link>
