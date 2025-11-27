@@ -72,6 +72,9 @@
 /* Import color system */
 @import './colors.css';
 
+/* Import responsive configuration */
+@import './responsive.css';
+
 @layer utilities {
   .bg-body {
     background-color: var(--bg-body);
@@ -134,33 +137,33 @@
     color: var(--text-primary);
   }
   
-  /* Headings - Semantic font weights and colors with responsive sizing */
+  /* Headings - Semantic font weights and colors */
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary) !important;
   }
   
   h1 {
-    @apply text-lg sm:text-xl md:text-3xl font-bold;
+    @apply font-bold;
   }
   
   h2 {
-    @apply text-sm sm:text-base md:text-xl font-bold;
+    @apply font-bold;
   }
   
   h3 {
-    @apply text-base sm:text-lg md:text-2xl font-medium leading-snug;
+    @apply font-medium leading-snug;
   }
   
   h4 {
-    @apply text-sm sm:text-base md:text-xl font-medium;
+    @apply font-medium;
   }
   
   h5 {
-    @apply text-sm sm:text-base font-medium;
+    @apply font-medium;
   }
   
   h6 {
-    @apply text-xs sm:text-sm font-medium;
+    @apply font-medium;
   }
   
   /* Semantic elements */

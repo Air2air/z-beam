@@ -1,0 +1,179 @@
+/**
+ * ============================================
+ * RESPONSIVE CONFIGURATION
+ * ============================================
+ * 
+ * SINGLE SOURCE OF TRUTH for all responsive adjustments
+ * 
+ * This file contains ALL responsive rules for:
+ * - Typography (font sizes)
+ * - Spacing (padding, margins)
+ * - Layout adjustments
+ * 
+ * BREAKPOINTS:
+ * - XS: < 640px (mobile)
+ * - SM: ≥ 640px (phablet/tablet portrait)
+ * - MD: ≥ 768px (tablet landscape)
+ * - LG: ≥ 1024px (laptop)
+ * - XL: ≥ 1280px (desktop)
+ * 
+ * MODIFICATION GUIDE:
+ * - All responsive changes happen HERE
+ * - No responsive rules in other CSS files
+ * - Keep rules organized by category
+ * 
+ * ============================================
+ */
+
+@layer base {
+  /* ============================================
+   * TYPOGRAPHY - Responsive Font Sizes
+   * ============================================ */
+  
+  /* Headings - Responsive sizing across breakpoints */
+  h1 {
+    @apply text-lg sm:text-xl md:text-3xl;
+  }
+  
+  h2 {
+    @apply text-sm sm:text-base md:text-xl;
+  }
+  
+  h3 {
+    @apply text-base sm:text-lg md:text-2xl;
+  }
+  
+  h4 {
+    @apply text-sm sm:text-base md:text-xl;
+  }
+  
+  h5 {
+    @apply text-sm sm:text-base;
+  }
+  
+  h6 {
+    @apply text-xs sm:text-sm;
+  }
+
+  /* ============================================
+   * SPACING - Responsive Padding & Margins
+   * ============================================ */
+  
+  /* Container padding */
+  .container {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12;
+  }
+  
+  /* Section spacing */
+  section {
+    @apply py-8 sm:py-12 md:py-16;
+  }
+  
+  /* Card padding */
+  .card {
+    @apply p-4 sm:p-5 md:p-6;
+  }
+  
+  /* Content spacing - margin between elements */
+  .content-spacing > * + * {
+    @apply mt-4 sm:mt-5 md:mt-6;
+  }
+  
+  /* Grid gaps */
+  .grid-responsive {
+    @apply gap-4 sm:gap-5 md:gap-6 lg:gap-8;
+  }
+  
+  /* Button padding */
+  .btn {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3;
+  }
+  
+  /* Form input padding */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    @apply px-3 py-2 sm:px-4 sm:py-2.5;
+  }
+  
+  /* Modal/Dialog padding */
+  .modal-content,
+  .dialog-content {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  /* Header/Footer padding */
+  header,
+  footer {
+    @apply px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5;
+  }
+  
+  /* Article/Content padding */
+  article {
+    @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-12;
+  }
+  
+  /* List spacing */
+  ul, ol {
+    @apply space-y-2 sm:space-y-3 md:space-y-4;
+  }
+  
+  /* ============================================
+   * COMPONENT-SPECIFIC RESPONSIVE RULES
+   * ============================================ */
+  
+  /* Navigation spacing */
+  nav ul {
+    @apply gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  /* Image margins */
+  img {
+    @apply my-4 sm:my-6 md:my-8;
+  }
+  
+  /* Table cell padding */
+  td, th {
+    @apply px-3 py-2 sm:px-4 sm:py-3;
+  }
+  
+  /* Badge/Pill padding */
+  .badge {
+    @apply px-2 py-1 sm:px-2.5 sm:py-1 md:px-3 md:py-1.5;
+  }
+  
+  /* Divider margins */
+  hr {
+    @apply my-6 sm:my-8 md:my-12;
+  }
+  
+  /* ============================================
+   * UTILITY CLASSES
+   * ============================================ */
+  
+  /* Responsive margin utilities */
+  .mt-responsive {
+    @apply mt-4 sm:mt-6 md:mt-8 lg:mt-12;
+  }
+  
+  .mb-responsive {
+    @apply mb-4 sm:mb-6 md:mb-8 lg:mb-12;
+  }
+  
+  .my-responsive {
+    @apply my-4 sm:my-6 md:my-8 lg:my-12;
+  }
+  
+  /* Responsive padding utilities */
+  .p-responsive {
+    @apply p-4 sm:p-6 md:p-8 lg:p-12;
+  }
+  
+  .px-responsive {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12;
+  }
+  
+  .py-responsive {
+    @apply py-4 sm:py-6 md:py-8 lg:py-12;
+  }
+}
