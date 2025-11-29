@@ -73,7 +73,7 @@ export function MaterialFAQ({
                 }}
               >
                 <span 
-                  className="pr-4 font-light [&_strong]:font-semibold"
+                  className="text-base pr-4 font-light [&_strong]:font-semibold"
                   dangerouslySetInnerHTML={{ __html: '<strong>Q:</strong> ' + parseSimpleMarkdown(item.question) }}
                 />
                 <svg
@@ -95,7 +95,7 @@ export function MaterialFAQ({
                 className="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[500px] group-open:opacity-100"
               >
                 <div 
-                  className="px-6 py-4 bg-secondary font-light [&_strong]:font-semibold"
+                  className="px-6 py-4 text-base bg-secondary font-light [&_strong]:font-semibold"
                   dangerouslySetInnerHTML={{ __html: '<strong>A:</strong> ' + parseSimpleMarkdown(item.answer) }}
                 />
               </div>

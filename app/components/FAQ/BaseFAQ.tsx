@@ -79,7 +79,7 @@ function HelpItemCard({
             handleClick(detailsElement);
           }}
         >
-          <span className="pr-4 font-light [&_strong]:font-semibold flex items-center">
+          <span className="text-base pr-4 font-light [&_strong]:font-semibold flex items-center">
             <span
               dangerouslySetInnerHTML={{ 
                 __html: `<strong>${type === 'faq' ? 'Q:' : '⚠'}</strong> ${parseSimpleMarkdown(item.question)}` 
@@ -105,7 +105,7 @@ function HelpItemCard({
         <div 
           className="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-open:max-h-[1000px] group-open:opacity-100"
         >
-          <div className="px-6 py-4 bg-secondary font-light [&_strong]:font-semibold">
+          <div className="px-6 py-4 text-base bg-secondary font-light [&_strong]:font-semibold">
             <div
               dangerouslySetInnerHTML={{ 
                 __html: `<strong>${type === 'faq' ? 'A:' : 'Solution:'}</strong> ${parseSimpleMarkdown(item.answer)}` 

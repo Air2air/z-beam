@@ -37,7 +37,7 @@ export function SafetyWarning({
             <h3 className="text-secondary font-bold text-lg text-secondary mb-2">
               Important Safety Notice
             </h3>
-            <p className="text-red-800200 mb-4">
+            <p className="text-red-800200 text-base mb-4">
               {warningText || defaultWarning}
             </p>
             <Link 

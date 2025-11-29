@@ -141,7 +141,7 @@ export default function Footer() {
 
         {/* Bottom row: Copyright - centered */}
         <div className="flex justify-center">
-          <span className="text-secondary">
+          <span className="text-secondary text-sm">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.address.company}. All rights reserved.
           </span>
         </div>

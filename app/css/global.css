@@ -132,8 +132,8 @@
   /* Body background */
   body {
     background-color: var(--bg-body);
+    @apply text-base font-normal;
     color: var(--text-primary);
-    @apply text-base sm:text-lg;
   }
   
   /* Headings - Semantic font weights and colors */
@@ -146,7 +146,7 @@
   }
   
   h2 {
-    @apply text-xl sm:text-xl md:text-2xl font-bold;
+    @apply font-bold;
   }
   
   h3 {
@@ -172,7 +172,7 @@
   
   /* Paragraph text */
   p {
-    @apply leading-relaxed;
+    @apply text-base leading-relaxed;
     color: var(--text-primary);
   }
   
@@ -183,34 +183,6 @@
 }
 
 @layer components {
-  /* Responsive text utilities */
-  .text-base {
-    font-size: 1rem !important;
-  }
-  
-  @media (min-width: 640px) {
-    .text-base {
-      font-size: 1.125rem !important;
-    }
-  }
-  
-  .text-sm {
-    font-size: 0.875rem !important;
-  }
-  
-  @media (min-width: 640px) {
-    .text-sm {
-      font-size: 1rem !important;
-    }
-  }
-  
-  /* Exception: Keep captions and cards at fixed size */
-  [data-component="content-card"] .text-sm,
-  .caption .text-sm,
-  .card-background .text-sm {
-    font-size: 0.875rem !important;
-  }
-  
   /* Button font weight */
   .btn,
   button {
