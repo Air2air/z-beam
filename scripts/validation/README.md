@@ -205,9 +205,65 @@ Search engine optimization, Core Web Vitals, and redirect validation.
 
 | Script | Purpose | Usage |
 |--------|---------|-------|
+| **`validate-seo-infrastructure.js`** | **🆕 Comprehensive SEO Infrastructure validation** | `npm run validate:seo-infrastructure` |
 | `validate-modern-seo.js` | Modern SEO best practices | `node scripts/validation/seo/validate-modern-seo.js` |
 | `validate-core-web-vitals.js` | Core Web Vitals metrics | `node scripts/validation/seo/validate-core-web-vitals.js` |
 | `validate-redirects.js` | Redirect chain validation | `node scripts/validation/seo/validate-redirects.js` |
+
+### 🆕 SEO Infrastructure Validator (Comprehensive)
+
+The **validate-seo-infrastructure.js** script provides complete validation of all SEO Infrastructure components:
+
+**Validates:**
+- ✅ **Metadata**: Title tags (30-60 chars), meta descriptions (120-160 chars), viewport
+- ✅ **Structured Data**: JSON-LD Schema.org markup, schema richness, content-appropriate types
+- ✅ **Sitemaps**: XML sitemap, robots.txt, URL count, priority/changefreq tags
+- ✅ **Open Graph**: og:title, og:description, og:image, og:url, og:type, Twitter Cards
+- ✅ **Breadcrumbs**: BreadcrumbList schema, visible navigation
+- ✅ **Canonical URLs**: Proper canonicalization, URL consistency
+
+**🔍 Proactive Opportunity Discovery** (NEW):
+The validator automatically scans your content and **suggests missing schema types** that could enhance SEO:
+- 💡 **FAQPage**: Detects Q&A patterns, accordion sections, FAQ headings
+- 💡 **HowTo**: Detects step-by-step instructions, tutorials, ordered lists
+- 💡 **VideoObject**: Detects video embeds (YouTube, Vimeo, native video)
+- 💡 **Product**: Detects price indicators, ratings, buy buttons
+- 💡 **Article**: Detects article structure, author bylines, publish dates
+- 💡 **Review/Rating**: Detects review sections, star ratings
+
+Each suggestion includes:
+- **Reason**: What content pattern was detected
+- **Benefit**: What rich snippet improvement you'll get
+- **Page location**: Exactly where the opportunity exists
+
+**Features:**
+- Tests 5 page types: Homepage, Material, Settings, Service, Static
+- Provides grade (A+ to F) and detailed scoring
+- JSON output mode for CI/CD integration
+- Verbose mode for debugging
+- Graceful degradation if dev server not running
+- **Proactive opportunity detection** for missing schemas
+
+**Usage:**
+```bash
+# Standard validation
+npm run validate:seo-infrastructure
+
+# Verbose output
+node scripts/validation/seo/validate-seo-infrastructure.js --verbose
+
+# JSON output for CI
+node scripts/validation/seo/validate-seo-infrastructure.js --json
+
+# With custom base URL
+BASE_URL=https://staging.z-beam.com npm run validate:seo-infrastructure
+```
+
+**Exit codes:**
+- 0: All checks passed or warnings only
+- 1: Critical SEO Infrastructure issues found
+
+**Documentation:** `docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md`
 
 ### Key Features
 - **Meta tags**: Validates titles, descriptions, Open Graph, Twitter Cards
@@ -215,6 +271,7 @@ Search engine optimization, Core Web Vitals, and redirect validation.
 - **Core Web Vitals**: LCP, FID, CLS measurements
 - **Redirect chains**: Validates 301/302 redirects are optimized
 - **Mobile-first**: Tests mobile optimization
+- **Structured Data**: Complete JSON-LD Schema.org validation
 
 ## Content & Metadata (`content/`)
 

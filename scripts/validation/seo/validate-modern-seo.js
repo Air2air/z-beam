@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 
 /**
- * Modern SEO Validation Script
+ * SEO Infrastructure Validation Script
  * 
- * Validates cutting-edge SEO best practices for highest scoring:
+ * Validates SEO Infrastructure components (metadata, structured data, sitemaps, Open Graph)
+ * for optimal search engine discoverability and rich results.
+ * 
+ * Checks:
  * - Mobile-friendliness score (>90 threshold)
  * - HTTPS enforcement (no insecure http:// references)
  * - Canonical tags (all pages must have canonical)
  * - robots.txt validation (accessible, syntactically valid)
  * - Intrusive interstitials check
  * 
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
+ * 
  * Exit codes:
  * 0 - All checks passed
- * 1 - Critical SEO issues found
+ * 1 - Critical SEO Infrastructure issues found
  * 2 - Script execution error
  */
 

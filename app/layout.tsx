@@ -77,6 +77,20 @@ export const metadata = {
     ],
   },
   manifest: '/manifest.json',
+  alternates: {
+    canonical: SITE_CONFIG.url,
+    languages: {
+      'en-US': SITE_CONFIG.url,
+      'en-GB': SITE_CONFIG.url,
+      'en-CA': SITE_CONFIG.url,
+      'en-AU': SITE_CONFIG.url,
+      'es-MX': SITE_CONFIG.url,
+      'fr-CA': SITE_CONFIG.url,
+      'de-DE': SITE_CONFIG.url,
+      'zh-CN': SITE_CONFIG.url,
+      'x-default': SITE_CONFIG.url,
+    },
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

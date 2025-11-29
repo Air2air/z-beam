@@ -4,8 +4,8 @@
     "category": "glass",
     "subcategory": "specialty-glass",
     "title": "Soda-Lime Glass Laser Cleaning Settings",
-    "datePublished": "2025-11-27T20:26:39.110Z",
-    "dateModified": "2025-11-27T20:26:39.110Z",
+    "datePublished": "2025-11-29T22:58:30.146Z",
+    "dateModified": "2025-11-29T22:58:30.146Z",
     "author": {
       "id": 1,
       "name": "Yi-Chun Lin",
@@ -43,23 +43,33 @@
   "machineSettings": {
     "powerRange": {
       "unit": "W",
-      "value": 100
+      "value": 100,
+      "min": 1,
+      "max": 120
     },
     "wavelength": {
       "unit": "nm",
-      "value": 1064
+      "value": 1064,
+      "min": 355,
+      "max": 10640
     },
     "spotSize": {
       "unit": "μm",
-      "value": 100
+      "value": 100,
+      "min": 0.1,
+      "max": 500
     },
     "repetitionRate": {
       "unit": "kHz",
-      "value": 50
+      "value": 50,
+      "min": 1,
+      "max": 200
     },
     "scanSpeed": {
       "unit": "mm/s",
-      "value": 1150
+      "value": 1150,
+      "min": 10,
+      "max": 5000
     }
   },
   "components": {},

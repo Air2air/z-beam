@@ -5,8 +5,8 @@
   "name": "Polyimide Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Polyimide. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-27",
-  "datePublished": "2025-11-27",
+  "dateModified": "2025-11-29",
+  "datePublished": "2025-11-29",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-27"
+    "lastVerified": "2025-11-29"
   },
   "material": {
     "name": "Polyimide",
@@ -95,39 +95,57 @@
     "machineSettings": {
       "powerRange": {
         "value": 30,
-        "unit": "W"
+        "unit": "W",
+        "min": 1,
+        "max": 120
       },
       "wavelength": {
         "value": 1064,
-        "unit": "nm"
+        "unit": "nm",
+        "min": 355,
+        "max": 10640
       },
       "spotSize": {
         "value": 100,
-        "unit": "μm"
+        "unit": "μm",
+        "min": 0.1,
+        "max": 500
       },
       "repetitionRate": {
         "value": 20,
-        "unit": "kHz"
+        "unit": "kHz",
+        "min": 1,
+        "max": 200
       },
       "energyDensity": {
         "value": 0.5,
-        "unit": "J/cm²"
+        "unit": "J/cm²",
+        "min": 0.1,
+        "max": 20
       },
       "pulseWidth": {
         "value": 10,
-        "unit": "ns"
+        "unit": "ns",
+        "min": 0.1,
+        "max": 1000
       },
       "scanSpeed": {
         "value": 800,
-        "unit": "mm/s"
+        "unit": "mm/s",
+        "min": 10,
+        "max": 5000
       },
       "passCount": {
         "value": 2,
-        "unit": "passes"
+        "unit": "passes",
+        "min": 1,
+        "max": 10
       },
       "overlapRatio": {
         "value": 30,
-        "unit": "%"
+        "unit": "%",
+        "min": 10,
+        "max": 90
       }
     },
     "laserParameters": {},
@@ -307,28 +325,7 @@
         }
       },
       "laser_material_interaction": {
-        "label": "Laser-Material Interaction",
-        "thermalConductivity": {
-          "value": 0.15,
-          "unit": "W/m·K",
-          "min": 0.1,
-          "max": 0.3,
-          "source": "ai_research"
-        },
-        "thermalDiffusivity": {
-          "value": 1.2e-7,
-          "unit": "m²/s",
-          "min": 1e-7,
-          "max": 2e-7,
-          "source": "ai_research"
-        },
-        "ablationThreshold": {
-          "value": 1.5,
-          "unit": "J/cm²",
-          "min": 0.5,
-          "max": 3,
-          "source": "ai_research"
-        }
+        "label": "Laser-Material Interaction"
       }
     },
     "applications": [],
@@ -341,63 +338,81 @@
       "propertyID": "machine_powerRange",
       "name": "Machine Setting: Power Range",
       "value": 30,
-      "unitText": "W"
+      "unitText": "W",
+      "minValue": 1,
+      "maxValue": 120
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_wavelength",
       "name": "Machine Setting: Wavelength",
       "value": 1064,
-      "unitText": "nm"
+      "unitText": "nm",
+      "minValue": 355,
+      "maxValue": 10640
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_spotSize",
       "name": "Machine Setting: Spot Size",
       "value": 100,
-      "unitText": "μm"
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_repetitionRate",
       "name": "Machine Setting: Repetition Rate",
       "value": 20,
-      "unitText": "kHz"
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_energyDensity",
       "name": "Machine Setting: Energy Density",
       "value": 0.5,
-      "unitText": "J/cm²"
+      "unitText": "J/cm²",
+      "minValue": 0.1,
+      "maxValue": 20
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_pulseWidth",
       "name": "Machine Setting: Pulse Width",
       "value": 10,
-      "unitText": "ns"
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_scanSpeed",
       "name": "Machine Setting: Scan Speed",
       "value": 800,
-      "unitText": "mm/s"
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_passCount",
       "name": "Machine Setting: Pass Count",
       "value": 2,
-      "unitText": "passes"
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_overlapRatio",
       "name": "Machine Setting: Overlap Ratio",
       "value": 30,
-      "unitText": "%"
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90
     },
     {
       "@type": "PropertyValue",
@@ -611,39 +626,6 @@
       "minValue": 0.02155,
       "maxValue": 0.05345,
       "measurementTechnique": "scientific_literature"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalConductivity",
-      "name": "Thermal Conductivity",
-      "description": "Thermal Conductivity - laser material interaction",
-      "value": 0.15,
-      "unitText": "W/m·K",
-      "minValue": 0.1,
-      "maxValue": 0.3,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "thermalDiffusivity",
-      "name": "Thermal Diffusivity",
-      "description": "Thermal Diffusivity - laser material interaction",
-      "value": 1.2e-7,
-      "unitText": "m²/s",
-      "minValue": 1e-7,
-      "maxValue": 2e-7,
-      "measurementTechnique": "ai_research"
-    },
-    {
-      "@type": "PropertyValue",
-      "propertyID": "ablationThreshold",
-      "name": "Ablation Threshold",
-      "description": "Ablation Threshold - laser material interaction",
-      "value": 1.5,
-      "unitText": "J/cm²",
-      "minValue": 0.5,
-      "maxValue": 3,
-      "measurementTechnique": "ai_research"
     }
   ],
   "citation": "Z-Beam (2025). Polyimide Laser Cleaning Dataset. Retrieved from http://localhost:3000/materials/plastic/thermoplastic/polyimide-laser-cleaning"

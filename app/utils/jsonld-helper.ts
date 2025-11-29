@@ -13,7 +13,10 @@ import {
 } from './schemas/generators';
 
 /**
- * Enhanced JSON-LD Schema Generator with Full Frontmatter Integration
+ * SEO Infrastructure - JSON-LD Schema Generator
+ * 
+ * Part of the SEO Infrastructure layer that generates Schema.org structured data
+ * for rich search results and enhanced discoverability.
  * 
  * @deprecated Use modular generators from './schemas/generators' instead
  * This file maintained for backward compatibility during migration
@@ -25,6 +28,8 @@ import {
  * - Expertise: Author credentials, technical specifications, confidence scores
  * - Authoritativeness: Source citations, regulatory standards, industry references
  * - Trustworthiness: Verification metadata, data provenance, transparent confidence levels
+ * 
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  */
 /**
  * Create comprehensive JSON-LD for article/material pages

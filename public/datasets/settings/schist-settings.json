@@ -4,8 +4,8 @@
     "category": "stone",
     "subcategory": "sedimentary",
     "title": "Schist Laser Cleaning Settings",
-    "datePublished": "2025-11-27T20:26:39.090Z",
-    "dateModified": "2025-11-27T20:26:39.090Z",
+    "datePublished": "2025-11-29T22:58:30.117Z",
+    "dateModified": "2025-11-29T22:58:30.117Z",
     "author": {
       "id": 4,
       "name": "Todd Dunning",
@@ -43,39 +43,57 @@
   "machineSettings": {
     "powerRange": {
       "unit": "W",
-      "value": 90
+      "value": 90,
+      "min": 1,
+      "max": 120
     },
     "wavelength": {
       "unit": "nm",
-      "value": 1064
+      "value": 1064,
+      "min": 355,
+      "max": 10640
     },
     "spotSize": {
       "unit": "μm",
-      "value": 80
+      "value": 80,
+      "min": 0.1,
+      "max": 500
     },
     "repetitionRate": {
       "unit": "kHz",
-      "value": 50
+      "value": 50,
+      "min": 1,
+      "max": 200
     },
     "energyDensity": {
       "unit": "J/cm²",
-      "value": 4.5
+      "value": 4.5,
+      "min": 0.1,
+      "max": 20
     },
     "pulseWidth": {
       "unit": "ns",
-      "value": 12
+      "value": 12,
+      "min": 0.1,
+      "max": 1000
     },
     "scanSpeed": {
       "unit": "mm/s",
-      "value": 500
+      "value": 500,
+      "min": 10,
+      "max": 5000
     },
     "passCount": {
       "unit": "passes",
-      "value": 2
+      "value": 2,
+      "min": 1,
+      "max": 10
     },
     "overlapRatio": {
       "unit": "%",
-      "value": 50
+      "value": 50,
+      "min": 10,
+      "max": 90
     }
   },
   "components": {},

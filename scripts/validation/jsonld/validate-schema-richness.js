@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 
 /**
- * Schema Richness Validation Script
+ * SEO Infrastructure - Schema.org Richness Validation
  * 
- * Validates structured data completeness and suggests opportunities:
+ * Validates structured data (JSON-LD Schema.org markup) completeness and quality
+ * as part of the SEO Infrastructure layer for rich search results.
+ * 
+ * Validation checks:
  * - Detects FAQ content → validates FAQPage schema
  * - Detects step-by-step instructions → validates HowTo schema
  * - Detects video embeds → validates VideoObject schema
  * - Suggests Product schema for materials pages
  * - Validates existing schema markup quality
+ * 
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  * 
  * Exit codes:
  * 0 - All checks passed, no critical issues

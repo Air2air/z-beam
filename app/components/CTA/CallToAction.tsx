@@ -8,7 +8,7 @@ import { Button } from '../Button';
 export default function CallToAction() {
   return (
     <section 
-      className="cta w-full cta-height overflow-visible bg-brand-orange fixed-mobile z-40 md:mt-10" 
+      className="cta w-full min-h-[80px] md:min-h-[80px] overflow-visible bg-brand-orange fixed-mobile z-40 md:mt-10" 
       aria-label="Contact call-to-action"
       role="region"
     >

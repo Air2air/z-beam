@@ -6,7 +6,7 @@ DATASET INFORMATION
 --------------------------------------------------------------------------------
 Title:          Dolomite Laser Cleaning Dataset
 Version:        1.0
-Last Updated:   2025-11-27
+Last Updated:   2025-11-29
 License:        Creative Commons Attribution 4.0 International
 License URL:    https://creativecommons.org/licenses/by/4.0/
 Source:         Z-Beam Laser Cleaning Research Lab
@@ -18,7 +18,7 @@ DATA QUALITY
 Verification:   Multi-source cross-reference with industry standards
 Accuracy:       High (±5%)
 Update Cycle:   Quarterly
-Last Verified:  2025-11-27
+Last Verified:  2025-11-29
 Sources:        ASM Handbook, Peer-reviewed literature, AI-verified research
 
 ================================================================================
@@ -36,30 +36,48 @@ MACHINE SETTINGS
 
 powerRange:
   Value:  90 W
+  Min:    1 W
+  Max:    120 W
 
 wavelength:
   Value:  1064 nm
+  Min:    355 nm
+  Max:    10640 nm
 
 spotSize:
   Value:  80 μm
+  Min:    0.1 μm
+  Max:    500 μm
 
 repetitionRate:
   Value:  40 kHz
+  Min:    1 kHz
+  Max:    200 kHz
 
 energyDensity:
   Value:  2.2 J/cm²
+  Min:    0.1 J/cm²
+  Max:    20 J/cm²
 
 pulseWidth:
   Value:  10 ns
+  Min:    0.1 ns
+  Max:    1000 ns
 
 scanSpeed:
   Value:  400 mm/s
+  Min:    10 mm/s
+  Max:    5000 mm/s
 
 passCount:
   Value:  2 passes
+  Min:    1 passes
+  Max:    10 passes
 
 overlapRatio:
   Value:  50 %
+  Min:    10 %
+  Max:    90 %
 
 ================================================================================
 MATERIAL PROPERTIES
@@ -176,26 +194,6 @@ MATERIAL CHARACTERISTICS:
     Min:    0.0252 
     Max:    0.4388 
     Source: scientific_literature
-
-LASER MATERIAL INTERACTION:
---------------------------------------------------------------------------------
-  thermalConductivity:
-    Value:  2.8 W/m·K
-    Min:    2 W/m·K
-    Max:    3.5 W/m·K
-    Source: ai_research
-
-  thermalDiffusivity:
-    Value:  0.0000011 m²/s
-    Min:    8e-7 m²/s
-    Max:    0.0000015 m²/s
-    Source: ai_research
-
-  ablationThreshold:
-    Value:  2.5 J/cm²
-    Min:    1.5 J/cm²
-    Max:    4 J/cm²
-    Source: ai_research
 
 ================================================================================
 CITATION & USAGE

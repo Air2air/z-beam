@@ -1,8 +1,11 @@
 /**
- * SEO Metadata Formatter
+ * SEO Infrastructure - Metadata Formatter
  * 
- * Optimizes titles and descriptions for CTR while maintaining professional voice.
- * Focuses on technical specifications, not marketing claims.
+ * Part of the SEO Infrastructure layer that optimizes titles and descriptions 
+ * for search engine results pages (SERPs) while maintaining professional voice.
+ * 
+ * This utility is part of the browser-based enhancement layer that improves
+ * discoverability without appearing in visible page content.
  * 
  * Key principles:
  * - Titles: 50-60 chars with technical specs
@@ -10,6 +13,8 @@
  * - No sales-y language (best, top, leading, revolutionary)
  * - Data-driven: wavelengths, power, material properties
  * - Professional authority signals
+ * 
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  */
 
 interface MetadataConfig {

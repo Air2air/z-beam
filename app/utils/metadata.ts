@@ -27,6 +27,30 @@ import {
 export type { ArticleMetadata, AuthorInfo };
 
 /**
+ * Generates hreflang alternates for international SEO
+ * Supports: en-US (primary), en-GB, en-CA, en-AU, es-MX, fr-CA, de-DE, zh-CN
+ */
+export function generateHreflangAlternates(canonical: string) {
+  const baseUrl = SITE_CONFIG.url;
+  const path = canonical.replace(baseUrl, '');
+  
+  return {
+    canonical: canonical,
+    languages: {
+      'en-US': canonical, // Primary English (United States)
+      'en-GB': canonical, // English (United Kingdom)
+      'en-CA': canonical, // English (Canada)
+      'en-AU': canonical, // English (Australia)
+      'es-MX': canonical, // Spanish (Mexico)
+      'fr-CA': canonical, // French (Canada)
+      'de-DE': canonical, // German (Germany)
+      'zh-CN': canonical, // Chinese (Simplified, China)
+      'x-default': canonical, // Default for unlisted regions
+    },
+  };
+}
+
+/**
  * Creates comprehensive metadata with E-E-A-T optimization
  * 
  * E-E-A-T Enhancement:
@@ -199,10 +223,8 @@ export function createMetadata(metadata: ArticleMetadata): NextMetadata {
     description: fullDescription,
     keywords: Array.isArray(keywords) ? keywords.join(', ') : extractSafeValue(keywords),
     
-    // Canonical URL for SEO (prevents duplicate content issues)
-    alternates: canonical ? {
-      canonical: canonical,
-    } : undefined,
+    // Canonical URL and hreflang for international SEO
+    alternates: canonical ? generateHreflangAlternates(canonical) : undefined,
     
     // Enhanced OpenGraph with hero image and article metadata
     openGraph: {

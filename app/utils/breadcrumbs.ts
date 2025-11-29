@@ -1,8 +1,14 @@
 // app/utils/breadcrumbs.ts
 /**
+ * SEO Infrastructure - Breadcrumb Navigation Generator
+ * 
+ * Part of the SEO Infrastructure layer that generates navigation hierarchy
+ * for both user navigation and search engine understanding.
+ * 
  * @purpose Centralized breadcrumb handling from explicit frontmatter
  * @usage Import generateBreadcrumbs() and pass frontmatter + pathname
  * @priority Explicit breadcrumb array in frontmatter only
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  */
 
 import { ArticleMetadata, BreadcrumbItem } from '@/types';

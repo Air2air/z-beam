@@ -8,6 +8,11 @@ import * as yaml from 'js-yaml';
 import { normalizeForUrl } from '../app/utils/urlBuilder';
 import type { MaterialDatasetData } from '../types/centralized.js';
 import { SITE_CONFIG } from '../app/config/site.js';
+import { 
+  validateDatasetCompleteness,
+  getDatasetQualityMetrics,
+  formatQualityReport
+} from '../app/utils/datasetValidation';
 
 // Extended interface for script processing
 interface MaterialData extends MaterialDatasetData {
@@ -558,6 +563,8 @@ async function generateAllDatasets() {
   
   let successCount = 0;
   let errorCount = 0;
+  let skippedCount = 0;
+  const skippedMaterials: Array<{name: string, reason: string}> = [];
   
   for (const file of files) {
     try {
@@ -577,6 +584,30 @@ async function generateAllDatasets() {
       if (machineSettings) {
         material.machineSettings = machineSettings;
         console.log(`   📋 Loaded machine settings for ${slug}`);
+      }
+      
+      // DATASET QUALITY POLICY: Validate completeness before generation
+      const validation = validateDatasetCompleteness(
+        slug,
+        machineSettings,
+        material.materialProperties
+      );
+      
+      if (!validation.valid) {
+        skippedCount++;
+        skippedMaterials.push({
+          name: material.name || slug,
+          reason: validation.reason || 'Unknown'
+        });
+        console.log(`⏭️  Skipped: ${material.name} - ${validation.reason}`);
+        continue; // Skip this dataset entirely
+      }
+      
+      // Log warnings for low Tier 2 completeness
+      if (validation.warnings.length > 0) {
+        validation.warnings.forEach(warning => {
+          console.warn(`⚠️  ${material.name}: ${warning}`);
+        });
       }
       
       // Generate JSON
@@ -604,9 +635,18 @@ async function generateAllDatasets() {
   generateIndexFile(outputDir);
   
   console.log(`\n📊 Summary:`);
-  console.log(`   ✅ Success: ${successCount} materials`);
+  console.log(`   ✅ Generated: ${successCount} materials`);
+  console.log(`   ⏭️  Skipped: ${skippedCount} materials (incomplete data)`);
   console.log(`   ❌ Errors: ${errorCount} materials`);
   console.log(`   📁 Output: ${outputDir}`);
+  
+  // Show skipped materials details
+  if (skippedCount > 0) {
+    console.log(`\n⚠️  Skipped Materials (Dataset Quality Policy):`);
+    skippedMaterials.forEach(({ name, reason }) => {
+      console.log(`   • ${name}: ${reason}`);
+    });
+  }
   
   if (errorCount > 0) {
     console.log(`\n❌ Dataset generation completed with ${errorCount} error(s)\n`);

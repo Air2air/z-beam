@@ -8,6 +8,21 @@ import { buildCategoryUrl, buildSubcategoryUrl, buildUrlFromMetadata } from './u
 export default function sitemap(): SitemapEntry[] {
   const baseUrl = SITE_CONFIG.url;
   
+  // Helper to generate alternates for a URL
+  const getAlternates = (url: string) => ({
+    languages: {
+      'en-US': url,
+      'en-GB': url,
+      'en-CA': url,
+      'en-AU': url,
+      'es-MX': url,
+      'fr-CA': url,
+      'de-DE': url,
+      'zh-CN': url,
+      'x-default': url,
+    },
+  });
+  
   // Static routes
   const staticRoutes = [
     {
@@ -15,60 +30,70 @@ export default function sitemap(): SitemapEntry[] {
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 1.0,
+      alternates: getAlternates(baseUrl),
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+      alternates: getAlternates(`${baseUrl}/about`),
     },
     {
       url: `${baseUrl}/services`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+      alternates: getAlternates(`${baseUrl}/services`),
     },
     {
       url: `${baseUrl}/rental`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+      alternates: getAlternates(`${baseUrl}/rental`),
     },
     {
       url: `${baseUrl}/partners`,
       lastModified: new Date('2025-10-17'), // Updated with SEO optimization
       changeFrequency: 'monthly' as const,
       priority: 0.8, // Increased priority for SEO-optimized page
+      alternates: getAlternates(`${baseUrl}/partners`),
     },
     {
       url: `${baseUrl}/netalux`,
       lastModified: new Date('2025-10-25'), // Equipment specifications page
       changeFrequency: 'monthly' as const,
       priority: 0.8, // Equipment page with comparison tables
+      alternates: getAlternates(`${baseUrl}/netalux`),
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+      alternates: getAlternates(`${baseUrl}/contact`),
     },
     {
       url: `${baseUrl}/datasets`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+      alternates: getAlternates(`${baseUrl}/datasets`),
     },
     {
       url: `${baseUrl}/search`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.5,
+      alternates: getAlternates(`${baseUrl}/search`),
     },
     {
       url: `${baseUrl}/materials`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
+      alternates: getAlternates(`${baseUrl}/materials`),
     },
   ];
 
@@ -109,11 +134,13 @@ export default function sitemap(): SitemapEntry[] {
         // Add category page if not seen before
         if (!categorySet.has(category)) {
           categorySet.add(category);
+          const categoryUrl = buildCategoryUrl('materials', category, true);
           materialRoutes.push({
-            url: buildCategoryUrl('materials', category, true),
+            url: categoryUrl,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.7,
+            alternates: getAlternates(categoryUrl),
           });
         }
         
@@ -122,20 +149,24 @@ export default function sitemap(): SitemapEntry[] {
           const subcategoryKey = `${category}/${subcategory}`;
           if (!subcategorySet.has(subcategoryKey)) {
             subcategorySet.add(subcategoryKey);
+            const subcategoryUrl = buildSubcategoryUrl('materials', category, subcategory, true);
             materialRoutes.push({
-              url: buildSubcategoryUrl('materials', category, subcategory, true),
+              url: subcategoryUrl,
               lastModified: new Date(),
               changeFrequency: 'weekly' as const,
               priority: 0.75,
+              alternates: getAlternates(subcategoryUrl),
             });
           }
           
           // Add material page with full path
+          const materialPageUrl = buildUrlFromMetadata({ rootPath: 'materials', category, subcategory, slug }, true);
           materialPageRoutes.push({
-            url: buildUrlFromMetadata({ rootPath: 'materials', category, subcategory, slug }, true),
+            url: materialPageUrl,
             lastModified: stats.mtime,
             changeFrequency: 'weekly' as const,
             priority: 0.8,
+            alternates: getAlternates(materialPageUrl),
           });
         }
       }
@@ -176,11 +207,13 @@ export default function sitemap(): SitemapEntry[] {
         // Settings pages don't have category/subcategory index pages, only material pages
         // Add setting page with full path
         if (subcategory && subcategory.length > 0) {
+          const settingsPageUrl = buildUrlFromMetadata({ rootPath: 'settings', category, subcategory, slug }, true);
           settingsPageRoutes.push({
-            url: buildUrlFromMetadata({ rootPath: 'settings', category, subcategory, slug }, true),
+            url: settingsPageUrl,
             lastModified: stats.mtime,
             changeFrequency: 'weekly' as const,
             priority: 0.7, // Slightly lower priority than materials pages
+            alternates: getAlternates(settingsPageUrl),
           });
         }
       }

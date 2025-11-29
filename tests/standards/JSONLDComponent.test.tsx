@@ -1,12 +1,16 @@
 /**
- * Test Suite: JSON-LD Component Implementation
- * Tests for structured data Schema.org markup system
+ * SEO Infrastructure - Schema.org Structured Data Tests
+ * 
+ * Tests for the SEO Infrastructure layer's JSON-LD Schema.org markup system,
+ * which generates structured data for rich search results and enhanced discoverability.
+ * 
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  */
 
 import fs from 'fs';
 import path from 'path';
 
-describe('JSON-LD Component Implementation', () => {
+describe('SEO Infrastructure - Schema.org Structured Data', () => {
   const jsonldDirPath = path.join(process.cwd(), 'content', 'components', 'jsonld');
   let jsonldFiles: string[] = [];
   let yamlFiles: string[] = [];

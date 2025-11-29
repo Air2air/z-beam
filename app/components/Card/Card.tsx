@@ -3,7 +3,7 @@
  * @purpose Material article card with thumbnail image, badge, and metadata display
  * @dependencies @/types (CardProps, ArticleMetadata, BadgeData), Thumbnail, BadgeSymbol
  * @related CardGrid.tsx, Thumbnail/Thumbnail.tsx, BadgeSymbol/BadgeSymbol.tsx
- * @complexity Low (140 lines, single standard variant)
+ * @complexity Low (optimized: config externalized, semantic classes)
  * @aiContext Import CardProps from @/types. Badge is optional.
  *           frontmatter contains article metadata. href is required for navigation.
  */
@@ -16,46 +16,7 @@ import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
 import { BadgeData, ArticleMetadata, CardProps } from "@/types";
 import { SITE_CONFIG } from "../../utils/constants";
-
-// MaterialCard configuration with variant support
-const CARD_CONFIG = {
-  default: {
-    // Layout
-    padding: "card-padding",
-    imageHeight: "h-[6.75rem] md:h-[7.5rem]", // Fixed height for default cards
-    cardHeight: "card-height-default",
-    
-    // Typography
-    titleClass: "card-title text-base truncate text-primary font-medium",
-    descriptionClass: "text-primary text-xs line-clamp-2",
-    
-    // Appearance
-    cardClass: "rounded-lg shadow-md overflow-hidden",
-    hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
-    
-    // Enhanced transitions - targeting multiple properties for smooth hover effects
-    transitionClass: "transition-all duration-300 ease-out",
-  },
-  featured: {
-    // Layout
-    padding: "card-padding",
-    imageHeight: "h-full", // Full height for featured cards - image expands to fill card
-    cardHeight: "card-height-featured",
-    
-    // Typography
-    titleClass: "card-title text-base truncate text-primary font-medium",
-    descriptionClass: "text-primary text-xs line-clamp-2",
-    
-    // Appearance
-    cardClass: "rounded-lg shadow-md overflow-hidden",
-    hoverEffect: "card-enhanced-hover",
-    titleBarClass: "absolute bottom-0 left-0 right-0 bg-tertiary bg-opacity-60 backdrop-blur-sm",
-    
-    // Enhanced transitions - targeting multiple properties for smooth hover effects
-    transitionClass: "transition-all duration-300 ease-out",
-  }
-} as const;
+import { getCardVariant } from "@/app/config/card-variants";
 
 export function MaterialCard({
   frontmatter,
@@ -65,7 +26,7 @@ export function MaterialCard({
   variant = "default",
 }: CardProps) {
   // Select configuration based on variant with fallback to default
-  const config = CARD_CONFIG[variant] || CARD_CONFIG.default;
+  const config = getCardVariant(variant);
   
   // Extract slug from href (e.g., "/materials/silicon-nitride" -> "silicon-nitride")
   const slug = href?.split('/').pop() || '';
@@ -75,7 +36,7 @@ export function MaterialCard({
   const subject = frontmatter?.subject || ''; // Use subject instead of name
   const imageAlt = frontmatter?.images?.hero?.alt || '';
   
-  // Create absolute URL for Schema.org (relative href won't work for SEO)
+  // Create absolute URL for SEO Infrastructure structured data (relative href won't work)
   const absoluteUrl = href?.startsWith('http') ? href : `${SITE_CONFIG.url}${href || ''}`;
   
   // Check if this is a featured card by examining the className
@@ -83,31 +44,31 @@ export function MaterialCard({
     <Link
       href={href}
       className={`
-        group block card-hover-interactive ${config.cardClass} ${config.cardHeight} ${className} ${config.hoverEffect} ${config.transitionClass}
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
+        group card-base ${config.cardHeight} ${className} ${config.hoverEffect} transition-smooth
+        card-focus
       `}
       aria-label={`View details for ${subject || title}`}
     >
       <article 
-        className="relative flex flex-col h-full card-container" 
+        className="absolute-inset"
         role="article"
         itemScope
         itemType="https://schema.org/Article"
       >
-        {/* Schema.org metadata */}
+        {/* SEO Infrastructure: Schema.org structured data for rich results */}
         <meta itemProp="url" content={absoluteUrl} />
         <meta itemProp="headline" content={subject || title} />
         {frontmatter?.description && (
           <meta itemProp="description" content={frontmatter.description} />
         )}
-        {/* Date metadata */}
+        {/* SEO Infrastructure: Date metadata for search engines */}
         {frontmatter?.datePublished && (
           <meta itemProp="datePublished" content={frontmatter.datePublished} />
         )}
         {frontmatter?.lastModified && (
           <meta itemProp="dateModified" content={frontmatter.lastModified} />
         )}
-        {/* Image metadata */}
+        {/* SEO Infrastructure: Image metadata for search results */}
         {frontmatter?.images?.hero?.url && (
           <meta 
             itemProp="image" 
@@ -118,7 +79,7 @@ export function MaterialCard({
             } 
           />
         )}
-        {/* Author metadata */}
+        {/* SEO Infrastructure: Author metadata for E-E-A-T */}
         {frontmatter?.author && (
           <meta 
             itemProp="author" 
@@ -126,8 +87,8 @@ export function MaterialCard({
           />
         )}
         
-        {/* Full Height Image Container */}
-        <section className={`relative w-full ${config.imageHeight} overflow-hidden bg-secondary`} aria-label="Material image">
+        {/* Image with overlay */}
+        <div className="relative w-full h-full bg-secondary">
           <Thumbnail
             alt={imageAlt || subject || title || (frontmatter?.subject ? frontmatter.subject : 'Image')}
             frontmatter={frontmatter}
@@ -137,7 +98,7 @@ export function MaterialCard({
 
           {/* BadgeSymbol overlay for cards */}
           {badge && badge.symbol && (
-            <div className="absolute top-2 right-2 z-20">
+            <div className="absolute-top-right z-20">
               <BadgeSymbol
                 content=""
                 config={{
@@ -153,11 +114,11 @@ export function MaterialCard({
           )}
 
           {/* Material Title Bar - displays material name with navigation indicator */}
-          <header className={`${config.titleBarClass} ${config.padding} z-10`} role="banner" aria-label="Material card title">
-            <div className="flex items-center justify-between">
+          <header className={`${config.titleBarClass} ${config.padding} backdrop-blur z-10`} role="banner" aria-label="Material card title">
+            <div className="flex-between">
               <div className="flex-1 pr-2 min-w-0 overflow-hidden">
                 <h3 
-                  className={`${config.titleClass}`} 
+                  className={`${config.titleClass} text-truncate`} 
                   id={`card-title-${slug}`}
                   itemProp="name"
                 >
@@ -168,7 +129,7 @@ export function MaterialCard({
               
               {/* Navigation arrow indicator */}
               <svg 
-                className="w-4 h-4 text-primary opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 ease-out flex-shrink-0" 
+                className="w-4 h-4 text-primary opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-smooth flex-shrink-0" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -185,7 +146,7 @@ export function MaterialCard({
               </svg>
             </div>
           </header>
-        </section>
+        </div>
       </article>
     </Link>
   );

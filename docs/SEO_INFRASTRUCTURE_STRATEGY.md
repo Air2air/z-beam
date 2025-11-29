@@ -1,4 +1,13 @@
-# SEO Metadata Strategy & CTR Optimization
+# SEO Infrastructure Strategy & CTR Optimization
+
+## Overview
+
+**SEO Infrastructure** encompasses all browser-based enhancements that improve discoverability, indexing, and rich results without appearing in visible page content:
+- Metadata (title tags, meta descriptions)
+- Structured data (JSON-LD Schema.org markup)
+- Sitemaps (XML navigation for crawlers)
+- Open Graph (social media previews)
+- Breadcrumbs (navigation hierarchy)
 
 ## Research Summary: High-CTR Title & Meta Description Patterns
 

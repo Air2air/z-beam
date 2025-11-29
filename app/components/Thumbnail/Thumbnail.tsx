@@ -35,11 +35,7 @@ export function Thumbnail({
 
   return (
     <div
-      className={`relative overflow-hidden ${className}`}
-      style={{
-        width: "100%",
-        height: "100%",
-      }}
+      className={`relative w-full h-full overflow-hidden ${className}`}
     >
       {!showDefault ? (
         <Image

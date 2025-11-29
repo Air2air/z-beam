@@ -1,7 +1,11 @@
 import { SITE_CONFIG } from '@/app/config';
+import { validateDatasetForSchema } from '@/app/utils/datasetValidation';
 
 /**
  * Generate standard Dataset schema for material/settings pages
+ * 
+ * DATASET QUALITY POLICY: Only generates schema if data is complete
+ * Returns null if validation fails (see docs/01-core/DATASET_QUALITY_POLICY.md)
  */
 export function generateDatasetSchema(params: {
   url: string;
@@ -23,7 +27,30 @@ export function generateDatasetSchema(params: {
   measurementTechnique?: string[];
   variableMeasured?: string[];
   isBasedOn?: any[];
+  // Validation data
+  machineSettings?: any;
+  materialProperties?: any;
+  materialName?: string;
 }) {
+  // DATASET QUALITY POLICY: Validate before generating schema
+  const validation = validateDatasetForSchema({
+    machineSettings: params.machineSettings,
+    materialProperties: params.materialProperties,
+    materialName: params.materialName || params.name
+  });
+  
+  if (!validation.valid) {
+    console.warn(`📊 Dataset schema excluded for ${params.materialName || params.name}: ${validation.reason}`);
+    return null;
+  }
+  
+  // Log warnings for low Tier 2 completeness
+  if (validation.warnings.length > 0) {
+    validation.warnings.forEach(warning => {
+      console.warn(`⚠️  Dataset quality: ${params.materialName || params.name} - ${warning}`);
+    });
+  }
+  
   return {
     '@type': 'Dataset',
     '@id': `${params.url}#dataset`,

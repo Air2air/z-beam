@@ -59,9 +59,9 @@ export async function generateMetadata({ params }: MaterialPageProps) {
     }
     
     // Verify category and subcategory match
-    const metadata = article.metadata as any;
-    const articleCategory = metadata.category ? normalizeForUrl(metadata.category) : undefined;
-    const articleSubcategory = metadata.subcategory ? normalizeForUrl(metadata.subcategory) : undefined;
+    const articleMeta = article.metadata as any;
+    const articleCategory = articleMeta.category ? normalizeForUrl(articleMeta.category) : undefined;
+    const articleSubcategory = articleMeta.subcategory ? normalizeForUrl(articleMeta.subcategory) : undefined;
     
     if (articleCategory !== category || articleSubcategory !== subcategory) {
       // Wrong URL structure - will redirect in page component
@@ -72,11 +72,19 @@ export async function generateMetadata({ params }: MaterialPageProps) {
     }
     
     // Ensure material_description is passed for proper truncation in meta description
-    return createMetadata({
+    const baseMetadata = createMetadata({
       ...article.metadata,
       material_description: (article.metadata as any).material_description,
       canonical: `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`
     } as unknown as ArticleMetadata);
+    
+    // Add canonical URL via alternates
+    return {
+      ...baseMetadata,
+      alternates: {
+        canonical: `${SITE_CONFIG.url}/materials/${category}/${subcategory}/${slug}`
+      }
+    };
   } catch (error) {
     console.error(`Error generating metadata for ${slug}:`, error);
     return {

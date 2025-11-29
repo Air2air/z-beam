@@ -2,7 +2,7 @@
 # License: CC-BY-4.0 (https://creativecommons.org/licenses/by/4.0/)
 # Source: Z-Beam Laser Cleaning Research Lab
 # URL: http://localhost:3000/materials/metal/alloy/nitinol-laser-cleaning
-# Last Updated: 2025-11-27
+# Last Updated: 2025-11-29
 # Version: 1.0
 # Contact: info@z-beam.com
 #
@@ -13,15 +13,15 @@ Basic,Info,Name,Nitinol,,,,,Material name
 Basic,Info,Category,metal,,,,,Material category
 Basic,Info,Subcategory,alloy,,,,,Material subcategory
 Basic,Info,Slug,nitinol-laser-cleaning,,,,,URL identifier
-Machine,Settings,powerRange,100,W,,,,Machine setting: powerRange
-Machine,Settings,wavelength,1064,nm,,,,Machine setting: wavelength
-Machine,Settings,spotSize,50,μm,,,,Machine setting: spotSize
-Machine,Settings,repetitionRate,50,kHz,,,,Machine setting: repetitionRate
-Machine,Settings,energyDensity,2.5,J/cm²,,,,Machine setting: energyDensity
-Machine,Settings,pulseWidth,10,ns,,,,Machine setting: pulseWidth
-Machine,Settings,scanSpeed,500,mm/s,,,,Machine setting: scanSpeed
-Machine,Settings,passCount,2,passes,,,,Machine setting: passCount
-Machine,Settings,overlapRatio,50,%,,,,Machine setting: overlapRatio
+Machine,Settings,powerRange,100,W,1,120,,Machine setting: powerRange
+Machine,Settings,wavelength,1064,nm,355,10640,,Machine setting: wavelength
+Machine,Settings,spotSize,50,μm,0.1,500,,Machine setting: spotSize
+Machine,Settings,repetitionRate,50,kHz,1,200,,Machine setting: repetitionRate
+Machine,Settings,energyDensity,2.5,J/cm²,0.1,20,,Machine setting: energyDensity
+Machine,Settings,pulseWidth,10,ns,0.1,1000,,Machine setting: pulseWidth
+Machine,Settings,scanSpeed,500,mm/s,10,5000,,Machine setting: scanSpeed
+Machine,Settings,passCount,2,passes,1,10,,Machine setting: passCount
+Machine,Settings,overlapRatio,50,%,10,90,,Machine setting: overlapRatio
 Property,material_characteristics,density,6.45,g/cm³,1.6511,9407.9131,,Material property: density
 Property,material_characteristics,porosity,0,%,0,15,,Material property: porosity
 Property,material_characteristics,surfaceRoughness,0.5,μm,0.02375,6.61375,,Material property: surfaceRoughness
@@ -52,6 +52,3 @@ Property,material_characteristics,thermalShockResistance,1250,K,6.65,379049.65,s
 Property,material_characteristics,reflectivity,0.65,dimensionless,0.35,1.01,scientific_literature,Material property: reflectivity
 Property,material_characteristics,absorptivity,0.36,dimensionless,0.019,0.5975,scientific_literature,Material property: absorptivity
 Property,material_characteristics,meltingPoint,1270,°C,133.31033,3864.60427,scientific_literature,Material property: meltingPoint
-Property,laser_material_interaction,thermalConductivity,8.5,W/m·K,7,10,ai_research,Material property: thermalConductivity
-Property,laser_material_interaction,thermalDiffusivity,0.000003,m²/s,0.0000025,0.0000035,ai_research,Material property: thermalDiffusivity
-Property,laser_material_interaction,ablationThreshold,1.2,J/cm²,0.8,1.8,ai_research,Material property: ablationThreshold

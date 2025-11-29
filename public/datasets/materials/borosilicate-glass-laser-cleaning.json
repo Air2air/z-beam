@@ -5,8 +5,8 @@
   "name": "Borosilicate Glass Laser Cleaning Dataset",
   "description": "Comprehensive laser cleaning parameters and material properties for Borosilicate Glass. Includes thermal, optical, mechanical, and laser interaction properties validated against industry standards.",
   "version": "1.0",
-  "dateModified": "2025-11-27",
-  "datePublished": "2025-11-27",
+  "dateModified": "2025-11-29",
+  "datePublished": "2025-11-29",
   "license": {
     "@type": "CreativeWork",
     "name": "Creative Commons Attribution 4.0 International",
@@ -83,7 +83,7 @@
     ],
     "updateFrequency": "Quarterly",
     "accuracyLevel": "High (±5%)",
-    "lastVerified": "2025-11-27"
+    "lastVerified": "2025-11-29"
   },
   "material": {
     "name": "Borosilicate Glass",
@@ -95,39 +95,57 @@
     "machineSettings": {
       "powerRange": {
         "unit": "W",
-        "value": 25
+        "value": 25,
+        "min": 1,
+        "max": 120
       },
       "wavelength": {
         "unit": "nm",
-        "value": 1064
+        "value": 1064,
+        "min": 355,
+        "max": 10640
       },
       "spotSize": {
         "unit": "μm",
-        "value": 100
+        "value": 100,
+        "min": 0.1,
+        "max": 500
       },
       "repetitionRate": {
         "unit": "kHz",
-        "value": 50
+        "value": 50,
+        "min": 1,
+        "max": 200
       },
       "fluenceThreshold": {
         "unit": "J/cm²",
-        "value": 2.5
+        "value": 2.5,
+        "min": 0.3,
+        "max": 4.5
       },
       "pulseWidth": {
         "unit": "ns",
-        "value": 100
+        "value": 100,
+        "min": 0.1,
+        "max": 1000
       },
       "scanSpeed": {
         "unit": "mm/s",
-        "value": 500
+        "value": 500,
+        "min": 10,
+        "max": 5000
       },
       "passCount": {
         "unit": "passes",
-        "value": 3
+        "value": 3,
+        "min": 1,
+        "max": 10
       },
       "overlapRatio": {
         "unit": "%",
-        "value": 50
+        "value": 50,
+        "min": 10,
+        "max": 90
       }
     },
     "laserParameters": {},
@@ -326,63 +344,81 @@
       "propertyID": "machine_powerRange",
       "name": "Machine Setting: Power Range",
       "value": 25,
-      "unitText": "W"
+      "unitText": "W",
+      "minValue": 1,
+      "maxValue": 120
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_wavelength",
       "name": "Machine Setting: Wavelength",
       "value": 1064,
-      "unitText": "nm"
+      "unitText": "nm",
+      "minValue": 355,
+      "maxValue": 10640
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_spotSize",
       "name": "Machine Setting: Spot Size",
       "value": 100,
-      "unitText": "μm"
+      "unitText": "μm",
+      "minValue": 0.1,
+      "maxValue": 500
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_repetitionRate",
       "name": "Machine Setting: Repetition Rate",
       "value": 50,
-      "unitText": "kHz"
+      "unitText": "kHz",
+      "minValue": 1,
+      "maxValue": 200
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_fluenceThreshold",
       "name": "Machine Setting: Fluence Threshold",
       "value": 2.5,
-      "unitText": "J/cm²"
+      "unitText": "J/cm²",
+      "minValue": 0.3,
+      "maxValue": 4.5
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_pulseWidth",
       "name": "Machine Setting: Pulse Width",
       "value": 100,
-      "unitText": "ns"
+      "unitText": "ns",
+      "minValue": 0.1,
+      "maxValue": 1000
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_scanSpeed",
       "name": "Machine Setting: Scan Speed",
       "value": 500,
-      "unitText": "mm/s"
+      "unitText": "mm/s",
+      "minValue": 10,
+      "maxValue": 5000
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_passCount",
       "name": "Machine Setting: Pass Count",
       "value": 3,
-      "unitText": "passes"
+      "unitText": "passes",
+      "minValue": 1,
+      "maxValue": 10
     },
     {
       "@type": "PropertyValue",
       "propertyID": "machine_overlapRatio",
       "name": "Machine Setting: Overlap Ratio",
       "value": 50,
-      "unitText": "%"
+      "unitText": "%",
+      "minValue": 10,
+      "maxValue": 90
     },
     {
       "@type": "PropertyValue",

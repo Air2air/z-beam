@@ -88,7 +88,7 @@ export async function generateMetadata({ params }: SettingsPageProps) {
     }
 
     // Use createMetadata for enhanced OpenGraph, Twitter cards, canonical URLs
-    return createMetadata({
+    const baseMetadata = createMetadata({
       title: settings.seo_settings_page?.title || settings.title,
       description: settings.seo_settings_page?.description || settings.settings_description || settings.description,
       settings_description: settings.settings_description,
@@ -102,6 +102,14 @@ export async function generateMetadata({ params }: SettingsPageProps) {
       content_type: settings.content_type,
       machineSettings: settings.machineSettings,
     } as unknown as ArticleMetadata);
+    
+    // Add canonical URL via alternates
+    return {
+      ...baseMetadata,
+      alternates: {
+        canonical: `${SITE_CONFIG.url}/settings/${category}/${subcategory}/${slug}`
+      }
+    };
   } catch (error) {
     console.error(`Error generating metadata for settings ${slug}:`, error);
     return {

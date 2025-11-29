@@ -6,7 +6,7 @@ import { ArticleMetadata } from '@/types';
 import { SITE_CONFIG } from '../utils/constants';
 
 export const metadata = {
-  title: 'Bay Area Laser Cleaning Experts Since 2020 | Z-Beam',
+  title: 'Bay Area Laser Cleaning Experts | Z-Beam Since 2020',
   description: `Bay Area precision laser cleaning since 2020. 500+ aerospace, marine & heritage projects. EPA-compliant, zero-waste process. Trusted for critical applications.`,
   alternates: {
     canonical: `${SITE_CONFIG.url}/about`,

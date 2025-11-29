@@ -1,5 +1,8 @@
 /**
- * Tests for SEO Metadata Formatter
+ * SEO Infrastructure - Metadata Formatter Tests
+ * 
+ * Tests for the SEO Infrastructure metadata optimization utility that generates
+ * optimized title tags and meta descriptions for search engine results pages.
  * 
  * Validates:
  * - Title length optimization (50-60 chars)
@@ -7,6 +10,8 @@
  * - Professional voice (no sales-y language)
  * - Technical data inclusion
  * - Mobile-first approach
+ * 
+ * @see docs/01-core/SEO_INFRASTRUCTURE_OVERVIEW.md
  */
 
 import {
@@ -16,7 +21,7 @@ import {
   formatSettingsDescription
 } from '@/app/utils/seoMetadataFormatter';
 
-describe('SEO Metadata Formatter', () => {
+describe('SEO Infrastructure - Metadata Formatter', () => {
   describe('Material Title Formatting', () => {
     it('should format title with wavelength and power within 60 chars', () => {
       const result = formatMaterialTitle({

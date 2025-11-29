@@ -14,6 +14,7 @@ Essential architecture, conventions, and foundational concepts:
 - **Naming Conventions** - File and content naming rules
 - **Code Standards** - Development standards and patterns
 - **Breadcrumb System** - Navigation and structured data
+- **SEO Infrastructure** - Meta layer overview (metadata, Schema.org, sitemaps, Open Graph)
 - **Section Icons** - UI icon patterns
 - **CSS Architecture** - Styling organization
 
@@ -31,10 +32,11 @@ Implementation details for specific features:
 - Search implementation
 - Content strategy
 
-#### SEO
-- E-E-A-T meta tags
-- JSON-LD structured data
-- SEO optimization patterns
+#### SEO Infrastructure
+- Metadata optimization (titles, descriptions)
+- JSON-LD structured data (Schema.org)
+- Sitemaps and Open Graph
+- SEO Infrastructure strategy
 
 #### Deployment
 - Deployment workflows

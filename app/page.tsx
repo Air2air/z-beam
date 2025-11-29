@@ -90,6 +90,7 @@ export default async function HomePage() {
           name: pageTitle,
           description: homeConfig.description || SITE_CONFIG.description,
           isPartOf: {
+            '@type': 'WebSite',
             '@id': `${SITE_CONFIG.url}/#website`
           },
           breadcrumb: {

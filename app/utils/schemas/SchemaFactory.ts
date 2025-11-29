@@ -1241,6 +1241,15 @@ function generateDatasetSchema(data: any, context: SchemaContext): SchemaOrgBase
   const frontmatter = getMetadata(data);
   if (!frontmatter.materialProperties && !frontmatter.machineSettings) return null;
 
+  // DATASET QUALITY POLICY: Import validation at top of file, but check here
+  // Validate dataset completeness before generating schema
+  // Note: This will be fully enforced once datasetValidation is imported
+  // For now, we check basic requirements: machineSettings must exist
+  if (!frontmatter.machineSettings) {
+    console.warn(`📊 Dataset schema excluded: No machine settings available`);
+    return null;
+  }
+  
   const { pageUrl, slug, baseUrl } = context;
   
   // Extract material slug from the full slug path (e.g., "materials/metal/non-ferrous/titanium" -> "titanium")
