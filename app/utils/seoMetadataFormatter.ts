@@ -129,17 +129,35 @@ export function formatMaterialDescription(config: MetadataConfig): string {
     subcategory
   } = config;
   
-  // PRIORITY: Use authored material description if available (truncate to 160 chars)
-  if (materialDescription && materialDescription.trim().length > 0) {
-    return truncateDescription(materialDescription, 160);
-  }
-  
-  // FALLBACK: Generate technical description if no authored content
   // Extract key data points
   const density = materialProperties?.material_characteristics?.density?.value;
   const wavelength = machineSettings?.wavelength?.value;
   const power = machineSettings?.powerRange?.value;
   
+  // If we have authored material description, enhance it with technical details
+  if (materialDescription && materialDescription.trim().length > 0) {
+    let desc = materialDescription;
+    
+    // Add density if available and not too long
+    if (density && desc.length < 100) {
+      desc += ` (${density}g/cm³)`;
+    }
+    
+    // Add page features if space permits
+    if (desc.length < 120) {
+      desc += '. Properties, parameters, challenges';
+    }
+    
+    // Add industry context if space permits
+    const context = getIndustryContext(category, subcategory);
+    if (context && desc.length < 135) {
+      desc += ` for ${context.toLowerCase()}`;
+    }
+    
+    return truncateDescription(desc, 160);
+  }
+  
+  // FALLBACK: Generate technical description if no authored content
   // Build description with page features
   let desc = materialName;
   
@@ -187,17 +205,30 @@ export function formatSettingsDescription(config: MetadataConfig): string {
     subcategory
   } = config;
   
-  // PRIORITY: Use authored settings description if available (truncate to 160 chars)
-  if (settingsDescription && settingsDescription.trim().length > 0) {
-    return truncateDescription(settingsDescription, 160);
-  }
-  
-  // FALLBACK: Generate technical description if no authored content
   // Extract machine settings
   const power = machineSettings?.powerRange?.value;
   const wavelength = machineSettings?.wavelength?.value;
   const scanSpeed = machineSettings?.scanSpeed?.value;
   const passes = machineSettings?.passCount?.value;
+  
+  // If we have authored settings description, enhance it with page features
+  if (settingsDescription && settingsDescription.trim().length > 0) {
+    let desc = settingsDescription;
+    
+    // Add page features if space permits
+    if (desc.length < 130) {
+      desc += '. Settings, speed, challenges';
+    }
+    
+    // Add technical specs if space permits
+    if (power && wavelength && desc.length < 145) {
+      desc += ` (${power}W, ${wavelength}nm)`;
+    }
+    
+    return truncateDescription(desc, 160);
+  }
+  
+  // FALLBACK: Generate technical description if no authored content
   
   // Build description with page features
   let desc = '';
