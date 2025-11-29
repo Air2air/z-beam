@@ -137,9 +137,34 @@
     color: var(--text-primary);
   }
   
-  /* Headings - Color only (sizes handled by responsive.css) */
+  /* Headings - Semantic font weights and colors */
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary) !important;
+  }
+  
+  /* Responsive heading sizes */
+  h1 {
+    @apply text-lg sm:text-xl md:text-3xl font-bold;
+  }
+  
+  h2 {
+    @apply text-sm sm:text-base md:text-xl font-bold;
+  }
+  
+  h3 {
+    @apply text-base sm:text-lg md:text-2xl font-medium leading-snug;
+  }
+  
+  h4 {
+    @apply text-sm sm:text-base md:text-xl font-medium;
+  }
+  
+  h5 {
+    @apply text-sm sm:text-base font-medium;
+  }
+  
+  h6 {
+    @apply text-xs sm:text-sm font-medium;
   }
   
   /* Semantic elements */
