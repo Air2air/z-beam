@@ -65,16 +65,17 @@
  * ============================================
  */
 
-/* Tailwind directives must come first */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import color system and responsive config */
+/* Import color system */
 @import './colors.css';
+
+/* Import responsive configuration */
 @import './responsive.css';
 
-/* @layer utilities { */
+@layer utilities {
   .bg-body {
     background-color: var(--bg-body);
   }
@@ -126,9 +127,9 @@
   .bg-brand-orange-dark {
     background-color: var(--brand-orange-dark) !important;
   }
-/* } */
+}
 
-/* @layer base { */
+@layer base {
   /* Body background */
   body {
     background-color: var(--bg-body);
@@ -136,33 +137,9 @@
     color: var(--text-primary);
   }
   
-  /* Headings - Semantic font weights and colors */
+  /* Headings - Color only (sizes handled by responsive.css) */
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary) !important;
-  }
-  
-  h1 {
-    @apply font-bold;
-  }
-  
-  h2 {
-    @apply font-bold;
-  }
-  
-  h3 {
-    @apply font-medium leading-snug;
-  }
-  
-  h4 {
-    @apply font-medium;
-  }
-  
-  h5 {
-    @apply font-medium;
-  }
-  
-  h6 {
-    @apply font-medium;
   }
   
   /* Semantic elements */
@@ -180,9 +157,9 @@
   a {
     @apply text-blue-400 hover:text-blue-300 transition-colors;
   }
-/* } */
+}
 
-/* @layer components { */
+@layer components {
   /* Button font weight */
   .btn,
   button {
@@ -224,7 +201,7 @@
   .card-background {
     background: linear-gradient(to bottom, var(--bg-primary), var(--bg-tertiary));
   }
-/* } */
+}
 
 ::selection {
   background-color: #47a3f3;

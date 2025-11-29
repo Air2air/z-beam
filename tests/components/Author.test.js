@@ -18,7 +18,7 @@ jest.mock('next/link', () => {
 });
 
 jest.mock('next/image', () => {
-  return ({ src, alt, width, height, className }) => (
+  return ({ src, alt, width, height, className, priority, fill, blurDataURL, fetchPriority, ...props }) => (
     <img 
       src={src} 
       alt={alt} 

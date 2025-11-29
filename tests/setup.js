@@ -35,8 +35,9 @@ jest.mock('next/router', () => ({
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props) => {
+  default: ({ priority, fill, blurDataURL, fetchPriority, ...props }) => {
     const React = require('react');
+    // Filter out Next.js-specific props that aren't valid HTML attributes
     return React.createElement('img', props);
   },
 }));

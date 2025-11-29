@@ -31,90 +31,57 @@
 
 /* Headings - Responsive sizing across breakpoints */
 h1 {
-  @apply text-lg sm:text-xl md:text-3xl;
+  font-size: 1.125rem; /* text-lg */
+}
+@media (min-width: 640px) {
+  h1 { font-size: 1.25rem; } /* text-xl */
+}
+@media (min-width: 768px) {
+  h1 { font-size: 1.875rem; } /* text-3xl */
 }
 
 h2 {
-  @apply text-sm sm:text-base md:text-xl;
+  font-size: 0.875rem; /* text-sm */
+}
+@media (min-width: 640px) {
+  h2 { font-size: 1rem; } /* text-base */
+}
+@media (min-width: 768px) {
+  h2 { font-size: 1.25rem; } /* text-xl */
 }
 
 h3 {
-  @apply text-base sm:text-lg md:text-2xl;
+  font-size: 1rem; /* text-base */
+}
+@media (min-width: 640px) {
+  h3 { font-size: 1.125rem; } /* text-lg */
+}
+@media (min-width: 768px) {
+  h3 { font-size: 1.5rem; } /* text-2xl */
 }
 
 h4 {
-  @apply text-sm sm:text-base md:text-xl;
+  font-size: 0.875rem; /* text-sm */
+}
+@media (min-width: 640px) {
+  h4 { font-size: 1rem; } /* text-base */
+}
+@media (min-width: 768px) {
+  h4 { font-size: 1.25rem; } /* text-xl */
 }
 
 h5 {
-  @apply text-sm sm:text-base;
+  font-size: 0.875rem; /* text-sm */
+}
+@media (min-width: 640px) {
+  h5 { font-size: 1rem; } /* text-base */
 }
 
 h6 {
-  @apply text-xs sm:text-sm;
+  font-size: 0.75rem; /* text-xs */
 }
-
-/* ============================================
- * SPACING - Responsive Padding & Margins
- * ============================================ */
-
-/* Container padding */
-.container {
-  @apply px-4 sm:px-6 md:px-8 lg:px-12;
-}
-
-/* Section spacing */
-section {
-  @apply py-8 sm:py-12 md:py-16;
-}
-
-/* Card padding */
-.card {
-  @apply p-4 sm:p-5 md:p-6;
-}
-
-/* Content spacing - margin between elements */
-.content-spacing > * + * {
-  @apply mt-4 sm:mt-5 md:mt-6;
-}
-
-/* Grid gaps */
-.grid-responsive {
-  @apply gap-4 sm:gap-5 md:gap-6 lg:gap-8;
-}
-
-/* Button padding */
-.btn {
-  @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3;
-}
-
-/* Form input padding */
-input[type="text"],
-input[type="email"],
-textarea {
-  @apply px-3 py-2 sm:px-4 sm:py-2.5;
-}
-
-/* Modal/Dialog padding */
-.modal-content,
-.dialog-content {
-  @apply p-4 sm:p-6 md:p-8;
-}
-
-/* Header/Footer padding */
-header,
-footer {
-  @apply px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5;
-}
-
-/* Article/Content padding */
-article {
-  @apply px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-12;
-}
-
-/* List spacing */
-ul, ol {
-  @apply space-y-2 sm:space-y-3 md:space-y-4;
+@media (min-width: 640px) {
+  h6 { font-size: 0.875rem; } /* text-sm */
 }
 
 /* ============================================
@@ -123,27 +90,87 @@ ul, ol {
 
 /* Navigation spacing */
 nav ul {
-  @apply gap-4 sm:gap-6 md:gap-8;
+  gap: 1rem;
+}
+@media (min-width: 640px) {
+  nav ul { gap: 1.5rem; }
+}
+@media (min-width: 768px) {
+  nav ul { gap: 2rem; }
 }
 
 /* Image margins */
 img {
-  @apply my-4 sm:my-6 md:my-8;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  img {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  img {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 
 /* Table cell padding */
 td, th {
-  @apply px-3 py-2 sm:px-4 sm:py-3;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+@media (min-width: 640px) {
+  td, th {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
 }
 
 /* Badge/Pill padding */
 .badge {
-  @apply px-2 py-1 sm:px-2.5 sm:py-1 md:px-3 md:py-1.5;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+@media (min-width: 640px) {
+  .badge {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+}
+@media (min-width: 768px) {
+  .badge {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
 }
 
 /* Divider margins */
 hr {
-  @apply my-6 sm:my-8 md:my-12;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) {
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  hr {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 }
 
 /* ============================================
@@ -152,28 +179,112 @@ hr {
 
 /* Responsive margin utilities */
 .mt-responsive {
-  @apply mt-4 sm:mt-6 md:mt-8 lg:mt-12;
+  margin-top: 1rem;
+}
+@media (min-width: 640px) {
+  .mt-responsive { margin-top: 1.5rem; }
+}
+@media (min-width: 768px) {
+  .mt-responsive { margin-top: 2rem; }
+}
+@media (min-width: 1024px) {
+  .mt-responsive { margin-top: 3rem; }
 }
 
 .mb-responsive {
-  @apply mb-4 sm:mb-6 md:mb-8 lg:mb-12;
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .mb-responsive { margin-bottom: 1.5rem; }
+}
+@media (min-width: 768px) {
+  .mb-responsive { margin-bottom: 2rem; }
+}
+@media (min-width: 1024px) {
+  .mb-responsive { margin-bottom: 3rem; }
 }
 
 .my-responsive {
-  @apply my-4 sm:my-6 md:my-8 lg:my-12;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .my-responsive {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .my-responsive {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .my-responsive {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 }
 
 /* Responsive padding utilities */
 .p-responsive {
-  @apply p-4 sm:p-6 md:p-8 lg:p-12;
+  padding: 1rem;
+}
+@media (min-width: 640px) {
+  .p-responsive { padding: 1.5rem; }
+}
+@media (min-width: 768px) {
+  .p-responsive { padding: 2rem; }
+}
+@media (min-width: 1024px) {
+  .p-responsive { padding: 3rem; }
 }
 
 .px-responsive {
-  @apply px-4 sm:px-6 md:px-8 lg:px-12;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .px-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .px-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .px-responsive {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 .py-responsive {
-  @apply py-4 sm:py-6 md:py-8 lg:py-12;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .py-responsive {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .py-responsive {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .py-responsive {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 /* ============================================
@@ -182,41 +293,117 @@ hr {
 
 /* 2-column grid: mobile stacks, tablet 2 cols */
 .grid-2col {
-  @apply grid grid-cols-1 sm:grid-cols-2;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .grid-2col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* 3-column grid: mobile 1, tablet 2, desktop 3 */
 .grid-3col {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .grid-3col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid-3col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* 4-column grid: mobile 1, tablet 2, desktop 3, large 4 */
 .grid-4col {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .grid-4col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid-4col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1280px) {
+  .grid-4col {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 /* 5-column grid: mobile 2, tablet 3, desktop 4, large 5 (materials) */
 .grid-5col {
-  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .grid-5col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid-5col {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1280px) {
+  .grid-5col {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }
 
 /* 2-column grid with specific MD breakpoint */
 .grid-2col-md {
-  @apply grid md:grid-cols-2;
+  display: grid;
+}
+@media (min-width: 768px) {
+  .grid-2col-md {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* 3-column grid with MD breakpoint */
 .grid-3col-md {
-  @apply grid md:grid-cols-3;
+  display: grid;
+}
+@media (min-width: 768px) {
+  .grid-3col-md {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* Special grid layouts */
 .grid-caption {
-  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .grid-caption {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid-caption {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .grid-booking {
-  @apply grid grid-cols-1 lg:grid-cols-3;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 1024px) {
+  .grid-booking {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /* ============================================
@@ -225,22 +412,47 @@ hr {
 
 /* Stack on mobile, row on SM+ */
 .flex-stack-row {
-  @apply flex flex-col sm:flex-row;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 640px) {
+  .flex-stack-row {
+    flex-direction: row;
+  }
 }
 
 /* Stack on mobile, row on MD+ */
 .flex-stack-row-md {
-  @apply flex flex-col md:flex-row;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flex-stack-row-md {
+    flex-direction: row;
+  }
 }
 
 /* Stack on mobile, row on MD with items-center */
 .flex-stack-row-md-center {
-  @apply flex flex-col md:flex-row md:items-center;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flex-stack-row-md-center {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 /* Stack on mobile, row on LG+ */
 .flex-stack-row-lg {
-  @apply flex flex-col lg:flex-row;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .flex-stack-row-lg {
+    flex-direction: row;
+  }
 }
 
 /* ============================================
@@ -249,27 +461,52 @@ hr {
 
 /* Hide on mobile, show block SM+ */
 .hide-mobile {
-  @apply hidden sm:block;
+  display: none;
+}
+@media (min-width: 640px) {
+  .hide-mobile {
+    display: block;
+  }
 }
 
 /* Hide on mobile, show flex SM+ */
 .hide-mobile-flex {
-  @apply hidden sm:flex;
+  display: none;
+}
+@media (min-width: 640px) {
+  .hide-mobile-flex {
+    display: flex;
+  }
 }
 
 /* Show only on mobile (hide MD+) */
 .show-mobile-only {
-  @apply md:hidden;
+}
+@media (min-width: 768px) {
+  .show-mobile-only {
+    display: none;
+  }
 }
 
 /* Desktop navigation pattern: hide mobile, flex MD+ with items-center */
 .desktop-nav {
-  @apply hidden md:flex items-center;
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* Desktop block: hide on mobile, show block MD+ */
 .desktop-block {
-  @apply hidden md:block;
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-block {
+    display: block;
+  }
 }
 
 /* ============================================
@@ -278,42 +515,98 @@ hr {
 
 /* Card heights - default cards */
 .card-height-default {
-  @apply h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem];
+  height: 100%;
+  min-height: 5.25rem;
+}
+@media (min-width: 768px) {
+  .card-height-default {
+    min-height: 6.75rem;
+  }
+}
+@media (min-width: 1024px) {
+  .card-height-default {
+    min-height: 7.5rem;
+  }
 }
 
 /* Card heights - featured cards (Services/Rental) */
 .card-height-featured {
-  @apply h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem];
+  height: 100%;
+  min-height: 8rem;
+}
+@media (min-width: 768px) {
+  .card-height-featured {
+    min-height: 10rem;
+  }
+}
+@media (min-width: 1024px) {
+  .card-height-featured {
+    min-height: 12rem;
+  }
 }
 
 /* Card heights - metrics cards */
 .card-height-metrics {
-  @apply h-32 md:h-40;
+  height: 8rem;
+}
+@media (min-width: 768px) {
+  .card-height-metrics {
+    height: 10rem;
+  }
 }
 
 /* Image heights for cards */
 .img-height-card {
-  @apply h-[6.75rem] md:h-[7.5rem];
+  height: 6.75rem;
+}
+@media (min-width: 768px) {
+  .img-height-card {
+    height: 7.5rem;
+  }
 }
 
 /* Spacer heights (Layout component) */
 .spacer {
-  @apply h-8 sm:h-12 md:h-16;
+  height: 2rem;
+}
+@media (min-width: 640px) {
+  .spacer {
+    height: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  .spacer {
+    height: 4rem;
+  }
 }
 
 /* Icon sizes - small */
 .icon-sm {
-  @apply w-10 h-10 md:w-12 md:h-12;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+@media (min-width: 768px) {
+  .icon-sm {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 /* Icon sizes - medium */
 .icon-md {
-  @apply w-20 h-20 md:w-24 md:h-24;
+  width: 5rem;
+  height: 5rem;
+}
+@media (min-width: 768px) {
+  .icon-md {
+    width: 6rem;
+    height: 6rem;
+  }
 }
 
 /* CTA minimum height */
 .cta-height {
-  @apply min-h-[80px] md:min-h-[80px];
+  min-height: 80px;
 }
 
 /* ============================================
@@ -322,32 +615,104 @@ hr {
 
 /* Standard container: max-w-6xl with responsive padding */
 .container-standard {
-  @apply mx-auto max-w-6xl px-4 sm:px-6;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-standard {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 /* Container with full padding range */
 .container-full {
-  @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-full {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-full {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* Narrow container for articles */
 .container-narrow {
-  @apply mx-auto max-w-4xl px-4 sm:px-6;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 56rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-narrow {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 /* Centered container (max-w-2xl) */
 .container-centered {
-  @apply mx-auto max-w-2xl px-4 sm:px-6;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-centered {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 /* Hero container pattern */
 .container-hero {
-  @apply mx-auto max-w-6xl px-4 sm:px-5;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 72rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-hero {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
 
 /* Citations container */
 .container-citations {
-  @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .container-citations {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .container-citations {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 /* ============================================
@@ -356,35 +721,80 @@ hr {
 
 /* Small gap (constant) */
 .gap-sm-responsive {
-  @apply gap-2;
+  gap: 0.5rem;
 }
 
 /* Medium gap progression */
 .gap-md-responsive {
-  @apply gap-2 md:gap-4 lg:gap-6;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .gap-md-responsive {
+    gap: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .gap-md-responsive {
+    gap: 1.5rem;
+  }
 }
 
 /* Large gap progression */
 .gap-lg-responsive {
-  @apply gap-2 md:gap-6 lg:gap-8;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .gap-lg-responsive {
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .gap-lg-responsive {
+    gap: 2rem;
+  }
 }
 
 /* Extra large gap progression */
 .gap-xl-responsive {
-  @apply gap-2 md:gap-8 lg:gap-12;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .gap-xl-responsive {
+    gap: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .gap-xl-responsive {
+    gap: 3rem;
+  }
 }
 
 /* Standard gaps (used across many components) */
 .gap-3-responsive {
-  @apply gap-3 md:gap-6;
+  gap: 0.75rem;
+}
+@media (min-width: 768px) {
+  .gap-3-responsive {
+    gap: 1.5rem;
+  }
 }
 
 .gap-4-responsive {
-  @apply gap-4 md:gap-6;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .gap-4-responsive {
+    gap: 1.5rem;
+  }
 }
 
 .gap-6-responsive {
-  @apply gap-6 md:gap-8;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .gap-6-responsive {
+    gap: 2rem;
+  }
 }
 
 /* ============================================
@@ -393,12 +803,28 @@ hr {
 
 /* Standard card padding */
 .card-padding {
-  @apply px-3 py-3 md:px-4 md:py-2.5;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+  .card-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
 }
 
 /* Large card padding (Caption, Research) */
 .card-padding-lg {
-  @apply p-6 md:p-8;
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .card-padding-lg {
+    padding: 2rem;
+  }
 }
 
 /* ============================================
@@ -407,22 +833,54 @@ hr {
 
 /* Standard section padding */
 .section-padding {
-  @apply py-6 md:py-8;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 /* Footer section padding */
 .footer-padding {
-  @apply py-6 md:py-12 lg:py-20;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+@media (min-width: 768px) {
+  .footer-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .footer-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
 
 /* Main content bottom padding (CTA space) */
 .main-bottom-padding {
-  @apply pb-32 md:pb-0;
+  padding-bottom: 8rem;
+}
+@media (min-width: 768px) {
+  .main-bottom-padding {
+    padding-bottom: 0;
+  }
 }
 
 /* Breadcrumbs padding */
 .breadcrumb-padding {
-  @apply py-4 sm:py-6;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .breadcrumb-padding {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
 }
 
 /* ============================================
@@ -431,16 +889,34 @@ hr {
 
 /* Fixed on mobile, relative on desktop (CTA pattern) */
 .fixed-mobile {
-  @apply fixed md:relative bottom-0 left-0 right-0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+@media (min-width: 768px) {
+  .fixed-mobile {
+    position: relative;
+  }
 }
 
 /* Flex order reversal patterns */
 .order-reverse-sm {
-  @apply order-2 sm:order-1;
+  order: 2;
+}
+@media (min-width: 640px) {
+  .order-reverse-sm {
+    order: 1;
+  }
 }
 
 .order-forward-sm {
-  @apply order-1 sm:order-2;
+  order: 1;
+}
+@media (min-width: 640px) {
+  .order-forward-sm {
+    order: 2;
+  }
 }
 
 /* ============================================
@@ -449,17 +925,39 @@ hr {
 
 /* Heatmap main area (left side) */
 .heatmap-main {
-  @apply w-full sm:w-3/5 order-2 sm:order-1 max-w-2xl;
+  width: 100%;
+  order: 2;
+  max-width: 42rem;
+}
+@media (min-width: 640px) {
+  .heatmap-main {
+    width: 60%;
+    order: 1;
+  }
 }
 
 /* Heatmap sidebar (right side) */
 .heatmap-sidebar {
-  @apply w-full sm:w-2/5 order-1 sm:order-2 space-y-4;
+  width: 100%;
+  order: 1;
+}
+.heatmap-sidebar > * + * {
+  margin-top: 1rem;
+}
+@media (min-width: 640px) {
+  .heatmap-sidebar {
+    width: 40%;
+    order: 2;
+  }
 }
 
 /* Grid column spanning */
 .span-2-lg {
-  @apply lg:col-span-2;
+}
+@media (min-width: 1024px) {
+  .span-2-lg {
+    grid-column: span 2 / span 2;
+  }
 }
 
 /* ============================================
@@ -485,12 +983,36 @@ hr {
 
 /* Nav - Main navigation component */
 .nav-logo {
-  @apply h-auto max-h-8 sm:max-h-10 md:max-h-14 w-auto;
+  height: auto;
+  max-height: 2rem;
+  width: auto;
+}
+@media (min-width: 640px) {
+  .nav-logo {
+    max-height: 2.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .nav-logo {
+    max-height: 3.5rem;
+  }
 }
 
 /* Footer - Site footer component */
 .footer-logo {
-  @apply h-auto max-h-8 sm:max-h-12 md:max-h-14 w-auto;
+  height: auto;
+  max-height: 2rem;
+  width: auto;
+}
+@media (min-width: 640px) {
+  .footer-logo {
+    max-height: 3rem;
+  }
+}
+@media (min-width: 768px) {
+  .footer-logo {
+    max-height: 3.5rem;
+  }
 }
 
 /* Breadcrumbs - Breadcrumb navigation component */
@@ -504,7 +1026,14 @@ hr {
 
 /* DatePanel - Publication date display component */
 .date-panel {
-  @apply hidden sm:flex flex-col gap-2;
+  display: none;
+}
+@media (min-width: 640px) {
+  .date-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 /* Caption - Image caption component with quality metrics */
@@ -527,18 +1056,6 @@ hr {
 /* Card - Material and content cards */
 .card-container {
   /* Card wrapper - used in Card.tsx */
-}
-
-.card-height-default {
-  @apply h-full min-h-[5.25rem] md:min-h-[6.75rem] lg:min-h-[7.5rem];
-}
-
-.card-height-featured {
-  @apply h-full min-h-[8rem] md:min-h-[10rem] lg:min-h-[12rem];
-}
-
-.card-padding {
-  @apply px-3 py-3 md:px-4 md:py-2.5;
 }
 
 /* CardGrid - Article grid layouts */
@@ -564,11 +1081,43 @@ hr {
 }
 
 .cta-text {
-  @apply text-sm sm:text-base md:text-xl lg:text-2xl;
+  font-size: 0.875rem;
+}
+@media (min-width: 640px) {
+  .cta-text {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 768px) {
+  .cta-text {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  .cta-text {
+    font-size: 1.5rem;
+  }
 }
 
 .cta-icon {
-  @apply absolute top-1/2 -translate-y-[calc(50%+10px)] sm:-translate-y-1/2 md:-translate-y-1/2 lg:-translate-y-1/2 w-28 h-28 sm:w-36 sm:h-36 md:w-36 md:h-36 lg:w-44 lg:h-44;
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% - 10px));
+  width: 7rem;
+  height: 7rem;
+}
+@media (min-width: 640px) {
+  .cta-icon {
+    transform: translateY(-50%);
+    width: 9rem;
+    height: 9rem;
+  }
+}
+@media (min-width: 1024px) {
+  .cta-icon {
+    width: 11rem;
+    height: 11rem;
+  }
 }
 
 /* Hero - Hero section component */
@@ -583,14 +1132,6 @@ hr {
 /* Heatmap - Base heatmap component */
 .heatmap {
   /* Root class - NEEDS TO BE ADDED to heatmap components */
-}
-
-.heatmap-main {
-  @apply w-full sm:w-3/5 order-2 sm:order-1 max-w-2xl;
-}
-
-.heatmap-sidebar {
-  @apply w-full sm:w-2/5 order-1 sm:order-2 space-y-4;
 }
 
 /* ProcessEffectivenessHeatmap - Cleaning performance visualization */
@@ -619,10 +1160,18 @@ hr {
 
 /* Center items with responsive gap */
 .center-gap-responsive {
-  @apply flex items-center justify-center gap-6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 /* Flex wrap with responsive gap */
 .flex-wrap-gap {
-  @apply flex flex-row items-center justify-center gap-6 flex-wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }

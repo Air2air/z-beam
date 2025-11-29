@@ -17,7 +17,7 @@ import { SITE_CONFIG } from '@/app/utils/constants';
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ src, alt, onLoad, onError, onLoadStart, ...props }: any) => {
+  default: ({ src, alt, onLoad, onError, onLoadStart, priority, fill, blurDataURL, fetchPriority, ...props }: any) => {
     // Simulate image loading behavior without React hooks in mock factory
     setTimeout(() => {
       if (onLoadStart) onLoadStart();
@@ -29,8 +29,8 @@ jest.mock('next/image', () => ({
         src={src}
         alt={alt}
         data-testid="next-image"
-        data-priority={props.priority}
-        data-fill={props.fill}
+        data-priority={String(priority || 'false')}
+        data-fill={String(fill || 'false')}
         {...props}
       />
     );

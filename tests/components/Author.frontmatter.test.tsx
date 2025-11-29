@@ -8,7 +8,7 @@ import { SITE_CONFIG } from '@/app/utils/constants';
 // Mock Next.js Image component
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: ({ src, alt, ...props }: any) => (
+  default: ({ src, alt, priority, fill, blurDataURL, fetchPriority, ...props }: any) => (
     <img src={src} alt={alt} {...props} />
   ),
 }));

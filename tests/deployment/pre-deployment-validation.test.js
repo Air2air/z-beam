@@ -97,7 +97,7 @@ describe('Pre-Deployment Error Prevention', () => {
       
       expect(packageJson.engines).toBeDefined();
       expect(packageJson.engines.node).toBeDefined();
-      expect(packageJson.engines.node).toContain('20');
+      expect(packageJson.engines.node).toMatch(/2[02]\.x/); // Allow Node 20.x or 22.x
     });
   });
 
