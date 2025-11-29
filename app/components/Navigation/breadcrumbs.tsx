@@ -54,7 +54,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Last item: link with aria-current="page" per W3C spec
                 <Link
                   href={crumb.href}
-                  className="text-base text-brand-orange font-medium px-1 py-1 rounded hover:bg-primary transition-colors duration-150"
+                  className="text-brand-orange font-medium px-1 py-1 rounded hover:bg-primary transition-colors duration-150"
                   aria-current="page"
                   onClick={(e) => e.preventDefault()} // Prevent navigation on current page
                 >
@@ -64,7 +64,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Cross-navigation link (e.g., Materials → Settings): distinct styling
                 <Link
                   href={crumb.href}
-                  className="text-base text-primary hover:text-white hover:bg-primary
+                  className="text-primary hover:text-white hover:bg-primary
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded
                              transition-colors duration-150 font-medium px-1 py-1"
                   title={`View ${crumb.label}`}
@@ -75,7 +75,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Other items are normal links
                 <Link
                   href={crumb.href}
-                  className="text-base text-primary hover:text-white hover:bg-primary
+                  className="text-primary hover:text-white hover:bg-primary
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded
                              transition-colors duration-150 px-1 py-1"
                 >
@@ -83,7 +83,7 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 </Link>
               ) : (
                 // Item without href (fallback)
-                <span className="text-base text-primary px-1 py-1" itemProp="name">
+                <span className="text-primary px-1 py-1" itemProp="name">
                   {crumb.label}
                 </span>
               )}

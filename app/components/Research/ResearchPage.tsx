@@ -55,7 +55,7 @@ export function ResearchPage({ data, category, subcategory, materialSlug, proper
     <div className="research-page">
       {/* Breadcrumb Navigation */}
       {data.breadcrumb && (
-        <nav className="mb-8 text-sm" aria-label="Breadcrumb">
+        <nav className="mb-8" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2 flex-wrap">
             {data.breadcrumb.map((item: any, index: number) => (
               <li key={index} className="flex items-center">

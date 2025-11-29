@@ -208,7 +208,7 @@ export function ContentCard({
           
           {/* Text/Description */}
           <p 
-            className={`text-base ${hasDetails ? 'mb-4' : ''}`}
+            className={`${hasDetails ? 'mb-4' : ''}`}
             itemProp="description"
             dangerouslySetInnerHTML={{ __html: text }}
           />

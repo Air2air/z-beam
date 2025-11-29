@@ -25,7 +25,7 @@ export function CaptionHeader({ materialName, frontmatter, captionData }: Captio
         className="caption-heading text-xl mb-2"
         id="surface-analysis-heading"
       />
-      <p className="text-sm text-tertiary mb-3" itemProp="description">
+      <p className="text-tertiary mb-3" itemProp="description">
         Microscopic analysis of {materialType} surface before and after laser cleaning treatment
         {captionData?.laserParams?.wavelength && ` at ${captionData.laserParams.wavelength} nm`}
       </p>
