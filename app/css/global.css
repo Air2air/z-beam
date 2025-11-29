@@ -74,7 +74,7 @@
 @import './colors.css';
 @import './responsive.css';
 
-@layer utilities {
+/* @layer utilities { */
   .bg-body {
     background-color: var(--bg-body);
   }
@@ -126,9 +126,9 @@
   .bg-brand-orange-dark {
     background-color: var(--brand-orange-dark) !important;
   }
-}
+/* } */
 
-@layer base {
+/* @layer base { */
   /* Body background */
   body {
     background-color: var(--bg-body);
@@ -180,9 +180,9 @@
   a {
     @apply text-blue-400 hover:text-blue-300 transition-colors;
   }
-}
+/* } */
 
-@layer components {
+/* @layer components { */
   /* Button font weight */
   .btn,
   button {
@@ -224,7 +224,7 @@
   .card-background {
     background: linear-gradient(to bottom, var(--bg-primary), var(--bg-tertiary));
   }
-}
+/* } */
 
 ::selection {
   background-color: #47a3f3;
