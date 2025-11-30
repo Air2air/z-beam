@@ -14,7 +14,7 @@ Z-Beam maintains comprehensive **unified datasets** for all materials that combi
 - **Machine settings appear FIRST** in all formats (JSON, CSV, TXT)
 - **Includes both:**
   - **Machine settings** (power, wavelength, spot size, etc.) - **AT TOP**
-  - Material properties (thermal, optical, mechanical)
+  - Material properties (material_characteristics containing thermal, optical, mechanical)
 - **Available from:**
   - Materials pages: `/materials/wood/hardwood/oak-laser-cleaning`
   - Settings pages: `/settings/wood/hardwood/oak`

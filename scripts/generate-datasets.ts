@@ -264,17 +264,22 @@ function generateCSV(material: MaterialData, slug: string): string {
   
   const rows: string[][] = [];
   
-  // Metadata header (as comments)
+  // Metadata header (as comments) - max 80 chars per line
+  const citation = config.attribution.format
+    .replace('{year}', new Date().getFullYear().toString())
+    .replace('{materialName}', material.name)
+    .replace('{url}', materialUrl);
+  
   const metadata = [
     `# ${material.name} Laser Cleaning Dataset`,
-    `# License: ${config.license.type} (${config.license.url})`,
+    `# License: ${config.license.type}`,
+    `# URL: ${config.license.url}`,
     `# Source: ${config.publisher.name}`,
-    `# URL: ${materialUrl}`,
-    `# Last Updated: ${currentDate}`,
-    `# Version: ${config.version}`,
     `# Contact: ${config.publisher.email}`,
+    `# Dataset: ${materialUrl}`,
+    `# Updated: ${currentDate} | Version: ${config.version}`,
     '#',
-    `# Citation: ${config.attribution.format.replace('{year}', new Date().getFullYear().toString()).replace('{materialName}', material.name).replace('{url}', materialUrl)}`,
+    `# Citation: ${citation}`,
     '#'
   ];
   
@@ -403,8 +408,9 @@ function generateTXT(material: MaterialData, slug: string): string {
   txt += `${headerBar}\n\n`;
   
   // Dataset Information Section
+  const sectionBar = '-'.repeat(80);
   txt += `DATASET INFORMATION\n`;
-  txt += `${'-'.repeat(80)}\n`;
+  txt += `${sectionBar}\n`;
   txt += `Title:          ${material.name} Laser Cleaning Dataset\n`;
   txt += `Version:        ${config.version}\n`;
   txt += `Last Updated:   ${currentDate}\n`;
@@ -416,7 +422,7 @@ function generateTXT(material: MaterialData, slug: string): string {
   
   // Data Quality Information
   txt += `DATA QUALITY\n`;
-  txt += `${'-'.repeat(80)}\n`;
+  txt += `${sectionBar}\n`;
   txt += `Verification:   ${config.quality.verificationMethod}\n`;
   txt += `Accuracy:       ${config.quality.accuracyLevel}\n`;
   txt += `Update Cycle:   ${config.quality.updateFrequency}\n`;
@@ -480,7 +486,7 @@ function generateTXT(material: MaterialData, slug: string): string {
       
       if (props.length > 0) {
         txt += `${category.replace(/_/g, ' ').toUpperCase()}:\n`;
-        txt += `${'-'.repeat(80)}\n`;
+        txt += `${sectionBar}\n`;
         
         props.forEach(([key, value]: [string, any]) => {
           if (typeof value === 'object' && value?.value !== undefined) {
@@ -587,11 +593,7 @@ async function generateAllDatasets() {
       }
       
       // DATASET QUALITY POLICY: Validate completeness before generation
-      const validation = validateDatasetCompleteness(
-        slug,
-        machineSettings,
-        material.materialProperties
-      );
+      const validation = validateDatasetCompleteness(machineSettings);
       
       if (!validation.valid) {
         skippedCount++;

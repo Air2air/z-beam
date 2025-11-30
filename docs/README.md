@@ -8,6 +8,9 @@
 **Read this first for system understanding**
 
 Essential architecture, conventions, and foundational concepts:
+- **Dataset Architecture** - Dataset generation and quality validation (`app/datasets/`)
+- **Dataset Quality Policy** - 3-tier quality validation system
+- **Dataset SEO Policy** - SEO metadata integration
 - **Frontmatter Architecture** - Content structure and organization
 - **Category System** - Three-category material classification
 - **Type System** - Centralized TypeScript types (`/types/centralized.ts`)
@@ -72,9 +75,10 @@ Release history and migration guides:
 ## 🤖 Quick Navigation for AI Assistants
 
 ### Understanding the System
-1. Start: `01-core/frontmatter-architecture.md`
-2. Then: `01-core/category-system.md`
-3. Reference: `01-core/naming-conventions.md`
+1. Start: `01-core/DATASET_ARCHITECTURE.md` (dataset system)
+2. Then: `01-core/frontmatter-architecture.md`
+3. Next: `01-core/category-system.md`
+4. Reference: `01-core/naming-conventions.md`
 
 ### Implementing Features
 1. Check: `02-features/components/` for component patterns

@@ -16,7 +16,7 @@ Two files work together for each material:
 - Used by: Settings page at `/settings/{category}/{subcategory}/{material}`
 
 **Materials File**: `/frontmatter/materials/{material}-laser-cleaning.yaml`
-- Contains: Material properties (thermal, optical, mechanical)
+- Contains: Material properties (material_characteristics: thermal, optical, mechanical)
 - Used by: Materials page AND loaded by settings page for component calculations
 
 ## Current Status Example (Alabaster)

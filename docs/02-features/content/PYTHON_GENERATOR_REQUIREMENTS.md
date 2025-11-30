@@ -192,7 +192,7 @@ Use for analyzing full-text papers (100K token context)
 def get_material_properties(material_name):
     """
     Query material databases for physical properties
-    Returns: dict with thermal, optical, mechanical properties
+    Returns: dict with material_characteristics containing thermal, optical, mechanical properties
     """
     properties = {}
     

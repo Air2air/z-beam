@@ -102,7 +102,7 @@ If ANY of the 8 Tier 1 parameters are missing:
 
 **Frontmatter Structure**:
 - **machineSettings** (Tier 1 - 8 required parameters): `/frontmatter/settings/[material]-settings.yaml`
-- **materialProperties** (Tier 2 - thermal, optical, mechanical, chemical): `/frontmatter/materials/[material]-laser-cleaning.yaml`
+- **materialProperties** (Tier 2 - material_characteristics with density, hardness, tensileStrength, youngsModulus, thermalConductivity, meltingPoint, thermalExpansion, absorptivity, reflectivity, emissivity): `/frontmatter/materials/[material]-laser-cleaning.yaml`
 - **File Naming Convention**: Settings files append `-settings` to material slug
 
 **Example: Aluminum**

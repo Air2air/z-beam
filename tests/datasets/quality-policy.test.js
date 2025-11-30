@@ -16,7 +16,7 @@ const {
   hasCompleteDataset,
   getDatasetQualityMetrics,
   TIER1_REQUIRED_PARAMETERS
-} = require('../app/utils/datasetValidation');
+} = require('../../app/datasets');
 
 describe('Dataset Quality Policy - Tier 1 Validation', () => {
   
@@ -86,24 +86,17 @@ describe('Dataset Quality Policy - Tier 2 Validation', () => {
   test('should calculate 100% Tier 2 completeness with all properties', () => {
     const machineSettings = createCompleteSettings();
     const materialProperties = {
-      thermal: {
-        meltingPoint: { value: 1500, unit: 'K' },
+      material_characteristics: {
+        density: { value: 7800, unit: 'kg/m³' },
+        hardness: { value: 200, unit: 'HV' },
+        tensileStrength: { value: 500, unit: 'MPa' },
+        youngsModulus: { value: 200, unit: 'GPa' },
         thermalConductivity: { value: 100, unit: 'W/mK' },
-        heatCapacity: { value: 500, unit: 'J/kgK' }
-      },
-      optical: {
+        meltingPoint: { value: 1500, unit: 'K' },
+        thermalExpansion: { value: 12, unit: '10^-6/K' },
         absorptivity: { value: 0.5, unit: '' },
         reflectivity: { value: 0.3, unit: '' },
         emissivity: { value: 0.2, unit: '' }
-      },
-      mechanical: {
-        density: { value: 7800, unit: 'kg/m³' },
-        hardness: { value: 200, unit: 'HV' },
-        tensileStrength: { value: 400, unit: 'MPa' }
-      },
-      chemical: {
-        composition: { value: 'Fe-C', unit: '' },
-        oxidationResistance: { value: 'Good', unit: '' }
       }
     };
     
@@ -117,35 +110,29 @@ describe('Dataset Quality Policy - Tier 2 Validation', () => {
   test('should calculate 50% Tier 2 completeness with half properties', () => {
     const machineSettings = createCompleteSettings();
     const materialProperties = {
-      thermal: {
-        meltingPoint: { value: 1500, unit: 'K' }
-        // Missing thermalConductivity, heatCapacity
-      },
-      optical: {
-        absorptivity: { value: 0.5, unit: '' },
-        reflectivity: { value: 0.3, unit: '' }
-        // Missing emissivity
-      },
-      mechanical: {
+      material_characteristics: {
         density: { value: 7800, unit: 'kg/m³' },
-        hardness: { value: 200, unit: 'HV' }
-        // Missing tensileStrength
+        hardness: { value: 200, unit: 'HV' },
+        tensileStrength: { value: 500, unit: 'MPa' },
+        youngsModulus: { value: 200, unit: 'GPa' },
+        thermalConductivity: { value: 100, unit: 'W/mK' }
+        // Missing 5 out of 10 properties = 50%
       }
-      // Missing chemical category entirely
     };
     
     const result = validateDatasetCompleteness('test-material', machineSettings, materialProperties);
     
     expect(result.valid).toBe(true);
-    expect(result.tier2Completeness).toBeGreaterThanOrEqual(50);
-    expect(result.tier2Completeness).toBeLessThanOrEqual(60); // ~6/11 properties
+    expect(result.tier2Completeness).toBe(50);
   });
   
   test('should warn when Tier 2 completeness < 80%', () => {
     const machineSettings = createCompleteSettings();
     const materialProperties = {
-      thermal: {
-        meltingPoint: { value: 1500, unit: 'K' }
+      material_characteristics: {
+        density: { value: 7800, unit: 'kg/m³' },
+        hardness: { value: 200, unit: 'HV' }
+        // Only 2 out of 10 properties = 20%
       }
     };
     

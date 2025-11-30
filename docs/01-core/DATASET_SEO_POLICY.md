@@ -142,7 +142,7 @@ Material properties that enhance authority:
 2. **Frontmatter Data Sources** (Functional Requirement - Nov 29, 2025)
    - SEO validation MUST check frontmatter directories based on data type:
      - `/frontmatter/settings/*.yaml` - **machineSettings** (8 required Tier 1 parameters)
-     - `/frontmatter/materials/*.yaml` - **materialProperties** (Tier 2: thermal, optical, mechanical, chemical)
+     - `/frontmatter/materials/*.yaml` - **materialProperties** (Tier 2: material_characteristics containing thermal, optical, and mechanical properties)
      - `/frontmatter/contaminants/*.yaml` - Contaminant-specific data
    - **Architecture**: machineSettings live in settings frontmatter (NOT materials)
    - Min/max values stored in frontmatter are single source of truth
@@ -231,7 +231,7 @@ Material/Settings/Contaminant Page Validation
 
 1. **Barrier to Entry**: Competitors would need to:
    - Collect 159 materials × 8 parameters × (value + min + max + unit) = 5,000+ data points
-   - Research material properties (thermal, optical, mechanical, chemical)
+   - Research material properties (material_characteristics: thermal, optical, mechanical properties)
    - Implement validation pipeline
    - Maintain data quality over time
    - **Estimated effort: 6-12 months**

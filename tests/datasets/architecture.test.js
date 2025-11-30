@@ -15,7 +15,7 @@
 const {
   validateDatasetCompleteness,
   getDatasetQualityMetrics
-} = require('../app/utils/datasetValidation');
+} = require('../../app/datasets');
 
 describe('Dataset Frontmatter Architecture - File Locations', () => {
   
