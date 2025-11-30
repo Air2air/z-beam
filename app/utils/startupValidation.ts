@@ -6,6 +6,8 @@ import { ConfigurationError, validateEnvironment } from './errorSystem';
 import { StartupCheckResult } from '@/types';
 // Configuration imports removed - available from manager.server.ts for server-side use
 import { contentValidator } from './contentValidator';
+import fs from 'fs';
+import path from 'path';
 
 class StartupValidator {
   private static instance: StartupValidator;
@@ -121,8 +123,6 @@ class StartupValidator {
 
   // Helper method to check if directory exists
   private directoryExists(dirPath: string): boolean {
-    const fs = require('fs');
-    const path = require('path');
     const fullPath = path.join(process.cwd(), dirPath);
     
     try {
@@ -135,8 +135,6 @@ class StartupValidator {
 
   // Helper method to check if file exists
   private fileExists(filePath: string): boolean {
-    const fs = require('fs');
-    const path = require('path');
     const fullPath = path.join(process.cwd(), filePath);
     
     try {

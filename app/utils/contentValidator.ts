@@ -15,7 +15,8 @@ const logPerformance = (operation: string, duration: number, context?: any) => {
 import 'server-only';
 import * as fs from 'fs';
 import * as path from 'path';
-import { ConfigurationError, ValidationError, safeOperation } from './errorSystem';
+import matter from 'gray-matter';
+import { ConfigurationError, ValidationError, safeOperation as _safeOperation } from './errorSystem';
 
 interface ContentValidationResult {
   passed: boolean;
@@ -237,7 +238,6 @@ class ContentValidator {
       }
 
       // Parse YAML frontmatter
-      const matter = require('gray-matter');
       let frontmatter: any;
       
       try {

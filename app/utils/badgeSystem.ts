@@ -5,7 +5,7 @@
 import 'server-only';
 import * as fs from 'fs';
 import * as path from 'path';
-const matter = require('gray-matter');
+import matter from 'gray-matter';
 import { MaterialType, BadgeData, BadgeSymbolData, MaterialBadgeData, BadgeColor } from '@/types';
 import { safeMatch, extractSafeValue } from './stringHelpers';
 import { badgeCache, materialCache, fileCache, colorCache } from './performanceCache';

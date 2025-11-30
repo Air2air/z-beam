@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateEnvironment, isZBeamError, getErrorDetails } from '../../utils/errorSystem';
 import { logger } from '../../utils/logger';
+import fs from 'fs';
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -28,7 +29,6 @@ export async function GET(_request: NextRequest) {
     
     // Check filesystem access
     try {
-      const fs = require('fs');
       fs.accessSync(process.cwd(), fs.constants.R_OK);
     } catch (_error) {
       healthStatus.checks.filesystem = 'fail';

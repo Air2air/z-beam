@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import yaml from 'yaml';
 import { logger } from '../../utils/logger';
 
 // Mark this route as dynamic to allow request-specific data
@@ -55,7 +56,6 @@ export async function GET(request: NextRequest) {
     
     if (isYamlFile) {
       // For YAML files, parse the entire content as data
-      const yaml = require('yaml');
       // Use parseAllDocuments to handle multiple documents separated by ---
       const documents = yaml.parseAllDocuments(fileContent);
       // Get the first document which contains the actual data
