@@ -297,9 +297,22 @@ async function validateStructuredData(page, pageInfo) {
       continue;
     }
     
-    // Check for @type
-    if (!schema['@type']) {
+    // Check for @type OR @graph (both are valid JSON-LD structures)
+    // @graph format contains multiple schemas in an array
+    if (!schema['@type'] && !schema['@graph']) {
       addResult('structuredData', 'error', `Missing @type in JSON-LD on ${pageInfo.name}`, pageInfo.url);
+      continue;
+    }
+    
+    // Handle @graph format (array of schemas)
+    if (schema['@graph']) {
+      const graphSchemas = schema['@graph'];
+      const graphTypes = graphSchemas.map(s => s['@type']).filter(Boolean);
+      if (graphTypes.length > 0) {
+        addResult('structuredData', 'passed', `Valid @graph with ${graphTypes.length} schemas (${graphTypes.join(', ')}) on ${pageInfo.name}`, pageInfo.url);
+      } else {
+        addResult('structuredData', 'warning', `@graph found but no @type in schemas on ${pageInfo.name}`, pageInfo.url);
+      }
       continue;
     }
     
