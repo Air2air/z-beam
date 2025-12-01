@@ -493,12 +493,29 @@ NO_CACHE=1 npm run validate:content
 # Verbose output (show all details)
 VERBOSE=1 npm run validate:naming
 
-# Custom base URL for validation
+# Custom base URL for validation (defaults to production per policy)
+# See: docs/08-development/PRODUCTION_URL_POLICY.md
 BASE_URL=https://staging.z-beam.com npm run validate:production
+
+# Test against localhost (for local development only)
+BASE_URL=http://localhost:3000 npm run validate:seo-infrastructure
 
 # Force CI mode (disable caching, adjust timeouts)
 CI=1 npm run check
 ```
+
+### Production URL Policy
+
+**All validation scripts default to the production domain** (`https://www.z-beam.com`) per the Production URL Policy.
+
+For local development, override with environment variables:
+```bash
+BASE_URL=http://localhost:3000 npm run validate:seo-infrastructure
+TEST_URL=http://localhost:3000 npm run validate:cwv
+VALIDATION_URL=http://localhost:3000 npm run validate:modern-seo
+```
+
+**Policy Documentation:** `docs/08-development/PRODUCTION_URL_POLICY.md`
 
 ### Per-Script Options
 

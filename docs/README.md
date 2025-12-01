@@ -21,6 +21,10 @@ Essential architecture, conventions, and foundational concepts:
 - **Section Icons** - UI icon patterns
 - **CSS Architecture** - Styling organization
 
+### 🔧 [08-development/](./08-development/) - Development Policies
+Development standards and policy documentation:
+- **Production URL Policy** - Absolute URL requirements for datasets, validation, and SEO
+
 ### 🚀 [02-features/](./02-features/) - Feature Documentation
 Implementation details for specific features:
 

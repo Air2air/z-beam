@@ -167,22 +167,29 @@ git push origin main
 
 ## 🔍 Testing Production vs Development
 
-### Development (localhost)
+### Production URL Policy
+
+**All validation scripts default to production (`https://www.z-beam.com`)** per the Production URL Policy.
+
+📖 **Full Policy:** `docs/08-development/PRODUCTION_URL_POLICY.md`
+
+### Production (Default - live site)
 ```bash
-# Default: Tests http://localhost:3000
+# Default: Tests https://www.z-beam.com (production)
 npm run validate:seo-infrastructure
 
-# Requires dev server running
-npm run dev
+# Post-deployment comprehensive
+npm run validate:production
 ```
 
-### Production (live site)
+### Development (localhost override)
 ```bash
-# Option 1: Use production validator
-npm run validate:production
+# Override to test localhost (requires dev server running)
+npm run dev  # Start dev server first
 
-# Option 2: Set BASE_URL for SEO Infrastructure validator
-BASE_URL=https://www.z-beam.com npm run validate:seo-infrastructure
+BASE_URL=http://localhost:3000 npm run validate:seo-infrastructure
+TEST_URL=http://localhost:3000 npm run validate:cwv
+VALIDATION_URL=http://localhost:3000 npm run validate:modern-seo
 ```
 
 ---

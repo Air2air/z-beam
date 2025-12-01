@@ -593,7 +593,8 @@ async function generateAllDatasets() {
       }
       
       // DATASET QUALITY POLICY: Validate completeness before generation
-      const validation = validateDatasetCompleteness(machineSettings);
+      // validateDatasetCompleteness(materialSlug, machineSettings, materialProperties, additionalData)
+      const validation = validateDatasetCompleteness(slug, machineSettings, material.materialProperties);
       
       if (!validation.valid) {
         skippedCount++;

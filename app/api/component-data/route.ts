@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import yaml from 'yaml';
+import yaml from 'js-yaml';
 import { logger } from '../../utils/logger';
 
 // Mark this route as dynamic to allow request-specific data
