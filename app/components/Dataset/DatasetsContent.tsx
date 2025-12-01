@@ -5,7 +5,6 @@ import React from 'react';
 import { SectionContainer } from '@/app/components/SectionContainer';
 import MaterialBrowserWithFilters from '@/app/components/Dataset/MaterialBrowserWithFilters';
 import DatasetSection from '@/app/components/Dataset/DatasetSection';
-import CategoryBundles from '@/app/components/Dataset/CategoryBundles';
 import { PackageIcon } from '@/app/components/Buttons';
 import { trackDatasetDownload } from '@/app/utils/analytics';
 import { capitalizeWords } from '@/app/utils/formatting';

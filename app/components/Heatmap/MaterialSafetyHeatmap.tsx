@@ -65,8 +65,8 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
 
       // Calculate position in parameter space (normalized 0-1)
       // EXPANDED: Use wider effective ranges to spread colors across full parameter space
-      const powerNormalized = (power - powerRange.min) / (powerRange.max - powerRange.min);
-      const pulseNormalized = (pulse - pulseRange.min) / (pulseRange.max - pulseRange.min);
+      const _powerNormalized = (power - powerRange.min) / (powerRange.max - powerRange.min);
+      const _pulseNormalized = (pulse - pulseRange.min) / (pulseRange.max - pulseRange.min);
       
       // FLUENCE-BASED DAMAGE RISK (primary factor)
       // Expanded to use full 0.0-1.0 range for better color distribution
@@ -174,7 +174,7 @@ export const MaterialSafetyHeatmap: React.FC<MaterialSafetyHeatmapProps> = (prop
   const renderAnalysisPanel = (hoveredCell: HoveredCell | null, currentPower: number, currentPulse: number) => {
     const result = hoveredCell?.analysis || calculateScore(currentPower, currentPulse, materialProperties).analysis;
     const level = Math.round(result.level);
-    const materialLabel = props.materialName || 'Material';
+    const _materialLabel = props.materialName || 'Material';
     
     return (
       <section>

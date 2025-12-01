@@ -192,7 +192,7 @@ export const ProcessEffectivenessHeatmap: React.FC<ProcessEffectivenessHeatmapPr
   const renderAnalysisPanel = (hoveredCell: any | null, currentPower: number, currentPulse: number) => {
     const result = hoveredCell?.analysis || calculateScore(currentPower, currentPulse, materialProperties).analysis;
     const level = Math.round(result.level);
-    const materialLabel = props.materialName || 'Process';
+    const _materialLabel = props.materialName || 'Process';
     
     return (
       <section>

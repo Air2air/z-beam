@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import type { Citation, CitationsProps } from '@/types/centralized';
+import type { CitationsProps } from '@/types/centralized';
 
 /**
  * Citations Component - Display research citations with expandable details

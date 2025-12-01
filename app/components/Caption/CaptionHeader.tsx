@@ -3,8 +3,7 @@
 
 import { FrontmatterType, ParsedCaptionData } from '@/types';
 import React from 'react';
-import { CaptionData } from './useCaptionParsing';
-import { capitalizeWords, capitalizeFirst } from '../../utils/formatting';
+import { capitalizeFirst } from '../../utils/formatting';
 import { Title } from '../Title';
 
 interface CaptionHeaderProps {

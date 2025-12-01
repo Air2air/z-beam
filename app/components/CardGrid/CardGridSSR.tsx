@@ -3,10 +3,10 @@
 
 import React from 'react';
 import { Card } from "../Card/Card";
-import { Article, MaterialType, BadgeData, ArticleMetadata, GridItemSSR, CardGridSSRProps } from "@/types";
+import { GridItemSSR, CardGridSSRProps, MaterialType, BadgeData, Article, ArticleMetadata } from "@/types";
 import { getArticle, loadComponent } from "../../utils/contentAPI";
 import { slugToDisplayName } from "../../utils/formatting";
-import { getGridClasses, createSectionHeader, createCategoryHeader, type GridColumns, type GridGap } from "../../utils/gridConfig";
+import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
 import { buildUrlFromMetadata } from "../../utils/urlBuilder";
 

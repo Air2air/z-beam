@@ -14,7 +14,7 @@ import "./styles.scss";
 import Link from "next/link";
 import { Thumbnail } from "../Thumbnail/Thumbnail";
 import { BadgeSymbol } from "../BadgeSymbol/BadgeSymbol";
-import { BadgeData, ArticleMetadata, CardProps } from "@/types";
+import { CardProps } from "@/types";
 import { SITE_CONFIG } from "../../utils/constants";
 import { getCardVariant } from "@/app/config/card-variants";
 

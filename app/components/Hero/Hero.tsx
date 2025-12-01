@@ -24,13 +24,13 @@ export function Hero({
   children,
   theme = 'dark',
   variant = 'default',
-  className = '',
+  className: _className = '',
   customOverlay = false,
 }: HeroProps) {
   // Minimal state - only what's essential
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [_imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [isInView, setIsInView] = useState(true); // Hero is above-fold, always visible
+  const [_isInView, _setIsInView] = useState(true); // Hero is above-fold, always visible
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);

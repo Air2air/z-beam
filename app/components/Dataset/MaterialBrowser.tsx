@@ -2,12 +2,12 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { SearchIcon, DownloadIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
+import { SearchIcon, FilterIcon, XIcon } from '@/app/components/Buttons';
 import { DatasetCard } from './DatasetCard';
 import { getGridClasses } from '@/app/config/site';
 import { capitalizeWords } from '@/app/utils/formatting';
 import { triggerDownload } from '@/app/utils/downloadUtils';
-import type { MaterialBrowserProps, DatasetMaterial } from '@/types/centralized';
+import type { MaterialBrowserProps } from '@/types/centralized';
 
 interface MaterialBrowserExtendedProps extends MaterialBrowserProps {
   showFilters?: boolean;

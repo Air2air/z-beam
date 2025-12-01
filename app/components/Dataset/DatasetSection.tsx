@@ -2,8 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { InfoIcon, CheckCircleIcon, FileIcon } from '@/app/components/Buttons';
-import { Button } from '@/app/components/Button';
+import { FileIcon } from '@/app/components/Buttons';
 import DatasetDownloadControls from './DatasetDownloadControls';
 import { copyToClipboard } from '@/app/utils/downloadUtils';
 import type { DatasetSectionProps } from '@/types/centralized';
@@ -15,8 +14,8 @@ export default function DatasetSection({
   formats,
   onDownload,
   getDirectLink,
-  includes,
-  note,
+  includes: _includes,
+  note: _note,
   categoryLink,
   fullDatasetLink = false
 }: DatasetSectionProps) {

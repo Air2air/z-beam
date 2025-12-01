@@ -1,7 +1,7 @@
 // app/components/Contact/ContactForm.tsx
 'use client';
 
-import { useState, useRef, useEffect, memo } from 'react';
+import { useState, useRef, memo } from 'react';
 import { ContactFormData, FormErrors } from '@/types';
 import { Button } from '../Button';
 

@@ -15,7 +15,7 @@
 import React, { useState, useMemo } from 'react';
 import { Card } from "../Card/Card";
 import { Button } from "../Button";
-import { Article, MaterialType, BadgeData, SearchResultItem, ArticleMetadata, CardItem, CardGridProps, GridColumns, GridGap } from "@/types";
+import { CardItem, CardGridProps, ArticleMetadata } from "@/types";
 import { slugToDisplayName } from "../../utils/formatting";
 import { getGridClasses } from "../../utils/gridConfig";
 import { Title } from '../Title';
@@ -51,7 +51,7 @@ export function CardGrid({
   categoryOrder = DEFAULT_CATEGORY_ORDER,
   filterBy = 'all',
   showBadgeSymbols = true,
-  loadBadgeSymbolData = false,
+  loadBadgeSymbolData: _loadBadgeSymbolData = false,
   className = ""
 }: CardGridProps) {
   

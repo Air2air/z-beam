@@ -25,8 +25,8 @@ import { interpolateColor } from '@/app/utils/colorUtils';
 export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   powerRange,
   pulseRange,
-  optimalPower,
-  optimalPulse,
+  optimalPower: _optimalPower,
+  optimalPulse: _optimalPulse,
   materialProperties,
   title,
   description,
@@ -36,9 +36,9 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   calculateScore,
   colorAnchors,
   getScoreLabel,
-  legendItems,
+  legendItems: _legendItems,
   renderAnalysisPanel,
-  footerDescription,
+  footerDescription: _footerDescription,
 }) => {
   // Immediate hover state for tooltips
   const [hoveredCell, setHoveredCell] = useState<HoveredCell | null>(null);

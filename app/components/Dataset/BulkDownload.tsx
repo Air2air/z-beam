@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { DownloadIcon, PackageIcon, CodeIcon, FileTextIcon, FileIcon } from '@/app/components/Buttons';
+import { PackageIcon, FileIcon } from '@/app/components/Buttons';
 import { Button } from '@/app/components/Button';
 import { DatasetCard } from './DatasetCard';
 import { DownloadCard } from './DownloadCard';
