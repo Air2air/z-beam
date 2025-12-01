@@ -338,3 +338,87 @@ npm run datasets:check
 - [ ] Git hook integration for pre-commit checks
 - [ ] Real-time dashboard with WebSocket updates
 - [ ] Historical quality tracking and trends
+
+---
+
+## 🔄 Refactoring Plan (December 2025)
+
+### Current Architecture Issues
+
+**Duplication across scripts:**
+| File | Lines | Purpose |
+|------|-------|---------|
+| `scripts/generate-datasets.ts` | 712 | Materials: JSON/CSV/TXT |
+| `scripts/generate-settings-datasets.js` | 255 | Settings: JSON/CSV/TXT |
+
+**Problems:**
+1. Two separate scripts (TS + JS) generating similar formats
+2. Format generation logic (JSON, CSV, TXT) duplicated 
+3. YAML loading/parsing repeated in both files
+4. No shared format renderer infrastructure
+5. Empty `app/datasets/generation/formats/` directory (planned but never implemented)
+
+### Proposed Consolidated Architecture
+
+```
+app/datasets/
+├── core/                    # ✅ DONE - Keep as-is
+│   ├── validation.ts
+│   ├── metrics.ts
+│   ├── sync.ts
+│   └── types.ts
+├── generation/              # 🔄 NEW - Consolidate generators
+│   ├── generator.ts         # Unified generator class
+│   ├── formats/             
+│   │   ├── json.ts          # JSON formatter
+│   │   ├── csv.ts           # CSV formatter
+│   │   └── txt.ts           # TXT formatter
+│   └── loaders/
+│       ├── material.ts      # Load material YAML
+│       └── settings.ts      # Load settings YAML
+├── quality/                 # ✅ DONE - Keep as-is
+│   └── reporting.ts
+└── index.ts                 # Update exports
+
+scripts/
+├── generate-datasets.ts     # 🔄 REFACTOR - Thin wrapper calling app/datasets/generation
+└── generate-settings-datasets.js  # 🗑️ DELETE - Merge into generate-datasets.ts
+```
+
+### Refactoring Steps
+
+**Phase 1: Format Extractors** (2 hours)
+- [ ] Create `app/datasets/generation/formats/json.ts` with `generateJSON(material, slug)`
+- [ ] Create `app/datasets/generation/formats/csv.ts` with `generateCSV(material, slug)`
+- [ ] Create `app/datasets/generation/formats/txt.ts` with `generateTXT(material, slug)`
+- [ ] Export all from `app/datasets/generation/formats/index.ts`
+
+**Phase 2: Unified Generator** (2 hours)
+- [ ] Create `app/datasets/generation/generator.ts`
+- [ ] Implement `DatasetGenerator` class with:
+  - `generateMaterial(slug, options)` - Generate material datasets
+  - `generateSettings(slug, options)` - Generate settings datasets
+  - `generateAll(options)` - Batch generation
+- [ ] Use format extractors from Phase 1
+
+**Phase 3: Script Consolidation** (1 hour)
+- [ ] Update `scripts/generate-datasets.ts` to use new generator
+- [ ] Delete `scripts/generate-settings-datasets.js`
+- [ ] Update `package.json` scripts
+
+**Phase 4: Tests** (1 hour)
+- [ ] Add unit tests for format generators
+- [ ] Add integration test for full generation pipeline
+- [ ] Verify outputs match current behavior
+
+### Estimated Effort
+- **Total**: 6 hours
+- **Risk**: Low (build-time only, no runtime impact)
+- **Priority**: Low (current system works correctly)
+
+### Benefits After Refactoring
+- Single source of truth for format generation
+- Easier to add new formats (e.g., XML, Parquet)
+- Reduced code duplication (~400 lines)
+- Consistent TypeScript across all generators
+- Better testability
