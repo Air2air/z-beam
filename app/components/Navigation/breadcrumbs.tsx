@@ -54,9 +54,8 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Last item: link with aria-current="page" per W3C spec
                 <Link
                   href={crumb.href}
-                  className="text-base text-brand-orange font-medium px-1 py-1 rounded hover:bg-primary transition-colors duration-150"
                   aria-current="page"
-                  onClick={(e) => e.preventDefault()} // Prevent navigation on current page
+                  onClick={(e) => e.preventDefault()}
                 >
                   <span itemProp="name">{crumb.label}</span>
                 </Link>
@@ -64,60 +63,24 @@ export function Breadcrumbs({ breadcrumbData }: BreadcrumbsProps = {}) {
                 // Cross-navigation link (e.g., Materials → Settings): distinct styling
                 <Link
                   href={crumb.href}
-                  className="text-base text-primary hover:text-white hover:bg-primary
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded
-                             transition-colors duration-150 font-medium px-1 py-1"
+                  className="font-medium"
                   title={`View ${crumb.label}`}
                 >
                   <span itemProp="name">{crumb.label}</span>
                 </Link>
               ) : crumb.href ? (
                 // Other items are normal links
-                <Link
-                  href={crumb.href}
-                  className="text-base text-primary hover:text-white hover:bg-primary
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded
-                             transition-colors duration-150 px-1 py-1"
-                >
+                <Link href={crumb.href}>
                   <span itemProp="name">{crumb.label}</span>
                 </Link>
               ) : (
                 // Item without href (fallback)
-                <span className="text-base text-primary px-1 py-1" itemProp="name">
-                  {crumb.label}
-                </span>
+                <span itemProp="name">{crumb.label}</span>
               )}
             </li>
           );
         })}
       </ol>
-      
-      <style jsx>{`
-        .breadcrumb-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        
-        .breadcrumb-item:not(:last-child)::after {
-          content: '›';
-          margin: 0 0.25rem;
-          color: rgb(156, 163, 175); /* gray-400 */
-          font-size: 1.25rem;
-          display: inline-block;
-        }
-        
-        @media (prefers-color-scheme: dark) {
-          .breadcrumb-item:not(:last-child)::after {
-            color: rgb(107, 114, 128); /* gray-500 for dark mode */
-          }
-        }
-        
-        /* Ensure separators are not announced by screen readers */
-        .breadcrumb-item::after {
-          aria-hidden: true;
-        }
-      `}</style>
     </nav>
   );
 }

@@ -39,23 +39,24 @@ module.exports = {
       // ============================================
       // BASE FONT SIZE CONFIGURATION
       // ============================================
-      // Custom font size scale - reduced for better mobile readability
-      // SM: Reduced by one unit from default Tailwind
-      // XS: Reduced by two units from default Tailwind
+      // Single Source: app/config/fonts.ts FONT_CONFIG.baseFontSize
+      // Current base: 0.875rem (14px)
+      // All sizes use em units to scale RELATIVE to base
+      // To change base: Update fonts.ts, then sync 'base' here
       fontSize: {
-        'xs': ['0.625rem', { lineHeight: '1rem' }],      // 10px (was 12px)
-        'sm': ['0.75rem', { lineHeight: '1.25rem' }],     // 12px (was 14px)
-        'base': ['0.8125rem', { lineHeight: '1.5rem' }],  // 13px (was 15px)
-        'lg': ['0.9375rem', { lineHeight: '1.75rem' }],   // 15px (was 18px)
-        'xl': ['1.0625rem', { lineHeight: '1.75rem' }],   // 17px (was 20px)
-        '2xl': ['1.25rem', { lineHeight: '2rem' }],       // 20px (was 24px)
-        '3xl': ['1.5rem', { lineHeight: '2.25rem' }],     // 24px (was 30px)
-        '4xl': ['1.875rem', { lineHeight: '2.5rem' }],    // 30px (was 36px)
-        '5xl': ['2.25rem', { lineHeight: '2.5rem' }],     // 36px (was 48px)
-        '6xl': ['2.75rem', { lineHeight: '1' }],          // 44px (was 60px)
-        '7xl': ['3.5rem', { lineHeight: '1' }],           // 56px (was 72px)
-        '8xl': ['4.5rem', { lineHeight: '1' }],           // 72px (was 96px)
-        '9xl': ['6rem', { lineHeight: '1' }],             // 96px (was 128px)
+        'xs': ['0.714em', { lineHeight: '1.4' }],        // ~10px (0.714 × 14)
+        'sm': ['0.857em', { lineHeight: '1.5' }],        // ~12px (0.857 × 14)
+        'base': ['0.875rem', { lineHeight: '1.5' }],     // 14px - BASE (rem, not em)
+        'lg': ['1.143em', { lineHeight: '1.6' }],        // ~16px (1.143 × 14)
+        'xl': ['1.286em', { lineHeight: '1.5' }],        // ~18px (1.286 × 14)
+        '2xl': ['1.429em', { lineHeight: '1.4' }],       // ~20px (1.429 × 14)
+        '3xl': ['1.714em', { lineHeight: '1.35' }],      // ~24px (1.714 × 14)
+        '4xl': ['2.143em', { lineHeight: '1.3' }],       // ~30px (2.143 × 14)
+        '5xl': ['2.571em', { lineHeight: '1.2' }],       // ~36px (2.571 × 14)
+        '6xl': ['3.143em', { lineHeight: '1.1' }],       // ~44px (3.143 × 14)
+        '7xl': ['4em', { lineHeight: '1' }],             // ~56px (4 × 14)
+        '8xl': ['5.143em', { lineHeight: '1' }],         // ~72px (5.143 × 14)
+        '9xl': ['6.857em', { lineHeight: '1' }],         // ~96px (6.857 × 14)
       },
       // ============================================
       // CENTRALIZED FONT FAMILY CONFIGURATION

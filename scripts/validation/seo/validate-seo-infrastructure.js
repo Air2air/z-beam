@@ -93,6 +93,139 @@ function calculateTier2Completeness(materialProperties) {
   return totalProperties === 0 ? 0 : Math.round((completeProperties / totalProperties) * 100);
 }
 
+/**
+ * Validate Dataset schema URL requirements per Google structured data guidelines
+ * @see https://developers.google.com/search/docs/appearance/structured-data/dataset
+ * 
+ * Required Properties:
+ * - name: Name of the dataset
+ * - description: Description of the dataset
+ * - url: URL of the dataset page (for proper indexing and deduplication)
+ * 
+ * Recommended Properties:
+ * - distribution: Array of DataDownload with contentUrl
+ * - license: URL or CreativeWork with URL
+ * - creator/author: Organization or Person
+ */
+function validateDatasetUrlRequirements(schema, pageInfo) {
+  const datasetName = schema.name || 'Unknown Dataset';
+  
+  // Required: url property (critical for Google indexing)
+  if (!schema.url) {
+    addResult('datasetQuality', 'error', 
+      `Dataset "${datasetName}" missing required 'url' property on ${pageInfo.name}`, 
+      pageInfo.url
+    );
+    addResult('datasetQuality', 'error', 
+      `  ⚠️  Google requires 'url' for Dataset schema indexing`, 
+      pageInfo.url
+    );
+  } else {
+    // Validate URL format
+    try {
+      const url = new URL(schema.url);
+      if (url.protocol !== 'https:' && url.protocol !== 'http:') {
+        addResult('datasetQuality', 'warning', 
+          `Dataset URL should use https:// protocol: ${schema.url}`, 
+          pageInfo.url
+        );
+      } else {
+        addResult('datasetQuality', 'passed', 
+          `Dataset has valid url: ${schema.url}`, 
+          pageInfo.url
+        );
+      }
+    } catch (e) {
+      addResult('datasetQuality', 'error', 
+        `Dataset has invalid url format: ${schema.url}`, 
+        pageInfo.url
+      );
+    }
+  }
+  
+  // Required: name property
+  if (!schema.name) {
+    addResult('datasetQuality', 'error', 
+      `Dataset missing required 'name' property on ${pageInfo.name}`, 
+      pageInfo.url
+    );
+  }
+  
+  // Required: description property
+  if (!schema.description) {
+    addResult('datasetQuality', 'error', 
+      `Dataset missing required 'description' property on ${pageInfo.name}`, 
+      pageInfo.url
+    );
+  }
+  
+  // Recommended: distribution with contentUrl
+  if (schema.distribution) {
+    const distributions = Array.isArray(schema.distribution) 
+      ? schema.distribution 
+      : [schema.distribution];
+    
+    let hasValidDistribution = false;
+    for (const dist of distributions) {
+      if (dist.contentUrl) {
+        hasValidDistribution = true;
+        // Validate contentUrl format
+        try {
+          new URL(dist.contentUrl);
+        } catch (e) {
+          addResult('datasetQuality', 'warning', 
+            `Distribution has invalid contentUrl: ${dist.contentUrl}`, 
+            pageInfo.url
+          );
+        }
+      }
+    }
+    
+    if (hasValidDistribution) {
+      addResult('datasetQuality', 'passed', 
+        `Dataset has ${distributions.length} download distribution(s) with contentUrl`, 
+        pageInfo.url
+      );
+    } else {
+      addResult('datasetQuality', 'warning', 
+        `Dataset distributions missing 'contentUrl' property (recommended for downloads)`, 
+        pageInfo.url
+      );
+    }
+  } else {
+    addResult('datasetQuality', 'warning', 
+      `Dataset missing 'distribution' property (recommended for download links)`, 
+      pageInfo.url
+    );
+  }
+  
+  // Recommended: license
+  if (!schema.license) {
+    addResult('datasetQuality', 'warning', 
+      `Dataset missing 'license' property (recommended for data provenance)`, 
+      pageInfo.url
+    );
+  } else {
+    const licenseUrl = typeof schema.license === 'string' 
+      ? schema.license 
+      : schema.license?.url;
+    if (licenseUrl) {
+      addResult('datasetQuality', 'passed', 
+        `Dataset has license: ${licenseUrl}`, 
+        pageInfo.url
+      );
+    }
+  }
+  
+  // Recommended: creator or author
+  if (!schema.creator && !schema.author) {
+    addResult('datasetQuality', 'warning', 
+      `Dataset missing 'creator' or 'author' property (recommended for E-E-A-T)`, 
+      pageInfo.url
+    );
+  }
+}
+
 function validateDatasetForSchema(machineSettings, materialProperties, materialName) {
   const missing = [];
   const warnings = [];
@@ -134,11 +267,12 @@ const VERBOSE = process.argv.includes('--verbose');
 const JSON_OUTPUT = process.argv.includes('--json');
 
 // Test pages representing different content types
+// URLs updated Dec 2025 to match actual route structure
 const TEST_PAGES = [
   { url: '/', type: 'home', name: 'Homepage' },
-  { url: '/materials/aluminum', type: 'material', name: 'Material Page' },
-  { url: '/settings/power', type: 'settings', name: 'Settings Page' },
-  { url: '/services/laser-cleaning', type: 'service', name: 'Service Page' },
+  { url: '/materials/metal/non-ferrous/aluminum-laser-cleaning', type: 'material', name: 'Material Page' },
+  { url: '/settings/metal/non-ferrous/aluminum-settings', type: 'settings', name: 'Settings Page' },
+  { url: '/services', type: 'service', name: 'Service Page' },
   { url: '/about', type: 'static', name: 'Static Page' }
 ];
 
@@ -287,7 +421,21 @@ async function validateStructuredData(page, pageInfo) {
   verbose(`Found ${jsonldScripts.length} JSON-LD blocks`);
   
   // Collect all schema types for opportunity detection
-  const schemaTypes = jsonldScripts.map(s => s['@type']).flat();
+  // Include types from both root-level schemas AND @graph schemas
+  const schemaTypes = [];
+  for (const schema of jsonldScripts) {
+    if (schema['@type']) {
+      schemaTypes.push(schema['@type']);
+    }
+    if (schema['@graph'] && Array.isArray(schema['@graph'])) {
+      for (const graphSchema of schema['@graph']) {
+        if (graphSchema['@type']) {
+          schemaTypes.push(graphSchema['@type']);
+        }
+      }
+    }
+  }
+  const flatSchemaTypes = schemaTypes.flat();
   
   // Validate each schema
   for (const schema of jsonldScripts) {
@@ -310,6 +458,13 @@ async function validateStructuredData(page, pageInfo) {
       const graphTypes = graphSchemas.map(s => s['@type']).filter(Boolean);
       if (graphTypes.length > 0) {
         addResult('structuredData', 'passed', `Valid @graph with ${graphTypes.length} schemas (${graphTypes.join(', ')}) on ${pageInfo.name}`, pageInfo.url);
+        
+        // Validate Dataset schemas within @graph
+        for (const graphSchema of graphSchemas) {
+          if (graphSchema['@type'] === 'Dataset') {
+            validateDatasetUrlRequirements(graphSchema, pageInfo);
+          }
+        }
       } else {
         addResult('structuredData', 'warning', `@graph found but no @type in schemas on ${pageInfo.name}`, pageInfo.url);
       }
@@ -317,6 +472,12 @@ async function validateStructuredData(page, pageInfo) {
     }
     
     addResult('structuredData', 'passed', `Valid ${schema['@type']} schema on ${pageInfo.name}`, pageInfo.url);
+    
+    // Dataset URL Requirements Validation (Google structured data requirements)
+    // Required: url, name, description; Recommended: distribution with contentUrl
+    if (schema['@type'] === 'Dataset') {
+      validateDatasetUrlRequirements(schema, pageInfo);
+    }
     
     // Content-specific validation
     if (pageInfo.type === 'material' || pageInfo.type === 'settings') {
@@ -339,11 +500,11 @@ async function validateStructuredData(page, pageInfo) {
   }
   
   // Detect missing schema opportunities
-  await detectSchemaOpportunities(page, pageInfo, schemaTypes);
+  await detectSchemaOpportunities(page, pageInfo, flatSchemaTypes);
   
   // Validate Dataset quality for material/settings pages
   if (pageInfo.type === 'material' || pageInfo.type === 'settings') {
-    await validateDatasetQuality(page, pageInfo, schemaTypes);
+    await validateDatasetQuality(page, pageInfo, flatSchemaTypes);
   }
 }
 
@@ -360,24 +521,30 @@ async function validateDatasetQuality(page, pageInfo, schemaTypes) {
   }
   
   // Extract material/settings/contaminant name from URL
+  // URL structure: /materials/category/subcategory/material-slug
+  // URL structure: /settings/category/subcategory/material-settings
   const pageData = await page.evaluate(() => {
     const url = window.location.pathname;
-    const materialMatch = url.match(/\/materials\/([^/]+)/);
-    const settingsMatch = url.match(/\/settings\/([^/]+)/);
-    const contaminantMatch = url.match(/\/contaminants\/([^/]+)/);
+    
+    // Extract the final slug from the URL path
+    // /materials/metal/non-ferrous/aluminum-laser-cleaning -> aluminum-laser-cleaning
+    // /settings/metal/non-ferrous/aluminum-settings -> aluminum (strip -settings suffix)
+    const pathParts = url.split('/').filter(Boolean);
+    const lastSegment = pathParts[pathParts.length - 1];
     
     let name = null;
     let type = null;
     
-    if (materialMatch) {
-      name = materialMatch[1];
+    if (url.includes('/materials/')) {
       type = 'materials';
-    } else if (settingsMatch) {
-      name = settingsMatch[1];
+      name = lastSegment; // e.g., "aluminum-laser-cleaning"
+    } else if (url.includes('/settings/')) {
       type = 'settings';
-    } else if (contaminantMatch) {
-      name = contaminantMatch[1];
+      // Settings slugs end with "-settings", extract material name
+      name = lastSegment.replace(/-settings$/, '') + '-laser-cleaning'; // e.g., "aluminum-laser-cleaning"
+    } else if (url.includes('/contaminants/')) {
       type = 'contaminants';
+      name = lastSegment;
     }
     
     return { name, type, url };
@@ -735,13 +902,22 @@ async function validateOpenGraph(page, pageInfo) {
 async function validateBreadcrumbs(page, pageInfo) {
   verbose(`Checking breadcrumbs for ${pageInfo.name}...`);
   
-  // Check for breadcrumb JSON-LD
+  // Check for breadcrumb JSON-LD (both standalone and within @graph)
   const breadcrumbSchema = await page.$$eval('script[type="application/ld+json"]', scripts => {
     for (const script of scripts) {
       try {
         const data = JSON.parse(script.textContent);
+        // Check standalone BreadcrumbList
         if (data['@type'] === 'BreadcrumbList') {
           return data;
+        }
+        // Check BreadcrumbList inside @graph
+        if (data['@graph'] && Array.isArray(data['@graph'])) {
+          for (const item of data['@graph']) {
+            if (item['@type'] === 'BreadcrumbList') {
+              return item;
+            }
+          }
         }
       } catch (e) {}
     }

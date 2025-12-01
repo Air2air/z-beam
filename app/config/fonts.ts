@@ -81,6 +81,14 @@ export const FONT_CONFIG = {
   // CSS variable name (must match 'variable' in fontLoader above)
   cssVariable: '--font-primary',
   
+  // ============================================
+  // BASE FONT SIZE - Single Source of Truth
+  // ============================================
+  // This defines the default body text size
+  // All other sizes scale relative to this
+  baseFontSize: '0.875rem',   // 14px
+  baseLineHeight: '1.5rem',   // 24px
+  
   // Fallback fonts (safe defaults)
   fallbacks: [
     'system-ui',

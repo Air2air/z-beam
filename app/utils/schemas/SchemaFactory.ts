@@ -48,7 +48,7 @@ import {
 // Types & Interfaces
 // ============================================================================
 
-import type { SchemaData, SchemaOrgBase, SchemaContext } from './generators/types';
+import type { SchemaData, SchemaOrgBase, SchemaOrgGraph, SchemaContext } from './generators/types';
 
 export interface SchemaGeneratorOptions {
   priority?: number;
@@ -128,7 +128,7 @@ export class SchemaFactory {
   /**
    * Generate all applicable schemas
    */
-  generate(): SchemaOrgBase {
+  generate(): SchemaOrgGraph {
     const schemas: SchemaOrgBase[] = [];
 
     // Sort by priority (higher first)
@@ -165,11 +165,12 @@ export class SchemaFactory {
       }
     }
 
+    // JSON-LD @graph format: @context + @graph array, NO @type at root level
+    // The @graph keyword indicates this is a container for multiple schemas
     return {
       '@context': 'https://schema.org',
-      '@type': 'Graph',
       '@graph': schemas.filter((s): s is SchemaOrgBase => s !== null)
-    };
+    } as SchemaOrgGraph;
   }
 
   /**

@@ -2,7 +2,7 @@
 
 ## Overview
 
-All fonts are centrally managed in one location for easy maintenance and optimization. The application uses **Roboto** as the primary font, loaded via Next.js font optimization.
+All fonts are centrally managed in one location for easy maintenance and optimization. The application uses **Geist** as the primary font with a **14px base size** and **relative font scaling**.
 
 ## Architecture
 
@@ -10,43 +10,61 @@ All fonts are centrally managed in one location for easy maintenance and optimiz
 **Location**: `app/config/fonts.ts`
 
 This file is the **single source of truth** for all font configuration:
-- Imports fonts from `next/font/google`
-- Defines font weights, subsets, and display properties
+- Imports fonts from `geist/font/sans`
+- Defines base font size (14px) and line height (24px)
 - Exports CSS variables for Tailwind integration
-- Provides fallback fonts for improved performance
+- All other font sizes scale relative to base using `em` units
 
-### 2. Font Loading Strategy
+### 2. Font Configuration
 
 ```typescript
-import { Roboto } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
 
-export const roboto = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto',
-  preload: true,
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
-});
+export const FONT_CONFIG = {
+  primary: 'Geist',
+  baseFontSize: '0.875rem',  // 14px base
+  baseLineHeight: '1.625rem', // 26px
+  fallback: ['system-ui', 'sans-serif'],
+} as const;
+
+export const fontConfig = {
+  className: GeistSans.className,
+  variable: GeistSans.variable,
+};
 ```
 
 **Benefits:**
-- ✅ **Zero layout shift** - `font-display: swap` prevents invisible text
-- ✅ **Self-hosted** - Fonts served from your domain (no external requests)
-- ✅ **Automatic subsetting** - Only loads characters you actually use
-- ✅ **Performance** - Optimized for Core Web Vitals
-- ✅ **Privacy** - No data sent to Google Fonts servers
+- ✅ **Single source of truth** - All sizes derive from base
+- ✅ **Relative scaling** - Font sizes use `em` units (scale with base)
+- ✅ **Modern design** - Geist is Vercel's system font
+- ✅ **Performance** - Self-hosted via npm package
+- ✅ **Flexibility** - Change base size in one place
 
-### 3. Application in Root Layout
+### 3. Relative Font Scale
+
+All font sizes scale relative to the 14px base using `em` units:
+
+| Size | Em Value | Computed (at 14px base) |
+|------|----------|-------------------------|
+| xs   | 0.714em  | ~10px |
+| sm   | 0.857em  | ~12px |
+| base | 0.875rem | 14px |
+| lg   | 1.143em  | ~16px |
+| xl   | 1.286em  | ~18px |
+| 2xl  | 1.429em  | ~20px |
+| 3xl  | 1.714em  | ~24px |
+| 4xl  | 2.143em  | ~30px |
+
+### 4. Application in Root Layout
 **Location**: `app/layout.tsx`
 
 ```typescript
-import { roboto } from "./config/fonts";
+import { fontConfig } from "./config/fonts";
 
-<body className={`${roboto.className} ...`}>
+<body className={`${fontConfig.className} ...`}>
 ```
 
-The font className is applied directly to the body element, making Roboto the default font for the entire application automatically. No need to add font classes to individual components!
+The font className is applied directly to the body element, making Geist the default font for the entire application automatically.
 
 ### 4. CSS Documentation
 **Location**: `app/css/global.css`
@@ -71,50 +89,43 @@ Use these Tailwind classes throughout your app:
 ### In Components
 
 ```tsx
-// Roboto is applied by default - no font-family needed!
-<p>Regular text uses Roboto automatically</p>
+// Geist is applied by default - no font-family needed!
+<p>Regular text uses Geist automatically</p>
 
 // Just control the weight with Tailwind classes
 <h1 className="font-light">Light heading</h1>
 <p className="font-normal">Regular text</p>
 <strong className="font-bold">Bold text</strong>
 
-// No need to import or configure anything!
-// Roboto is the default font for everything
+// Font sizes scale relative to 14px base
+<p className="text-sm">12px text</p>
+<p className="text-base">14px text (base)</p>
+<p className="text-lg">16px text</p>
 ```
 
-### Why This Works
+### Changing Base Size
 
-The font is applied via `className` directly on the `<body>` element in `layout.tsx`, which means:
-- ✅ All text automatically uses Roboto
-- ✅ No need to add font classes to every component
-- ✅ Just use font-weight classes (font-light, font-bold, etc.)
-- ✅ Cleaner, simpler code
+To change the base font size for the entire app:
 
-## Adding Additional Fonts
-
-If you need to add more fonts in the future:
-
-1. **Add to `app/config/fonts.ts`:**
+1. **Update `app/config/fonts.ts`:**
 ```typescript
-import { Roboto_Mono } from 'next/font/google';
-
-export const robotoMono = Roboto_Mono({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-roboto-mono',
-});
+export const FONT_CONFIG = {
+  primary: 'Geist',
+  baseFontSize: '1rem',  // Change to 16px base
+  baseLineHeight: '1.75rem',
+  fallback: ['system-ui', 'sans-serif'],
+} as const;
 ```
 
-2. **Apply in `app/layout.tsx`:**
-```typescript
-// For the primary font, just use className
-<body className={`${roboto.className} ...`}>
-
-// For additional fonts, you can use them on specific elements
-// Example: <code className={robotoMono.className}>code</code>
+2. **Update `tailwind.config.js`:**
+```javascript
+fontSize: {
+  base: ['1rem', { lineHeight: '1.75rem' }], // Match the new base
+  // Other sizes use em - they scale automatically!
+}
 ```
+
+All other font sizes (xs, sm, lg, xl, etc.) will automatically scale because they use `em` units.
 
 ## Performance Considerations
 
@@ -136,37 +147,37 @@ Font files are:
 
 ## Migration from Previous Setup
 
-**Before:**
-- No explicit `@font-face` declarations
-- Relied on system fonts via Tailwind defaults
-- Commented-out Geist font imports
+**Before (Roboto):**
+- Used `next/font/google` for Roboto
+- Font sizes in fixed `rem` values
+- No relative scaling
 
-**After:**
+**After (Geist):**
+- ✅ Self-hosted Geist via `geist` npm package
+- ✅ Configurable base size (14px default)
+- ✅ All sizes use `em` units (scale with base)
 - ✅ Single source of truth in `app/config/fonts.ts`
-- ✅ Optimized Roboto font loading
-- ✅ Consistent typography across the app
-- ✅ Better performance and privacy
 
 ## Troubleshooting
 
 ### Font not loading?
-1. Check that `app/config/fonts.ts` is imported in `layout.tsx`
-2. Verify the CSS variable is applied to the `<body>` element
+1. Check that `geist` package is installed: `npm ls geist`
+2. Verify `app/config/fonts.ts` imports from `geist/font/sans`
 3. Check browser DevTools Network tab for font requests
 4. Clear `.next` cache: `rm -rf .next && npm run dev`
 
-### Wrong font displaying?
-1. Verify Tailwind config has the correct `fontFamily` configuration
-2. Check for conflicting CSS with higher specificity
-3. Inspect element in DevTools to see computed font-family
+### Wrong font size?
+1. Check base size in `FONT_CONFIG.baseFontSize`
+2. Verify tailwind.config.js `fontSize.base` matches
+3. Remember: other sizes use `em` (relative to base)
 
 ### Performance issues?
-1. Reduce number of font weights if not needed
-2. Consider using `display: 'optional'` for non-critical fonts
-3. Check font file sizes in Network tab
+1. Geist is already optimized for performance
+2. Check font file sizes in Network tab
+3. Verify fonts are being cached correctly
 
 ## Resources
 
+- [Geist Font](https://vercel.com/font)
 - [Next.js Font Optimization](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
-- [Google Fonts](https://fonts.google.com/specimen/Roboto)
-- [Web Font Best Practices](https://web.dev/font-best-practices/)
+- [CSS em vs rem Units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units)

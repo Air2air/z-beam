@@ -1,231 +1,69 @@
 /**
- * ============================================
- * FONT SYSTEM CONFIGURATION
- * ============================================
+ * FONT SYSTEM - Single Source: app/config/fonts.ts
  * 
- * SINGLE SOURCE OF TRUTH: app/config/fonts.ts
- * All font changes happen in ONE place for maximum flexibility.
+ * BASE FONT SIZE: 14px (0.875rem) - defined in fonts.ts FONT_CONFIG.baseFontSize
+ * TO CHANGE: Edit app/config/fonts.ts baseFontSize property
  * 
- * CURRENT FONT:
- * - Check app/config/fonts.ts for active font
- * - Configuration: app/config/fonts.ts (CHANGE FONTS HERE)
- * - Applied globally: app/layout.tsx via primaryFont.className
- * - Self-hosted: Automatically optimized by Next.js
- * - Font display: swap (zero layout shift)
- * 
- * TO CHANGE FONTS:
- * 1. Edit app/config/fonts.ts
- * 2. Uncomment desired font import
- * 3. Update FONT_CONFIG object
- * 4. Restart: npm run dev
- * That's it! No other files need changes.
- * 
- * AVAILABLE WEIGHTS:
- * - 100 (font-thin)       - Ultra-light, decorative use only
- * - 300 (font-light)      - Large headings, hero text
- * - 400 (font-normal)     - Body text, paragraphs (DEFAULT)
- * - 500 (font-medium)     - Subheadings, buttons, emphasis
- * - 600 (font-semibold)   - Strong subheadings, card titles
- * - 700 (font-bold)       - Emphasis, strong elements, metrics
- * - 900 (font-black)      - Extra strong emphasis (use sparingly)
- * 
- * TYPOGRAPHY SCALE:
- * - h1: 36px (text-4xl) - font-normal (400)   - leading-tight (1.25) - tracking-normal (0em)    - Main page titles
- * - h2: 30px (text-3xl) - font-normal (400)   - leading-tight (1.25) - tracking-normal (0em)    - Section headers
- * - h3: 24px (text-2xl) - font-semibold (600) - leading-tight (1.25) - tracking-normal (0em)    - Subsection headers
- * - h4: 20px (text-xl)  - font-medium (500)   - leading-tight (1.25) - tracking-normal (0em)    - Card titles
- * - h5: 18px (text-lg)  - font-medium (500)   - leading-tight (1.25) - tracking-normal (0em)    - Small headings
- * - h6: 16px (text-base)- font-medium (500)   - leading-tight (1.25) - tracking-normal (0em)    - Smallest headings
- * 
- * DESIGN PRINCIPLES:
- * 1. NO inline font-* classes in components
- * 2. Use semantic HTML (<h1-h6>, <strong>, <b>)
- * 3. Use component classes (.btn, .card-title, etc.)
- * 4. All font styling comes from this file or semantic defaults
- * 5. Font changes happen in app/config/fonts.ts ONLY
- * 
- * USAGE EXAMPLES:
- * ✅ Good: <h1>Title</h1>                         (uses configured weight)
- * ✅ Good: <strong>Bold text</strong>             (semantic HTML)
- * ✅ Good: <button className="btn">Click</button> (component class)
- * ❌ Bad:  <h1 className="font-bold">Title</h1>   (inline override)
- * ❌ Bad:  <div className="font-medium">Text</div> (inline override)
- * 
- * MODIFICATION GUIDE:
- * - To CHANGE FONT FAMILY: Edit app/config/fonts.ts (uncomment desired font)
- * - To change heading weights: Edit @layer base section below
- * - To add component patterns: Edit @layer components section below
- * 
- * RELATED FILES:
- * - app/config/fonts.ts        - ⭐ CHANGE FONTS HERE (single source)
- * - app/layout.tsx             - Global font application
- * - tailwind.config.js         - Font family configuration
- * - docs/FONT_CONFIGURATION.md - Complete documentation
- * 
- * ============================================
+ * TYPOGRAPHY SCALE (relative to base):
+ * h1: 24-30px | h2: 17-20px | h3: 16-24px | h4: 14-20px | h5: 14-16px | h6: 12-14px
  */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import color system */
 @import './colors.css';
-
-/* Import responsive configuration */
 @import './responsive.css';
 
 @layer utilities {
-  .bg-body {
-    background-color: var(--bg-body);
-  }
+  .bg-body { background-color: var(--bg-body); }
+  .bg-primary { background-color: var(--bg-primary); }
+  .bg-primary-hover { background-color: var(--bg-primary-hover); }
+  .bg-secondary { background-color: var(--bg-secondary); }
+  .bg-tertiary { background-color: var(--bg-tertiary); }
   
-  .bg-primary {
-    background-color: var(--bg-primary);
-  }
-  
-  .bg-primary-hover {
-    background-color: var(--bg-primary-hover);
-  }
-  
-  .bg-secondary {
-    background-color: var(--bg-secondary);
-  }
-  
-  .bg-tertiary {
-    background-color: var(--bg-tertiary);
-  }
-  
-  .text-white {
-    color: var(--text-white) !important;
-  }
-  
-  .text-primary {
-    color: var(--text-primary) !important;
-  }
-  
-  .text-secondary {
-    color: var(--text-secondary) !important;
-  }
-  
-  .text-tertiary {
-    color: var(--text-tertiary) !important;
-  }
-  
-  .text-muted {
-    color: var(--text-muted) !important;
-  }
-  
-  .text-brand-orange {
-    color: var(--brand-orange) !important;
-  }
-  
-  .bg-brand-orange {
-    background-color: var(--brand-orange) !important;
-  }
-  
-  .bg-brand-orange-dark {
-    background-color: var(--brand-orange-dark) !important;
-  }
+  .text-white { color: var(--text-white) !important; }
+  .text-primary { color: var(--text-primary) !important; }
+  .text-secondary { color: var(--text-secondary) !important; }
+  .text-tertiary { color: var(--text-tertiary) !important; }
+  .text-muted { color: var(--text-muted) !important; }
+  .text-brand-orange { color: var(--brand-orange) !important; }
+  .bg-brand-orange { background-color: var(--brand-orange) !important; }
+  .bg-brand-orange-dark { background-color: var(--brand-orange-dark) !important; }
 }
 
 @layer base {
-  /* Body background */
   body {
     background-color: var(--bg-body);
     @apply text-base font-normal;
     color: var(--text-primary);
   }
   
-  /* Headings - Semantic font weights and colors */
   h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary) !important;
   }
   
-  /* Responsive heading sizes */
-  h1 {
-    @apply text-lg sm:text-xl md:text-3xl font-bold;
-  }
+  h1 { @apply text-lg sm:text-xl md:text-3xl font-bold; }
+  h2 { @apply text-sm sm:text-base md:text-xl font-bold; }
+  h3 { @apply text-base sm:text-lg md:text-2xl font-medium leading-snug; }
+  h4 { @apply text-sm sm:text-base md:text-xl font-medium; }
+  h5 { @apply text-sm sm:text-base font-medium; }
+  h6 { @apply text-xs sm:text-sm font-medium; }
   
-  h2 {
-    @apply text-sm sm:text-base md:text-xl font-bold;
-  }
-  
-  h3 {
-    @apply text-base sm:text-lg md:text-2xl font-medium leading-snug;
-  }
-  
-  h4 {
-    @apply text-sm sm:text-base md:text-xl font-medium;
-  }
-  
-  h5 {
-    @apply text-sm sm:text-base font-medium;
-  }
-  
-  h6 {
-    @apply text-xs sm:text-sm font-medium;
-  }
-  
-  /* Semantic elements */
-  strong, b {
-    @apply font-bold;
-  }
-  
-  /* Paragraph text */
-  p {
-    @apply text-base leading-relaxed;
-    color: var(--text-primary);
-  }
-  
-  /* Links */
-  a {
-    @apply text-blue-400 hover:text-blue-300 transition-colors;
-  }
+  strong, b { @apply font-bold; }
+  p { @apply text-base leading-relaxed; color: var(--text-primary); }
+  a { @apply text-blue-400 hover:text-blue-300 transition-colors; }
 }
 
 @layer components {
-  /* Button font weight */
-  .btn,
-  button {
-    @apply font-medium;
-  }
-  
-  /* Card elements */
-  .card-title {
-    @apply font-semibold;
-  }
-  
-  /* Table elements */
-  .table-header,
-  thead th {
-    @apply font-medium;
-  }
-  
-  /* Metrics and statistics */
-  .metric-value,
-  .stat-value {
-    @apply font-bold;
-  }
-  
-  .metric-label,
-  .stat-label {
-    @apply font-normal;
-  }
-  
-  /* Badge symbol styling */
-  .badge-symbol {
-    @apply font-semibold;
-  }
-  
-  .badge-number {
-    @apply font-bold;
-  }
-  
-  /* Card background gradient */
-  .card-background {
-    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-tertiary));
-  }
+  .btn, button { @apply font-medium; }
+  .card-title { @apply font-semibold; }
+  .table-header, thead th { @apply font-medium; }
+  .metric-value, .stat-value { @apply font-bold; }
+  .metric-label, .stat-label { @apply font-normal; }
+  .badge-symbol { @apply font-semibold; }
+  .badge-number { @apply font-bold; }
+  .card-background { background: linear-gradient(to bottom, var(--bg-primary), var(--bg-tertiary)); }
 }
 
 ::selection {
@@ -252,29 +90,14 @@
     --sh-keyword: #f47067;
     --sh-string: #0fa295;
   }
-  html {
-    color-scheme: dark;
-  }
+  html { color-scheme: dark; }
 }
 
-html {
-  min-width: 360px;
-}
+html { min-width: 360px; }
 
-/* Prose styles removed - components now use direct Tailwind classes */
-/* If prose classes are still needed for dynamically rendered content, 
-   apply Tailwind classes directly to the HTML elements instead */
+pre::-webkit-scrollbar { display: none; }
+pre { -ms-overflow-style: none; scrollbar-width: none; }
 
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Remove Safari input shadow on mobile */
 input[type="text"],
 input[type="email"] {
   -webkit-appearance: none;
@@ -282,15 +105,10 @@ input[type="email"] {
   appearance: none;
 }
 
+.title { text-wrap: balance; }
 
-.title {
-  text-wrap: balance;
-}
-
-/* Enhanced card transitions for consistent hover effects */
-:root {
-  --hover-scale: 1.03;
-}
+/* Card hover effects */
+:root { --hover-scale: 1.03; }
 
 .card-enhanced-hover {
   transition: all 0.3s ease-out;
@@ -298,33 +116,16 @@ input[type="email"] {
   backface-visibility: hidden;
   transform: translateZ(0);
 }
-
 .card-enhanced-hover:hover {
   transform: scale(var(--hover-scale)) translateY(-2px) translateZ(0);
 }
 
-/* Subtle hover scale for buttons and small interactive elements */
-.hover-scale {
-  transition: transform 0.3s ease-in-out;
-}
+.hover-scale { transition: transform 0.3s ease-in-out; }
+.hover-scale:hover { transform: scale(var(--hover-scale)); }
 
-.hover-scale:hover {
-  transform: scale(var(--hover-scale));
-}
-
-/* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  .card-enhanced-hover,
-  .hover-scale {
-    transition: none !important;
-  }
-  
-  .card-enhanced-hover:hover,
-  .hover-scale:hover {
-    transform: none !important;
-  }
+  .card-enhanced-hover, .hover-scale { transition: none !important; }
+  .card-enhanced-hover:hover, .hover-scale:hover { transform: none !important; }
 }
 
-.dark {
-  --fallback-bg-color: #374151; /* Dark gray for dark mode */
-}
+.dark { --fallback-bg-color: #374151; }

@@ -78,10 +78,25 @@ All Components                ← No font imports needed!
 
 ## 📋 Current Configuration
 
-**Active Font:** Roboto  
+**Active Font:** Geist  
+**Base Font Size:** 14px (0.875rem)  
+**Font Scale:** Relative (`em` units based on base)  
 **CSS Variable:** `--font-primary`  
 **Applied:** Globally via body element  
-**Type:** Google Font (self-hosted by Next.js)
+**Type:** Self-hosted via `geist` package
+
+### Font Size Scale (relative to 14px base)
+
+| Class | Multiplier | Size at 14px base |
+|-------|------------|-------------------|
+| `xs` | 0.714em | ~10px |
+| `sm` | 0.857em | ~12px |
+| `base` | 0.875rem | 14px |
+| `lg` | 1.143em | ~16px |
+| `xl` | 1.286em | ~18px |
+| `2xl` | 1.429em | ~20px |
+| `3xl` | 1.714em | ~24px |
+| `4xl` | 2.143em | ~30px |
 
 ## 🔧 Adding a New Font
 
@@ -213,6 +228,6 @@ npm install @next/font
 
 ---
 
-**Last Updated:** October 10, 2025  
-**Current Font:** Roboto  
-**System Version:** 2.0 (Flexible Architecture)
+**Last Updated:** December 1, 2025  
+**Current Font:** Geist (14px base)  
+**System Version:** 3.0 (Relative Font Scale)

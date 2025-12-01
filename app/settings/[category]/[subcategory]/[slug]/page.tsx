@@ -53,6 +53,9 @@ export async function generateStaticParams() {
 
 /**
  * Generate metadata for SEO with enhanced OpenGraph, Twitter cards, and canonical URLs
+ * 
+ * Settings pages inherit og:image from their related material page when settings.images is undefined.
+ * This ensures consistent visual branding across material and settings pages.
  */
 export async function generateMetadata({ params }: SettingsPageProps) {
   const { category, subcategory, slug } = await params;
@@ -87,6 +90,26 @@ export async function generateMetadata({ params }: SettingsPageProps) {
       };
     }
 
+    // Load material images when settings.images is undefined
+    // Settings pages should share the same og:image as their related material page
+    let images = settings.images;
+    if (!images || !images.hero) {
+      try {
+        const baseMaterialSlug = slug.replace(/-settings$/, '');
+        const materialPath = path.join(process.cwd(), 'frontmatter', 'materials', `${baseMaterialSlug}-laser-cleaning.yaml`);
+        
+        if (fs.existsSync(materialPath)) {
+          const fileContent = fs.readFileSync(materialPath, 'utf8');
+          const materialData = yaml.load(fileContent) as any;
+          if (materialData?.images?.hero) {
+            images = materialData.images;
+          }
+        }
+      } catch (imageError) {
+        console.error(`Error loading material images for settings ${slug}:`, imageError);
+      }
+    }
+
     // Use createMetadata for enhanced OpenGraph, Twitter cards, canonical URLs
     const baseMetadata = createMetadata({
       title: settings.seo_settings_page?.title || settings.title,
@@ -98,7 +121,7 @@ export async function generateMetadata({ params }: SettingsPageProps) {
       author: settings.author,
       category: settings.category,
       name: settings.name,
-      images: settings.images,
+      images: images,
       content_type: settings.content_type,
       machineSettings: settings.machineSettings,
     } as unknown as ArticleMetadata);

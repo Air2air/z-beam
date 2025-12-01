@@ -43,6 +43,13 @@ export interface SchemaOrgBase {
   [key: string]: unknown;
 }
 
+// JSON-LD Graph container type - used when combining multiple schemas
+// Note: @graph format doesn't have @type at root level (it's implicit)
+export interface SchemaOrgGraph {
+  '@context': string;
+  '@graph': SchemaOrgBase[];
+}
+
 export interface SchemaOrgThing extends SchemaOrgBase {
   name?: string;
   description?: string;

@@ -77,11 +77,12 @@ export function Caption({ frontmatter, config }: CaptionProps) {
     (captionContent as any).imageUrl?.url
   );
   
-  // Also return null if image failed to load
+  // Get image source from frontmatter or caption object
   const imageSource = frontmatter?.images?.micro?.url || 
     (isCaptionObject && hasImageData ? ((captionContent as CaptionDataStructure).images?.micro?.url || (captionContent as CaptionDataStructure).imageUrl?.url) : null);
   
-  if (imageSource && imageError) {
+  // Return null if no image or image failed to load
+  if (!imageSource || imageError) {
     return null;
   }
   

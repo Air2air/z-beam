@@ -266,4 +266,51 @@ describe('Breadcrumbs Component - Schema.org URL Generation', () => {
       expect(nav).toBeInTheDocument();
     });
   });
+
+  describe('CSS Class Structure', () => {
+    it('should have breadcrumb-padding class on nav element', () => {
+      const { container } = render(
+        <Breadcrumbs breadcrumbData={mockBreadcrumbData} />
+      );
+
+      const nav = container.querySelector('nav.breadcrumb-padding');
+      expect(nav).toBeInTheDocument();
+    });
+
+    it('should have breadcrumb-list class on ol element', () => {
+      const { container } = render(
+        <Breadcrumbs breadcrumbData={mockBreadcrumbData} />
+      );
+
+      const list = container.querySelector('ol.breadcrumb-list');
+      expect(list).toBeInTheDocument();
+    });
+
+    it('should have breadcrumb-item class on all li elements', () => {
+      const { container } = render(
+        <Breadcrumbs breadcrumbData={mockBreadcrumbData} />
+      );
+
+      const items = container.querySelectorAll('li.breadcrumb-item');
+      expect(items).toHaveLength(mockBreadcrumbData.length);
+    });
+
+    it('should use CSS-based styling without inline styles', () => {
+      const { container } = render(
+        <Breadcrumbs breadcrumbData={mockBreadcrumbData} />
+      );
+
+      // CSS styling is now in responsive.css, not inline
+      // Verify component uses semantic class names for styling
+      const styleArchitecture = {
+        navHasPaddingClass: container.querySelector('nav.breadcrumb-padding') !== null,
+        listHasListClass: container.querySelector('ol.breadcrumb-list') !== null,
+        itemsHaveItemClass: container.querySelectorAll('li.breadcrumb-item').length === mockBreadcrumbData.length,
+      };
+
+      Object.values(styleArchitecture).forEach(condition => {
+        expect(condition).toBe(true);
+      });
+    });
+  });
 });

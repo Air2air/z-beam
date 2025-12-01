@@ -80,13 +80,18 @@ async function validateJsonLdUrls() {
   
   function checkGraphUrls(graph, expectedPath, filePath) {
     graph.forEach((item, index) => {
+      // Skip Dataset schemas - they intentionally use flat /datasets/materials/[slug] URLs
+      if (item['@type'] === 'Dataset') {
+        return;
+      }
+      
       // Check @id
-      if (item['@id'] && item['@id'].includes('materials')) {
+      if (item['@id'] && item['@id'].includes('materials') && !item['@id'].includes('/datasets/')) {
         checkUrl(item['@id'], expectedPath, filePath, `@graph[${index}].@id`);
       }
       
       // Check url
-      if (item.url && typeof item.url === 'string' && item.url.includes('materials')) {
+      if (item.url && typeof item.url === 'string' && item.url.includes('materials') && !item.url.includes('/datasets/')) {
         checkUrl(item.url, expectedPath, filePath, `@graph[${index}].url`);
       }
       
