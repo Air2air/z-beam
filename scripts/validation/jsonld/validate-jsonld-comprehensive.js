@@ -24,8 +24,10 @@ const { ValidationResult } = require('../lib/exitCodes');
 // CONFIGURATION
 // ============================================================================
 
+// Production URL Policy: Default to production domain (see docs/08-development/PRODUCTION_URL_POLICY.md)
+// For local testing, use: BASE_URL=http://localhost:3000 npm run validate:jsonld
 const CONFIG = {
-  baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  baseUrl: process.env.BASE_URL || 'https://www.z-beam.com',
   timeout: 30000,
   testPages: [
     // Material pages (individual materials)

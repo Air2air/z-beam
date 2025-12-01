@@ -31,14 +31,18 @@ echo -e "${BLUE}║  JSON-LD QUALITY VALIDATION${NC}"
 echo -e "${BLUE}╚════════════════════════════════════════════════════════════════╝${NC}"
 echo ""
 
-# Check if dev server is running
-if ! curl -s http://localhost:3000 > /dev/null 2>&1; then
-    echo -e "${RED}✗ Dev server not running on localhost:3000${NC}"
-    echo -e "${YELLOW}  Start dev server with: npm run dev${NC}"
+# Production URL Policy: Default to production domain (see docs/08-development/PRODUCTION_URL_POLICY.md)
+# For local testing, use: TEST_URL=http://localhost:3000 ./validate-jsonld-quality.sh
+TEST_URL="${TEST_URL:-https://www.z-beam.com}"
+
+# Check if target URL is reachable
+if ! curl -s "$TEST_URL" > /dev/null 2>&1; then
+    echo -e "${RED}✗ Target URL not reachable: $TEST_URL${NC}"
+    echo -e "${YELLOW}  For local testing: TEST_URL=http://localhost:3000 ./validate-jsonld-quality.sh${NC}"
     exit 1
 fi
 
-echo -e "${GREEN}✓ Dev server is running${NC}"
+echo -e "${GREEN}✓ Target URL is reachable: $TEST_URL${NC}"
 echo ""
 
 # Run the audit

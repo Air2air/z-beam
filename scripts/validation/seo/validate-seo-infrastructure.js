@@ -127,7 +127,9 @@ function validateDatasetForSchema(machineSettings, materialProperties, materialN
 }
 
 // Configuration
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000';
+// Production URL Policy: Default to production domain (see docs/08-development/PRODUCTION_URL_POLICY.md)
+// For local testing, use: BASE_URL=http://localhost:3000 npm run validate:seo-infrastructure
+const BASE_URL = process.env.BASE_URL || 'https://www.z-beam.com';
 const VERBOSE = process.argv.includes('--verbose');
 const JSON_OUTPUT = process.argv.includes('--json');
 

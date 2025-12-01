@@ -25,7 +25,9 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const DEFAULT_URL = process.env.TEST_URL || 'http://localhost:3000';
+// Production URL Policy: Default to production domain (see docs/08-development/PRODUCTION_URL_POLICY.md)
+// For local testing, use: TEST_URL=http://localhost:3000 npm run validate:cwv
+const DEFAULT_URL = process.env.TEST_URL || 'https://www.z-beam.com';
 
 // Core Web Vitals thresholds (in milliseconds for timing, unitless for CLS)
 const THRESHOLDS = {

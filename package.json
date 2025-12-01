@@ -41,7 +41,8 @@
     "validate:all": "npm run validate:content && npm run validate:seo-infrastructure && npm run validate:a11y && npm run validate:performance",
     "validate:jsonld:syntax": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
     "validate:jsonld:rendering": "echo '⚠️  DEPRECATED: Use validate:seo-infrastructure instead' && exit 1",
-    "prebuild": "npm run validate:content && npm run generate:datasets",
+    "fix:dataset-urls": "node scripts/fix-dataset-urls.js",
+    "prebuild": "npm run validate:content && npm run generate:datasets && npm run fix:dataset-urls",
     "postbuild": "npm run validate:urls",
     "postdeploy": "npm run validate:production",
     "build:analyze": "ANALYZE=true npm run build",
@@ -59,7 +60,7 @@
     "cache:stats": "node -e \"const ValidationCache = require('./scripts/validation/lib/cache'); console.log(ValidationCache.getStats());\"",
     "logs:view": "ls -lht .terminal-logs/**/*.log 2>/dev/null | head -20 || echo 'No logs yet'",
     "logs:clean": "find .terminal-logs -name '*.log' -mtime +7 -delete 2>/dev/null && echo '✅ Old logs cleaned' || echo 'No old logs to clean'",
-    "vercel-build": "npm run validate:content && npm run generate:datasets && next build",
+    "vercel-build": "npm run validate:content && npm run generate:datasets && npm run fix:dataset-urls && next build",
     "logs": "vercel logs --follow",
     "status": "vercel ls"
   },

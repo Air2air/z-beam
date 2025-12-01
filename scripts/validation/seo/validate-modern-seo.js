@@ -26,7 +26,9 @@ const fs = require('fs').promises;
 const path = require('path');
 
 // Configuration
-const DEV_URL = process.env.VALIDATION_URL || 'http://localhost:3000';
+// Production URL Policy: Default to production domain (see docs/08-development/PRODUCTION_URL_POLICY.md)
+// For local testing, use: VALIDATION_URL=http://localhost:3000 npm run validate:modern-seo
+const DEV_URL = process.env.VALIDATION_URL || 'https://www.z-beam.com';
 const MOBILE_FRIENDLINESS_THRESHOLD = 90; // Google's recommended score
 
 // ANSI color codes
