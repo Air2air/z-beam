@@ -3,10 +3,8 @@
 
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { JsonLD, schemas } from '../JsonLD/JsonLD';
 import { LayoutProps } from '@/types';
 import { CONTAINER_STYLES } from '../../utils/containerStyles';
-import { SITE_CONFIG } from '../../utils/constants';
 import { Title } from '../Title';
 import { Hero } from "../Hero/Hero";
 import { Author } from "../Author/Author";
@@ -14,14 +12,11 @@ import CaptionSkeleton from '../Caption/CaptionSkeleton';
 import { PropertyBars } from '../PropertyBars/PropertyBars';
 import { MarkdownRenderer } from '../Base/MarkdownRenderer';
 import { Settings } from 'lucide-react';
-import { RegulatoryStandards } from '../RegulatoryStandards';
 import { EnvironmentalImpact } from '../EnvironmentalImpact';
-import { MaterialFAQ } from '../FAQ/MaterialFAQ';
 import { ExpertAnswers } from '../ExpertAnswers/ExpertAnswers';
 import { Breadcrumbs } from '../Navigation/breadcrumbs';
 import { generateBreadcrumbs } from '../../utils/breadcrumbs';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
-import { SafetyWarning } from '../SafetyWarning';
 
 // Dynamic import Caption component for code-splitting (reduces initial bundle by ~15-20 KB)
 // Below-fold content, no SEO impact from ssr: false

@@ -5,7 +5,7 @@ interface PricingProps {
   materialSlug: string;
 }
 
-export function Pricing({ materialName, materialSlug }: PricingProps) {
+export function Pricing({ materialName, materialSlug: _materialSlug }: PricingProps) {
   const { professionalCleaning, equipmentRental } = SITE_CONFIG.pricing;
   
   return (

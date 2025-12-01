@@ -41,7 +41,7 @@ export const BaseHeatmap: React.FC<BaseHeatmapProps> = ({
   footerDescription: _footerDescription,
 }) => {
   // Immediate hover state for tooltips
-  const [hoveredCell, setHoveredCell] = useState<HoveredCell | null>(null);
+  const [_hoveredCell, setHoveredCell] = useState<HoveredCell | null>(null);
   
   // Debounced hover state for analysis panel (reduces flicker)
   const [debouncedCell, setDebouncedCell] = useState<HoveredCell | null>(null);

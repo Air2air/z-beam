@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Article, ArticleMetadata, ThumbnailProps } from "@/types";
+import { ThumbnailProps } from "@/types";
 
 // ThumbnailProps now imported from centralized types
 

@@ -18,7 +18,7 @@ export default function MaterialDatasetCardWrapper({
   materialProperties = {},
   faq = [],
   regulatoryStandards = [],
-  showFullDataset = false
+  showFullDataset: _showFullDataset = false
 }: MaterialDatasetCardWrapperProps) {
   // Calculate stats from provided data
   const totalProperties = Object.values(materialProperties).reduce((total: number, section: any) => {

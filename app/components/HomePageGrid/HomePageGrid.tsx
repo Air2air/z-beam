@@ -11,7 +11,7 @@
 import React from 'react';
 import { SectionContainer } from '../SectionContainer/SectionContainer';
 import { CardGridSSR } from '../CardGrid';
-import type { HomePageGridProps, CardItem, GridColumns } from '@/types/centralized';
+import type { HomePageGridProps, CardItem } from '@/types/centralized';
 
 export function HomePageGrid({ 
   items,
